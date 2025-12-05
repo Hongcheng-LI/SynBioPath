@@ -53,24 +53,9 @@
     
 - **异源表达与纯化 (Heterologous Expression & Purification)**: 构建 pET28a 表达载体，在 E. coli BL21(DE3) 中共表达 CHEESY1 和黄素还原酶 PrnF，通过 Ni-NTA 亲和层析和分子筛（SEC）纯化蛋白。
     
-- **酶学测定与动力学分析 (Enzymatic Assays & Kinetics)**: 建立体外卤化反应体系（含 NADH, FAD, 卤盐等），利用 UPLC 和 LC-MS 检测产物，通过 Michaelis-Menten 模型测定动力学参数 (
+- **酶学测定与动力学分析 (Enzymatic Assays & Kinetics)**: 建立体外卤化反应体系（含 NADH, FAD, 卤盐等），利用 UPLC 和 LC-MS 检测产物，通过 Michaelis-Menten 模型测定动力学参数 (kcat,KMk_{cat}, K_Mkcat​,KM​)。
     
-            `kcat,KMk_{cat}, K_Mkcat​,KM​`
-          
-    
-    )。
-    
-- **产物表征 (Product Characterization)**: 扩大反应规模，分离纯化产物，利用
-    
-            `1^11`
-          
-    
-    H 和
-    
-            `13^{13}13`
-          
-    
-    C NMR 确定卤化产物的精确结构和区域化学。
+- **产物表征 (Product Characterization)**: 扩大反应规模，分离纯化产物，利用1H 和 13C NMR 确定卤化产物的精确结构和区域化学。
     
 - **定点突变 (Site-Directed Mutagenesis)**: 基于对接模型设计突变体（如 Y170I, S311I），验证关键氨基酸残基对底物结合的影响。
     
