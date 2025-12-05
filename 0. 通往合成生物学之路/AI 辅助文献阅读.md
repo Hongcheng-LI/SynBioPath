@@ -400,13 +400,13 @@
     
 1. 官网链接：https://aistudio.google.com/prompts/new_chat
     
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MWNjNTE3ZWI1OGZkMmM1ODQ5YTU4ODAwMzA1YzRlMmZfVFc3b3Y4ajlkRjFETUVSUkRjaDlUQ291Ukp1N2ZicDdfVG9rZW46QWlXRmJXdjBYb3kxZnd4cXg2dWN4S0tEbk1lXzE3NjQ5MTc3ODM6MTc2NDkyMTM4M19WNA)
+![](assets/AI%20辅助文献阅读/file-20251205154210338.png)
 
 2. 首次使用时，
     
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=M2Y2Y2RmMjA3OTNmMjIyMmZiOTk2Y2U1NWI5ZjA3YjlfVzlZMEJTMjVyYWR6Q3E3VlpZSk5WVzJmaXdqS3hHdnNfVG9rZW46RGNQMGJoSmlOb0U5Rjd4WnV4cWNTUG93bmxzXzE3NjQ5MTc3ODM6MTc2NDkyMTM4M19WNA)
+![](assets/AI%20辅助文献阅读/file-20251205154218710.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MGNjODM0NTBmMGJiYTI2MjRjZDRkNjMyZDA3ZDNiNzVfQXgyY0RSZldwcWpUcDRycG91YnBNeWptdUR6TTZwSTBfVG9rZW46Tmp1TmJqc2p5b085cmZ4ZGVaUGNjT1dWblhkXzE3NjQ5MTc3ODM6MTc2NDkyMTM4M19WNA)
+![](assets/AI%20辅助文献阅读/file-20251205154227022.png)
 
 - 点击菜单栏中的System instructions
     
@@ -428,9 +428,9 @@
 3. 后续使用时
     
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=N2VkYWM4NGI1OWQ0MGNjMDkyZDUyZjAxM2RhNDJjM2ZfMlE3dVEySUNpMXUxWUdjSjVNM1ppU29qbHRxMW9JdzJfVG9rZW46RkJuZWJaSmZtb1RuRXN4dUVCYWNnTkpWbjFiXzE3NjQ5MTc3ODM6MTc2NDkyMTM4M19WNA)
+![](assets/AI%20辅助文献阅读/file-20251205154239842.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MGYyMjBjYjJiZGZhNzU2NDI2NjRjMzYzMzVmMDA1ZWNfaE5GT0RqTFhvTzNFTVJOcm1PZm1VeXZ4UHBTc0pJN1pfVG9rZW46S3pZaGJoc1lzbzVlU2t4blI2S2N0bEZmblViXzE3NjQ5MTc3ODM6MTc2NDkyMTM4M19WNA)
+![](assets/AI%20辅助文献阅读/file-20251205154247219.png)
 
 - 点击 History
     
@@ -443,32 +443,23 @@
 
   
 
-2. ### ChatGPT（推荐）
+### 3.1.2 ChatGPT（推荐）
     
+1. 官网链接：https://chatgpt.com
 
-3. 官网链接：https://chatgpt.com
+2. 首次使用
     
+![](assets/AI%20辅助文献阅读/file-20251205154255668.png)
 
-  
-
-4. 首次使用
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MmM5NGE4NWUwN2JmZGM3NjlmYzNiMzFmZjg5NTg5MDdfOHYwbnI1aVd4UXhTdmJ1TGdaQkJLNzZuRXFUcUJDRExfVG9rZW46TENXbmJ2aFBMb2RtVU94dUhuS2NZdFlnbkRjXzE3NjQ5MTc3ODM6MTc2NDkyMTM4M19WNA)
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MmM1MDUyMmZiZTA2NzlmNGY5ODI5ODZjMWY5ODIxNDRfbU40UXY5REhoWmFnQXBpWmc0RE9MRVZOQ2tsWVlVTklfVG9rZW46TzNvVGJoamhCb0VqVnh4OEV6R2NHM043blRoXzE3NjQ5MTc3ODM6MTc2NDkyMTM4M19WNA)
+![](assets/AI%20辅助文献阅读/file-20251205154407894.png)
 
 - 在聊天窗口中粘贴写好的提示词，点击回车
     
 - 上传下载好的论文，进行解读
-    
-
-  
-
+      
 3. 后续使用
     
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NWJhOWJiNTBiMzczNjZjN2NlZmU3ZDhjZDA0MGYyNjZfOUZRM0dZY3dRVENueTFyOHRFYTZXRnY4YVhVcEd0T3hfVG9rZW46QVo1eWJISnB1bzFKZ3d4aDF2a2NqSGFJbkJmXzE3NjQ5MTc3ODM6MTc2NDkyMTM4M19WNA)
+![](assets/AI%20辅助文献阅读/file-20251205154424071.png)
 
 - 点击聊天
     
