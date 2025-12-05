@@ -14,13 +14,14 @@
 
 **通讯作者**：Rebecca J. M. Goss  
 
-**通讯作者工作单位**：University of St Andrews, EaStCHEM School of Chemistry and Biomedical Sciences Research Complex (UK)
+**通讯作者工作单位**：英国圣安德鲁斯大学（University of St Andrews, EaStCHEM School of Chemistry and Biomedical Sciences Research Complex (UK)）
 
 ### ## 二：核心速览
 
 #### ### 研究背景
 
 杂环化合物的卤化是药物和农用化学品研发中的关键步骤，能够显著改善分子的生物利用度和活性。传统的化学合成方法通常使用高活性的亲电试剂，导致产物选择性差且难以分离。相比之下，黄素依赖性卤化酶（Flavin Dependent Halogenases, FDHs）能够在温和条件下实现高区域选择性的碳-卤键形成。
+
 
 #### ### 前期研究
 
