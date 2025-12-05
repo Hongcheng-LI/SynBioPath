@@ -336,7 +336,6 @@
     
 ### 2.3.1 提示词 V0.1
     
-
 ```Markdown
 # 角色设定
 你是一位在生物化学与分子生物学领域拥有深厚专业知识和丰富翻译经验的资深译者。你精通简体中文，擅长将复杂的英文学术论文翻译成地道、准确、流畅且符合中文学术规范的中文文章。你的目标是实现翻译的“信、达、雅”——确保信息准确无误（信）、表达流畅自然（达）、风格专业优雅（雅）。
@@ -392,25 +391,19 @@
 格式固化：确保最终输出严格遵循所有格式要求（段落、命名、引用、图表标题、标点间距、粗体编号等）。
 ```
 
-  
 
-3. # 使用教程
+# 3. 使用教程
     
-
-4. ## 官网直接使用
+## 3.1 官网直接使用
     
-
-5. ### Google（推荐）
+### 3.1.1 Google（推荐）
     
-
-6. 官网链接：https://aistudio.google.com/prompts/new_chat
+1. 官网链接：https://aistudio.google.com/prompts/new_chat
     
-
 ![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MWNjNTE3ZWI1OGZkMmM1ODQ5YTU4ODAwMzA1YzRlMmZfVFc3b3Y4ajlkRjFETUVSUkRjaDlUQ291Ukp1N2ZicDdfVG9rZW46QWlXRmJXdjBYb3kxZnd4cXg2dWN4S0tEbk1lXzE3NjQ5MTc3ODM6MTc2NDkyMTM4M19WNA)
 
 2. 首次使用时，
     
-
 ![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=M2Y2Y2RmMjA3OTNmMjIyMmZiOTk2Y2U1NWI5ZjA3YjlfVzlZMEJTMjVyYWR6Q3E3VlpZSk5WVzJmaXdqS3hHdnNfVG9rZW46RGNQMGJoSmlOb0U5Rjd4WnV4cWNTUG93bmxzXzE3NjQ5MTc3ODM6MTc2NDkyMTM4M19WNA)
 
 ![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MGNjODM0NTBmMGJiYTI2MjRjZDRkNjMyZDA3ZDNiNzVfQXgyY0RSZldwcWpUcDRycG91YnBNeWptdUR6TTZwSTBfVG9rZW46Tmp1TmJqc2p5b085cmZ4ZGVaUGNjT1dWblhkXzE3NjQ5MTc3ODM6MTc2NDkyMTM4M19WNA)
