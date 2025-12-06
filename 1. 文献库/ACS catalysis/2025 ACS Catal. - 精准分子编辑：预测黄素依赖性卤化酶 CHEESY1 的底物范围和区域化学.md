@@ -3,22 +3,22 @@
 
 ---
 
-### ## 一：基本信息
+### 一：基本信息
 **文章题目**：Precision Molecular Editing: Predicting Substrate Scope and Regiochemistry for CHEESY1, a Flavin Dependent Halogenase（精准分子编辑：预测黄素依赖性卤化酶 CHEESY1 的底物范围及区域化学）
 **文章 DOI 号**：10.1021/acscatal.5c04436
 **期刊名称**：ACS Catalysis
 **通讯作者**：Rebecca J. M. Goss
 **通讯作者工作单位**：University of St Andrews, EaStCHEM School of Chemistry and Biomedical Sciences Research Complex (UK)
 
-### ## 二：核心速览
+## 二：核心速览
 
-#### ### 研究背景
+### 研究背景
 杂环化合物的卤化是药物和农用化学品研发中的关键步骤，能够显著改善分子的生物利用度和活性。传统的化学合成方法通常使用高活性的亲电试剂，导致产物选择性差且难以分离。相比之下，黄素依赖性卤化酶（Flavin Dependent Halogenases, FDHs）能够在温和条件下实现高区域选择性的碳-卤键形成。
 
-#### ### 前期研究
+### 前期研究
 大多数已知的 FDHs 是通过挖掘卤代天然产物的生物合成基因簇（BGCs）发现的（如 PrnA, RebH 等）。这种发现模式限制了对非天然底物潜力的探索，且通常只能预测酶对其天然底物的活性。虽然已有研究尝试从宏基因组中挖掘新型卤化酶，但缺乏一种系统性的方法来在实验前准确预测酶对非天然底物的活性及区域选择性。
 
-#### ### 本文突破点
+###  本文突破点
 1.  **非BGC依赖的挖掘策略**：利用保守基序而非基因簇关联性，从与高盐食品（奶酪卤水）相关的微生物 *Chromohalobacter japonicus* 中发现了一种新型卤化酶 CHEESY1。
 2.  **全流程 *In Silico* 预测**：建立了一套结合 AlphaFoldV3 结构预测和分子对接的计算流程，成功在湿实验之前预测了酶的底物范围（区分底物与非底物）以及卤化的具体区域化学位置。
 3.  **独特的结构特征**：结构模型显示 CHEESY1 具有一个宽大的活性位点空腔，且底物与辅因子 FAD 共享同一个进入通道，这与大多数已知 FDHs 不同。
