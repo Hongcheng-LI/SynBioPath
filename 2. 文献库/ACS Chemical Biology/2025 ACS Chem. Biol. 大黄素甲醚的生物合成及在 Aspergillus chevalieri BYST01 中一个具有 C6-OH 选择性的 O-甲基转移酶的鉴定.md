@@ -107,7 +107,6 @@
 ![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ODM5OTViMGI1NmI5N2IyZTE4MDEyNTU2ZWQwYzlkMTRfWmdGQXI4dk9NamJGRzd6NFVRSUl2cXZnMHR1OXNwWjdfVG9rZW46SDBxRWJZeTJLb1RxbEl4Y0NhaGNxTjl4bkJlXzE3NjUxODcwNTY6MTc2NTE5MDY1Nl9WNA)
 
   
-
 ### 研究部分二：鉴定新型 P450 二聚酶 PhyE 的功能
 
 #### 实验目的与设计 (Experimental Goal & Design)
