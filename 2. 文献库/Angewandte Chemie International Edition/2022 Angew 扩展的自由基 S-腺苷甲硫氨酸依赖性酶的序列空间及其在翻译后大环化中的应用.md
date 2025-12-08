@@ -1,0 +1,238 @@
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MjdlOTRhNzA2ODg4YTcwYmNlZDNhZWFlMmY5ZDgwNDZfRHZIZlJnNHFJWDN0QVBmSWVoT1hkT3pLT3dVYlhsNlVfVG9rZW46QnV0WGI2UGpZbzBzSHV4cFpVQ2NUdkppbjlnXzE3NjUxODg2NjQ6MTc2NTE5MjI2NF9WNA)
+
+## 一：基本信息
+
+**文章题目**：Expanded Sequence Space of Radical S-Adenosylmethionine-Dependent Enzymes Involved in Post-translational Macrocyclization
+
+**文章** **DOI** **号**：10.1002/anie.202212447
+
+**期刊名称**：Angewandte Chemie International Edition
+
+**通讯作者**：Yong-Xin Li (**李泳新**)
+
+**通讯作者工作单位**：香港大学 (The University of Hong Kong)
+
+## 二：核心速览
+
+### 研究背景
+
+核糖体合成与翻译后修饰肽 (RiPPs) 是细菌中一类巨大且尚未被充分开发的天然产物宝库。自由基 S-腺苷甲硫氨酸 (rSAM) 酶是 RiPPs 生物合成中一类功能极其多样的“催化大师”，能够催化多种化学上极具挑战性的 C-C 和 C-S 键形成反应，从而构建大环肽。然而，已知的 rSAM 酶催化的交联模式仍然有限，特别是涉及组氨酸和脂肪族侧链的环化反应非常罕见。
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NjYwNmZkN2I5OWUyY2ZlMzJjMzllNTU4OTgxNDlkZjBfTmN1NTB2VTJORllwMGhORm5hN2N2Y3R1QzBzY09zSXZfVG9rZW46Q0gxWGJRcnRubzRESVh4WWRrNmNoRWhCbjRkXzE3NjUxODg2NjQ6MTc2NTE5MjI2NF9WNA)
+
+本研究的核心科学问题是：**如何开发一种高效的生物信息学策略，从海量的细菌基因组数据中系统性地挖掘功能未知的 rSAM 酶及其关联的 RiPPs，以发现全新的肽大环化反应和酶工具？**
+
+### 前期研究
+
+在本文发表前，RiPPs 的基因组挖掘主要依赖于对整个生物合成基因簇 (BGC) 的同源性比对，或者寻找与已知前体肽相似的序列。rSAM 酶已知可以催化多种反应，如在 sactipeptides 中形成 Cα-S 键，或在 darobactin 中形成 C-C/C-O 键。然而，缺乏一种能够大规模、系统性地连接“rSAM 酶”与“其潜在的小肽底物”并进行分类和优先级排序的通用方法，导致大量新颖的 rSAM-RiPP 系统仍处于未被发现的“暗物质”状态。
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZTZmYzk1YTgyYzQ3ZjY2MjViOGQ3MTNiN2M3NGFkNWVfSmtKanZ3NDg3VnVKb0daRWd4SHlEZUZhaTRkMklXVWRfVG9rZW46R21PSWJBYjBRb2dIdnF4bDFla2NZbEJmbkZHXzE3NjUxODg2NjQ6MTc2NTE5MjI2NF9WNA)
+
+### 本文突破点
+
+1. **方法学突破**：开发并验证了一种名为 **SPECO (Small Peptide and Enzyme Co-occurrence)** 的全新生物信息学工作流程。该流程能够从数十万个细菌基因组中，高效地识别出所有潜在的“**rSAM 酶-小前体肽**”对，并对其进行聚类和优先级排序，为发现新颖的 rSAM-RiPPs 提供了强大的引擎。
+    
+2. **发现突破**：利用 SPECO 工作流程，成功发现了**三种全新的 rSAM 酶催化的大环化反应**，极大地扩展了已知的 RiPPs 化学空间：
+    
+    1. **BlaB**：催化两个**半胱氨酸-甘氨酸 (Cys-Gly)** 之间形成两个 Cβ-Cα 硫醚键。
+        
+    2. **ScaB**：催化**组氨酸**咪唑环与脂肪族氨基酸（丙氨酸/丝氨酸）侧链之间的 C-C 键形成，构建了**环ophane**（芳香环与脂肪链桥连）骨架。
+        
+    3. **VguB**：催化两个独立的交联反应，包括**组氨酸-丝氨酸**和**酪氨酸-精氨酸**之间的交联。
+        
+3. **生物催化应用突破**：证明了新发现的环ophane形成酶 **ScaB** 具有**广泛的底物普适性**，能够接受多种非天然的氨基酸序列作为底物，并催化其环化，显示出其作为通用生物催化工具的巨大潜力。
+    
+
+### 研究难点
+
+1. **从海量数据中提取信号**：要从超过 16 万个细菌基因组、数亿个开放阅读框 (ORFs) 中，精准地识别出功能相关的“rSAM 酶-小肽”对，并过滤掉大量的假阳性，是生物信息学上的巨大挑战。
+    
+2. **新颖 BGCs 的优先级排序**：在识别出数万个潜在的 rSAM-RiPP BGCs 后，如何从中筛选出最有可能代表全新生物化学反应的、最值得进行实验验证的 BGCs，是决定项目成败的关键。
+    
+3. **全新交联反应的结构确证**：要证明一种前所未有的化学键（如 His-Ala C-C 键）是由酶催化形成的，需要通过异源表达获得足量的产物，并利用高分辨质谱 (HRMS) 和复杂的二维核磁共振 (NMR) 实验进行无可辩驳的结构解析。
+    
+
+## 三：研究方法
+
+- **SPECO 生物信息学工作流程 (SPECO Bioinformatics Workflow)**：这是本文的核心创新方法。其流程包括：(1) 使用 prodigal-short 在全基因组中预测所有小 ORFs (20-100 aa) 作为潜在的前体肽；(2) 寻找在这些小 ORF 附近（1 kb 内）共定位的 rSAM 酶；(3) 使用 InterProScan 筛选出含有保守 TIM-barrel 折叠结构域的真 rSAM 酶；(4) 基于前体肽序列的相似性构建序列相似性网络 (SSN)，并对 BGCs 进行聚类和可视化，从而识别出新的 BGC 家族。
+    
+- **异源表达 (Heterologous Expression)**：将筛选出的目标 BGCs（包含前体肽基因和 rSAM 酶基因）克隆到大肠杆菌 (_E. coli_) 的表达载体中（如 pACYCDuet-1 和 pRSFDuet-1），进行共表达。
+    
+- **蛋白质纯化与酶切 (Protein Purification & Cleavage)**：表达的前体肽带有 His-SUMO 标签，可通过亲和层析进行纯化。随后使用 TEV 蛋白酶切除标签，获得修饰后的核心肽。
+    
+- **结构分析 (Structural Analysis)**：
+    
+    - **液相色谱-高分辨质谱 (LC-HRMS)**：通过比较修饰后与未修饰前体肽的精确分子量差异（如 -2 Da, -4 Da），来初步判断交联反应的类型和数量。
+        
+    - **串联质谱 (MS/MS)**：对修饰后的肽进行碎裂，通过分析碎片离子的质量，来精确定位交联反应发生的具体氨基酸残基。
+        
+    - **核磁共振 (NMR)**：对于分离得到足量产物的样品，通过二维 NMR 实验（如 HMBC, COSY, NOESY）来最终确定新形成的化学键的连接方式和分子的三维构象。
+        
+
+## 四：实验设计及结果分析
+
+### 研究部分一：SPECO 工作流程的建立与 rSAM-RiPP 景观的全局分析
+
+#### 实验目的与设计
+
+本部分的目的是建立并应用 SPECO 工作流程，对细菌基因组中的 rSAM-RiPP BGCs 进行一次全面的普查，以评估其多样性并为后续的实验验证提供靶点。
+
+#### 实验结果与分析
+
+- **Figure 2** 集中展示了 SPECO 流程和其产出的全局视图。
+    
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZmQxMjJlYzU0NGY0MGFjZGQxNWIyNzkyOWFmODcyNzlfVU5TS0dYNWlmYnlTODVqMGFtSGRrVkJncmFSVmJwdlNfVG9rZW46TjEwTmJJT0JKb211eTR4NU9aMWNZSzNKblNiXzE3NjUxODg2NjQ6MTc2NTE5MjI2NF9WNA)
+
+- **流程设计 (Figure 2B)**：清晰地展示了从 161,954 个细菌基因组出发，通过“小 ORF 预测 → rSAM 共定位 → TIM-barrel 结构域筛选 → BGC 网络构建”的四步流程，最终鉴定出 32,220 个潜在的 rSAM-RiPP BGCs。
+    
+- **全局景观 (Figure 2C)**：构建的前体肽 SSN 网络图非常直观。已知的 RiPPs 家族（如 SCIFF, Mycofactocin）形成了巨大的、密集的网络节点，验证了该方法的有效性。更重要的是，网络中存在大量小型的、独立的、功能未知的蛋白簇，这些就是等待被发现的“新大陆”。作者从中圈出了三个待研究的新家族（FxS family-2, Cyclophane family-2, FxS family-3）。
+    
+- **保守基序 (Figure 2D)**：通过对已知家族的前体肽进行序列 logo 分析，揭示了其高度保守的修饰位点模式（如 SCIFF 中的多个 Cys），这为“基于保守基序的优先级排序”提供了理论依据。
+    
+
+### 研究部分二：BlaB 家族的表征：催化 Cys-Gly 硫醚键交联
+
+#### 实验目的与设计
+
+本部分的目的是对 SPECO 筛选出的第一个新家族 (_bla_ BGC) 进行实验验证。该家族的前体肽 (BlaA) 含有两个保守的 Cys 和 Gly 残基。
+
+#### 实验结果与分析
+
+- **Figure 4** 展示了对 _bla_ BGC 的表征结果。
+    
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MzAwMThiOGRhMDM2OWJjMTY4YjhjZjc5OWM2OTNhOTBfeXlsbm9MVXFxRG1aMEhHNWJOWHRESU1uUmZvcFg2aUhfVG9rZW46UHBHWGJEbmZTb1U3ZDl4VmRxM2NJYmtlblhnXzE3NjUxODg2NjQ6MTc2NTE5MjI2NF9WNA)
+
+- **异源表达与质谱分析 (Figure 4B)**：将前体肽 BlaA 与 rSAM 酶 BlaB 和蛋白酶 BlaC 在 _E. coli_ 中共表达。LC-HRMS 结果显示，修饰后的前体肽 (Gly-BlaA*) 相比于未修饰的 (Gly-BlaA)，其分子量精确地**减少了 4.0475 Da**。一个 -4 Da 的质量变化强烈暗示发生了两次脱氢反应，即形成了**两个新的化学键**。
+    
+- **结构确证 (Figure 4C, 4D)**：
+    
+    - MS/MS 碎裂分析将这 4 Da 的质量损失定位在 C 端的 Cys-Gly 区域。
+        
+    - 通过大规模发酵和 NMR 分析，最终确定了其结构：rSAM 酶 BlaB 催化了 **Cys13 的 β-碳与 Gly22 的 α-碳**之间，以及 **Cys15 的 β-碳与 Gly20 的 α-碳**之间，形成了**两个硫醚键**，构建了两个相互交错的大环。
+        
+
+### 研究部分三：ScaB 家族的表征：催化组氨酸-脂肪族侧链 C-C 交联
+
+#### 实验目的与设计
+
+本部分的目的是对第二个新家族 (_sca_ BGC) 进行验证。其前体肽 (ScaA) 具有一个高度保守的 H-X-A-S 基序。
+
+#### 实验结果与分析
+
+- **Figure 5** 展示了对 _sca_ BGC 的表征结果。
+    
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=M2ZkNzJhN2VmMWQ2YTQxYmFkNTJhYTg0ZWUwYjlmYWRfbXl2WXptNFc0WGsyb1NMR0lHSVRvNWp5b25MVzN3T0pfVG9rZW46STVJRWJsRGNqb1JDS3h4VE9WVmNwQ1FGbm5jXzE3NjUxODg2NjQ6MTc2NTE5MjI2NF9WNA)
+
+- **异源表达与质谱分析 (Figure 5B)**：共表达 ScaA 和 rSAM 酶 ScaB 后，修饰后的核心肽 **3** 相比于未修饰的 **2**，分子量精确地**减少了 2.0210 Da**，表明形成了**一个 C-C 键**。
+    
+- **结构确证 (Figure 5C, 5D)**：通过 NMR 分析，关键的 HMBC 相关峰（从 Ala8 的 Hβ 到 His6 的 C2）证明，新形成的 C-C 键连接了**组氨酸 (His6) 咪唑环的 C2 位**和**丙氨酸 (Ala8) 的 β-碳**。这形成了一个**环ophane**结构，是 rSAM 酶催化的全新反应类型。
+    
+
+### 研究部分四：ScaB 酶的底物普适性研究
+
+#### 实验目的与设计
+
+本部分的目的是测试 ScaB 是否能接受非天然的前体肽序列，以评估其作为生物催化剂的潜力。作者对 ScaA 前体肽的 H57 和 A59 位点进行了定点突变。
+
+#### 实验结果与分析
+
+- **Figure 6** 展示了 ScaB 惊人的底物普适性。
+    
+    ![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NzlmYTcyOGViMTFjMTBkNGFkN2MxY2I0NGJkZDk3YmVfZk1VZ25kYTZLc0J6TG5yaWE1TTFRclVVRlR2SXBMbktfVG9rZW46Vjdzd2JvVHdYb3VRNlF4OUY0YWNXNlNnbnZoXzE3NjUxODg2NjQ6MTc2NTE5MjI2NF9WNA)
+    
+    - **H57 位点**：ScaB 不仅能接受天然的组氨酸，还能高效地修饰**酪氨酸 (Y)、苯丙氨酸 (F) 和色氨酸 (W)**，催化它们与下游的丙氨酸形成 C-C 键。
+        
+    - **A59 位点**：ScaB 也能接受多种不同的脂肪族氨基酸，如**脯氨酸 (P) 和缬氨酸 (V)**。
+        
+- **结构确证 (Figure 6C, 6D)**：作者通过 NMR 确定了 H57Y 突变体的产物 **17** 的结构，证明了新形成的键是连接在**酪氨酸的间位 (meta-position)** 和丙氨酸的 β-碳之间，形成了一个 **meta-cyclophane**。
+    
+- **结论**：ScaB 是一个底物选择性极宽的酶，能够催化多种芳香-脂肪族和脂肪-脂肪族 C-C 键的形成，是一个极具潜力的通用型大环化酶工具。
+    
+
+### 研究部分五：VguB 家族的表征：催化多重交联
+
+#### 实验目的与设计
+
+本部分的目的是对第三个新家族 (_vgu_ BGC) 进行验证。其前体肽 VguA 含有多个保守的组氨酸和精氨酸。
+
+#### 实验结果与分析
+
+- **Figure 7** 展示了对 _vgu_ BGC 的表征结果。
+    
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MGMxMzZlMmViNmRiMmRmY2EyYWU2MzZhNTM4YzU0YmVfVzJPRURZUVNsQUVhcm5aNlYxdWU1OHNIc2lqelRYYmxfVG9rZW46RWZXNWI3dUJ2b3R4ZWF4YnBpZWNsUHlEbkZjXzE3NjUxODg2NjQ6MTc2NTE5MjI2NF9WNA)
+
+- VguB 是一个双结构域蛋白，包含一个 N 端的 rSAM 结构域和一个 C 端的 HEXXH 肽酶结构域。
+    
+- 作者共表达了 VguA 和 VguB-N (rSAM 结构域)，然后用体外纯化的 VguB-C (肽酶结构域) 切割前导肽，得到了成熟的核心肽 **19**。
+    
+- 质谱分析显示，核心肽 **19** 发生了**两次、总共 4 Da 的质量损失**。MS/MS 碎裂分析将这两次独立的 -2 Da 修饰分别定位在 **HSRS** 和 **YDRM** 两个不同的基序上。
+    
+- **结论**：VguB 催化了至少两种不同的交联反应，可能包括组氨酸-丝氨酸和酪氨酸-精氨酸之间的交联，形成了一个具有复杂拓扑结构的多环肽。
+    
+
+## 五：总体结论
+
+1. 本研究成功开发并应用了一种名为 SPECO 的高效生物信息学工作流程，能够从海量基因组数据中系统性地挖掘 rSAM 酶催化的 RiPPs。
+    
+2. 利用 SPECO，发现了**三种全新的 rSAM 酶催化的肽大环化反应**，分别形成了 Cys-Gly 硫醚键、组氨酸-脂肪族 C-C 键（环ophane）以及更复杂的多重交联。
+    
+3. 对新发现的酶进行了深入的生化表征，特别是证明了环ophane形成酶 ScaB 具有广泛的底物普适性，使其成为一个极具潜力的生物催化工具。
+    
+4. **贡献与影响**：这项工作极大地扩展了 rSAM 酶的催化功能谱和 RiPPs 的结构多样性，为发现具有新颖结构和潜在生物活性的环肽天然产物提供了强大的方法学和丰富的酶资源。
+    
+
+## 六：论文评价
+
+### 优点与创新
+
+1. **方法学的重大创新**：SPECO 工作流程的建立，为 rSAM-RiPPs 这一特定但重要的天然产物家族的挖掘提供了一个系统性、高通量的解决方案，具有很强的普适性。
+    
+2. **化学发现的新颖性**：发现的三种交联反应，特别是组氨酸参与的环ophane形成，都是前所未有的，极大地丰富了我们对生物催化能力的认知。
+    
+3. **研究的广度与深度**：研究不仅在宏观上描绘了 rSAM-RiPPs 的巨大未知版图，还深入到微观层面，通过 NMR 等手段对三个新家族的产物进行了精确的结构表征。
+    
+4. **前瞻性的应用探索**：对 ScaB 酶底物普适性的研究，展示了从基础的基因组挖掘到实用的生物催化工具开发的快速转化潜力。
+    
+
+### 未来研究方向
+
+1. **新家族的深入表征**：对 SPECO 流程中发现的其他 22 个具有新颖特征的 BGC 家族进行实验验证，以期发现更多全新的酶促反应。
+    
+2. **酶的结构生物学研究**：解析新发现的 rSAM 酶（特别是 ScaB）与前体肽结合的复合物晶体结构，以在原子水平上理解其催化新颖反应的机制和底物普适性的分子基础。
+    
+3. **ScaB 的工程化改造与应用**：利用蛋白质工程手段对 ScaB 进行改造，以进一步优化其催化效率或改变其选择性，并将其应用于非天然环肽的生物合成，用于药物发现或材料科学。
+    
+
+## 七：关键问题及回答
+
+### 问题一：本文提出的 SPECO 工作流程与传统的基因组挖掘方法有何不同，其核心优势是什么？
+
+回答： SPECO 与传统方法的根本不同在于其**搜索逻辑的专一性和系统性**。
+
+- **传统方法**：通常基于对整个 BGC 的同源性比对，或者寻找与已知核心酶（如 PKS/NRPS）相似的基因。这些方法对于发现已知类型的 BGC 的新成员很有效，但难以系统性地发现由特定修饰酶（如 rSAM）催化的、且前体是**小肽**的 RiPPs 系统。
+    
+- **SPECO 的逻辑**：SPECO 的核心逻辑是**“小肽与特定酶的共定位”。它首先在基因组中寻找所有编码 20-100 个氨基酸的小开放阅读框 (small ORFs)，将其作为潜在的 RiPP 前体肽库。然后，它只筛选那些在这些小 ORF 附近紧密共定位的特定类型酶**（本文中是 rSAM 酶）。
+    
+- **核心优势**：这种策略的优势在于**极高的信噪比和专一性**。它直接靶向 RiPPs 的核心特征——“小前体肽 + 修饰酶”的组合，从而能够从海量的基因组数据中，高效地、系统性地筛选出所有潜在的 rSAM-RiPP BGCs，包括那些 BGC 结构与已知类型完全不同的新家族。
+    
+
+### 问题二：作者是如何证明 ScaB 催化形成了组氨酸-丙氨酸之间的 C-C 键的？
+
+回答： 作者主要通过**高分辨质谱**和**二维核磁共振 (NMR)** 这两种互补的技术来证明的。
+
+1. **高分辨质谱 (HRMS)**：首先，通过比较修饰前后前体肽的精确分子量，他们发现了一个 **-2 Da** 的质量变化 (**Figure 5B**)。这表明反应中形成了一个新的化学键，并脱去了两个氢原子，这与 C-C 键形成的化学计量相符。MS/MS 碎裂分析进一步将这个质量变化定位在了 **HAAS** 基序上。
+    
+2. **核磁共振 (NMR)**：这是最直接的证据。通过对修饰后的产物 **11** 进行二维 HMBC (异核多键相关谱) 实验 (**Figure 5C, 5D**)，他们观察到了一个关键的**跨环相关信号**：**丙氨酸 (Ala8) 侧链的 β-氢 (Hβ)** 与**组氨酸 (His6) 咪唑环的 C2 碳**之间存在一个清晰的相关峰。这个信号无可辩驳地证明，在 Ala8 的 β-碳和 His6 的 C2 碳之间形成了一个新的 C-C 共价键。
+    
+
+### 问题三：为什么说 ScaB 酶在生物催化方面具有巨大潜力？
+
+回答： ScaB 酶的巨大潜力主要体现在其**催化的反应类型独特**和**底物选择性宽泛**这两个方面。
+
+1. **反应类型独特**：ScaB 催化形成**环ophane**结构，即一个芳香环（组氨酸咪唑环）和一个脂肪链（丙氨酸侧链）通过 C-C 键桥连形成的环。这类张力环系在化学上难以合成，但在药物化学中具有重要价值，因为它们可以精确地限制肽的构象，提高其稳定性、亲和力和细胞渗透性。ScaB 为这类结构的绿色、高效生物合成提供了一个全新的酶工具。
+    
+2. **底物选择性宽泛 (Promiscuity)**：如 **Figure 6** 所示，ScaB 不仅能接受天然的组氨酸和丙氨酸，还能接受多种非天然的氨基酸组合。例如，它可以将**酪氨酸、苯丙氨酸、色氨酸**等多种芳香环与脂肪链进行交联，也可以将组氨酸与**脯氨酸、缬氨酸**等不同的脂肪链进行交联。这种“即插即用”的特性，意味着研究人员可以通过简单地改变前体肽的基因序列，就能利用 ScaB 来合成大量结构多样化的、非天然的环肽分子库，用于药物筛选和材料开发。
