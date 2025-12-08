@@ -1,0 +1,251 @@
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZWVjOWM2OTdhZDRjYmQzOTEwMmE1NTc4ZjkzMTUzZDlfcElWR1pTOUxPVHJ4NVZyRG9wUUFCczE1dmFDcVdIcEFfVG9rZW46QmpoaWJXNGlub25YeUt4VW1Rb2M4dDM3bkRiXzE3NjUxODgyNzg6MTc2NTE5MTg3OF9WNA)
+
+## 一：基本信息
+
+**文章题目**：Decoding the Chemical Language of Ribosomally Synthesized and Post-Translationally Modified Peptides from the Untapped Archaea Domain
+
+**文章** **DOI** **号**：10.1002/anie.202501074
+
+**期刊名称**：Angewandte Chemie International Edition
+
+**通讯作者**：Yong-Xin Li（**李泳新**）
+
+**通讯作者工作单位**：香港大学 (The University of Hong Kong)
+
+## 二：核心速览
+
+### 研究背景
+
+古菌 (Archaea) 作为生命三域之一，其独特的生物化学和在极端环境中的生存策略，预示着其可能产生结构和功能新颖的次级代谢产物 (SMs)。然而，由于培养困难和基因操作工具的缺乏，古菌的“化学语言”——即其产生的 SMs 及其生态功能——在很大程度上仍是未知的。
+
+核糖体合成与翻译后修饰肽 (Ribosomally Synthesized and Post-translationally Modified Peptides, RiPPs) 是一大类结构多样的天然产物，但在古菌中，其实际的化学结构和生物学功能几乎完全未被探索。
+
+因此，本研究的核心科学问题是：**如何系统性地揭示古菌中 RiPPs 的化学多样性和生态功能，特别是能否通过开发新的研究工具来“解锁”这一未开发的化学宝库。**
+
+### 前期研究
+
+在本文发表之前，生物信息学分析已经预测出古菌基因组中存在大量多样的 RiPP 生物合成基因簇 (BGCs)，包括羊毛硫肽 (lanthipeptide) 的 BGCs。然而，实验验证的工作却非常有限，仅有两例来自嗜盐古菌 (Haloarchaea) 的羊毛硫肽被鉴定。最大的瓶颈在于**缺乏一个稳定、高效的异源表达系统**来生产这些由 BGCs 编码的古菌 SMs。直接从野生型古菌中分离通常产量极低，而在传统的细菌宿主（如大肠杆菌）中表达古菌基因往往因密码子偏好、蛋白质折叠等问题而失败。
+
+### 本文突破点
+
+本文的核心突破在于**首次成功地在古菌中建立了用于次级代谢产物发现的异源表达平台**，并利用该平台系统性地揭示了古菌羊毛硫肽的化学多样性和全新的生态功能。关键突破点包括：
+
+1. **技术突破**：首次成功地在嗜盐古菌 _Haloferax volcanii_ 中实现了多个古菌羊毛硫肽 BGCs 的异源表达，并结合生物合成规则引导的代谢组学分析，成功鉴定了 **24 种全新的羊毛硫肽**。
+    
+2. **化学多样性突破**：发现了一个全新的羊毛硫肽亚家族——**DADC 羊毛硫肽**，其特征是在硫醚环内发生了前所未有的肽键断裂，形成了独特的二氨基二羧酸末端。
+    
+3. **生态功能突破**：首次揭示了古菌羊毛硫肽的两种全新生态功能：(1) 作为**种内或种间化学信号**，对其他嗜盐古菌具有拮抗活性；(2) 作为**信号分子**，能够调节宿主的运动能力，通过诱导细胞形态从球状变为杆状，并上调古菌鞭毛蛋白 (archaellin) 基因的表达。
+    
+
+### 研究难点
+
+1. **建立古菌异源表达系统**：这是本研究最大的挑战。需要在古菌宿主中构建稳定、可控的表达载体，并优化表达条件，以成功表达来自不同古菌物种的、完整的、功能性的 BGCs。
+    
+2. **从复杂代谢物中识别目标产物**：异源表达的产物产量通常很低，并且混杂在宿主复杂的代谢背景中。如何通过高分辨率质谱和生物信息学预测，精准地从“噪音”中识别出目标产物的信号，是一项关键挑战。
+    
+3. **解析 DADC 羊毛硫肽的独特结构**：对于新发现的 DADC 羊毛硫肽，其独特的断裂模式使得通过常规的 MS/MS 碎裂进行序列分析变得异常困难。确定其精确的结构和立体化学需要复杂的质谱、核磁共振以及先进的化学衍生化分析 (Marfey's analysis)。
+    
+4. **探索全新的生态功能**：要发现“调节运动能力”这一前所未知的功能，需要超越传统的抗菌活性筛选，设计并进行非靶向的表型筛选（如软琼脂平板上的运动性测定），并结合转录组学和显微镜技术来验证观察到的现象。
+    
+
+## 三：研究方法
+
+**基因组挖掘与生物信息学分析**：使用 antiSMASH 等工具对 11,644 个古菌基因组进行扫描，识别 RiPP BGCs。通过系统发育学分析、序列相似性网络 (SSN) 和氨基酸组成偏好性分析，对羊毛硫肽合酶 (LanM) 及其前体肽 (LanA) 进行分类和比较。
+
+**古菌异源表达系统**：将筛选出的目标羊毛硫肽 BGCs 克隆到古菌-大肠杆菌穿梭质粒 pTA1228 中，然后通过聚乙二醇介导的方法转化到嗜盐古菌宿主 _Haloferax volcanii_ H1424 中进行表达。
+
+**生物合成规则引导的代谢组学分析**：利用高分辨率液相色谱-质谱联用 (HR-LCMS)，对异源表达菌株和对照菌株的培养物提取物进行比较分析。通过在质谱数据中搜索与 BGC 序列预测的分子量和翻译后修饰（如脱水、环化）相匹配的信号，来精准地识别目标产物。
+
+**结构鉴定**：通过大规模发酵培养获得足量的目标产物，然后综合运用一维和二维核磁共振 (NMR)、高分辨率质谱 (HRMS/MS) 和 Marfey's 法氨基酸手性分析，来确定化合物的平面结构和立体化学。
+
+**生态功能分析**：
+
+- **拮抗活性测定**：采用标准的点滴法或微量肉汤稀释法，测试纯化的羊毛硫肽对其他嗜盐古菌和细菌的生长抑制活性。
+    
+- **运动性测定**：在半固体琼脂平板上接种表达不同 BGCs 的重组菌株，通过测量菌落扩散的直径来评估其运动能力。
+    
+- **细胞形态学分析**：使用相差显微镜观察重组菌株的细胞形态变化。
+    
+- **转录组学分析**：对表达特定 BGCs 的菌株进行 RNA 测序，分析基因表达谱的变化，特别是关注与运动性相关的古菌鞭毛蛋白基因 (_flgA1_) 的表达水平。
+    
+
+## 四：实验设计及结果分析
+
+### 研究部分一：古菌 RiPPs 的基因组挖掘与化学特征分析
+
+#### 实验目的与设计
+
+本部分的目的是通过大规模基因组挖掘，描绘古菌中 RiPP BGCs 的分布和多样性，并重点分析羊毛硫肽 BGCs 的进化和化学特征，为后续的实验验证提供理论指导和目标筛选。
+
+#### 实验结果与分析
+
+- **Figure 1a, 1b** 展示了古菌 BGCs 的整体分布。在 7,731 个 BGCs 中，RiPPs 占比最高 (46.6%)，且广泛分布于古菌的各个门类。一个关键发现是，II 型羊毛硫肽 BGCs (由 LanM 合成酶定义) **几乎全部集中在嗜盐古菌 (Halobacteria)** 纲中，暗示了其与高盐环境的特殊适应性。
+    
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=Y2EyOTQzYWYyZWFiMDI5YmZlOGYyNzgzNjEwMzE3YTJfakZ3aDFwMTVVcXRrTmtudGxmVVVmMTE5bGl6Y0tVWkxfVG9rZW46RWRkZ2JGcFVIbzkwblF4YjFEeWNlS2JsbjBiXzE3NjUxODgyNzg6MTc2NTE5MTg3OF9WNA)
+
+- **Figure 1d, 1e** 对比了古菌和细菌中羊毛硫肽合酶 (LanM) 和前体肽 (LanA) 的氨基酸组成。结果显示，古菌的 LanM 和 LanA 蛋白显著富集了酸性氨基酸（D/E），并减少了疏水性和某些碱性氨基酸（K）的使用。这是一种典型的适应高盐环境的“salt-in”策略，即通过增加蛋白表面的负电荷来维持在高盐溶液中的溶解度和稳定性。
+    
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NzY0OTgxMmZhNGE5OTZmZDk4MjhmM2FmNzU0NTgwMzBfazl1RHp3c3IxTDdDd0NId0lkR3lwZ3hCcHRJVG1zSGhfVG9rZW46REpBaGJvSjZhb01sd2x4NG0zRWNzdDJGbjhmXzE3NjUxODgyNzg6MTc2NTE5MTg3OF9WNA)
+
+- **Figure 1f** 的共进化分析显示，古菌的 LanA 和 LanM 蛋白形成了协同进化的配对，进一步证实了它们的功能关联性。这些生物信息学分析不仅揭示了古菌羊毛硫肽的独特性，也为选择嗜盐古菌作为异源表达宿主提供了理论依据。
+    
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=N2YzOGZmZDA3NzNkZjAwN2VkNzg4MDkwNTQ5NjdjMjVfRUo0dUJPS2tXaThKMzNxSGtFS1hCTng5eUxLMkQ1aFNfVG9rZW46SHJacmI2d1ZWbzRuV3B4QzZIamN2WTZLbkJiXzE3NjUxODgyNzg6MTc2NTE5MTg3OF9WNA)
+
+### 研究部分二：利用异源表达平台发现 24 种新型羊毛硫肽
+
+#### 实验目的与设计
+
+本部分的核心目的是利用新建立的 _H. volcanii_ 异源表达平台，对筛选出的 11 个古菌羊毛硫肽 BGCs 进行表达，并通过生物合成规则引导的代谢组学分析，鉴定其产物的化学结构。
+
+#### 实验结果与分析
+
+- **Figure 2a** 展示了整个工作流程的示意图。
+    
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YjJkZDBkZDQ1ZjM5MTllMmZhMDdlZWFjZTc2ZTVkMDhfRDNNWGxiVlhkU3lrQkw4bWxvNUZ6SGlxYkN3dlpka2RfVG9rZW46VHk4WmJqVndtb29kZkp4aElsVGNoaDFRblJkXzE3NjUxODgyNzg6MTc2NTE5MTg3OF9WNA)
+
+- **Figure 2b, 2c** 是本研究的核心成果展示。通过对 11 个 BGCs 的异源表达，研究团队成功地从 LC-MS 数据中识别出了 **24 种**此前未知的羊毛硫肽分子。这些分子被命名为 Sallan, Ciblan, Pellan, Archalan, Median, Litlan 等。
+    
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NTg0YjQ5ZTcwY2YwY2Y0NzM4ZmRiZDBlMzQxOGI3MjFfWDVLNWY2UlYzbXdoZmJQOHZQVU9aYmZYTWlMdlFnZ1VfVG9rZW46QVVNWWJlRHd0b1ladlB4eVQ5SGNrc3ZLbjlkXzE3NjUxODgyNzg6MTc2NTE5MTg3OF9WNA)
+
+- **Figure 2d** 将新发现的古菌羊毛硫肽与已知的细菌羊毛硫肽（如 Nukacin ISK-1, Haloduracin）进行了结构比较。一个显著的特征是，古菌羊毛硫肽的肽链通常比细菌的更短，但其环系结构（如双环、交联环）同样复杂。
+    
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YzQyYjY3YWVlOGYxMGE0ZDQ2YmUxYTNkYTkyYmZjZDFfd1gzU29IQjU4eGgyNWpHTVRXV1JEMWhvVzAyN3dIMmxfVG9rZW46V2M5dGJRVDhhbzcyazF4ZXAxYWNNZDhabnNiXzE3NjUxODgyNzg6MTc2NTE5MTg3OF9WNA)
+
+- 这一部分的成功，不仅极大地扩展了已知的羊毛硫肽化学空间，更重要的是，它**首次证明了在古菌中进行 RiPPs 的异源表达和 SMs 发现是完全可行的**，为该领域开辟了一条全新的道路。
+    
+
+### 研究部分三：发现并表征独特的 DADC 羊毛硫肽亚家族
+
+#### 实验目的与设计
+
+本部分的目的是对异源表达产物中一类具有非经典质谱碎裂模式的未知肽进行深入的结构鉴定，以揭示其独特的化学结构和生物合成机制。
+
+#### 实验结果与分析
+
+- **Figure 3** 聚焦于这一新颖的化学发现。在分析 **Median A1 (13)** 和 **Larlan A2 (14)** 等分子的 MS/MS 谱图时，研究人员发现其碎裂模式无法用经典的环状羊毛硫肽结构来解释。
+    
+- 通过详细的 NMR 和 Marfey's 手性分析，他们最终确定了这些分子具有一种前所未有的结构——**DADC (diamino-dicarboxylic termini) 羊毛硫肽**。如 **Figure 3b** 所示，其核心特征是分子内部的硫醚桥发生了肽键断裂，形成了一个含有游离 N-端和 C-端的线性肽段，但该肽段仍通过硫醚键与其他部分相连。
+    
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NzM4ODJiNzkxMWU1ZWE5M2NmZDkxYzc4NzBlZTVhYWJfVTljNnVObWVvaVl6NGl0RFNoV1hqajJBMGV2bWpOeE5fVG9rZW46SlhpQmJnRjdBb3FGUTF4WjVjc2NVV3BjbnFlXzE3NjUxODgyNzg6MTc2NTE5MTg3OF9WNA)
+
+- **Figure 3c** 的基因敲除和回补实验表明，一个功能未知的基因 _larH_ 对于 DADC 羊毛硫肽的高效生产至关重要，暗示它可能编码了负责肽键断裂的未知蛋白酶或其辅助因子。
+    
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDQ4ODBmOTliY2MzMGQ4N2JmZDVhMmYxMjRiNjkyZjRfTkdVZXlOVmMzUTZEQ2owdHUzaHU5c0Q0RFNpanNFY2NfVG9rZW46WHV6RWJ6dXJpb1NzVHB4UVR2UWNSbnRKbnJnXzE3NjUxODgyNzg6MTc2NTE5MTg3OF9WNA)
+
+- **Figure 3d** 提出了 DADC 羊毛硫肽的生物合成假说：首先生成一个经典的羊毛硫肽，然后由一个或多个未知的蛋白酶在环内进行特异性的肽键切割，最终形成 DADC 结构。这一发现揭示了古菌中存在着全新的、比细菌更为复杂的 RiPP 成熟机制。
+    
+
+### 研究部分四：揭示古菌羊毛硫肽的两种全新生态功能
+
+#### 实验目的与设计
+
+本部分的目的是探索这些新发现的古菌羊毛硫肽的生物学功能，特别是它们在嗜盐古菌生态系统中的作用。
+
+#### 实验结果与分析
+
+**功能一：拮抗活性**。通过对一系列嗜盐古菌进行活性筛选，发现多种羊毛硫肽粗提物和纯品（如 **archalan α (25)** 和 **medlan B (8)**）对其他嗜盐古菌具有显著的生长抑制活性。例如，**archalan α** 对 _Halomicroarcula salina_ 的 MIC 仅为 6.25 µg/mL。这表明这些肽在嗜盐古菌的种间竞争中扮演了“化学武器”的角色。
+
+**功能二：运动性调节**。**Figure 4** 展示了这一令人意外的发现。
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MmY3NjlmMzMzNDBhZDU4YWJmZDdiMzUwOTU4NDQzZWRfVWdEa0RJd3RVWHlKcUpCS1ZpVkdrT0RONE9ubTVscE9fVG9rZW46S1czNGJabzY3b0dCdW14Y3N0Q2NmWjRFbjJnXzE3NjUxODgyNzg6MTc2NTE5MTg3OF9WNA)
+
+- **Figure 4a, 4b** 的软琼脂平板实验显示，表达 _cib2_ (编码 **ciblan A2**) 或 _pel_ (编码 **pellan**) BGCs 的 _H. volcanii_ 菌株，其运动扩散能力比对照菌株显著增强 (P < 0.001)。
+    
+- **Figure 4c, 4d, 4e** 揭示了其细胞学基础。显微镜观察发现，这些菌株的细胞形态从野生型的盘状/球状转变为**杆状**，这是一种已知与高运动性相关的形态。
+    
+- **Figure 4f, 4g** 揭示了其分子机制。转录组学分析显示，在这些菌株中，负责合成古菌鞭毛的**古菌鞭毛蛋白基因 (**_**flgA1**_**)** 的表达水平被显著**上调**。
+    
+- **Figure 4h** 总结了这一新功能：古菌羊毛硫肽可以作为一种**信号分子**，通过诱导细胞形态改变和上调运动相关基因，来增强宿主的运动能力，这可能有助于其在环境中寻找营养或逃避威胁。
+    
+
+## 五：总体结论
+
+1. **建立了首个古菌次级代谢产物异源表达平台**：本研究成功地在嗜盐古菌 _H. volcanii_ 中建立了第一个用于 RiPPs 发现的异源表达系统，为探索古菌的“暗物质”化学空间提供了强大的技术工具。
+    
+2. **极大扩展了古菌 RiPPs 的化学多样性**：通过该平台，成功鉴定出 24 种全新的古菌羊毛硫肽，并发现了一个具有前所未有化学结构的 DADC 羊毛硫肽亚家族，揭示了古菌中存在独特的 RiPP 成熟机制。
+    
+3. **揭示了古菌羊毛硫肽的两种全新生态功能**：首次证明了古菌羊毛硫肽不仅可以作为种间竞争的**拮抗剂**（抗生素），还可以作为调节宿主行为的**信号分子**，通过诱导细胞形态变化和上调鞭毛基因来增强运动性。
+    
+4. **证实了古菌 SMs 的独特性和适应性**：通过对羊毛硫肽 BGCs 的生物信息学和实验分析，证实了古菌的次级代谢系统为了适应极端环境（如高盐）而在氨基酸组成和化学结构上发生了独特的进化适应。
+    
+
+## 六：论文评价
+
+### 优点与创新
+
+1. **技术平台的开创性**：成功建立古菌异源表达系统是本文最重大的技术创新，它解决了该领域长期存在的关键瓶颈，为系统性地研究古菌次级代谢产物打开了大门。
+    
+2. **化学发现的新颖性**：DADC 羊毛硫肽的发现是一个非常新颖的化学发现，它不仅增加了一种新的分子结构类型，更重要的是揭示了一种全新的、涉及肽键断裂的 RiPP 成熟机制，极具生物化学意义。
+    
+3. **生态功能发现的原创性**：将 RiPPs 与宿主“运动性”联系起来，是一个完全出乎意料的、高度原创的发现。它极大地拓展了我们对 RiPPs 生物学功能的认知，从传统的“武器”和“防御”扩展到了“行为调节”的层面。
+    
+4. **研究的系统性与完整性**：论文完美地整合了从大规模基因组挖掘、异源表达平台构建、新化学实体发现、复杂结构鉴定，到最终的全新生态功能探索，构成了一个逻辑严密、内容丰富、结论深刻的完整故事。
+    
+
+### 未来研究方向
+
+1. **鉴定 DADC 成熟过程中的关键蛋白酶**：通过基因敲除、蛋白质组学或体外重构等方法，鉴定出负责在硫醚环内进行肽键切割的关键蛋白酶（可能由 _larH_ 编码或宿主提供），并研究其催化机制和底物特异性。
+    
+2. **探索运动性调节的信号转导通路**：深入研究古菌羊毛硫肽是如何被细胞感知并最终上调 _flgA1_ 基因表达的。这包括寻找其细胞表面受体，以及下游的信号转导组分。
+    
+3. **将异源表达平台应用于其他古菌 RiPPs**：利用已建立的 _H. volcanii_ 表达平台，系统性地表达和研究古菌中其他类型的 RiPPs（如 YcaO-related RiPPs, rSAM-modified RiPPs），以期发现更多结构和功能新颖的古菌次级代谢产物。
+    
+
+## 七：关键问题及回答
+
+### 问题一：作者是如何克服古菌次级代谢产物 BGCs 异源表达这一长期挑战的？
+
+回答： 作者采取了一个关键且聪明的策略：**选择一个与 BGC 来源物种亲缘关系较近的古菌作为表达宿主**。
+
+**选择合适的宿主**：他们没有选择传统的大肠杆菌或链霉菌，而是选择了嗜盐古菌 _Haloferax volcanii_。由于目标 BGCs 大多也来源于嗜盐古菌，宿主和来源物种在遗传和代谢背景上更为相似。
+
+**带来的优势**：
+
+- **遗传兼容性**：密码子偏好、启动子识别、核糖体结合位点等遗传元件的兼容性更高，有利于基因的正确转录和翻译。
+    
+- **代谢兼容性**：宿主可能天然就拥有合成某些特殊前体（如修饰氨基酸）或辅因子的能力，这对于 BGC 的功能至关重要。
+    
+- **蛋白质折叠与修饰**：宿主的蛋白质折叠和翻译后修饰系统更可能正确地处理来自近亲物种的酶蛋白，使其具有正确的构象和活性。
+    
+
+通过这种“近亲表达”的策略，他们成功地绕过了在远缘宿主中表达时常遇到的各种不兼容问题，从而首次实现了多个古菌 BGCs 的功能性表达。
+
+### 问题二：什么是 DADC 羊毛硫肽？它的结构有何独特之处，暗示了怎样的生物合成过程？
+
+回答： DADC 是“diamino-dicarboxylic termini”（二氨基二羧酸末端）的缩写，是本文发现的一个全新羊毛硫肽亚家族。
+
+**独特结构**：经典的羊毛硫肽是由一条肽链通过硫醚键自身环化形成的。而 DADC 羊毛硫肽的独特之处在于，在其经典的环状结构形成之后，肽链在**硫醚环内部**的某个位置发生了**肽键断裂**。如 **Figure 3b** 所示，这导致原本闭合的环被“打开”，形成了一个新的 N-末端（氨基）和一个新的 C-末端（羧基），但这两个新末端仍然通过硫醚键与分子的其余部分相连。
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=OGNiMTNkZjEyMjlhNjJlYjY4OWUwNTc2YzQzOGVmOWJfQVpva3JOYWNoNUhOanpzcFVOMjU3THZUSUhwSzk4N3RfVG9rZW46TUxoUWJBVW5tb2RxZ2V4QUpSMWMyZU5Zbk5nXzE3NjUxODgyNzg6MTc2NTE5MTg3OF9WNA)
+
+**暗示的生物合成过程 (Figure 3d)**：这种结构强烈暗示了一个前所未有的、两步的成熟过程：
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NzEzMzczMmY3ZDU3NTUyMTg0MGIxYjI2NTMyYjMzZDdfUW9MSmlvN0JCTzlZWjVVWnRCV1hRQ3VmWG0zd1JrcHVfVG9rZW46Smo0dmJJalE1b1pmcW54akdNUGMzWWozbm9lXzE3NjUxODgyNzg6MTc2NTE5MTg3OF9WNA)
+
+- **第一步：经典环化**。首先，由 LanM 酶催化，形成一个经典的、完整的羊毛硫肽环状结构。
+    
+- **第二步：环内裂解**。然后，一个或多个**未知的蛋白酶**识别这个环状结构，并在环内的一个或多个特定位点进行肽键水解，最终形成 DADC 结构。这个过程比已知的任何 RiPP 成熟机制都更为复杂。
+    
+
+### 问题三：本文如何证明古菌羊毛硫肽具有调节宿主运动性的新功能？请描述其证据链。
+
+回答： 作者通过一个由宏观到微观再到分子的、环环相扣的证据链证明了这一新功能。
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NTQ3NjBlNDg1YmZlMzIyYjRhMjBmMGU4NmQ3ZjkyNDVfdjY3M3g2cnhTeWw5TXRaY21zV0xMRHk4OUtHYTUxcG9fVG9rZW46R0NoeGJ5Y013b215bER4azVQSmM1YUdkbkZiXzE3NjUxODgyNzg6MTc2NTE5MTg3OF9WNA)
+
+1. **宏观表型证据 (Figure 4a, 4b)**：在半固体琼脂平板上，表达特定羊毛硫肽 BGCs (_cib2_, _pel_) 的菌株形成了比对照菌株大得多的菌落扩散晕。这是一个直接的、宏观的运动性增强表型。
+    
+2. **细胞形态学证据 (Figure 4c, 4d, 4e)**：通过相差显微镜观察，发现这些运动性增强的菌株，其细胞形态从典型的圆盘状变成了细长的**杆状**。在古菌中，杆状形态与更高效的游动能力密切相关。这为宏观表型提供了细胞水平的解释。
+    
+3. **分子生物学证据 (Figure 4f, 4g)**：通过转录组学 (RNA-seq) 分析，发现这些形态改变、运动性增强的菌株中，编码古菌鞭毛核心蛋白的基因 **flgA1** 的表达水平被**显著上调**。这从分子层面揭示了运动性增强的遗传基础。
+    
+
+通过这三层证据，作者完美地将羊毛硫肽的产生与细胞形态的改变以及运动关键基因的表达联系起来，从而令人信服地证明了其调节宿主运动性的新功能。
