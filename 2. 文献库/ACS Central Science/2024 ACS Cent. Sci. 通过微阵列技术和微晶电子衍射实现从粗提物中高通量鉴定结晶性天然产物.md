@@ -1,0 +1,236 @@
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NGMwYjE5NzQ0NWE1MTM2OThlOTI5ZDliYjY4NzMzODNfRklvMzFzdUI4TzdRd1RrOFdVZ1ZNalJ2eTcyejVGbURfVG9rZW46Wk16WGJYdGRUb3RmQ2h4UGNrNmN4WDhwbktmXzE3NjUxODcyMDA6MTc2NTE5MDgwMF9WNA)
+
+## 一：基本信息
+
+**文章题目**：High-Throughput Identification of Crystalline Natural Products from Crude Extracts Enabled by Microarray Technology and microED
+
+**文章** **DOI** **号**：10.1021/acscentsci.3c01365
+
+**期刊名称**：ACS Central Science
+
+**通讯作者**：Hosea M. Nelson；Yi Tang（**唐奕**）；Cassandra Quave；Julia Kubanek
+
+**通讯作者工作单位**：
+
+- Hosea M. Nelson: 加州理工学院 (California Institute of Technology, Caltech) 化学与化学工程学部。
+    
+- Yi Tang: 加州大学洛杉矶分校 (University of California, Los Angeles, UCLA) 化学与生物化学系、化学与生物分子工程系。
+    
+- Cassandra Quave: 埃默里大学 (Emory University) 分子与系统药理学系、人类健康研究中心、医学院皮肤病学系。
+    
+- Julia Kubanek: 佐治亚理工学院 (Georgia Institute of Technology) 生物科学学院。
+    
+
+## 二：核心速览
+
+### 研究背景
+
+本研究的核心科学问题是解决天然产物 (Natural Products, NPs) 发现流程中的一个核心瓶颈：**如何快速、高通量地从复杂的生物粗提物中直接鉴定化合物的精确三维结构**。
+
+传统的 NP 发现流程依赖于漫长、繁琐的“生物活性导向的分离纯化”，通常需要数周甚至数月才能获得足够纯度和量的样品用于结构鉴定（如 NMR、单晶 X-射线衍射）。这极大地限制了 NP 发现的速度和规模。因此，本研究旨在开发一种全新的技术平台，以颠覆性的方式加速这一过程。
+
+### 前期研究
+
+在本文发表前，微晶电子衍射 (Microcrystal Electron Diffraction, microED) 技术已崭露头角，成为一种强大的小分子结构解析工具。与传统的 X-射线衍射需要毫克级的、尺寸较大的单晶不同，microED 仅需纳克级的、纳米或微米尺寸的晶体即可获得高分辨率的结构数据。然而，microED 的应用仍然受限于样品制备的“一对一”模式：每个样品（如一个 HPLC 馏分）需要单独制备一个 TEM (透射电子显微镜) 样品网格，然后手动上样、筛选，整个过程耗时且通量极低，无法满足从粗提物中进行大规模筛选的需求。
+
+### 本文突破点
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=Y2U1ZjIzMzE2NjdiNjQxZTVlNTQ5NDk0ZDZlZGZmNGVfcVMyYk5McHA0aElkMFFlMVcyNkI5aVVYZVhxd2ozc1NfVG9rZW46R3c1TGJtVnpEb3hUNU94ZXZBNWNSeklabnNkXzE3NjUxODcyMDA6MTc2NTE5MDgwMF9WNA)
+
+1. **开发了革命性的高通量筛选平台 ArrayED**：首次将 DNA 微阵列点样技术与 microED 技术相结合，创造了一个名为“阵列电子衍射 (ArrayED)”的全新工作流程。该技术能够将多达 1200 个或更多的独立样品（如 HPLC 馏分）以皮升级 (picoliter) 液滴的形式，**高密度地点样到单个 TEM 网格上**。
+    
+2. **实现了样品处理通量的指数级提升**：通过 ArrayED，可以在短短 4-8 小时内完成对一个粗提物（经 HPLC 分为 96 个馏分）中所有结晶性物质的筛选和结构解析。相比传统 microED 流程（>200 小时）和经典 NP 发现流程（数周至数月），其效率提升了**数百甚至数千倍**。
+    
+3. **展示了强大的结构发现能力**：通过对来自植物、真菌和海洋生物的 20 种不同粗提物进行筛选，ArrayED 平台成功解析了 **14 种天然产物的晶体结构**，其中包括 **4 种全新晶体结构**和 **2 种新的晶型 (polymorphs)**。
+    
+4. **拓展了可检测分子的范围**：该平台成功鉴定了一些用传统方法（如 MS 或 UV 检测）难以发现的化合物，例如没有 UV 吸收的甘露醇 (mannitol)，以及一些在粗提物中含量极低、无法通过 NMR 解析的分子，展示了其独特的发现潜力。
+    
+
+### 研究难点
+
+1. **高通量样品制备**：如何将数百个独立的、微量的 HPLC 馏分快速、精确、无交叉污染地转移到单个微小的 TEM 网格上，是实现高通量筛选的技术核心。本研究通过引入自动化、非接触式的微阵列点样仪解决了这一难题。
+    
+2. **从混合物中直接鉴定**：传统的结晶和衍射分析都要求样品高度纯净。ArrayED 平台面临的挑战是如何直接从纯度不一、甚至含有多种成分的 HPLC 馏分中，识别出能够结晶的单一组分并解析其结构。
+    
+3. **数据处理与关联**：在一个布满上千个样品点的 TEM 网格上，如何快速定位到有晶体的点，并将其衍射数据与原始的 HPLC 馏分位置一一对应，需要高效的样品标记和数据管理系统。
+    
+4. **微量样品的结构验证**：对于通过 microED 解析出的新结构，由于样品量极少，可能无法通过 NMR 等传统方法进行验证。这要求 microED 数据的质量和解析结果必须足够可靠，能够独立地、明确地确定结构。
+    
+
+## 三：研究方法
+
+- **高通量样品制备 (High-Throughput Sample Preparation)**：
+    
+    - **HPLC 快速分馏**：使用标准的反相 HPLC 条件，将少量（约 50-150 mg）的生物粗提物在 25 分钟内快速分离成 96 个时间分辨的馏分，并收集到 96 孔板中。
+        
+    - **微阵列点样 (Microarray Printing)**：使用一台 Scienion S3 非接触式微阵列点样仪，将 96 孔板中的每个馏分以皮升级（250-350 pL）的液滴，按照预设的阵列格式，自动、精确地点样到**单个** TEM 铜网上。
+        
+- **高通量衍射筛选 (High-Throughput Diffraction Screening)**：
+    
+    - **自动化上样与筛选**：将点样后的 TEM 网格装载到配备了自动上样器 (autoloader) 的透射电子显微镜中。
+        
+    - **手动/半自动筛选**：使用 SerialEM 等软件，快速地、系统地扫描网格上的每一个样品点，通过拍摄快照衍射图，手动将每个点标记为“衍射”、“无衍射”或“多晶”等。
+        
+- **MicroED 数据收集与结构解析 (MicroED Data Collection and Structure Solution)**：
+    
+    - 对于筛选出的、含有高质量单晶的样品点，采用连续旋转电子衍射 (continuous rotation electron diffraction) 的方法收集完整的三维衍射数据集。
+        
+    - 使用标准的晶体学软件（如 XDS, SHELXT）进行数据处理和结构解析，直接获得分子的三维原子结构。
+        
+- **结构验证 (Structure Validation)**：对于一些可获得足量样品的案例，会结合传统分析方法，如高分辨率质谱 (HRMS) 和核磁共振波谱 (NMR)，来对 microED 解析出的结构进行交叉验证。
+    
+
+## 四：实验设计及结果分析
+
+### 研究部分一：ArrayED 平台的构建与概念验证
+
+#### 实验目的与设计 (Experimental Goal & Design)
+
+本部分的核心目的是构建 ArrayED 工作流程，并验证其在高通量筛选天然产物粗提物方面的可行性和巨大优势。
+
+设计思路如下：
+
+1. **流程对比**：首先在 **Figure 1** 中清晰地对比了三种 NP 发现流程：传统流程、常规 microED 流程和本文提出的 ArrayED 流程，从时间和样品量上直观地展示了 ArrayED 的颠覆性。
+    
+2. **概念验证**：选择 20 种来源多样的粗提物（植物、真菌、海洋生物），对每一种都进行 HPLC-微阵列点样-衍射筛选的全流程操作。
+    
+3. **统计分析**：统计在总共 1920 个样品点中，能够产生衍射信号的比例，以评估该方法的普适性和成功率。
+    
+
+#### 实验结果与分析 (Experimental Results & Analysis)
+
+这部分工作成功地展示了 ArrayED 平台惊人的效率和潜力。
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YWUwZTg0MjE0MzU3NWUzZjU0MjdlYjYxNWM5MGU0NTRfNTZOTnNtOFU4TkNOZk82SXlzOEtnVlE3Wm1uaUNMeThfVG9rZW46VG9zNWJubHI5b3RXTWV4dVhiZWNRSTNablFiXzE3NjUxODcyMDA6MTc2NTE5MDgwMF9WNA)
+
+- **Figure 1C** 直观地展示了 ArrayED 的核心思想：将 96 个 HPLC 馏分点样到**一个** TEM 网格上，整个过程仅需 4-8 小时。
+    
+- **Figure 2A** 展示了微阵列点样仪和最终制备出的、布满样品点的 TEM 网格实物图。
+    
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MGQ2NGJhMjk4MzI0ZjE4NDNmMTRlNGQzYmYyZDEyYTlfTEZRSms4c0RCUHpYcVBOYXFRWTg0Q3Q0TmdENXRZcVRfVG9rZW46QlZweGJUYXhXb0lxSUZ4Y3BkdWNVaVVqbmNoXzE3NjUxODcyMDA6MTc2NTE5MDgwMF9WNA)
+
+- **Figure 2B** 是一个“热图”，展示了对 20 个粗提物进行筛选的结果。蓝色方格代表成功获得衍射信号的馏分。结果显示，在 1920 个馏分中，共识别出 415 个（约 21%）含有结晶物质的馏分。
+    
+- **结论**：ArrayED 平台被成功构建。概念验证实验表明，该平台能够以极高的通量（60 小时内筛选 20 个粗提物）和可观的成功率（约 21% 的馏分可结晶），快速地从各种生物来源的粗提物中识别出含有结晶性天然产物的馏分。
+    
+
+### 研究部分二：ArrayED 在多种天然产物结构解析中的应用展示
+
+#### 实验目的与设计 (Experimental Goal & Design)
+
+本部分的目的是通过一系列具体的案例，展示 ArrayED 平台在解析已知和未知天然产物结构方面的强大能力。
+
+设计思路如下：
+
+1. 从上述 20 个粗提物的筛选结果中，选择几个有代表性的案例进行深入分析和结构解析。
+    
+2. 案例来源涵盖植物（美洲紫珠 _Callicarpa americana_）、真菌（_Trichoderma afroharzianum_, _Preitonia sp._ 等）和海洋生物（红藻 _Halymenia sp._）。
+    
+3. 展示解析出的结构，并与已知结构进行比较，或确定新结构/新晶型。
+    
+
+#### 实验结果与分析 (Experimental Results & Analysis)
+
+这部分通过丰富的案例，全面地展示了 ArrayED 的实际应用价值。
+
+- **Figure 3** 集中展示了通过 ArrayED 解析出的 14 种天然产物的晶体结构，包括萜类、黄酮类、蒽醌类、生物碱等多种骨架类型，显示了其广泛的适用性。
+    
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MGY1MDViOGI4MmZmMTNkZmE1NTEwZDA0N2I5MDk0ZGJfSmZFejV3dk1TTUFVM0l4MnRGUDZPQkI4SHdZeWQ4elZfVG9rZW46RWV4emJGMU9tb283bmF4d1daZmNaWXd0bmJnXzE3NjUxODcyMDA6MTc2NTE5MDgwMF9WNA)
+
+- **Figure 4** 以真菌 _Trichoderma afroharzianum_ 的提取物为例，展示了一个精彩的发现过程。HPLC 图谱显示在一个复杂的峰簇中，相邻的三个馏分 (E7, E8, E9) 都产生了高质量的衍射。结构解析表明，E7 是纯的 pachybasin (**10**)，E9 是纯的 chrysophanol (**11**)，而中间的 E8 则是这两种结构高度相似的化合物的**共晶 (co-crystal)**。这一发现揭示了 HPLC 的时间分辨能力如何影响结晶过程，并证明了 ArrayED 能够解析复杂的共晶结构。
+    
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ODVjMzA4YmRmM2Q5MTliOTM5MDlmYWQ5MzE4Mzc4NWVfdEpQZjRmT2ZSSVVsbktQb1IwQ3R1V3VMazk0MFZJMGxfVG9rZW46T0ljWmJqZldJb3RkR0x4N0djaWNhVVQybkRjXzE3NjUxODcyMDA6MTc2NTE5MDgwMF9WNA)
+
+- **Figure 5A** 展示了从海洋红藻中解析一个复杂糖脂 (**15**) 的案例。该案例中，microED 成功地解决了 NMR 无法确定的脂肪酸链连接位点问题，展示了 microED 与传统波谱学方法的互补性。
+    
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MWY2ZTFlY2ViNGNhMmUwODBjNzgwNTNlOTA3YmNhOWVfUGVDVEszOHpvalhxdlM4djJxcGlvR1JBdjBHcHpCcWhfVG9rZW46R2tad2JzZnhOb080T0l4WmJZY2NBOXFnbkpmXzE3NjUxODcyMDA6MTc2NTE5MDgwMF9WNA)
+
+- **一个关键发现**：在对 _Preitonia sp._ 的分析中，成功解析了甘露醇 (**12**) 的结构。甘露醇是一个没有 UV 吸收的糖醇，如果采用传统的 UV 指导的分离方法，这个化合物很可能会被完全忽略。这凸显了 ArrayED 这种“无偏见”筛选方法的优势。
+    
+- **结论**：一系列成功的案例证明，ArrayED 不仅能快速解析已知化合物的结构，还能发现新晶型、解析共晶、解决传统波谱方法的模糊性，甚至能发现传统检测方法会遗漏的“隐形”分子。
+    
+
+## 五：总体结论
+
+1. **核心成果**：本研究成功开发了一个名为 ArrayED 的革命性技术平台，通过将微阵列点样技术与 microED 相结合，实现了从复杂生物粗提物中高通量、快速地直接鉴定结晶性天然产物的三维结构。
+    
+2. **效率的飞跃**：ArrayED 将天然产物结构解析的时间从数周甚至数月缩短到了数小时，通量提高了数百倍，极大地加速了天然产物发现的“从样品到结构”这一核心环节。
+    
+3. **强大的发现能力**：在对 20 种粗提物的概念验证研究中，该平台成功解析了 14 种天然产物的结构，包括 4 种新晶体结构和 2 种新晶型，并发现了一些传统方法难以检测的分子。
+    
+4. **领域贡献与影响**：ArrayED 的建立为天然产物化学和药物发现领域提供了一个颠覆性的工具。它有望改变传统的、低效的天然产物发现模式，使研究人员能够以“组学”的规模和速度，系统性地探索自然界的化学多样性，从而极大地加速新药先导化合物的发现进程。
+    
+
+## 六：论文评价
+
+### 优点与创新
+
+1. **颠覆性的技术整合**：将微阵列技术与 microED 结合是一个极具创造性的想法。这种跨界技术的整合，从根本上解决了 microED 在样品制备上的通量瓶颈，是方法学上的重大突破。
+    
+2. **解决了领域的长期痛点**：天然产物发现流程漫长、效率低下是困扰该领域数十年的核心难题。ArrayED 直击这一痛点，并提供了一个切实有效的、高通量的解决方案。
+    
+3. **“无偏见”的发现模式**：与依赖生物活性或特定光谱信号（如 UV）的传统筛选方法不同，ArrayED 的筛选标准只有一个——能否结晶。这种“无偏见”的物理性质筛选，使其能够发现那些没有显著生物活性或光谱特征，但可能具有新颖结构的“沉默”分子。
+    
+4. **极高的应用前景**：该技术平台可以直接应用于任何来源的、含有结晶性小分子的复杂混合物筛选，不仅在天然产物领域，在合成化学、材料科学、代谢组学等领域也具有巨大的应用潜力。
+    
+
+### 未来研究方向
+
+1. **与生物活性的高通量整合**：如作者在结论中展望的，下一步最关键的发展是将 ArrayED 与高通量的生物活性筛选相结合。可以制备两块完全相同的微阵列板，一块用于 ArrayED 结构鉴定，另一块直接用于细胞或酶学活性筛选。这样就能在数小时内，同时获得化合物的“结构”和“功能”信息，实现真正意义上的高通量“构效关系”研究。
+    
+2. **进一步提高自动化水平**：目前衍射点的筛选仍然需要手动或半自动操作。未来可以开发基于机器学习或计算机视觉的算法，来自动识别 TEM 网格上的晶体颗粒并自动启动数据收集程序，从而实现整个流程的“无人值守”全自动化。
+    
+3. **处理非结晶性样品**：目前 ArrayED 只能处理能够形成微晶的样品。未来可以探索将其与其他结构解析技术（如 NMR, MS/MS）进行整合，开发出能够处理油状物或无定形固体的非结晶性样品的高通量平台。
+    
+
+## 七：关键问题及回答
+
+### 问题一：ArrayED 技术相比于传统的天然产物发现流程，其核心优势体现在哪几个方面？
+
+回答： ArrayED 的核心优势主要体现在以下三个方面，可以概括为**速度、规模和广度**：
+
+1. **速度 (Speed)**：它将结构解析的时间尺度从**数周或数月**压缩到了**数小时**。传统流程需要反复的色谱分离来获得纯化合物，而 ArrayED 通过一次性的 HPLC 分馏和高通量衍射筛选，极大地缩短了时间。
+    
+2. **规模 (Scale)**：它将样品需求量从**克级**降低到了**毫克级**（50-150 mg 粗提物），将所需晶体尺寸从**毫米级**降低到了**纳米/微米级**。更重要的是，它将样品处理通量从“一次一个网格”提升到了“一个网格上千个样品”，实现了**指数级的通量提升**。
+    
+3. **广度 (Scope)**：传统的筛选方法通常依赖于生物活性或 UV 吸收等“偏见性”指标。而 ArrayED 的筛选标准是**结晶性**，这是一种物理性质，与化合物的生物活性或光谱特性无关。因此，它能够发现那些在传统筛选中可能被忽略的化合物，例如没有 UV 吸收的甘露醇，从而**拓宽了可发现分子的化学空间**。
+    
+
+### 问题二：在 Figure 4 的案例中，ArrayED 是如何揭示 pachybasin (10) 和 chrysophanol (11) 这两种结构高度相似的化合物在 HPLC 峰中的分布情况的？
+
+回答： 这个案例完美地展示了 ArrayED **高空间分辨率**和**时间分辨能力**的优势。
+
+1. **HPLC 分馏**：首先，粗提物通过 HPLC 分离。Pachybasin (**10**) 和 chrysophanol (**11**) 的结构非常相似（仅差一个羟基），因此它们的保留时间非常接近，在一个大的、重叠的 HPLC 峰中被洗脱出来。
+    
+2. **时间分辨收集**：HPLC 的流出液被连续地、每 15 秒收集一次，分别进入 96 孔板的不同孔中。这意味着，峰尖前沿、峰尖和峰尖后沿的组分被分别收集到了相邻的孔中（如 E7, E8, E9）。
+    
+3. **空间分辨点样和解析**：微阵列点样仪将 E7, E8, E9 孔中的样品精确地点样到 TEM 网格上相邻的、独立的位置。
+    
+4. **结果**：microED 分析显示：
+    
+    1. E7 点（峰前沿）的晶体是纯的 pachybasin (**10**)。
+        
+    2. E9 点（峰后沿）的晶体是纯的 chrysophanol (**11**)。
+        
+    3. 而 E8 点（峰尖）的晶体则是这两种分子的**共晶**。
+        
+    
+      这个结果清晰地表明，尽管在 HPLC 检测器上看是一个重叠峰，但通过快速的时间分辨收集，实际上已经实现了两种组分的部分分离。ArrayED 凭借其高通量和高分辨率，成功地捕捉并解析了这一动态分离过程中的每一个“快照”，这是传统方法难以做到的。
+    
+
+### 问题三：为什么说 ArrayED 能够解决 microED 技术在天然产物发现中的应用瓶颈？
+
+回答： 在 ArrayED 出现之前，microED 虽然技术上很强大，但在实际应用中，尤其是在需要筛选大量未知样品的天然产物发现领域，存在一个致命的**样品制备通量瓶颈**。
+
+1. **传统 microED 的瓶颈**：传统流程是“一个样品，一个网格”。如果要分析一个粗提物分成的 96 个 HPLC 馏分，就需要手动制备 96 个 TEM 网格。每个网格的上样、干燥、装入电镜、抽真空、寻找晶体、数据收集，整个过程非常耗时（每个样品可能需要 1 小时以上）。筛选 96 个馏分可能需要数天甚至数周的电镜时间，成本极高，效率极低，这使得大规模筛选变得不切实际。
+    
+2. **ArrayED 的解决方案**：ArrayED 通过**微阵列点样技术**，将这个瓶颈彻底打破。它实现了**“多个样品，一个网格”**的模式。将 96 个甚至上千个样品一次性地、自动化地点样到单个 TEM 网格上。
+    
+3. **效率提升**：这样一来，只需要进行**一次**网格装载和抽真空的过程。然后，研究人员就可以在电镜内快速地移动样品台，在几小时内扫描完所有的样品点。这使得**样品筛选**这一最耗时的步骤的效率得到了**指数级的提升**。
+    
+
+因此，ArrayED 通过将样品制备过程**并行化**和**微型化**，成功地将 microED 从一个低通量的精确分析工具，转变为一个能够用于大规模、高通量筛选的强大发现平台，从而解决了其在天然产物发现领域的应用瓶颈。
