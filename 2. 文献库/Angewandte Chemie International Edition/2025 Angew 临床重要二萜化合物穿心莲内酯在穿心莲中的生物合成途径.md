@@ -85,7 +85,7 @@
 
 ![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NTgyMjY1OTg2NGUwZGI5ZGNiZjg1OGFmMDRkOGU3MTJfMHVURFUzcXpmOUNhOXFqekUxU2dxSUpVcFVBVlEyNlpfVG9rZW46QW1xZWJobExzb1I5dmF4bTFUb2N0ZUhNblZjXzE3NjUxODc3MDA6MTc2NTE5MTMwMF9WNA)
 
-- _**图表分析**__：_ 图1B显示了MeJA处理后目标二萜含量的变化。图1C展示了已知的和推测的穿心莲内酯生物合成步骤。图1D的热图展示了与_ApCPS2_高表达相关的CYP450基因。
+- **图表分析**：图1B显示了MeJA处理后目标二萜含量的变化。图1C展示了已知的和推测的穿心莲内酯生物合成步骤。图1D的热图展示了与*ApCPS2* 高表达相关的CYP450基因。
     
 - _**结果意义**__：_ 通过多组学关联分析，有效地缩小了候选基因的范围，为后续功能验证奠定了基础。
     
