@@ -3,7 +3,7 @@
 
 **文章题目：** Completing the Biosynthesis of the Clinically Important Diterpenoid Andrographolide in _Andrographis paniculata_ (临床重要二萜化合物穿心莲内酯在穿心莲中的生物合成途径)
 
-**文章****DOI****号：** 10.1002/anie.202425303
+**文章DOI号：** 10.1002/anie.202425303
 
 **期刊名称：** Angewandte Chemie International Edition (《德国应用化学》国际版)
 
