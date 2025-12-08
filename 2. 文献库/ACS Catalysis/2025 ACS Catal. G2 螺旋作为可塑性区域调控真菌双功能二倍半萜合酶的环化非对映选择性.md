@@ -1,0 +1,244 @@
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDM1YWFjNWU1ZjA3NDA5MWExMDg1M2IyZjhiZjRkNzhfdGg0WnN2SUFzYk00enpUTDk3ZUlJM01ZNGFudDI0a3VfVG9rZW46UktZYmJsajRGb0N5eVB4enhQVmNSeEZ2bkZoXzE3NjUxODY4NzU6MTc2NTE5MDQ3NV9WNA)
+
+## 1. 基本信息
+
+**文章题目**：G2 Helix as the Plastic Region Modulating Diastereoselectivity of Cyclization in Fungal Bifunctional Sesterterpene Synthases
+
+**文章****DOI****号**：10.1021/acscatal.5c03947
+
+**期刊名称**：ACS Catalysis
+
+**第一作者**：Weiyan Zhang（**张维燕**）；Kangwei Xu（**徐康为**）
+
+**通讯作者**：Xueting Liu（**刘雪婷**）；Ruibo Wu（**巫瑞波**）
+
+**通讯作者工作单位**：
+
+- **刘雪婷**：华东理工大学 (East China University of Science and Technology)
+    
+- **巫瑞波**：中山大学 (Sun Yat-sen University)
+    
+
+## 2. 核心速览
+
+### 研究背景：
+
+**二倍半萜**（sesterterpenoids）是一类虽稀有却具有重要药用潜力的萜类天然产物，其多样化的结构骨架主要由萜类合酶催化合成。**真菌双功能二倍半萜合酶（BF-STPSs）**能够通过协同催化异戊二烯链的延伸与环化，生成结构复杂且生物活性突出的二倍半萜类化合物。然而，由于对这类酶的催化机制缺乏深入理解，尤其是对其**如何精确控制复杂环化过程及****立体化学**的认知有限，严重制约了利用蛋白质工程手段创造新型萜类分子的能力。
+
+### 前期研究：
+
+前人研究已经发现，**class I 类萜合酶 (Terpene Synthases, TPSs) 中存在一个保守的 G1/G2 螺旋结构**，该结构对酶的催化功能至关重要。已有研究表明，对该区域进行突变可以改变产物的类型 (SdS, EfTPS14, PfNS, NfSS, PbSS等)。**其中在双功能二倍半萜合酶 PfNS 酶中，G2 螺旋的突变可以实现从 B 型环化到 A 型环化的功能转换**。然而，这些研究大多集中于产物骨架的宏观改变或 A 环的立体选择性，而对于如何精细调控后续 B 环的非对映选择性 (diastereoselectivity) 仍知之甚少。
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=Y2UzZjgzMzVkYzNlYzlkNjI1MDllOWM4MDg1ODM3ZmFfSDFhNXJSYUF0dDV2QmRKU2VJb3UxTkhmczE5YWozcmtfVG9rZW46UDNpVGI0djdOb01URUZ4SzZzcWNQc3VqbjRjXzE3NjUxODY4NzU6MTc2NTE5MDQ3NV9WNA)
+
+### 本文突破点
+
+1. 本文最大的突破点在于**首次揭示并证实了 BF-STPSs 中的 G2 螺旋是调控 B 环环化非对映选择性的关键“可塑性区域”**。
+    
+2. 研究团队通过在 G2 螺旋的第一个转角处进行一个简单的单点突变（缬氨酸到丙氨酸，V→A），成功地“解锁”了酶的催化潜力，产生了一系列具有前所未有立体化学构型的新型二倍半萜，包括一个罕见的从双环到三环骨架的转换。
+    
+
+### 研究难点：
+
+1. **理性设计突变位点**：在缺乏足够结构信息和机理理解的情况下，如何从整个酶中准确地找到能够精细调控产物立体化学的“热点”区域。
+    
+2. **解释产物多样性的来源**：如何从机理上解释一个单点突变为何能导致酶产生多达五种不同骨架或立体构型的产物。
+    
+3. **阐明复杂的反应机理**：萜类环化反应涉及高活性的碳正离子中间体，其构象和反应路径极难通过实验直接捕获，需要依赖高精度的计算化学方法来模拟和解释。
+    
+
+## 3. 研究方法
+
+**生物信息学与结构模拟**：通过对 58 个已报道的 BF-STPSs 进行**多重序列比对**和**系统发育分析**，结合 **AlphaFold2** 预测的蛋白质三维结构，识别出 G1/G2 螺旋区域的保守基序和关键氨基酸残基。
+
+**定点突变与异源表达**：选取三个代表性的 A 型 BF-STPSs (DpPS, FoFS, BsPS)，利用定点突变技术将其 G2 螺旋上的一个保守缬氨酸 (Val) 突变为丙氨酸 (Ala)。将野生型和突变体酶的基因在**大肠杆菌 (**_**E. coli**_**)** 中进行异源表达。
+
+**化合物分离与结构鉴定**：通过**气相色谱-质谱 (GC-MS)** 分析产物谱。对新产生的化合物进行大规模发酵、色谱分离纯化，并综合运用**核磁共振 (NMR)**、**高分辨率质谱 (HR-MS)**、**电子圆二色谱 (ECD)** 计算和**单晶 X-射线衍射**等方法确定其完整的平面结构和绝对构型。
+
+**确定酶功能及催化机制的方法**：
+
+- **密度泛函理论计算**：用于模拟从底物 GFPP 到最终产物的整个环化反应路径，计算关键碳正离子中间体 (如 **IM2**) 的不同构象及其能量，并推演不同产物的形成机理。
+    
+- **分子动力学模拟**：将关键的碳正离子中间体 **IM2** 对接到野生型和突变体酶的活性口袋中，进行长时间（100 ns）的 MD 模拟。通过分析中间体构象的分布和活性口袋的体积变化，来解释突变如何影响底物的行为和最终的产物选择性。
+    
+
+## 4. 实验设计及结果分析
+
+### 第一部分：通过生物信息学分析锁定 G2 螺旋为关键功能区
+
+#### 实验步骤
+
+1. **序列比对与系统发育分析**：对 58 个 BF-STPSs 的 G1/G2 螺旋区域进行序列比对和系统发育树构建。
+    
+2. **结构模拟**：利用 AlphaFold2 模拟代表性酶 (NfSS, PbSS, PfNS) 的三维结构，观察 G2 螺旋上保守残基在活性口袋中的空间位置。
+    
+
+#### 实验结果
+
+- **图 1B 显示**，系统发育分析将 58 个 BF-STPSs 分为五个亚类 (subclade a-e)。其中 a 至 c 类归属于 Type A 型，d 和 e 类为 Type B 型，G1/2 螺旋区域存在一个高度保守的基序 **RxxN(D/E)xGxxxx**。
+    
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YmRhZWRhMzFmNjI2MDNkYTJiYmNiZTEzZTU0YmJmNDhfQnR5RG9pMXBGSTg1R1lwbU80aXR4Mk84VGlWWE1vY3FfVG9rZW46V0o3cmJUQ3RUb0V2cE54aVBEZGNpbHZibjZlXzE3NjUxODY4NzU6MTc2NTE5MDQ3NV9WNA)
+
+- 在 a 亚类（均为 A 型酶）中，G2 螺旋的第一个转角处有两个高度保守的位点，通常被一个小的脂肪族氨基酸（A/V/I）和一个大的芳香族氨基酸（F/Y）占据。
+    
+- **图 1A** 的结构模型显示，这些保守残基直接朝向活性口袋或影响口袋的形状，暗示它们在催化中扮演重要角色。本研究选择的 DpPS, FoFS 和 BsPS 均属于 a 亚类，其 G2 螺旋上含有保守的缬氨酸 (V) 和苯丙氨酸 (F)。
+    
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NWEyMDVjM2FkODE5ZjI0N2YxNDI4NTc3YTQ4ZDdmYzNfNmtkTEJHellscWs2emE0TGF1N0VENkozVzJKRFlUejJfVG9rZW46RzRSMWJIU0Rqb0h1cml4M3c4bGMzV2dJbm9nXzE3NjUxODY4NzU6MTc2NTE5MDQ3NV9WNA)
+
+### 第二部分：定点突变导致产物谱的巨大改变
+
+#### 实验步骤
+
+1. **酶的突变**：将 DpPS, FoFS 和 BsPS 中 G2 螺旋的保守缬氨酸分别突变为丙氨酸，得到 DpPS-V194A, FoFS-V195A 和 BsPS-V195A。
+    
+2. **产物分析**：在 _E. coli_ 中表达野生型和突变体酶，用 GC-MS 分析其产物谱。
+    
+3. **新产物鉴定**：对突变体产生的新化合物进行大规模制备和结构解析。
+    
+
+#### 实验结果
+
+**图 2B** 的 GC-MS 谱图显示了惊人的结果：
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=Y2ZiMjUwYTU2ZGRhMTFiNjZmNDBjMmIwOGU0ZTMxM2ZfazFnWWJzalhBQjlrRmp3SU8xQll2NmdLT2IwWE9DNmZfVG9rZW46RXVJNGIwTXJWb1RTMzN4NG9Qd2N3bDlIblllXzE3NjUxODY4NzU6MTc2NTE5MDQ3NV9WNA)
+
+- 野生型 DpPS (DpPS-WT) 主要产生双环产物 preterpestacin I (**1**)。而突变体 **DpPS-V194A** 的产物谱发生了巨大变化，除了产生 **1-3** 外，还产生了三个全新的三环化合物 (**4-6**)。
+    
+- 野生型 FoFS (FoFS-WT) 产生 fusoxypene A-C (**7-9**) 等。而突变体 **FoFS-V195A** 不仅保留了部分原有产物，还产生了五个全新的、具有不同骨架和立体化学的化合物 (**11-15**)。
+    
+
+**图 2C** 展示了所有化合物的结构。新发现的化合物 **4-6** 属于 betaestacin 类型的 5/12/5 三环骨架，而 **12-15** 则属于更复杂的五环骨架。这表明一个单点突变就能极大地扩展酶的催化能力，产生结构新颖的萜类分子。
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=N2ZkN2UxYzgwODgxMGQzODRlNjg5YmUxNmI4YjU0OTBfMnFSRE5keVFlOWw0UlFvd3RMTHNtUDJOUTl5aWRyZFBfVG9rZW46RjV5b2JhQ2FOb0QxQnN4dnFFNmNRMExObjJkXzE3NjUxODY4NzU6MTc2NTE5MDQ3NV9WNA)
+
+### 第三部分：通过 DFT 计算揭示环化反应的机理
+
+#### 实验步骤
+
+1. **中间体构象分析**：通过 DFT 计算，确定关键的碳正离子中间体 **IM2**（一个 5/15 双环骨架）可能存在的 8 种稳定构象 (IM2-1 至 IM2-8)。
+    
+2. **反应路径推演**：从不同的 **IM2** 构象出发，通过 DFT 计算模拟后续的环化、氢迁移和去质子化步骤，推导出所有产物 (**1-15**) 的形成路径。
+    
+
+#### 实验结果
+
+**图 3A** 展示了 **IM2** 的 8 种构象异构体，它们的能量相近，可以相互转化。这些构象在三个关键烯烃双键（I, II, III）上的进攻面（_Re_/_Si_ 面）不同，这是导致最终产物立体化学多样性的根源。
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=OWE1NDkzZDM4ZGVhMGQzMzVkZGViZWI2ODliZThjNmJfYkdMcnNjMFJjNDR1aVo4WldzaktSTDFiSmpsaFp6czRfVG9rZW46RVl1OGI2Q1I4b2Vlb3h4ZGNWVmNXVlZybnNnXzE3NjUxODY4NzU6MTc2NTE5MDQ3NV9WNA)
+
+**图 3B** 总结了复杂的反应网络。例如：
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MTIzZjNiOTIwNjRlZDM0NDFhMjQyNzQzNTU5MjVhNTJfYTllNzdXZTlSSVhwUDlEZ3pKeEtCMXAyN1N3aXc1RW1fVG9rZW46UHI4ZmJBNTRWb2JCY1J4WGtpcmNOdURublVIXzE3NjUxODY4NzU6MTc2NTE5MDQ3NV9WNA)
+
+- 产物 **7, 8, 10** 的形成始于 **IM2-1** 构象的 6,10-环化 (Path I)。
+    
+- 产物 **9** 的形成始于 **IM2-5** 或 **IM2-7** (Path III, IV)。
+    
+- 最有趣的是，新发现的三环产物 **4-6** 和 **12** 是通过一个罕见的、由 **IM2-6'** 或 **IM2-8'** 构象引发的反应路径 (Path VI, VII) 生成的。该路径涉及一个关键的 1,5-氢负离子迁移，最终形成了一个具有 Z-构型双键的 5/12/5 三环骨架。
+    
+
+### 第四部分：通过 MD 模拟解释突变导致选择性改变的原因
+
+#### 实验步骤
+
+1. **复合物建模**：将中间体 **IM2** 对接到野生型和突变体酶的活性口袋中。
+    
+2. **MD 模拟**：对每个复合物进行 100 ns 的 MD 模拟（平行 3 次）。
+    
+3. **数据分析**：分析在模拟过程中，**IM2** 的 8 种构象的分布比例，并计算活性口袋的体积。
+    
+
+#### 实验结果
+
+- **图 4A** 的构象分布图是本部分的核心。在野生型 DpPS-WT 中，**IM2** 主要以 **IM2-1** 至 **IM2-4** 的构象存在，这些构象主要导致双环产物的形成。
+    
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=OTVhMTc2NDg5NjllMTBlNjU5YWVkODc1YTVmNzAyNTJfd0NNTjBwUXAxUlo5YzJJOW1uZEl0alB2UjZ6Rm5LV0ZfVG9rZW46TktHUGJlZzEwb2FVRjF4eG5sRWMycVVrbk9kXzE3NjUxODY4NzU6MTc2NTE5MDQ3NV9WNA)
+
+- 在突变体 **DpPS-V194A** 中，**IM2-6** 和 **IM2-8** 构象的比例显著增加。根据 DFT 计算，正是这两种构象才能进入形成三环产物的反应路径。
+    
+- **图 4B** 的结构和体积分析揭示了其原因：野生型酶中的缬氨酸 (V) 侧链体积较大，对 **IM2** 的构象形成空间位阻，限制了其灵活性。当突变为体积较小的丙氨酸 (A) 后，活性口袋的空间变大，**IM2** 中间体获得了更大的构象自由度，从而能够采纳原本不利的 **IM2-6** 和 **IM2-8** 构象，最终“解锁”了通往三环产物的新反应通道。
+    
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=OTE1MTgwOTgyZjczMWNkOThjMTJlODJjNzlmMDdmYTNfOHpNVlJjZVNac2JkbGFPbGNvT0R1UGozNUJ3TlZnaTlfVG9rZW46QVRLNGJDdlBFb2RkeFV4UU9HWWN3ZzF1blhmXzE3NjUxODY4NzU6MTc2NTE5MDQ3NV9WNA)
+
+## 5. 总体结论
+
+1. **G2 螺旋是调控非对映选择性的关键区域**：本文通过实验和计算相结合的方法，证明了 BF-STPSs 的 G2 螺旋是一个“可塑性”区域，其氨基酸组成直接影响碳正离子中间体的构象，从而精细地调控产物的非对映选择性。
+    
+2. **单点突变解锁巨大催化潜力**：一个简单的 V→A 突变，通过减小活性口袋的空间位阻，极大地增加了底物中间体的构象灵活性，从而引导反应进入新的环化路径，产生了一系列结构新颖、骨架多样、立体化学复杂的二倍半萜。
+    
+3. **发现了罕见的骨架转换**：突变体 DpPS-V194A 实现了从双环到三环产物的骨架转换，并生成了罕见的 Z-构型双键，为萜类生物合成提供了新的化学反应范例。
+    
+4. **提供了高效的酶工程策略**：本研究为通过理性设计改造萜类合酶、创造新型天然产物提供了新的思路和有效的策略，即通过靶向 G2 螺旋等可塑性区域来调控产物多样性。
+    
+
+## 6. 论文评价
+
+### 优点与创新：
+
+1. **深刻的机理洞察**：研究不仅发现了新化合物，更重要的是，通过 DFT 和 MD 模拟，从原子和动态的角度深刻揭示了单点突变如何通过影响中间体构象来改变产物选择性的根本原因。
+    
+2. **实验与计算的完美结合**：本文是实验（定点突变、产物鉴定）与理论计算（DFT, MD）协同解决复杂生物化学问题的典范，两者相互验证，共同构成了完整的证据链。
+    
+3. **高效的工程策略**：证明了靶向 G2 螺旋进行“微调”是一种高效的酶工程策略，仅用一个突变就获得了多个新颖且复杂的分子，远超传统的随机突变。
+    
+4. **发现新颖的化学结构**：鉴定出的多个新骨架和立体异构体，特别是罕见的 betaestacin 类三环萜和复杂的五环萜，极大地丰富了二倍半萜的化学空间。
+    
+
+### 未来研究方向：
+
+1. **G2 螺旋的系统性改造**：在 G2 螺旋的其他位点进行突变，或引入非天然氨基酸，系统地探索该区域对催化功能的调控规律。
+    
+2. **AI 辅助的酶设计**：利用本文产生的机理认识和数据，结合人工智能和机器学习方法，开发能够预测突变效应的模型，从而实现更精准、更高效的酶理性设计。
+    
+3. **结构生物学确证**：获得突变体酶与底物类似物或中间体类似物结合的共晶结构，将为 MD 模拟和 DFT 计算得出的机理模型提供最终的实验证据。
+    
+
+## 7. 关键问题及回答
+
+### 问题一：作者为什么选择 G2 螺旋上的缬氨酸 (Valine) 进行突变？
+
+回答：作者的选择是基于**生物信息学分析**和**结构模拟**的理性决策。
+
+首先，通过对 58 个 BF-STPSs 的序列比对和系统发育分析，他们发现 G2 螺旋的第一个转角处存在高度保守的氨基酸模式。在他们研究的 a 亚类中，这个位置通常被一个小的脂肪族氨基酸（如缬氨酸 V）和一个芳香族氨基酸占据 (**图 1B**)。
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NmZlYWU1MGVkZjVkMzlhZWE3YjQyZTZhZmM3ZWJiZmZfejU3NVRvZEt0TnY1QmRHMU1qd1FkcjU3S0FDRWFvNjFfVG9rZW46SEY4YmJSTjNOb1R5ZmJ4RVUwWWNWZ1ZhbmRiXzE3NjUxODY4NzU6MTc2NTE5MDQ3NV9WNA)
+
+其次，通过 AlphaFold2 进行的结构模拟显示，这个缬氨酸残基虽然不直接参与化学催化，但其侧链朝向活性口袋，对口袋的形状和空间大小有重要影响 (**图 1A**)。这些线索表明，该位点可能通过空间位阻效应来影响底物的结合和构象，因此是一个理想的、用于精细调控催化过程的突变“热点”。
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZmFjYTI2YjYyZTk1Njg1MTA5ZTNlZjY1ZDQxMDJhOGVfdWJ2Y0I1dGZad2hwTjE4RDRlS2JURFdQS21qZ1J5WVNfVG9rZW46SjlIb2Jvb2VGb1Izb294SGs1VWNMT0l2bm5iXzE3NjUxODY4NzU6MTc2NTE5MDQ3NV9WNA)
+
+### 问题二：一个 V→A 的单点突变，是如何导致酶产生多达五种不同骨架的新产物的？
+
+回答：这是本文的核心发现，其机理可以概括为**“空间位阻解除-构象自由度增加-反应路径多样化”**。
+
+1. **关键中间体**：所有反应都经过一个共同的、柔性的 5/15 双环碳正离子中间体 **IM2**。
+    
+2. **构象锁定**：在野生型酶中，体积较大的缬氨酸 (V) 侧链像一个“障碍物”，限制了 **IM2** 的构象变化，使其主要采纳少数几种能量有利的构象，这些构象只能进入有限的、通往已知双环产物的反应路径。
+    
+3. **解锁新构象**：当缬氨酸被替换为体积小得多的丙氨酸 (A) 后，活性口袋的空间变大，原有的空间位阻被解除。这使得 **IM2** 中间体获得了更大的“活动空间”，能够自由旋转并采纳一些在野生型中无法形成的、新的构象（如 **IM2-6** 和 **IM2-8**）。
+    
+4. **进入新路径**：这些新解锁的构象恰好是进入新颖环化路径（如形成三环产物）的“钥匙”。因此，一个简单的突变通过改变活性口袋的物理空间，间接地改变了高活性中间体的构象分布，从而打开了通往多个新产物的反应通道。这一过程在 **图 4** 的 MD 模拟结果中得到了清晰的展示。
+    
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZTg4NjA4YTBjMGRkY2VlNzE1OTI4NTY1YzRjZWU5MmNfYWMweXVhdmx0QWhVWjQ2UjhhMThKczBQZFV0c2piQ2ZfVG9rZW46QkFQcWJMR0Zlbzl6MkV4SHJGTWNDdm5tblBmXzE3NjUxODY4NzU6MTc2NTE5MDQ3NV9WNA)
+
+### 问题三：本文发现的 DpPS-V194A 催化生成的 tricyclic betaestacin-type 化合物有何特殊之处？
+
+回答：这种化合物的特殊之处在于其**罕见的骨架和化学键**。
+
+1. **骨架转换**：野生型 DpPS 只能产生双环产物，而突变体 DpPS-V194A 能够催化额外的环化反应，生成了更复杂的三环骨架。这种通过单点突变实现的从双环到三环的骨架转换在 BF-STPSs 的工程改造中非常罕见。
+    
+2. **Z-构型双键**：更重要的是，新生成的三环产物（**4-6**）中含有一个 **Z-构型的 Δ¹¹,¹² 双键**。在萜类天然产物中，绝大多数双键是 E-构型，Z-构型双键非常稀有。DFT 计算（**图 3B, Path VI/VII**）揭示，这个 Z-构型双键是通过一个非典型的、由构象驱动的 1,5-氢负离子迁移和 6,10-环化串联反应形成的。这一发现不仅扩展了已知的萜类化学结构，也为理解自然界如何构建非传统化学键提供了新的机理见解。
+    
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YTg5MzU3ODAyMTI4NjM0MzU2ZDQzYjQ2ODYxYjYzZTBfNTI4bjliM2ZVbFRHRXNKVWJybTZBaWVNTzNzc2JhWlNfVG9rZW46TEFxUWJsT3hGb1Zuemp4ek83YmNsR0k2bkViXzE3NjUxODY4NzU6MTc2NTE5MDQ3NV9WNA)
+
+## 课题组简介
+
+刘雪婷课题组长期致力于微生物天然药物的发现与创造，利用合成生物学策略合成“非天然”的活性天然产物及其关键酶催化机制研究。课题组采用基因组挖掘策略高效发现新颖抗感染活性天然产物（Angew. Chem. 2013；Org. Lett. 2013；Org. Lett. 2016；Cell Chem. Biol. 2020；J. Agric. Food Chem. 2024, 2025；ACS Chem. Biol. 2025等）；并进一步通过计算化学与蛋白质工程的融合创新，激活天然产物关键酶的新颖催化功能，创造了一系列“非天然”的新颖化合物（Nat. Prod. Rep. 2018；Org. Lett. 2021；JACS Au 2022，ACS Catal. 2023，Angew. Chem. 2024，ACS Catal. 2025等）。
+
+课题组主页：[https://biotech.ecust.edu.cn/2018/0329/c7935a74416/page.htm](https://biotech.ecust.edu.cn/2018/0329/c7935a74416/page.htm)
