@@ -1,5 +1,4 @@
-![image.png](https://cdn.jsdelivr.net/gh/Hongcheng-LI/SynBioPath/Picture///Picture/20251208172047696.png)
-
+![](assets/2025%20ACS%20Catal.%20-%20一种来源于苔藓的微生物样萜类合酶%20CrMTPSL3%20生成三环%20Sphaeroane%20骨架的发现、机制及生物制造研究/file-20251208172242861.png)
 
 该研究具有重要的学术价值，它不仅打破了 Sphaeroane 类二萜仅存在于微生物和低等海洋生物中的认知，还通过精妙的同位素标记策略解析了复杂的环化机制。
 
@@ -28,7 +27,7 @@
 
 Sphaeroane 类二萜是一类具有独特的 5,7,6-三环骨架的天然产物，结构上衍生自 neodolabellane。此前，这类化合物仅在红藻、真菌或细菌中有少量报道（仅 7 例），在绿色植物中从未被发现。由于缺乏相关的生物合成研究，其复杂的环化机制一直未被阐明，且缺乏高效的生物制造手段。
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YzgxYWI4MGYwMGY0NmRhYzMzMzA2OWU1YWJkYTJkY2ZfdzB2dzRuSzlUMmFkN0V6b1BWY1AyWUJTeEJ3MVBCRjhfVG9rZW46UTd6ZWJSOFFnb2ZORlZ4ZTlqZGN3VWpLbnpnXzE3NjUxODQxNTc6MTc2NTE4Nzc1N19WNA)
+![](assets/2025%20ACS%20Catal.%20-%20一种来源于苔藓的微生物样萜类合酶%20CrMTPSL3%20生成三环%20Sphaeroane%20骨架的发现、机制及生物制造研究/file-20251208172258606.png)
 
 ### 前期研究
 
@@ -78,7 +77,7 @@ Sphaeroane 类二萜是一类具有独特的 5,7,6-三环骨架的天然产物�
 - **Figure 1B**: GC-MS 分析显示，表达 CrMTPSL3 的菌株产生了多种萜类化合物，包括 6 种新二萜 (**1**-**6**)、1 种已知二萜 (**7**) 以及 9 种倍半萜。
     
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NmJlMDI2NjllNDUyZjNmNjk4NjgxNGU2OTAzZDUwOTVfQTc4dHFkb0FqVTBRSFRqUVVBd3pJUmZsWkpOalN5MTdfVG9rZW46VTJFUmJkTWJqb1RiQVd4TW1WTmNFN0w1bnFiXzE3NjUxODQxNTc6MTc2NTE4Nzc1N19WNA)
+![](assets/2025%20ACS%20Catal.%20-%20一种来源于苔藓的微生物样萜类合酶%20CrMTPSL3%20生成三环%20Sphaeroane%20骨架的发现、机制及生物制造研究/file-20251208172310251.png)
 
 - **蛋白表达优化**: 初始构建并未检测到体外活性。通过融合酸性短肽标签 (CC-Di-A)，显著提高了蛋白的可溶性表达，使得后续的大规模发酵和产物分离成为可能。
     
@@ -92,7 +91,7 @@ Sphaeroane 类二萜是一类具有独特的 5,7,6-三环骨架的天然产物�
 - **Figure 1C & 1D**: 首先解析了含有芳香环的化合物 **2**，NMR 数据显示其具有 5,7,6-三环骨架。
     
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=M2ZmOGIyYTYzYjY0ZWUxNjU1ODM5M2ZlMGY4ZTE3OTFfbFY3eHlNS2c2MmNDR0prYVA0YkM0ZGNPaFF1QU1NUW1fVG9rZW46QXRpZGJkWUwzb3AzNlV4cDVsUGN4ZXpxbnJkXzE3NjUxODQxNTc6MTc2NTE4Nzc1N19WNA)
+![](assets/2025%20ACS%20Catal.%20-%20一种来源于苔藓的微生物样萜类合酶%20CrMTPSL3%20生成三环%20Sphaeroane%20骨架的发现、机制及生物制造研究/file-20251208172321674.png)
 
 - **Figure 1E (关键突破)**: 主产物 **1** 为油状物。研究者将其衍生化为双环氧化物 (**diepoxide-1**)，并利用 _Ag_3_Pz_3作为结晶伴侣成功获得单晶。X-射线衍射确定了 **1** 的绝对构型为 **1R, 7S, 10S, 11S, 14S**。
     
@@ -105,7 +104,7 @@ Sphaeroane 类二萜是一类具有独特的 5,7,6-三环骨架的天然产物�
 
 **Figure 2A**:
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=N2UyM2JkM2YyNDg3YWJkMGRjYTJiZTI2NjllNDM2NzlfNW85am5mS04yRWlOQ3VBeldUVnNGSERKZXFqT3ZNVEZfVG9rZW46SkFPb2J1ajREb3hzQUV4MnREZWM0T1JCbkFjXzE3NjUxODQxNTc6MTc2NTE4Nzc1N19WNA)
+![](assets/2025%20ACS%20Catal.%20-%20一种来源于苔藓的微生物样萜类合酶%20CrMTPSL3%20生成三环%20Sphaeroane%20骨架的发现、机制及生物制造研究/file-20251208172352552.png)
 
 - **异构化验证**: 实验证实酶首先将 GGPP 转化为 (S)-GLPP (geranyl linalyl diphosphate)。
     
@@ -120,7 +119,7 @@ Sphaeroane 类二萜是一类具有独特的 5,7,6-三环骨架的天然产物�
 
 **Figure 2B (机理推导)**: 基于上述数据，提出了完整的环化路径：GGPP → (S)-GLPP → 1,11- 和 10,14-环化 → 阳离子 B → 两次 1,2-H 迁移 → 阳离子 C → 1,2-Me 迁移 → 阳离子 D → 1,2-H 迁移 → 阳离子 E → 1,6-环化 → 阳离子 F → 1,2-H 迁移 → 阳离子 G → 去质子化生成 **1**。
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NjYxMmU3NDQzMTRlN2Q3MDQ2ODE0NzkzODVhZWE2M2ZfdGswMlIzaDRpOUcwOFVNejhXQjRqRlpza2VGMENQamRfVG9rZW46QnV4TWJ0SmY4b1c2OE54TXlGeGNUZ3Vlbm1iXzE3NjUxODQxNTc6MTc2NTE4Nzc1N19WNA)
+![](assets/2025%20ACS%20Catal.%20-%20一种来源于苔藓的微生物样萜类合酶%20CrMTPSL3%20生成三环%20Sphaeroane%20骨架的发现、机制及生物制造研究/file-20251208172400919.png)
 
 > "The deuterium scanning method is a powerful tool for elucidating the catalytic mechanisms of terpene synthases that complements the traditionally widely used deuterium labeling techniques... It further extends mechanistic analysis to insoluble TSs whose activity has only been observed in vivo but not in vitro."
 
@@ -130,7 +129,7 @@ Sphaeroane 类二萜是一类具有独特的 5,7,6-三环骨架的天然产物�
 
 **Figure 3A**: AlphaFold3 模型与 GGPP 的对接显示，底物以预扭曲构象结合。
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDVlYzJiNTk0MjM3ZTNmMmE5YWZjMDNmYzVlYmU0NDhfZzdkVEt5ZGR5MDJrYXRCUlhGZVJ4U3hTRkltM05TczBfVG9rZW46VWtVYWJwSmVtb0czTm94aEJuZ2NNMzFkblI0XzE3NjUxODQxNTc6MTc2NTE4Nzc1N19WNA)
+![](assets/2025%20ACS%20Catal.%20-%20一种来源于苔藓的微生物样萜类合酶%20CrMTPSL3%20生成三环%20Sphaeroane%20骨架的发现、机制及生物制造研究/file-20251208172408485.png)
 
 **Figure 3B & 3C**:
 
@@ -147,7 +146,7 @@ Sphaeroane 类二萜是一类具有独特的 5,7,6-三环骨架的天然产物�
 
 **Figure 4**:
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NjMxNTdiMmFhZGY4YWQ0YTFiZjg0NTIzZDY0MWVlMzhfbkkyeEhtVnoxenluT0xaM2pvMkhxMmkxeVl6WVo0cEVfVG9rZW46UmtIVWJZZGIzb0xwWW54ZHdZTGNnY0FvbjFlXzE3NjUxODQxNTc6MTc2NTE4Nzc1N19WNA)
+![](assets/2025%20ACS%20Catal.%20-%20一种来源于苔藓的微生物样萜类合酶%20CrMTPSL3%20生成三环%20Sphaeroane%20骨架的发现、机制及生物制造研究/file-20251208172417641.png)
 
 - **融合标签策略**: 引入 CC-Di-A 融合标签使产量较未融合对照提高了 10 倍。
     
