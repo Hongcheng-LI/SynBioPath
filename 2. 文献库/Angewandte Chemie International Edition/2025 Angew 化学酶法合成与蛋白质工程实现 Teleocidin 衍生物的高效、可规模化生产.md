@@ -1,6 +1,6 @@
 ![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NmYzMTFiMzlhNWYwMjcyMzgwZjNhNjhiNjkyNGI3MGVfYW5Ya3dIeDkzdWR1UE0ycHFlRGdzOVVsM1dvdWtZWWJfVG9rZW46R3I3MGI3ajBUbzh2Wmp4OEFPV2M4b2U1bmRoXzE3NjUxODgxMTY6MTc2NTE5MTcxNl9WNA)
 
-1. ## 基本信息
+## 1. 基本信息
     
 
 **文章题目**：Chemoenzymatic Synthesis and Protein Engineering Enable Efficient, Scalable Production of Teleocidin Derivatives
@@ -16,7 +16,7 @@
 - **宋恒**：武汉大学化学与分子科学学院 (College of Chemistry and Molecular Sciences, Wuhan University)；武汉大学深圳研究院 (Wuhan University Shenzhen Research Institute)
     
 
-2. ## 核心速览
+## 2. 核心速览
     
 
 ### 研究背景：
@@ -51,7 +51,7 @@
 3. **规模化生产的挑战**：将实验室级别的生物催化反应放大到工业级别的生产规模，面临着成本、稳定性和产率等多方面的挑战。
     
 
-4. ## 研究方法
+## 3. 研究方法
     
 
 - **化学-酶法偶联合成**：采用混合策略。首先，通过高效的**化学合成**方法，从廉价的商业原料（L-色氨酸甲酯和 Cbz-保护的 N-甲基-L-缬氨酸）出发，快速、大规模地制备关键前体 **NMVT (1)**。然后，利用**全细胞生物催化**，将 **1** 转化为结构更复杂的下游产物。
@@ -67,7 +67,7 @@
 - **发酵与产物分析**：通过摇瓶发酵和 20 L 规模的生物反应器发酵，对工程菌株进行培养。使用 **HPLC** 和 **LC-MS** 对产物进行分离、定量分析，并利用 **NMR** 对新化合物进行结构确证。
     
 
-4. ## 实验设计及结果分析
+## 4. 实验设计及结果分析
     
 
 ### 第一部分：关键中间体 Indolactam V (2) 的高效生物合成
@@ -191,7 +191,7 @@
 
 ![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MzFiNjg4MzFlMWEyZTM1M2Y5ZTIxZmY4ZTk5MGE0MTRfaFF6Z0MxMVRhN1V2VVM1bWU3b3ZjR3BCYzhvWmxsckxfVG9rZW46U0U2SGJMSFdxb1RNNzh4M0JxaWNFdXRtbnliXzE3NjUxODgxMTY6MTc2NTE5MTcxNl9WNA)
 
-5. ## 总体结论
+## 5. 总体结论
     
 
 6. **成功构建了高效的化学-酶法合成平台**：通过将化学合成与模块化的生物催化相结合，成功建立了一个能够高效、可规模化生产 Teleocidin 家族化合物的平台。
