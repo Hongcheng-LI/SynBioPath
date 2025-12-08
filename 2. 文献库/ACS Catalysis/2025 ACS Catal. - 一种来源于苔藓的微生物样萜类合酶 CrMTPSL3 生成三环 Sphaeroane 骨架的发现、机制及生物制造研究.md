@@ -1,0 +1,194 @@
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=Mjc5YWNlNTMxY2QzOTFiNTM0MWIxNDFkMGViNmM0NDZfYkhCZGMyUGg3bVdmdWJNTkhTeVFDUWZMU21KWHZPRmVfVG9rZW46U3Q1Z2J0dEJvb09ndml4b0c0QWN0YmxlbkljXzE3NjUxODQxNTc6MTc2NTE4Nzc1N19WNA)
+
+该研究具有重要的学术价值，它不仅打破了 Sphaeroane 类二萜仅存在于微生物和低等海洋生物中的认知，还通过精妙的同位素标记策略解析了复杂的环化机制。
+
+---
+
+## 一：基本信息
+
+**文章题目**：Discovery, Mechanism, and Bioproduction Studies of a Moss-Derived Microbial-like Terpene Synthase CrMTPSL3 Generating the Tricyclic Sphaeroane Scaffold
+
+**文章** **DOI** **号**：10.1021/acscatal.5c06284
+
+**期刊名称**：ACS Catalysis
+
+**通讯作者**：Baofu Xu (徐宝福)；Zhengren Xu (徐正仁)
+
+**通讯作者工作单位**：
+
+- 徐宝福：烟台新药创制山东省实验室、中科环渤海高研院
+    
+- 徐正仁：北京大学药学院
+    
+
+## 二：核心速览
+
+### 研究背景
+
+Sphaeroane 类二萜是一类具有独特的 5,7,6-三环骨架的天然产物，结构上衍生自 neodolabellane。此前，这类化合物仅在红藻、真菌或细菌中有少量报道（仅 7 例），在绿色植物中从未被发现。由于缺乏相关的生物合成研究，其复杂的环化机制一直未被阐明，且缺乏高效的生物制造手段。
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YzgxYWI4MGYwMGY0NmRhYzMzMzA2OWU1YWJkYTJkY2ZfdzB2dzRuSzlUMmFkN0V6b1BWY1AyWUJTeEJ3MVBCRjhfVG9rZW46UTd6ZWJSOFFnb2ZORlZ4ZTlqZGN3VWpLbnpnXzE3NjUxODQxNTc6MTc2NTE4Nzc1N19WNA)
+
+### 前期研究
+
+已有的研究主要集中在海洋生物或微生物来源的化合物分离及化学全合成。近期虽有关于细菌来源的 sphaeroane 合酶（AsSS 和 CvSS）的报道，但关于植物来源的酶及其详细的环化机理（特别是氢迁移和甲基迁移过程）仍是空白。
+
+### 本文突破点
+
+1. **植物源酶的首个发现**: 从黄牛毛藓 (_Claopodium rostratum_) 中鉴定出首个植物来源的 sphaeroane 二萜合酶 CrMTPSL3。
+    
+2. **机制解析**: 利用“氘代扫描 (Deuterium-scanning)”技术，结合体内前体供给系统，精确阐明了从 GGPP 到 sphaeroane 骨架的复杂环化级联反应，包括关键的异构化、两次 1,2-负氢迁移和一次 1,2-甲基迁移。
+    
+3. **结构确证**: 利用小分子结晶伴侣 (small molecule crystal chaperone) 技术解决了油状产物的结晶难题，确定了绝对构型。
+    
+4. **生物制造**: 通过酶工程改造和发酵优化，构建了高效的 _E. coli_ 细胞工厂，产量达到百毫克级 (114 mg/L)。
+    
+
+### 研究难点
+
+1. **酶的表达与活性**: 植物来源的微生物样萜类合酶 (MTPSL) 在原核宿主中往往表达困难或以包涵体形式存在，难以进行体外酶活表征。
+    
+2. **产物结构复杂**: 产物多为非结晶性油状物，且立体中心多，绝对构型确定困难。
+    
+3. **环化机制隐蔽**: 涉及多步重排和迁移，传统的体外酶活实验难以捕捉中间体，且酶在体外活性低，限制了同位素标记实验的开展。
+    
+
+## 三：研究方法
+
+- **基因组挖掘与异源表达**: 基于序列同源性筛选苔藓转录组，利用 _E. coli_ 进行异源表达，采用融合标签 (CC-Di-A) 提高蛋白可溶性。
+    
+- **化学结构解析**: 综合运用 GC-MS, HR-ESIMS, 1D/2D NMR (COSY, HSQC, HMBC, NOESY)。
+    
+- **X-射线单晶衍射**: 引入小分子结晶伴侣 (_Ag_3_Pz_3) 与产物的衍生物共结晶，以确定绝对立体化学。
+    
+- **氘代扫描 (Deuterium-scanning)**: 核心方法。在体内共表达激酶途径合成氘代前体 (GGPP)，通过 GC-MS 分析产物中氘原子的保留与位移，推导环化机理。
+    
+- **分子模拟与定点突变**: 利用 AlphaFold3 预测蛋白结构，进行分子对接 (Docking)，并通过丙氨酸扫描和饱和突变验证关键残基。
+    
+- **代谢工程**: 优化发酵条件（补料、诱导强度、培养基）及菌株背景（乙酸耐受菌株）。
+    
+
+## 四：实验设计及结果分析
+
+### 研究部分一：CrMTPSL3 的发现与功能表征
+
+旨在从苔藓中挖掘新型萜类合酶，并验证其催化功能。研究者将候选基因 _CrMTPSL3_ 构建入 pET28a 载体，并在 _E. coli_ 中与 GGPP 过产模块 (MKI4) 共表达。
+
+- **Figure 1B**: GC-MS 分析显示，表达 CrMTPSL3 的菌株产生了多种萜类化合物，包括 6 种新二萜 (**1**-**6**)、1 种已知二萜 (**7**) 以及 9 种倍半萜。
+    
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NmJlMDI2NjllNDUyZjNmNjk4NjgxNGU2OTAzZDUwOTVfQTc4dHFkb0FqVTBRSFRqUVVBd3pJUmZsWkpOalN5MTdfVG9rZW46VTJFUmJkTWJqb1RiQVd4TW1WTmNFN0w1bnFiXzE3NjUxODQxNTc6MTc2NTE4Nzc1N19WNA)
+
+- **蛋白表达优化**: 初始构建并未检测到体外活性。通过融合酸性短肽标签 (CC-Di-A)，显著提高了蛋白的可溶性表达，使得后续的大规模发酵和产物分离成为可能。
+    
+- **结论**: CrMTPSL3 是一个多产物合酶 (promiscuous synthase)，主产物为化合物 **1**。
+    
+
+### 研究部分二：产物结构与绝对构型的确定
+
+解析主产物 **1** 及其芳香化衍生物 **2** 的化学结构和立体构型。
+
+- **Figure 1C & 1D**: 首先解析了含有芳香环的化合物 **2**，NMR 数据显示其具有 5,7,6-三环骨架。
+    
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=M2ZmOGIyYTYzYjY0ZWUxNjU1ODM5M2ZlMGY4ZTE3OTFfbFY3eHlNS2c2MmNDR0prYVA0YkM0ZGNPaFF1QU1NUW1fVG9rZW46QXRpZGJkWUwzb3AzNlV4cDVsUGN4ZXpxbnJkXzE3NjUxODQxNTc6MTc2NTE4Nzc1N19WNA)
+
+- **Figure 1E (关键突破)**: 主产物 **1** 为油状物。研究者将其衍生化为双环氧化物 (**diepoxide-1**)，并利用 _Ag_3_Pz_3作为结晶伴侣成功获得单晶。X-射线衍射确定了 **1** 的绝对构型为 **1R, 7S, 10S, 11S, 14S**。
+    
+- **结构意义**: 这是首次确定的植物来源 sphaeroane 二萜的绝对构型，证实了苔藓具备合成此类复杂骨架的能力。
+    
+
+### 研究部分三：基于“氘代扫描”的环化机制解析
+
+阐明 CrMTPSL3 催化 GGPP 形成 sphaeroane 骨架的具体电子重排路径。由于体外酶活低，研究者开发了体内“氘代扫描”策略：在工程菌中饲喂氘代异戊烯醇 (isoprenol) 或异戊烯醇前体，原位生成氘代 GGPP 并被合酶转化。
+
+**Figure 2A**:
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=N2UyM2JkM2YyNDg3YWJkMGRjYTJiZTI2NjllNDM2NzlfNW85am5mS04yRWlOQ3VBeldUVnNGSERKZXFqT3ZNVEZfVG9rZW46SkFPb2J1ajREb3hzQUV4MnREZWM0T1JCbkFjXzE3NjUxODQxNTc6MTc2NTE4Nzc1N19WNA)
+
+- **异构化验证**: 实验证实酶首先将 GGPP 转化为 (S)-GLPP (geranyl linalyl diphosphate)。
+    
+- **1,2-负氢迁移 (1,2-H shift)**: 标记实验 **1D1**（14-2H）显示 C14 的氘原子迁移到了 C15，证实了第一个负氢迁移。
+    
+- **1,2-甲基迁移 (1,2-Me shift)**: 标记实验 **1D2**（18,19,20-2H9）显示 C11 上的甲基迁移到了 C10。
+    
+- **第二次负氢迁移**: 标记实验 **1D3**（2,6,10-2H3）揭示了 C6 的氘原子迁移到了 C7。
+    
+- **立体化学探究**: 标记实验 **1D5** 和 **1D6** 分别使用了手性氘代前体，证实了特定构型的质子丢失和迁移（如 pro-S 氢的迁移和 pro-R 氢的去质子化）。
+    
+
+**Figure 2B (机理推导)**: 基于上述数据，提出了完整的环化路径：GGPP → (S)-GLPP → 1,11- 和 10,14-环化 → 阳离子 B → 两次 1,2-H 迁移 → 阳离子 C → 1,2-Me 迁移 → 阳离子 D → 1,2-H 迁移 → 阳离子 E → 1,6-环化 → 阳离子 F → 1,2-H 迁移 → 阳离子 G → 去质子化生成 **1**。
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NjYxMmU3NDQzMTRlN2Q3MDQ2ODE0NzkzODVhZWE2M2ZfdGswMlIzaDRpOUcwOFVNejhXQjRqRlpza2VGMENQamRfVG9rZW46QnV4TWJ0SmY4b1c2OE54TXlGeGNUZ3Vlbm1iXzE3NjUxODQxNTc6MTc2NTE4Nzc1N19WNA)
+
+> "The deuterium scanning method is a powerful tool for elucidating the catalytic mechanisms of terpene synthases that complements the traditionally widely used deuterium labeling techniques... It further extends mechanistic analysis to insoluble TSs whose activity has only been observed in vivo but not in vitro."
+
+### 研究部分四：结构基础与定点突变
+
+探究决定 CrMTPSL3 催化特异性的关键氨基酸残基。
+
+**Figure 3A**: AlphaFold3 模型与 GGPP 的对接显示，底物以预扭曲构象结合。
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDVlYzJiNTk0MjM3ZTNmMmE5YWZjMDNmYzVlYmU0NDhfZzdkVEt5ZGR5MDJrYXRCUlhGZVJ4U3hTRkltM05TczBfVG9rZW46VWtVYWJwSmVtb0czTm94aEJuZ2NNMzFkblI0XzE3NjUxODQxNTc6MTc2NTE4Nzc1N19WNA)
+
+**Figure 3B & 3C**:
+
+- **C172A**: 突变导致产物 **1** 的产量提高了 3.5 倍，表明该位点可能限制了产物释放或催化速率。
+    
+- **C283 位点的可塑性**: C283L/F/M/Y/H 等突变彻底改变了产物谱，主产物 **1** 消失，而芳香化产物 **2** 的产量显著增加（2-7倍）。这表明 C283 在稳定碳正离子中间体、防止过早去质子化或氧化方面起关键作用。
+    
+- **新骨架生成**: C283F 突变体产生了具有 gersemiane 骨架的新产物 **M-1**；C283F 和 F435G 产生了双环产物 **M-2**。这展示了该酶作为生物催化剂进行骨架多样化改造的潜力。
+    
+
+### 研究部分五：生物制造工程
+
+构建高效生产 sphaeroane 化合物的细胞工厂。
+
+**Figure 4**:
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NjMxNTdiMmFhZGY4YWQ0YTFiZjg0NTIzZDY0MWVlMzhfbkkyeEhtVnoxenluT0xaM2pvMkhxMmkxeVl6WVo0cEVfVG9rZW46UmtIVWJZZGIzb0xwWW54ZHdZTGNnY0FvbjFlXzE3NjUxODQxNTc6MTc2NTE4Nzc1N19WNA)
+
+- **融合标签策略**: 引入 CC-Di-A 融合标签使产量较未融合对照提高了 10 倍。
+    
+- **点突变引入**: 引入 C172A 高产突变，产量进一步提升至初始菌株的 36.7 倍。
+    
+- **代谢流优化**: 结合优化的 GGPP 供给模块 (CDF-scMKI4-GS) 和乙酸耐受菌株 (acetate-resistant strain)，最终在摇瓶发酵中实现了 **114 ± 3 mg/L** 的产量。
+    
+
+## 五：总体结论
+
+本研究首次在植物（苔藓）中发现并表征了 sphaeroane 二萜合酶 CrMTPSL3，填补了该类化合物在植物界生物合成研究的空白。通过创新的体内氘代扫描技术，详尽解析了其复杂的环化机理，揭示了与细菌同类酶不同的进化轨迹（植物酶不涉及质子化启动步骤）。此外，通过结构导向的酶工程和代谢工程，成功建立了该类稀有天然产物的高效生物制造平台。
+
+## 六：论文评价
+
+### 优点与创新
+
+1. **方法学的胜利**: 在酶体外活性极低的情况下，巧妙利用体内“氘代扫描”技术解决了复杂环化机理的解析难题，为难表达萜类合酶的机制研究提供了范式。
+    
+2. **结晶技术的应用**: 利用小分子伴侣解决油状萜类化合物结晶难的问题，数据质量高，结论确凿。
+    
+3. **进化视角的补充**: 发现了植物来源的 sphaeroane 合酶，且机制与细菌来源的酶（通常涉及质子化启动）截然不同（本研究涉及 GLPP 中间体），暗示了趋同进化或独特的进化分支。
+    
+4. **应用潜力**: 实现了从“微量发现”到“百毫克级制备”的跨越，为后续药物开发提供了物质基础。
+    
+
+### 未来研究方向
+
+1. **C283 位点的氧化机制**: C283 突变如何导致产物芳香化（化合物 **2** 的生成）？这是否涉及一种隐秘的氧化机制或非酶促氧化，值得进一步探究。
+    
+2. **下游修饰酶的挖掘**: Sphaeroane 类化合物的生物活性往往依赖于氧化修饰。未来需在苔藓基因组中挖掘配套的 P450 酶或酰基转移酶，以合成更复杂的活性分子。
+    
+
+## 七：关键问题及回答
+
+#### **问题一：CrMTPSL3 的环化机制与已知的细菌 sphaeroane 合酶有何本质区别？**
+
+**回答：** 细菌来源的 sphaeroane 合酶（如 AsSS）通常被认为通过质子化启动环化（protonation-initiated），即直接质子化底物双键引发反应。而本研究发现，植物来源的 CrMTPSL3 遵循典型的 I 型萜类合酶机制，即依赖于焦磷酸基团的离去（ionization-initiated）。具体表现为 GGPP 先异构化为 (S)-GLPP，随后通过焦磷酸根离去形成碳正离子引发环化。这一点通过体内实验排除了质子化启动的可能性（Figure 2A, vii）。
+
+#### **问题二：为什么 C283 位点的突变会引起产物谱的剧烈变化，特别是芳香化产物 2 的增加？**
+
+**回答：** C283 位于活性口袋内部，可能与邻近残基（如 C287）形成二硫键或通过空间位阻稳定特定的碳正离子中间体。突变（如 C283L/F）可能破坏了这种稳定作用，导致中间体构象改变，使得反应路径偏向于过早的去质子化或氧化，从而生成热力学更稳定的芳香化产物 **2**。这也暗示了该位点是控制产物骨架多样性的“热点”残基。
+
+#### **问题三：“氘代扫描”技术在本研究中相比传统体外酶活实验有何优势？**
+
+**回答：** 传统的体外酶活实验需要纯化的蛋白和昂贵的氘代底物，且对于 CrMTPSL3 这种体外活性极低、易沉淀的酶，难以获得足够的产物信号进行 NMR 或 GC-MS 分析。体内“氘代扫描”技术直接利用工程菌摄取氘代前体，在细胞内高效合成氘代 GGPP 并转化为产物，不仅规避了酶纯化和稳定性的问题，还能获得高丰度的产物信号，从而能够精确追踪氢原子和甲基的迁移路径。
