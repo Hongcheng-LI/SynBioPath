@@ -1,4 +1,4 @@
-
+![](assets/2025%20Angew%20临床重要二萜化合物穿心莲内酯在穿心莲中的生物合成途径/file-20251208175613456.png)
 ## 1. 基本信息
 
 **文章题目：** Completing the Biosynthesis of the Clinically Important Diterpenoid Andrographolide in _Andrographis paniculata_ (临床重要二萜化合物穿心莲内酯在穿心莲中的生物合成途径)
