@@ -1,4 +1,0 @@
-
-**Nature Synthesis**
-
-

@@ -1,4 +1,0 @@
-
-**ACS Central Science**
-
-

@@ -1,3 +1,0 @@
-
-**ACS Infectious Diseases**
-
