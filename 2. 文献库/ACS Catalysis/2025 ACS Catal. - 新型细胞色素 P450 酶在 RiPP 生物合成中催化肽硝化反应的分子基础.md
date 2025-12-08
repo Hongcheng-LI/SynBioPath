@@ -1,4 +1,4 @@
-⚠️upload failed, check dev console
+![](https://cdn.jsdelivr.net/gh/Hongcheng-LI/SynBioPath/Picture///Picture/20251208171556535.png)
 
 ## 1. 基本信息
 
