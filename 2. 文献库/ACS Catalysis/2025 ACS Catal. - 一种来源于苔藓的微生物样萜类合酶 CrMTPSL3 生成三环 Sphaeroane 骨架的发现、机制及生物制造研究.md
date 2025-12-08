@@ -1,4 +1,5 @@
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=Mjc5YWNlNTMxY2QzOTFiNTM0MWIxNDFkMGViNmM0NDZfYkhCZGMyUGg3bVdmdWJNTkhTeVFDUWZMU21KWHZPRmVfVG9rZW46U3Q1Z2J0dEJvb09ndml4b0c0QWN0YmxlbkljXzE3NjUxODQxNTc6MTc2NTE4Nzc1N19WNA)
+![image.png](https://cdn.jsdelivr.net/gh/Hongcheng-LI/SynBioPath/Picture///Picture/20251208172047696.png)
+
 
 该研究具有重要的学术价值，它不仅打破了 Sphaeroane 类二萜仅存在于微生物和低等海洋生物中的认知，还通过精妙的同位素标记策略解析了复杂的环化机制。
 
