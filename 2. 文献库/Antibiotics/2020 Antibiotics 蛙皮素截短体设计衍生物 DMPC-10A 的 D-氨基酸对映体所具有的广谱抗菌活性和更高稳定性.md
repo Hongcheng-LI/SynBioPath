@@ -1,0 +1,203 @@
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MDg0OWE2YmMwZDI0ZGI1MTljYzY2YjZhMDM4OTk4YjRfQjlPS28zajdHcXJWTUpKbW9NOWlhVWxFeXZHcXBRZWJfVG9rZW46UHZtWmJNYnFGb0RJOWR4SFNYbGNraGZPbmdkXzE3NjUxODkwMTA6MTc2NTE5MjYxMF9WNA)
+
+  
+
+---
+
+## 一：基本信息
+
+**文章题目**：Broad-Spectrum Antimicrobial Activity and Improved Stability of a D-Amino Acid Enantiomer of DMPC-10A, the Designed Derivative of Dermaseptin Truncates
+
+**文章** **DOI** **号**：10.3390/antibiotics9090627
+
+**期刊名称**：Antibiotics
+
+**通讯作者**：Xinping Xi
+
+**通讯作者工作单位**：Queen's University Belfast (贝尔法斯特女王大学)
+
+## 二：核心速览
+
+### 研究背景
+
+抗菌肽 (Antimicrobial peptides, AMPs) 因其广谱抗菌活性和不易诱导耐药性而被视为对抗抗生素耐药菌的新希望。然而，天然 AMPs 通常由 L-氨基酸构成，存在稳定性差、易被蛋白酶降解、半衰期短等缺陷，限制了其临床应用。蛙皮素 (Dermaseptins) 是一类从蛙皮中发现的阳离子 AMPs，其 N-末端区域是发挥抗菌活性的关键。DMPC-10A 是研究团队前期设计的一种基于蛙皮素 N-末端的 10-肽衍生物，虽具有广谱活性，但仍存在较高的溶血活性和蛋白酶不稳定性问题。
+
+### 前期研究
+
+已有研究表明，将 AMPs 中的 L-氨基酸替换为 D-氨基酸可以有效提高其对蛋白酶的抗性。完全由 D-氨基酸构成的全-D 对映体肽通常能保持与天然 L-型肽相当的活性，但其极长的体内半衰期可能带来潜在的毒副作用。因此，部分 D-氨基酸取代的策略被认为是一种更理想的优化方案，旨在平衡活性、稳定性与安全性。
+
+### 本文突破点
+
+本文的核心突破在于通过一种**部分 D-氨基酸取代**的理性设计策略，成功地将一个已知的抗菌肽 DMPC-10A 改造为其对映异构体 DMPC-10B，该改造显著优化了肽的综合性能。具体而言：
+
+1. **实现了性能的“解耦”优化**：新设计的 DMPC-10B 在保持与母体肽 DMPC-10A 相当的广谱抗菌活性的同时，其**溶血活性和细胞毒性显著降低**。
+    
+2. **大幅提升了生物稳定性**：DMPC-10B 对胰蛋白酶 (trypsin) 和胰凝乳蛋白酶 (chymotrypsin) 的水解表现出**极高的抗性**，解决了天然肽易被降解的关键瓶颈。
+    
+3. **验证了体内药效和协同作用**：在蜡螟 (_Galleria mellonella_) 幼虫感染模型中，DMPC-10B 显示出优异的体内抗菌效果，并与庆大霉素 (gentamicin) 联用时对耐碳青霉烯类肺炎克雷伯菌表现出协同杀菌作用。
+    
+
+### 研究难点
+
+本研究的主要难点在于如何通过最小化的结构改造，实现抗菌活性、细胞毒性和稳定性的最佳平衡。这需要对肽的二级结构、两亲性以及与不同类型细胞膜（细菌 vs. 哺乳动物）的相互作用模式有深刻的理解，以指导 D-氨基酸取代位点的选择。
+
+## 三：研究方法
+
+- **肽的理性设计与合成 (Rational Peptide Design and Synthesis)**: 基于母体肽 DMPC-10A (ALWKKLLKK-Cha-NH₂) 的结构，设计了其对映异构体 DMPC-10B。在 DMPC-10B 中，所有的 L-赖氨酸 (L-Lys) 和 L-亮氨酸 (L-Leu) 被替换为它们对应的 D-构型氨基酸，而 N-末端的 L-丙氨酸 (Ala¹) 和 L-色氨酸 (Trp³) 保持不变。肽通过固相合成法制备。
+    
+- **二级结构分析 (Secondary Structure Analysis)**: 使用圆二色谱 (Circular Dichroism, CD) 在模拟膜环境（三氟乙醇, TFE）和水相环境中分析 DMPC-10A 和 DMPC-10B 的二级结构。
+    
+- **抗菌活性测试 (Antimicrobial Activity Assays)**: 采用微量肉汤稀释法测定肽对多种革兰氏阳性菌和阴性菌（包括 MRSA 和耐碳青霉烯菌株）的最低抑菌浓度 (Minimum Inhibitory Concentration, MIC)。
+    
+- **蛋白酶稳定性分析 (Protease Stability Assay)**: 将肽与胰蛋白酶或胰凝乳蛋白酶共孵育，在不同时间点通过反相高效液相色谱 (RP-HPLC) 检测完整肽的剩余量，以评估其抗酶解能力。
+    
+- **细胞毒性与溶血活性测试 (Cytotoxicity and Hemolytic Activity Assays)**: 分别使用人角质形成细胞系 (HaCat) 和马红细胞，通过 MTT 法、LDH 释放实验和血红蛋白释放实验，评估肽对哺乳动物细胞的毒性。
+    
+- **膜通透性分析 (Membrane Permeability Assay)**: 通过检测肽诱导的细菌细胞膜对荧光染料的通透性增加，来评估其破坏细菌膜的能力。
+    
+- **协同作用测试 (Synergy Assay)**: 采用棋盘格稀释法，将 DMPC-10B 与常规抗生素（庆大霉素、诺氟沙星）联用，测定其对耐药菌的协同、相加或拮抗作用。
+    
+- **体内药效模型 (In Vivo Efficacy Model)**: 使用蜡螟幼虫作为替代性感染模型，通过注射肽来治疗被 MRSA 或肺炎克雷伯菌感染的幼虫，并监测其存活率。
+    
+
+## 四：实验设计及结果分析
+
+### 研究部分一：DMPC-10B 的设计与结构表征
+
+本研究的起点是设计一种 DMPC-10A 的衍生物，旨在降低其溶血活性并提高其蛋白酶稳定性。设计策略是部分 D-氨基酸取代，保留 L-Ala¹ 和 L-Trp³，而将其他 L-氨基酸替换为 D-型。
+
+- **(图 1)** 圆二色谱 (CD) 分析显示，在模拟膜环境 (50% TFE) 中，母体肽 DMPC-10A 呈现出典型的右手 α-螺旋构象（在 208 nm 和 222 nm 处有强负信号）。与之相对，DMPC-10B 则呈现出镜像的**左手 α-螺旋构象**（在 208 nm 和 222 nm 处有强正信号）。这证实了 D-氨基酸的引入成功地改变了肽的二级结构手性。
+    
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZTZjZGFjNjYyNmFkMTczNjkzNWI5NGViMmYxZjI4NjlfbHlLcEpacEZjc0paVk5yRFB3TldpbEhTalk3OERDbjlfVG9rZW46VHBLdWJtNVF2bzdPS2d4NHBtbWNIdklObmVkXzE3NjUxODkwMTA6MTc2NTE5MjYxMF9WNA)
+
+- **(图 2)** 基于 CD 结果进行的分子建模直观地展示了 DMPC-10A（右手螺旋）和 DMPC-10B（左手螺旋）的构象差异。两者都保持了两亲性螺旋的特征，即带正电的亲水残基（蓝色）和疏水残基分布在螺旋的不同侧面。
+    
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZmJkMTFhYjViYzMzNTRmYTMyMjEwZDA1OWYwNWRkZmJfS29icnZzcU1weHFjRDZ5bk1sUFh4a0lQWHhKU2s1TjlfVG9rZW46VmtHZWJ0Z29Kb0xTc2d4RnZCNWNha2c0bjliXzE3NjUxODkwMTA6MTc2NTE5MjYxMF9WNA)
+
+### 研究部分二：DMPC-10B 的抗菌活性与稳定性
+
+本部分旨在系统性地比较 DMPC-10B 和 DMPC-10A 的抗菌活性和对蛋白酶的稳定性，以验证设计策略的有效性。
+
+- **(表 1)** 抗菌活性测试 (MIC) 结果显示，DMPC-10B 保持了与 DMPC-10A 相当的广谱抗菌活性。在某些情况下甚至更优，例如，对大肠杆菌和 MRSA 的 MIC 值比 DMPC-10A 降低了 4 倍和 2 倍。这表明，手性螺旋结构的改变并未削弱其抗菌能力。
+    
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MTA2ZTc0MmJjMTIwZGE5ODFkMmE2NTgwNWY0ODNhMjFfVTAyZjM5ejd3eFp6NXljWDc5MDJLd2dhQ0NIc3FQNE1fVG9rZW46TW1yamJtREI0b21pcWJ4SUdqYWN5WEtMbnVnXzE3NjUxODkwMTA6MTc2NTE5MjYxMF9WNA)
+
+- **(表 2)** 在模拟生理离子环境（含 Mg²⁺, Ca²⁺, Na⁺）或血清 (FBS) 的条件下，DMPC-10B 同样保持了良好的抗菌活性。
+    
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=M2IyZGVmNDZhNDU5YWJlNTUwYjc2MDc2YmYzNDBjM2NfOW8wbWllbWJsUHc0NWhVRE1xRzJDbTlpdExJRWxVN0lfVG9rZW46VDRBbGJSVkNwb1RQTFZ4YlpLYmNlOXc5bk1nXzE3NjUxODkwMTA6MTc2NTE5MjYxMF9WNA)
+
+- **(图 3)** 蛋白酶稳定性实验提供了关键证据。
+    
+    ![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NDk4OTg3M2I3ODYxODVkN2MwZTE1YWFhNzBlOTE2NjNfS2tyMG9FZkR6Rm9HaE55SDBNQnNzU0JrRlgzQUE4VW5fVG9rZW46Vkpqb2JKUFk0b1ZiSHR4T01iWGNJaklPbnpmXzE3NjUxODkwMTA6MTc2NTE5MjYxMF9WNA)
+    
+    - **胰蛋白酶 (Trypsin)**：DMPC-10A 在 10 分钟内被完全降解。而 **DMPC-10B 在 120 分钟后仍几乎保持 100% 完整**。
+        
+    - **胰凝乳蛋白酶 (Chymotrypsin)**：DMPC-10A 在 40 分钟内被完全降解。而 **DMPC-10B 在 120 分钟后同样几乎保持 100% 完整**。
+        
+- 这些结果无可争议地证明，部分 D-氨基酸取代的策略极大地提高了肽对蛋白酶水解的抗性。
+    
+
+### 研究部分三：DMPC-10B 的细胞毒性与膜选择性
+
+降低对哺乳动物细胞的毒性是本次改造的另一个核心目标。本部分通过一系列体外实验，比较了两种肽的细胞毒性和溶血活性。
+
+- **(图 4a, 4b)** 对人角质形成细胞 (HaCat) 的毒性测试显示，DMPC-10A 在 8 µM 以上浓度即表现出显著的细胞毒性（细胞存活率下降，LDH 释放增加）。相比之下，**DMPC-10B 在高达 128 µM 的浓度下仍未显示出任何明显的细胞毒性**。
+    
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MTgzZmZiMWY4NGZmYjQ1NGY0ZjRlYWUzZmNiMWExZWZfbGpYRXBCUUliNFgyaUdiVDQwUURodmtXeWRZSzdNbmVfVG9rZW46SkVGY2J5c0pNb3FzRTV4U1FmYmNpMjdVbjNiXzE3NjUxODkwMTA6MTc2NTE5MjYxMF9WNA)
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MGI1NzJhODgzY2U0MmM5OTQwZjRmNDFkNDFlMjRmMzRfNkhiVG9Rd1ZFTHEwSmdNTXlMdDhnazVLWTV1cXowQVpfVG9rZW46VkVRMWJHSDA2b25MVGp4MGpsaGNzMGZWbk9jXzE3NjUxODkwMTA6MTc2NTE5MjYxMF9WNA)
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MDA5OWY4MzcxOTkxNTMyY2QwOTZkZWJiMzAzM2NlZTNfeDUwUXdlblM4QmNxd0d5cTdiRXF2dUl3VkxrSjFaWjdfVG9rZW46REZ6VGJHZHRib0VYaml4Z2syY2N3c0N5bm1kXzE3NjUxODkwMTA6MTc2NTE5MjYxMF9WNA)
+
+- **(图 4c)** 溶血活性测试结果与细胞毒性一致。DMPC-10A 从 16 µM 开始即引起显著的溶血。而 **DMPC-10B 在高达 512 µM 的浓度下，溶血活性也极低**，与阴性对照无显著差异。
+    
+- **(图 5)** 膜通透性实验为上述现象提供了机理解释。在模拟哺乳动物细胞膜的脂质体 (DPPC SUVs) 存在下，DMPC-10A 对细菌膜的通透能力被显著抑制，而 DMPC-10B 则几乎不受影响。这表明 DMPC-10A 会与哺乳动物细胞膜发生非特异性相互作用，而 DMPC-10B 则对细菌膜表现出更高的选择性。
+    
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YWRmNzkxNjUzNGJhYjllYzYyMDZhMjc5ODcyNjM3MWVfTUJSTnBxaGQwOFFlWm5XZG94RVFoVkl1MXdvblYwcmhfVG9rZW46R1dqM2JwS2Y4b2M0ekV4c2JISmNlNklKbjNlXzE3NjUxODkwMTA6MTc2NTE5MjYxMF9WNA)
+
+### 研究部分四：DMPC-10B 的抗生物膜、协同作用及体内药效
+
+为进一步评估 DMPC-10B 的临床应用潜力，本部分研究了其抗生物膜活性、与常规抗生素的协同作用以及在动物模型中的体内药效。
+
+- **(图 6)** DMPC-10B 对金黄色葡萄球菌和 MRSA 的生物膜形成具有显著的抑制作用，并能部分清除已形成的成熟生物膜，其效果与 DMPC-10A 相当。
+    
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDJiYmZlZThhMDg5MTgyNDI5NjgyNWVlMWQ4OTM5OGVfb3pCY2k3Y1VQZmJnTDJqRmtqRHV5Uk1QTXlvOGZneXBfVG9rZW46QWI0UmJiT0VUb21MZWx4aFgyYmNCNmV2bkdmXzE3NjUxODkwMTA6MTc2NTE5MjYxMF9WNA)
+
+- **(表 3)** 协同作用实验显示，DMPC-10B 与庆大霉素联用时，对三种肺炎克雷伯菌株（包括耐碳青霉烯菌株）均表现出**协同杀菌效应** (FICI = 0.375)。这表明 DMPC-10B 能够破坏细菌外膜，帮助庆大霉素进入细胞。
+    
+
+![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NzZkYWEwZDg4OGJiNDUxMjM1OTdhZGZhNTE5ZGEyNzRfZldkQmZwOVFBSWxBZGNkM2RxSUNSQVp4dDdLNGluU2hfVG9rZW46SURETmJpTklZb2wxTzJ4TkdZQ2N4VkxtbldiXzE3NjUxODkwMTA6MTc2NTE5MjYxMF9WNA)
+
+- **(图 7)** 在蜡螟幼虫感染模型中，DMPC-10B 表现出显著的体内治疗效果。
+    
+    ![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MzVkNmIyNjY0ZDRkMmY5NjMwZDY2ODE0NjQzOGIxNjRfY1lKWkd2M2I5NE5CT0s2SGZtMG02Z0Q1R2o4bGk4Z2tfVG9rZW46UXFqemJpMmNkbzhVdmN4elBTQWNUSDlTbm1mXzE3NjUxODkwMTA6MTc2NTE5MjYxMF9WNA)
+    
+    - 对于 MRSA 感染，20 mg/kg 剂量的 DMPC-10B 治疗可使幼虫存活率从对照组的约 10% 提高到 **70%**。
+        
+    - 对于肺炎克雷伯菌感染，20 mg/kg 剂量的 DMPC-10B 治疗可使幼虫存活率从对照组的约 20% 提高到 **80%**。
+        
+- 这些结果共同证明，DMPC-10B 不仅在体外表现优异，在体内同样具有作为新型抗菌药物的巨大潜力。
+    
+
+## 五：总体结论
+
+本研究通过一种理性的、部分 D-氨基酸取代的设计策略，成功地将一种截短的蛙皮素衍生物 DMPC-10A 改造为其对映异构体 DMPC-10B。该改造在保留甚至部分增强其广谱抗菌活性的同时，极大地降低了对哺乳动物细胞的溶血活性和细胞毒性，并显著提高了其对蛋白酶降解的稳定性。进一步的研究表明，DMPC-10B 在体内感染模型中表现出优异的治疗效果，并能与常规抗生素协同作用以对抗耐药菌。这项工作成功地展示了一种通过最小化手性编辑来“解耦”和优化抗菌肽活性、毒性和稳定性的有效策略，为开发具有临床应用潜力的新型抗菌肽药物提供了一个极具价值的先导化合物 (DMPC-10B) 和重要的设计范例。
+
+## 六：论文评价
+
+### 优点与创新
+
+1. **精准而高效的设计策略**：本研究的“部分 D-氨基酸取代”策略非常精妙。它没有采用“全 D-取代”的简单镜像策略，而是保留了 L-Ala¹ 和 L-Trp³，旨在通过微调螺旋性来调节与不同膜的相互作用。最终实验结果（毒性降低而活性保持）完美地验证了这一设计的成功，体现了对肽-膜相互作用深刻的理解。
+    
+2. **性能的全面提升**：改造后的 DMPC-10B 在**活性、毒性、稳定性**这三个评价抗菌肽成药性的核心指标上，实现了全面的优化，这是一个非常理想且难得的工程成果。
+    
+3. **坚实的体内外证据链**：研究不仅包含了全面的体外活性和稳定性评价，还通过协同实验和蜡螟体内感染模型，进一步证实了 DMPC-10B 的临床应用潜力，使得研究结论更具说服力。
+    
+4. **清晰的机理解释**：通过 CD 光谱、分子建模和膜通透性实验，研究为 DMPC-10B 毒性降低的原因（对哺乳动物细胞膜的选择性降低）提供了合理的结构和生物物理学解释。
+    
+
+### 未来研究方向
+
+1. **在哺乳动物模型中的药效与药代动力学研究**：蜡螟模型是初步筛选，下一步需要在小鼠等哺乳动物感染模型中验证 DMPC-10B 的体内药效、毒性以及药代动力学特征（如半衰期、生物分布），以全面评估其成药性。
+    
+2. **作用机制的深入研究**：通过更高分辨率的技术（如固态 NMR、分子动力学模拟），深入研究 DMPC-10A 和 DMPC-10B 与细菌膜和哺乳动物细胞膜相互作用的精细分子机制，以更精确地解释两者选择性差异的结构基础。
+    
+3. **耐药性风险评估**：虽然 AMPs 不易诱导耐药，但仍需通过长期连续传代培养等方法，系统性地评估细菌对 DMPC-10B 产生耐药性的频率和机制。
+    
+4. **进一步的结构优化**：以 DMPC-10B 为模板，进一步探索其他位点的 D-氨基酸取代或非天然氨基酸取代，是否能进一步提升其抗菌活性或降低生产成本。
+    
+
+## 七：关键问题及回答
+
+#### **问题一：DMPC-10B 的设计与母体肽 DMPC-10A 有何不同？这种设计的核心思想是什么？** **回答：**
+
+- **设计不同**：DMPC-10A 的序列是 `L-Ala-L-Trp-L-Lys-L-Lys-L-Leu-L-Leu-L-Lys-L-Lys-Cha-NH₂`。而 DMPC-10B 的设计是**部分 D-氨基酸取代**，其序列为 `L-Ala-L-Trp-D-Lys-D-Lys-D-Leu-D-Leu-D-Lys-D-Lys-Cha-NH₂`。即，除了 N-端的 Ala¹ 和 Trp³ 保持 L-构型外，所有负责形成 α-螺旋主体并提供正电荷和疏水性的赖氨酸 (Lys) 和亮氨酸 (Leu) 都被替换成了它们的 D-构型对映体。
+    
+- **核心思想**：这种设计的核心思想是**在提高稳定性的同时，通过微调二级结构来降低细胞毒性**。
+    
+    - **提高稳定性**：引入 D-氨基酸可以破坏蛋白酶（如胰蛋白酶）对肽链的识别，从而抵抗酶解，这是 D-氨基酸取代的主要目的之一。
+        
+    - **降低毒性**：研究者推测，DMPC-10A 的高溶血活性源于其完美的右手 α-螺旋结构能高效地插入哺乳动物细胞膜（富含两性离子磷脂）。通过引入 D-氨基酸，肽链会形成一个**左手 α-螺旋**（如图 1 所示）。作者假设，这种手性相反的螺旋结构可能保留了与带负电的细菌膜的静电相互作用（这是抗菌活性的基础），但会降低其与哺乳动物细胞膜的疏水性插入效率，从而实现“解耦”抗菌活性与细胞毒性的目的。保留 L-Ala¹ 和 L-Trp³ 可能是为了进一步“破坏”螺旋的完美性，以微调其两亲性。
+        
+
+#### **问题二：该研究如何证明 DMPC-10B 的稳定性确实得到了提高？** **回答：** 该研究通过直接的**体外蛋白酶降解实验**来证明稳定性的提高 (图 3)。
+
+1. **实验设置**：将等量的 DMPC-10A 和 DMPC-10B 分别与两种常见的消化道蛋白酶——胰蛋白酶（主要切割赖氨酸 K 之后）和胰凝乳蛋白酶（主要切割芳香族氨基酸如色氨酸 W 之后）——共孵育。
+    
+2. **检测方法**：在不同的时间点（0 到 120 分钟）取样，并用 RP-HPLC 分析样品中剩余的完整肽的峰面积。
+    
+3. **实验结果**：结果非常清晰。对于 DMPC-10A，胰蛋白酶在 10 分钟内就将其完全降解，胰凝乳蛋白酶在 40 分钟内将其完全降解。而对于 DMPC-10B，在 120 分钟的整个实验过程中，无论用哪种蛋白酶处理，其含量几乎没有下降，始终保持在 100% 左右。 这个实验直接、定量地证明了 DMPC-10B 对蛋白酶水解具有极高的抗性，其稳定性相比母体肽 DMPC-10A 得到了根本性的提升。
+    
+
+#### **问题三：DMPC-10B 相比于 DMPC-10A 最大的优势是什么？这对于其作为药物的潜力有何意义？** **回答：** DMPC-10B 相比于 DMPC-10A 最大的优势在于其**显著提高的治疗指数 (therapeutic index)**，即在保持强效抗菌活性的同时，细胞毒性和溶血活性被大幅降低。
+
+- **具体表现**：DMPC-10B 的抗菌活性与 DMPC-10A 相当（MIC 值在个位数 µM 级别），但其引起 50% 溶血的浓度 (HC₅₀) 或细胞毒性的浓度 (CC₅₀) 至少比 DMPC-10A 高出几个数量级（图 4 显示 DMPC-10B 在 128 µM 下仍无显著毒性）。
+    
+- **意义**：治疗指数是评价一个药物安全性的关键指标，它代表了药物产生治疗效果的浓度与产生不可接受毒性浓度之间的差距。一个药物的治疗指数越高，其在临床应用中就越安全。DMPC-10A 虽然活性强，但“杀敌一千，自损八百”，其高溶血活性使其难以成为全身性用药。而 DMPC-10B 成功地将“杀敌”（抗菌活性）和“伤己”（细胞毒性）这两个效应分离开来，获得了很高的治疗指数。再加上其优异的蛋白酶稳定性（意味着可能可以口服或具有更长的体内半衰期），使其作为一个候选药物的**成药性 (druggability)** 大大提高，具备了进入临床前甚至临床研究的巨大潜力。
