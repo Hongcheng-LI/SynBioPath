@@ -1,4 +1,4 @@
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=N2MxMzEzMzE4MWY4ZTRjN2M2NmIwMzliYTQxNWFmMjVfM2trSUVKUXlBc0dVS2hFakNyQ0wzRmxDVFhEaEtaYmNfVG9rZW46SldEamJZR3Rrb1JESFJ4akNRQWNzVlQwbjJlXzE3NjUxODY0MDA6MTc2NTE5MDAwMF9WNA)
+![](assets/2025%20ACS%20Catal.%20酶催化分子骨架编辑：α-吡喃酮到呋喃酮/file-20251208173856974.png)
 
 ## 1. 基本信息
 
