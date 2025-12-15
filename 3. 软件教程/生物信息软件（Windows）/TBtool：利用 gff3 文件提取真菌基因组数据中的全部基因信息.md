@@ -27,7 +27,7 @@ https://www.yuque.com/cjchen/hirv8i/xq65ml
 	- 5：在此处上传基因组测序生成的（拼装好的）原始基因组数据，此处为 ==SQ11-20.fasta==
 	- 6：Up Stream Bases：选择 ==0==
 	- 7：Down Stream Bases：选择 ==0==
-	- 8：先在桌面上新建一个txt文件，命名为 ==SQ11-20_gene.txt==，然后在此处输入该文件的地址：==C:\Users\lhc\Desktop\SQ11-20.fasta==
+	- 8：我们设置将提取出来的数据存储在一个新生成的 ==SQ11-20_gene.txt==的文件中，并且将该文件存储在桌面上，因此我们在此处输入该文件的地址：==C:\Users\lhc\Desktop\SQ11-20_gene.fasta==（每个人可以自定义生成的地址）。
 	- 9：点击 ==start==，提示完成后，就会发现桌面上生成了 3 个文件，我们先前建立的 SQ11-20_gene.txt 文档已经含有了根据 gff3 注释信息从基因组文件中提取出来的全部基因序列。
 ![4adcd861-58f3-44c2-9eb3-27e35bdc1195.png](http://synbiopath.online/4adcd861-58f3-44c2-9eb3-27e35bdc1195.png)
 
@@ -46,10 +46,11 @@ https://www.yuque.com/cjchen/hirv8i/xq65ml
 	- 3：Feature Tag 处选择 ==gene== 标签
 	- 4：Feature ID 选择 ==ID== 格式
 	- 5：在此处上传基因组测序生成的（拼装好的）原始基因组数据，此处为 ==SQ11-20.fasta==
-	- 6：Up Stream Bases：选择 ==0==
-	- 7：Down Stream Bases：选择 ==0==
-	- 8：先在桌面上新建一个txt文件，命名为 ==SQ11-20_gene.txt==，然后在此处输入该文件的地址：==C:\Users\lhc\Desktop\SQ11-20.fasta==
-	- 9：点击 ==start==，提示完成后，就会发现桌面上生成了 3 个文件，我们先前建立的 SQ11-20_gene.txt 文档已经含有了根据 gff3 注释信息从基因组文件中提取出来的全部基因序列。
+	- 6：Up Stream Bases：选择 ==2000==，代表提取该基因上游2000 bp的序列信息
+	- 7：Down Stream Bases：选择 ==2000==，代表提取该基因下游2000 bp的序列信息
+	- 8：我们设置将提取出来的数据存储在一个新生成的 ==SQ11-20_gene_utr2000.txt==的文件中，并且将该文件存储在桌面上，因此我们在此处输入该文件的地址：==C:\Users\lhc\Desktop\SQ11-20_gene_utr2000.fasta==（每个人可以自定义生成的地址）
+	- 9：点击 ==start==，提示完成后，就会发现桌面上生成了 3 个文件，我们先前建立的 SQ11-20_gene_utr2000.txt 文档已经含有了根据 gff3 注释信息从基因组文件中提取出来的全部基因序列。
+![bb264555-a3db-4661-9b06-83ec3ec12676.png](http://synbiopath.online/bb264555-a3db-4661-9b06-83ec3ec12676.png)
 
 
-此时，将 ==SQ11-20_gene.txt== 的后缀名 txt 改为 fasta，即可用于本地 blast。
+打开，将 ==SQ11-20_gene.txt== 的后缀名 txt 改为 fasta，即可用于本地 blast。
