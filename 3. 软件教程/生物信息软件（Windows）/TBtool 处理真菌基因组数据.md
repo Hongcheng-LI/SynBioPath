@@ -16,3 +16,10 @@ https://www.yuque.com/cjchen/hirv8i/xq65ml
 ---
 
 # 2. 提取步骤
+1. 点击菜单栏中的 ==`sequence Toolkit`== > ==GFF3/GTF Manipilate== > ==GXF Sequence Extract==
+![image.png](http://synbiopath.online/20251215153425371.png)
+
+2. 
+
+
+
