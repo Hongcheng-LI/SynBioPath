@@ -42,24 +42,24 @@
 
 本研究采用了一套高度集成的合成生物学与蛋白质组学流程：
 
--   **文库设计与构建 (Library Design)**:
-    -   **Metagenomic Libraries**: 来源于MGnify微生物组数据库的结构多样化小结构域。
-    -   **Protein Family Library**: 包含Pfam数据库中的天然结构域及 *de novo* 设计的蛋白（如 $\beta\alpha\beta\beta$ 等拓扑结构）。
-    -   **DNA合成**: 使用DNAWorks优化密码子，通过Twist Biosciences合成寡核苷酸库。
--   **蛋白表达与处理 (Expression & Processing)**:
-    -   在 *E. coli* BL21(DE3) 中混合表达，通过Ni-NTA和分子筛（SEC）纯化，分离出单体组分。
-    -   将蛋白库浓缩至 10 mg/ml 进行胁迫处理。
--   **聚集诱导实验 (Aggregation Assay)**:
-    -   **热胁迫**: 50°C 或 75°C 处理20分钟。
-    -   **酸胁迫**: 调节至 pH 4 处理10分钟。
-    -   **分离**: 通过离心（21,100 x g）去除不溶性聚集体，保留上清液（可溶部分）。
--   **定量质谱分析 (Quantitative MS)**:
-    -   使用 TMTPro 16-plex 标记肽段。
-    -   通过 LC-MS/MS (Orbitrap Fusion) 进行多级质谱分析（MultiNotch MS3）。
-    -   **数据处理**: 计算胁迫组与对照组的归一化强度比值，取 $\log_2$ 值作为聚集倾向指标。
--   **机器学习 (Machine Learning)**:
-    -   特征提取：使用 AlphaFold2 预测结构，计算 Rosetta 能量项、疏水性、电荷等物理化学特征。
-    -   模型构建：对比 Ridge Regression、XGBoost 和微调的 **SaProt**（基于结构感知的蛋白质语言模型）。
+**文库设计与构建 (Library Design)**:
+-   **Metagenomic Libraries**: 来源于MGnify微生物组数据库的结构多样化小结构域。
+-   **Protein Family Library**: 包含Pfam数据库中的天然结构域及 *de novo* 设计的蛋白（如 $\beta\alpha\beta\beta$ 等拓扑结构）。
+-   **DNA合成**: 使用DNAWorks优化密码子，通过Twist Biosciences合成寡核苷酸库。
+**蛋白表达与处理 (Expression & Processing)**:
+-   在 *E. coli* BL21(DE3) 中混合表达，通过Ni-NTA和分子筛（SEC）纯化，分离出单体组分。
+-   将蛋白库浓缩至 10 mg/ml 进行胁迫处理。
+**聚集诱导实验 (Aggregation Assay)**:
+-   **热胁迫**: 50°C 或 75°C 处理20分钟。
+-   **酸胁迫**: 调节至 pH 4 处理10分钟。
+-   **分离**: 通过离心（21,100 x g）去除不溶性聚集体，保留上清液（可溶部分）。
+**定量质谱分析 (Quantitative MS)**:
+-   使用 TMTPro 16-plex 标记肽段。
+-   通过 LC-MS/MS (Orbitrap Fusion) 进行多级质谱分析（MultiNotch MS3）。
+-   **数据处理**: 计算胁迫组与对照组的归一化强度比值，取 $\log_2$ 值作为聚集倾向指标。
+**机器学习 (Machine Learning)**:
+-   特征提取：使用 AlphaFold2 预测结构，计算 Rosetta 能量项、疏水性、电荷等物理化学特征。
+-   模型构建：对比 Ridge Regression、XGBoost 和微调的 **SaProt**（基于结构感知的蛋白质语言模型）。
 
 ## 四：实验设计及结果分析
 
@@ -72,7 +72,7 @@
 -   **重现性 (Fig. S6)**: 三次生物学重复之间的 Pearson 相关系数 $r > 0.9$，表明测定系统高度稳定。
 -   **文库背景效应 (Fig. 2B)**: 在两个不同的宏基因组文库（Metagenomic 1 & 2）中，825 个重叠蛋白的聚集测量值高度一致（热胁迫下 $r \approx 0.89$），说明“旁观者效应”或共聚集并未掩盖蛋白自身的聚集特性。
 -   **单克隆验证 (Fig. 2C)**: 挑选了14个具有代表性的蛋白进行单独表达、纯化和测定。结果显示，单独测定的聚集倾向与混合库测定结果呈现强相关（Pearson’s $r = 0.66 - 0.78$）。
-    > **分析**: 这一结果至关重要，它排除了混合体系中因蛋白间非特异性相互作用导致数据的假阳性或假阴性，确立了该高通量数据集作为训练集的可信度。
+> **分析**: 这一结果至关重要，它排除了混合体系中因蛋白间非特异性相互作用导致数据的假阳性或假阴性，确立了该高通量数据集作为训练集的可信度。
 
 ### 研究部分二：聚集表型的多样性与决定因素分析
 #### 实验目的与设计
