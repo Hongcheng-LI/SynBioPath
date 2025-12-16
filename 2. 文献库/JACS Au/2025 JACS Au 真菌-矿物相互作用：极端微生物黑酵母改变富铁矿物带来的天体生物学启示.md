@@ -1,3 +1,4 @@
+![image.png](http://synbiopath.online/20251216193721529.png)
 
 该研究通过多组学手段（基因组学、代谢组学）结合物理化学表征，揭示了极端微生物黑酵母 *Rhinocladiella similis* 与火星模拟矿物赤铁矿之间的相互作用机制。
 
@@ -64,9 +65,11 @@
 
 #### 实验结果与分析
 **pH 变化 (Figure 1A)**: “真菌+赤铁矿”组的 pH 值从第 1 天的 7.01 显著下降至第 15 天的 4.70。相比之下，“仅真菌”组的酸化程度较弱，而非生物对照组 pH 保持稳定。这表明赤铁矿的存在促进了真菌的酸化代谢反应。
+![image.png](http://synbiopath.online/20251216193754841.png)
+
 **Fe$^{2+}$ 释放 (Figure 1B)**: 在“真菌+赤铁矿”组中，溶解的 Fe$^{2+}$ 浓度随时间显著增加，从第 1 天的 26 mg/L 激增至第 15 天的 270 mg/L（约 10 倍增长）。
 > "In the fungus−hematite system, Fe2+ content increased markedly over time, from 26 mg/L on day 1 to 109 mg/L on day 9 and 270 mg/L on day 15."
-这一数据提供了直接证据，表明真菌通过代谢活动主动还原并溶解了难溶的 Fe(III) 矿物。
+> 这一数据提供了直接证据，表明真菌通过代谢活动主动还原并溶解了难溶的 Fe(III) 矿物。
 
 **晶体结构改变 (Figure 1C)**: XRD 图谱显示，与原始赤铁矿和非生物对照相比，真菌处理后的赤铁矿衍射峰强度减弱，并在 $10^{\circ}-30^{\circ} 2\theta$ 范围内出现非晶背景升高。这表明真菌作用导致了赤铁矿表面结构的破坏和结晶度的部分丧失。
 
