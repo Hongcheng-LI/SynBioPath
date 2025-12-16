@@ -99,10 +99,15 @@
 #### 实验结果与分析
 **整体代谢差异 (Figure 4)**: PCA 分析 (Fig 4A, C) 显示两组样本在正、负离子模式下均明显分离，表明赤铁矿的存在显著改变了真菌的代谢状态。火山图 (Fig 4B, D) 揭示了数百个显著差异表达的特征离子。
 ![image.png](http://synbiopath.online/20251216193956142.png)
+![image.png](http://synbiopath.online/20251216194016201.png)
 
 
 **分子网络分析 (Figure 5)**: FBMN 网络图直观展示了在赤铁矿存在下，铁载体、脂质、萜类和聚酮类化合物的丰度发生了显著变化。
+![image.png](http://synbiopath.online/20251216194049780.png)
+
 **关键代谢物鉴定 (Figure 6)**:
+![image.png](http://synbiopath.online/20251216194112659.png)
+
 *   **铁载体**: 铁色素 C (Ferrichrome C, $m/z$ 755.2531) 在赤铁矿处理组中显著上调 (Fig 6A)，证实了基因组预测的铁载体合成途径被激活。
 *   **膜脂重塑**: 磷脂酸 (PA 16:0/18:2) 仅在处理组中检测到 (Fig 6B)，可能与细胞膜对金属胁迫的适应有关。
 *   **氧化还原活性分子**: 黑色素合成途径相关的芳香族聚酮 (如 1-(1,3,6,8-tetrahydroxynaphthalen-2-yl)ethan-1-one) 在处理组中丰度更高 (Fig 6D)。这些化合物具有醌/酚结构，可作为电子穿梭体介导 Fe(III) 的还原。
