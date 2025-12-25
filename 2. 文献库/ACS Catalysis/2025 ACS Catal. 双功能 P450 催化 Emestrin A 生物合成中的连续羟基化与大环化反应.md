@@ -108,7 +108,30 @@
 > "These observations suggest EmeQ as a bifunctional P450 that catalyzes hydroxylation of substrate 6... followed by oxidative phenol coupling... thereby forming the ether linkage."
 *   **结论**: EmeQ 确实是双功能酶，先进行 4''-羟基化生成 **5**，再进行氧化偶联生成 **4**。酵母体系中环化活性的缺失可能与膜环境或蛋白成熟度有关（Figure S4 Western blot 显示蛋白表达量无异常，暗示环境因素）。
 
-### 研究部分三：EmeQ 的结构机制解析与功能重编程
+### 研究部分三：Emestrin A 的生物合成途径推导
+
+#### 实验目的与设计
+在阐明了三个 P450 酶（EmeQ, EmeE, EmeU）各自的催化功能及底物特异性后，研究者绘制了 Figure 2B，旨在系统性地展示从前体化合物 **6** 到最终产物 Emestrin A (**1**) 的完整代谢流，并揭示后期修饰步骤的顺序和逻辑。
+
+#### 图表内容详细解读
+该图展示了一个**从线通过渡到大环，再进行修饰**的网状代谢路径：
+![image.png](http://synbiopath.online/20251225092932631.png)
+
+
+**骨架构建阶段 (Scaffold Construction)**:
+**起始底物**: 路径始于 **Compound 6** (Emestrin J)，这是一个含有二硫键但不具备大环结构的二酮哌嗪前体。
+**EmeQ 的关键作用**: 图中清晰地展示了 EmeQ 负责的两步连续反应：
+*   第一步：**6** ——**5** (Emestrin N)。这是 **4''-位羟基化**反应，引入了后续偶联所需的酚羟基。
+*   第二步：**5** ——**4** (Emestrin L)。这是**氧化苯酚偶联 (Oxidative phenol coupling)** 反应，在 3'-OH 和 5''-酚基之间形成醚键，闭合构建了特征性的 15-元大环内酯/醚骨架。
+**结论**: 这一阶段确立了 EmeQ 是构建 Emestrin 类化合物核心骨架的“把关酶”。
+
+**后期修饰阶段 (Tailoring Steps)**:
+形成大环中间体 **4** 后，路径分为两个分支通向最终产物 **1**，表明 **EmeE** 和 **EmeU** 的催化顺序具有一定的灵活性（Promiscuity）：
+*   **路径 A (上路)**: **4** 先经 **EmeE** 催化，在 **7''-位**引入羟基，生成 **Compound 2** (Emestrin L 的 7''-OH 衍生物)；随后 **2** 再经 **EmeU** 催化，在 **13-位**引入羟基，最终生成 **1** (Emestrin A)。
+*   **路径 B (下路)**: **4** 先经 **EmeU** 催化，在 **13-位**引入羟基，生成 **Compound 3** (Emestrin F)；随后 **3** 再经 **EmeE** 催化，在 **7''-位**引入羟基，最终生成 **1**。
+**中间体积累证据**: 结合前文的基因敲除结果（ΔemeE 积累 **3**，ΔemeU 积累 **2**），说明这两条路径在体内可能同时存在，或者酶对底物的非严格识别允许不同的修饰顺序。
+
+### 研究部分四：EmeQ 的结构机制解析与功能重编程
 #### 实验目的与设计
 利用分子模拟解释 EmeQ 如何在同一活性位点容纳两种底物并催化不同反应，并通过突变实验分离这两种功能。
 
@@ -126,7 +149,7 @@
 > "F497A effectively reshaped EmeQ into a more active monofunctional hydroxylase."
 **机制推导 (Figure S50)**: 计算结果支持顺序自由基转移机制，其中 F497 对中间体自由基的稳定作用是环化反应发生的决速步骤。
 
-### 研究部分四：Emestrin 类化合物的构效关系 (SAR)
+### 研究部分五：Emestrin 类化合物的构效关系 (SAR)
 #### 实验目的与设计
 评估 Emestrin A (**1**) 及其类似物对 A549, BxPC-3, HepG2, C42B, SW620 五种癌细胞系的细胞毒性，确定关键药效团。
 
