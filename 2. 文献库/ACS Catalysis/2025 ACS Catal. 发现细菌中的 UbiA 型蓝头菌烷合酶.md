@@ -93,8 +93,8 @@ UbiA 家族酶传统上被认为是参与初级代谢的异戊烯基转移酶 (p
 生物信息学分析揭示，UbiA 酶在细菌中广泛存在（>94,000 条序列），尤其是在放线菌门 (Actinomycetota) 和假单胞菌门 (Pseudomonadota) 中高度富集。通过构建基因组邻近网络 (GNN)，作者成功地将 UbiA 酶分为两类：一类与已知的初级代谢基因（如 UbiE, Cox15, CBP, PAP2）紧密关联，被认为是 PTs；另一类则与典型的次级代谢基因（如多戊烯基合成酶 PPS, P450 氧化酶, I/II 型 TS）共定位在 BGC 中，这些被认为是潜在的 TSs。这一策略为后续筛选提供了清晰的逻辑依据。
 
 **Figure 1 (UbiA 家族的生物信息学探索)**：
+![image.png](http://synbiopath.online/20251226211945763.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NjY1ZDQ5NGIwNmNiODlmYTVmMDVkMmUyN2IzMmRhYTFfY0RYcUtNZ0dWZExEOWlKelJ4dUtuVkFwaGxrRGlRcUhfVG9rZW46WTMzYWJMZmVab1hscjN4V0FpTWN4U3pKbnhkXzE3NjUxODY5Njc6MTc2NTE5MDU2N19WNA)
 
 - **Figure 1A (旭日图)**：展示了 UbiA 家族成员在细菌各门类中的系统发育分布。清晰可见，放线菌门是最大的库。
     
@@ -104,8 +104,8 @@ UbiA 家族酶传统上被认为是参与初级代谢的异戊烯基转移酶 (p
     
 
 **Figure 2 (UbiA TSs 的基因组挖掘)**：
+![image.png](http://synbiopath.online/20251226211955965.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZGEyZGJmMDVlNWNkMDE5NDhiOWQxNmNiMTgwOTIyN2NfeVk4WklKTkRQanNuZWxEQ2x1Q2xXdURvR2lYZjhhSXRfVG9rZW46WnlqNGJZRjBnbzFzY3R4TjI2YWN0NDgwbndPXzE3NjUxODY5Njc6MTc2NTE5MDU2N19WNA)
 
 - **Figure 2A (基因邻域示意图)**：这是本研究筛选策略的核心图示。左侧展示了与初级代谢相关的 UbiA 酶，其周围是 UbiE, COX15 等基因。右侧展示了与次级代谢相关的 UbiA 酶，其周围是多戊烯基合成酶、P450、TS 等基因。这个对比清晰地阐明了筛选逻辑。
     
@@ -134,8 +134,8 @@ UbiA 家族酶传统上被认为是参与初级代谢的异戊烯基转移酶 (p
 筛选取得了巨大成功，32 个候选酶中有 7 个（21%）表现出 diTS 活性，这是一个非常高的命中率，证明了基因组挖掘策略的有效性。作者成功分离并鉴定了 4 种结构新颖或罕见的二萜化合物。其中，来自 _Streptomyces adustus_ 的 AduTS 和来自 _Catenulispora acidiphila_ 的 AciTS 均能产生 **cyatha-12,18-diene (1)**，这是一种具有 5/6/7-三环骨架的蓝头菌烷二萜。来自 _Polyangium spumosum_ 的 SpuTS 则能产生 **1** 的 C-3 位差向异构体 **3-epi-cyatha-12,18-diene (2)**。这是首次在细菌中发现能够合成蓝头菌烷骨架的酶。此外，来自 _Actinomadura harenae_ 的 HarTS 产生了 5/7-双环的 **isopseudolaratriene (3)**，而来自 _Amycolatopsis arida_ 的 AriTS 产生了单环的 **(+)-axinyssene (4)**。
 
 **Figure 3 (UbiA diTSs 产物分离鉴定)**：
+![image.png](http://synbiopath.online/20251226212008125.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=N2UwNjM0NWNkYTFmYTk5MjE4NTk3MjQ5ZWIwZTZmOWRfd2R5WjFPY0Nqd0U1VGVjclZFTlNuVnF5Nk9GWkxmRW5fVG9rZW46REgwQmIwejR3b2dwekF4dkEwRWNhV2JablNlXzE3NjUxODY5Njc6MTc2NTE5MDU2N19WNA)
 
 - **Figure 3A (HPLC 图)**：展示了 5 个阳性克隆 (AriTS, AduTS, SpuTS, AciTS, HarTS) 和 2 个阳性对照 (CysTC2, StlTC) 的 HPLC 分析结果。每个阳性克隆都产生了一个或多个在对照菌株中没有的、具有紫外吸收的特征峰，直接证明了这些酶的 diTS 活性。
     
@@ -160,8 +160,8 @@ UbiA 家族酶传统上被认为是参与初级代谢的异戊烯基转移酶 (p
 作者提出了一个精巧的、分步的环化/重排机理。
 
 **Figure 4 (蓝头菌烷二萜的 proposed cyclization mechanism)**：该图详细描绘了从 GGPP 到产物 **1**, **2**, **4**, **5** 的催化路径。
+![image.png](http://synbiopath.online/20251226212018561.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NWNhNWFhNDkzYjliMTI4YWRiZThkZmQzMzVlNDQyNmFfM0piYUQ0V0hDRTlYdE5QTUJYTGtZOVhYYkh2akhDNXlfVG9rZW46RVBDMGJjb0dIb3ByaEF4WEo3VmNqTnBibk5mXzE3NjUxODY5Njc6MTc2NTE5MDU2N19WNA)
 
 1. GGPP 经 1,6-环化形成单环阳离子中间体 **B⁺**。**B⁺** 直接去质子化即可得到单环产物 **4** ((+)-axinyssene)。
     
@@ -198,16 +198,14 @@ UbiA 家族酶传统上被认为是参与初级代谢的异戊烯基转移酶 (p
 **Figure 5 (AduTS 的结构和突变分析)**：
 
 - **Figure 5A (AduTS 结构模型)**：展示了 AlphaFold3 预测的 AduTS 整体结构。
-    
+    ![image.png](http://synbiopath.online/20251226212029504.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZWJjYmY5ZDA1MGNhYjM2MTA2MTE3YjQ0NTA3ZjU3NmNfS1c5MWVNczEzeXMxR0QzcThya1FWU3I0NHhCNFpFRGdfVG9rZW46TTJiRWJuZDh1b1ZXN3h4WFpLVWNnTkFLbkxjXzE3NjUxODY5Njc6MTc2NTE5MDU2N19WNA)
 
 - **Figure 5B, 5C (活性位点)**：展示了底物 GGPP (B) 和产物 **1** (C) 对接到 AduTS 活性口袋的模型。图中高亮了保守的 Mg²⁺ 结合基序 (Motif I, Motif II) 和其他关键残基。
     
 - **Figure 5D (突变体活性柱状图)**：这是本部分的核心数据。该图定量比较了野生型 AduTS 及其 14 个突变体产生 **1** (蓝色) 和 **4** (红色) 的相对活性。可以清晰地看到，Y91F 和 Y305F 突变体提高了 **1** 的相对产量，而 Y298F 和 Y298V 突变体则几乎完全抑制了 **1** 的生成，同时大大增加了 **4** 的产量。这一“产物切换”现象是理解酶如何控制复杂反应路径的直接证据。
-    
+    ![image.png](http://synbiopath.online/20251226212038635.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZjdiNzhiNmIwMjQzMGMzZmUxZjY3YjNlYTA4NTgzMjBfT0RhUXFhQUNyem9IWEd1ellXVWRSVTNDYkg1WmtJOWJfVG9rZW46V0tYZ2JjM0NHb0R1Mkp4Q3VkbmM2SzM5bkFlXzE3NjUxODY5Njc6MTc2NTE5MDU2N19WNA)
 
 ## 五：总体结论
 
