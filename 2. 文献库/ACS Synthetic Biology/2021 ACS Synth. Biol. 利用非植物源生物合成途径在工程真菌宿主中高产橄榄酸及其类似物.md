@@ -151,9 +151,8 @@
 **数据支撑与图表分析**：
 
 - **Figure 2B (trace ii)**：LC-MS 图谱显示，StcJ/K + Ma_OvaBC 组合的发酵液中，只出现了对应于 OA (**3**) 的峰，而 SA (**1**) 的峰完全消失。
-    
+    ![image.png](http://synbiopath.online/20251226230059970.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NTJkNzA1ZjdiYjA4YTQ0M2IyOTM5OWYwMGZjMjA5OGRfNmRUcFM1ZFpGZVAwTm1ZNFZWYjg3eDgwTXMwc3c2OWlfVG9rZW46Vk1URmJCdVdib3h6VDh4OTY3amNEWVpFbjRmXzE3NjUxODczNDI6MTc2NTE5MDk0Ml9WNA)
 
 - **Table 1**：第二行数据显示，该组合的 OA 产量为 5 mg/L，而其他产物产量为 0。这定量地证实了产物谱的专一性，同时也暴露了产量低的问题。
     
@@ -180,19 +179,16 @@
 **数据支撑与图表分析**：
 
 - **Figure 2B (traces iii, iv, v)**：清晰地对比了三个同源系统的产物。trace iii (To_OvaABC) 和 trace iv (Mr_OvaABC) 均显示了 **1** 和 **3** 的混合物。而 trace v (Ti_OvaABC) 中，只有 **3** (OA) 的峰，**1** (SA) 的峰完全消失，直观地证明了其高度的专一性。
-    
+![image.png](http://synbiopath.online/20251226230117508.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=M2M2NTBhMzEyZjI5Yzk2YzMzNjQyMzAyMjI1YzE1ZDRfTjlhTTZiSTliUHpvZnpKOXFXc3o0R1Z1TUtMNjhUYU5fVG9rZW46TWVmb2JkVVI3b0UzcWJ4S3c0QmNRc1ZNbmVzXzE3NjUxODczNDI6MTc2NTE5MDk0Ml9WNA)
 
 - **Table 1**：定量数据显示，To_OvaABC 产生 750 mg/L 的 **1** 和 40 mg/L 的 **3**；Mr_OvaABC 产生 600 mg/L 的 **1** 和 30 mg/L 的 **3**；而 Ti_OvaABC 产生 60 mg/L 的 **3**，其他产物为 0。
-    
+    ![image.png](http://synbiopath.online/20251226230126609.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YjgzYjQzNWVlZjMyZTg2MmQ0NzZkODFhY2E0NmIwOGVfQU4xNTNxUWNoRFNqNm93NHNVcGI5blFQYTFvQ3BzMm5fVG9rZW46VW5ZeGJUYlVDb1d4WFR4YlFRMWNWaUFvbllnXzE3NjUxODczNDI6MTc2NTE5MDk0Ml9WNA)
 
 - **Figure 3B**：基于上述结果，提出了 Ti_OvaABC 途径的生物合成模型，即专一性的 HRPKS (Ti_OvaA) 只产生己酰基，从而保证了最终产物只有 OA。
-    
+    ![image.png](http://synbiopath.online/20251226230133805.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=OGUyMTAzZTdkOTYwZmZlNzk2NmI5YjQyYjk4MjA1MDVfZ1JSOVVvN2VtS1htY1R6RDJpQldnb3N0TzFXTzh3bHNfVG9rZW46WWE1NGJISEExb1MyMEZ4b0lDSWNRdnd4blFmXzE3NjUxODczNDI6MTc2NTE5MDk0Ml9WNA)
 
 ### 研究部分五：通过模块交换实验探究专一性与兼容性机制
 
@@ -223,9 +219,8 @@
 **数据支撑与图表分析**：
 
 - **Table 1**：最后两行数据总结了混搭实验的结果。Ma_OvaA + Ti_OvaBC 产生了 75 mg/L 的 **1** 和 4 mg/L 的 **3**。而 Ti_OvaA + Ma_OvaBC 的所有产物产量均为 0。这些数据清晰地支持了上述结论。
-    
+    ![image.png](http://synbiopath.online/20251226230149116.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MGI3MTgxM2U1MDIxZGQ4MjliYzUwMWE0OTg1Y2NlNmRfZWRFY2hWZ010Q2N0UmM1aTYzemRtT0RaajJuekszdTFfVG9rZW46Rjh1R2I5cmpNb1RRZjJ4RmdKVGNJZWtBbk1oXzE3NjUxODczNDI6MTc2NTE5MDk0Ml9WNA)
 
 ## 五：总体结论
 
