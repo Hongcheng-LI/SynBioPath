@@ -9,10 +9,9 @@
 美国化学会绿色化学研究所药物圆桌会议 (ACS Green Chemistry Institute Pharmaceutical Roundtable, GCIPR) 自 2005 年成立以来，在将绿色化学和工程整合到制药行业方面发挥了领导作用。该合作平台汇集了全球制药公司、其供应链供应商及相关行业（如农化和动物健康），共同应对绿色化学实施中的挑战，坚信绿色化学和工程对商业、社会和可持续发展至关重要。
 
 随着新型治疗模式复杂性和环境影响的持续增长，行业面临着前所未有的压力，需要大幅提高合成效率，同时减少废物和资源消耗。这些复杂分子对现代医学至关重要，需要创新和可持续的合成解决方案，进一步凸显了 GCIPR 推动整个制药行业绿色化学原则的使命。ACS GCIPR 通过影响研究议程（例如，已投入超过 400 万美元的研究启动基金，其中 45 万美元专门用于推进生物催化）、开发绿色化学工具和指标、以及教育和影响当前及未来的领导者等战略重点，促进全球跨部门合作。
+![image.png](http://synbiopath.online/20251226220606392.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MDU2OTM5N2E4MGQ0NTVmNzVjYWNmZDlhYzQ4Y2NiNjdfcDNDTnlCYkxLTjhzN29ZS3pHeTJFbmM1UXQ1ZHo1cGVfVG9rZW46QmduVGJqMmpqbzNzQll4bkkzZGNSYjRXbmdjXzE3NjUxODY4NTU6MTc2NTE5MDQ1NV9WNA)
-
-[图1：不同药物模式的平均过程质量强度 (PMI) 及生物催化应用的化学与技术需求]
+图1：不同药物模式的平均过程质量强度 (PMI) 及生物催化应用的化学与技术需求
 
 生物催化 (Biocatalysis) 本质上与绿色化学的多个原则高度契合，酶促转化多年来已成为制药中间体和商品化学品合成工具箱的一部分。酶是高度选择性、可再生的催化剂，在应对复杂合成挑战方面已不可或缺。它们能够实现高效、安全的工艺，通过消除保护基操作或氧化态调整来提高原子经济性，通常能缩短合成路线并改善过程质量强度 (Process Mass Intensity, PMI)，即生产单位质量产品所用全部物料的总质量与产品质量之比 [图1：PMI 定义]。同时，其应用通过减少有害试剂的使用和在温和条件下操作来提高过程安全性。
 
@@ -27,36 +26,33 @@
 ### 2.2. 生物催化反应的总体应用与成功率
 
 参与调研的公司代表了工业界在生物催化团队规模、能力、经验以及所处研发阶段（早期或晚期）的广泛横断面。总体而言，调研收集了超过 830 个生物催化用于化学转化的独立案例。数据显示，约 22% 的反应被放大到 1 g 以上，另有 23% 在筛选后得到进一步开发但未放大到 1 g 以上，而约 55% 未能通过初步筛选。深入分析表明，贡献较多反应的公司（通常拥有更成熟的生物催化平台和经验）更愿意探索基于酶的复杂技术和合成策略，即那些不依赖于现有文献或商业平台的新型酶促转化或新颖断键方式。这些公司也可能在路线筛选阶段探索多种生物催化选项，仅将最有前景的方案推进。而报告较少反应的公司，其生物催化应用的 attrition rate 相对较低，这可能与其更侧重于成熟的、有商业酶可用的、有良好文献支持的转化有关。
+![image.png](http://synbiopath.online/20251226220622823.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NDg4Njk0MmNhMjJlMzFkMGViNDgwZDc4ZjhkZGVmMTBfWXB2aENVZXR6dGdMQ2hJRWZTOEhqcWxkRWp6U0xUR0pfVG9rZW46R1VTZ2IxSmwzb0R2TjV4c05QaWNlNjdmbjRmXzE3NjUxODY4NTU6MTc2NTE5MDQ1NV9WNA)
 
-[图2a：各公司提交的反应总数；图2b：按数据子集汇总的反应总数]； [图2c：各公司从筛选到放大的绝对数量变化；图2d：各公司从筛选到放大的相对比例变化]
+图2a：各公司提交的反应总数；图2b：按数据子集汇总的反应总数； 图2c：各公司从筛选到放大的绝对数量变化；图2d：各公司从筛选到放大的相对比例变化
 
 ### 2.3. 主要酶类型及其催化的化学转化
 
 #### 2.3.1. 主流酶类型：
 
 图 3A 显示，酮还原酶 (Ketoreductases, KREDs)、转氨酶 (Transaminases, TAms) 和水解酶 (Hydrolases)（包括脂肪酶/酯酶/蛋白酶）是三个应用最广泛的酶类型，贯穿所有研发管线和筛选阶段。这些酶是工业生物催化的基石，促进了官能团的有效相互转化，并支持了手性醇、胺和羧酸类化合物的可持续高效生产。值得注意的是，KREDs (41%) 和 TAms (34%) 的实施成功率显著高于总体平均水平 (<25%)。亚胺还原酶 (Imine Reductases, IREDs)，包括还原胺化酶，作为第四大最常应用的酶家族，通过不对称亚胺还原提供有价值的手性仲胺，其在制药行业的应用范围和接受度正迅速增长。
+![image.png](http://synbiopath.online/20251226220653060.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NTBmZTNjOTE5Y2ZlODg0NWU5YmRiOTVkZmRlMWU2MGJfYnJCUGJoQzljNU5LZkM2QUVmZzM4NmdOWUdBR1NTSmhfVG9rZW46UjFHZ2IwN3JQb3NqWWV4andaNmNLMGtLbjVnXzE3NjUxODY4NTU6MTc2NTE5MDQ1NV9WNA)
+图3A：按数据子集和公司划分的所用酶类型
 
-[图3A：按数据子集和公司划分的所用酶类型]
+![image.png](http://synbiopath.online/20251226220702232.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=OGM4NzRjNGI3MTY0OWFjMGQ1YjBhYzE1Y2YzMDQ1NGNfVHl4WU9JQUlFc2djWVlmQWN0NGRyYUQyMThUUzhtWHZfVG9rZW46RFIySWJSaWo4b0kwcFN4Qlg1c2NHYkdPbkxoXzE3NjUxODY4NTU6MTc2NTE5MDQ1NV9WNA)
+![image.png](http://synbiopath.online/20251226220709602.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YmExZjZiODY1MDlkMTg2MDUxZDQ5MzkyODU4ODcyYjJfOGtHTjN3VHkwQjBPNDZmOWJFVmhqUmtNWE5Zbng4dEpfVG9rZW46VHZuVWJmYmFhb0dqbE14b1BqYmM2M3pYbmdnXzE3NjUxODY4NTU6MTc2NTE5MDQ1NV9WNA)
-
-[图3C：使用 IREDs 合成奈必利平抑制剂 (neprilysin inhibitor) 和 GSK2879552 的案例]
+图3C：使用 IREDs 合成奈必利平抑制剂 (neprilysin inhibitor) 和 GSK2879552 的案例
 
 #### 2.3.2. 其他酶类型：
 
 调研还涵盖了其他成熟的酶类型，如用于合成 BMS-986278 的烯还原酶 (Ene Reductases, EREDs) ，用于合成伊帕他滨 (ipatasertib) 的腈水解酶 (Nitrilases) [图3C：伊帕他滨的合成，利用腈水解酶和酮还原酶]，以及用于生产艾拉司他韦 (islatravir) 的醛缩酶 (Aldolases) [图3C：艾拉司他韦的合成，利用醛缩酶、激酶和磷酸化酶]。这些酶类型均在“已放大至 >1 g”的数据子集中有所体现。
+![image.png](http://synbiopath.online/20251226220739670.png)
+![image.png](http://synbiopath.online/20251226220833969.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MGZlZTMyNzk5YTE4ODRhM2ZjMDBjYTA1ZTI1NjFhNGFfZkpHRXhUV21KaU1EMFNqVkg0TzRyaEQweXo1NTI5aDVfVG9rZW46T05LSmI3VE1lb3g2WHF4QUhjbmNJdjhsbmZkXzE3NjUxODY4NTU6MTc2NTE5MDQ1NV9WNA)
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZjBjYjBiMjgxNTk2Mzk3MGE3NGE2ZGVlMDEyMzk5NGJfMDFkV0NFMnh1aUNOQmQ4WTBPcWNzSXdvd1RzcW1Lak1fVG9rZW46QzV0amJUOWxxb0tYR0V4S2p2R2NmaU5TblFjXzE3NjUxODY4NTU6MTc2NTE5MDQ1NV9WNA)
-
-[表1：BMS-986278 的合成，利用 ERED/KRED 级联反应]
+表1：BMS-986278 的合成，利用 ERED/KRED 级联反应
 
 #### 2.3.3. 新兴酶类型：
 
@@ -65,24 +61,22 @@
 #### 2.3.4. 化学转化类型：
 
 图 4a显示，还原反应、C-N 键形成和水解是最主要的三种转化类型，与前述主流酶类型相对应。值得注意的是，在“已放大至 >1 g”的子集中，水解反应的总数为 29 个，而水解酶的使用实例超过 40 个 [图3a]，这表明水解酶也大量用于缩合反应（归类于“C-X 键形成”）。C-N 键形成的 attrition rate 最低，约 41% 的生物转化成功放大。
+![image.png](http://synbiopath.online/20251226220851219.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NWEzOGViN2VkMjIwZmJhMzc3ODYyNWE1Yjk2ZmQxOGVfU1Mwc3BNc3ptRFViZGxNeElFa0o5OFlBOTJQN0d3SUhfVG9rZW46TksxdGJwOGU5b3pqcmh4NjF5bGM4cks4bmpoXzE3NjUxODY4NTU6MTc2NTE5MDQ1NV9WNA)
-
-[图 4a：按数据子集和公司划分的催化化学转化类型]
+图 4a：按数据子集和公司划分的催化化学转化类型
 
 #### 2.3.5. 不对称合成与非手性应用：
 
 图 4b 显示，从早期水解酶用于动力学拆分，到如今不对称合成（如从前手性酮合成手性醇和胺）已发生明显转变。非手性应用在所有数据子集中均有体现，占比超过 10% 的已放大案例，表明生物催化越来越多地用于避免保护基团和实现更可持续/安全的合成，而不仅仅是传统的手性化合物制备。动态动力学拆分 (Dynamic Kinetic Resolutions, DKRs) 也有报道，它结合了稳健酶的易用性和突破标准拆分 50% 最高理论产率的能力。
+![image.png](http://synbiopath.online/20251226220905087.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NDVjOWQxOWZmMGMzMmVjZjUxOGZkNzM5YWMwOGU5NzRfUzFETFZvV3F6MnI4TWREWUVSMG43TllzaXhpR1lRZm5fVG9rZW46TzNwN2JOemVLbzR2dEp4WW1LOGNwcXhXbkNoXzE3NjUxODY4NTU6MTc2NTE5MDQ1NV9WNA)
-
-[图 4b：按数据子集和公司划分的不对称过程占比]
+图 4b：按数据子集和公司划分的不对称过程占比
 
 ### 2.4. 酶的来源、固定化与级联反应
+![image.png](http://synbiopath.online/20251226220915037.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NDUyZmMyN2I5ZWFlYjU2MjNkMWVhNjFlMjJhNjAwMmJfdHJ2bHZNWVJHZVN4bW92MlRFWkpkTlRkbVFEYWNDVmZfVG9rZW46VWZkRWJzeGp3b0hUb2x4UFVIcGNNcHlRblZmXzE3NjUxODY4NTU6MTc2NTE5MDQ1NV9WNA)
 
-[图 5：已放大至 >1 g 反应的附加信息]
+图 5：已放大至 >1 g 反应的附加信息
 
 图 5 提供了关于酶来源、底物浓度、酶用量、固定化和级联反应应用的详细数据。
 
@@ -97,10 +91,10 @@
 ### 2.5. 生物催化应用失败的原因分析
 
 调研还试图找出生物催化方法未被采纳或放大失败的常见原因
+![image.png](http://synbiopath.online/20251226220955543.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZjU0NjBiYjI0MDg2MThiNzIzMGE3ZjU4YmNkOGViODBfR1hTZjBzN3ZCNjFRaUJCUUR2WHBzT3lGT2sydngzUTZfVG9rZW46S2R3TGIxcXlib25xcmN4SmFsaWNNbTV3blM1XzE3NjUxODY4NTU6MTc2NTE5MDQ1NV9WNA)
 
-[图6a：未能推进生物催化选项的原因；图6b：“不满意的酶”选项的细分]。
+图6a：未能推进生物催化选项的原因；图6b：“不满意的酶”选项的细分。
 
 - **酶的性能**：在筛选阶段，未能找到酶或酶的初始活性不足是主要原因。这凸显了持续改进公司可接触的筛选酶库的必要性。
     
@@ -111,7 +105,7 @@
 - **“无需放大”**：对于一些早期项目，例如C公司广泛应用的P450酶催化的氧化反应，实验室规模产生的中间体量已足够后续研究。
     
 
-[图6b] 对“不满意的酶”选项进行了细分，主要包括活性差、选择性差和稳定性差。
+图6b 对“不满意的酶”选项进行了细分，主要包括活性差、选择性差和稳定性差。
 
 ## 3. 总结与展望：生物催化的未来方向
 
