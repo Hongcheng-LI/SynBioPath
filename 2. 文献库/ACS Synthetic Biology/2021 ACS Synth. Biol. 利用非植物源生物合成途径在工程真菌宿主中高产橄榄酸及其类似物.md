@@ -1,4 +1,4 @@
-![Uploading file...0fi17]()
+![image.png](http://synbiopath.online/20251226225948592.png)
 
 
 ## 一：基本信息
@@ -31,9 +31,8 @@
 2. **真菌间苯二甲酸内酯 (RALs) 生物合成**：许多真菌能够合成含有 β-间苯二甲酸结构的聚酮化合物，称为间苯二甲酸内酯 (resorcylic acid lactones, RALs)，如杀真菌素 (zearalenone)。其生物合成通常由一个高还原性聚酮合酶 (HRPKS) 和一个非还原性聚酮合酶 (NRPKS) 串联催化，并通过一个融合在 NRPKS 上的硫酯酶 (TE) 结构域进行大环内酯化来释放产物。
     
 3. **化学逻辑的相似性**：OA 的核心骨架也是 β-间苯二甲酸结构。这启发研究者推测，真菌中用于合成 RALs 的双 PKS 系统，如果将其释放产物的机制由“内酯化”改为“水解”，就有可能直接生成 OA 这样的游离酸。
-    
+    ![image.png](http://synbiopath.online/20251226225959037.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDY5MTA3YThkMDBjY2ExZGRkMmViNGIyMmVjNDcxZDdfSlBHOTZLaVJjaklzMGFzanFyV3ZTdjlmRFJ1WE9WYjFfVG9rZW46WEwwYWIzMmJWb2Iwd3l4ZzVpTWNncmZUbkZkXzE3NjUxODczNDI6MTc2NTE5MDk0Ml9WNA)
 
 ### 本文突破点
 
@@ -88,9 +87,8 @@
 **深入解读**：作者成功地通过这一独特的筛选策略，在多个真菌物种中鉴定出了一组同源的 BGC，以来自 _Metarhizium anisopliae_ 的 _ova_ 簇为代表。该簇包含一个 HRPKS (Ma_OvaA)、一个 NRPKS (Ma_OvaB) 和一个由假性 ACP (ψACP) 和 TE 结构域组成的独立酶 (Ma_OvaC)。关键的生物信息学发现是，OvaC 的 ACP 结构域中，负责接上磷酸泛酰巯基乙胺“小尾巴”的关键丝氨酸残基发生了突变 (DSL -> NQI)，这意味着它无法作为经典的酰基载体。作者据此推测，这个 ψACP 可能不负责链的传递，而是作为一个“对接结构域”，介导 NRPKS (OvaB) 和 TE 之间的相互作用，从而实现水解。这一发现为后续的功能验证奠定了基础。
 
 - **Figure 2A**：该图展示了从四种不同真菌中挖掘到的同源基因簇。它们都保守地含有 HRPKS (OvaA)、NRPKS (OvaB) 和 ψACP-TE (OvaC) 这三个核心组件。图下方的序列比对显示，所有 OvaC 的 ψACP 结构域在关键的磷酸泛酰巯基乙胺化位点都发生了突变，而功能性 ACP (如 LovB ACP) 则保留了保守的丝氨酸残基 (DSL motif)。这为 ψACP 的非经典功能提供了强有力的序列证据。
-    
+    ![image.png](http://synbiopath.online/20251226230013148.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=M2QxYmVjNTI3MTk2NzNhYjRlMmJiOGJhMzM5YzFlZTFfVGdMY2RvNXZZYkFtRm1lNVUwUFp2QzBJcFdxdmxxcTVfVG9rZW46TlVxYWJ4RXRjb3dnTmF4NExWWmNQTXE2bkZnXzE3NjUxODczNDI6MTc2NTE5MDk0Ml9WNA)
 
 ### 研究部分二：异源表达 _M. anisopliae_ 途径并实现克级产量
 
@@ -118,21 +116,18 @@
 **数据支撑与图表分析**：
 
 - **Figure 2B (trace i)**：展示了表达 Ma_OvaABC 的 _A. nidulans_ 的 LC-MS 图谱。图中清晰地显示了四个主要产物峰 **1** (m/z 251), **2** (m/z 249), **3** (m/z 223), **4** (m/z 221)。
-    
+    ![image.png](http://synbiopath.online/20251226230022356.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MzFiMTM1MDRjMDA4ZjkzZWY0NDBmZDhiODE4NjNiODRfdjdpN1ZJUDkzdHppTTV4c3pTdEptZUxVNVk2NTB2czNfVG9rZW46U0pFYmI0WUUxb2RBSWV4cWROWmNKb09IblFlXzE3NjUxODczNDI6MTc2NTE5MDk0Ml9WNA)
 
 - **Figure 2C**：展示了这四种化合物的化学结构。
     
 - **Table 1**：定量总结了不同基因组合的产量。第一行数据显示，Ma_OvaA-C 组合能产生 1400 mg/L 的 **1**，140 mg/L 的 **2**，80 mg/L 的 **3** 和 0.3 mg/L 的 **4**。这些具体数据直观地体现了该途径的高产性和产物的多样性。
-    
+   ![image.png](http://synbiopath.online/20251226230040428.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NDc4ZjQyNTQ2MjFlZGQzYmJkYWJmNTlkYjQ3ZTY2NGZfY29yM21HSGVSVlY3aTZNSTFqQlZxYWlvd0ZlMDU1RjJfVG9rZW46UzNxRWJmWEZYbzlXV1B4OFNtcmNxMGc1bnRjXzE3NjUxODczNDI6MTc2NTE5MDk0Ml9WNA)
 
 - **Figure 3A**：提出了基于实验结果的生物合成模型。HRPKS (Ma_OvaA) 表现出底物滥用性 (promiscuity)，能产生己酰基、辛酰基以及它们的不饱和形式等多种起始单元。这些单元被 NRPKS (Ma_OvaB) 接收并延伸，最后由 ψACP-TE (Ma_OvaC) 水解释放，得到 **1-4** 的混合物。
-    
+    ![image.png](http://synbiopath.online/20251226230048552.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MWQ3YmU0NTllOTYxZGE1MTVjNmMxMWUyNzU2ZWYwZjRfSXA0cVlxM1Yzb2lZUTJrME9TdTZOd0FDMUZoM3d3alZfVG9rZW46UzNua2JUbXZBb1NPc3F4ZUlucmNTZllsbnFlXzE3NjUxODczNDI6MTc2NTE5MDk0Ml9WNA)
 
 ### 研究部分三：通过组合生物合成策略实现 OA 的专一性生产
 
