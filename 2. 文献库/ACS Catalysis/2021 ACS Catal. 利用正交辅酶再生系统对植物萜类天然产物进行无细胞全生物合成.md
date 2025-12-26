@@ -1,4 +1,5 @@
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDk2ZDU3MWYzNmM3NWYwYzI3NWM0N2QxZGEwMzViNzNfY3dBYUI4NnlhZElQRUp3NmgzQzQ3MHNwU29TRjh5ZGtfVG9rZW46VjlDUmJLTDl4b3F4R0l4T1NxVGNMSm4wbnRnXzE3NjUxODY5OTE6MTc2NTE5MDU5MV9WNA)
+![image.png](http://synbiopath.online/20251226181748140.png)
+
 
 ## 一：基本信息
 
@@ -24,9 +25,8 @@
 ### 前期研究
 
 1. **荆芥内酯醇的重要性**：荆芥内酯醇 (**6**) 是超过 3000 种单萜吲哚生物碱（包括抗癌药长春碱）的通用生物合成前体，具有极高的药用价值。
-    
+![image.png](http://synbiopath.online/20251226181805703.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MmUyZTU4Y2JiZmYwNzY1ZTg3ZDA3N2ZkZjYzMzA5NTNfeWJkaVRlNlJFZmNYOUV4UkNyZXdaeEVPOGhwVjVMb3JfVG9rZW46WDJWQ2JpVG5mb2hNQ0J4cEd6WmNjZ2ZabmdjXzE3NjUxODY5OTE6MTc2NTE5MDU5MV9WNA)
 
 2. **生物合成途径**：从香叶醇 (**1**) 到荆芥内酯醇 (**6**) 的植物生物合成途径已被部分阐明，涉及 P450 酶 G8H 的羟基化 (消耗 NADPH)、醇氧化还原酶 GOR 的两次氧化 (消耗 NAD⁺) 以及环烯醚萜合酶 ISY 的还原环化 (消耗 NADPH)。
     
@@ -98,9 +98,7 @@
 **数据支撑与图表分析**：
 
 - **Figure 2**：该图是整个研究的蓝图，清晰地展示了从香叶醇 (**1**) 到荆芥内酯醇 (**6**) 和荆芥内酯 (**7**) 的多步酶促反应，并明确标示了每一步所需的辅酶（NAD⁺ 或 NADPH）以及为其再生所选用的酶（NoxE 或 FumC/MaeB）。图中还指出了可能发生的副反应途径，如生成香茅醇 (**9**) 和 8-羟基香茅醇 (**10**)。
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MTU0NjBmNWFlYjZlYWFjODc5YjU4NzRhZjFiMTgzNTdfQTRHT3NLN3NGQjFyRGE1VjRwSGhNRnB3MjI3TXlEOHBfVG9rZW46STRSTmJLQ1VGb2VVdzd4eDd5T2NxOTNLbkNnXzE3NjUxODY5OTE6MTc2NTE5MDU5MV9WNA)
+    ![image.png](http://synbiopath.online/20251226181831189.png)
 
 - **Supporting Information Figures (S5C, S7, S9, S11)**：这些补充材料中的图谱是验证再生系统有效性和正交性的直接证据。例如，Figure S7 显示，在 NoxE 存在下，仅用催化量的 NAD⁺ 就能将 **2** 完全氧化。Figure S9 显示，在 FumC/MaeB 存在下，仅用催化量的 NADPH 就能将 **1** 完全羟基化。Figure S5C 的数据显示，FumC/MaeB 系统对 NADP⁺ 的活性远高于对 NAD⁺ 的活性，从而证实了其正交性。
     
@@ -129,9 +127,9 @@
 **数据支撑与图表分析**：
 
 - **Figure 3A**：该图的 GC-MS 叠加图完美地记录了“分步加料”策略的全过程。
-    
-    ![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MTdkNGE5YWM2ODcyYjVhODc1ZDllOGU5YTlmOGJkZjdfT2xmNG96U25HUE5KMDVBY21md3Z4dFBQWW9oN0ROMk5fVG9rZW46T0FTN2JiYllyb0JvMGt4RGpyU2NLNW9zbkhnXzE3NjUxODY5OTE6MTc2NTE5MDU5MV9WNA)
-    
+    ![image.png](http://synbiopath.online/20251226181848547.png)
+
+
     - **迹线 i-iv**：展示了第一阶段，通过分批补料，在 4.5 小时内将总计 930 mg/L 的底物 **1** 几乎完全转化为中间体 **2**。
         
     - **迹线 v**：展示了第二阶段，加入 GOR/NoxE 后，**2** 的峰消失，转化为醛类中间体 **3, 4, 5** 的混合物。
@@ -163,9 +161,7 @@
 **数据支撑与图表分析**：
 
 - **Figure 3A (迹线 vii)**：与迹线 vi 相比，该迹线中 **6** 的峰几乎消失，取而代之的是一个保留时间稍早的、强烈的荆芥内酯 (**7**) 的峰。这直观地证明了途径的成功延伸。
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MGM1MjM4OGE4NTU3ZWIxZjlhZjE1YThlZmJiZGUyMjRfcFlIdWhucEtMb0pUYkVTRWx2SHFVb0dxMjN1T1Q1TGlfVG9rZW46Vjg4WmJncFdRb25lQkl4d0s2cGNqRDhYbk1lXzE3NjUxODY5OTE6MTc2NTE5MDU5MV9WNA)
+    ![image.png](http://synbiopath.online/20251226181910567.png)
 
 ## 五：总体结论
 
