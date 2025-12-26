@@ -1,3 +1,4 @@
+![image.png](http://synbiopath.online/20251226213345860.png)
 
 
 ---
