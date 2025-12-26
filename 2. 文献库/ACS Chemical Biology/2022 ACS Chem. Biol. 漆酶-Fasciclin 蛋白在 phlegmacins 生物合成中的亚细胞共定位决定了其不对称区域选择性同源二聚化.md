@@ -1,4 +1,5 @@
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YzdiNmJmODNiM2ExYTg2YmRmNDRmY2IyODg3ZjU3NWFfeWFmdDBGM3pPbllnYXNTaUEycjA2cmhIRTF3aUtJamdfVG9rZW46RUY1QWJVT3Y5b3Z0eTZ4TEZPcmNWUnB1bkx6XzE3NjUxODcwODg6MTc2NTE5MDY4OF9WNA)
+![image.png](http://synbiopath.online/20251226225326275.png)
+
 
 ## 一：基本信息
 
@@ -34,10 +35,10 @@ Phlegmacins 是一类具有轴手性的天然产物，由两个 torosachrysone �
 ### 前期研究
 
 在本文发表之前，已知漆酶参与了多种真菌二聚体天然产物的生物合成。然而，这些已知的反应大多产生的是对称的偶联产物（如 6,6' 或 8,8' 偶联）。近年来，有研究发现漆酶在催化反应时可能需要一个“伴侣蛋白”的协助，例如在 sporandol 的生物合成中，一个漆酶需要与一个含有 Fasciclin (Fas) 结构域的蛋白 (SpoF) 合作才能实现 7,7'-偶联。然而，这种酶-伴侣蛋白合作的精确分子机制，特别是它们如何协同作用以控制复杂的区域选择性（尤其是不对称选择性），以及它们在细胞内的功能定位，仍然是完全未知的。
+![image.png](http://synbiopath.online/20251226225336376.png)
 
 ### 本文突破点
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NWY5MDExOTgxOTQyYTQ3YWEyNjMyMWZlZmRjODBlZjdfaEx3Ykd3OVV5dGhiSWtPbllSQ2t1WVNCVUtqYjhXcE9fVG9rZW46STJXN2JyV0c1b2lXM0N4dUZ4eGNyV0pVbldlXzE3NjUxODcwODg6MTc2NTE5MDY4OF9WNA)
+![image.png](http://synbiopath.online/20251226225401623.png)
 
 本文的核心突破在于首次揭示了一种通过**亚细胞共定位 (subcellular colocalization)** 来实现酶催化反应特异性的全新分子机制。研究团队发现，在 phlegmacin 的生物合成中，漆酶 (PhlC) 和一个 Fasciclin 蛋白 (PhlB) 必须**同时定位在线粒体膜上**，才能催化不对称的 7,10'-偶联反应。如果两者中的任何一个缺失，或者它们虽然都存在但被错误地定位在细胞质中，反应就无法发生。这一发现为理解酶（尤其是选择性差的酶）如何通过与伴侣蛋白在特定细胞器上的“组会”来实现高难度催化反应提供了全新的范例。
 
@@ -84,18 +85,16 @@ Phlegmacins 是一类具有轴手性的天然产物，由两个 torosachrysone �
 #### 实验结果与分析
 
 - **Figure 2A** 展示了在 _Talaromyces sp._ 中鉴定出的 _phl_ BGC，包含四个基因 _phlA-D_。其中 _phlD_ 编码一个 NR-iPKS，_phlA_ 编码一个 β-内酰胺酶样蛋白，_phlC_ 编码一个漆酶，_phlB_ 编码一个 Fasciclin 蛋白。
-    
+    ![image.png](http://synbiopath.online/20251226225417018.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NmIxNGQ1YTZkYjdiNWVmZGQ3MDcyODhkMDBkNTEzNWVfT1ZjVXhUaTBnb0JvaHFKOHE5UXB1M2Jta3ZVVU4wRXRfVG9rZW46S3k0YWIxTzJZb1hwaEN4VE5DRWM0VFRzblNuXzE3NjUxODcwODg6MTc2NTE5MDY4OF9WNA)
 
 - **Figure 2B** 提出了 phlegmacin 的生物合成途径假说。
-    
+    ![image.png](http://synbiopath.online/20251226225425169.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MTAxNDA3YjNlYmIxM2U5NmYxMmVlN2IzZTZmYjY4MTJfMDR2OXZSOEhkVUFPczBLRmdOTkM1Y1VxMW1ETlVuWHBfVG9rZW46RUVlemJCRk5xb2xVb0p4RVV0SmNXSVZtbndnXzE3NjUxODcwODg6MTc2NTE5MDY4OF9WNA)
 
 - **Figure 2D** 是关键的异源表达实验结果。研究人员在米曲霉中逐步重构该途径：
-    
-    ![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YThmNDI1NTkwY2MyNmU0MmY4NmE2YTE0MDIxZWFhMmJfaVBjMG13a201NUV4M0tJY0c0SFluTmJRdW5HUzhsbDdfVG9rZW46R1VGNmI2TmVrb1h1bmZ4VVpzZGM5eElNbmNkXzE3NjUxODcwODg6MTc2NTE5MDY4OF9WNA)
+    ![image.png](http://synbiopath.online/20251226225433331.png)
+
     
     - 表达 _phlD_ 和 _phlA_，成功生产出前体单体 atrochrysone (**3**)。
         
@@ -119,8 +118,8 @@ Phlegmacins 是一类具有轴手性的天然产物，由两个 torosachrysone �
 由于无法获得可溶性的活性蛋白，研究人员巧妙地利用了细胞裂解液进行体外酶活测试。
 
 - **Figure 3** 展示了这一关键实验的结果。他们将共表达 PhlC 和 PhlB 的米曲霉菌丝体破碎，获得全细胞裂解液 (whole CFL)。
-    
-    ![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MjA3YTQwZmUyNWI4NTViNTRmNmIxMjVlNWUwZmU5YjRfdWVTWG5lZXFrak12eG8wWkNDZm5EMENIanEweDlvUDhfVG9rZW46RmFoYWJ1R3BYbzhQdUx4M0pvNGM0Z2tobnJiXzE3NjUxODcwODg6MTc2NTE5MDY4OF9WNA)
+    ![image.png](http://synbiopath.online/20251226225444493.png)
+
     
     - **Figure 3a** 显示，全细胞裂解液能够将底物 **4** 催化生成产物 **1** 和 **2**，证明了体外酶活系统的成功建立。
         
@@ -142,8 +141,8 @@ Phlegmacins 是一类具有轴手性的天然产物，由两个 torosachrysone �
 #### 实验结果与分析
 
 - **Figure 4** 提供了令人信服的视觉证据。研究人员将 PhlC 与 GFP 融合，PhlB 与 RFP 融合。
-    
-    ![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NTZiZDljZmU3NWI3MjQ1ZmVkMTM3NmUzNjM1YzM2NTdfWkxjVWxPd05kaGZWMzFXYU5IYzBRdzJ4R3JIakEybG5fVG9rZW46UDQxdmJoZ204b3lIU1N4Q1pRTmNNVENPbkZoXzE3NjUxODcwODg6MTc2NTE5MDY4OF9WNA)
+    ![image.png](http://synbiopath.online/20251226225455015.png)
+
     
     - **Figure 4A (a, c)** 显示，当单独表达时，PhlC-GFP 和 PhlB-RFP 都在菌丝中呈现出一种网状、管状的结构，而不是弥散分布在细胞质中。
         

@@ -1,4 +1,5 @@
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YWZjMjAxNWYxNmRiMWE2NmVkYjcyM2U1MjJiOWUxOTRfVGhwc1FSRktsRzlPcWFGd0lhMk1iSkRFZXkzZDZybExfVG9rZW46WUlNR2IwamlPb2I0NVB4WndyMGNTRURIbm53XzE3NjUxODczNDI6MTc2NTE5MDk0Ml9WNA)
+![Uploading file...0fi17]()
+
 
 ## 一：基本信息
 

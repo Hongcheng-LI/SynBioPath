@@ -1,4 +1,5 @@
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YjI4YzZhY2Q0MDM1YmQxNTc2NDJmZTgyYjA3MGM0ZjRfSUVWMW9NenhvNmZTNGVpT0k1ZDhoYnVlVk15Rm5QVkNfVG9rZW46VFp3dmJvbmNFb3JxN2J4NHVqcmN3RHNnbjJlXzE3NjUxODcwNTY6MTc2NTE5MDY1Nl9WNA)
+![image.png](http://synbiopath.online/20251226225512762.png)
+
 
 ## 一：基本信息
 
@@ -88,8 +89,8 @@
 - **数据支撑与图表解读**：
     
     - **Figure 2A** 是本部分的核心 HPLC 数据。
-        
-        ![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=N2FjYzMxYTRiZWRkMmNiZWE0YWNmNTY2NWMzOGZhMDFfU2NyT0pURk9xVTRYOU1jTnJwbHJtSXFUWmJac1FYYlVfVG9rZW46SUgzRWJDMVZZb25tV1p4d3JGV2NnSEc3bmZoXzE3NjUxODcwNTY6MTc2NTE5MDY1Nl9WNA)
+        ![image.png](http://synbiopath.online/20251226225529900.png)
+
         
         - (ii) AO-PhyG：无产物峰，证实 PhyG 需辅助酶释放产物。
             
@@ -100,11 +101,9 @@
         - (iv) AO-PhyGFH：引入另一个 OMT 同源基因 _PhyH_，产物谱与 (iii) 无异，表明 PhyH 在此途径中不起作用。
             
     - **Figure 1** 和 **Figure 2B** 展示了基于上述实验结果推导出的完整途径和所有化合物的结构。
-        
+        ![image.png](http://synbiopath.online/20251226225540785.png)
+![image.png](http://synbiopath.online/20251226225548913.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MTY4NmFiMTY0NDBmZDFmNTBlMmVmZTZjNzU2NmM4N2VfdWw2NFRvV0xyMzE4ZGE5QXlaOE1zSVZxQ1JEMWJnWG1fVG9rZW46UUtJbWJXcGowb2xGNTV4SzZMUGMzOTNhbmRlXzE3NjUxODcwNTY6MTc2NTE5MDY1Nl9WNA)
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ODM5OTViMGI1NmI5N2IyZTE4MDEyNTU2ZWQwYzlkMTRfWmdGQXI4dk9NamJGRzd6NFVRSUl2cXZnMHR1OXNwWjdfVG9rZW46SDBxRWJZeTJLb1RxbEl4Y0NhaGNxTjl4bkJlXzE3NjUxODcwNTY6MTc2NTE5MDY1Nl9WNA)
 
   
 ### 研究部分二：鉴定新型 P450 二聚酶 PhyE 的功能
@@ -122,14 +121,12 @@
 - **数据支撑与图表解读**：
     
     - **Figure 2A (vi)** 的 HPLC 图谱显示，与 (v) 相比，AO-PhyGFLE 菌株在晚出峰时间区域出现了一系列新的主峰 (**8-12**)。
-        
-    
-    ![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZTYxZTJjOWZhOWM0ODhjMDgwY2FhMGNhNDVlY2QyNzdfaElWT1FPZ2VhM0ljcDljUFFPT3ZTbjM2ZHRnVHRpb0NfVG9rZW46SElUMmIySVJFb05lUXp4eGE3NmN5S01HbkVlXzE3NjUxODcwNTY6MTc2NTE5MDY1Nl9WNA)
+        ![image.png](http://synbiopath.online/20251226225603699.png)
+
     
     - **Figure 2B** 展示了这些二聚体的结构，如 physcion-10,10'-bianthrone (**8**) 和 emodin bianthrone (**9**, **10**)。
-        
-    
-    ![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=Y2E2YzdiNTg2YWVlZjc5NTIyZWJjYWViOTkwNWZkNTFfQjIwbFd5TUNobEprblZZbThaaFJ5bU9iVVZ4MWVRSEZfVG9rZW46RDZkWGJ2bkRhb21GR3V4R3J1a2MzejQzbkxiXzE3NjUxODcwNTY6MTc2NTE5MDY1Nl9WNA)
+        ![image.png](http://synbiopath.online/20251226225613129.png)
+
     
     - **分析**：该结果证明 PhyE 是一种新型的、具有高度区域选择性的 P450 氧化酶，它催化的是对称的氧化偶联反应 (OPC)，这与文献中报道的多数催化非对称偶联的 P450 酶功能不同。这一发现拓展了 P450 酶的功能多样性。
         
@@ -151,8 +148,8 @@
 - **数据支撑与图表解读**：
     
     - **Figure 3A** 的 HPLC 图谱清晰地展示了选择性：
-        
-        ![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MjNhODViOTEwZTM0ZWIxYzExNThjOGNkNjNmN2MxMDFfU1NDNnRTSTJnOWxTS0duMFFGM3AxQ3NNejU3c1NySGVfVG9rZW46S2tNVGI2VHFqb1l6WHR4UmdBT2NxUTFrbmtoXzE3NjUxODcwNTY6MTc2NTE5MDY1Nl9WNA)
+       ![image.png](http://synbiopath.online/20251226225632363.png)
+
         
         - 大黄素 (emodin) 被成功转化为大黄素甲醚 (physcion) (vii)。
             
@@ -182,19 +179,16 @@
 - **数据支撑与图表解读**：
     
     - **Figure 4A 和 4C** 展示了 PhyL 的三维结构模型和活性口袋中的关键残基。
-        
-    
-    ![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZmE5MzY4NjFlNDBjMGMxNDlmMDhjZTc3NTRjOTJiNWZfeEU3T0JrRnJoMUZMWnU0RENuUnZ4ZkRzVFNOZ292VXdfVG9rZW46R2RudWJHNEVnb3Vmc3J4R0lRVmNvVmZtbkxnXzE3NjUxODcwNTY6MTc2NTE5MDY1Nl9WNA)
+        ![image.png](http://synbiopath.online/20251226225643559.png)
+
     
     - **Figure 4B** 显示，对一些关键残基（如 Y22A, D23A, Y124A）的突变会导致酶活性严重下降甚至丧失，验证了这些残基在催化中的重要性。
-        
-    
-    ![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ODcyYjYyNDM0ZDYyNzYyYmQ0NmI3ZjQ4YWU5MjIzODJfM0JkU2NubVpRRkFiNWQyUW1VN0ExTnp0UG43dFNsYkRfVG9rZW46T3Y4SWJ1SkJub2daUGZ4R203VWNERVRFbnRjXzE3NjUxODcwNTY6MTc2NTE5MDY1Nl9WNA)
+        ![image.png](http://synbiopath.online/20251226225653656.png)
+
     
     - **Figure 4D** 的柱状图展示了对关键位点进行饱和突变后的活性筛选结果。多个突变体（如 F125Y, V30I）的相对活性显著高于 100%（野生型）。F125Y 突变体的活性达到了野生型的 264%。
-        
-    
-    ![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MGFkZWM1ZjU5YjM3MjYwNTVlZTBlMTZlNjhiYzMxN2JfRXQ4Tlo0VUthUnVYNG1sd1dDbTdwSDFDT1pXYjBoMUhfVG9rZW46REJHVWJEc1VIbzVreWF4czQ5cWNiU2J1blllXzE3NjUxODcwNTY6MTc2NTE5MDY1Nl9WNA)
+        ![image.png](http://synbiopath.online/20251226225701354.png)
+
     
     - **分析**：这一结果成功地展示了“结构预测+理性设计”策略在酶工程改造中的威力，为后续构建高产菌株提供了一个性能更优的“酶元件”。
         
@@ -212,19 +206,16 @@
 - **数据支撑与图表解读**：
     
     - **Figure 5A** 的时间曲线显示，添加豆粕（红色曲线）能显著提高 atrochrysone, torosachrysone 和 physcion 的产量，远优于基础培养基（蓝色）或添加蛋白胨（橙色）。
-        
-    
-    ![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZTY2YjdjZWY1Nzc1MTcxYTE3NWRjZDA4NzY4ZWIwMDdfS0V6VnE2dWpCUng2M2lHS2VTZDBXMDlxZkNuTTcxYWhfVG9rZW46VWVSMmJscWZDbzhFTXh4RGxGWmM5WUhRbkFjXzE3NjUxODcwNTY6MTc2NTE5MDY1Nl9WNA)
+        ![image.png](http://synbiopath.online/20251226225712236.png)
+
     
     - **Figure 5B** 提出了碱处理的化学转化原理示意图。
-        
-    
-    ![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NDNmYjA0OWFmZTViMjU0YWJiNGZhZDdjOTllZDdjYWZfenZ2V3VXMWpSZzY4WmVybXJWNnFETW54cXdkTHZmQjdfVG9rZW46RExZNWJydEtRb1BhUlN4UmRETmNlanFLbnNlXzE3NjUxODcwNTY6MTc2NTE5MDY1Nl9WNA)
+        ![image.png](http://synbiopath.online/20251226225720335.png)
+
     
     - **Figure 5C** 是最终的产量优化结果。柱状图显示，随着 NaOH 浓度的增加，大黄素甲醚的产量也随之增加，在 70 g/L NaOH 处理条件下达到峰值 152.81 mg/L。
-        
-    
-    ![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDRhNmNlOTZhMWUwNmE5YTQ1ZTU3ZGMwMjU0ODZkZWZfT0x2bWFIZFlLcXRlRnU0anpvazBBVDlEZ0RPYUhKUlFfVG9rZW46T1dCaGJBbEd5b2Z2a1F4bHRvdmN3UUF5bjJnXzE3NjUxODcwNTY6MTc2NTE5MDY1Nl9WNA)
+        ![image.png](http://synbiopath.online/20251226225729262.png)
+
     
     - **分析**：这种“生物合成+化学转化”的混合策略非常巧妙。它充分利用了微生物高效合成复杂前体的能力，同时用一种简单的化学方法解决了生物途径中效率较低的最后一步（芳构化），是实现复杂天然产物高效制造的典范思路。
         
