@@ -1,4 +1,5 @@
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YWIzNTQ0ZjA3MTI1NDk5NTFkZTFmNDYwMDIxMGU0ZWRfb0RyYnRpQmxITGNDVkVuU2IwSUNtbUhOZE9GN3JXNkVfVG9rZW46UWlwT2JaVVk5b2N4Z294V1NMMWNoYVlkbldiXzE3NjUxODczMjQ6MTc2NTE5MDkyNF9WNA)
+![image.png](http://synbiopath.online/20251226230206798.png)
+
 
 ## 一：基本信息
 
@@ -30,8 +31,8 @@
 在此之前，已有多种策略用于在模式真菌（如米曲霉 _Aspergillus oryzae_、构巢曲霉 _Aspergillus nidulans_）中进行异源表达。这些策略通常使用组成型或可诱导的初级代谢启动子（如 _gpdA_, _alcA_）来驱动单个或少数几个基因的表达。然而，当面对一个包含十几个基因的复杂 BGC 时，如何协调所有基因的表达，使其像在天然宿主中一样高效协同工作，一直是一个巨大的挑战。利用天然 BGC 的内源调控元件（如通路特异性转录因子）来驱动整个基因簇的协同表达，被认为是一种更有前途但技术上更难实现的策略。
 
 ### 本文突破点
+![image.png](http://synbiopath.online/20251226230233315.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=OGI5ZWMxNmQzOTg3OThhZDA0YjI3YmE4MTRlODQzOGRfOW4xZVVWTkFOY3l6aVNHQ2dpNzIzMWpDVU1hdTVtTk5fVG9rZW46TW5mMmJyNFI4b0RSaDB4TmNWS2NvaXNLbjljXzE3NjUxODczMjQ6MTc2NTE5MDkyNF9WNA)
 
 1. **方法学创新：开发了“afo regulon”平台**：首次提出并成功实践了一种全新的“基因簇重构”策略。该策略巧妙地利用了构巢曲霉 (_A. nidulans_) 内源 asperfuranone 基因簇 (`afo` 簇) 的调控系统。通过将外源 BGC 的所有基因编码区 (CDS) 逐一替换掉 `afo` 簇中对应基因的 CDS，同时保留 `afo` 簇完整的启动子、终止子和调控网络，从而实现对外源基因簇的“即插即用”式高效协同表达。
     
@@ -71,8 +72,8 @@
 #### 实验目的与设计
 
 本部分的核心目的是阐述“afo regulon”平台的设计原理，并以一个相对简单的 BGC (citreoviridin) 为例，验证该策略的可行性。
+![image.png](http://synbiopath.online/20251226230244041.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=OTlhNjRhNTNhYmY2NmQxZjk4ZjVhMTQxMGRlNTlhZTNfdlYzTUY5Sk15b2FlU0duVkl3ZWgydG9QZ3I4YmMxYUpfVG9rZW46UTNyYmJmckM0bzBYS2x4TXdpSWNDOHNHblZkXzE3NjUxODczMjU6MTc2NTE5MDkyNV9WNA)
 
 1. **平台设计**：`afo` 簇在诱导条件下表达量极高（产物 > 900 mg/L），且其调控因子 AfoA 能协同激活簇内所有基因。因此，将外源基因置于 `afo` 簇的调控元件之下，有望实现高产。
     
@@ -84,14 +85,12 @@
 #### 实验结果与分析
 
 - **Figure 2** 展示了 `afo` 簇的基因组成和功能，它是整个平台的“引擎”。
-    
+    ![image.png](http://synbiopath.online/20251226230253366.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=OWM2NmVmOGM2NWY0YzBlNTcwZTE5YTI1MjA5Y2VjYjBfdnAyYmJYaVd4aVp6VkdxMkQyTGZld28wRmxEemNMRlJfVG9rZW46SnJCMWIxUnRtb3czNDB4ZzM0WWNsYkVDbmtOXzE3NjUxODczMjU6MTc2NTE5MDkyNV9WNA)
 
 - **Figure 3** 描绘了体内多片段同源重组的原理，展示了如何通过 3-5 次 HR 事件，将长达 17-35 kb 的外源 DNA 精确整合。
-    
+    ![image.png](http://synbiopath.online/20251226230302171.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ODgzNzFiMGQ5NmQ5YTI2MTk3ZmRmZDZjZTEyZDk4YjdfdHRTdU1pQTJ5Qk5NYmNUdzJjTzNXZXFFTlZrUE9NdE5fVG9rZW46TkhKRGJibkRPb1dvdkN4ODB6RWNGeWszbkZjXzE3NjUxODczMjU6MTc2NTE5MDkyNV9WNA)
 
 - **Figure 4** 是 citreoviridin 重建的成功证据。
     
