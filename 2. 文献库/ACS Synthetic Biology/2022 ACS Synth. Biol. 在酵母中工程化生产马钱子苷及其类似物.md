@@ -30,7 +30,7 @@ MIA 是一大类重要的植物天然产物，包含长春新碱、奎宁等多�
 2. O'Connor 课题组在 2015 年首次在酵母中成功重构了完整的马钱子苷生物合成途径，这是一个里程碑式的成就。然而，该菌株的产量非常低，仅为约 0.5 mg/L，且由于大量基因的组成型强表达，菌株生长受到严重影响，不具备工业化生产的潜力。
     
 3. 马钱子苷合成途径中的一些关键瓶颈已被初步识别，例如 P450 酶的活性、中间体的稳定性以及代谢负荷等。
-    ![Uploading file...z0xgy]()
+    ![image.png](http://synbiopath.online/20251226230413255.png)
 
 
 ### 本文突破点
@@ -94,13 +94,12 @@ MIA 是一大类重要的植物天然产物，包含长春新碱、奎宁等多�
 实验结果清晰地指明了最佳策略。首先，辅助蛋白的组合效应显著：单独表达 CPR 或 CYB5 效果有限，但共表达 CPR+CYB5+CYPADH 时，产物产量最高，比单独表达 CPR 提升了近 2.5 倍 (Figure 2A)。这表明这三个辅助蛋白对于 P450 的功能具有协同作用。其次，启动子策略的选择也很重要：使用组成型强启动子（如 TEF1p, PGK1p）来表达辅助蛋白的菌株 (yJM010)，其产物产量略高于使用自诱导型启动子的菌株 (yJM009) (Figure 2C)。这可能是因为提前“预备”好充足的辅助蛋白，有助于后续 P450 表达后立即发挥功能。因此，作者确定了**组成型表达辅助蛋白**是最佳策略，并构建了后续研究所用的底盘菌株 yJM010。
 
 - **Figure 1 (马钱子苷生物合成途径)**：该图详细描绘了从乙酰辅酶A到马钱子苷的完整路径，是理解全文所有酶和中间体的基础。
-    
+    ![image.png](http://synbiopath.online/20251226230425789.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=OGMzZTQ4MWI4YTVlN2U3NGUyYWJlYzEzOTE3OWUxYTBfb00zVUkxanFZeVRabTNkbXVxU0JIenJaNXluNDRlWGNfVG9rZW46SGhpVmJjRjR1bzA1QkF4aWVmS2NSc1Y5bnpjXzE3NjUxODczMDQ6MTc2NTE5MDkwNF9WNA)
 
 - **Figure 2 (辅助蛋白优化)**：
-    
-    ![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YTQ1ODFlZDNmYmEyYTRjN2VkYmZmZDZlMDlhNWMzMmZfOGlBSVZzWGVpaDJLcEVGaXFlODVOZkRocmhEZmN6dXhfVG9rZW46TFQyS2JXanM5b0hqRUV4b1pmT2NyRDZ1bjNlXzE3NjUxODczMDQ6MTc2NTE5MDkwNF9WNA)
+    ![image.png](http://synbiopath.online/20251226230434699.png)
+
     
     - **Figure 2A (柱状图)**：定量比较了不同辅助蛋白组合对 IO 活性的影响，清晰显示 CPR+CYB5+CYPADH 组合效果最佳。
         
@@ -129,8 +128,8 @@ MIA 是一大类重要的植物天然产物，包含长春新碱、奎宁等多�
 #### 实验结果与分析 (Experimental Results & Analysis)
 
 这一步的优化是本研究取得产量突破的关键。初步构建的、所有基因均在高拷贝质粒上的菌株，马钱子苷产量约为 15.2 mg/L。然而，当作者将三个 P450 基因转移到低拷贝质粒上时，产量发生了惊人的飞跃，达到了 **55.8 mg/L** (Figure 3A, yJM025 + pJM057)。这是一种反直觉但非常重要的发现：对于 P450 这类膜蛋白，**并非表达水平越高越好**。过高的表达会超出酵母内质网的处理能力，导致蛋白质错误折叠和降解，并对细胞产生毒性。通过降低其表达水平，反而减轻了细胞的代谢负荷，使得正确折叠的功能性酶总量增加，从而大幅提升了总产量。进一步的实验表明，单独降低 IO 的拷贝数贡献了大部分的产量提升 (Figure 3B)，说明 IO 是最主要的“毒性”来源。
+![image.png](http://synbiopath.online/20251226230445226.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NjY5NTFjNmU0ZTA1MjJiNjQ4YTFkOThlYjE1NGZiMWRfdXZHV1RGbUR3R1NrSE1GNzNZQldxaWFWMDZRTkp6R3lfVG9rZW46U2hJQWIyeTVtb2JOM0J4QUE3ZmNBa2k2blZiXzE3NjUxODczMDQ6MTc2NTE5MDkwNF9WNA)
 
 - **Figure 3A (柱状图)**：这是本部分的核心数据。清晰地显示了从高拷贝 P450 质粒 (yJM010+...) 到低拷贝 P450 质粒 (yJM025+pJM057) 的转变，导致马钱子苷产量从 15.2 mg/L 飙升至 55.8 mg/L。
     
@@ -159,14 +158,12 @@ MIA 是一大类重要的植物天然产物，包含长春新碱、奎宁等多�
 该策略成功地打通了全路径。最终的工程菌株 (yJM038 + pJB204) 在饲喂香叶醇和色胺后，能够生产 **50.7 mg/L** 的马钱子苷 (Figure 3C)。这一产量与从更昂贵的中间体 nepetalactol 出发的产量 (56.2 mg/L) 相当，表明新整合的上游途径非常高效，没有成为新的瓶颈。作者特别指出，新发现的 MLPL 酶的加入对于减少副产物、保证代谢流向 nepetalactol 至关重要。至此，作者完成了一个从廉价原料出发，高产马钱子苷的完整、高效的酵母细胞工厂的构建。
 
 - **Figure 3C (柱状图)**：定量比较了从 nepetalactol 和 geraniol 出发的最终产量，两者非常接近，证明了全途径的高效整合。
-    
+    ![image.png](http://synbiopath.online/20251226230455692.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NDYzOGNkOTYzYjMwNDc0Y2FjYzdmNjEzZDMwNjUwNjRfVnVtUDc4REJNQjdlTzhiTUdqNWRVM2FuY3dCT1N3RkpfVG9rZW46TGVHRWIyU0U0b0d5Vk94OWVEaWNWc1F3bjJjXzE3NjUxODczMDQ6MTc2NTE5MDkwNF9WNA)
 
 - **Figure 4 (NMR 谱图)**：展示了从 1L 发酵中纯化得到的马钱子苷的 ¹H 和 ¹³C NMR 谱图。这些谱图与标准品完全一致，为产物的化学结构提供了最终的确证。
-    
+    ![image.png](http://synbiopath.online/20251226230504141.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YTkyY2Y0OTc4MmZmM2Q2YmM4YzZiNWM3MWZkZTY4MGFfWkI2eHdLb3Q1dkdYUlNLMUg0VVZkeElsUUhoWkM0R1BfVG9rZW46VjN5TWI1TWdwbzhtblR4SnNZWGNCSkRZblNiXzE3NjUxODczMDQ6MTc2NTE5MDkwNF9WNA)
 
 ### 研究部分四：平台应用：卤代马钱子苷类似物的生物合成
 
@@ -191,7 +188,6 @@ MIA 是一大类重要的植物天然产物，包含长春新碱、奎宁等多�
 
 - **Figure 5 (卤代类似物生产)**：
     
-    ![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZmNjNDc2NjExODgyYzY4NGExMWU1Y2EzMjIxNmI3ZGNfeFFMdG5LNFY5VUVTVTZWVFNmYThBWmJySnV2RHhtMVJfVG9rZW46U3Z4QmJNWENkb3ducHB4Vjl2a2NURnpRblJmXzE3NjUxODczMDQ6MTc2NTE5MDkwNF9WNA)
     
     - **Figure 5A** 展示了成功被整合的色胺类似物的结构。
         
