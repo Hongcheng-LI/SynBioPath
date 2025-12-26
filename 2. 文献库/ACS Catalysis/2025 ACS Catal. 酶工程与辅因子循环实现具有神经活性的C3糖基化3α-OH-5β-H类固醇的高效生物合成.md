@@ -11,11 +11,11 @@
 
 **期刊名称**：*ACS Catalysis*
 
-**通讯作者**：班树荣 (Shurong Ban)、宋恒 (Heng Song)
+**通讯作者**：宋恒 (Heng Song)、班树荣 (Shurong Ban)
 
 **通讯作者工作单位**：
-*   班树荣：山西医科大学药学院 (School of Pharmacy, Shanxi Medical University)
-*   宋恒：武汉大学化学与分子科学学院 (College of Chemistry and Molecular Sciences, Wuhan University)；武汉大学深圳研究院 (Wuhan University Shenzhen Research Institute)
+*  宋恒：武汉大学化学与分子科学学院 (College of Chemistry and Molecular Sciences, Wuhan University)；武汉大学深圳研究院 (Wuhan University Shenzhen Research Institute)
+* 班树荣：山西医科大学药学院 (School of Pharmacy, Shanxi Medical University)
 
 ---
 
@@ -78,6 +78,10 @@
 
 #### 实验结果与分析
 如图 **Figure 1** 和 **Figure 2** 所示，研究团队通过 HPLC 监测反应进程。
+![image.png](http://synbiopath.online/20251226213619571.png)
+![image.png](http://synbiopath.online/20251226213644450.png)
+
+
 *   **WT 的功能**: 表达 WT AKR1D1 的全细胞能将 **1a** 转化为 **2a** ($t_R$ 8.7 min)。NMR 光谱（图 **S13/14**）显示 **2a** 在 C3/C20 处保留酮基信号（213.3, 196.9 ppm），确证发生了 Δ4 双键的 5β-还原反应。
     > "These results demonstrated that AKR1D1 specifically catalyzed the 5β-stereoselective reduction of the Δ4 double bond in substrate 1a."
 *   **E120H 的双重功能**:
@@ -90,18 +94,24 @@
 针对 WT 和 E120H 催化效率不足的问题，利用分子对接分析底物结合模式，并通过定点突变解除空间位阻。
 
 #### 实验结果与分析
-*   **结构分析 (Figure 3a-c)**: 分子对接显示，底物与残基 W230 和 Y132 之间存在显著的空间冲突（距离 1.9-2.3 Å），限制了底物的有效结合。
-*   **WT 改造 (Figure 3d, Table 1)**:
-    *   针对 5β-还原反应，构建了双突变体 **M8 (Y132H/W230Y)**。
-    *   **M8** 在 24 h 内实现了 74% 的产率（WT 仅 42%）。
-    *   动力学数据显示，**M8** 的 $k_{cat}/K_m$ 为 $3.78 \times 10^{-2}$ min⁻¹μM⁻¹，较 WT 提升了 **7.8 倍**。
-*   **E120H 改造 (Figure 3e-f, Table 1)**:
-    *   针对 3-酮还原反应，筛选出最佳组合突变体 **M16 (E120H/Y132A/W230H)**。
-    *   **M16** 使 **2a** 的转化率从 E120H 的 ~11% 提升至 58%。
-    *   动力学常数显示，**M16** 的 $k_{cat}/K_m$ 达到 $1.13 \times 10^{-1}$ min⁻¹μM⁻¹，较 E120H 提升了 **20.7 倍**。
-    *   PyMOL 测量表明，Y132A/W230H 突变导致活性口袋体积扩大约 18%，有效缓解了位阻。
-    > "This expansion likely alleviated steric constraints and optimized the substrate orientation."
-    *   针对 3β-OH 氧化反应，筛选得到突变体 **M11 (E120H/Y132H)**，其转化率优于其他突变体。
+  **结构分析 (Figure 3a-c)**: 分子对接显示，底物与残基 W230 和 Y132 之间存在显著的空间冲突（距离 1.9-2.3 Å），限制了底物的有效结合。
+![image.png](http://synbiopath.online/20251226213709816.png)
+
+  **WT 改造 (Figure 3d, Table 1)**:
+*![image.png](http://synbiopath.online/20251226213732361.png)
+
+-  针对 5β-还原反应，构建了双突变体 **M8 (Y132H/W230Y)**。
+*   **M8** 在 24 h 内实现了 74% 的产率（WT 仅 42%）。
+*   动力学数据显示，**M8** 的 $k_{cat}/K_m$ 为 $3.78 \times 10^{-2}$ min⁻¹μM⁻¹，较 WT 提升了 **7.8 倍**。
+**E120H 改造 (Figure 3e-f, Table 1)**:
+![image.png](http://synbiopath.online/20251226213851546.png)
+
+*   针对 3-酮还原反应，筛选出最佳组合突变体 **M16 (E120H/Y132A/W230H)**。
+*   **M16** 使 **2a** 的转化率从 E120H 的 ~11% 提升至 58%。
+*   动力学常数显示，**M16** 的 $k_{cat}/K_m$ 达到 $1.13 \times 10^{-1}$ min⁻¹μM⁻¹，较 E120H 提升了 **20.7 倍**。
+*   PyMOL 测量表明，Y132A/W230H 突变导致活性口袋体积扩大约 18%，有效缓解了位阻。
+> "This expansion likely alleviated steric constraints and optimized the substrate orientation."
+*   针对 3β-OH 氧化反应，筛选得到突变体 **M11 (E120H/Y132H)**，其转化率优于其他突变体。
 
 ### 研究部分三：辅因子循环系统的整合与优化
 #### 实验目的与设计
