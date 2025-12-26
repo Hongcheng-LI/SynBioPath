@@ -93,8 +93,8 @@
 
 
 - **Figure 4** 是 citreoviridin 重建的成功证据。
-    
-    ![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NmIzMzEwZGYzOTFlNjE5ZTk5MzNmMTQ1YWRlNDQ3ZTRfUXhENE5hNjVDWDk2TEQzRUxjdGhCeW54VUl6VnlRZVpfVG9rZW46Rkh5WWJaUlRzb3hpV294YkJtTmM4Zm41bndiXzE3NjUxODczMjU6MTc2NTE5MDkyNV9WNA)
+    ![image.png](http://synbiopath.online/20251226230312082.png)
+
     
     - **Figure 4b** 的示意图展示了如何通过 3 个转化片段 (ctvF1-F3) 重构 `ctv` 簇。
         
@@ -123,21 +123,18 @@
 #### 实验结果与分析
 
 - **Figure 5b** 展示了第一步 mutilin 的合成。通过两个大片段 (pluF1, 9.2 kb; pluF2, 8.2 kb) 的共转化，成功构建了菌株 YM283。**Figure 5d** 的质谱和 **Figure S10** 的 NMR 谱证实，该菌株高效地生产了 mutilin (**2**)。
-    
+    ![image.png](http://synbiopath.online/20251226230323272.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDUxMTk2NDgyOGJkYzMyZjA2YWM5OGVlODU4MTlmODRfMEpnU09IV3dDOTZtdFVETjhETkZiRHVmT1hzTzhCdlpfVG9rZW46QXFWYmJuRWt1b081RjF4V3FqVGN3aUJmblhlXzE3NjUxODczMjU6MTc2NTE5MDkyNV9WNA)
 
 - **Figure 5c** 展示了第二步 pleuromutilin 的合成。在 YM283 基础上，通过转化一个 8.9 kb 的片段 (pluF3)，成功导入了最后两个基因，构建了菌株 YM343。
-    
+    ![image.png](http://synbiopath.online/20251226230333007.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NGZkNDNhZGI0N2I1MzVlZTM1NjAzZDU5Nzk5ZjY0NmVfdWFBSHNoWG91dWNDVFJWMXl3T05hTHlXZ0RwaDVZZ2dfVG9rZW46SW0yemJvaU9Xb0VIY0l4MkF6cWNhbEpZbkNjXzE3NjUxODczMjU6MTc2NTE5MDkyNV9WNA)
 
 - **Figure 5d** 的质谱图显示，YM343 成功地将 mutilin (**2**) 转化为了最终产物 pleuromutilin (**3**)。
     
 - **Figure 6** 展示了转化片段 pluF3 与宿主基因组存在 4 个同源区域，这给筛选带来了复杂性，但作者通过筛选大量克隆，最终成功获得了正确的重组子。
-    
+    ![image.png](http://synbiopath.online/20251226230341865.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=M2RkMjU3ODJlMzhiNzlkODBhZmRiNjllNGU2ODVkOGZfMkxCNEhuN21nZFdFaWFDUk83OE5sNzFGc0FaODA5R2tfVG9rZW46R003UGJIM2tib0x6OW14QUVHTWNtdWpZbm9mXzE3NjUxODczMjU6MTc2NTE5MDkyNV9WNA)
 
 - **产量分析**：最终的 pleuromutilin 产量约为 **150 mg/L**，显著高于之前在米曲霉中报道的产量 (~84 mg/L)，再次证明了该平台的优越性。
     

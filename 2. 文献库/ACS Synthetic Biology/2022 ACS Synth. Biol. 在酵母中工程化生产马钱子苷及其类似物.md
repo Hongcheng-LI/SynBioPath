@@ -1,4 +1,5 @@
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MjlmNjAyZjJiNjk4MGM1MjlmMWZkOTAxNTNhNzdjNjFfZEMyZjNPVEZLU2hxcUk1Q1lTaEkydkdqaVhBcDN3VjVfVG9rZW46VHZwdWJNZ2lib0huS2N4ZnZsamM4a2h1bjVkXzE3NjUxODczMDQ6MTc2NTE5MDkwNF9WNA)
+![image.png](http://synbiopath.online/20251226230403834.png)
+
 
 ## 一：基本信息
 
@@ -29,9 +30,8 @@ MIA 是一大类重要的植物天然产物，包含长春新碱、奎宁等多�
 2. O'Connor 课题组在 2015 年首次在酵母中成功重构了完整的马钱子苷生物合成途径，这是一个里程碑式的成就。然而，该菌株的产量非常低，仅为约 0.5 mg/L，且由于大量基因的组成型强表达，菌株生长受到严重影响，不具备工业化生产的潜力。
     
 3. 马钱子苷合成途径中的一些关键瓶颈已被初步识别，例如 P450 酶的活性、中间体的稳定性以及代谢负荷等。
-    
+    ![Uploading file...z0xgy]()
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YzE0M2RkOTYxM2M5ZTE5YjAzZWRlNmRkYTU3ZDZjYzZfbWc1c0twU3JrQXVZY013NXg1T0ZBNncwM082V2J4SXFfVG9rZW46UHhBM2JBZE9yb0JoZGF4NVhGRGNkUFdyblFlXzE3NjUxODczMDQ6MTc2NTE5MDkwNF9WNA)
 
 ### 本文突破点
 
