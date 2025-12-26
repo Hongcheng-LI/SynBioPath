@@ -1,4 +1,5 @@
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NGMwYjE5NzQ0NWE1MTM2OThlOTI5ZDliYjY4NzMzODNfRklvMzFzdUI4TzdRd1RrOFdVZ1ZNalJ2eTcyejVGbURfVG9rZW46Wk16WGJYdGRUb3RmQ2h4UGNrNmN4WDhwbktmXzE3NjUxODcyMDA6MTc2NTE5MDgwMF9WNA)
+![image.png](http://synbiopath.online/20251226221217076.png)
+
 
 ## 一：基本信息
 
@@ -34,8 +35,8 @@
 在本文发表前，微晶电子衍射 (Microcrystal Electron Diffraction, microED) 技术已崭露头角，成为一种强大的小分子结构解析工具。与传统的 X-射线衍射需要毫克级的、尺寸较大的单晶不同，microED 仅需纳克级的、纳米或微米尺寸的晶体即可获得高分辨率的结构数据。然而，microED 的应用仍然受限于样品制备的“一对一”模式：每个样品（如一个 HPLC 馏分）需要单独制备一个 TEM (透射电子显微镜) 样品网格，然后手动上样、筛选，整个过程耗时且通量极低，无法满足从粗提物中进行大规模筛选的需求。
 
 ### 本文突破点
+![image.png](http://synbiopath.online/20251226221230970.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=Y2U1ZjIzMzE2NjdiNjQxZTVlNTQ5NDk0ZDZlZGZmNGVfcVMyYk5McHA0aElkMFFlMVcyNkI5aVVYZVhxd2ozc1NfVG9rZW46R3c1TGJtVnpEb3hUNU94ZXZBNWNSeklabnNkXzE3NjUxODcyMDA6MTc2NTE5MDgwMF9WNA)
 
 1. **开发了革命性的高通量筛选平台 ArrayED**：首次将 DNA 微阵列点样技术与 microED 技术相结合，创造了一个名为“阵列电子衍射 (ArrayED)”的全新工作流程。该技术能够将多达 1200 个或更多的独立样品（如 HPLC 馏分）以皮升级 (picoliter) 液滴的形式，**高密度地点样到单个 TEM 网格上**。
     
@@ -100,15 +101,14 @@
 #### 实验结果与分析 (Experimental Results & Analysis)
 
 这部分工作成功地展示了 ArrayED 平台惊人的效率和潜力。
+![image.png](http://synbiopath.online/20251226221244633.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YWUwZTg0MjE0MzU3NWUzZjU0MjdlYjYxNWM5MGU0NTRfNTZOTnNtOFU4TkNOZk82SXlzOEtnVlE3Wm1uaUNMeThfVG9rZW46VG9zNWJubHI5b3RXTWV4dVhiZWNRSTNablFiXzE3NjUxODcyMDA6MTc2NTE5MDgwMF9WNA)
 
 - **Figure 1C** 直观地展示了 ArrayED 的核心思想：将 96 个 HPLC 馏分点样到**一个** TEM 网格上，整个过程仅需 4-8 小时。
     
 - **Figure 2A** 展示了微阵列点样仪和最终制备出的、布满样品点的 TEM 网格实物图。
-    
+    ![image.png](http://synbiopath.online/20251226221256474.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MGQ2NGJhMjk4MzI0ZjE4NDNmMTRlNGQzYmYyZDEyYTlfTEZRSms4c0RCUHpYcVBOYXFRWTg0Q3Q0TmdENXRZcVRfVG9rZW46QlZweGJUYXhXb0lxSUZ4Y3BkdWNVaVVqbmNoXzE3NjUxODcyMDA6MTc2NTE5MDgwMF9WNA)
 
 - **Figure 2B** 是一个“热图”，展示了对 20 个粗提物进行筛选的结果。蓝色方格代表成功获得衍射信号的馏分。结果显示，在 1920 个馏分中，共识别出 415 个（约 21%）含有结晶物质的馏分。
     
@@ -135,19 +135,14 @@
 这部分通过丰富的案例，全面地展示了 ArrayED 的实际应用价值。
 
 - **Figure 3** 集中展示了通过 ArrayED 解析出的 14 种天然产物的晶体结构，包括萜类、黄酮类、蒽醌类、生物碱等多种骨架类型，显示了其广泛的适用性。
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MGY1MDViOGI4MmZmMTNkZmE1NTEwZDA0N2I5MDk0ZGJfSmZFejV3dk1TTUFVM0l4MnRGUDZPQkI4SHdZeWQ4elZfVG9rZW46RWV4emJGMU9tb283bmF4d1daZmNaWXd0bmJnXzE3NjUxODcyMDA6MTc2NTE5MDgwMF9WNA)
+    ![image.png](http://synbiopath.online/20251226221315152.png)
 
 - **Figure 4** 以真菌 _Trichoderma afroharzianum_ 的提取物为例，展示了一个精彩的发现过程。HPLC 图谱显示在一个复杂的峰簇中，相邻的三个馏分 (E7, E8, E9) 都产生了高质量的衍射。结构解析表明，E7 是纯的 pachybasin (**10**)，E9 是纯的 chrysophanol (**11**)，而中间的 E8 则是这两种结构高度相似的化合物的**共晶 (co-crystal)**。这一发现揭示了 HPLC 的时间分辨能力如何影响结晶过程，并证明了 ArrayED 能够解析复杂的共晶结构。
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ODVjMzA4YmRmM2Q5MTliOTM5MDlmYWQ5MzE4Mzc4NWVfdEpQZjRmT2ZSSVVsbktQb1IwQ3R1V3VMazk0MFZJMGxfVG9rZW46T0ljWmJqZldJb3RkR0x4N0djaWNhVVQybkRjXzE3NjUxODcyMDA6MTc2NTE5MDgwMF9WNA)
+    ![image.png](http://synbiopath.online/20251226221342235.png)
 
 - **Figure 5A** 展示了从海洋红藻中解析一个复杂糖脂 (**15**) 的案例。该案例中，microED 成功地解决了 NMR 无法确定的脂肪酸链连接位点问题，展示了 microED 与传统波谱学方法的互补性。
-    
+    ![image.png](http://synbiopath.online/20251226221355692.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MWY2ZTFlY2ViNGNhMmUwODBjNzgwNTNlOTA3YmNhOWVfUGVDVEszOHpvalhxdlM4djJxcGlvR1JBdjBHcHpCcWhfVG9rZW46R2tad2JzZnhOb080T0l4WmJZY2NBOXFnbkpmXzE3NjUxODcyMDA6MTc2NTE5MDgwMF9WNA)
 
 - **一个关键发现**：在对 _Preitonia sp._ 的分析中，成功解析了甘露醇 (**12**) 的结构。甘露醇是一个没有 UV 吸收的糖醇，如果采用传统的 UV 指导的分离方法，这个化合物很可能会被完全忽略。这凸显了 ArrayED 这种“无偏见”筛选方法的优势。
     
