@@ -60,12 +60,17 @@ Kahalalide F (KF) 是一种具有显著抗癌活性的环状缩酚酸肽（cycli
 ## 四：研究方法
 
 **液相色谱-串联质谱 (LC-MS/MS)**：用于代谢物指纹图谱分析及分子网络构建（GNPS）。
+
 **人工智能辅助结构解析 (AI-Based Annotation)**：使用 **SMART 2.1** 和 **DeepSAT** 工具，基于 NMR HSQC 光谱数据预测化合物结构类型。
+
 **核磁共振波谱 (NMR)**：包括 $^{1}\text{H}, ^{13}\text{C}$ 以及 2D NMR (HSQC, HMBC, COSY, ROESY) 用于平面结构解析。
+
 **化学降解与手性分析**：
 *   **Marfey's Analysis**: 使用 L-FDLA 和 D-FDLA 衍生化水解产物，通过 LC-MS 确定氨基酸绝对构型。
 *   **部分水解 (Partial Hydrolysis)**: 利用温和酸水解产生肽段片段，用于确定特定位置氨基酸的连接顺序和构型（如区分 Val-2 和 Val-3）。
+
 **宏基因组测序与组装**：使用 PacBio Revio 平台进行长读长测序，利用 Hifiasm-meta 进行组装，MetaBAT2 进行分箱（Binning）。
+
 **生物信息学分析**：使用 antiSMASH 7.1.0 预测基因簇，Clinker 进行基因簇比较，GTDB-Tk 进行分类学鉴定。
 
 ---
