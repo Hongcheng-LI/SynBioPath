@@ -1,3 +1,4 @@
+![image.png](http://synbiopath.online/20251228191843056.png)
 
 
 ---
@@ -16,8 +17,6 @@
 *   **张转**：中国医学科学院北京协和医学院医药生物技术研究所，微生物药物生物技术国家卫生健康委员会重点实验室 (NHC Key Laboratory of Biotechnology for Microbial Drugs, Institute of Medicinal Biotechnology, Chinese Academy of Medical Sciences & Peking Union Medical College, Beijing, People’s Republic of China)
 *  **Gerald F. Bills**：德克萨斯大学休斯顿健康科学中心，布朗基金会分子医学研究所，德克萨斯治疗研究所 (Texas Therapeutics Institute, The Brown Foundation Institute of Molecular Medicine, University of Texas Health Science Center at Houston, Houston, Texas, United States)
 *   **安志强**：德克萨斯大学休斯顿健康科学中心，布朗基金会分子医学研究所，德克萨斯治疗研究所 (Texas Therapeutics Institute, The Brown Foundation Institute of Molecular Medicine, University of Texas Health Science Center at Houston, Houston, Texas, United States)
-
-
 
 ---
 
@@ -48,6 +47,7 @@ Papulacandins 是一类最早于1976年从真菌 *Papularia sphaerosperma* 中�
 本研究遵循“基因挖掘 $\rightarrow$ 逐步异源表达 $\rightarrow$ 体外酶学表征 $\rightarrow$ 机制解析”的逻辑路径：
 
 **步骤 1：基因簇挖掘与鉴定**
+
 基于 Papulacandin D 的逆合成分析，推测其生物合成涉及 NRPKS（非还原型聚酮合酶）。利用已知的 orsellinic acid 合成酶 ArmB 序列作为探针，在生产菌 *Codinaeella minuta* 基因组中锁定了一个包含 10 个基因的 *ppc* 基因簇 (Figure 2A)。
 
 **步骤 2：芳香前体合成模块的功能验证**
