@@ -88,8 +88,11 @@ Papulacandins 是一类最早于1976年从真菌 *Papularia sphaerosperma* 中�
 
 #### 实验结果与分析
 *   **基因簇定位 (Figure 2A)**: 鉴定的 *ppc* 基因簇包含 10 个基因。NCBI 比对显示该簇在多种植物致病真菌中保守 (Figure S2)。
-* 
+![image.png](http://synbiopath.online/20251228192101075.png)
+
 *   **早期代谢物鉴定 (Figure 2C, Figure S4)**:
+![image.png](http://synbiopath.online/20251228192202602.png)
+
     *   表达 *ppcA* 产生 orsellinic acid (**3**)。
     *   共表达 *ppcA/B* 产生 3,5-dihydroxytoluene (**4**)。
     *   共表达 *ppcA/B/C* 产生 3,5-dihydroxybenzyl alcohol (**5**)。
