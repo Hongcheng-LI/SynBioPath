@@ -1,4 +1,3 @@
-
 ![image.png](http://synbiopath.online/20251228200820162.png)
 
 ---
@@ -6,7 +5,6 @@
 ## 一：基本信息
 
 **文章题目**：Mechanism of Unexpected *In-Trans* Post-PKS Polyketide Reduction in Cochliodone Biosynthesis
-（）
 
 **文章 DOI 号**：10.1021/jacs.5c03717
 
@@ -22,6 +20,8 @@
 
 ### 研究背景
 丝状真菌是聚酮化合物（Polyketides, PKs）的重要来源。大多数真菌PK由I型聚酮合酶（PKS）合成，分为还原型（R-PKS，如洛伐他汀合酶）和非还原型（NR-PKS，如甲基地衣酚醛合酶）。NR-PKS通常生成不还原的聚酮链，经环化芳构化形成产物。Cochliodone A (**1**) 是一种由球毛壳菌 (*Chaetomium globosum*) 产生的二聚体氮杂菲酮类（azaphilone）化合物，具有抗疟疾、抗分枝杆菌和细胞毒活性。其复杂的二聚体结构和生物活性使其成为研究热点。
+![image.png](http://synbiopath.online/20251228200916567.png)
+
 
 ### 前期研究
 早期研究已鉴定出Cochliodone A的生物合成基因簇（*ccd* BGC），并初步预测了部分基因功能。然而，对于这种复杂的二聚体分子如何从简单的聚酮前体组装而来，尤其是其骨架中特定位置的还原和二聚化机制，尚不清楚。特别是，NR-PKS产物通常不经历还原，但Cochliodone结构中存在还原特征。
@@ -79,6 +79,9 @@
 确定 *ccd* 基因簇各基因的功能必要性及在大致途径中的位置。
 
 #### 实验结果与分析
+![image.png](http://synbiopath.online/20251228201000049.png)
+![image.png](http://synbiopath.online/20251228201037160.png)
+
 *   **必需基因**：敲除 *ccdA/C/E/F/G/H/J/K/L/M* 均导致 **1** 的完全消失或显著减少，证实它们参与生物合成。
 *   **非必需基因**：$\Delta ccdB, \Delta ccdD, \Delta ccdO$ 仍能产生 **1**，表明它们可能非必需或有宿主酶补偿。
 *   **关键中间体积累**：
