@@ -124,23 +124,29 @@ Papulacandins 是一类最早于1976年从真菌 *Papularia sphaerosperma* 中�
 解析两条脂肪酸链（C3位和C6'位）的引入机制及次序。
 
 #### 实验结果与分析
-  **PpcF 的特殊功能 (Figure 2C, Figure 3)**:
-    *   在 *A. nidulans* 中共表达 *ppcD* 和 *ppcF* 产生了化合物 **8**（3-OH 被酰基化，但未螺环化）。
-    *   **顺序验证**: 化合物 **8** 无法被 PpcE 转化为 Papulacandin D (**2**)；反之，化合物 **5** 在表达 *ppcD-F* 的菌株中能生成 **2**。这证明生物合成必须遵循 **先螺环化 (PpcE) 后酰基化 (PpcF)** 的顺序。
-    *   **酶学特征**: PpcF 是首个被鉴定的直接将聚酮链酯化到芳基 C-糖苷上的 HRPKS-cAT 融合酶。
-  **PpcG 的半乳糖基化 (Figure 3B)**:
-    *   体外实验显示 PpcG 能利用 UDP-galactose 将 **2** 转化为 **10**，也能将 **8** 转化为 **9**。表明 PpcG 对底物螺环结构不敏感，但在天然路径中应作用于 **2** 之后。
+**PpcF 的特殊功能 (Figure 2C, Figure 3)**:
+![image.png](http://synbiopath.online/20251228192431052.png)
+![image.png](http://synbiopath.online/20251228192451687.png)
+
+*   在 *A. nidulans* 中共表达 *ppcD* 和 *ppcF* 产生了化合物 **8**（3-OH 被酰基化，但未螺环化）。
+*   **顺序验证**: 化合物 **8** 无法被 PpcE 转化为 Papulacandin D (**2**)；反之，化合物 **5** 在表达 *ppcD-F* 的菌株中能生成 **2**。这证明生物合成必须遵循 **先螺环化 (PpcE) 后酰基化 (PpcF)** 的顺序。
+*   **酶学特征**: PpcF 是首个被鉴定的直接将聚酮链酯化到芳基 C-糖苷上的 HRPKS-cAT 融合酶。
+**PpcG 的半乳糖基化 (Figure 3B)**:
+![image.png](http://synbiopath.online/20251228192508246.png)
+
+*   体外实验显示 PpcG 能利用 UDP-galactose 将 **2** 转化为 **10**，也能将 **8** 转化为 **9**。表明 PpcG 对底物螺环结构不敏感，但在天然路径中应作用于 **2** 之后。
 
 ### 研究部分四：终产物 L-687,781 的合成与全途径整合
 #### 实验目的与设计
 完成从 Papulacandin D (**2**) 到最终复杂产物 **1** 的转化。
 
 #### 实验结果与分析
-*   **PpcI 与 PpcH 的协同作用 (Figure 3C)**:
-    *   仅在表达完整 *ppcD-I* 基因簇并补加 (2E,4Z)-deca-2,4-dienoic acid 的 *A. nidulans* 中检测到最终产物 **1**。
-    *   推测 P450 酶 **PpcI** 负责脂肪酸链 C-8'' 位的羟基化，生成中间体 **12**。
-    *   膜蛋白酰基转移酶 **PpcH** 随后将培养基中的特定不饱和脂肪酸连接至半乳糖的 6-OH 位。
-    *   **结论**: 成功在异源宿主中重构了 Papulacandin 的全生物合成途径。
+**PpcI 与 PpcH 的协同作用 (Figure 3C)**:
+
+*   仅在表达完整 *ppcD-I* 基因簇并补加 (2E,4Z)-deca-2,4-dienoic acid 的 *A. nidulans* 中检测到最终产物 **1**。
+*   推测 P450 酶 **PpcI** 负责脂肪酸链 C-8'' 位的羟基化，生成中间体 **12**。
+*   膜蛋白酰基转移酶 **PpcH** 随后将培养基中的特定不饱和脂肪酸连接至半乳糖的 6-OH 位。
+*   **结论**: 成功在异源宿主中重构了 Papulacandin 的全生物合成途径。
 
 ---
 
