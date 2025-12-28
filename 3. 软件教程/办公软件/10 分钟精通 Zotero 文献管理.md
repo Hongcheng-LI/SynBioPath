@@ -12,4 +12,18 @@
 
 4. 安装完成后，启动软件
 
-5. 
+5. 点击菜单栏中的“编辑”-->“设置”。
+![image.png](http://synbiopath.online/20251228104909481.png)
+
+选择“常规”-->“文件重命名”中的“自定义文件格式”。
+![image.png](http://synbiopath.online/20251228105023917.png)
+
+在弹出的格式中输入，作用是对后续保存下来的PDF文件进行重命名，格式为“年份-期刊-文献标题”，例如“2020-Chemcal Science-The sporothriolides. A new biosynthetic family of fungal secondary metabolites”
+```
+{{year suffix="-"}}{{publicationTitle suffix="-"}}{{title truncate="200"}}
+```
+
+
+---
+
+# 2. 云同步
