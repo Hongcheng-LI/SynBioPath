@@ -45,7 +45,14 @@
 5. 返回 Zotero，点击菜单栏中的“编辑”-->“设置”-->“同步”。填入最开始时注册的 Zotero 账号和密码，点击“启用同步”
 ![image.png](http://synbiopath.online/20251228111648667.png)
 
-6. 在下方的“文件同步”区域中，我们选择“WebDAV”，
-网址处填入：dav.jianguoyun.com
-用户名填写：坚果云的用户名，此处为
+6. 在下方的“文件同步”区域中，我们选择“WebDAV”，并按照下图的提示填写“网址”、“用户名”和“密码”。
 ![image.png](http://synbiopath.online/20251228111917330.png)
+![image.png](http://synbiopath.online/20251228112332824.png)
+
+7. 填写完成后，点击“验证服务器”，弹出“文件同步设定成功”后，证明设置完成，此外，我们选择“在需要时”下载文件。
+![image.png](http://synbiopath.online/20251228112503723.png)
+
+---
+
+# 3. 插件安装
+## 1. 
