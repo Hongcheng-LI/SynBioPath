@@ -24,6 +24,7 @@
 
 ### 研究背景
 Papulacandins 是一类最早于1976年从真菌 *Papularia sphaerosperma* 中分离出的天然抗真菌剂。其核心药理机制为抑制 $\beta$-(1,3)-D-葡聚糖合成酶 (GS)，破坏真菌细胞壁合成。其中，Papulacandin B 对 GS 的 $\text{IC}_{50}$ 值低至 $0.02\ \mu\text{g/mL}$，效力是抗真菌药物卡泊芬净 (caspofungin) 的 10 倍。结构上，这类化合物包含独特的苯并螺环缩酮 (benzannulated spiroketal) 骨架，该结构单元是其抗真菌活性的关键决定因素。
+![image.png](http://synbiopath.online/20251228192035534.png)
 
 ### 前期研究
 尽管 Papulacandins 具有显著的药用潜力，但其复杂的结构使得化学全合成极具挑战性。目前仅有结构最简单的 Papulacandin D (2) 实现了全合成，需 31 步反应，总产率仅为 9.2%。该类化合物生物合成途径的缺失，限制了对其进行生物工程改造以获取更优类似物的能力。
@@ -51,15 +52,19 @@ Papulacandins 是一类最早于1976年从真菌 *Papularia sphaerosperma* 中�
 基于 Papulacandin D 的逆合成分析，推测其生物合成涉及 NRPKS（非还原型聚酮合酶）。利用已知的 orsellinic acid 合成酶 ArmB 序列作为探针，在生产菌 *Codinaeella minuta* 基因组中锁定了一个包含 10 个基因的 *ppc* 基因簇 (Figure 2A)。
 
 **步骤 2：芳香前体合成模块的功能验证**
+
 在异源宿主 *Aspergillus nidulans* A1145 中逐步表达 *ppcA-C*。通过代谢产物分析，确定 PpcA (NRPKS) 合成 orsellinic acid，PpcB (脱羧酶) 将其转化为 3,5-dihydroxytoluene，PpcC (P450) 进一步羟基化生成关键前体 3,5-dihydroxybenzyl alcohol (**5**)。
 
 **步骤 3：C-糖基化与螺环化机制解析 (核心突破)**
+
 在大肠杆菌中表达 PpcD 和 PpcE。体外酶活实验证实 PpcD 将 UDP-葡萄糖连接至前体 **5** 形成 C-糖苷 (**6**)；随后 PpcE 在 Fe(II) 和 $\alpha$-酮戊二酸存在下，催化 **6** 发生氧化螺环化生成 deacylated papulacandin D (**7**)。
 
 **步骤 4：酰基化装配逻辑确证**
+
 在 *A. nidulans* 中组合表达 *ppcD/ppcE* 和 *ppcD/ppcF*，发现 PpcF (HRPKS-cAT) 负责 C3-OH 位的长链脂肪酸酰基化。通过底物饲喂实验，确定了必须先进行 PpcE 介导的螺环化，再进行 PpcF 介导的酰基化，从而生成 Papulacandin D (**2**)。
 
 **步骤 5：后修饰与全合成途径补全**
+
 通过体外实验证实 PpcG 为半乳糖基转移酶，将半乳糖连接至 Papulacandin D (**2**)。最后结合 PpcI (P450) 和 PpcH (酰基转移酶) 的功能推导，完成了从 Papulacandin D 到最终产物 L-687,781 (**1**) 的生物合成路径构建。
 
 ---
@@ -83,6 +88,7 @@ Papulacandins 是一类最早于1976年从真菌 *Papularia sphaerosperma* 中�
 
 #### 实验结果与分析
 *   **基因簇定位 (Figure 2A)**: 鉴定的 *ppc* 基因簇包含 10 个基因。NCBI 比对显示该簇在多种植物致病真菌中保守 (Figure S2)。
+* 
 *   **早期代谢物鉴定 (Figure 2C, Figure S4)**:
     *   表达 *ppcA* 产生 orsellinic acid (**3**)。
     *   共表达 *ppcA/B* 产生 3,5-dihydroxytoluene (**4**)。
