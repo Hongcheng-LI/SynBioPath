@@ -1,16 +1,16 @@
-基于您提供的 *Journal of the American Chemical Society* (JACS) 2025年发表的论文《Concise Biosynthesis of Antifungal Papulacandins》，以下是严格按照博士学位论文标准撰写的深度学术分析报告。
+
 
 ---
 
 ## 一：基本信息
 
-**文章题目**：Concise Biosynthesis of Antifungal Papulacandins（抗真菌剂 Papulacandins 的简明生物合成）
+**文章题目**：Concise Biosynthesis of Antifungal Papulacandins（）
 
 **文章 DOI 号**：10.1021/jacs.4c13101
 
 **期刊名称**：*Journal of the American Chemical Society*
 
-**通讯作者**：安志强 (Zhiqiang An), Gerald F. Bills, 张专 (Zhuan Zhang)
+**通讯作者**：张转 (Zhuan Zhang)；Gerald F. Bills；安志强 (Zhiqiang An), 
 
 **通讯作者工作单位**：
 *   **张转**：中国医学科学院北京协和医学院医药生物技术研究所，微生物药物生物技术国家卫生健康委员会重点实验室 (NHC Key Laboratory of Biotechnology for Microbial Drugs, Institute of Medicinal Biotechnology, Chinese Academy of Medical Sciences & Peking Union Medical College, Beijing, People’s Republic of China)
