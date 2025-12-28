@@ -71,3 +71,6 @@
 ![image.png](http://synbiopath.online/20251228113657258.png)
 
 ## 2. Ethereal Style
+
+**用途**：用于对Zotero的阅读界面进行美化
+
