@@ -1,6 +1,6 @@
 # 1. 安装 Zotero
     
-1. 打开官网：[https://www.zotero.org/](https://www.zotero.org/)，点击“Download”
+1. 打开官网：[https://www.zotero.org/](https://www.zotero.org/)，注册账号（后面会用），点击“Download”。
 ![image.png](http://synbiopath.online/20251227185107882.png)
 
 2. 下载 Zotero 7 for Windows 版本，同时选择“Install Chrome Connector”，在浏览器中安装插件。
