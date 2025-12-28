@@ -71,10 +71,17 @@
 ![image.png](http://synbiopath.online/20251228113657258.png)
 
 ## 2. Green Frog（绿青蛙）
-**用途**：用于对Zotero的阅读界面进行美化
 
+**用途**：显示期刊的 JCR 分区，中科院分区，影响因子等信息
 
-2. Ethereal Style
+1. 在插件商店中搜索、下载并安装好插件。
+
+2. 点击菜单栏中的“编辑”-->“设置”-->“绿青蛙”。点击此处的“目前还没有 EasyScholar 密钥，点击注册申请密钥”。
+![image.png](http://synbiopath.online/20251228114814200.png)
+
+3. 在弹出的网站中，注册账号，
+
+4. Ethereal Style
 
 **用途**：用于对Zotero的阅读界面进行美化
 
