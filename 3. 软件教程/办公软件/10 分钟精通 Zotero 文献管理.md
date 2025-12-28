@@ -42,4 +42,5 @@
 ![image.png](http://synbiopath.online/20251228111140421.png)
 牢记生成的密码等信息，接下来会用到。
 
-5
+5. 返回 Zotero，点击菜单栏中的“编辑”-->“设置”-->“同步”。填入最开始时注册的 Zotero 账号和密码，点击“启用同步”
+![image.png](http://synbiopath.online/20251228111648667.png)
