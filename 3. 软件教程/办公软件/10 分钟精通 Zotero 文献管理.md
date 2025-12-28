@@ -70,8 +70,8 @@
 ![image.png](http://synbiopath.online/20251228113512116.png)
 ![image.png](http://synbiopath.online/20251228113657258.png)
 
-## 2. 
-
+## 2. Green Frog（绿青蛙）
+**用途**：用于对Zotero的阅读界面进行美化
 
 
 2. Ethereal Style
