@@ -111,6 +111,8 @@
 确定侧链非蛋白氨基酸 L-$\gamma$-CHA 的生物合成来源。
 
 #### 实验结果与分析
+![image.png](http://synbiopath.online/20251228193556537.png)
+
 *   **体外酶活 (Figure 4c)**：重组 NitB 能在 ATP 和 $\text{Mg}^{2+}$ 存在下，将 L-Gln 转化为 L-$\gamma$-CHA（通过 Fmoc 衍生化检测）。反应对 L-Gln 专一，不接受 D-Gln。
 *   **动力学参数**：NitB 对 L-Gln 的 $K_m$ 为 $1.58 \pm 0.69 \text{ mM}$，$k_{cat}$ 为 $1.96 \pm 0.48 \text{ min}^{-1}$。
 *   **反应类型**：NitB 属于 ATP 依赖的连接酶家族，但不同于 ASS 的缩合反应，它催化的是酰胺基团的脱水成腈反应（ATP $\to$ AMP + PPi）。
@@ -120,6 +122,8 @@
 通过结构模拟和突变实验，解释 NitB 如何从 ASS 演化出新的催化功能。
 
 #### 实验结果与分析
+![image.png](http://synbiopath.online/20251228193616348.png)
+
 *   **结构比对 (Figure 5)**：NitB 与 ASS 结构相似，但在底物结合口袋处，ASS 的 Gly119 位点在 NitB 中被 Gln146 取代。
 *   **空间位阻假说**：模拟显示 Gln146 的侧链占据了 ASS 中 L-Asp（第二个底物）的结合空间，从而阻止了缩合反应，迫使酶只进行第一步活化后的消除反应（脱水）。
 *   **突变验证 (Figure 5d)**：将 Gln146 突变为 Gly（Q146G）导致 NitB 活性丧失，这表明该位点对维持 NitB 的特定功能至关重要，并非简单的空间位阻回复就能恢复 ASS 活性，暗示还有其他残基共同决定了功能特异性。
