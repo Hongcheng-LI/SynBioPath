@@ -103,15 +103,20 @@ Papulacandins 是一类最早于1976年从真菌 *Papularia sphaerosperma* 中�
 
 #### 实验结果与分析
 **PpcD 的 C-糖基化活性 (Figure 2D)**:
+![image.png](http://synbiopath.online/20251228192312596.png)
 
 *   体外实验显示 PpcD 能催化 **5** 与 UDP-glucose 反应生成化合物 **6**。
 *   **动力学参数**: $k_{cat}/K_M$ 值为 $246.7\ \text{mM}^{-1}\text{s}^{-1}$，显示出极高的催化效率。
 *   **区域选择性**: NMR 证实糖基化发生在前体 **5** 的 C2 位（两个羟基之间），且为 $\beta$-构型。这与常规酚 C-糖基转移酶（通常作用于邻二酚结构）不同，具有独特的区域特异性。
 **PpcE 的螺环化活性 (Figure 2D, 2C)**:
+![image.png](http://synbiopath.online/20251228192332113.png)
+
 *   在 *A. nidulans* 中共表达 *ppcD* 和 *ppcE* 产生了化合物 **7** (deacylated papulacandin D)。
 *   体外实验证实 PpcE 需要 $\alpha$-酮戊二酸 ($\alpha$KG) 和 Fe(II) 作为辅因子，将化合物 **6** 转化为 **7**。
 *   **动力学参数**: $k_{cat}/K_M$ 值为 $29.7\ \text{mM}^{-1}\text{s}^{-1}$。
-*   **机制推测 (Figure 2E)**: 分子对接与定点突变（W242F 失活）表明，PpcE 通过 Fe(IV)-oxo 物种夺取 C1 氢原子启动反应，经自由基或阳离子中间体，由苄位羟基进行分子内亲核进攻闭环。这扩展了 $\alpha$KGD 酶家族的反应类型。
+**机制推测 (Figure 2E)**: 分子对接与定点突变（W242F 失活）表明，PpcE 通过 Fe(IV)-oxo 物种夺取 C1 氢原子启动反应，经自由基或阳离子中间体，由苄位羟基进行分子内亲核进攻闭环。这扩展了 $\alpha$KGD 酶家族的反应类型。
+![image.png](http://synbiopath.online/20251228192408038.png)
+
 > "The formation of the challenging tricyclic benzannulated spiroketal core is initiated by the C-glycosylation... followed by spirocyclization catalyzed by a Fe(II)/$\alpha$-ketoglutarate-dependent oxygenase PpcE."
 
 ### 研究部分三：酰基化修饰与装配顺序的逻辑
@@ -119,11 +124,11 @@ Papulacandins 是一类最早于1976年从真菌 *Papularia sphaerosperma* 中�
 解析两条脂肪酸链（C3位和C6'位）的引入机制及次序。
 
 #### 实验结果与分析
-*   **PpcF 的特殊功能 (Figure 2C, Figure 3)**:
+  **PpcF 的特殊功能 (Figure 2C, Figure 3)**:
     *   在 *A. nidulans* 中共表达 *ppcD* 和 *ppcF* 产生了化合物 **8**（3-OH 被酰基化，但未螺环化）。
     *   **顺序验证**: 化合物 **8** 无法被 PpcE 转化为 Papulacandin D (**2**)；反之，化合物 **5** 在表达 *ppcD-F* 的菌株中能生成 **2**。这证明生物合成必须遵循 **先螺环化 (PpcE) 后酰基化 (PpcF)** 的顺序。
     *   **酶学特征**: PpcF 是首个被鉴定的直接将聚酮链酯化到芳基 C-糖苷上的 HRPKS-cAT 融合酶。
-*   **PpcG 的半乳糖基化 (Figure 3B)**:
+  **PpcG 的半乳糖基化 (Figure 3B)**:
     *   体外实验显示 PpcG 能利用 UDP-galactose 将 **2** 转化为 **10**，也能将 **8** 转化为 **9**。表明 PpcG 对底物螺环结构不敏感，但在天然路径中应作用于 **2** 之后。
 
 ### 研究部分四：终产物 L-687,781 的合成与全途径整合
