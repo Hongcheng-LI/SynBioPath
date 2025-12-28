@@ -113,3 +113,7 @@
 2. 在 Zotero 的导航栏中，点击鼠标右键，选择“年”；“出版物”；“#标签”；“影响因子”；“JCR 分区”；“中科院升级版”；“阅读时间”
  ![image.png](http://synbiopath.online/20251228122548609.png)
 ![image.png](http://synbiopath.online/20251228122642048.png)
+
+3. 调整后，界面如图所示，各种信息一目了然
+![image.png](http://synbiopath.online/20251228123800537.png)
+
