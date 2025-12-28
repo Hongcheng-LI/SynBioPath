@@ -82,12 +82,14 @@
 3. 在弹出的网站中，注册账号，并点击“**我的信息**”
 ![image.png](http://synbiopath.online/20251228115141621.png)
 
-4. 随后点击左侧的“**开放接口**”，复制“**密钥**”
+4. 随后点击左侧的“**开放接口**”，复制“**密钥**”，粘贴至 Zotero 中即可。
 ![image.png](http://synbiopath.online/20251228115729619.png)
+![image.png](http://synbiopath.online/20251228115921747.png)
 
 
 
-5. Ethereal Style
+## 3. Ethereal Style
 
 **用途**：用于对Zotero的阅读界面进行美化
 
+1. 
