@@ -111,3 +111,5 @@
 1. 按照 Jasminum 插件的安装方式，在插件商店中搜索、下载并安装好插件。
 
 2. 在 Zotero 的导航栏中，点击鼠标右键，选择“年”；“出版物”；“#标签”；“影响因子”；“JCR 分区”；“中科院升级版”；“阅读时间”
+ ![image.png](http://synbiopath.online/20251228122548609.png)
+![image.png](http://synbiopath.online/20251228122642048.png)
