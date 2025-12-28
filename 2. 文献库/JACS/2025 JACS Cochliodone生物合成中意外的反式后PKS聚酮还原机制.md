@@ -1,3 +1,7 @@
+![image.png](http://synbiopath.online/20251228202718146.png)
+
+---
+
 ## 一：基本信息
 **文章题目**：Mechanism of Unexpected In-Trans Post-PKS Polyketide Reduction in Cochilodone Biosynthesis
 
