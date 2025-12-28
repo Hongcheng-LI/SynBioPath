@@ -55,4 +55,19 @@
 ---
 
 # 3. 插件安装
-## 1. 
+
+在插件商店中，下载下面所有的插件：[https://zotero-chinese.com/plugins/](https://zotero-chinese.com/plugins/)
+
+## 1. Jasminum（茉莉花）
+
+**用途**：下载中文文献
+
+1. 在插件商店中搜索“Jasminum”，选择"Gitee下载" 
+![image.png](http://synbiopath.online/20251228113322338.png)
+
+
+2. 在 Zotero 中，点击菜单栏中的“工具”-->“插件”。在弹出的窗口中，点击右上角的“齿轮”，选择“Install Plaugin form a file”，找到自己刚刚下载的 xpi 格式的插件，即可安装成功。
+![image.png](http://synbiopath.online/20251228113512116.png)
+![image.png](http://synbiopath.online/20251228113657258.png)
+
+## 2. Ethereal Style
