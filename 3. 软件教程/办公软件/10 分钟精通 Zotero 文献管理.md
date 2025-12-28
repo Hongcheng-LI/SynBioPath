@@ -89,7 +89,9 @@
 
 ## 3. DOI Manager
 
-**用途**：用于对Zotero的阅读界面进行美化
+**用途**：对文章的 DOI 进行管理
+
+
 
 ## 3. Ethereal Style
 
