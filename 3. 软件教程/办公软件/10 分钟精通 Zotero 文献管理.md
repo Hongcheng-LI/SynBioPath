@@ -87,6 +87,9 @@
 ![image.png](http://synbiopath.online/20251228115921747.png)
 
 
+## 3. DOI Manager
+
+**用途**：用于对Zotero的阅读界面进行美化
 
 ## 3. Ethereal Style
 
