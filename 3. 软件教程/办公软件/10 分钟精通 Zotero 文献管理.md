@@ -124,3 +124,6 @@
 
 ## 1. 文献分区
 
+我一般会把文
+![image.png](http://synbiopath.online/20251228124904571.png)
+
