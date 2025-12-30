@@ -1,3 +1,4 @@
+![image.png](http://synbiopath.online/20251230163029326.png)
 
 
 ---
@@ -10,7 +11,7 @@
 
 **发布时间**：2025年12月23日 (Posted date)
 
-**通讯作者**：Heqian Zhang, Zhiwei Qin
+**通讯作者**：Zhiwei Qin（秦志伟）；Heqian Zhang（张鹤千）
 
 **通讯作者工作单位**：北京师范大学自然科学高等研究院生物科学与技术中心 (Center for Biological Science and Technology, Advanced Institute of Natural Sciences, Beijing Normal University, Zhuhai, China)
 
@@ -25,6 +26,8 @@
 传统的预测方法（如NRPSpredictor2, SANDPUMA, PARAS）主要基于Stachelhaus等人定义的“特异性赋予密码”（Specificity-Conferring Codes, SCCs，即10个关键残基）或Rausch等人定义的扩展结合口袋（34个残基）。这些方法通常依赖于多序列比对（MSA）或隐马尔可夫模型（HMM），在处理与参考序列（如GrsA-Phe）同源性较低的序列或非蛋白源性底物时，准确率显著下降。近期虽有基于蛋白质语言模型（如NRPStransformer）的尝试，但在结合口袋的精确界定和非天然底物的泛化能力上仍有不足。
 
 ### 本文突破点
+![image.png](http://synbiopath.online/20251230163242095.png)
+
 **重新定义结合口袋（27-AA ABP）**：基于晶体结构数据，定义了以配体为中心6 Å范围内的27个氨基酸残基为核心结合口袋（ABP），相比传统的34-AA模型更加紧凑且特征明确。
 **两阶段深度学习框架**：
 *   **第一阶段（ABP-GAT）**：利用图注意力网络（GAT）结合ESM2蛋白质语言模型，在无结构输入的情况下，从序列直接精确定位结合口袋残基。
@@ -83,6 +86,8 @@
 #### 实验结果与分析
 **口袋定义**：通过分析10个共晶结构，发现6 Å范围内的27个残基（27-AA）比8 Å范围的49个残基更能被模型精确恢复（恢复率：0.9980 vs 0.9386）。
 **模型性能 (Figure 2)**：
+![image.png](http://synbiopath.online/20251230163332441.png)
+
 *   在包含4,545个序列的测试中，ABP-GAT在不同序列一致性区间（0-60% identity）均保持了极高的口袋恢复率。
 *   相比基于1amu（GrsA-Phe）的HMM方法，ABP-GAT在**低同源性序列**和**非蛋白源性底物**（Non-proteinogenic substrates）的口袋识别上表现出显著优势。HMM方法在非蛋白源底物上的恢复率大幅下降，而ABP-GAT保持稳定。
 >"ABP-GAT maintains high recovery across all identity ranges... whereas the HMM model performed substantially worse for nonproteinogenic substrates."
@@ -93,7 +98,11 @@
 
 #### 实验结果与分析
 **关键位点识别 (Figure 4)**：SHAP分析突出了8个高贡献位点（如位置20, 24, 27等），这些位点多位于口袋入口的柔性环区或侧链交互区。
+![image.png](http://synbiopath.online/20251230163410724.png)
+
 **Ser与Cys的区别 (Figure 5)**：
+![image.png](http://synbiopath.online/20251230163441092.png)
+
 *   系统发育树显示识别Ser和Cys的A结构域在序列上分属不同分支。
 *   SHAP分析指出**位置20**是区分两者的关键。在Ser结合型中为Pro20（刚性，限制构象），在Cys结合型中为Ala20（柔性，允许重排）。
 *   这一发现与晶体结构（PDB 6ea3 vs 7en1）的分析完全一致，证明了模型的生物学可解释性。
@@ -103,6 +112,8 @@
 对比DeepAden与现有最先进工具（NRPStransformer, PARAS）的预测精度。
 
 #### 实验结果与分析
+![image.png](http://synbiopath.online/20251230163508164.png)
+
 *   **总体精度 (Figure 6C)**：在包含201个独立A结构域的基准数据集上，DeepAden的Top-3准确率略优于对比工具（高出2.5-5%）。
 *   **低同源性表现 (Figure 6D)**：在与训练集序列一致性较低（<40%）的区间，DeepAden仍保持44.44%的准确率，而NRPStransformer仅为18.18%。PARAS虽然表现不错（50%），但样本量较小。
 *   **非蛋白源底物 (Figure 6E)**：这是DeepAden的强项。对于50个非蛋白源性底物样本，DeepAden的Top-1准确率比NRPStransformer高12%，比PARAS高14%。
@@ -115,6 +126,8 @@
 #### 实验结果与分析
 **代谢产物鉴定**：通过LC-MS/MS鉴定出两类NRPs：nyuzenamides（双环肽）和octaminomycins（线性肽）。
 **基因簇匹配 (Figure 7)**：
+![image.png](http://synbiopath.online/20251230163545093.png)
+
 *   **Nyuzenamide BGC**：DeepAden对该基因簇所有A结构域的底物预测与化合物结构的氨基酸序列完全一致。
 *   **Octaminomycin BGC**：虽然主要底物预测准确，但对于某些模块（如M23, M24），模型以较低置信度预测了实际存在的替代底物（如Phe替代Tyr，Pip替代Pro），这反映了模型对底物宽泛性（promiscuity）的捕捉能力。
 
