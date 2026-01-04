@@ -95,7 +95,8 @@
 ![image.png](http://synbiopath.online/20260104165429267.png)
 
 *   **Figure 2 (左) & S4**: FQ-Mössbauer 谱图清晰展示了 Fe⁴ᵛ=Oᶠᶦʳˢᵗ 和 Fe⁴ᵛ=Oˢᵉᶜᵒⁿᵈ 按顺序出现和演化的过程。表 S1 列出了两个中间体的详细穆斯堡尔参数。
-http://synbiopath.online/20260104165429267.png
+![image.png](http://synbiopath.online/20260104165827895.png)
+
 *   **Figure 2 (右) & S2, S10, S21**: 变场穆斯堡尔谱、UV-vis 光谱等辅助验证了中间体的性质。
 
 ### 研究部分二：两个氯-铁氧中间体的功能分化与动力学建模
