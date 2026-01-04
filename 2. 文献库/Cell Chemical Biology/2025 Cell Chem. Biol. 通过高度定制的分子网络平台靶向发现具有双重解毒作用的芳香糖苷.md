@@ -155,8 +155,12 @@
 
 > “Therefore, we propose that this bacteria-originated menaquinone shunt pathway employs a series of unconventional biochemical transformations as a dual strategy for surviving in oxidative environments and self-detoxifying the antioxidants they produce.”
 
+---
+
 ## 六：总体结论
 本研究成功开发并验证了 MSanalyst，一个通过整合多种互补性 MS² 谱图相似性算法来增强非靶向代谢组学分析能力的强大平台。该平台克服了单一算法（如修正余弦）的局限性，能够发现更多隐藏的谱图-结构关联。应用 MSanalyst 对 *Kutzneria viridogrisea* 进行分析，直接导致了一类全新细菌源芳香糖苷——kutznaposides A-F 的发现。通过多组学整合与酶学实验，本研究首次阐明 kutznaposides C-F 来源于一个此前未表征的 menaquinone 分流途径。该途径在宿主面临氧化压力时被激活，通过将 menaquinone 途径的有毒中间体 DHNA 逐步转化为无毒的糖苷，巧妙地实现了清除 ROS 和避免自身毒性的双重解毒目的。这项工作不仅提供了一个高效的代谢组学发现工具，也揭示了一种新颖的微生物自我防御代谢策略。
+
+---
 
 ## 七：论文评价
 ### 优点与创新
@@ -171,6 +175,8 @@
 3.  **自我解毒机制的深入验证**：论文提出的自我保护机制虽然得到多组学数据和表型实验的有力支持，但仍缺乏直接的遗传学证据（如 *gat* 或 *gt* 基因敲除菌株对 DHNA 敏感性的改变）。未来的基因操作实验将能提供更直接的因果性证明。
 4.  **拓展MSanalyst的应用范围**：可尝试将该平台应用于更广泛的样本类型（如植物提取物、人体微生物组、环境样本等），以检验其普适性并发现更多新颖代谢物。
 5.  **Kutznaposides的潜在应用探索**：鉴于 kutznaposides 展示的抗菌和抗氧化活性，未来可对其构效关系进行深入研究，并评估其在抗感染或作为抗氧化剂方面的应用潜力。
+
+---
 
 ## 八：关键问题及回答
 #### 问题一：MSanalyst 整合虚拟谱图库带来了更高的注释覆盖率，但如何有效控制由此引入的假阳性注释风险？
@@ -208,6 +214,7 @@ University of Pittsburgh) 助理教授 (Assistant Professor)。
 
 ### 近期研究工作
 
+[2025 Nat. Chem. | 人类肠道菌群代谢影响 GPCR 靶向药的活性](https://mp.weixin.qq.com/s/NtvNO_SquQ_5SELygo1E_Q)
 
 [2025 JACS | 一个嵌合型聚酮类癌症免疫原性化疗先导化合物的发现](https://mp.weixin.qq.com/s/KGBbu6-Af2gBiwDKCIpK1Q)
 
