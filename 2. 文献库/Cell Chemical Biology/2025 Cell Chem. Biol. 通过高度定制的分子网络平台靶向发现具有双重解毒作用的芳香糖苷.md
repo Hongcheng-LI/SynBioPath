@@ -102,6 +102,7 @@
 本部分旨在展示 MSanalyst 在挖掘复杂微生物代谢组、发现隐藏天然产物方面的实际应用能力。选择生物合成基因簇丰富但代谢物研究较少的 *Kutzneria viridogrisea* DSM 43850 为目标菌株，通过七种不同培养基培养以激活其生物合成潜力。利用 LC-MS/MS 获取代谢组数据后，使用 MSanalyst 中性能互补的算法组合（修正余弦、熵、峰值百分比）进行注释，并利用中性丢失算法进行聚类，以全面探索其代谢组并识别值得深入研究的代谢物家族。
 #### 实验结果与分析
 经过背景扣除，从 *K. viridogrisea* 的粗提物中鉴定出 214 个分子特征。使用 MSanalyst 分析后，修正余弦、峰值百分比和熵算法共同鉴定出 57 个实验谱图匹配和 1 个虚拟谱图匹配，覆盖了其他算法发现的所有已注释特征 (Figure 3A)。在排除合成药物和常见初级代谢物后，两个植物来源的糖苷注释引起了注意：特征 83 被注释为 rubinaphthin A，特征 33 被注释为 p-coumaryl alcohol 4-O-glucoside (Figure 3B)。关键的是，这两个糖苷使用峰值百分比算法与参考谱图的相似度很高 (>0.7)，但使用修正余弦算法的得分却很低 (<0.1) (Figure S16)。这一发现直接证明了依赖单一余弦算法会漏掉此类化合物，凸显了多算法整合的价值。
+![image.png](http://synbiopath.online/20260105000043756.png)
 
 > “These glycosides scored highly with peak percentage (>0.7) but poorly with the modified cosine score (<0.1) against the reference spectrum, underscoring the risk of missing such compounds when relying solely on cosine scoring.”
 
@@ -112,18 +113,21 @@
 本部分旨在验证 MSanalyst 预测的糖苷类化合物的结构，评估其生物活性，并初步探究其生物合成起源。首先，在能诱导产物产生的 GSM 培养基中进行大规模发酵，靶向分离目标化合物。综合运用 NMR、HRMS、化学合成、单晶衍射和酸水解等技术，精确解析六个新化合物 **1-6** 的平面结构与绝对构型。随后，对化合物及其生物合成前体进行抗菌和抗氧化活性测试。基于化合物的萘酚结构和已知的 menaquinone 生物合成知识，提出其可能来源于 menaquinone 途径的分支。
 #### 实验结果与分析
 通过大规模发酵和质谱引导的分离，成功获得了六个新化合物，命名为 kutznaposides A-F (**1-6**) (Figure 4A)。综合 NMR 和 MS 分析确定了它们的平面结构 (Figures 4B, S20-S26)。化合物 **1** 和 **2** 的苷元为取代苯，而 **3、4、5、6** 共享一个三取代萘骨架。对于 **3、4、6** 共有的苷元 1，4-二羟基-2-萘甲酰胺 (DHNC)，作者通过化学合成 (Figure S23) 和培养 **4** 的单晶 (CCDC: 2373550) 获得了直接证据，并通过单晶 X 射线衍射确证了其结构 (Figure 4B)。酸水解和糖衍生化 LC-MS 分析 (Figure 4C) 结合苷元质子偶合常数确定：**1、2、4、5** 含有常见的 α-L-鼠李糖，**3** 含有 β-6-脱氧-D-葡萄糖，**6** 含有 β-D-葡萄糖 (Figure 4D)。
+![image.png](http://synbiopath.online/20260105000118511.png)
 
 > “Subsequent hydrolysis assays and the J value of every anomeric proton revealed that kutznaposides A, B, D, and E (1, 2, 4, and 5) contained the common α-L-rhamnose, which is replaced by β-deoxy-D-glucose and β-D-glucose in kutznaposide C (3) and kutznaposide F (6), respectively.”
 
 生物活性测试表明 (Figure 4E)，menaquinone 途径中间体 1，4-二羟基-2-萘甲酸 (DHNA)、其酰胺化产物 DHNC 以及糖苷化产物 **3、4、6** 对多种病原菌（包括耐甲氧西林金黄色葡萄球菌 MRSA）表现出不同程度的抑制活性，最小抑菌浓度 (MIC) 在 8-64 μg/mL 之间。在 ABTS 自由基清除实验中，DHNA、DHNC 和 **4** 表现出与阳性对照维生素 C (8.2 μM) 相当的抗氧化能力，其 IC₅₀ 值分别为 6.5、7.8 和 9.2 μM (Figure 4E， Figure S27)。这些结果表明，从 DHNA 到 DHNC 再到糖苷的修饰过程，改变了化合物的抗菌谱和活性强度，但保留了核心的抗氧化能力。
 
 基于 **3-6** 的萘酚糖苷结构，作者推测其生物合成起源于细菌 menaquinone (维生素 K₂) 途径 (Figure 5E)。该途径从分支酸开始，经过一系列 *men* 基因编码的酶催化生成 DHNA。随后，一个推测的 II 类谷氨酰胺酰胺转移酶 (GAT) 可能负责将 DHNA 的羧基酰胺化为 DHNC。最后，尿苷二磷酸糖基转移酶 (UGT) 或胸苷二磷酸糖基转移酶 (TGT) 催化糖基化反应，生成最终的 kutznaposide 糖苷。
+![image.png](http://synbiopath.online/20260105000236140.png)
 
 ### 研究部分四：多组学驱动的Kutznaposides生物合成途径解析与关键酶功能验证
 #### 实验目的与设计
 本部分旨在利用基因组学和定量蛋白质组学技术，在分子水平上验证和细化第三部分提出的生物合成假说，并鉴定负责关键修饰步骤的特定酶。首先，通过生物信息学分析在基因组中定位 menaquinone 核心合成酶的同源物 (*knp* 基因)。然后，对比产生 kutznaposides 的 GSM 培养基和不产生/少产生该化合物的 R2A 培养基的定量蛋白质组数据，筛选差异表达的候选 GAT 和 GT 基因。最后，通过在大肠杆菌中进行异源表达和体外酶活实验，直接验证候选 GT 的功能。
 #### 实验结果与分析
 基因组注释和 hummsearch 分析证实，菌株 DSM 43850 中存在 menaquinone 途径所有必需酶 (*menB* 至 *menF*, *menH*, *menI*) 的推定同源物，作者将其命名为 *knpB1* 至 *knpF1*, *knpH1*, *knpI1* (Figure 5A， Data S2)。为了寻找负责酰胺化和糖基化的酶，作者以已知的细菌 GAT 和 TGT 序列为参考，在基因组中筛选出 2 个 GAT 候选基因和 16 个 GT 候选基因 (Data S3)。
+![image.png](http://synbiopath.online/20260105000211638.png)
 
 定量蛋白质组学分析 (GSM vs. R2A) 的火山图显示了许多差异表达蛋白 (Figure 5A)。其中，一个 GAT (GAT1) 在 GSM 中表达显著上调。在 16 个候选 GT 中，有 9 个的表达量变化倍数 (log₂FC) > 1 (Figure 5B)。其中 5 个 (GTs 1-5) 仅在 GSM 条件下表达，另外 4 个 (GTs 6-9) 在 GSM 中的表达量是 R2A 中的 2 到 6 倍，提示它们可能参与 O-糖基化。
 
@@ -136,12 +140,16 @@
 本部分旨在阐明 *K. viridogrisea* 进化出 menaquinone 分流途径的生物学原因及其调控机制。通过自我抑制生长实验，验证 DHNA 及其下游产物对生产菌自身的毒性差异。通过对差异表达蛋白质组进行 GO 和 KEGG 富集分析，以及构建蛋白质-蛋白质互作网络，系统探究在激活该分流途径的 GSM 培养条件下，菌体内部发生的全局性生理变化，特别是与氧化应激和解毒相关的通路，从而构建一个完整的“压力感应-解毒响应”生物学模型。
 #### 实验结果与分析
 自我抑制生长实验表明 (Figure 6A)，menaquinone 途径的中间体 DHNA 对 *K. viridogrisea* 自身的生长抑制最强，而下游的酰胺化产物 DHNC 和糖苷化产物 **3、4、6** 的抑制活性依次减弱。这直接证明从 DHNA 到 kutznaposide 的两步酶促反应是一个逐步降低自身毒性的“自我解毒”过程，GAT 和 GTs 可被视为自我抗性基因。
+![image.png](http://synbiopath.online/20260105000307178.png)
 
 > “As expected, DHNA showed the most potent inhibitory effect against K. viridogrisea, followed by the downstream products DHNC and kutznaposides. These findings suggest that this two-step enzymatic reaction represents a self-detoxification process...”
 
 为了理解该通路在何种条件下被激活，作者对定量蛋白质组数据进行了深入分析。GO 富集分析显示，在 GSM 培养基中，与解毒过程相关的条目被显著富集，如“细胞对异生物刺激的反应”和“异生物代谢过程” (Figure 6B)。KEGG 通路富集分析的前两位是“丙酸代谢”和“丙氨酸、天冬氨酸和谷氨酸代谢” (Figure 6C)。几乎所有参与这些通路的基因都显著上调 (Data S3)。
+![image.png](http://synbiopath.online/20260105000324457.png)
+
 
 通过提取这些关键通路中的蛋白质并构建其互作网络 (Figure 6D)，作者发现 GAT1 与喹啉酸合酶 (EC: 2.5.1.72) 和 L-天冬氨酸氧化酶 (EC: 1.4.3.16) 存在间接关联，这两个酶参与从喹啉酸合成 NAD⁺ 的前两步。它们的上调可能导致活性氧 (ROS) 的积累 (Figure 6E)。此外，在乙醛酸氧化过程中，过氧化氢酶 (EC: 1.11.1.6) 的缺乏和 (S)-2-羟基酸氧化酶 (EC: 1.1.3.15) 的上调也可能导致 ROS 积累。这可能是由于 *K. viridogrisea* 在 GSM 中比在 R2A 中进行了更旺盛的有氧代谢，这一点得到了三羧酸循环中所有酶的表达量均上调的支持 (Figure 6E)，且 GSM 培养的生物量约为 R2A 的两倍 (Figure S31)。
+![image.png](http://synbiopath.online/20260105000342940.png)
 
 基于以上数据，作者提出了一个完整的模型 (Figure 6E): *K. viridogrisea* 在 GSM 培养基中经历更强的有氧代谢和氧化压力，导致 ROS 积累。作为响应，菌体上调 menaquinone 途径以合成抗氧化剂 DHNA。然而，DHNA 本身对细胞有毒性。为了解除此自身毒性，菌体同时上调了 GAT1 和特定的 GTs (如 **GT5**, **GT6**)，将有毒的 DHNA 通过酰胺化和糖基化转化为低毒或无毒的 kutznaposide 糖苷。这样，该分流途径实现了双重功能：一方面，通过生成抗氧化剂 DHNA 应对氧化压力；另一方面，通过将 DHNA 解毒为糖苷，避免自我伤害。
 
@@ -166,18 +174,30 @@
 
 ## 八：关键问题及回答
 #### 问题一：MSanalyst 整合虚拟谱图库带来了更高的注释覆盖率，但如何有效控制由此引入的假阳性注释风险？
+
 **回答：** 作者设计了一个基于化学相似性的过滤策略来解决此问题。在分子网络生成后，只有当虚拟谱图注释与其所在分子簇中至少一个实验谱图注释之间的化学 Dice 相似度 ≥ 0.75（基于 Morgan 指纹计算）时，该虚拟注释才会被保留在网络中用于后续分析。这一策略利用了分子网络本身能将结构相似物聚类在一起的特性，用簇内可靠的实验注释作为“锚点”来校验和过滤不可靠的虚拟注释，从而在利用虚拟库扩大覆盖面的同时，显著降低假阳性率。
 
 > “To mitigate this, in silico annotations are retained only when they meet a chemical dice similarity ≥ 0.75 to co-occurring experimental annotations within the same cluster.”
 
 #### 问题二：为什么本研究发现的 kutznaposides 生物合成途径难以通过传统的基因组挖掘方法（如 antiSMASH）预测？
+
 **回答：** 有两个主要原因。首先，**基因簇的非典型性**：负责 kutznaposides 生物合成的关键基因，包括 menaquinone 核心合成基因 (*knp*)、酰胺转移酶基因 (*gat*) 和糖基转移酶基因 (*gts*)，在 *K. viridogrisea* 基因组中是**分散分布**的，并未紧密连锁形成一个典型的、可用于生物信息学工具识别的生物合成基因簇 (BGC) (Figure 5D, Table S2)。其次，**途径的“拼凑”特性**：该途径利用了细胞初级代谢（menaquinone 合成）的核心酶系，并额外招募了在基因组其他位置、可能具有其他原始功能的修饰酶（GAT, GTs）。这种“招募-重组”形成的代谢通路，超出了当前主要基于基因簇同源性搜索的基因组挖掘工具的预测范围。
 
 > “Moreover, neither GTs nor GTs glycosylated DHNA, indicating that glycosylation likely occurs after amidotransferase-mediated modification... These findings indicate that kutznaposides are not readily identifiable using traditional bottom-up genome mining strategies, underscoring the powerful capability of MSanalyst to target valuable metabolites derived from noncanonical metabolic pathways directly.”
 
 #### 问题三：蛋白质组学分析如何支持“menaquinone 分流途径是应对氧化压力策略”这一假设？
+
 **回答：** 定量蛋白质组学提供了多个层次的证据支持这一假设：
 1.  **压力响应通路上调**：GO 富集分析显示，在产生 kutznaposides 的 GSM 条件下，与“异生物代谢过程”和“细胞对异生物刺激的反应”相关的蛋白显著上调 (Figure 6B)，这是经典的解毒和应激反应标志。
 2.  **有氧代谢增强**：KEGG 分析显示“丙酸代谢”和“氨基酸代谢”通路富集 (Figure 6C)。更关键的是，三羧酸循环中的所有检测到的酶均显著上调 (Figure 6E)，且菌体生物量翻倍，共同表明 GSM 条件下菌体处于旺盛的有氧代谢状态，这通常伴随 ROS 生成增加。
 3.  **ROS 生成相关酶的表达模式**：研究发现喹啉酸合成通路（NAD⁺合成）和乙醛酸代谢通路中的关键氧化酶表达上调，而过氧化氢酶缺失 (Figure 6E)。这种酶谱组合极易导致细胞内 H₂O₂ 等 ROS 的积累，创造了氧化压力环境。
 4.  **解毒途径关键酶的诱导表达**：正是在这种氧化压力背景下，负责将有毒抗氧化剂 DHNA 解毒的酶（GAT1, **GT5**, **GT6**）被特异性诱导高表达 (Figure 5A, 5B)。将压力信号（ROS累积）、毒性物质（DHNA）的产生以及解毒酶（GAT, GTs）的激活在蛋白质组水平上关联起来，构成了支持该假设的完整证据链。
+
+---
+## 美国匹兹堡大学吴祺豪组硕士招生启事
+
+吴祺豪博⼠ (Qihao Wu, Ph.D.) 现任匹兹堡⼤学药学院药物科学系 (Pharmaceutical Sciences,
+University of Pittsburgh) 助理教授 (Assistant Professor)。课题组目前有2026年秋季硕士名额若干，详情请联系吴博士(qiw153@pitt.edu)或者查看课题组主页https://wulabpitt.com/吴博⼠在浙江⼯业⼤学药学院获博⼠学位，师从王鸿教授，并作为浙江⼯业⼤学-美国罗德岛⼤学-中国科学院上海药物所联合培养博⼠，在上海药物所郭跃伟研究员课题组完成博⼠课题研究。随后在普林斯顿⼤学 (Princeton University)、威斯康星⼤学麦迪逊分校 (University of Wisconsin–Madison) 和耶鲁⼤学 (Yale University) 进⾏博⼠后与副研究员阶段训练，系统开展微⽣物来源⼩分⼦化合物化学⽣物学研究。
+吴博⼠长期从事海洋天然产物化学与肠道微⽣物代谢机制研究，围绕“共⽣微⽣物与宿主互作”，聚焦⼩分⼦发现与作⽤机理解析，发展了结合代谢组学、基因组学与化学⽣物学的
+活性分⼦挖掘与酶机制解析研究。近五年来，课题组依托多学科交叉融合，围绕共⽣微⽣物与宿主互作的药物发现与开发展开系统研究，并取得⼀系列创新性成果：(1) 以化学⽣态学-代谢组学为导向，从海洋软体动
+物、珊瑚及海绵中⾼效发现百余个结构新颖、⽣理活性显著的复杂海洋天然产物 (Angew. Chem. Int. Ed. 2020)；(2) 建⽴结合代谢组学、基因组学分析及⽣物活性筛选的技术体系，实现了微⽣物次级代谢产物的⾼效筛选，成功鉴定出多种新⾻架活性天然产物 (J . Am. Chem. Soc. 2023; J . Am. Chem. Soc. 2025a; J . Am. Chem. Soc.2025b; Cell Chem. Biol. 2025)；(3) 开发基于离体培养-⾼通量质谱代谢组学的技术平台，系统解析⼈体肠道共⽣细菌对⼝服 G 蛋⽩偶联受体 (GPCR) 药物的结构修饰，揭⽰了多条新颖的药物代谢通路及其对药物活性的调控作⽤(Nat. C hem. 2025; C ell 2020)。
