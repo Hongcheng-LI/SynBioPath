@@ -208,5 +208,7 @@ University of Pittsburgh) 助理教授 (Assistant Professor)。
 
 ### 近期研究工作
 
+
 [2025 JACS | 一个嵌合型聚酮类癌症免疫原性化疗先导化合物的发现](https://mp.weixin.qq.com/s/KGBbu6-Af2gBiwDKCIpK1Q)
 
+[2025 JACS | 一种含钴的萜烯-聚酮-非核糖体肽三混源抗冠状病毒天然产物的发现与生物合成研究](https://mp.weixin.qq.com/s/rWn5_MDZsGpQcY6gSnzSbA)
