@@ -10,7 +10,7 @@
 
 **期刊名称**：Cell Chemical Biology
 
-**通讯作者**：Bin Wei（魏斌）；Qihao Wu, Hong Wang, 
+**通讯作者**：Bin Wei（魏斌）；Hong Wang（王 ）；Qihao Wu（吴祺豪）
 
 **通讯作者工作单位**：
 *   Qihao Wu：美国匹兹堡大学药学院
