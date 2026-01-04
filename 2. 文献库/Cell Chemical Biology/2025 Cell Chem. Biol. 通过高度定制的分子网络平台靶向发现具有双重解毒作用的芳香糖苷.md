@@ -1,3 +1,7 @@
+![image.png](http://synbiopath.online/20260104235303613.png)
+
+---
+
 ## 一：基本信息
 
 **文章题目**：Targeted discovery of aromatic glycosides with dual detoxification effects via a highly customized molecular networking platform
@@ -6,7 +10,7 @@
 
 **期刊名称**：Cell Chemical Biology
 
-**通讯作者**：Qihao Wu, Hong Wang, Bin Wei
+**通讯作者**：Bin Wei（魏斌）；Qihao Wu, Hong Wang, 
 
 **通讯作者工作单位**：
 *   Qihao Wu：美国匹兹堡大学药学院
