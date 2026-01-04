@@ -84,10 +84,12 @@
 本部分旨在开发一个超越单一算法局限性的分子网络分析平台，并通过严谨的基准测试，评估不同谱图相似性算法在真实代谢组学数据中的性能，筛选出能提供互补信息的优化算法组合。实验设计分为三步：1）构建包含 46 种算法和综合谱图库的 MSanalyst 平台；2）使用一个已知的微生物天然产物谱图数据集 (n=81) 评估各算法在谱图库搜索中的表现，使用约登指数 (Youden‘s Index) 为每个算法确定最佳阈值；3）使用一个更大的谱图对数据集 (n=2，543， 约三百万对) 评估各算法在反映结构相似性方面的广谱性能。
 #### 实验结果与分析
 作者首先概述了 MSanalyst 的工作流程 (Figure 1)。平台接受原始或预处理的质谱数据，集成了 UmetaFlow 和 matchms 进行数据预处理。其核心在于一个包含 GNPS 实验谱图和 CFM-ID 生成的超过 46 万个虚拟谱图的综合库，以及 46 种可选的相似性算法。在分子网络构建中，支持为库搜索和自聚类步骤选择不同的算法，并可通过“重分析”模块快速优化参数。
+![image.png](http://synbiopath.online/20260104235824397.png)
 
 > “MSanalyst incorporates these validated similarity metrics and assembles a comprehensive spectral library that includes both experimental and predicted spectra.”
 
 随后，作者对算法进行了系统性评估 (Figure 2)。使用 81 个微生物天然产物谱图进行库搜索评估时发现，不同算法的最佳阈值差异很大 (Figure 2C)。例如，熵 (entropy) 算法在最佳阈值下获得了最多的真阳性 (TP) 注释 (36个)，而修正余弦 (modified cosine) 为 30 个 (Data S1)。重要的是，有 39 种算法能提供超出修正余弦的额外 TP 注释，证明了算法互补的必要性。通过计算各算法在最佳阈值下的混淆矩阵，发现大多数算法仅在阈值极高时 TP 数才锐减，而假发现率 (FDR) 随阈值提高逐渐降低 (Figures S7, S8)。作者发现，联合使用熵和 ms_for_id 算法，在各自优化阈值下，可以捕获所有单个算法识别出的 TP 注释 (Figure 2D)，这为实际应用提供了高效策略。
+![image.png](http://synbiopath.online/20260104235903910.png)
 
 > “Thus, Youden’s Index provides a practical criterion for algorithm-specific threshold optimization, with fine-tuning around these values to balance TP and FP annotations.”
 
