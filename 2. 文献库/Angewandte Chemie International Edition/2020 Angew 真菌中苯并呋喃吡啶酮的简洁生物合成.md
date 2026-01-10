@@ -30,9 +30,8 @@
     ![image.png](http://synbiopath.online/20260110204648218.png)
 
 2. **2-吡啶酮的通用生物合成逻辑**：已基本阐明该类化合物的核心骨架由一个聚酮合酶-非核糖体肽合成酶 (PKS-NRPS) 合成一个 tetramate 中间体，随后由一个 P450 环扩张酶 (P450RE) 催化氧化重排，形成 2-吡啶酮环。
-    
+    ![image.png](http://synbiopath.online/20260110204656846.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MjRmZjU1ZjU4MGJlMWRjNmUwZjA3YjRlMDUwNTAzYmVfOU5lM0k5Q0Z2SzZPS0ppa2pSR0tuNHpjM0I5azlYdmFfVG9rZW46Wm5Ga2JhYTdYb1owNkN4alB2OGN4RzBzbkNnXzE3NjUxODg3ODg6MTc2NTE5MjM4OF9WNA)
 
 3. **关键未知**：Citridone 家族独特的季碳中心是如何形成的，以及其复杂的苯并呋喃吡啶酮多环骨架是如何组装的，其遗传和酶学基础完全未知。
     
@@ -92,16 +91,14 @@
 **数据支撑与图表分析**：
 
 - **Figure 2A**：展示了 _pfp_ 基因簇及其在另外两种真菌中的同源簇，清晰地标示了五个核心生物合成基因。
-    
+    ![image.png](http://synbiopath.online/20260110204708924.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YTgzOTU5NjFkZWE2MWJiYmM2NmIwZGI2NzQxZTBhOThfR0pVUUhtWUtoelZkU1c5RXROUGw2ekJsOURMYWRBSVNfVG9rZW46WEkwMGJjY092b1FRREd4R1poemNoM3hKbkNlXzE3NjUxODg3ODg6MTc2NTE5MjM4OF9WNA)
 
 - **Figure 2B (trace i)**：展示了关键的 LC-MS 结果。在表达 `pfpA` 的迹线中，可以清晰地看到一个强烈的产物峰 **5** (m/z 326)，而在空载体对照中则没有。
     
 - **Figure 3A**：展示了从 PfpA 释放的产物 **5** 的结构。
-    
+    ![image.png](http://synbiopath.online/20260110204717187.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NGY1NTUzY2Q1NWZjZjhhMDg4ZDdmZWYwOTMwOGFmYTVfc2RhRVVkUFZEZlhqeEx2QWlPTEhFZzlyQk5IMUhrd21fVG9rZW46Q1NRb2JOTDJrbzh2MDF4NnJDaWNDUnE1bk5oXzE3NjUxODg3ODg6MTc2NTE5MjM4OF9WNA)
 
 ### 研究部分二：o-QM 中间体的形成及其非酶促转化
 
