@@ -1,4 +1,5 @@
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=OWJjNmQxOTdiMWYzOTI1ZWI0ZDBkZGQ1ZjE4ODRmZjZfQW5sa3BzTlJHcm9NQU1iWE9LTVNOeUszaHdGMmJYRzlfVG9rZW46UW51ZmJieDBCb2ZaQXd4eTl6dmNGNzBjbkIzXzE3NjUxODg4MDg6MTc2NTE5MjQwOF9WNA)
+![image.png](http://synbiopath.online/20260110204447479.png)
+
 
 ## 一：基本信息
 
@@ -63,22 +64,20 @@
 #### 实验目的与设计
 
 本部分的目的是鉴定负责 ustilaginoidin 生物合成的候选漆酶，并在一个可控的体外体系中重现其催化功能。实验设计为：首先通过生物信息学方法从不同真菌中找到 4 个同源的漆酶基因，然后在黑曲霉中进行异源表达，并利用其细胞裂解液与合成的底物进行反应。
+![image.png](http://synbiopath.online/20260110204459130.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NDYyNzM5ZTMxMTMyYjEzZTkwNWI4YWZiYmI2Y2IzOWZfSnQwbk94N29qTzd3YUdSdVd6bjlPeU9NMWJIaVFhNmdfVG9rZW46Q1luVGJ2MzFib1d5NFF4Qzhob2NrcVhYbkVnXzE3NjUxODg4MDg6MTc2NTE5MjQwOF9WNA)
 
 #### 实验结果与分析
 
 - **Scheme 1** 展示了 ustilaginoidin 的生物合成途径假说和在四种不同真菌中发现的同源 BGCs。这些 BGCs 都包含一个 PKS 基因、一个甲基转移酶基因和一个漆酶基因。
-    
+    ![image.png](http://synbiopath.online/20260110204506453.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MTEyZGRkOTdkNjViNjVjZjk1MDQxZjQ2ZjgzNGU1OWFfWlN1ckQxVTBpV2dSb0NQS3AyTkVleFBqNmlocWxxVVNfVG9rZW46TjIwZ2JvdDRob0IxY0V4ZGp5V2M2cXpQblBTXzE3NjUxODg4MDg6MTc2NTE5MjQwOF9WNA)
 
 - 研究人员首先通过异源表达 PKS (UstP) 获得了前体 YWA1 (**3**)，并将其化学脱水得到漆酶的直接底物 norrubrofusarin (**5**) (**Figure 2A, 2B**)。
     
 - **Figure 2C** 是关键的功能验证实验。将底物 **5** 与表达了 _ustL_ 基因的黑曲霉细胞裂解液孵育，HPLC-MS 分析显示成功地生成了目标产物 ustilaginoidin A (**1**)。而对照实验（使用不表达 _ustL_ 的裂解液）则没有产物生成。
-    
+    ![image.png](http://synbiopath.online/20260110204520759.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZWE2MGZjZDU2Mjc2YWIxOTdhMzM3MTQ1ZWJiZmZkMDdfc3Q0bTBnQmdSd1NxajBKbE1vUFNCdDE3YU1hb0JNdGVfVG9rZW46TERDdWJlRGtwbzZuZGl4Sjk1dmNQaWNjblFkXzE3NjUxODg4MDg6MTc2NTE5MjQwOF9WNA)
 
 - 这一结果无可辩驳地证明了 **UstL 确实是负责催化该 9,9'-偶联反应的漆酶**，并成功地建立了一个可用于后续机制研究的体外反应体系。同样的方法也证实了其他三个同源漆酶 (CheL, MytL, AshL) 具有相同的功能。
     
@@ -92,9 +91,8 @@
 #### 实验结果与分析
 
 - **Figure 3A** 展示了 CD 谱图的分析结果。
-    
+    ![image.png](http://synbiopath.online/20260110204529790.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YzgzMjhhZjQxZTY2OTJhNDA5YTk1ZWNiYmYxMDk0MThfMmlTdnJQcEhYaFdNcHhiYzg5Sk45cG5vRUVDNzFQOU9fVG9rZW46TGpiMGJFcUNQb2xQQ094eVpMQ2NuYVhNbndlXzE3NjUxODg4MDg6MTc2NTE5MjQwOF9WNA)
 
 - **结果非常清晰**：
     
@@ -103,9 +101,8 @@
     - 而由 **UstL** 催化生成的产物 **1**，其 CD 谱图则呈现出与前三者完全相反的**镜像形状**（负的 Cotton 效应），与 **M-型** atropisomer 一致。
         
 - **Figure 3B** 进一步通过手性 HPLC 进行了精确定量。结果显示，**CheL, MytL, AshL** 催化生成的产物均为高对映选择性的 **P-型** (ee > 95%)。
-    
+    ![image.png](http://synbiopath.online/20260110204541230.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NWE5NDIzNTg3NmUwMmU3NjZjOTVkZTQwYjg3ZDE0ZjRfNThjVTdKTGJGUGVveVFPOVZscVBFaDczOXk4M2ZtMGFfVG9rZW46TERaaWJUVmRob29NWUt4SHVsWWNNdHRBbmJoXzE3NjUxODg4MDg6MTc2NTE5MjQwOF9WNA)
 
 - 这些结果强有力地证明，这些真菌漆酶**自身就具有内在的高度对映选择性**，它们不需要任何辅助蛋白的参与，就能直接控制产物的轴手性。其中，三个酶是 P-选择性的，而 UstL 是 M-选择性的。
     
@@ -121,9 +118,8 @@
 - 研究人员首先测试了温度和 DMSO 浓度的影响，发现这些因素确实能改变 UstL 的选择性，甚至使其从 M-选择性翻转为 P-选择性。
     
 - **Figure 3B** 展示了最关键的**酶浓度梯度实验**。研究人员将四种漆酶的裂解液进行了一系列稀释（从 1 μL 到 250 μL），并测定了产物的 ee 值。
-    
+    ![image.png](http://synbiopath.online/20260110204552152.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NThiMjFjY2UzY2JlYTI5M2UxNGVlNmJmY2QzMzlkMWNfNHNjUGROb216U0hqUktMa3dEanQ5YmtiNGNXcGNLTjBfVG9rZW46Qzh2dGJmdGtybzI2SXh4ajN6SGNHVmVObkxjXzE3NjUxODg4MDg6MTc2NTE5MjQwOF9WNA)
 
 - **结果惊人**：
     
