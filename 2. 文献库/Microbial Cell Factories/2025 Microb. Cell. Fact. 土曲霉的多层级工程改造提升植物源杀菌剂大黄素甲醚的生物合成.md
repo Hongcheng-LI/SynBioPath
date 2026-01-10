@@ -73,20 +73,17 @@
     ![image.png](http://synbiopath.online/20260110212145009.png)
 
 - **Figure 3 & Table S5**: _A. terreus_ 基因组中有 7 个 CPR 基因。研究者将目标锁定在 II 型微粒体 CPR 上，并敲除了 _CPR-H10273_。结果显示，在敲除菌株 AgedA-Δ10273 中，ω-hydroxyemodin 的生成被完全阻断 (Figure 3)。这提供了直接证据，表明催化该反应的是一个依赖于 CPR-H10273 的 P450 酶。然而，该敲除株的总蒽醌产量急剧下降至亲本株的 10%，且生长受损，这首次暗示了该酶系统可能与细胞的核心代谢或健康状态相关。
-    
+    ![image.png](http://synbiopath.online/20260110213059107.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MTIzZjI1MDI1YWUyNzJjMzYzNTUyNTAxZDM2OGU2OWJfanRhZGRjMEllR0RGaUdZVlA2M2FIeWhHS2dOMThrSHBfVG9rZW46S0ZwaWJDa3NPb2ZwTGx4czFReGNGQmlibjlmXzE3NjgwNTEyNjI6MTc2ODA1NDg2Ml9WNA)
 
 ### 研究部分二：通过转录组学精确定位并验证关键 P450 酶 CYP-H6231
 
 在确定催化酶为 P450 后，需要在 131 个候选基因中找到具体的那个。研究者采用了转录组学策略，其核心逻辑是：负责生成副产物的 P450 基因，其转录水平应与副产物的积累曲线呈正相关。他们对 PgedA-Ptal 菌株在发酵过程中的多个时间点进行了取样，进行 RNA-seq 和代谢物定量分析。
 
 - **Figure 4A & 4B**: 转录组数据显示，在所有 P450 基因中，_CYP-H6231_ 的表达模式与 geodin 生物合成基因簇 (BGC) 的基因高度一致，并且其转录水平在第 4 天和第 6 天显著上调 (Figure 4A)。这与 ω-hydroxyemodin 的产量急剧增加的时间点完全吻合 (Figure 4B)，使 _CYP-H6231_ 成为首要嫌疑基因。
-    
+    ![image.png](http://synbiopath.online/20260110213120909.png)
+![image.png](http://synbiopath.online/20260110213137047.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NDRhZDBlNzExNTc3MjM2NjIzNDVmZGRjMTY1YWE2OTRfdE9mVHREZzYyb2V5Z2szaG5jWjR5Y3BBRjhEMGd2T1pfVG9rZW46TVVva2JZUmVnbzJaUUl4ZGRUMWMzSWJvbmpoXzE3NjgwNTEyNjI6MTc2ODA1NDg2Ml9WNA)
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=Mzk3M2RiNzE4YmJmZjUyZGRhZWU0NGQ3ZTA1MTU5MTNfYUQ5TEtFSzc0SzM5bGVpdGVuNk1iVmxyMk5HUk5aN0FfVG9rZW46REx1NmJkSUtWb1d2SHh4QVlvSWNXRVJNblFlXzE3NjgwNTEyNjI6MTc2ODA1NDg2Ml9WNA)
 
 - **Figure 4C, 4D, 4E**: 为最终验证其功能，研究者在产 emodin 的菌株 (AgedA) 和产 physcion 的菌株 (PgedA-Ptal) 中分别敲除了 _CYP-H6231_。结果非常明确：
     
@@ -95,7 +92,7 @@
     - 在 PgedA-Ptal-ΔH6231 中，ω-hydroxyemodin 和 fallacinol 的生成均被消除，physcion 的产量提高了 1.8 倍 (从 10.8 mg/g 提高到 20.1 mg/g) (Figure 4C, v; Figure 4E)。
         
 
-> - 这一系列结果无可辩驳地证实，CYP-H6231 是催化大黄素及其衍生物羟基化的关键酶。
+>这一系列结果无可辩驳地证实，CYP-H6231 是催化大黄素及其衍生物羟基化的关键酶。
 >     
 
 ### 研究部分三：优化 Emodin 到 Physcion 的转化效率
@@ -103,9 +100,8 @@
 敲除 _CYP-H6231_ 后，副产物问题得以解决，但 emodin 的大量积累成为了新的瓶颈。研究者假设，这一瓶颈可能源于 3-EOMT 酶的催化效率不足或甲基供体 S-腺苷甲硫氨酸 (SAM) 的供应不足。为此，他们设计了多层工程策略：1) 筛选并过表达一个更高活性的 3-EOMT (AwOMT)；2) 过表达内源的 SAM 合成酶 (_SamS_)；3) 过表达上游前体乙酰辅酶A的合成酶 (_ACC_)。
 
 - **Figure 5**:
-    
-    ![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YjJlZWRkYmRlZTEwNGE0MDA5ZWYxZWEzOTRkODg4MjBfQWhObDR0a01COUZRendXREZ4YlZSMXdJZVBwRjAzNjJfVG9rZW46SUxRWGJJUDJPb2pjWTJ4Rm9TdGN4RFRxbmlnXzE3NjgwNTEyNjI6MTc2ODA1NDg2Ml9WNA)
-    
+    ![image.png](http://synbiopath.online/20260110213154449.png)
+        
     - 体外酶活分析显示，来自 _Aspergillus wentii_ 的 AwOMT 催化效率 (88%) 确实高于原有的 Ptal (72.7%) (Figure 5A)。
         
     - 然而，将 AwOMT 或 SamS 在 ΔH6231 菌株中进行过表达后，physcion 的产量仅有微弱提升 (约 14-16 mg/g vs 对照组的 13 mg/g) (Figure 5C)。emodin 到 physcion 的转化率也仅从 70% 略微提高到 71-75% (Figure 5D)。
@@ -120,9 +116,8 @@
 为解释上述策略效果不佳的原因，研究者将注意力转向了菌株的表型。他们观察到，随着代谢改造的深入，菌株的生长能力和孢子活力逐渐下降。为了进一步提升局部酶浓度，他们设计了蛋白融合策略（将上游的 GedH 与 AwOMT 融合）和共表达策略（AwOMT 与 SamS），并利用 Cryo-SEM 对菌株孢子的微观形态进行观察。
 
 - **Figure 6**:
-    
-    ![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MTFkZTE5ZGU0Y2QzZDQ1NGY5MzBjNTgzNzBmMDlkZmZfT3NoMUxqQXFuZTVJVkxhcjZvbGdGcmd5YlFQZ2pMb05fVG9rZW46TUhDNGJiVmVVb1JIYWF4SWFhM2NtQTFlbkplXzE3NjgwNTEyNjI6MTc2ODA1NDg2Ml9WNA)
-    
+    ![image.png](http://synbiopath.online/20260110213205315.png)
+        
     - 蛋白融合策略取得了一定的成功。表现最好的融合蛋白菌株 Pgpd-GedH-GGGGS3-AwOMT 在第 7 天的 physcion 产量达到了 36 mg/g，相比于 ΔH6231 对照组 (26 mg/g) 提高了 37% (Figure 6B)。转化率也提升至 80-85%。
         
     - 然而，这些高产菌株的生长状态明显变差。Cryo-SEM 图像 (Figure 6C) 提供了关键证据：与野生型和 ΔH6231 菌株表面有规则皱缩的健康孢子相比，后续工程菌株（特别是过表达 3-EOMT 的菌株）的孢子表面变得光滑、易碎，甚至出现畸形。
@@ -135,8 +130,7 @@
 为了从分子层面理解 CYP-H6231 的催化机制，并为其未来的改造提供依据，研究者对其进行了深入的生物信息学和实验表征。他们利用 AlphaFold2 预测其结构，对接底物 emodin，并通过在酵母中进行定点突变和功能验证，来确定关键的氨基酸残基。
 
 - **Figure 7**:
-    
-    ![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NGY4MGViYzk1MDc0MDAwMzg5MDQxYzk2OTlkNDJhOGVfY2FFTTZ5VXI1QmEydm9MYkFwR0djem9lWXJjQ1Ywb1pfVG9rZW46RFgxcWJFTXZVb0NKemh4anJRNGNQVHBZbjdmXzE3NjgwNTEyNjI6MTc2ODA1NDg2Ml9WNA)
+    ![image.png](http://synbiopath.online/20260110213215414.png)
     
     - 结构模型清晰地展示了 emodin 在 CYP-H6231 活性口袋中的结合方式 (Figure 7A)。多个残基通过氢键 (L101, S204, R210, F468, L470) 和疏水/π-π 堆积作用 (F110, F469) 共同锚定底物。
         
@@ -150,8 +144,8 @@
 ## 五：总体结论
 
 本研究通过多层次的系统代谢工程，成功解决了 _A. terreus_ 生产 physcion 过程中的副产物问题。研究的核心贡献在于鉴定并阐明了一个关键 P450 酶 CYP-H6231 的双重功能：它既是导致产物不纯的“副反应酶”，更是保护宿主免受代谢物毒害的“解毒酶”。这一发现深刻揭示了在微生物细胞工厂构建中，高产途径与宿主生理适应性之间存在的内在矛盾与权衡。基于此，研究最终开发了两个分别用于高纯度生产 physcion 和 emodin 的优化菌株平台，并通过对 CYP-H6231 的深入机制研究，为未来蒽醌类天然产物的生物合成与理性改造提供了重要的理论基础和实践指导。
+![image.png](http://synbiopath.online/20260110213241471.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=Yjc3M2VhZTIyZTExNTA4YWNkYTdiYTk3MTRjMDQ0YjVfWUpIMTBvNmhneTBmQkFoOUpXVEEyM1I2QmdobFZuZ1pfVG9rZW46R0VxeWI4MnZLb0hQWWp4NXBUbmNUR1JDbmRkXzE3NjgwNTEyNjI6MTc2ODA1NDg2Ml9WNA)
 
 ## 六：论文评价
 
