@@ -1,8 +1,9 @@
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDM1MWEzOGNhZTY2YTY3M2VmMDAwMDgwZWY5MzQyZTdfUWNMZDZ6NkJFbXdodGZJZnJrWnF2UHRUOVpIQ3duVTJfVG9rZW46QmtpWWJCWlhJb3Jwc3R4ZnZFR2NaT0lYbkVnXzE3NjUxODczODQ6MTc2NTE5MDk4NF9WNA)
+![image.png](http://synbiopath.online/20260110183003944.png)
+
 
 ## 一：基本信息
 
-**文章题目：**Complete biosynthesis of phenylspirodrimanes with unclustered genes in _Stachybotrys chartarum_
+**文章题目：** Complete biosynthesis of phenylspirodrimanes with unclustered genes in _Stachybotrys chartarum_
 
 **文章** **DOI** **号**：10.1016/j.apsb.2025.09.015
 
