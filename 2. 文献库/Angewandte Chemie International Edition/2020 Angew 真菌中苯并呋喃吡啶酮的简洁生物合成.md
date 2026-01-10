@@ -122,16 +122,14 @@
 **数据支撑与图表分析**：
 
 - **Figure 2B (trace ii)**：LC-MS 图谱显示，表达 `pfpAB` 后，**5** 的峰消失，出现了 **8** 的峰 (m/z 344)。
-    
+    ![image.png](http://synbiopath.online/20260110205101259.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=OWJiZTQyMzUwYzJhN2Y3ZDliYmJlOTRlYjRiY2Y5ZjRfM2VmZmhmVTJRNkJYOWc2QW5LSEl5YnM1RFBGVXBzcFZfVG9rZW46RHVWRGJMTm5XbzVIa1Z4ekQ0OWNta21hbmpmXzE3NjUxODg3ODg6MTc2NTE5MjM4OF9WNA)
 
 - **Figure 2B (trace iii)**：LC-MS 图谱显示，表达 `pfpABC` 后，**8** 的峰消失，出现了 **1** (m/z 326) 和 **11** (m/z 326) 的峰。
     
 - **Figure 3A**：该图是理解本部分的关键，清晰地展示了从 **6** 出发，经 PfpC 还原为 **9**，再脱水为 o-QM **10**，最后通过两条不同的非酶促环化路径分别生成 **1** 和 **11** 的完整过程。
-    
+    ![image.png](http://synbiopath.online/20260110205110463.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZjljMmJiMjYwYmE1ZGE4YTY1OGFiZmRlZjQzMWE5YTZfWHpGZ0EzcXhrbXhlNmVzNVgzR2dJdXJJVnJWZkpCVHFfVG9rZW46UjhWMmJIMEFSbzBGRWR4MHNoOWNWa3UxbmxmXzE3NjUxODg3ODg6MTc2NTE5MjM4OF9WNA)
 
 ### 研究部分三：PfpD 催化的季碳中心构建
 
@@ -153,14 +151,12 @@
 **数据支撑与图表分析**：
 
 - **Figure 2B (trace iv)**：LC-MS 图谱显示，表达 `pfpABCD` 后，**1** 和 **11** 的峰减少，出现了 **3** (m/z 344) 和 **4** (m/z 310) 的峰。
-    
+    ![image.png](http://synbiopath.online/20260110205123053.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDM2MzU0ZmYxYWJjYjc2MGFhYTM0M2FiOGYwMDlkYTZfbHNsZjVpSVdBenpsa0RZc216bklFb3ZTYXhCVDZ4cmNfVG9rZW46UXhTSWJZQVpKb1JBcXN4ZFVlVmNZc3Z3bmJiXzE3NjUxODg3ODg6MTc2NTE5MjM4OF9WNA)
 
 - **igure 3A**：该图详细描绘了从 **12** 到 **13** (环氧化)，再到 **4** (骨架重排) 的关键步骤，并展示了 **4** 如何进一步转化为 **3**。
-    
+    ![image.png](http://synbiopath.online/20260110205130464.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZjJhNmYyYzJmZTlhZDM0OGE0MzMxNTZmMzBjZTliYzFfWnEwb0dmQ2hONTF6NDBVRDJ5Yk9HRWFDYnZoTTJaQmNfVG9rZW46VmZpUmI2cnE0b0tLdlB4eVNzVGNBOHFkbkxmXzE3NjUxODg3ODg6MTc2NTE5MjM4OF9WNA)
 
 ### 研究部分四：PfpE 催化最终产物 Citridone B 的形成
 
@@ -184,14 +180,12 @@
 **数据支撑与图表分析**：
 
 - **Figure 2B (trace v)**：LC-MS 图谱显示，表达 `pfpABCDE` 后，**3** 和 **4** 的峰减少，出现了 **2/2'** 的峰 (m/z 326)。
-    
+    ![image.png](http://synbiopath.online/20260110205139478.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YmFlMzA2MDdmNDBmOTIxYjdmMGU4Yjg3MWVkMDIzYmRfalZYUG5uSGV4cjAzUFFqeWtQeXI3MVAyY1NudXFCR0tfVG9rZW46RnJzNGIwd2tSb3JvcU14QmxDbGNUMnBubjFjXzE3NjUxODg3ODg6MTc2NTE5MjM4OF9WNA)
 
 - **Figure 3B**：生物转化实验的 LC-MS 结果。在表达 PfpE 的菌株中加入 **4** 后，可以清晰地看到 **2/2'** 的峰生成，而在空载体对照中则没有。
-    
+![image.png](http://synbiopath.online/20260110205147411.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YzhmZGY5NzNmNDA1M2VkMjAzNTMyMmM3ZjljNzIxYmZfUjVqSHVUbzFMWDV5ZU1uR2Z1RGJBcU9UM2MzZ3Y4VGxfVG9rZW46V0VxQWIzeWVnb0doY3l4MXJNN2NUbXhqbjBiXzE3NjUxODg3ODg6MTc2NTE5MjM4OF9WNA)
 
 ## 五：总体结论
 
