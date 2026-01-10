@@ -94,9 +94,8 @@ Albicidin 和 cystobactamid 是一类新型的、靶向 DNA 旋转酶的广谱�
 研究团队成功地通过化学全合成了全部 6 种新分子。
 
 - **Table 1** 提供了所有合成化合物对 ESKAPE 病原菌的 MIC 值的全面总结，是本研究的核心数据。
-    
+    ![image.png](http://synbiopath.online/20260110211744959.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=OGZjZGE2OWMzMTU5OWFhZTIwNTljMzdmZTJiMzBiYmFfcm5XR0FIbGdEQXNWclg0V2FiSGM1NGhMOGxyMHozRWFfVG9rZW46T3o4QWIwYnM1b215OE54M2hiTGNycDFqbkxjXzE3NjUxODg3MjI6MTc2NTE5MjMyMl9WNA)
 
 - **结果解读**：
     
@@ -118,14 +117,12 @@ Albicidin 和 cystobactamid 是一类新型的、靶向 DNA 旋转酶的广谱�
 - **Figure 4** 提供了无可辩驳的证据。
     
     - **Figure 4b (体内酶活性测试)**：研究人员比较了化合物对普通 _E. coli_ 和表达 AlbD 酶的 _E. coli_ 的 MIC。结果显示，对于 albicidin 和其他 5 种新类似物，AlbD 的表达导致 MIC 值急剧升高（>100 倍），表明它们都被 AlbD 降解失活了。然而，对于 **PABA34**，其 MIC 值仅升高了 2 倍，几乎不受 AlbD 影响。
-        
-    
-    ![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MmRlMzZiNDU2Yjc2ZWU2YzQyYmMyNWUwOWM2MGI0NzZfVUJMWmVIUXl6cjNLVzZ4cTlYQ1hvSUh2bGZOR0dxa0xfVG9rZW46S0w4RWJ4YzJab2xtekV4VkNsaWNsbjdvbnFnXzE3NjUxODg3MjI6MTc2NTE5MjMyMl9WNA)
+        ![image.png](http://synbiopath.online/20260110211757701.png)
+
     
     - **Figure 4c (体外酶切实验)**：为了直接证实上述结果，他们用纯化的 AlbD 酶在体外处理这些分子，并通过 HPLC 定量降解程度。结果与体内实验完美吻合：albicidin, PABA95 和 PABA157 几乎被完全降解（相对切割率 RCR ≈ 1.0），而 **PABA34** 则非常稳定，其 RCR 仅为 0.38。
-        
-    
-    ![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZTc0MzVjMTE0Y2ZjNzkyMGM0ZWEyNGYwYjJjODZjYTdfMVRxUE9Zb0JBTGsxcGlMVE5YeFJsS3AzbWtkczNDMkdfVG9rZW46VjVXd2JaZk9wb1RmcDJ4VFN3WWNFQzFVbk81XzE3NjUxODg3MjI6MTc2NTE5MjMyMl9WNA)
+        ![image.png](http://synbiopath.online/20260110211808483.png)
+
     
     - **Figure 4d, 4e (机制验证)**：为了探究 PABA34 稳定性的结构基础，研究人员注意到 PABA34 的 D 位是一个被修饰的 AHMBA 单元，而切割位点就在 D-E 之间。他们大胆假设是这个修饰阻碍了酶的识别。为了验证这一点，他们将这个 AHMBA 单元“移植”到了一个已知的敏感骨架 PABA95 上，创造了嵌合分子 **PABA95-2**。**Figure 4e** 的结果显示，PABA95-2 果然也获得了对 AlbD 的抗性（MIC 仅升高 8 倍，而母体 PABA95 升高 >133 倍）。
         
