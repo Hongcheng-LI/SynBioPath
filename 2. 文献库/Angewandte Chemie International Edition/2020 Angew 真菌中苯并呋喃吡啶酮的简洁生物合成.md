@@ -1,4 +1,5 @@
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YjU1MGNlMGE5ZmZjNTYzOGRmMDQ5MjFjMTZhODlkM2RfU0RVMUdkaWxFTVROa1NocVplaWlyWGg3MktZWnYzenBfVG9rZW46Q0txTGIxdXF5bzVxNEh4Q0JWRGNiU3ZYbkJkXzE3NjUxODg3ODg6MTc2NTE5MjM4OF9WNA)
+![image.png](http://synbiopath.online/20260110204636962.png)
+
 
 ## 一：基本信息
 
@@ -26,9 +27,7 @@
 ### 前期研究
 
 1. **Citridone 的发现与活性**：Citridone A (**1**), B (**2**) 等化合物已被分离，并发现其能增强唑类抗真菌药物的活性，同时对耐甲氧西林金黄色葡萄球菌 (MRSA) 具有抑制作用。
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YWQzNTEwNTQ3NjhlNDIxNTQ4MDhkODdkNmE0MjAzZDlfYkxROFVMZGNEcmtWWjRVUFhRVkJmdU5WTHh1N085TUZfVG9rZW46QzBFbmI5V3FKb3NPNWN4WDY1cWNieFpCbnZoXzE3NjUxODg3ODg6MTc2NTE5MjM4OF9WNA)
+    ![image.png](http://synbiopath.online/20260110204648218.png)
 
 2. **2-吡啶酮的通用生物合成逻辑**：已基本阐明该类化合物的核心骨架由一个聚酮合酶-非核糖体肽合成酶 (PKS-NRPS) 合成一个 tetramate 中间体，随后由一个 P450 环扩张酶 (P450RE) 催化氧化重排，形成 2-吡啶酮环。
     
