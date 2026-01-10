@@ -1,4 +1,5 @@
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=OTJhNWU3Zjg5NzRjZTcyYjAwZTNkYjRhOTk0NTNlZjVfR1Q5Uk1ld3Q0NEtCWG9ycnJyN01Nc2haZXpZTDRmcWtfVG9rZW46THlhQmJ5eTNZbzVNOTZ4RVpibmNRc01rblZ1XzE3NjUxODg4Mjc6MTc2NTE5MjQyN19WNA)
+![image.png](http://synbiopath.online/20260110204009829.png)
+
 
 ## 一：基本信息
 
@@ -90,12 +91,12 @@
 #### 实验结果与分析
 
 **Figure 1** 明确了 RadH 在其天然产物 radicicol (**3**) 生物合成中的作用，即催化前体 monocillin II (**1**) 的氯代反应。
+![image.png](http://synbiopath.online/20260110204025372.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YzMwMzkxOTIwMmFiZWQzNjM5NDgwMTIxMTNlYjFmOTlfbVhhbWZaS3BGWlNRcENlOFB4WDZjaFBFODVnQlRGMXdfVG9rZW46UHl5aGJEcXZNb2lDVHh4U0lTQWNwcTVRblVjXzE3NjUxODg4Mjc6MTc2NTE5MjQyN19WNA)
 
 **Figure 2** 展示了 RadH 广泛的底物谱。
+![image.png](http://synbiopath.online/20260110204036363.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YzNiNjM5MDIzZTdjNWI3MjEzYzljOTBmY2Q4N2NiOGFfbk95THIzQkYzSnlvdFdoandkY09udjQ4ZW1iUHBKbTlfVG9rZW46TUJQaWJKS25lb0hKSmd4Q3E4bmNFNlZFbmZiXzE3NjUxODg4Mjc6MTc2NTE5MjQyN19WNA)
 
 - **对天然底物的活性**：RadH 确实能催化 **1** 生成 **1a**，但反应很慢，18 小时转化率仅为 84%。有趣的是，它不能催化结构非常相似的 **4** 和 **5**，表明其活性口袋具有一定的结构识别能力。
     
@@ -107,8 +108,8 @@
     
 
 **Table 1 (WT 行)** 提供了定量的动力学数据。野生型 (WT) RadH 对底物 **6** 和 **8** 的催化常数 k<sub>cat</sub> 分别为 3.2 min⁻¹ 和 2.9 min⁻¹，显著高于其他底物，证实了它们是 RadH 的优质底物。这些 k<sub>cat</sub>/K<sub>m</sub> 值（分别为 12 × 10⁻³ 和 7.7 × 10⁻³ min⁻¹µM⁻¹）表明其催化效率在同类酶中处于较高水平。
+![image.png](http://synbiopath.online/20260110204047182.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZmMxOTc4MDVmNTI2YzQzZjMzMWIwNWM1N2Y4MzA1ZGJfMDd6azdpbnE1TVBzTnBSUkV1SFVLS1JSUG1xbEJIUmJfVG9rZW46SVlFV2JzNDJBbzB0YXF4eG0wd2NudHMwbkpiXzE3NjUxODg4Mjc6MTc2NTE5MjQyN19WNA)
 
 ### 研究部分二：RadH 催化机制的解析
 
@@ -130,14 +131,13 @@
 #### 实验结果与分析
 
 **Figure 3A 和 3B** 展示了 RadH 活性口袋的同源模型，以及底物 **3** 或 **8** 在其中的对接姿态。模型显示，活性口袋是一个较大的空腔，靠近 FAD 辅酶的异咯嗪环。
+![image.png](http://synbiopath.online/20260110204058883.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NWYxNDRhY2FlMDdlNzZmYjdkMzQxZDY5NGRiZmMxYTBfaHI4M2VmdG15U0dEWVVlNU5wNTZZUXBMaUIzcUwxYzJfVG9rZW46R1JpcWI2ZnFyb1pYMXp4UjlkY2M1ek05bnJjXzE3NjUxODg4Mjc6MTc2NTE5MjQyN19WNA)
 
 **Figure S19 和 S20** 展示了定点突变的结果，这是机制解析的核心证据。
+![image.png](http://synbiopath.online/20260110204105763.png)
+![Uploading file...r21mw]()
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MzQwMDQ1ZmQ3NDAzZmEyMjExNjFjNWQ5NTlmYWUwNDlfejA4TWg0RDk3bVpUR3RqdlI5MXBlNkJsaTRnYnpoOVNfVG9rZW46RDBmSGI5Q3V5b1FQbHZ4M3RzbGNiNUw4bnliXzE3NjUxODg4Mjc6MTc2NTE5MjQyN19WNA)
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MmYyNmIwNjdlYWMwZTVhNWIxMGFiZDNiYzA4M2ViZmNfMHE5TTVrdGJvQktLVmlXNnNqZnBvejN0bjNxTHpiN3dfVG9rZW46RGZWNWJrNUMxb2ZTVTd4NEJvSmNQSmJRbnFmXzE3NjUxODg4Mjc6MTc2NTE5MjQyN19WNA)
 
 - **K74A 突变体**完全丧失了催化活性，而附近的 K73A, K80A, K84A 突变体活性正常。这表明 K74 在催化中扮演了不可或缺的角色。
     

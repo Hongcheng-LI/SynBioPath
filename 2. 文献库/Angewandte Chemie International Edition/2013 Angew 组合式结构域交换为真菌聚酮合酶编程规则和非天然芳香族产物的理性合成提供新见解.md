@@ -150,8 +150,8 @@
 **图表解读**：
 
 - **Figure 3c：PT, ACP, 和 TE 异源结构域的反应**
-    
-    ![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YWVlY2Y2MjgwOTliN2UwODE4ZGVjOTM4MjJkYmEzZGVfZXNFQ2hsTTU2YjhDTXZTVkpKTUVUalR4QzUzZU5LdmFfVG9rZW46R0NjUGJwUGFTb1cydFN4RHJkR2N2dlJEbk80XzE3NjUxODg4NDM6MTc2NTE5MjQ0M19WNA)
+    ![image.png](http://synbiopath.online/20260110203940526.png)
+
     
     - **图表内容**：展示了在 `PT + ACP` 组合的基础上，再加入不同 TE 后的反应结果。
         
