@@ -1,4 +1,4 @@
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NTIyOGMxN2ZiMGQ0NjVjZTNmMjRkYTMwODY2YmRkYjNfSWhzakl3RXQ3YXdSRFlnSlc5bTJJODZCa2ZjRE5UZ2NfVG9rZW46RmdseWJWS0dib01nS3F4S0dmaWNPYXhEblNlXzE3NjUxODg3NDI6MTc2NTE5MjM0Ml9WNA)
+![image.png](http://synbiopath.online/20260110210808687.png)
 
 ## 一：基本信息
 

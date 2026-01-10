@@ -1,4 +1,6 @@
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZGVlYzgyMDQ0MzljOTg5NzI4ZGJlYWE2NDRiMjkzZDFfcTBmcGVTNTFkbkZGSkhtdXBmQko3RlJ1Y05aSkxpMHlfVG9rZW46VTY0MWJkb2pvb2kzbjZ4bkxIdWNSeVF1bnlmXzE3NjUxODg3MjI6MTc2NTE5MjMyMl9WNA)
+![image.png](http://synbiopath.online/20260110210912049.png)
+
+
 
 ## 一：基本信息
 
@@ -70,21 +72,16 @@ Albicidin 和 cystobactamid 是一类新型的、靶向 DNA 旋转酶的广谱�
 本部分的核心目的是应用系统发育学引导的策略，从土壤宏基因组中发现与 albicidin 和 cystobactamid BGCs 同源的新型 BGCs，并基于其序列预测产物的化学结构。
 
 #### 实验结果与分析
-
 - **Figure 1b** 展示了该策略的逻辑。研究人员通过对宏基因组文库进行靶向 PABA A-domain 的扩增测序，成功识别出与已知 albicidin/cystobactamid BGCs 紧密相关的 A-domain 序列，并利用这些序列作为探针，从文库中成功回收了 12 个完整的或部分的同源 BGCs。
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NmE2YWJkOTRhYjZhYjYyMzMyMTk0MzgyZTI5YmU4NDVfTGg4aEJJekNEbmRvSkFibEMwUGFjRzB5dXhHMHhuTGlfVG9rZW46WkRFMmIzY3lNb0RONHZ4UWNPNmNoVWE4bjZnXzE3NjUxODg3MjI6MTc2NTE5MjMyMl9WNA)
+    ![image.png](http://synbiopath.online/20260110210932390.png)
 
 - **Figure 2a** 展示了这些新发现的 BGCs。生物信息学分析显示，其中 7 个 BGCs 编码 cystobactamid 类似物，5 个 BGCs 编码 albicidin 类似物。
-    
+    ![image.png](http://synbiopath.online/20260110210944883.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YzI4YmQ5NDFlODM0MWFiMDFmYTA4OTIxNjQxZjk5YmRfdzZmT1RJbFdoR3BHR3Fvb3p1aVp5ZHBCa3NCQXNFazBfVG9rZW46QWFZamIzUXRCb0c1N2l4eUJISWNiaUxablNoXzE3NjUxODg3MjI6MTc2NTE5MjMyMl9WNA)
 
 - 通过对这些 BGCs 的 NRPS/PKS 装配线进行详细的生物信息学“解码”，研究人员预测出了 6 种全新的、结构上不同的天然产物类似物。**Figure 3a** 展示了这 6 种新分子的预测结构，它们分别被命名为 **PABA48, PABA70, PABA57** (cystobactamid 类似物) 和 **PABA34, PABA157, PABA95** (albicidin 类似物)。这些分子在 N-端、C-端以及核心 PABA 单元的修饰上各不相同，展示了自然界丰富的化学多样性。
-    
+    ![image.png](http://synbiopath.online/20260110210957064.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NGEwYjliNzExNzk2ZGUxNzdjMGJhY2E0ZjNlYjU5ZDdfZlZUVE5Gb1FRQXlWc216bnl6bHNWcXJyUE1iMFNHdG5fVG9rZW46SG81SGJib0hub3pKS2Z4TUk1MWM4QkM5bjliXzE3NjUxODg3MjI6MTc2NTE5MjMyMl9WNA)
 
 ### 研究部分二：化学合成与体外抗菌活性评价
 
