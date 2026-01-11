@@ -13,7 +13,7 @@
 **通讯作者**：Gerard D. Wright；Huilin Li
 
 **通讯作者工作单位**：
-*   Gerard D. Wright：麦克马斯特大学，生物化学与生物医学科学系
+* Gerard D. Wright：麦克马斯特大学，生物化学与生物医学科学系
 * Huilin Li：范安德研究所，结构生物学系
 
 ---
