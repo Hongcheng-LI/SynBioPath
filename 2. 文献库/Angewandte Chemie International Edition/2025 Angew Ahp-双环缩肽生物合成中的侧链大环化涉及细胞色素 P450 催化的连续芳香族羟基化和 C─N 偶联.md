@@ -2,7 +2,7 @@
 
 ## 一：基本信息
 
-**文章题目**：Side-Chain Macrocyclization in Ahp-Bicyclodepsipeptides Biosynthesis Involves Cytochrome P450-Catalyzed Sequential Aromatic Hydroxylation and C─N Coupling (Ahp-双环缩肽生物合成中的侧链大环化涉及细胞色素 P450 催化的连续芳香族羟基化和 C─N 偶联)
+**文章题目**：Side-Chain Macrocyclization in Ahp-Bicyclodepsipeptides Biosynthesis Involves Cytochrome P450-Catalyzed Sequential Aromatic Hydroxylation and C─N Coupling
 
 **文章 DOI 号**：10.1002/anie.202513520
 
