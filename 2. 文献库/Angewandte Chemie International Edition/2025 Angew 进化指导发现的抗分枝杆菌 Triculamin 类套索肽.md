@@ -1,8 +1,10 @@
+![image.png](http://synbiopath.online/20260116104814822.png)
 
+---
 
 # 一：基本信息
 
-**文章题目**：Evolution-Guided Discovery of Antimycobacterial Triculamin-Like Lasso Peptides (进化指导发现的抗分枝杆菌类三苦胺套索肽)
+**文章题目**：Evolution-Guided Discovery of Antimycobacterial Triculamin-Like Lasso Peptides
 
 **文章 DOI 号**：10.1002/anie.202425134
 
