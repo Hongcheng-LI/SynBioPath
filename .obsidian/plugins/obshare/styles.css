@@ -1,7 +1,7 @@
-/* 飞书文档上传器样式 */
+/* 飞书文档上传器样式 - 使用命名空间隔离 */
 
 /* 模态框按钮容器 */
-.modal-button-container {
+.obshare-modal-button-container {
 	display: flex;
 	gap: 10px;
 	margin-top: 30px;
@@ -10,7 +10,7 @@
 	flex-wrap: wrap;
 }
 
-.modal-button-container button {
+.obshare-modal-button-container button {
 	padding: 8px 16px;
 	border-radius: 4px;
 	border: 1px solid var(--interactive-accent);
@@ -22,79 +22,72 @@
 	min-width: 80px;
 }
 
-.modal-button-container button:hover {
+.obshare-modal-button-container button:hover {
 	background-color: var(--interactive-accent-hover);
 	transform: translateY(-1px);
 }
 
-.modal-button-container button:active {
+.obshare-modal-button-container button:active {
 	transform: translateY(0);
 }
 
 /* 设置页面样式 */
-.feishu-uploader-settings {
+.obshare-feishu-uploader-settings {
 	padding: 20px;
 }
 
-.feishu-uploader-settings h2 {
+.obshare-feishu-uploader-settings h2 {
 	color: var(--text-accent);
 	margin-bottom: 20px;
 	border-bottom: 2px solid var(--background-modifier-border);
 	padding-bottom: 10px;
 }
 
-.feishu-uploader-settings p {
+.obshare-feishu-uploader-settings p {
 	margin-bottom: 10px;
 	line-height: 1.5;
 }
 
 /* 设置分割线样式 */
-.settings-divider {
+.obshare-settings-divider {
 	border: none;
 	border-top: 1px solid var(--background-modifier-border);
 	margin: 20px 0;
 	opacity: 0.5;
 }
 
-.feishu-uploader-settings a {
+.obshare-feishu-uploader-settings a {
 	color: var(--text-accent);
 	text-decoration: none;
 }
 
-.feishu-uploader-settings a:hover {
+.obshare-feishu-uploader-settings a:hover {
 	text-decoration: underline;
 }
 
 /* 上传进度样式 */
-.feishu-upload-progress {
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	background: var(--background-primary);
-	border: 1px solid var(--background-modifier-border);
-	border-radius: 8px;
-	padding: 20px;
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-	z-index: 1000;
-	min-width: 300px;
+.obshare-feishu-upload-progress {
+	position: relative;
+	width: 100%;
+	margin: 20px 0;
 	text-align: center;
 }
 
-.feishu-upload-progress .progress-text {
-	margin-bottom: 15px;
+.obshare-feishu-upload-progress .obshare-progress-text {
+	margin-bottom: 10px;
 	font-weight: 500;
+	color: var(--text-normal);
 }
 
-.feishu-upload-progress .progress-bar {
+.obshare-feishu-upload-progress .obshare-progress-bar {
 	width: 100%;
-	height: 6px;
+	height: 8px;
 	background: var(--background-modifier-border);
-	border-radius: 3px;
+	border-radius: 4px;
 	overflow: hidden;
 }
 
-.feishu-upload-progress .progress-fill {
+.obshare-feishu-upload-progress .obshare-progress-fill {
 	height: 100%;
 	background: var(--interactive-accent);
 	transition: width 0.3s ease;
@@ -102,21 +95,21 @@
 }
 
 /* 成功提示样式 */
-.feishu-success-modal {
+.obshare-feishu-success-modal {
 	text-align: center;
 }
 
-.feishu-success-modal h2 {
+.obshare-feishu-success-modal h2 {
 	color: var(--text-normal);
 	margin-bottom: 15px;
 }
 
-.feishu-success-modal p {
+.obshare-feishu-success-modal p {
 	margin-bottom: 15px;
 	color: var(--text-muted);
 }
 
-.feishu-success-modal a {
+.obshare-feishu-success-modal a {
 	color: var(--text-normal);
 	text-decoration: none;
 	word-break: break-all;
@@ -128,44 +121,44 @@
 	border: 1px solid var(--background-modifier-border);
 }
 
-.feishu-success-modal a:hover {
+.obshare-feishu-success-modal a:hover {
 	background: var(--background-modifier-hover);
 }
 
-/* 错误提示样式 */
-.notice-error {
+/* 错误提示样式 - 使用插件特定的类名 */
+.obshare-notice-error {
 	background-color: var(--background-modifier-error) !important;
 	color: var(--text-error) !important;
 }
 
-.notice-success {
+.obshare-notice-success {
 	background-color: var(--background-modifier-success) !important;
 	color: var(--text-success) !important;
 }
 
-/* 设置项样式优化 */
-.setting-item {
+/* 设置项样式优化 - 使用插件特定的类名 */
+.obshare-setting-item {
 	padding: 15px 0;
 	border-bottom: 1px solid var(--background-modifier-border-hover);
 }
 
-.setting-item:last-child {
+.obshare-setting-item:last-child {
 	border-bottom: none;
 }
 
-.setting-item-name {
+.obshare-setting-item-name {
 	font-weight: 500;
 	color: var(--text-normal);
 }
 
-.setting-item-description {
+.obshare-setting-item-description {
 	color: var(--text-muted);
 	font-size: 0.9em;
 	margin-top: 4px;
 }
 
 /* 输入框样式 */
-.setting-item input[type="text"] {
+.obshare-setting-item input[type="text"] {
 	width: 100%;
 	max-width: 300px;
 	padding: 8px 12px;
@@ -176,14 +169,14 @@
 	transition: border-color 0.2s ease;
 }
 
-.setting-item input[type="text"]:focus {
+.obshare-setting-item input[type="text"]:focus {
 	border-color: var(--interactive-accent);
 	outline: none;
 	box-shadow: 0 0 0 2px var(--interactive-accent-hover);
 }
 
 /* 按钮样式 */
-.setting-item button {
+.obshare-setting-item button {
 	padding: 8px 16px;
 	border: 1px solid var(--interactive-accent);
 	background: var(--interactive-accent);
@@ -194,44 +187,44 @@
 	font-size: 14px;
 }
 
-.setting-item button:hover {
+.obshare-setting-item button:hover {
 	background: var(--interactive-accent-hover);
 	transform: translateY(-1px);
 }
 
-.setting-item button:disabled {
+.obshare-setting-item button:disabled {
 	opacity: 0.6;
 	cursor: not-allowed;
 	transform: none;
 }
 
 /* 权限设置弹窗样式 */
-.feishu-permission-modal {
+.obshare-feishu-permission-modal {
 	text-align: left;
 	min-width: 500px;
 	min-height: 400px;
 }
 
-.feishu-permission-modal h2 {
+.obshare-feishu-permission-modal h2 {
 	color: var(--text-normal);
 	margin-bottom: 10px;
 	text-align: center;
 }
 
-.feishu-permission-modal p {
+.obshare-feishu-permission-modal p {
 	color: var(--text-muted);
 	margin-bottom: 20px;
 	text-align: center;
 }
 
-.permission-options {
+.obshare-permission-options {
 	margin: 20px 0;
 	display: flex;
 	flex-direction: column;
 	gap: 12px;
 }
 
-.permission-option {
+.obshare-permission-option {
 	display: flex;
 	align-items: flex-start;
 	gap: 12px;
@@ -244,18 +237,18 @@
 	transition: all 0.2s ease;
 }
 
-.permission-option:hover {
+.obshare-permission-option:hover {
 	background: var(--background-modifier-hover);
 	border-color: var(--background-modifier-border-hover);
 }
 
-.permission-option input[type="checkbox"] {
+.obshare-permission-option input[type="checkbox"] {
 	margin-right: 10px;
 	transform: scale(1.2);
 	pointer-events: none;
 }
 
-.permission-option label {
+.obshare-permission-option label {
 	display: block;
 	cursor: pointer;
 	font-weight: 500;
@@ -264,7 +257,7 @@
 	margin-bottom: 5px;
 }
 
-.option-desc {
+.obshare-option-desc {
 	font-size: 0.85em;
 	color: var(--text-muted);
 	margin-top: 5px;
@@ -275,18 +268,18 @@
 }
 
 /* 上传历史记录样式 */
-.upload-history-empty {
+.obshare-upload-history-empty {
 	color: var(--text-muted);
 	text-align: center;
 	padding: 20px;
 	font-style: italic;
 }
 
-.upload-history-container {
+.obshare-upload-history-container {
 	margin-top: 15px;
 }
 
-.upload-history-item {
+.obshare-upload-history-item {
 	padding: 12px;
 	margin-bottom: 8px;
 	background: var(--background-secondary);
@@ -295,15 +288,67 @@
 	transition: none;
 }
 
-.upload-history-item:hover {
+.obshare-upload-history-item:hover {
 	background: var(--background-secondary);
 	border-color: var(--background-modifier-border);
 }
 
+.obshare-upload-history-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 8px;
+}
+
+.obshare-upload-history-title {
+	font-weight: 600;
+	font-size: 14px;
+	color: var(--text-normal);
+	flex: 1;
+}
+
+.obshare-upload-history-time {
+	font-size: 12px;
+	color: var(--text-muted);
+	margin-left: 10px;
+}
+
+.obshare-upload-history-link-row {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.obshare-upload-history-link {
+	flex: 1;
+	color: var(--text-accent);
+	text-decoration: none;
+	font-size: 12px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.obshare-upload-history-link:hover {
+	text-decoration: underline;
+}
+
+.obshare-upload-history-copy-icon {
+	cursor: pointer;
+	font-size: 14px;
+	padding: 2px 4px;
+	border-radius: 3px;
+	transition: background-color 0.2s;
+}
+
+.obshare-upload-history-copy-icon:hover {
+	background-color: var(--background-modifier-hover);
+}
+
 /* 用户协议弹窗样式 */
-.user-agreement-modal {
-	width: 500px;
-	max-width: 85vw;
+.obshare-user-agreement-modal {
+	max-width: 600px;
+	width: 90vw;
 	min-width: 300px;
 	max-height: 90vh;
 	overflow-y: auto;
@@ -312,34 +357,42 @@
 	padding: 20px;
 }
 
-.user-agreement-modal * {
+.obshare-user-agreement-modal * {
 	box-sizing: border-box;
 	max-width: 100%;
 }
 
-.user-agreement-modal h2 {
+.obshare-user-agreement-modal h2 {
 	text-align: center;
 	margin-bottom: 20px;
 	color: var(--text-normal);
 }
 
-.agreement-content {
+.obshare-agreement-content {
 	font-family: var(--font-text);
 	line-height: 1.6;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	word-break: break-word;
+	max-height: 500px;
+	overflow-y: auto;
+	padding: 15px;
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 5px;
+	margin-bottom: 20px;
+	width: 100%;
+	box-sizing: border-box;
 }
 
-.agreement-content code,
-.agreement-content pre {
+.obshare-agreement-content code,
+.obshare-agreement-content pre {
 	white-space: pre-wrap;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	max-width: 100%;
 }
 
-.agreement-content h2 {
+.obshare-agreement-content h2 {
 	color: var(--text-normal);
 	border-bottom: 1px solid var(--background-modifier-border);
 	padding-bottom: 5px;
@@ -347,32 +400,35 @@
 	margin-bottom: 15px;
 }
 
-.agreement-content p {
+.obshare-agreement-content p {
 	margin-bottom: 10px;
 	color: var(--text-normal);
 }
 
-.agreement-content strong {
+.obshare-agreement-content strong {
 	color: var(--text-normal);
 	font-weight: 600;
 }
 
-.agreement-content ol, .agreement-content ul {
+.obshare-agreement-content ol, .obshare-agreement-content ul {
 	padding-left: 20px;
 	margin-bottom: 10px;
 }
 
-.agreement-content li {
+.obshare-agreement-content li {
 	margin-bottom: 5px;
 	color: var(--text-normal);
 }
 
-.agreement-buttons {
+.obshare-agreement-buttons {
 	margin-top: 20px;
 	flex-wrap: wrap;
+	display: flex;
+	justify-content: flex-end;
+	gap: 10px;
 }
 
-.agreement-buttons button {
+.obshare-agreement-buttons button {
 	padding: 8px 16px;
 	border-radius: 4px;
 	border: none;
@@ -381,34 +437,34 @@
 	transition: background-color 0.2s;
 }
 
-.agreement-buttons button:first-child {
+.obshare-agreement-buttons button:first-child {
 	background-color: var(--background-secondary);
 	color: var(--text-normal);
 	border: 1px solid var(--background-modifier-border);
 }
 
-.agreement-buttons button:first-child:hover {
+.obshare-agreement-buttons button:first-child:hover {
 	background-color: var(--background-modifier-hover);
 	border-color: var(--background-modifier-border-hover);
 }
 
-.agreement-buttons button:last-child {
+.obshare-agreement-buttons button:last-child {
 	background-color: var(--interactive-accent);
 	color: var(--text-on-accent);
 }
 
-.agreement-buttons button:last-child:hover {
+.obshare-agreement-buttons button:last-child:hover {
 	background-color: var(--interactive-accent-hover);
 }
 
-.upload-history-header {
+.obshare-upload-history-header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	margin-bottom: 8px;
 }
 
-.upload-history-title {
+.obshare-upload-history-title {
 	font-weight: 600;
 	color: var(--text-normal);
 	font-size: 16px;
@@ -416,19 +472,19 @@
 	margin-right: 10px;
 }
 
-.upload-history-time {
+.obshare-upload-history-time {
 	color: var(--text-muted);
 	font-size: 12px;
 	white-space: nowrap;
 }
 
-.upload-history-link-row {
+.obshare-upload-history-link-row {
 	display: flex;
 	align-items: center;
 	gap: 8px;
 }
 
-.upload-history-link {
+.obshare-upload-history-link {
 	color: var(--text-normal);
 	text-decoration: none;
 	font-size: 12px;
@@ -441,11 +497,11 @@
 	transition: all 0.2s ease;
 }
 
-.upload-history-link:hover {
+.obshare-upload-history-link:hover {
 	background: var(--background-modifier-hover);
 }
 
-.upload-history-copy-icon {
+.obshare-upload-history-copy-icon {
 	cursor: pointer;
 	font-size: 14px;
 	padding: 4px;
@@ -454,26 +510,24 @@
 	user-select: none;
 }
 
-.upload-history-copy-icon:hover {
+.obshare-upload-history-copy-icon:hover {
 	background: var(--background-modifier-hover);
 }
 
-
-
-.upload-history-token-row {
+.obshare-upload-history-token-row {
 	display: flex;
 	align-items: center;
 	gap: 8px;
 	margin-top: 6px;
 }
 
-.upload-history-token-label {
+.obshare-upload-history-token-label {
 	color: var(--text-muted);
 	font-size: 12px;
 	font-weight: 500;
 }
 
-.upload-history-token {
+.obshare-upload-history-token {
 	color: var(--text-normal);
 	font-size: 11px;
 	font-family: var(--font-monospace);
@@ -489,40 +543,328 @@
 	white-space: nowrap;
 }
 
+/* 新增样式类 - 替换JavaScript中的内联样式 */
+
+/* 必填字段标记样式 */
+.obshare-required-field {
+	color: red;
+}
+
+/* 权限选项复选框样式 */
+.obshare-permission-checkbox {
+	margin-bottom: 8px;
+}
+
+/* 权限选项禁用状态样式 */
+.obshare-permission-option-disabled {
+	opacity: 0.5;
+	pointer-events: none;
+}
+
+.obshare-permission-option-enabled {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+/* 按钮容器样式 */
+.obshare-button-container {
+	display: flex;
+	gap: 10px;
+	justify-content: flex-end;
+	margin-top: 20px;
+}
+
+/* 重试模态框按钮容器样式 */
+.obshare-retry-modal-buttons {
+	display: flex;
+	gap: 10px;
+	justify-content: flex-end;
+	margin-top: 20px;
+}
+
+/* 上传进度模态框样式 */
+.obshare-feishu-upload-progress-modal {
+	padding: 30px;
+	text-align: center;
+	min-width: 400px;
+	border-radius: 8px;
+}
+
+.obshare-progress-modal-title {
+	margin-bottom: 20px;
+	color: var(--text-normal);
+	font-size: 18px;
+}
+
+.obshare-progress-modal-step {
+	margin-bottom: 20px;
+	color: var(--text-muted);
+	font-size: 14px;
+}
+
+.obshare-progress-modal-step.obshare-progress-error {
+	color: var(--text-error);
+}
+
+.obshare-progress-container {
+	width: 100%;
+	height: 8px;
+	background: var(--background-modifier-border);
+	border-radius: 4px;
+	overflow: hidden;
+	margin-bottom: 15px;
+}
+
+.obshare-progress-bar {
+	width: 100%;
+	height: 100%;
+	appearance: none;
+	-webkit-appearance: none;
+	border: none;
+	background: transparent;
+}
+
+.obshare-progress-bar.obshare-progress-error {
+	color: var(--text-error);
+}
+
+.obshare-progress-bar::-webkit-progress-bar {
+	background: var(--background-modifier-border);
+	border-radius: 4px;
+}
+
+.obshare-progress-bar::-webkit-progress-value {
+	background: linear-gradient(90deg, var(--interactive-accent), var(--interactive-accent-hover));
+	border-radius: 4px;
+	transition: width 0.3s ease;
+}
+
+.obshare-progress-bar.obshare-progress-error::-webkit-progress-value {
+	background: var(--text-error);
+}
+
+.obshare-progress-text {
+	color: var(--text-muted);
+	font-size: 12px;
+	margin-bottom: 20px;
+}
+
+.obshare-progress-hint {
+	color: var(--text-muted);
+	font-size: 12px;
+	font-style: italic;
+}
+
+.obshare-mermaid-temp-container {
+	position: absolute;
+	left: -9999px;
+	top: -9999px;
+	width: 2000px;
+	height: 2000px;
+	visibility: hidden;
+	overflow: visible;
+	pointer-events: none;
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+}
+
+/* Callout 转换弹窗样式 */
+.obshare-callout-list {
+	max-height: 300px;
+	overflow-y: auto;
+	margin: 1em 0;
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 4px;
+	padding: 0.5em;
+}
+
+.obshare-callout-item {
+	display: flex;
+	align-items: flex-start;
+	margin-bottom: 0.5em;
+	padding: 0.5em;
+	border-radius: 4px;
+	background: var(--background-secondary);
+}
+
+.obshare-callout-item input[type="checkbox"] {
+	margin-right: 0.5em;
+	margin-top: 0.2em;
+}
+
+.obshare-callout-label {
+	flex: 1;
+	cursor: pointer;
+	line-height: 1.4;
+}
+
+.obshare-callout-type {
+	font-weight: bold;
+	color: var(--text-accent);
+}
+
+.obshare-callout-content {
+	color: var(--text-muted);
+}
+
+.obshare-callout-buttons {
+	display: flex;
+	gap: 0.5em;
+	margin-bottom: 1em;
+}
+
+/* 进度条错误状态样式 */
+.obshare-progress-step-error {
+	color: var(--text-error) !important;
+}
+
+.obshare-progress-bar-error {
+	background: var(--text-error) !important;
+}
+
+/* 用户协议模态框样式 */
+.obshare-agreement-container {
+	max-height: 500px;
+	overflow-y: auto;
+	padding: 15px;
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 5px;
+	margin-bottom: 20px;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.obshare-agreement-buttons {
+	display: flex;
+	justify-content: flex-end;
+	gap: 10px;
+}
+
+/* 页面聚合样式 */
+.obshare-page-group-container {
+	margin-bottom: 20px;
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+.obshare-page-group-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 12px 16px;
+	background: var(--background-secondary);
+	border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.obshare-page-group-title {
+	font-weight: 600;
+	font-size: 15px;
+	color: var(--text-normal);
+	flex: 1;
+}
+
+.obshare-page-group-count {
+	font-size: 12px;
+	color: var(--text-muted);
+	background: var(--background-primary);
+	padding: 4px 8px;
+	border-radius: 12px;
+	border: 1px solid var(--background-modifier-border);
+}
+
+.obshare-page-uploads-container {
+	background: var(--background-primary);
+}
+
+.obshare-page-uploads-container .obshare-upload-history-item {
+	margin-bottom: 0;
+	border: none;
+	border-radius: 0;
+	border-bottom: 1px solid var(--background-modifier-border);
+	background: var(--background-primary);
+}
+
+.obshare-page-uploads-container .obshare-upload-history-item:last-child {
+	border-bottom: none;
+}
+
+.obshare-upload-history-item-latest {
+	background: var(--background-secondary) !important;
+}
+
+.obshare-upload-time-container {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.obshare-upload-new-tag {
+	background: var(--color-accent);
+	color: white;
+	font-size: 10px;
+	font-weight: 600;
+	padding: 2px 6px;
+	border-radius: 10px;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+}
+
+/* 调整原有样式以适配新布局 */
+.obshare-upload-history-header {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	margin-bottom: 8px;
+}
+
 /* 响应式设计 */
 @media (max-width: 768px) {
-	.modal-button-container {
+	.obshare-modal-button-container {
 		flex-direction: column;
 		align-items: center;
 	}
 	
-	.modal-button-container button {
+	.obshare-modal-button-container button {
 		width: 100%;
 		max-width: 200px;
 	}
 	
-	.feishu-upload-progress {
+	.obshare-feishu-upload-progress {
 		min-width: 280px;
 		margin: 0 10px;
 	}
 	
-	.permission-option {
+	.obshare-permission-option {
 		padding: 12px;
 	}
 	
-	.upload-history-header {
+	.obshare-upload-history-header {
 		flex-direction: column;
 		align-items: flex-start;
 		gap: 4px;
 	}
 	
-	.upload-history-title {
+	.obshare-upload-history-title {
 		margin-right: 0;
 	}
 	
-	.upload-history-link-row {
+	.obshare-upload-history-link-row {
 		flex-direction: column;
 		align-items: stretch;
+		gap: 4px;
+	}
+	
+	.obshare-page-group-header {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 8px;
+	}
+	
+	.obshare-upload-time-container {
+		flex-direction: column;
+		align-items: flex-start;
 		gap: 4px;
 	}
 }
