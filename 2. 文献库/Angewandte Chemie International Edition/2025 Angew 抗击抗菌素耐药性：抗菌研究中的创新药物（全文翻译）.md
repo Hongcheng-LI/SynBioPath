@@ -79,51 +79,30 @@
   
 
 几篇综述文章详细概述了针对各种抗生素的耐药机制。[50-52] 肽类抗生素 albicidin 是一个很好的例子，用以说明细菌对抗生素所拥有的大量防御机制（图 2）。为了理解并克服对 albicidin 的耐药机制，我们和其他研究小组研究了各种机制。albicidin 通过靶向 DNA 旋转酶来抑制 DNA 合成，其生产者白叶黄单胞菌 (_Xanthomonas albilineans_) 的两个旋转酶亚基都有多个氨基酸残基的插入和改变，使得该酶对 albicidin 的敏感性降低。[53] 但 _X. albilineans_ 还有其他机制来保护自己免受抗生素的影响：albicidin 生物合成基因簇编码外排泵 AlbF，它能主动将 albicidin 从细胞质中移除，[54] 以及五肽重复蛋白 AlbG，它能结合并保护 DNA 旋转酶。[55]
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=N2E2ODk2NTZmZmI0NjE0NjY3OThmOGVhMjdkOGRkMTZfYVZPTEE2WkxyRVpKREFVQmNsQUhUTjlzeVhEUHBaN01fVG9rZW46UHVmRmJmSWdvb2RMclF4T09hU2NOaFpXbnFmXzE3NjUxODg0NDk6MTc2NTE5MjA0OV9WNA)
-
-  
+![image.png](http://synbiopath.online/20260120112128086.png)
 
 在非 albicidin 产生菌中，发现了多种截然不同的耐药机制。_E. coli_ 通常通过核苷转运蛋白 Tsx 的基因突变获得对 albicidin 的耐药性，该蛋白已被证明负责 albicidin 的细胞摄取。[56] G- 菌 _Pantoea dispersa_ 产生内肽酶 AlbD，[57] 它将 albicidin 切割成两个无活性的片段。[58] 在催产克雷伯菌 (_Klebsiella oxytoca_) 和反硝化产碱菌 (_Alcaligenes denitrificans_) 中，已鉴定出高度特异性的药物结合蛋白 AlbA[59] 和 AlbB[60]。AlbA 和 AlbB 封存 albicidin，并以一种自调控的方式，在 albicidin 结合时增加自身的表达水平。[61,62] 最近，我们在伤寒沙门氏菌 (_Salmonella Typhimurium_) 和 _E. coli_ 中发现了一种基于基因扩增的耐药机制，通过增加 albicidin 结合转录调节因子 STM3175 的细胞水平来导致高水平的 albicidin 耐药性。[63] 这种广泛多样的耐药机制凸显了开发能有效靶向细菌感染的药物的难度。
 
-  
 
 一种策略是直接用药物对抗耐药因子，从而恢复抗菌药物的活性：一个非常成功的概念是在 β-内酰胺类药物中联合使用 β-内酰胺酶抑制剂 (β-lactamase inhibitors, BLIs，图 3A)，以克服特别是 G- 菌的 β-内酰胺耐药性。[64] 在这个研究领域，许多制药公司仍然很活跃。BLIs 都是小分子，大多没有内在的抗菌活性，能应对多种丝氨酸 β-内酰胺酶 (serine β-lactamases, SBLs)，而金属 β-内酰胺酶 (metallo-β-lactamases, MBLs) 仍然是一个挑战。[64] 近年来，几种非 β-内酰胺类 BLIs 已进入临床前到临床阶段，例如具有内在抗菌活性的 ETX0462（双环辛烷类，DBO；图 3A 和表 1），[65] 或已获批上市的如 avibactam（DBO，内在抗菌活性弱）和 vaborbactam（硼酸单酯）。[66] 对 MBLs 抑制剂的寻找正在大力进行，并已产生了一些候选药物，如 taniborbactam（临床 III 期）[67] 或 indole-2-carboxylates（InCs，正在研究中）（图 3A）。[68]
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZmY2ZThkOGRiYmYyYzViN2ZkNTI3ZmUwMjAwOTk2MzdfRnMydHBCVzlmZzZrQ2Z5ZTd6emFvZWFuODNhWTRXaWlfVG9rZW46TmQ5NGJ5M3lwb1R2SUF4aFdIWmNzOFE1bjhlXzE3NjUxODg0NDk6MTc2NTE5MjA0OV9WNA)
-
-  
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YzEzODRkNzdlYmIwMzhlMTg1OWVmNjk0YTYwYzFlZWVfeXIwWWpaNW5aQnpSWEdhYkU2cmhhNnVUUFVud0FxTUdfVG9rZW46UkZxQ2J1eURib1pDUjR4SkpzV2NYWld4bkxlXzE3NjUxODg0NDk6MTc2NTE5MjA0OV9WNA)
-
-  
+![image.png](http://synbiopath.online/20260120112144921.png)
+![image.png](http://synbiopath.online/20260120112149118.png)
 
 药物外排 (drug efflux) 是最重要的耐药机制之一。外排泵抑制剂 (efflux pump inhibitors, EPIs) 能使外排泵失效，但这些泵在结构和机制上是多样的。[69] 因此，发现一种通用的 EPI 是不可能的，抑制剂必须分别针对目标细菌和目标外排泵进行调整。可能最著名的外排抑制剂是 Phe-Arg-β-naphthylamide (PAβN, MC-207-110，图 3B)，当 _P. aeruginosa_ 过表达多重耐药外排泵时，它可以逆转其耐药性。[69] 然而，对 EPIs 的寻找尚未产生上市药物。[6] 同样，细菌耐药性的其他机制高度多样，并且通常是为有效消除目标抗生素而量身定制的。因此，通常通过药物的结构变异来实现对耐药机制的规避。最近的研究方法旨在靶向降低耐药性演变的靶点，例如分子 NM102（图 3C），它是突变频率下降 (Mutation Frequency Decline, Mfd) 蛋白的抑制剂，该蛋白利用 ATP 沿 DNA 转运 RNA 聚合酶 (RNA polymerase, RNAP)，并使其从 mRNA 转录本上解离。[70]
 
-  
-
-4. ## 抗菌谱分析与药物研发过程
+## 1.4 抗菌谱分析与药物研发过程
     
 
 一种抗菌药物从筛选命中物开始的开发过程，如示意图 4 所示，分阶段进行。这是一个复杂的过程，候选分子在任何时刻如果某些标准未被满足，都可能失败。在表型筛选 (phenotypic screening)（命中物发现）的第一阶段，这仍然是主要的筛选方法，来自不同来源的化合物（例如天然产物、合成分子）会在一个初始的细菌病原体组合上进行筛选。来自其他筛选（例如基于靶点的、基于结构的等）的命中化合物必须评估其抗菌活性。整个过程伴随着 DMTA 循环（设计-制造-测试-分析）。通过最低抑菌浓度 (minimal inhibitory concentration, MIC) 测定进行定量评估，理想情况下还应进行生化靶点测定。至关重要的是溶血和细胞毒性测定，以减少后续动物实验中毒性副作用的风险。杀菌活性 (bactericidal activity, MBC) 的评估是一个参数，用于了解候选分子是具有杀灭作用（杀菌性）还是生长抑制作用（抑菌性）。在扩展评估阶段（决策点 1 之后），会表征其活性谱以及耐药性的类型和频率 (FoR)。如果后者过高，可能会中止进一步的开发。化学/血浆和代谢稳定性方面也需要考虑。随后的动物最大耐受剂量 (maximum tolerated dose, MTD) 研究，提供了对给药耐受性的印象，从中可以得出首个药代动力学参数（血浆半衰期、最大血清浓度）。使用动物感染模型（大腿、败血症、肺部感染等）的体内药效测定为抗生素在动物物种中的作用提供了概念验证。根据预期的应用领域/目标产品概况 (Target Product Profile, TPP)，会评估来自不同动物感染模型（通常在小鼠中，对于 _C. difficile_ 在仓鼠模型中）的数据。在决策点 3 之后，候选药物将针对数百种临床相关的细菌分离株进行分析（MIC50, MIC90），并在广泛的测定中测试其毒性和安全性。完成这些研究后，可能会产生一个进入 I 期临床试验的开发候选药物。
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MzQwZjE2NjIzYzdmYWJlM2IwMWQ1ZGM3MTdlMzVhMTJfTnZlM0pGbkZkR0F3QXlyRk45akdCUnpMbmlJYVVxYUhfVG9rZW46U2RqWGJxaVY3b3pYRmx4RTloQ2NYZlhmbnhiXzE3NjUxODg0NDk6MTc2NTE5MjA0OV9WNA)
-
-  
+![image.png](http://synbiopath.online/20260120112209530.png)
 
 I 期临床试验旨在收集新疗法的安全性和副作用数据。虽然已批准的抗生素通常被认为相对安全，但偶尔出现的副作用可能相当严重。不良反应可能从轻微到严重不等，取决于细胞靶点和抗生素化合物的理化性质。例如，氨基糖苷类药物的耳毒性和肾毒性以及喹诺酮类药物的肌腱病和肌腱断裂是众所周知的不良反应。[71,72] 靶向细菌翻译机制的抗生素经常诱发线粒体功能障碍，因为这些细胞器源自细菌，并且其蛋白质有相似之处。[73] 线粒体功能障碍又与神经系统疾病、异常行为状况和精神障碍如抑郁或精神病有关。[74] 此外，研究表明，大多数杀菌性抗生素如喹诺酮类、氨基糖苷类和 β-内酰胺类作为应激源，导致活性氧 (reactive oxygen species, ROS) 的过量产生，从而引起氧化损伤和电子传递链的破坏。[75] 线粒体同样受到影响，并释放 ROS，可能导致哺乳动物组织中的氧化损伤。[76] 例如，一些接受环丙沙星治疗的患者报告出现精神病，[77] 这被归因于 ROS 释放增加以及环丙沙星干扰了 γ-氨基丁酸 (gamma-aminobutyric acid, GABA) 与其受体的结合，从而刺激了中枢神经系统。[77,78]
 
-  
-
 此外，还必须考虑抗菌药物对宿主微生物群 (microbiota) 的影响。例如，广谱抗生素可能对生活在人体内外的微生物产生影响，不仅导致微生物群组成的改变，还影响其耐药基因组 (resistome)，[79,80] 即共生菌群中存在的耐药基因。多项研究已将抗生素治疗后肠道微生物群的失衡与肥胖和哮喘患病率的增加联系起来。[81-83] 微生物群组成的改变可能导致长期影响，这在儿童中通常最为严重，因此主张使用更具病原体特异性的抗生素疗法。[81,82] 为了减少对宿主微生物群的损害以及降低选择压力从而减少耐药性的出现，有人建议采用细菌抗毒力疗法来规避这两个问题。[84,85] 在这种方法中，靶向的是对感染至关重要的功能，如毒力因子。大多数策略侧重于毒素、黏附、双组分系统或细菌通讯，旨在解除病原体的武装（见 1.1 节）。另一种方法是使用窄谱抗生素，也称为“微生物群保护性”抗生素，以避免根除整个微生物群落。[86]
-
-  
 
 最后，需要特别为学术团体提及的是，药物分子的评估需要在整个过程中验证有趣分子的新颖性，并在发表前提交专利申请和建立强大的专利组合。否则，作为药物的开发利用可能会受到影响。进一步的行动包括建立目标产品概况 (TPP)、制定商业计划或与工业界合作。
 
-  
-
-2. # 新型抗菌药物的来源与寻找策略
+# 2.新型抗菌药物的来源与寻找策略
     
 
 在理想情况下，寻找一种新的抗菌药物会通过发现一种前所未有的化学实体来成功，该实体靶向一个新颖且必需的生物合成途径。[1,25] 在随后的优化阶段，这种新的化学型将被优化以改善其特性，例如拓宽或收窄抗菌谱、增强效力以及改善药代动力学和药效动力学（功效）。总的来说，新的结构骨架要么来自大自然的生物合成宝库，要么通过化学合成提供。可以采用各种寻找策略来找到合适的命中物。无偏见或有重点的表型筛选[87,88] 与理性的、基于靶点的药物发现 (target-based drug discovery, TBDD)[89,90] 或基于结构的药物设计 (structure-based drug design, SBDD) 策略（图 5）形成对比。[91] 如今，高通量筛选 (high-throughput screening, HTS) 方法能够在短时间内（从几天到几周）测试数十万到数百万的化合物。最近，基于细胞的高内涵筛选 (high-content screening, HCS)[88,92,93] 和计算方法，[94–96] 如虚拟筛选（例如 HT-对接）或人工智能 (artificial intelligence, AI)，也获得了发展势头（图 5）。表型筛选的优势在于能直接监测对细菌的影响。[87] 靶点鉴定 (target identification, target ID) 和基于结构的药物设计得到了一系列可用的分子生物学、生物化学和组学技术的支持，这些技术可以相对直接地揭示受影响的途径。[97] 在许多情况下，分子生物学工具，例如基因缺失的生成、反义技术[98] 等，用于操纵病原体并理解靶点的重要性和必需性，都已现成可用。靶点 ID 的另一种方法是在实验室条件下诱导对目标药物的耐药性。大多数细菌病原体的基因组是已知的，[99] 并且出现的耐药性可以被迅速发现。
