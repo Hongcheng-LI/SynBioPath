@@ -290,37 +290,35 @@
 
 
 **细胞分裂**：**FtsZ** 是细菌的细胞骨架蛋白，负责形成 Z 环启动细胞分裂。**PC190723** 及其前药 **TXY436** [**图 13**] 是特异性的金黄色葡萄球菌 FtsZ 抑制剂。
+![image.png](http://synbiopath.online/20260120113223226.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZjA4ODYyMzA1NjNmNmZhN2FkMDQwZDhkOTE0NTRjZTZfV25XdnZEaGFjd3RXOXJlYTg1bTRjb0hjZXJCMXJNTUdfVG9rZW46TEV3cWIwellqb2JnTld4Uk9CZGNybEpQbnpoXzE3NjUxODg0MTk6MTc2NTE5MjAxOV9WNA)
 
 ## 3.2 蛋白质合成：瘫痪细菌的“工厂”
 
 [**图 14-16, 表 2**] 核糖体是蛋白质合成的场所，其结构在细菌和真核生物间存在显著差异，是抗生素的重要靶点。
 
 **核糖体抑制剂**：
+![image.png](http://synbiopath.online/20260120113240337.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ODMyNmFiNWU5YTg5NDE0M2JmYjllNzA4ODg3ZWU5ZjRfT2p1SnFlWHpjNXVNaXkzWUUxRTZuSm1raGQ5elQwYnFfVG9rZW46Rlo2cWJqNjRub0hWYmp4VWJYUmNFZ29XbmdmXzE3NjUxODg0MTk6MTc2NTE5MjAxOV9WNA)
 
 - **Bottromycin C₂** 和 **myxovalargin A** [**图 14A**] 是两种天然肽类抑制剂。
     
 - **Odilorhabdins** (如 **NOSO-95179** [**图 14C**]) 是一类新型的核糖体抑制剂，能诱导密码子错读。
     
 - **氨酰-tRNA 合成酶 (aaRSs)**：这类酶负责为 tRNA 装载正确的氨基酸。**Mupirocin** [**图 15**] 是经典的异亮氨酰-tRNA 合成酶抑制剂。**REP8839** 和 **CRS3123** [**图 15**] 是新型的甲硫氨酰-tRNA 合成酶抑制剂。
-    
+    ![image.png](http://synbiopath.online/20260120113246188.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YzcwODk0MmFlMWUwYTUyNGI0YTQyMmMwMTM2YmM4YTNfdktTNHNReFIxN3FUaWFPdGtuNTBCSmJiOG5NTEVOTzVfVG9rZW46TmhlbmJwdWRtb25oUGZ4aGpWZ2Nya1pZbjNmXzE3NjUxODg0MTk6MTc2NTE5MjAxOV9WNA)
 
 **延伸因子 (Elongation Factors)**：**EF-Tu** 负责将氨酰-tRNA 运送至核糖体。**LFF571** [**图 16A**] 是天然产物 **GE2270A** 的半合成衍生物，是一种高效的 EF-Tu 抑制剂。
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MmM5NzgwMWIwNzcxZTU1NTA3YjY3OTRlNjhhOTNmNWZfemhmZEhhb3Z4SjF1MjdTdEFBMnZJdWFXcHVuQmZwczJfVG9rZW46WEtTNGJpcUhGb0lwZHN4RkJzS2N0QlZMbmFiXzE3NjUxODg0MTk6MTc2NTE5MjAxOV9WNA)
+![image.png](http://synbiopath.online/20260120113252081.png)
 
 **肽基转移酶 (Peptide Deformylases, PDFs)**：这类酶负责切除新生肽链 N-端的甲酰基。**Actinonin** [**图 16B**] 是天然的 PDF 抑制剂，其合成类似物 **BB-83698** 和 **LBM-415** [**图 16B**] 曾进入临床研究。
 
 ## 3.3 DNA 合成：阻断遗传信息的复制
 
 [**图 17-18, 表 3-4**]
+![image.png](http://synbiopath.online/20260120113259671.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=OWU0ZmQyZTYwYmViZDljNTZmYzg3MTU4NTllNmEwMzFfV3o2RjgybzlDeWhlc3d3TWgzUHk2eVVGV0FZWlBFUm5fVG9rZW46S09nUWJiUksyb3BFNlR4cVVGWGN1VlRzbjdkXzE3NjUxODg0MTk6MTc2NTE5MjAxOV9WNA)
 
 **DNA 聚合酶 (DNA Polymerase)**：**Nargenicin A1** [**图 17A**] 是天然的 Pol III 抑制剂。**Ibezapolstat** [**图 17C**] 是一种新型的 Pol IIIC 抑制剂，正在开发用于治疗艰难梭菌感染。
 
@@ -329,8 +327,8 @@
 **DNA 连接酶 (DNA Ligase)** 和 **解旋酶 (Helicase)**：**Pyridochromanone cpd 3** [**图 17D**] 和 **coumarin cpd 22** [**图 17E**] 分别是这两个靶点的抑制剂，但目前研究较少。
 
 **拓扑异构酶 (Gyrase/Topoisomerase IV)**：这是**氟喹诺酮类**药物的经典靶点。
+![image.png](http://synbiopath.online/20260120113306965.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MWRlZjUzYWMxNDJlYzE5ZmYzODUyMzgyM2EyNGY3YThfeWlhYzg3cUxLQ1c2SGc5MzhTc1JocUtzcE9idHlLNGpfVG9rZW46VklZVWJ6RmpWb2xyU2N4R0RuOWNDRXBMbmNjXzE3NjUxODg0MTk6MTc2NTE5MjAxOV9WNA)
 
 - **新型天然产物抑制剂**：**Albicidin** [**图 18A**] 及其类似物 **cystobactamids** [**图 18C**] 是一类高效的广谱促旋酶抑制剂。**Evybactin** [**图 18C**] 是另一种新型肽类抑制剂。
     
@@ -340,8 +338,8 @@
 ## 3.4 RNA 合成：沉默基因的转录
 
 [**图 19, 表 5**] **RNA 聚合酶 (RNA Polymerase, RNAP)** 是转录过程的核心酶，也是一个成熟的靶点。
+![image.png](http://synbiopath.online/20260120113313417.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YTljMWU4NjQwZDU5OGU1N2I0NTcwMTcwN2EwYTBhNzRfdUJ2TUhTeFBvYmlWbHZlTG9JTHEyN0VZNndkT0M0Q21fVG9rZW46UXNabWJKUEVtb1JSVkx4OXBGeGNlM0hCblEwXzE3NjUxODg0MTk6MTc2NTE5MjAxOV9WNA)
 
 - **经典抑制剂**：**利福霉素 (Rifamycins)**。
     
