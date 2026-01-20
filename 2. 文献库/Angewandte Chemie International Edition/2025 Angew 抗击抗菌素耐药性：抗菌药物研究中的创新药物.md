@@ -351,8 +351,7 @@
 ## 3.5 脂肪酸合成：切断膜组分的来源
 
 [**图 20, 表 6**] 细菌的 II 型脂肪酸合成系统 (FASII) 与人体的 I 型系统 (FASI) 存在显著差异。
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=M2RlZDczYWZlODM1ZTNjZWRiOTQ3ODkxZDNiYTdlZWFfVDY3UTlsem41QWhhNW1QcDBqSUlsam9BT1hjY0RuTTFfVG9rZW46RFVOVWJSdFgxbzY2aWp4UUxScmNtZWdPbmZqXzE3NjUxODg0MTk6MTc2NTE5MjAxOV9WNA)
+![image.png](http://synbiopath.online/20260120113326799.png)
 
 - **FabI (烯酰-ACP 还原酶)**：**Afabicin** [**图 20A**] 是一种特异性的金黄色葡萄球菌 FabI 抑制剂，其前药正在进行临床试验。其衍生物 **fabimycin** [**图 8D**] 则具有广谱的 G- 活性。
     
@@ -368,12 +367,12 @@
 [**图 21-22, 表 7**]
 
 **Clp 蛋白酶系统**：**ClpP** 是细菌中核心的 ATP 依赖性蛋白酶。**ADEPs (Acyldepsipeptides)** [**图 21A**] 是一类天然产物，它们不是抑制 ClpP，而是异常**激活**它，使其变成一个不受调控的蛋白降解机器，能有效杀死包括持留菌在内的细菌。
+![image.png](http://synbiopath.online/20260120113334928.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ODlkYTUxNWI1ODcyNWIzNDY0Yjc1NWZmZDdkYWVhNGNfekZENzBBeWVJOE9rQU5hb0p3ekU0dEt3dEZFclVZRmxfVG9rZW46WWZFbGJkc0czb2kwNHB4b3ZIdGMyQU11bnZjXzE3NjUxODg0MTk6MTc2NTE5MjAxOV9WNA)
 
 **信号肽酶 (Signal Peptidases, SPases)**：
+![image.png](http://synbiopath.online/20260120113341485.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MWU4YTYzMGVmNjNhZDU1MWQ1ZjNjZWQyNDIyOTBjY2FfdlhNNG9qSlVRYlRTUUwwVjhIUlc1dUI5ZW1wbmdvMW5fVG9rZW46VjNYcWJRR0Nob0tzY1V4bmVwcGNHSHVhblRoXzE3NjUxODg0MTk6MTc2NTE5MjAxOV9WNA)
 
 - **SPase I**：**Arylomycins** [**图 22A**] 是天然的 SPase I 抑制剂。其合成衍生物 **G0775** [**图 22A**] 具有强大的广谱 G- 活性，是该领域的重大突破。
     
@@ -383,8 +382,8 @@
 ## 3.7 细胞膜与生物能学：瓦解能量与屏障
 
 [**图 23, 表 8**]
+![image.png](http://synbiopath.online/20260120113348091.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NTMwNDY4MjZjMGIxOTE5ZjMyNzgzMDg3MDMzMDY3OGVfQkpaVXdTOFRLdXl1Z1R3cFc2eHpMWkpZNjVsUEMxaUhfVG9rZW46R1pUdmJNMlc3b3BlVUF4eVpMTWNsNFM0bmNmXzE3NjUxODg0MTk6MTc2NTE5MjAxOV9WNA)
 
 - **膜破坏剂**：**多粘菌素 (Polymyxins)**（如 colistin）是治疗多重耐药 G- 菌感染的“最后一道防线”，它们通过结合 LPS 来破坏外膜。**F365 (QPX9003)** [**图 23A**] 是新一代的多粘菌素类似物，具有更低的肾毒性。
     
@@ -400,8 +399,8 @@
 [**图 24-25, 表 9**] 这是当前 G- 药物研发最前沿和最热门的领域。
 
 **脂多糖 (LPS) 生物合成与转运**：
+![image.png](http://synbiopath.online/20260120113355314.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YzQxNTI1MzdmOTQwMDBmYWIzMWM5ZjY1MjI4ZmUwMTlfNHhCdjhiNkdyRWJVbTdnOWJkUG1PM0pHNWlKa08yWnNfVG9rZW46UU5ramI1VVJ0b09NU1N4Q1puZGNXWW95blRoXzE3NjUxODg0MTk6MTc2NTE5MjAxOV9WNA)
 
 - **LpxC**：是脂质 A 生物合成的关键酶。**ACHN-975** 和 **PF-5081090** [**图 24D**] 是高效的 LpxC 抑制剂，但因毒性问题开发受阻。
     
@@ -409,16 +408,16 @@
     
 
 **β-桶状蛋白组装机器 (BAM) complex**：负责将外膜蛋白正确折叠和插入。**Darobactin** [**图 25B**] 是一种 RiPP，通过模拟 β-链，“卡住”BAM 复合体的核心亚基 BamA，是首个靶向该系统的药物。
+![image.png](http://synbiopath.online/20260120113401205.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NDEzZDRkOWI4NmNmYmQ2NWNkNThiYWY4ZWI2OWRjNWFfUklBU1pLRWFsN2F1QktBY1gweUpNVXd2Y2ZkTEhYMTBfVG9rZW46TW9mY2JyN3FLb2pCWUZ4SEdMaWNaZURjbk9nXzE3NjUxODg0MTk6MTc2NTE5MjAxOV9WNA)
 
 **脂蛋白转运 (Lol) 系统**：负责将脂蛋白从内膜转运至外膜。**Lolamicin** [**图 25A**] 是一种新型合成抑制剂，它能选择性地抑制致病 G- 菌的 Lol 系统，而对共生菌影响较小，代表了“微生物组友好型”抗生素的开发方向。
 
 #### 3.9 其他新兴靶点：探索新的攻击路径
 
 [**图 26, 表 10**]
+![image.png](http://synbiopath.online/20260120113408538.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZWE2MmJlZDRjMmZkMmE3YjhkYmNkODQ1Yjc3NmI2NjBfYzU1MG4zbVJ2bDhFeWlaQ0NkcGpVN0dKMlZYcmZaNVlfVG9rZW46RDQ5bmJLazJ3b3VRQTB4SHVPcmM4M3NobmhkXzE3NjUxODg0MTk6MTc2NTE5MjAxOV9WNA)
 
 - **辅因子与核苷酸合成**：**Abyssomicin C** [**图 26**] 是叶酸途径的抑制剂。**Gemcitabine** 和 **TK-666** [**图 26**] 是核苷酸合成的抑制剂。
     
