@@ -104,7 +104,7 @@
 联苯霉素的大环结构是通过两个 _o_Tyr 残基的 C-C 偶联形成的。BipD 被注释为 B12-依赖性 rSAM 酶，是催化该反应的最可能候选者。由于 rSAM 酶的体外重构复杂，作者设计了在 _E. coli_ 中的体内重构实验来验证其功能。
 
 - **(图 6)** 作者在 _E. coli_ 中共表达了前体肽 BipA 以及催化上游所有修饰的酶（BipEF, BipC）和 BipD。
-    ![Uploading file...zj4mq]()
+    ![image.png](http://synbiopath.online/20260120114302810.png)
 
 
 - LC-MS 分析显示，在表达了 BipD 的体系中，检测到了一个质量数相比其线性前体减少了 2 Da 的产物（例如，从 m/z 652.99 变为 652.31）。这一质量变化是 C-C 键形成（脱去两个氢原子）的典型特征，从而提供了直接证据，证实 **BipD 负责催化联芳基键的形成**，完成大环化。
@@ -117,14 +117,14 @@
 RiPP 成熟的最后一步通常是蛋白酶解，切除先导肽 (LP) 和（如果存在）尾随肽 (FP)，释放出成熟的核心肽。BipI 被注释为 TldD-样金属蛋白酶。本部分旨在验证 BipI 的功能，并整合所有结果，提出完整的生物合成途径。
 
 **(图 7)** 体外实验表明，BipI 是一个功能强大的蛋白酶。与典型的 TldD 酶不同，**BipI 无需 TldE 伴侣蛋白即可发挥高效活性**。
+![image.png](http://synbiopath.online/20260120114310550.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=Yjk2NDg4ZjJmYmNhZjgxOWU4ZWNhZmVjMjMyMjFlMmFfYnBCV2Vnd1dsc0NGbWt6czM1R1R5bnNsY3FUOXcxMFBfVG9rZW46TkJXVmI3WWFsb2RZTmp4WXlrd2N6R1l4bkRkXzE3NjUxODg4NzU6MTc2NTE5MjQ3NV9WNA)
 
 更重要的是，BipI 表现出**双向切割活性**。它不仅能切除 N-端的 LP，还能切除 C-端的 FP。作者通过检测反应产物（释放的 LP、FP、CP-FP 和最终的 CP），证明了 BipI 采用一种“渐进式”或“铅笔刀”模型，先切 N-端，再切 C-端。
 
 **(图 8)** 基于以上所有实验结果，作者提出了联苯霉素家族完整的生物合成途径：
+![image.png](http://synbiopath.online/20260120114316590.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MWVlYjI5MzcyMjQ4ODMwODQxYTNlOTI4ZGRkZWY2NTRfNHVEbk1ncXZlUUY3QUo1ejRMNmhoNFJkdHRiTXhXa0pfVG9rZW46TkptNmJ0d2J6b3BwZjl4U2F4R2NMV0hObnljXzE3NjUxODg4NzU6MTc2NTE5MjQ3NV9WNA)
 
 1. 核糖体合成前体肽 BipA (**8**)。
     
