@@ -367,24 +367,18 @@ Platensimycin（图 20C 和表 6），由 _Streptomyces platensis_ 合成，是�
   
 
 A54556A[416] 和 enopeptin 系列[417] 的天然产物属于酰基缩酚肽或环状酰基缩酚肽 (acyl-depsipeptides, ADEPs)（图 21A 和表 7），是 ClpP 的激活剂（图 21B/C），[418,419] 这一靶点最初由 Bayer AG 的一个团队鉴定。[420] 对于这些化合物，ClpP 的失调导致长丝状表型（_B. subtilis_/_S. aureus_），在 Z 环组装阶段抑制隔膜形成，降解细胞分裂蛋白 FtsZ。[421] FtsZ 已被证明对 ADEP 激活的 ClpP 降解特别敏感。[422] 对 G- 菌缺乏活性被认为是由于外排机制。enopeptin B 的直接全合成[423] 允许建立一个扩展的 SAR，[424] 从中实现了对 G+ 菌活性的显著增强和体内功效，例如化合物 ADEP4（图 21A 和表 7）。进一步的化合物设计产生了尿素型化合物，称为 UDEPs（图 21A），它们保持了生物活性并改善了代谢稳定性。[425] 最近，最初被归类为去极化剂的抗 G+ armeniaspiroles（图 23C 和表 8），[426] 被表征为 ClpX/P 和 ClpY/Q 的双重抑制剂，影响细胞分裂。[427,428] 在 Clp 抑制剂中，β-内酯类作为不可逆结合剂脱颖而出，[429] 但它们更多地是降低毒力（_S. aureus_）。[430] _M. tuberculosis_ 的一个特殊性是 ATP 酶 ClpC1 和 ClpX 的必需性，它们被各种天然产物肽靶向（图 21D 和表 7）：cyclomarin A (ClpP1/2, ClpX)、[431,432] rufomycin (ilamycin) (ClpC1)、[433] ecumicin (ClpC1)、[434] 和 lassomycin (ClpC1)。[435,436] 表征 ClpC1 上结合位点的抑制剂-蛋白酶复合物对于 cyclomarin[437] 和 rufomycin[438] 是已知的。
+  ![image.png](http://synbiopath.online/20260120112813688.png)
+![image.png](http://synbiopath.online/20260120112822240.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NDcyNzkxZWMyNjdhM2M5NWFkY2FmYWI1NjQ3YTQzNzVfVVVWdWVYN1phVzB4ekxMbkdMM2labTRqcnZsOWlMcHNfVG9rZW46Rk50RGJsTEVYb1dXTHF4UEk4VmNwUUM1bktoXzE3NjUxODg0NDk6MTc2NTE5MjA0OV9WNA)
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YWFkNmUzMTA2MTJmNDQyNTVmYWY1NjIwNzM3M2U3MTJfYVdDOWtpa1FoMkNQZXJrZFN2TzhSRXRJNFh3c29mQWVfVG9rZW46RG53WmIwc1l4b3BsOXl4Sk40YmMwTERTbjRjXzE3NjUxODg0NDk6MTc2NTE5MjA0OV9WNA)
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=Y2JmOTI0MjZhYjI4Yzc5YzU1YWYwZjcxNmJlZjg4YWJfcFpOejN5U1hEVDlFTHhIakFkY2w4NTdmazRKNXNVZWpfVG9rZW46WFpnaWIxamgzb1c4Wkl4VnFQTWNBSlJ1bmtmXzE3NjUxODg0NDk6MTc2NTE5MjA0OV9WNA)
-
-  
+![image.png](http://synbiopath.online/20260120112826223.png)
 
 另一组重要的蛋白酶是 G+ 和 G- 菌中参与（脂）蛋白分泌的膜结合信号肽酶 (signal peptidases, SPs 或 SPases)（图 1）。I 型 SPs (SP-I) 是细胞质膜的丝氨酸蛋白酶，处理非脂蛋白；II 型 SPs (SP-II) 或 Asp 蛋白酶处理脂蛋白。[439] 两种蛋白酶类型都在其跨细胞质膜转运（Sec/Tat）后，从前体蛋白上切割信号序列。由于其独特的特性，SPs 在早期曾被建议作为抗生素靶点。[440]
 
   
 
 arylomycins（图 22A 和表 7）是一类由 Fiedler 和 Jung 首次描述的大环脂肽。[441,442] 随后，其他研究组报道 SP-I 是其分子靶点。[443] Romesberg 研究组关于 arylomycin A2 全合成的论文报道了其对少数 G+ 菌（例如 _S. epidermidis_）的低活性。[178] 这一贡献为类似物的合成提供了模板，[444,445] 从而使得后续的 MOA 研究和 SAR 的建立成为可能。[446-449] C-末端醛延伸作为可能与 SPase 的催化性 Ser-Lys 二联体或氨氧基修饰的酚类反应的弹头的想法，部分导致了对 arylomycin 型 SPase 抑制剂的有趣 MICs 和 IC₅₀ 值。[447]
+![image.png](http://synbiopath.online/20260120112833181.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZTk5MzFiN2YzODRiMWZhMjQ2ZDJiNGFjNGIwZmExOTRfQWg4aXdPR1BGcnFSdWdxVHhSSG51SWFuMFFGMWNubXlfVG9rZW46V0xqaWJ4Z3RVb2hlUTR4YkNJb2NLamMxbjlmXzE3NjUxODg0NDk6MTc2NTE5MjA0OV9WNA)
-
-  
 
 2018 年，Genentech 的一个团队在新的 arylomycin 类似物上做出了改变游戏规则的贡献。[179] 该研究始于合成设计的理论基础。当 arylomycin 的 N-末端酰基三肽被一个取代的嘧啶-二氨基丁酰基残基替换时，对 _E. coli_ 的活性取得了显著的进步。在 C-末端附加一个氨基乙腈弹头，与活性位点的催化性 Ser 残基形成预期的共价键，进一步改善了抗菌活性。最终，酚类被转化为带有正电荷的氨氧基醚。表现最佳的候选药物 G0775（图 8B，图 22A 和表 7）被证明对包括 MDR 病原体在内的一组 ESKAPE 菌株具有高效力。G0775 与 SP-I LepB（_E. coli_，图 22B）的晶体结构揭示了与催化性 Lys 通过一个脒形成的共价键，而非最初预期的与 Ser 的共价键。其摄取被证明是孔蛋白非依赖性的，可能是通过分子阳离子电荷介导的自促进机制。[450] 随后的不同病原性 G- 菌的体内实验揭示了其在临床前感染模型中的高效力。正如作者在文章中所述，合成了 >1000 种 arylomycins，这概述了获得可靠 SAR 所需的优化类似物的数量。
 
@@ -398,7 +392,7 @@ arylomycins（图 22A 和表 7）是一类由 Fiedler 和 Jung 首次描述的�
 
   
 
-8. ## 脂质膜与生物能学——破坏剂、去极化剂和甲萘醌结合剂
+## 3.8 脂质膜与生物能学——破坏剂、去极化剂和甲萘醌结合剂
     
 
 细胞质膜 (cytoplasmic membrane, CM, G+/G- 菌)[454,455] 和外膜 (outer membrane, OM, G- 菌)[456] 构成了大分子（如蛋白质）以及一些低分子量化合物（如营养物质）扩散和转运的渗透屏障（图 1）。特别是，G- 菌的 OM 是抗菌药物的主要屏障。某些分子进入周质空间的扩散通常由孔蛋白 (porins) 促进，这些孔蛋白是嵌入外膜的 β-桶状蛋白。此外，G+ 和 G- 菌的 CM 包含呼吸链 (respiratory chain) 的组分（脱氢酶-醌载体-细胞色素 bc 1 复合物-氧化酶，ATP 合酶；图 1），在有氧条件下将化学能转化为用于合成 ATP 的质子动力势 (proton-motive-force, PMF)。[457] 然而，单个呼吸链的途径可能复杂且菌株特异性。抑制性分子可以直接影响膜的完整性和/或干扰呼吸链的组分以扰乱电化学梯度。
@@ -406,10 +400,8 @@ arylomycins（图 22A 和表 7）是一类由 Fiedler 和 Jung 首次描述的�
   
 
 最后一道防线抗生素 colistin（多粘菌素 E，pmx-E）（图 10）用于治疗各种 G- 菌（_Ec_/_Kp_/_Pa_）感染的主要作用机制是结合脂多糖 (LPS) 和磷脂，随后破坏细胞膜。[458] 尽管肾毒性和神经毒性问题对这类环肽化合物普遍存疑，但结构优化和进一步的研究旨在改善其安全性：octapeptins 与多粘菌素 (polymyxins, pmx) 密切相关，但对 pmx 耐药菌株（_Pa_）显示出活性，这表明其作用模式存在差异。[459] 然而，octapeptin C4（图 23A）和 battacin（octapeptin C5，图 23A）也以与 pmx 家族成员类似的方式遭受细胞毒性。[460,461] 合成类似物 FADDI-118（图 23A 和表 8）在小鼠模型中对 pmx 耐药 _Pa_ 的效果优于 pmx-B 和 octapeptin C4，但保留了肾毒性。[462] 化合物 F365 (QPX9003; 图 23A 和表 8)，[175] 目前处于临床阶段，是一种新一代多粘菌素，对 G- 菌（_Ec_/_Kp_/_Pa_）具有强效活性，并且安全性显著改善。最近描述的脂肽 brevicidines 和 laterocidines（图 23A 和表 8）[463] 具有抗 G- 活性，是通过对 5585 个细菌基因组进行阳离子 NRPs 的基因组挖掘发现的。固相肽合成为 SAR 提供了快速途径。[464] 模拟抗菌肽 (antimicrobial peptides, AMPs) 两亲性质的化合物的一个例子是 brilacidin (PMX-30063; Polymedix, Inc.; 图 23A)。其设计基于对折叠体 (foldamers) 的合成和计算研究。[465,466] 对 _E. coli_ 的研究显示其对外膜的扰动，以及在较小程度上对内膜的扰动。[466] Brilacidin 对 G- 和 G+ 菌起作用（表 8），已进入治疗 _S. aureus_ 感染的临床阶段。[467]
+![image.png](http://synbiopath.online/20260120112850544.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YjkxZmE2MTBhMDRlZDBmZTYyMjY3ZGQ4ZTUzMjQ5ZThfbUJJRTdkY05mcnF0NVdNWUg0ZHhxeDRHTHhVTXZ5YVhfVG9rZW46VDBlZmJWNVJHb0ZHbE14ajM0amNKb0hXblBjXzE3NjUxODg0NDk6MTc2NTE5MjA0OV9WNA)
-
-  
 
 抗 G+ 钙结合抗生素构成了另一类化合物，其突出的代表是 daptomycin（图 10）和 friulimicin B（图 12C）。尽管结构相似，这些环肽具有不同的作用模式。临床使用的 daptomycin 最初被认为是成孔和膜去极化剂，[468,469] 但最近的研究表明，它通过结合磷脂酰甘油和与细菌色素醇偶联的脂质 II 中间体来影响膜流动性，导致脂质 II 合酶 MurG 和磷脂 II 合酶 PlsX 从膜微区脱离。[470,471] 其活性谱包括 _S. aureus_ (MSSA/MRSA) 和耐万古霉素肠球菌 (vancomycin-resistant _Enterococci_, VRE)。通过组合生物合成[190] 或化学合成[472] 已合成了多种类似物。来自 _Actinoplanes friuliensis_ 的 Friulimicin B（图 12C 和表 8）[473] 与细菌色素醇磷酸载体 C₅₅-P 形成 Ca²⁺ 依赖性复合物，因此可能更应归类为细胞壁合成抑制剂。[474] 以前，它曾被考虑用于临床开发，具有 G+ 活性谱（Combinature Biopharm AG，现为 MerLion Pharmaceuticals GmbH）。[475]
 
@@ -431,12 +423,11 @@ arylomycins（图 22A 和表 7）是一类由 Fiedler 和 Jung 首次描述的�
 
   
 
-9. ## 膜蛋白与膜组分的生物合成
+## 3.9 膜蛋白与膜组分的生物合成
     
 
 细菌膜包含参与其稳定性和完整性组装与维护的各种蛋白质组分。脂多糖 (LPS) 及其亚组分脂质 A 是大多数 G- 菌的特征（图 1），而壁磷壁酸 (WTAs) 和脂磷壁酸 (LTAs) 是大多数 G+ 菌的特征（图 1）。[492] LPSs 由一个插入膜中的脂化和磷酸化的葡糖胺二糖（脂质 A）组成，该二糖连接到一个主要是二糖类型的核心区和一个长度可变的 O-多糖链。[493] LPS 核心在内膜中由 Lpx 蛋白组装，并通过 ABC 转运蛋白 MsbA 翻转到周质空间，然后由一系列 Lpt 蛋白（脂多糖转运，LptB₂FG, LptC/A 和 LptD/E）引导到外膜（图 24）。[493,494] 已发现 LPS 对大多数 G- 菌是必需的（例外，例如鲍曼不动杆菌 (Acinetobacter baumannii)[495]），并且 LPS 和磷脂合成之间需要保持平衡。[496]
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDU2NDM5MWJhMjRjYmY5MDJjMzZhMGE2OGM3NGUwNGZfUjN0aGd1eENFQzZLQWw5VWppQ2MwWm11WlF6MEE3T1FfVG9rZW46WndSR2I3YmZmb2VObW94clJkbGNQalNWblllXzE3NjUxODg0NDk6MTc2NTE5MjA0OV9WNA)
+![Uploading file...75waq]()
 
   
 
