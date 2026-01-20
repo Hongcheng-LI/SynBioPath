@@ -1,4 +1,4 @@
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZWVjOWM2OTdhZDRjYmQzOTEwMmE1NTc4ZjkzMTUzZDlfcElWR1pTOUxPVHJ4NVZyRG9wUUFCczE1dmFDcVdIcEFfVG9rZW46QmpoaWJXNGlub25YeUt4VW1Rb2M4dDM3bkRiXzE3NjUxODgyNzg6MTc2NTE5MTg3OF9WNA)
+![image.png](http://synbiopath.online/20260120111725160.png)
 
 ## 一：基本信息
 
@@ -80,19 +80,15 @@
 #### 实验结果与分析
 
 - **Figure 1a, 1b** 展示了古菌 BGCs 的整体分布。在 7,731 个 BGCs 中，RiPPs 占比最高 (46.6%)，且广泛分布于古菌的各个门类。一个关键发现是，II 型羊毛硫肽 BGCs (由 LanM 合成酶定义) **几乎全部集中在嗜盐古菌 (Halobacteria)** 纲中，暗示了其与高盐环境的特殊适应性。
-    
+    ![image.png](http://synbiopath.online/20260120111738125.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=Y2EyOTQzYWYyZWFiMDI5YmZlOGYyNzgzNjEwMzE3YTJfakZ3aDFwMTVVcXRrTmtudGxmVVVmMTE5bGl6Y0tVWkxfVG9rZW46RWRkZ2JGcFVIbzkwblF4YjFEeWNlS2JsbjBiXzE3NjUxODgyNzg6MTc2NTE5MTg3OF9WNA)
 
 - **Figure 1d, 1e** 对比了古菌和细菌中羊毛硫肽合酶 (LanM) 和前体肽 (LanA) 的氨基酸组成。结果显示，古菌的 LanM 和 LanA 蛋白显著富集了酸性氨基酸（D/E），并减少了疏水性和某些碱性氨基酸（K）的使用。这是一种典型的适应高盐环境的“salt-in”策略，即通过增加蛋白表面的负电荷来维持在高盐溶液中的溶解度和稳定性。
-    
+    ![image.png](http://synbiopath.online/20260120111743594.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NzY0OTgxMmZhNGE5OTZmZDk4MjhmM2FmNzU0NTgwMzBfazl1RHp3c3IxTDdDd0NId0lkR3lwZ3hCcHRJVG1zSGhfVG9rZW46REpBaGJvSjZhb01sd2x4NG0zRWNzdDJGbjhmXzE3NjUxODgyNzg6MTc2NTE5MTg3OF9WNA)
 
 - **Figure 1f** 的共进化分析显示，古菌的 LanA 和 LanM 蛋白形成了协同进化的配对，进一步证实了它们的功能关联性。这些生物信息学分析不仅揭示了古菌羊毛硫肽的独特性，也为选择嗜盐古菌作为异源表达宿主提供了理论依据。
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=N2YzOGZmZDA3NzNkZjAwN2VkNzg4MDkwNTQ5NjdjMjVfRUo0dUJPS2tXaThKMzNxSGtFS1hCTng5eUxLMkQ1aFNfVG9rZW46SHJacmI2d1ZWbzRuV3B4QzZIamN2WTZLbkJiXzE3NjUxODgyNzg6MTc2NTE5MTg3OF9WNA)
+    ![image.png](http://synbiopath.online/20260120111753047.png)
 
 ### 研究部分二：利用异源表达平台发现 24 种新型羊毛硫肽
 
@@ -103,19 +99,13 @@
 #### 实验结果与分析
 
 - **Figure 2a** 展示了整个工作流程的示意图。
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YjJkZDBkZDQ1ZjM5MTllMmZhMDdlZWFjZTc2ZTVkMDhfRDNNWGxiVlhkU3lrQkw4bWxvNUZ6SGlxYkN3dlpka2RfVG9rZW46VHk4WmJqVndtb29kZkp4aElsVGNoaDFRblJkXzE3NjUxODgyNzg6MTc2NTE5MTg3OF9WNA)
+    ![image.png](http://synbiopath.online/20260120111802390.png)
 
 - **Figure 2b, 2c** 是本研究的核心成果展示。通过对 11 个 BGCs 的异源表达，研究团队成功地从 LC-MS 数据中识别出了 **24 种**此前未知的羊毛硫肽分子。这些分子被命名为 Sallan, Ciblan, Pellan, Archalan, Median, Litlan 等。
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NTg0YjQ5ZTcwY2YwY2Y0NzM4ZmRiZDBlMzQxOGI3MjFfWDVLNWY2UlYzbXdoZmJQOHZQVU9aYmZYTWlMdlFnZ1VfVG9rZW46QVVNWWJlRHd0b1ladlB4eVQ5SGNrc3ZLbjlkXzE3NjUxODgyNzg6MTc2NTE5MTg3OF9WNA)
+    ![image.png](http://synbiopath.online/20260120111810462.png)
 
 - **Figure 2d** 将新发现的古菌羊毛硫肽与已知的细菌羊毛硫肽（如 Nukacin ISK-1, Haloduracin）进行了结构比较。一个显著的特征是，古菌羊毛硫肽的肽链通常比细菌的更短，但其环系结构（如双环、交联环）同样复杂。
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YzQyYjY3YWVlOGYxMGE0ZDQ2YmUxYTNkYTkyYmZjZDFfd1gzU29IQjU4eGgyNWpHTVRXV1JEMWhvVzAyN3dIMmxfVG9rZW46V2M5dGJRVDhhbzcyazF4ZXAxYWNNZDhabnNiXzE3NjUxODgyNzg6MTc2NTE5MTg3OF9WNA)
+    ![image.png](http://synbiopath.online/20260120111819156.png)
 
 - 这一部分的成功，不仅极大地扩展了已知的羊毛硫肽化学空间，更重要的是，它**首次证明了在古菌中进行 RiPPs 的异源表达和 SMs 发现是完全可行的**，为该领域开辟了一条全新的道路。
     
@@ -131,14 +121,11 @@
 - **Figure 3** 聚焦于这一新颖的化学发现。在分析 **Median A1 (13)** 和 **Larlan A2 (14)** 等分子的 MS/MS 谱图时，研究人员发现其碎裂模式无法用经典的环状羊毛硫肽结构来解释。
     
 - 通过详细的 NMR 和 Marfey's 手性分析，他们最终确定了这些分子具有一种前所未有的结构——**DADC (diamino-dicarboxylic termini) 羊毛硫肽**。如 **Figure 3b** 所示，其核心特征是分子内部的硫醚桥发生了肽键断裂，形成了一个含有游离 N-端和 C-端的线性肽段，但该肽段仍通过硫醚键与其他部分相连。
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NzM4ODJiNzkxMWU1ZWE5M2NmZDkxYzc4NzBlZTVhYWJfVTljNnVObWVvaVl6NGl0RFNoV1hqajJBMGV2bWpOeE5fVG9rZW46SlhpQmJnRjdBb3FGUTF4WjVjc2NVV3BjbnFlXzE3NjUxODgyNzg6MTc2NTE5MTg3OF9WNA)
+    ![image.png](http://synbiopath.online/20260120111827119.png)
 
 - **Figure 3c** 的基因敲除和回补实验表明，一个功能未知的基因 _larH_ 对于 DADC 羊毛硫肽的高效生产至关重要，暗示它可能编码了负责肽键断裂的未知蛋白酶或其辅助因子。
-    
+    ![image.png](http://synbiopath.online/20260120111834517.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDQ4ODBmOTliY2MzMGQ4N2JmZDVhMmYxMjRiNjkyZjRfTkdVZXlOVmMzUTZEQ2owdHUzaHU5c0Q0RFNpanNFY2NfVG9rZW46WHV6RWJ6dXJpb1NzVHB4UVR2UWNSbnRKbnJnXzE3NjUxODgyNzg6MTc2NTE5MTg3OF9WNA)
 
 - **Figure 3d** 提出了 DADC 羊毛硫肽的生物合成假说：首先生成一个经典的羊毛硫肽，然后由一个或多个未知的蛋白酶在环内进行特异性的肽键切割，最终形成 DADC 结构。这一发现揭示了古菌中存在着全新的、比细菌更为复杂的 RiPP 成熟机制。
     
@@ -154,8 +141,8 @@
 **功能一：拮抗活性**。通过对一系列嗜盐古菌进行活性筛选，发现多种羊毛硫肽粗提物和纯品（如 **archalan α (25)** 和 **medlan B (8)**）对其他嗜盐古菌具有显著的生长抑制活性。例如，**archalan α** 对 _Halomicroarcula salina_ 的 MIC 仅为 6.25 µg/mL。这表明这些肽在嗜盐古菌的种间竞争中扮演了“化学武器”的角色。
 
 **功能二：运动性调节**。**Figure 4** 展示了这一令人意外的发现。
+![image.png](http://synbiopath.online/20260120111842492.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MmY3NjlmMzMzNDBhZDU4YWJmZDdiMzUwOTU4NDQzZWRfVWdEa0RJd3RVWHlKcUpCS1ZpVkdrT0RONE9ubTVscE9fVG9rZW46S1czNGJabzY3b0dCdW14Y3N0Q2NmWjRFbjJnXzE3NjUxODgyNzg6MTc2NTE5MTg3OF9WNA)
 
 - **Figure 4a, 4b** 的软琼脂平板实验显示，表达 _cib2_ (编码 **ciblan A2**) 或 _pel_ (编码 **pellan**) BGCs 的 _H. volcanii_ 菌株，其运动扩散能力比对照菌株显著增强 (P < 0.001)。
     
@@ -223,12 +210,12 @@
 回答： DADC 是“diamino-dicarboxylic termini”（二氨基二羧酸末端）的缩写，是本文发现的一个全新羊毛硫肽亚家族。
 
 **独特结构**：经典的羊毛硫肽是由一条肽链通过硫醚键自身环化形成的。而 DADC 羊毛硫肽的独特之处在于，在其经典的环状结构形成之后，肽链在**硫醚环内部**的某个位置发生了**肽键断裂**。如 **Figure 3b** 所示，这导致原本闭合的环被“打开”，形成了一个新的 N-末端（氨基）和一个新的 C-末端（羧基），但这两个新末端仍然通过硫醚键与分子的其余部分相连。
+![image.png](http://synbiopath.online/20260120111858421.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=OGNiMTNkZjEyMjlhNjJlYjY4OWUwNTc2YzQzOGVmOWJfQVpva3JOYWNoNUhOanpzcFVOMjU3THZUSUhwSzk4N3RfVG9rZW46TUxoUWJBVW5tb2RxZ2V4QUpSMWMyZU5Zbk5nXzE3NjUxODgyNzg6MTc2NTE5MTg3OF9WNA)
 
 **暗示的生物合成过程 (Figure 3d)**：这种结构强烈暗示了一个前所未有的、两步的成熟过程：
+![image.png](http://synbiopath.online/20260120111904576.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NzEzMzczMmY3ZDU3NTUyMTg0MGIxYjI2NTMyYjMzZDdfUW9MSmlvN0JCTzlZWjVVWnRCV1hRQ3VmWG0zd1JrcHVfVG9rZW46Smo0dmJJalE1b1pmcW54akdNUGMzWWozbm9lXzE3NjUxODgyNzg6MTc2NTE5MTg3OF9WNA)
 
 - **第一步：经典环化**。首先，由 LanM 酶催化，形成一个经典的、完整的羊毛硫肽环状结构。
     
@@ -238,8 +225,8 @@
 ### 问题三：本文如何证明古菌羊毛硫肽具有调节宿主运动性的新功能？请描述其证据链。
 
 回答： 作者通过一个由宏观到微观再到分子的、环环相扣的证据链证明了这一新功能。
+![image.png](http://synbiopath.online/20260120111910009.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NTQ3NjBlNDg1YmZlMzIyYjRhMjBmMGU4NmQ3ZjkyNDVfdjY3M3g2cnhTeWw5TXRaY21zV0xMRHk4OUtHYTUxcG9fVG9rZW46R0NoeGJ5Y013b215bER4azVQSmM1YUdkbkZiXzE3NjUxODgyNzg6MTc2NTE5MTg3OF9WNA)
 
 1. **宏观表型证据 (Figure 4a, 4b)**：在半固体琼脂平板上，表达特定羊毛硫肽 BGCs (_cib2_, _pel_) 的菌株形成了比对照菌株大得多的菌落扩散晕。这是一个直接的、宏观的运动性增强表型。
     

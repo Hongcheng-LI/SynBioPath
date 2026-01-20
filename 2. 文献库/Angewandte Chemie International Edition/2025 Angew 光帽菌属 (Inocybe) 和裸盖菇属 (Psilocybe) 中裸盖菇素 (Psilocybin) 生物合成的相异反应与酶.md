@@ -1,4 +1,4 @@
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NzgwODhhNWYxNjNkZDA0NGMzZmIzYThhZmYwYjlkNWRfYmFEZFp5TFV1bG9STVNCZVBwUm16clR5TmM3UkttYzNfVG9rZW46TzVuRWJrZklyb1BDVmd4M0gxYmMyZGtobk9oXzE3NjUxODg1Mzc6MTc2NTE5MjEzN19WNA)
+![image.png](http://synbiopath.online/20260120110735412.png)
 
 ## 一：基本信息
 
@@ -19,8 +19,7 @@
 本研究的核心科学问题是：**除了广为人知的裸盖菇属 (**_**Psilocybe**_**) 蘑菇，其它产生裸盖菇素 (**_**psilocybin**_**, 1)，如光帽菌属 (**_**Inocybe**_**) 的蘑菇，是通过何种生物合成途径来合成这一著名天然产物的？**
 
 尽管 _Psilocybe_ 属中合成裸盖菇素的 _psi_ 基因簇和酶促反应已被详细阐明，但 _Inocybe_ 属中推定的 _ips_ 基因簇的功能仍然未知。阐明 _Inocybe_ 中的生物合成途径，对于理解天然产物生物合成的趋同进化、发现新颖的生物催化剂以及为裸盖菇素的生物技术生产提供新的酶元件具有重要的理论和应用价值。
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NWIzYWU4YmQ4YmE5YjEzNWJiZjZlM2ZiNjg1OTg5ZDRfNU15dmRtMDd2bjluaFRXZnlXeXNIRXZDTG00MHI1c0tfVG9rZW46QWRnM2JXN29Rb1ppWkJ4OGlac2NxaGpzbnpxXzE3NjUxODg1Mzc6MTc2NTE5MjEzN19WNA)
+![image.png](http://synbiopath.online/20260120110746577.png)
 
 ### 前期研究
 
@@ -29,9 +28,7 @@
 1. 裸盖菇素 (**1**) 的生物合成前体是 L-色氨酸 (**2**)。
     
 2. 在古巴裸盖菇 (_Psilocybe cubensis_) 中，其生物合成途径已被完全阐明 (Scheme 1b)：首先由 PsiD 对 L-色氨酸进行脱羧，生成色胺；接着由细胞色素 P450 单加氧酶 PsiH 在吲哚环 4-位羟基化；然后由激酶 PsiK 进行磷酸化；最后由甲基转移酶 PsiM 进行两次 N-甲基化，最终生成裸盖菇素。
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NWRkOTY1MDdlYzRjMWJlZWE5MTc5MjllMjAwMDk3YmNfRWdxV1BldjhPcWJ6VFdtemY4RUozQVFTZEtPYzJUUEZfVG9rZW46THpSVmJVSlNTb3FGSkh4RFJySWNIZXRSblNmXzE3NjUxODg1Mzc6MTc2NTE5MjEzN19WNA)
+    ![image.png](http://synbiopath.online/20260120110755907.png)
 
 3. 基因组学研究在光帽菌 (_Inocybe corydalina_) 中发现了一个推定的、与 _psi_ 基因簇无同源性的基因簇（命名为 _ips_），推测其负责裸盖菇素的合成，但其中编码的酶未经任何生化表征。
     
@@ -95,13 +92,11 @@
 实验结果完全颠覆了预期。与 _Psilocybe_ 中的 PsiD 不同，IpsD 完全不能以 L-色氨酸 (**2**) 为底物。然而，当以 4-羟基-L-色氨酸 (**7**) 为底物时，IpsD 表现出高效的催化活性，几乎定量地将其转化为 4-羟基色胺 (**5**)。其催化效率 (kcat/Kₘ) 为 6.58 s⁻¹ mM⁻¹。这一发现石破天惊，因为它直接证明了在 _Inocybe_ 中，**羟基化必须发生在脱羧之前**，这与 _Psilocybe_ 中**脱羧发生在羟基化之前**的顺序完全相反。
 
 结构模型（Figure 3）为这一独特的选择性提供了合理解释：通过与一个已知的色氨酸脱羧酶 (CrTDC) 结构叠加，发现 IpsD 的活性口袋中，CrTDC 的一个疏水性苯丙氨酸 (F100) 被一个极性的酪氨酸 (Y79) 所取代。这个 Y79 的羟基能够与底物 **7** 的 4-位羟基形成氢键，从而稳定其结合；但对于没有羟基的底物 **2**，这个极性环境反而不利于其疏水性吲哚环的结合。
+![image.png](http://synbiopath.online/20260120110809344.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YTg5NzMxZDUwODRmMmMwYzVkYTFhNDA4YzhiNTFjY2NfMllJMVZ1a0F2RFlHUERycEZGNlVjeERkSFpNVHZsRVdfVG9rZW46QWxtcWI0TWRpb21KQmx4WURQeWN2ZDY2bjFiXzE3NjUxODg1Mzc6MTc2NTE5MjEzN19WNA)
 
 - **Figure 2a (IpsD 酶活分析色谱图)**：该图清晰地展示了 IpsD 的底物特异性。上方的色谱图显示，当底物为 4-OH-L-tryptophan (**7**) 时，底物峰完全消失，并生成了产物 4-OH-tryptamine (**5**) 的峰 (m/z 177.1)。下方的色谱图显示，当底物为 L-tryptophan (**2**) 时，反应液与底物标准品完全一样，没有生成任何产物。这是证明两条途径顺序相反的第一个关键证据。
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=Y2VjOGIzMGI4YTQ4MDhhMGVmMjA1M2UxNTA4YjRjNjNfYVpWZlNrTXB6YXRnR1F6Q0p4NzI1TnhJRDBtVm5FaXlfVG9rZW46T0ZITmJMY2libzJ4OHZ4WGNiUWNteFlVbkloXzE3NjUxODg1Mzc6MTc2NTE5MjEzN19WNA)
+    ![image.png](http://synbiopath.online/20260120110817256.png)
 
 ### 研究部分二：单加氧酶 IpsH 的功能推断
 
@@ -123,14 +118,10 @@
 AlphaFold 3 模型（Figure 4）显示 IpsH 具有典型的 P450 酶折叠，包含一个 N-末端螺旋膜锚定区。有趣的是，模型预测其活性位点附近有一个在其他 P450 酶中不常见的“凸起” (bulge)，这可能与其特异性地识别 L-色氨酸 (**2**) 作为底物有关。
 
 - **Scheme 2 (Inocybe 生物合成途径图)**：该图是本文的核心结论图之一，清晰地展示了 IpsH 作为第一步酶，催化 **2** 生成 **7**。
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MTQyZDgyZDRlNzRmNzcwNjA2MTg2MWVlY2E5YjM5ZWNfazVLcHFEQXdNeld1VEU3YnJ4VXFRWGVCSXk4NzhyVjlfVG9rZW46VUdIZGI4d3lWbzNhYkl4NW1NcGNyczBabk1nXzE3NjUxODg1Mzc6MTc2NTE5MjEzN19WNA)
+    ![image.png](http://synbiopath.online/20260120110829322.png)
 
 - **Figure 4 (IpsH 结构模型图)**：展示了 IpsH 的 AlphaFold 3 预测模型与一个已知过氧酶 (PDB: 8YZ8) 的叠加。图中用颜色表示了预测的置信度，并高亮了 N-末端的膜锚定区和 G310 附近的独特“凸起”结构。
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZGE3NGQ5ZGRmY2Y0ZmY2ZjBmOWNmZmViZDVmODFmYTFfdnNHMTF3T0hjNWdmeEVRc0I3aUV0YU5aU1IxMFJPWTZfVG9rZW46RzNiSWJma1g5b0k3bHF4b3RJN2N6b2JIblBjXzE3NjUxODg1Mzc6MTc2NTE5MjEzN19WNA)
+    ![image.png](http://synbiopath.online/20260120110838118.png)
 
 ### 研究部分三：激酶 IpsK 的功能表征与途径后期步骤的确定
 
@@ -156,14 +147,10 @@ IpsK 的底物谱再次揭示了与 _Psilocybe_ 途径的巨大差异。IpsK 几
 这个结果表明，在 _Inocybe_ 途径中，**磷酸化发生在甲基化之后**，是生物合成的最后一步。这与 _Psilocybe_ 途径中**磷酸化发生在甲基化之前**的顺序又一次完全相反。
 
 - **Figure 2b (IpsK 酶活分析色谱图)**：该图展示了 IpsK 对一系列底物的活性。可以看到，当底物为 **4** (psilocin) 时，生成了大量的 **1** (psilocybin, m/z 285.1)；当底物为 **10** (norpsilocin) 时，生成了 **3** (baeocystin, m/z 271.1)；当底物为 **9** 时，生成了 **11** (aeruginascin, m/z 299.2)。而当底物为 **5** 或 **7** 时，几乎没有产物生成。
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NGY3NjljMjA2ZDIyN2E2OWRjNGExNTRmNDVmZjU4MDhfenk1dkZscFhJdEpsR0x5aGxmMGFUQ0pKMkdVVEQxdzRfVG9rZW46VEcyS2J5UUVDb3VWTkN4TzYwdGNFeUNJblNlXzE3NjUxODg1Mzc6MTc2NTE5MjEzN19WNA)
+    ![image.png](http://synbiopath.online/20260120110849295.png)
 
 - **Figure 5 (IpsK 与 PsiK 结构比较图)**：展示了 IpsK 的 AlphaFold 3 模型与 PsiK 的两个晶体结构（有/无配体）的叠加。尽管整体结构有相似之处，但它们的 N-末端结构域取向差异巨大，这可能解释了它们截然不同的底物选择性。
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZTRiZDM0NzBlY2NhZTM0MWEwZDg3ZjRlNWM2MjkwMzNfTG5YNmJZVVR5N0xZcUMwT1FpWk5VYUJSRG44bEd4a3FfVG9rZW46SkJ3N2JEY24yb3VJaTJ4WkVDRWN3TXUzblhmXzE3NjUxODg1Mzc6MTc2NTE5MjEzN19WNA)
+    ![image.png](http://synbiopath.online/20260120110857634.png)
 
 ### 研究部分四：甲基转移酶 IpsM1 和 IpsM2 的功能与分工
 
@@ -194,14 +181,10 @@ IpsK 的底物谱再次揭示了与 _Psilocybe_ 途径的巨大差异。IpsK 几
 **Figure 6 (IpsM1/IpsM2 酶活分析色谱图)**：
 
 - **Panel a (IpsM1)**：显示 IpsM1 能够将 **5** 转化为 **10** 和 **4**，但主要产物是 **4** (psilocin, m/z 205.1)。
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDY3YjhkNGIwMTgwNTQzNDhkMTE3ZmFiYjYwZTFkYmRfME80bDhib3RiZTBVY2dBNzNZZ3R3dXFhcWVlT3RWUHBfVG9rZW46TWZXY2JDY25Rb0w5Smd4bFAxa2NMTnUxbnViXzE3NjUxODg1Mzc6MTc2NTE5MjEzN19WNA)
+    ![image.png](http://synbiopath.online/20260120110909599.png)
 
 - **Panel b (IpsM2)**：显示 IpsM2 也能将 **5** 转化为 **10** 和 **4**，但主要产物是 **10** (norpsilocin, m/z 191.1)。这些定性结果与动力学数据一致，直观地展示了两个酶的功能偏好。
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YjM3ZTY2ZDQ5M2QwYmY5NGVjZDc0M2U4YWJkNTU3ZWNfZDR3VmFtbnNpNjB3M2pvekdOV1ZBcWtCRTNzOXpVTUJfVG9rZW46UXVNR2IzNUpjb05mckR4enlhUmMwRGJrbjVkXzE3NjUxODg1Mzc6MTc2NTE5MjEzN19WNA)
+ ![image.png](http://synbiopath.online/20260120110923061.png)
 
 ### 研究部分五：途径重构、分支机制解析与趋同进化讨论
 
@@ -232,12 +215,10 @@ IpsK 的底物谱再次揭示了与 _Psilocybe_ 途径的巨大差异。IpsK 几
 因此，**10** 是一个关键的**分支点**。途径的流向取决于 IpsM1 和 IpsK 对 **10** 的竞争。动力学数据显示，IpsM1 对 **10** 的催化效率 (1.40 s⁻¹ mM⁻¹) 略高于 IpsK (1.09 s⁻¹ mM⁻¹)，这解释了为什么 **1** 是主要产物之一，但两者效率相近，也解释了为什么 **3** 会大量积累。如果去掉负责第二次甲基化的 IpsM1，反应的主要产物则转向 **3**，这进一步证实了该“动力学竞争”模型。
 
 **Scheme 3 (两条途径对比图)**：该图是全文的点睛之笔，并排展示了 _Inocybe_ 和 _Psilocybe_ 的生物合成途径。它清晰地揭示了两条途径在酶、反应顺序上的巨大差异，是趋同进化的最有力图示。
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDRkNmY5MzRkYTJlNWVlMDdkYTc4NzA0ZGY1MDk5NDZfSmhXYkZMRm9udTFzT013NjR0aWdUaTVMaEdJRVFxTE9fVG9rZW46SkZaRWJYRThDb1NZaG94OG1WN2NlbkRsbktnXzE3NjUxODg1Mzc6MTc2NTE5MjEzN19WNA)
+![image.png](http://synbiopath.online/20260120110934038.png)
 
 **Figure 7 (多酶反应色谱图)**：展示了不同酶组合的反应结果。
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=N2I3NWIwNmFjYjkzMzdkOGI0MGIxYzM5YmRjZDlkNGJfUVRMOEkwTDlPREpHb1ZYQmg4OXJPOEwzVk02aFZWVGtfVG9rZW46R1dUTGJ5aXB0b3o5dDl4Q2JqNmNjVjdVbkFmXzE3NjUxODg1Mzc6MTc2NTE5MjEzN19WNA)
+![image.png](http://synbiopath.online/20260120110942464.png)
 
 - **Trace a (四酶)**：显示生成了 **1** 和 **3** 以及少量中间体。
     

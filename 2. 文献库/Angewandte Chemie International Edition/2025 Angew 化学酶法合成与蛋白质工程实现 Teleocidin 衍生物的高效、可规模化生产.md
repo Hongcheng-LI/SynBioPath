@@ -1,4 +1,6 @@
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NmYzMTFiMzlhNWYwMjcyMzgwZjNhNjhiNjkyNGI3MGVfYW5Ya3dIeDkzdWR1UE0ycHFlRGdzOVVsM1dvdWtZWWJfVG9rZW46R3I3MGI3ajBUbzh2Wmp4OEFPV2M4b2U1bmRoXzE3NjUxODgxMTY6MTc2NTE5MTcxNl9WNA)
+![image.png](http://synbiopath.online/20260120111009511.png)
+
+---
 
 ## 1. 基本信息
     
@@ -22,14 +24,12 @@
 ### 研究背景：
 
 单萜吲哚生物碱 (MIAs) 是一类具有重要药理活性的天然产物，在药物开发中备受关注。其中，Teleocidins 家族因其作为蛋白激酶 C (PKC) 的强效激活剂，在肿瘤学等领域显示出巨大的应用潜力。然而，Teleocidins 的天然丰度极低，化学全合成路线长、产率低且依赖有毒重金属，而现有的生物合成方法效率低下，这些因素共同构成了其规模化生产和应用的主要瓶颈。
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YmFlMjI0ZThiODRlNDlhZmI0NTczMDJiMDc4MjVkZGRfamtlQXZoZTdQcjVsblZZeDdyeG1zdFVEejFqWjRKbEVfVG9rZW46WFJSZGJSQ1JBbzB5S2R4cEhRdGNJMGR5bnVjXzE3NjUxODgxMTY6MTc2NTE5MTcxNl9WNA)
+![image.png](http://synbiopath.online/20260120111023190.png)
 
 ### 前期研究：
 
 前人研究已经阐明了 Teleocidins 的生物合成途径，该途径从色氨酸出发，经过一系列酶促反应生成关键的九元环中间体 indolactam V，再经过异戊烯基化和甲基化等步骤生成最终产物。其中，细胞色素 P450 酶 (如 TleB) 催化的分子内 C-N 偶联成环反应是构建核心骨架的关键步骤。然而，这些天然酶的催化效率通常不高，且 P450 酶依赖于复杂的氧化还原伴侣蛋白系统，这在异源表达和体外应用中构成了巨大障碍。
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MGQzNzA1OTFjOTIxZmFlOGQ3YzA1NzI5N2YzNzBiNTZfendiUnVvVnVWTDQ4R2NlUGRNUEhFN3l6bTBEYW5ORmFfVG9rZW46WU12T2JFZ3dtb09IeWN4dENwWWNlYjkwbmNoXzE3NjUxODgxMTY6MTc2NTE5MTcxNl9WNA)
+![image.png](http://synbiopath.online/20260120111029492.png)
 
 ### 本文突破点
 
@@ -75,16 +75,14 @@
 #### 实验步骤
 
 1. **前体 NMVT (1) 的化学合成**：通过三步化学反应，从商业原料合成前体 **1** (见**图 1a**)。
-    
+    ![image.png](http://synbiopath.online/20260120111038563.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDRiMjUzOTE2MTZiNGMwMTEyNmY2ZGRlNTM0YWFjMzlfZlg1Y3M4V0lFT0h4b3lDTlMyVUx0V2xVY0Vka0xycEJfVG9rZW46R2NVS2JVektvb1RTbGx4ektpd2NUcUQzbkNjXzE3NjUxODgxMTY6MTc2NTE5MTcxNl9WNA)
 
 2. **构建基础生物催化系统**：在 _E. coli_ 中共表达 P450 酶 TleB 及其氧化还原伴侣 CamA 和 CamB (质粒 P1)，测试其催化 **1** 生成 **2** 的活性。
     
 3. **构建自给自足型融合酶**：设计并测试了多种 TleB-CamAB 融合蛋白的构型 (质粒 P4-P11)，筛选出最优构型。
-    
+    ![image.png](http://synbiopath.online/20260120111045408.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZmYzYmNjOWRiNGQxZmE3M2E1ZDFkNmQ3YzAzZWUwN2RfdDdadnZwNGxoNWIxM3JlVHhjU0hRZlVlMTFwM1YyMjlfVG9rZW46VkhLemJZTldvb2xPQk14enEwN2NsUmtubkdnXzE3NjUxODgxMTY6MTc2NTE5MTcxNl9WNA)
 
 4. **结构与机理分析**：利用 AlphaFold2 和 MD 模拟，分析最优融合蛋白 P9 的结构，解释其高活性的原因。
     
@@ -94,21 +92,17 @@
 #### 实验结果
 
 - **图 1c** 显示，基础的三组分系统 (P1) 催化生成 **2** 的产量仅为 61.3 mg/L。
-    
+    ![image.png](http://synbiopath.online/20260120111051121.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZGU4ZmRmNmI0MzM1MGE5NWRlNzZjZGE5N2FiY2ZkNjJfTlZJVW01eUpzZG9iaEZ3Y3FGdWVyS0ZIeFBWTzd6ekdfVG9rZW46Skc3T2Iza09Xb0ZyeFZ4eXBqeWNVbkZSbkNiXzE3NjUxODgxMTY6MTc2NTE5MTcxNl9WNA)
 
 - 在所有融合蛋白中，**P9 (TleB-GGGGS-CamAB)** 表现出最高的催化活性，其产量达到了 **868.8 mg/L**，相比基础系统提升了 **14 倍**。
     
 - **图 1e, f** 的 MD 模拟结果揭示了其高活性的原因：在 P9 融合蛋白中，电子传递所需的 [2Fe-2S] 簇和血红素辅基之间的距离被稳定在 12.8 Å，远低于生物电子传递的阈值 (14-15 Å)，从而极大地促进了电子从还原酶到 P450 活性中心的传递效率。
-    
+    ![image.png](http://synbiopath.online/20260120111057366.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NjgwMjQ2OTZkZmM2N2I5ZjY3ZWM3Y2M0ZGVjNDJmYjhfUGRQcWZnaTFpWXlOTVFmcHNPWXdnWFJQTUFiNjZjcmRfVG9rZW46U0lXSGJrRDNab3E0WHJ4VnZQbWNOZ1J6bjhlXzE3NjUxODgxMTY6MTc2NTE5MTcxNl9WNA)
 
 - **图 1g** 显示，通过放大发酵，成功获得了 430 mg 的纯化产物 **2**，证明了该系统的可规模化性。
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDU3OWI4NzNlNTE5NDQ4ZGIzNDVlYzczZjE0YzdkMDBfNjFjV1ZnekVETlZiekVDR2F0b2R1aXlKTXRWaG85YjhfVG9rZW46Q2JWTWJ1anh0b0JyS2V4T0FMV2NJblphbjdiXzE3NjUxODgxMTY6MTc2NTE5MTcxNl9WNA)
+    ![image.png](http://synbiopath.online/20260120111103367.png)
 
 ### 第二部分：Teleocidin A1 (9) 及其衍生物的合成
 
@@ -124,19 +118,13 @@
 #### 实验结果
 
 - **图 2a, b** 展示了合成模块的设计。
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=M2E3MjM4NGUyMDk2MDEzMjFkY2ZhNmU4MGM4MThkYWNfWVo3eTMwMmt1bWVRNm5FRGgzdm1WVlNSQlpaZGcwaWRfVG9rZW46UjRYWGJ4SGprb1duOE54TFRVeWM4UjlYbkRiXzE3NjUxODgxMTY6MTc2NTE5MTcxNl9WNA)
+    ![image.png](http://synbiopath.online/20260120111110404.png)
 
 - **图 2c, d** 显示，通过优化，利用 P9+TleC 系统，**Teleocidin A1 (9)** 的产量从 27.4 mg/L 提升了 31 倍，达到了 **868.7 mg/L**。
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NjNiYjEwOTBmMGZlOWU0NWJjNWZlM2VmODBjZDA2NDdfSzltc3VFM3YwTXhIQXdxVWoxbzBMSTE0OGdWeVR5cWJfVG9rZW46VlZyd2JvS2tLbzlpdGF4eGxuWGNKSUJGbktnXzE3NjUxODgxMTY6MTc2NTE5MTcxNl9WNA)
+	![image.png](http://synbiopath.online/20260120111122569.png)
 
 - **图 1i** 显示，通过对 P9 进行理性改造 (P9-85G242A)，成功地将一个化学合成的硫代 NMVT 底物以 93% 的高转化率转化为其环化产物，展示了平台合成新衍生物的能力。
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=OTIwZGQyOWFmZTlmN2FiZjk2MjA1NGQ3YzkxZGMwOTFfcjBsaUxHeUwycVFMSlRTbHpnU0VMajNVeWJETHRld0RfVG9rZW46Q2M5emJ4cDRjb2ZsQzR4VzNEemNKeU1MbkNnXzE3NjUxODgxMTY6MTc2NTE5MTcxNl9WNA)
+    ![image.png](http://synbiopath.online/20260120111132057.png)
 
 ### 第三部分：Teleocidin B (12-14) 的合成与酶工程
 
@@ -150,18 +138,12 @@
 #### 实验结果
 
 - **图 3a, b** 显示，hMAT2A-TleD 系统能够高效地将 **9** 转化为 **12-14**，滴度高达 1980.7 mg/L。
-    
+    ![image.png](http://synbiopath.online/20260120111139085.png)
+![image.png](http://synbiopath.online/20260120111146593.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=Y2IxODZmYzg5N2Q5NGU2NTBkNmMzMWI3YTY5OWE1YmFfeGNGY0w2c1p1YmtkT09SVmNMUlE3T3NQNUNaQ1BOYXVfVG9rZW46VjRObWJPN2ZLb3lPT3J4RE9XZGNkZTNJbjFWXzE3NjUxODgxMTY6MTc2NTE5MTcxNl9WNA)
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YzJjZTJhZGIwNzE4YjBhYzViOGEwOTQyY2ViNWNjZGNfRlBPamI4UjFmbTlSVkhNQ1VvYWF5ZEw0TmxScENUcUJfVG9rZW46TldDZmJPSlhhb09hbXp4OHhWUmNUWkdybjRjXzE3NjUxODgxMTY6MTc2NTE5MTcxNl9WNA)
 
 - **图 3e** 显示，野生型 TleD 几乎不能催化非天然底物。然而，通过理性的**定点突变 (Q112A/Y)**，成功地“拓宽”了 TleD 的底物谱，使其能够接受烯丙基-甲硫氨酸等非天然底物，并合成了两种全新的 Teleocidin A1 衍生物 **10** 和 **11**。
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YjQ3NjBjMTQwNmEyOGVkMjhlZjEyMjFkZTQxYmJmN2VfSzZTODVkV0ZHbTNJVzBQbnFFeEVlTFlJT1lETzNqTWFfVG9rZW46RUprbGJob0xNb3paNU14bzZub2NZTXl5bktoXzE3NjUxODgxMTY6MTc2NTE5MTcxNl9WNA)
-
-  
+    ![image.png](http://synbiopath.online/20260120111154203.png)
 
 ### 第四部分：利用双细胞工厂实现 Teleocidin B 的高效生产
 
@@ -177,19 +159,16 @@
 #### 实验结果
 
 - **图 4a, c** 显示，双细胞接力催化系统 (Route 2) 的效率远高于单细胞系统 (Route 1)，产率从 26% 提升至 53%。
-    
+    ![image.png](http://synbiopath.online/20260120111203071.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MzBlYmI3NjE0YjVmN2VlMDczM2FlYWU1NTE4M2VlOWZfaXZ6MDV6YjZnOVNacmFVeWZ5aTBycnpsRHdFQ1NncktfVG9rZW46VXBlT2J3TFRsb3g0TFN4cWVmamMzc2tkbmhjXzE3NjUxODgxMTY6MTc2NTE5MTcxNl9WNA)
 
 - **图 4d, e** 显示，通过优化反应流程（使用 P9 细胞裂解液作为底物，并加入 PVP40），**Teleocidin B 的最终产量达到了 714.7 mg/L**。
-    
+    ![image.png](http://synbiopath.online/20260120111209507.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NzVhZGM0M2NlNjdjZDI5ZjJhYjMzYjY0Y2RjYTAzMmNfYmhIZW45SUpvMHFQcWFDS211cG84TElFUHBxQjliRldfVG9rZW46QkI4QmJ2OGpyb2dob254TDgxYmNyMmpYbjBmXzE3NjUxODgxMTY6MTc2NTE5MTcxNl9WNA)
 
 - **图 4f** 显示，通过放大发酵，最终获得了 180 mg 的纯化 Teleocidin B4，再次证明了该平台强大的可规模化生产能力。
-    
+    ![image.png](http://synbiopath.online/20260120111214704.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MzFiNjg4MzFlMWEyZTM1M2Y5ZTIxZmY4ZTk5MGE0MTRfaFF6Z0MxMVRhN1V2VVM1bWU3b3ZjR3BCYzhvWmxsckxfVG9rZW46U0U2SGJMSFdxb1RNNzh4M0JxaWNFdXRtbnliXzE3NjUxODgxMTY6MTc2NTE5MTcxNl9WNA)
 
 ## 5. 总体结论
     
@@ -236,9 +215,8 @@
 1. **提高局部浓度**：将三个原本需要通过自由扩散来相互作用的蛋白“捆绑”在一起，极大地提高了它们之间的有效局部浓度。
     
 2. **优化电子传递路径**：分子动力学模拟（**图 1e, f**）显示，在这种融合构型中，电子从 CamB 传递到 CamA 再到 TleB 活性中心的物理距离被缩短并稳定在 12.8 Å，远低于普通生物电子传递所需的距离。 这两个因素共同作用，极大地加速了电子从 NADH 到 P450 活性中心的传递速率，从而使整个酶的催化周转速率提升了 40 倍，最终使产物产量提升了 14 倍。
-    
+    ![image.png](http://synbiopath.online/20260120111227578.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YWYxNTE4Yzc4YTI5ZTdhMzczYjk2MzI5ZTBkNThlZDJfSUlzWm5CU29GVzVkd1RjdU8wV29NRFI2eHhWVmdZTDBfVG9rZW46U1p4MWJaUFFybzY2OEJ4VFU3YmNka0xmbk1kXzE3NjUxODgxMTY6MTc2NTE5MTcxNl9WNA)
 
 ### 问题二：什么是“双细胞工厂”，它相比于传统的单细胞合成有何优势？
 
@@ -255,20 +233,15 @@
 2. **避免代谢冲突**：第一步和后续步骤可能需要不同的最适反应条件（如 pH、温度）或辅因子，分开进行可以独立优化，避免相互干扰。
     
 3. **提高模块化和灵活性**：可以方便地替换或优化任何一个模块（菌株），而不影响其他模块。 如**图 4c** 所示，双细胞系统的产率（53%）远高于单细胞系统（26%），证明了其优越性。
-    
+    ![image.png](http://synbiopath.online/20260120111233319.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NzQzOTBmZjZkODQ1Yzc2ZjNjNzY1ZThlZDgyZGU1NTVfU01hMk5BZzdGUUJadW56RTNseFFjMzhjRDE1TmlqdEJfVG9rZW46TWpMemJhUVE3b0QyeDJ4bmFZcmNOcUpObnZnXzE3NjUxODgxMTY6MTc2NTE5MTcxNl9WNA)
 
 ### 问题三：本文是如何实现“非天然”Teleocidin 衍生物的合成的？
 
 回答： 本文通过**化学合成与酶工程相结合**的策略实现了这一点。具体分为两类：
 
 1. **改造骨架**：通过化学方法合成非天然的起始前体（如硫代 NMVT），然后利用经过工程改造的、能够接受新底物的酶（如 P9-85G242A）进行生物转化，从而得到骨架新颖的衍生物（**图 1i**）。
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=Njg4YjUyYWZmNGM0MzAxMDk1ZWZhNWRiN2JjZTZiZWJfejdGbTh4YUt0b1FoYzJaVUJqYU1Td2p5UG9scUwxNWVfVG9rZW46TUFuSGJDTW95b1J3ZW54WWhKSGNjOVpwblZmXzE3NjUxODgxMTY6MTc2NTE5MTcxNl9WNA)
+![image.png](http://synbiopath.online/20260120111240105.png)
 
 2. **改造侧链**：首先，通过化学方法合成多种非天然的甲硫氨酸类似物（如烯丙基-甲硫氨酸）。然后，利用一个具有一定底物宽泛性的酶 hMAT2A 将其转化为非天然的甲基（或烯丙基）供体。最后，通过对下游的甲基转移酶 TleD 进行定点突变（如 Q112A/Y），使其能够识别并利用这些非天然供体，从而在 Teleocidin A1 的骨架上引入了新的化学基团，合成了衍生物 **10** 和 **11**（**图 3e**）。
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZjUyZTFkMjk1YTZmMmUyZDQwZmFhM2Y5N2RmYjgzNTFfUmtBVWowem1tT25sUFlscGlBUXBhckpKOHBrZmxueVpfVG9rZW46RDVZNGJxQUlub0N1WDV4NnN6b2Nma2hjbkNkXzE3NjUxODgxMTY6MTc2NTE5MTcxNl9WNA)
+    ![image.png](http://synbiopath.online/20260120111251425.png)

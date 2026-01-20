@@ -1,4 +1,5 @@
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=OTU1NjUyMzQ1MzcxNTc5MzcxNzVjYTdiMmNmMDMxMTlfaWFvZDZ1WjVTeTZ0bE1WdFVGQUQ4dTlvZ2dvS0kyRFpfVG9rZW46WWs0MWJjRU9ubzFIZHl4SlNpdGM2Y1NybnpnXzE3NjUxODgzMDQ6MTc2NTE5MTkwNF9WNA)
+![image.png](http://synbiopath.online/20260120111305846.png)
+
 
 ## 一：基本信息
 
@@ -23,8 +24,8 @@ DUF3328 (Domain of Unknown Function 3328) 是一个在真菌天然产物生物�
 ### 前期研究
 
 在本文发表前，多个研究通过基因敲除等遗传学手段，将不同的 DUF3328 蛋白与特定天然产物的生物合成步骤联系起来，例如 CctR 负责环氯霉素的羟基化。然而，这些研究都停留在遗传学层面，没有人成功地获得有活性的、纯化的 DUF3328 蛋白，因此其作为酶的直接证据、催化所需的辅因子、寡聚状态以及详细的催化机理都完全未知。这使得 DUF3328 家族成为了天然产物生物合成领域一个亟待解析的“黑匣子”。
+![image.png](http://synbiopath.online/20260120111315135.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDQyNjE2ZTE5MTkxMjc5N2UxYzEyOWFhNDQ0MDgxODRfUVRJaFk1U0dwb0hDMVhDVGRKMzJETTB3Y2VoMnpJRk9fVG9rZW46VmhiamJRREVwb21VR0V4Y0dtNmNuRDBIbmJiXzE3NjUxODgzMDQ6MTc2NTE5MTkwNF9WNA)
 
 ### 本文突破点
 
@@ -87,35 +88,24 @@ DUF3328 (Domain of Unknown Function 3328) 是一个在真菌天然产物生物�
 #### 实验结果与分析
 
 - **Figure S3 & S4**：Phobius 预测 CctR N-端有一个跨膜螺旋 (残基 38-59)。在 Sf9 细胞中表达的 CctR，在非还原性 SDS-PAGE 上主要以二聚体的形式存在，加入还原剂后则解离为单体。这初步表明 CctR 通过二硫键形成同源二聚体。
-    
+    ![image.png](http://synbiopath.online/20260120111323840.png)
+![image.png](http://synbiopath.online/20260120111333038.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZWUzN2I1MGI1MTE4Njg4NDgzNGNlYjY5N2RjMzc0ZTJfWFZuazZHcDFGMzZGdVZ0aGx3UGZvWkN4b1ZnNXBUdmtfVG9rZW46WFFiWWJ3U2pyb0NNQkt4TTB0OWN6eEM2bkNmXzE3NjUxODgzMDQ6MTc2NTE5MTkwNF9WNA)
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YjA3Yjg3MWUxNmZiY2Q1OWIyNGQ3NDllMGM3NDY1NWFfNmZJc3FmemJSc1FxeklZRmZMNGpoNm00V3puYkpHdXFfVG9rZW46SXJPUGI0cEhOb012Y054SEU5Z2NJYW15bmhkXzE3NjUxODgzMDQ6MTc2NTE5MTkwNF9WNA)
 
 - **Figure 2a** 展示了 AlphaFold 预测的 CctR 同源二聚体结构。每个单体包含一个 N-端无规卷曲区、一个跨膜螺旋和一个 C-端螺旋结构域。二聚体的稳定主要通过跨膜螺旋和 C-端结构域的相互作用来维持。
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YjcyZWY0MjAyMTZjNzM1ZjRhYTk4Njg0NjM0MGJkNzNfaEVYdzVMcmh0dmRqeHdneGc5NWlHOVRPOXJhY1BqNWZfVG9rZW46RFVHVWJxcGhNb3Y0STB4RzdkY2MwS0dVbjZjXzE3NjUxODgzMDQ6MTc2NTE5MTkwNF9WNA)
+    ![image.png](http://synbiopath.online/20260120111338866.png)
 
 - **Figure S5** 揭示了二聚化的细节。结构模型显示，二聚化界面由跨膜螺旋形成的四螺旋束、C-端结构域形成的四螺旋卷曲螺旋 (coiled coil) 以及两个跨单体的二硫键 (C190-C213') 共同稳定。
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MzFmZDlhZjkyNjExMmQwY2UyMTQzNWUyODcwY2ZjYWNfTWN0Y2RGVEY1VUJ4NU50MWppRnVjVFF6N0NJRzBJWDRfVG9rZW46R0Q5N2J5T1V0b2p0MU94YTBERWNYaXRGbnQ2XzE3NjUxODgzMDQ6MTc2NTE5MTkwNF9WNA)
+    ![image.png](http://synbiopath.online/20260120111345301.png)
 
 - **Figure S6** 提供了关键实验证据。将 C190 和 C213 突变为丙氨酸后，CctR 蛋白几乎完全以单体的形式存在，证实了这两个二硫键是二聚化的关键。
-    
+    ![image.png](http://synbiopath.online/20260120111353707.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NjEyZmRiMzk1ODVjMTYwMGNkNjliYjFiMGNhNTBkN2VfSEFvNGg0V01FaGpUVWFQSEVESTU1cmNiRmpwTDVqaEdfVG9rZW46QnB6a2IzeHdzb2RlQXp4dzdxSGM1TGJIbmtiXzE3NjUxODgzMDQ6MTc2NTE5MTkwNF9WNA)
 
 - **Figure S8, S9, S10** 进一步确证了二聚体状态。纯化的 CctR 在 Blue Native PAGE 和天然质谱上都显示为稳定的二聚体，进一步排除了这是 SDS-PAGE 假象的可能性。
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZGUxMWVkYzg2MDYwMmEwMGIzNTdkMGNkYjFhNWI3YjNfcmpJMHM4cmljRWNMd2xmUkZ4cDAwWkpyM091a2ZBUDhfVG9rZW46SGd5TWJHT1pCb2FIdXF4S2dNdWNxR01ybjFVXzE3NjUxODgzMDQ6MTc2NTE5MTkwNF9WNA)
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=Yjg3ZWRjOGI3YzM3MjM2NDVjN2ExY2UyNWY1ZGE0YTdfVEluYVR1WFhLQkpMYThjYzduQzdOYzJMYWRKaU5FQXhfVG9rZW46Umx5dmJtTm5ObzV3QVd4M08wZ2NrQUdhbklnXzE3NjUxODgzMDQ6MTc2NTE5MTkwNF9WNA)
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=Mjk2MjJhNDNmODkyZTZkNTkzNzllMDliZTRkMmYyYWNfckNRUDFONE9TSE44R3Y5WG03ZkwzdDVmZk5UbUtpUFhfVG9rZW46Uk9Vc2I5cDFPb05ianp4UlVUbmNmZTdXblZrXzE3NjUxODgzMDQ6MTc2NTE5MTkwNF9WNA)
+    ![image.png](http://synbiopath.online/20260120111400120.png)
+![image.png](http://synbiopath.online/20260120111404643.png)
+![image.png](http://synbiopath.online/20260120111409580.png)
 
 ### 研究部分二：CctR 是铜依赖的加氧酶
 
@@ -135,26 +125,19 @@ DUF3328 (Domain of Unknown Function 3328) 是一个在真菌天然产物生物�
 #### 实验结果与分析
 
 - **Figure 3a** 是金属离子筛选的核心结果。LC-MS 的提取离子流图显示，只有在添加了 Cu(II) 的反应体系中，才能检测到产物羟基环氯霉素的生成。其他所有金属离子均不能激活 CctR。这明确证明 CctR 是一种铜依赖的酶。
-    
+	![image.png](http://synbiopath.online/20260120111426301.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=N2IxZmVlNGNjZWI5YmZhNzU3MTZlYTlmZTkzMWY3MTRfcjFWMWZXZjl0dGJ5d1NMRjliWGsyRmlJeW9rYU5KWVFfVG9rZW46WG51aWJwY0M2b3VGUUd4eEV1NGNxNFlpbjFmXzE3NjUxODgzMDQ6MTc2NTE5MTkwNF9WNA)
 
 - **Figure S13b** 的 ICP-MS 结果显示，铜离子与 CctR 单体的结合比例为 2:1。这表明每个 CctR 单体可以结合两个铜离子，一个同源二聚体总共结合四个铜离子。
-    
+    ![image.png](http://synbiopath.online/20260120111434764.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YmI5MmZkMmU1OGM1OGJlMTZiNTk5NjRkZWIyMDU3NzFfNVdYaXBZV2tKOXBUSkRYYUFGT1NDUjZMZXlRMjg3WlBfVG9rZW46U25aUWJPNUh1b2FXckV4UERPa2NzTHJVbmxlXzE3NjUxODgzMDQ6MTc2NTE5MTkwNF9WNA)
 
 - **Figure 3b, 3c** 揭示了铜的活性价态。加入抗坏血酸等还原剂后，产物生成量显著增加，表明 Cu(II) 需要被还原成 Cu(I) 才能发挥催化作用。更直接的证据是，加入 Cu(I) 的特异性螯合剂 BCA 后，酶活性被完全抑制，而 BCA 本身不影响其他类型的酶（如 Fe(II) 依赖的 2OGD，Figure S12）。这证明 Cu(I) 是催化循环中的关键物种。
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=OWI0ZWUyMmEyNWVlZDE4NjJiYjI5NzNkOGY0NDhlMmZfN0Vjbm9YcGl0YWk0N0tveWZYWTE2blA0SWp2cUJacEFfVG9rZW46TkxZN2JFUGJ2b3Z6aHR4Y2dzUmNvN1hibk1mXzE3NjUxODgzMDQ6MTc2NTE5MTkwNF9WNA)
+    ![image.png](http://synbiopath.online/20260120111440226.png)
 
 - **Figure 4** 是同位素标记实验的结果。在普通空气 (含 ¹⁶O₂) 中反应，产物的质谱峰 (Figure 4b) 与其天然同位素丰度的模拟图谱 (Figure 4a) 完全一致。而在 ¹⁸O₂ 气氛下反应，产物的质谱峰整体向右平移了 2 个 m/z 单位 (Figure 4c)，表明一个 ¹⁸O 原子被整合到了产物分子中。这无可辩驳地证明了 CctR 是一种加氧酶，它利用分子氧 (O₂) 作为氧化剂来羟化底物。
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NGY2MWY3OGMyMmQzYmVjZTZmOTc4NmNlYmQ2Y2I5MmJfcDcwdkNYUlBXQnJyRjRhUXRFNW94SWpBYmxSSTlDa2pfVG9rZW46WGhDVGJvNzRqb3Jpdll4NXpyTGN4Vk5QbnVkXzE3NjUxODgzMDQ6MTc2NTE5MTkwNF9WNA)
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZmExYzU3MTFmOTQ5NDQ5MDhjMjc2ZmNlZGZhMWI1NDNfSlMyTGRJczl6aGVnREtNYUtJZVExZFB4RWlreURhaXJfVG9rZW46UnVRQ2JUUGpJbzhzR1R4dHd0aWNwOTRiblVNXzE3NjUxODgzMDQ6MTc2NTE5MTkwNF9WNA)
+    ![image.png](http://synbiopath.online/20260120111447680.png)
+![image.png](http://synbiopath.online/20260120111454232.png)
 
 ### 研究部分三：双核铜活性中心的鉴定
 
@@ -174,29 +157,19 @@ DUF3328 (Domain of Unknown Function 3328) 是一个在真菌天然产物生物�
 #### 实验结果与分析
 
 - **Figure 2b, 2c** 展示了保守的 HxxHC(x)nHxxHC 基序在 AlphaFold 预测结构中的位置。该基序中的四个组氨酸残基 (H146, H149, H176, H179) 形成一个近似平面的四边形结构，而两个半胱氨酸 (C150, C180) 位于该平面的轴向位置。这种排布非常适合容纳两个金属离子。
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ODQ4ZjM5ZTllZjg0YmI4M2MwN2JlYjk3MWMzZDcxOGFfZ0V1aXd4b21sMVVDSEd1bjF6VlhyMnhWdGo5Vzh3eUNfVG9rZW46UTlMdGJyazN0bzVTUmp4cm42OWNXWGw2bnBlXzE3NjUxODgzMDQ6MTc2NTE5MTkwNF9WNA)
+    ![image.png](http://synbiopath.online/20260120111502850.png)
 
 - **Figure S13a** 的 AlphaFold3 模型直接将两个铜离子定位在了由上述组氨酸和半胱氨酸组成的口袋中，进一步支持了该基序是铜结合位点。
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MjkyZjZjODdhNTUyOGUyODY3N2RiYzViMWVmYzM0MDdfVG51azZrU3JpV2podHplSWJPTmRadU9FRU90dDJXZk5fVG9rZW46Q2FQZWJ3MVd2bzRYenZ4OTdwdmNJbHlvbndlXzE3NjUxODgzMDQ6MTc2NTE5MTkwNF9WNA)
+    ![image.png](http://synbiopath.online/20260120111510192.png)
 
 - **Figure S13c, S13d** 的 EPR 谱学结果证实了 CctR 中存在与氮原子配位的 Cu(II) 中心，这与组氨酸的咪唑环配位模型相符。
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MGVmYWQyNWMwZWFlMjM5ZjVhMzFlOTI2OGRhOWNhODBfREoxU2VFamJYUzBTNkdoQTA2NGJ2ekIyM2xNY01LWXVfVG9rZW46SzMzZmJ2N0h4b3B3eTd4SUN5MGNGNXJNbjhjXzE3NjUxODgzMDQ6MTc2NTE5MTkwNF9WNA)
+    ![image.png](http://synbiopath.online/20260120111516887.png)
 
 - **Figure S14a** 是功能验证的关键。将 HxxHC(x)nHxxHC 基序中的任何一个保守组氨酸或半胱氨酸突变为丙氨酸，都会导致酶活性完全丧失。这证明了该基序对于催化功能是绝对必需的。
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=OTA1Nzk3NzE5OWVhMGIzM2ZlMTRmNzU4NmJkMGMyNzdfTW96c1NycWpFOWYwMXdybTRzVUhIWlo0djA5dEJrbWVfVG9rZW46REJ4OGJmb21ub2Z3Zjl4RHY2bGM1OU5rbkZoXzE3NjUxODgzMDQ6MTc2NTE5MTkwNF9WNA)
+    ![image.png](http://synbiopath.online/20260120111523609.png)
 
 - **Figure S14b** 显示，加入 DTT 破坏二聚体后，酶活性也随之丧失。这表明，正确的二聚体构象是形成功能性双核铜活性中心的前提。
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YWU0NDExZjk3MjkxZmNlOWMyZWM4Zjk4OWQxNzIzZDNfVUNQTkR0YUIyUVJGNDB2R1BQdWVXc2pqMlNoNjRMdHhfVG9rZW46VUw5UGJVaTlqb3E5eXR4V2tRRWNLdDlDbmtlXzE3NjUxODgzMDQ6MTc2NTE5MTkwNF9WNA)
+    ![image.png](http://synbiopath.online/20260120111530162.png)
 
 ## 五：总体结论
 
@@ -270,6 +243,6 @@ DUF3328 (Domain of Unknown Function 3328) 是一个在真菌天然产物生物�
 2. **定位未知的活性中心**：在没有任何同源结构参考的情况下，AlphaFold 模型将 DUF3328 家族中高度保守的 HxxHC(x)nHxxHC 基序定位在了二聚化界面的核心位置，并预测其形成了一个适合结合金属离子的空间构象 (Figure 2b, 2c)。这为后续的金属离子筛选和活性位点突变实验提供了明确的靶点。
     
 3. **启发催化机理的思考**：预测的结构显示，四个组氨酸和两个半胱氨酸形成了一个可以容纳两个金属离子的双核中心，这启发了作者去验证其双核铜中心的假说，并最终通过 ICP-MS 证实了 2:1 的铜结合比。
-    
+
 
 可以说，如果没有 AlphaFold 提供的结构蓝图，研究者可能需要花费更长的时间和更多的实验资源才能解开 CctR 的结构与功能之谜。

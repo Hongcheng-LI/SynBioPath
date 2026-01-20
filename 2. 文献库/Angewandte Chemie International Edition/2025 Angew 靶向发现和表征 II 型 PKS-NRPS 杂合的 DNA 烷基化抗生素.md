@@ -1,4 +1,5 @@
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MTY5Nzc4YTlhZWM5MmI2YWU5ZmNlYWI4N2Q4YmMxODBfY21tcVNUbUlWanZleWJKbkpWaGZMZThESWZLb2ZQaGhfVG9rZW46SDJBWWJOZjVob1FISFh4WEpHbGNGcXNWbllnXzE3NjUxODgyNTc6MTc2NTE5MTg1N19WNA)
+![image.png](http://synbiopath.online/20260120110445549.png)
+
 
 ## 一：基本信息
 
@@ -20,16 +21,15 @@
 ### 研究背景
 
 DNA 烷基化天然产物是一类重要的抗生素和抗肿瘤药物先导化合物，它们通过与 DNA 形成共价键来发挥生物活性。然而，这类化合物的发现数量有限，且其产生菌必须进化出精巧的自我保护机制以避免“自杀”。
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MjdlYjUxZWM0NTdiNjE1NmVmNjUwYmRlMTk4MTliNDBfWjh6Q3BXcUhFakNGV1BheUVwMUljQlZWY0wwVDBCdWZfVG9rZW46U2N4RGJ6Umhrb3BocXV4bEF4SGNYeWdZbjFlXzE3NjUxODgyNTc6MTc2NTE5MTg1N19WNA)
+![image.png](http://synbiopath.online/20260120110457441.png)
 
 本研究的**核心科学问题**是：如何利用细菌的“自我保护”基因作为探针，从基因组“暗物质”中精准地挖掘出结构新颖、具有抗耐药菌潜力的新型 DNA 烷基化抗生素，并阐明其结构、生物合成、作用机制和自我保护机制？
 
 ### 前期研究
 
 在本文发表前，已知细菌主要通过两种 DNA 糖基化酶家族（HEAT-like repeat 和 HTH_42 超家族）来启动碱基切除修复 (BER) 通路，从而切除 DNA 上的烷基化损伤，实现自我保护。因此，编码这些抗性基因的生物合成基因簇 (BGCs) 很有可能负责合成 DNA 烷基化化合物。这一“抗性基因导向”的基因组挖掘策略已被证明是发现新天然产物的有效方法，但尚未被系统性地用于发现由 II 型聚酮合酶-非核糖体肽合成酶 (PKS-II-NRPS) 杂合系统合成的 DNA 烷基化抗生素。
+![image.png](http://synbiopath.online/20260120110504650.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDYxMzNiOGE4MjQwMTAwYTc4NTdmOWEwOTZhNzZiNzhfZzVQSTdxb3hWRlRKSDR6VUxNUFFjMUlGZ01WTWl6YVJfVG9rZW46TVNSamJFOW41b0VEbUV4dFdtV2NyeTlpbnplXzE3NjUxODgyNTc6MTc2NTE5MTg1N19WNA)
 
 ### 本文突破点
 
@@ -94,21 +94,15 @@ DNA 烷基化天然产物是一类重要的抗生素和抗肿瘤药物先导化�
 #### 实验结果与分析
 
 - **基因簇挖掘 (Figure S1)**：通过对 HTH_42 蛋白进行 SSN 分析，作者发现了一个未表征的蛋白簇，其关联的 BGCs（如 _xhn_ 簇）在结构上与已知的 DNA 烷基化抗生素 TXNA 和 LLD 的 BGCs 相似（都含有 PKS-II 和螺环-环氧化物合成相关基因），但又存在显著差异（_xhn_ 簇额外含有一个 NRPS 模块），暗示其产物可能是一种新颖的 PKS-NRPS 杂合分子。
-    
+    ![image.png](http://synbiopath.online/20260120110513876.png)
+![image.png](http://synbiopath.online/20260120110520380.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YmU1NzM4NjE0NTYzZmJhMmYxNTk0MTY2ZGYxMWE2NzNfdUduTEE0TnFMMmtNOFVEZ3pyYUppcGpzeHV5MVIzUWVfVG9rZW46Q2V3RWJ5S2FWb1JCNzF4T0t6WmNTanJzbkdlXzE3NjUxODgyNTc6MTc2NTE5MTg1N19WNA)
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YmExMmUyNzMxZTdjYTA1Y2Y2MmJiODc1YjgzNTcxODFfUGlBQlRYOXNKa1RrR0VpWDR2MFFCd093TGk5VHZwbzVfVG9rZW46UEZkMGJucEdIb09HMk54c2Zib2NQdWlhbnBjXzE3NjUxODgyNTc6MTc2NTE5MTg1N19WNA)
 
 - **基因簇激活 (Figure 2b)**：野生型菌株不产生目标化合物。通过在野生型菌株中过表达途径特异性调控因子 _xhnR2_，成功诱导产生了四个全新的化合物 **1-4** (xinghaicarcins A, B, AG, BG)。
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=OTZkMmFkOWZiZjM1MTczNzMyY2E4NmRhMTBhMWFhYTBfMlNDWG9GOGpiMlNwSTQzc0JoM2swSm9ya01yd2V3cTBfVG9rZW46QUdpWmJyaTVUb3RKQU54SUhuTmNoWks4bkJlXzE3NjUxODgyNTc6MTc2NTE5MTg1N19WNA)
+    ![image.png](http://synbiopath.online/20260120110531506.png)
 
 - **基因-产物关联 (Figure 2b, S2)**：分别敲除 PKS 基因 _xhnA1_ 和 NRPS 基因 _xhnB2_ 后，化合物 **1-4** 的生成均被完全阻断。这无可辩驳地证明了 _xhn_ 基因簇负责 xinghaicarcins 的生物合成。
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MTdlMzNlNmQ5MDQ0ZDFmNzIxZjAyZDM3NGNlODA2YzZfdFNxU1pJQjRlYzdCT2tPMXFyOGYxWkd5WENsVDJGWWZfVG9rZW46WHJQcmJHMDEyb3JaVWt4czI5ZGNsamFybkVjXzE3NjUxODgyNTc6MTc2NTE5MTg1N19WNA)
+    ![image.png](http://synbiopath.online/20260120110538172.png)
 
 ### 研究部分二：N-甲基哌啶酸砌块的生物合成
 
@@ -119,15 +113,13 @@ DNA 烷基化天然产物是一类重要的抗生素和抗肿瘤药物先导化�
 #### 实验结果与分析
 
 **Figure 3a, 3b** 展示了对关键酶 XhnB1 功能的解析。
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDgwMDI3NjJhMTIxMGE4YzA4NWM0MGQ0NTEzYmQ5MDJfc21Xb296NWpNS1dSS25pdlhlbE8yUFJZVmU2enZnTnRfVG9rZW46RlV6S2J4b1U2bzJmUWV4SHFhbmNEZU9PbnFxXzE3NjUxODgyNTc6MTc2NTE5MTg1N19WNA)
+![image.png](http://synbiopath.online/20260120110547737.png)
 
 - **双功能酶 XhnB1**：体外实验证明，XhnB1 是一个**双功能酶**。它首先催化赖氨酸的 **ε-氨基**转移到一个酮酸受体上，生成中间体 P6C。然后，在 **NADPH** 存在下，它还能催化 P6C 的**还原**，生成 L-哌啶酸 (L-PA)。同位素标记实验精确地证实了是 ε-氨基被转移。
     
 
 **后期甲基化酶 XhnM (Figure 3d)**：
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=OWNlNDM1MDg1NGFlZGJhNjlmZDU3MDkzMzBlYzYwNTdfYmg1WEliVDk0dXlXV0VpcnhXbXpPdGFUaXlBUXcwQzlfVG9rZW46QTRYemJldjZZb21maFp4UmVBYWNaZEJVbmlmXzE3NjUxODgyNTc6MTc2NTE5MTg1N19WNA)
+![image.png](http://synbiopath.online/20260120110558270.png)
 
 - 基因敲除实验 (_ΔxhnM_) 导致了去甲基化的类似物 **5-8** 的积累 (**Figure 2b, trace v**)。
     
@@ -135,8 +127,7 @@ DNA 烷基化天然产物是一类重要的抗生素和抗肿瘤药物先导化�
     
 
 **结论 (Figure 3e)**：N-甲基哌啶酸的生物合成途径被阐明：由 XhnB1 从赖氨酸合成 L-PA，L-PA 被 NRPS (XhnB2) 整合到聚酮骨架上，最后由一个**后期的**甲基转移酶 XhnM 完成 N-甲基化。
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MzAxNDNkNGRjOWM2YzJjYzM1NDFhYzJlZGM2MzE1ZDBfZ1JwTEF5MEJNaDBPTkpWOHpBSVhvRldYWjRDM3hQVExfVG9rZW46UlZqb2JjSTV4b0FlZXN4b3N1amNPMXdWbldkXzE3NjUxODgyNTc6MTc2NTE5MTg1N19WNA)
+![image.png](http://synbiopath.online/20260120110608548.png)
 
 ### 研究部分三：利用生物合成酶确定产物的绝对构型
 
@@ -147,8 +138,7 @@ DNA 烷基化天然产物是一类重要的抗生素和抗肿瘤药物先导化�
 #### 实验结果与分析
 
 **Figure 3f, 3g** 展示了这一突破性成果。
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MmNmZTdlNTQ1YThlMWYzZWZlYTQwM2M5ZWQ3NTI5ODZfaVRaTnBuVEh5Mkd0ZjBuZFJHZXFTbGduR3dIREtFdWJfVG9rZW46TmM2N2JwcDh2b0lpbG54WGNzWWNBYU1UbnhnXzE3NjUxODgyNTc6MTc2NTE5MTg1N19WNA)
+![image.png](http://synbiopath.online/20260120110615435.png)
 
 - 作者尝试将 XhnM 与产物 **2** 共结晶，但由于 **2** 不稳定而失败。
     
@@ -160,8 +150,7 @@ DNA 烷基化天然产物是一类重要的抗生素和抗肿瘤药物先导化�
     
 
 **结论 (Figure 3h)**：通过这种“**生物合成酶辅助的结构解析**”策略，作者成功地确定了 xinghaicarcins 家族的绝对构型，解决了该研究中的核心难题。
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=OWYzZDFiMDBjYjIyNjUwYjBhZWRjM2M0NGVlMDQ3Y2VfeWNReWQxOFNvV2FNQ3NLTnNKWlVodVdjbWw0dmptSzhfVG9rZW46QnZCS2JmVXNpbzR3SUZ4ek1EWWNCa1VjbjNlXzE3NjUxODgyNTc6MTc2NTE5MTg1N19WNA)
+![image.png](http://synbiopath.online/20260120110623115.png)
 
 ### 研究部分四：Xinghaicarcins 的生物活性、作用机制与自我抗性
 
@@ -172,16 +161,14 @@ DNA 烷基化天然产物是一类重要的抗生素和抗肿瘤药物先导化�
 #### 实验结果与分析
 
 **生物活性 (Table 1)**：Xinghaicarcins A (**1**) 和 B (**2**) 对多种革兰氏阳性菌（包括 MRSA）表现出强大的抗菌活性 (MIC 1-4 µg/mL)，并对多种癌细胞系表现出纳摩尔级别的细胞毒性。
+![image.png](http://synbiopath.online/20260120110631624.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NDU0NGFkZWFlNjRhZTY0ZGNkMzRkMmMzYTk4YmY2NTRfTUxTRDB0UXYzWUhFdkJwZWMzaVRuMTdJcUhVMUNuMDhfVG9rZW46UllzVGJEZUdHbzBhMVF4ZkZWWmM3OGtXbkFjXzE3NjUxODgyNTc6MTc2NTE5MTg1N19WNA)
 
 **作用机制 (Figure 4a, 4b)**：体外实验证明，xinghaicarcins **1** 和 **2** 能够与双链 DNA 反应，形成共价加合物。加热后，该加合物会释放出鸟嘌呤衍生物 **3** 和 **4**。这证明了 xinghaicarcins 是通过其**环氧基团**烷基化 DNA 鸟嘌呤的 **N7** 位来发挥作用的。
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=N2ZiNjUwYTdiMDhiOGQ2ZjVlMWJhYzE0YWE2MWQ3MTlfckZXQUV0cU9qc0Exa1R0Wm53S3hFZXV0c1JVV2hxNEpfVG9rZW46VEFuRWJ4a042b2xCQ014RUtUd2MwTWZUbkxkXzE3NjUxODgyNTc6MTc2NTE5MTg1N19WNA)
+![image.png](http://synbiopath.online/20260120110637923.png)
 
 **自我抗性机制 (Figure 4c, 4d, 4e)**：
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ODVhNjYyYTg2YTRkNTdhODQ2NTU4NTE4NzY3Nzg5MzNfWk1BdVpRVFdHQ25zSkVOR3RqaXdJVEtIZlFaS2Iyck5fVG9rZW46SEdHWWJXYk1Vb3g1SEV4ZEZqNWNaMUZwbmFiXzE3NjUxODgyNTc6MTc2NTE5MTg1N19WNA)
+![image.png](http://synbiopath.online/20260120110644990.png)
 
 - 敲除抗性基因 _xhnU2_ 后，菌株对自身产物的敏感性显著增加，且产物产量下降 (**Figure 4c, 4d**)。
     
