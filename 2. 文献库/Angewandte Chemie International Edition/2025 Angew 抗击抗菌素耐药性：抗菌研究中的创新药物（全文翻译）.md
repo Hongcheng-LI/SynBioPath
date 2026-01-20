@@ -157,31 +157,23 @@ I 期临床试验旨在收集新疗法的安全性和副作用数据。虽然已
 
   
 
-## 2设计方法
+## 2.4 设计方法
     
-
 利用过去的经验和观察，已建立了一系列理性的设计方法（图 7）。许多抗菌药物的一个先决条件是，它们需要到达位于细胞质中的靶点。一个古老的穿梭分子概念是“特洛伊木马 (trojan-horse)”策略（图 7A），它通过将抗菌药物与转运分子拴接来起作用。这一策略主要针对 G- 菌，并通过合成共轭分子，即所谓的铁霉素 (sideromycins)，得到了广泛的探索。[146,147] 在这种情况下，转运分子是铁载体 (siderophore)，一种铁载体分子或其部分结构。事实上，自然界已经利用了这一概念，例如 albomycin (grisein)，[148,149] 它是一种氨酰-tRNA 合成酶 (aminoacyl-tRNA synthetase, AaRS) 抑制剂。[150,151] 这种作用模式已成为各种合成铁载体-共轭物的模板，通过排列组合铁螯合部分与抗菌药物，例如氟喹诺酮类、糖肽类抗生素、噁唑烷酮类和 daptomycin。[152-154] 这种共轭类型最成功的例子是羟基吡啶酮或儿茶酚盐与 β-内酰胺的组合。一个有利的特点是，对于 G- 菌，后者只需到达周质空间即可发挥其活性。羟基吡啶酮共轭物的一个例子是 BAL30072（Basilea，瑞士）（图 7A），它已被评估用于对抗耐 β-内酰胺的 G- 菌[155] 以及与碳青霉烯类药物的协同效应。[156] BAL30072 进展到 I 期临床试验（复杂性尿路感染，(cUTIs)，2014），[157] 但肝毒性[158] 最终使其停止了进一步的开发。一种获得药物批准的铁霉素是经肠外给药的 cefiderocol（头孢菌素/氯代儿茶酚盐-共轭物，Shionogi，日本，图 7A），[159] 用于治疗多重耐药 (MDR) G- 菌的感染。[160,161]
+![image.png](http://synbiopath.online/20260120112341238.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=M2M0MjY0OGE2MWY5YThhNzU5MTkwZmI1NDE3M2E5YWNfRG9TazBJM2twQVRZc1FZZVlkaWJ0aDlFcUZJeHpLc1RfVG9rZW46VWxzNmIyQmpob3hTQW54cW92VWNlV3ZabkJoXzE3NjUxODg0NDk6MTc2NTE5MjA0OV9WNA)
-
-  
 
 将两种抗菌药物偶联（“杂合抗生素 (hybrid antibiotics)”，图 7B），类似于上述方法，也早已为人所知。[162] 其优势在于对耐药菌株的协同效应和降低耐药性发展。然而，分子尺寸的增加和配对抗菌药物的不匹配可能显著改变抗菌谱和药代动力学特性。Ro 23-9424（β-内酰胺-氟喹诺酮）、oxaquin（MCB-3837，利奈唑胺-氟喹诺酮）、CBR-2092（TNP-2092，利福霉素-氟喹诺酮）和 TD-1792（万古霉素-头孢菌素）是已进入临床阶段的一些例子（图 7B）。[163] 尽管有一些持续的研究，但对这种方法的兴趣似乎已经减弱。
-
-  
 
 一个最新的抗菌药物设计策略利用了细菌的 PROTACS（图 7C），[164] 编程靶蛋白由 ClpCP 解折叠酶/蛋白酶复合物降解。肽类 cyclomarin A (CymA) 是一种已知的抗分枝杆菌 ClpC 解折叠酶结合物。在一个探索性方法中，含有来自人蛋白 BRDT 结构域的蛋白构建体在耻垢分枝杆菌 (Mycobacterium smegmatis) 中被合成的 bacPROTAC Cym-JQ1 耗尽，其中 JQ1 是 BRTD 的结合物。在随后的研究中，同源的 BacPROTAC UdSBI-4377（HBPs，cyclomarin 二聚体，图 7C）被用于降解 ClpC1 和 ClpC2，从而杀死结核分枝杆菌 (M. tuberculosis)。[165,166]
 
   
-
-5. ## 骨架的优化
+## 2.5 骨架的优化
     
 
 一旦确定了感兴趣的骨架结构，优化步骤旨在理解结构-活性关系 (structure activity relationships, SAR)，并改善抗菌谱、驱动药效动力学特性（暴露和功效）的药代动力学特性以及安全性。一个关键方面是骨架结构的可及性，以便生成一组化合物的结构多样性，通常包括数百到数千个类似物。图 8 展示了在天然产物、肽和小分子骨架上的优化方法的例子，这些方法导致了抗菌化合物谱的收窄或拓宽。
+![image.png](http://synbiopath.online/20260120112404054.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MDQ3N2Q2YjNiOTM0NTgxZjI3YWZlMTAzYzY3NGE1ZTdfZGRZZFdEcjlKTDd0WjBaQVhPQ1U2V0xoYWNDcnlGMWNfVG9rZW46U01EZWJCVE5Sb3NpTW54cFNOVGMzczhzbjlWXzE3NjUxODg0NDk6MTc2NTE5MjA0OV9WNA)
-
-  
 
 缺乏天然产物模板的小分子骨架的优化，例如来自基于靶点的筛选，通常意味着简短的合成序列和理想情况下构建模块的直接模块化组装。最先进的药物化学设计原则，如基于属性的指纹图谱（例如 Tanimoto 系数、贝叶斯方法）[167] 是此过程的一部分。理想情况下，应有靶点-抑制剂复合物的结构模型，以辅助基于结构的设计过程。一个典型的例子是针对脂肪酸合成抑制剂 afabicin 及相关结构的优化（图 8D）。
 
@@ -192,10 +184,7 @@ I 期临床试验旨在收集新疗法的安全性和副作用数据。虽然已
   
 
 天然产物骨架的价值激发了有机合成在日益复杂的结构上的应用，并最终为先导结构建立一个合成平台（图 9）。一个挑战是实现对各种特性的合成控制，例如调整抗菌谱和药代动力学，而这些是初始天然产物所不具备的。对于结构上较简单的肽（线性/环状），例如 murepavadin（源自 protegrin-1；图 8C），[33] 固相肽合成 (solid-phase-peptide synthesis, SPPS) 能够快速提供大量的库成员。已建立从头合成的更高结构复杂性的肽基结构例子包括多粘菌素型化合物（F365 (QPX9003)；抗 G-）（图 23A）、[175] albicidin（抗 G+/抗 G-）（图 8A）、[176,177] arylomycin/G0775（抗 G+/抗 G-）（图 8B）[178,179] 和作为万古霉素类似物的 maxamycins（抗 G+）。[180] 其他值得注意的、对极具挑战性但已确立的抗菌结构进行合成多样化的例子是链阳菌素、[181] 克林霉素（>500 种衍生物→iboxamycin）、[182] 以及聚酮类抗生素四环素（>30 种衍生物→eravacycline）（图 9）[183,184] 和红霉素（>300 种衍生物）。[185]
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YjA5ZGE4YzkwMGQ3OTg4Y2Q3Y2FhMmRhYWExMGIyOThfVlhlQWxjc3JLRzdzaU9XRGViSGhuSkhLUng5UE1RQmtfVG9rZW46VDVFYWJQaUdPb2JYcUN4cVEyTGNlSE9BbmJiXzE3NjUxODg0NDk6MTc2NTE5MjA0OV9WNA)
-
-  
+![image.png](http://synbiopath.online/20260120112416781.png)
 
 对于许多天然产物抗生素，半合成衍生化（部分合成；图 9）在过去一直是主导方法。根据骨架的复杂性，半合成可以从一组简单的修饰反应到复杂的合成序列不等。然而，半合成方法固有地受到天然产物供应和骨架对所用化学反应的副反应敏感性的限制。以前，半合成方法已成功应用于许多已确立的抗菌药物，例如 β-内酰胺类，并且仍用于修饰具有合成挑战性的抗生素骨架，例如万古霉素型糖肽抗生素。[186] 例如，从大规模发酵获得的羊毛硫抗生素 deoxyactagardine B（图 9）开始，合成了临床前候选药物 NVB302[187] 和 NVB333[188]。
 
@@ -209,17 +198,16 @@ I 期临床试验旨在收集新疗法的安全性和副作用数据。虽然已
 
   
 
-3. # 抗生素研究的靶点类别
+# 3. 抗生素研究的靶点类别
     
 
 接下来的概要根据生理和生化方面对抗菌靶点类别进行分类，并重点介绍了针对它们的药物背景下的选定靶点。本概述首先回顾了目前可用的用于人类医疗保健的抗生素的化学结构（图 10）和靶点。接下来的部分包括已达到分析和开发不同阶段的化合物，包括临床阶段（图 11-26 和表 1-10）。重点放在靶点-抑制剂结构模型的可用性、抗菌谱（未指定（多重）耐药菌株）、耐药性以及化合物方面。
 
-1. ## 当前的医疗防线
+## 3.1 当前的医疗防线
     
 
 尽管看似浅显，但回顾当前可用于抗菌治疗的药物库仍具有重要意义 (图 10)。[26] 虽然对于大型抗菌药物类别仅展示了代表性结构，但所有类别都提供了至关重要的救命药物。一些抗菌药物基本上是独特的结构类型，例如 vancomycin/teicoplanin；而另一些则代表了经过广泛研究的化合物家族，例如 β-内酰胺类、氟喹诺酮类和磺胺类。该汇编的关键结论是，细胞壁生物合成和核糖体蛋白合成是主要的靶点类别。一个特殊的领域是抗分枝杆菌药物，其特性是为满足病原体的特定需求而设计的，例如抑制分枝菌酸 (mycolic acid) 的生物合成（如 pretomanid）。[196] 大量抗菌药物具有口服生物利用度，例如青霉素/头孢菌素类、四环素类、红霉素类和利奈唑胺，这与肠外给药（如 vancomycin、daptomycin 等）相比，极大地简化了其临床应用。从来源上看，天然产物结构的数量远超纯合成药物（如磺胺类、喹诺酮类、噁唑烷酮类）。从生物合成来源来看，这些天然产物型化合物源自聚酮化合物 (polyketide, PK)（I 型和 II 型）、非核糖体肽 (non-ribosomal peptide, NRP) 以及在较小程度上源自萜类化合物 (terpenoid)（如 pleuromutilins）的生物合成。其中并未包含 RIPP 或其他核糖体合成的肽类。其核心结构（分子实体）的总数之少，可能令人惊讶。
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NTM1YjU5MGQ4OWU4ZGVhN2JmMWI2MDM0NDRiZjgxNGRfRnhkcW03b28wbEhXVlZOeVpLekhqYXVIcm52N0M0TW9fVG9rZW46UWM5SmJPMTdtbzZlUHZ4TjUxR2NPdmRpbnVlXzE3NjUxODg0NDk6MTc2NTE5MjA0OV9WNA)
 
   
 
