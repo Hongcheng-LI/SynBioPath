@@ -1,4 +1,4 @@
-![](assets/2025%20Angew%20临床重要二萜化合物穿心莲内酯在穿心莲中的生物合成途径/file-20251208175613456.png)
+
 ## 1. 基本信息
 
 **文章题目：** Completing the Biosynthesis of the Clinically Important Diterpenoid Andrographolide in _Andrographis paniculata_ (临床重要二萜化合物穿心莲内酯在穿心莲中的生物合成途径)
@@ -23,8 +23,8 @@
 ### 1. 研究背景：
 
 穿心莲内酯 (Andrographolide, **1**) 是一种从植物穿心莲 (_Andrographis paniculata_) 中提取的具有显著抗炎活性的主要拉丹型二萜类化合物。其商业生产完全依赖于植物资源提取。尽管穿心莲内酯的骨架分子ent-copalol的生物合成途径已有报道，但其后续关键的氧化修饰步骤，包括多个位点的羟基化、内酯环的形成以及烯烃双键的重排，仍不完全清楚。阐明完整的生物合成途径对于理解其形成机制及通过合成生物学方法生产具有重要意义。
+![image.png](http://synbiopath.online/20260120113441218.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MmMyN2YxNjJmMjBiZWVhOGU3MzcwYmYwY2Q5MTRiOGNfc1hxNG1kZ0xsNGxYWWhtbXV2SVNTZnFWbENDMzlTSFpfVG9rZW46VzBjY2JrbG9vbzRMbDV4SVhRd2M0WUIzblBrXzE3NjUxODc3MDA6MTc2NTE5MTMwMF9WNA)
 
 ### 2. 前期研究：
 
@@ -78,12 +78,11 @@
 
 ### 1. 候选CYP450基因的筛选与鉴定：
 
-- _**实验步骤**__：_ 用MeJA处理穿心莲幼苗，进行代谢物和转录物分析。发现MeJA处理24和48小时后，穿心莲内酯 (**1**)、andrograpanin (**2**) 和14-deoxyandrographolide (**3**) 等含量显著增加 (图1B)。将穿心莲中注释的211个CYP450s与上游已知的_ApCPS2_基因进行表达相关性分析。
+- _**实验步骤** ：_ 用MeJA处理穿心莲幼苗，进行代谢物和转录物分析。发现MeJA处理24和48小时后，穿心莲内酯 (**1**)、andrograpanin (**2**) 和14-deoxyandrographolide (**3**) 等含量显著增加 (图1B)。将穿心莲中注释的211个CYP450s与上游已知的_ApCPS2_基因进行表达相关性分析。
     
-- _**实验结果**__：_ 筛选出20个与_ApCPS2_表达高度相关 (Pearson's coefficient r > 0.85) 的候选CYP450基因 (图1D)。经过基因长度、PCR扩增和序列验证等进一步筛选，最终选定7个CYP450基因进行功能表征。
-    
+- _**实验结果**_：_ 筛选出20个与_ApCPS2_表达高度相关 (Pearson's coefficient r > 0.85) 的候选CYP450基因 (图1D)。经过基因长度、PCR扩增和序列验证等进一步筛选，最终选定7个CYP450基因进行功能表征。
+    ![image.png](http://synbiopath.online/20260120113451924.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NTgyMjY1OTg2NGUwZGI5ZGNiZjg1OGFmMDRkOGU3MTJfMHVURFUzcXpmOUNhOXFqekUxU2dxSUpVcFVBVlEyNlpfVG9rZW46QW1xZWJobExzb1I5dmF4bTFUb2N0ZUhNblZjXzE3NjUxODc3MDA6MTc2NTE5MTMwMF9WNA)
 
 - **图表分析**：图1B显示了MeJA处理后目标二萜含量的变化。图1C展示了已知的和推测的穿心莲内酯生物合成步骤。图1D的热图展示了与*ApCPS2* 高表达相关的CYP450基因。
     
