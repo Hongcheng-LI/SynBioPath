@@ -313,6 +313,7 @@ DNA 的合成涉及多种被称为复制体 (replisome) 的因子。[295] 重要
 一个相对古老的天然产物例子是 cyclothialidine（图 18C），由菲律宾链霉菌 (_Streptomyces filipinensis_) NR0484 合成。[322-325] 该化合物靶向 GyrB 的 ATPase 活性。尽管过去几十年里有大量的合成项目旨在进行结构增强，[326] 但类似物仅显示出有限的体外和体内特性，主要针对 G+ 菌。另一个天然产物是 amycolamicin[327]，被发现与 kibdelomycin[328-330]（图 18C 和表 4）相同，后者是从一个由 245 个可诱导反义 RNA 菌株组成的金黄色葡萄球菌适应性测试 (SaFT) 测定中鉴定出来的。它是 GyrB 和 ParE[329] 的抑制剂，对 G+ 菌（_Sa_, _Ef_）以及一些 G- 菌（_Ab_）显示出强活性。[331] 尽管已知多种全合成方法，[330] 但其复杂的结构妨碍了 SAR 的建立和候选药物的后续开发。一个值得注意的、来自基于结构药物设计 (SBDD) 的分子系列是所谓的三环 GyrB/ParE 抑制剂（TriBEs, cpd **C4**; Trius Therapeutics; 图 18C 和表 4），[332,333] 它们对广泛的 ESKAPE 菌株具有很高的体外活性，最近在淋病奈瑟菌 (_N. gonorrhoeae_) 感染模型中的应用重新引起了人们的兴趣。[334]
 ![image.png](http://synbiopath.online/20260120112647984.png)
 
+![image.png](http://synbiopath.online/20260120112656830.png)
 
 
 新型细菌拓扑异构酶抑制剂 (novel bacterial topoisomerase inhibitors, NBTIs) 对旋转酶的作用机制与氟喹诺酮类不同。这个合成化合物家族的突出成员是 NXL-101 (viquidacin)、AZD9742、BWC0977 和 gepotidacin（图 18A 和 D）。最先进的是 gepotidacin (GSK2140944，具有阳性的 III 期数据，表 4），它源于一次抗菌筛选[335] 并靶向 GyrA/ParC。[336] 它对 G+ 和一些 G- 菌具有非常好的抗菌活性，是口服生物可利用的，目前正在临床研究中评估用于治疗尿路感染（UTIs, _E. coli_）和淋病奈瑟菌感染。哌啶基-喹啉型 NXL-101 显示出抗 _Sa_/_Sp_ 活性。[337] 由于心脏 QT 间期延长，其开发被中止。[338] BWC0977（表 4）是一种较新的分子，也对 G- 有活性，目前处于 I 期临床阶段。[339,340]
@@ -325,35 +326,26 @@ DNA 的合成涉及多种被称为复制体 (replisome) 的因子。[295] 重要
 
 **结论**。虽然 DNA 聚合酶可以被认为是复制体最明显的靶点，但细菌之间的序列差异使得 G+ 和 G- 菌的通用抑制剂难以实现（表 3）。[297] 与抗病毒疗法不同，核苷碱基型药物作为 DNA 聚合酶的抑制剂似乎代表性较少，成功率也较低，这可能归因于有限的水溶性、渗透性问题和陡峭的 SAR。
 
-5. ## RNA 合成
+## 3.5 RNA 合成
     
 
 其必需性、高度保守性以及与真核生物 RNA 聚合酶的足够进化距离，使得细菌 RNA 聚合酶 (RNAP; 图 1) 成为一个有吸引力的靶点。[358] 迄今为止，利福霉素 (rifamycin) 家族的聚酮-安莎霉素类（图 19A）（rifampicin：图 10）已成功用于抗结核病治疗，而 lipiarmycins（fidaxomicin，图 10）则用于治疗 _C. difficile_ 感染。结构复杂的四氢肟酸抗生素 streptolydigin（抗 G+）[359–361]（图 19A）是最早发现的 RNAP 抑制剂之一。值得注意的是，存在一系列具有抗 G+ 活性的粘细菌 RNA 聚合酶抑制剂：sorangicin A、[362,363] myxopyronin B、[364,365] 和 ripostatin B（细胞毒性）[366]（图 19A 和 B，表 5），它们的发现可追溯到 1980 年代和 1990 年代由 GBF（德国布伦瑞克）的研究人员完成。Corallopyronin A（图 19B 和表 5）[367] 在结构上与 myxopyronin 相关。它对 G- 沃尔巴克氏菌 (_Wolbachia_) 物种的活性，这些菌是线虫的专性内共生菌（胞内），使其在治疗丝虫病方面具有很高的研究价值，目前正在研究其潜在的临床应用。[368] RNAP 的肽型抑制剂是 GE23077（图 19A）[369,370] 和缩酚肽 salinamide A（图 19B 和表 5）。[371] 后者仅显示出窄谱的抗菌活性。CBR703（图 19B）是一种小分子系列的代表，被描述为变构抑制剂。[372,373] 然而，对 G+ 菌的中等活性伴随着细胞毒性，使得这类化合物的用处不大。[374] 值得注意的是，来自基于靶点的提取物筛选的 pseudouridimycin（图 19B 和表 5）是一种罕见的天然产物型核苷 RNAP 抑制剂，主要在体外和体内显示出抗 G+ 活性。[375] 一个特殊的例子是小分子 ridinilazole (SMT19969)（图 19C 和表 5），它最近达到了治疗 _C. difficile_ 感染的 III 期临床试验。[376] 它是一种双苯并咪唑，源于对 Hoechst 染料或 netropsin/distamycin 类 DNA 结合剂的合理和基于靶点的设计（图 19C）。一些前体类似物对 G+ 菌（_Sa_）显示出良好的活性。[377,378] Ridinilazole 本身对 _C. difficile_ 具有窄谱活性，基本上不具口服生物利用度，并且全身吸收差。有一段时间，其作用模式尚不清楚，但最近的报告确实表明其通过 DNA 小沟结合，并对转录过程产生影响。[379]
+![image.png](http://synbiopath.online/20260120112715123.png)
+![image.png](http://synbiopath.online/20260120112730204.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZThkYzY1YzBjODRjMGZjZjFjZjhlNmMwYTkxZjFhZTdfdlJBUHY3a3VNUzk4TXUxb2VUZWZzNmU1RllPdUQwWjhfVG9rZW46QncyUGJrM1BHb2FXTEx4VmJud2Nic3ptbm9lXzE3NjUxODg0NDk6MTc2NTE5MjA0OV9WNA)
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDM4NDQ4OTc3NjhlNTUwNjlmYzA5MzNiNGE2OWNjMWFfajVQR1lHRUQ2SkVIY3Z2dnJHTEVPdGNBZ3poYkJUcXRfVG9rZW46VDJBamJNM1Y5b3RnQ3J4OE16VmNjMkVBbllmXzE3NjUxODg0NDk6MTc2NTE5MjA0OV9WNA)
-
-  
 
 **结论**。干扰 RNA 合成基本上仅限于 RNA 聚合酶 (RNAP)，并且活性主要针对 G+ 菌（表 5）。大多数 RNAP 抑制剂是复杂的聚酮化合物，这使得 SAR 和优化研究具有挑战性。干扰转录邻近因子的抑制剂，例如结合于参与终止的 ATPase Rho 因子的 bicyclomycin（图 19D），是罕见的。[380] 鉴于 RNAP 靶点的高潜力，例如广谱活性，已知抑制剂数量相对较少是值得注意的。然而，将 RNAP 作为单一靶点会带来高水平耐药性发展的风险。[1]
 
   
 
-6. ## 脂肪酸生物合成
+## 3.6 脂肪酸生物合成
     
 
 脂肪酸合成为细胞膜的组成成分甘油磷脂提供了构建模块（图 1）。[29] 抑制细菌脂肪酸合酶 (fatty acid synthase, FAS II) 和参与脂肪酸合成的其他酶提供了一些靶点，这些靶点无法通过外源脂肪酸的添加来规避。与人类的 FAS I（多结构域蛋白）不同，细菌的 FAS II 系统是解离成单个结构域的。靶酶催化限速反应（图 20B）。这些酶包括：ACP 合酶，它将磷酸泛酰巯基乙胺转移到 apo-ACP (AcpS)；乙酰辅酶 A-羧化酶复合物 (AccABCD)，用于合成丙二酰辅酶 A；β-酮脂酰-ACP 合酶 III (FabH)；β-酮脂酰合酶 I (FabB——不饱和脂肪酸) 和 II (FabF)，它们进行链延长。[29,381] FabA/Z 是脱水酶，作为靶点几乎未被探索。烯酰还原酶以多种同工型存在 (FabI/K/L/V)，它们在每个脂肪酸延长循环中执行最后一步。然而，它们的出现是菌株依赖性的。这和其他方面使得脂肪酸合成抑制具有病原体依赖性：对于 G- 菌，合成脂质 A/脂多糖 (LPS) 所需的游离羟基脂肪酸不能从外源激活，必须由 FASII 以 ACP 结合形式提供。[29] 同样，G+ 菌 _S. aureus_ 需要不能由外源提供的支链脂肪酸。相反，肺炎链球菌 (_S. pneumoniae_) 可以从细胞外脂质中满足其需求，因此 FAS 不是必需的。在分枝杆菌中，必需的长链分枝菌酸（图 1）是分枝菌膜的主要部分，由分枝杆菌的 FAS I 和 FAS II 合成。[382]
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MmEyOTU3OWFlOTZkODQ5NmNhNmY4ZWIwOTQwY2YzMzdfTnJNVEJ3WlNyeVliT0xZZmJNYTlnUlBUR212YkQxdzlfVG9rZW46SDZzRGJIZHp0b0wxRVR4ekxnOGNCWFZUbk5nXzE3NjUxODg0NDk6MTc2NTE5MjA0OV9WNA)
-
-  
+![image.png](http://synbiopath.online/20260120112742096.png)
 
 Afabicin（以前称为 Debio 1450, AFN-1720）（图 20A 和表 6）是 Debio 1452（以前称为 AFN-1252）的小分子磷酸酯前药。[383-385] 最初，来自一个基于靶点的 HTS 项目（约 2002 年，GSK）的一个命中结构（图 8D）显示出弱的 FabI 抑制作用，并且对 _S. aureus_ 没有活性。[386,387] 这个命中物被进一步优化成一个结构上已经与 afabicin 非常相似的化合物，具有很高的抗葡萄球菌活性。Debio 1452（图 20A）抑制 _S. aureus_ 的 NAD(P) 依赖性烯酰还原酶 FabI[388,389]（IC₅₀=49 nM）和 _E. coli_ 的 FabI（IC₅₀=0.7 nM）。在其他各种形式的细菌烯酰 ACP 还原酶（FabK, FabL 和 FabV）中，FabI 是 _S. aureus_ 和表皮葡萄球菌 (_S. epidermidis_) 中唯一存在的烯酰还原酶。Debio 1452 对 _E. coli_ 的无效似乎与外排有关。[383] Debio 1452 对 _S. aureus_ 和 _S. epidermidis_ 具有选择性[383]，并在感染模型中显示出非常好的体内性能。[385] 更易溶解的前药 afabicin 可以静脉和口服给药，目前正在临床试验中用于治疗急性细菌性皮肤和皮肤结构感染。[390] Afabicin 也被研究用于骨组织渗透，以治疗手术期间的骨和关节感染。[391] 最近，通过引入一个氨基（Debio-1452-NH₃；图 20A 和表 6），研究人员能够赋予 afabicin 抗 G- 活性[171]，然后将同样的方法应用于一个扩环类似物，称为 fabimycin（图 20A 和表 6）。[195] 其他葡萄球菌 FabI 的小分子抑制剂是 MUT056399[392] 和 nilofabicin (CG400549)（图 20A 和表 6），[393] 后者已进入临床试验。
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MjIxNWZjNGZlMGU3NWFmMzZmYjU0NzAzMjEyN2IzNzdfVDlIV1dDUU5KNVB4bmdQbDBweXpGS3N4ZWhjUUZ1NmRfVG9rZW46Q3A1WWJRbDlKb2w5MFd4M3FGZmN5ZFFPbnVmXzE3NjUxODg0NDk6MTc2NTE5MjA0OV9WNA)
-
-  
+![image.png](http://synbiopath.online/20260120112752074.png)
 
 Platensimycin（图 20C 和表 6），由 _Streptomyces platensis_ 合成，是在 Merck 的一个筛选活动（83,000 个菌株）中发现的，该活动采用了一种基于细胞的靶点筛选，并使用了专门的沉默技术。[394,395] 该化合物选择性地靶向 FabF，并显示出良好的抗 G+ 活性以及低细胞毒性。在 _S. aureus_ 小鼠感染模型中显示了其功效。然而，药代动力学特性不佳，这被解释为高清除率。除了全合成，[396,397] 从 _Streptomyces platensis_ 中分离出几种类似物或通过半合成生成，[398–401] 但这些类似物没有增强的特性。结构相关的 platencin（图 20C 和表 6），[402] 具有相似的抗菌谱，是 FabF 和起始缩合酶 FabH 的双重作用抑制剂。[403] 天然产物 andrimide（图 20D 和表 6）靶向乙酰辅酶 A 羧化酶 (AccAD)，该酶在细菌中高度保守。[404] 然而，衍生物显示出不利的 SAR，并且该化合物的性能主要仅针对 _S. aureus_ 进行了进一步研究。
 
@@ -367,7 +359,7 @@ Platensimycin（图 20C 和表 6），由 _Streptomyces platensis_ 合成，是�
 
   
 
-7. ## 细胞质和膜结合蛋白酶及细胞降解机制
+## 3.7 细胞质和膜结合蛋白酶及细胞降解机制
     
 
 细菌蛋白酶包括细胞质寡聚和 ATP 依赖性蛋白酶 (AAA+ proteases)，[410] 以及其他蛋白酶，如酪蛋白水解蛋白酶 (caseinolytic protease, ClpP，丝氨酸蛋白酶)，[411] 膜结合金属蛋白酶 FtsH，[412] 苏氨酸依赖性蛋白酶 HslUV (ClpQ/V)，[413] 和丝氨酸蛋白酶 Lon。[414] 它们参与蛋白稳态、蛋白质质量控制和毒力的各种过程。在寻找抗菌药物方面，研究最多的蛋白酶是 Clp 家族。蛋白酶 ClpP（图 1）的活性受到辅助 AAA+ ATP 酶 ClpC/X（G+ 菌）或 ClpA/X（G- 菌）激活的严格控制。靶向 Clp 蛋白酶的分子可分为抑制剂、激活剂和 ATP 酶解偶联剂。此外，Clp 的必需性是病原体依赖性的，例如对分枝杆菌 (ClpP1)[415] 是必需的，但对 _S. aureus_ 不是。
