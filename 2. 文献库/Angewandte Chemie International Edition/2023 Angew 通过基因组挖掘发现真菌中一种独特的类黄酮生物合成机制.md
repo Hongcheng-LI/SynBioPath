@@ -1,4 +1,6 @@
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MTMyYjQ5OWE0MzlkYjNlNTU3MjcwMGFlMTNjOWUzN2ZfaEE0Z1Y5R2EzMHNETWszUXhBUG5KSktINWxHQkozbENfVG9rZW46RzVUR2JhMFNJb0txYU14aE1uR2NLUW9Hbm9oXzE3NjUxODg2Mjc6MTc2NTE5MjIyN19WNA)
+![image.png](http://synbiopath.online/20260120102327772.png)
+
+---
 
 ## 一：基本信息
 
@@ -16,7 +18,6 @@
     
 - 黄雪年: 中国科学院青岛生物能源与过程研究所 (Qingdao Institute of Bioenergy and Bioprocess Technology, Chinese Academy of Sciences)
     
-
 ## 二：核心速览
 
 ### 研究背景
@@ -26,8 +27,8 @@
 ### 前期研究
 
 在本文发表前，学术界对类黄酮生物合成的认知几乎完全基于植物模型：由 4CL 活化 p-香豆酸，再由 CHS 进行链延伸和环化。近期，Yin 团队在 _Nature Communications_ (2022) 上报道了一个真菌 NRPS-PKS 杂合酶 FnsA，能够独立催化柚皮素的合成，这首次揭示了真菌中存在不同于植物的查尔酮合成机制。然而，这是否是真菌界的普遍规律，以及后续的修饰酶（如 CHI, FNS）是否也与植物中的同源酶不同，仍然是未解之谜。
+![image.png](http://synbiopath.online/20260120102345498.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NWU4YTRjNThhNTMyNTllNDI1ZDJjNTJjZWFkOTA0NWZfekgxdU41WUtucThtU1ZwbUxoREI4YlRUQjdKTUsxRlhfVG9rZW46UTE3emIxdzlVb1Z1YzZ4ZnlRSWNiamxQblNmXzE3NjUxODg2Mjc6MTc2NTE5MjIyN19WNA)
 
 ### 本文突破点
 
@@ -81,12 +82,9 @@
 - **结果描述**：该策略成功地在 4 个曲霉属真菌中发现了一个与 ALS 同源基因共定位的 NRPS-PKS 型 BGC。对其中一株海洋来源的 _A. candidus_ MEFC1001 进行研究，发现该菌株确实能产生一系列化合物。通过敲除该 BGC 的核心 NRPS-PKS 基因 _cfoA_，这些化合物的产生被完全阻断，其中主要产物被鉴定为已知的 ALS 抑制剂**氯黄素 (chlorflavonin, 1)**。
     
 - **Figure 2a, b**：展示了 SRGD 策略的逻辑。ALS 是支链氨基酸合成的关键酶，也是一些除草剂的靶点。作者假设，如果一个真菌能产生靶向 ALS 的毒素，它很可能在毒素的 BGC 旁边演化出一个耐受该毒素的、突变的 ALS 基因作为“自抗性基因”。图中显示，在 4 个曲霉基因组中，确实存在与 NRPS-PKS 基因簇共定位的 ALS 基因。
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MGU3ZjllNjEyMzA1ZjBjNGFiNDAyNDdjNzVkZDA1NWRfSE5Ld05KRDA1TVhyZG45aWFvT0UwR2g2eThHZHlTaTlfVG9rZW46Q0VsTmJKQ3Nqb0JQTm14b1hDdmNIb2FtbkRlXzE3NjUxODg2Mjc6MTc2NTE5MjIyN19WNA)
+    ![image.png](http://synbiopath.online/20260120102356718.png)
 
 - **Figure 2c**：这是**策略成功的核心证据**。与野生型 (WT) 相比，Δ_cfoA_ 突变株的 HPLC 图谱中，化合物 **1-4** 的峰完全消失。这证明了该 NRPS-PKS 基因簇（命名为 _cfo_ 簇）负责这些化合物的合成。化合物 **1** 被鉴定为氯黄素，从而验证了 SRGD 策略的有效性。
-    
 
 ### 研究部分二：通过基因敲除系统解析 _cfo_ 基因簇功能
 
@@ -99,9 +97,8 @@
 - **结果描述**：系统的基因敲除实验成功地指认了 12 个必需基因的功能，并揭示了途径中的关键中间体。特别是，敲除 _cfoK_ (CHI) 导致了查尔酮中间体 **20** 和 **22** 的积累；敲除 _cfoJ_ (FNS) 导致了黄烷酮中间体 **16-19** 的积累。
     
 - **Figure 3a, b**：展示了 _cfo_ 基因簇的组成和基因敲除菌株的 HPLC 产物谱。
-    
-    ![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=OTNjYjNmMmE0MjVjY2Q3ZTNhYTY4ZGQyOGZjZGUzZTRfcXgzNDRqR2N3aVpmMVRTckJWTk43ZnM4R1hjUURmNXRfVG9rZW46QnQzZGJjeEU4b01NZkt4R1ZRZWNrTHhUbmNoXzE3NjUxODg2Mjc6MTc2NTE5MjIyN19WNA)
-    
+    ![image.png](http://synbiopath.online/20260120102409742.png)
+
     - **ΔcfoK**：**查尔酮 (chalcone)** 中间体 **20** 和 **22** 大量积累。这证明 CfoK 的功能是在查尔酮之后，负责将其环化为黄烷酮。
         
     - **ΔcfoJ**：**黄烷酮 (flavanone)** 中间体 **16-19** 大量积累。这证明 CfoJ 的功能是在黄烷酮之后，负责将其去饱和化为黄酮。
@@ -109,9 +106,7 @@
     - 其他基因敲除（如 Δ_cfoB_, Δ_cfoC_, Δ_cfoF_ 等）也导致了不同修饰阶段的中间体积累，从而可以推断出这些甲基转移酶和氧化酶的作用位点和顺序。
         
 - **Figure 4a**：基于所有基因敲除结果，绘制了完整的氯黄素生物合成途径。
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MmQ1ZGIzOWVhNWI1ZTczNGM5YzMzNjg3ZTcyY2U4Y2JfTVlBQ1lBUEF3QWRlRUtGWjdSME44YVZLY0tEMFRwVkNfVG9rZW46Q0FHR2JZaDUzb3lOWU54QWJEZmNqS0pSbnNnXzE3NjUxODg2Mjc6MTc2NTE5MjIyN19WNA)
+    ![image.png](http://synbiopath.online/20260120102420705.png)
 
 ### 研究部分三：鉴定并表征新型查尔酮异构酶 CfoK
 
@@ -124,15 +119,12 @@
 - **结果描述**：体外酶活实验证实，纯化的 CfoK 能将查尔酮 **22** 转化为黄烷酮 **24**。序列和结构分析表明，CfoK 与已知的植物/细菌 CHI 均无同源性，属于 CocE/NonD 水解酶家族。定点突变实验证明，His33 和 Tyr50 是其催化所必需的关键残基。作者提出了一个由 His33 介导的 oxa-Michael 加成催化机制。
     
 - **Figure 5a**：体外酶活的 HPLC 结果。只有在加入活性 CfoK 的体系中，底物 **22** 才被转化为产物 **24**。而敲除 H33 或 Y50 的突变体则完全丧失活性。
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YmY3Y2EyMGU5OWVjNjNmM2M0ZmJiZDViODZlN2Q0NjFfNDE3OEF6S01BM3JUcnNwb1BsMVJPUGlodDhCWUU4MTFfVG9rZW46SmFPYmJWdTlFb0FLSkV4QzdCZ2NlQlE1bk5lXzE3NjUxODg2Mjc6MTc2NTE5MjIyN19WNA)
+    ![image.png](http://synbiopath.online/20260120102433619.png)
 
 - **Figure 5b, c, d**：系统发育树和结构模型比较，清晰地显示 CfoK 在进化和结构上都自成一派，不同于已知的 CHI。
     
 - **Figure 5e**：提出了 CfoK 的催化机制假说，其中 His33 作为碱提取查尔酮 2'-OH 的质子，引发 6-endo-trig 环化。
     
-
 ### 研究部分四：鉴定并表征新型黄酮合酶 CfoJ
 
 #### 实验目的与设计 (Experimental Goal & Design)
@@ -144,9 +136,7 @@
 - **结果描述**：体外酶活实验证实，纯化的 CfoJ 能将黄烷酮 **(2S)-24** 转化为黄酮 **26**。该反应需要 FMN 作为辅因子，但不需要 NADPH。序列和结构分析表明，CfoJ 是一种 FMN 依赖的氧化还原酶，与植物的 FNS I/II 均无同源性。
     
 - **Figure 6a, b**：体外酶活的 HPLC 结果。CfoJ 只有在 FMN 存在下才能催化 **24** 转化为 **26**。定点突变实验表明 P112 和 W154 是关键残基。
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MWU0YzdjY2I3NmU0MWIxMTNhNTllZDA4OWU5Y2NkOWZfRTFmNGxIQTZqbEl1ZWtodzgxY1dyZExDdk96cVNxcUpfVG9rZW46S0tEaGJLSW1Vb2lXbjd4ZmdSTmNoRnR4bk1oXzE3NjUxODg2Mjc6MTc2NTE5MjIyN19WNA)
+    ![image.png](http://synbiopath.online/20260120102446504.png)
 
 - **Figure 6c, d, e**：系统发育树和结构模型比较，显示 CfoJ 与一类 NADPH 依赖的 FMN 还原酶同源，但其催化的是去饱和氧化反应。
     

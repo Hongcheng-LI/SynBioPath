@@ -80,9 +80,8 @@
 #### 实验结果与分析
 
 - **Figure 2** 集中展示了 SPECO 流程和其产出的全局视图。
-    
+    ![image.png](http://synbiopath.online/20260120101603859.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZmQxMjJlYzU0NGY0MGFjZGQxNWIyNzkyOWFmODcyNzlfVU5TS0dYNWlmYnlTODVqMGFtSGRrVkJncmFSVmJwdlNfVG9rZW46TjEwTmJJT0JKb211eTR4NU9aMWNZSzNKblNiXzE3NjUxODg2NjQ6MTc2NTE5MjI2NF9WNA)
 
 - **流程设计 (Figure 2B)**：清晰地展示了从 161,954 个细菌基因组出发，通过“小 ORF 预测 → rSAM 共定位 → TIM-barrel 结构域筛选 → BGC 网络构建”的四步流程，最终鉴定出 32,220 个潜在的 rSAM-RiPP BGCs。
     
@@ -100,9 +99,8 @@
 #### 实验结果与分析
 
 - **Figure 4** 展示了对 _bla_ BGC 的表征结果。
-    
+    ![image.png](http://synbiopath.online/20260120101615077.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MzAwMThiOGRhMDM2OWJjMTY4YjhjZjc5OWM2OTNhOTBfeXlsbm9MVXFxRG1aMEhHNWJOWHRESU1uUmZvcFg2aUhfVG9rZW46UHBHWGJEbmZTb1U3ZDl4VmRxM2NJYmtlblhnXzE3NjUxODg2NjQ6MTc2NTE5MjI2NF9WNA)
 
 - **异源表达与质谱分析 (Figure 4B)**：将前体肽 BlaA 与 rSAM 酶 BlaB 和蛋白酶 BlaC 在 _E. coli_ 中共表达。LC-HRMS 结果显示，修饰后的前体肽 (Gly-BlaA*) 相比于未修饰的 (Gly-BlaA)，其分子量精确地**减少了 4.0475 Da**。一个 -4 Da 的质量变化强烈暗示发生了两次脱氢反应，即形成了**两个新的化学键**。
     
@@ -122,9 +120,8 @@
 #### 实验结果与分析
 
 - **Figure 5** 展示了对 _sca_ BGC 的表征结果。
-    
+    ![image.png](http://synbiopath.online/20260120101627006.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=M2ZkNzJhN2VmMWQ2YTQxYmFkNTJhYTg0ZWUwYjlmYWRfbXl2WXptNFc0WGsyb1NMR0lHSVRvNWp5b25MVzN3T0pfVG9rZW46STVJRWJsRGNqb1JDS3h4VE9WVmNwQ1FGbm5jXzE3NjUxODg2NjQ6MTc2NTE5MjI2NF9WNA)
 
 - **异源表达与质谱分析 (Figure 5B)**：共表达 ScaA 和 rSAM 酶 ScaB 后，修饰后的核心肽 **3** 相比于未修饰的 **2**，分子量精确地**减少了 2.0210 Da**，表明形成了**一个 C-C 键**。
     
@@ -140,8 +137,8 @@
 #### 实验结果与分析
 
 - **Figure 6** 展示了 ScaB 惊人的底物普适性。
-    
-    ![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NzlmYTcyOGViMTFjMTBkNGFkN2MxY2I0NGJkZDk3YmVfZk1VZ25kYTZLc0J6TG5yaWE1TTFRclVVRlR2SXBMbktfVG9rZW46Vjdzd2JvVHdYb3VRNlF4OUY0YWNXNlNnbnZoXzE3NjUxODg2NjQ6MTc2NTE5MjI2NF9WNA)
+    ![image.png](http://synbiopath.online/20260120101634069.png)
+
     
     - **H57 位点**：ScaB 不仅能接受天然的组氨酸，还能高效地修饰**酪氨酸 (Y)、苯丙氨酸 (F) 和色氨酸 (W)**，催化它们与下游的丙氨酸形成 C-C 键。
         
@@ -161,9 +158,8 @@
 #### 实验结果与分析
 
 - **Figure 7** 展示了对 _vgu_ BGC 的表征结果。
-    
+    ![image.png](http://synbiopath.online/20260120101641800.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MGMxMzZlMmViNmRiMmRmY2EyYWU2MzZhNTM4YzU0YmVfVzJPRURZUVNsQUVhcm5aNlYxdWU1OHNIc2lqelRYYmxfVG9rZW46RWZXNWI3dUJ2b3R4ZWF4YnBpZWNsUHlEbkZjXzE3NjUxODg2NjQ6MTc2NTE5MjI2NF9WNA)
 
 - VguB 是一个双结构域蛋白，包含一个 N 端的 rSAM 结构域和一个 C 端的 HEXXH 肽酶结构域。
     
