@@ -93,14 +93,12 @@
 #### 实验结果与分析 (Experimental Results & Analysis)
 
 - **Figure 1C** 的 SSN 分析显示，NatC 和 FasV 等几个酶聚成一个独特的分支，暗示它们可能具有相似的多位点卤代功能。
-    
+    ![image.png](http://synbiopath.online/20260120113837298.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NmIwNjNiMzAwMjIzMmZhYzY0ZTU2NTlhMTRmY2EzNjJfdzVNUm85dm9uSzlteUJ5VEVaSVdSZVVWRkh4Rk1KUFZfVG9rZW46UlJjSmJ5MkpBb1MzUGt4SlNRY2NqRHRzbm1mXzE3NjUxODgzOTI6MTc2NTE5MTk5Ml9WNA)
 
 - **Figure 2A** 是功能验证的核心证据。LC-MS 的提取离子流图 (EIC) 显示，当 FasV 与底物 **1** 反应后，不仅生成了单氯代 (**2, 3, 4**)、双氯代 (**5, 6**)、三氯代 (**7, 8**) 和四氯代 (**9**) 的产物，甚至还检测到了五氯代的产物 (**10**)。这直接证明了 FasV 确实是一个能够催化至少五次氯代反应的强大卤代酶。
-    
+    ![image.png](http://synbiopath.online/20260120113842612.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NzkyMjMzY2ViNGM4NTAyYjc4NjNhZmI3MzAyMDQ2MGFfV3NxNEppUWNSUVFvbXpRZlRZQmI4RFUzQmJ3eGJnTWxfVG9rZW46SHM3cmJsY245b2JNRVJ4V2VpeGN0Q3dZbndkXzE3NjUxODgzOTI6MTc2NTE5MTk5Ml9WNA)
 
 ### 研究部分二：揭示有序的、多路径的卤代过程
 
@@ -118,19 +116,16 @@
 #### 实验结果与分析
 
 - **Scheme 1** 总结了复杂的反应网络。研究发现存在三条主要的起始路径：氯代优先发生在 R₅ 位（路径 b）、R₂ 位（路径 c）或 R₃ 位（路径 a）。
-    
+    ![image.png](http://synbiopath.online/20260120113848848.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YTIxNjVmODk1NjMzMzk3ZGQ5MzNiOTQzMjM1MGU4ODRfZkQydGkxVHR2c1IwNm4xaW5sZkdWZDdSZGE1ZkdnbDRfVG9rZW46RUR1YWJ0aHdMbzZqcW94cnpOMmNURU9QbldkXzE3NjUxODgzOTI6MTc2NTE5MTk5Ml9WNA)
 
 - **Figure 3** 展示了时程分析的结果。**Figure 3A** 显示，当从底物 **1** 开始反应时，R₅-氯代的产物 **3** 和 R₂-氯代的产物 **5** 最先大量出现，随后转化为双氯代及多氯代产物。这表明 R₅ 和 R₂ 是优先的反应位点。
-    
+    ![image.png](http://synbiopath.online/20260120113853653.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZjIwMzM4ZTBmMTNlZjZiYzQwMWE5MTM5NDIzNjVmYWRfU0JPUFgxVTdvTGhEWnd3d2kydDdHbENiNjZDM2lCRmtfVG9rZW46WE55NGJaVnRwb2RuRWd4TkpWT2NGcFBtbk1lXzE3NjUxODgzOTI6MTc2NTE5MTk5Ml9WNA)
 
 - **Table 1** 的动力学数据显示，FasV 对 R₅-氯代的底物 **3** 的亲和力最高 (Km = 46.0 µM)，催化效率也较高。
-    
+    ![image.png](http://synbiopath.online/20260120113858849.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDM4N2M1Nzc3MzM4OGUxNjc2MjVhMGY2MTk0MThkNzVfZEV2MGhTTG9ydnB4N3RwZWFxVUhMV1JOM0NjSUYwbmZfVG9rZW46RFM4eWJwb21IbzlpaUd4VDI2V2NITlV2bmlmXzE3NjUxODgzOTI6MTc2NTE5MTk5Ml9WNA)
 
 - **结论**：综合所有数据，作者得出结论，FasV 的多位点卤代是一个有序的过程。它优先在 R₅ 位进行第一次氯代，然后沿着一个复杂的、包含多个分支和汇合点的网络，逐步完成后续的氯代反应，最终生成五氯代的产物。
     
@@ -157,9 +152,8 @@
     - FasV 的晶体结构表明，它由 18 个 β 链和 12 个 α 螺旋组成。
         
     - FasV 的结构与 PrnA类似，由两个亚结构域组成，一个矩形亚结构域（**方盒区**），包含类 Rossmann 折叠（α1-α5、α9、α10 以及 β1-β3、β6-β11、β17 和 β18）；另一个是由 7 条链组成的混合 β 折叠（β4-β5、β12-β16）（**棱锥区**），其上方横跨多个螺旋（α6-α8、α11 和 α12）。
-        
+        ![image.png](http://synbiopath.online/20260120113905494.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NTQwMmMxMGU3Y2ZhNmQ2ZTc2NmM4NzdkNzliN2JlNGRfdWR5UXYyVW5yV05kdFFIWWZ6WGxBMmpPVWZQNDA2aXpfVG9rZW46SFBNYmJ4aTBTb05CWGR4bFRLUWM3OGJTbm9jXzE3NjUxODgzOTI6MTc2NTE5MTk5Ml9WNA)
 
 - **Figure 12** 是 FasV 的 FAD 结合区域及与其他已报导卤化酶的 C 端区域结构比对
     
@@ -168,9 +162,8 @@
     - FasV 的 C 端区域（366–409 位残基）包含两个短螺旋（α11 和 α12），这使其有别于已报道的 FDHs
         
     - 与典型的 PrnA 结构相比，发现 FasV 的 C 端明显更小，且与底物结合位点的相互作用更紧密，这可能如先前报道的那样，会阻碍底物进入卤化活性位点。
-        
+        ![image.png](http://synbiopath.online/20260120113917282.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YjgzZDMxYzU4MGE4NWFkZGViYjVhMWY5YjkxNzI5YjVfUmMzRFV3MjdjVmVnSnhmYWpyTHc0SlNoczhMaFZZNjFfVG9rZW46QTF0bGI5QldJb3VRcWd4Q0xheGN5UFZQbm9kXzE3NjUxODgzOTI6MTc2NTE5MTk5Ml9WNA)
 
 - **Figure 4B** 展示了分子对接的结果
     
@@ -179,18 +172,13 @@
     - 底物与 S50、T53 存在氢键相互作用，而 L81、F93、I212 和 L309 则在其周围形成疏水相互作用网络。
         
     - 在先前的报道中，色氨酸 FDH 中一种保守的谷氨酸（如 PrnA 中的 E346）会稳定口袋中的 Wheland 中间体，并通过从底物上移除一个氢原子来促进卤化反应的完成。然而，在苯酚类或脂肪族 FDH 中，疏水性氨基酸（FasV 中的 L309、NatC 中的 L317、CndH 中的 F312 以及 PltM 中的 F330）取代了这种保守的谷氨酸，这表明这些酶之间存在不同的作用机制。
-        
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MDVjYzM2MWI5YjExNGMxMjUxNDVjNWU2NTQ1ODA0YTdfNGd5SGVFbnpyUUVGb1lkT0I1a1NDVFBETHEybU00aXdfVG9rZW46SzZJbWIzM0owb1FhUWd4Z0g1YWNiVU1obmpnXzE3NjUxODgzOTI6MTc2NTE5MTk5Ml9WNA)
-
-  
+        ![image.png](http://synbiopath.online/20260120113924139.png)
 
 - **Figure S14** 是氨基酸序列比对图：
     
     - 在单一位点 FDH 中，与 PrnA 的 E346 位相对应的残基始终为谷氨酸（Glu），而在多位点 FDH 中，该位点则一致存在亮氨酸（Leu）或苯丙氨酸（Phe）。值得注意的是，L309A 和 L309E 均仅表现出较弱的卤化活性。这表明 L309 可能参与形成了一个疏水口袋，该口袋可能会阻碍过氧化氢的扩散，或增强底物的结合。
-        
+        ![image.png](http://synbiopath.online/20260120113933661.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=N2FhYWZhNjNhNDdjNTUxNGZjMzY5MzcxYTgxYjc2NGRfWW1vVFgwVUNHRmNUNFgwVE9FWHdRYXFnaGJYWFRrNWdfVG9rZW46Q2JxcmIxc3NUb3hzNVJ4b1pOMmNZdkhSbjRuXzE3NjUxODgzOTI6MTc2NTE5MTk5Ml9WNA)
 
 - **Figure 4C** 是定点突变的结果，信息量巨大。
     
@@ -204,8 +192,6 @@
         
     - FasV 中的 G209-D231 在同源蛋白中是保守的。具体而言，I212 位具有部分保守性，主要以苏氨酸（Thr）和异亮氨酸（Ile）残基为主。对I212 进行突变，其中一组突变为非疏水性氨基酸，另一组则突变为具有相似侧链的疏水性氨基酸。I212L 突变体积累了更多的化合物 **2** 以及一种先前未鉴定的单氯代产物，I212T 突变体不具有多氯代活性，仅能在底物 **1** 的 R5 位引入一个氯原子生成化合物 **3**。
         
-    
-    ![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YmNiMzYyYmUxZjRhNDA2OGJkNmJlMmUzMDNjOWJiOTZfZDJ2YUhIc0dPcnlyOFFRR1Q3QXhyTXFuVXhZOTBJSXpfVG9rZW46SGUweWJSbk9yb0o0dXp4d1VFRGN4M0RqblViXzE3NjUxODgzOTI6MTc2NTE5MTk5Ml9WNA)
     
     - **催化残基**：突变 K76, E49, S50 导致活性完全或严重丧失，证明它们是催化必需的。
         
