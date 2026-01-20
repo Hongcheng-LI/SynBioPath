@@ -1,4 +1,6 @@
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MjdlOTRhNzA2ODg4YTcwYmNlZDNhZWFlMmY5ZDgwNDZfRHZIZlJnNHFJWDN0QVBmSWVoT1hkT3pLT3dVYlhsNlVfVG9rZW46QnV0WGI2UGpZbzBzSHV4cFpVQ2NUdkppbjlnXzE3NjUxODg2NjQ6MTc2NTE5MjI2NF9WNA)
+![image.png](http://synbiopath.online/20260120101004208.png)
+
+---
 
 ## 一：基本信息
 
@@ -17,16 +19,14 @@
 ### 研究背景
 
 核糖体合成与翻译后修饰肽 (RiPPs) 是细菌中一类巨大且尚未被充分开发的天然产物宝库。自由基 S-腺苷甲硫氨酸 (rSAM) 酶是 RiPPs 生物合成中一类功能极其多样的“催化大师”，能够催化多种化学上极具挑战性的 C-C 和 C-S 键形成反应，从而构建大环肽。然而，已知的 rSAM 酶催化的交联模式仍然有限，特别是涉及组氨酸和脂肪族侧链的环化反应非常罕见。
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NjYwNmZkN2I5OWUyY2ZlMzJjMzllNTU4OTgxNDlkZjBfTmN1NTB2VTJORllwMGhORm5hN2N2Y3R1QzBzY09zSXZfVG9rZW46Q0gxWGJRcnRubzRESVh4WWRrNmNoRWhCbjRkXzE3NjUxODg2NjQ6MTc2NTE5MjI2NF9WNA)
+![image.png](http://synbiopath.online/20260120101017033.png)
 
 本研究的核心科学问题是：**如何开发一种高效的生物信息学策略，从海量的细菌基因组数据中系统性地挖掘功能未知的 rSAM 酶及其关联的 RiPPs，以发现全新的肽大环化反应和酶工具？**
 
 ### 前期研究
 
 在本文发表前，RiPPs 的基因组挖掘主要依赖于对整个生物合成基因簇 (BGC) 的同源性比对，或者寻找与已知前体肽相似的序列。rSAM 酶已知可以催化多种反应，如在 sactipeptides 中形成 Cα-S 键，或在 darobactin 中形成 C-C/C-O 键。然而，缺乏一种能够大规模、系统性地连接“rSAM 酶”与“其潜在的小肽底物”并进行分类和优先级排序的通用方法，导致大量新颖的 rSAM-RiPP 系统仍处于未被发现的“暗物质”状态。
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZTZmYzk1YTgyYzQ3ZjY2MjViOGQ3MTNiN2M3NGFkNWVfSmtKanZ3NDg3VnVKb0daRWd4SHlEZUZhaTRkMklXVWRfVG9rZW46R21PSWJBYjBRb2dIdnF4bDFla2NZbEJmbkZHXzE3NjUxODg2NjQ6MTc2NTE5MjI2NF9WNA)
+![image.png](http://synbiopath.online/20260120101044184.png)
 
 ### 本文突破点
 
