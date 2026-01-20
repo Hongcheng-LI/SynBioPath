@@ -80,7 +80,7 @@
 
 - _**实验步骤** ：_ 用MeJA处理穿心莲幼苗，进行代谢物和转录物分析。发现MeJA处理24和48小时后，穿心莲内酯 (**1**)、andrograpanin (**2**) 和14-deoxyandrographolide (**3**) 等含量显著增加 (图1B)。将穿心莲中注释的211个CYP450s与上游已知的_ApCPS2_基因进行表达相关性分析。
     
-- _**实验结果**_：_ 筛选出20个与_ApCPS2_表达高度相关 (Pearson's coefficient r > 0.85) 的候选CYP450基因 (图1D)。经过基因长度、PCR扩增和序列验证等进一步筛选，最终选定7个CYP450基因进行功能表征。
+- _**实验结果**_：筛选出20个与_ApCPS2_表达高度相关 (Pearson's coefficient r > 0.85) 的候选CYP450基因 (图1D)。经过基因长度、PCR扩增和序列验证等进一步筛选，最终选定7个CYP450基因进行功能表征。
     ![image.png](http://synbiopath.online/20260120113451924.png)
 
 
@@ -101,12 +101,10 @@ _**实验步骤**__：_
     
 
 _**实验结果**__：_
+![image.png](http://synbiopath.online/20260120113520069.png)
+![image.png](http://synbiopath.online/20260120113525168.png)
+![image.png](http://synbiopath.online/20260120113533724.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NWM3ZGMwNGU3ZDk3ZmY0MmQ5YThhM2M2YTc0ZjBhNDBfQ0hkRDJOb2RhTTVTUVlpdnNaZ1N0cWxiRmN3V1FtZ3NfVG9rZW46TXhLeWJEY2RGb1psRDV4UVNUSWM5b3o2bldiXzE3NjUxODc3MDA6MTc2NTE5MTMwMF9WNA)
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MTc5NjUxYjMwY2E1NTIzNmFiMDRiZTQwZTFlODk3ZjdfeTA0NjZLeGRRRWhBbHVKT1NOYTl4bXBpa09qQVVVMFZfVG9rZW46WDkydGJ0bkc2b24yRUp4ZUszV2NDVWhvbmRlXzE3NjUxODc3MDA6MTc2NTE5MTMwMF9WNA)
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YzdkMDdkOTdlNjJhMGNkZjdmNDllM2ViNmQ4MzY4NWRfaGZtd3czVW9EQm4zcTBtWno1TkE0TUhrb1NCMmp1bjNfVG9rZW46RmU1dmI1QlVGb1JJQU54WHpXbmNNU0R1bkdkXzE3NjUxODc3MDA6MTc2NTE5MTMwMF9WNA)
 
 - HGC在烟草中产生_ent_-copalol (**4**) (图2, 图S1)。
     
@@ -194,8 +192,8 @@ _**结果意义**__：_ 体外酶学实验结果与在本氏烟草中的体内�
 **问题2：请简述从**_**ent**_**-copalol (化合物4) 到穿心莲内酯 (化合物1) 的四个关键酶促步骤及其对应的酶。**
 
 **回答：**
+![image.png](http://synbiopath.online/20260120113547821.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=M2FmMzkwYTZjMmNiMDNlYzYzNzdlZWU2ZTYwODNlYWVfcE1HWGVoUjA1ODc1ejgySjZEYjlMd3VZbENKTjQxbGFfVG9rZW46SVZUY2JHb1kwb09wQll4MGx3Z2MwVjJUbm9jXzE3NjUxODc3MDA6MTc2NTE5MTMwMF9WNA)
 
 - **C-19羟基化：** _ent_-copalol (**4**) 的C-19位被ApCYP71D587催化羟基化，生成19-hydroxy-_ent_-copalol (**5**)。
     

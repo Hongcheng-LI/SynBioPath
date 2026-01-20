@@ -1,4 +1,5 @@
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=Zjk3NDRhNGZkYzA5NWE1YjBjNmYwZjhlY2IxZGMzNGJfMGh4Q3poR0ZZSGlqNVNJT21wMXlJblZSMTd5elJRblBfVG9rZW46VDYzUGJocGhzb3R5bFN4aHpsdWNhbzlsbmliXzE3NjUxODc5NTg6MTc2NTE5MTU1OF9WNA)
+![image.png](http://synbiopath.online/20260120113559186.png)
+
 
 ## 1. 基本信息
 
@@ -17,16 +18,15 @@
 ### 研究背景：
 
 Malleicyprol (**1**) 是臭名昭著的动物和人类病原菌类鼻疽伯克霍尔德菌 (_Burkholderia pseudomallei_, BP) 群的一种毒力因子，其结构特点是含有一个环丙醇“弹头”连接到一个活性的丁烯醇内酯核心。之前的生物合成研究暗示该丁烯醇内酯杂环是由两条独立的聚酮链融合而成，但精确的机制仍不清楚。阐明其生物合成机制对于理解其致病作用和开发潜在的抗毒力策略至关重要。
+![image.png](http://synbiopath.online/20260120113604757.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZjQyNjhkOGVkNDNjNDY4MzZiZDZhZjViYjhhYzBiZTdfR0NXQ2FuejQxWUVwUGpMb0xEMFlnTEs2djBZVVlTbXhfVG9rZW46RXdFOWIyQzkzbzZWdEt4dFRYMWNOQzVDbmpjXzE3NjUxODc5NTg6MTc2NTE5MTU1OF9WNA)
 
 ### 前期研究：
 
 Malleicyprol 的生物合成基因簇 (_bur_) 已被鉴定。已知其由两条碳链组装而成：一条短链由单模块 PKS BurA 合成，起始单元为不寻常的二甲基硫鎓丙酸 (DMSP, **6**)，生成 S-gonyol (**7**)，再由 BurC (羟化酶) 和 BurG (酮醇酸还原异构酶) 转化为 R-trigonic acid (**8**)；另一条长链由多模块 PKS-NRPS 杂合体 BurF 处理中等长度的脂肪酸 (主要是辛酸, **5**) 生成。推测这两条链在 BurF 的末端模块上融合，但具体的融合方式和丁烯醇内酯环的形成机制是未解之谜。
+![image.png](http://synbiopath.online/20260120113609937.png)
+![image.png](http://synbiopath.online/20260120113615024.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZGUzNTAyMmVkNjJiYjE5N2NhNDQxOTdiN2Q4ZGRlMDNfQ2xzWkw2UjZ5NGZoaXNyRlFaVldkb0tGNlZCQWljUm5fVG9rZW46SkhkM2JqVGhHb2tFZkl4UlRrT2NBbEdybjNDXzE3NjUxODc5NTg6MTc2NTE5MTU1OF9WNA)
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=OTI4YzQ2MTU0Y2Q2NTc3YjlkZmE3NDE0NDFjZjFjZTBfU1M2TmhLMkNBdXFtMDZVazJXUU9OV09mRFV6eFV4MlpfVG9rZW46RzJ1Y2I2VXBvbzBhdml4T3dCNGNhYzNBbjFnXzE3NjUxODc5NTg6MTc2NTE5MTU1OF9WNA)
 
 ### 本文突破点：
 
