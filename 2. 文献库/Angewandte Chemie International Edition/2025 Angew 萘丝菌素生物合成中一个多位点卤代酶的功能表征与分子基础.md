@@ -191,7 +191,8 @@
     - F93W 突变体可以获得二氯取代的产物，表明 F93 可能通过调控底物结合，从而赋予 FasV 区域选择性。T53 和 L81 被确定为底物结合的关键残基，突变后，L81A 的活性降低，且丧失了多氯代能力。尽管如此，L81Y 与底物 **1** 或 **3** 孵育时，除了化合物 11 的生成量分别减少或完全消失外，其区域选择性与 FasV 相似。当 T53A 与 **1** 或 **3** 孵育时，中间体 **5** 的生成量更高，且化合物 **11** 完全消失（图 4D 和 4E），这表明 T53A 减少了向其他卤代途径的转化，表现出更严格的区域选择性。
         
     - FasV 中的 G209-D231 在同源蛋白中是保守的。具体而言，I212 位具有部分保守性，主要以苏氨酸（Thr）和异亮氨酸（Ile）残基为主。对I212 进行突变，其中一组突变为非疏水性氨基酸，另一组则突变为具有相似侧链的疏水性氨基酸。I212L 突变体积累了更多的化合物 **2** 以及一种先前未鉴定的单氯代产物，I212T 突变体不具有多氯代活性，仅能在底物 **1** 的 R5 位引入一个氯原子生成化合物 **3**。
-        
+        ![image.png](http://synbiopath.online/20260120113944418.png)
+
     
     - **催化残基**：突变 K76, E49, S50 导致活性完全或严重丧失，证明它们是催化必需的。
         
@@ -203,11 +204,7 @@
       **Figure S16** 是 FasV 的 B-Factor 图。
     
     - 通过 B-Factor 图发现 C 端最后五个氨基酸具有显著的灵活性，这导致维持 C 端稳定需要的作用力增强。因此，截短这些氨基酸可能会降低其柔性，从而提高其活性。实验结果表明，截短 FasV 最后五个残基为特征的突变体 FasV-5C，表现出比 FasV 更高的转化率。此外，A405P 突变的引入使 C 端最后一个 Loop 区产生结构刚性，导致 C 端更容易维持稳定，同时卤化活性提高。
-        
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MGQzNTg2ODdhYzYzZWVkY2MwZjNhM2UwN2IwMjYwZWJfUWtuTnFhYm1VRDhNUVhOOURqQmMwejZnYXo2SXNQMElfVG9rZW46TzRUN2JaS3hvb2NOUTh4d2wwWWM5UHU4bnZlXzE3NjUxODgzOTI6MTc2NTE5MTk5Ml9WNA)
-
-  
+        ![image.png](http://synbiopath.online/20260120113951352.png)
 
 ### 研究部分四：提出“双重活化”机制并验证 FasV 的生物催化潜力
 
@@ -227,42 +224,35 @@
 - **Figure S17** 通过密度泛函理论（DFT）计算对分子 1 的卤化反应进行了研究.
     
     - 观察到 K76 和 S50 残基对底物 **1** 的卤化催化活性有很大影响。根据 FasV 晶体结构中 S50 的位置，它可能与分子 **1** 活性位点附近的羟基形成氢键。
-        
+        ![image.png](http://synbiopath.online/20260120114000684.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ODA5OWU2ZTBlYmVmMjVlZWExZjVkNjk5ZjRjNWZhNDVfdDNlVm5sVFFNWlYyS2NTYWxDektFRHdGTkd1ZkFhdjRfVG9rZW46WGxKT2JtVkFMb3FsVml4ZDFQN2NXTVFHbjlnXzE3NjUxODgzOTI6MTc2NTE5MTk5Ml9WNA)
 
 - **Figure 18** 计算了分子 **1** 在六个不同位点（酚羟基的邻位）发生卤化反应的自由能垒（ΔGTS）。
     
     - 与 R4 位相比，R5 位发生氯化反应所需能量更低（15.9 vs 19.1 kcal/mol，图 S18C、S18F）。这表明，一旦分子 **1** 的 E 环与 FDHs 中的 HOCl 相邻，分子 **1** 中 R5 位的卤化反应更易发生
         
     - 在分子 **1** 的 A 环和 D 环中，R2 位和 R3 位也呈现出类似的趋势。这些理论计算与实验结果一致，即首次卤化反应中仅检测到 R2、R3 和 R5 位的卤化产物。当 HOCl 分子充足时，R1 位和 R4 位也会发生卤化反应，这也与实验结果相符。
-        
+        ![image.png](http://synbiopath.online/20260120114006811.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NmRmYTNmMzkwMDUwOWM2OWQ0ZmYyMmM2ZjRjZjM1NDJfTXI1b0U4YmliY1RoaW5SaXVQZlpUTmdyQkxWeldEbGNfVG9rZW46UU05OGJScTY3b3psRWl4bGYxUGNoV0R5bmdmXzE3NjUxODgzOTI6MTc2NTE5MTk5Ml9WNA)
 
 - **Figure 19-21** 结合分子动力学（MD）模拟和色散能计算，进一步研究了 FasV 的残基在分子 **1** 的 R2、R3 和 R5 位催化活性中的作用。
     
     - S50 与分子 **1** 之间的氢键（r1）在分子动力学模拟的最后 20 ns 内保持稳定（图 S18G–I 和图 S19–S21）
         
     - 残基（K76、S50 和 E49）+HOCl 与化合物 **1** 之间的吸引色散力（Edispersion）在 R2 位和 R3 位相近（分别为–6.4 和–5.9 kcal/mol），而 R5 位略占优势（–7.7 kcal/mol）。这表明，酶中 R5 位的氯化反应可能最为有利，且 R2 位和 R3 位的氯化反应也能顺利发生，这与实验结果一致.
-        
+       ![image.png](http://synbiopath.online/20260120114021410.png)
+       ![image.png](http://synbiopath.online/20260120114031461.png)
+![image.png](http://synbiopath.online/20260120114035261.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZTYwZWQ0MzcxYmY5YmM1YzliYTcxYmI0ZTA4MDU5YjNfYVh1M0dXZ2hoaXpVdWFZSW5UVGtCb2dHSDc1cHk0VE5fVG9rZW46U1dNaGJhSjJ1b1lBUEt4b0dLQmN6WkZZbmNiXzE3NjUxODgzOTI6MTc2NTE5MTk5Ml9WNA)
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MGE0YTFjOGI1M2ExOGM5MmVjN2NjNjE4OGNmMmE2YTFfRnV3QnpHcGgzanlJOG9MbFNhUlhyZHBUdXlyWlN0cllfVG9rZW46UGFlMGI0aUJvb0dteFh4aGx4YWNCWGtobnNoXzE3NjUxODgzOTI6MTc2NTE5MTk5Ml9WNA)
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ODM3YjI2ODRjYmVkZGUyZTJkYjU5NmYwYjk3NDJhN2RfODVUUmtsNjRGUFZFcTExYllydTh2MHJNWWkxaHdLNG5fVG9rZW46V24ya2JUUmo2b3NacUl4ZVNxdGNtY2pkbkRlXzE3NjUxODgzOTI6MTc2NTE5MTk5Ml9WNA)
 
 - **Figure 5** 展示了 DFT 计算的结果。计算表明，在 I212T 突变体中，R₅ 位的氯代反应能垒 (12.3 kcal/mol) 显著低于其他位点，这与实验观察到的其只在 R₅ 位进行单氯代的结果完美吻合。
     
     - 引入的简化 T212 模型可与 HOCl 形成氢键，进一步稳定生成的羟基阴离子，从而降低所有位点的能垒（图 5A–F 和图 S18A–F），尤其在 R4 和 R5 位更为明显。与 R4 位相比，R5 位的空间位阻更小，因此能垒更低（12.3 vs 14.2 kcal/mol）。这种可形成双重氢键的高级双重激活机制，可仅在 R5 位引发卤化反应。
         
     - MD 模拟表明，氢键距离是决定色散能（Edispersion）大小的重要因素（图 5G–I 和图 S22–S24）。在 R2、R3 和 R5 位，r1 和 r2 的距离越短，该位点的色散能就越大（图 5G–5I）。与 FasV 野生型相比（图 S18G–I），I212T 突变体中底物 **1** 的这三个位点（R2、R3 和 R5）卤化反应的色散能差异更显著（分别为–5.3、–6.9 和–9.8 kcal/mol，而野生型为–6.4、–5.9 和–7.7 kcal/mol；图 5G–I），这表明 R5 位氯的亲电加成倾向性增强。
-        
+    ![image.png](http://synbiopath.online/20260120114043753.png)
+![Uploading file...kz4ta]()
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MTQ2OTQ1YTg2OTU3MmEzNjc0MGIyZDA1MThjZmYzZThfR1FhS0dJN1lQNzJQUHJnUFpLbkdiZ2kzV29TaHB2MGlfVG9rZW46SmIwd2JXaldMb0V2NkF4U0NudGNHTkRPbmljXzE3NjUxODgzOTI6MTc2NTE5MTk5Ml9WNA)
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NzBmMjQ1MDJhY2RiYThiNTA2NzZmOWI5OWFmOTU3OWRfeEVOVHZEUm5ReWg5MFJQN0NVZlphbHQ2NXNMcjdweFZfVG9rZW46TnNpMWJTQjFJbzB1QW14dmJRWWNTckhhblRmXzE3NjUxODgzOTI6MTc2NTE5MTk5Ml9WNA)
 
 ![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NTIxOWI0MTFhZmY3NThhYmYxMjg2Zjc5ZTI1MzA3NGRfektxbzV0eUQ3UTR6NlRQT2NvYkc2TVFQcndmS3BwNTNfVG9rZW46UlN0cGJPSDlxb3R5bzV4cXhPYmNMSEE3bkJmXzE3NjUxODgzOTI6MTc2NTE5MTk5Ml9WNA)
 
