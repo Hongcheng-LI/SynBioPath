@@ -190,13 +190,12 @@ Malleicyprol 的生物合成基因簇 (_bur_) 已被鉴定。已知其由两条�
 **实验步骤**：对 BurF 中 C 和 T 结构域之间的 DUF (命名为 NEX 结构域) 进行生物信息学分析。
 
 **实验结果与分析** (参照原文 Fig. S15, S16, Table S3)：
+![image.png](http://synbiopath.online/20260120113730697.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ODVmZGE4YjhjN2Q3Mzk3ZDA0M2ViY2EwODlhM2U4NjBfZ0dzb2VreWZuelA0UzZRZzFDcFA5bldRUVluZU9wTGVfVG9rZW46UnFmeGJsdXI4b05nbnd4NkRJNWNwM21lbkRkXzE3NjUxODc5NTg6MTc2NTE5MTU1OF9WNA)
 
 - Foldseek 分析显示 NEX 结构域与 FkbH 蛋白家族的 N 端延伸 (NEX) 结构域具有相似性。
-    
+    ![image.png](http://synbiopath.online/20260120113757340.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MzQ0OTdkMTg4MjE0NDhkYmM3ZGQ3YjNjMWI3ZWYzMjFfa0VyaTl1d3dlNTlrTnlBdVp5SnR2MkF2Y2l6Yzd3YnBfVG9rZW46VGszSWJNbTY5b2FmclJ4Qnd3dGNwVHFLbmZoXzE3NjUxODc5NTg6MTc2NTE5MTU1OF9WNA)
 
 - 序列相似性网络分析显示，NEX 结构域的同源物主要存在于与特殊代谢相关的多结构域蛋白中，通常与磷酸酶和酰基转移酶结构域共存。
     

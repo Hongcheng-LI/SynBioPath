@@ -1,4 +1,5 @@
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=Y2RjOGFmMjI3MmEwMWUzOGZhNTE2ZWFkMzQ0MDg1YWJfTGt2U3FmZ0pSVDhzUlJPT2QxcFhUdmhxck1HVzQ0ZFdfVG9rZW46VXI4Q2JmWERKb3dPUjB4TVREQWNHMU1NbjRRXzE3NjUxODgzOTI6MTc2NTE5MTk5Ml9WNA)
+![image.png](http://synbiopath.online/20260120113815547.png)
+
 
 ## 一：基本信息
 
@@ -24,16 +25,16 @@
 ### 研究背景
 
 酶法卤代是生物合成和生物催化中的重要反应，能够显著改变分子的生物活性。黄素依赖性卤代酶 (Flavin-dependent halogenase, FDH) 是催化此类反应的关键酶。然而，大多数已知的 FDH 只能在一个或两个位点上进行卤代，对于那些在复杂分子骨架的多个、空间上遥远的位置进行多次卤代的“多位点卤代酶”，其催化机制、区域选择性控制以及反应顺序都知之甚少。
+![image.png](http://synbiopath.online/20260120113822893.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MmZjMWQ4NzgyNjE3N2UzMzJmNjlkY2I3YjM1ZjIwYzFfU3FodWpzOHhnckhVU2hhNDNmTzViaENRVnUyT2E2Mk5fVG9rZW46Tk45RmJpUlYyb0taVE14UGhaWGNPdjlnbmZkXzE3NjUxODgzOTI6MTc2NTE5MTk5Ml9WNA)
 
 本研究的核心科学问题是：**通过对一个能催化五次氯代反应的酶 (FasV) 进行深入研究，揭示多位点卤代酶是如何实现其复杂催化过程的。**
 
 ### 前期研究
 
 在本文发表前，研究人员已经从链霉菌中分离鉴定了萘丝菌素 (naphthacemycins) 家族化合物，其结构特点是在一个大的萘并四苯骨架上带有不同数量（1-5个）的氯原子。尽管推测其生物合成涉及一个 FDH，但这个酶的具体身份、催化能力以及它如何精确地在五个不同位置按顺序加上氯原子，仍然是一个未解之谜。已知的 FDH 模型无法解释这种复杂的催化行为。
+![image.png](http://synbiopath.online/20260120113827974.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NjI3NDQxODllYjI5NzdmODhmOWE3NjFhYjRmZDRkODdfd3RleUZjR0NTTThxUzB2VW8zV0UyYlFKNllCTzBsMnJfVG9rZW46UGREdGI2SFNTbzNOU0t4TVZyd2NheHdpbmJlXzE3NjUxODgzOTI6MTc2NTE5MTk5Ml9WNA)
 
 ### 本文突破点
 
