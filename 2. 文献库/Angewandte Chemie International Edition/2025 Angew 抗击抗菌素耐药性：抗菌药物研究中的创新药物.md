@@ -1,4 +1,5 @@
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=M2QzYjdkMDk5MWI3ZTQxZmMxZTRhMGRkZDNkNWE1NGJfS21uY0U0ZDZadkFxaXJEVGNkMldHWm1oQXc1MUk5bU5fVG9rZW46WVJFWGJETHFMb2RFZjh4eHpXeGNlMktEblhiXzE3NjUxODg0MTk6MTc2NTE5MjAxOV9WNA)
+![image.png](http://synbiopath.online/20260120113024720.png)
+
 
 # 一：文献基本信息
 
@@ -108,8 +109,8 @@
 此外，细菌的致病性不仅与其生长有关，还与其产生的**毒力因子 (Virulence factors)** 密切相关。这些毒力因子（如毒素、粘附素、分泌系统）通常不是细菌生存所必需的，但却是致病的关键。因此，靶向毒力因子或其调控系统（如**群体感应 (Quorum Sensing, QS)**）的**抗毒力疗法**，旨在“解除细菌武装”而非直接杀死它们，被认为是一种可能减缓耐药性产生的策略。然而，其在急性感染中的疗效和适用性仍在争论中。
 
 许多病原体还能形成**生物膜 (Biofilms)** [**图 2 (示意图)**]，这是一种由细菌群体分泌的胞外基质包裹形成的复杂结构。生物膜内的细菌代谢缓慢，对传统抗生素的敏感性可降低数百倍，是导致慢性感染和植入物相关感染的主要原因。
+![image.png](http://synbiopath.online/20260120113037087.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YzVkNzM0MzY5ZGVmZDgxMDc0OGU0ZmFjOGM2OWJlYzBfb1VFOHZrVkVERzdnQ200WXpFeXFIbWt4NEswSHJ6NWVfVG9rZW46Snd4dGJUSFR0b0J4VWV4djBudmNJRVpvbmswXzE3NjUxODg0MTk6MTc2NTE5MjAxOV9WNA)
 
 ## 1.2 理想靶点与药物特性：制胜的法则
 
@@ -125,8 +126,8 @@
     
 
 [**图 1：已确立和新兴的抗菌靶点示意图**] 该图是理解抗菌药物作用机制的“战略地图”。
+![image.png](http://synbiopath.online/20260120113044412.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NzRlZDE1ZDllMzk1NGI1NDI1YmY5MDlhOTAxYjc3NTdfendSSkREdTF5V1RvQXpENk16MHZCaFI2cjlqeERkNUhfVG9rZW46VkVhS2J0RW1ab2VDT0h4cHdGa2NZMEtlbkdnXzE3NjUxODg0MTk6MTc2NTE5MjAxOV9WNA)
 
 - **描述性说明**：该图以革兰氏阴性菌、革兰氏阳性菌和分枝杆菌的细胞结构为背景，系统性地标示了从细胞壁、细胞膜到细胞质内各种已确立和新兴的药物靶点。
     
@@ -151,8 +152,8 @@
     
 
 [**图 2：以 albicidin 为例解释的主要耐药机制**] 该图以新型 DNA 促旋酶抑制剂**albicidin**为例，生动地展示了细菌耐药机制的多样性和复杂性。
+![image.png](http://synbiopath.online/20260120113051740.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NTVlYmZjZjQ4ZmRlZmNlMTJlYThmYzg3NDFhODQyOTBfZVM5dWRPREpqNFBEdUV6Nk1veWdZQzdNRUtoenY2WFRfVG9rZW46S09YZWIxSnhFb2pYN094aVVHUWNUaWJjbktlXzE3NjUxODg0MTk6MTc2NTE5MjAxOV9WNA)
 
 - **描述性说明**：该图展示了针对 albicidin 的五种不同耐药机制。(A) _大肠杆菌_ 通过突变外膜转运蛋白 Tsx 阻止药物进入，或 _白色黄单胞菌_ 通过外排泵 AlbF 将其泵出。(B) _白色黄单胞菌_ 通过突变靶点（DNA 促旋酶）或产生保护蛋白 AlbG 来保护靶点。(C) _分散泛菌_ 产生肽酶 AlbD 将 albicidin 切割失活。(D) _产酸克雷伯菌_ 产生结合蛋白 AlbA 来隔离药物。(E) _鼠伤寒沙门氏菌_ 通过**基因扩增 (Gene Duplication Amplifications, GDAs)** 提高药物结合蛋白 STM3175 的产量来隔离药物。
     
@@ -160,8 +161,8 @@
     
 
 [**图 3：耐药因子抑制剂**] 该图展示了对抗耐药机制的“反制武器”。
+![image.png](http://synbiopath.online/20260120113058049.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YmU5MDQ3NzNmMDk5ZjlmZWVlNThiNzMwOGMwMzEwMjJfcU1lN3hGQ3p4SWRva2dXbUFkalFPUUs5WW1UNWRQb2xfVG9rZW46SmNyemJUMTd1b1RZNU94MllmZWN4Q3hLbjRmXzE3NjUxODg0MTk6MTc2NTE5MjAxOV9WNA)
 
 - **描述性说明**：图中展示了三类耐药因子抑制剂。(A) **β-内酰胺酶抑制剂 (β-lactamase inhibitors, BLIs)**，如 **avibactam** 和 **vaborbactam**，它们与 β-内酰胺类抗生素联用，保护后者不被降解。(B) **外排泵抑制剂 (Efflux pump inhibitors, EPIs)**，如 **PAβN**。(C) **突变频率下降 (Mutation Frequency Decline, Mfd)** 蛋白抑制剂，如 **NM102**，旨在降低细菌产生耐药突变的能力。
     
@@ -171,8 +172,8 @@
 ## 1.4 药物开发流程：从命中到候选的漫漫长路
 
 [**图 4：抗菌药物开发流程示意图**] 该图是新药研发的“路线图”，清晰地展示了从早期发现到临床前开发的各个阶段和关键决策点。
+![image.png](http://synbiopath.online/20260120113104262.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NDdkMDhiNzFmNmQ1YTJiOWYxZjY1YzM2OTk2ZGY1OWVfVVVYcHE0WldSREczVldpeThNQ05NMlVFS2VUMnJCWXBfVG9rZW46RHdhUGIzcXlIb1hsQmt4SkNrRWNpY2hmbkVnXzE3NjUxODg0MTk6MTc2NTE5MjAxOV9WNA)
 
 **描述性说明**：该流程始于**命中化合物的发现与验证 (Hit identification & validation)**，经过**从命中到先导的转化 (Hit to Lead)**、**先导化合物优化 (Lead optimization)**，最终进入**候选化合物的确定 (Candidate profiling)**。图中红色框代表微生物学和感染模型研究，蓝色框代表药代动力学和毒理学研究。
 
