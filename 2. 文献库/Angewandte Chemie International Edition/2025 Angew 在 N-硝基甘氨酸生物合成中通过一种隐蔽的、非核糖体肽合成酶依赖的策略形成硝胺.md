@@ -1,4 +1,4 @@
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YjcyMzJhMTUyM2EzZjBiYmNlNjVjNWVmNDcxNDJiMmZfR2Jjc3c1Z3Q0V1FNVUEzeXhMeGlJS2laQXhwaThOZGZfVG9rZW46TnJxcmJQc0lGb0RHZXd4ZFduMGN2Y2IwbkVWXzE3NjUxODgzMjY6MTc2NTE5MTkyNl9WNA)
+⚠️upload failed, check dev console
 
 ## 一：基本信息
 
@@ -24,16 +24,14 @@
 ### 研究背景
 
 含硝基的天然产物具有多样的结构和重要的生物活性，但其中 N-硝胺 (N-nitroamine) 这类化合物在自然界中极为罕见。N-硝基甘氨酸 (N-nitroglycine, NNG) 是目前已知的唯一由链霉菌产生的硝胺类天然产物。其生物合成途径长期未知，特别是其 N-N=O₂ 官能团的来源和形成机制，是天然产物生物合成领域的一个谜团。
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NWE2YWJjZTE1NTVkNWZjODBlMzZhNjU3ZDM4YjVhNTJfUml6ZTBjRG1IVFpXbmx1eU50bWNndnJCNW5aS0wxTjZfVG9rZW46TkNmYmJxcjBhb2ZYc1V4ZGhJaWN1eTZnbjVEXzE3NjUxODgzMjY6MTc2NTE5MTkyNl9WNA)
+![image.png](http://synbiopath.online/20260120115833644.png)
 
 本研究的核心科学问题是**阐明 NNG 的完整生物合成途径，包括其前体来源、基因簇以及关键的酶促反应。**
 
 ### 前期研究
 
 在本文发表前，关于 NNG 的研究非常有限。已有的假说认为其 N-硝基可能来源于环境中硝酸盐/亚硝酸盐的直接硝化反应。然而，这一假说缺乏实验证据。与此同时，另一类含 N-N 键的天然产物——重氮化合物（如 azaserine）的生物合成途径已被部分解析，其 N-N 键来源于肼 (hydrazine) 中间体，而肼则由赖氨酸和另一种氨基酸衍生而来。这为 NNG 的生物合成研究提供了一个可能的、但未经证实的比较模型。
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MzAyYjFjYmE1YzQ3Nzc3Njk4ZDJjMjlmOTU3MDM4OTNfYlBJVFN0TWVVbVlkQUJqSGRQZ1hYWGdqcFkyM2pidERfVG9rZW46R0xnRWJGM2Zvb3FFcHR4QmcyMmNIV0xXbndiXzE3NjUxODgzMjY6MTc2NTE5MTkyNl9WNA)
+![image.png](http://synbiopath.online/20260120115840206.png)
 
 ### 本文突破点
 
@@ -82,12 +80,11 @@
 #### 实验结果与分析
 
 **Figure 1c** 的 HPLC 结果显示，多个链霉菌菌株都能产生 NNG，为后续研究提供了模式菌株。
+![image.png](http://synbiopath.online/20260120115853475.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZGI3ZTkwMGZhNTkzMWZkYjU1NmM1Y2M4ZGI2OWE1OGNfZnAxNm5yUTd4eHc5VTdQOE9QcHhpc2JscEgyT0duNlZfVG9rZW46RXJQMmI5bjN6b04yTXZ4QVc3TGNFOU1xbnByXzE3NjUxODgzMjY6MTc2NTE5MTkyNl9WNA)
 
 **Figure 1d** 是同位素标记实验的核心证据。UPLC-HRMS 分析显示：
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=OTM5ZDJiZjQwMTY5NTQ2YTM5ZWYwNDk3ODgzZWI3NGRfd1RWMHRrUHRIYXdaa0tBeDBrUHNFZUlGb0s5ZDN3TWpfVG9rZW46RUJXSmI5VXpybzUwekp4WHdpQmMzbm1LbnViXzE3NjUxODgzMjY6MTc2NTE5MTkyNl9WNA)
+![image.png](http://synbiopath.online/20260120115858808.png)
 
 - 饲喂 ¹³C,¹⁵N-标记的甘氨酸后，NNG 的质荷比 (m/z) 增加了 2 Da，表明整个甘氨酸分子被完整地整合了进去。
     
@@ -99,8 +96,7 @@
     
 
 **Figure 1e** 展示了基于上述发现挖掘到的 `nng` BGC。该 BGC 包含了所有预期的肼和肼酮合成基因（如 `nngK, M, L, Q, O, P, R, I`）。
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NGIyYzI5YTIwZjY5NGI0NjNhMDFmOTY4MTFiNTJiZDFfV09Dd1FZTDFUOXcxZUZRdTRaSGlPbXV2OHlFMEJwRWlfVG9rZW46SUVHYWJkVENOb01za3Z4RDY4bWN6bHJtbkFiXzE3NjUxODgzMjY6MTc2NTE5MTkyNl9WNA)
+![image.png](http://synbiopath.online/20260120115905366.png)
 
 **Figure 1c** (最下方两个谱图) 显示，将 `nng` BGC 导入非产菌 _S. coelicolor_ M1152 后，该菌株开始产生 NNG，证明了该 BGC 的功能完整性和正确性。
 
@@ -118,18 +114,15 @@
 #### 实验结果与分析
 
 **Figure 2b** 的基因敲除结果显示，敲除 `nngM` (肼合成酶) 或 `nngO/P/Q/I/R` (肼酮形成级联) 中的任何一个基因，都会导致 NNG 的生产完全停止，证明了它们都是必需的。
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDNlZGMzNmU3MGM3YjJhYjBhYWVhZmY0N2UxYzUwZDNfQlhGZTJGV0dHMzFsM1JyVkdZSUFDMm1JRXd2OHo3dGZfVG9rZW46STdIaWJRVkhKb295cGF4M2YzcmNUdTRFbmxmXzE3NjUxODgzMjY6MTc2NTE5MTkyNl9WNA)
+![image.png](http://synbiopath.online/20260120115912137.png)
 
 **Figure 3** 是体外重构的结果展示。
 
 **Figure 3a** 描绘了提议的反应路径。
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MjMwNDNlNThjZGZjZTU0ZmZmZjRmMmNkMmEyZWFmNjBfM2JzZjRlMGZSN0pqTkdLT0t2T053dXpNZmg2cndFT3VfVG9rZW46SE1LWWJEQTFSbzhoVWl4SGx2YWNFZ21CbnBkXzE3NjUxODgzMjY6MTc2NTE5MTkyNl9WNA)
+![image.png](http://synbiopath.online/20260120115919269.png)
 
 **Figure 3b** 的 HPLC 结果显示，中间体 **3** 在 `nngO` 和 `nngR` 突变体中有明显积累，进一步验证了体外重建的反应顺序。
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZTFiYTk3ODI0ZGVlZmJiYzg1YmQwMDE1ODYxZTQyOGNfczZYTmE3cnAySEwxcEJEeVd6RGlaSnhiUEdIVUJLU2lfVG9rZW46UUFKS2JyQlR2b2RkZ0Z4eVY2cGN4R2hDbm1jXzE3NjUxODgzMjY6MTc2NTE5MTkyNl9WNA)
+![image.png](http://synbiopath.online/20260120115925792.png)
 
 **Figure 3c** 的质谱数据显示了逐步的化学转化：
 
@@ -158,14 +151,10 @@
 - **Figure 2b** 的敲除结果显示，`ΔnngN` 和 `ΔnngG` 突变体完全不产 NNG，证明它们是绝对必需的。
     
 - **Figure 4a** 提出了惊人的假设：NngG 负责将 HYAA 从 NngP 转移到 NngN 的 PCP 结构域上，然后 NngN 的 A 结构域活化丝氨酸，C 结构域催化丝氨酸与 HYAA 形成一个酯键，生成关键中间体 HDA-Ser-PCP (**10'**)。
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MTg3MGVlNjE0ZGVhMTA1ZDBmNDA4ZjBmNDA2OTQ5YjVfa3JkdnBuWFB4NnZIUGpYd1pPandORVZaNmQyZWlnYnFfVG9rZW46TDJRZmJaSURFbzBHeHh4MmpNc2NRZFVJbmhmXzE3NjUxODgzMjY6MTc2NTE5MTkyNl9WNA)
+    ![image.png](http://synbiopath.online/20260120115934215.png)
 
 - **Figure 4c** 的体外质谱数据证实了这一假设。在包含所有必需组分的反应体系中，成功检测到了质量数与 **10'** 一致的产物。
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZjJmYTNiNDM3MGFiOWU3Yzg4Y2E1ZTIzOWE1MjM5NzZfRFpWemloYW1zdzg0TlVhOFowRmYycEF2aGZxQUlFdExfVG9rZW46UEJGa2JHck9zb2d3WWR4TjhBZmNaNTV5blNlXzE3NjUxODgzMjY6MTc2NTE5MTkyNl9WNA)
+    ![image.png](http://synbiopath.online/20260120115942001.png)
 
 - **结论**：NRPS NngN 的功能不是合成肽键，而是利用其 A 结构域和 C 结构域，将丝氨酸作为一个“活化手柄”或“识别标签”，通过酯键连接到肼酮中间体上。这个过程对于后续的氧化修饰至关重要。
     
@@ -191,8 +180,8 @@
     
 
 **Figure 4b, 4c** 的体外实验结果显示，NngA 和 NngE 确实能够水解 HDA-Ser-PCP 上的酯键，但它们对底物的识别具有特异性。NngE 只能水解未被氧化的底物 **10'**，而 NngA 则可能作用于氧化后的中间体。
+![image.png](http://synbiopath.online/20260120115950914.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MTA1MmRmMDI2ZTQ3NGE2OGI3OTY0NjE5NWZiMzAzMjdfUnNJMEtvcFdjeUtCVGF0TlhqUlJ0Wk56aWt0WlNJVG1fVG9rZW46VGxwYWJmWkszb0JBa2Z4eTY5UGNYMHoxbkJzXzE3NjUxODgzMjY6MTc2NTE5MTkyNl9WNA)
 
 **结论**：在丝氨酸被 NRPS 连接上之后，NngH 和 NngS 协同作用，将 PCP-硫酯化的肼酮氧化为硝胺。最后，两个水解酶 NngA 和 NngE 负责切除丝氨酸“手柄”和 PCP 载体，释放出最终产物 NNG (**1**)。
 

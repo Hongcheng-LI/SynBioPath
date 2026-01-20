@@ -1,4 +1,5 @@
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZTFjMWViOTNkMWI2MjM5NWQ5ZDE2MjRiMDlkYjM4MWFfamdDeVZ3VG8wNmNxVUhWdFp3cUtscldIeURUM2EwMVRfVG9rZW46SWdJd2J4NW5PbzRvWGJ4c2x0T2MwRm40blFJXzE3NjUxODg1MTk6MTc2NTE5MjExOV9WNA)
+![image.png](http://synbiopath.online/20260120120409465.png)
+
 
 ## 一：基本信息
 
@@ -93,9 +94,7 @@
 通过活性导向的分离，作者成功从 _Amycolatopsis_ sp. YIM10 的发酵液中分离得到了一种新的糖肽类化合物，命名为 Saarvienin A (**1**)。高分辨质谱分析确定其分子式为 C₇₃H₁₀₅ClN₁₀O₂₂。HRMSMS 串联质谱分析显示了清晰的碎片规律，可以将其分为一个 C₃₇H₄₀ClN₇O₉ 的肽核心部分和一个 C₃₆H₆₅N₃O₁₃ 的寡糖部分。初步的亲和层析实验显示，**1** 与万古霉素不同，不结合 D-Ala-D-Ala 肽基序，暗示其可能具有新的作用机制。
 
 - **Figure 1 (Saarvienin A 结构图)**：该图展示了最终确定的 Saarvienin A (**1**) 的完整化学结构。图中清晰地标示了其几个关键结构特征：(1) 一个包含 (2S,3R)-β-Me-Cl-Trp, L-DAPA, D-Phe 的肽核心；(2) 一个连接两个 L-DAPA 单元的脲基 (ureido) 形成的大环；(3) 一个外环的 D-2-hydroxy-3-(4-hydroxyphenyl)propanoic acid (HHPP) 单元；(4) 一个由 α-L-N,O-Me-Eremosamine, α-L-Digitoxose, α-L-NMe-Eremosamine, α-L-Rhamnose, α-L-Eremosamine 组成的五糖链。其中 N-甲基化和 N,O-二甲基化的 eremosamine 是前所未见的。
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NzkxZmQ2YTUwYjczYmRhMGZkODE3ZWVmNzI3MDJjNzJfVHFxWHhiVnlMYzBOdlA5RmRTWVFzWFFvYzliaVNVY0dfVG9rZW46WmtBOGJlcmxGb3VpNmh4ZnpoSmM5Vk5RblllXzE3NjUxODg1MTk6MTc2NTE5MjExOV9WNA)
+    ![image.png](http://synbiopath.online/20260120120420815.png)
 
 ### 研究部分二：Saarvienin A 完整平面结构的解析
 
@@ -124,8 +123,8 @@
     
 
 **Figure 2 (关键 HMBC 和 HRMSMS 数据图)**：该图是结构解析的核心证据。图中的箭头表示关键的 HMBC 相关信号，它们像桥梁一样连接了各个独立的结构单元。例如，连接糖链和肽核心的 HMBC 信号被清晰标出。图中的 m/z 值则代表了 HRMSMS 实验中观察到的、由糖链依次断裂产生的碎片离子，这些数据与 NMR 推导出的糖链序列完全吻合，形成了交叉验证。
+![image.png](http://synbiopath.online/20260120120429895.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NzhiNDM3NTNjNGRiOWU4NzcyYTI2MjU2ZDU2ODk3NDhfNnFZZE9wSThxcjhwU1BhZkFaYjhrU3hPU0NnMnhObjBfVG9rZW46RTdIemJBZERLb3dNTVh4WWIwTGNleHdObkZlXzE3NjUxODg1MTk6MTc2NTE5MjExOV9WNA)
 
 ### 研究部分三：Saarvienin A 绝对构型的确定
 
@@ -182,12 +181,12 @@ Saarvienin A (**1**) 展现了令人印象深刻的、针对耐药革兰氏阳�
     
 
 **Table 1 (MICs of saarvienin A against bacterial strains)**：该表详细列出了 **1** 和万古霉素对多种细菌的 MIC 值。数据显示 **1** 对革兰氏阳性菌有广谱活性，对革兰氏阴性菌无效。最引人注目的数据是其对 VRE 和 MRSA/VISA/DRSA 菌株的活性均显著优于万古霉素。
+![image.png](http://synbiopath.online/20260120120443545.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=OTkwMmJiMWUwNTc2MTkwMWQwMTcwZDE2MmU3Y2M1ZDdfVVpyOTFnMm8xVm9wMDlEZlZJbjNoak9rNGNCZFFEbnpfVG9rZW46WjRHVWJDUDNhb093bXZ4NEVBR2NQc2k0bk9jXzE3NjUxODg1MTk6MTc2NTE5MjExOV9WNA)
 
 **Table 2 (MICs of saarvienin A against clinical isolates)**：该表展示了 **1** 对 26 株临床 VRE 菌株的活性统计数据。MIC₅₀/MIC₉₀ 均为 0.5 µg/mL，这个极低且稳定的数值强有力地证明了其对抗临床耐药菌的巨大潜力。
+![image.png](http://synbiopath.online/20260120120449652.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=N2U4YTA3Y2JiMzUzZDVjYmU0ZWIwZjkyMDg1NzY5ZTJfVkFOYXExT2NwbE1TdHNObXpXbWRwejQ3RHVKeUJubFFfVG9rZW46Q1MwZWI0cWxhbzhnSkt4Q3ViaGMySFQ5bnFiXzE3NjUxODg1MTk6MTc2NTE5MjExOV9WNA)
 
 ## 五：总体结论
 

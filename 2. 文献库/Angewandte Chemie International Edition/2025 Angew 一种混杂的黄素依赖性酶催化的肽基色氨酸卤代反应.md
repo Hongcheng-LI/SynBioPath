@@ -1,4 +1,4 @@
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDEwZmIzN2Y1ZGQ2M2QwMjQ2ZjI5Yzg5MDJlZTIwNWFfbGNITTk2UGNVMHBFQW04Z2Z5REh4Nmh2U2llUHIzMXdfVG9rZW46TFN1bmJqT3U0b2hNTm94alF4R2NhRXZXbjA4XzE3NjUxODgzNTY6MTc2NTE5MTk1Nl9WNA)
+![image.png](http://synbiopath.online/20260120115710752.png)
 
 ## 一：基本信息
 
@@ -82,8 +82,8 @@
     
 
 #### 实验结果与分析
+![image.png](http://synbiopath.online/20260120115722028.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NGU0M2MwODRiMDFlZjEzNWNlNDA5YmIxMDE3ZWUzZWRfNzNZeXM2TE13QzhUQW9acTlvUHlRcjdTdEJlRzBZYnVfVG9rZW46SlB3VmJnM2pqb2VSd2N4dXNwN2M4RWExbktkXzE3NjUxODgzNTc6MTc2NTE5MTk1N19WNA)
 
 - **Figure 1c** 是体外重建的核心证据。MALDI-TOF-MS 谱图显示，在完整的反应体系中，除了未反应的底物 ChlA (m/z 4610)，还清晰地检测到了单氯代 (m/z 4644) 和双氯代 (m/z 4678) 的产物峰。
     
@@ -106,8 +106,8 @@
     
 
 #### 实验结果与分析
+![image.png](http://synbiopath.online/20260120115727848.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NTNkOWYzYjc5NjdlMGExMWZhMmYyYjUwZmY4NzZlMzVfR2pBZVZZeGFNNTJ0YUM1a0Z0VktWeTZubDlQdldwNDZfVG9rZW46WGd6eGI3T1Nvb0RLckN4VDd1Z2NxTzVIblJiXzE3NjUxODgzNTc6MTc2NTE5MTk1N19WNA)
 
 - **Figure 2a** 总结了 Ala 扫描的结果。图中几乎所有的方格在 24 小时后都变成了实心的橙色，代表完全的双氯代。这表明 ChlA 肽链上的大部分氨基酸侧链对于 ChlH 的识别和催化都不是必需的，显示了 ChlH 对底物序列的**高度耐受性**。
     
@@ -130,8 +130,8 @@
     
 
 #### 实验结果与分析
+![image.png](http://synbiopath.online/20260120115738678.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=Zjk5Mjg0YmFmMTQzNWI0YzFkZDg5Y2UxZDU2YzU1Yjdfc2VMU05SeUJPaENUU1pSR0tQQTAxSzJqREZNSzZXbjNfVG9rZW46RjgzYWJMUjFBb2ZBblN4bno0a2NoRUptbnlnXzE3NjUxODgzNTc6MTc2NTE5MTk1N19WNA)
 
 - **Figure 3b** 展示了自由能计算结果。该图显示，Trp8 和 Trp12 都能在活性口袋中找到一个能量很低的、稳定的结合构象（图中蓝色区域），这个构象非常适合发生催化反应。相比之下，Trp14 的自由能景观则非常平坦且能量较高，表明它无法在活性口袋中形成一个稳定且有利于反应的构象。
     
@@ -154,10 +154,9 @@
 #### 实验结果与分析
 
 **Figure 4** 展示了对多种肽底物的卤代结果。
+![image.png](http://synbiopath.online/20260120115746120.png)
+![image.png](http://synbiopath.online/20260120115751527.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZGQ2YWVkN2Q1ZTcxZDc5NTYxMGYwZmVmN2RhOTgxMWRfYUhEdkNyZkNQVTRBSEFqZ1MwbUtYQUtrc3NKcFdCVjNfVG9rZW46SUltQWJldEpYb1BXd094OVJlQmN1TmNIbm5jXzE3NjUxODgzNTc6MTc2NTE5MTk1N19WNA)
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YWExNDQwZDYxOGVjYjk5NTU0YmU5ZmU1NGJjMjg4MWVfY25ZNmJvdm5NbU51cVZ5WERNaHZReTJpelE2VTFjc3VfVG9rZW46WmpkZGJ5ejVtb2t3cVF4SVFWOGNFTEFXbmU0XzE3NjUxODgzNTc6MTc2NTE5MTk1N19WNA)
 
 - **FusAcore (Fig 4a)** 和 _DarA-Q8 (Fig 4b)_*：ChlH 成功地卤代了这两种来自不同生物合成途径的线性肽。
     
@@ -169,14 +168,11 @@
 **Figure 6** 展示了最令人瞩目的结果——对蛋白质的卤代。
 
 - **Figure 6a** 的质谱图显示，经过 ChlH 处理和胰蛋白酶酶切后，MBP-TbtG 蛋白的一个特定肽段 (LGTPWLPVR) 的分子量增加了 34 Da。
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NmU5NzA1MjE5ZmZhMzQzN2NiNzkxNWZkNDUwMDg3ZWVfdEk0NXUxbEl0U1lwc09WT1lTR3dzUTJUMjBXc3lscEFfVG9rZW46WTlIWWJCNTVkb1JhcFB4Zm52eWNnTTRlbmRlXzE3NjUxODgzNTc6MTc2NTE5MTk1N19WNA)
+    ![image.png](http://synbiopath.online/20260120115758298.png)
 
 - **Figure 6b** 的串联质谱图进一步将这个氯代修饰精确定位到了该肽段的 Trp 残基上。
-    
+    ![image.png](http://synbiopath.online/20260120115804856.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDk1NDkyMGUwNmUzZmFmODAzZjk0ZWU1NjA5MWYyZjJfNnZmUlBVWkh4SVh0V2ZOZERkeEQ1ZVh2Z3JQT3BHUmVfVG9rZW46QWF1d2JZa1Nob2VuelV4UHJEc2MweE1qbkNnXzE3NjUxODgzNTc6MTc2NTE5MTk1N19WNA)
 
 **结论**：这些结果无可辩驳地证明了 ChlH 具有极其宽广的底物谱，其混杂性超越了所有已知的肽基卤代酶，使其成为一个极具潜力的通用生物催化工具。
 
