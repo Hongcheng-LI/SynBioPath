@@ -1,6 +1,5 @@
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MDg0OWE2YmMwZDI0ZGI1MTljYzY2YjZhMDM4OTk4YjRfQjlPS28zajdHcXJWTUpKbW9NOWlhVWxFeXZHcXBRZWJfVG9rZW46UHZtWmJNYnFGb0RJOWR4SFNYbGNraGZPbmdkXzE3NjUxODkwMTA6MTc2NTE5MjYxMF9WNA)
+![image.png](http://synbiopath.online/20260120120842761.png)
 
-  
 
 ---
 
@@ -67,32 +66,27 @@
 本研究的起点是设计一种 DMPC-10A 的衍生物，旨在降低其溶血活性并提高其蛋白酶稳定性。设计策略是部分 D-氨基酸取代，保留 L-Ala¹ 和 L-Trp³，而将其他 L-氨基酸替换为 D-型。
 
 - **(图 1)** 圆二色谱 (CD) 分析显示，在模拟膜环境 (50% TFE) 中，母体肽 DMPC-10A 呈现出典型的右手 α-螺旋构象（在 208 nm 和 222 nm 处有强负信号）。与之相对，DMPC-10B 则呈现出镜像的**左手 α-螺旋构象**（在 208 nm 和 222 nm 处有强正信号）。这证实了 D-氨基酸的引入成功地改变了肽的二级结构手性。
-    
+    ![image.png](http://synbiopath.online/20260120120856995.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZTZjZGFjNjYyNmFkMTczNjkzNWI5NGViMmYxZjI4NjlfbHlLcEpacEZjc0paVk5yRFB3TldpbEhTalk3OERDbjlfVG9rZW46VHBLdWJtNVF2bzdPS2d4NHBtbWNIdklObmVkXzE3NjUxODkwMTA6MTc2NTE5MjYxMF9WNA)
 
 - **(图 2)** 基于 CD 结果进行的分子建模直观地展示了 DMPC-10A（右手螺旋）和 DMPC-10B（左手螺旋）的构象差异。两者都保持了两亲性螺旋的特征，即带正电的亲水残基（蓝色）和疏水残基分布在螺旋的不同侧面。
-    
+    ![image.png](http://synbiopath.online/20260120120903101.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZmJkMTFhYjViYzMzNTRmYTMyMjEwZDA1OWYwNWRkZmJfS29icnZzcU1weHFjRDZ5bk1sUFh4a0lQWHhKU2s1TjlfVG9rZW46VmtHZWJ0Z29Kb0xTc2d4RnZCNWNha2c0bjliXzE3NjUxODkwMTA6MTc2NTE5MjYxMF9WNA)
 
 ### 研究部分二：DMPC-10B 的抗菌活性与稳定性
 
 本部分旨在系统性地比较 DMPC-10B 和 DMPC-10A 的抗菌活性和对蛋白酶的稳定性，以验证设计策略的有效性。
 
 - **(表 1)** 抗菌活性测试 (MIC) 结果显示，DMPC-10B 保持了与 DMPC-10A 相当的广谱抗菌活性。在某些情况下甚至更优，例如，对大肠杆菌和 MRSA 的 MIC 值比 DMPC-10A 降低了 4 倍和 2 倍。这表明，手性螺旋结构的改变并未削弱其抗菌能力。
-    
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MTA2ZTc0MmJjMTIwZGE5ODFkMmE2NTgwNWY0ODNhMjFfVTAyZjM5ejd3eFp6NXljWDc5MDJLd2dhQ0NIc3FQNE1fVG9rZW46TW1yamJtREI0b21pcWJ4SUdqYWN5WEtMbnVnXzE3NjUxODkwMTA6MTc2NTE5MjYxMF9WNA)
+   ![image.png](http://synbiopath.online/20260120120915129.png)
 
 - **(表 2)** 在模拟生理离子环境（含 Mg²⁺, Ca²⁺, Na⁺）或血清 (FBS) 的条件下，DMPC-10B 同样保持了良好的抗菌活性。
-    
+    ![image.png](http://synbiopath.online/20260120120931289.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=M2IyZGVmNDZhNDU5YWJlNTUwYjc2MDc2YmYzNDBjM2NfOW8wbWllbWJsUHc0NWhVRE1xRzJDbTlpdExJRWxVN0lfVG9rZW46VDRBbGJSVkNwb1RQTFZ4YlpLYmNlOXc5bk1nXzE3NjUxODkwMTA6MTc2NTE5MjYxMF9WNA)
 
 - **(图 3)** 蛋白酶稳定性实验提供了关键证据。
-    
-    ![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NDk4OTg3M2I3ODYxODVkN2MwZTE1YWFhNzBlOTE2NjNfS2tyMG9FZkR6Rm9HaE55SDBNQnNzU0JrRlgzQUE4VW5fVG9rZW46Vkpqb2JKUFk0b1ZiSHR4T01iWGNJaklPbnpmXzE3NjUxODkwMTA6MTc2NTE5MjYxMF9WNA)
+    ![image.png](http://synbiopath.online/20260120120937814.png)
+
     
     - **胰蛋白酶 (Trypsin)**：DMPC-10A 在 10 分钟内被完全降解。而 **DMPC-10B 在 120 分钟后仍几乎保持 100% 完整**。
         
@@ -106,38 +100,32 @@
 降低对哺乳动物细胞的毒性是本次改造的另一个核心目标。本部分通过一系列体外实验，比较了两种肽的细胞毒性和溶血活性。
 
 - **(图 4a, 4b)** 对人角质形成细胞 (HaCat) 的毒性测试显示，DMPC-10A 在 8 µM 以上浓度即表现出显著的细胞毒性（细胞存活率下降，LDH 释放增加）。相比之下，**DMPC-10B 在高达 128 µM 的浓度下仍未显示出任何明显的细胞毒性**。
-    
+    ![image.png](http://synbiopath.online/20260120120945574.png)
+    ![image.png](http://synbiopath.online/20260120120955455.png)
+![image.png](http://synbiopath.online/20260120121001518.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MTgzZmZiMWY4NGZmYjQ1NGY0ZjRlYWUzZmNiMWExZWZfbGpYRXBCUUliNFgyaUdiVDQwUURodmtXeWRZSzdNbmVfVG9rZW46SkVGY2J5c0pNb3FzRTV4U1FmYmNpMjdVbjNiXzE3NjUxODkwMTA6MTc2NTE5MjYxMF9WNA)
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MGI1NzJhODgzY2U0MmM5OTQwZjRmNDFkNDFlMjRmMzRfNkhiVG9Rd1ZFTHEwSmdNTXlMdDhnazVLWTV1cXowQVpfVG9rZW46VkVRMWJHSDA2b25MVGp4MGpsaGNzMGZWbk9jXzE3NjUxODkwMTA6MTc2NTE5MjYxMF9WNA)
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MDA5OWY4MzcxOTkxNTMyY2QwOTZkZWJiMzAzM2NlZTNfeDUwUXdlblM4QmNxd0d5cTdiRXF2dUl3VkxrSjFaWjdfVG9rZW46REZ6VGJHZHRib0VYaml4Z2syY2N3c0N5bm1kXzE3NjUxODkwMTA6MTc2NTE5MjYxMF9WNA)
 
 - **(图 4c)** 溶血活性测试结果与细胞毒性一致。DMPC-10A 从 16 µM 开始即引起显著的溶血。而 **DMPC-10B 在高达 512 µM 的浓度下，溶血活性也极低**，与阴性对照无显著差异。
     
 - **(图 5)** 膜通透性实验为上述现象提供了机理解释。在模拟哺乳动物细胞膜的脂质体 (DPPC SUVs) 存在下，DMPC-10A 对细菌膜的通透能力被显著抑制，而 DMPC-10B 则几乎不受影响。这表明 DMPC-10A 会与哺乳动物细胞膜发生非特异性相互作用，而 DMPC-10B 则对细菌膜表现出更高的选择性。
-    
+    ![image.png](http://synbiopath.online/20260120121008994.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YWRmNzkxNjUzNGJhYjllYzYyMDZhMjc5ODcyNjM3MWVfTUJSTnBxaGQwOFFlWm5XZG94RVFoVkl1MXdvblYwcmhfVG9rZW46R1dqM2JwS2Y4b2M0ekV4c2JISmNlNklKbjNlXzE3NjUxODkwMTA6MTc2NTE5MjYxMF9WNA)
 
 ### 研究部分四：DMPC-10B 的抗生物膜、协同作用及体内药效
 
 为进一步评估 DMPC-10B 的临床应用潜力，本部分研究了其抗生物膜活性、与常规抗生素的协同作用以及在动物模型中的体内药效。
 
 - **(图 6)** DMPC-10B 对金黄色葡萄球菌和 MRSA 的生物膜形成具有显著的抑制作用，并能部分清除已形成的成熟生物膜，其效果与 DMPC-10A 相当。
-    
+    ![image.png](http://synbiopath.online/20260120121014879.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDJiYmZlZThhMDg5MTgyNDI5NjgyNWVlMWQ4OTM5OGVfb3pCY2k3Y1VQZmJnTDJqRmtqRHV5Uk1QTXlvOGZneXBfVG9rZW46QWI0UmJiT0VUb21MZWx4aFgyYmNCNmV2bkdmXzE3NjUxODkwMTA6MTc2NTE5MjYxMF9WNA)
 
 - **(表 3)** 协同作用实验显示，DMPC-10B 与庆大霉素联用时，对三种肺炎克雷伯菌株（包括耐碳青霉烯菌株）均表现出**协同杀菌效应** (FICI = 0.375)。这表明 DMPC-10B 能够破坏细菌外膜，帮助庆大霉素进入细胞。
-    
+    ![Uploading file...w2840]()
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NzZkYWEwZDg4OGJiNDUxMjM1OTdhZGZhNTE5ZGEyNzRfZldkQmZwOVFBSWxBZGNkM2RxSUNSQVp4dDdLNGluU2hfVG9rZW46SURETmJpTklZb2wxTzJ4TkdZQ2N4VkxtbldiXzE3NjUxODkwMTA6MTc2NTE5MjYxMF9WNA)
 
 - **(图 7)** 在蜡螟幼虫感染模型中，DMPC-10B 表现出显著的体内治疗效果。
-    
-    ![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MzVkNmIyNjY0ZDRkMmY5NjMwZDY2ODE0NjQzOGIxNjRfY1lKWkd2M2I5NE5CT0s2SGZtMG02Z0Q1R2o4bGk4Z2tfVG9rZW46UXFqemJpMmNkbzhVdmN4elBTQWNUSDlTbm1mXzE3NjUxODkwMTA6MTc2NTE5MjYxMF9WNA)
+    ![Uploading file...n3d4w]()
+
     
     - 对于 MRSA 感染，20 mg/kg 剂量的 DMPC-10B 治疗可使幼虫存活率从对照组的约 10% 提高到 **70%**。
         
