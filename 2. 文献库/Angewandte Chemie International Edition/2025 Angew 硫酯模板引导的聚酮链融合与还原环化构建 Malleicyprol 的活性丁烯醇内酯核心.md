@@ -87,9 +87,8 @@ Malleicyprol 的生物合成基因簇 (_bur_) 已被鉴定。已知其由两条�
 - 表达纯化截短的 BurF (BurF-2765, 后改进为 BurF-2750 以确保 ACP₃ 正确折叠) 及辅助蛋白。
     
 - 化学合成 S-苯基硫酯类似物 **10**。
-    
+    ![image.png](http://synbiopath.online/20260120113625158.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YzFkNTllMzg5ZDJiYTcwNzlmYTE4ZTM4ZWYyYTg1MDlfR210NHpJZkVUUW5ldG5ZekU5RFJ0VU9LVWtMeDBwQ0VfVG9rZW46V0d6dWI2V0ZTb3MxeUV4NFc4UWN3eURnbnhVXzE3NjUxODc5NTg6MTc2NTE5MTU1OF9WNA)
 
 - 通过 AspN 酶切和 HPLC-HRMS 验证底物 **8** 和 **10** 在 BurF-2750 上的加载。
     
@@ -97,14 +96,12 @@ Malleicyprol 的生物合成基因簇 (_bur_) 已被鉴定。已知其由两条�
 #### 1.2. 实验结果与分析 (参照原文 Fig. 2)：
 
 - BurF-2765 的 ACP₃ 未能正确磷酸泛酰巯基乙胺化。N 端延长 15 个氨基酸的 BurF-2750 则能正确形成 holo-ACP₃ (肽段 **13** 及其 Pant-ejection 离子 **14** 被检测到) (Fig. 2C)。
-    
+    ![image.png](http://synbiopath.online/20260120113630732.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NTY5ODYwZGE3MGMyNjg3NzQ2Yzk0NmU1Mzc0N2I3YmFfVFVxRUI1SkZOWFJzVnZrQ1JSSm5lTWcwcUpMQ3lzWDhfVG9rZW46SGJZWWJ6dlRnb1lIdlp4OTd0VWNHUG8xbk9kXzE3NjUxODc5NTg6MTc2NTE5MTU1OF9WNA)
 
 - S-苯基硫酯 **10** 能够自发加载到 holo-ACP₃ 上 (肽段 **15** 及其酰基-Pant-ejection 离子 **16** 被检测到) (Fig. 2D)。
-    
+    ![image.png](http://synbiopath.online/20260120113635735.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZTUxYzlkNjUzYjRiM2VlZTE3MTI4ZDdiOTIwMWQ0NGNfV05mTGhsMXpiOGZYNUo1SGtEYVd3bmRrTkxiYjhxREJfVG9rZW46RUx3RWJaSFZXb0cySXp4c1BaUWNmYXJMbkhmXzE3NjUxODc5NTg6MTc2NTE5MTU1OF9WNA)
 
 - 底物 **8** 能够被 BurJ/BurH 加载到 T 结构域上 (先前研究已证实)。
     
@@ -118,8 +115,8 @@ Malleicyprol 的生物合成基因簇 (_bur_) 已被鉴定。已知其由两条�
 **实验步骤**：将加载了底物 **8** 和 **10** 的 holo-BurF-2750 与 NADH 或 NADPH 共孵育，HPLC-HRMS 监测产物。
 
 **实验结果与分析** (参照原文 Fig. 2E-G, Fig. S6-S9)：
+![image.png](http://synbiopath.online/20260120113642043.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YzI0MzNlYjcwMzMwODc5YmI3Y2QyODcwZjRlMWVlMGNfS09pM2JCVTNNeE0zWXhBR3hxcGZCVkkzYWw3b0tGTWhfVG9rZW46WDM3dGJyZGx4b2k2akh4aUM3cGNJN3M0bnVnXzE3NjUxODc5NTg6MTc2NTE5MTU1OF9WNA)
 
 - 反应体系中检测到 malleicyprol (**1**, m/z 305.1758 [M-H]⁻) 及其二聚体 bis-malleicyprol (**3**, m/z 611.3589 [M-H]⁻) (Fig. 2F, Fig. S7)。
     
@@ -135,9 +132,8 @@ Malleicyprol 的生物合成基因簇 (_bur_) 已被鉴定。已知其由两条�
 #### 1.1. 实验步骤：
 
 - 利用 AlphaFold 3 预测 BurF 结构域模型。
-    
+    ![image.png](http://synbiopath.online/20260120113648327.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YjEzZGUyOTc1YzFjMjExYmNkYTVmNWVkNDg5YTZlY2FfU2tXQWQxQ0QzUUY5N0FUWkFPNUlBSzBEeWJ6UEowbFBfVG9rZW46U0V1cWJEU2Yyb0pQWHR4NDRCcmNob2pvbjFjXzE3NjUxODc5NTg6MTc2NTE5MTU1OF9WNA)
 
 - 对 C 结构域的催化组氨酸 (His2992Ala)，Red 结构域的 NADPH 结合位点 (Gly3661Ala) 和催化酪氨酸 (Tyr3821Phe) 进行定点突变。
     
@@ -145,8 +141,8 @@ Malleicyprol 的生物合成基因簇 (_bur_) 已被鉴定。已知其由两条�
     
 
 #### 1.2. 实验结果与分析 (参照原文 Fig. 3A, B)：
+![image.png](http://synbiopath.online/20260120113653696.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NTFhZDYxYzM3NzYwOGNjOTcxOGY5NWU3NTkxN2NmNzNfR05XZzRheTMzR0dXVGJDTlFMT0twV1k4clRLZVp1SHpfVG9rZW46Rzd1SmJINW1nb1NsdWd4cmh0OWNPU0xybm9kXzE3NjUxODc5NTg6MTc2NTE5MTU1OF9WNA)
 
 - His2992Ala (C 结构域) 突变完全失活，表明 C 结构域催化了链融合的酯键形成 (Fig. 3B)。NaPDoS2 分析显示该 C 结构域属于 CL 型。
     
@@ -170,20 +166,20 @@ Malleicyprol 的生物合成基因簇 (_bur_) 已被鉴定。已知其由两条�
 进行 malleicyprol 的仿生合成：将乙酯 **25** 用 DIBAL-H 还原为醛 **27**，观察其是否自发环化为 **1**。
 
 #### 1.2. 实验结果与分析 (参照原文 Fig. 3D-F, Fig. 4, Fig. S20-S23)：
+![image.png](http://synbiopath.online/20260120113700578.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NDI4OTgxMWEwZmZmZjhhNzJmYjdjNzljNWNhYjYyODRfUXE1aURoYTR6WFRpa0dZNUFadnVFeDE1eng0cU9nUjVfVG9rZW46VmpZUWJkNnZrb29oV214UVF5ZGNKMHdvbjhmXzE3NjUxODc5NTg6MTc2NTE5MTU1OF9WNA)
 
 使用底物类似物 **17** 和 **18**，成功捕获到相应的醛-DNPH 衍生物 **22** 和 **23** (Fig. 3E, F, Fig. S20)。这表明 Red 结构域将硫酯还原为醛。
+![image.png](http://synbiopath.online/20260120113705917.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=Yzg3MzhmODgzNjg4YTc1NjZhZGFhMjRmOGJiNmJhNmZfNUl5bWtKUkhTR3JRUkJ4R3pEdHFoa1kzRXJNc0s5NnFfVG9rZW46Q0tvamJNTHJsb1FqdUp4VTZmMWNncXBHbmhmXzE3NjUxODc5NTg6MTc2NTE5MTU1OF9WNA)
 
 在酶促反应中 (即使在无 NADPH 条件下) 未检测到 malleicyprol tetronate (**26**) (Fig. 4A)。表明 Dieckmann 型环化不是主要途径。
+![image.png](http://synbiopath.online/20260120113711685.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NGZmZjA2M2Y5NTk3MThlNDlhYzNjMjk0YTMzZjQwNTNfSVdoVnpOaFZjTnpvQzNBQVQ5RU9kMEFNWHQ0YzVIcFdfVG9rZW46RFZDc2JFR1dyb3hzNDB4Qjg1aGNWS0l5bkloXzE3NjUxODc5NTg6MTc2NTE5MTU1OF9WNA)
 
 仿生合成中，醛 **27** (由 **25** 经 DIBAL-H 还原产生) 能够立即环化生成 malleicyprol (**1**) (Fig. 4B, Fig. S23)。
+![image.png](http://synbiopath.online/20260120113722527.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZjA2YWQ3NjBiYzlmZjQ2YTJiYWVkNDNmMjFhNTI2ZGJfU0JndGlXSGlQNWtUUE9MMklhOHlvVHZDbkhYYmNHWWtfVG9rZW46RFUwNGJLMjRSb1BxeVV4Y1JSR2NqMVlKbjNnXzE3NjUxODc5NTg6MTc2NTE5MTU1OF9WNA)
 
 #### 1.3. 结果意义：
 
