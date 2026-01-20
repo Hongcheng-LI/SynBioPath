@@ -193,8 +193,8 @@
 # 第二部分：新武器的来源与发现策略
 
 [**图 5：抗菌药物发现策略**] 该图是现代药物发现方法学的全景图，展示了三大主要技术路径。
+![image.png](http://synbiopath.online/20260120113111342.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NDRmOGMyNWJhYzVjNzY1YWU5ZDQzM2ZkOWRjNmQwNjBfYU9FUzU1ZHN2SHN6cDR0aFVzV011R1h1TjJISFlzdlNfVG9rZW46WElKWmJRY002b0NTREx4V1FTaWNCM0xQbnJiXzE3NjUxODg0MTk6MTc2NTE5MjAxOV9WNA)
 
 - **描述性说明**：该图将发现策略分为三大来源：(1) **自然 (Nature)**，包括从传统和未开发生境中分离微生物，以及利用基因组挖掘和宏基因组学；(2) **化学库 (Chemical Libraries)**，包括小分子库、药物重定位库、DNA 编码库和各种展示技术；(3) **人工智能 (Artificial Intelligence)**，利用机器学习和分子对接进行虚拟筛选和结构设计。
     
@@ -224,8 +224,8 @@
 ## 2.3 计算科学的赋能：分子对接与人工智能
 
 [**图 6：通过虚拟筛选/分子对接和 AI 发现的分子**] 该图展示了计算方法在药物发现中的强大威力。
+![image.png](http://synbiopath.online/20260120113120672.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NzIzOTk2MzFkMDBmYTlmYjM2ZGFkY2M0NWEzY2VhODJfWkhRR3NuMG9KdmVkaWw0VllUbG96VzFKZWdaMGNuaDBfVG9rZW46UFBCZWJPc2VWb2g4YnR4VVB0bmM5UWl5bmtjXzE3NjUxODg0MTk6MTc2NTE5MjAxOV9WNA)
 
 - **描述性说明**：图 A 展示了通过**分子对接 (Molecular Docking)** 虚拟筛选发现的 PBP2a 抑制剂 **ND-421** 和 Mfd 抑制剂 **NM102**。图 B 展示了通过**人工智能 (AI)** 深度学习模型发现的膜去极化剂 **halicin** 和 **abaucin**。
     
@@ -235,8 +235,8 @@
 ## 2.4 设计理念的革新：双效机制与先导优化
 
 [**图 7：双效抗生素的理性设计策略**] 该图展示了三种旨在克服耐药性和增强药效的先进设计理念。
+![image.png](http://synbiopath.online/20260120113127025.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ODhjM2FiZTE4MzE1NDk0YzYzMDBiYTlmODk4ZTc0NTVfUXNhZ05zZVlsZGx0Q3ZvczMydjV2THVkeU1tc1dxZm5fVG9rZW46SkhtZmJ3QVVzb2lJMkp4UUJzbWNmTUhFbmtkXzE3NjUxODg0MTk6MTc2NTE5MjAxOV9WNA)
 
 - **描述性说明**：(A) **“特洛伊木马”策略**，将抗生素与细菌必需的营养物质（如铁载体）偶联，如 **cefiderocol**。(B) **“混合抗生素”策略**，将两个具有不同作用机制的抗生素通过一个连接子偶联，如 **CBR-2092**。(C) **“细菌 PROTAC” (bacPROTAC)** 策略，利用分子胶将靶蛋白与细菌自身的蛋白降解机器（如 ClpCP）连接，从而诱导靶蛋白的降解，如 **UdSBI-4377**。
     
@@ -244,8 +244,7 @@
     
 
 [**图 8：抗菌活性优化的研究实例**] 该图展示了从一个先导化合物出发，通过药物化学优化获得临床候选药物的四个典型案例。
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=OWY3NjAxZThkMDQ2Yzc2NmY0ZWE4YzIyNjlkNzM5ZDJfeGlLaGgwSW5RbGxJd0tqZzh3WDV2S2VIbHNwcnpLcUJfVG9rZW46RUt3QmJ4WWZ3b0RDcFB4bDFkbGM0dHdobnplXzE3NjUxODg0MTk6MTc2NTE5MjAxOV9WNA)
+![image.png](http://synbiopath.online/20260120113134010.png)
 
 - **描述性说明**：(A) 从天然产物 **albicidin** 到广谱类似物 **AF-CD-007** 的优化。(B) 从天然产物 **arylomycin** 到广谱 G- 药物 **G0775** 的改造。(C) 从天然多肽 **protegrin I** 到 G- 特效药 **murepavadin** 的进化。(D) 从 HTS 命中物 **afabicin** 到广谱 G- 药物 **fabimycin** 的改造。
     
@@ -253,8 +252,8 @@
     
 
 [**图 9：优化支架的工具箱和方法**] 该图总结了药物化学家和生物学家用于优化先导化合物的“工具箱”。
+![image.png](http://synbiopath.online/20260120113143781.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=OWNjNTdhNTdlMTEwNGM0ZDJlOTQzODYyNTBmNGY5MWZfSHFoaTVrRzRkQ25jV3lqYTU2WVBITExmMjJNNVdNZmtfVG9rZW46S3RCR2JqUk1hb09nOU94NnY2TGNXWGt3bnpiXzE3NjUxODg0MTk6MTc2NTE5MjAxOV9WNA)
 
 - **描述性说明**：左侧是**药物化学 (MedChem)** 工具箱，包括生物电子等排、理性设计、虚拟筛选和 QSAR。右侧是**生物合成 (Biosynthesis)** 工具箱，包括基因组挖掘、组合生物合成、诱变和化学酶法。图中以**四环素 (tetracyclines)** 的全合成和**放线菌素 (actagardine)** 的半合成为例。
     
@@ -264,14 +263,14 @@
 # 第三部分：创新药物管线全景：一场靶点导向的阅兵
 
 [**图 10：人类医疗保健中当前抗菌药物的防线**] 该图是本部分内容的“背景板”，展示了目前临床上使用的主要抗生素类别及其作用靶点，为后续讨论的新药提供了参照系。
+![image.png](http://synbiopath.online/20260120113153320.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDQzNDRkYzNkMDc3MTFkMTE4MjYxYzAxNTU4NmEzZWZfajBJUXYxV2xobVpCNFoxQk44SkdINDhGejR3RXBvd2FfVG9rZW46TzBJdWJUcUxub1lFcll4eFExSWNxOFhibmV1XzE3NjUxODg0MTk6MTc2NTE5MjAxOV9WNA)
 
 ## 3.1 细胞壁与细胞分裂：攻破细菌的“铠甲”
 
 [**图 11-13, 表 1**] 细胞壁是细菌（除支原体外）所特有的结构，是理想的药物靶点。
+![image.png](http://synbiopath.online/20260120113200048.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YTI5M2QxOWM1NmRiMjBiNTQ0NzQ1Njg5MWI5MWQ1MjVfTWxKbmRFWFhHRjh2WVJ2dGgxbEk0Mm1BREZZWXhqMlBfVG9rZW46Tm9xZmJyRlNsb3BVNXJ4U0dNeGN1d2VJblpnXzE3NjUxODg0MTk6MTc2NTE5MjAxOV9WNA)
 
 **肽聚糖 (PG) 生物合成**：
 
@@ -287,8 +286,8 @@
 **壁磷壁酸 (WTA) 生物合成**：WTA 是 G+ 菌细胞壁的重要组分。**Tarocin A/B** 和 **targocil** [**图 11B**] 分别是 WTA 生物合成早期和晚期的抑制剂，它们能增强 β-内酰胺类药物对 MRSA 的活性。
 
 **分枝菌酸与阿拉伯半乳聚糖合成 (分枝杆菌特有)**：**DprE1** 是该途径的关键酶。**BTZ043**、**PBTZ169**、**TBA-7371** 和 **OPC-167832** [**图 12A**] 都是高效的 DprE1 抑制剂，处于不同的临床开发阶段。
+![image.png](http://synbiopath.online/20260120113207340.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YTM2YmFkMGQxZmJkZTQzMDkzOGUyNWNhYjUxYzFkMTVfb1JTY3E0bTVuMEtOMnZxRHpjWGZJdkI3ZmhYV25RQ0dfVG9rZW46SXF2aGI3VXg5b2VZRjF4QUF3emNiTVVobnNjXzE3NjUxODg0MTk6MTc2NTE5MjAxOV9WNA)
 
 **细胞分裂**：**FtsZ** 是细菌的细胞骨架蛋白，负责形成 Z 环启动细胞分裂。**PC190723** 及其前药 **TXY436** [**图 13**] 是特异性的金黄色葡萄球菌 FtsZ 抑制剂。
 
