@@ -251,19 +251,17 @@
         
     - MD 模拟表明，氢键距离是决定色散能（Edispersion）大小的重要因素（图 5G–I 和图 S22–S24）。在 R2、R3 和 R5 位，r1 和 r2 的距离越短，该位点的色散能就越大（图 5G–5I）。与 FasV 野生型相比（图 S18G–I），I212T 突变体中底物 **1** 的这三个位点（R2、R3 和 R5）卤化反应的色散能差异更显著（分别为–5.3、–6.9 和–9.8 kcal/mol，而野生型为–6.4、–5.9 和–7.7 kcal/mol；图 5G–I），这表明 R5 位氯的亲电加成倾向性增强。
     ![image.png](http://synbiopath.online/20260120114043753.png)
-![Uploading file...kz4ta]()
+![image.png](http://synbiopath.online/20260120114049343.png)
+![image.png](http://synbiopath.online/20260120114055751.png)
+![image.png](http://synbiopath.online/20260120114107037.png)
+![image.png](http://synbiopath.online/20260120114112135.png)
 
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NTIxOWI0MTFhZmY3NThhYmYxMjg2Zjc5ZTI1MzA3NGRfektxbzV0eUQ3UTR6NlRQT2NvYkc2TVFQcndmS3BwNTNfVG9rZW46UlN0cGJPSDlxb3R5bzV4cXhPYmNMSEE3bkJmXzE3NjUxODgzOTI6MTc2NTE5MTk5Ml9WNA)
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDJiN2UyOTFiNDhmMTcxYTgzZGZjZjllMDFiZTc0N2RfN3pwa2g3cUNmZ3dWb1UzN0dnQ1RWYVBsTG9Bd25TS0ZfVG9rZW46TnFBWGJDZGg3b1hsS1B4TTFmdGNyMVVNbkpjXzE3NjUxODgzOTI6MTc2NTE5MTk5Ml9WNA)
 
 - **Figure 6A** 图示了提出的“双重活化”机制。传统的机制认为只有 K76 活化卤素。新机制认为，除了 K76 活化卤素形成亲电的 Cl⁺ 物种外，底物结合口袋中的 S50 会作为碱，夺取底物酚羟基的质子，而 E49 则作为质子中继系统的一部分稳定负电荷。这种对**底物**的活化（使其更具亲核性）与对**卤素**的活化协同作用，共同促进了反应的发生。
     
     - 具体而言，在 FADH₂ 的作用下，氯原子形成次氯酸（HOCl），后者与 K76 结合，形成 N-Cl 物种。随后，随着残基侧链的摆动，E49 的羧基靠近 S50 的羟基，导致两个基团之间的距离可缩短至 2.7 埃（Å，图 6A）；接着，S50 通过将质子转移给 E49 来激活底物，从而降低反应所需的活化能。最后，Cl⁺攻击亲核芳香族底物，同时 S50 促进卤化位点氢原子的移除，最终完成卤化反应。
-        
+        ![image.png](http://synbiopath.online/20260120114118110.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YzZiZjRlNTI4ZDlhOTMyNWZkYWU2MTkxNjI1NGY3NzRfTnRxenZWQm91ZjZIc3UxbGtCVUR4S2xoTFZxVkNjOVBfVG9rZW46T2lyWGJuSDZ4b01vSDF4MTFGRmNOdDRyblNlXzE3NjUxODgzOTI6MTc2NTE5MTk5Ml9WNA)
 
 - **Figure 6B** 展示了 FasV 的生物催化应用。FasV 能够高效地催化非天然底物 **12** 发生两次氯代，转化率高达 75%，证明其具有一个宽敞且适应性强的底物结合口袋，是一个极具潜力的通用生物催化工具。
     

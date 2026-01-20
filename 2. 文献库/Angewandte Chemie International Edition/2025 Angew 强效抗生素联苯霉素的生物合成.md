@@ -1,6 +1,5 @@
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDE4NTE0YzI2NWM5MWUyOWE0ODM4NzYzOWU4NjViZmZfeTVQa3h4dUxZaVJpNE1NRk5jdGhnd2ZwWjdCTm5jTk1fVG9rZW46UjREeWJRSGY3b3daVEd4ZUxyT2NPbklmblpsXzE3NjUxODg4NzU6MTc2NTE5MjQ3NV9WNA)
+![image.png](http://synbiopath.online/20260120114139760.png)
 
-  
 
 ---
 
@@ -21,8 +20,8 @@
 ### 研究背景
 
 联苯霉素类 (Biphenomycins) 是一类具有大环肽结构的细菌天然产物，其分子特征是含有通过联芳基键 (biaryl linkage) 连接的独特邻位-酪氨酸 (_ortho_-tyrosine, _o_Tyr) 残基。这类化合物对革兰氏阳性菌表现出强效的抗菌活性，且对真核细胞毒性低，具有作为新型抗生素的开发潜力。尽管联苯霉素早在 1967 年即被发现，但其完整的生物合成途径一直未能被阐明，这限制了对其进行生物工程改造和发现新型类似物。
+![Uploading file...qg64h]()
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=YTBiODk3ZGEwMTZlMWE4YzgzMWNlZjc5MWQzMTA0NGFfVVJtRkZHaUx4aDk0TXI2bHhtZnVZRm9PcEFkcTR2OGRfVG9rZW46QzZYeGJJUGFmb3pIbkh4UWJUSGN0bXZzbjNmXzE3NjUxODg4NzU6MTc2NTE5MjQ3NV9WNA)
 
 ### 前期研究
 
