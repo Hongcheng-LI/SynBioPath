@@ -207,11 +207,9 @@ I 期临床试验旨在收集新疗法的安全性和副作用数据。虽然已
     
 
 尽管看似浅显，但回顾当前可用于抗菌治疗的药物库仍具有重要意义 (图 10)。[26] 虽然对于大型抗菌药物类别仅展示了代表性结构，但所有类别都提供了至关重要的救命药物。一些抗菌药物基本上是独特的结构类型，例如 vancomycin/teicoplanin；而另一些则代表了经过广泛研究的化合物家族，例如 β-内酰胺类、氟喹诺酮类和磺胺类。该汇编的关键结论是，细胞壁生物合成和核糖体蛋白合成是主要的靶点类别。一个特殊的领域是抗分枝杆菌药物，其特性是为满足病原体的特定需求而设计的，例如抑制分枝菌酸 (mycolic acid) 的生物合成（如 pretomanid）。[196] 大量抗菌药物具有口服生物利用度，例如青霉素/头孢菌素类、四环素类、红霉素类和利奈唑胺，这与肠外给药（如 vancomycin、daptomycin 等）相比，极大地简化了其临床应用。从来源上看，天然产物结构的数量远超纯合成药物（如磺胺类、喹诺酮类、噁唑烷酮类）。从生物合成来源来看，这些天然产物型化合物源自聚酮化合物 (polyketide, PK)（I 型和 II 型）、非核糖体肽 (non-ribosomal peptide, NRP) 以及在较小程度上源自萜类化合物 (terpenoid)（如 pleuromutilins）的生物合成。其中并未包含 RIPP 或其他核糖体合成的肽类。其核心结构（分子实体）的总数之少，可能令人惊讶。
+![image.png](http://synbiopath.online/20260120112440272.png)
 
-
-  
-
-2. ## 肽聚糖生物合成与细胞分裂
+## 3.2 肽聚糖生物合成与细胞分裂
     
 
 肽聚糖 (peptidoglycan, PG) 的生物合成 (图 1)[197] 是一个广为人知的抗菌靶点，该过程分三个阶段进行：a) 细胞质内脂质 I 前体 (lipid I precursor) 的组装（由 MurA-F 蛋白完成）；b) 膜上加工（MraY, MurG）和脂质 II (lipid II) 翻转至肽聚糖侧（MurJ）；c) 随后由转糖基酶 (transglycosidases) 和青霉素结合蛋白 (penicillin binding proteins, PBPs) 进行的转糖基化 (transglycosylation) 和转肽 (transpeptidation) 步骤。肽聚糖的一个主要需求出现在细胞分裂期间，该过程由约 30 种蛋白质组分（称为分裂体 (divisome)）完成。[198] 在此过程中，FtsZ 蛋白作为细胞骨架 (cytoskeleton) 的一部分，通过组装 Z 环来启动细胞分裂和隔膜形成，发挥着至关重要的作用（图 1 和图 13）。[199] 抑制 PG 合成会导致细胞壁失稳，最终导致细胞裂解。[200] 分枝杆菌的细胞壁具有一些特殊性，例如阿拉伯半乳聚糖 (arabinogalactan, AG)、脂阿拉伯甘露聚糖 (lipoarabinomannan, LAM) 和分枝菌酸 (mycolic acids, MA) 作为其组分（图 1），它们的生物合成也是抗分枝杆菌药物的靶点。[27]
@@ -219,16 +217,12 @@ I 期临床试验旨在收集新疗法的安全性和副作用数据。虽然已
   
 
 近年来，关于早期肽聚糖生物合成（MurA-F）的新型有效抑制剂的报道很少。[201] 同样，除了被评估用于抗分枝杆菌治疗的 MraY 抑制剂 caprazamycin B（图 11D，表 1）外，[202,203] 尿苷（脂）核苷类抗生素，例如天然产物 tunicamycin（图 11D）、mureidomycin 或 pacidamycin，[204] 作为早期肽聚糖生物合成的抑制剂，在药物发现工作中仅扮演次要角色，部分原因是耐药性发展迅速[205] 或存在毒性问题。[204] 靶向 PBPs（转肽酶）的 β-内酰胺类药物是已确立的抗菌药物类别，此处不再讨论。非 β-内酰胺类转肽酶抑制剂的例子包括前述的 ETX0462[65]（BLI，图 3 和 11C，表 1）和噁二唑类抗生素如 ND-421[143]（图 6 和 11C，表 1）。关于转糖基化抑制，存在大量实验性的半合成修饰 vancomycin，但它们仅针对多重耐药的 G+ 菌。[186] 一个协同 β-内酰胺类药物（imipenem）的表型筛选例子是类固醇型 murgocil（图 11D），[206] 它靶向葡萄球菌的转糖基酶 MurG。
+![image.png](http://synbiopath.online/20260120112458429.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NzI1NmI1MzM4NjEwNDk3ZDJlM2RiNzA4MjZiMzBjZDVfY21OSHloS0pHbXVPSzhGQjQzUDFnZW5tM3NiZERmZDZfVG9rZW46VUVtVGJkUm0xb0hmbmJ4R3lOcWNoZ1dsbnliXzE3NjUxODg0NDk6MTc2NTE5MjA0OV9WNA)
-
-  
 
 在 1980 年代和 1990 年代，随着耐甲氧西林金黄色葡萄球菌 (Methicillin-resistant _Staphylococcus aureus_, MRSA) 感染的增加，大部分关于肽聚糖组装抑制剂的研究得以开展。[1] 有必要回顾一系列天然产物肽类抗生素（图 12D 和表 1），这些抗生素因其主要针对 G+ 菌的体外和体内抗菌性能而受到研究。杀菌性脂糖缩酚肽 ramoplanin（由 Gruppo Lepetit Gerenzano 发现，图 12D 和表 1）[207,208] 甚至进入了临床阶段。[209] mannopeptimycins 是由 Wyeth Research 团队从吸水链霉菌 (_Streptomyces hygroscopicus_) 中分离出的糖环肽（图 12D 和表 1）。[210] 由于它们对临床相关 G+ 菌的活性，曾一度被重新考虑作为抗菌药物。其主要作用模式是结合脂质 II 并抑制转糖基化。[211] Plusbacins（图 11A 和表 1）是从假单胞菌属 (_Pseudomonas_ sp.) 中分离的脂环八缩酚肽，[212,213] 对 G+ 菌（_S. aureus_，肠球菌 (_Enterococci_)）具有强活性。[214] 关于其作用模式的研究[215] 表明，它通过抑制转糖基化并可能通过膜破坏发挥双重作用。[216] 结构上相同的环肽 lysobactin/katanosin B（图 12D 和表 1）分别从溶杆菌属 (_Lysobacter_)[217] 和噬纤维菌属 (_Cytophaga_)[218,219] 中独立分离得到。杀菌性 lysobactin 的作用模式是与脂质 II 形成 1:1 复合物。[220] 虽然其全合成已为人所知，[221,222] 但详细的 SAR 研究尚不可得。
+![image.png](http://synbiopath.online/20260120112508140.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NmM5NDM1MTU3OGQ0MDg3MDFkNmEzMjk5MzNjNDY2MzJfMDNIcVNPMkZObDYxZkpXS3JmeUlFbENnVXVPYm9OU0VfVG9rZW46SFFmdWJheFBpb2lyYUR4aU5DdWNwQ25zbk91XzE3NjUxODg0NDk6MTc2NTE5MjA0OV9WNA)
-
-  
 
 与上述非核糖体合成的肽 (NRPs)[101] 不同，actagardin（图 12D 和表 1）是一种核糖体合成的 (RiPP) 羊毛硫抗生素 (lantibiotic)。这种 19 肽[223–225] 通过结合脂质 II 来抑制转糖基化。[226] 它对梭菌 (_Clostridium_) 具有中等活性，而对其他 G+ 菌的活性大多较低，但其 C-末端酰胺衍生物[227] 显示出增强的抗菌活性。在生产者菌株 _A. garbadinensis_（Novacta Biosystems Ltd, UK）中进行了大量的结构工程。[187,228] 结果产生了 228 个变体，其中一个突变体具有改善的活性（包括 _C. difficile_ 在内的 G+ 菌）。半合成的 C-末端酰胺修饰的 NVB302（7-氨基庚酰胺基-脱氧-actagardin，图 12D 和表 1）[187,229] 在仓鼠感染模型（_C. difficile_）中有效，并在大鼠和狗的口服给药中未显示毒性。它于 2011 年进入 I 期临床试验。[187] 另一种 C-末端修饰的脱氧-actagardin 类似物是 NVB333（图 12D 和表 1），[188] 它具有更广的抗 G+ 谱。actagardin 的案例代表了其他羊毛硫抗生素，例如远缘相关的 mersacidin[230] 或 microbisporicin (NAI-107，图 12D 和表 1)，[231] 它们也经历了评估项目。
 
@@ -247,10 +241,8 @@ I 期临床试验旨在收集新疗法的安全性和副作用数据。虽然已
   
 
 在参与细胞分裂的因子中，GTP 酶 FtsZ（图 1 和 13）在抑制剂的寻找中受到了最大的关注。小分子 PC190723、TXA-707（前药 TXA-709）（图 13 和表 1），它们都共享相似的分子结构，具有抗葡萄球菌活性。通过 PAβN（图 3B）抑制外排泵可以使 _E. coli_、_A. baumannii_ 和 _K. pneumoniae_ 对 TXY436（PC190723 的前药）敏感（图 13 和表 1）。[245] 苯并咪唑类似物 SB-P17G-A38（图 13 和表 1）[246] 是一种抗分枝杆菌的 FtsZ 抑制剂。然而，开发有效 FtsZ 抑制剂的普遍挑战是缺乏广谱活性、需要膜渗透性以及耐药性的快速发展。[247]
+![image.png](http://synbiopath.online/20260120112520438.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=Y2E1YTZhMjYxYjNkYzAyMTU1MWE3MWQ5NmY3ZGYzYTZfMlFmOTFnNnZ2SUJ0ZE15TzlOaVZZZ1lJeTM5Z2NXTnRfVG9rZW46WGxaS2I4elpFb1NpSkN4dUYycmNmSG45bk5kXzE3NjUxODg0NDk6MTc2NTE5MjA0OV9WNA)
-
-  
 
 许多 G+ 菌的进一步细胞壁特征是壁磷壁酸 (wall teichoic acids, WTAs)，[248–250] 它们与肽聚糖相连，以及脂磷壁酸 (lipoteichoic acids, LTAs)，[251] 它们插入膜中（图 1 和 11）。WTAs 和 LTAs 对细胞生理学很重要，但一些途径抑制剂仅减弱毒力。[252,253] WTAs 主要由 Tar（磷壁酸核糖醇）和 Dlt 蛋白组装。[249,250] WTA 合成抑制剂是 targocil[254,255] 和 targocil-II（均为转位酶 TarGH，图 11B），[256] 以及协同作用的 tarocin A/B（TarO）（图 11B）。[257] 后两者也被报道为 MRSA 治疗的 β-内酰胺增敏剂。[257] 对于影响细胞分裂（FtsZ，自溶素）的 LTA 生物合成，已尝试鉴定 LTA 合酶 (LtaS) 的小分子抑制剂，[258] 它们也作为 β-内酰胺增效剂，[259] 但这些研究，包括小鼠感染模型，仅具有初步性质。
 
@@ -264,7 +256,7 @@ I 期临床试验旨在收集新疗法的安全性和副作用数据。虽然已
 
   
 
-3. ## 核糖体蛋白合成
+## 3.3 核糖体蛋白合成
     
 
 核糖体 (ribosome) 是一个高度复杂的生物合成机器，由 rRNA 和蛋白质组成，将 mRNA 翻译成合成的蛋白质。其基本过程包括通过氨酰-tRNA 合成酶 (aminoacyl-tRNA synthetases, aaRSs) 进行氨基酸的激活和 tRNA 的装载，通过延伸因子 (elongation factors, EFs) 递送至核糖体，以及核糖体蛋白合成（起始、延伸和终止阶段）（图 1）。[261-263] 细菌和真核生物蛋白质合成之间的进化差异足够明显，可以提供治疗优势，尽管这需要单独评估，因为一些核糖体抑制剂，例如 blasticidin S，显示出细胞毒性。[264] 迄今为止，存在大量分子，它们或直接干扰核糖体，或干扰其相关因子。[262]
@@ -272,13 +264,9 @@ I 期临床试验旨在收集新疗法的安全性和副作用数据。虽然已
   
 
 据推测，环七肽 bottromycin（图 14A 和表 2）结合到 50S 核糖体亚基的受体位点。[265,266] 尽管几十年前就已被描述，[267-269] 该化合物重新引起了人们的兴趣，并伴随着半合成和合成类似物的评估。[270–272] 潜在的体内应用稳定性问题可以得到解决，[272] 但抗菌活性仅限于 G+ 菌。同样，伪二肽 negamycin（图 14C 和表 2）是一种早已为人所知的核糖体抑制剂。它具有抗 G- 活性，并且合成类似物的可用性使得 SAR 研究得以重新进行，[273–275] 例如，negamycin cpd **31f**（图 14C）成为一种更有效的衍生物。odilorhabdin NOSO-95179（图 14C 和表 2）[276] 是一种线性多阳离子肽的类似物，从 _Xenorhabdus_ 菌株的表型筛选中分离得到。它诱导氨基酸错误掺入核糖体。NOSO-95179 及其合成类似物 NOSO-502（图 14C 和表 2）对一些 G+ 和 G- 菌显示出活性，并在动物研究中，对 G- 菌（_Ec_/_Kp_）显示出功效。它们的聚阳离子结构类似于 paenilamicins（图 14C 和表 2），[277,278] 这是蜜蜂病原体 _Paenibacillus larvae_ 的代谢产物，以及粘细菌的 myxovalargin（图 14A 和表 2），[279] 它们都靶向 G+ 菌的核糖体。[277]
+![image.png](http://synbiopath.online/20260120112536672.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MDc0NzIyMjc1NDcwYTk2MDQ0ZDRiZDJkNzg1ODFlM2VfMnA2MVFIVVh6bllOZ2ZxUjFqVGQ3QnUwYmhEZnBPM2tfVG9rZW46WFhiU2JHMjREb3VJTmh4WHN3M2NSamJzbmRnXzE3NjUxODg0NDk6MTc2NTE5MjA0OV9WNA)
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MTExNjYyYzAyYjNjYTBiZmQyNTFlODJjMGYwZDVhMjVfaW9QUnVMZW42NG5ZeDRmSzNmSTFzZUFiQ3hkalAzMnBfVG9rZW46WlpEd2JnTFljb1RNcG14Tlo1dWNJeW93bnplXzE3NjUxODg0NDk6MTc2NTE5MjA0OV9WNA)
-
-  
-
+http://synbiopath.online/20260120112536672.png
 天然产物 mupirocin（图 15）是使用最久的氨酰-tRNA 合成酶抑制剂，仅用于 G+ _S. aureus_ 和化脓性链球菌 (_S. pyogenes_) 的局部感染。[280] 另外两个最近的例子来自基于靶点的 HTS，它们是甲硫氨酰-tRNA 合成酶 (methionyl-tRNA synthetase, MetS) 抑制剂 REP8839（图 15 和表 2）[281,282] 用于局部应用（抗 G+；临床 I 期后中止），及其类似物 CRS3123（图 15 和表 2），后者已进入治疗 _C. difficile_ 感染的临床阶段。[283,284]
 
 ![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MzMyNjA3OTI2MDcxNmRiZjc1MzE5YTE1MjYxZmY4NjFfZTlwd25lS1k1VzZndGk4QVBGMGtPS3QydkhsMjUxS1FfVG9rZW46U2Rsb2JYa2lZb3VTVFp4cGhlc2NERXYxbnllXzE3NjUxODg0NDk6MTc2NTE5MjA0OV9WNA)
