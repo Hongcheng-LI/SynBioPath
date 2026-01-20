@@ -266,18 +266,15 @@ I 期临床试验旨在收集新疗法的安全性和副作用数据。虽然已
 据推测，环七肽 bottromycin（图 14A 和表 2）结合到 50S 核糖体亚基的受体位点。[265,266] 尽管几十年前就已被描述，[267-269] 该化合物重新引起了人们的兴趣，并伴随着半合成和合成类似物的评估。[270–272] 潜在的体内应用稳定性问题可以得到解决，[272] 但抗菌活性仅限于 G+ 菌。同样，伪二肽 negamycin（图 14C 和表 2）是一种早已为人所知的核糖体抑制剂。它具有抗 G- 活性，并且合成类似物的可用性使得 SAR 研究得以重新进行，[273–275] 例如，negamycin cpd **31f**（图 14C）成为一种更有效的衍生物。odilorhabdin NOSO-95179（图 14C 和表 2）[276] 是一种线性多阳离子肽的类似物，从 _Xenorhabdus_ 菌株的表型筛选中分离得到。它诱导氨基酸错误掺入核糖体。NOSO-95179 及其合成类似物 NOSO-502（图 14C 和表 2）对一些 G+ 和 G- 菌显示出活性，并在动物研究中，对 G- 菌（_Ec_/_Kp_）显示出功效。它们的聚阳离子结构类似于 paenilamicins（图 14C 和表 2），[277,278] 这是蜜蜂病原体 _Paenibacillus larvae_ 的代谢产物，以及粘细菌的 myxovalargin（图 14A 和表 2），[279] 它们都靶向 G+ 菌的核糖体。[277]
 ![image.png](http://synbiopath.online/20260120112536672.png)
 
-http://synbiopath.online/20260120112536672.png
+![image.png](http://synbiopath.online/20260120112550425.png)
+
 天然产物 mupirocin（图 15）是使用最久的氨酰-tRNA 合成酶抑制剂，仅用于 G+ _S. aureus_ 和化脓性链球菌 (_S. pyogenes_) 的局部感染。[280] 另外两个最近的例子来自基于靶点的 HTS，它们是甲硫氨酰-tRNA 合成酶 (methionyl-tRNA synthetase, MetS) 抑制剂 REP8839（图 15 和表 2）[281,282] 用于局部应用（抗 G+；临床 I 期后中止），及其类似物 CRS3123（图 15 和表 2），后者已进入治疗 _C. difficile_ 感染的临床阶段。[283,284]
+![image.png](http://synbiopath.online/20260120112600362.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MzMyNjA3OTI2MDcxNmRiZjc1MzE5YTE1MjYxZmY4NjFfZTlwd25lS1k1VzZndGk4QVBGMGtPS3QydkhsMjUxS1FfVG9rZW46U2Rsb2JYa2lZb3VTVFp4cGhlc2NERXYxbnllXzE3NjUxODg0NDk6MTc2NTE5MjA0OV9WNA)
-
-  
 
 化合物 LFF571 (Novartis)（图 16A 和表 2）[285] 是硫肽抗生素 GE2270A（图 16A 和表 2）的半合成类似物，靶向延伸因子 EF-Tu。通过结构导向设计的化学修饰旨在改善水溶性。LFF571 对 G+ 菌显示出非常好的活性，并已进入治疗 _C. difficile_ 感染的 II 期临床试验，但进一步的开发已中止。[286] 其他靶向 EF-Tu 的天然产物抑制剂也已被描述，例如早已为人所知的 pulvomycin、enacyloxin 和 kirromycin（图 16A），[287] 但这些都难以通过药物化学方法进行优化。
+![image.png](http://synbiopath.online/20260120112607587.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=M2UxMWUzZjgyOGFjOGEzM2ZlMDNkOWQwYzcwZDU3YjFfM2lrWmdFcXZtd0hZeWZ1QWpDUUtFM1F6bWpNdjBXbGlfVG9rZW46SlBFRWJXQ3dmbzhsRzd4bzB4VmNldlg1bk1oXzE3NjUxODg0NDk6MTc2NTE5MjA0OV9WNA)
-
-  
 
 对 N-末端甲硫氨酸进行共翻译去除的酶被归类为肽脱甲酰酶 (peptide deformylases, PDFs)。它们是 Fe²⁺ 依赖性金属水解酶，存在于细菌中但不存在于真核生物中，这使它们成为有吸引力的抗菌靶点。天然产物 actinonin（图 16B 和表 2）[288] 已被鉴定为第一个 PDF 抑制剂。其合成类似物 BB-3497（图 16B 和表 2）源自一个金属酶抑制剂库，并显示出改善的 MICs 和在小鼠感染模型中的功效（口服，_Sa_）。[289] 具有特征性异羟肟酸盐部分的类似物同样出现在通过基于结构的设计开发的后续抑制剂中（图 16B 和表 2），并且有两种化合物甚至达到了 I 期临床试验，例如 BB-83698[290]（静脉注射）和 LBM-415[291]（口服）。
 
@@ -287,7 +284,7 @@ http://synbiopath.online/20260120112536672.png
 
   
 
-4. ## DNA 合成
+## 3.4 DNA 合成
     
 
 DNA 的合成涉及多种被称为复制体 (replisome) 的因子。[295] 重要的相关因子是 DNA 聚合酶 Pol I-V（复制和修复）、拓扑异构酶以及连接酶和解旋酶（图 1）。Pol III 是由多个亚基组成的复合物，可能被认为是复制体的主要酶。然而，对于 Pol III，情况很复杂，因为 G- 菌（DnaE1）、低 GC G+ 菌（PolC/DnaE3）、高 GC G+ 菌（PolC/DnaE1）的聚合酶之间以及其他变体之间的序列同源性较低。[296,297] 其他复制过程包括由 DnaA 引发的起始、引物酶体 (primosome) 的形成（DNA 解旋酶 DnaB/C，引物酶 DnaG），以及单链结合 (single strand binding, SSBs) 蛋白、连接酶 (LigA) 和拓扑异构酶（旋转酶/拓扑异构酶 IV）。[298]
@@ -295,20 +292,15 @@ DNA 的合成涉及多种被称为复制体 (replisome) 的因子。[295] 重要
   
 
 自 1980 年代以来，从阿根廷诺卡氏菌 (_Nocardia argentinensis_) 中分离出的聚酮类 nargenicins[299,300]（图 17A 和表 3）就已为人所知。它们靶向 DNA 聚合酶 α 亚基 (DnaE (_Sa_)[301]/DnaE1(_Mt_))。[302] 结构数据显示，nargenicin A1 在进入的核苷酸位点以及模板碱基处相互作用（数据未显示）。其活性谱，已通过一个全面的半合成 SAR 项目进行了探索，但仅限于 _S. aureus_ 和 _M. tuberculosis_。[303] 这对于结构相关的 branimycins（图 17C）也是如此，它们对 _S. aureus_ 显示出活性。[304]
+![image.png](http://synbiopath.online/20260120112624081.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MmJhZTI4YTIzZTdiZTRlMjg5OTM5NTA2MGQ1NTFhZmRfTUFmN3B3OHRmMG5TbHNyVDdEQWI0V09GcXdIYXlSTmRfVG9rZW46SmRKZGJVOVhTb3dFNWF4U0U1NmNlQVI2blZnXzE3NjUxODg0NDk6MTc2NTE5MjA0OV9WNA)
-
-  
 
 一系列来自合理和基于靶点设计的核苷类似物作为 DNA 聚合酶 PolC 的抑制剂。其发展可追溯到 1960 年代的工作。[305] 6-苯胺基尿嘧啶类[306-308] 的代表，例如 HB-EMAU[309,310] 和 6-苯胺基尿嘧啶 cpd **7k**（图 17C 和表 3），[308] 通常对 G+ 菌显示出良好的活性。鸟苷型抑制剂 ibezapolstat (ACX-362E; Acurxpharma; 图 17C 和表 3) 正在临床开发中，用于治疗 _C. difficile_ 感染。[311–313]
 
-  
 
 脂肽 griselimycin（图 17A/B 和表 3）是在 1960 年代从天蓝色链霉菌 (_Streptomyces caelicus_) 中发现的。[314] Griselimycin 及其合成类似物 cyclohexyl-griselimycin（图 17A 和表 3）结合到 DNA 聚合酶的滑动钳 DnaN 上，[315] 并对 _M. tuberculosis_ 显示出强烈的杀菌活性。经过一段时期的沉寂，griselimycin 被 Sanofi 重新考虑用于药物开发。开发了一条化学合成路线，并合成了 > 200 种衍生物以建立 SAR。有趣的是，考虑到其肽性质和大小，cyclohexyl-griselimycin 是口服生物可利用的（小鼠），这是一个罕见的案例。
+![image.png](http://synbiopath.online/20260120112636299.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MjhjYTFhZjExM2JiNzk2MGZkMTU4MGIxMDNhMzU0NGVfZmRDYVBTUVpXaTFTcHM1NWlWQkN4d3JmcVBzNVNicURfVG9rZW46WnR2VGJ4OTR5b3BpTlR4UmZQdmNHUk5wbjBlXzE3NjUxODg0NDk6MTc2NTE5MjA0OV9WNA)
-
-  
 
 选择 DNA 连接酶 LigA 作为靶点的一个重要论据是，它在细菌中高度保守，并且与真核生物连接酶的序列同源性低。在 Bayer AG 的一个基于靶点的 HTS 中，吡啶并色满酮类 (pyridochromanones)（cpd **3**，图 17D 和表 3）被鉴定为 NAD⁺ 依赖性 DNA 连接酶（_E. coli_/_S. pneumoniae_）的抑制剂。[316] 这些化合物被发现与 NADH 辅因子竞争，但对 _E. coli_ 的活性只有在膜溶解性多粘菌素存在时才能实现。AstraZeneca 的另一个基于靶点的筛选揭示了腺苷型类似物（cpd **4**；图 17D 和表 3），主要对 G+ 菌有活性，并在小鼠感染模型中有效。[317] 解旋酶已被两个基于靶点的筛选活动所涉及：测试了 186,000 种化合物对炭疽杆菌 (_B. anthracis_) 和 _S. aureus_ 的解旋酶，产生了对 _B. anthracis_ 活性受限的香豆素衍生物。[318] 进一步的药物化学努力导致了香豆素 cpd **22**（图 17E 和表 3），它对 MRSA 有强效活性，对 VRE 有中等活性。[319] 三氨基三嗪 cpd **1**（图 17E 和表 3）是从 230,000 种测试化合物中针对 _P. aeruginosa_ 解旋酶鉴定出来的，但合成类似物仅对 _S. aureus_ 显示出活性，并有不希望的细胞毒性。[320]
 
@@ -319,12 +311,9 @@ DNA 的合成涉及多种被称为复制体 (replisome) 的因子。[295] 重要
   
 
 一个相对古老的天然产物例子是 cyclothialidine（图 18C），由菲律宾链霉菌 (_Streptomyces filipinensis_) NR0484 合成。[322-325] 该化合物靶向 GyrB 的 ATPase 活性。尽管过去几十年里有大量的合成项目旨在进行结构增强，[326] 但类似物仅显示出有限的体外和体内特性，主要针对 G+ 菌。另一个天然产物是 amycolamicin[327]，被发现与 kibdelomycin[328-330]（图 18C 和表 4）相同，后者是从一个由 245 个可诱导反义 RNA 菌株组成的金黄色葡萄球菌适应性测试 (SaFT) 测定中鉴定出来的。它是 GyrB 和 ParE[329] 的抑制剂，对 G+ 菌（_Sa_, _Ef_）以及一些 G- 菌（_Ab_）显示出强活性。[331] 尽管已知多种全合成方法，[330] 但其复杂的结构妨碍了 SAR 的建立和候选药物的后续开发。一个值得注意的、来自基于结构药物设计 (SBDD) 的分子系列是所谓的三环 GyrB/ParE 抑制剂（TriBEs, cpd **C4**; Trius Therapeutics; 图 18C 和表 4），[332,333] 它们对广泛的 ESKAPE 菌株具有很高的体外活性，最近在淋病奈瑟菌 (_N. gonorrhoeae_) 感染模型中的应用重新引起了人们的兴趣。[334]
+![image.png](http://synbiopath.online/20260120112647984.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MGY3ODkzNzIxZTk5N2QwMWJlOGNiM2ZjNDFlMTY3NDhfOHBkdEZPQTcycDVrdTQzQjhnVmNqVW1Ya0tRcE9XU1VfVG9rZW46WUhpU2JqcUMzb2E1UGF4U0RmRWNHTExXbnBiXzE3NjUxODg0NDk6MTc2NTE5MjA0OV9WNA)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=N2UyOTVhN2Q5N2YwYTNjMzdhMTM0NzhmM2Q4MWU2OWJfTjRYUmFOVnlKWWQ2QnZpdHpyeGMzTk1rWHNwYlc4TlZfVG9rZW46TlFxbmI4UWpXb3BaR3F4d1ZMVmMzMmZibnNoXzE3NjUxODg0NDk6MTc2NTE5MjA0OV9WNA)
-
-  
 
 新型细菌拓扑异构酶抑制剂 (novel bacterial topoisomerase inhibitors, NBTIs) 对旋转酶的作用机制与氟喹诺酮类不同。这个合成化合物家族的突出成员是 NXL-101 (viquidacin)、AZD9742、BWC0977 和 gepotidacin（图 18A 和 D）。最先进的是 gepotidacin (GSK2140944，具有阳性的 III 期数据，表 4），它源于一次抗菌筛选[335] 并靶向 GyrA/ParC。[336] 它对 G+ 和一些 G- 菌具有非常好的抗菌活性，是口服生物可利用的，目前正在临床研究中评估用于治疗尿路感染（UTIs, _E. coli_）和淋病奈瑟菌感染。哌啶基-喹啉型 NXL-101 显示出抗 _Sa_/_Sp_ 活性。[337] 由于心脏 QT 间期延长，其开发被中止。[338] BWC0977（表 4）是一种较新的分子，也对 G- 有活性，目前处于 I 期临床阶段。[339,340]
 
