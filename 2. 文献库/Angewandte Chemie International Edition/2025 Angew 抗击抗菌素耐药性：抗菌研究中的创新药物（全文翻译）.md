@@ -427,25 +427,18 @@ arylomycins（图 22A 和表 7）是一类由 Fiedler 和 Jung 首次描述的�
     
 
 细菌膜包含参与其稳定性和完整性组装与维护的各种蛋白质组分。脂多糖 (LPS) 及其亚组分脂质 A 是大多数 G- 菌的特征（图 1），而壁磷壁酸 (WTAs) 和脂磷壁酸 (LTAs) 是大多数 G+ 菌的特征（图 1）。[492] LPSs 由一个插入膜中的脂化和磷酸化的葡糖胺二糖（脂质 A）组成，该二糖连接到一个主要是二糖类型的核心区和一个长度可变的 O-多糖链。[493] LPS 核心在内膜中由 Lpx 蛋白组装，并通过 ABC 转运蛋白 MsbA 翻转到周质空间，然后由一系列 Lpt 蛋白（脂多糖转运，LptB₂FG, LptC/A 和 LptD/E）引导到外膜（图 24）。[493,494] 已发现 LPS 对大多数 G- 菌是必需的（例外，例如鲍曼不动杆菌 (Acinetobacter baumannii)[495]），并且 LPS 和磷脂合成之间需要保持平衡。[496]
-![Uploading file...75waq]()
-
-  
+![image.png](http://synbiopath.online/20260120112908504.png)
 
 在 G- 菌的脂质 A 生物合成中，Zn²⁺/Fe²⁺ 依赖性脱乙酰酶 LpxC 是第一个关键步骤（图 24）。[493] LpxC 是通过合理和基于靶点的设计开发的特征性螯合异羟肟酸基小分子的靶点。[497] 由于工业界和学术界的广泛活动，已鉴定出多种对细菌具有优异活性的化合物，例如吲唑和吲哚型抑制剂。[498] 非异羟肟酸型化合物是罕见的。[499] 最先进的含异羟肟酸的化合物是 LpxC-4 (PF-5081090, Pfizer) 和 ACHN-975 (Achaogen)（图 24D 和表 9）。后者是第一个进入临床阶段的，但由于不希望的副作用，进一步的开发被中止，[500] 并且最近的尝试也未能推进该化合物。[501] 此外，已对其他 Lpx 酶进行了基于小分子的筛选，例如 LpxA[502] 或 LpxH，[503-505] 但直到最近关于小分子 LpxH 抑制剂的报道，其 MICs 仍为中等。化合物，例如 EBL-3647（图 24F），对肺炎克雷伯菌 (_K. pneumoniae_) 和 _E. coli_ 显示出显著的活性，包括在动物感染模型中的评估。[506] 转运蛋白 MsbA 的小分子抑制剂，例如 G907 类似物（化合物 **42**；图 24E 和表 9），对一些 G- 菌有活性，[507,508] 但仍处于探索阶段。
+![image.png](http://synbiopath.online/20260120112918498.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MWU4NzU5OGJiYzliOGY1YjVhNzg0MjFhMzlmNTVjM2RfTWx2dHlOenhMN1c3bmZkZklJT1lKMTk0akRhSnc0WEpfVG9rZW46T2ZTYmJaeWtPb1hZUkJ4YXJhZWN0SUhmbndiXzE3NjUxODg0NDk6MTc2NTE5MjA0OV9WNA)
-
-  
 
 在多方面的多阳离子 β-发夹肽 murepavadin (POL7080)（图 8C, 24A 和表 9）[33] 的发现中，脂多糖转运蛋白 LptD 被鉴定为基于非裂解性抗菌作用机制的靶点。[33,509] 最初的工作来自 Robinson 研究组，后由 Polyphor Ltd（现为 Spexis, Allschwil, 瑞士）继续。全合成的 14 肽的结构是在几轮优化中[510] 从多阳离子宿主防御肽 protegrin I (PG-1)（图 8C）[511] 获得的。PG-1 具有广谱抗菌性[512,513] 但也有溶血活性。通过固相肽合成产生的早期衍生物显示出中等的抗菌活性和降低的溶血活性。最终，优化尝试导致了 POL7001（图 8C）和 murepavadin（图 8C），[33] 它们特别对各种铜绿假单胞菌 (_P. aeruginosa_) 菌株显示出活性。随后的研究[514] 证实了 LptD 对 _Pa_ 的生存至关重要。在小鼠 _Pa_ 感染模型中的功效和进一步的开发导致了在治疗院内肺炎患者的临床阶段的评估。[515] 由于意外的肾损伤发现，作为静脉制剂的开发被停止，但该化合物仍在开发中用于吸入应用。[516] 随着 14 肽 JB-95（图 24A 和表 9），β-发夹肽的概念得到了进一步的扩展。[509] JB-95 对各种 ESKAPE(E) 菌株显示出活性，包括对 _E. coli_ 的显著活性。对 MOA 的研究揭示，与 murepavadin 类似，外膜蛋白 LptD 和 BamA 是其分子靶点，以及外膜的破坏。另一个例子是 21 肽昆虫来源的肽 thanatin（图 24B 和表 9），[517] 它显示出广谱的抗菌活性，靶向 _E. coli_ 的 LptD 和 LptA 蛋白。[518] 其他人的后续工作表明其对某些新德里金属-β-内酰胺酶 (NDM-1) 产生的 _E. coli_ 和 _Klebsiella_ 菌株通过 OM 破坏具有额外的作用模式。[519] Thanatin 被用作起始骨架，以衍生出 N-末端截短的肽，其中最重要的是 thanatin-cpd **7**（表 9），它在体外和体内对 _E. coli_ 和 _Klebsiella_ 具有最佳活性。[520] 从机制上讲，这些肽被发现破坏了 Lpt 蛋白复合物周质桥部分的 LptA-LptA 和 LptA-LptD 相互作用。直到最近，肽模拟物 zosurabalpin (RG6006)（图 24C 和表 9），它源于对一个包含 44,985 个成员的大环肽库的筛选，被描述为位于细胞质膜中的 LptB₂FG 复合物的抑制剂。[521,522] 有趣的是，该化合物已进入 I 期临床试验，因此 _A. baumannii_ 感染的未满足医疗需求显然正在得到解决。
 
   
 
 另一个重要的生物合成过程是 G+ 和 G- 菌膜中蛋白质的转运、折叠和定位。Sec 途径是 G+ 菌（Sec/SRP/FtsY）共翻译蛋白质转运和插入的主要参与者，以及 G+ 和 G- 菌（Sec/SRP/FtsY）蛋白质跨质膜转运的主要参与者。[523,524] G- 菌的脂蛋白转运途径通过主要位于周质空间的 LolA-E 蛋白进行，这些蛋白已被发现对 _E. coli_ 是必需的。[525] 在这里，已描述了小分子抑制剂（_E. coli_, _P. aeruginosa_），[526] 但体内研究仍然难以捉摸。最近关于 Lol 抑制剂的工作已被综述，吡啶并咪唑类和-吡唑类[503] 已被用作开发 SMT-738（图 25A 和表 9）[527] 和 lolamicin[528]（图 25A 和表 9）的基础。这些化合物显示出对 _E. coli_、_Klebsiella_、_Enterobacter_ 物种的抑制作用，并且如 lolamicin 所示，对肠道微生物群中的细菌具有保护作用。[86]
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=Y2M5ZDYzNmRhOGJhZDlmNDA0YzcyZmI2ZTU1MjM3YTBfWlJ2Y3Zja21DcWZWOG9qOEc3dTFKaXFJcEFXSFdTcmxfVG9rZW46SUNFVmIzZFkyb3g1VGN4cEhDaWM4OFp4bmxkXzE3NjUxODg0NDk6MTc2NTE5MjA0OV9WNA)
-
-  
+![image.png](http://synbiopath.online/20260120112927815.png)
 
 在 G- 菌中，蛋白质被进一步转运到外膜 β-桶状组装机器 (BAM) 复合物，该复合物由四种蛋白质组成 (BamABCD)（图 1，图 25C）。[529-532] 该复合物，其中 BamA 和有条件地 BamD[533] 是必需组分，执行蛋白质折叠成跨膜 β-桶状结构，然后插入外膜。
 
@@ -459,24 +452,20 @@ arylomycins（图 22A 和表 7）是一类由 Fiedler 和 Jung 首次描述的�
 
   
 
-10. ## 辅因子合成、核苷酸合成及其他靶点
+## 3.10 辅因子合成、核苷酸合成及其他靶点
     
 
 除了上述靶点，研究活动也已在其他途径上进行。从头叶酸 (folate) 生物合成是一种辅因子合成途径，存在于细菌中但不存在于人类中，其中磺胺类（二氢蝶酸合酶）和嘧啶类抗菌剂如甲氧苄啶（二氢叶酸还原酶）是已确立的药物（图 10）。[543] 因此，该途径的抑制剂具有较低的靶点相关毒性风险。甲氧苄啶类似物 iclaprim（抗 G+）是最近的进展之一，已达到 III 期临床试验。[544] Abyssomicin C（图 26）是一种聚酮天然产物的例子，它干扰氨基脱氧分支酸合酶 (amino-deoxychorismate synthase, ADCS)。[545,546] 然而，abyssomicin 型化合物的抗菌活性仅限于 G+ 菌（_S. aureus_，分枝杆菌），[547] 并且其结构难以化学修饰。
+![image.png](http://synbiopath.online/20260120112949769.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NWNlMGU5MDc4NjkyYTEwOTYyZmFjYTE2MDYzYThjZTRfSXE3aG1oMzdtaHJPTVNDdnBOTk9HZXFXVTdGbEJPQzNfVG9rZW46RjBRT2IzRklRb3RhNTB4T1kzRGNDSTRFbmtjXzE3NjUxODg0NDk6MTc2NTE5MjA0OV9WNA)
-
-  
 
 泛酸 (pantothenate) 对一些缺乏从头合成基因的细菌（例如肺炎链球菌 (_S. pneumoniae_)）是必需的，并且存在相应的摄取系统。同样，辅酶 A 合成已被发现对 _E. coli_ 和分枝杆菌也是必需的。[548] 因此，泛酸和辅酶 A 的生物合成已通过从同分异构体和其他小分子到天然产物的各种抑制剂得到解决。[548,549] 在此背景下，生物素 (biotin) 是一种辅因子，例如细菌乙酰辅酶 A 羧化酶 (AccAD，见 3.6 节关于脂肪酸生物合成)，并且生物素蛋白连接酶在一些方法中被认为是抗击 _S. aureus_ 的靶点。[550,551] 然而，大多数化合物是生物素类似物，其耐药机制已被报道，[552] 或遭受作为单酶抑制剂的困扰。[1,25]
 
   
 
 另一个途径是核苷酸 (nucleotides) 的生物合成，[553] 它由从头生物合成和补救途径组成。从头生物合成是必需的，特别是在宿主的细胞内环境中。该途径与能量代谢 (ATP) 和辅因子合成（例如 NAD(P)H）有关，也与 DNA 和 RNA 合成及毒力有关。靶向核苷酸生物合成的天然产物是免疫抑制剂霉酚酸 (mycophenolic acid)，一种肌苷-5'-单磷酸脱氢酶 (inosine-5'-monophosphate dehydrogenase, IMPDH) 的抑制剂，它将 IMP 转化为 GMP。其他几种抑制剂是源自抗癌或抗病毒药物的起始点类似物，[554] 提供了“再利用方法”的进一步例子。例如，抗癌药物 gemcitabine（图 26 和表 10）已被描述为通过错误掺入终止 DNA 合成（复制），但也被发现抑制核糖核苷酸还原酶 (ribonucleotide reductase, RNR) 在脱氧核苷酸合成中的作用。[555] 它显示出良好的抗 G+ 活性[556]，甚至在动物实验中进行了评估。[557] 一些原生动物肌苷 5'-单磷酸脱氢酶的抑制剂，[558] 一种鸟嘌呤核苷酸生物合成的酶，显示出抗 G+ 活性，这可以部分地被鸟嘌呤的存在所逆转。利用基于结构的设计，AstraZeneca 的一个团队开发了 TK-666（图 26 和表 10），一种核苷碱基型胸苷酸激酶抑制剂，显示出抗 G+ 活性。[559] 至少对于核苷类似物，将其机制归因于核苷酸生物合成或 DNA/RNA 代谢（比较 HB-EMAU，3.4 节[306]）是复杂且部分未解决的，然而这种对复杂途径的多靶点效应可能是一种优势。[1,25] 核苷碱基型化合物的普遍问题是毒性问题和耐药性的快速发展。[554]
+![image.png](http://synbiopath.online/20260120112959607.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NjQ4NzUxYmRhNDk5NGFhODJlZjFiYmI5ZWY4NWQ5NDRfd2JDUXpjOHVUUDJmcnJDWmh3aGZ1cnpCM0NDdDREQVBfVG9rZW46Q3gzNmJTOVlJb0NDbDR4MERpZ2N3Y2FjbnliXzE3NjUxODg0NDk6MTc2NTE5MjA0OV9WNA)
-
-  
 
 双组分系统 (two component systems, TCS)[560] 由一个传感组氨酸激酶和一个应答调节剂 (response regulator, RR) 组成，后者诱导基因表达以应对环境刺激。众多多样的环境刺激激活 TCSs，包括暴露于抗生素。由此产生的调节作用可以诱导抗生素耐药性，这通常涉及细胞生理学的改变。这些 TCSs 中的一些已被发现是必需的，特别是对于 G+ 菌，例如 _S. aureus_ 的 WalK/WalR。其他的则更多地涉及毒力，例如 _S. aureus_ 的 AgrC/A 或 _E. coli_ 的 QseC/QseB。[560] 天然产物 signermycin B（图 26 和表 10）[561] 是低 GC G+ 菌（例如 _S. aureus_/_E. faecalis_）双组分信号转导系统 WalK/WalR 的 WalK 抑制剂，该系统调节细胞壁代谢的因子，如一些自溶素。小分子 walrycin B（图 26 和表 10），一种毒黄素类似物，抑制 WalR 并显示出抗 _Sa_ 活性，[562] 但该化合物也激活人类孕烷 X 受体。[563]
 
@@ -486,7 +475,7 @@ arylomycins（图 22A 和表 7）是一类由 Fiedler 和 Jung 首次描述的�
 
   
 
-4. # 结论与展望
+# 4. 结论与展望
     
 
 过去几十年里，在寻找新的靶点和超越已确立类别的新型抗菌分子方面，人们付出了巨大的努力。迄今为止，发现过程在改进的工具和方法上取得了显著进展。特别是在工业界，技术进步使得表型、基于靶点和高内涵筛选的分析活动成为可能，这些活动可以处理大量的化合物。通过分子生物学和生物化学方法进行的靶点鉴定和作用模式研究，遵循了已确立且相对直接的工作流程。最先进的结构生物学方法，如 X 射线晶体学、NMR 光谱学，以及最近的冷冻电子显微镜的应用，有助于更好地理解分子靶点，这是基于结构设计策略的基础。计算机和 AI-based 方法的发展为命中物发现和优化提供了额外的工具。在 H2L 过程中，有机合成方法对于阐明结构-活性关系至关重要，并能提供成百上千甚至数千种衍生物，即使是对于具有合成挑战性的结构。
