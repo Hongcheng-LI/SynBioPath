@@ -1,4 +1,4 @@
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=MmRmNmEwMDE0NTE1NTA4NTMyZDYxZjhlNjYzMDlhYjFfRGhXWDk0VXpSVGlEajdsQlFwOWZranJFbzlyMkRCMDZfVG9rZW46Skd0MWJ4THFab2tmbWx4SkpQdGNqb2JLbkVzXzE3NjUxODk1Njg6MTc2NTE5MzE2OF9WNA)
+![image.png](http://synbiopath.online/20260120193751664.png)
 
 ## 一：基本信息
 
@@ -70,11 +70,9 @@
 #### 实验结果与分析
 
 - **Figure 1** 和 **Scheme 1** 展示了 BGC 的鉴定和提出的生物合成途径。通过转录组共表达分析，研究人员在黑曲霉中锁定了一个包含 P450 酶 (_aunB_) 和两个甲基转移酶 (_aunD_, _aunE_) 的基因簇。
-    
+    ![image.png](http://synbiopath.online/20260120193805790.png)
+![image.png](http://synbiopath.online/20260120193811806.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ZWIxZWI3OWFkMGU1NzA3OWU0MzA0ZTE3OWMyYTVhZWJfRjh6c1h3RG1VS25nMFQ0N2R3TEtyUTJ4dld2S0dGcGtfVG9rZW46R0lwdmJqUjgyb0pwME94N2ZwdGNibnJTbmdlXzE3NjUxODk1Njg6MTc2NTE5MzE2OF9WNA)
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=ODNhYjg4ZWJlOGI3NGFmMTY2ZDc4MGY3YTg5MWVjMDJfQm1MRDZNM1JIZ2RabGRESUVGYXd5Q3lXVlpWSXFxWHBfVG9rZW46S09JdWJZRGttb2JCOEZ4UkI5aWNkNHJxbnpVXzE3NjUxODk1Njg6MTc2NTE5MzE2OF9WNA)
 
 - 通过在黑曲霉中进行基因敲除实验 (结果在补充材料 Figure S4)，他们证明了：
     
@@ -111,11 +109,9 @@
 #### 实验结果与分析
 
 - **Figure 2** 和 **Scheme 2** 集中展示了这一关键发现。
-    
+    ![image.png](http://synbiopath.online/20260120193823670.png)
+    ![image.png](http://synbiopath.online/20260120193837228.png)
 
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=NDg1ZGY2N2ZmMzY4NmMxNzhiYTU1MzE0ODhmODE4ODVfQmFiVGFMQzVOT085Qm03eFBQUHpwTkdJN0JYblpKTXRfVG9rZW46Q0VEMmJIcFlCb1JCQmt4THRtcGNjOE9ibmdnXzE3NjUxODk1Njg6MTc2NTE5MzE2OF9WNA)
-
-![](https://synbiopath.feishu.cn/space/api/box/stream/download/asynccode/?code=N2Q5ODllMDY5YjQxZDU3MjcxNTVjY2JiMTc1Mzc5ODBfY0w1bWFQVVBERjFQRzZxMXhzd2NiU1p3YlFDSGVaQm5fVG9rZW46UE5tRmJXYmhqb21Ub0N4TzV5bmNHZFV1bnRmXzE3NjUxODk1Njg6MTc2NTE5MzE2OF9WNA)
 
 - **BfoB 酶的立体选择性**：
     
@@ -206,6 +202,5 @@
     3. 这个被“预先组织好”的活性口袋，会像一个精确的模具，强制两个被结合的单体自由基以一种唯一的方式相互靠近和偶联。
         
     4. 最终，这种受控的偶联就只生成了一个 atropisomer（例如 P-型）。
-        
 
 在这个过程中，底物 C3' 位的中心手性信息，通过改变酶的构象，被“传递”并最终“翻译”成了产物联芳环的轴手性。这就是“间接中心手性到轴手性转移”的含义。
