@@ -1,3 +1,4 @@
+![image.png](http://synbiopath.online/20260122165135475.png)
 
 
 ## 一：基本信息
@@ -65,6 +66,7 @@
 
 #### 实验结果与深度解析
 质谱结果显示，PflC 使 PflA 质量减少 394 Da，PosC 使 PosA 质量减少 410 Da (Figure 2C, S8)。这种质量损失不能简单用羟基化解释。通过 LysC 酶解和 NMR 分析 (Figure 3)，研究人员发现 PosC 修饰后的 PosA C 端丢失了 ARMD 四肽，且新生成的 C 端为酰胺结构。同时，肽段内部的四个连续 Gln 残基发生了 β-羟基化。质量计算符合：4 个羟基 (+64 Da) - ARMD 序列 (-490 Da) + 酰胺化 (+16 Da) = -410 Da。这证实了 PflC/PosC 具有双重活性：Gln 羟基化和 C 端氧化断裂酰胺化。
+
 
 > "Collectively, these data demonstrate that PosC catalyzed β-hydroxylation of four Gln residues and removal of the ARMD motif to generate a terminal amide."
 
