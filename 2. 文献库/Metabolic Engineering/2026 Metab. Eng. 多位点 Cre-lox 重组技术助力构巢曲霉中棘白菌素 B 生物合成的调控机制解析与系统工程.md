@@ -12,8 +12,9 @@
 **通讯作者**：Fanglong Zhao (赵方龙), Xiulai Chen (陈修来), Yanling Li (李艳玲)
 
 **通讯作者工作单位**：
-1.  山东第一医科大学 (山东省医学科学院) 生命科学学院 (School of Life Science, Shandong First Medical University & Shandong Academy of Medical Sciences, China)
-2.  江南大学生物技术学院 (School of Biotechnology, Jiangnan University, China)
+1.  赵方龙：山东第一医科大学 (山东省医学科学院) 生命科学学院 (School of Life Science, Shandong First Medical University & Shandong Academy of Medical Sciences, China)
+2.  陈修来：江南大学生物技术学院 (School of Biotechnology, Jiangnan University, China)
+3. 李艳玲：山东第一医科大学 (山东省医学科学院) 生命科学学院 (School of Life Science, Shandong First Medical University & Shandong Academy of Medical Sciences, China)
 
 ---
 
