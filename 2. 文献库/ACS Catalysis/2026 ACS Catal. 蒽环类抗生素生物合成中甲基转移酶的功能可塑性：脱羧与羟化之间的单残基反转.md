@@ -1,10 +1,11 @@
+![e5093a4c-4917-4dd1-b98c-316ff160c40b.png](http://synbiopath.online/e5093a4c-4917-4dd1-b98c-316ff160c40b.png)
 
-
+---
 ## 一：基本信息
 **文章题目**：Functional Plasticity of Methyltransferases in Anthracycline Biosynthesis: A Single Residue Reversal between Decarboxylation and Hydroxylation ()
 **文章 DOI 号**：10.1021/acscatal.5c07819
 **期刊名称**：ACS Catalysis
-**通讯作者**：Wei Zhang
+**通讯作者**：Wei Zhang（张伟）
 **通讯作者工作单位**：中国科学院海洋研究所，实验海洋生物学重点实验室 (Laboratory of Experimental Marine Biology, Institute of Oceanology, Chinese Academy of Sciences, China)
 
 ---
@@ -16,7 +17,7 @@
 
 ### 本文突破点
 本研究揭示了 DnrK 和 RdmB 功能差异的关键分子机制。通过结构生物学和定点突变，研究人员发现活性位点的一个氨基酸残基（DnrK 中的 E299 和 RdmB 中的 L303）是决定酶催化脱羧或羟化的“开关”。
-
+![image.png](http://synbiopath.online/20260127175832410.png)
 ### 核心科学发现
 1.  **关键残基鉴定**：确认 E299 是 DnrK 进行脱羧反应的关键，而将其突变为疏水残基（如 L）可赋予其 RdmB 样的羟化活性。反之，RdmB 的 L303E 突变使其获得了脱羧活性。
 2.  **功能融合**：通过对 E299 位点的饱和突变，获得了兼具脱羧和羟化活性的 DnrK 突变体，能够同时生成四种不同的蒽环类衍生物。
@@ -62,6 +63,7 @@ DnrK 和 RdmB 序列高度相似但功能不同。为了找出决定这种差异
 
 #### 实验结果与深度解析
 体外酶活实验结果令人振奋。野生型 DnrK 催化底物 **1** 生成脱羧产物 **2** 和甲基化产物 **3**。然而，突变体 DnrK-E299A 完全丧失了脱羧活性，转而生成了羟化产物 **4**（10-hydroxyl-13-deoxydaunorubicin）和 **5**（10-hydroxyl-13-deoxycarminomycin）(Figure 1A-v)。这表明 E299A 突变成功将 DnrK 的功能从脱羧“重编程”为羟化。反之，RdmB-L303E 突变体不仅保留了原有的羟化活性，还获得了 DnrK 特有的脱羧活性，生成了产物 **2** (Figure 1A-vi)。这一结果确凿地证明了 E299/L303 位点是控制脱羧与羟化路径选择的“分子开关”。此外，对 E299 进行饱和突变发现，DnrK-E299Q 和 DnrK-E299K 等突变体表现出混合功能，能同时生成脱羧和羟化产物，进一步证实了该位点对酶功能的精细调控作用。
+![image.png](http://synbiopath.online/20260127175914366.png)
 
 > "Strikingly, a single residue, E299, was identified as the key determinant responsible for switching catalytic specificity between these two atypical methyltransferases."
 
@@ -71,6 +73,7 @@ DnrK 和 RdmB 序列高度相似但功能不同。为了找出决定这种差异
 
 #### 实验结果与深度解析
 晶体结构显示 (Figure 3)，DnrK 采用典型的 I 类甲基转移酶折叠。在 DnrK-E299A 的结构中，突变位点周围的构象与野生型高度相似 (RMSD 0.42 Å)，表明突变未引起整体结构的大幅变化。关键差异在于活性口袋的微环境：野生型 DnrK 中，E299 的侧链羧基指向底物的 C10 位（距离约 5.8 Å），形成了一个亲水环境。结合同位素标记实验（见下文），作者推测 E299 帮助锚定和定位一个水分子，该水分子作为质子源淬灭脱羧产生的碳负离子中间体 **9**，从而导向脱羧产物 **2** (Figure 4C, Route 1)。而在 DnrK-E299A 中，疏水残基 A 破坏了这一亲水网络，创造了一个疏水口袋。这有利于氧气分子的结合和活化，促进了单电子转移过程，生成超氧阴离子自由基，进而形成过氧化物中间体 **6**，最终导致 C10 位羟化 (Figure 4C, Route 2)。这一机理解释了为何单个残基的性质改变（亲水 vs 疏水）能导致反应类型的根本性逆转。
+![image.png](http://synbiopath.online/20260127175955534.png)
 
 > "The hydrophilic microenvironment maintained by E299 helps anchor and orient a water molecule that acts as a direct proton source... In contrast, substitution of E299 with a nonpolar residue... disrupts this potential hydrophilic network, resulting in a more hydrophobic pocket."
 
@@ -80,6 +83,7 @@ DnrK 和 RdmB 序列高度相似但功能不同。为了找出决定这种差异
 
 #### 实验结果与深度解析
 实验结果清晰地支持了提出的机理。对于 DnrK-E299A 催化的羟化反应，产物 **4** 和 **6** 的质量在 18O2 气氛下增加了 2 Da 和 4 Da，而在 H218O 中无变化 (Figure 4A)，证明 C10 位的羟基氧完全来自氧气。这符合典型的氧合酶机理。对于野生型 DnrK 催化的脱羧反应，产物 **2** 在 D2O 中质量增加 1 Da (Figure 4B)，证实了脱羧后质子化步骤的存在。更有趣的是，野生型 DnrK 产生的微量副产物 **4**（羟化产物）的氧原子在 H218O 中被标记，而非 18O2。这表明野生型酶中的“兼职”羟化活性是通过水介导的机制发生的，与突变体中的氧气介导机制截然不同。这一精细的同位素追踪实验为机理模型提供了坚实的化学证据。
+![image.png](http://synbiopath.online/20260127180019864.png)
 
 > "Accordingly, when E299 is replaced by the hydrophobic residue A, the C-10 hydroxy oxygen atom in 4 and 6 were originated exclusively from O2."
 
