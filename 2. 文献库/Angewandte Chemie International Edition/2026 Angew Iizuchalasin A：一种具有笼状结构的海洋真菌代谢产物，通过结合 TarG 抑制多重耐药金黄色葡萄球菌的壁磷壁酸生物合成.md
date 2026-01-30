@@ -1,7 +1,7 @@
-# 学术分析报告：Iizuchalasin A：一种具有笼状结构的海洋真菌代谢产物及其抗多重耐药金黄色葡萄球菌机制
+
 
 ## 一：基本信息
-**文章题目**：Iizuchalasin A: A Marine Fungal Metabolite With a Cage-Like Structure That Binds TarG to Inhibit Wall Teichoic Acid Biosynthesis by Multidrug-Resistant *S. aureus* (Iizuchalasin A：一种具有笼状结构的海洋真菌代谢产物，通过结合 TarG 抑制多重耐药金黄色葡萄球菌的壁磷壁酸生物合成)
+**文章题目**：Iizuchalasin A: A Marine Fungal Metabolite With a Cage-Like Structure That Binds TarG to Inhibit Wall Teichoic Acid Biosynthesis by Multidrug-Resistant *S. aureus*
 
 **文章 DOI 号**：10.1002/anie.202523303
 
