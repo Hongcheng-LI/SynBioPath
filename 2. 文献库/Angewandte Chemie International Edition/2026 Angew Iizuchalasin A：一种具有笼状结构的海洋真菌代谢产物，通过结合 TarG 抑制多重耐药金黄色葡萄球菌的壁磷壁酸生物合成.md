@@ -115,6 +115,17 @@ MIC 测试结果 (Table 1) 显示，化合物 **1** 对 MSSA, MRSA 和 MDRSA 均
 
 > "Collectively, compound **1** is determined to be a promising antibiotic against drug-resistant *S. aureus*."
 
+### 研究部分六：Iizuchalasin A 的综合作用机理模型
+#### 实验目的与设计逻辑
+在确证了 TarG 为直接分子靶点，并观察到化合物 **1** 对细菌毒力因子和粘附能力的抑制作用后，作者构建了一个综合的工作模型（Working Model），旨在系统性地阐述 Iizuchalasin A 如何从分子结合起始，通过信号转导网络，最终导致细菌死亡并抑制其致病性。
+
+#### 实验结果与深度解析
+**Figure 4** 清晰地描绘了 Iizuchalasin A (**1**) 的多维作用机制。首先，**1** 特异性结合于 WTA 转运蛋白的跨膜亚基 TarG，通过抑制其 ATP 水解偶联的转运功能，阻断了胞内合成的 WTA 前体向胞外的翻转（Translocation）。WTA 的缺失直接破坏了肽聚糖的交联和细胞壁的完整性，导致细胞壁通透性增加、形态异常（如电镜观察到的细胞壁增厚和膜泡释放），最终引起细菌裂解死亡。除了直接的杀菌作用，该模型还展示了 **1** 对细菌信号通路的调控：细胞壁的损伤作为一种压力信号，激活了 VraRS 双组分系统（*vraR*, *vraS* 上调）以应对压力；更为关键的是，**1** 的处理显著下调了 *agr* 群体感应系统（Quorum Sensing）的核心基因（*agrA*, *agrC*, *agrB* 及 *RNAIII*）。*agr* 系统的抑制直接导致了下游关键毒力因子——如表面蛋白 A (SpA) 和酚溶性调节蛋白 (PSMs)——的表达减少。这种对毒力因子的转录抑制解释了为何 **1** 能够有效阻断 *S. aureus* 对宿主细胞的粘附并降低其致死率。因此，Figure 4 总结了 Iizuchalasin A 作为一种“双效”抗生素的机制：既通过靶向 TarG 破坏细胞壁合成来“杀菌”，又通过干扰 *agr* 信号通路来“抗毒”，从而在体内外表现出卓越的抗感染疗效。
+![image.png](http://synbiopath.online/20260130105402789.png)
+
+
+> "A proposed working model is shown in Figure 4. Our data support the TarGH transporter as one target of iizuchalasin A in *S. aureus*... suppressing the bacteria growth, adhesion, virulence."
+
 ---
 
 ## 六：总体结论
