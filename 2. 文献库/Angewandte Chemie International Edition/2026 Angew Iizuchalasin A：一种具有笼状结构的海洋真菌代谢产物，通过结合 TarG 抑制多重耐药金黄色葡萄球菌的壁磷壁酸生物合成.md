@@ -1,4 +1,6 @@
+![image.png](http://synbiopath.online/20260130104248118.png)
 
+---
 
 ## 一：基本信息
 **文章题目**：Iizuchalasin A: A Marine Fungal Metabolite With a Cage-Like Structure That Binds TarG to Inhibit Wall Teichoic Acid Biosynthesis by Multidrug-Resistant *S. aureus*
@@ -7,11 +9,11 @@
 
 **期刊名称**：Angewandte Chemie International Edition
 
-**通讯作者**：Huanqin Dai (戴环琴), Hongwei Liu (刘宏伟)
+**通讯作者**：Hongwei Liu (刘宏伟)；Huanqin Dai (代焕琴)
 
 **通讯作者工作单位**：
-1.  中国科学院微生物研究所，真菌学国家重点实验室 (State Key Laboratory of Microbial Diversity and Innovative Utilization, Institute of Microbiology, Chinese Academy of Sciences, Beijing, China)
-2.  华中科技大学同济医学院药学院，天然药物化学与资源评价湖北省重点实验室 (Hubei Key Laboratory of Natural Medicinal Chemistry and Resource Evaluation, School of Pharmacy, Tongji Medical College, Huazhong University of Science and Technology, Wuhan, China)
+1.  刘宏伟：沈阳药科大学；中国科学院微生物研究所，真菌学国家重点实验室
+2.  代焕琴：中国科学院微生物研究所，真菌学国家重点实验室
 
 ---
 
@@ -69,6 +71,7 @@
 
 #### 实验结果与深度解析
 通过 LC-HRMS/MS 分析，在 *A. iizukae* 的活性组分中发现了三个主要的大分子代谢物簇 (Cluster 1-3, Figure 1B)。定向分离得到了 8 个 merocytochalasans 类化合物，包括 4 个新化合物 (**1**, **4**-**6**)。其中，Iizuchalasin A (**1**) 的结构尤为独特。HRMS 显示其分子量为 1158 Da，NMR 数据表明其具有高度对称性。最终通过 X 射线单晶衍射确证了其结构 (Figure 1D)：它由两个相同的 aspochalasin-epicoccine 单元通过 C-2''-C-4''', C-4''-C-2''', C-6''-C-7''', 和 C-7''-C-6''' 四个键连接，形成了一个罕见的笼状多环骨架。这种独特的结构特征使其区别于已知的抗生素，暗示了其可能具有新颖的作用机制。
+![image.png](http://synbiopath.online/20260130104329167.png)
 
 > "Compound **1** possessing a unique cage-like symmetrical skeleton... demonstrated potent efficacy in reducing bacterial burden."
 
@@ -78,6 +81,8 @@
 
 #### 实验结果与深度解析
 MIC 测试结果 (Table 1) 显示，化合物 **1** 对 MSSA, MRSA 和 MDRSA 均表现出优异的抑制活性 (MIC 4-8 μg/mL)，且对万古霉素耐药肠球菌 (VRE) 也有活性。值得注意的是，**1** 对表皮葡萄球菌 (*S. epidermidis*) 无活性 (MIC > 100 μg/mL)，显示出一定的种属特异性。杀菌曲线表明 **1** 具有杀菌作用 (Figure 2A)。透射电镜 (TEM) 观察发现，经 **1** 处理后的 MDRSA 细胞壁出现明显的肿胀和增厚，且细胞分裂受阻，伴随大量胞外膜泡的释放 (Figure 2B)。这些表型特征强烈提示 **1** 干扰了细菌细胞壁的生物合成或组装过程。
+![image.png](http://synbiopath.online/20260130104417545.png)
+![image.png](http://synbiopath.online/20260130104438554.png)
 
 > "1-treated MDRSA strain showed significant alterations on the cell wall... suggest that cell wall assembly be significantly altered by **1**."
 
@@ -87,6 +92,7 @@ MIC 测试结果 (Table 1) 显示，化合物 **1** 对 MSSA, MRSA 和 MDRSA 均
 
 #### 实验结果与深度解析
 通过连续传代筛选出的高耐药菌株 (MIC 提升 8 倍)，全基因组测序发现所有耐药株在 *tarG* 基因中均携带单点突变 (Y217D) (Figure 2C)。*tarG* 编码壁磷壁酸 (WTA) 转运蛋白 TarGH 的跨膜亚基。为了验证 TarG 是靶点，研究人员在 *S. aureus* 中过表达 *tarG*，发现这显著降低了 **1** 的抗菌活性 (MIC 从 4 升至 32 μg/mL)，表现出多拷贝抑制效应 (Figure 2D)。更有力的证据来自 *B. subtilis* 异源表达实验：野生型 *B. subtilis* 对 **1** 不敏感，但当用 *S. aureus* 的 *tarGH* 基因替换其内源同源基因后，工程菌株对 **1** 变得高度敏感 (MIC 1.56 μg/mL)。此外，体外酶活实验显示 **1** 能有效抑制重组 TarGH 蛋白的 ATPase 活性 ($IC_{50} = 2.25 \mu M$) (Figure 2F)，且 MST 实验证实 **1** 与 TarGH 有直接结合 ($K_d = 17.1 \mu M$) (Figure 2G)。这些证据链条完整地确证了 TarG 是 Iizuchalasin A 的直接作用靶点，其机制是通过抑制 TarGH 的转运功能阻断 WTA 的生物合成。
+![image.png](http://synbiopath.online/20260130104438554.png)
 
 > "Collectively, TarGH is confirmed to be one target of **1** for suppressing the growth of *S. aureus*."
 
@@ -105,6 +111,7 @@ MIC 测试结果 (Table 1) 显示，化合物 **1** 对 MSSA, MRSA 和 MDRSA 均
 
 #### 实验结果与深度解析
 在小鼠皮肤感染模型中，涂抹含 **1** 的药膏显著降低了伤口处的细菌载量 (Figure 3E, G)。在系统性感染模型中，注射 **1** 能显著提高小鼠的存活率（从 10% 提升至 40%），虽然略低于万古霉素 (70%)，但仍显示出良好的体内药效 (Figure 3H)。安全性方面，**1** 对 HeLa 和 Vero 细胞的毒性较低 ($IC_{50} > 100 \mu M$)，且在有效剂量下未观察到明显的动物毒性反应。此外，**1** 还能抑制 *S. aureus* 对宿主细胞的粘附，并下调毒力因子 (SpA, PSM) 的表达，显示出“抗细菌+抗毒力”的双重机制。
+![image.png](http://synbiopath.online/20260130104530899.png)
 
 > "Collectively, compound **1** is determined to be a promising antibiotic against drug-resistant *S. aureus*."
 
