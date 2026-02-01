@@ -1,4 +1,4 @@
-![image.png](http://synbiopath.online/20260120110326333.png)
+![image.png](https://synbiopath.online/20260120110326333.png)
 
 
 ## 一：基本信息
@@ -74,7 +74,7 @@
 #### 实验结果与分析
 
 - **Figure 1** 展示了这一发现过程。研究人员首先通过对宏基因组文库进行靶向 A-domain 的 PCR 扩增和测序，构建了一个系统发育树。在这个树中，他们识别出一个新的 A-domain 进化分支，该分支与 _lap_ BGC 的 PABA A-domain 紧密相关但又截然不同。这一发现引导他们从宏基因组文库中成功筛选并回收了 5 个含有该新 A-domain 的重叠科斯质粒克隆。
-    ![image.png](http://synbiopath.online/20260120110341362.png)
+    ![image.png](https://synbiopath.online/20260120110341362.png)
 
 - 通过对这些克隆进行测序和拼接，他们重建了一个完整的、新的生物合成基因簇，命名为 _tap_ BGC。生物信息学分析显示，该 BGC 包含 18 个基因 (_tapA-R_)，编码了 5 个大型 NRPS 蛋白以及 PABA 生物合成和修饰所需的酶。这一结果成功地从海量的宏基因组数据中钓出了一个极具潜力的新 BGC。
     
@@ -88,7 +88,7 @@
 #### 实验结果与分析
 
 - **Figure 2** 详细阐述了结构预测的过程和结果。
-    ![image.png](http://synbiopath.online/20260120110348696.png)
+    ![image.png](https://synbiopath.online/20260120110348696.png)
 
     
     - **Figure 2a** 展示了 _tap_ BGC 中 NRPS 酶的结构域组织，这是一个典型的“装配线”。通过分析每个 A-domain 的底物结合口袋序列（**Table S5**），研究人员预测了这条装配线依次装配的 10 个单体为：Ala, Ala, PABA, Cys, Cys, Cys, Asn, PABA, AHIBA, PABA。
@@ -109,11 +109,11 @@
 #### 实验结果与分析
 
 - **Figure 3** 展示了 **tapcin** 的逆合成分析和关键合成步骤。研究团队采用汇聚式策略，成功地在实验室中创造出了这个自然界中预测存在但从未被分离过的分子。
-    ![image.png](http://synbiopath.online/20260120110355064.png)
+    ![image.png](https://synbiopath.online/20260120110355064.png)
 
 
 - **Figure 4** 展示了合成出的 **tapcin** 的生物活性。
-    ![image.png](http://synbiopath.online/20260120110400681.png)
+    ![image.png](https://synbiopath.online/20260120110400681.png)
 
     
     - **Figure 4a** 是对一系列癌细胞系的 IC₅₀ 数据。结果令人震惊：**tapcin** 表现出极高的活性，对多种癌细胞的 IC₅₀ 值达到了纳摩尔 (nM) 甚至皮摩尔 (pM) 级别。例如，其对 U2-OS 骨肉瘤细胞的 IC₅₀ 仅为 **1.97 pM**，比 **lapcin** 和临床药物伊立替康强了数百至数千倍。
@@ -130,7 +130,7 @@
 #### 实验结果与分析
 
 - **Figure 5** 展示了两种不同动物模型的结果。
-    ![image.png](http://synbiopath.online/20260120110411773.png)
+    ![image.png](https://synbiopath.online/20260120110411773.png)
 
 
     - **Figure 5a (中空纤维模型)**：这是一个初步的体内筛选模型。结果显示，经腹腔注射 **tapcin** (2 mg/kg) 治疗 12 天后，植入小鼠体内（皮下 s.c. 和腹腔 i.p.）的中空纤维中的 HT-29 结直肠癌细胞的增殖被显著抑制，其效果与临床一线药物伊立替康 (irinotecan) 相当。

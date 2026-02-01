@@ -1,4 +1,4 @@
-![image.png](http://synbiopath.online/20260120115710752.png)
+![image.png](https://synbiopath.online/20260120115710752.png)
 
 ## 一：基本信息
 
@@ -82,7 +82,7 @@
     
 
 #### 实验结果与分析
-![image.png](http://synbiopath.online/20260120115722028.png)
+![image.png](https://synbiopath.online/20260120115722028.png)
 
 
 - **Figure 1c** 是体外重建的核心证据。MALDI-TOF-MS 谱图显示，在完整的反应体系中，除了未反应的底物 ChlA (m/z 4610)，还清晰地检测到了单氯代 (m/z 4644) 和双氯代 (m/z 4678) 的产物峰。
@@ -106,7 +106,7 @@
     
 
 #### 实验结果与分析
-![image.png](http://synbiopath.online/20260120115727848.png)
+![image.png](https://synbiopath.online/20260120115727848.png)
 
 
 - **Figure 2a** 总结了 Ala 扫描的结果。图中几乎所有的方格在 24 小时后都变成了实心的橙色，代表完全的双氯代。这表明 ChlA 肽链上的大部分氨基酸侧链对于 ChlH 的识别和催化都不是必需的，显示了 ChlH 对底物序列的**高度耐受性**。
@@ -130,7 +130,7 @@
     
 
 #### 实验结果与分析
-![image.png](http://synbiopath.online/20260120115738678.png)
+![image.png](https://synbiopath.online/20260120115738678.png)
 
 
 - **Figure 3b** 展示了自由能计算结果。该图显示，Trp8 和 Trp12 都能在活性口袋中找到一个能量很低的、稳定的结合构象（图中蓝色区域），这个构象非常适合发生催化反应。相比之下，Trp14 的自由能景观则非常平坦且能量较高，表明它无法在活性口袋中形成一个稳定且有利于反应的构象。
@@ -154,8 +154,8 @@
 #### 实验结果与分析
 
 **Figure 4** 展示了对多种肽底物的卤代结果。
-![image.png](http://synbiopath.online/20260120115746120.png)
-![image.png](http://synbiopath.online/20260120115751527.png)
+![image.png](https://synbiopath.online/20260120115746120.png)
+![image.png](https://synbiopath.online/20260120115751527.png)
 
 
 - **FusAcore (Fig 4a)** 和 _DarA-Q8 (Fig 4b)_*：ChlH 成功地卤代了这两种来自不同生物合成途径的线性肽。
@@ -168,10 +168,10 @@
 **Figure 6** 展示了最令人瞩目的结果——对蛋白质的卤代。
 
 - **Figure 6a** 的质谱图显示，经过 ChlH 处理和胰蛋白酶酶切后，MBP-TbtG 蛋白的一个特定肽段 (LGTPWLPVR) 的分子量增加了 34 Da。
-    ![image.png](http://synbiopath.online/20260120115758298.png)
+    ![image.png](https://synbiopath.online/20260120115758298.png)
 
 - **Figure 6b** 的串联质谱图进一步将这个氯代修饰精确定位到了该肽段的 Trp 残基上。
-    ![image.png](http://synbiopath.online/20260120115804856.png)
+    ![image.png](https://synbiopath.online/20260120115804856.png)
 
 
 **结论**：这些结果无可辩驳地证明了 ChlH 具有极其宽广的底物谱，其混杂性超越了所有已知的肽基卤代酶，使其成为一个极具潜力的通用生物催化工具。

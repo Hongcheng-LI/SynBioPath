@@ -1,4 +1,4 @@
-![image.png](http://synbiopath.online/20251227102650250.png)
+![image.png](https://synbiopath.online/20251227102650250.png)
 
 ---
 
@@ -83,11 +83,11 @@ Kahalalide F (KF) 是一种具有显著抗癌活性的环状缩酚酸肽（cycli
 
 #### 实验结果与分析
 **Figure 1A**：LC-MS 色谱图显示在级分 I 中存在一个显著的峰，质荷比 $m/z$ 为 1494.78（化合物 **1**）。
-![image.png](http://synbiopath.online/20251227102845392.png)
+![image.png](https://synbiopath.online/20251227102845392.png)
 
 **Figure 1B**：GNPS 分子网络显示该化合物形成一个包含四个节点的簇，但在数据库中无匹配。
 **Figure 1C**：利用 SMART NMR 和 DeepSAT 分析化合物 **1** 的 HSQC 数据。结果显示，最匹配的结构均为 Kahalalide 家族成员（如 Kahalalide F, G, T），余弦相似度（Cosine Score）高达 0.81-0.95。
-![image.png](http://synbiopath.online/20251227102912964.png)
+![image.png](https://synbiopath.online/20251227102912964.png)
 
 *   这提供了关键线索，表明蓝细菌可能产生 KF 类化合物。
 > "These tools... greatly facilitated the rigorous identification of the principal molecular species, named here as kahalalide $Z_5$ ($KZ_5$)."
@@ -98,10 +98,10 @@ Kahalalide F (KF) 是一种具有显著抗癌活性的环状缩酚酸肽（cycli
 
 #### 实验结果与分析
   **平面结构 (Table 1, Figure 2A/B)**：高分辨质谱确定分子式为 $\text{C}_{73}\text{H}_{119}\text{N}_{15}\text{O}_{18}$。NMR 数据解析证实其包含 3个 Val, 3个 Ile, 2个 Thr, 1个 Dhb, 1个 Phe, 1个 Cit, 1个 Pro, 1个 Hse 和 1个丁酸基团。其平面结构与 KF 骨架一致。
-  ![image.png](http://synbiopath.online/20251227103008619.png)
+  ![image.png](https://synbiopath.online/20251227103008619.png)
 
   **立体构型 (Figure 2C, Figure S3-S6)**：
-  ![image.png](http://synbiopath.online/20251227103023917.png)
+  ![image.png](https://synbiopath.online/20251227103023917.png)
 
 *   Marfey's 分析确定了大部分氨基酸构型，发现了 D-Hse, D-allo-Ile 等非蛋白氨基酸。
 *   **难点突破**：为了区分分子中两个 L-Val 和一个 D-Val 的位置，作者进行了部分水解。分离得到片段 `Ile-3-Thr-1-Ile-2-Ile-1-Phe-Dhb-Val-1`，确认了 Val-1 为 L-构型。
@@ -124,10 +124,10 @@ Kahalalide F (KF) 是一种具有显著抗癌活性的环状缩酚酸肽（cycli
 
 #### 实验结果与分析
 **BGC 鉴定 (Figure 3)**：在 *Limnoraphis* sp. 基因组中鉴定出一个 90.9 kb 的 NRPS 基因簇 ($kalA-kalI$)。该簇包含 13 个模块，其预测的底物特异性与 $KZ_5$ 的氨基酸序列完全一致（包括预测特定位置的异构化结构域对应 D-型氨基酸）。
-![image.png](http://synbiopath.online/20251227103142665.png)
+![image.png](https://synbiopath.online/20251227103142665.png)
 
 **关键差异 (Figure 4)**：
-![image.png](http://synbiopath.online/20251227103217927.png)
+![image.png](https://synbiopath.online/20251227103217927.png)
 
 *   **起始机制**：$KZ_5$ BGC 包含一个 Fatty Acyl-AMP Ligase (FAAL, *kalH*) 基因，负责长链脂肪酸的起始装载。这与 KF 和 $KZ_3$ 的 BGC 显著不同，后者缺乏 FAAL 基因。
 *   **终止机制**：$KZ_5$ BGC 的硫酯酶 (TE) 结构域位于最后一个模块（Module 13）内，而 KF 的 TE 位于 NRPS 基因的上游。

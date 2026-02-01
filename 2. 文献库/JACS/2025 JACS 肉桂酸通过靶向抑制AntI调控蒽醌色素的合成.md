@@ -1,4 +1,4 @@
-![image.png](http://synbiopath.online/20260104140821363.png)
+![image.png](https://synbiopath.online/20260104140821363.png)
 
 ---
 
@@ -21,7 +21,7 @@
 ## 二：核心速览
 ### 研究背景
 昆虫病原细菌 *Photorhabdus* spp. 与线虫共生，并能产生多种次级代谢产物，其中标志性的化合物包括具有抗生素、杀虫和免疫抑制活性的异丙基芪 (Isopropylstilbene, IPS)，以及在指数生长期赋予细菌橙红色特征的蒽醌 (Anthraquinone, AQ) 色素。已知 IPS 能调节包括 AQ 在内的色素合成相关基因的转录，但其直接前体肉桂酸 (Cinnamic acid, CA) 在代谢网络中的作用尚不完全清楚。
-![image.png](http://synbiopath.online/20260104140933374.png)
+![image.png](https://synbiopath.online/20260104140933374.png)
 
 ### 前期研究
 已有研究表明，IPS 的生物合成起始于苯丙氨酸经 Stilbene synthase A (StlA) 脱氨生成 CA。敲除 *stlA* 基因会导致菌株 (*ΔstlA*) 出现色素过度积累的表型，提示 CA 或 IPS 在色素形成中扮演关键调控角色。外源添加 126 μM 的 IPS 可引起野生型菌株的色素脱色，但更高浓度 (超过 0.5 mM) 则产生细胞毒性。相比之下，外源添加 1.3 mM CA 不影响细胞生长，大部分 CA 进入三羧酸循环代谢，仅有少量转化为 IPS。AQ 的生物合成由 II 型聚酮合酶 (type II polyketide synthase, PKS) 系统完成，其中 Anti 酶负责聚酮链的缩短，是 AQ-256 生物合成最后一步的关键酶。
@@ -78,12 +78,12 @@
 
 #### 实验结果与分析
 在野生型 TTO1 中，添加 126 μM IPS 导致肉眼可见的色素脱色 (**图 2b** 描述）。HR-LCMS 分析显示，IPS 处理后，AQ-270a 水平轻微下降，而 AQ-284a 水平反而上升，总体 AQ 产量未发生显著降低 (**图 2b, 图 S3**）。这表明 IPS 引起的“颜色漂白”可能源于色素化学状态的改变或分布变化，而非合成通量的整体抑制。
-![image.png](http://synbiopath.online/20260104141531957.png)
+![image.png](https://synbiopath.online/20260104141531957.png)
 
 > “IPS addition led to a slight decrease in AQ-270a, while AQ-284a levels increased... IPS primarily causes color bleaching without altering overall AQ levels.”
 
 相比之下，添加 1 mM CA 同样引起了明显的颜色变浅 (**图 2c**），但其代谢效应截然不同。HR-LCMS 定量显示，CA 处理显著降低了 AQ-270a 和 AQ-284a 的产量 (**图 2c, 3a, 图 S4a**）。在 *ΔstlA* 突变株中，外源添加 CA 重现了颜色变浅和 AQ 产量下降的表型 (**图 3b, 图 S4b, S5**），而 IPS 的效应也与野生型中相似。这些结果明确将 CA 与 IPS 的调控作用区分开来：**CA 直接抑制 AQ 的生物合成总量，而 IPS 主要影响色素的修饰或状态，不抑制总合成**。
-![image.png](http://synbiopath.online/20260104141649217.png)
+![image.png](https://synbiopath.online/20260104141649217.png)
 
 
 ### 研究部分二：CA抑制作用靶点的锁定与验证
@@ -92,7 +92,7 @@
 
 #### 实验结果与分析
 在 *ΔstlA ΔMTs* 突变株中，添加 CA 不仅导致培养物褪色，而且显著降低了核心产物 AQ-256 的水平 (**图 3c, 图 S4c**）。这证明 CA 的抑制作用发生在 AQ-256 形成之前，靶点是其生物合成通路上的早期或核心步骤。
-![image.png](http://synbiopath.online/20260104141754312.png)
+![image.png](https://synbiopath.online/20260104141754312.png)
 
 更关键的证据来自对分流产物 (SPs) 的分析。在 CA 处理的 *ΔstlA* 和 *ΔstlA ΔMTs* 菌株中，检测到 SP1, SP2 和 SP4 等分流产物的剧烈积累 (**图 3b, c**）。这些 SPs 被证实是当 Anti 酶功能受阻时，由 AntiF-载体的八聚酮中间体错误捕获细胞内氨分子而产生的 (**图 1a**）。重要的是，这种 SPs 积累谱与之前报道的 *ΔantI* 突变株的表型完全一致。而 IPS 处理则未引起 SPs 的变化 (**图 2b, 图 S5**）。
 
@@ -106,7 +106,7 @@
 
 #### 实验结果与分析
 蛋白质组学的火山图分析结果显示 (**图 4**），在三种不同的遗传背景下，CA 处理均未导致任何 AQ 生物合成酶的下调。相反，**Anti 的蛋白水平在所有三种菌株中均因 CA 处理而显著上调**（ Fold Change > 2）。与此对比，之前报道的 IPS 处理则确实下调了 AQ 生物合成相关基因的表达，且在本研究的蛋白组数据中未引起 Anti 的上调 (**图 S6**)。
-![image.png](http://synbiopath.online/20260104141909764.png)
+![image.png](https://synbiopath.online/20260104141909764.png)
 
 > “CA treatment led to a significant upregulation of AntI in all three strains... the increased AntI production following CA treatment likely serves as a compensatory response to CA-induced AntI inhibition.”
 
@@ -118,7 +118,7 @@
 
 #### 实验结果与分析
 **结构概述与结合位点**： Anti 以同源二聚体形式存在，CA 分子明确地位于每个亚基的底物结合通道内 (**图 5a**)。与完全“开放”的状态相比，CA 的结合诱导了局部构象变化，使蛋白呈现出一种“闭合”状态的特征，特别是 Pro281-Arg283 环 (区域 I) 发生了约 90° 的旋转，以及 Tyr20 侧链 120° 的翻转 (**图 5b**)。这些重排促进了 Arg282 与 Tyr20 之间的 π-堆积，并形成了 Arg282 与 Asp327 之间两个强的盐桥，稳定了结合 CA 的构象 (**图 5c**)。
-![image.png](http://synbiopath.online/20260104141933383.png)
+![image.png](https://synbiopath.online/20260104141933383.png)
 
 
 **竞争性抑制与非共价结合机制**： CA 占据了底物结合通道，其苯乙烯基团深入活性中心，与催化三联体中的亲核试剂 Ser245 距离仅 3.4 Å (**图 5d 左图**)。然而，CA 芳香环的共轭 π 电子体系稳定了其双键，阻止了 Ser245 对其发动亲核进攻形成共价键，这解释了抑制的**可逆性**。CA 通过其羧酸根基团与 Gly173, Leu174, Asp175 的主链酰胺形成氢键，其苯环部分则与 Arg24 发生阳离子-π 相互作用，与 Phe27 发生 π-π 堆积。尽管结合在能量上有利，但 CA 的羧基诱导了 Gly173 羰基 37° 的旋转，导致蛋白骨架产生不利的二面角，部分抵消了结合能 (**图 5d 右图对比**)。

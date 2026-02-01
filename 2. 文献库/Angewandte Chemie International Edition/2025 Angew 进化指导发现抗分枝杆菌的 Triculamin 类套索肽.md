@@ -1,4 +1,4 @@
-![image.png](http://synbiopath.online/20260116104814822.png)
+![image.png](https://synbiopath.online/20260116104814822.png)
 
 ---
 
@@ -88,7 +88,7 @@
 研究者首先尝试在 *S. albus* 中异源表达最初鉴定的 *triACD* 基因簇，但未能检测到三苦胺产物。回顾原始菌株提取物时，发现除了已知的 triculamin A 外，还存在 C 端多一个 Arg 的 triculamin B 以及它们各自的乙酰化形式（质量增加 42 Da）。这提示乙酰化修饰的存在。重新审视 BGC 周围序列后，发现了一个 N-乙酰转移酶基因 *triT* 和一个转录调节基因 *H*。
 
 随后，研究者构建了包含 *triACDHT* 的质粒并转化 *S. albus*，成功检测到了 triculamin B 及其乙酰化形式。为明确各基因作用，构建了系列缺失突变体：
-![image.png](http://synbiopath.online/20260116105154388.png)
+![image.png](https://synbiopath.online/20260116105154388.png)
 
 *   **Figure 1 分析**: Figure 1c 展示了不同基因缺失突变体的 LC-MS 色谱图。
     *   **ΔtriA** 和 **ΔtriC**: 完全未检测到产物，证实前体肽和大环化酶是生物合成所必需的。
@@ -108,7 +108,7 @@
 为了验证 *triT* 的功能，研究者在 *E. coli* 中表达了带有 His 标签的 TriT 蛋白并进行了纯化，产量约为 6 mg/L 发酵液。随后进行了体外酶促反应：
 
 **Figure 2 分析**: Figure 2 展示了体外乙酰化反应的结果。
-![image.png](http://synbiopath.online/20260116105226107.png)
+![image.png](https://synbiopath.online/20260116105226107.png)
 
 *   **Figure 2a**: 反应示意图，TriT 以 AcCoA 为供体，对三苦胺 B 进行乙酰化，可能位点为赖氨酸 (K2, K3, K5)。
 *   **Figure 2b & c**: LC-MS 结果显示，三苦胺 B (x) 与 AcCoA (y) 共孵育无变化；但加入 TriT (z) 后，检测到了分子量增加 42 Da 的单乙酰化产物 (4, 5) 以及少量双乙酰化产物 (6)。质谱图显示峰形较宽，提示乙酰化可能发生在多个赖氨酸位点。
@@ -126,7 +126,7 @@
 研究者基于三苦胺的核心肽序列在细菌基因组中进行了广泛的挖掘。结果显示，类三苦胺核心肽不仅存在于放线菌门，还存在于变形菌门 和厚壁菌门，这与通常局限于单一门类的套索肽形成鲜明对比。研究者发现了两类 BGC：非典型 BGC（如三苦胺，含 Follower 序列和截短的大环化酶）和典型 BGC（含前导肽、RRE、肽酶和完整大环化酶），且两类 BGC 核心肽序列高度相似。
 
 **Figure 3 分析**: Figure 3 展示了基于大环化酶序列构建的系统发育树。
-![image.png](http://synbiopath.online/20260116105306086.png)
+![image.png](https://synbiopath.online/20260116105306086.png)
 
 *   树中包含三个折叠节点（灰色为天冬酰胺合成酶样蛋白，蓝色为 β-内酰胺合成酶，红色为其他套索肽大环化酶）。
 *   **内圈颜色**：深紫色代表典型类三苦胺 BGC，浅紫色代表非典型类三苦胺 BGC。
@@ -146,7 +146,7 @@
 研究者选择了 *Chitinasicproducens palmae*（属于伯克霍尔德氏菌科），其 BGC 具有典型的架构：包含大环化酶 (palC)、RRE (palB1)、肽酶 (palB2)、转运蛋白 和带有前导肽的前体。由于 OSMAC 策略未能诱导产物，研究者尝试异源表达。
 
 **Figure 4 分析**: Figure 4 展示了棕榈胺的异源表达过程及结果。
-![image.png](http://synbiopath.online/20260116105335785.png)
+![image.png](https://synbiopath.online/20260116105335785.png)
 
 *   **Figure 4a**: 展示了从 *C. palmae* 克隆 *pal* BGC 并在 *Burkholderia* sp. FERM-3421 中表达的流程。
 *   **Figure 4b**: 典型套索肽的生物合成假设示意图，包括前体被 B1、B2、C 蛋白翻译后修饰的过程。
@@ -165,7 +165,7 @@
 研究者对 *B. gelatini* 进行了发酵，通过阳离子交换色谱分离了活性组分。
 
 **Figure 5 分析**: Figure 5 展示了明胶胺的分离与结构解析。
-![image.png](http://synbiopath.online/20260116105413513.png)
+![image.png](https://synbiopath.online/20260116105413513.png)
 
 *   **Figure 5a**: *B. gelatini* 的 BGC 示意图，除了典型的 *A, B1, B2, D* 基因外，还包含一个 Clostripain 家族肽酶和一个 N-乙酰转移酶。
 *   **Figure 5b**: 总结了发酵液中发现的明胶胺变体，包括乙酰化和非乙酰化形式，以及单脱水和双脱水形式。
@@ -184,7 +184,7 @@
 研究者将纯化的 TriT 酶与明胶胺 A 在体外进行共孵育。
 
 **Figure 6 分析**: Figure 6 展示了明胶胺的体外乙酰化结果。
-![image.png](http://synbiopath.online/20260116105445880.png)
+![image.png](https://synbiopath.online/20260116105445880.png)
 
 *   **Figure 6a**: 明胶胺的单乙酰化和双乙酰化示意图。
 *   **Figure 6b**: LC-MS 结果显示，明胶胺 (x) 与 TriT 及 AcCoA 反应后 (z)，主要转化为双乙酰化产物 (10)，且检测到了少量三乙酰化产物 (*)。

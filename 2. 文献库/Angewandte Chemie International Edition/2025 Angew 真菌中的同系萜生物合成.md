@@ -1,4 +1,4 @@
-![image.png](http://synbiopath.online/20260120120008534.png)
+![image.png](https://synbiopath.online/20260120120008534.png)
 
 该研究报道了真菌界中首个同系萜（Homoterpene）生物合成途径的发现，打破了长期以来认为此类化合物仅存在于植物、昆虫和细菌中的认知。作者通过基因组挖掘、体外酶活重构及系统发育分析，揭示了一种独特的“细菌基因水平转移 + 真菌趋同进化”的生物合成逻辑。
 
@@ -25,7 +25,7 @@
 ### 前期研究
 
 细菌中的同系萜合成通常涉及两个关键酶：一个 S-腺苷甲硫氨酸 (SAM) 依赖的甲基转移酶 (MT) 和一个萜类环化酶 (TC)。例如，在变形菌门 (Pseudomonadota) 中发现了结构复杂的 "Greek philosophers" 同系萜（如 sodorifen），而在放线菌门 (Actinomycetota) 中则发现了简单甲基化的 "humanists" 同系萜（如 kantenol）。
-![image.png](http://synbiopath.online/20260120120017985.png)
+![image.png](https://synbiopath.online/20260120120017985.png)
 
 
 ### 本文突破点
@@ -62,7 +62,7 @@
 旨在通过生物信息学手段，在真菌基因组中寻找类似于细菌“甲基转移酶 (MT) + 萜类环化酶 (TC)”的基因组合，以挖掘潜在的同系萜生物合成途径。
 
 - **Figure 2a & Table S1**: 研究者在苹果溃疡病病原真菌 _Neonectria ditissima_ 中鉴定到一个推测的基因簇 (_ndi_)。该基因簇包含一个 I 型萜类环化酶 (**NdiTC**) 和一个 I 类甲基转移酶 (**NdiMT**)，并由调节元件 (NdiR1-3) 和转运蛋白 (NdiT) 侧翼包围。
-    ![image.png](http://synbiopath.online/20260120120026235.png)
+    ![image.png](https://synbiopath.online/20260120120026235.png)
 
 
 - **序列分析**: NdiTC 与担子菌 _Coprinopsis cinerea_ 的倍半萜合酶 COP4 具有 31% 的氨基酸序列一致性 (aaSI)；而 NdiMT 与参与生物素合成的丙二酰-ACP O-甲基转移酶 BioC 具有 30% aaSI。值得注意的是，NdiMT 与已知的细菌同系萜甲基转移酶（如 _Pseudomonas lini_ 的 PlMTα）序列一致性较低 (最高 42%)，但保留了关键的二磷酸结合基序 (Figure S1)。这表明该基因簇具有合成同系萜的潜力，但其序列特征与已知细菌途径存在差异。
@@ -73,7 +73,7 @@
 为了验证 NdiMT 和 NdiTC 的功能，研究者将这两个基因在 _E. coli_ 中进行异源表达，纯化蛋白后进行体外酶活测定。实验设置了不同的底物 (GPP, FPP, GGPP) 和酶组合，利用 GC-MS 分析产物。
 
 **Figure 2b & 2c**:
-![image.png](http://synbiopath.online/20260120120031668.png)
+![image.png](https://synbiopath.online/20260120120031668.png)
 
 - 当 NdiMT 和 NdiTC 与 FPP (C₁₅) 和 SAM 共同孵育时，GC-MS 检测到一个明显的产物峰，其质荷比 (m/z) 为 218 (Figure 2b)。这与 C₁₆ 烃类化合物的分子量一致，表明发生了甲基化和环化。
     
@@ -89,7 +89,7 @@
 确定 NdiMT 催化的中间体结构，并解析最终产物 **11** 的精确化学结构。由于 NdiMT 表达量低，研究者利用细菌来源的同源酶 PchlMT 辅助制备中间体。
 
 **Figure 3a-d (中间体鉴定)**:
-![image.png](http://synbiopath.online/20260120120042812.png)
+![image.png](https://synbiopath.online/20260120120042812.png)
 
 
 - NdiMT 的产物 (m/z 236) 的 EI 质谱图显示出 m/z 137 的基峰，这与细菌同系萜途径中的 presodorifen alcohol (**8b**) 高度相似。
@@ -102,7 +102,7 @@
     
 
 **Figure 3e & Table S2 (终产物结构)**:
-![image.png](http://synbiopath.online/20260120120049454.png)
+![image.png](https://synbiopath.online/20260120120049454.png)
 
 - 通过 PchlMT 和 NdiTC 的联用，研究者制备了 0.5 mg 的最终产物。
     
@@ -118,11 +118,11 @@
 为了探究真菌如何获得这一通常存在于细菌中的代谢途径，研究者对 NdiMT 和 NdiTC 进行了系统发育分析。
 
 **Figure 4**:
-![image.png](http://synbiopath.online/20260120120056702.png)
+![image.png](https://synbiopath.online/20260120120056702.png)
 
 
 - **NdiMT (Figure 4b)**: 在系统发育树中，真菌来源的 NdiMT 与细菌来源的 SodC 及其同源蛋白（产生 presodorifen diphosphate 的酶）聚类在同一个分支上。这强烈暗示了 **NdiMT 是通过水平基因转移 (HGT) 从细菌（可能是变形菌门）获得**的。
-    ![image.png](http://synbiopath.online/20260120120102292.png)
+    ![image.png](https://synbiopath.online/20260120120102292.png)
 
 
 - **NdiTC (Figure 4c)**: 与 MT 不同，NdiTC 并没有与细菌的同系萜环化酶 (如 SodD) 聚类。相反，它与典型的真菌 I 型萜类环化酶（如 aristolochene synthase）聚在一起，且与细菌 SodD 的序列一致性极低 (<16%)。

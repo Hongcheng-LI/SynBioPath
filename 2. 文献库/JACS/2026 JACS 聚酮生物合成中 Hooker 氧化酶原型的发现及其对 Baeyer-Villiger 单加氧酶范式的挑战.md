@@ -1,4 +1,4 @@
-![9f84751f-d08f-4df3-a2fd-34282e87aba9.png](http://synbiopath.online/9f84751f-d08f-4df3-a2fd-34282e87aba9.png)
+![9f84751f-d08f-4df3-a2fd-34282e87aba9.png](https://synbiopath.online/9f84751f-d08f-4df3-a2fd-34282e87aba9.png)
 
 ---
 
@@ -15,7 +15,7 @@
 
 ### 研究背景
 放线菌产生的芳香聚酮类化合物是一类结构复杂且具有重要药用价值的天然产物。其生物合成过程涉及聚酮链的组装、环化、芳构化以及随后的酶促修饰。其中，黄素蛋白单加氧酶 (FPMOs) 在骨架重排和氧化修饰中起着关键作用。Rishirilide A 是一种具有独特桥环结构的聚酮化合物，其生物合成中的关键步骤是由 FPMO RslO9 催化的氧化重排。此前，该酶被普遍认为是一种 Baeyer-Villiger 单加氧酶 (BVMO)，通过内酯化和随后的醛醇缩合形成桥环骨架。
-![image.png](http://synbiopath.online/20260127180608952.png)
+![image.png](https://synbiopath.online/20260127180608952.png)
 
 ### 本文突破点
 本研究通过深入的机理研究、结构生物学解析和底物谱拓展，推翻了 RslO9 作为 BVMO 的传统认知。研究发现，RslO9 催化的反应并非 Baeyer-Villiger 氧化，而是一种类似于经典的 Hooker 氧化的新型酶促反应机制。该机制涉及底物的羟基化，随后发生二苯乙醇酸重排 (benzilic acid rearrangement) 导致的烷基迁移。

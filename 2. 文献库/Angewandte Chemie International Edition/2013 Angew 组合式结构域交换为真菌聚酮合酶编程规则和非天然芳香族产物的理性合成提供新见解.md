@@ -1,4 +1,4 @@
-![image.png](http://synbiopath.online/20260110203833486.png)
+![image.png](https://synbiopath.online/20260110203833486.png)
 
 
 ## 一：基本信息
@@ -18,7 +18,7 @@
 ### 研究背景
 
 真菌的非还原型聚酮合酶 (Non-reducing Polyketide Synthase, NR-PKS) 是一类模块化的巨型酶，负责合成结构多样的芳香族聚酮化合物。这些酶通常由 N-末端的“装载模块”（SAT-KS-MAT）和 C-末端的“加工模块”（PT-ACP-TE）组成。通过交换不同 NR-PKS 来源的功能结构域，进行“组合生物合成”，是创造非天然、“杂合”聚酮分子的强大策略。然而，这种策略的成功率很低，因为我们对不同结构域之间如何相互识别和协同工作的“编程规则”知之甚少。
-![image.png](http://synbiopath.online/20260110203852024.png)
+![image.png](https://synbiopath.online/20260110203852024.png)
 
 
 本研究的核心科学问题是：**不同 NR-PKS 来源的催化结构域之间是否存在普适的兼容性？我们能否通过系统性的结构域交换实验，来揭示这些编程规则，并实现对非天然芳香族产物的理性、可预测的合成？**
@@ -26,7 +26,7 @@
 ### 前期研究
 
 在本文发表前，Townsend 团队已经开创了对单个 NR-PKS (PksA) 进行“解构-重构”的研究。他们将 PksA 拆分成独立的结构域，再进行重组，证明了这些结构域在体外可以相互识别并恢复功能。这为本研究中更大胆的、**跨越不同 PKS** 的“异源结构域交换”奠定了基础。此外，学术界已经鉴定出多个具有不同链长特异性、环化模式和释放机制的 NR-PKS，为本文的组合实验提供了丰富的酶元件库。
-![image.png](http://synbiopath.online/20260110203900358.png)
+![image.png](https://synbiopath.online/20260110203900358.png)
 
 
 ### 本文突破点
@@ -86,7 +86,7 @@
 **图表解读**：
 
 - **Figure 3a：CTB1 对照反应**
-    ![image.png](http://synbiopath.online/20260110203917337.png)
+    ![image.png](https://synbiopath.online/20260110203917337.png)
 
     
     - **图表内容**：展示了 CTB1 自身各模块组合的反应结果。
@@ -116,7 +116,7 @@
 **图表解读**：
 
 - **Figure 3b：PT 和 ACP 异源结构域的反应**
-    ![image.png](http://synbiopath.online/20260110203928935.png)
+    ![image.png](https://synbiopath.online/20260110203928935.png)
 
     
     - **图表内容**：展示了将 CTB1 的 ACP 与 5 个不同的 PT 组合后的反应结果。
@@ -150,7 +150,7 @@
 **图表解读**：
 
 - **Figure 3c：PT, ACP, 和 TE 异源结构域的反应**
-    ![image.png](http://synbiopath.online/20260110203940526.png)
+    ![image.png](https://synbiopath.online/20260110203940526.png)
 
     
     - **图表内容**：展示了在 `PT + ACP` 组合的基础上，再加入不同 TE 后的反应结果。

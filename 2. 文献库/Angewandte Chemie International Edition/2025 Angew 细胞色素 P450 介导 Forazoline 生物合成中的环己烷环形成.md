@@ -1,4 +1,4 @@
-![image.png](http://synbiopath.online/20260120115552866.png)
+![image.png](https://synbiopath.online/20260120115552866.png)
 
 
 ## 1. 基本信息
@@ -27,7 +27,7 @@ Forazoline A 是一种由海洋放线菌 _Actinomadura_ sp. WMMB-499 产生的�
 ### 前期研究：
 
 先前的同位素标记实验表明 Forazoline A 由 PKS/NRPS 杂合途径合成，并初步预测了其生物合成基因簇 (_fraz_)。生物信息学分析提示模块化的 I 型 PKS 合成了一个无环的多烯前体，暗示了后修饰酶参与了环己烷环的形成。已有一些细胞色素 P450 酶 (Cytochrome P450s) 被报道参与环化反应，例如 StaP 催化吲哚并咔唑骨架的形成，P450 154A1 催化 Paternò-Büchi 样环化，LonP 催化三烷基取代苯环的氧化环化，VrtK 构建螺环体系。然而，Forazoline A 中环己烷环的具体形成机制，特别是 P450 酶是否参与以及如何参与，尚待阐明。
-![image.png](http://synbiopath.online/20260120115600933.png)
+![image.png](https://synbiopath.online/20260120115600933.png)
 
 
 ### 本文突破点：
@@ -85,7 +85,7 @@ Forazoline A 是一种由海洋放线菌 _Actinomadura_ sp. WMMB-499 产生的�
 **实验结果与分析**：
 
 - _fraz_ BGC 包含 28 个基因。PKS/NRPS 模块分析表明，聚酮链由 FrazA 装载一个丙二酰辅酶 A单元开始，随后经过四分子丙二酰辅酶 A 和三分子甲基丙二酰辅酶 A 的缩合形成。模块 1 和 7 的脱氢酶 (DH) 结构域以及模块 7 的酮基还原酶 (KR) 结构域由于保守位点突变可能失活 (Fig. S2)。
-    ![image.png](http://synbiopath.online/20260120115611449.png)
+    ![image.png](https://synbiopath.online/20260120115611449.png)
 
 
 - 系统发育分析显示：FrazP1 与参与糖基化激活的 AknT 聚类，且两者均缺乏保守的负责血红素铁结合的半胱氨酸残基 (Fig. S4)。FrazP3 与参与羟基化的 P450 聚类。FrazP2 则位于一个功能多样的 P450 分支。
@@ -98,7 +98,7 @@ Forazoline A 是一种由海洋放线菌 _Actinomadura_ sp. WMMB-499 产生的�
 **实验步骤**：构建包含完整 _fraz_ BGC 的 BAC (p6-18C)，并将其导入 _S. albus_ J1074。分别构建 _frazP1_, _frazP2_, _frazP3_ 单基因失活以及 _frazP2P3_ 双基因失活的 BAC 突变体。分析野生型 BAC 和各突变体在 _S. albus_ 中的发酵产物。
 
 **实验结果与分析** (Fig. 3)：
-![image.png](http://synbiopath.online/20260120115617644.png)
+![image.png](https://synbiopath.online/20260120115617644.png)
 
 
 - _S. albus_ J1074/p6-18C (野生型 BAC)：产生 Forazoline A (**1**)。
@@ -119,7 +119,7 @@ Forazoline A 是一种由海洋放线菌 _Actinomadura_ sp. WMMB-499 产生的�
 **实验步骤**：过表达纯化 FrazP2。以化合物 **2** 或 **7** 为底物，在 SelFdx1499/SelFdR0978 氧化还原系统和 NADPH 存在下进行体外酶促反应。通过 HPLC-DAD 分析产物。进行 ¹⁸O₂ 和 H₂¹⁸O 同位素标记实验，LC-HRESIMS 分析产物中氧原子的来源。
 
 **实验结果与分析** (Fig. 4)：
-![image.png](http://synbiopath.online/20260120115626162.png)
+![image.png](https://synbiopath.online/20260120115626162.png)
 
 
 - FrazP2 能将底物 **2** 转化为主要产物 **8** 和次要产物 **9**。**8** (C₂₆H₃₈N₂O₇S₃) 的 NMR 数据显示，**2** 中的 5-甲基庚-1,5-二烯-4-醇单元环化形成了 1,6-二甲基环己烷-1,2,4-三醇结构。
@@ -142,7 +142,7 @@ Forazoline A 是一种由海洋放线菌 _Actinomadura_ sp. WMMB-499 产生的�
 **实验步骤**：解析 FrazP2 的 apo 形式 (PDB ID: 9KPP, 1.8 Å) 和与底物 **2** 结合的复合物形式 (PDB ID: 9KPU, 2.3 Å) 的晶体结构。
 
 **实验结果与分析** (Fig. 5)：
-![image.png](http://synbiopath.online/20260120115634385.png)
+![image.png](https://synbiopath.online/20260120115634385.png)
 
 
 - 总体结构：FrazP2 呈现出典型的细胞色素 P450 折叠，包含 12 个 α-螺旋和 5 个 β-折叠。血红素辅基位于 I-螺旋和 L-螺旋之间。
@@ -182,7 +182,7 @@ Forazoline A 是一种由海洋放线菌 _Actinomadura_ sp. WMMB-499 产生的�
 **实验步骤**：对 FrazP2 的 Compound I (Cpd I) 催化底物 **2** 环化的过程进行 MD 模拟和 DFT 计算。
 
 **实验结果与分析** (Fig. 6)：
-![image.png](http://synbiopath.online/20260120115644683.png)
+![image.png](https://synbiopath.online/20260120115644683.png)
 
 
 - MD 模拟确定了关键的酶-底物相互作用残基 (E77, F78, T86, I171, M232, G284, L286, L386, L387)。
@@ -199,7 +199,7 @@ Forazoline A 是一种由海洋放线菌 _Actinomadura_ sp. WMMB-499 产生的�
 **实验步骤**：测定化合物 **1-8** 对白色念珠菌的 MIC 值。
 
 **实验结果与分析** (Table 1)：
-![image.png](http://synbiopath.online/20260120115651156.png)
+![image.png](https://synbiopath.online/20260120115651156.png)
 
 
 - 开链的中间体 **2, 3, 7** (MIC 1-2 μg/mL) 的抗真菌活性强于环化的 Forazoline A (**1**, MIC 8 μg/mL)。

@@ -1,4 +1,4 @@
-![image.png](http://synbiopath.online/20260110210606966.png)
+![image.png](https://synbiopath.online/20260110210606966.png)
 
 
 
@@ -25,7 +25,7 @@ II 型聚酮合酶 (Type II PKS) 系统通常负责合成芳香族聚酮化合�
 ### 前期研究
 
 在本文发表前，该领域的研究现状如下：
-![image.png](http://synbiopath.online/20260110210624178.png)
+![image.png](https://synbiopath.online/20260110210624178.png)
 
 1. **Youssoufenes 的发现**：作者团队前期通过敲除一个氨基转移酶基因 _dtlA_，在 _Streptomyces youssoufiensis_ OUC6819 中激活了一类新化合物 youssoufenes 的生物合成。
     
@@ -97,7 +97,7 @@ II 型聚酮合酶 (Type II PKS) 系统通常负责合成芳香族聚酮化合�
 #### 实验结果与分析
 
 **Figure 2** 的 HPLC 图谱清晰地展示了基因敲除的结果。
-![image.png](http://synbiopath.online/20260110210700688.png)
+![image.png](https://synbiopath.online/20260110210700688.png)
 
 - **YsfB/C 和 YsfD/E 的功能**：敲除 _ysfB_, _ysfC_, _ysfD_, 或 _ysfE_ (panels iii-vi) 中的任何一个基因，都会导致**所有** youssoufene 化合物 (**1-6**) 的生产完全被阻断。这表明 YsfB/C 和 YsfD/E 这两个复合物对于合成 youssoufenes 的核心骨架是必需的，可能负责链的起始和早期延伸。
     
@@ -123,7 +123,7 @@ II 型聚酮合酶 (Type II PKS) 系统通常负责合成芳香族聚酮化合�
 #### 实验结果与分析
 
 **Figure 4A** 展示了以乙酰-CoA 为起始单元的体外重构结果。
-![image.png](http://synbiopath.online/20260110210715254.png)
+![image.png](https://synbiopath.online/20260110210715254.png)
 
 
 - **无异构酶 (panel ii)**：反应只产生了一个 C8 长度、含有三个双键的聚酮中间体。链延伸在此处完全停止。
@@ -153,7 +153,7 @@ II 型聚酮合酶 (Type II PKS) 系统通常负责合成芳香族聚酮化合�
 #### 实验结果与分析
 
 **Figure 4C** 展示了 ITCT 实验的结果，这是本研究方法学创新和机理发现的又一核心。
-![image.png](http://synbiopath.online/20260110210726401.png)
+![image.png](https://synbiopath.online/20260110210726401.png)
 
 
 
@@ -166,7 +166,7 @@ II 型聚酮合酶 (Type II PKS) 系统通常负责合成芳香族聚酮化合�
     - 在 Δ_ysfK_ 突变株中 (panel v)，检测到了 C18 (n=8) 的中间体，表明 YsfD/E 负责将链从 C16 延伸至 C18。
         
 - **确定苯环形成时机 (最关键的发现)**：在野生型菌株中 (panel vi)，除了检测到各种长度的线性多烯中间体外，还成功地检测到了**苯环形成后的 C20 (7) 和 C22 (8) 中间体**。而在 Δ_ysfK_ 突变株中，只观察到 C18 的线性前体，而没有苯环产物。
-    ![image.png](http://synbiopath.online/20260110210738286.png)
+    ![image.png](https://synbiopath.online/20260110210738286.png)
 
 这一结果清晰地表明，**苯环是在聚酮链延伸到 C18 之后，由一个未知的酶催化环化形成的**。随后，负责最后延伸的 YsfJ/K 复合物再对这个**已经含有苯环的中间体**进行最后的两次链延伸。
 

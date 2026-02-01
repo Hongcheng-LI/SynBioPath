@@ -1,4 +1,4 @@
-![image.png](http://synbiopath.online/20260110210808687.png)
+![image.png](https://synbiopath.online/20260110210808687.png)
 
 ## 一：基本信息
 
@@ -80,7 +80,7 @@
 - **结构解析**：HR-ESIMS 确定分子式为 C₁₂H₂₀O₄N₃⁺。NMR 分析确定了其为 L-Val-Dha-Dhb 三肽。
     
 - **Figure 3** 是几何构型确证的关键证据。该图将天然产物 **6**、合成的 (Z)-异构体 **6a** 以及 (E)/(Z) 混合物的 ¹H-NMR 谱图进行了叠加比较。结果清晰地显示：
-    ![image.png](http://synbiopath.online/20260110211831337.png)
+    ![image.png](https://synbiopath.online/20260110211831337.png)
 
     
     - 天然产物 **6** 中 Dhb 的烯键质子 (E-Dhb-Hβ) 和甲基质子 (E-Dhb-CH₃) 的化学位移（分别为 6.46 ppm 和 2.09 ppm）与合成的 (E)-异构体完全一致。
@@ -104,7 +104,7 @@
 #### 实验结果与分析
 
 - **Figure 4A, 4B** 展示了 `alb` BGC 的结构和 C* 结构域的系统发育分析。AlbA 包含一个模块 (A-T-C)，AlbB 包含三个模块。系统发育树显示，AlbB-C2 和 AlbB-C3 属于一个独特的 C* 结构域进化分支，该分支中的其他成员也参与脱水氨基酸的生物合成，暗示了它们的功能。
-![image.png](http://synbiopath.online/20260110211844568.png)
+![image.png](https://synbiopath.online/20260110211844568.png)
 
 
 - **Figure 4C** 是功能验证的核心证据。HPLC 分析显示，在完整的体外反应体系中，成功地生成了一个与 Albopeptide (**6**) 标准品保留时间完全一致的产物峰。而在加热失活的酶对照组中，则没有该产物峰。这直接证明了 **AlbA 和 AlbB 这两个 NRPS 共同负责 Albopeptide 的生物合成**。
@@ -124,7 +124,7 @@
 #### 实验结果与分析
 
 - **Figure 5** 总结了中间体捕获的结果，清晰地揭示了反应时序。
-    ![image.png](http://synbiopath.online/20260110211856951.png)
+    ![image.png](https://synbiopath.online/20260110211856951.png)
 
     
     - **步骤 1 (Val 加载)**：只加入 AlbA 和 Val，成功捕获了 Val-半胱胺加合物 (**15**)，证明 Val 被成功活化并加载。
@@ -152,7 +152,7 @@
 - **生物活性**：MIC 测试结果显示，Albopeptide 对 VRE K60-39 具有专一且高效的抑制活性 (MIC = 2.98 µM)。而其 (Z)-异构体 **6a** 则完全没有活性。这表明 **(E)-Dhb 构型是其抗菌活性的关键**。
     
 - **Figure 6** 展示了比较基因组学的结果。分析发现，与 `alb` BGC 类似的基因簇在多种革兰氏阳性菌和阴性菌中广泛存在。这些 BGCs 可以被分为三类，它们可能分别合成以 Val、Glu/Asp 或其他未知氨基酸为起始单元的短脱水肽。这一发现表明，Albopeptide 代表了一个庞大的、先前被忽视的天然产物家族。
-    ![image.png](http://synbiopath.online/20260110211906929.png)
+    ![image.png](https://synbiopath.online/20260110211906929.png)
 
 
 ## 五：总体结论

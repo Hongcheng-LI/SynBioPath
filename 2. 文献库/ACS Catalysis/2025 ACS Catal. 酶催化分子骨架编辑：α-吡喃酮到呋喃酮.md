@@ -1,4 +1,4 @@
-![image.png](http://synbiopath.online/20251226212935707.png)
+![image.png](https://synbiopath.online/20251226212935707.png)
 
 
 ## 1. 基本信息
@@ -23,14 +23,14 @@
 ### 研究背景：
 
 杂环化合物，特别是呋喃和吡喃环，是许多生物活性天然产物的核心骨架，在药物发现和材料科学中具有重要地位。对这些杂环骨架进行精确的“分子骨架编辑”（如环收缩、环扩张）是合成化学中的一个前沿和挑战性领域。与化学方法相比，酶催化反应因其高选择性、温和的反应条件和环境友好性，在实现复杂分子转化方面展现出巨大潜力。本研究聚焦于呋喃酮类天然产物的生物合成，旨在揭示自然界中一种新颖的杂环骨架编辑策略。
-![image.png](http://synbiopath.online/20251226212949391.png)
-![image.png](http://synbiopath.online/20251226212958214.png)
+![image.png](https://synbiopath.online/20251226212949391.png)
+![image.png](https://synbiopath.online/20251226212958214.png)
 
 
 ### 前期研究：
 
 已知的呋喃环生物合成途径主要由细胞色素 P450 酶催化，通常涉及氧化和环化反应。对于与本研究相关的 aurafuron A，前人通过同位素标记实验推测其呋喃酮环的形成可能涉及一次 Baeyer-Villiger (BV) 氧化反应，但催化该反应的具体酶及其机制尚不清楚。
-![image.png](http://synbiopath.online/20251226213047605.png)
+![image.png](https://synbiopath.online/20251226213047605.png)
 
 
 ### 本文突破点：
@@ -76,11 +76,11 @@
 **实验步骤**：通过基因组挖掘在 _S. mesophila_ 中鉴定出 _lfn_ 基因簇，并发现其中包含一个 FAD 依赖性单加氧酶基因 _lfnO1_。将 _lfnO1_ 在能产生 α-吡喃酮 **6** 的 _S. lividans_ 宿主中进行异源表达。
 
 **实验结果与分析**：
-![image.png](http://synbiopath.online/20251226213101614.png)
+![image.png](https://synbiopath.online/20251226213101614.png)
 
 
 - 生物信息学分析显示，_lfnO1_ 及其在其他菌株中的同源基因 (_lccO1_, _fugO1_, _fusO1_) 均位于各自的聚酮生物合成基因簇中 (Fig. 2A)。
-    ![image.png](http://synbiopath.online/20251226213109370.png)
+    ![image.png](https://synbiopath.online/20251226213109370.png)
 
 
 - 在 _S. lividans_ 中表达 _lfnO1_ 后，宿主产生的 α-吡喃酮 **6** 消失，同时出现了两个新的化合物 **7** 和 **8** (Fig. 3C, trace ii)。
@@ -97,15 +97,15 @@
 **实验步骤**：进行 LfnO1 催化反应的时间进程分析、pH 依赖性实验以及 ¹⁸O₂ 同位素标记实验。尝试在特定条件下捕获反应中间体。
 
 **实验结果与分析**：
-![image.png](http://synbiopath.online/20251226213121056.png)
+![image.png](https://synbiopath.online/20251226213121056.png)
 
 
 - **双产物生成**：时间进程分析显示，产物 **7** 和 **8** 是同时生成的，而非 **8** 进一步氧化为 **7** (Fig. 4A)。
-    ![image.png](http://synbiopath.online/20251226213131536.png)
+    ![image.png](https://synbiopath.online/20251226213131536.png)
 
 
 - **pH 依赖性**：反应的 pH 值显著影响产物 **7** 和 **8** 的比例。在酸性条件 (pH 6.0) 下，主要产物为 **7**；在碱性条件 (pH 8.0-9.0) 下，主要产物为 **8** (Fig. 3B, traces vii-ix)。
-    ![image.png](http://synbiopath.online/20251226213140748.png)
+    ![image.png](https://synbiopath.online/20251226213140748.png)
 
 
 - **氧原子来源**：¹⁸O₂ 标记实验表明，产物 **7** 和 **8** 中都只掺入了一个来自 O₂ 的氧原子 (Fig. 4B)。
@@ -113,7 +113,7 @@
 - **中间体捕获**：在低酶浓度条件下，成功捕获到一个开环的线性中间体 **9** (Fig. 3B, trace x)。
     
 - **提出的催化机制 (Fig. 2D)**：基于以上结果，提出了一个分支的催化机制。LfnO1 首先对 α-吡喃酮 **6** 进行 Baeyer-Villiger (BV) 氧化，生成一个内酯中间体 **im1**。该中间体随后水解并脱羧。在碱性条件下（路径 a），生成的 C-2 位负氧离子直接亲核进攻 C-5 位羰基，环化脱水后生成产物 **8**。在酸性条件下（路径 b），中间体 **im5** 被质子化后，发生一次额外的氧化脱氢反应生成 **im7**，再环化生成产物 **7**。
-    ![image.png](http://synbiopath.online/20251226213151364.png)
+    ![image.png](https://synbiopath.online/20251226213151364.png)
 
 
 **结果意义**：详细阐明了 LfnO1 催化 α-吡喃酮环收缩的复杂级联反应机制，并解释了其如何通过 pH 调控来选择性地生成两种不同氧化水平的产物。
@@ -123,11 +123,11 @@
 **实验步骤**：测试 LfnO1 对另外五种结构不同的天然 α-吡喃酮化合物 (**12-16**) 的催化活性。利用 AlphaFold3 预测 LfnO1 的结构，并通过分子对接和定点突变研究其催化机制。
 
 **实验结果与分析**：
-![image.png](http://synbiopath.online/20251226213200701.png)
+![image.png](https://synbiopath.online/20251226213200701.png)
 
 
 - **广泛的底物谱**：LfnO1 能够成功转化所有测试的五种 α-吡喃酮底物，生成相应的呋喃酮产物 (**17-23**)，显示出其广泛的底物识别能力 (Fig. 4C, E)。
-    ![image.png](http://synbiopath.online/20251226213210056.png)
+    ![image.png](https://synbiopath.online/20251226213210056.png)
 
 
 - **结构与催化机制**：AlphaFold3 预测的结构显示 LfnO1 具有典型的 BVMO 酶折叠。分子对接表明，底物 **6** 的吡喃酮环被锚定在 FAD 辅因子附近，其中 Arg216 残基通过氢键与底物的羰基相互作用，起到稳定底物和促进催化的关键作用 (Fig. 5C)。

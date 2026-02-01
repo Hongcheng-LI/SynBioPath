@@ -1,4 +1,4 @@
-![image.png](http://synbiopath.online/20251228174604156.png)
+![image.png](https://synbiopath.online/20251228174604156.png)
 
 
 ---
@@ -26,7 +26,7 @@
 
 ### 前期研究
 此前，Tang 和 Houk 课题组曾基于计算研究提出了 aurovertins 中稠合双环醚形成的机制，涉及碱催化的亲核加成。近期在 lasalocid 生物合成中也证实了细菌 Lsd19 酶能催化反 Baldwin 环氧开环。尽管如此，真菌来源的复杂稠合多醚类化合物（如 pyrenulic acids）的酶学形成机制仍未被阐明。
-![image.png](http://synbiopath.online/20251228173928966.png)
+![image.png](https://synbiopath.online/20251228173928966.png)
 
 ### 本文突破点
 1.  **基因簇鉴定**：首次鉴定了真菌 *Pyrenula* sp. 中负责 pyrenulic acid 生物合成的基因簇（*pya* cluster）。
@@ -97,10 +97,10 @@
 #### 实验结果与分析
 
 **基因簇锁定**：在 *Pyrenula* sp. 基因组中筛选出 13 个候选 PKS 基因簇，RT-PCR 显示 *pks6* 在产物生成条件下高表达（Figure S1）。该基因簇（命名为 *pya*）包含 PKS、还原酶、P450s 和 α/β 水解酶（Table 1）。
-![image.png](http://synbiopath.online/20251228174152309.png)
+![image.png](https://synbiopath.online/20251228174152309.png)
 
 **P450 功能验证**：
-![image.png](http://synbiopath.online/20251228174237924.png)
+![image.png](https://synbiopath.online/20251228174237924.png)
 
 *   在 *A. nidulans* 中表达 PyaJ，饲喂化合物 **2**（epoxidized pyrenulic acid A），生成了新化合物 **3**。NMR 数据（Figure S19-S23）证实 PyaJ 在侧链 C6-C7 双键处引入了环氧基团。
 *   在 *A. nidulans* 中共表达 PyaJ 和 PyaG，生成了化合物 **4**。NMR 数据证实 PyaG 在 C22 位引入了羟基（Figure 3, Figure S24-S28）。
@@ -112,10 +112,10 @@
 
 #### 实验结果与分析
 *   **体内验证**：在表达 *pyaJ* 和 *pyaG* 的 *A. nidulans* 菌株中引入 *pyaF*，检测到产物 **5**（pyrenulic acid D）的生成（Figure 3vi）。产物结构经 NMR 确证（Figure S17, S18）。
-![image.png](http://synbiopath.online/20251228174300914.png)
+![image.png](https://synbiopath.online/20251228174300914.png)
 
 *   **体外验证**：在大肠杆菌中表达纯化 GST 标签的 PyaF 蛋白（68.0 kDa）。体外酶活实验显示，PyaF 能高效将底物 **4** 转化为产物 **5**（Figure 4a, 4bii），直接证实 PyaF 是负责连续 6-endo/7-endo 环化的环氧水解酶。
-![image.png](http://synbiopath.online/20251228174323271.png)
+![image.png](https://synbiopath.online/20251228174323271.png)
 
 > "In vitro assay of the recombinant PyaF with 4 led to the formation of 5, confirming its activity."
 
@@ -125,14 +125,14 @@
 
 #### 实验结果与分析
 **序列比对**：PyaF 与 hydroxynitrile lyases 具有同源性。通常的 Ser-His-Asp 三联体在 PyaF 中对应位置为 Ser170, Asn342, Asp314。Asn342 的出现是非典型的（Figure 4a）。
-![image.png](http://synbiopath.online/20251228174352773.png)
+![image.png](https://synbiopath.online/20251228174352773.png)
 
 **突变分析**：
 *   **S170A, D314A**：活性完全丧失（Figure 4biii, iv），证实其核心催化作用。
 *   **N342A**：活性保留，但 $k_{cat}/K_m$ 降低约 21%（Figure 4c）。
 *   **N342H**：活性增强（$k_{cat}$ 提升 2.2 倍），表明组氨酸在此位置能提供更佳的质子传递效率，但原生的 Asn 也能维持功能。
 **催化四分体模型**：MD 模拟（Figure 5a）显示 His169 位于 Ser170 和 Asn342 之间，形成 **Ser170-His169-Asn342-Asp314** 的氢键网络。His169 实际上充当了传统三联体中 His 的角色，辅助 Ser170 夺取底物羟基的质子，启动亲核攻击。
-![image.png](http://synbiopath.online/20251228174412129.png)
+![image.png](https://synbiopath.online/20251228174412129.png)
 
 > "The study revealed the involvement of a catalytic tetrad... In this tetrad, the triad His residue is replaced with an Asn residue and assisted by an additional His residue [His169]."
 
@@ -142,10 +142,10 @@
 
 #### 实验结果与分析
 **无酶条件计算**：DFT 计算显示，无酶催化时，第二步环氧开环更倾向于 **6-exo-tet** 路径（生成 im5），而非观察到的 **7-endo-tet** 路径（Figure 6）。
-![image.png](http://synbiopath.online/20251228174440617.png)
+![image.png](https://synbiopath.online/20251228174440617.png)
 
 **酶促机制计算**：
-![image.png](http://synbiopath.online/20251228174502750.png)
+![image.png](https://synbiopath.online/20251228174502750.png)
 
 *   **结合能分析**：MM/GBSA 计算（Figure 7）表明，酶与 **6-endo** 过渡态 (tsa) 的结合能显著优于 5-exo，与 **7-endo** 过渡态 (tsc) 的结合能优于 6-exo。
 *   **关键残基作用**：能量分解分析显示，残基 **His284** 与 **Tyr255** 在稳定特定过渡态中起关键作用。特别是 His284 通过静电相互作用稳定了 6-endo 路径，并在此后的 7-endo 步骤中可能作为广义酸稳定氧负离子中间体。

@@ -1,4 +1,4 @@
-![image.png](http://synbiopath.online/20251226215848988.png)
+![image.png](https://synbiopath.online/20251226215848988.png)
 
 ---
 
@@ -21,7 +21,7 @@
 ### 研究背景：
 
 RufO 是一种独特的细胞色素 P450 酶 (Cytochrome P450 enzyme, CYP)，参与抗结核环肽 rufomycin 的生物合成，其特征是含有一个非寻常的硝化酪氨酸。核糖体合成和翻译后修饰肽 (Ribosomally synthesized and Post-translationally modified Peptides, RiPPs) 是具有多样生物活性的天然产物重要来源。CYP 酶在 RiPPs 生物合成中通常催化氧化修饰，但 RufO 催化芳香族硝化反应，这是一个相对罕见的功能。尽管对硝化酶和 RiPP 生物合成的兴趣日益浓厚，但 RufO 识别其五肽底物 MRYLH 并对其进行硝化的分子机制仍不清楚。
-![image.png](http://synbiopath.online/20251226215937313.png)
+![image.png](https://synbiopath.online/20251226215937313.png)
 
 ### 前期研究：
 
@@ -92,7 +92,7 @@ RufO 是一种独特的细胞色素 P450 酶 (Cytochrome P450 enzyme, CYP)，参
 **ITC 实验**：将肽底物滴定到 RufO 溶液中，测量反应热效应。
 
 #### 实验结果与分析 (参照原文 Fig. 2)：
-![image.png](http://synbiopath.online/20251226220039332.png)
+![image.png](https://synbiopath.online/20251226220039332.png)
 
 
 **UV-vis 滴定** (Fig. 2A, B)：MRYLH 结合导致 RufO 的 Soret 带从 421 nm 蓝移至 416 nm，Q 带发生微小变化，表现为典型的 Type-I 结合特征，但蓝移幅度小于许多其他 CYP。结合化学计量比约为 0.89。Nle-RYLH 结果类似 (Fig. S3A-C)。
@@ -112,7 +112,7 @@ RufO 是一种独特的细胞色素 P450 酶 (Cytochrome P450 enzyme, CYP)，参
 **共振拉曼光谱 (rR)**：测定 RufO 及其与肽底物形成的复合物的 rR 谱 (氧化态铁)；以及还原态 RufO-CO 复合物及其与肽底物结合后的 rR 谱。
 
 #### 实验结果与分析 (参照原文 Fig. 3)：
-![image.png](http://synbiopath.online/20251226220049795.png)
+![image.png](https://synbiopath.online/20251226220049795.png)
 
 
 **EPR 光谱** (Fig. 3A)：静息态 RufO 呈现典型的低自旋 (low-spin, S=1/2) 信号 (g = 2.42, 2.25, 1.93)，表明远端存在水分子配体。加入肽底物后，EPR 信号变为更具菱形对称性的低自旋信号 (MRYLH: g = 2.54, 2.24, 1.88)，约 84% 的酶发生转变。未观察到高自旋信号，表明远端水配体未被完全取代。
@@ -134,7 +134,7 @@ RufO 是一种独特的细胞色素 P450 酶 (Cytochrome P450 enzyme, CYP)，参
 **氧化还原电位测定**：测定 RufO 在有无肽底物结合时的氧化还原电位。
 
 #### 实验结果与分析 (参照原文 Fig. 4)：
-![image.png](http://synbiopath.online/20251226220100763.png)
+![image.png](https://synbiopath.online/20251226220100763.png)
 
 
 **酶活性** (Fig. 4A-C)：RufO 在三种氧化还原体系下均能催化 MRYLH/Nle-RYLH 的硝化，产生 MR(NO2-Y)LH，其产物得率相似，表明 RufO 对氧化还原伴侣的特异性不高 (Fig. 4D)。相比之下，TxtE 对 PdX/PdR 体系有明显偏好。
@@ -152,7 +152,7 @@ RufO 对其氧化还原伴侣缺乏明显特异性，这可能与其底物结合
 使用停流光谱技术，快速混合还原态 (亚铁) RufO (有或无肽底物) 与不同浓度的 O2 或 NO，监测光谱变化，计算结合速率常数。进行 O2 和 *NO 的顺序添加实验。
 
 #### 实验结果与分析 (参照原文 Fig. 5 及 Fig. S9, S10)：
-![image.png](http://synbiopath.online/20251226220112527.png)
+![image.png](https://synbiopath.online/20251226220112527.png)
 **O2 结合** (Fig. 5A, B)：还原态 RufO 与 O2 反应形成铁-超氧化物 (ferric-superoxo, FeIII-O2⁻) 中间体 (特征吸收峰 358, 432, 558, 585 nm)。有无肽底物时，O2 结合的二级速率常数 k1(O2) 相似 (分别为 3.83 和 3.55 μM⁻¹s⁻¹)。但肽底物存在时，超氧化物中间体的解离速率常数 k-1(O2) 显著降低 (从 54.4 s⁻¹ 降至 6.5 s⁻¹)，表明底物稳定了该中间体。
 
 **NO 结合** (Fig. 5C, D)：还原态 RufO 与 *NO 反应形成亚铁-亚硝酰 (ferrous-nitrosyl, FeII-NO) 复合物 (特征吸收峰 375, 437, 562 nm)。无肽底物时 k1(*NO) = 4.12 μM⁻¹s⁻¹，有肽底物时 k1(*NO) = 2.35 μM⁻¹s⁻¹。在肽底物存在下，O2 的结合速率约是 *NO 的 1.6 倍。
@@ -170,7 +170,7 @@ RufO 对其氧化还原伴侣缺乏明显特异性，这可能与其底物结合
 将 RufO 与肽底物类似物 Nle-RYLH 共结晶，通过 X-射线衍射解析其三维结构。将此结构与无底物的 RufO 结构以及同源酶 P450Blt-肽复合物结构进行比较。
 
 #### 实验结果与分析 (参照原文 Fig. 6, 7 及 Fig. S11, S12)：
-![image.png](http://synbiopath.online/20251226220242848.png)
+![image.png](https://synbiopath.online/20251226220242848.png)
 
 
 **RufO-Nle-RYLH 复合物结构** (Fig. 6A, B)：分辨率 1.51 Å。与无底物 RufO (PDB: 8SPP) 相比，肽结合后 RufO 呈现“关闭”构象，F-螺旋和 G-螺旋发生显著构象变化，形成覆盖远端口袋的“帽子”结构。
@@ -178,7 +178,7 @@ RufO 对其氧化还原伴侣缺乏明显特异性，这可能与其底物结合
 **肽结合模式** (Fig. 6B)：Nle-RYLH 肽主要通过其主链以及 Arg-2 和 His-5 的侧链与 RufO 相互作用。Arg-2 与 Phe69 形成阳离子-π 相互作用，并与 Met172 羰基形成氢键。His-5 的咪唑环与酶的 His235 和 Glu239 相互作用。Tyr-3 残基位于血红素铁正上方，其酚羟基与一个半占据的血红素结合水分子形成短氢键。
 
 **活性位点构象变化** (Fig. 6C)：F、G、I 螺旋上的残基发生显著侧链移动，形成一个束缚的远端口袋和扩展的氢键网络，特别是围绕 His-5 的氢键网络。
-![image.png](http://synbiopath.online/20251226220256537.png)
+![image.png](https://synbiopath.online/20251226220256537.png)
 
 
 **与 P450Blt 的比较** (Fig. 7)：RufO 和 P450Blt (催化 Tyr-His 交联) 结合肽的总体骨架相似。主要区别在于：

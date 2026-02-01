@@ -1,4 +1,4 @@
-![image.png](http://synbiopath.online/20260120120118235.png)
+![image.png](https://synbiopath.online/20260120120118235.png)
 
 ## 一：基本信息
 
@@ -32,7 +32,7 @@
 ### 前期研究
 
 在本文发表前，领域内的共识是：
-![image.png](http://synbiopath.online/20260120120126232.png)
+![image.png](https://synbiopath.online/20260120120126232.png)
 
 
 1. P450 过加氧酶（如 P450<sub>BSβ</sub>, OleT<sub>JE</sub>）通过“底物辅助催化 (substrate-assisted catalysis)”机制发挥作用。
@@ -43,7 +43,7 @@
     
 
 ### 本文突破点
-![image.png](http://synbiopath.online/20260120120132265.png)
+![image.png](https://synbiopath.online/20260120120132265.png)
 
 
 1. **颠覆性发现**：首次发现并证实，多种天然的 CYP152 家族成员能够直接催化**不含任何羧基**的芳香族污染物（如氯代酚）的羟基化和脱卤反应，彻底颠覆了该酶家族必须依赖羧基进行催化的传统认知。
@@ -111,7 +111,7 @@
 #### 实验结果与分析
 
 **Figure 2a 和 2b** 展示了这一颠覆性的发现。
-![image.png](http://synbiopath.online/20260120120141453.png)
+![image.png](https://synbiopath.online/20260120120141453.png)
 
 
 - **Figure 2a** 的 HPLC 图谱清晰地显示，当 P450<sub>BSβ</sub> 或 OleT<sub>JE</sub> 与底物 **1** 一起孵育时，都产生了一个新的产物峰 (**2**)，经鉴定为 3,5-二氯邻苯二酚。而 P450<sub>SPα</sub> 则没有活性。
@@ -141,7 +141,7 @@
 #### 实验结果与分析
 
 **Figure 2c 和 2d** 展示了酶工程的成功。
-![image.png](http://synbiopath.online/20260120120148463.png)
+![image.png](https://synbiopath.online/20260120120148463.png)
 
 
 - **Figure 2c** 标示了被选作突变靶点的五个苯丙氨酸残基在活性位点中的位置。
@@ -150,7 +150,7 @@
     
 
 **Figure 3** 系统地展示了 P450<sub>BSβ</sub>-F46A 惊人的催化多样性。
-![image.png](http://synbiopath.online/20260120120154047.png)
+![image.png](https://synbiopath.online/20260120120154047.png)
 
 - **底物谱广泛**：该酶能够转化多种卤代酚、硝基酚和氰基酚。
     
@@ -177,11 +177,11 @@
 #### 实验结果与分析
 
 **Figure 4a-d** 展示了晶体结构。结构显示 F46A 突变确实扩大了底物通道的入口，为芳香族底物的进入提供了空间。
-![image.png](http://synbiopath.online/20260120120202990.png)
+![image.png](https://synbiopath.online/20260120120202990.png)
 
 
 **Figure 4e 和 4f** 是本部分的核心，展示了分子对接的结果。
-![image.png](http://synbiopath.online/20260120120208073.png)
+![image.png](https://synbiopath.online/20260120120208073.png)
 
 - 无论是底物 **1** 还是 **19**，它们在活性位点中的最优结合模式都惊人地一致：其**酚羟基**的氧原子与**精氨酸 R242** 的胍基氮原子形成了**稳定的氢键**，键长在 2.9-3.0 Å 之间。
     
@@ -213,7 +213,7 @@
     
 
 **Figure 5a, 5c, 5d** 展示了 QM/MM 计算出的全新催化通路：
-![image.png](http://synbiopath.online/20260120120215032.png)
+![image.png](https://synbiopath.online/20260120120215032.png)
 
 
 1. **Cpd I 形成**：在底物酚羟基和 R242 的辅助下，H₂O₂ 裂解形成高活性的化合物 I (Cpd I)。

@@ -1,4 +1,4 @@
-![image.png](http://synbiopath.online/20251226212632695.png)
+![image.png](https://synbiopath.online/20251226212632695.png)
 
 
 ## 一：基本信息
@@ -26,11 +26,11 @@
 ### 前期研究
 
 在本文发表前，已知的 PKS 加载模块通常具有 AT-ACP 或 KS-AT-ACP 的结构。那他霉素的加载模块 SgnS0 极为特殊，它包含一个 N 端的羧酸-CoA 连接酶 (CoL) 结构域和两个被 KSˢ-AT 单元隔开的酰基载体蛋白 (ACP) 结构域。虽然推测它负责生成并加载乙酰基起始单元，但其内部复杂的催化逻辑，特别是 CoL 结构域和两个 ACP 结构域（ACPL1 和 ACPL2）各自的确切功能，完全是一个未解之谜。
-![image.png](http://synbiopath.online/20251226212648546.png)
+![image.png](https://synbiopath.online/20251226212648546.png)
 
 
 ### 本文突破点
-![image.png](http://synbiopath.online/20251226212659144.png)
+![image.png](https://synbiopath.online/20251226212659144.png)
 
 
 **机制突破**：首次完整阐明了 SgnS0 加载模块的催化机制。研究证明，其 **AT 结构域**负责装载**丙二酰-CoA**（而非乙酰-CoA），随后 **KSˢ 结构域**催化其**脱羧**生成乙酰基-ACP。这是一个非经典的“装载-再加工”起始单元生成方式。
@@ -88,7 +88,7 @@
 #### 实验结果与分析
 
 - **Figure 2A, 2B** 展示了这一关键的遗传学证据。作者构建了 _sgnS0_ 基因的敲除菌株 _S. gilvosporeus_ F607/ΔsgnS0。
-    ![image.png](http://synbiopath.online/20251226212713677.png)
+    ![image.png](https://synbiopath.online/20251226212713677.png)
 
 
 - 通过 HPLC 对发酵产物进行分析，发现野生型菌株能够高效地生产那他霉素，而 **ΔsgnS0 敲除菌株则完全检测不到任何那他霉素的生成**。
@@ -105,7 +105,7 @@
 #### 实验结果与分析
 
 - **Figure 3** 展示了通过体外质谱实验对该机制的精妙验证。
-    ![image.png](http://synbiopath.online/20251226212726144.png)
+    ![image.png](https://synbiopath.online/20251226212726144.png)
 
 
 - **AT 结构域的功能**：作者将 SgnS0 蛋白与丙二酰-CoA 和一个独立的 ACP 蛋白 (holo-ACPL2*) 共孵育。质谱结果显示，ACPL2* 的质量增加了 86 Da，精确对应于一个丙二酰基的共价连接。这证明了 AT 结构域确实负责装载丙二酰基。
@@ -124,17 +124,17 @@
 #### 实验结果与分析
 
 **CoL 结构域的功能 (Figure 4)**：作者构建并测试了缺少 CoL 结构域的突变体 SgnS0-ΔKAA。动力学分析显示，该突变体的催化活性依然存在，但其催化效率 (kcat/Km) 比野生型**降低了 30.5%** (从 0.59 降至 0.41 μM⁻¹·min⁻¹)。这表明 CoL 结构域对于核心催化**并非必需**，但它扮演了一个**结构调节器**的角色，能够优化酶的构象，从而提高催化效率。
-![image.png](http://synbiopath.online/20251226212738034.png)
+![image.png](https://synbiopath.online/20251226212738034.png)
 
 
 **ACPL1 和 ACPL2 的功能 (Figure 5, 6)**：
 
 - **体外实验 (Figure 5)**：通过构建单点失活突变体，作者发现在没有 ACPL1 或 ACPL2 的情况下，酰基转移仍然可以发生，表明两个 ACP 之间存在一定的功能互补。
-    ![image.png](http://synbiopath.online/20251226212747618.png)
+    ![image.png](https://synbiopath.online/20251226212747618.png)
 
 
 - **体内实验 (Figure 6)**：体内结果更为关键。单独失活 ACPL1 或 ACPL2 都会导致那他霉素产量**显著下降**（分别降至野生型的 69.6% 和 56.5%）。而**同时失活 ACPL1 和 ACPL2 则导致那他霉素产量完全消失**。
-    ![image.png](http://synbiopath.online/20251226212758571.png)
+    ![image.png](https://synbiopath.online/20251226212758571.png)
 
 
 **结论**：ACPL1 和 ACPL2 对于 SgnS0 的功能**都是必需的**。它们虽然被 KSˢ-AT 单元隔开，但必须协同工作，才能保证起始单元的高效生成和向下游模块的传递。
@@ -148,15 +148,15 @@
 #### 实验结果与分析
 
 **工程设计 (Figure 7A, 7B)**：作者在 SgnS0 的天然 ACPL2 结构域下游，额外插入了一个或两个 ACPL2 的拷贝，构建了含有 2 个或 3 个串联 ACPL2 的工程化加载模块。
-![image.png](http://synbiopath.online/20251226212900871.png)
+![image.png](https://synbiopath.online/20251226212900871.png)
 
 
 **体外验证 (Figure S13)**：体外动力学分析显示，含有 3 个 ACPL2 的 SgnS0-3ACPL2 突变体，其催化效率比野生型**提高了 2.64 倍**。
-![image.png](http://synbiopath.online/20251226212909175.png)
+![image.png](https://synbiopath.online/20251226212909175.png)
 
 
 **体内生产验证 (Figure 7D)**：这是最惊人的结果。
-![image.png](http://synbiopath.online/20251226212916489.png)
+![image.png](https://synbiopath.online/20251226212916489.png)
 
 
 - 野生型菌株的那他霉素产量峰值约为 3.7 g/L。

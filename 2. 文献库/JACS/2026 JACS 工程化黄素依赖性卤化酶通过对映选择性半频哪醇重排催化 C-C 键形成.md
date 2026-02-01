@@ -1,4 +1,4 @@
-![image.png](http://synbiopath.online/20260121100709269.png)
+![image.png](https://synbiopath.online/20260121100709269.png)
 
 
 ***
@@ -64,7 +64,7 @@
 
 #### 实验结果与深度解析
 筛选结果锁定了变体 **RebH 2N** (RebH 7L + T52G D450N Y454N)，该酶在 5 mol% 负载下能以 95% 的产率和 96% 的 ee 值催化底物 **1a** 转化为手性环戊酮 **2a** (Table 1, Entry 5)。条件优化揭示了一个关键的权衡：谷胱甘肽是必须的，用于清除游离的 HOBr 以抑制背景反应（无谷胱甘肽时 ee 值下降）；然而，过量的谷胱甘肽会消耗酶生成的 HOX，导致产率大幅下降（Table 1, Entry 9 vs 10）。在最优条件下（0.25 mol% 酶负载，2 mM 底物），反应的转化数 (TTN) 超过了 1000，且 $k_{cat}$ 达到了惊人的 **16.86 min⁻¹**，这比 FDH 催化的烯烃卤环化反应速率高出近 50 倍，表明环张力释放极大地促进了这一非天然转化。
-![image.png](http://synbiopath.online/20260121101128851.png)
+![image.png](https://synbiopath.online/20260121101128851.png)
 
 > "The reaction system displays a kcat value of 16.86 ± 0.97 min⁻¹, representing the highest reported to date for FDH catalysis."
 
@@ -74,8 +74,8 @@
 
 #### 实验结果与深度解析
 底物范围研究 (Figure 2) 显示，RebH 2N 对能够稳定苄位碳正离子的富电子苯乙烯类底物表现出优异的活性和对映选择性（如 **2a**, **2c**, **2d**, **2f**，ee > 90%）。值得注意的是，与以往 FDH 催化的卤环化反应不同，该体系能容忍脂肪族取代基（如甲基、环己基 **2i-2k**），这可能是由于半频哪醇重排释放的环张力提供了额外的驱动力。此外，该酶还能催化环戊醇 (**2m**) 和氧杂环丁烷 (**2l**) 的扩环反应，以及构建含螺环季碳中心的复杂结构 (**2n-2r**)。在合成应用方面 (Figure 3)，制备级反应（放大 1000 倍）仍能以 72% 的分离收率和 96% ee 获得产物。更进一步，通过与 KRED 的一锅法级联，成功将乙烯基环丁醇转化为具有两个连续手性中心的环戊二醇 **5** (54% yield, >30:1 dr, 88% ee)，展示了该生物催化平台在构建复杂手性砌块中的潜力。
-![image.png](http://synbiopath.online/20260121101154908.png)
-![image.png](http://synbiopath.online/20260121101210449.png)
+![image.png](https://synbiopath.online/20260121101154908.png)
+![image.png](https://synbiopath.online/20260121101210449.png)
 
 > "Unlike these reactions, however, aliphatic substituents... were tolerated in this reaction... This unique reactivity could result from the strain release involved in the semipinacol reaction."
 
@@ -85,7 +85,7 @@
 
 #### 实验结果与深度解析
 对接模型 (Figure 4) 显示，活性卤化试剂 HOBr 通过与保守残基 K79 形成氢键被活化，并以反式共平面的方式进攻底物 **1a** 的烯烃部分，从而诱导烷基迁移。这一结合模式解释了产物的 ($S$)-构型。突变分析 (Table 2) 揭示了 **T52G** 是决定性突变：将 T52G 引入母体 RebH 7L 中，产率从 24% 跃升至 97%，ee 值从 -18% 翻转至 96%。结构分析表明，T52G 突变移除了侧链的位阻，显著扩大了活性位点空腔 (Figure 4B)，从而能够容纳底物中较大的环己醇部分，并允许底物采取正确的取向以进行对映选择性卤化重排。这证明了通过微小的活性位点重塑即可解锁 FDH 强大的非天然催化潜力。
-![image.png](http://synbiopath.online/20260121101221979.png)
+![image.png](https://synbiopath.online/20260121101221979.png)
 
 > "The T52G mutation was found to play a key role in reshaping the enzyme active site to enable this non-native transformation."
 

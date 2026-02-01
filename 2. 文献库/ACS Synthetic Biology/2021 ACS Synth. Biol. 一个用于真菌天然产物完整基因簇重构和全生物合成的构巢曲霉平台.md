@@ -1,4 +1,4 @@
-![image.png](http://synbiopath.online/20251226230206798.png)
+![image.png](https://synbiopath.online/20251226230206798.png)
 
 
 ## 一：基本信息
@@ -31,7 +31,7 @@
 在此之前，已有多种策略用于在模式真菌（如米曲霉 _Aspergillus oryzae_、构巢曲霉 _Aspergillus nidulans_）中进行异源表达。这些策略通常使用组成型或可诱导的初级代谢启动子（如 _gpdA_, _alcA_）来驱动单个或少数几个基因的表达。然而，当面对一个包含十几个基因的复杂 BGC 时，如何协调所有基因的表达，使其像在天然宿主中一样高效协同工作，一直是一个巨大的挑战。利用天然 BGC 的内源调控元件（如通路特异性转录因子）来驱动整个基因簇的协同表达，被认为是一种更有前途但技术上更难实现的策略。
 
 ### 本文突破点
-![image.png](http://synbiopath.online/20251226230233315.png)
+![image.png](https://synbiopath.online/20251226230233315.png)
 
 
 1. **方法学创新：开发了“afo regulon”平台**：首次提出并成功实践了一种全新的“基因簇重构”策略。该策略巧妙地利用了构巢曲霉 (_A. nidulans_) 内源 asperfuranone 基因簇 (`afo` 簇) 的调控系统。通过将外源 BGC 的所有基因编码区 (CDS) 逐一替换掉 `afo` 簇中对应基因的 CDS，同时保留 `afo` 簇完整的启动子、终止子和调控网络，从而实现对外源基因簇的“即插即用”式高效协同表达。
@@ -72,7 +72,7 @@
 #### 实验目的与设计
 
 本部分的核心目的是阐述“afo regulon”平台的设计原理，并以一个相对简单的 BGC (citreoviridin) 为例，验证该策略的可行性。
-![image.png](http://synbiopath.online/20251226230244041.png)
+![image.png](https://synbiopath.online/20251226230244041.png)
 
 
 1. **平台设计**：`afo` 簇在诱导条件下表达量极高（产物 > 900 mg/L），且其调控因子 AfoA 能协同激活簇内所有基因。因此，将外源基因置于 `afo` 簇的调控元件之下，有望实现高产。
@@ -85,15 +85,15 @@
 #### 实验结果与分析
 
 - **Figure 2** 展示了 `afo` 簇的基因组成和功能，它是整个平台的“引擎”。
-    ![image.png](http://synbiopath.online/20251226230253366.png)
+    ![image.png](https://synbiopath.online/20251226230253366.png)
 
 
 - **Figure 3** 描绘了体内多片段同源重组的原理，展示了如何通过 3-5 次 HR 事件，将长达 17-35 kb 的外源 DNA 精确整合。
-    ![image.png](http://synbiopath.online/20251226230302171.png)
+    ![image.png](https://synbiopath.online/20251226230302171.png)
 
 
 - **Figure 4** 是 citreoviridin 重建的成功证据。
-    ![image.png](http://synbiopath.online/20251226230312082.png)
+    ![image.png](https://synbiopath.online/20251226230312082.png)
 
     
     - **Figure 4b** 的示意图展示了如何通过 3 个转化片段 (ctvF1-F3) 重构 `ctv` 簇。
@@ -123,17 +123,17 @@
 #### 实验结果与分析
 
 - **Figure 5b** 展示了第一步 mutilin 的合成。通过两个大片段 (pluF1, 9.2 kb; pluF2, 8.2 kb) 的共转化，成功构建了菌株 YM283。**Figure 5d** 的质谱和 **Figure S10** 的 NMR 谱证实，该菌株高效地生产了 mutilin (**2**)。
-    ![image.png](http://synbiopath.online/20251226230323272.png)
+    ![image.png](https://synbiopath.online/20251226230323272.png)
 
 
 - **Figure 5c** 展示了第二步 pleuromutilin 的合成。在 YM283 基础上，通过转化一个 8.9 kb 的片段 (pluF3)，成功导入了最后两个基因，构建了菌株 YM343。
-    ![image.png](http://synbiopath.online/20251226230333007.png)
+    ![image.png](https://synbiopath.online/20251226230333007.png)
 
 
 - **Figure 5d** 的质谱图显示，YM343 成功地将 mutilin (**2**) 转化为了最终产物 pleuromutilin (**3**)。
     
 - **Figure 6** 展示了转化片段 pluF3 与宿主基因组存在 4 个同源区域，这给筛选带来了复杂性，但作者通过筛选大量克隆，最终成功获得了正确的重组子。
-    ![image.png](http://synbiopath.online/20251226230341865.png)
+    ![image.png](https://synbiopath.online/20251226230341865.png)
 
 
 - **产量分析**：最终的 pleuromutilin 产量约为 **150 mg/L**，显著高于之前在米曲霉中报道的产量 (~84 mg/L)，再次证明了该平台的优越性。

@@ -1,4 +1,4 @@
-![image.png](http://synbiopath.online/20260120111553482.png)
+![image.png](https://synbiopath.online/20260120111553482.png)
 
 
 ## 一：基本信息
@@ -24,7 +24,7 @@ III 型聚酮合酶 (Type III Polyketide Synthases, T3PKSs) 是一类重要的�
 ### 前期研究
 
 在本文发表前，对真菌 T3PKSs 的研究仅限于少数几个个例，普遍认为它们主要利用脂肪酰辅酶 A 作为底物，生成吡喃酮或间苯二酚类产物，而对植物 T3PKSs 常用的芳香族底物活性较差。同时，由于缺乏大规模的功能数据，无法准确地从基因序列预测一个未知真菌 T3PKS 的底物特异性，这极大地限制了基因组挖掘的效率。
-![image.png](http://synbiopath.online/20260120111600420.png)
+![image.png](https://synbiopath.online/20260120111600420.png)
 
 
 ### 本文突破点
@@ -65,7 +65,7 @@ III 型聚酮合酶 (Type III Polyketide Synthases, T3PKSs) 是一类重要的�
     
 
 **产物结构分析**：对代表性的酶促反应进行放大，通过高分辨串联质谱 (HR-MS/MS) 和核磁共振波谱 (NMR) 对产物的化学结构（如吡喃酮、间苯二酚、喹诺酮）进行鉴定。
-![image.png](http://synbiopath.online/20260120111608508.png)
+![image.png](https://synbiopath.online/20260120111608508.png)
 
 
 ## 四：实验设计及结果分析
@@ -84,7 +84,7 @@ III 型聚酮合酶 (Type III Polyketide Synthases, T3PKSs) 是一类重要的�
 #### 实验结果与分析
 
 - **Figure 2a** 的 SSN 网络图直观地展示了真菌 T3PKSs 的多样性和聚类情况。网络被划分为 28 个主要簇，其中一些簇（如 Cluster 1）非常庞大，而另一些则较小。
-    ![image.png](http://synbiopath.online/20260120111617196.png)
+    ![image.png](https://synbiopath.online/20260120111617196.png)
 
 
 - **Figure 2b** 对比了植物和真菌 T3PKSs 活性位点残基的差异。分析显示，虽然催化三联体 (Cys164, His303, Asn336) 高度保守，但在决定底物特异性的关键位点（如 Phe265, Gly256）存在显著差异，这预示着真菌 T3PKSs 可能具有与植物酶不同的功能。
@@ -106,7 +106,7 @@ III 型聚酮合酶 (Type III Polyketide Synthases, T3PKSs) 是一类重要的�
 #### 实验结果与分析
 
 **Figure 3b** 的热图总结了活性筛选的结果，揭示了多个重要发现：
-![image.png](http://synbiopath.online/20260120111624877.png)
+![image.png](https://synbiopath.online/20260120111624877.png)
 
 
 - **广泛的活性**：在 31 个成功表达的酶中，有 26 个至少对一种底物有活性，表明真菌 T3PKSs 普遍具有催化功能。
@@ -134,7 +134,7 @@ III 型聚酮合酶 (Type III Polyketide Synthases, T3PKSs) 是一类重要的�
     
 
 #### 实验结果与分析
-![image.png](http://synbiopath.online/20260120111632011.png)
+![image.png](https://synbiopath.online/20260120111632011.png)
 
 
 - **Figure 4b** 显示，训练好的 ML 模型在多个性能指标（如准确率、ROC AUC、F1 分数）上都表现出色，准确率达到 81%。
@@ -156,7 +156,7 @@ III 型聚酮合酶 (Type III Polyketide Synthases, T3PKSs) 是一类重要的�
     
 
 #### 实验结果与分析
-![image.png](http://synbiopath.online/20260120111639286.png)
+![image.png](https://synbiopath.online/20260120111639286.png)
 
 
 - **Figure 5a** 的热图展示了产物的复杂性，许多反应都生成了吡喃酮和间苯二酚的混合物。
@@ -182,7 +182,7 @@ III 型聚酮合酶 (Type III Polyketide Synthases, T3PKSs) 是一类重要的�
 **核心发现**：分析表明，许多 T3PKSs 并非独立工作，而是作为**大型杂合 (hybrid) BGCs** 的一部分。这解释了为什么它们在体外对简单底物的活性较低或没有活性，因为它们在体内的天然底物可能是一个由其他核心合酶（如 I 型 PKS）合成的复杂中间体。
 
 **Figure 6** 提供了三个典型的例子：
-![image.png](http://synbiopath.online/20260120111646720.png)
+![image.png](https://synbiopath.online/20260120111646720.png)
 
 
 - **Figure 6a** 比较了 _scirpilin_ BGC 和含有 _XylPKS_ 的基因座。两者在基因组成和排列上高度保守，都包含一个 I 型 PKS (T1PKS) 和一个 T3PKS。这强烈暗示 XylPKS 在体内与 T1PKS 协同工作，合成一种 scirpilin 类的杂合聚酮化合物。

@@ -17,7 +17,7 @@ https://www.yuque.com/cjchen/hirv8i/xq65ml
 
 # 2. 提取全部基因信息用于本地 blast
 1. 点击菜单栏中的 ==`sequence Toolkit`== > ==GFF3/GTF Manipilate== > ==GXF Sequence Extract==
-![image.png](http://synbiopath.online/20251215153425371.png)
+![image.png](https://synbiopath.online/20251215153425371.png)
 
 2. 按照以下步骤，完成所有操作
 	- 1：在此处上传 Augustus 注释生成的 gff3 文件，此处为 ==SQ11-20.gff3==
@@ -29,7 +29,7 @@ https://www.yuque.com/cjchen/hirv8i/xq65ml
 	- 7：Down Stream Bases：选择 ==0==
 	- 8：我们设置将提取出来的数据存储在一个新生成的 ==SQ11-20_gene.txt==的文件中，并且将该文件存储在桌面上，因此我们在此处输入该文件的地址：==C:\Users\lhc\Desktop\SQ11-20_gene.fasta==（每个人可以自定义存储的地址）。
 	- 9：点击 ==start==，提示完成后，就会发现桌面上生成了 3 个文件，我们先前建立的 SQ11-20_gene.txt 文档已经含有了根据 gff3 注释信息从基因组文件中提取出来的全部基因序列。
-![4adcd861-58f3-44c2-9eb3-27e35bdc1195.png](http://synbiopath.online/4adcd861-58f3-44c2-9eb3-27e35bdc1195.png)
+![4adcd861-58f3-44c2-9eb3-27e35bdc1195.png](https://synbiopath.online/4adcd861-58f3-44c2-9eb3-27e35bdc1195.png)
 
 此时，将 ==SQ11-20_gene.txt== 的后缀名 txt 改为 fasta，即可用于本地 blast。
 
@@ -38,7 +38,7 @@ https://www.yuque.com/cjchen/hirv8i/xq65ml
 
 # 3. 提取全部基因信息用于基因敲除
 1. 点击菜单栏中的 ==`sequence Toolkit`== > ==GFF3/GTF Manipilate== > ==GXF Sequence Extract==
-![image.png](http://synbiopath.online/20251215153425371.png)
+![image.png](https://synbiopath.online/20251215153425371.png)
 
 2. 按照以下步骤，完成所有操作
 	- 1：在此处上传 Augustus 注释生成的 gff3 文件，此处为 ==SQ11-20.gff3==
@@ -50,10 +50,10 @@ https://www.yuque.com/cjchen/hirv8i/xq65ml
 	- 7：Down Stream Bases：选择 ==2000==，代表提取该基因下游2000 bp的序列信息
 	- 8：我们设置将提取出来的数据存储在一个新生成的 ==SQ11-20_gene_utr2000.txt==的文件中，并且将该文件存储在桌面上，因此我们在此处输入该文件的地址：==C:\Users\lhc\Desktop\SQ11-20_gene_utr2000.fasta==（每个人可以自定义存储的地址）
 	- 9：点击 ==start==，提示完成后，就会发现桌面上生成了 3 个文件，我们先前建立的 SQ11-20_gene_utr2000.txt 文档已经含有了根据 gff3 注释信息从基因组文件中提取出来的全部基因序列。
-![bb264555-a3db-4661-9b06-83ec3ec12676.png](http://synbiopath.online/bb264555-a3db-4661-9b06-83ec3ec12676.png)
+![bb264555-a3db-4661-9b06-83ec3ec12676.png](https://synbiopath.online/bb264555-a3db-4661-9b06-83ec3ec12676.png)
 
 
 打开 ==SQ11-20_gene_utr2000.txt== ，可以看到每个基因序列分为 3个部分，2000 bp 的小写序列信息（上游同源臂），大写的序列信息（g1081 基因的序列信息）和 2000 bp 的小写序列信息（下游同源臂），这些上下游同源臂就可以用来设计基因敲除的同源臂。
-![dc69fb52-5cf7-4203-a62a-9dce98547354.png](http://synbiopath.online/dc69fb52-5cf7-4203-a62a-9dce98547354.png)
+![dc69fb52-5cf7-4203-a62a-9dce98547354.png](https://synbiopath.online/dc69fb52-5cf7-4203-a62a-9dce98547354.png)
 
 ---

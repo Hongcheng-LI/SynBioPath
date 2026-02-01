@@ -1,4 +1,4 @@
-![image.png](http://synbiopath.online/20251228193042558.png)
+![image.png](https://synbiopath.online/20251228193042558.png)
 
 
 ---
@@ -21,7 +21,7 @@
 
 ### 研究背景
 在自然界中，绝大多数天然产物（Natural Products, NPs）的生物合成是高度立体选择性的，通常只产生单一的对映异构体，因为它们需要与特定的生物大分子（如蛋白质、核酸）靶点结合。天然对映异构体对（Enantiomeric pairs）的存在极为罕见，通常仅在非酶促反应参与或特定修饰步骤中偶尔出现（如 notoamides 和 manzamines）。Auranthine 是一种含氰基（nitrile group）的真菌生物碱，最早发现于 *Penicillium aurantiogriseum*，其生物合成机制尤其是氰基的形成一直未被阐明。
-![image.png](http://synbiopath.online/20251228193121454.png)
+![image.png](https://synbiopath.online/20251228193121454.png)
 
 ### 前期研究
 早期研究曾尝试解析 auranthine 的生物合成，确定了邻氨基苯甲酸（Anthranilic acid, Ant）和谷氨酰胺（Glutamine, Gln）是其前体，但在结构鉴定上曾出现错误（2018年修正），且其核心苯二氮卓酮骨架及氰基侧链的形成酶学机制仍是空白。此外，对于同一物种不同菌株是否能产生对映异构体更是鲜有报道。
@@ -86,7 +86,7 @@
 调查不同来源 *A. lentulus* 菌株的次级代谢产物，验证是否存在结构差异。
 
 #### 实验结果与分析
-![image.png](http://synbiopath.online/20251228193217926.png)
+![image.png](https://synbiopath.online/20251228193217926.png)
 
 *   **代谢谱差异**：LC-MS 分析显示，日本菌株（如 IFM58399）和非日本菌株（如 MYA-3566）均产生 $m/z$ 331.1190 的离子峰。
 *   **基因型差异 (Figure 2a)**：日本菌株拥有完整的 *nitA* 基因；而非日本菌株的 *nitA* 发生严重截断（*nitA\**），但拥有另一个 NRPS 基因 *nitC*。*nitB* 在所有菌株中保守。
@@ -98,12 +98,12 @@
 解析 NitA 和 NitC 如何控制产物的骨架装配和立体化学。
 
 #### 实验结果与分析
-![image.png](http://synbiopath.online/20251228193240893.png)
+![image.png](https://synbiopath.online/20251228193240893.png)
 
 *   **单独表达结果**：仅表达 *AlnitA* 产生化合物 **3**（侧链为 Leu），仅表达 *nitC* 产生化合物 **4**（侧链为 homoalanine）。说明在缺乏 $\gamma$-CHA 时，两酶对氨基酸底物的选择性不同（Figure 3）。
 *   **立体化学确证**：Marfey's 分析显示，**1** 中的 $\gamma$-CHA 为 L-构型，而 **2** 中的 $\gamma$-CHA 为 D-构型。
 *   **机制推断 (Figure 6)**：NitA 和 NitC 均为双模块 NRPS，模块 1 激活两分子邻氨基苯甲酸。关键差异在于 **NitC 的模块 2 包含一个差向异构化结构域 (E domain)** (Figure 3a)，该结构域将 L-$\gamma$-CHA 转化为 D-$\gamma$-CHA，从而导致了最终产物构型的翻转。
-![image.png](http://synbiopath.online/20251228193302027.png)
+![image.png](https://synbiopath.online/20251228193302027.png)
 > "The key difference... is that NitC contains an epimerization domain that is not present in AlNitA... which leads to the formation of the enantiomeric pair."
 
 ### 研究部分三：氰基合成酶 NitB 的功能鉴定
@@ -111,7 +111,7 @@
 确定侧链非蛋白氨基酸 L-$\gamma$-CHA 的生物合成来源。
 
 #### 实验结果与分析
-![image.png](http://synbiopath.online/20251228193556537.png)
+![image.png](https://synbiopath.online/20251228193556537.png)
 
 *   **体外酶活 (Figure 4c)**：重组 NitB 能在 ATP 和 $\text{Mg}^{2+}$ 存在下，将 L-Gln 转化为 L-$\gamma$-CHA（通过 Fmoc 衍生化检测）。反应对 L-Gln 专一，不接受 D-Gln。
 *   **动力学参数**：NitB 对 L-Gln 的 $K_m$ 为 $1.58 \pm 0.69 \text{ mM}$，$k_{cat}$ 为 $1.96 \pm 0.48 \text{ min}^{-1}$。
@@ -122,7 +122,7 @@
 通过结构模拟和突变实验，解释 NitB 如何从 ASS 演化出新的催化功能。
 
 #### 实验结果与分析
-![image.png](http://synbiopath.online/20251228193616348.png)
+![image.png](https://synbiopath.online/20251228193616348.png)
 
 *   **结构比对 (Figure 5)**：NitB 与 ASS 结构相似，但在底物结合口袋处，ASS 的 Gly119 位点在 NitB 中被 Gln146 取代。
 *   **空间位阻假说**：模拟显示 Gln146 的侧链占据了 ASS 中 L-Asp（第二个底物）的结合空间，从而阻止了缩合反应，迫使酶只进行第一步活化后的消除反应（脱水）。

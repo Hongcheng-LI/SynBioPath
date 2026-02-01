@@ -1,4 +1,4 @@
-![image.png](http://synbiopath.online/20260120193751664.png)
+![image.png](https://synbiopath.online/20260120193751664.png)
 
 ## 一：基本信息
 
@@ -70,8 +70,8 @@
 #### 实验结果与分析
 
 - **Figure 1** 和 **Scheme 1** 展示了 BGC 的鉴定和提出的生物合成途径。通过转录组共表达分析，研究人员在黑曲霉中锁定了一个包含 P450 酶 (_aunB_) 和两个甲基转移酶 (_aunD_, _aunE_) 的基因簇。
-    ![image.png](http://synbiopath.online/20260120193805790.png)
-![image.png](http://synbiopath.online/20260120193811806.png)
+    ![image.png](https://synbiopath.online/20260120193805790.png)
+![image.png](https://synbiopath.online/20260120193811806.png)
 
 
 - 通过在黑曲霉中进行基因敲除实验 (结果在补充材料 Figure S4)，他们证明了：
@@ -109,8 +109,8 @@
 #### 实验结果与分析
 
 - **Figure 2** 和 **Scheme 2** 集中展示了这一关键发现。
-    ![image.png](http://synbiopath.online/20260120193823670.png)
-    ![image.png](http://synbiopath.online/20260120193837228.png)
+    ![image.png](https://synbiopath.online/20260120193823670.png)
+    ![image.png](https://synbiopath.online/20260120193837228.png)
 
 
 - **BfoB 酶的立体选择性**：

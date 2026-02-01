@@ -1,4 +1,4 @@
-![image.png](http://synbiopath.online/20260120102013235.png)
+![image.png](https://synbiopath.online/20260120102013235.png)
 
 ---
 ## 一：基本信息
@@ -79,10 +79,10 @@
 - **数据支撑与图表解读**：
     
     - **Figure 2A** 直观对比了 1953 年的假说（上）与本文的发现（下）。旧假说认为大黄素是前体，而本文证明了 EA 先自发氧化偶联为 EB，然后 EB 在 RugG 催化下生成 pHyp，最终氧化为 Hyp。
-        ![image.png](http://synbiopath.online/20260120102029483.png)
+        ![image.png](https://synbiopath.online/20260120102029483.png)
 
     - **Figure 2B** 是本部分的核心数据。HPLC 图谱 (590 nm) 显示：
-        ![image.png](http://synbiopath.online/20260120102040665.png)
+        ![image.png](https://synbiopath.online/20260120102040665.png)
 
         - 饲喂大黄素的 AO-rugG 培养物 (trace ii) 中完全检测不到 Hyp 和 pHyp。
         
@@ -106,10 +106,10 @@
 - **数据支撑与图表解读**：
     
     - **Figure 1B** 展示了 CF91 中 cladofulvin 的生物合成途径，其中 ClaM 被注释为一个二聚酶，敲除它理论上会阻断下游产物的生成，从而积累上游单体或二聚体前体。
-        ![image.png](http://synbiopath.online/20260120102108379.png)
+        ![image.png](https://synbiopath.online/20260120102108379.png)
 
     - **Figure 3A** 的 HPLC 图谱 (254 nm) 提供了确凿证据。与野生型 (WT) CF91 (trace iii) 主要产生 cladofulvin 不同，ΔclaC 突变株 (trace ii) 积累了较多的大黄素和少量 EB。而 **ΔclaM 突变株 (trace i)** 则极大地提升了 EB (meso 和 rac 异构体) 和 EA 的产量，同时 cladofulvin 和 nataloe emodin 完全消失。这表明 ClaM 确实是 EB 的下游酶，敲除 _claM_ 是积累 EB 的有效策略。
-        ![image.png](http://synbiopath.online/20260120102117200.png)
+        ![image.png](https://synbiopath.online/20260120102117200.png)
 
 ### 研究部分三：通过菌株共培养初步实现 Hyp 的从头合成
 
@@ -124,7 +124,7 @@
 - **数据支撑与图表解读**：
     
     - **Figure 3B** 的 HPLC 图谱 (590 nm) 展示了共培养的结果。在 AO-rugG 与 ΔclaM (trace iii) 或 ΔclaC (trace iv) 的共培养体系中，均出现了清晰的 Hyp 和 pHyp 峰，而单一菌株培养时则没有。
-        ![image.png](http://synbiopath.online/20260120102130499.png)
+        ![image.png](https://synbiopath.online/20260120102130499.png)
 
     - **Figures S10E 和 S11E** 提供了共培养的时间曲线，显示 pHyp 产量随时间增加而增加，同时 EB 被消耗。然而，图中也显示即使在培养后期，仍有大量 (>150 mg/L) 的 EB 未被转化，表明菌株间的底物转运可能是限速步骤，效率不高。
         
@@ -142,13 +142,13 @@
 - **数据支撑与图表解读**：
     
     - **Figure 1A** 的中心流程图展示了构建 ΔclaM-rugG 菌株的最终策略。
-        ![image.png](http://synbiopath.online/20260120102146079.png)
+        ![image.png](https://synbiopath.online/20260120102146079.png)
 
     - **Figure 3B (trace i)** 显示了 ΔclaM-rugG 菌株在初步培养时就能产生 Hyp 和 pHyp，证明了单菌株策略的可行性。
-        ![image.png](http://synbiopath.online/20260120102156971.png)
+        ![image.png](https://synbiopath.online/20260120102156971.png)
 
     - **Figure 4A** 是发酵优化的核心结果图。该时间曲线清晰地显示，在补料分批发酵过程中，EB 的浓度先上升后下降，被有效消耗；而 pHyp 的浓度则持续飙升，在第 17 天达到峰值 **50.2 mg/L**。这表明单菌株系统和发酵优化极大地提高了途径的整体效率。
-        ![image.png](http://synbiopath.online/20260120102209502.png)
+        ![image.png](https://synbiopath.online/20260120102209502.png)
 
 ### 研究部分五：通过光化学转化完成金丝桃素的最终合成
 
@@ -163,10 +163,10 @@
 - **数据支撑与图表解读**：
     
     - **Figure 4B** 的 HPLC 图谱直观地展示了光转化的效果。与光照 0 小时 (ii) 相比，光照 12 小时后 (i)，巨大的 pHyp 峰显著降低，而 Hyp 峰则相应地急剧升高。
-        ![image.png](http://synbiopath.online/20260120102221195.png)
+        ![image.png](https://synbiopath.online/20260120102221195.png)
 
     - **Figure 4C** 的表格量化了这一过程。随着光照时间从 0 小时增加到 24 小时，pHyp 的浓度从 50.2 mg/L 下降到 7.3 mg/L，而 Hyp 的浓度则从 0.5 mg/L 增加到 43.1 mg/L，转化率达到 85%。这证明了“生物发酵 + 光化学转化”两步法策略的成功。
-        ![image.png](http://synbiopath.online/20260120102231419.png)
+        ![image.png](https://synbiopath.online/20260120102231419.png)
 
 ## 五：总体结论
 

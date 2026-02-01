@@ -1,4 +1,4 @@
-![image.png](http://synbiopath.online/20260113110850174.png)
+![image.png](https://synbiopath.online/20260113110850174.png)
 
 ---
 
@@ -78,7 +78,7 @@ NRPS 基因通常巨大（约 3 kb/模块），克隆和异源表达具有挑战
 
 #### 实验目的与设计
 本部分旨在建立一套基于 GGA 的 NRPS 工程化通用标准。核心在于利用 XUTIV 位点（位于 T 结构域 Loop 1 和 Helix 2 的 N 端，基序为 "FFxxGGxS"）中的两个保守甘氨酸来设计粘性末端，实现无缝组装。
-![image.png](http://synbiopath.online/20260113111122017.png)
+![image.png](https://synbiopath.online/20260113111122017.png)
 
 #### 实验结果与分析
 研究者选择了 XUTIV 位点，因为该位点在细菌 T 结构域中最为丰富。利用保守的甘氨酸密码子设计了 16 种 scarless 粘性末端（如 A, B, C 等）。Acceptor 质粒（如 NRPS-A1, NRPS-A2）包含起始模块（来自 XldS，引入 C14 脂肪酸）和终止模块（分别来自 SzeS 和 GxpS），中间插入 BsaI 位点产生 A 和 B 粘性末端。Donor 质粒（如 D1-D6）则包含延伸模块及其两端的 BsaI 位点。
@@ -97,18 +97,18 @@ NRPS 基因通常巨大（约 3 kb/模块），克隆和异源表达具有挑战
 
 #### 实验结果与分析
 首先，研究者使用包含 6 个供体（D1-D6）的文库与受体（NRPS-A1, NRPS-A2）进行组装。结果分析（对应 **Figure 2**）显示，NRPS-A2 系列（含 C/E 域的终止模块）成功产生了预期肽的比例高于 NRPS-A1 系列。例如，NRPS-A2_D6 成功产生了预期的脂肽 **C14-QaL**。然而，部分组合如 NRPS-A2_D4 仅产生了因模块跳跃而产生的截短肽 **C14-qL**。
-![image.png](http://synbiopath.online/20260113111247342.png)
+![image.png](https://synbiopath.online/20260113111247342.png)
 
 
 为了增加肽链长度和复杂度，研究者设计了新的粘性末端组合（A/C 和 C/B），旨在插入两个延伸模块。通过使用供体 D7-D12 和 D16-D21，构建了 36 个不同的 NRPS 系统（**Figure 3a** 黑色框区域）。HPLC/MS 分析表明，83% 的构建体表现出功能性，其中 61% 生成了预期的全序列肽。然而，某些模块（如 D18，引入酪氨酸；D10，引入缬氨酸）往往导致 NRPS 功能丧失或产生大量截短产物。针对这一情况，研究者引入了新的缬氨酸和酪氨酸模块（D13-D15, D22-D24），最终构建了包含 81 个变体的完整文库。
-![image.png](http://synbiopath.online/20260113111318111.png)
+![image.png](https://synbiopath.online/20260113111318111.png)
 
 **Figure 3a** 的热图展示了 81 个构建体的生产情况，其中深蓝色代表检测到预期产物，浅蓝色代表检测到衍生物（通常为模块跳跃产物），灰色代表无产物。数据表明，通过优化供体模块，显著提高了预期肽的检出率。**Figure 4** 展示了部分成功合成的目标肽（如 13, 17, 36 等）的化学结构，涵盖了不同的氨基酸组合（包括 D-氨基酸和 D-allo-氨基酸）。
-![image.png](http://synbiopath.online/20260113111402852.png)
+![image.png](https://synbiopath.online/20260113111402852.png)
 
 
 为了验证高通量文库的多样性，研究者采用了 qPCR 方法（**Figure 3b**）对 287 个随机克隆进行了分析。结果显示，除了 D16（14%）和 D15（3.5%）外，大多数供体的分布集中在 8%-9%，表明该 GGA 方法能够生成具有良好多样性的随机文库。
-![image.png](http://synbiopath.online/20260113111338855.png)
+![image.png](https://synbiopath.online/20260113111338855.png)
 
 
 ---
@@ -122,7 +122,7 @@ NRPS 基因通常巨大（约 3 kb/模块），克隆和异源表达具有挑战
 研究者构建了一个新的受体 NRPS-A3，该受体移除了原有的起始模块，并在起始位点引入了基于起始密码子（ATG）的特异性粘性末端 S ("CATG")。供体质粒则设计为带有 S/A 粘性末端的起始模块。
 
 实验中使用了 4 个起始供体（D25-D28）：D25 为 C14-Q（阳性对照），D26 来自 XabABC（C4-P），D27 来自 AmbS（丝氨酸），D28 来自未表征的 NRPS。HPLC/MS 分析结果（对应 **Figure 5**）显示，NRPS-A3_D25 成功复现了阳性对照产物。而 NRPS-A3_D26 和 NRPS-A3_D27/D28 分别产生了含有 C4 脂肪酰基的肽 **48** 以及不含酰基修饰的肽 **50** 和 **51**。这表明，某些起始模块中的 C Starter 域可能在工程化背景下失活或缺失功能，但 GGA 方法本身能够成功整合不同来源的起始模块并赋予产物不同的 N 端特征。
-![image.png](http://synbiopath.online/20260113111427867.png)
+![image.png](https://synbiopath.online/20260113111427867.png)
 
 
 > "Both NRPS-A3_D27 and NRPS-A3_D28 produced peptides (50, 51) without any acyl group at the N-terminus, suggesting the Cstarter domain of LC536431 is also non-functional in regards to the incorporation of an acyl moiety."
@@ -136,7 +136,7 @@ NRPS 基因通常巨大（约 3 kb/模块），克隆和异源表达具有挑战
 
 #### 实验结果与分析
 Xenoamicin 是一种 13 个氨基酸长的脂肽-脱氢肽，具有环状 C 端。研究者选取负责合成环状部分的 XabC 模块作为改造对象。构建受体 NRPS-A4，其中移除了 β-丙氨酸和脯氨酸模块，并加入了 *xabD*（编码天冬氨酸脱羧酶）以保证 β-丙氨酸的供应。
-![image.png](http://synbiopath.online/20260113111545426.png)
+![image.png](https://synbiopath.online/20260113111545426.png)
 
 在第一阶段，研究者通过引入单个供体（D1-D6, D29, D30）替换缺失的模块。HPLC/MS 分析（对应 **Figure 6b**）显示，所有 8 个改造后的 NRPS 均具有功能，成功生成了预期的肽 **55** 至 **65**。由于替换了一个供体，所得脱氢肽的环状结构大小相比天然产物有所减小。
 

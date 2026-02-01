@@ -1,4 +1,4 @@
-![image.png](http://synbiopath.online/20251226182223630.png)
+![image.png](https://synbiopath.online/20251226182223630.png)
 
 
 ## 一：基本信息
@@ -18,13 +18,13 @@
 ### 研究背景
 
 蒽环类 (Anthracycline) 化合物是一类重要的天然产物，其代表药物如多柔比星 (doxorubicin) 在临床上被广泛用作抗肿瘤药物。这类分子的核心骨架是一个四环结构 (A-D 环)，其中 D 环的结构状态（芳香化或非芳香化）决定了其后续的生物合成路径和最终的生物活性。例如，非芳香化的 D 环是多柔比星等经典蒽环类药物的特征，而芳香化的 D 环则是另一类抗肿瘤候选药物查特菌素 (chartreusin) 的生物合成前体。因此，阐明 D 环芳香化的分子机制对于理解蒽环类化合物的生物合成多样性及进行理性改造至关重要。
-![image.png](http://synbiopath.online/20251226182235654.png)
+![image.png](https://synbiopath.online/20251226182235654.png)
 
 
 ### 前期研究
 
 前期研究已经确定，在查特菌素的生物合成中，其前体雷索霉素 C (resomycin C, **1**) 具有一个芳香化的 D 环。然而，D 环是如何从一个典型的、具有多个手性中心和羟基取代的非芳香化前体转变为芳香环的，其具体的化学和酶学机制一直悬而未决。这一过程涉及到一系列脱水反应，但其顺序、立体化学以及催化酶的功能均不清楚。
-![image.png](http://synbiopath.online/20251226182357881.png)
+![image.png](https://synbiopath.online/20251226182357881.png)
 
 
 ### 本文突破点
@@ -64,16 +64,16 @@
 本研究的起点是筛选并鉴定 _cha_ 基因簇中负责 D 环芳香化的酶。作者在一株可积累 resomycin C (**1**) 的 Δ_chaZ_ 突变株背景下，构建了一系列双敲除突变株，旨在通过阻断 **1** 的合成来富集上游中间体。
 
 - **(图 1)** 明确了研究的核心科学问题：从非芳香化的前体 auramycinone (**5**) 到 D 环芳香化的 resomycin C (**1**) 的转化机制是什么。
-    ![image.png](http://synbiopath.online/20251226182517904.png)
+    ![image.png](https://synbiopath.online/20251226182517904.png)
 
 
 - **(图 2B)** HPLC 分析结果显示，在 Δ_chaZ_ 背景下，单独敲除 _chaK_ 或 _chaJ_ (ii, iii) 对 **1** 的合成没有影响。然而，敲除 _chaU_ 或 _chaX_ (iv, v) 导致 **1** 的产量急剧下降，同时积累了一个新的主要产物 **5**。这直接证明了 ChaU 和 ChaX 是 D 环芳香化所必需的，并且化合物 **5** 是该过程的一个关键上游前体。
-    ![image.png](http://synbiopath.online/20251226182533395.png)
+    ![image.png](https://synbiopath.online/20251226182533395.png)
 
 - **(图 2C)** 化学互补实验进一步证实了 **5** 的前体地位及其严格的立体化学要求。将 **5** 及其立体异构体 **5a** 和 **5b** 分别喂养给无法合成它的 Δ_chaA_/Δ_chaZ_ 突变株，只有喂养 **5** 的组 (ii) 能够恢复 **1** 的合成。这表明后续的酶促反应具有高度的立体选择性，只识别 (2R,17S,19R) 构型的底物。
     
 - **(图 3C)** 通过对化合物 **5** 的单晶 X-射线衍射分析，确定了其绝对构型为 (2R,17S,19R)，并将其命名为 auramycinone。
-    ![image.png](http://synbiopath.online/20251226182551001.png)
+    ![image.png](https://synbiopath.online/20251226182551001.png)
 
 
 ### 研究部分二：ChaU 的酯环化酶功能与立体选择性机制
@@ -81,11 +81,11 @@
 在确定 **5** 为关键前体后，需要解析其上游的合成步骤。根据生物信息学预测，ChaU 是一种酯环化酶。本部分旨在通过遗传学和计算模拟，验证 ChaU 的功能并解释其如何控制产物的立体化学。
 
 - **(图 2A)** 提出了从线性前体 **3** 到环化产物 **4** (auraviketone)，再到还原产物 **5** (auramycinone) 的生物合成路径。作者推断，ChaU 催化了从 **3** 到 **4** 的 C2-C19 环化步骤。
-    ![image.png](http://synbiopath.online/20251226182603669.png)
+    ![image.png](https://synbiopath.online/20251226182603669.png)
 
 
 - **(图 2D, 2E)** 作者解析了 ChaU 的晶体结构 (PDB: 8KAA)，并进行了分子动力学模拟。模拟结果显示，底物 **4** 在 ChaU 的活性口袋中通过与 R50, D119, E38, S37 等残基形成氢键网络而被稳定。这种特异性的结合模式确保了 C2-C19 环化反应的立体选择性，优先生成 (2R,19R) 构型的产物 **4**。DFT 计算表明该环化反应的能垒较低 (7.7 kcal/mol)，在酶催化下易于发生。
-![image.png](http://synbiopath.online/20251226182612250.png)
+![image.png](https://synbiopath.online/20251226182612250.png)
 
 
 ### 研究部分三：ChaU/ChaX 协同催化的非典型脱水机制
@@ -93,19 +93,19 @@
 这是本研究的核心部分，旨在阐明 ChaU 和 ChaX 如何协同作用，将 auramycinone (5) 转化为 resomycin C (1)。作者通过体外酶学实验、同位素标记和酶的“交叉配对”实验，逐步揭示了这一复杂的催化过程。
 
 - **(图 3B)** 体外酶学实验 (i) 表明，纯化的 ChaU 和 ChaX 在 NADH 存在下，可以将 **5** 转化为 **1**，同时还产生了中间体 **6** (17-脱羟基-auramycinone) 和 **7** (2,19-脱水-auramycinone)。单独使用 ChaX (ii) 只能产生 **6**，而单独使用 ChaU (iii) 则无反应。这表明 ChaX 是主要的催化酶，而 ChaU 扮演了关键的协同/调控角色。
-![image.png](http://synbiopath.online/20251226182621877.png)
+![image.png](https://synbiopath.online/20251226182621877.png)
 
 
 - **(图 3F)** **H₂¹⁸O 同位素标记实验**提供了决定性证据。在 H₂¹⁸O 中进行 ChaU/ChaX 催化反应，中间体 **7** 的质谱显示其质量数增加了 2 Da，表明其 C17 位的羟基来源于水分子。这推翻了直接脱水的假设，证明该过程涉及一次**水化**反应。
-![image.png](http://synbiopath.online/20251226182630485.png)
+![image.png](https://synbiopath.online/20251226182630485.png)
 
 
 - **(图 3E)** 对中间体 **7** 的电子圆二色谱 (ECD) 分析，确定了其 C17 位构型为 R，与底物 **5** 的 C17S 构型相反。这一**立体构型翻转**的发现，结合同位素标记结果，共同揭示了 D 环芳香化的核心机制：首先在 C17-C18 发生脱水形成烯烃中间体 **II**，随后 ChaU 催化水分子从 pro-R 面对 **II** 的 C17 位进行加成，生成 C17R 构型的中间体 **III**，最后 ChaX 再催化后续的脱水完成芳香化。
-    ![image.png](http://synbiopath.online/20251226182641446.png)
+    ![image.png](https://synbiopath.online/20251226182641446.png)
 
 
 - **(图 3B, vi-viii)** “交叉配对”实验进一步揭示了 ChaU 的功能。ChaU/ChaX 的同源蛋白 KstA15/KstA16 负责催化 **5** 的 C8 位羟基化。当用 ChaU 替换 KstA15 (KstA16/ChaU 组合) 时，反应产物变为 **1**；而用 KstA15 替换 ChaU (ChaX/KstA15 组合) 时，产物变为 8-羟基-auramycinone (**9**)。这表明 ChaU 的功能是“指导”其伴侣酶 ChaX/KstA16 执行脱水/水化反应，而非羟基化反应，揭示了酶之间协同作用对催化功能多样性的精妙调控。
-    ![image.png](http://synbiopath.online/20251226182650891.png)
+    ![image.png](https://synbiopath.online/20251226182650891.png)
 
 
 ### 研究部分四：催化级联反应的计算化学确证
@@ -113,15 +113,15 @@
 为给提出的复杂反应机理提供理论支持，作者运用 DFT 和 MD 模拟，对从 **5** 到 **1** 的整个催化路径进行了能量和结构层面的计算。
 
 - **(图 4)** 展示了整个 D 环芳香化过程的能量变化图。计算结果表明，整个两步脱水过程在热力学上是有利的，总共释放 25.5 kcal/mol 的能量。
-    ![image.png](http://synbiopath.online/20251226182659390.png)
+    ![image.png](https://synbiopath.online/20251226182659390.png)
 
 
 - **(图 5)** 详细模拟了 ChaX 催化的脱水步骤。MD 模拟显示，底物在 ChaX 活性口袋中被 E130, K138, R36 等关键残基稳定。DFT 计算表明，K138 作为通用酸质子化 C17-OH，促进其离去，能垒为 14.5 kcal/mol (I -> II)。后续的脱水步骤同样由这些残基协同催化。
-    ![image.png](http://synbiopath.online/20251226182707689.png)
+    ![image.png](https://synbiopath.online/20251226182707689.png)
 
 
 - **(图 6)** 详细模拟了 ChaU 催化的 C17 位水化步骤。计算表明，水分子从 pro-R 面对烯烃中间体 **II** 进行亲核攻击，生成 C17R 构型的产物 **III**，其能垒为 9.2 kcal/mol。这一步的立体选择性由 ChaU 活性口袋中的 D119 等残基精确控制。
-![image.png](http://synbiopath.online/20251226182719887.png)
+![image.png](https://synbiopath.online/20251226182719887.png)
 
 
 - 综合计算结果，作者提出了一个完整且化学合理的催化级联反应路径，与所有实验观察结果（包括中间体、立体化学翻转、同位素标记）高度吻合。
@@ -132,8 +132,8 @@
 最后，作者将 ChaU/ChaX 系统与其他已知的蒽环类生物合成途径中的同源酶进行比较，以探讨其在进化上的独特性和功能上的普适性。
 
 - **(图 7)** 比较了 resomycin C, aclacinomycin, kosinostatin 和 nogalamycin 等多个蒽环类化合物的 BGCs。在其他 BGCs 中，ChaX 的同源物（如 AclQ, KstA16, SnoaW）通常只负责一步简单的 C17-脱水反应。而 ChaU 的同源物（如 KstA15, SnoaL2）则通常与伴侣酶协同催化 C8-羟基化反应。
-    ![image.png](http://synbiopath.online/20251226182729064.png)
-![image.png](http://synbiopath.online/20251226182737076.png)
+    ![image.png](https://synbiopath.online/20251226182729064.png)
+![image.png](https://synbiopath.online/20251226182737076.png)
 
 
 - 结论是，ChaU 作为一个 NTF2-like 家族蛋白，进化出了独特的双重功能（酯环化酶和水合酶），并能“劫持”一个典型的脱水酶 ChaX，与之协同完成一个非典型的、涉及立体构型翻转的“水化-脱水”级联反应，从而开辟了一条通往 D 环芳香化蒽环类化合物的独特生物合成通路。

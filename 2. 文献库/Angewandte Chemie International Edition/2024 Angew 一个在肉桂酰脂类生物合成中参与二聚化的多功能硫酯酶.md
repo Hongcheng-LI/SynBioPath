@@ -1,4 +1,4 @@
-![image.png](http://synbiopath.online/20260120105010994.png)
+![image.png](https://synbiopath.online/20260120105010994.png)
 
 ---
 
@@ -23,7 +23,7 @@
 ### 前期研究
 
 该团队在此前的研究中已经阐明了 youssoufene 单体 (化合物 **2-6**) 的生物合成途径，该途径由一个独特的 II 型聚酮合酶 (PKS) 系统催化，并通过多对酮基合酶/链长因子 (KS/CLF) 的交替使用来逐步延长 ACP 上的聚酮链。他们已经确定了负责不同链长单体合成的 PKS 模块。然而，对于最终、也是最关键的一步——如何从单体前体生成具有生物活性的二聚体 youssoufene A1 (**1**)，仍然是一个悬而未决的问题。领域内已知苯环的形成涉及 6π-电环化反应，但催化该反应的酶以及后续的二聚化酶均不清楚。
-![image.png](http://synbiopath.online/20260120110110785.png)
+![image.png](https://synbiopath.online/20260120110110785.png)
 
 ### 本文突破点
 
@@ -96,7 +96,7 @@
 - **Figure S2** (补充材料)：ITCT 实验的 SDS-PAGE 和质谱结果显示，YsfA-His 能够“钓”下来一个分子量约为 34.5 kDa 的未知蛋白。
     
 - **Figure 2A**：对 `ysfF` 基因序列的仔细分析揭示了其“基因中的基因”结构。`ysfF` 编码一个 64 kDa 的全长蛋白 YsfF，包含一个 N-端 α/β-水解酶结构域 (YsfF_HD) 和一个 C-端 4-HBT 样结构域 (YsfF_HBT)。关键的是，在 4-HBT 样结构域的编码区内部，存在一个独立的核糖体结合位点 (RBS) 和一个 GTG 起始密码子，理论上可以从此独立翻译出一个约 35 kDa 的蛋白，即 YsfF_HBT。这个理论分子量与 ITCT 实验钓到的蛋白完全吻合。
-    ![image.png](http://synbiopath.online/20260120110206291.png)
+    ![image.png](https://synbiopath.online/20260120110206291.png)
 
 
 - **Figure S4** (补充材料)：带有双标签的 `ysfF` 表达实验证实，从这一个基因确实可以产生两种蛋白：能被两种标签同时检测到的全长 YsfF，和只能被 C-端 His-tag 检测到的嵌套蛋白 YsfF_HBT。
@@ -128,7 +128,7 @@
 这部分精巧的基因编辑实验清晰地揭示了 YsfF 内部不同功能单元的角色。
 
 - **Figure 2B** 是本部分的核心结果图。
-    ![image.png](http://synbiopath.online/20260120110215497.png)
+    ![image.png](https://synbiopath.online/20260120110215497.png)
 
     
     - **Panel i (WT)**：野生型 `ysfF` 产生大量的单体和二聚体。
@@ -164,7 +164,7 @@
 这部分体外实验为 YsfF/YsfF_HBT 的电环化酶功能提供了直接证据。
 
 - **Figure 3A (HPLC)**：
-    ![image.png](http://synbiopath.online/20260120110226346.png)
+    ![image.png](https://synbiopath.online/20260120110226346.png)
 
     
     - **Panel iii**：当反应体系中加入 YsfF 和 FAD 时，成功生成了产物 **2** 和 **3**。
@@ -200,7 +200,7 @@
 这部分实验设计清晰，结果一目了然，成功揭示了二聚化反应的“梦之队”。
 
 - **Figure 4** 的 HPLC 结果非常清晰：
-	![image.png](http://synbiopath.online/20260120110248962.png)
+	![image.png](https://synbiopath.online/20260120110248962.png)
 
     
     - **Panel iii, iv**：单独加入 YsfX，只能产生单体 **2** 和 **3**，没有二聚体 **1**。
@@ -238,7 +238,7 @@
 这部分工作将酶的功能研究深入到了原子水平，揭示了不同反应共享和特有催化残基的精细机制。
 
 - **Figure 5A, B** 展示了 YsfF 的预测结构和底物对接模型，预测 N301, E483, H566 位于活性口袋，可能参与催化。
-    ![image.png](http://synbiopath.online/20260120110259777.png)
+    ![image.png](https://synbiopath.online/20260120110259777.png)
 
 
 - **Figure 5C** (单体生成)：N301A, E483A, H566A 突变体完全丧失了生成单体 **2** 和 **3** 的能力。这证明这三个残基是**电环化反应所必需的**。
@@ -255,7 +255,7 @@
 ## 五：总体结论
 
 1. **核心发现**：本研究全面阐明了抗菌化合物 youssoufene A1 的生物合成后期步骤，核心是一个前所未有的、具有“基因中的基因”结构的硫酯酶 YsfF。
-    ![image.png](http://synbiopath.online/20260120110307875.png)
+    ![image.png](https://synbiopath.online/20260120110307875.png)
 
 
 2. **机制阐明**：YsfF 是一个多功能酶，其 4-HBT 样结构域负责 PKS 链的最终延伸、6π-电环化形成苯环以及产物的水解释放。更重要的是，全长 YsfF 蛋白必须与另一个环化酶 YsfX 协同作用，才能催化一个 ACP-连接的线性前体与一个 YsfF-共价连接的单体发生独特的脱芳香二聚化反应，形成最终产物 youssoufene A1。

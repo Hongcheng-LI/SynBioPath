@@ -1,4 +1,4 @@
-![image.png](http://synbiopath.online/20260104235303613.png)
+![image.png](https://synbiopath.online/20260104235303613.png)
 
 ---
 
@@ -84,12 +84,12 @@
 本部分旨在开发一个超越单一算法局限性的分子网络分析平台，并通过严谨的基准测试，评估不同谱图相似性算法在真实代谢组学数据中的性能，筛选出能提供互补信息的优化算法组合。实验设计分为三步：1）构建包含 46 种算法和综合谱图库的 MSanalyst 平台；2）使用一个已知的微生物天然产物谱图数据集 (n=81) 评估各算法在谱图库搜索中的表现，使用约登指数 (Youden‘s Index) 为每个算法确定最佳阈值；3）使用一个更大的谱图对数据集 (n=2，543， 约三百万对) 评估各算法在反映结构相似性方面的广谱性能。
 #### 实验结果与分析
 作者首先概述了 MSanalyst 的工作流程 (Figure 1)。平台接受原始或预处理的质谱数据，集成了 UmetaFlow 和 matchms 进行数据预处理。其核心在于一个包含 GNPS 实验谱图和 CFM-ID 生成的超过 46 万个虚拟谱图的综合库，以及 46 种可选的相似性算法。在分子网络构建中，支持为库搜索和自聚类步骤选择不同的算法，并可通过“重分析”模块快速优化参数。
-![image.png](http://synbiopath.online/20260104235824397.png)
+![image.png](https://synbiopath.online/20260104235824397.png)
 
 > “MSanalyst incorporates these validated similarity metrics and assembles a comprehensive spectral library that includes both experimental and predicted spectra.”
 
 随后，作者对算法进行了系统性评估 (Figure 2)。使用 81 个微生物天然产物谱图进行库搜索评估时发现，不同算法的最佳阈值差异很大 (Figure 2C)。例如，熵 (entropy) 算法在最佳阈值下获得了最多的真阳性 (TP) 注释 (36个)，而修正余弦 (modified cosine) 为 30 个 (Data S1)。重要的是，有 39 种算法能提供超出修正余弦的额外 TP 注释，证明了算法互补的必要性。通过计算各算法在最佳阈值下的混淆矩阵，发现大多数算法仅在阈值极高时 TP 数才锐减，而假发现率 (FDR) 随阈值提高逐渐降低 (Figures S7, S8)。作者发现，联合使用熵和 ms_for_id 算法，在各自优化阈值下，可以捕获所有单个算法识别出的 TP 注释 (Figure 2D)，这为实际应用提供了高效策略。
-![image.png](http://synbiopath.online/20260104235903910.png)
+![image.png](https://synbiopath.online/20260104235903910.png)
 
 > “Thus, Youden’s Index provides a practical criterion for algorithm-specific threshold optimization, with fine-tuning around these values to balance TP and FP annotations.”
 
@@ -102,7 +102,7 @@
 本部分旨在展示 MSanalyst 在挖掘复杂微生物代谢组、发现隐藏天然产物方面的实际应用能力。选择生物合成基因簇丰富但代谢物研究较少的 *Kutzneria viridogrisea* DSM 43850 为目标菌株，通过七种不同培养基培养以激活其生物合成潜力。利用 LC-MS/MS 获取代谢组数据后，使用 MSanalyst 中性能互补的算法组合（修正余弦、熵、峰值百分比）进行注释，并利用中性丢失算法进行聚类，以全面探索其代谢组并识别值得深入研究的代谢物家族。
 #### 实验结果与分析
 经过背景扣除，从 *K. viridogrisea* 的粗提物中鉴定出 214 个分子特征。使用 MSanalyst 分析后，修正余弦、峰值百分比和熵算法共同鉴定出 57 个实验谱图匹配和 1 个虚拟谱图匹配，覆盖了其他算法发现的所有已注释特征 (Figure 3A)。在排除合成药物和常见初级代谢物后，两个植物来源的糖苷注释引起了注意：特征 83 被注释为 rubinaphthin A，特征 33 被注释为 p-coumaryl alcohol 4-O-glucoside (Figure 3B)。关键的是，这两个糖苷使用峰值百分比算法与参考谱图的相似度很高 (>0.7)，但使用修正余弦算法的得分却很低 (<0.1) (Figure S16)。这一发现直接证明了依赖单一余弦算法会漏掉此类化合物，凸显了多算法整合的价值。
-![image.png](http://synbiopath.online/20260105000043756.png)
+![image.png](https://synbiopath.online/20260105000043756.png)
 
 > “These glycosides scored highly with peak percentage (>0.7) but poorly with the modified cosine score (<0.1) against the reference spectrum, underscoring the risk of missing such compounds when relying solely on cosine scoring.”
 
@@ -113,21 +113,21 @@
 本部分旨在验证 MSanalyst 预测的糖苷类化合物的结构，评估其生物活性，并初步探究其生物合成起源。首先，在能诱导产物产生的 GSM 培养基中进行大规模发酵，靶向分离目标化合物。综合运用 NMR、HRMS、化学合成、单晶衍射和酸水解等技术，精确解析六个新化合物 **1-6** 的平面结构与绝对构型。随后，对化合物及其生物合成前体进行抗菌和抗氧化活性测试。基于化合物的萘酚结构和已知的 menaquinone 生物合成知识，提出其可能来源于 menaquinone 途径的分支。
 #### 实验结果与分析
 通过大规模发酵和质谱引导的分离，成功获得了六个新化合物，命名为 kutznaposides A-F (**1-6**) (Figure 4A)。综合 NMR 和 MS 分析确定了它们的平面结构 (Figures 4B, S20-S26)。化合物 **1** 和 **2** 的苷元为取代苯，而 **3、4、5、6** 共享一个三取代萘骨架。对于 **3、4、6** 共有的苷元 1，4-二羟基-2-萘甲酰胺 (DHNC)，作者通过化学合成 (Figure S23) 和培养 **4** 的单晶 (CCDC: 2373550) 获得了直接证据，并通过单晶 X 射线衍射确证了其结构 (Figure 4B)。酸水解和糖衍生化 LC-MS 分析 (Figure 4C) 结合苷元质子偶合常数确定：**1、2、4、5** 含有常见的 α-L-鼠李糖，**3** 含有 β-6-脱氧-D-葡萄糖，**6** 含有 β-D-葡萄糖 (Figure 4D)。
-![image.png](http://synbiopath.online/20260105000118511.png)
+![image.png](https://synbiopath.online/20260105000118511.png)
 
 > “Subsequent hydrolysis assays and the J value of every anomeric proton revealed that kutznaposides A, B, D, and E (1, 2, 4, and 5) contained the common α-L-rhamnose, which is replaced by β-deoxy-D-glucose and β-D-glucose in kutznaposide C (3) and kutznaposide F (6), respectively.”
 
 生物活性测试表明 (Figure 4E)，menaquinone 途径中间体 1，4-二羟基-2-萘甲酸 (DHNA)、其酰胺化产物 DHNC 以及糖苷化产物 **3、4、6** 对多种病原菌（包括耐甲氧西林金黄色葡萄球菌 MRSA）表现出不同程度的抑制活性，最小抑菌浓度 (MIC) 在 8-64 μg/mL 之间。在 ABTS 自由基清除实验中，DHNA、DHNC 和 **4** 表现出与阳性对照维生素 C (8.2 μM) 相当的抗氧化能力，其 IC₅₀ 值分别为 6.5、7.8 和 9.2 μM (Figure 4E， Figure S27)。这些结果表明，从 DHNA 到 DHNC 再到糖苷的修饰过程，改变了化合物的抗菌谱和活性强度，但保留了核心的抗氧化能力。
 
 基于 **3-6** 的萘酚糖苷结构，作者推测其生物合成起源于细菌 menaquinone (维生素 K₂) 途径 (Figure 5E)。该途径从分支酸开始，经过一系列 *men* 基因编码的酶催化生成 DHNA。随后，一个推测的 II 类谷氨酰胺酰胺转移酶 (GAT) 可能负责将 DHNA 的羧基酰胺化为 DHNC。最后，尿苷二磷酸糖基转移酶 (UGT) 或胸苷二磷酸糖基转移酶 (TGT) 催化糖基化反应，生成最终的 kutznaposide 糖苷。
-![image.png](http://synbiopath.online/20260105000236140.png)
+![image.png](https://synbiopath.online/20260105000236140.png)
 
 ### 研究部分四：多组学驱动的Kutznaposides生物合成途径解析与关键酶功能验证
 #### 实验目的与设计
 本部分旨在利用基因组学和定量蛋白质组学技术，在分子水平上验证和细化第三部分提出的生物合成假说，并鉴定负责关键修饰步骤的特定酶。首先，通过生物信息学分析在基因组中定位 menaquinone 核心合成酶的同源物 (*knp* 基因)。然后，对比产生 kutznaposides 的 GSM 培养基和不产生/少产生该化合物的 R2A 培养基的定量蛋白质组数据，筛选差异表达的候选 GAT 和 GT 基因。最后，通过在大肠杆菌中进行异源表达和体外酶活实验，直接验证候选 GT 的功能。
 #### 实验结果与分析
 基因组注释和 hummsearch 分析证实，菌株 DSM 43850 中存在 menaquinone 途径所有必需酶 (*menB* 至 *menF*, *menH*, *menI*) 的推定同源物，作者将其命名为 *knpB1* 至 *knpF1*, *knpH1*, *knpI1* (Figure 5A， Data S2)。为了寻找负责酰胺化和糖基化的酶，作者以已知的细菌 GAT 和 TGT 序列为参考，在基因组中筛选出 2 个 GAT 候选基因和 16 个 GT 候选基因 (Data S3)。
-![image.png](http://synbiopath.online/20260105000211638.png)
+![image.png](https://synbiopath.online/20260105000211638.png)
 
 定量蛋白质组学分析 (GSM vs. R2A) 的火山图显示了许多差异表达蛋白 (Figure 5A)。其中，一个 GAT (GAT1) 在 GSM 中表达显著上调。在 16 个候选 GT 中，有 9 个的表达量变化倍数 (log₂FC) > 1 (Figure 5B)。其中 5 个 (GTs 1-5) 仅在 GSM 条件下表达，另外 4 个 (GTs 6-9) 在 GSM 中的表达量是 R2A 中的 2 到 6 倍，提示它们可能参与 O-糖基化。
 
@@ -140,16 +140,16 @@
 本部分旨在阐明 *K. viridogrisea* 进化出 menaquinone 分流途径的生物学原因及其调控机制。通过自我抑制生长实验，验证 DHNA 及其下游产物对生产菌自身的毒性差异。通过对差异表达蛋白质组进行 GO 和 KEGG 富集分析，以及构建蛋白质-蛋白质互作网络，系统探究在激活该分流途径的 GSM 培养条件下，菌体内部发生的全局性生理变化，特别是与氧化应激和解毒相关的通路，从而构建一个完整的“压力感应-解毒响应”生物学模型。
 #### 实验结果与分析
 自我抑制生长实验表明 (Figure 6A)，menaquinone 途径的中间体 DHNA 对 *K. viridogrisea* 自身的生长抑制最强，而下游的酰胺化产物 DHNC 和糖苷化产物 **3、4、6** 的抑制活性依次减弱。这直接证明从 DHNA 到 kutznaposide 的两步酶促反应是一个逐步降低自身毒性的“自我解毒”过程，GAT 和 GTs 可被视为自我抗性基因。
-![image.png](http://synbiopath.online/20260105000307178.png)
+![image.png](https://synbiopath.online/20260105000307178.png)
 
 > “As expected, DHNA showed the most potent inhibitory effect against K. viridogrisea, followed by the downstream products DHNC and kutznaposides. These findings suggest that this two-step enzymatic reaction represents a self-detoxification process...”
 
 为了理解该通路在何种条件下被激活，作者对定量蛋白质组数据进行了深入分析。GO 富集分析显示，在 GSM 培养基中，与解毒过程相关的条目被显著富集，如“细胞对异生物刺激的反应”和“异生物代谢过程” (Figure 6B)。KEGG 通路富集分析的前两位是“丙酸代谢”和“丙氨酸、天冬氨酸和谷氨酸代谢” (Figure 6C)。几乎所有参与这些通路的基因都显著上调 (Data S3)。
-![image.png](http://synbiopath.online/20260105000324457.png)
+![image.png](https://synbiopath.online/20260105000324457.png)
 
 
 通过提取这些关键通路中的蛋白质并构建其互作网络 (Figure 6D)，作者发现 GAT1 与喹啉酸合酶 (EC: 2.5.1.72) 和 L-天冬氨酸氧化酶 (EC: 1.4.3.16) 存在间接关联，这两个酶参与从喹啉酸合成 NAD⁺ 的前两步。它们的上调可能导致活性氧 (ROS) 的积累 (Figure 6E)。此外，在乙醛酸氧化过程中，过氧化氢酶 (EC: 1.11.1.6) 的缺乏和 (S)-2-羟基酸氧化酶 (EC: 1.1.3.15) 的上调也可能导致 ROS 积累。这可能是由于 *K. viridogrisea* 在 GSM 中比在 R2A 中进行了更旺盛的有氧代谢，这一点得到了三羧酸循环中所有酶的表达量均上调的支持 (Figure 6E)，且 GSM 培养的生物量约为 R2A 的两倍 (Figure S31)。
-![image.png](http://synbiopath.online/20260105000342940.png)
+![image.png](https://synbiopath.online/20260105000342940.png)
 
 基于以上数据，作者提出了一个完整的模型 (Figure 6E): *K. viridogrisea* 在 GSM 培养基中经历更强的有氧代谢和氧化压力，导致 ROS 积累。作为响应，菌体上调 menaquinone 途径以合成抗氧化剂 DHNA。然而，DHNA 本身对细胞有毒性。为了解除此自身毒性，菌体同时上调了 GAT1 和特定的 GTs (如 **GT5**, **GT6**)，将有毒的 DHNA 通过酰胺化和糖基化转化为低毒或无毒的 kutznaposide 糖苷。这样，该分流途径实现了双重功能：一方面，通过生成抗氧化剂 DHNA 应对氧化压力；另一方面，通过将 DHNA 解毒为糖苷，避免自我伤害。
 

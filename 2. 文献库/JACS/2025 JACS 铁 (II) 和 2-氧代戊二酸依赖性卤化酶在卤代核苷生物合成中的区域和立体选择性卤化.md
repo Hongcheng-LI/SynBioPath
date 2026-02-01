@@ -1,4 +1,4 @@
-![image.png](http://synbiopath.online/20260104165239370.png)
+![image.png](https://synbiopath.online/20260104165239370.png)
 
 ---
 
@@ -24,7 +24,7 @@
 
 ### 研究背景
 铁 (II) 和 2-氧代戊二酸依赖性 (Fe/2OG) 酶因其能够通过单一高活性中间体——氧代铁 (oxyferryl, Fe⁴ᵛ=O) 物种——催化区域和立体选择性的 C–H 键官能化而受到广泛关注。除了常见的羟基化反应外，该酶家族还能催化卤化反应。然而，决定其倾向于卤化而非羟基化的分子决定因素仍不完全清楚。AdeV (或称 AdaV) 是近期发现的、参与卤代核苷天然产物 adechlorin 生物合成的 Fe/2OG 卤化酶，可将 2′-脱氧腺苷一磷酸 (2′-dAMP, **1**) 转化为 2′-Cl-dAMP (**2**)。
-![image.png](http://synbiopath.online/20260104165306446.png)
+![image.png](https://synbiopath.online/20260104165306446.png)
 
 ### 前期研究
 此前对 SyrB2、CytC3 等 Fe/2OG 卤化酶的研究已确立了一个基本的反应范式：氯-铁氧 (Cl–Fe⁴ᵛ=O) 中间体介导 C–H 键活化，随后从氯-铁羟 (Cl–FeIII–OH) 中间体进行自由基回弹 (radical rebound) 形成 C–Cl 键。多项实验和计算研究提出了多种模型来解释卤化与羟基化的选择性，涉及底物与辅因子的相对位置、C–H 活化路径 (σ 途径 vs π 途径)、中间体构象 (inline vs offline) 以及第二配位层相互作用等。然而，两个氯-铁氧中间体 (如 SyrB2 和 CytC3 中观察到) 在催化中的作用、卤化反应的立体化学等基本问题仍未解决。
@@ -92,10 +92,10 @@
 
 **图表覆盖**：
 *   **Figure 1 & S3**: SF-Abs 数据显示反应过程中 310 nm 特征吸收带的形成与衰减，以及 510 nm 处 Fe(II)-2OG 电荷转移带的变化。
-![image.png](http://synbiopath.online/20260104165429267.png)
+![image.png](https://synbiopath.online/20260104165429267.png)
 
 *   **Figure 2 (左) & S4**: FQ-Mössbauer 谱图清晰展示了 Fe⁴ᵛ=Oᶠᶦʳˢᵗ 和 Fe⁴ᵛ=Oˢᵉᶜᵒⁿᵈ 按顺序出现和演化的过程。表 S1 列出了两个中间体的详细穆斯堡尔参数。
-![image.png](http://synbiopath.online/20260104165827895.png)
+![image.png](https://synbiopath.online/20260104165827895.png)
 
 *   **Figure 2 (右) & S2, S10, S21**: 变场穆斯堡尔谱、UV-vis 光谱等辅助验证了中间体的性质。
 
@@ -112,10 +112,10 @@ CQ-MS 分析显示，氯化产物 **2** 的生成动力学与 Fe⁴ᵛ=Oᶠᶦʳ
 
 **图表覆盖**：
 *   **Figure 3**: CQ-MS 色谱图显示产物 **2** 和羟基化产物在不同淬灭时间点的产量变化，其形成动力学与 Fe⁴ᵛ=Oᶠᶦʳˢᵗ 衰变同步。
-![image.png](http://synbiopath.online/20260104165507657.png)
+![image.png](https://synbiopath.online/20260104165507657.png)
 
 *   **Figure 4 (左) & S5**: 底物浓度对 Fe⁴ᵛ=Oᶠᶦʳˢᵗ 形成速率的影响曲线，用于求解 K_d。
-![image.png](http://synbiopath.online/20260104165525888.png)
+![image.png](https://synbiopath.online/20260104165525888.png)
 
 *   **Figure 4 (右)**: 动力学模型对 FQ-Mössbauer 铁物种分布和 CQ-MS 产物形成数据的成功模拟。
 *   **Table S3**: 总结了动力学模拟所用的所有速率常数和平衡常数。
@@ -133,7 +133,7 @@ CQ-MS 分析显示，氯化产物 **2** 的生成动力学与 Fe⁴ᵛ=Oᶠᶦʳ
 
 **图表覆盖**：
 *   **Figure 5b-c**: LC-MS 分析显示使用 **3** 和 [2′R,3′S-²H₂]-**3** 时，氯化及羟基化产物的 m/z 及其 +1 位移。
-![image.png](http://synbiopath.online/20260104165550001.png)
+![image.png](https://synbiopath.online/20260104165550001.png)
 
 *   **Figure 5d**: 产物 **4** 的 NOESY 谱图关键相关信号，用于确定其 C2′ 位为 R 构型。
 *   **Figures S6-S34**: 详细展示了所有合成化合物 (包括 **2**, epi-**2**, **3**, 氘代 **3**, **4**) 的合成路线、LC-MS 和 NMR 表征数据。
@@ -155,10 +155,10 @@ CQ-MS 分析显示，氯化产物 **2** 的生成动力学与 Fe⁴ᵛ=Oᶠᶦʳ
 
 **图表覆盖**：
 *   **Figure 6 & S35-S45**: MD 模拟结果，包括离线/在线系统的动态交叉相关矩阵、主成分分析、氢键网络和底物结合稳定性比较。
-![image.png](http://synbiopath.online/20260104165614026.png)
+![image.png](https://synbiopath.online/20260104165614026.png)
 
 *   **Figure 7 & S46-S54**: QM/MM 计算的反应势能面图、关键过渡态和中间体的几何结构、自旋密度分析以及不同反应路径的比较。
-* ![image.png](http://synbiopath.online/20260104165643935.png)
+* ![image.png](https://synbiopath.online/20260104165643935.png)
 
 *   **Tables S22-S23**: 计算得到的离线与在线构象氯-铁氧中间体的穆斯堡尔参数，与实验值对比。
 

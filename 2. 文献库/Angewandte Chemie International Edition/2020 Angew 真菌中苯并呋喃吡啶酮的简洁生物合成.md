@@ -1,4 +1,4 @@
-![image.png](http://synbiopath.online/20260110204636962.png)
+![image.png](https://synbiopath.online/20260110204636962.png)
 
 
 ## 一：基本信息
@@ -27,10 +27,10 @@
 ### 前期研究
 
 1. **Citridone 的发现与活性**：Citridone A (**1**), B (**2**) 等化合物已被分离，并发现其能增强唑类抗真菌药物的活性，同时对耐甲氧西林金黄色葡萄球菌 (MRSA) 具有抑制作用。
-    ![image.png](http://synbiopath.online/20260110204648218.png)
+    ![image.png](https://synbiopath.online/20260110204648218.png)
 
 2. **2-吡啶酮的通用生物合成逻辑**：已基本阐明该类化合物的核心骨架由一个聚酮合酶-非核糖体肽合成酶 (PKS-NRPS) 合成一个 tetramate 中间体，随后由一个 P450 环扩张酶 (P450RE) 催化氧化重排，形成 2-吡啶酮环。
-    ![image.png](http://synbiopath.online/20260110204656846.png)
+    ![image.png](https://synbiopath.online/20260110204656846.png)
 
 
 3. **关键未知**：Citridone 家族独特的季碳中心是如何形成的，以及其复杂的苯并呋喃吡啶酮多环骨架是如何组装的，其遗传和酶学基础完全未知。
@@ -91,13 +91,13 @@
 **数据支撑与图表分析**：
 
 - **Figure 2A**：展示了 _pfp_ 基因簇及其在另外两种真菌中的同源簇，清晰地标示了五个核心生物合成基因。
-    ![image.png](http://synbiopath.online/20260110204708924.png)
+    ![image.png](https://synbiopath.online/20260110204708924.png)
 
 
 - **Figure 2B (trace i)**：展示了关键的 LC-MS 结果。在表达 `pfpA` 的迹线中，可以清晰地看到一个强烈的产物峰 **5** (m/z 326)，而在空载体对照中则没有。
     
 - **Figure 3A**：展示了从 PfpA 释放的产物 **5** 的结构。
-    ![image.png](http://synbiopath.online/20260110204717187.png)
+    ![image.png](https://synbiopath.online/20260110204717187.png)
 
 
 ### 研究部分二：o-QM 中间体的形成及其非酶促转化
@@ -122,13 +122,13 @@
 **数据支撑与图表分析**：
 
 - **Figure 2B (trace ii)**：LC-MS 图谱显示，表达 `pfpAB` 后，**5** 的峰消失，出现了 **8** 的峰 (m/z 344)。
-    ![image.png](http://synbiopath.online/20260110205101259.png)
+    ![image.png](https://synbiopath.online/20260110205101259.png)
 
 
 - **Figure 2B (trace iii)**：LC-MS 图谱显示，表达 `pfpABC` 后，**8** 的峰消失，出现了 **1** (m/z 326) 和 **11** (m/z 326) 的峰。
     
 - **Figure 3A**：该图是理解本部分的关键，清晰地展示了从 **6** 出发，经 PfpC 还原为 **9**，再脱水为 o-QM **10**，最后通过两条不同的非酶促环化路径分别生成 **1** 和 **11** 的完整过程。
-    ![image.png](http://synbiopath.online/20260110205110463.png)
+    ![image.png](https://synbiopath.online/20260110205110463.png)
 
 
 ### 研究部分三：PfpD 催化的季碳中心构建
@@ -151,11 +151,11 @@
 **数据支撑与图表分析**：
 
 - **Figure 2B (trace iv)**：LC-MS 图谱显示，表达 `pfpABCD` 后，**1** 和 **11** 的峰减少，出现了 **3** (m/z 344) 和 **4** (m/z 310) 的峰。
-    ![image.png](http://synbiopath.online/20260110205123053.png)
+    ![image.png](https://synbiopath.online/20260110205123053.png)
 
 
 - **igure 3A**：该图详细描绘了从 **12** 到 **13** (环氧化)，再到 **4** (骨架重排) 的关键步骤，并展示了 **4** 如何进一步转化为 **3**。
-    ![image.png](http://synbiopath.online/20260110205130464.png)
+    ![image.png](https://synbiopath.online/20260110205130464.png)
 
 
 ### 研究部分四：PfpE 催化最终产物 Citridone B 的形成
@@ -180,11 +180,11 @@
 **数据支撑与图表分析**：
 
 - **Figure 2B (trace v)**：LC-MS 图谱显示，表达 `pfpABCDE` 后，**3** 和 **4** 的峰减少，出现了 **2/2'** 的峰 (m/z 326)。
-    ![image.png](http://synbiopath.online/20260110205139478.png)
+    ![image.png](https://synbiopath.online/20260110205139478.png)
 
 
 - **Figure 3B**：生物转化实验的 LC-MS 结果。在表达 PfpE 的菌株中加入 **4** 后，可以清晰地看到 **2/2'** 的峰生成，而在空载体对照中则没有。
-![image.png](http://synbiopath.online/20260110205147411.png)
+![image.png](https://synbiopath.online/20260110205147411.png)
 
 
 ## 五：总体结论

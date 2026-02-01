@@ -1,4 +1,4 @@
-![image.png](http://synbiopath.online/20260111175742772.png)
+![image.png](https://synbiopath.online/20260111175742772.png)
 
 ---
 
@@ -97,7 +97,7 @@
 > "We employed a synthetic biology strategy to establish a robust heterologous expression system... The resulting recombinant strain produced BLA at titers over 10-fold higher than the native strain..."
 
 **图表解读 (Figure 1 & Table S1)**:
-![image.png](http://synbiopath.online/20260111180021586.png)
+![image.png](https://synbiopath.online/20260111180021586.png)
 
 *   **Figure 1A**: 展示了筛选策略，即在有/无 CAP 存在的情况下测试提取物活性，AMB 作为阳性对照。
 *   **Figure 1B**: 展示了 BLA 生物合成基因簇的组成，包括 PKS 核心基因、修饰基因和转运基因，并标注了异源表达构建的片段。
@@ -123,7 +123,7 @@ BLA 单独显示出良好的抗真菌活性，对多种念珠菌和隐球菌具�
 > "Remarkably, 2 μg/mL BLA and CAP was the only combination to fully eradicate fungal cells, maintaining sterilization for at least 15 days post treatment..."
 
 **图表解读 (Figure 2 & Table S2-S4)**:
-![image.png](http://synbiopath.online/20260111181015388.png)
+![image.png](https://synbiopath.online/20260111181015388.png)
 
 *   **Figure 2A**: 热图展示了不同药物组合下的生长情况，右上角标注了 FICI 值，直观显示协同效应。
 *   **Figure 2B**: 菌落计数曲线显示联合用药具有强大的杀菌活性。
@@ -145,7 +145,7 @@ BLA 单独显示出良好的抗真菌活性，对多种念珠菌和隐球菌具�
 > "...supplementation with exogenous ERG, which dose-dependently reversed fungicidal activity of AMB, failed to rescue cells from BLA-induced killing, indicating a mechanism distinct from ERG binding or sequestration."
 
 **图表解读 (Figure 3 & Table S2)**:
-![image.png](http://synbiopath.online/20260111181051713.png)
+![image.png](https://synbiopath.online/20260111181051713.png)
 
 *   **Figure 3A**: 麦角固醇合成通路及抗真菌药物作用位点示意图。
 *   **Figure 3E**: 生长曲线显示外源 ERG 只能拯救 AMB 处理组，无法拯救 BLA 处理组。
@@ -167,7 +167,7 @@ Apt1-Cdc50 的功能是将磷脂酰丝氨酸 (PS) 和磷脂酰乙醇胺 (PE) 内
 > "The inhibitory effect of BLA on the flippase function of Apt1-Cdc50 was validated by monitoring PS accumulation on the outer leaflet using a fluorescent PS binder, annexin V."
 
 **图表解读 (Figure 4 & Table S5)**:
-![image.png](http://synbiopath.online/20260111181126387.png)
+![image.png](https://synbiopath.online/20260111181126387.png)
 
 *   **Figure 4A**: 展示了两个耐药突变株中 *APT1* 基因的突变位点。
 *   **Figure 4C**: 热图展示野生型及各种翻转酶缺失突变体对 BLA 的剂量反应，证实靶点特异性。
@@ -191,7 +191,7 @@ Apt1-Cdc50 的功能是将磷脂酰丝氨酸 (PS) 和磷脂酰乙醇胺 (PE) 内
 > "These findings suggest a BLA inhibition mechanism wherein BLA binding induces closure of the lipid entry site and obstructs the transport channel with its kinked tetraene tail, effectively stalling the flippase in an abnormal E2P-like state."
 
 **图表解读 (Figure 5)**:
-![image.png](http://synbiopath.online/20260111181235205.png)
+![image.png](https://synbiopath.online/20260111181235205.png)
 
 *   **Figure 5A**: BLA 结合位点的局部放大图，展示与周围氨基酸残基的相互作用（氢键和疏水作用）。
 *   **Figure 5B**: 疏水性表面图显示 BLA 结合导致脂质入口关闭。
@@ -212,7 +212,7 @@ BLA 将 Apt1-Cdc50 锁定在死端状态不仅阻断了磷脂转运，还破坏�
 > "BLA treatment caused dose-dependent ATP leakage... These findings suggest that BLA binding to the flippase complex compromises membrane integrity..."
 
 **图表解读 (Figure 6)**:
-![image.png](http://synbiopath.online/20260111181300009.png)
+![image.png](https://synbiopath.online/20260111181300009.png)
 
 *   **Figure 6A**: 柱状图显示不同浓度 BLA 处理后胞内 ATP 的相对含量（急剧下降）和胞外 ATP 含量（上升）。
 *   **Figure 6B**: 时间曲线显示 BLA 处理后 ATP 泄漏随时间增加。
@@ -242,7 +242,7 @@ Figure 7 提供了一个综合性的视觉总结，涵盖了从分子靶向到�
 > "Figure 7 provides a visual summary of the proposed mechanism, illustrating how BLA targets the Apt1-Cdc50 complex to disrupt membrane asymmetry and restore caspofungin efficacy..."
 
 **图表解读 (Figure 7)**:
-![image.png](http://synbiopath.online/20260111181353618.png)
+![image.png](https://synbiopath.online/20260111181353618.png)
 
 - **机制示意图**: 直观展示了 Apt1、Cdc50、细胞膜、磷脂及 BLA 的相互作用，对比了正常状态与 BLA 处理状态下的膜结构和药物渗透性。
 - **数据总结条形图**: 展示了 BLA 对 CAP 的增效作用显著区别于 FK506 等其他抑制剂。

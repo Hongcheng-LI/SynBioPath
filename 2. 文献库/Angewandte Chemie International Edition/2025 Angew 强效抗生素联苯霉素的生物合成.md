@@ -1,4 +1,4 @@
-![image.png](http://synbiopath.online/20260120114139760.png)
+![image.png](https://synbiopath.online/20260120114139760.png)
 
 
 ---
@@ -20,7 +20,7 @@
 ### 研究背景
 
 联苯霉素类 (Biphenomycins) 是一类具有大环肽结构的细菌天然产物，其分子特征是含有通过联芳基键 (biaryl linkage) 连接的独特邻位-酪氨酸 (_ortho_-tyrosine, _o_Tyr) 残基。这类化合物对革兰氏阳性菌表现出强效的抗菌活性，且对真核细胞毒性低，具有作为新型抗生素的开发潜力。尽管联苯霉素早在 1967 年即被发现，但其完整的生物合成途径一直未能被阐明，这限制了对其进行生物工程改造和发现新型类似物。
-![image.png](http://synbiopath.online/20260120114153055.png)
+![image.png](https://synbiopath.online/20260120114153055.png)
 
 
 ### 前期研究
@@ -62,7 +62,7 @@
 研究的第一步是从已知的产生菌 _S. griseorubiginosus_ 中找到负责联苯霉素合成的基因簇。由于其来源未知（RiPP 或 NRPS），作者首先排除了 NRPS 途径的可能性，然后基于 RiPP 的特征，在其基因组中搜索编码核心肽序列 (Phe-Arg-Phe-Arg-Ser, FRFRS) 的小基因。
 
 - **(图 2)** 通过基因组测序和生物信息学分析，成功在 _S. griseorubiginosus_ 中鉴定出一个候选的 RiPP 基因簇，命名为 _Sg_bip_。该基因簇的核心是一个编码 41 个氨基酸前体肽的基因 _Sg_bipA_，其 C-末端恰好包含 FRFRS 序列。
-    ![image.png](http://synbiopath.online/20260120114228098.png)
+    ![image.png](https://synbiopath.online/20260120114228098.png)
 
 
 - 基因簇还包含一系列编码假定修饰酶的基因，包括 _bipE_ (MNIO), _bipD_ (rSAM), _bipC_ (UPF0489 家族，可能为精氨酸酶), _bipG_ (JmjC 羟化酶), 和 _bipI_ (TldD 蛋白酶) 等，这些酶的功能与合成联苯霉素所需的化学转化（羟化、C-C 偶联、侧链修饰、蛋白酶解）高度吻合。
@@ -75,7 +75,7 @@
 联苯霉素的核心结构是 _o_Tyr。前体肽 BipA 中对应位置是苯丙氨酸 (Phe)。因此，必然存在一个或多个羟化酶。BipE 被注释为 MNIO，是该反应的主要候选酶。本部分旨在通过体外酶学实验验证 BipE 及其伴侣蛋白 BipF 的功能。
 
 **(图 3)** 作者在 _E. coli_ 中共表达了 BipE 和 BipF，并证实它们形成异质二聚体复合物 BipEF。
-![image.png](http://synbiopath.online/20260120114234712.png)
+![image.png](https://synbiopath.online/20260120114234712.png)
 
 
 **体外酶活实验揭示了其条件依赖的双重功能**：
@@ -92,11 +92,11 @@
 联苯霉素的骨架中含有一个中央的鸟氨酸 (Orn) 或 γ-羟基鸟氨酸残基，而前体肽 BipA 中对应的是精氨酸 (Arg)。因此，需要一个精氨酸酶将 Arg 转化为 Orn，以及一个羟化酶引入 γ-羟基。本部分旨在验证 BipC 和 BipG 的功能。
 
 - **(图 4)** **BipC 是一个高区域选择性的精氨酸酶**。体外实验表明，纯化的 BipC 能够催化前体肽 BipA 脱去胍基，将 Arg 转化为 Orn，导致质量数减少 42.02 Da。值得注意的是，BipA 的核心肽序列是 F-R-F-R-S，含有两个 Arg 残基。MS/MS 碎片分析（对比 y₃ 和 y₄ 离子）精确地证明，BipC **只水解位于两个 Phe 之间的 Arg**，而对 C-末端的 Arg 无活性，表现出极高的区域选择性。
-    ![image.png](http://synbiopath.online/20260120114250029.png)
+    ![image.png](https://synbiopath.online/20260120114250029.png)
 
 
 - **(图 5)** **BipG 是一个 γ-鸟氨酸羟化酶**。体外实验证实，BipG 能够催化含有 Orn 的前体肽发生羟基化，质量数增加 15.99 Da。该酶的底物是 Orn，而不是 Arg，表明其在生物合成途径中的作用顺序位于 BipC 之后。
-    ![image.png](http://synbiopath.online/20260120114256300.png)
+    ![image.png](https://synbiopath.online/20260120114256300.png)
 
 
 ### 研究部分四：关键大环化步骤：BipD 催化的联芳基偶联
@@ -104,7 +104,7 @@
 联苯霉素的大环结构是通过两个 _o_Tyr 残基的 C-C 偶联形成的。BipD 被注释为 B12-依赖性 rSAM 酶，是催化该反应的最可能候选者。由于 rSAM 酶的体外重构复杂，作者设计了在 _E. coli_ 中的体内重构实验来验证其功能。
 
 - **(图 6)** 作者在 _E. coli_ 中共表达了前体肽 BipA 以及催化上游所有修饰的酶（BipEF, BipC）和 BipD。
-    ![image.png](http://synbiopath.online/20260120114302810.png)
+    ![image.png](https://synbiopath.online/20260120114302810.png)
 
 
 - LC-MS 分析显示，在表达了 BipD 的体系中，检测到了一个质量数相比其线性前体减少了 2 Da 的产物（例如，从 m/z 652.99 变为 652.31）。这一质量变化是 C-C 键形成（脱去两个氢原子）的典型特征，从而提供了直接证据，证实 **BipD 负责催化联芳基键的形成**，完成大环化。
@@ -117,13 +117,13 @@
 RiPP 成熟的最后一步通常是蛋白酶解，切除先导肽 (LP) 和（如果存在）尾随肽 (FP)，释放出成熟的核心肽。BipI 被注释为 TldD-样金属蛋白酶。本部分旨在验证 BipI 的功能，并整合所有结果，提出完整的生物合成途径。
 
 **(图 7)** 体外实验表明，BipI 是一个功能强大的蛋白酶。与典型的 TldD 酶不同，**BipI 无需 TldE 伴侣蛋白即可发挥高效活性**。
-![image.png](http://synbiopath.online/20260120114310550.png)
+![image.png](https://synbiopath.online/20260120114310550.png)
 
 
 更重要的是，BipI 表现出**双向切割活性**。它不仅能切除 N-端的 LP，还能切除 C-端的 FP。作者通过检测反应产物（释放的 LP、FP、CP-FP 和最终的 CP），证明了 BipI 采用一种“渐进式”或“铅笔刀”模型，先切 N-端，再切 C-端。
 
 **(图 8)** 基于以上所有实验结果，作者提出了联苯霉素家族完整的生物合成途径：
-![image.png](http://synbiopath.online/20260120114316590.png)
+![image.png](https://synbiopath.online/20260120114316590.png)
 
 
 1. 核糖体合成前体肽 BipA (**8**)。

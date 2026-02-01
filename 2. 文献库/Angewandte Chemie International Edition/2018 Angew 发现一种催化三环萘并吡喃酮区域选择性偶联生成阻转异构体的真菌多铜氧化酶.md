@@ -1,4 +1,4 @@
-![image.png](http://synbiopath.online/20260110204312299.png)
+![image.png](https://synbiopath.online/20260110204312299.png)
 
 
 ## 一：基本信息
@@ -18,7 +18,7 @@
 ### 研究背景
 
 轴向手性联芳香环化合物是一类重要的天然产物，其生物合成中的区域选择性和立体选择性控制是天然产物生物合成领域的核心问题。Dinapinones (DPAs) 是一类具有抑制甘油三酯积累活性的联萘并吡喃酮类化合物，由其单体 monapinone A (MPA) 偶联而成。然而，催化这一关键偶联步骤的酶及其催化机制尚不清楚，这限制了我们对这类分子生物合成的理解和利用。
-![image.png](http://synbiopath.online/20260110204323054.png)
+![image.png](https://synbiopath.online/20260110204323054.png)
 
 
 ### 前期研究
@@ -71,11 +71,11 @@
 - **结果描述**：成功纯化得到一个约 65 kDa 的蛋白 MCE。其最适反应 pH 为 4.0，最适温度为 50°C。底物谱研究表明，MCE 对底物具有高度选择性，主要识别 MPA 和 MPE，并催化它们在 **8,8'-位点**发生偶联，生成相应的阻转异构体。
     
 - **Scheme 1** 展示了核心反应：MCE 催化两个 MPA 分子偶联，生成 (M)-DPA (DPA1) 和 (P)-DPA (DPA2) 两个阻转异构体。
-    ![image.png](http://synbiopath.online/20260110204335178.png)
+    ![image.png](https://synbiopath.online/20260110204335178.png)
 
 
 - **Figure 1A** 展示了 MCE 对不同单体底物的催化活性。结果显示，MCE 能将 MPA 转化为 DPA1/DPA2，将 MPE 转化为 DPE1/DPE2，但对 MPB, MPC, MPD 则完全没有活性。这表明 MCE 对底物侧链的结构有严格要求。
-    ![image.png](http://synbiopath.online/20260110204342676.png)
+    ![image.png](https://synbiopath.online/20260110204342676.png)
 
 
 - **Figure 1B** 展示了 MCE 催化混合底物的反应。当 MPA 与其他单体共孵育时，只有 MPA 和 MPE 能作为底物参与反应，生成了多种同源或异源二聚体。这再次证实了 MPA 和 MPE 是 MCE 的必需底物。
@@ -94,7 +94,7 @@
 - **结果描述**：成功获得了 MCE 的 N-端序列，并据此克隆了其全长基因。序列分析表明，MCE 是一个由 603 个氨基酸组成的多肽，与已知的真菌**多铜氧化酶 (MCOs)** 具有高度同源性，并含有 MCOs 特征性的四个铜离子结合基序。
     
 - **Figure 2A** 展示了 MCE 的基因和蛋白序列，并标示了通过埃德曼降解法测得的 N-端序列，确认了基因的正确性。
-    ![image.png](http://synbiopath.online/20260110204356452.png)
+    ![image.png](https://synbiopath.online/20260110204356452.png)
 
 
 - **Figure 2B** 是决定性的证据。该图将 MCE 蛋白序列中四个关键区域 (Region A-D) 与其他已知的真菌 MCOs 进行了比对。结果显示，MCE 含有所有保守的、用于结合铜离子的组氨酸 (His) 和半胱氨酸 (Cys) 残基，这无可辩驳地证明了 **MCE 属于 MCO 家族**。
@@ -113,7 +113,7 @@
 - **结果描述**：异源表达取得了成功。含有 MCE 基因的米曲霉转化子的裂解液能够将底物 MPA 转化为 DPA1 和 DPA2，其比例约为 1:2.5，与纯化酶的结果完全一致。而对照组（空载体转化子）的裂解液则无此活性。
     
 - **Figure 4** 的 HPLC 图谱清晰地展示了这一结果。上图（对照组）中只有底物 MPA 的峰。下图（表达 MCE 的菌株）中，MPA 峰减小，同时出现了 DPA1 和 DPA2 的产物峰。
-    ![image.png](http://synbiopath.online/20260110204408472.png)
+    ![image.png](https://synbiopath.online/20260110204408472.png)
 
 
 - **分析**：这个实验是本研究的**最终确认**。因为它在一个“干净”的异源宿主背景中重现了 MCE 的催化活性和选择性，强有力地证明了 **MCE 能够独立地、在不需要任何来自其原始宿主的特异性辅助蛋白（如指导蛋白）或辅因子的情况下，催化 MPA 的 8,8'-区域选择性偶联**。
@@ -130,11 +130,11 @@
 - **结果描述**：在 MCE 基因 (ORF6) 的侧翼，发现了另外 6 个开放阅读框 (ORFs)，它们编码了合成 dinapinone 所需的所有酶，包括一个聚酮合酶 (PKS, ORF7)、一个 O-甲基转移酶 (MT, ORF1) 和一个脂肪酸合酶 (FAS, ORF4/5)。
     
 - **Figure 3** 展示了鉴定出的 BGC 及其基因注释。
-    ![image.png](http://synbiopath.online/20260110204417574.png)
+    ![image.png](https://synbiopath.online/20260110204417574.png)
 
 
 - **Figure 5** 基于该 BGC 的基因功能，提出了 dinapinone 的完整生物合成途径：首先，FAS (ORF4/5) 合成一个 (二羟基)癸酰辅酶A 起始单元 (**1**)；然后，PKS (ORF7) 以此为起始单元，经过 6 次聚酮链延伸和环化，生成萘并吡喃酮骨架 **2**；接着，MT (ORF1) 将其甲基化，生成单体 MPA；最后，MCE (ORF6) 催化两个 MPA 分子发生 8,8'-偶联，生成最终产物 DPA。
-    ![image.png](http://synbiopath.online/20260110204426282.png)
+    ![image.png](https://synbiopath.online/20260110204426282.png)
 
 
 ## 五：总体结论

@@ -1,5 +1,5 @@
 
-![image.png](http://synbiopath.online/20251224095920093.png)
+![image.png](https://synbiopath.online/20251224095920093.png)
 
 ---
 
@@ -80,12 +80,12 @@
 
 #### 实验结果与分析
 **P450 及其伴侣的兼容性 (Figure 1)**: 结果显示 P450Prava 表现出比 P450sca-2 更广泛的氧化还原伴侣兼容性（Broad redox partner promiscuity）。
-![image.png](http://synbiopath.online/20251224095951040.png)
+![image.png](https://synbiopath.online/20251224095951040.png)
 
 *   通过热图分析，发现异源组合 P450Prava 与 *Synechococcus elongatus* 来源的 **SelFd1499/SelFdR0978** 表现出显著的催化活性。
 *   相比之下，P450sca-2 的活性普遍较低，且对氧化还原伴侣的特异性要求严格。
 **融合蛋白的构建与测试 (Figure 2)**:
-![image.png](http://synbiopath.online/20251224100007825.png)
+![image.png](https://synbiopath.online/20251224100007825.png)
 
 *   为了进一步优化电子传递，研究者设计了 P450 与 Redox partner 的融合蛋白（**Figure 2A**）。
 *   **Figure 2B** 数据显示，融合蛋白 **P450Prava-RhFRED** (包含 *Rhodococcus* sp. 的 RhFRED 结构域) 在体外表现出最高的转化活性，产率达到 **27%**，显著优于 P450Prava-Fd1499-FdR0978 融合体 (仅 2%)。
@@ -96,7 +96,7 @@
 将筛选出的 P450 模块整合到工业菌株 *P. citrinum* MEFC10 中，构建一步法生产菌株，并评估体内转化效果。
 
 #### 实验结果与分析
-![image.png](http://synbiopath.online/20251224100040386.png)
+![image.png](https://synbiopath.online/20251224100040386.png)
 
 **体内转化验证 (Figure 3A)**: 将 P450Prava-RhFRED 模块引入 MEFC10 得到菌株 **Pra1.1**。
 *   Pra1.1 产普伐他汀 **2.87 g/L**，转化率达到 50.3% (普伐他汀/总他汀)。
@@ -111,7 +111,7 @@
 
 #### 实验结果与分析
 **策略筛选 (Figure 4)**:
-![image.png](http://synbiopath.online/20251224100113349.png)
+![image.png](https://synbiopath.online/20251224100113349.png)
 
 *   **Figure 4B** 显示，过表达 *g6pd3* (葡萄糖-6-磷酸脱氢酶) 效果最佳。
 *   菌株 **Pra1.2-g6pd3** 的普伐他汀产量达到 **4.18 g/L**，总他汀产量达到 **5.96 g/L**。
@@ -124,12 +124,12 @@
 
 #### 实验结果与分析
 **副产物途径阻断 (Figure 5)**:
-![image.png](http://synbiopath.online/20251224100144479.png)
+![image.png](https://synbiopath.online/20251224100144479.png)
 
 *   鉴定出 *P. citrinum* 中的酯酶基因 *mbE* (与 *P. chrysogenum* 的 *PcEST* 同源)。
 *   **Figure 5** 色谱图显示，敲除 *mbE* 后，副产物 ML-236A 的积累量减少了 **75%**，确认了 MbE 是导致侧链水解的主要酶。
 **转录调控与抗性增强 (Figure 6)**:
-![image.png](http://synbiopath.online/20251224100159208.png)
+![image.png](https://synbiopath.online/20251224100159208.png)
 
 *   **Figure 6B** 展示了过表达途径特异性转录因子 *mlcR* 使普伐他汀产量提升 **44%** (达到 5.88 g/L)。
 *   过表达抗性基因 *mlcD* 使产量提升约 15%。
@@ -140,7 +140,7 @@
 构建最终菌株 **Pra2.0** (MEFC10 $\Delta mbE$ :: *P450Prava-RhFRED* + *g6pd3* + *mlcR* + *mlcD*)，并在 50 L 反应器中验证工业生产能力。
 
 #### 实验结果与分析
-![image.png](http://synbiopath.online/20251224100230016.png)
+![image.png](https://synbiopath.online/20251224100230016.png)
 
 **摇瓶集成效果 (Figure 7A-B)**:
 *   Pra2.0 在摇瓶中产普伐他汀 **6.46 g/L**，总他汀 **11.4 g/L**。

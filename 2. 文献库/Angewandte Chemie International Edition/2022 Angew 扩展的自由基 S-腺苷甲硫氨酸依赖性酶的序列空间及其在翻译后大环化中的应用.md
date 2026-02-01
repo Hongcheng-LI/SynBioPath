@@ -1,4 +1,4 @@
-![image.png](http://synbiopath.online/20260120101004208.png)
+![image.png](https://synbiopath.online/20260120101004208.png)
 
 ---
 
@@ -19,14 +19,14 @@
 ### 研究背景
 
 核糖体合成与翻译后修饰肽 (RiPPs) 是细菌中一类巨大且尚未被充分开发的天然产物宝库。自由基 S-腺苷甲硫氨酸 (rSAM) 酶是 RiPPs 生物合成中一类功能极其多样的“催化大师”，能够催化多种化学上极具挑战性的 C-C 和 C-S 键形成反应，从而构建大环肽。然而，已知的 rSAM 酶催化的交联模式仍然有限，特别是涉及组氨酸和脂肪族侧链的环化反应非常罕见。
-![image.png](http://synbiopath.online/20260120101017033.png)
+![image.png](https://synbiopath.online/20260120101017033.png)
 
 本研究的核心科学问题是：**如何开发一种高效的生物信息学策略，从海量的细菌基因组数据中系统性地挖掘功能未知的 rSAM 酶及其关联的 RiPPs，以发现全新的肽大环化反应和酶工具？**
 
 ### 前期研究
 
 在本文发表前，RiPPs 的基因组挖掘主要依赖于对整个生物合成基因簇 (BGC) 的同源性比对，或者寻找与已知前体肽相似的序列。rSAM 酶已知可以催化多种反应，如在 sactipeptides 中形成 Cα-S 键，或在 darobactin 中形成 C-C/C-O 键。然而，缺乏一种能够大规模、系统性地连接“rSAM 酶”与“其潜在的小肽底物”并进行分类和优先级排序的通用方法，导致大量新颖的 rSAM-RiPP 系统仍处于未被发现的“暗物质”状态。
-![image.png](http://synbiopath.online/20260120101044184.png)
+![image.png](https://synbiopath.online/20260120101044184.png)
 
 ### 本文突破点
 
@@ -80,7 +80,7 @@
 #### 实验结果与分析
 
 - **Figure 2** 集中展示了 SPECO 流程和其产出的全局视图。
-    ![image.png](http://synbiopath.online/20260120101603859.png)
+    ![image.png](https://synbiopath.online/20260120101603859.png)
 
 
 - **流程设计 (Figure 2B)**：清晰地展示了从 161,954 个细菌基因组出发，通过“小 ORF 预测 → rSAM 共定位 → TIM-barrel 结构域筛选 → BGC 网络构建”的四步流程，最终鉴定出 32,220 个潜在的 rSAM-RiPP BGCs。
@@ -99,7 +99,7 @@
 #### 实验结果与分析
 
 - **Figure 4** 展示了对 _bla_ BGC 的表征结果。
-    ![image.png](http://synbiopath.online/20260120101615077.png)
+    ![image.png](https://synbiopath.online/20260120101615077.png)
 
 
 - **异源表达与质谱分析 (Figure 4B)**：将前体肽 BlaA 与 rSAM 酶 BlaB 和蛋白酶 BlaC 在 _E. coli_ 中共表达。LC-HRMS 结果显示，修饰后的前体肽 (Gly-BlaA*) 相比于未修饰的 (Gly-BlaA)，其分子量精确地**减少了 4.0475 Da**。一个 -4 Da 的质量变化强烈暗示发生了两次脱氢反应，即形成了**两个新的化学键**。
@@ -120,7 +120,7 @@
 #### 实验结果与分析
 
 - **Figure 5** 展示了对 _sca_ BGC 的表征结果。
-    ![image.png](http://synbiopath.online/20260120101627006.png)
+    ![image.png](https://synbiopath.online/20260120101627006.png)
 
 
 - **异源表达与质谱分析 (Figure 5B)**：共表达 ScaA 和 rSAM 酶 ScaB 后，修饰后的核心肽 **3** 相比于未修饰的 **2**，分子量精确地**减少了 2.0210 Da**，表明形成了**一个 C-C 键**。
@@ -137,7 +137,7 @@
 #### 实验结果与分析
 
 - **Figure 6** 展示了 ScaB 惊人的底物普适性。
-    ![image.png](http://synbiopath.online/20260120101634069.png)
+    ![image.png](https://synbiopath.online/20260120101634069.png)
 
     
     - **H57 位点**：ScaB 不仅能接受天然的组氨酸，还能高效地修饰**酪氨酸 (Y)、苯丙氨酸 (F) 和色氨酸 (W)**，催化它们与下游的丙氨酸形成 C-C 键。
@@ -158,7 +158,7 @@
 #### 实验结果与分析
 
 - **Figure 7** 展示了对 _vgu_ BGC 的表征结果。
-    ![image.png](http://synbiopath.online/20260120101641800.png)
+    ![image.png](https://synbiopath.online/20260120101641800.png)
 
 
 - VguB 是一个双结构域蛋白，包含一个 N 端的 rSAM 结构域和一个 C 端的 HEXXH 肽酶结构域。

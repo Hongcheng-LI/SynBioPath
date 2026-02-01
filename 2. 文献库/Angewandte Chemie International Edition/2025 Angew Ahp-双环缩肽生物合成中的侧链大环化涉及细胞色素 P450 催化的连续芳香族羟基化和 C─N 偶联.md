@@ -1,5 +1,5 @@
 
-![image.png](http://synbiopath.online/20260112104803833.png)
+![image.png](https://synbiopath.online/20260112104803833.png)
 
 ---
 
@@ -76,10 +76,10 @@ Ahp-环缩肽是一类结构独特的非核糖体肽，其特征在于含有一�
 
 #### 实验结果与分析
 **Figure 1** 展示了代表性 Ahp-环缩肽的化学结构及 *dlm* 基因簇的遗传组织结构。作者首先以 SpnB 为探针进行 SSN 分析，筛选出 35 个同源 BGCs。通过排除已知簇并分析氧化还原酶基因及 NRPS 模块，最终确定 *dlm* BGC 为主要研究对象。
-![image.png](http://synbiopath.online/20260112104950538.png)
+![image.png](https://synbiopath.online/20260112104950538.png)
 
 **Figure 2** 展示了异源表达及产物鉴定的结果。在多种宿主中，*Streptomyces lividans* 1326::dlm 的代谢产物最为丰富。通过大规模发酵，作者分离并鉴定了化合物 **1** (FR901277) 和新化合物 **2** (delmomycin A2)。结构解析表明，**2** 是 **1** 的类似物，仅异丁酸基团被异戊酸基团取代。同时，作者还发现了一系列单环去缩肽中间体 **3-7**，其中 **3** 和 **4** 保留未修饰的脯氨酸，而 **5-7** 含有 Ahp 基团。
-![image.png](http://synbiopath.online/20260112105011383.png)
+![image.png](https://synbiopath.online/20260112105011383.png)
 
 作者进一步测定了这些化合物对猪胰腺弹性酶 (PPE) 的抑制活性。结果显示，双环化合物 **1** 和 **2** 以及单环前体 **5** 和 **6** 均表现出相当的抑制活性，IC50 值在 0.278 至 0.437 µM 之间。
 > "All compounds exhibited comparable inhibitory potencies, with IC50 values ranging from 0.278 to 0.437 µM."
@@ -93,7 +93,7 @@ Ahp-环缩肽是一类结构独特的非核糖体肽，其特征在于含有一�
 
 #### 实验结果与分析
 作者重点关注了基因簇中的三个 P450 酶：Dlm12、Dlm5 和 Dlm16。Dlm12 被预测负责 Ahp 的形成。在体外实验中，作者以单环中间体 **5** 为底物，分别测试了 Dlm5 和 Dlm16 的活性。
-![image.png](http://synbiopath.online/20260112105120112.png)
+![image.png](https://synbiopath.online/20260112105120112.png)
 
 **Figure 3b** 的 HPLC 分析结果显示，只有 Dlm16 能将底物 **5** 转化为两个产物，其中一个对应于双环产物 **2**，另一个产物 **8** 的分子量比 **5** 增加 16 Da，暗示发生了一次羟基化修饰。结构鉴定证实 **8** 为 12-位羟基化的单环中间体。随后的时间进程实验表明，**8** 可以被 Dlm16 进一步转化为 **2**，且未检测到未发生羟基化的 C-N 偶联中间体。
 > "Elaborative time-course experiments failed to detect any intermediate containing a C─N linkage without 12-OH, thereby ruling out the possibility that C─N coupling precedes hydroxylation."
@@ -107,7 +107,7 @@ Ahp-环缩肽是一类结构独特的非核糖体肽，其特征在于含有一�
 
 #### 实验结果与分析
 作者构建了 Dlm16 与底物 **5** 及中间体 **8** 的复合物模型。**Figure 3e-f** 展示了预测的底物结合模式，表明酪氨酸的儿茶酚基团靠近血红素铁，而尿基团的 N-51 适当朝向 C-15，利于成键。
-![image.png](http://synbiopath.online/20260112105141466.png)
+![image.png](https://synbiopath.online/20260112105141466.png)
 
 基于模型，作者鉴定了四个可能通过氢键相互作用的极性残基：N253、D304、M306 和 R308，并构建了一系列突变体进行功能验证。
 
@@ -126,7 +126,7 @@ Ahp-环缩肽是一类结构独特的非核糖体肽，其特征在于含有一�
 
 #### 实验结果与分析
 **Figure 3g** 提出了两条可能的反应机制路径。反应始于对 **8** 中 12-OH 的氢原子提取 (HAA)，生成中间体 **10**。
-![image.png](http://synbiopath.online/20260112105156445.png)
+![image.png](https://synbiopath.online/20260112105156445.png)
 
 *   **路径 1**: 遵循双自由基机制。N-51 经过重定位后发生第二次 HAA，形成双自由基 **11**，随后重组形成 C-N 键并芳构化生成产物 **2**。
 *   **路径 2**: 涉及氧化生成碳正离子 **12**，随后 D304 作为碱去质子化 51-NH2，引发亲核加成形成 C-N 键。

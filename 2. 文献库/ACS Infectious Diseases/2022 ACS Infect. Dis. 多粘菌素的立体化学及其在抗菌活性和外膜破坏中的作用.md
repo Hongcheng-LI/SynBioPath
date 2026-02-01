@@ -1,4 +1,4 @@
-![image.png](http://synbiopath.online/20251226225750455.png)
+![image.png](https://synbiopath.online/20251226225750455.png)
 
 
   
@@ -55,11 +55,11 @@
 本研究的基础是获得高纯度的 PmxB4 及其完整的镜像异构体 _ent_-PmxB4，以及它们的九肽片段 PMBN 和 _ent_-PMBN。
 
 - **(图 1)** 展示了多粘菌素 B/E 的化学结构及其作用靶点——来自大肠杆菌的脂质 A (lipid A) 的结构。明确了多粘菌素分子本身是手性的，其靶点 lipid A 也是手性的。
-    ![image.png](http://synbiopath.online/20251226225802407.png)
+    ![image.png](https://synbiopath.online/20251226225802407.png)
 
 
 - **(Scheme 1)** 详细描绘了 _ent_-PmxB4 和 _ent_-PMBN 的合成路线。作者通过使用所有氨基酸的 D-构型对映体（除了天然存在的 D-Phe 使用 L-Phe 代替），成功地通过 SPPS 和液相环化策略，合成了目标对映体分子。
-    ![image.png](http://synbiopath.online/20251226225810334.png)
+    ![image.png](https://synbiopath.online/20251226225810334.png)
 
 
 - 通过高分辨质谱 (HRMS) 和核磁共振波谱 (NMR) (图 S1-S6) 对合成产物进行了全面表征，证实其结构和纯度与天然构型的化合物完全一致，为后续的生物活性比较提供了可靠的物质基础。
@@ -70,7 +70,7 @@
 本部分旨在直接比较 PmxB4 和 _ent_-PmxB4 的抗菌活性，以回答核心科学问题：多粘菌素的活性是否具有立体选择性。
 
 - **(表 1)** 提供了决定性的数据。
-    ![image.png](http://synbiopath.online/20251226225819100.png)
+    ![image.png](https://synbiopath.online/20251226225819100.png)
 
     
     - 天然构型的 **PmxB4** 对所有测试的革兰氏阴性菌株均表现出强效的抗菌活性，其 MIC 值在 **0.125 - 0.5 µg/mL** 的极低范围内。
@@ -85,7 +85,7 @@
 多粘菌素及其片段 PMBN 的一个重要功能是破坏外膜，从而增强其他抗生素（如利福平）的活性。本部分旨在探究立体化学对这种协同增效活性的影响。
 
 - **(图 2)** 通过棋盘格协同实验进行了评估。
-    ![image.png](http://synbiopath.online/20251226225828931.png)
+    ![image.png](https://synbiopath.online/20251226225828931.png)
 
     
     - **对于多粘菌素敏感菌株 (图 2A)**：天然构型的 **PMBN** 表现出极强的协同效应，其 FICI 值 **≤ 0.02**。而其对映体 _**ent**_**-PMBN** 的协同效应则显著减弱，FICI 值为 **≤ 0.38**。
@@ -102,7 +102,7 @@
 为直接验证协同实验的结论，本部分使用 NPN 探针法，直接测量化合物引起外膜通透性增加的能力。
 
 - **(图 3)** NPN 摄取实验结果直观地展示了外膜的破坏程度。
-    ![image.png](http://synbiopath.online/20251226225838510.png)
+    ![image.png](https://synbiopath.online/20251226225838510.png)
 
     
     - 在所有测试菌株中，天然构型的 **PmxB4** 和 **PMBN** 均能引起强烈且剂量依赖的 NPN 摄取（高荧光值）。
@@ -117,7 +117,7 @@
 前述所有生物学活性的差异，其分子基础应归结于化合物与靶点 LPS 的结合能力。本部分使用 ITC 技术，直接测量并比较了 PmxB4/PMBN 及其对映体与 LPS 的结合热力学。
 
 - **(图 4)** ITC 滴定曲线提供了相互作用的直接热力学证据。
-    ![image.png](http://synbiopath.online/20251226225847042.png)
+    ![image.png](https://synbiopath.online/20251226225847042.png)
 
     
     - **(图 4A, 4B)** 天然构型的 **PmxB4** 与 LPS 的结合是一个强烈的放热过程，其焓变 (ΔH) 约为 **-8 kcal/mol**。

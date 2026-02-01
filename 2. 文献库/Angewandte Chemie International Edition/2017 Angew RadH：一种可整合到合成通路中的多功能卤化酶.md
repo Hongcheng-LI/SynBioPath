@@ -1,4 +1,4 @@
-![image.png](http://synbiopath.online/20260110204009829.png)
+![image.png](https://synbiopath.online/20260110204009829.png)
 
 
 ## 一：基本信息
@@ -91,11 +91,11 @@
 #### 实验结果与分析
 
 **Figure 1** 明确了 RadH 在其天然产物 radicicol (**3**) 生物合成中的作用，即催化前体 monocillin II (**1**) 的氯代反应。
-![image.png](http://synbiopath.online/20260110204025372.png)
+![image.png](https://synbiopath.online/20260110204025372.png)
 
 
 **Figure 2** 展示了 RadH 广泛的底物谱。
-![image.png](http://synbiopath.online/20260110204036363.png)
+![image.png](https://synbiopath.online/20260110204036363.png)
 
 
 - **对天然底物的活性**：RadH 确实能催化 **1** 生成 **1a**，但反应很慢，18 小时转化率仅为 84%。有趣的是，它不能催化结构非常相似的 **4** 和 **5**，表明其活性口袋具有一定的结构识别能力。
@@ -108,7 +108,7 @@
     
 
 **Table 1 (WT 行)** 提供了定量的动力学数据。野生型 (WT) RadH 对底物 **6** 和 **8** 的催化常数 k<sub>cat</sub> 分别为 3.2 min⁻¹ 和 2.9 min⁻¹，显著高于其他底物，证实了它们是 RadH 的优质底物。这些 k<sub>cat</sub>/K<sub>m</sub> 值（分别为 12 × 10⁻³ 和 7.7 × 10⁻³ min⁻¹µM⁻¹）表明其催化效率在同类酶中处于较高水平。
-![image.png](http://synbiopath.online/20260110204047182.png)
+![image.png](https://synbiopath.online/20260110204047182.png)
 
 
 ### 研究部分二：RadH 催化机制的解析
@@ -131,12 +131,12 @@
 #### 实验结果与分析
 
 **Figure 3A 和 3B** 展示了 RadH 活性口袋的同源模型，以及底物 **3** 或 **8** 在其中的对接姿态。模型显示，活性口袋是一个较大的空腔，靠近 FAD 辅酶的异咯嗪环。
-![image.png](http://synbiopath.online/20260110204058883.png)
+![image.png](https://synbiopath.online/20260110204058883.png)
 
 
 **Figure S19 和 S20** 展示了定点突变的结果，这是机制解析的核心证据。
-![image.png](http://synbiopath.online/20260110204105763.png)
-![image.png](http://synbiopath.online/20260110204113092.png)
+![image.png](https://synbiopath.online/20260110204105763.png)
+![image.png](https://synbiopath.online/20260110204113092.png)
 
 
 - **K74A 突变体**完全丧失了催化活性，而附近的 K73A, K80A, K84A 突变体活性正常。这表明 K74 在催化中扮演了不可或缺的角色。
@@ -147,7 +147,7 @@
     
 
 **Figure 3C** 基于上述实验结果，提出了一个清晰的催化机制模型：
-![image.png](http://synbiopath.online/20260110204120930.png)
+![image.png](https://synbiopath.online/20260110204120930.png)
 
 
 1. FAD 被还原后与氧气反应生成 C4a-hydroperoxyflavin 中间体。
@@ -181,20 +181,20 @@
 #### 实验结果与分析
 
 **Figure S12 和 S13** 验证了筛选方法的可行性。数据显示，在 386 nm 激发下，产物 **8a** 在 456 nm 处有强烈的荧光发射，而底物 **8** 在此处的荧光非常弱，从而形成了巨大的信噪比，非常适合高通量筛选。
-![image.png](http://synbiopath.online/20260110204129597.png)
+![image.png](https://synbiopath.online/20260110204129597.png)
 
-![image.png](http://synbiopath.online/20260110204137989.png)
+![image.png](https://synbiopath.online/20260110204137989.png)
 
 
 **Figure S14** 展示了筛选结果。在对 960 个克隆进行筛选后，鉴定出一个双突变体 **D465E/T501S**，其在细胞裂解液中的催化活性比野生型高出 15 倍。
-![image.png](http://synbiopath.online/20260110204151941.png)
+![image.png](https://synbiopath.online/20260110204151941.png)
 
 
 **Table 1 (D456E/T501S 行)** 对纯化的突变酶进行了动力学分析。结果显示，该突变体的 k<sub>cat</sub> 值相对于野生型有显著提升（对底物 **6** 从 3.2 提升至 5.8 min⁻¹，对底物 **8** 从 2.9 提升至 5.3 min⁻¹），催化效率 (k<sub>cat</sub>/K<sub>m</sub>) 提升了约 1.5-2 倍。
 
 **Figure S15 和 S16** 揭示了突变体性能大幅提升的另一个重要原因。SDS-PAGE 分析显示，D465E/T501S 突变体在 _E. coli_ 中的可溶性表达水平远高于野生型酶。而其热稳定性与野生型相似。因此，在细胞裂解液中观察到的 15 倍活性提升，是**催化效率提高**和**蛋白表达量大幅增加**两个因素共同作用的结果。
-![image.png](http://synbiopath.online/20260110204221614.png)
-![image.png](http://synbiopath.online/20260110204230521.png)
+![image.png](https://synbiopath.online/20260110204221614.png)
+![image.png](https://synbiopath.online/20260110204230521.png)
 
 
 ### 研究部分四：构建“跨界”合成途径实现卤代香豆素的从头合成
@@ -219,11 +219,11 @@
 #### 实验结果与分析
 
 **Figure 4** 清晰地展示了整条人工设计的生物合成途径。这是一个雄心勃勃的设计，整合了来自三个生物界（细菌、植物、真菌）的酶。
-![image.png](http://synbiopath.online/20260110204204984.png)
+![image.png](https://synbiopath.online/20260110204204984.png)
 
 
 **Figure S22** 展示了实验结果。
-![image.png](http://synbiopath.online/20260110204244557.png)
+![image.png](https://synbiopath.online/20260110204244557.png)
 
 
 - **通路验证**：当向表达 4CL, F6'H 和 RadH 突变体的工程菌中饲喂前体 **16** 时，成功检测到了目标产物 **8a** 的生成 (0.8 mg/L)，证明了下游三步反应是通畅的。

@@ -1,4 +1,4 @@
-![image.png](http://synbiopath.online/20251226225207715.png)
+![image.png](https://synbiopath.online/20251226225207715.png)
 
 
 ## 一：基本信息
@@ -28,7 +28,7 @@
 ### 本文突破点
 
 本文的核心突破在于**首次在体外实验中明确证实了 Fasciclin 蛋白是其伴侣漆酶发挥催化活性的“激活开关”**。研究发现，漆酶 (SpoL) 自身完全没有催化其底物二聚化的能力；只有当它与 Fasciclin 蛋白 (SpoF) **在同一个细胞中共同生产 (co-produced)** 时，才能形成一个有活性的酶促复合体，高效且高选择性地催化反应。这一发现揭示了一种全新的酶促调控机制，即 Fasciclin 蛋白并非像 dirigent protein 那样仅仅是选择性的“引导者”，而是漆酶活性的**“必需激活者”**。
-![image.png](http://synbiopath.online/20251226225217933.png)
+![image.png](https://synbiopath.online/20251226225217933.png)
 
 
 ### 研究难点
@@ -64,13 +64,13 @@
 本部分的目的是鉴定负责 sporandol (**3**) 生物合成的基因簇，并通过异源表达的方式，验证其中负责合成其单体前体 torachrysone (**2**) 的酶的功能。
 
 #### 实验结果与分析
-![image.png](http://synbiopath.online/20251226225231577.png)
+![image.png](https://synbiopath.online/20251226225231577.png)
 
 
 - **Figure 1B** 展示了在 _C. merdarium_ 基因组中鉴定出的 _spo_ BGC，其中包含了 PKS (_spoP_)、甲基转移酶 (_spoM_)、漆酶 (_spoL_) 和 Fasciclin 蛋白 (_spoF_) 等关键基因。
     
 - **Figure 2** 展示了单体合成途径的成功重构：
-    ![image.png](http://synbiopath.online/20251226225240698.png)
+    ![image.png](https://synbiopath.online/20251226225240698.png)
 
     
     - **Figure 2A** 显示，在米曲霉中单独表达 PKS 基因 _spoP_，成功地产生了第一个中间体 6-hydroxymusizin (**1**)。这证明了 SpoP 是负责合成核心骨架的 PKS。
@@ -91,7 +91,7 @@
 由于无法获得可溶性的活性蛋白，研究人员设计了一组非常精巧的、基于细胞裂解液的对比实验。
 
 - **Figure 3** 展示了这一决定性的实验结果：
-    ![image.png](http://synbiopath.online/20251226225251060.png)
+    ![image.png](https://synbiopath.online/20251226225251060.png)
 
     
     - **阴性对照**：将底物 **2** 分别与仅表达 SpoL 的裂解液或仅表达 SpoF 的裂解液孵育，均**没有**观察到产物 **3** 的生成。
@@ -110,7 +110,7 @@
 本部分的目的是通过生物信息学分析，探究这种“漆酶-Fasciclin”的酶促伙伴关系在真菌界是否是一种普遍存在的策略。
 
 #### 实验结果与分析
-![image.png](http://synbiopath.online/20251226225302883.png)
+![image.png](https://synbiopath.online/20251226225302883.png)
 
 
 - **Figure 4A** 展示了对来自多个真菌 BGCs 的漆酶和 Fasciclin 蛋白的系统发育学分析结果。

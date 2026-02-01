@@ -1,4 +1,4 @@
-![image.png](http://synbiopath.online/20260122165135475.png)
+![image.png](https://synbiopath.online/20260122165135475.png)
 
 ---
 
@@ -65,8 +65,8 @@
 
 #### 实验结果与深度解析
 SSN 分析揭示了一个独特的 HEXXH 酶聚类（Figure 1B，紫色圆圈），该聚类中的酶由包含 MNIO-硝基还原酶融合蛋白基因的生物合成基因簇 (BGC) 编码。基于此，研究者选择了 *Pseudomonas fluorescens* CH267 的 *pfl* 基因簇和 *Pseudomonas* sp. Os17 的 *pos* 基因簇作为研究对象（Figure 2A, S7）。基因组挖掘显示，这两个 BGC 编码了前体肽 (PflA/PosA)、乙酰转移酶 (PflB)、HEXXH 蛋白 (PflC/PosC)、MNIO-硝基还原酶融合蛋白 (PflD) 以及转运蛋白。对前体肽序列的多序列比对 (Figure 2B) 发现了一个高度保守的 C 端基序：一段连续的 Gln 残基后紧跟 ARMD 四肽序列。生物信息学预测 PflA 的 N 端可能属于腈水合酶样前导肽 (NHLP) 家族，但缺乏典型的双甘氨酸 (double-Gly) 切割位点，暗示其成熟过程可能涉及非典型的蛋白酶解或修饰机制。这一生物信息学分析为后续发现 PflC/PosC 的特殊骨架断裂活性提供了关键线索。
-![image.png](http://synbiopath.online/20260122171745912.png)
-![image.png](http://synbiopath.online/20260122171809198.png)
+![image.png](https://synbiopath.online/20260122171745912.png)
+![image.png](https://synbiopath.online/20260122171809198.png)
 
 
 > "A multisequence alignment of PflA with precursor peptides encoded in related BGCs shows a highly conserved C-terminal consecutive Gln motif followed by an ARMD sequence."
@@ -77,7 +77,7 @@ SSN 分析揭示了一个独特的 HEXXH 酶聚类（Figure 1B，紫色圆圈）
 
 #### 实验结果与深度解析
 质谱分析显示，PflC 使 PflA 质量减少 394 Da，PosC 使 PosA 质量减少 410 Da (Figure 2C)。这种大幅度的质量减少无法仅用羟基化 (+16 Da) 解释。通过纯化 PosC 修饰后的 PosA 酶解片段并进行 NMR 解析 (Figure 3)，研究人员观察到 C 端 ARMD 四肽的信号消失，且末端 Gln 残基的信号特征符合 C 端酰胺化结构。同时，肽段内部的四个 Gln 残基在 NMR 谱图中显示出 β-位次甲基信号 (CH)，证实发生了 β-羟基化。综合 NMR 和 MS/MS 数据 (Figure 3B)，确证了 PosC 催化了两个反应：(1) 四个 Gln 的 β-羟基化；(2) 氧化移除 C 端 ARMD 四肽并生成 C 端酰胺。质量计算完美吻合：4 × (+16) （羟基化）- 490 （ARMD 丢失） + 16 （酰胺化） = -410 Da。这一结果证实了 HEXXH 酶具有前所未有的氧化骨架断裂活性。
-![image.png](http://synbiopath.online/20260122171856528.png)
+![image.png](https://synbiopath.online/20260122171856528.png)
 
 
 > "Collectively, these data demonstrate that PosC catalyzed β-hydroxylation of four Gln residues and removal of the ARMD motif to generate a terminal amide."
@@ -97,7 +97,7 @@ SSN 分析揭示了一个独特的 HEXXH 酶聚类（Figure 1B，紫色圆圈）
 
 #### 实验结果与深度解析
 突变实验表明，ARMD 中的 R, M, D 残基突变不影响骨架断裂，但 A91Q 突变完全阻断了断裂反应，仅保留了羟基化活性 (Figure 4B, C)。这证明 **Ala** 是断裂反应的关键决定簇。AlphaFold 3 模拟的酶-底物复合物结构 (Figure S32, S33) 显示，酶的活性中心铁离子恰好位于 ARMD 基序中 Ala 残基的附近，这为 Ala 特异性氧化提供了结构基础。基于此，作者提出了一个氧化断裂机理：酶活性中心的高价铁-氧物种夺取 Ala91 的 α-氢原子，生成碳自由基，随后经羟基化或电子转移生成亚胺中间体，最终水解导致肽键断裂和 C 端酰胺化。此外，将 ARMD 移位或增加拷贝数的实验 (Figure 4D-F) 表明，该基序具有位置独立性，只要位于前导肽的一定距离之外即可被识别。
-![image.png](http://synbiopath.online/20260122171924723.png)
+![image.png](https://synbiopath.online/20260122171924723.png)
 
 
 > "To rationalize the site-specific backbone cleavage and amide formation, we propose that Ala91 undergoes α-C−H abstraction by a high-valent iron−oxo species."
@@ -108,7 +108,7 @@ SSN 分析揭示了一个独特的 HEXXH 酶聚类（Figure 1B，紫色圆圈）
 
 #### 实验结果与深度解析
 在缺乏前导肽的情况下，PflC 意外地表现出了**水解酶活性**，直接水解切除了 C 端 ARMD，产生羧基末端而非酰胺末端 (Figure 5)。在 $H_2^{18}O$ 中进行的实验证实产物结合了来自水的氧原子，确证了水解机理。而在全长前体肽存在时，PflC 表现为 αKG 依赖的**氧化酶活性**。这一截然不同的结果表明，前导肽与酶的结合诱导了酶构象的改变，这种变构效应可能重新排列了活性中心，使其能够结合氧气并进行氧化反应，从而抑制了默认的水解活性。这揭示了 RiPP 生物合成中一种精妙的调控机制：利用前导肽将一个潜在的蛋白酶“重编程”为氧化酶。
-![image.png](http://synbiopath.online/20260122171946571.png)
+![image.png](https://synbiopath.online/20260122171946571.png)
 
 
 > "This observation established peptidase activity of PflC in the absence of the N-terminal sequence of PflA... indicating that leader peptide−enzyme interactions modulate the observed reaction selectivity."

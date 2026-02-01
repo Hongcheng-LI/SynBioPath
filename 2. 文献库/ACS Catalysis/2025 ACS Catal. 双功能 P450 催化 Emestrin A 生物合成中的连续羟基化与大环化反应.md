@@ -1,4 +1,4 @@
-![image.png](http://synbiopath.online/20251225091438254.png)
+![image.png](https://synbiopath.online/20251225091438254.png)
 
 ---
 
@@ -82,10 +82,10 @@
 
 #### 实验结果与分析
 **基因簇鉴定 (Figure 1A)**: *eme* 基因簇包含核心 NRPS 基因 *emeP* 和三个 P450 基因。
-![image.png](http://synbiopath.online/20251225091736383.png)
+![image.png](https://synbiopath.online/20251225091736383.png)
 
 **突变株代谢谱 (Figure 1B-C)**:
-![image.png](http://synbiopath.online/20251225091754016.png)
+![image.png](https://synbiopath.online/20251225091754016.png)
 
 *   **ΔemeP**: 完全不产生 Emestrin A (**1**)，确证该基因簇的负责性。
 *   **ΔemeE**: 积累了化合物 **3** 和 **4**。结构分析显示它们缺乏 7''-OH，表明 EmeE 负责 7''-位羟基化。
@@ -100,7 +100,7 @@
 
 #### 实验结果与分析
   **EmeE 和 EmeU 的功能验证 (Figure 2A a-c)**: 在酵母中表达 EmeE 和 EmeU 并饲喂底物 **4**，分别得到了产物 **2**（13-OH 化）和 **3**（7''-OH 化），且具有严格的区域选择性。
-  ![image.png](http://synbiopath.online/20251225091845986.png)
+  ![image.png](https://synbiopath.online/20251225091845986.png)
 
   **EmeQ 的双功能性 (Figure 2A d-f)**:
 *   **酵母微粒体**: 饲喂化合物 **6** 仅转化为化合物 **5**（4''-羟基化产物），未生成环化产物 **4**。这表明在酵母环境中 EmeQ 的环化活性受阻。
@@ -115,7 +115,7 @@
 
 #### 图表内容详细解读
 该图展示了一个**从线通过渡到大环，再进行修饰**的网状代谢路径：
-![image.png](http://synbiopath.online/20251225092932631.png)
+![image.png](https://synbiopath.online/20251225092932631.png)
 
 
 **骨架构建阶段 (Scaffold Construction)**:
@@ -137,12 +137,12 @@
 
 #### 实验结果与分析
 **结合模式分析 (Figure 3A-B)**:
-![image.png](http://synbiopath.online/20251225091943633.png)
+![image.png](https://synbiopath.online/20251225091943633.png)
 
 *   **底物 6 (羟基化前)**: 主要通过疏水作用（W107, M108, L211 等）结合，C4'' 距离 heme 铁氧中心 3.4 Å，适合羟基化。
 *   **底物 5 (环化前)**: 结合模式发生重排。关键残基 **F497** 与底物的异香草酸基团（isovanillate group）形成  π-π 堆积作用，稳定了底物构象以利于自由基偶联。
 **突变验证 (Figure 3C-D)**:
-![image.png](http://synbiopath.online/20251225092004083.png)
+![image.png](https://synbiopath.online/20251225092004083.png)
 
 *   **阻断羟基化 (A121L, V313L)**: 这两个突变旨在通过空间位阻阻止底物 **6** 的结合。结果显示，突变体对 **6** 的转化率（羟基化）几乎完全丧失，但仍能有效催化 **5** 进行环化。EmeQ 被改造成了“单功能环化酶”。
 *   **阻断环化 (F497L, F497A)**: 旨在破坏 π-π 堆积。F497A 突变体导致环化活性下降了约 **18.2 倍**，而羟基化活性反而轻微上升（2.1 倍）。EmeQ 被改造成了“单功能羟基化酶”。
@@ -155,7 +155,7 @@
 
 #### 实验结果与分析
 **活性数据 (Figure 4)**:
-![image.png](http://synbiopath.online/20251225092047765.png)
+![image.png](https://synbiopath.online/20251225092047765.png)
 
 *   **Emestrin A (1)** 活性最强（IC₅₀ 为亚微摩尔级别）。
 *   **羟基缺失的影响**: 缺失 13-OH (**2**) 或 7''-OH (**3**) 导致活性显著下降。

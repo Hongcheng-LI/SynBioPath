@@ -1,4 +1,4 @@
-![image.png](http://synbiopath.online/20251226221217076.png)
+![image.png](https://synbiopath.online/20251226221217076.png)
 
 
 ## 一：基本信息
@@ -35,7 +35,7 @@
 在本文发表前，微晶电子衍射 (Microcrystal Electron Diffraction, microED) 技术已崭露头角，成为一种强大的小分子结构解析工具。与传统的 X-射线衍射需要毫克级的、尺寸较大的单晶不同，microED 仅需纳克级的、纳米或微米尺寸的晶体即可获得高分辨率的结构数据。然而，microED 的应用仍然受限于样品制备的“一对一”模式：每个样品（如一个 HPLC 馏分）需要单独制备一个 TEM (透射电子显微镜) 样品网格，然后手动上样、筛选，整个过程耗时且通量极低，无法满足从粗提物中进行大规模筛选的需求。
 
 ### 本文突破点
-![image.png](http://synbiopath.online/20251226221230970.png)
+![image.png](https://synbiopath.online/20251226221230970.png)
 
 
 1. **开发了革命性的高通量筛选平台 ArrayED**：首次将 DNA 微阵列点样技术与 microED 技术相结合，创造了一个名为“阵列电子衍射 (ArrayED)”的全新工作流程。该技术能够将多达 1200 个或更多的独立样品（如 HPLC 馏分）以皮升级 (picoliter) 液滴的形式，**高密度地点样到单个 TEM 网格上**。
@@ -101,13 +101,13 @@
 #### 实验结果与分析 (Experimental Results & Analysis)
 
 这部分工作成功地展示了 ArrayED 平台惊人的效率和潜力。
-![image.png](http://synbiopath.online/20251226221244633.png)
+![image.png](https://synbiopath.online/20251226221244633.png)
 
 
 - **Figure 1C** 直观地展示了 ArrayED 的核心思想：将 96 个 HPLC 馏分点样到**一个** TEM 网格上，整个过程仅需 4-8 小时。
     
 - **Figure 2A** 展示了微阵列点样仪和最终制备出的、布满样品点的 TEM 网格实物图。
-    ![image.png](http://synbiopath.online/20251226221256474.png)
+    ![image.png](https://synbiopath.online/20251226221256474.png)
 
 
 - **Figure 2B** 是一个“热图”，展示了对 20 个粗提物进行筛选的结果。蓝色方格代表成功获得衍射信号的馏分。结果显示，在 1920 个馏分中，共识别出 415 个（约 21%）含有结晶物质的馏分。
@@ -135,13 +135,13 @@
 这部分通过丰富的案例，全面地展示了 ArrayED 的实际应用价值。
 
 - **Figure 3** 集中展示了通过 ArrayED 解析出的 14 种天然产物的晶体结构，包括萜类、黄酮类、蒽醌类、生物碱等多种骨架类型，显示了其广泛的适用性。
-    ![image.png](http://synbiopath.online/20251226221315152.png)
+    ![image.png](https://synbiopath.online/20251226221315152.png)
 
 - **Figure 4** 以真菌 _Trichoderma afroharzianum_ 的提取物为例，展示了一个精彩的发现过程。HPLC 图谱显示在一个复杂的峰簇中，相邻的三个馏分 (E7, E8, E9) 都产生了高质量的衍射。结构解析表明，E7 是纯的 pachybasin (**10**)，E9 是纯的 chrysophanol (**11**)，而中间的 E8 则是这两种结构高度相似的化合物的**共晶 (co-crystal)**。这一发现揭示了 HPLC 的时间分辨能力如何影响结晶过程，并证明了 ArrayED 能够解析复杂的共晶结构。
-    ![image.png](http://synbiopath.online/20251226221342235.png)
+    ![image.png](https://synbiopath.online/20251226221342235.png)
 
 - **Figure 5A** 展示了从海洋红藻中解析一个复杂糖脂 (**15**) 的案例。该案例中，microED 成功地解决了 NMR 无法确定的脂肪酸链连接位点问题，展示了 microED 与传统波谱学方法的互补性。
-    ![image.png](http://synbiopath.online/20251226221355692.png)
+    ![image.png](https://synbiopath.online/20251226221355692.png)
 
 
 - **一个关键发现**：在对 _Preitonia sp._ 的分析中，成功解析了甘露醇 (**12**) 的结构。甘露醇是一个没有 UV 吸收的糖醇，如果采用传统的 UV 指导的分离方法，这个化合物很可能会被完全忽略。这凸显了 ArrayED 这种“无偏见”筛选方法的优势。

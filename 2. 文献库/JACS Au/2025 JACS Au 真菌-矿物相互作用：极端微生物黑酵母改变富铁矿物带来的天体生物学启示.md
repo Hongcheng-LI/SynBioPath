@@ -1,4 +1,4 @@
-![image.png](http://synbiopath.online/20251216193721529.png)
+![image.png](https://synbiopath.online/20251216193721529.png)
 
 该研究通过多组学手段（基因组学、代谢组学）结合物理化学表征，揭示了极端微生物黑酵母 *Rhinocladiella similis* 与火星模拟矿物赤铁矿之间的相互作用机制。
 
@@ -65,7 +65,7 @@
 
 #### 实验结果与分析
 **pH 变化 (Figure 1A)**: “真菌+赤铁矿”组的 pH 值从第 1 天的 7.01 显著下降至第 15 天的 4.70。相比之下，“仅真菌”组的酸化程度较弱，而非生物对照组 pH 保持稳定。这表明赤铁矿的存在促进了真菌的酸化代谢反应。
-![image.png](http://synbiopath.online/20251216193754841.png)
+![image.png](https://synbiopath.online/20251216193754841.png)
 
 **Fe$^{2+}$ 释放 (Figure 1B)**: 在“真菌+赤铁矿”组中，溶解的 Fe$^{2+}$ 浓度随时间显著增加，从第 1 天的 26 mg/L 激增至第 15 天的 270 mg/L（约 10 倍增长）。
 > "In the fungus−hematite system, Fe2+ content increased markedly over time, from 26 mg/L on day 1 to 109 mg/L on day 9 and 270 mg/L on day 15."
@@ -80,7 +80,7 @@
 #### 实验结果与分析
 **表面蚀刻 (Figure 2)**: 非生物对照组 (Fig 2A, B) 表面光滑，仅有机械抛光痕迹。而真菌处理组 (Fig 2C, D) 显示出明显的生物风化特征，包括表面粗糙度增加、凹陷 (depressions) 和点蚀 (pitting)。
 **生物膜形成**: 观察到酵母样细胞和丝状菌丝紧密附着在矿物表面，形成生物膜结构。这种物理接触为局部微环境中的酸蚀和氧化还原反应提供了空间基础。
-![image.png](http://synbiopath.online/20251216193855460.png)
+![image.png](https://synbiopath.online/20251216193855460.png)
 
 ### 研究部分三：铁代谢相关的基因组潜力挖掘
 #### 实验目的与设计
@@ -88,7 +88,7 @@
 
 #### 实验结果与分析
 **铁载体合成基因簇 (Figure 3)**: 鉴定出完整的铁色素 (ferrichrome) 类铁载体生物合成基因簇，包括 *sidA* (L-鸟氨酸 $N^5$-单加氧酶)、*sidC* (非核糖体肽合成酶) 以及 *sidD, sidF, sidH, sidI, sidL* 等修饰基因。
-![image.png](http://synbiopath.online/20251216193934905.png)
+![image.png](https://synbiopath.online/20251216193934905.png)
 
 **转运与还原系统**: 发现了铁载体转运蛋白基因 (*ARN1*, *STR1*) 和还原性铁同化系统基因 (*FET3*, *FTR1*, *FRE1*)。这表明该菌株具备“分泌铁载体-回收铁复合物-胞内还原释放铁”的完整遗传潜力。
 
@@ -98,16 +98,16 @@
 
 #### 实验结果与分析
 **整体代谢差异 (Figure 4)**: PCA 分析 (Fig 4A, C) 显示两组样本在正、负离子模式下均明显分离，表明赤铁矿的存在显著改变了真菌的代谢状态。火山图 (Fig 4B, D) 揭示了数百个显著差异表达的特征离子。
-![image.png](http://synbiopath.online/20251216193956142.png)
-![image.png](http://synbiopath.online/20251216194016201.png)
+![image.png](https://synbiopath.online/20251216193956142.png)
+![image.png](https://synbiopath.online/20251216194016201.png)
 
 
 **分子网络分析 (Figure 5)**: FBMN 网络图直观展示了在赤铁矿存在下，铁载体、脂质、萜类和聚酮类化合物的丰度发生了显著变化。
-![image.png](http://synbiopath.online/20251216194049780.png)
+![image.png](https://synbiopath.online/20251216194049780.png)
 
 **关键代谢物鉴定 (Figure 6)**:
-![image.png](http://synbiopath.online/20251216194112659.png)
-![image.png](http://synbiopath.online/20251216194129715.png)
+![image.png](https://synbiopath.online/20251216194112659.png)
+![image.png](https://synbiopath.online/20251216194129715.png)
 
 *   **铁载体**: 铁色素 C (Ferrichrome C, $m/z$ 755.2531) 在赤铁矿处理组中显著上调 (Fig 6A)，证实了基因组预测的铁载体合成途径被激活。
 *   **膜脂重塑**: 磷脂酸 (PA 16:0/18:2) 仅在处理组中检测到 (Fig 6B)，可能与细胞膜对金属胁迫的适应有关。
@@ -120,7 +120,7 @@
 
 #### 实验结果与分析
   **Figure 7**: 作者提出了一个三步协同机制：
-  ![image.png](http://synbiopath.online/20251216194159834.png)
+  ![image.png](https://synbiopath.online/20251216194159834.png)
 
 1.  **酸化**: 分泌有机酸（如羧酸），降低环境 pH，促进赤铁矿表面质子化和 Fe$^{3+}$ 释放。
 2.  **螯合**: 合成并分泌异羟肟酸型铁载体（如 Ferrichrome C），高亲和力结合 Fe$^{3+}$，打破溶解平衡。

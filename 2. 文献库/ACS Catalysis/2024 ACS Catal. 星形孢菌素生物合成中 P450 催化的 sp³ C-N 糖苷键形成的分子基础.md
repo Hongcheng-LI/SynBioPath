@@ -1,4 +1,4 @@
-![image.png](http://synbiopath.online/20251226181941737.png)
+![image.png](https://synbiopath.online/20251226181941737.png)
 
 
 ## 一：基本信息
@@ -23,17 +23,17 @@
 ### 研究背景
 
 本研究的核心科学问题是阐明细胞色素 P450 酶如何催化化学上极具挑战性的 sp³ C-H 键胺化反应，以形成 C-N 糖苷键。具体来说，研究聚焦于著名抗肿瘤药物星形孢菌素 (staurosporine, STA) 生物合成中的最后一步关键反应：其前体 holyrine A (2) 分子内 C5'-N12 糖苷键的形成。这一步由 P450 酶 SpcN (或其同源物 StaN) 催化，但其精确的催化机理长期以来悬而未决，是天然产物生物合成领域一个经典的未解之谜。揭示这一机理不仅能加深对 P450 酶催化多样性的理解，还能为开发用于合成含氮杂环化合物的新型生物催化剂提供理论基础。
-![image.png](http://synbiopath.online/20251226181954154.png)
+![image.png](https://synbiopath.online/20251226181954154.png)
 
 
 ### 前期研究
 
 在本文发表前，领域内普遍接受的假说是基于 _in vivo_ 基因敲除实验提出的模型（**Figure 1b**）：P450 酶 StaN 首先催化糖基 C5' 位的羟基化，生成中间体 holyrine B；随后 holyrine B 经质子化和脱水形成一个氧鎓离子 (oxonium ion) 中间体；最后，吲哚咔唑母核上的 N12 亲核进攻该氧鎓离子，完成 C-N 键的构建。然而，这一假说缺乏直接的生化证据，关键的 holyrine B 中间体从未被检测到，且 P450 酶直接催化 sp³ C-H 键胺化的分子机制尚无先例。
-![image.png](http://synbiopath.online/20251226182031931.png)
+![image.png](https://synbiopath.online/20251226182031931.png)
 
 
 ### 本文突破点
-![image.png](http://synbiopath.online/20251226182043218.png)
+![image.png](https://synbiopath.online/20251226182043218.png)
 
 
 1. **首次实现了 SpcN 的体外功能重构和晶体结构解析**：成功地在体外用纯化的 SpcN 蛋白、底物 holyrine A (**2**) 和氧化还原伴侣重构了 C5'-N12 糖苷键的形成反应，为 SpcN 的功能提供了最直接的生化证据。更重要的是，首次解析了 SpcN 与其天然底物 **2** 结合的复合物晶体结构。
@@ -101,11 +101,11 @@
 这部分工作为 SpcN 的功能提供了最基础、最直接的证据，并初步否定了旧的假说。
 
 - **Figure 2a**：HPLC 对比图显示，野生型菌株 (panel i) 产生主产物星形孢菌素 (**1**)。而 `ΔspcN` 突变株 (panel ii) 完全不产生 **1**，而是大量积累了 holyrine A (**2**) 以及 K252d (**3**) 等前体。这明确证明了 `spcN` 在体内负责将 **2** 转化为下游产物。
-    ![image.png](http://synbiopath.online/20251226182059153.png)
+    ![image.png](https://synbiopath.online/20251226182059153.png)
 
 
 - **Figure 3c**：体外反应结果显示，在完整的反应体系中 (panel ii)，SpcN 能够将底物 **2** 成功转化为产物 **6** (3'-N-demethyl-4'-hydroxystaurosporine)。对照组（煮沸的 SpcN，panel i）则没有反应。
-    ![image.png](http://synbiopath.online/20251226182110264.png)
+    ![image.png](https://synbiopath.online/20251226182110264.png)
 
 
 - **Figure 3d**：酶动力学分析显示，SpcN 对底物 **2** 的催化反应符合米氏方程，计算出 Km 值为 5.45 µM，kcat/Km 值为 1.97 x 10⁻¹ min⁻¹µM⁻¹。
@@ -135,7 +135,7 @@
 这部分工作获得了颠覆性的结构信息，是提出新机理的关键转折点。
 
 - **Figure 4a, 4b** 展示了 SpcN 的整体折叠和单体结构，是典型的 P450 酶结构。
-    ![image.png](http://synbiopath.online/20251226182123704.png)
+    ![image.png](https://synbiopath.online/20251226182123704.png)
 
 
 - **Figure 4c, 4d** 是本部分最关键的结果。晶体结构清晰地显示，底物 **2** 结合在活性口袋中，但其吲哚咔唑 (ICZ) 核心垂直于血红素平面。
@@ -167,7 +167,7 @@
 这部分工作完美地结合了计算与实验，为催化前的动态过程提供了坚实的证据。
 
 - **Figure 5b**：PMF 计算结果显示，底物从“远端”到“近端”的构象转变能垒仅为 7.4 kcal/mol，这是一个在生理条件下很容易跨越的能垒。
-    ![image.png](http://synbiopath.online/20251226182135088.png)
+    ![image.png](https://synbiopath.online/20251226182135088.png)
 
 - **Figure 5c**：展示了计算得到的“近端”构象，此时底物与 K69, G82, R195 形成了新的氢键相互作用，且 C4'-OH 与血红素的氧原子形成了氢键。
     
@@ -196,7 +196,7 @@
 这部分工作揭示了一个前所未见、逻辑自洽且能量上合理的全新 P450 催化机理。
 
 - **Figure 6** 是最终的反应机理和能量剖面图，是本文的顶峰之作。
-    ![image.png](http://synbiopath.online/20251226182151867.png)
+    ![image.png](https://synbiopath.online/20251226182151867.png)
 
     
     - **第一步 (RC → TS1 → Int1)**：计算表明，从 O8'-H8' 夺氢（能垒 19.0 kcal/mol）比从 C5'-H5' 夺氢（能垒 21.4 kcal/mol, Fig. S16）在能量上更有利。反应起始于生成一个 O8' 氧自由基 (Int1)。

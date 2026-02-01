@@ -1,4 +1,4 @@
-![image.png](http://synbiopath.online/20260120115408404.png)
+![image.png](https://synbiopath.online/20260120115408404.png)
 
 
 ## 一：基本信息
@@ -25,7 +25,7 @@
 本研究的核心科学问题是：真菌中是否存在含有异腈 (isonitrile) 基团的萜类杂合天然产物，如果存在，其生物合成机制是怎样的？
 
 异腈基团是一种高活性的官能团，在海洋生物和蓝细菌的萜类代谢物中已有发现，并赋予其显著的生物活性。然而，在真菌中，尽管已知存在异腈合成酶，但从未发现过萜-异腈杂合分子。挖掘并阐明这类分子的生物合成途径，对于发现新颖的酶促反应、扩展真菌天然产物的化学多样性、以及寻找具有新功能的生物活性分子具有重要意义。
-![image.png](http://synbiopath.online/20260120115416870.png)
+![image.png](https://synbiopath.online/20260120115416870.png)
 
 
 ### 前期研究
@@ -103,7 +103,7 @@
     
 
 **Figure 2 (BGC 挖掘与萜烯前体合成)**：
-![image.png](http://synbiopath.online/20260120115429746.png)
+![image.png](https://synbiopath.online/20260120115429746.png)
 
 
 - **Figure 2a, 2b** 展示了挖掘策略和保守的 _isc_ BGC 结构。
@@ -139,7 +139,7 @@
 结构鉴定表明，这些分子是通过一个酯键将异腈异亮氨酸连接到了萜烯前体 **4** 或 **5** 的 C2-OH 上。这一结果证明了 IscF 和 IscG 共同负责了杂合分子的形成。
 
 **Figure 3 (IscF 和 IscG 的功能确认)**：
-![image.png](http://synbiopath.online/20260120115437317.png)
+![image.png](https://synbiopath.online/20260120115437317.png)
 
 
 - **Figure 3a** 的 LC-MS 结果显示，只有当 _iscG_ 存在时，才会生成甲酰胺产物 **6-8**。
@@ -182,14 +182,14 @@
 **Figure 4 (IscF 功能的体外分析)**：该图整合了所有体外实验的关键数据。
 
 - **Figure 4a-c** 的 LC-MS 谱图展示了 IscF 的催化活性和底物选择性。
-    ![image.png](http://synbiopath.online/20260120115448418.png)
+    ![image.png](https://synbiopath.online/20260120115448418.png)
 
 
 - **Figure 4e, 4f** 的 LC-MS 谱图通过突变体和截短体实验，精准地剖析了 IscF 各个结构域的功能。
-    ![image.png](http://synbiopath.online/20260120115454324.png)
+    ![image.png](https://synbiopath.online/20260120115454324.png)
 
 - **Figure 4d** 提出了基于实验证据的、完整的 IscF 催化机理。
-    ![image.png](http://synbiopath.online/20260120115502652.png)
+    ![image.png](https://synbiopath.online/20260120115502652.png)
 
 ### 研究部分四：P450 IscD 的 Cα-Cβ 脱氢酶功能的发现
 
@@ -216,7 +216,7 @@
 这一结果明确证实了 P450 酶 IscD 催化了一个非经典的 Cα-Cβ 脱氢反应，这是真菌 P450 酶中首次发现该功能。
 
 **Figure 5 (IscD 功能的确认)**：
-![image.png](http://synbiopath.online/20260120115511378.png)
+![image.png](https://synbiopath.online/20260120115511378.png)
 
 
 - **Figure 5a, 5c** 的 LC-MS 谱图分别从体内和体外两个层面，清晰地展示了 IscD 催化 **9a** 生成 **13a/13b** 的过程。
@@ -249,7 +249,7 @@
 这些结果表明，**异腈异亮氨酸部分是其植物毒性的关键药效团**。作者据此提出了一个合理的生物学假说：镰刀菌产生 chlamonitriles (**9a** 等) 作为植物毒素来攻击宿主植物，而后续由 IscD 催化的 Cα-Cβ 脱氢反应，则可能是真菌自身的一种**解毒机制**，通过修饰毒素来避免“自伤”。
 
 - **Figure 6 (根生长抑制实验)**：该图直观地展示了不同化合物的植物毒性。柱状图 (a) 和照片 (b) 清晰地显示，与对照组相比，**9a, 9b, 10a, 10b** 处理组的拟南芥根长显著缩短，而 **13a/13b** 处理组的根长则与对照组无显著差异。
-    ![image.png](http://synbiopath.online/20260120115519458.png)
+    ![image.png](https://synbiopath.online/20260120115519458.png)
 
 
 ### 研究部分六：完整生物合成途径的总结与讨论
@@ -270,7 +270,7 @@
 #### 实验结果与分析
 
 **Figure 7 (提出的生物合成途径)**：该图是对整个 chlamonitriles 生物合成途径的总结性示意图，整合了本研究的所有关键发现。该图清晰地描绘了从初级代谢前体 FPP 和 L-异亮氨酸出发，构建最终产物 **13a/13b** 的完整酶促路径：
-![image.png](http://synbiopath.online/20260120115526024.png)
+![image.png](https://synbiopath.online/20260120115526024.png)
 
 
 1. **萜烯骨架的构建与修饰**：萜烯环化酶 IscA 催化 FPP 环化生成愈创木烷骨架 **1**，随后由两个 P450 酶 IscB 和 IscC 进行多步氧化，生成高度官能化的倍半萜前体 **4**。

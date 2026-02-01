@@ -1,4 +1,4 @@
-![image.png](http://synbiopath.online/20260104125106074.png)
+![image.png](https://synbiopath.online/20260104125106074.png)
 
 ---
 
@@ -83,12 +83,12 @@ Burkholderia cepacia complex (BCC) 细菌是囊性纤维化 (Cystic fibrosis, CF
 
 #### 实验结果与分析
 通过严格避光的分离策略，研究成功从 *B. puraquae* DSM 103137 中分离出 **AFC-BC11**。HR-ESI-MS 显示其 [M+H]⁺ 离子为 *m/z* 734.3906，对应于分子式 C₃₆H₅₆N₅O₁₁ (计算值 734.3971, Δ*m* = -8.9 ppm) (**Figure 1a**)。一维和二维 NMR 分析 (**Figures 1b, c, S2-S11**) 揭示了其为由三部分构成的 N-酰基四肽：N 端为一个 8Z-十四碳烯酰基连接 O-甲基化苹果酸单元 (O-methylated malic acid-fatty acid, MMPA)；核心为三个依次连接的去氢-β-丙氨酸 (Dehydro-β-alanine, DBA) 残基，构型分别为 Z, Z, E；C 端为一个 Z-构型的 γ,δ-去氢赖氨酸 (Dehydro-lysine, DHLys) 残基。Marfey 分析确证 DHLys 为 L-构型 (**Figure S12**)。MS/MS 碎片谱与结构完全吻合 (**Figure S13**)。
-![image.png](http://synbiopath.online/20260104125253441.png)
+![image.png](https://synbiopath.online/20260104125253441.png)
 
 > “Overall, AFC-BC11 is an unusual N-acyl tetrapeptide comprising a DBA trimer core, which is N- and C-terminally decorated with a distinctive MMPA and DHLys moiety, respectively.”
 
 活性测试表明，**AFC-BC11** 对植物病原真菌 *Colletotrichum kahawae* 和 *Pyrenophora teres* 表现出强效抑制活性，MIC 值在 0.24 至 0.72 μg/mL 之间，优于阳性对照药嘧菌酯 (azoxystrobin) (**Figure 1h, Table S5**)。然而，它对人类病原真菌 (如白色念珠菌、烟曲霉) 以及革兰氏阳性和阴性细菌均无活性 (**Table S6, Figure S26**)。关键的发现是，**AFC-BC11** 具有高度光敏感性。紫外光 (366 nm) 照射会诱导其发生复杂的光异构化，产生至少 16 种同量异位异构体 (**Figures 1d, S18-S21**)。对主要光异构产物之一 (光异构体 **5**) 的 NMR 分析证实，其中一个 DBA 残基发生了 Z-to-E 的构型翻转 (**Figure 1e**)。随照射时间延长，其抗真菌活性显著下降 (**Figures 1g, h**)，表明天然的 (Z, Z, E)-DBA 三聚体构型是维持其完全生物活性的关键。这一光控活性特性暗示其在植物环境中可能具有生态学意义。
-![image.png](http://synbiopath.online/20260104125330663.png)
+![image.png](https://synbiopath.online/20260104125330663.png)
 
 ### 研究部分二：afc基因簇的生物信息学分析与生物合成假说提出
 #### 实验目的与设计
@@ -96,10 +96,10 @@ Burkholderia cepacia complex (BCC) 细菌是囊性纤维化 (Cystic fibrosis, CF
 
 #### 实验结果与分析
 *afc* 基因簇包含 25 个基因 (**Figure 2a, Table S2**)。与经典的多模块 NRPS 基因簇不同，该簇完全**缺乏**负责肽键形成的缩合 (C) 结构域。然而，它包含一个 NRPS 特征的腺苷化 (A) 结构域基因 *afcQ* 和一个酰基载体蛋白 (ACP) 基因 *afcK*。此外，簇内还包含多种推测功能的基因：一个脂肪酰-AMP 连接酶 (*afcA*)、一个柠檬酸合酶同源蛋白 (*afcS*)、一个 SAM 依赖性 O-甲基转移酶 (*afcT*)，以及多个氧化还原酶基因 (*afcC/D/E/F/I/N/U*)，后者可能负责引入 DBA 和 DHLys 中的双键。
-![image.png](http://synbiopath.online/20260104125416856.png)
+![image.png](https://synbiopath.online/20260104125416856.png)
 
 基于此非典型组合，研究提出了一个以单一载体蛋白 **AfcK** 为核心的“接力组装”模型 (**Figure 2b**)：
-![image.png](http://synbiopath.online/20260104125459122.png)
+![image.png](https://synbiopath.online/20260104125459122.png)
 
 1.  **步骤 1 (迭代肽键形成)**：**AfcQ** 激活 L-Asp，并将其加载到 **AfcK** 上。随后，**AfcP** 将其脱羧为 β-Ala。**AfcQ** 能以迭代方式将下一个 L-Asp 加载到已连接肽链的氨基上，经脱羧后延伸肽链。
 2.  **步骤 2 (酰基转移)**：**AfcA** 激活脂肪酸 (如肉豆蔻酸)，并将其转移到已形成的 (β-Ala)ₙ-**AfcK** 中间体的 N 端。
@@ -112,12 +112,12 @@ Burkholderia cepacia complex (BCC) 细菌是囊性纤维化 (Cystic fibrosis, CF
 
 #### 实验结果与分析
 体外腺苷化活性测定证实，**AfcQ** 特异性激活 L-Asp，但不能激活 β-Ala (**Figure 3a**)。分子对接模型显示，其底物口袋入口的 Arg311 可能迫使 L-Asp 以其侧链羧基被识别，从而为后续形成 β-氨基酸支架奠定基础。将 **AfcK** 用磷酸泛酰巯基乙胺转移酶 (Sfp) 和辅酶 A (CoA) 修饰为全酶形式 (holo-**AfcK**) 后，与 **AfcQ**, L-Asp 和 ATP 共孵育，HPLC-MS 成功检测到 L-Asp 被加载到 holo-**AfcK** 的泛酰巯基乙胺 (pantetheine) 臂上 (**Figure 3c**)。延长孵育时间后，观察到了多个 L-Asp 被连续加载到 **AfcK** 上的现象 (**Figure 3d**)，这初步证明了 **AfcQ** 具有迭代催化能力。
-![image.png](http://synbiopath.online/20260104125641995.png)
+![image.png](https://synbiopath.online/20260104125641995.png)
 
 > “This observation demonstrated the basic principle of iterative peptide-bond formation by AfcQ; the thiol group of the pant arm of holo-AfcK as well as the α-amino group of H₂N-L-Asp-γ-S-AfcK are tolerated as the nucleophiles attacking the first and the subsequent H₂N-L-Asp-γ-O-AMP intermediates provided by AfcQ, respectively.”
 
 为了模拟生物合成中的脱羧步骤，研究引入了 PLP 依赖的脱羧酶 **AfcP**。在包含 **AfcQ**, holo-**AfcK**, **AfcP**, L-Asp, ATP 和 PLP 的一锅反应中，HPLC-MS 检测到了多种被 β-Ala 和/或 L-Asp 修饰的 **AfcK** 物种 (**Figure 3e**)。质谱分析表明，L-Asp 仅出现在肽链的 N 末端位置，这与 **AfcP** 对 **AfcK** 上负载的 L-Asp 进行 α-脱羧、生成 β-Ala，从而暴露出新的 β-氨基以接受下一轮 L-Asp 加载的模型完全一致。动力学分析进一步显示，**AfcQ** 将 L-Asp 加载到 H₂N-(β-Ala)ₙ-S-**AfcK** (n=1-3) 上的效率高于加载到 H₂N-L-Asp-S-**AfcK** 上 (**Figure S42**)，支持了脱羧是高效迭代延伸的前提。这些数据共同证实了假说中的步骤 1。
-![image.png](http://synbiopath.online/20260104125705318.png)
+![image.png](https://synbiopath.online/20260104125705318.png)
 
 
 ### 研究部分四：N-端酰基转移与C-端赖氨酸引入机制的阐明
@@ -126,17 +126,17 @@ Burkholderia cepacia complex (BCC) 细菌是囊性纤维化 (Cystic fibrosis, CF
 
 #### 实验结果与分析
 **AfcA** 被鉴定为一种脂肪酰-AMP 连接酶 (FAAL)。底物筛选显示其对肉豆蔻酸 (C14:0) 具有最强的激活活性，但不激活短链或长链脂肪酸、二羧酸或氨基酸 (**Figure 3b**)。质谱分析证实其产物为肉豆蔻酰-O-AMP，而非肉豆蔻酰-S-CoA (**Figure S45**)。当试图将肉豆蔻酸转移到 H₂N-L-Asp-S-**AfcK** 或 H₂N-β-Ala-S-**AfcK** 上时未能成功，表明底物肽链太短无法到达 **AfcA** 的活性中心。然而，当使用化学合成的 **H₂N-(β-Ala)₃-S-CoA** 来制备 H₂N-(β-Ala)₃-S-**AfcK** 时，**AfcA** 成功地将肉豆蔻酸转移到了其 N 端，生成了肉豆蔻酰-(β-Ala)₃-S-**AfcK** (**Figure 3f**)。这一结果确证了 **AfcA** 的酰基转移功能 (步骤 2)，并表明其对底物肽链长度有严格要求，这解释了为何 **AFC-BC11** 中只存在 DBA 三聚体。
-![image.png](http://synbiopath.online/20260104125728706.png)
-![image.png](http://synbiopath.online/20260104125802738.png)
+![image.png](https://synbiopath.online/20260104125728706.png)
+![image.png](https://synbiopath.online/20260104125802738.png)
 
 > “The substrate selectivity for an appropriately extended β-Ala repeat attached to holo-AfcK attributed a gate-keeper function to AfcA and rationalized the exclusive presence of a DBA trimer in AFC-BC11.”
 
 对于 C 端处理，研究聚焦于 KAS III 样酶 **AfcL**。体外实验表明，**AfcL** 可以接受合成的 **H₂N-(β-Ala)ₙ-SNAC** 硫酯 (n=1-4)，并将其中的肽链转移到自身的半胱氨酸残基 (Cys111) 上，形成共价中间体 H₂N-(β-Ala)ₙ-S-**AfcL**，且对 H₂N-(β-Ala)₃-SNAC 有偏好 (**Figure 4b**)。这支持了 **AfcL** 作为肽链硫酯中间体“暂存器”的角色。然而，游离的 L-Lys 并不能从 **AfcL** 上释放肽链。出乎意料的是，当提供 **H₂N-L-Lys-S-CoA** 时，成功地发生了转肽反应，生成了 **H₂N-(β-Ala)₃-S-CoA** (**Figure 4c**)。这表明最终产物的释放依赖于**活化的赖氨酸-CoA 硫酯**，而非游离赖氨酸，其生物学意义尚不完全明确。
-![image.png](http://synbiopath.online/20260104125912696.png)
+![image.png](https://synbiopath.online/20260104125912696.png)
 
 
 基因敲除实验为体内功能提供了支持。Δ*afcL* 突变株完全丧失了产生 **AFC-BC11** 的能力 (**Figure 4d**)，证实了 **AfcL** 在生物合成中的必要性。Δ*afcC* 突变株产生了一个分子量增加 2 Da (m/z 736.4142) 的主要产物 (**Figure 4d**)。MS/MS 分析将此修饰定位在 C 端部分，证实其为未脱水的 L-Lys，从而明确了 **AfcC** 的功能是催化 L-Lys 脱水形成 DHLys (步骤 3 的一部分)。
-![image.png](http://synbiopath.online/20260104125935537.png)
+![image.png](https://synbiopath.online/20260104125935537.png)
 
 > “MS² experiments unambiguously localized this modification to the C-terminal part of AFC-BC11 confirming an unprocessed L-Lys.”
 
@@ -146,14 +146,14 @@ Burkholderia cepacia complex (BCC) 细菌是囊性纤维化 (Cystic fibrosis, CF
 
 #### 实验结果与分析
 Δ*afcS* (推测的柠檬酸合酶) 和 Δ*afcF* (推测的 FAD 依赖氧化还原酶) 突变株产生了相同的两种主要产物，分子量分别比野生型 **AFC-BC11** 少 72 Da (m/z 662.3758) 和 88 Da (m/z 646.3813) (**Figure 4f**)。MS/MS 分析表明质量缺失发生在酰基部分，对应于丢失了 C₃H₄O₂ 和 C₃H₄O₃ 片段。这强烈暗示 **AfcS** 和 **AfcF** 共同参与将一个柠檬酸 (或衍生物如 citryl-CoA) 前体连接到脂肪酸链上，可能分别负责缩合与还原步骤，这与同为 Burkholderia 产生的 bolagladin 的生物合成有相似之处。
-![image.png](http://synbiopath.online/20260104130015425.png)
+![image.png](https://synbiopath.online/20260104130015425.png)
 
 Δ*afcT* (O-甲基转移酶) 突变株的主要产物分子量减少了 14 Da (m/z 720.3897)，对应于丢失一个甲基 (**Figure 4f**)，直接证明了 **AfcT** 负责 MMPA 中苹果酸单元的 O-甲基化。
 
 此外，对多个其他基因的敲除研究表明，*afcP* (脱羧酶), *afcI*, *afcN* (均为脱氢酶/氧化还原酶), *afcO* (KAS III 样酶) 和转录调节子 *shvR* 对 **AFC-BC11** 的产生是必需的 (**Figure 4g**)。而 *afcD* (另一个推测的酰基-ACP 去饱和酶) 和 *afcJ* (外膜蛋白) 则是非必需的。值得注意的是，尽管 **AfcN** 与酰基-ACP 去饱和酶高度同源，但其缺失导致产物完全消失，而非积累带有饱和脂肪酸链的类似物，暗示其可能具有除了在 MMPA 中引入双键之外的其他关键功能，或存在功能冗余/补偿机制。
 
 基于以上所有体外和体内数据，研究最终整合并完善了 **AFC-BC11** 的生物合成途径图 (**Figure 2b**)。该途径描绘了一个由自主酶和中央载体蛋白 **AfcK** 构成的精密分子组装线。
-![image.png](http://synbiopath.online/20260104125459122.png)
+![image.png](https://synbiopath.online/20260104125459122.png)
 
 ---
 

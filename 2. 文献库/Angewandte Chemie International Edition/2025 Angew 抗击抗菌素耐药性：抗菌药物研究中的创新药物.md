@@ -1,4 +1,4 @@
-![image.png](http://synbiopath.online/20260120113024720.png)
+![image.png](https://synbiopath.online/20260120113024720.png)
 
 
 # 一：文献基本信息
@@ -109,7 +109,7 @@
 此外，细菌的致病性不仅与其生长有关，还与其产生的**毒力因子 (Virulence factors)** 密切相关。这些毒力因子（如毒素、粘附素、分泌系统）通常不是细菌生存所必需的，但却是致病的关键。因此，靶向毒力因子或其调控系统（如**群体感应 (Quorum Sensing, QS)**）的**抗毒力疗法**，旨在“解除细菌武装”而非直接杀死它们，被认为是一种可能减缓耐药性产生的策略。然而，其在急性感染中的疗效和适用性仍在争论中。
 
 许多病原体还能形成**生物膜 (Biofilms)** [**图 2 (示意图)**]，这是一种由细菌群体分泌的胞外基质包裹形成的复杂结构。生物膜内的细菌代谢缓慢，对传统抗生素的敏感性可降低数百倍，是导致慢性感染和植入物相关感染的主要原因。
-![image.png](http://synbiopath.online/20260120113037087.png)
+![image.png](https://synbiopath.online/20260120113037087.png)
 
 
 ## 1.2 理想靶点与药物特性：制胜的法则
@@ -126,7 +126,7 @@
     
 
 [**图 1：已确立和新兴的抗菌靶点示意图**] 该图是理解抗菌药物作用机制的“战略地图”。
-![image.png](http://synbiopath.online/20260120113044412.png)
+![image.png](https://synbiopath.online/20260120113044412.png)
 
 
 - **描述性说明**：该图以革兰氏阴性菌、革兰氏阳性菌和分枝杆菌的细胞结构为背景，系统性地标示了从细胞壁、细胞膜到细胞质内各种已确立和新兴的药物靶点。
@@ -152,7 +152,7 @@
     
 
 [**图 2：以 albicidin 为例解释的主要耐药机制**] 该图以新型 DNA 促旋酶抑制剂**albicidin**为例，生动地展示了细菌耐药机制的多样性和复杂性。
-![image.png](http://synbiopath.online/20260120113051740.png)
+![image.png](https://synbiopath.online/20260120113051740.png)
 
 
 - **描述性说明**：该图展示了针对 albicidin 的五种不同耐药机制。(A) _大肠杆菌_ 通过突变外膜转运蛋白 Tsx 阻止药物进入，或 _白色黄单胞菌_ 通过外排泵 AlbF 将其泵出。(B) _白色黄单胞菌_ 通过突变靶点（DNA 促旋酶）或产生保护蛋白 AlbG 来保护靶点。(C) _分散泛菌_ 产生肽酶 AlbD 将 albicidin 切割失活。(D) _产酸克雷伯菌_ 产生结合蛋白 AlbA 来隔离药物。(E) _鼠伤寒沙门氏菌_ 通过**基因扩增 (Gene Duplication Amplifications, GDAs)** 提高药物结合蛋白 STM3175 的产量来隔离药物。
@@ -161,7 +161,7 @@
     
 
 [**图 3：耐药因子抑制剂**] 该图展示了对抗耐药机制的“反制武器”。
-![image.png](http://synbiopath.online/20260120113058049.png)
+![image.png](https://synbiopath.online/20260120113058049.png)
 
 
 - **描述性说明**：图中展示了三类耐药因子抑制剂。(A) **β-内酰胺酶抑制剂 (β-lactamase inhibitors, BLIs)**，如 **avibactam** 和 **vaborbactam**，它们与 β-内酰胺类抗生素联用，保护后者不被降解。(B) **外排泵抑制剂 (Efflux pump inhibitors, EPIs)**，如 **PAβN**。(C) **突变频率下降 (Mutation Frequency Decline, Mfd)** 蛋白抑制剂，如 **NM102**，旨在降低细菌产生耐药突变的能力。
@@ -172,7 +172,7 @@
 ## 1.4 药物开发流程：从命中到候选的漫漫长路
 
 [**图 4：抗菌药物开发流程示意图**] 该图是新药研发的“路线图”，清晰地展示了从早期发现到临床前开发的各个阶段和关键决策点。
-![image.png](http://synbiopath.online/20260120113104262.png)
+![image.png](https://synbiopath.online/20260120113104262.png)
 
 
 **描述性说明**：该流程始于**命中化合物的发现与验证 (Hit identification & validation)**，经过**从命中到先导的转化 (Hit to Lead)**、**先导化合物优化 (Lead optimization)**，最终进入**候选化合物的确定 (Candidate profiling)**。图中红色框代表微生物学和感染模型研究，蓝色框代表药代动力学和毒理学研究。
@@ -193,7 +193,7 @@
 # 第二部分：新武器的来源与发现策略
 
 [**图 5：抗菌药物发现策略**] 该图是现代药物发现方法学的全景图，展示了三大主要技术路径。
-![image.png](http://synbiopath.online/20260120113111342.png)
+![image.png](https://synbiopath.online/20260120113111342.png)
 
 
 - **描述性说明**：该图将发现策略分为三大来源：(1) **自然 (Nature)**，包括从传统和未开发生境中分离微生物，以及利用基因组挖掘和宏基因组学；(2) **化学库 (Chemical Libraries)**，包括小分子库、药物重定位库、DNA 编码库和各种展示技术；(3) **人工智能 (Artificial Intelligence)**，利用机器学习和分子对接进行虚拟筛选和结构设计。
@@ -224,7 +224,7 @@
 ## 2.3 计算科学的赋能：分子对接与人工智能
 
 [**图 6：通过虚拟筛选/分子对接和 AI 发现的分子**] 该图展示了计算方法在药物发现中的强大威力。
-![image.png](http://synbiopath.online/20260120113120672.png)
+![image.png](https://synbiopath.online/20260120113120672.png)
 
 
 - **描述性说明**：图 A 展示了通过**分子对接 (Molecular Docking)** 虚拟筛选发现的 PBP2a 抑制剂 **ND-421** 和 Mfd 抑制剂 **NM102**。图 B 展示了通过**人工智能 (AI)** 深度学习模型发现的膜去极化剂 **halicin** 和 **abaucin**。
@@ -235,7 +235,7 @@
 ## 2.4 设计理念的革新：双效机制与先导优化
 
 [**图 7：双效抗生素的理性设计策略**] 该图展示了三种旨在克服耐药性和增强药效的先进设计理念。
-![image.png](http://synbiopath.online/20260120113127025.png)
+![image.png](https://synbiopath.online/20260120113127025.png)
 
 
 - **描述性说明**：(A) **“特洛伊木马”策略**，将抗生素与细菌必需的营养物质（如铁载体）偶联，如 **cefiderocol**。(B) **“混合抗生素”策略**，将两个具有不同作用机制的抗生素通过一个连接子偶联，如 **CBR-2092**。(C) **“细菌 PROTAC” (bacPROTAC)** 策略，利用分子胶将靶蛋白与细菌自身的蛋白降解机器（如 ClpCP）连接，从而诱导靶蛋白的降解，如 **UdSBI-4377**。
@@ -244,7 +244,7 @@
     
 
 [**图 8：抗菌活性优化的研究实例**] 该图展示了从一个先导化合物出发，通过药物化学优化获得临床候选药物的四个典型案例。
-![image.png](http://synbiopath.online/20260120113134010.png)
+![image.png](https://synbiopath.online/20260120113134010.png)
 
 - **描述性说明**：(A) 从天然产物 **albicidin** 到广谱类似物 **AF-CD-007** 的优化。(B) 从天然产物 **arylomycin** 到广谱 G- 药物 **G0775** 的改造。(C) 从天然多肽 **protegrin I** 到 G- 特效药 **murepavadin** 的进化。(D) 从 HTS 命中物 **afabicin** 到广谱 G- 药物 **fabimycin** 的改造。
     
@@ -252,7 +252,7 @@
     
 
 [**图 9：优化支架的工具箱和方法**] 该图总结了药物化学家和生物学家用于优化先导化合物的“工具箱”。
-![image.png](http://synbiopath.online/20260120113143781.png)
+![image.png](https://synbiopath.online/20260120113143781.png)
 
 
 - **描述性说明**：左侧是**药物化学 (MedChem)** 工具箱，包括生物电子等排、理性设计、虚拟筛选和 QSAR。右侧是**生物合成 (Biosynthesis)** 工具箱，包括基因组挖掘、组合生物合成、诱变和化学酶法。图中以**四环素 (tetracyclines)** 的全合成和**放线菌素 (actagardine)** 的半合成为例。
@@ -263,13 +263,13 @@
 # 第三部分：创新药物管线全景：一场靶点导向的阅兵
 
 [**图 10：人类医疗保健中当前抗菌药物的防线**] 该图是本部分内容的“背景板”，展示了目前临床上使用的主要抗生素类别及其作用靶点，为后续讨论的新药提供了参照系。
-![image.png](http://synbiopath.online/20260120113153320.png)
+![image.png](https://synbiopath.online/20260120113153320.png)
 
 
 ## 3.1 细胞壁与细胞分裂：攻破细菌的“铠甲”
 
 [**图 11-13, 表 1**] 细胞壁是细菌（除支原体外）所特有的结构，是理想的药物靶点。
-![image.png](http://synbiopath.online/20260120113200048.png)
+![image.png](https://synbiopath.online/20260120113200048.png)
 
 
 **肽聚糖 (PG) 生物合成**：
@@ -286,11 +286,11 @@
 **壁磷壁酸 (WTA) 生物合成**：WTA 是 G+ 菌细胞壁的重要组分。**Tarocin A/B** 和 **targocil** [**图 11B**] 分别是 WTA 生物合成早期和晚期的抑制剂，它们能增强 β-内酰胺类药物对 MRSA 的活性。
 
 **分枝菌酸与阿拉伯半乳聚糖合成 (分枝杆菌特有)**：**DprE1** 是该途径的关键酶。**BTZ043**、**PBTZ169**、**TBA-7371** 和 **OPC-167832** [**图 12A**] 都是高效的 DprE1 抑制剂，处于不同的临床开发阶段。
-![image.png](http://synbiopath.online/20260120113207340.png)
+![image.png](https://synbiopath.online/20260120113207340.png)
 
 
 **细胞分裂**：**FtsZ** 是细菌的细胞骨架蛋白，负责形成 Z 环启动细胞分裂。**PC190723** 及其前药 **TXY436** [**图 13**] 是特异性的金黄色葡萄球菌 FtsZ 抑制剂。
-![image.png](http://synbiopath.online/20260120113223226.png)
+![image.png](https://synbiopath.online/20260120113223226.png)
 
 
 ## 3.2 蛋白质合成：瘫痪细菌的“工厂”
@@ -298,7 +298,7 @@
 [**图 14-16, 表 2**] 核糖体是蛋白质合成的场所，其结构在细菌和真核生物间存在显著差异，是抗生素的重要靶点。
 
 **核糖体抑制剂**：
-![image.png](http://synbiopath.online/20260120113240337.png)
+![image.png](https://synbiopath.online/20260120113240337.png)
 
 
 - **Bottromycin C₂** 和 **myxovalargin A** [**图 14A**] 是两种天然肽类抑制剂。
@@ -306,18 +306,18 @@
 - **Odilorhabdins** (如 **NOSO-95179** [**图 14C**]) 是一类新型的核糖体抑制剂，能诱导密码子错读。
     
 - **氨酰-tRNA 合成酶 (aaRSs)**：这类酶负责为 tRNA 装载正确的氨基酸。**Mupirocin** [**图 15**] 是经典的异亮氨酰-tRNA 合成酶抑制剂。**REP8839** 和 **CRS3123** [**图 15**] 是新型的甲硫氨酰-tRNA 合成酶抑制剂。
-    ![image.png](http://synbiopath.online/20260120113246188.png)
+    ![image.png](https://synbiopath.online/20260120113246188.png)
 
 
 **延伸因子 (Elongation Factors)**：**EF-Tu** 负责将氨酰-tRNA 运送至核糖体。**LFF571** [**图 16A**] 是天然产物 **GE2270A** 的半合成衍生物，是一种高效的 EF-Tu 抑制剂。
-![image.png](http://synbiopath.online/20260120113252081.png)
+![image.png](https://synbiopath.online/20260120113252081.png)
 
 **肽基转移酶 (Peptide Deformylases, PDFs)**：这类酶负责切除新生肽链 N-端的甲酰基。**Actinonin** [**图 16B**] 是天然的 PDF 抑制剂，其合成类似物 **BB-83698** 和 **LBM-415** [**图 16B**] 曾进入临床研究。
 
 ## 3.3 DNA 合成：阻断遗传信息的复制
 
 [**图 17-18, 表 3-4**]
-![image.png](http://synbiopath.online/20260120113259671.png)
+![image.png](https://synbiopath.online/20260120113259671.png)
 
 
 **DNA 聚合酶 (DNA Polymerase)**：**Nargenicin A1** [**图 17A**] 是天然的 Pol III 抑制剂。**Ibezapolstat** [**图 17C**] 是一种新型的 Pol IIIC 抑制剂，正在开发用于治疗艰难梭菌感染。
@@ -327,7 +327,7 @@
 **DNA 连接酶 (DNA Ligase)** 和 **解旋酶 (Helicase)**：**Pyridochromanone cpd 3** [**图 17D**] 和 **coumarin cpd 22** [**图 17E**] 分别是这两个靶点的抑制剂，但目前研究较少。
 
 **拓扑异构酶 (Gyrase/Topoisomerase IV)**：这是**氟喹诺酮类**药物的经典靶点。
-![image.png](http://synbiopath.online/20260120113306965.png)
+![image.png](https://synbiopath.online/20260120113306965.png)
 
 
 - **新型天然产物抑制剂**：**Albicidin** [**图 18A**] 及其类似物 **cystobactamids** [**图 18C**] 是一类高效的广谱促旋酶抑制剂。**Evybactin** [**图 18C**] 是另一种新型肽类抑制剂。
@@ -338,7 +338,7 @@
 ## 3.4 RNA 合成：沉默基因的转录
 
 [**图 19, 表 5**] **RNA 聚合酶 (RNA Polymerase, RNAP)** 是转录过程的核心酶，也是一个成熟的靶点。
-![image.png](http://synbiopath.online/20260120113313417.png)
+![image.png](https://synbiopath.online/20260120113313417.png)
 
 
 - **经典抑制剂**：**利福霉素 (Rifamycins)**。
@@ -351,7 +351,7 @@
 ## 3.5 脂肪酸合成：切断膜组分的来源
 
 [**图 20, 表 6**] 细菌的 II 型脂肪酸合成系统 (FASII) 与人体的 I 型系统 (FASI) 存在显著差异。
-![image.png](http://synbiopath.online/20260120113326799.png)
+![image.png](https://synbiopath.online/20260120113326799.png)
 
 - **FabI (烯酰-ACP 还原酶)**：**Afabicin** [**图 20A**] 是一种特异性的金黄色葡萄球菌 FabI 抑制剂，其前药正在进行临床试验。其衍生物 **fabimycin** [**图 8D**] 则具有广谱的 G- 活性。
     
@@ -367,11 +367,11 @@
 [**图 21-22, 表 7**]
 
 **Clp 蛋白酶系统**：**ClpP** 是细菌中核心的 ATP 依赖性蛋白酶。**ADEPs (Acyldepsipeptides)** [**图 21A**] 是一类天然产物，它们不是抑制 ClpP，而是异常**激活**它，使其变成一个不受调控的蛋白降解机器，能有效杀死包括持留菌在内的细菌。
-![image.png](http://synbiopath.online/20260120113334928.png)
+![image.png](https://synbiopath.online/20260120113334928.png)
 
 
 **信号肽酶 (Signal Peptidases, SPases)**：
-![image.png](http://synbiopath.online/20260120113341485.png)
+![image.png](https://synbiopath.online/20260120113341485.png)
 
 
 - **SPase I**：**Arylomycins** [**图 22A**] 是天然的 SPase I 抑制剂。其合成衍生物 **G0775** [**图 22A**] 具有强大的广谱 G- 活性，是该领域的重大突破。
@@ -382,7 +382,7 @@
 ## 3.7 细胞膜与生物能学：瓦解能量与屏障
 
 [**图 23, 表 8**]
-![image.png](http://synbiopath.online/20260120113348091.png)
+![image.png](https://synbiopath.online/20260120113348091.png)
 
 
 - **膜破坏剂**：**多粘菌素 (Polymyxins)**（如 colistin）是治疗多重耐药 G- 菌感染的“最后一道防线”，它们通过结合 LPS 来破坏外膜。**F365 (QPX9003)** [**图 23A**] 是新一代的多粘菌素类似物，具有更低的肾毒性。
@@ -399,7 +399,7 @@
 [**图 24-25, 表 9**] 这是当前 G- 药物研发最前沿和最热门的领域。
 
 **脂多糖 (LPS) 生物合成与转运**：
-![image.png](http://synbiopath.online/20260120113355314.png)
+![image.png](https://synbiopath.online/20260120113355314.png)
 
 
 - **LpxC**：是脂质 A 生物合成的关键酶。**ACHN-975** 和 **PF-5081090** [**图 24D**] 是高效的 LpxC 抑制剂，但因毒性问题开发受阻。
@@ -408,7 +408,7 @@
     
 
 **β-桶状蛋白组装机器 (BAM) complex**：负责将外膜蛋白正确折叠和插入。**Darobactin** [**图 25B**] 是一种 RiPP，通过模拟 β-链，“卡住”BAM 复合体的核心亚基 BamA，是首个靶向该系统的药物。
-![image.png](http://synbiopath.online/20260120113401205.png)
+![image.png](https://synbiopath.online/20260120113401205.png)
 
 
 **脂蛋白转运 (Lol) 系统**：负责将脂蛋白从内膜转运至外膜。**Lolamicin** [**图 25A**] 是一种新型合成抑制剂，它能选择性地抑制致病 G- 菌的 Lol 系统，而对共生菌影响较小，代表了“微生物组友好型”抗生素的开发方向。
@@ -416,7 +416,7 @@
 #### 3.9 其他新兴靶点：探索新的攻击路径
 
 [**图 26, 表 10**]
-![image.png](http://synbiopath.online/20260120113408538.png)
+![image.png](https://synbiopath.online/20260120113408538.png)
 
 
 - **辅因子与核苷酸合成**：**Abyssomicin C** [**图 26**] 是叶酸途径的抑制剂。**Gemcitabine** 和 **TK-666** [**图 26**] 是核苷酸合成的抑制剂。

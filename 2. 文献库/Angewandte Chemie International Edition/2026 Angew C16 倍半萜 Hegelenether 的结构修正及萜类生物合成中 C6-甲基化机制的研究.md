@@ -1,4 +1,4 @@
-![image.png](http://synbiopath.online/20260120092522281.png)
+![image.png](https://synbiopath.online/20260120092522281.png)
 
 ---
 
@@ -24,7 +24,7 @@
 
 ### 前期研究
 已知的甲基转移酶如 C2-GPP-MT 和 C10-FPP-MT 能够产生甲基化的焦磷酸前体，进而生成如 2-甲基异冰片 (2-methylisoborneol) 和 Sodorifen 等化合物。对于 C6 位甲基化的 FPP 衍生物 Prekantenol pyrophosphate (PKPP)，已知其可作为前体生成 Jaegerol (**7**)。然而，关于 Hegelenether (**9**) 的结构及其生物合成途径中的立体化学控制机制，尚缺乏深入的结构生物学证据。
-![image.png](http://synbiopath.online/20260120093234093.png)
+![image.png](https://synbiopath.online/20260120093234093.png)
 
 ### 本文突破点
 本研究通过严谨的化学逻辑和实验数据，证明了此前报道的天然产物 Hegelenether (**9**) 的结构是错误的，并将其修正为双羟基化的倍半萜 **Marxdiol** (**10**)。研究团队结合了同位素标记实验、X 射线晶体学和定点突变技术，不仅确定了 **Marxdiol** (**10**) 及其前体 PKPP 的绝对构型，还解析了负责 C6 甲基化的酶 C6-FPP-MT 的晶体结构，揭示了酶如何通过活性口袋的芳香族残基和关键的谷氨酸残基 (Glu165) 精确控制反应的区域选择性和立体化学。
@@ -69,7 +69,7 @@
 
 #### 实验结果与深度解析
 计算模拟结果显示，原结构 **9** 中 C3 与 C11 的距离过远，无法形成醚键，且 C10 位的四个取代基指向同一半球，存在极大的立体张力。分析数据方面，该化合物的 GC 保留指数 ($I = 1895$) 显著高于结构相似的三环醚类化合物（如 Corvol ethers, $I \approx 1400-1500$），且红外光谱在 3400 cm⁻¹ 处显示出明显的宽吸收峰，特征指向醇羟基而非醚键。此外，原报道忽略了质谱中 $m/z$ 239 的碎片离子，这实际上对应于分子离子 $m/z$ 254 脱去甲基的结果，而非原报道的 $m/z$ 236。基于这些矛盾，作者通过 APCI-MS 确认了其二醇性质，并最终通过 X 射线单晶衍射解析了其晶体结构，证实该化合物实际上是一个双羟基化的倍半萜，命名为 **Marxdiol** (**10**) (Scheme 1)。这一结果不仅修正了文献错误，也扩展了由萜类合酶 (Terpene Synthase, TS) 直接生成的萜类二醇家族。
-![image.png](http://synbiopath.online/20260120093317006.png)
+![image.png](https://synbiopath.online/20260120093317006.png)
 
 
 > "In summary, the structure 9 previously assigned to a C16 sesquiterpene named hegelenether is revised to marxdiol (10), and its absolute configuration is now firmly established."
@@ -80,7 +80,7 @@
 
 #### 实验结果与深度解析
 通过 HSQC 谱图分析 **Marxdiol** (**10**) 中 13C 标记碳上的氢/氘信号，结合 NOESY 谱图中的空间相关性，研究人员确立了 **10** 的绝对构型 (Scheme 2)。实验结果表明，C6-FPP-MT 催化的反应中，S-腺苷甲硫氨酸 (SAM) 的甲基是从 FPP 的 C6=C7 双键的 *Si* 面进行亲电进攻的。这一进攻导致 C7 位形成碳正离子，随后通过 Glu165 介导的 8-*pro*-*R* 质子（对应于 IPP 的 4-Hz 质子）的消除，生成 (E)-构型的双键。这一立体化学过程的解析，使得研究者能够推导出中间体 PKPP 为 ($S$)-构型。这与晶体结构中观察到的底物结合模式高度一致，从而完整地描绘了从 FPP 到 **Marxdiol** (**10**) 的立体化学路径。
-![image.png](http://synbiopath.online/20260120093341685.png)
+![image.png](https://synbiopath.online/20260120093341685.png)
 
 ### 研究部分三：C6-FPP-MT 的晶体结构与催化机制
 #### 实验目的与设计逻辑
@@ -88,7 +88,7 @@
 
 #### 实验结果与深度解析
 晶体结构显示，C6-FPP-MT 采用典型的 I 类 SAM 依赖性甲基转移酶折叠。在活性位点中，FPP 被紧密包裹在一个由芳香族残基组成的疏水口袋中 (Figure 1)。关键残基 Phe243 和 Trp244 通过 $\pi$-堆积作用稳定底物，特别是 Trp244 将 FPP 的 C6 位精确导向 SAM 的甲基，距离约为 6.2 Å（处于反应前态）。结构比对揭示了区域选择性的分子基础：在 C2-GPP-MT 中，Tyr256 和 Arg260 锚定 GPP 的 $\alpha$-磷酸基团，而在 C6-FPP-MT 中，这些位置的残基差异消除了这种限制，允许 FPP 更深入地结合。此外，Met47 残基限制了 FPP 中间异戊二烯单元的旋转，从而确保了 *Si* 面甲基化的立体选择性。催化机制方面，Glu165 被确认为广义碱 (Brønsted base)，它与 His194 形成氢键网络，负责夺取质子以终止反应。定点突变实验证实，Glu165 和 His194 的突变 (如 E165A, H194A) 会导致酶活性的完全丧失，进一步支撑了基于结构的催化机制模型。
-![image.png](http://synbiopath.online/20260120093356445.png)
+![image.png](https://synbiopath.online/20260120093356445.png)
 
 
 > "These findings rationalize the substrate preference, the site of methylation, and the stereochemical outcome of the reaction."

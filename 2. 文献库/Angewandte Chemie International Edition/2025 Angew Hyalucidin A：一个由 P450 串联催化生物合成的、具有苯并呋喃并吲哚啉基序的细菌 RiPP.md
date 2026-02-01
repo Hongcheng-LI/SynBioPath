@@ -1,4 +1,4 @@
-![image.png](http://synbiopath.online/20260120120238816.png)
+![image.png](https://synbiopath.online/20260120120238816.png)
 
 ---
 
@@ -66,12 +66,12 @@
 本研究的首要目标是探索含有双 P450 酶的 RiPP BGCs 的生物合成潜力，以期获得结构新颖复杂的肽类天然产物。研究团队首先基于前期建立的基因组挖掘框架，将含有两个 P450 基因的 BGCs 归类为 Class D。根据前体肽基因与 P450 基因的相对位置，Class D 被细分为 D1 和 D2 两个亚型 (Figure 1c)。研究聚焦于 D1 亚型，并根据前体肽核心序列的保守基序进一步划分为 D1α (保守 WYxYHHI 基序) 和 D1β (保守 WRWxxYHNI 基序)。为进行功能验证，研究者从数量更多的 D1α 亚型中选取了四个代表性 BGCs (_hya_, _sch_, _svi_, _amy_) (Figure 2a)，在模式宿主 _S. albus_ J1074 中进行异源表达。
 
 - **Figure 1**: 该图展示了芳香环交联在药物和天然产物中的重要性 (Figure 1a)，并列举了已知的由 P450 酶催化的 RiPPs (Figure 1b)。核心在于 Figure 1c，它清晰地展示了 Class D BGCs 的基因组织结构，以及 D1α 和 D1β 亚型前体肽的序列标识 (sequence logo)。这为后续的 BGCs 筛选提供了分类学依据。图中还展示了本研究发现的 hyalucidin A (**1**) 和另一 D2 型 BGC 产物 gpertide 的结构，直观对比了不同亚型产物的结构差异。
-    ![image.png](http://synbiopath.online/20260120120249833.png)
-![image.png](http://synbiopath.online/20260120120256737.png)
+    ![image.png](https://synbiopath.online/20260120120249833.png)
+![image.png](https://synbiopath.online/20260120120256737.png)
 
 
 - **Figure 2**: 异源表达结果显示，在四个被测试的 D1α BGCs 中，仅来源于 _Streptomyces hyaluromycini_ 的 _hya_ 基因簇在 _S. albus_ 中成功产生了新化合物 (Figure 2b, trace i)。通过 HPLC-MS 分析，该新化合物被命名为 hyalucidin A (**1**)，其质荷比 (m/z) 为 1220.5056 [M+H]⁺。该质量值比其前体肽 HyaA 的核心序列 (SYGQFWYLY) 的理论分子量小 6 Da，这直接表明分子中发生了三次氧化脱氢反应，形成了三个交联键。其他三个基因簇 (_sch_, _svi_, _amy_) 在该宿主中未检测到目标产物 (Figure 2b, trace iv-vi)，可能归因于表达水平不足或酶活不匹配等因素。
-    ![image.png](http://synbiopath.online/20260120120303036.png)
+    ![image.png](https://synbiopath.online/20260120120303036.png)
 
 
 ### 研究部分二：Hyalucidin A (1) 的复杂多环结构解析
@@ -87,7 +87,7 @@
     - **Trp5-Tyr8 C-C 键**: HMBC 谱中 H-42 (Trp5) 与 C-69 (Tyr8) 以及 H-68 (Tyr8) 与 C-41 (Trp5) 的远程相关信号，明确了 Trp5 与 Tyr8 之间存在一个 C-C 键。
         
 - **Figure 2c**: 该图以图形化方式总结了化合物 **1** 的最终结构，并标注了关键的 HMBC 和 NOESY 相关信号，直观地呈现了结构解析的证据链。该结构不仅是 P450-RiPP 中最为复杂的，其 benzofuranoindoline 基序也是首次在细菌来源的 RiPP 中被发现 (Figure S3)。
-    ![image.png](http://synbiopath.online/20260120120310453.png)
+    ![image.png](https://synbiopath.online/20260120120310453.png)
 
 
 ### 研究部分三：双 P450 酶 HyaP1 与 HyaP2 的协同催化机制
@@ -95,7 +95,7 @@
 为了阐明 hyalucidin A 生物合成的分子机制，特别是两个 P450 酶 HyaP1 和 HyaP2 的具体功能和催化顺序，研究者设计了一系列逐步基因共表达实验。分别在宿主中表达：(i) HyaA + HyaP1；(ii) HyaA + HyaP2；(iii) HyaA + HyaP1 + HyaP2。
 
 **Figure 2b**: HPLC 分析结果清晰地揭示了催化顺序。
-![image.png](http://synbiopath.online/20260120120315627.png)
+![image.png](https://synbiopath.online/20260120120315627.png)
 
 
 - 表达 HyaA 和 HyaP1 (trace ii) 产生了一个新产物 **2**。结构解析表明 **2** 是一个仅含有 Trp5-Tyr8 C-C 单交联的四肽。
@@ -106,11 +106,11 @@
     
 
 **Figure 2c**: 基于上述结果，研究者提出了一个清晰的序贯生物合成途径：HyaP1 首先作用于 HyaA 前体肽，催化形成 Trp5-Tyr8 C-C 键，生成中间体。随后，HyaP2 识别并作用于这个单环中间体，连续催化两步氧化反应：首先是 Tyr1-Trp5 间的 C-C/C-O 偶联形成 benzofuranoindoline 核心，然后是 Trp5-Tyr6 间的 C-O 醚键形成。
-![image.png](http://synbiopath.online/20260120120322377.png)
+![image.png](https://synbiopath.online/20260120120322377.png)
 
 
 **Figure 2d**: 研究者进一步提出了 HyaP2 催化 benzofuranoindoline 骨架形成的可能化学机理。该机理涉及 P450 酶产生的高价铁氧物种 (FeIV=O) 从色氨酸 N-H 和酪氨酸 O-H 夺取氢原子，生成自由基中间体 **Int1**，随后经过自由基重排和偶联形成 C-C 键 (**Int2**)，最终通过烯醇互变和半缩胺形成完成环化。
-![image.png](http://synbiopath.online/20260120120328308.png)
+![image.png](https://synbiopath.online/20260120120328308.png)
 
 
 ### 研究部分四：P450 酶底物耐受性与复杂环肽的工程化改造
@@ -118,7 +118,7 @@
 为探究 HyaP1 和 HyaP2 的底物特异性，并利用该系统创造新的分子，研究者采取了两种策略：(1) 组合生物合成，将其他沉默的 D1α BGCs 的前体肽 (_schA_, _sviA_, _amyA_) 与 _hya_ 簇的 P450 酶对 (_hyaP1P2_) 共表达；(2) 前体肽工程，对 HyaA 的核心序列进行系统的定点突变。
 
 **Figure 3 (组合生物合成)**:
-![image.png](http://synbiopath.online/20260120120333863.png)
+![image.png](https://synbiopath.online/20260120120333863.png)
 
 
 - _schA_ 与 _hyaP1P2_ 共表达成功产生了化合物 **3** (Figure 3a, ii)，其质谱和 NMR 数据表明它具有与 **1** 相同的交联模式 (Figure 3b)。这证明了该双 P450 催化系统具有一定的底物普适性，可以被用于修饰其他前体肽。
@@ -129,7 +129,7 @@
 > "Together, these combinatorial experiments show that HyaP1 exhibits broad substrate promiscuity, whereas HyaP2 is context-dependent substrate specificity and requires a Tyr at position 1 to engage its benzofuroindoline-forming chemistry."
 
 **Figure 4 (前体肽工程)**:
-![image.png](http://synbiopath.online/20260120120341106.png)
+![image.png](https://synbiopath.online/20260120120341106.png)
 
 
 - **Figure 4a (非交联位点突变)**: 将 Leu7 突变为其他芳香族氨基酸 (L7F/Y/W) 后，虽然 benzofuranoindoline 骨架仍能形成 (如化合物 **8**, **9**)，但 Trp5-Tyr6 的 C-O 醚键却无法形成。这表明 P450 催化的区域选择性极高，即使是邻近残基的微小改变也会影响特定键的形成。
@@ -144,7 +144,7 @@
 为了比较不同亚型双 P450 BGCs 的功能，研究者选择了一个典型的 D1β 型 BGC (_lsi_ 簇，来自 _Lysobacter silvisoli_) 进行异源表达。该基因簇含有三个前体肽基因 (_lsiA1-3_)。
 
 **Figure 5**:
-![image.png](http://synbiopath.online/20260120120350093.png)
+![image.png](https://synbiopath.online/20260120120350093.png)
 
 - 异源表达 _lsi_ 簇 (Figure 5a) 产生了三个新的四肽化合物 **24**, **25**, 和 **26** (Figure 5b, i)。它们的分子量均比对应的前体肽核心序列小 2 Da，表明只发生了一次氧化交联。
     

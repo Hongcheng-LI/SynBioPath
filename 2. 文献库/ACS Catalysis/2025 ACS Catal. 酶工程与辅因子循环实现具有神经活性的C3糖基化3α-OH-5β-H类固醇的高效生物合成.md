@@ -1,4 +1,4 @@
-![image.png](http://synbiopath.online/20251226213345860.png)
+![image.png](https://synbiopath.online/20251226213345860.png)
 
 
 ---
@@ -78,8 +78,8 @@
 
 #### 实验结果与分析
 如图 **Figure 1** 和 **Figure 2** 所示，研究团队通过 HPLC 监测反应进程。
-![image.png](http://synbiopath.online/20251226213619571.png)
-![image.png](http://synbiopath.online/20251226213644450.png)
+![image.png](https://synbiopath.online/20251226213619571.png)
+![image.png](https://synbiopath.online/20251226213644450.png)
 
 
 *   **WT 的功能**: 表达 WT AKR1D1 的全细胞能将 **1a** 转化为 **2a** ($t_R$ 8.7 min)。NMR 光谱（图 **S13/14**）显示 **2a** 在 C3/C20 处保留酮基信号（213.3, 196.9 ppm），确证发生了 Δ4 双键的 5β-还原反应。
@@ -95,16 +95,16 @@
 
 #### 实验结果与分析
   **结构分析 (Figure 3a-c)**: 分子对接显示，底物与残基 W230 和 Y132 之间存在显著的空间冲突（距离 1.9-2.3 Å），限制了底物的有效结合。
-![image.png](http://synbiopath.online/20251226213709816.png)
+![image.png](https://synbiopath.online/20251226213709816.png)
 
   **WT 改造 (Figure 3d, Table 1)**:
-*![image.png](http://synbiopath.online/20251226213732361.png)
+*![image.png](https://synbiopath.online/20251226213732361.png)
 
 -  针对 5β-还原反应，构建了双突变体 **M8 (Y132H/W230Y)**。
 *   **M8** 在 24 h 内实现了 74% 的产率（WT 仅 42%）。
 *   动力学数据显示，**M8** 的 $k_{cat}/K_m$ 为 $3.78 \times 10^{-2}$ min⁻¹μM⁻¹，较 WT 提升了 **7.8 倍**。
 **E120H 改造 (Figure 3e-f, Table 1)**:
-![image.png](http://synbiopath.online/20251226213851546.png)
+![image.png](https://synbiopath.online/20251226213851546.png)
 
 *   针对 3-酮还原反应，筛选出最佳组合突变体 **M16 (E120H/Y132A/W230H)**。
 *   **M16** 使 **2a** 的转化率从 E120H 的 ~11% 提升至 58%。
@@ -119,7 +119,7 @@
 
 #### 实验结果与分析
 **Figure 3g** 展示了引入 GDH 后的效果：
-![image.png](http://synbiopath.online/20251226214132408.png)
+![image.png](https://synbiopath.online/20251226214132408.png)
 
 *   对于 **M8** 菌株（5β-还原），引入 GDH 后产率从 42% 跃升至 **94%**（1.89 倍提升）。
 *   对于 **M16** 菌株（3-酮还原），引入 GDH 后产率从 39% 提升至 **62%**。
@@ -131,14 +131,14 @@
 
 #### 实验结果与分析
 **底物拓展 (Figure 4)**:
-![image.png](http://synbiopath.online/20251226214212336.png)
+![image.png](https://synbiopath.online/20251226214212336.png)
 
 *   该体系对一系列底物（**4a-4c**, **1a-1e**）均表现出良好的催化活性。
 *   从底物 **4a** 合成 **3a** 的分步产率分别为：氧化(37%) -> 5β-还原(94%) -> 3-酮还原(62%)。
 *   对于底物 **2e** (5α-dihydrotestosterone)，系统实现了 68% 的产率。
 *   值得注意的是，**Figure 4** 显示在处理 **4c** 时，E120H 变体表现出一定的催化杂乱性（Promiscuity），生成了副产物 **1e**，这提示了底物结构的微小变化对酶特异性的影响。
 **放大实验 (Figure 3h)**:
-![image.png](http://synbiopath.online/20251226214233474.png)
+![image.png](https://synbiopath.online/20251226214233474.png)
 
 *   在 10 L 生物反应器中，结合动态 pH 控制和流加策略，最终获得了 **103.2 mg** 的高纯度产物 **3a** (HPLC 纯度 98%)，相比摇瓶实验提高了 6.3 倍，验证了该路径的可扩展性。
 
@@ -148,7 +148,7 @@
 
 #### 实验结果与分析
 **转化效率 (Figure 5)**:
-![image.png](http://synbiopath.online/20251226214403671.png)
+![image.png](https://synbiopath.online/20251226214403671.png)
 
 *   HPLC 分析（**Figure 5b**）显示，底物 **3a** ($t_R$ 12.3 min) 在 8 小时内完全转化为糖基化产物 **5a** ($t_R$ 9.7 min)，转化率 >99%。
 *   分离产率高：对四种不同的 3α-OH-5β-H 类固醇（**3a-3d**），糖基化产物的分离产率在 **81% 至 93%** 之间（**Figure 5c**）。

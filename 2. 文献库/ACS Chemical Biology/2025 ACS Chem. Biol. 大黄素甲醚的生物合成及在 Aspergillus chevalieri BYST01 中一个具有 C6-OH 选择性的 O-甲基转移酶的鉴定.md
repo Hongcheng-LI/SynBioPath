@@ -1,4 +1,4 @@
-![image.png](http://synbiopath.online/20251226225512762.png)
+![image.png](https://synbiopath.online/20251226225512762.png)
 
 
 ## 一：基本信息
@@ -89,7 +89,7 @@
 - **数据支撑与图表解读**：
     
     - **Figure 2A** 是本部分的核心 HPLC 数据。
-        ![image.png](http://synbiopath.online/20251226225529900.png)
+        ![image.png](https://synbiopath.online/20251226225529900.png)
 
         
         - (ii) AO-PhyG：无产物峰，证实 PhyG 需辅助酶释放产物。
@@ -101,8 +101,8 @@
         - (iv) AO-PhyGFH：引入另一个 OMT 同源基因 _PhyH_，产物谱与 (iii) 无异，表明 PhyH 在此途径中不起作用。
             
     - **Figure 1** 和 **Figure 2B** 展示了基于上述实验结果推导出的完整途径和所有化合物的结构。
-        ![image.png](http://synbiopath.online/20251226225540785.png)
-![image.png](http://synbiopath.online/20251226225548913.png)
+        ![image.png](https://synbiopath.online/20251226225540785.png)
+![image.png](https://synbiopath.online/20251226225548913.png)
 
 
   
@@ -121,11 +121,11 @@
 - **数据支撑与图表解读**：
     
     - **Figure 2A (vi)** 的 HPLC 图谱显示，与 (v) 相比，AO-PhyGFLE 菌株在晚出峰时间区域出现了一系列新的主峰 (**8-12**)。
-        ![image.png](http://synbiopath.online/20251226225603699.png)
+        ![image.png](https://synbiopath.online/20251226225603699.png)
 
     
     - **Figure 2B** 展示了这些二聚体的结构，如 physcion-10,10'-bianthrone (**8**) 和 emodin bianthrone (**9**, **10**)。
-        ![image.png](http://synbiopath.online/20251226225613129.png)
+        ![image.png](https://synbiopath.online/20251226225613129.png)
 
     
     - **分析**：该结果证明 PhyE 是一种新型的、具有高度区域选择性的 P450 氧化酶，它催化的是对称的氧化偶联反应 (OPC)，这与文献中报道的多数催化非对称偶联的 P450 酶功能不同。这一发现拓展了 P450 酶的功能多样性。
@@ -148,7 +148,7 @@
 - **数据支撑与图表解读**：
     
     - **Figure 3A** 的 HPLC 图谱清晰地展示了选择性：
-       ![image.png](http://synbiopath.online/20251226225632363.png)
+       ![image.png](https://synbiopath.online/20251226225632363.png)
 
         
         - 大黄素 (emodin) 被成功转化为大黄素甲醚 (physcion) (vii)。
@@ -179,15 +179,15 @@
 - **数据支撑与图表解读**：
     
     - **Figure 4A 和 4C** 展示了 PhyL 的三维结构模型和活性口袋中的关键残基。
-        ![image.png](http://synbiopath.online/20251226225643559.png)
+        ![image.png](https://synbiopath.online/20251226225643559.png)
 
     
     - **Figure 4B** 显示，对一些关键残基（如 Y22A, D23A, Y124A）的突变会导致酶活性严重下降甚至丧失，验证了这些残基在催化中的重要性。
-        ![image.png](http://synbiopath.online/20251226225653656.png)
+        ![image.png](https://synbiopath.online/20251226225653656.png)
 
     
     - **Figure 4D** 的柱状图展示了对关键位点进行饱和突变后的活性筛选结果。多个突变体（如 F125Y, V30I）的相对活性显著高于 100%（野生型）。F125Y 突变体的活性达到了野生型的 264%。
-        ![image.png](http://synbiopath.online/20251226225701354.png)
+        ![image.png](https://synbiopath.online/20251226225701354.png)
 
     
     - **分析**：这一结果成功地展示了“结构预测+理性设计”策略在酶工程改造中的威力，为后续构建高产菌株提供了一个性能更优的“酶元件”。
@@ -206,15 +206,15 @@
 - **数据支撑与图表解读**：
     
     - **Figure 5A** 的时间曲线显示，添加豆粕（红色曲线）能显著提高 atrochrysone, torosachrysone 和 physcion 的产量，远优于基础培养基（蓝色）或添加蛋白胨（橙色）。
-        ![image.png](http://synbiopath.online/20251226225712236.png)
+        ![image.png](https://synbiopath.online/20251226225712236.png)
 
     
     - **Figure 5B** 提出了碱处理的化学转化原理示意图。
-        ![image.png](http://synbiopath.online/20251226225720335.png)
+        ![image.png](https://synbiopath.online/20251226225720335.png)
 
     
     - **Figure 5C** 是最终的产量优化结果。柱状图显示，随着 NaOH 浓度的增加，大黄素甲醚的产量也随之增加，在 70 g/L NaOH 处理条件下达到峰值 152.81 mg/L。
-        ![image.png](http://synbiopath.online/20251226225729262.png)
+        ![image.png](https://synbiopath.online/20251226225729262.png)
 
     
     - **分析**：这种“生物合成+化学转化”的混合策略非常巧妙。它充分利用了微生物高效合成复杂前体的能力，同时用一种简单的化学方法解决了生物途径中效率较低的最后一步（芳构化），是实现复杂天然产物高效制造的典范思路。
