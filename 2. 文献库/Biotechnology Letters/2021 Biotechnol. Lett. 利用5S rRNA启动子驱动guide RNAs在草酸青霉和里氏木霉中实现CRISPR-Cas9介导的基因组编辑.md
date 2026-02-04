@@ -1,9 +1,9 @@
-这是一份基于2021年发表于 *Biotechnology Letters* 的研究论文《CRISPR/Cas9-mediated genome editing in Penicillium oxalicum and Trichoderma reesei using 5S rRNA promoter-driven guide RNAs》的深度分析报告。
+![image.png](https://synbiopath.online/20260204104656804.png)
 
 ---
 
 ## 一：基本信息
-**文章题目**：CRISPR/Cas9-mediated genome editing in *Penicillium oxalicum* and *Trichoderma reesei* using 5S rRNA promoter-driven guide RNAs（利用5S rRNA启动子驱动guide RNAs在草酸青霉和里氏木霉中实现CRISPR/Cas9介导的基因组编辑）
+**文章题目**：CRISPR/Cas9-mediated genome editing in *Penicillium oxalicum* and *Trichoderma reesei* using 5S rRNA promoter-driven guide RNAs
 **文章 DOI 号**：10.1007/s10529-020-03024-7
 **期刊名称**：*Biotechnology Letters*
 **通讯作者**：高丽伟 (Liwei Gao)、刘国栋 (Guodong Liu)
@@ -39,16 +39,17 @@
 
 ## 五：实验设计及结果分析
 
-### *P. oxalicum* 中基于异源5S rRNA启动子的基因删除与无痕编辑
+### （一）*P. oxalicum* 中基于异源5S rRNA启动子的基因删除与无痕编辑
 #### 实验目的与设计逻辑
 在丝状真菌中，sgRNA的高效表达是CRISPR/Cas9系统成功的关键。鉴于5S rRNA启动子在黑曲霉中的成功应用，作者首先尝试将其引入亲缘关系较近的*P. oxalicum*。为了验证该系统的有效性及供体DNA设计对效率的影响，作者选择了$\beta$-葡萄糖苷酶基因*bgl2*作为靶点。设计了两个sgRNA靶向*bgl2*编码区两侧，旨在产生双链断裂（DSB）并介导整个基因的删除。同时，设计了两种供体DNA：一种带有*hph*筛选标记且两侧仅含40 bp微同源臂（图1a），另一种为无标记的500 bp长同源臂融合片段（图1b），以评估不同修复模板对同源重组（HR）效率的影响。
 
 #### 实验结果与深度解析
 实验结果显示，*A. niger*的5S rRNA启动子能有效驱动sgRNA在*P. oxalicum*中的表达并引导Cas9切割。如**Fig. 1**所示，利用带有筛选标记且仅含40 bp微同源臂的供体DNA（图1a），*bgl2*的删除效率高达80%（16/20转化子，**Fig. S3**）。这表明在Cas9切割产生的DSB压力下，微同源臂足以介导高效的HR。当使用无标记的长同源臂供体DNA时（图1b），虽然效率下降至30%（6/20），但成功实现了无痕删除。表型分析（**Fig. 1c**）显示，*bgl2*缺失株在纤维素平板上的透明圈明显大于亲本菌株M12，证实了基因功能的丧失及纤维素酶分泌的提升。这一部分不仅验证了异源5S rRNA启动子的活性，还确立了在该菌中利用微同源臂进行基因敲除的可行性。
+![image.png](https://synbiopath.online/20260204104728814.png)
 
 > "The above results showed that micro-homology arms on donor DNA are sufficient for homologous recombination in *P. oxalicum* with the aid of CRISPR/Cas9."
 
-### *P. oxalicum* 中 *creA* 基因的精准片段替换
+### （二）*P. oxalicum* 中 *creA* 基因的精准片段替换
 #### 实验目的与设计逻辑
 为了进一步展示该系统的精准编辑潜力，作者选择了碳代谢阻遏因子基因*creA*作为靶点。与*bgl2*的全基因删除不同，此次旨在通过单sgRNA切割和无痕供体DNA修复，在*creA*内部精准替换一段序列。设计思路是利用含有500 bp同源臂的供体DNA，将*creA*编码区内一段序列替换为20 bp的异源序列（导致氨基酸序列改变），从而解除CreA的阻遏效应（图2a）。
 
