@@ -51,7 +51,7 @@
 
 ## 五：实验设计及结果分析
 
-### 挖掘与生物合成解析：从基因簇到复杂天然产物
+### （一）挖掘与生物合成解析：从基因簇到复杂天然产物
 #### 实验目的与设计逻辑
 研究团队旨在利用“抗性基因导向”策略发现靶向支链氨基酸（BCAA）合成途径的新型抗真菌剂。鉴于除草剂已成功靶向 ALS，且真菌中存在编码靶点同源蛋白以赋予自我抗性的先例（如 chlorflavonin 和 harzianic acid），作者在真菌基因组数据库中搜寻与 *S. cerevisiae* ALS 基因 (*ILV2*) 同源的 BGC。这一逻辑基于假设：产生 ALS 抑制剂的真菌必须拥有一个抗性拷贝的 ALS 基因以避免自杀。
 
@@ -63,34 +63,38 @@
 
 > "Upon isolation, the metabolite responsible for this feature was determined to be **HB-35018 (1)**, a unique spiro-cis-decalin containing tetramic acid."
 
-### 靶点验证与动力学机制：区分于传统除草剂的新模式
+### （二）靶点验证与动力学机制：区分于传统除草剂的新模式
 #### 实验目的与设计逻辑
 虽然基因簇中抗性基因的存在暗示 **1** 靶向 ALS，但必须通过实验确证。作者采用了正向遗传学筛选（生成抗性突变株）和体外酶学动力学分析相结合的方法。特别是，考虑到现有的 ALS 抑制剂（如磺酰脲类除草剂）通常表现出特殊的“累积抑制”动力学，作者试图明确 **1** 是否遵循相同的机制。
 
 #### 实验结果与深度解析
 通过将酿酒酵母暴露于 **1** 中筛选抗性克隆，全基因组测序显示 24 个克隆中有 23 个在 ALS 基因 (*ILV2*) 发生突变，且 P192 位点突变频率最高。将这些突变映射到 ALS 结构上，发现其位于底物通道入口附近（**Figure 2A**）。生化实验显示，**1** 能有效抑制野生型 ALS，但对 P192S 突变体的抑制活性仅下降 4 倍，而传统除草剂（**2-5**）对该突变体的活性下降了至少 100 倍（**Figure 2B**）。这一差异暗示 **1** 与 ALS 的结合模式与除草剂不同。此外，**1** 对多种致病真菌（*C. albicans*, *A. fumigatus*）的 ALS 均显示出强效抑制（**Figure 2C**）。
+![image.png](https://synbiopath.online/20260204090532663.png)
 
 在机制层面，ALS 催化反应依赖 FAD 辅因子（**Figure 2D**）。已知除草剂（如 **2**）通过“累积抑制”机制导致 FAD 氧化失活。然而，动力学分析表明 **1** 表现出标准的紧密结合（Tight-binding）动力学特征（IC50 约为酶浓度的一半）（**Figure 2E**），且在抑制过程中并未观察到 FAD 的再氧化（**Figure 2F**）。这一结果有力地证明 **1** 不通过氧化 FAD 的累积机制起作用，而是通过一种全新的直接结合模式抑制酶活。
 
 > "Kinetic characterization indicates **1** does not function via this mechanism as standard tight-binding kinetics... is observed... Furthermore, we see no indication of FAD reoxidation upon treatment with **1**."
 
-### 结构机理研究：基于断裂反应的共价修饰
+### （三）结构机理研究：基于断裂反应的共价修饰
 #### 实验目的与设计逻辑
 鉴于 **1** 表现出的紧密结合动力学和独特的高张力螺环结构，作者假设其可能与 ALS 发生共价结合。为了验证这一假设并解析原子层面的结合细节，作者利用完整蛋白非变性谱（Intact Protein MS）检测质量偏移，并通过冷冻电镜（Cryo-EM）解析烟曲霉 ALS（AfALS）与 **1** 的复合物结构。
 
 #### 实验结果与深度解析
 质谱分析显示，AfALS 和 ScALS 在与 **1** 孵育后均发生了明显的质量偏移，且该偏移对应于 **1** 的分子量，支持共价结合假设（**Figure 3A**）。随后的 Cryo-EM 解析获得了 AfALS-**1** 复合物 2.36 Å 分辨率的结构（**Figure 3B**）。电子密度图清晰地显示，**1** 位于二聚体界面的底物通道中，且与 Lys310 残基的侧链相连（**Figure 3C**）。惊人的是，结合后的配体结构发生了显著变化：原有的 C1-C2' 键断裂，Lys310 的 $\epsilon$-氨基与 C1 形成酰胺键。作者提出了一种类似于 Retro-Dieckmann 的断裂机制：Lys310 进攻 C1 酮基，随后高张力的螺环体系驱动 C1-C2' 键断裂，从而不可逆地捕获赖氨酸（**Figure 3D**）。结构叠合显示，**1** 的结合位置与除草剂 **2** 虽然都在底物通道，但具体的空间构象和关键相互作用残基（如 Trp648）完全不同（**Figure 3E**）。这种通过碳-碳键断裂释放环张力来捕获赖氨酸的机制在天然产物中极为罕见，区别于常见的亲电共价抑制剂（如 Wortmannin 等）（**Figure 3F**），代表了一种全新的共价抑制策略。
+![image.png](https://synbiopath.online/20260204090613938.png)
 
 > "The structure achieving the best fit... contained an amide between C1 and the $\epsilon$-amine of Lys310 with fragmentation of the C1–C2' bond... The driving force for this fragmentation is likely the relief of ring strain in the spiro center."
 
-### 抗真菌活性与体内致病性验证
+### （四）抗真菌活性与体内致病性验证
 #### 实验目的与设计逻辑
 最后，作者旨在评估 **1** 的药用潜力并验证 ALS 作为抗真菌靶点的体内相关性。实验设计包括测定 **1** 对一系列病原真菌的最低抑菌浓度（MIC），测试其对人源细胞的细胞毒性，并利用小鼠模型评估 ALS 缺失对烟曲霉致病力的影响。
 
 #### 实验结果与深度解析
 MIC 测试表明，**1** 对烟曲霉的抑制活性（IC50 = 0.7 $\mu$M）与一线药物伏立康唑相当，且显著优于现有的除草剂类 ALS 抑制剂（**Figure 4A**）。更重要的是，**1** 对包括唑类耐药菌株在内的多种临床分离株以及其他难治性霉菌（如毛霉、赛多孢子菌）均表现出强效活性（**Figure 4B**），且在高达 100 $\mu$M 浓度下对人原代细胞无毒性（**Figure 4C**）。
+![image.png](https://synbiopath.online/20260204090649439.png)
 
 为了验证靶点，作者构建了 *ilv2*（ALS 基因）敲除的烟曲霉菌株。在小鼠侵袭性曲霉病模型中，感染 *ilv2* 敲除菌株的小鼠存活率显著提高（**Figure 5A**），且肺部真菌负荷降低了 20 倍（**Figure 5B**），而回补菌株则恢复了致病力。这证明 ALS 是真菌在宿主环境中生存和致病所必需的，确认了其作为抗真菌靶点的有效性。尽管 **1** 在血浆中不稳定（可能由于同样的断裂化学反应），但结构信息的获得为后续优化提供了明确方向。
+![image.png](https://synbiopath.online/20260204090728058.png)
 
 > "These results demonstrate that ALS is required for full virulence of *A. fumigatus* in the context of invasive aspergillosis and establish it as a promising therapeutic target."
 
@@ -122,5 +126,5 @@ MIC 测试表明，**1** 对烟曲霉的抑制活性（IC50 = 0.7 $\mu$M）与�
 **问题 2：为什么本研究认为 ALS 是一个理想的抗真菌靶点？**
 **回答**：首先，ALS 是支链氨基酸（BCAA）生物合成的关键酶，而人类缺乏该途径（BCAA 为必需氨基酸，需从饮食摄取），因此靶向 ALS 理论上具有很高的选择性和低宿主毒性。其次，动物模型实验表明，尽管宿主环境存在氨基酸，但烟曲霉仍需依赖自身的 ALS 进行 BCAA 合成以维持全致病力（*ilv2* 缺失导致毒力显著下降），证明该靶点在感染条件下是必需的。
 
-**问题 3：SdtD 在 **1** 的生物合成中扮演了什么角色？其特殊性体现在哪里？**
+**问题 3：SdtD 在 1 的生物合成中扮演了什么角色？其特殊性体现在哪里？**
 **回答**：SdtD 是一种 Lipocalin 类型的 Diels-Alder 酶（DAase），负责催化线性多烯中间体发生分子内 Diels-Alder 反应，形成 **1** 核心骨架中的顺式-十氢化萘（*cis*-decalin）结构。其特殊性在于，通常热力学上反式（*trans*-）异构体更稳定，而 SdtD 能够特异性地导向顺式产物的形成，这与已知的同类酶（如 CghA 产生反式产物）形成鲜明对比，展示了酶对立体化学的精准控制能力。
