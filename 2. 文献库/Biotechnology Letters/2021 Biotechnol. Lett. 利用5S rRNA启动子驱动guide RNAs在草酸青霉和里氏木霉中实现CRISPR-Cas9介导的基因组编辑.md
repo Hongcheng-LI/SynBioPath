@@ -55,6 +55,7 @@
 
 #### 实验结果与深度解析
 通过共转化Cas9-pyrG表达盒、sgRNA及无标记供体DNA，作者随机挑选了20个转化子进行PCR筛选。结果显示（**Fig. S4**），11个转化子（55%）成功引入了异源序列，测序结果（**Fig. 2b**）进一步证实了氨基酸残基129-144被精准替换。表型测试（**Fig. 2c**）表明，突变株在含纤维素平板上的生长和透明圈与亲本相比有显著差异，暗示CreA功能的改变。这一结果证明了该系统不仅能做“减法”（删除），还能做精细的“改法”（原位替换），且效率可观（>50%），为代谢工程改造提供了强力工具。
+![image.png](https://synbiopath.online/20260204110330874.png)
 
 > "Therefore, the gene editing system from *A. niger* could be used for both gene deletion and small region replacement in *P. oxalicum*."
 
@@ -64,6 +65,8 @@
 
 #### 实验结果与深度解析
 序列比对（**Fig. 3**）显示*T. reesei*的5S rRNA基因与*T. virens*具有93%的相似性，但与*A. niger*差异较大，这解释了异源启动子效率低下的原因。利用内源启动子驱动sgRNA targeting *lae1*，通过引入终止密码子的无标记供体DNA进行修复。由于*lae1*缺失会导致产孢减少，作者利用这一表型进行初筛（**Fig. 4c**）。PCR和测序验证（**Fig. 4b**）表明，在30个随机挑选的转化子中，有11个（36.67%）成功实现了精准的碱基突变。相比之下，使用异源*A. niger*启动子的对照组未获得任何正确转化子。这一结果强调了在远缘物种间进行CRISPR系统移植时，启动子种属特异性的重要性，同时也证明了内源5S rRNA启动子是驱动sgRNA表达的优良元件。
+![image.png](https://synbiopath.online/20260204110348954.png)
+![image.png](https://synbiopath.online/20260204110407230.png)
 
 > "Genotyping of the transformants showed that an editing efficiency of 36.67% ... was achieved by using the native 5S rRNA promoter."
 
