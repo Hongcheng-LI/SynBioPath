@@ -58,7 +58,7 @@
 
 > "Therefore, the gene editing system from *A. niger* could be used for both gene deletion and small region replacement in *P. oxalicum*."
 
-### *T. reesei* 中内源5S rRNA启动子的挖掘与应用
+### （三）*T. reesei* 中内源5S rRNA启动子的挖掘与应用
 #### 实验目的与设计逻辑
 鉴于*A. niger* 5S rRNA启动子在*P. oxalicum*中的成功，作者尝试将其应用于另一工业真菌*T. reesei*。然而，初步实验显示该异源启动子在*T. reesei*中效率极低。为了解决这一问题，作者转向挖掘*T. reesei*自身的内源启动子。利用近缘物种*Trichoderma virens*的5S rRNA序列作为探针进行BLASTn搜索，锁定了*T. reesei*基因组中的同源序列（图3）。随后，利用该内源启动子构建sgRNA表达盒，靶向全局调控因子*lae1*，旨在引入提前终止密码子使其失活（图4a）。
 
