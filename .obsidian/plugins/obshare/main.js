@@ -28,17 +28,280 @@ __export(main_exports, {
   default: () => FeishuUploaderPlugin
 });
 module.exports = __toCommonJS(main_exports);
-var import_obsidian2 = require("obsidian");
+var import_obsidian4 = require("obsidian");
 
 // feishu-api.ts
 var import_obsidian = require("obsidian");
-var FeishuApiClient = class {
+
+// svg-converter.ts
+var SvgConverter = class {
+  // 4x for better quality
+  /**
+   * 将SVG内容转换为PNG格式的base64字符串
+   * @param svgContent SVG文件内容
+   * @param options 转换选项
+   * @returns Promise<string> PNG格式的base64字符串
+   */
+  static async convertSvgToPng(svgContent, options = {}) {
+    return new Promise((resolve, reject) => {
+      try {
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d");
+        if (!ctx) {
+          throw new Error("\u65E0\u6CD5\u521B\u5EFACanvas\u4E0A\u4E0B\u6587");
+        }
+        const svgDimensions = this.parseSvgDimensions(svgContent);
+        const width = options.width || svgDimensions.width || this.DEFAULT_WIDTH;
+        const height = options.height || svgDimensions.height || this.DEFAULT_HEIGHT;
+        const scale = options.scale || this.DEFAULT_SCALE;
+        canvas.width = width * scale;
+        canvas.height = height * scale;
+        if (options.backgroundColor) {
+          ctx.fillStyle = options.backgroundColor;
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+        const img = new Image();
+        img.onload = () => {
+          try {
+            const imgWidth = img.naturalWidth || img.width;
+            const imgHeight = img.naturalHeight || img.height;
+            const actualWidth = imgWidth > 0 ? imgWidth : width;
+            const actualHeight = imgHeight > 0 ? imgHeight : height;
+            canvas.width = actualWidth * scale;
+            canvas.height = actualHeight * scale;
+            if (options.backgroundColor) {
+              ctx.fillStyle = options.backgroundColor;
+              ctx.fillRect(0, 0, canvas.width, canvas.height);
+            }
+            ctx.scale(scale, scale);
+            ctx.drawImage(img, 0, 0, actualWidth, actualHeight);
+            const dataUrl = canvas.toDataURL("image/png", 1);
+            const base64Data = dataUrl.split(",")[1];
+            if (base64Data) {
+              resolve(base64Data);
+            } else {
+              reject(new Error("\u65E0\u6CD5\u751F\u6210PNG\u6570\u636E"));
+            }
+          } catch (error) {
+            reject(new Error(`\u7ED8\u5236SVG\u5230Canvas\u5931\u8D25: ${error instanceof Error ? error.message : String(error)}`));
+          } finally {
+            URL.revokeObjectURL(svgUrl);
+          }
+        };
+        img.onerror = () => {
+          reject(new Error("\u52A0\u8F7DSVG\u56FE\u7247\u5931\u8D25"));
+          URL.revokeObjectURL(svgUrl);
+        };
+        const svgBlob = new Blob([svgContent], { type: "image/svg+xml;charset=utf-8" });
+        const svgUrl = URL.createObjectURL(svgBlob);
+        img.src = svgUrl;
+      } catch (error) {
+        reject(new Error(`SVG\u8F6C\u6362\u521D\u59CB\u5316\u5931\u8D25: ${error instanceof Error ? error.message : String(error)}`));
+      }
+    });
+  }
+  /**
+   * 解析SVG内容中的尺寸信息
+   * @param svgContent SVG内容
+   * @returns 尺寸信息
+   */
+  static parseSvgDimensions(svgContent) {
+    try {
+      const widthMatch = svgContent.match(/width\s*=\s*["']?(\d+(?:\.\d+)?)(?:px|pt|pc|mm|cm|in)?["']?/i);
+      const heightMatch = svgContent.match(/height\s*=\s*["']?(\d+(?:\.\d+)?)(?:px|pt|pc|mm|cm|in)?["']?/i);
+      let width;
+      let height;
+      if (widthMatch && widthMatch[1]) {
+        width = parseFloat(widthMatch[1]);
+      }
+      if (heightMatch && heightMatch[1]) {
+        height = parseFloat(heightMatch[1]);
+      }
+      if (!width || !height) {
+        const viewBoxMatch = svgContent.match(/viewBox\s*=\s*["']?([^"']*?)["']?/i);
+        if (viewBoxMatch && viewBoxMatch[1]) {
+          const viewBoxValues = viewBoxMatch[1].trim().split(/\s+/);
+          if (viewBoxValues.length >= 4 && viewBoxValues[2] && viewBoxValues[3]) {
+            const vbWidth = parseFloat(viewBoxValues[2]);
+            const vbHeight = parseFloat(viewBoxValues[3]);
+            if (!isNaN(vbWidth) && !isNaN(vbHeight)) {
+              width = width || vbWidth;
+              height = height || vbHeight;
+            }
+          }
+        }
+      }
+      const result = {};
+      if (width !== void 0 && width > 0)
+        result.width = width;
+      if (height !== void 0 && height > 0)
+        result.height = height;
+      return result;
+    } catch (error) {
+      return {};
+    }
+  }
+  /**
+   * 检查文件是否为SVG格式
+   * @param fileName 文件名
+   * @param content 文件内容（可选）
+   * @returns boolean
+   */
+  static isSvgFile(fileName, content) {
+    const hasValidExtension = fileName.toLowerCase().endsWith(".svg");
+    if (content) {
+      const hasValidContent = content.trim().startsWith("<svg") || content.includes("<svg");
+      return hasValidExtension && hasValidContent;
+    }
+    return hasValidExtension;
+  }
+  /**
+   * 生成转换后的PNG文件名
+   * @param originalFileName 原始SVG文件名
+   * @returns PNG文件名
+   */
+  static generatePngFileName(originalFileName) {
+    const baseName = originalFileName.replace(/\.svg$/i, "");
+    return `${baseName}_converted.png`;
+  }
+  /**
+   * 获取推荐的转换选项
+   * @param svgContent SVG内容
+   * @returns 推荐的转换选项
+   */
+  static getRecommendedOptions(svgContent) {
+    const dimensions = this.parseSvgDimensions(svgContent);
+    const defaultOptions = {
+      width: 800,
+      height: 600,
+      scale: 1,
+      backgroundColor: "transparent"
+    };
+    if (dimensions.width && dimensions.height) {
+      defaultOptions.width = dimensions.width;
+      defaultOptions.height = dimensions.height;
+      const maxDimension = Math.max(dimensions.width, dimensions.height);
+      if (maxDimension <= 100) {
+        defaultOptions.scale = 8;
+      } else if (maxDimension <= 200) {
+        defaultOptions.scale = 6;
+      } else if (maxDimension <= 400) {
+        defaultOptions.scale = 4;
+      } else if (maxDimension <= 800) {
+        defaultOptions.scale = 2;
+      } else {
+        const maxSize = 2e3;
+        if (dimensions.width > maxSize || dimensions.height > maxSize) {
+          const scale = Math.min(maxSize / dimensions.width, maxSize / dimensions.height);
+          defaultOptions.scale = scale;
+        } else {
+          defaultOptions.scale = 1;
+        }
+      }
+    }
+    const result = {};
+    if (dimensions.width !== void 0) {
+      result.width = dimensions.width;
+    } else {
+      result.width = defaultOptions.width;
+    }
+    if (dimensions.height !== void 0) {
+      result.height = dimensions.height;
+    } else {
+      result.height = defaultOptions.height;
+    }
+    result.scale = defaultOptions.scale;
+    result.backgroundColor = defaultOptions.backgroundColor;
+    return result;
+  }
+};
+SvgConverter.DEFAULT_WIDTH = 800;
+SvgConverter.DEFAULT_HEIGHT = 600;
+SvgConverter.DEFAULT_SCALE = 4;
+
+// feishu-api.ts
+var getErrorMeta = (error) => {
+  if (typeof error !== "object" || error === null) {
+    return {};
+  }
+  const meta = error;
+  const result = {};
+  if ("status" in meta) {
+    const status = meta.status;
+    if (typeof status === "number") {
+      result.status = status;
+    }
+  }
+  if ("statusText" in meta) {
+    const statusText = meta.statusText;
+    if (typeof statusText === "string") {
+      result.statusText = statusText;
+    }
+  }
+  if ("response" in meta) {
+    result.response = meta.response;
+  }
+  if ("json" in meta) {
+    result.json = meta.json;
+  }
+  if ("headers" in meta) {
+    result.headers = meta.headers;
+  }
+  return result;
+};
+var isRecord = (value) => {
+  return typeof value === "object" && value !== null;
+};
+var parseErrorResult = (value) => {
+  if (!isRecord(value)) {
+    return null;
+  }
+  const code = value["code"];
+  const msg = value["msg"];
+  if (typeof code !== "number" || typeof msg !== "string") {
+    return null;
+  }
+  return { code, msg };
+};
+var parseTenantAccessTokenResponse = (value) => {
+  const result = {};
+  if (!isRecord(value)) {
+    return result;
+  }
+  const tenantAccessToken = value["tenant_access_token"];
+  if (typeof tenantAccessToken === "string") {
+    result.tenant_access_token = tenantAccessToken;
+  }
+  const expire = value["expire"];
+  if (typeof expire === "number") {
+    result.expire = expire;
+  }
+  const code = value["code"];
+  if (typeof code === "number") {
+    result.code = code;
+  }
+  const msg = value["msg"];
+  if (typeof msg === "string") {
+    result.msg = msg;
+  }
+  return result;
+};
+var getAdapterBasePath = (adapter) => {
+  if (!isRecord(adapter)) {
+    return void 0;
+  }
+  const basePath = adapter["basePath"];
+  return typeof basePath === "string" ? basePath : void 0;
+};
+var isImportTaskQueryResponse = (value) => {
+  return typeof value === "object" && value !== null && "job_status" in value;
+};
+var _FeishuApiClient = class {
   // 每次删除请求间隔350ms，确保不超过每秒3次
   constructor(appId, appSecret, app, apiCallCountCallback) {
     this.accessToken = null;
     this.tokenExpireTime = 0;
     this.tokenRefreshPromise = null;
-    // 防止并发token获取
     // 飞书API基础URL
     this.baseUrl = "https://open.feishu.cn/open-apis";
     // 限速相关属性
@@ -50,6 +313,32 @@ var FeishuApiClient = class {
     this.appSecret = appSecret;
     this.app = app;
     this.apiCallCountCallback = apiCallCountCallback;
+  }
+  static setDebugEnabled(enabled) {
+    this.debugEnabled = enabled;
+  }
+  debug(...args) {
+    if (_FeishuApiClient.debugEnabled) {
+      console.debug(...args);
+    }
+  }
+  static debug(...args) {
+    if (_FeishuApiClient.debugEnabled) {
+      console.debug(...args);
+    }
+  }
+  static logError(summary, error, details) {
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    console.error(summary, errorMessage);
+    _FeishuApiClient.debug(`${summary} \u8BE6\u60C5:`, {
+      ...details,
+      error,
+      errorMessage,
+      errorStack: error instanceof Error ? error.stack : void 0
+    });
+  }
+  logError(summary, error, details) {
+    _FeishuApiClient.logError(summary, error, details);
   }
   /**
    * 处理删除请求队列，确保不超过频率限制
@@ -72,7 +361,7 @@ var FeishuApiClient = class {
         try {
           await request();
         } catch (error) {
-          console.error("[\u98DE\u4E66API] \u5220\u9664\u8BF7\u6C42\u6267\u884C\u5931\u8D25:", error);
+          this.logError("[\u98DE\u4E66API] \u5220\u9664\u8BF7\u6C42\u6267\u884C\u5931\u8D25:", error);
           throw error;
         }
       }
@@ -89,11 +378,13 @@ var FeishuApiClient = class {
           const result = await request();
           resolve(result);
         } catch (error) {
-          reject(error);
+          reject(error instanceof Error ? error : new Error(String(error)));
         }
       };
       this.deleteRequestQueue.push(wrappedRequest);
-      this.processDeleteQueue().catch(reject);
+      void this.processDeleteQueue().catch((error) => {
+        reject(error instanceof Error ? error : new Error(String(error)));
+      });
     });
   }
   /**
@@ -102,14 +393,11 @@ var FeishuApiClient = class {
   async getAccessToken() {
     const now = Date.now();
     if (this.accessToken && now < this.tokenExpireTime - 30 * 60 * 1e3) {
-      console.log("[\u98DE\u4E66API] \u4F7F\u7528\u7F13\u5B58\u7684\u8BBF\u95EE\u4EE4\u724C\uFF0C\u5269\u4F59\u6709\u6548\u65F6\u95F4:", Math.round((this.tokenExpireTime - now) / 6e4), "\u5206\u949F");
       return this.accessToken;
     }
     if (this.tokenRefreshPromise) {
-      console.log("[\u98DE\u4E66API] \u7B49\u5F85\u6B63\u5728\u8FDB\u884C\u7684token\u5237\u65B0\u8BF7\u6C42...");
       return await this.tokenRefreshPromise;
     }
-    console.log("[\u98DE\u4E66API] \u5F00\u59CB\u83B7\u53D6\u65B0\u7684\u8BBF\u95EE\u4EE4\u724C");
     this.tokenRefreshPromise = this.performTokenRefresh();
     try {
       const token = await this.tokenRefreshPromise;
@@ -122,7 +410,7 @@ var FeishuApiClient = class {
    * 执行实际的token刷新操作
    */
   async performTokenRefresh() {
-    var _a, _b, _c;
+    var _a;
     const now = Date.now();
     const url = `${this.baseUrl}/auth/v3/tenant_access_token/internal`;
     const requestParam = {
@@ -136,54 +424,30 @@ var FeishuApiClient = class {
         app_secret: this.appSecret
       })
     };
-    console.log("[\u98DE\u4E66API] \u8BF7\u6C42\u53C2\u6570:", {
-      url: requestParam.url,
-      method: requestParam.method,
-      headers: requestParam.headers,
-      appId: this.appId ? "\u5DF2\u914D\u7F6E" : "\u672A\u914D\u7F6E",
-      appSecret: this.appSecret ? "\u5DF2\u914D\u7F6E" : "\u672A\u914D\u7F6E"
-    });
     try {
       const response = await (0, import_obsidian.requestUrl)(requestParam);
-      console.log("[\u98DE\u4E66API] \u{1F680} \u8C03\u7528getAccessToken API");
       (_a = this.apiCallCountCallback) == null ? void 0 : _a.call(this);
-      console.log("[\u98DE\u4E66API] \u6536\u5230\u54CD\u5E94:", {
-        status: response.status,
-        headers: response.headers
-      });
-      const result = response.json;
-      console.log("[\u98DE\u4E66API] \u54CD\u5E94\u5185\u5BB9:", {
-        code: result.code,
-        msg: result.msg,
-        hasTenantAccessToken: !!result.tenant_access_token,
-        fullResponse: result
-      });
+      const result = parseTenantAccessTokenResponse(response.json);
       if (!result.tenant_access_token) {
-        console.error("[\u98DE\u4E66API] \u54CD\u5E94\u4E2D\u7F3A\u5C11tenant_access_token\u5B57\u6BB5\uFF0C\u5B8C\u6574\u54CD\u5E94:", JSON.stringify(result, null, 2));
+        console.error("[\u98DE\u4E66API] \u54CD\u5E94\u4E2D\u7F3A\u5C11tenant_access_token\u5B57\u6BB5");
+        this.debug("[\u98DE\u4E66API] \u54CD\u5E94\u4E2D\u7F3A\u5C11tenant_access_token\u5B57\u6BB5\uFF0C\u5B8C\u6574\u54CD\u5E94:", result);
         throw new Error(`API\u54CD\u5E94\u683C\u5F0F\u9519\u8BEF: \u7F3A\u5C11tenant_access_token\u5B57\u6BB5`);
       }
       if (result.code !== 0) {
         throw new Error(`\u83B7\u53D6\u8BBF\u95EE\u4EE4\u724C\u5931\u8D25: ${result.msg}`);
       }
       this.accessToken = result.tenant_access_token;
-      this.tokenExpireTime = now + result.expire * 1e3;
-      console.log("[\u98DE\u4E66API] \u8BBF\u95EE\u4EE4\u724C\u83B7\u53D6\u6210\u529F:", {
-        tokenLength: ((_b = this.accessToken) == null ? void 0 : _b.length) || 0,
-        tokenPrefix: ((_c = this.accessToken) == null ? void 0 : _c.substring(0, 20)) + "...",
-        expireSeconds: result.expire,
-        expireTime: new Date(this.tokenExpireTime).toISOString(),
-        currentTime: new Date(now).toISOString(),
-        timeUntilExpire: this.tokenExpireTime - now
-      });
+      this.tokenExpireTime = now + (result.expire || 0) * 1e3;
       return this.accessToken;
     } catch (error) {
-      console.error("[\u98DE\u4E66API] \u83B7\u53D6\u8BBF\u95EE\u4EE4\u724C\u5931\u8D25:", error);
+      this.logError("[\u98DE\u4E66API] \u83B7\u53D6\u8BBF\u95EE\u4EE4\u724C\u5931\u8D25:", error);
       if (error instanceof TypeError && error.message.includes("Failed to fetch")) {
-        console.error("[\u98DE\u4E66API] \u7F51\u7EDC\u8FDE\u63A5\u9519\u8BEF\uFF0C\u53EF\u80FD\u539F\u56E0:");
-        console.error("1. \u7F51\u7EDC\u8FDE\u63A5\u4E0D\u7A33\u5B9A\u6216\u65AD\u5F00");
-        console.error("2. \u9632\u706B\u5899\u6216\u4EE3\u7406\u963B\u6B62\u4E86\u8BF7\u6C42");
-        console.error("3. \u98DE\u4E66API\u670D\u52A1\u6682\u65F6\u4E0D\u53EF\u7528");
-        console.error("4. DNS\u89E3\u6790\u95EE\u9898");
+        console.error("[\u98DE\u4E66API] \u7F51\u7EDC\u8FDE\u63A5\u5931\u8D25");
+        this.debug("[\u98DE\u4E66API] \u7F51\u7EDC\u8FDE\u63A5\u9519\u8BEF\uFF0C\u53EF\u80FD\u539F\u56E0:");
+        this.debug("1. \u7F51\u7EDC\u8FDE\u63A5\u4E0D\u7A33\u5B9A\u6216\u65AD\u5F00");
+        this.debug("2. \u9632\u706B\u5899\u6216\u4EE3\u7406\u963B\u6B62\u4E86\u8BF7\u6C42");
+        this.debug("3. \u98DE\u4E66API\u670D\u52A1\u6682\u65F6\u4E0D\u53EF\u7528");
+        this.debug("4. DNS\u89E3\u6790\u95EE\u9898");
         throw new Error("\u7F51\u7EDC\u8FDE\u63A5\u5931\u8D25\uFF0C\u8BF7\u68C0\u67E5\u7F51\u7EDC\u8FDE\u63A5\u540E\u91CD\u8BD5");
       }
       const errorMessage = error instanceof Error ? error.message : String(error);
@@ -199,7 +463,7 @@ var FeishuApiClient = class {
    * @returns 返回上传后的文件token
    */
   async uploadFile(fileName, fileContent, folderToken) {
-    var _a, _b;
+    var _a;
     const token = await this.getAccessToken();
     const url = `https://open.feishu.cn/open-apis/drive/v1/files/upload_all`;
     const binaryData = Uint8Array.from(atob(fileContent), (c) => c.charCodeAt(0));
@@ -265,29 +529,13 @@ var FeishuApiClient = class {
       },
       body: body.buffer
     };
-    console.log("[\u98DE\u4E66API] \u5F00\u59CB\u4E0A\u4F20\u6587\u4EF6:", {
-      fileName,
-      folderToken,
-      url,
-      hasToken: !!token,
-      tokenPrefix: token ? token.substring(0, 10) + "..." : "none",
-      bodySize: body.length,
-      boundary
-    });
     try {
       const response = await (0, import_obsidian.requestUrl)(requestParam);
-      console.log("[\u98DE\u4E66API] \u{1F680} \u8C03\u7528uploadFile API");
       (_a = this.apiCallCountCallback) == null ? void 0 : _a.call(this);
       const result = response.json;
-      console.log("[\u98DE\u4E66API] \u6587\u4EF6\u4E0A\u4F20\u54CD\u5E94:", {
-        status: response.status,
-        code: result.code,
-        msg: result.msg,
-        hasData: !!result.data,
-        fileToken: (_b = result.data) == null ? void 0 : _b.file_token
-      });
       if (result.code !== 0) {
-        console.error("[\u98DE\u4E66API] \u4E0A\u4F20\u6587\u4EF6\u5931\u8D25\uFF0C\u9519\u8BEF\u8BE6\u60C5:", {
+        console.error("[\u98DE\u4E66API] \u4E0A\u4F20\u6587\u4EF6\u5931\u8D25:", result.msg);
+        this.debug("[\u98DE\u4E66API] \u4E0A\u4F20\u6587\u4EF6\u5931\u8D25\uFF0C\u9519\u8BEF\u8BE6\u60C5:", {
           code: result.code,
           msg: result.msg,
           fullResult: result
@@ -295,16 +543,13 @@ var FeishuApiClient = class {
         throw new Error(`\u4E0A\u4F20\u6587\u4EF6\u5931\u8D25: [${result.code}] ${result.msg}`);
       }
       if (!result.data || !result.data.file_token) {
-        console.error("[\u98DE\u4E66API] \u54CD\u5E94\u4E2D\u7F3A\u5C11file_token:", result);
+        console.error("[\u98DE\u4E66API] \u54CD\u5E94\u4E2D\u7F3A\u5C11file_token");
+        this.debug("[\u98DE\u4E66API] \u54CD\u5E94\u4E2D\u7F3A\u5C11file_token:", result);
         throw new Error("\u4E0A\u4F20\u6210\u529F\u4F46\u672A\u8FD4\u56DEfile_token");
       }
-      console.log("[\u98DE\u4E66API] \u6587\u4EF6\u4E0A\u4F20\u6210\u529F\uFF0Cfile_token:", result.data.file_token);
       return result.data.file_token;
     } catch (error) {
-      console.error("[\u98DE\u4E66API] \u4E0A\u4F20\u6587\u4EF6\u5230\u98DE\u4E66\u5931\u8D25:", {
-        error,
-        errorMessage: error instanceof Error ? error.message : String(error),
-        errorStack: error instanceof Error ? error.stack : void 0,
+      this.logError("[\u98DE\u4E66API] \u4E0A\u4F20\u6587\u4EF6\u5230\u98DE\u4E66\u5931\u8D25:", error, {
         requestUrl: url,
         hasToken: !!token
       });
@@ -323,7 +568,6 @@ var FeishuApiClient = class {
    */
   async uploadImageMaterial(fileName, fileContent, documentId, blockId) {
     var _a;
-    console.log("[\u98DE\u4E66API] \u{1F680} \u8C03\u7528uploadImageMaterial API");
     const token = await this.getAccessToken();
     const url = `https://open.feishu.cn/open-apis/drive/v1/medias/upload_all`;
     const binaryData = Uint8Array.from(atob(fileContent), (c) => c.charCodeAt(0));
@@ -395,31 +639,12 @@ var FeishuApiClient = class {
       body: body.buffer
     };
     try {
-      console.log("[\u98DE\u4E66API] \u5F00\u59CB\u4E0A\u4F20\u56FE\u7247\u7D20\u6750:", {
-        fileName,
-        documentId,
-        url,
-        hasToken: !!token,
-        tokenPrefix: token ? token.substring(0, 10) + "..." : "null",
-        boundary,
-        bodySize: body.byteLength
-      });
       const response = await (0, import_obsidian.requestUrl)(requestParam);
       (_a = this.apiCallCountCallback) == null ? void 0 : _a.call(this);
-      console.log("[\u98DE\u4E66API] \u4E0A\u4F20\u56FE\u7247\u7D20\u6750\u54CD\u5E94:", {
-        status: response.status,
-        headers: response.headers,
-        hasJson: !!response.json
-      });
       const result = response.json;
-      console.log("[\u98DE\u4E66API] \u4E0A\u4F20\u56FE\u7247\u7D20\u6750\u7ED3\u679C:", {
-        code: result.code,
-        msg: result.msg,
-        hasData: !!result.data,
-        fullResponse: result
-      });
       if (result.code !== 0) {
-        console.error("[\u98DE\u4E66API] \u4E0A\u4F20\u56FE\u7247\u7D20\u6750\u5931\u8D25\uFF0C\u9519\u8BEF\u8BE6\u60C5:", {
+        console.error("[\u98DE\u4E66API] \u4E0A\u4F20\u56FE\u7247\u7D20\u6750\u5931\u8D25:", result.msg);
+        this.debug("[\u98DE\u4E66API] \u4E0A\u4F20\u56FE\u7247\u7D20\u6750\u5931\u8D25\uFF0C\u9519\u8BEF\u8BE6\u60C5:", {
           code: result.code,
           msg: result.msg,
           fullResult: result
@@ -427,16 +652,13 @@ var FeishuApiClient = class {
         throw new Error(`\u4E0A\u4F20\u56FE\u7247\u7D20\u6750\u5931\u8D25: [${result.code}] ${result.msg}`);
       }
       if (!result.data || !result.data.file_token) {
-        console.error("[\u98DE\u4E66API] \u54CD\u5E94\u4E2D\u7F3A\u5C11file_token:", result);
+        console.error("[\u98DE\u4E66API] \u54CD\u5E94\u4E2D\u7F3A\u5C11file_token");
+        this.debug("[\u98DE\u4E66API] \u54CD\u5E94\u4E2D\u7F3A\u5C11file_token:", result);
         throw new Error("\u4E0A\u4F20\u6210\u529F\u4F46\u672A\u8FD4\u56DEfile_token");
       }
-      console.log("[\u98DE\u4E66API] \u56FE\u7247\u7D20\u6750\u4E0A\u4F20\u6210\u529F\uFF0Cfile_token:", result.data.file_token);
       return result.data.file_token;
     } catch (error) {
-      console.error("[\u98DE\u4E66API] \u4E0A\u4F20\u56FE\u7247\u7D20\u6750\u5230\u98DE\u4E66\u5931\u8D25:", {
-        error,
-        errorMessage: error instanceof Error ? error.message : String(error),
-        errorStack: error instanceof Error ? error.stack : void 0,
+      this.logError("[\u98DE\u4E66API] \u4E0A\u4F20\u56FE\u7247\u7D20\u6750\u5230\u98DE\u4E66\u5931\u8D25:", error, {
         requestUrl: url,
         hasToken: !!token
       });
@@ -451,13 +673,7 @@ var FeishuApiClient = class {
    * @param folderToken 目标文件夹token（可选）
    */
   async createImportTask(fileName, fileToken, folderToken) {
-    var _a, _b, _c;
-    console.log("[\u98DE\u4E66API] \u{1F680} \u8C03\u7528createImportTask API");
-    console.log("[\u98DE\u4E66API] \u5F00\u59CB\u521B\u5EFA\u5BFC\u5165\u4EFB\u52A1:", {
-      fileName,
-      fileToken: fileToken ? `${fileToken.substring(0, 10)}...` : "null",
-      folderToken: folderToken ? `${folderToken.substring(0, 10)}...` : "null"
-    });
+    var _a, _b;
     const token = await this.getAccessToken();
     const url = `${this.baseUrl}/drive/v1/import_tasks`;
     const lastDotIndex = fileName.lastIndexOf(".");
@@ -486,13 +702,6 @@ var FeishuApiClient = class {
         mount_key: folderToken
       };
     }
-    console.log("[\u98DE\u4E66API] \u521B\u5EFA\u5BFC\u5165\u4EFB\u52A1\u8BF7\u6C42\u53C2\u6570:", {
-      url,
-      requestBody: {
-        ...requestBody,
-        file_token: requestBody.file_token ? `${requestBody.file_token.substring(0, 10)}...` : "null"
-      }
-    });
     const requestParam = {
       url,
       method: "POST",
@@ -505,29 +714,16 @@ var FeishuApiClient = class {
     try {
       const response = await (0, import_obsidian.requestUrl)(requestParam);
       (_a = this.apiCallCountCallback) == null ? void 0 : _a.call(this);
-      console.log("[\u98DE\u4E66API] \u521B\u5EFA\u5BFC\u5165\u4EFB\u52A1\u54CD\u5E94:", {
-        status: response.status,
-        headers: response.headers,
-        hasData: !!response.json
-      });
       const result = response.json;
-      console.log("[\u98DE\u4E66API] \u521B\u5EFA\u5BFC\u5165\u4EFB\u52A1\u7ED3\u679C:", {
-        code: result.code,
-        msg: result.msg,
-        hasData: !!result.data,
-        ticket: ((_b = result.data) == null ? void 0 : _b.ticket) ? `${result.data.ticket.substring(0, 10)}...` : "null"
-      });
       if (result.code === 0) {
-        if (!((_c = result.data) == null ? void 0 : _c.ticket)) {
+        if (!((_b = result.data) == null ? void 0 : _b.ticket)) {
           console.error("[\u98DE\u4E66API] \u521B\u5EFA\u5BFC\u5165\u4EFB\u52A1\u6210\u529F\u4F46\u7F3A\u5C11ticket");
           throw new Error("\u521B\u5EFA\u5BFC\u5165\u4EFB\u52A1\u6210\u529F\u4F46\u8FD4\u56DE\u6570\u636E\u4E2D\u7F3A\u5C11ticket");
         }
-        console.log("[\u98DE\u4E66API] \u521B\u5EFA\u5BFC\u5165\u4EFB\u52A1\u6210\u529F\uFF0C\u83B7\u5F97ticket:", {
-          ticket: result.data.ticket ? `${result.data.ticket.substring(0, 10)}...` : "null"
-        });
         return result.data.ticket;
       } else {
-        console.error("[\u98DE\u4E66API] \u521B\u5EFA\u5BFC\u5165\u4EFB\u52A1\u5931\u8D25\uFF0C\u9519\u8BEF\u8BE6\u60C5:", {
+        console.error("[\u98DE\u4E66API] \u521B\u5EFA\u5BFC\u5165\u4EFB\u52A1\u5931\u8D25:", result.msg);
+        this.debug("[\u98DE\u4E66API] \u521B\u5EFA\u5BFC\u5165\u4EFB\u52A1\u5931\u8D25\uFF0C\u9519\u8BEF\u8BE6\u60C5:", {
           code: result.code,
           msg: result.msg,
           fullResult: result
@@ -535,25 +731,24 @@ var FeishuApiClient = class {
         throw new Error(`\u521B\u5EFA\u5BFC\u5165\u4EFB\u52A1\u5931\u8D25 (\u9519\u8BEF\u7801: ${result.code}): ${result.msg}`);
       }
     } catch (error) {
-      if (error.status === 400 && error.json) {
-        console.error("[\u98DE\u4E66API] HTTP 400\u9519\u8BEF\uFF0C\u8BE6\u7EC6\u54CD\u5E94:", {
-          status: error.status,
-          responseBody: error.json,
-          headers: error.headers
+      const errorMeta = getErrorMeta(error);
+      if (errorMeta.status === 400 && errorMeta.json) {
+        console.error("[\u98DE\u4E66API] \u521B\u5EFA\u5BFC\u5165\u4EFB\u52A1\u5931\u8D25 (HTTP 400)");
+        this.debug("[\u98DE\u4E66API] HTTP 400\u9519\u8BEF\uFF0C\u8BE6\u7EC6\u54CD\u5E94:", {
+          status: errorMeta.status,
+          responseBody: errorMeta.json,
+          headers: errorMeta.headers
         });
-        const errorResult = error.json;
-        if (errorResult.code && errorResult.msg) {
+        const errorResult = parseErrorResult(errorMeta.json);
+        if (errorResult) {
           throw new Error(`\u521B\u5EFA\u5BFC\u5165\u4EFB\u52A1\u5931\u8D25 (\u9519\u8BEF\u7801: ${errorResult.code}): ${errorResult.msg}`);
         }
       }
-      console.error("[\u98DE\u4E66API] \u521B\u5EFA\u98DE\u4E66\u5BFC\u5165\u4EFB\u52A1\u5931\u8D25:", {
-        error,
-        errorMessage: error instanceof Error ? error.message : String(error),
-        errorStack: error instanceof Error ? error.stack : void 0,
+      this.logError("[\u98DE\u4E66API] \u521B\u5EFA\u98DE\u4E66\u5BFC\u5165\u4EFB\u52A1\u5931\u8D25:", error, {
         requestUrl: url,
         hasToken: !!token,
-        status: error.status || "unknown",
-        responseBody: error.json || "no response body"
+        status: errorMeta.status || "unknown",
+        responseBody: errorMeta.json || "no response body"
       });
       const errorMessage = error instanceof Error ? error.message : String(error);
       throw new Error(`\u521B\u5EFA\u5BFC\u5165\u4EFB\u52A1\u5931\u8D25: ${errorMessage}`);
@@ -564,16 +759,9 @@ var FeishuApiClient = class {
    * @param ticket 任务票据
    */
   async queryImportTask(ticket) {
-    var _a, _b;
+    var _a;
     const token = await this.getAccessToken();
     const url = `${this.baseUrl}/drive/v1/import_tasks/${ticket}`;
-    console.log("[\u98DE\u4E66API] \u67E5\u8BE2\u5BFC\u5165\u4EFB\u52A1:", {
-      ticket,
-      url,
-      tokenValue: token,
-      // 打印实际的token值
-      hasToken: !!token
-    });
     const requestParam = {
       url,
       method: "GET",
@@ -585,38 +773,28 @@ var FeishuApiClient = class {
     try {
       const response = await (0, import_obsidian.requestUrl)(requestParam);
       (_a = this.apiCallCountCallback) == null ? void 0 : _a.call(this);
-      console.log("[\u98DE\u4E66API] \u67E5\u8BE2\u5BFC\u5165\u4EFB\u52A1\u54CD\u5E94 (\u539F\u59CB):", response.json);
       const result = response.json;
-      console.log("[\u98DE\u4E66API] \u67E5\u8BE2\u5BFC\u5165\u4EFB\u52A1\u54CD\u5E94:", {
-        status: response.status,
-        code: result.code,
-        msg: result.msg,
-        hasData: !!result.data,
-        fullResponse: result
-      });
       if (result.code !== 0) {
-        console.error("[\u98DE\u4E66API] \u67E5\u8BE2\u5BFC\u5165\u4EFB\u52A1\u5931\u8D25\uFF0C\u9519\u8BEF\u8BE6\u60C5:", {
+        console.error("[\u98DE\u4E66API] \u67E5\u8BE2\u5BFC\u5165\u4EFB\u52A1\u5931\u8D25:", result.msg);
+        this.debug("[\u98DE\u4E66API] \u67E5\u8BE2\u5BFC\u5165\u4EFB\u52A1\u5931\u8D25\uFF0C\u9519\u8BEF\u8BE6\u60C5:", {
           code: result.code,
           msg: result.msg,
           fullResult: result
         });
         throw new Error(`\u67E5\u8BE2\u5BFC\u5165\u4EFB\u52A1\u5931\u8D25: [${result.code}] ${result.msg}`);
       }
-      const taskResult = ((_b = result.data) == null ? void 0 : _b.result) || result.data;
-      console.log("[\u98DE\u4E66API] \u5BFC\u5165\u4EFB\u52A1\u72B6\u6001:", {
-        job_status: taskResult.job_status,
-        job_error_msg: taskResult.job_error_msg,
-        token: taskResult.token,
-        url: taskResult.url,
-        fullResult: taskResult,
-        rawData: result.data
-      });
+      let taskResult;
+      if (typeof result.data === "object" && result.data !== null && "result" in result.data) {
+        taskResult = result.data.result;
+      } else if (isImportTaskQueryResponse(result.data)) {
+        taskResult = result.data;
+      }
+      if (!taskResult) {
+        throw new Error("\u5BFC\u5165\u4EFB\u52A1\u7ED3\u679C\u4E3A\u7A7A");
+      }
       return taskResult;
     } catch (error) {
-      console.error("[\u98DE\u4E66API] \u67E5\u8BE2\u5BFC\u5165\u4EFB\u52A1\u5F02\u5E38:", {
-        error,
-        errorMessage: error instanceof Error ? error.message : String(error),
-        errorStack: error instanceof Error ? error.stack : void 0,
+      this.logError("[\u98DE\u4E66API] \u67E5\u8BE2\u5BFC\u5165\u4EFB\u52A1\u5F02\u5E38:", error, {
         requestUrl: url,
         hasToken: !!token
       });
@@ -635,41 +813,19 @@ var FeishuApiClient = class {
     while (retryCount <= maxRetries) {
       try {
         const result = await this.queryImportTask(ticket);
-        console.log(`[\u98DE\u4E66API] \u{1F50D} \u67E5\u8BE2\u5BFC\u5165\u4EFB\u52A1\u72B6\u6001 (\u7B2C${retryCount + 1}\u6B21):`, {
-          ticket,
-          job_status: result.job_status,
-          job_status_meaning: result.job_status === 0 ? "\u6210\u529F" : result.job_status === 1 ? "\u8FDB\u884C\u4E2D" : result.job_status === 2 ? "\u5904\u7406\u4E2D" : "\u672A\u77E5",
-          job_error_msg: result.job_error_msg,
-          hasToken: !!result.token,
-          hasUrl: !!result.url,
-          fullResult: result
-        });
         if (result.job_status === 0) {
-          console.log(`[\u98DE\u4E66API] \u2705 \u5BFC\u5165\u4EFB\u52A1\u6210\u529F\u5B8C\u6210:`, {
-            job_status: result.job_status,
-            token: result.token,
-            url: result.url,
-            hasToken: !!result.token,
-            hasUrl: !!result.url,
-            fullResult: result
-          });
           if (!result.token || !result.url) {
-            console.error("[\u98DE\u4E66API] \u274C \u5BFC\u5165\u4EFB\u52A1\u5B8C\u6210\u4F46\u7F3A\u5C11\u5FC5\u8981\u4FE1\u606F:", result);
+            console.error("[\u98DE\u4E66API] \u274C \u5BFC\u5165\u4EFB\u52A1\u5B8C\u6210\u4F46\u7F3A\u5C11\u5FC5\u8981\u4FE1\u606F");
+            this.debug("[\u98DE\u4E66API] \u274C \u5BFC\u5165\u4EFB\u52A1\u5B8C\u6210\u4F46\u7F3A\u5C11\u5FC5\u8981\u4FE1\u606F:", result);
             throw new Error("\u5BFC\u5165\u4EFB\u52A1\u5B8C\u6210\u4F46\u672A\u8FD4\u56DE\u6587\u6863\u4FE1\u606F");
           }
           const formattedUrl = this.formatDocumentUrl(result.url, result.token);
-          console.log(`[\u98DE\u4E66API] \u{1F4C4} \u683C\u5F0F\u5316\u540E\u7684\u6587\u6863URL:`, {
-            originalUrl: result.url,
-            formattedUrl,
-            token: result.token
-          });
           return {
             token: result.token,
             url: formattedUrl
           };
         } else if (result.job_status === 1 || result.job_status === 2) {
           retryCount++;
-          console.log(`[\u98DE\u4E66API] \u5BFC\u5165\u4EFB\u52A1${result.job_status === 1 ? "\u8FDB\u884C\u4E2D" : "\u5904\u7406\u4E2D"}\uFF0C\u7B2C${retryCount}\u6B21\u68C0\u67E5`);
           onProgress == null ? void 0 : onProgress("\u6587\u6863\u6B63\u5728\u5904\u7406\u4E2D\uFF0C\u8BF7\u7A0D\u5019...");
           if (retryCount > maxRetries) {
             console.error(`[\u98DE\u4E66API] \u5BFC\u5165\u4EFB\u52A1\u5904\u7406\u8D85\u65F6\uFF0C\u5DF2\u91CD\u8BD5${maxRetries}\u6B21`);
@@ -679,11 +835,11 @@ var FeishuApiClient = class {
           if (retryCount >= 3) {
             waitTime = 6e3;
           }
-          console.log(`[\u98DE\u4E66API] \u7B49\u5F85${waitTime / 1e3}\u79D2\u540E\u8FDB\u884C\u7B2C${retryCount + 1}\u6B21\u91CD\u8BD5...`);
           await new Promise((resolve) => setTimeout(resolve, waitTime));
           continue;
         } else {
-          console.error("[\u98DE\u4E66API] \u5BFC\u5165\u4EFB\u52A1\u72B6\u6001\u672A\u77E5:", {
+          console.error("[\u98DE\u4E66API] \u5BFC\u5165\u4EFB\u52A1\u72B6\u6001\u672A\u77E5");
+          this.debug("[\u98DE\u4E66API] \u5BFC\u5165\u4EFB\u52A1\u72B6\u6001\u672A\u77E5:", {
             job_status: result.job_status,
             job_error_msg: result.job_error_msg,
             fullResult: result
@@ -693,27 +849,18 @@ var FeishuApiClient = class {
         }
       } catch (error) {
         const errorMessage = error instanceof Error ? error.message : String(error);
-        console.error(`[\u98DE\u4E66API] \u26A0\uFE0F waitForImportTask\u5F02\u5E38 (\u7B2C${retryCount + 1}\u6B21):`, {
-          error: errorMessage,
-          retryCount,
-          maxRetries,
-          willRetry: retryCount < maxRetries,
-          fullError: error
-        });
         if (errorMessage.includes("\u5BFC\u5165\u4EFB\u52A1\u5931\u8D25") || errorMessage.includes("\u5BFC\u5165\u4EFB\u52A1\u5DF2\u63D0\u4EA4")) {
-          console.error(`[\u98DE\u4E66API] \u{1F4A5} \u4EFB\u52A1\u72B6\u6001\u9519\u8BEF\uFF0C\u4E0D\u518D\u91CD\u8BD5`);
           throw error;
         }
         retryCount++;
         if (retryCount > maxRetries) {
-          console.error(`[\u98DE\u4E66API] \u{1F4A5} \u5DF2\u8FBE\u5230\u6700\u5927\u91CD\u8BD5\u6B21\u6570 (${maxRetries})\uFF0C\u505C\u6B62\u91CD\u8BD5`);
+          console.error(`[\u98DE\u4E66API] \u5DF2\u8FBE\u5230\u6700\u5927\u91CD\u8BD5\u6B21\u6570 (${maxRetries})\uFF0C\u505C\u6B62\u91CD\u8BD5`);
           throw error;
         }
         let waitTime = 3e3;
         if (retryCount >= 3) {
           waitTime = 6e3;
         }
-        console.log(`[\u98DE\u4E66API] \u{1F504} \u7B49\u5F85${waitTime / 1e3}\u79D2\u540E\u8FDB\u884C\u7B2C${retryCount + 1}\u6B21\u91CD\u8BD5...`);
         await new Promise((resolve) => setTimeout(resolve, waitTime));
       }
     }
@@ -724,14 +871,9 @@ var FeishuApiClient = class {
    * @param documentId 文档ID
    */
   async getDocumentBlocks(documentId) {
-    var _a, _b, _c;
+    var _a;
     const token = await this.getAccessToken();
     const url = `${this.baseUrl}/docx/v1/documents/${documentId}/blocks`;
-    console.log("[\u98DE\u4E66API] \u5F00\u59CB\u83B7\u53D6\u6587\u6863\u5757:", {
-      documentId,
-      url,
-      hasToken: !!token
-    });
     const requestParam = {
       url,
       method: "GET",
@@ -743,21 +885,10 @@ var FeishuApiClient = class {
     try {
       const response = await (0, import_obsidian.requestUrl)(requestParam);
       (_a = this.apiCallCountCallback) == null ? void 0 : _a.call(this);
-      console.log("[\u98DE\u4E66API] \u83B7\u53D6\u6587\u6863\u5757\u54CD\u5E94:", {
-        status: response.status,
-        headers: response.headers,
-        hasJson: !!response.json
-      });
       const result = response.json;
-      console.log("[\u98DE\u4E66API] \u83B7\u53D6\u6587\u6863\u5757\u7ED3\u679C:", {
-        code: result.code,
-        msg: result.msg,
-        hasData: !!result.data,
-        itemsCount: ((_c = (_b = result.data) == null ? void 0 : _b.items) == null ? void 0 : _c.length) || 0,
-        fullResponse: result
-      });
       if (result.code !== 0) {
-        console.error("[\u98DE\u4E66API] \u83B7\u53D6\u6587\u6863\u5757\u5931\u8D25\uFF0C\u9519\u8BEF\u8BE6\u60C5:", {
+        console.error("[\u98DE\u4E66API] \u83B7\u53D6\u6587\u6863\u5757\u5931\u8D25:", result.msg);
+        this.debug("[\u98DE\u4E66API] \u83B7\u53D6\u6587\u6863\u5757\u5931\u8D25\uFF0C\u9519\u8BEF\u8BE6\u60C5:", {
           code: result.code,
           msg: result.msg,
           fullResult: result
@@ -765,16 +896,13 @@ var FeishuApiClient = class {
         throw new Error(`\u83B7\u53D6\u6587\u6863\u5757\u5931\u8D25: [${result.code}] ${result.msg}`);
       }
       if (!result.data || !result.data.items) {
-        console.error("[\u98DE\u4E66API] \u54CD\u5E94\u4E2D\u7F3A\u5C11items:", result);
+        console.error("[\u98DE\u4E66API] \u54CD\u5E94\u4E2D\u7F3A\u5C11items");
+        this.debug("[\u98DE\u4E66API] \u54CD\u5E94\u4E2D\u7F3A\u5C11items:", result);
         throw new Error("\u83B7\u53D6\u6210\u529F\u4F46\u672A\u8FD4\u56DE\u6587\u6863\u5757\u6570\u636E");
       }
-      console.log("[\u98DE\u4E66API] \u6587\u6863\u5757\u83B7\u53D6\u6210\u529F\uFF0C\u5171", result.data.items.length, "\u4E2A\u5757");
       return result.data.items;
     } catch (error) {
-      console.error("[\u98DE\u4E66API] \u83B7\u53D6\u6587\u6863\u5757\u5931\u8D25:", {
-        error,
-        errorMessage: error instanceof Error ? error.message : String(error),
-        errorStack: error instanceof Error ? error.stack : void 0,
+      this.logError("[\u98DE\u4E66API] \u83B7\u53D6\u6587\u6863\u5757\u5931\u8D25:", error, {
         requestUrl: url,
         hasToken: !!token
       });
@@ -796,20 +924,47 @@ var FeishuApiClient = class {
     let height = 600;
     if (imageInfo) {
       try {
-        const dimensions = await this.getImageDimensions(imageInfo.path);
-        if (dimensions) {
-          width = dimensions.width;
-          height = dimensions.height;
-          const maxWidth = 1200;
-          const maxHeight = 800;
-          if (width > maxWidth || height > maxHeight) {
-            const ratio = Math.min(maxWidth / width, maxHeight / height);
-            width = Math.round(width * ratio);
-            height = Math.round(height * ratio);
+        if (typeof imageInfo.width === "number" && imageInfo.width > 0 && typeof imageInfo.height === "number" && imageInfo.height > 0) {
+          width = imageInfo.width;
+          height = imageInfo.height;
+        } else if (imageInfo.svgConvertOptions) {
+          width = imageInfo.svgConvertOptions.originalWidth * imageInfo.svgConvertOptions.scale;
+          height = imageInfo.svgConvertOptions.originalHeight * imageInfo.svgConvertOptions.scale;
+          this.debug(`[DEBUG] SVG\u8F6C\u6362\u56FE\u7247\u5C3A\u5BF8: originalWidth=${imageInfo.svgConvertOptions.originalWidth}, originalHeight=${imageInfo.svgConvertOptions.originalHeight}, scale=${imageInfo.svgConvertOptions.scale}, finalWidth=${width}, finalHeight=${height}`);
+        } else {
+          const dimensions = await this.getImageDimensions(imageInfo.path);
+          if (dimensions) {
+            width = dimensions.width;
+            height = dimensions.height;
           }
         }
+        const aspectRatio = width / height;
+        let maxWidth;
+        let maxHeight;
+        this.debug(`[DEBUG] \u98DE\u4E66\u4E0A\u4F20\u524D\u5C3A\u5BF8: width=${width}, height=${height}, aspectRatio=${aspectRatio}`);
+        if (aspectRatio > 4) {
+          maxWidth = 2400;
+          maxHeight = 600;
+        } else if (aspectRatio > 2) {
+          maxWidth = 2e3;
+          maxHeight = 800;
+        } else if (aspectRatio < 0.8) {
+          maxWidth = 1e3;
+          maxHeight = 2500;
+        } else {
+          maxWidth = 1200;
+          maxHeight = 800;
+        }
+        if (width > maxWidth || height > maxHeight) {
+          const ratio = Math.min(maxWidth / width, maxHeight / height);
+          this.debug(`[DEBUG] \u9700\u8981\u7F29\u653E: maxWidth=${maxWidth}, maxHeight=${maxHeight}, ratio=${ratio}`);
+          width = Math.round(width * ratio);
+          height = Math.round(height * ratio);
+          this.debug(`[DEBUG] \u7F29\u653E\u540E\u5C3A\u5BF8: width=${width}, height=${height}`);
+        } else {
+          this.debug(`[DEBUG] \u65E0\u9700\u7F29\u653E: maxWidth=${maxWidth}, maxHeight=${maxHeight}`);
+        }
       } catch (error) {
-        console.warn("[\u98DE\u4E66API] \u83B7\u53D6\u56FE\u7247\u5C3A\u5BF8\u5931\u8D25\uFF0C\u4F7F\u7528\u9ED8\u8BA4\u5C3A\u5BF8:", error);
       }
     }
     const requestBody = {
@@ -820,14 +975,6 @@ var FeishuApiClient = class {
         align: 2
       }
     };
-    console.log("[\u98DE\u4E66API] \u5F00\u59CB\u66F4\u65B0\u6587\u6863\u5757:", {
-      documentId,
-      blockId,
-      imageToken: imageToken ? `${imageToken.substring(0, 10)}...` : "null",
-      url,
-      hasToken: !!token,
-      requestBody
-    });
     const requestBody_str = JSON.stringify(requestBody);
     const requestParam = {
       url,
@@ -841,32 +988,18 @@ var FeishuApiClient = class {
     try {
       const response = await (0, import_obsidian.requestUrl)(requestParam);
       (_a = this.apiCallCountCallback) == null ? void 0 : _a.call(this);
-      console.log("[\u98DE\u4E66API] \u66F4\u65B0\u6587\u6863\u5757\u54CD\u5E94:", {
-        status: response.status,
-        headers: response.headers,
-        hasJson: !!response.json
-      });
       const result = response.json;
-      console.log("[\u98DE\u4E66API] \u66F4\u65B0\u6587\u6863\u5757\u7ED3\u679C:", {
-        code: result.code,
-        msg: result.msg,
-        hasData: !!result.data,
-        fullResponse: result
-      });
       if (result.code !== 0) {
-        console.error("[\u98DE\u4E66API] \u66F4\u65B0\u6587\u6863\u5757\u5931\u8D25\uFF0C\u9519\u8BEF\u8BE6\u60C5:", {
+        console.error("[\u98DE\u4E66API] \u66F4\u65B0\u6587\u6863\u5757\u5931\u8D25:", result.msg);
+        this.debug("[\u98DE\u4E66API] \u66F4\u65B0\u6587\u6863\u5757\u5931\u8D25\uFF0C\u9519\u8BEF\u8BE6\u60C5:", {
           code: result.code,
           msg: result.msg,
           fullResult: result
         });
         throw new Error(`\u66F4\u65B0\u6587\u6863\u5757\u5931\u8D25: [${result.code}] ${result.msg}`);
       }
-      console.log("[\u98DE\u4E66API] \u6587\u6863\u5757\u66F4\u65B0\u6210\u529F");
     } catch (error) {
-      console.error("[\u98DE\u4E66API] \u66F4\u65B0\u6587\u6863\u5757\u5931\u8D25:", {
-        error,
-        errorMessage: error instanceof Error ? error.message : String(error),
-        errorStack: error instanceof Error ? error.stack : void 0,
+      this.logError("[\u98DE\u4E66API] \u66F4\u65B0\u6587\u6863\u5757\u5931\u8D25:", error, {
         requestUrl: url,
         hasToken: !!token
       });
@@ -882,62 +1015,64 @@ var FeishuApiClient = class {
    */
   async processImagesInDocument(documentId, imageInfos, onProgress) {
     if (!imageInfos || imageInfos.length === 0) {
-      console.log("[\u98DE\u4E66API] \u6CA1\u6709\u56FE\u7247\u9700\u8981\u5904\u7406");
       return;
     }
-    console.log("[\u98DE\u4E66API] \u5F00\u59CB\u5904\u7406\u6587\u6863\u4E2D\u7684\u56FE\u7247:", {
-      documentId,
-      imageCount: imageInfos.length,
-      images: imageInfos.map((img) => ({ fileName: img.fileName, path: img.path }))
-    });
     try {
       onProgress == null ? void 0 : onProgress("\u6B63\u5728\u83B7\u53D6\u6587\u6863\u7ED3\u6784...");
       const blocks = await this.getDocumentBlocks(documentId);
       const imageBlocks = blocks.filter((block) => block.block_type === 27);
-      console.log("[\u98DE\u4E66API] \u627E\u5230\u56FE\u7247\u5757:", imageBlocks.length, "\u4E2A");
       if (imageBlocks.length === 0) {
-        console.log("[\u98DE\u4E66API] \u6587\u6863\u4E2D\u6CA1\u6709\u56FE\u7247\u5757\uFF0C\u65E0\u9700\u5904\u7406");
         return;
       }
       for (let i = 0; i < imageInfos.length && i < imageBlocks.length; i++) {
         const imageInfo = imageInfos[i];
         const imageBlock = imageBlocks[i];
         if (!imageInfo || !imageBlock) {
-          console.warn(`[\u98DE\u4E66API] \u8DF3\u8FC7\u65E0\u6548\u7684\u56FE\u7247\u6216\u5757: ${i}`);
           continue;
         }
         onProgress == null ? void 0 : onProgress(`\u6B63\u5728\u5904\u7406\u56FE\u7247 ${i + 1}/${imageInfos.length}: ${imageInfo.fileName}`);
         try {
-          const fileContent = await this.readImageFileAsBase64(imageInfo.path);
-          if (!fileContent) {
+          const fileResult = await this.readImageFileAsBase64(imageInfo.path);
+          if (!fileResult) {
             throw new Error(`\u65E0\u6CD5\u8BFB\u53D6\u56FE\u7247\u6587\u4EF6: ${imageInfo.path}`);
           }
-          console.log(`[\u98DE\u4E66API] \u4E0A\u4F20\u56FE\u7247\u7D20\u6750: ${imageInfo.fileName}`);
+          if (typeof fileResult.width === "number" && fileResult.width > 0 && typeof fileResult.height === "number" && fileResult.height > 0) {
+            imageInfo.width = fileResult.width;
+            imageInfo.height = fileResult.height;
+          }
+          if (fileResult.svgConvertOptions) {
+            imageInfo.svgConvertOptions = fileResult.svgConvertOptions;
+          }
+          let uploadFileName = imageInfo.fileName;
+          if (SvgConverter.isSvgFile(imageInfo.fileName)) {
+            uploadFileName = SvgConverter.generatePngFileName(imageInfo.fileName);
+          }
           const fileToken = await this.uploadImageMaterial(
-            imageInfo.fileName,
-            fileContent,
+            uploadFileName,
+            fileResult.base64,
             documentId,
             imageBlock.block_id
           );
-          console.log(`[\u98DE\u4E66API] \u66F4\u65B0\u6587\u6863\u5757: ${imageBlock.block_id}`);
           await this.updateDocumentBlock(
             documentId,
             imageBlock.block_id,
             fileToken,
             imageInfo
           );
-          console.log(`[\u98DE\u4E66API] \u56FE\u7247 ${imageInfo.fileName} \u5904\u7406\u5B8C\u6210`);
         } catch (error) {
-          console.error(`[\u98DE\u4E66API] \u5904\u7406\u56FE\u7247 ${imageInfo.fileName} \u5931\u8D25:`, error);
-          onProgress == null ? void 0 : onProgress(`\u56FE\u7247 ${imageInfo.fileName} \u5904\u7406\u5931\u8D25: ${error instanceof Error ? error.message : String(error)}`);
+          const errorMessage = error instanceof Error ? error.message : String(error);
+          console.error(`[\u98DE\u4E66API] \u5904\u7406\u56FE\u7247 ${imageInfo.fileName} \u5931\u8D25:`, errorMessage);
+          this.debug(`[\u98DE\u4E66API] \u5904\u7406\u56FE\u7247 ${imageInfo.fileName} \u5931\u8D25\u8BE6\u60C5:`, {
+            error,
+            errorMessage,
+            errorStack: error instanceof Error ? error.stack : void 0
+          });
+          onProgress == null ? void 0 : onProgress(`\u56FE\u7247 ${imageInfo.fileName} \u5904\u7406\u5931\u8D25: ${errorMessage}`);
         }
       }
       onProgress == null ? void 0 : onProgress("\u6240\u6709\u56FE\u7247\u5904\u7406\u5B8C\u6210\uFF01");
-      console.log("[\u98DE\u4E66API] \u6587\u6863\u56FE\u7247\u5904\u7406\u6D41\u7A0B\u5B8C\u6210");
     } catch (error) {
-      console.error("[\u98DE\u4E66API] \u56FE\u7247\u5904\u7406\u6D41\u7A0B\u5931\u8D25:", {
-        error,
-        errorMessage: error instanceof Error ? error.message : String(error),
+      this.logError("[\u98DE\u4E66API] \u56FE\u7247\u5904\u7406\u6D41\u7A0B\u5931\u8D25:", error, {
         documentId,
         imageCount: imageInfos.length
       });
@@ -955,14 +1090,14 @@ var FeishuApiClient = class {
     try {
       let fullPath = imagePath;
       if (imagePath.match(/^[A-Za-z]:/) || imagePath.startsWith("/")) {
-        const fileName = imagePath.split(/[\/\\]/).pop();
+        const fileName = imagePath.split(/[/\\]/).pop();
         if (fileName) {
           fullPath = fileName;
         }
       } else {
         fullPath = imagePath.replace(/^\.\//, "");
       }
-      const file = await this.searchImageInVault(fullPath);
+      const file = this.searchImageInVault(fullPath);
       if (!file) {
         console.warn("[\u98DE\u4E66API] \u65E0\u6CD5\u627E\u5230\u56FE\u7247\u6587\u4EF6:", fullPath);
         return null;
@@ -988,58 +1123,155 @@ var FeishuApiClient = class {
         img.src = url;
       });
     } catch (error) {
-      console.error("[\u98DE\u4E66API] \u83B7\u53D6\u56FE\u7247\u5C3A\u5BF8\u5931\u8D25:", error);
+      this.logError("[\u98DE\u4E66API] \u83B7\u53D6\u56FE\u7247\u5C3A\u5BF8\u5931\u8D25:", error, { imagePath });
       return null;
     }
   }
+  async getImageDimensionsFromArrayBuffer(arrayBuffer) {
+    return new Promise((resolve) => {
+      const blob = new Blob([arrayBuffer]);
+      const url = URL.createObjectURL(blob);
+      const img = new Image();
+      img.onload = () => {
+        URL.revokeObjectURL(url);
+        resolve({ width: img.width, height: img.height });
+      };
+      img.onerror = () => {
+        URL.revokeObjectURL(url);
+        resolve(null);
+      };
+      img.src = url;
+    });
+  }
+  async getPngDimensionsFromBase64(base64) {
+    return new Promise((resolve) => {
+      const img = new Image();
+      img.onload = () => {
+        resolve({ width: img.width, height: img.height });
+      };
+      img.onerror = () => {
+        resolve(null);
+      };
+      img.src = `data:image/png;base64,${base64}`;
+    });
+  }
   /**
-   * 读取本地图片文件并转换为base64
-   * @param imagePath 图片文件路径
-   * @returns base64编码的图片内容
+   * 读取本地或远程图片文件并转换为base64
+   * @param imagePath 图片文件路径或URL
+   * @returns base64编码的图片内容和SVG转换选项（如果是SVG）
    */
   async readImageFileAsBase64(imagePath) {
-    var _a, _b;
+    var _a;
     try {
+      if (imagePath.startsWith("http://") || imagePath.startsWith("https://")) {
+        this.debug("[\u98DE\u4E66API] \u68C0\u6D4B\u5230\u8FDC\u7A0B\u56FE\u7247\uFF0C\u5F00\u59CB\u4E0B\u8F7D:", imagePath);
+        try {
+          const response = await (0, import_obsidian.requestUrl)({ url: imagePath });
+          const arrayBuffer = response.arrayBuffer;
+          const dimensions = await this.getImageDimensionsFromArrayBuffer(arrayBuffer);
+          const uint8Array = new Uint8Array(arrayBuffer);
+          const binaryString = Array.from(uint8Array, (byte) => String.fromCharCode(byte)).join("");
+          const base64Content = btoa(binaryString);
+          const result = { base64: base64Content };
+          if (dimensions) {
+            result.width = dimensions.width;
+            result.height = dimensions.height;
+          }
+          return result;
+        } catch (error) {
+          console.error("[\u98DE\u4E66API] \u4E0B\u8F7D\u8FDC\u7A0B\u56FE\u7247\u5931\u8D25:", imagePath, error);
+          return null;
+        }
+      }
+      const fileName = imagePath.split(/[/\\]/).pop() || imagePath;
+      if (_FeishuApiClient.isMermaidTempImage(fileName)) {
+        const cachedData = _FeishuApiClient.getMermaidImageFromCache(fileName);
+        if (cachedData) {
+          this.debug("[\u98DE\u4E66API] \u4F7F\u7528Mermaid\u7F13\u5B58\u56FE\u7247:", fileName);
+          const result = {
+            base64: cachedData.base64Data
+          };
+          if (cachedData.svgConvertOptions) {
+            result.svgConvertOptions = cachedData.svgConvertOptions;
+          }
+          return result;
+        } else {
+          console.error("[\u98DE\u4E66API] Mermaid\u7F13\u5B58\u56FE\u7247\u672A\u627E\u5230:", fileName);
+          return null;
+        }
+      }
       let fullPath = imagePath;
       if (imagePath.match(/^[A-Za-z]:/) || imagePath.startsWith("/")) {
-        const fileName = imagePath.split(/[\\/]/).pop();
-        if (fileName) {
-          fullPath = fileName;
+        const fileName2 = imagePath.split(/[/\\]/).pop();
+        if (fileName2) {
+          fullPath = fileName2;
         }
       } else {
         fullPath = imagePath.replace(/^\.\//, "");
       }
-      console.log("[\u98DE\u4E66API] \u5C1D\u8BD5\u8BFB\u53D6\u56FE\u7247\u6587\u4EF6:", {
-        originalPath: imagePath,
-        fullPath
-      });
-      let file = (_b = (_a = this.app) == null ? void 0 : _a.vault) == null ? void 0 : _b.getAbstractFileByPath(fullPath);
+      const app = this.app;
+      if (!app) {
+        throw new Error("App \u672A\u521D\u59CB\u5316");
+      }
+      let file = null;
+      const abstractFile = app.vault.getAbstractFileByPath(fullPath);
+      if (abstractFile instanceof import_obsidian.TFile) {
+        file = abstractFile;
+      }
       if (!file) {
-        console.log("[\u98DE\u4E66API] \u76F4\u63A5\u8DEF\u5F84\u672A\u627E\u5230\uFF0C\u5F00\u59CB\u5728vault\u4E2D\u641C\u7D22\u6587\u4EF6:", fullPath);
-        file = await this.searchImageInVault(fullPath);
+        this.debug("[\u98DE\u4E66API] \u76F4\u63A5\u8DEF\u5F84\u672A\u627E\u5230\uFF0C\u5F00\u59CB\u5728vault\u4E2D\u641C\u7D22\u6587\u4EF6:", fullPath);
+        file = this.searchImageInVault(fullPath);
       }
       if (!file) {
         console.error("[\u98DE\u4E66API] \u627E\u4E0D\u5230\u56FE\u7247\u6587\u4EF6:", fullPath);
         return null;
       }
-      if (!("extension" in file)) {
-        console.error("[\u98DE\u4E66API] \u8DEF\u5F84\u4E0D\u662F\u6709\u6548\u7684\u6587\u4EF6:", file.path);
-        return null;
+      const fileExtension = (_a = file.extension) == null ? void 0 : _a.toLowerCase();
+      if (fileExtension === "svg") {
+        const svgContent = await app.vault.read(file);
+        if (!SvgConverter.isSvgFile(file.name, svgContent)) {
+          console.error("[\u98DE\u4E66API] \u65E0\u6548\u7684SVG\u6587\u4EF6:", file.path);
+          return null;
+        }
+        try {
+          const options = SvgConverter.getRecommendedOptions(svgContent);
+          const pngBase64 = await SvgConverter.convertSvgToPng(svgContent, options);
+          const dimensions = await this.getPngDimensionsFromBase64(pngBase64);
+          const result = {
+            base64: pngBase64,
+            svgConvertOptions: {
+              originalWidth: options.width || 800,
+              originalHeight: options.height || 600,
+              scale: options.scale || 4
+            }
+          };
+          if (dimensions) {
+            result.width = dimensions.width;
+            result.height = dimensions.height;
+          }
+          return result;
+        } catch (error) {
+          this.logError("[\u98DE\u4E66API] SVG\u8F6CPNG\u5931\u8D25:", error, {
+            path: file.path
+          });
+          return null;
+        }
+      } else {
+        const arrayBuffer = await app.vault.readBinary(file);
+        const dimensions = await this.getImageDimensionsFromArrayBuffer(arrayBuffer);
+        const uint8Array = new Uint8Array(arrayBuffer);
+        const binaryString = Array.from(uint8Array, (byte) => String.fromCharCode(byte)).join("");
+        const base64Content = btoa(binaryString);
+        const result = { base64: base64Content };
+        if (dimensions) {
+          result.width = dimensions.width;
+          result.height = dimensions.height;
+        }
+        return result;
       }
-      const arrayBuffer = await this.app.vault.readBinary(file);
-      const uint8Array = new Uint8Array(arrayBuffer);
-      const binaryString = Array.from(uint8Array, (byte) => String.fromCharCode(byte)).join("");
-      const base64Content = btoa(binaryString);
-      console.log("[\u98DE\u4E66API] \u56FE\u7247\u6587\u4EF6\u8BFB\u53D6\u6210\u529F:", {
-        path: file.path,
-        size: arrayBuffer.byteLength,
-        base64Length: base64Content.length
-      });
-      return base64Content;
     } catch (error) {
-      console.error("[\u98DE\u4E66API] \u8BFB\u53D6\u56FE\u7247\u6587\u4EF6\u5931\u8D25:", {
-        path: imagePath,
-        error: error instanceof Error ? error.message : String(error)
+      this.logError("[\u98DE\u4E66API] \u8BFB\u53D6\u56FE\u7247\u6587\u4EF6\u5931\u8D25:", error, {
+        path: imagePath
       });
       return null;
     }
@@ -1049,16 +1281,15 @@ var FeishuApiClient = class {
    * @param fileName 文件名或路径
    * @returns 找到的文件对象
    */
-  async searchImageInVault(fileName) {
+  searchImageInVault(fileName) {
     var _a;
     if (!((_a = this.app) == null ? void 0 : _a.vault)) {
       return null;
     }
-    const targetFileName = fileName.split(/[\\/]/).pop();
+    const targetFileName = fileName.split(/[/\\]/).pop();
     if (!targetFileName) {
       return null;
     }
-    console.log("[\u98DE\u4E66API] \u5728vault\u4E2D\u641C\u7D22\u56FE\u7247\u6587\u4EF6:", targetFileName);
     const allFiles = this.app.vault.getFiles();
     const imageExtensions = [".jpg", ".jpeg", ".png", ".gif", ".bmp", ".webp", ".svg"];
     for (const file of allFiles) {
@@ -1069,18 +1300,15 @@ var FeishuApiClient = class {
         continue;
       }
       if (file.name === targetFileName || file.path === fileName) {
-        console.log("[\u98DE\u4E66API] \u627E\u5230\u5339\u914D\u7684\u56FE\u7247\u6587\u4EF6:", file.path);
         return file;
       }
       if (!targetFileName.includes(".")) {
         const fileBaseName = file.name.substring(0, file.name.lastIndexOf("."));
         if (fileBaseName === targetFileName) {
-          console.log("[\u98DE\u4E66API] \u901A\u8FC7\u57FA\u7840\u540D\u79F0\u627E\u5230\u5339\u914D\u7684\u56FE\u7247\u6587\u4EF6:", file.path);
           return file;
         }
       }
     }
-    console.log("[\u98DE\u4E66API] \u5728vault\u4E2D\u672A\u627E\u5230\u56FE\u7247\u6587\u4EF6:", targetFileName);
     return null;
   }
   /**
@@ -1096,22 +1324,14 @@ var FeishuApiClient = class {
     obsidianImageRegex.lastIndex = 0;
     while ((match = obsidianImageRegex.exec(markdownContent)) !== null) {
       const fileName = match[1];
+      if (!fileName)
+        continue;
       const altText = match[2] || fileName;
       const obsidianSyntax = match[0];
-      const standardSyntax = `![${altText}](${fileName})`;
+      const encodedFileName = encodeURI(fileName);
+      const standardSyntax = `![${altText}](${encodedFileName})`;
       convertedContent = convertedContent.replace(obsidianSyntax, standardSyntax);
       convertCount++;
-      console.log("[\u98DE\u4E66API] \u8F6C\u6362\u56FE\u7247\u8BED\u6CD5:", {
-        from: obsidianSyntax,
-        to: standardSyntax,
-        fileName,
-        altText
-      });
-    }
-    if (convertCount > 0) {
-      console.log(`[\u98DE\u4E66API] \u56FE\u7247\u8BED\u6CD5\u8F6C\u6362\u5B8C\u6210\uFF0C\u5171\u8F6C\u6362 ${convertCount} \u4E2A\u56FE\u7247`);
-    } else {
-      console.log("[\u98DE\u4E66API] \u672A\u53D1\u73B0\u9700\u8981\u8F6C\u6362\u7684Obsidian\u56FE\u7247\u8BED\u6CD5");
     }
     return convertedContent;
   }
@@ -1122,8 +1342,8 @@ var FeishuApiClient = class {
    */
   static extractImageInfoFromMarkdown(markdownContent, basePath) {
     const imageInfos = [];
-    const convertedContent = FeishuApiClient.convertObsidianImageSyntax(markdownContent);
-    const markdownImageRegex = /!\[([^\]]*)\]\(([^\)\s]+)(?:\s+"([^"]*)")?\)/g;
+    const convertedContent = _FeishuApiClient.convertObsidianImageSyntax(markdownContent);
+    const markdownImageRegex = /!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]*)")?\)/g;
     let match;
     let position = 0;
     while ((match = markdownImageRegex.exec(convertedContent)) !== null) {
@@ -1132,16 +1352,25 @@ var FeishuApiClient = class {
       const title = match[3];
       if (!path)
         continue;
-      const fileName = path.split("/").pop() || path;
-      const fullPath = basePath && !path.startsWith("http") ? `${basePath}/${path}` : path;
+      const decodedPath = decodeURI(path);
+      const fileName = decodedPath.split("/").pop() || decodedPath;
+      const fullPath = basePath && !decodedPath.startsWith("http") ? `${basePath}/${decodedPath}` : decodedPath;
       imageInfos.push({
         path: fullPath,
         fileName,
         position: position++
       });
     }
-    console.log("[\u98DE\u4E66API] \u4ECEMarkdown\u4E2D\u63D0\u53D6\u5230\u56FE\u7247:", imageInfos.length, "\u5F20");
     return imageInfos;
+  }
+  static encodeBase64Utf8(content) {
+    const encoder = new TextEncoder();
+    const bytes = encoder.encode(content);
+    let binary = "";
+    for (const byte of bytes) {
+      binary += String.fromCharCode(byte);
+    }
+    return btoa(binary);
   }
   /**
    * 直接上传文件到飞书云盘
@@ -1153,9 +1382,9 @@ var FeishuApiClient = class {
   async uploadFileDirectly(fileName, markdownContent, documentId, onProgress) {
     try {
       onProgress == null ? void 0 : onProgress("\u6B63\u5728\u5904\u7406\u6587\u6863\u5185\u5BB9...");
-      const convertedContent = FeishuApiClient.convertObsidianImageSyntax(markdownContent);
+      const convertedContent = _FeishuApiClient.convertObsidianImageSyntax(markdownContent);
       onProgress == null ? void 0 : onProgress("\u6B63\u5728\u4E0A\u4F20\u6587\u4EF6...");
-      const fileContent = btoa(unescape(encodeURIComponent(convertedContent)));
+      const fileContent = _FeishuApiClient.encodeBase64Utf8(convertedContent);
       const fileToken = await this.uploadFile(fileName, fileContent, documentId || "");
       onProgress == null ? void 0 : onProgress("\u4E0A\u4F20\u5B8C\u6210\uFF01");
       const fileUrl = `https://open.feishu.cn/open-apis/drive/v1/files/${fileToken}`;
@@ -1164,8 +1393,75 @@ var FeishuApiClient = class {
         url: fileUrl
       };
     } catch (error) {
-      console.error("\u76F4\u63A5\u4E0A\u4F20\u6587\u4EF6\u5931\u8D25:", error);
+      this.logError("[\u98DE\u4E66API] \u76F4\u63A5\u4E0A\u4F20\u6587\u4EF6\u5931\u8D25:", error, { fileName, documentId });
       throw error;
+    }
+  }
+  /**
+   * 完整的文档上传流程（通过导入任务）- 带预处理图片信息
+   * @param fileName 文件名
+   * @param markdownContent Markdown内容
+   * @param documentId 目标文档ID（可选）
+   * @param onProgress 进度回调
+   * @param preProcessedImageInfos 预处理的图片信息（按正确顺序）
+   */
+  async uploadDocumentWithImageInfos(fileName, markdownContent, documentId, onProgress, preProcessedImageInfos) {
+    var _a, _b;
+    let mdFileToken = null;
+    try {
+      onProgress == null ? void 0 : onProgress("\u6B63\u5728\u5904\u7406\u6587\u6863\u5185\u5BB9...");
+      const convertedContent = _FeishuApiClient.convertObsidianImageSyntax(markdownContent);
+      onProgress == null ? void 0 : onProgress("\u6B63\u5728\u4E0A\u4F20\u6587\u4EF6\u5230\u4E91\u7A7A\u95F4...");
+      const fileContent = _FeishuApiClient.encodeBase64Utf8(convertedContent);
+      mdFileToken = await this.uploadFile(fileName, fileContent, documentId || "");
+      onProgress == null ? void 0 : onProgress("\u6587\u4EF6\u5DF2\u4E0A\u4F20\uFF0C\u6B63\u5728\u521B\u5EFA\u5BFC\u5165\u4EFB\u52A1...");
+      const ticket = await this.createImportTask(fileName, mdFileToken, documentId || "");
+      onProgress == null ? void 0 : onProgress("\u4EFB\u52A1\u5DF2\u521B\u5EFA\uFF0C\u6B63\u5728\u5904\u7406...");
+      await new Promise((resolve) => setTimeout(resolve, 3e3));
+      onProgress == null ? void 0 : onProgress("\u5F00\u59CB\u67E5\u8BE2\u5904\u7406\u72B6\u6001...");
+      const result = await this.waitForImportTask(ticket, onProgress);
+      let imageInfos;
+      if (preProcessedImageInfos && preProcessedImageInfos.length > 0) {
+        imageInfos = preProcessedImageInfos;
+      } else {
+        const adapter = (_b = (_a = this.app) == null ? void 0 : _a.vault) == null ? void 0 : _b.adapter;
+        const basePath = getAdapterBasePath(adapter);
+        imageInfos = _FeishuApiClient.extractImageInfoFromMarkdown(markdownContent, basePath);
+      }
+      if (imageInfos.length > 0) {
+        onProgress == null ? void 0 : onProgress("\u6B63\u5728\u5904\u7406\u6587\u6863\u4E2D\u7684\u56FE\u7247...");
+        await this.processImagesInDocument(result.token, imageInfos, onProgress);
+      }
+      if (mdFileToken) {
+        try {
+          this.debug("[\u98DE\u4E66API] \u5F00\u59CB\u6E05\u7406\u4E34\u65F6MD\u6587\u4EF6\uFF0Cfile_token:", mdFileToken);
+          await this.deleteFile(mdFileToken, "file");
+          this.debug("[\u98DE\u4E66API] \u4E34\u65F6MD\u6587\u4EF6\u5DF2\u6E05\u7406");
+        } catch (deleteError) {
+          console.warn("[\u98DE\u4E66API] \u6E05\u7406\u4E34\u65F6MD\u6587\u4EF6\u5931\u8D25\uFF08\u4E0D\u5F71\u54CD\u4E3B\u529F\u80FD\uFF09:", deleteError);
+        }
+      }
+      onProgress == null ? void 0 : onProgress("\u4E0A\u4F20\u5B8C\u6210\uFF01");
+      return result;
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      console.error(`[\u98DE\u4E66API] \u6587\u6863\u4E0A\u4F20\u5931\u8D25: ${errorMessage}`);
+      this.debug("[\u98DE\u4E66API] \u6587\u6863\u4E0A\u4F20\u5931\u8D25\u8BE6\u60C5:", {
+        error,
+        errorMessage,
+        fileName,
+        documentId
+      });
+      if (mdFileToken) {
+        try {
+          this.debug("[\u98DE\u4E66API] \u4E0A\u4F20\u5931\u8D25\uFF0C\u5F00\u59CB\u6E05\u7406\u4E34\u65F6MD\u6587\u4EF6\uFF0Cfile_token:", mdFileToken);
+          await this.deleteFile(mdFileToken, "file");
+          this.debug("[\u98DE\u4E66API] \u4E34\u65F6MD\u6587\u4EF6\u5DF2\u6E05\u7406");
+        } catch (deleteError) {
+          console.warn("[\u98DE\u4E66API] \u6E05\u7406\u4E34\u65F6MD\u6587\u4EF6\u5931\u8D25:", deleteError);
+        }
+      }
+      throw new Error(`\u6587\u6863\u4E0A\u4F20\u5931\u8D25: ${errorMessage}`);
     }
   }
   /**
@@ -1176,32 +1472,32 @@ var FeishuApiClient = class {
    * @param onProgress 进度回调
    */
   async uploadDocument(fileName, markdownContent, documentId, onProgress) {
-    var _a, _b, _c;
+    var _a, _b;
     let mdFileToken = null;
     try {
       onProgress == null ? void 0 : onProgress("\u6B63\u5728\u5904\u7406\u6587\u6863\u5185\u5BB9...");
-      const convertedContent = FeishuApiClient.convertObsidianImageSyntax(markdownContent);
+      const convertedContent = _FeishuApiClient.convertObsidianImageSyntax(markdownContent);
       onProgress == null ? void 0 : onProgress("\u6B63\u5728\u4E0A\u4F20\u6587\u4EF6\u5230\u4E91\u7A7A\u95F4...");
-      const fileContent = btoa(unescape(encodeURIComponent(convertedContent)));
+      const fileContent = _FeishuApiClient.encodeBase64Utf8(convertedContent);
       mdFileToken = await this.uploadFile(fileName, fileContent, documentId || "");
-      console.log("[\u98DE\u4E66API] MD\u6587\u4EF6\u5DF2\u4E0A\u4F20\uFF0Cfile_token:", mdFileToken);
       onProgress == null ? void 0 : onProgress("\u6587\u4EF6\u5DF2\u4E0A\u4F20\uFF0C\u6B63\u5728\u521B\u5EFA\u5BFC\u5165\u4EFB\u52A1...");
       const ticket = await this.createImportTask(fileName, mdFileToken, documentId || "");
       onProgress == null ? void 0 : onProgress("\u4EFB\u52A1\u5DF2\u521B\u5EFA\uFF0C\u6B63\u5728\u5904\u7406...");
-      console.log("[\u98DE\u4E66API] \u7B49\u5F853\u79D2\u8BA9\u98DE\u4E66\u5F00\u59CB\u5904\u7406\u4EFB\u52A1...");
       await new Promise((resolve) => setTimeout(resolve, 3e3));
       onProgress == null ? void 0 : onProgress("\u5F00\u59CB\u67E5\u8BE2\u5904\u7406\u72B6\u6001...");
       const result = await this.waitForImportTask(ticket, onProgress);
-      const imageInfos = FeishuApiClient.extractImageInfoFromMarkdown(markdownContent, (_c = (_b = (_a = this.app) == null ? void 0 : _a.vault) == null ? void 0 : _b.adapter) == null ? void 0 : _c.basePath);
+      const adapter = (_b = (_a = this.app) == null ? void 0 : _a.vault) == null ? void 0 : _b.adapter;
+      const basePath = getAdapterBasePath(adapter);
+      const imageInfos = _FeishuApiClient.extractImageInfoFromMarkdown(markdownContent, basePath);
       if (imageInfos.length > 0) {
         onProgress == null ? void 0 : onProgress("\u6B63\u5728\u5904\u7406\u6587\u6863\u4E2D\u7684\u56FE\u7247...");
         await this.processImagesInDocument(result.token, imageInfos, onProgress);
       }
       if (mdFileToken) {
         try {
-          console.log("[\u98DE\u4E66API] \u5F00\u59CB\u6E05\u7406\u4E34\u65F6MD\u6587\u4EF6\uFF0Cfile_token:", mdFileToken);
+          this.debug("[\u98DE\u4E66API] \u5F00\u59CB\u6E05\u7406\u4E34\u65F6MD\u6587\u4EF6\uFF0Cfile_token:", mdFileToken);
           await this.deleteFile(mdFileToken, "file");
-          console.log("[\u98DE\u4E66API] \u4E34\u65F6MD\u6587\u4EF6\u5DF2\u6E05\u7406");
+          this.debug("[\u98DE\u4E66API] \u4E34\u65F6MD\u6587\u4EF6\u5DF2\u6E05\u7406");
         } catch (deleteError) {
           console.warn("[\u98DE\u4E66API] \u6E05\u7406\u4E34\u65F6MD\u6587\u4EF6\u5931\u8D25\uFF08\u4E0D\u5F71\u54CD\u4E3B\u529F\u80FD\uFF09:", deleteError);
         }
@@ -1211,13 +1507,13 @@ var FeishuApiClient = class {
     } catch (error) {
       if (mdFileToken) {
         try {
-          console.log("[\u98DE\u4E66API] \u4E3B\u6D41\u7A0B\u5931\u8D25\uFF0C\u5C1D\u8BD5\u6E05\u7406\u4E34\u65F6MD\u6587\u4EF6");
+          this.debug("[\u98DE\u4E66API] \u4E3B\u6D41\u7A0B\u5931\u8D25\uFF0C\u5C1D\u8BD5\u6E05\u7406\u4E34\u65F6MD\u6587\u4EF6");
           await this.deleteFile(mdFileToken, "file");
         } catch (deleteError) {
           console.warn("[\u98DE\u4E66API] \u6E05\u7406\u4E34\u65F6MD\u6587\u4EF6\u5931\u8D25:", deleteError);
         }
       }
-      console.error("\u4E0A\u4F20\u6587\u6863\u5931\u8D25:", error);
+      this.logError("[\u98DE\u4E66API] \u4E0A\u4F20\u6587\u6863\u5931\u8D25:", error, { fileName, documentId });
       throw error;
     }
   }
@@ -1229,7 +1525,7 @@ var FeishuApiClient = class {
       await this.getAccessToken();
       return true;
     } catch (error) {
-      console.error("\u6D4B\u8BD5\u98DE\u4E66API\u8FDE\u63A5\u5931\u8D25:", error);
+      this.logError("[\u98DE\u4E66API] \u6D4B\u8BD5\u98DE\u4E66API\u8FDE\u63A5\u5931\u8D25:", error);
       return false;
     }
   }
@@ -1241,22 +1537,15 @@ var FeishuApiClient = class {
   formatDocumentUrl(url, token) {
     try {
       if (url.startsWith("https://") && (url.includes("feishu.cn") || url.includes("larkoffice.com"))) {
-        console.log("[\u98DE\u4E66API] URL\u5DF2\u7ECF\u662F\u5B8C\u6574\u683C\u5F0F\uFF0C\u76F4\u63A5\u8FD4\u56DE:", url);
         return url;
       }
       if (!url.startsWith("http")) {
         const formattedUrl = `https://open.feishu.cn/document/${token}`;
-        console.log("[\u98DE\u4E66API] \u6784\u9020\u98DE\u4E66\u6587\u6863URL:", {
-          originalUrl: url,
-          token,
-          formattedUrl
-        });
         return formattedUrl;
       }
-      console.log("[\u98DE\u4E66API] URL\u683C\u5F0F\u9700\u8981\u9A8C\u8BC1:", url);
       return url;
     } catch (error) {
-      console.error("[\u98DE\u4E66API] URL\u683C\u5F0F\u5316\u5931\u8D25:", error);
+      this.logError("[\u98DE\u4E66API] URL\u683C\u5F0F\u5316\u5931\u8D25:", error, { url, token });
       return url;
     }
   }
@@ -1268,7 +1557,7 @@ var FeishuApiClient = class {
   async transferDocumentOwnership(docToken, userId) {
     var _a;
     const token = await this.getAccessToken();
-    console.log("[\u98DE\u4E66API] \u8F6C\u79FB\u6587\u6863\u6240\u6709\u6743:", {
+    this.debug("[\u98DE\u4E66API] \u8F6C\u79FB\u6587\u6863\u6240\u6709\u6743:", {
       docToken,
       userId
     });
@@ -1287,30 +1576,14 @@ var FeishuApiClient = class {
         },
         body: JSON.stringify(requestBody)
       };
-      console.log("[\u98DE\u4E66API] \u6240\u6709\u6743\u8F6C\u79FB\u8BF7\u6C42\u53C2\u6570:", {
-        url: transferUrl,
-        method: "POST",
-        headers: {
-          "Authorization": `Bearer ${token.substring(0, 20)}...`,
-          "Content-Type": "application/json"
-        },
-        requestBody,
-        bodyString: JSON.stringify(requestBody)
-      });
       const response = await (0, import_obsidian.requestUrl)(requestParam);
       (_a = this.apiCallCountCallback) == null ? void 0 : _a.call(this);
       const result = response.json;
-      console.log("[\u98DE\u4E66API] \u6240\u6709\u6743\u8F6C\u79FB\u54CD\u5E94:", {
-        status: response.status,
-        code: result.code,
-        msg: result.msg,
-        fullResponse: result
-      });
       if (result.code === 0) {
-        console.log("[\u98DE\u4E66API] \u2705 \u6587\u6863\u6240\u6709\u6743\u8F6C\u79FB\u6210\u529F");
         return true;
       } else {
-        console.error("[\u98DE\u4E66API] \u274C \u6587\u6863\u6240\u6709\u6743\u8F6C\u79FB\u5931\u8D25:", {
+        console.error(`[\u98DE\u4E66API] \u274C \u6587\u6863\u6240\u6709\u6743\u8F6C\u79FB\u5931\u8D25: [${result.code}] ${result.msg}`);
+        this.debug("[\u98DE\u4E66API] \u274C \u6587\u6863\u6240\u6709\u6743\u8F6C\u79FB\u5931\u8D25\u8BE6\u60C5:", {
           code: result.code,
           msg: result.msg,
           fullResult: result
@@ -1318,13 +1591,12 @@ var FeishuApiClient = class {
         throw new Error(`\u8F6C\u79FB\u6587\u6863\u6240\u6709\u6743\u5931\u8D25: [${result.code}] ${result.msg}`);
       }
     } catch (error) {
-      console.error("[\u98DE\u4E66API] \u274C \u6240\u6709\u6743\u8F6C\u79FB\u5F02\u5E38:", {
-        error,
-        errorMessage: error instanceof Error ? error.message : String(error),
-        status: error.status,
-        statusText: error.statusText,
-        response: error.response,
-        json: error.json
+      const errorMeta = getErrorMeta(error);
+      this.logError("[\u98DE\u4E66API] \u274C \u6240\u6709\u6743\u8F6C\u79FB\u5F02\u5E38:", error, {
+        status: errorMeta.status,
+        statusText: errorMeta.statusText,
+        response: errorMeta.response,
+        json: errorMeta.json
       });
       throw error;
     }
@@ -1336,28 +1608,10 @@ var FeishuApiClient = class {
    * @param userId 用户ID（用于所有权转移）
    */
   async setDocumentPermissions(docToken, permissions, userId) {
-    var _a, _b;
     const token = await this.getAccessToken();
-    const now = Date.now();
-    console.log("[\u98DE\u4E66API] \u4EE4\u724C\u72B6\u6001\u68C0\u67E5:", {
-      hasToken: !!this.accessToken,
-      tokenLength: ((_a = this.accessToken) == null ? void 0 : _a.length) || 0,
-      tokenPrefix: ((_b = this.accessToken) == null ? void 0 : _b.substring(0, 20)) + "...",
-      currentTime: new Date(now).toISOString(),
-      expireTime: new Date(this.tokenExpireTime).toISOString(),
-      timeUntilExpire: this.tokenExpireTime - now,
-      isExpired: now >= this.tokenExpireTime
-    });
-    console.log("[\u98DE\u4E66API] \u8BBE\u7F6E\u6587\u6863\u6743\u9650:", {
-      docToken,
-      permissions,
-      userId
-    });
     try {
       if (userId) {
-        console.log("[\u98DE\u4E66API] \u7B2C\u96F6\u6B65\uFF1A\u8F6C\u79FB\u6587\u6863\u6240\u6709\u6743\u7ED9\u7528\u6237");
         await this.transferDocumentOwnership(docToken, userId);
-        console.log("[\u98DE\u4E66API] \u7B49\u5F851\u79D2\u8BA9\u6240\u6709\u6743\u8F6C\u79FB\u751F\u6548...");
         await new Promise((resolve) => setTimeout(resolve, 1e3));
       }
       const requestBody = {
@@ -1376,22 +1630,16 @@ var FeishuApiClient = class {
       } else if (permissions.allowCreateCopy || permissions.allowPrintDownload) {
         requestBody.security_entity = "anyone_can_view";
       }
-      console.log("[\u98DE\u4E66API] \u8BBE\u7F6E\u6240\u6709\u6743\u9650", {
-        requestBody,
-        bodyString: JSON.stringify(requestBody)
-      });
       const publicUrl = `${this.baseUrl}/drive/v2/permissions/${docToken}/public?type=docx`;
       await this.executePermissionRequest(publicUrl, token, requestBody, "\u6743\u9650\u8BBE\u7F6E");
-      console.log("[\u98DE\u4E66API] \u2705 \u6240\u6709\u6743\u9650\u8BBE\u7F6E\u5B8C\u6210");
       return true;
     } catch (error) {
-      console.error("[\u98DE\u4E66API] \u274C \u6743\u9650\u8BBE\u7F6E\u5931\u8D25:", {
-        error,
-        errorMessage: error instanceof Error ? error.message : String(error),
-        status: error.status,
-        statusText: error.statusText,
-        response: error.response,
-        json: error.json
+      const errorMeta = getErrorMeta(error);
+      this.logError("[\u98DE\u4E66API] \u274C \u6743\u9650\u8BBE\u7F6E\u5931\u8D25:", error, {
+        status: errorMeta.status,
+        statusText: errorMeta.statusText,
+        response: errorMeta.response,
+        json: errorMeta.json
       });
       throw error;
     }
@@ -1403,10 +1651,6 @@ var FeishuApiClient = class {
    */
   async updateDocumentPermissionsOnly(docToken, permissions) {
     const token = await this.getAccessToken();
-    console.log("[\u98DE\u4E66API] \u4EC5\u66F4\u65B0\u6587\u6863\u6743\u9650:", {
-      docToken,
-      permissions
-    });
     try {
       const requestBody = {
         external_access_entity: "open"
@@ -1424,22 +1668,16 @@ var FeishuApiClient = class {
       } else if (permissions.allowCreateCopy || permissions.allowPrintDownload) {
         requestBody.security_entity = "anyone_can_view";
       }
-      console.log("[\u98DE\u4E66API] \u8BBE\u7F6E\u6743\u9650\uFF08\u65E0\u6240\u6709\u6743\u8F6C\u79FB\uFF09", {
-        requestBody,
-        bodyString: JSON.stringify(requestBody)
-      });
       const publicUrl = `${this.baseUrl}/drive/v2/permissions/${docToken}/public?type=docx`;
       await this.executePermissionRequest(publicUrl, token, requestBody, "\u6743\u9650\u8BBE\u7F6E\uFF08\u65E0\u6240\u6709\u6743\u8F6C\u79FB\uFF09");
-      console.log("[\u98DE\u4E66API] \u2705 \u6743\u9650\u8BBE\u7F6E\u5B8C\u6210\uFF08\u65E0\u6240\u6709\u6743\u8F6C\u79FB\uFF09");
       return true;
     } catch (error) {
-      console.error("[\u98DE\u4E66API] \u274C \u6743\u9650\u8BBE\u7F6E\u5931\u8D25\uFF08\u65E0\u6240\u6709\u6743\u8F6C\u79FB\uFF09:", {
-        error,
-        errorMessage: error instanceof Error ? error.message : String(error),
-        status: error.status,
-        statusText: error.statusText,
-        response: error.response,
-        json: error.json
+      const errorMeta = getErrorMeta(error);
+      this.logError("[\u98DE\u4E66API] \u274C \u6743\u9650\u8BBE\u7F6E\u5931\u8D25\uFF08\u65E0\u6240\u6709\u6743\u8F6C\u79FB\uFF09:", error, {
+        status: errorMeta.status,
+        statusText: errorMeta.statusText,
+        response: errorMeta.response,
+        json: errorMeta.json
       });
       throw error;
     }
@@ -1463,30 +1701,14 @@ var FeishuApiClient = class {
           },
           body: JSON.stringify(requestBody)
         };
-        console.log(`[\u98DE\u4E66API] ${stepName}\u8BF7\u6C42 (\u7B2C${retryCount + 1}\u6B21):`, {
-          url,
-          method: "PATCH",
-          headers: {
-            "Authorization": `Bearer ${token.substring(0, 20)}...`,
-            "Content-Type": "application/json; charset=utf-8"
-          },
-          requestBody,
-          bodyString: JSON.stringify(requestBody)
-        });
         const response = await (0, import_obsidian.requestUrl)(requestParam);
         (_a = this.apiCallCountCallback) == null ? void 0 : _a.call(this);
         const result = response.json;
-        console.log(`[\u98DE\u4E66API] ${stepName}\u54CD\u5E94 (\u7B2C${retryCount + 1}\u6B21):`, {
-          status: response.status,
-          code: result.code,
-          msg: result.msg,
-          fullResponse: result
-        });
         if (result.code === 0) {
-          console.log(`[\u98DE\u4E66API] \u2705 ${stepName}\u6210\u529F`);
           return;
         } else {
-          console.error(`[\u98DE\u4E66API] \u274C ${stepName}\u5931\u8D25:`, {
+          console.error(`[\u98DE\u4E66API] \u274C ${stepName}\u5931\u8D25: [${result.code}] ${result.msg}`);
+          this.debug(`[\u98DE\u4E66API] \u274C ${stepName}\u5931\u8D25\u8BE6\u60C5:`, {
             code: result.code,
             msg: result.msg,
             fullResult: result
@@ -1494,29 +1716,26 @@ var FeishuApiClient = class {
           throw new Error(`${stepName}\u5931\u8D25: [${result.code}] ${result.msg}`);
         }
       } catch (error) {
-        console.error(`[\u98DE\u4E66API] \u274C ${stepName}\u7B2C${retryCount + 1}\u6B21\u8BF7\u6C42\u5F02\u5E38:`, {
-          error,
-          errorMessage: error instanceof Error ? error.message : String(error),
-          status: error.status,
-          statusText: error.statusText,
-          response: error.response,
-          json: error.json,
+        const errorMeta = getErrorMeta(error);
+        this.logError(`[\u98DE\u4E66API] \u274C ${stepName}\u7B2C${retryCount + 1}\u6B21\u8BF7\u6C42\u5F02\u5E38:`, error, {
+          status: errorMeta.status,
+          statusText: errorMeta.statusText,
+          response: errorMeta.response,
+          json: errorMeta.json,
           retryCount,
           maxRetries
         });
-        if (error.status === 500 && retryCount < maxRetries) {
+        if (errorMeta.status === 500 && retryCount < maxRetries) {
           retryCount++;
           console.warn(`[\u98DE\u4E66API] \u26A0\uFE0F ${stepName}\u9047\u5230500\u9519\u8BEF\uFF0C${retryDelay / 1e3}\u79D2\u540E\u8FDB\u884C\u7B2C${retryCount + 1}\u6B21\u91CD\u8BD5...`);
           await new Promise((resolve) => setTimeout(resolve, retryDelay));
           continue;
         } else {
-          console.error(`[\u98DE\u4E66API] \u274C ${stepName}\u6700\u7EC8\u5931\u8D25:`, {
-            error,
-            errorMessage: error instanceof Error ? error.message : String(error),
-            status: error.status,
-            statusText: error.statusText,
-            response: error.response,
-            json: error.json,
+          this.logError(`[\u98DE\u4E66API] \u274C ${stepName}\u6700\u7EC8\u5931\u8D25:`, error, {
+            status: errorMeta.status,
+            statusText: errorMeta.statusText,
+            response: errorMeta.response,
+            json: errorMeta.json,
             retryCount,
             maxRetries
           });
@@ -1539,10 +1758,6 @@ var FeishuApiClient = class {
   async deleteFile(docToken, fileType = "docx") {
     var _a;
     const token = await this.getAccessToken();
-    console.log("[\u98DE\u4E66API] \u5220\u9664\u6587\u4EF6:", {
-      docToken,
-      fileType
-    });
     try {
       const deleteUrl = `${this.baseUrl}/drive/v1/files/${docToken}?type=${fileType}`;
       const requestParam = {
@@ -1553,28 +1768,14 @@ var FeishuApiClient = class {
           "Content-Type": "application/json; charset=utf-8"
         }
       };
-      console.log("[\u98DE\u4E66API] \u5220\u9664\u6587\u4EF6\u8BF7\u6C42\u53C2\u6570:", {
-        url: deleteUrl,
-        method: "DELETE",
-        headers: {
-          "Authorization": `Bearer ${token.substring(0, 20)}...`,
-          "Content-Type": "application/json; charset=utf-8"
-        }
-      });
       const response = await (0, import_obsidian.requestUrl)(requestParam);
       (_a = this.apiCallCountCallback) == null ? void 0 : _a.call(this);
       const result = response.json;
-      console.log("[\u98DE\u4E66API] \u5220\u9664\u6587\u4EF6\u54CD\u5E94:", {
-        status: response.status,
-        code: result.code,
-        msg: result.msg,
-        fullResponse: result
-      });
       if (result.code === 0) {
-        console.log("[\u98DE\u4E66API] \u2705 \u6587\u4EF6\u5220\u9664\u6210\u529F");
         return true;
       } else {
-        console.error("[\u98DE\u4E66API] \u274C \u6587\u4EF6\u5220\u9664\u5931\u8D25:", {
+        console.error(`[\u98DE\u4E66API] \u274C \u6587\u4EF6\u5220\u9664\u5931\u8D25: [${result.code}] ${result.msg}`);
+        this.debug("[\u98DE\u4E66API] \u274C \u6587\u4EF6\u5220\u9664\u5931\u8D25\u8BE6\u60C5:", {
           code: result.code,
           msg: result.msg,
           fullResult: result
@@ -1582,13 +1783,12 @@ var FeishuApiClient = class {
         throw new Error(`\u5220\u9664\u6587\u4EF6\u5931\u8D25: [${result.code}] ${result.msg}`);
       }
     } catch (error) {
-      console.error("[\u98DE\u4E66API] \u274C \u5220\u9664\u6587\u4EF6\u5F02\u5E38:", {
-        error,
-        errorMessage: error instanceof Error ? error.message : String(error),
-        status: error.status,
-        statusText: error.statusText,
-        response: error.response,
-        json: error.json
+      const errorMeta = getErrorMeta(error);
+      this.logError("[\u98DE\u4E66API] \u274C \u5220\u9664\u6587\u4EF6\u5F02\u5E38:", error, {
+        status: errorMeta.status,
+        statusText: errorMeta.statusText,
+        response: errorMeta.response,
+        json: errorMeta.json
       });
       throw error;
     }
@@ -1598,6 +1798,41 @@ var FeishuApiClient = class {
     this.appSecret = appSecret;
     this.accessToken = null;
     this.tokenExpireTime = 0;
+  }
+  /**
+   * 添加Mermaid图片到缓存
+   * @param fileName 文件名
+   * @param base64Data base64图片数据
+   * @param svgConvertOptions SVG转换选项（包含原始尺寸信息）
+   */
+  static addMermaidImageToCache(fileName, base64Data, svgConvertOptions) {
+    const cacheData = { base64Data };
+    if (svgConvertOptions) {
+      cacheData.svgConvertOptions = svgConvertOptions;
+    }
+    this.mermaidImageCache.set(fileName, cacheData);
+  }
+  /**
+   * 从缓存获取Mermaid图片
+   * @param fileName 文件名
+   * @returns 缓存的图片信息（包含base64数据和转换选项）
+   */
+  static getMermaidImageFromCache(fileName) {
+    return this.mermaidImageCache.get(fileName);
+  }
+  /**
+   * 清除Mermaid图片缓存
+   */
+  static clearMermaidImageCache() {
+    this.mermaidImageCache.clear();
+  }
+  /**
+   * 检查是否为Mermaid临时图片
+   * @param fileName 文件名
+   * @returns 是否为Mermaid临时图片
+   */
+  static isMermaidTempImage(fileName) {
+    return fileName.startsWith("temp_mermaid-") || this.mermaidImageCache.has(fileName);
   }
   /**
    * 获取文档所有块的详细信息（支持 Callout 转换）
@@ -1613,11 +1848,11 @@ var FeishuApiClient = class {
       while (hasMore) {
         const url = `${this.baseUrl}/docx/v1/documents/${documentId}/blocks`;
         const params = {
-          page_size: 500,
+          page_size: "500",
           user_id_type: "user_id"
         };
         if (pageToken) {
-          params.page_token = pageToken;
+          params["page_token"] = pageToken;
         }
         const requestParam = {
           url: url + "?" + new URLSearchParams(params).toString(),
@@ -1627,11 +1862,6 @@ var FeishuApiClient = class {
             "Content-Type": "application/json"
           }
         };
-        console.log("[\u98DE\u4E66API] \u83B7\u53D6\u6587\u6863\u5757\u8BE6\u7EC6\u4FE1\u606F:", {
-          documentId,
-          pageToken,
-          url: requestParam.url
-        });
         if (this.apiCallCountCallback) {
           this.apiCallCountCallback();
         }
@@ -1643,19 +1873,10 @@ var FeishuApiClient = class {
         allBlocks.push(...result.data.items);
         hasMore = result.data.has_more;
         pageToken = result.data.page_token;
-        console.log("[\u98DE\u4E66API] \u83B7\u53D6\u6587\u6863\u5757\u8BE6\u7EC6\u4FE1\u606F\u6210\u529F:", {
-          currentBatch: result.data.items.length,
-          totalSoFar: allBlocks.length,
-          hasMore
-        });
       }
       return allBlocks;
     } catch (error) {
-      console.error("[\u98DE\u4E66API] \u83B7\u53D6\u6587\u6863\u5757\u8BE6\u7EC6\u4FE1\u606F\u5931\u8D25:", {
-        documentId,
-        error,
-        errorMessage: error instanceof Error ? error.message : String(error)
-      });
+      this.logError("[\u98DE\u4E66API] \u83B7\u53D6\u6587\u6863\u5757\u8BE6\u7EC6\u4FE1\u606F\u5931\u8D25:", error, { documentId });
       throw error;
     }
   }
@@ -1681,7 +1902,7 @@ var FeishuApiClient = class {
         },
         body: JSON.stringify(requestBody)
       };
-      console.log("[\u98DE\u4E66API] \u6279\u91CF\u66F4\u65B0\u6587\u6863\u5757:", {
+      this.debug("[\u98DE\u4E66API] \u6279\u91CF\u66F4\u65B0\u6587\u6863\u5757:", {
         documentId,
         requestCount: requests.length,
         requests: requests.map((req) => ({
@@ -1702,18 +1923,16 @@ var FeishuApiClient = class {
       if (result.code !== 0) {
         throw new Error(`\u6279\u91CF\u66F4\u65B0\u6587\u6863\u5757\u5931\u8D25: ${result.msg}`);
       }
-      console.log("[\u98DE\u4E66API] \u6279\u91CF\u66F4\u65B0\u6587\u6863\u5757\u6210\u529F:", {
+      this.debug("[\u98DE\u4E66API] \u6279\u91CF\u66F4\u65B0\u6587\u6863\u5757\u6210\u529F:", {
         documentId,
         updatedCount: requests.length,
         result: result.data
       });
       return result.data;
     } catch (error) {
-      console.error("[\u98DE\u4E66API] \u6279\u91CF\u66F4\u65B0\u6587\u6863\u5757\u5931\u8D25:", {
+      this.logError("[\u98DE\u4E66API] \u6279\u91CF\u66F4\u65B0\u6587\u6863\u5757\u5931\u8D25:", error, {
         documentId,
-        requestCount: requests.length,
-        error,
-        errorMessage: error instanceof Error ? error.message : String(error)
+        requestCount: requests.length
       });
       throw error;
     }
@@ -1743,7 +1962,7 @@ var FeishuApiClient = class {
         },
         body: JSON.stringify(requestBody)
       };
-      console.log("[\u98DE\u4E66API] \u521B\u5EFA\u6587\u6863\u5757:", {
+      this.debug("[\u98DE\u4E66API] \u521B\u5EFA\u6587\u6863\u5757:", {
         documentId,
         parentId,
         index,
@@ -1755,7 +1974,7 @@ var FeishuApiClient = class {
       }
       const response = await (0, import_obsidian.requestUrl)(requestParam);
       const result = response.json;
-      console.log("[\u98DE\u4E66API] \u521B\u5EFA\u6587\u6863\u5757\u539F\u59CB\u54CD\u5E94:", {
+      this.debug("[\u98DE\u4E66API] \u521B\u5EFA\u6587\u6863\u5757\u539F\u59CB\u54CD\u5E94:", {
         status: response.status,
         headers: response.headers,
         body: result
@@ -1769,10 +1988,11 @@ var FeishuApiClient = class {
           requestUrl: url,
           requestBody
         };
-        console.error("[\u98DE\u4E66API] \u521B\u5EFA\u6587\u6863\u5757\u8BE6\u7EC6\u9519\u8BEF\u4FE1\u606F:", errorDetails);
+        console.error(`[\u98DE\u4E66API] \u521B\u5EFA\u6587\u6863\u5757\u5931\u8D25: [${result.code}] ${result.msg}`);
+        this.debug("[\u98DE\u4E66API] \u521B\u5EFA\u6587\u6863\u5757\u8BE6\u7EC6\u9519\u8BEF\u4FE1\u606F:", errorDetails);
         throw new Error(`\u521B\u5EFA\u6587\u6863\u5757\u5931\u8D25: ${result.msg} (code: ${result.code})`);
       }
-      console.log("[\u98DE\u4E66API] \u521B\u5EFA\u6587\u6863\u5757\u6210\u529F:", {
+      this.debug("[\u98DE\u4E66API] \u521B\u5EFA\u6587\u6863\u5757\u6210\u529F:", {
         documentId,
         parentId,
         index,
@@ -1780,7 +2000,7 @@ var FeishuApiClient = class {
       });
       return result.data;
     } catch (error) {
-      console.error("[\u98DE\u4E66API] \u521B\u5EFA\u6587\u6863\u5757\u5931\u8D25:", {
+      this.logError("[\u98DE\u4E66API] \u521B\u5EFA\u6587\u6863\u5757\u5931\u8D25:", error, {
         documentId,
         parentId,
         index,
@@ -1789,10 +2009,7 @@ var FeishuApiClient = class {
         requestBody: {
           index,
           children
-        },
-        error,
-        errorMessage: error instanceof Error ? error.message : String(error),
-        errorStack: error instanceof Error ? error.stack : void 0
+        }
       });
       throw error;
     }
@@ -1824,7 +2041,7 @@ var FeishuApiClient = class {
         },
         body: JSON.stringify(requestBody)
       };
-      console.log("[\u98DE\u4E66API] \u521B\u5EFA\u5D4C\u5957\u6587\u6863\u5757:", {
+      this.debug("[\u98DE\u4E66API] \u521B\u5EFA\u5D4C\u5957\u6587\u6863\u5757:", {
         documentId,
         parentId,
         index,
@@ -1837,7 +2054,7 @@ var FeishuApiClient = class {
       }
       const response = await (0, import_obsidian.requestUrl)(requestParam);
       const result = response.json;
-      console.log("[\u98DE\u4E66API] \u521B\u5EFA\u5D4C\u5957\u6587\u6863\u5757\u539F\u59CB\u54CD\u5E94:", {
+      this.debug("[\u98DE\u4E66API] \u521B\u5EFA\u5D4C\u5957\u6587\u6863\u5757\u539F\u59CB\u54CD\u5E94:", {
         status: response.status,
         headers: response.headers,
         body: result
@@ -1851,10 +2068,11 @@ var FeishuApiClient = class {
           requestUrl: url,
           requestBody
         };
-        console.error("[\u98DE\u4E66API] \u521B\u5EFA\u5D4C\u5957\u6587\u6863\u5757\u8BE6\u7EC6\u9519\u8BEF\u4FE1\u606F:", errorDetails);
+        console.error(`[\u98DE\u4E66API] \u521B\u5EFA\u5D4C\u5957\u6587\u6863\u5757\u5931\u8D25: [${result.code}] ${result.msg}`);
+        this.debug("[\u98DE\u4E66API] \u521B\u5EFA\u5D4C\u5957\u6587\u6863\u5757\u8BE6\u7EC6\u9519\u8BEF\u4FE1\u606F:", errorDetails);
         throw new Error(`\u521B\u5EFA\u5D4C\u5957\u6587\u6863\u5757\u5931\u8D25: ${result.msg} (code: ${result.code})`);
       }
-      console.log("[\u98DE\u4E66API] \u521B\u5EFA\u5D4C\u5957\u6587\u6863\u5757\u6210\u529F:", {
+      this.debug("[\u98DE\u4E66API] \u521B\u5EFA\u5D4C\u5957\u6587\u6863\u5757\u6210\u529F:", {
         documentId,
         parentId,
         index,
@@ -1862,7 +2080,7 @@ var FeishuApiClient = class {
       });
       return result.data;
     } catch (error) {
-      console.error("[\u98DE\u4E66API] \u521B\u5EFA\u5D4C\u5957\u6587\u6863\u5757\u5931\u8D25:", {
+      this.logError("[\u98DE\u4E66API] \u521B\u5EFA\u5D4C\u5957\u6587\u6863\u5757\u5931\u8D25:", error, {
         documentId,
         parentId,
         index,
@@ -1873,13 +2091,73 @@ var FeishuApiClient = class {
           children_id: childrenIds,
           descendants,
           index
-        },
-        error,
-        errorMessage: error instanceof Error ? error.message : String(error),
-        errorStack: error instanceof Error ? error.stack : void 0
+        }
       });
       throw error;
     }
+  }
+  /**
+   * 批量删除多个文档块
+   * @param documentId 文档ID
+   * @param parentId 父块ID
+   * @param blockIds 要删除的块ID数组
+   * @returns 删除结果
+   */
+  async batchDeleteDocumentBlocks(documentId, parentId, startIndex, endIndex) {
+    return this.queueDeleteRequest(async () => {
+      try {
+        const token = await this.getAccessToken();
+        const url = `${this.baseUrl}/docx/v1/documents/${documentId}/blocks/${parentId}/children/batch_delete?document_revision_id=-1`;
+        const deleteBody = {
+          start_index: startIndex,
+          end_index: endIndex
+        };
+        const requestParam = {
+          url,
+          method: "DELETE",
+          headers: {
+            "Authorization": `Bearer ${token}`,
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(deleteBody)
+        };
+        this.debug("[\u98DE\u4E66API] \u6279\u91CF\u5220\u9664\u6587\u6863\u5757:", {
+          documentId,
+          parentId,
+          startIndex,
+          endIndex,
+          deleteCount: endIndex - startIndex,
+          // 左闭右开区间: [start, end)
+          deleteBody
+        });
+        if (this.apiCallCountCallback) {
+          this.apiCallCountCallback();
+        }
+        const response = await (0, import_obsidian.requestUrl)(requestParam);
+        const result = response.json;
+        if (result.code !== 0) {
+          throw new Error(`\u6279\u91CF\u5220\u9664\u6587\u6863\u5757\u5931\u8D25: ${result.msg}`);
+        }
+        this.debug("[\u98DE\u4E66API] \u6279\u91CF\u5220\u9664\u6587\u6863\u5757\u6210\u529F:", {
+          documentId,
+          parentId,
+          startIndex,
+          endIndex,
+          deletedCount: endIndex - startIndex,
+          // 左闭右开区间: [start, end)
+          result: result.data
+        });
+        return result.data;
+      } catch (error) {
+        this.logError("[\u98DE\u4E66API] \u6279\u91CF\u5220\u9664\u6587\u6863\u5757\u5931\u8D25:", error, {
+          documentId,
+          parentId,
+          startIndex,
+          endIndex
+        });
+        throw error;
+      }
+    });
   }
   /**
    * 删除文档块
@@ -1907,7 +2185,7 @@ var FeishuApiClient = class {
           },
           body: JSON.stringify(deleteBody)
         };
-        console.log("[\u98DE\u4E66API] \u5220\u9664\u6587\u6863\u5757:", {
+        this.debug("[\u98DE\u4E66API] \u5220\u9664\u6587\u6863\u5757:", {
           documentId,
           blockId,
           parentId,
@@ -1923,19 +2201,14 @@ var FeishuApiClient = class {
         if (result.code !== 0) {
           throw new Error(`\u5220\u9664\u6587\u6863\u5757\u5931\u8D25: ${result.msg}`);
         }
-        console.log("[\u98DE\u4E66API] \u5220\u9664\u6587\u6863\u5757\u6210\u529F:", {
+        this.debug("[\u98DE\u4E66API] \u5220\u9664\u6587\u6863\u5757\u6210\u529F:", {
           documentId,
           blockId,
           result: result.data
         });
         return result.data;
       } catch (error) {
-        console.error("[\u98DE\u4E66API] \u5220\u9664\u6587\u6863\u5757\u5931\u8D25:", {
-          documentId,
-          blockId,
-          error,
-          errorMessage: error instanceof Error ? error.message : String(error)
-        });
+        this.logError("[\u98DE\u4E66API] \u5220\u9664\u6587\u6863\u5757\u5931\u8D25:", error, { documentId, blockId, parentId, index });
         throw error;
       }
     });
@@ -1949,10 +2222,10 @@ var FeishuApiClient = class {
     var _a, _b;
     try {
       const token = await this.getAccessToken();
-      const url = `${this.baseUrl}/docx/v1/documents/content/blocks`;
+      const url = `${this.baseUrl}/docx/v1/documents/blocks/convert`;
       const requestBody = {
-        content,
-        format: "markdown"
+        content_type: "markdown",
+        content
       };
       const requestParam = {
         url,
@@ -1963,7 +2236,7 @@ var FeishuApiClient = class {
         },
         body: JSON.stringify(requestBody)
       };
-      console.log("[\u98DE\u4E66API] \u8F6C\u6362 Markdown \u4E3A\u6587\u6863\u5757:", {
+      this.debug("[\u98DE\u4E66API] \u8F6C\u6362 Markdown \u4E3A\u6587\u6863\u5757:", {
         contentLength: content.length,
         contentPreview: content.substring(0, 100) + (content.length > 100 ? "..." : "")
       });
@@ -1975,26 +2248,46 @@ var FeishuApiClient = class {
       if (result.code !== 0) {
         throw new Error(`\u8F6C\u6362 Markdown \u5931\u8D25: ${result.msg}`);
       }
-      console.log("[\u98DE\u4E66API] \u8F6C\u6362 Markdown \u6210\u529F:", {
+      this.debug("[\u98DE\u4E66API] \u8F6C\u6362 Markdown \u6210\u529F:", {
         blocksCount: ((_b = (_a = result.data) == null ? void 0 : _a.blocks) == null ? void 0 : _b.length) || 0
       });
       return result.data;
     } catch (error) {
-      console.error("[\u98DE\u4E66API] \u8F6C\u6362 Markdown \u5931\u8D25:", {
-        contentLength: content.length,
-        error,
-        errorMessage: error instanceof Error ? error.message : String(error)
-      });
+      this.logError("[\u98DE\u4E66API] \u8F6C\u6362 Markdown \u5931\u8D25:", error, { contentLength: content.length });
       throw error;
     }
   }
 };
+var FeishuApiClient = _FeishuApiClient;
+// 防止并发token获取
+FeishuApiClient.debugEnabled = false;
+// Mermaid图片缓存，用于存储临时生成的图片数据
+FeishuApiClient.mermaidImageCache = /* @__PURE__ */ new Map();
 function createFeishuClient(appId, appSecret, app, apiCallCountCallback) {
   return new FeishuApiClient(appId, appSecret, app, apiCallCountCallback);
 }
 
 // crypto-utils.ts
+var import_obsidian2 = require("obsidian");
 var _CryptoUtils = class {
+  static setDebugEnabled(enabled) {
+    this.debugEnabled = enabled;
+  }
+  static debug(...args) {
+    if (this.debugEnabled) {
+      console.debug(...args);
+    }
+  }
+  static logError(summary, error, details) {
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    console.error(summary, errorMessage);
+    this.debug(`${summary} \u8BE6\u60C5:`, {
+      ...details,
+      error,
+      errorMessage,
+      errorStack: error instanceof Error ? error.stack : void 0
+    });
+  }
   /**
    * 获取缓存的加密密钥，如果不存在则生成新的
    */
@@ -2010,21 +2303,17 @@ var _CryptoUtils = class {
    * 使用设备的硬件和系统信息生成唯一且稳定的密钥
    */
   static async generateDeviceKey() {
+    const platformLabel = import_obsidian2.Platform.isMacOS ? "macos" : import_obsidian2.Platform.isWin ? "windows" : import_obsidian2.Platform.isLinux ? "linux" : import_obsidian2.Platform.isMobile ? "mobile" : "unknown";
     const deviceInfo = [
-      navigator.userAgent,
-      // 用户代理
-      navigator.platform,
-      // 平台信息
+      `platform:${platformLabel}`,
+      `desktop:${import_obsidian2.Platform.isDesktop}`,
+      `mobile:${import_obsidian2.Platform.isMobile}`,
+      `app:${import_obsidian2.Platform.isDesktopApp ? "desktop" : import_obsidian2.Platform.isMobileApp ? "mobile" : "web"}`,
       navigator.language,
-      // 语言设置
       screen.width + "x" + screen.height,
-      // 屏幕分辨率
       new Date().getTimezoneOffset().toString(),
-      // 时区偏移
       window.location.hostname || "obsidian",
-      // 主机名
       "feishu-plugin-v1"
-      // 插件标识
     ].join("|");
     const encoder = new TextEncoder();
     const data = encoder.encode(deviceInfo);
@@ -2046,7 +2335,7 @@ var _CryptoUtils = class {
     if (!plaintext || plaintext.trim() === "") {
       return plaintext;
     }
-    if (this.lastEncryptedData === plaintext && this.lastEncryptedResult) {
+    if (this.lastEncryptedData === plaintext && typeof this.lastEncryptedResult === "string") {
       return this.lastEncryptedResult;
     }
     try {
@@ -2070,7 +2359,7 @@ var _CryptoUtils = class {
       this.lastEncryptedResult = result;
       return result;
     } catch (error) {
-      console.error("[\u52A0\u5BC6\u5DE5\u5177] \u52A0\u5BC6\u5931\u8D25:", error);
+      this.logError("[\u52A0\u5BC6\u5DE5\u5177] \u52A0\u5BC6\u5931\u8D25:", error);
       return plaintext;
     }
   }
@@ -2103,7 +2392,7 @@ var _CryptoUtils = class {
       const decoder = new TextDecoder();
       return decoder.decode(decrypted);
     } catch (error) {
-      console.error("[\u52A0\u5BC6\u5DE5\u5177] \u89E3\u5BC6\u5931\u8D25:", error);
+      this.logError("[\u52A0\u5BC6\u5DE5\u5177] \u89E3\u5BC6\u5931\u8D25:", error);
       return encryptedData;
     }
   }
@@ -2157,10 +2446,11 @@ var _CryptoUtils = class {
   static async encryptSensitiveSettings(settings) {
     const sensitiveData = this.extractSensitiveData(settings);
     const sensitiveDataString = JSON.stringify(sensitiveData);
-    if (this.lastEncryptedData === sensitiveDataString && this.lastEncryptedResult) {
-      return { ...settings, ...this.lastEncryptedResult };
-    }
     const encrypted = { ...settings };
+    const cachedEncryptedFields = this.lastEncryptedResult;
+    if (this.lastEncryptedData === sensitiveDataString && cachedEncryptedFields && typeof cachedEncryptedFields === "object" && !Array.isArray(cachedEncryptedFields)) {
+      return Object.assign(encrypted, cachedEncryptedFields);
+    }
     const encryptedFields = {};
     for (const field of this.SENSITIVE_FIELDS) {
       if (encrypted[field] && typeof encrypted[field] === "string") {
@@ -2233,9 +2523,18 @@ CryptoUtils.SENSITIVE_FIELDS = ["appId", "appSecret", "folderToken", "userId"];
 CryptoUtils.encryptionKey = null;
 CryptoUtils.lastEncryptedData = null;
 CryptoUtils.lastEncryptedResult = null;
+CryptoUtils.debugEnabled = false;
 
 // callout-converter.ts
 var _CalloutConverter = class {
+  static setDebugEnabled(enabled) {
+    this.debugEnabled = enabled;
+  }
+  debug(...args) {
+    if (_CalloutConverter.debugEnabled) {
+      console.debug(...args);
+    }
+  }
   constructor(feishuClient) {
     this.feishuClient = feishuClient;
   }
@@ -2247,37 +2546,8 @@ var _CalloutConverter = class {
   extractCallouts(markdown) {
     const callouts = [];
     let match;
-    console.log("[Callout\u8C03\u8BD5] \u8F93\u5165\u7684markdown\u957F\u5EA6:", markdown.length);
-    console.log("[Callout\u8C03\u8BD5] \u8F93\u5165\u7684markdown\u524D500\u5B57\u7B26:", markdown.substring(0, 500));
-    console.log("[Callout\u8C03\u8BD5] \u4F7F\u7528\u7684\u6B63\u5219\u8868\u8FBE\u5F0F:", _CalloutConverter.CALLOUT_REGEX);
-    const testRegex = /^> \[!([A-Za-z]+)\]/gm;
-    testRegex.lastIndex = 0;
-    let testMatch;
-    console.log("[Callout\u8C03\u8BD5] \u6D4B\u8BD5\u7B80\u5316\u6B63\u5219\u8868\u8FBE\u5F0F\u5339\u914D:");
-    while ((testMatch = testRegex.exec(markdown)) !== null) {
-      console.log("[Callout\u8C03\u8BD5] \u7B80\u5316\u6B63\u5219\u627E\u5230:", testMatch[0], "\u7C7B\u578B:", testMatch[1]);
-    }
-    const newRegex = /^> \[!([A-Za-z]+)\][+-]?[^\n]*(?:\n((?:> .*\n?)*))?/gm;
-    newRegex.lastIndex = 0;
-    let newMatch;
-    console.log("[Callout\u8C03\u8BD5] \u6D4B\u8BD5\u65B0\u6B63\u5219\u8868\u8FBE\u5F0F\u5339\u914D:");
-    while ((newMatch = newRegex.exec(markdown)) !== null) {
-      console.log("[Callout\u8C03\u8BD5] \u65B0\u6B63\u5219\u627E\u5230:", newMatch[0], "\u7C7B\u578B:", newMatch[1], "\u5185\u5BB9:", newMatch[2]);
-    }
-    const lines = markdown.split("\n");
-    console.log("[Callout\u8C03\u8BD5] \u524D10\u884C\u5185\u5BB9:");
-    for (let i = 0; i < Math.min(10, lines.length); i++) {
-      const line = lines[i];
-      if (line !== void 0) {
-        console.log(`[Callout\u8C03\u8BD5] \u7B2C${i + 1}\u884C: "${line}" (\u957F\u5EA6: ${line.length})`);
-        if (line.startsWith("> [!")) {
-          console.log(`[Callout\u8C03\u8BD5] \u7B2C${i + 1}\u884C\u5B57\u7B26\u7801:`, Array.from(line).map((c) => c.charCodeAt(0)));
-        }
-      }
-    }
     _CalloutConverter.CALLOUT_REGEX.lastIndex = 0;
     while ((match = _CalloutConverter.CALLOUT_REGEX.exec(markdown)) !== null) {
-      console.log("[Callout\u8C03\u8BD5] \u627E\u5230\u5339\u914D:", match);
       const [fullMatch, type, contentBlock] = match;
       if (!type)
         continue;
@@ -2285,8 +2555,8 @@ var _CalloutConverter = class {
       const endIndex = startIndex + fullMatch.length;
       const contentLines = [];
       if (contentBlock) {
-        const lines2 = contentBlock.split("\n");
-        for (const line of lines2) {
+        const lines = contentBlock.split("\n");
+        for (const line of lines) {
           if (line.startsWith("> ")) {
             contentLines.push(line.substring(2));
           } else if (line.trim()) {
@@ -2397,8 +2667,8 @@ var _CalloutConverter = class {
    */
   createFeishuCalloutDescendants(callout) {
     const backgroundColorNumber = this.getBackgroundColorNumber(callout.type);
-    const calloutBlockId = `callout_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-    const textBlockId = `text_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+    const calloutBlockId = `callout_${Date.now()}_${Math.random().toString(36).slice(2, 11)}`;
+    const textBlockId = `text_${Date.now()}_${Math.random().toString(36).slice(2, 11)}`;
     return {
       childrenIds: [calloutBlockId],
       descendants: [
@@ -2469,20 +2739,14 @@ var _CalloutConverter = class {
             var _a;
             return ((_a = element.text_run) == null ? void 0 : _a.content) || "";
           }).join("").trim();
-          console.log("[Callout\u8C03\u8BD5] \u68C0\u67E5\u5F15\u7528\u5757\u5185\u5BB9:", blockContent);
-          console.log("[Callout\u8C03\u8BD5] Callout\u539F\u59CB\u6587\u672C:", callout.originalText);
           const calloutPattern = `[!${callout.type.toLowerCase()}]`;
           const hasCalloutMarker = blockContent.includes(calloutPattern) || blockContent.includes(`[!${callout.type.toUpperCase()}]`);
-          console.log("[Callout\u8C03\u8BD5] \u67E5\u627E\u6A21\u5F0F:", calloutPattern, "\u662F\u5426\u5339\u914D:", hasCalloutMarker);
           return hasCalloutMarker;
         }
         return false;
       });
       if (matchingBlock) {
-        console.log("[Callout\u8C03\u8BD5] \u627E\u5230\u5339\u914D\u7684\u5F15\u7528\u5757:", matchingBlock.block_id);
         matches.push({ callout, block: matchingBlock });
-      } else {
-        console.log("[Callout\u8C03\u8BD5] \u672A\u627E\u5230\u5339\u914D\u7684\u5F15\u7528\u5757\uFF0CCallout\u7C7B\u578B:", callout.type);
       }
     }
     return matches;
@@ -2497,59 +2761,27 @@ var _CalloutConverter = class {
   async processSingleCalloutConversion(documentId, callout, block) {
     var _a, _b;
     try {
-      console.log("[Callout\u8F6C\u6362] \u5F00\u59CB\u5904\u7406\u5355\u4E2ACallout\u8F6C\u6362:", {
-        documentId,
-        calloutType: callout.type,
-        blockId: block.block_id,
-        parentId: block.parent_id,
-        index: block.index
-      });
       if (block.index !== void 0 && block.parent_id) {
         const actualParentId = block.parent_id;
-        console.log("[Callout\u8F6C\u6362] \u7236\u5757ID\u786E\u5B9A:", {
-          parentId: block.parent_id,
-          actualParentId,
-          documentId
-        });
         const blockContent = ((_b = (_a = block.quote) == null ? void 0 : _a.elements) == null ? void 0 : _b.map((element) => {
           var _a2;
           return ((_a2 = element.text_run) == null ? void 0 : _a2.content) || "";
         }).join("").trim()) || "";
-        console.log("[Callout\u8F6C\u6362] \u63D0\u53D6\u7684\u539F\u5757\u5185\u5BB9:", blockContent);
         const match = blockContent.match(/\[!(\w+)\]([+-]?)\s*(.*)$/s);
         const actualContent = match && match[3] ? match[3].trim() : blockContent;
-        console.log("[Callout\u8F6C\u6362] \u5904\u7406\u540E\u7684\u5185\u5BB9:", actualContent);
         const calloutInfo = { ...callout, content: actualContent };
         const { childrenIds, descendants } = this.createFeishuCalloutDescendants(calloutInfo);
-        console.log("[Callout\u8F6C\u6362] \u521B\u5EFA\u7684\u5D4C\u5957Callout\u5757\u7ED3\u6784:", {
-          childrenIds,
-          descendants: JSON.stringify(descendants, null, 2)
-        });
         if (block.block_id) {
-          console.log("[Callout\u8F6C\u6362] \u6B65\u9AA41 - \u5F00\u59CB\u5220\u9664\u539F\u5F15\u7528\u5757:", {
-            documentId,
-            blockId: block.block_id,
-            parentId: actualParentId,
-            index: block.index
-          });
           await this.feishuClient.deleteDocumentBlock(
             documentId,
             block.block_id,
             actualParentId,
             block.index
           );
-          console.log("[Callout\u8F6C\u6362] \u6B65\u9AA41 - \u5220\u9664\u539F\u5F15\u7528\u5757\u6210\u529F");
           await new Promise((resolve) => setTimeout(resolve, 500));
         } else {
           console.warn("[Callout\u8F6C\u6362] \u8B66\u544A\uFF1A\u539F\u5757\u6CA1\u6709block_id\uFF0C\u8DF3\u8FC7\u5220\u9664\u6B65\u9AA4");
         }
-        console.log("[Callout\u8F6C\u6362] \u6B65\u9AA42 - \u5F00\u59CB\u63D2\u5165\u5D4C\u5957Callout\u5757:", {
-          documentId,
-          parentId: actualParentId,
-          index: block.index,
-          childrenIds,
-          descendantsCount: descendants.length
-        });
         await this.feishuClient.createDocumentDescendants(
           documentId,
           actualParentId,
@@ -2557,11 +2789,10 @@ var _CalloutConverter = class {
           childrenIds,
           descendants
         );
-        console.log("[Callout\u8F6C\u6362] \u6B65\u9AA42 - \u63D2\u5165\u65B0Callout\u5757\u6210\u529F");
-        console.log("[Callout\u8F6C\u6362] \u5355\u4E2ACallout\u8F6C\u6362\u5B8C\u6210");
         return true;
       } else {
-        console.error("[Callout\u8F6C\u6362] \u9519\u8BEF\uFF1A\u7F3A\u5C11\u5FC5\u8981\u4FE1\u606F", {
+        console.error("[Callout\u8F6C\u6362] \u9519\u8BEF\uFF1A\u7F3A\u5C11\u5FC5\u8981\u4FE1\u606F");
+        this.debug("[Callout\u8F6C\u6362] \u7F3A\u5C11\u5FC5\u8981\u4FE1\u606F\u8BE6\u60C5:", {
           parentId: block.parent_id,
           index: block.index,
           hasParentId: !!block.parent_id,
@@ -2570,11 +2801,15 @@ var _CalloutConverter = class {
         return false;
       }
     } catch (error) {
-      console.error("[Callout\u8F6C\u6362] \u5355\u4E2A\u8F6C\u6362\u5931\u8D25:", {
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      console.error(`[Callout\u8F6C\u6362] \u5355\u4E2A\u8F6C\u6362\u5931\u8D25: ${errorMessage}`);
+      this.debug("[Callout\u8F6C\u6362] \u5355\u4E2A\u8F6C\u6362\u5931\u8D25\u8BE6\u60C5:", {
         documentId,
         calloutType: callout.type,
         blockId: block.block_id,
-        error: error instanceof Error ? error.message : String(error)
+        error,
+        errorMessage,
+        errorStack: error instanceof Error ? error.stack : void 0
       });
       return false;
     }
@@ -2597,13 +2832,23 @@ var _CalloutConverter = class {
     }
     for (const block of blocks) {
       const feishuBlock = {
-        block_id: block.block_id,
-        block_type: block.block_type,
-        parent_id: block.parent_id,
-        text: block.text,
-        quote: block.quote,
-        callout: block.callout
+        block_type: block.block_type
       };
+      if (block.block_id !== void 0) {
+        feishuBlock.block_id = block.block_id;
+      }
+      if (block.parent_id !== void 0) {
+        feishuBlock.parent_id = block.parent_id;
+      }
+      if (block.text !== void 0) {
+        feishuBlock.text = block.text;
+      }
+      if (block.quote !== void 0) {
+        feishuBlock.quote = block.quote;
+      }
+      if (block.callout !== void 0) {
+        feishuBlock.callout = block.callout;
+      }
       if (block.parent_id && parentChildrenMap.has(block.parent_id)) {
         const siblings = parentChildrenMap.get(block.parent_id);
         const index = siblings.findIndex((sibling) => sibling.block_id === block.block_id);
@@ -2615,13 +2860,6 @@ var _CalloutConverter = class {
       }
       blocksWithIndex.push(feishuBlock);
     }
-    console.log("[Callout\u8F6C\u6362] \u7D22\u5F15\u5206\u914D\u5B8C\u6210:", {
-      totalBlocks: blocksWithIndex.length,
-      parentChildrenMap: Array.from(parentChildrenMap.entries()).map(([parentId, children]) => ({
-        parentId,
-        childrenCount: children.length
-      }))
-    });
     return blocksWithIndex;
   }
   /**
@@ -2692,19 +2930,7 @@ var _CalloutConverter = class {
         };
       }
       const documentBlocks = await this.feishuClient.getDocumentBlocksDetailed(documentId);
-      console.log("[Callout\u8F6C\u6362] \u4ECE\u98DE\u4E66API\u83B7\u53D6\u7684\u539F\u59CB\u5757\u6570\u636E:", documentBlocks.map((b) => ({
-        block_id: b.block_id,
-        block_type: b.block_type,
-        parent_id: b.parent_id,
-        hasParentId: !!b.parent_id
-      })));
       const blocksWithIndex = this.addIndexToBlocks(documentBlocks);
-      console.log("[Callout\u8F6C\u6362] \u6DFB\u52A0\u7D22\u5F15\u540E\u7684\u5757\u4FE1\u606F:", blocksWithIndex.map((b) => ({
-        block_id: b.block_id,
-        block_type: b.block_type,
-        parent_id: b.parent_id,
-        index: b.index
-      })));
       const matches = this.findMatchingQuoteBlocks(blocksWithIndex, selectedCallouts);
       if (matches.length === 0) {
         return {
@@ -2715,7 +2941,6 @@ var _CalloutConverter = class {
       }
       let convertedCount = 0;
       for (const { callout, block } of matches) {
-        console.log(`[Callout\u8F6C\u6362] \u5F00\u59CB\u5904\u7406\u7B2C ${convertedCount + 1}/${matches.length} \u4E2A\u8F6C\u6362`);
         const success = await this.processSingleCalloutConversion(
           documentId,
           callout,
@@ -2723,9 +2948,7 @@ var _CalloutConverter = class {
         );
         if (success) {
           convertedCount++;
-          console.log(`[Callout\u8F6C\u6362] \u7B2C ${convertedCount} \u4E2A\u8F6C\u6362\u6210\u529F\u5B8C\u6210`);
           if (convertedCount < matches.length) {
-            console.log("[Callout\u8F6C\u6362] \u7B49\u5F85\u670D\u52A1\u5668\u72B6\u6001\u540C\u6B65...");
             await new Promise((resolve) => setTimeout(resolve, 800));
           }
         } else {
@@ -2744,7 +2967,13 @@ var _CalloutConverter = class {
         convertedCount
       };
     } catch (error) {
-      console.error("[CalloutConverter] \u8F6C\u6362\u5931\u8D25:", error);
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      console.error(`[CalloutConverter] \u8F6C\u6362\u5931\u8D25: ${errorMessage}`);
+      this.debug("[CalloutConverter] \u8F6C\u6362\u5931\u8D25\u8BE6\u60C5:", {
+        error,
+        errorMessage,
+        errorStack: error instanceof Error ? error.stack : void 0
+      });
       return {
         success: false,
         convertedCount: 0,
@@ -2754,6 +2983,7 @@ var _CalloutConverter = class {
   }
 };
 var CalloutConverter = _CalloutConverter;
+CalloutConverter.debugEnabled = false;
 // Callout 类型映射表
 CalloutConverter.CALLOUT_TYPE_MAPPING = {
   "NOTE": "LightBlueBackground",
@@ -2802,6 +3032,939 @@ CalloutConverter.CALLOUT_COLOR_NUMBER_MAPPING = {
 // Callout 正则表达式 - 匹配完整的 Callout 块
 CalloutConverter.CALLOUT_REGEX = /^> \[!([A-Za-z]+)\][+-]?[^\n]*(?:\n((?:> .*\n?)*))?/gm;
 
+// yaml-processor.ts
+var _YamlProcessor = class {
+  static setDebugEnabled(enabled) {
+    this.debugEnabled = enabled;
+  }
+  debug(...args) {
+    if (_YamlProcessor.debugEnabled) {
+      console.debug(...args);
+    }
+  }
+  logError(summary, error, details) {
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    console.error(summary, errorMessage);
+    this.debug(`${summary} \u8BE6\u60C5:`, {
+      ...details,
+      error,
+      errorMessage,
+      errorStack: error instanceof Error ? error.stack : void 0
+    });
+  }
+  constructor(feishuClient) {
+    this.feishuClient = feishuClient;
+  }
+  /**
+   * 从 Markdown 文本中提取 YAML frontmatter
+   * @param markdown Markdown 文本
+   * @returns YAML 信息数组
+   */
+  extractYaml(markdown) {
+    const match = _YamlProcessor.YAML_REGEX.exec(markdown);
+    if (!match) {
+      return null;
+    }
+    const yamlContent = match[1];
+    const originalText = match[0];
+    const startIndex = match.index || 0;
+    const endIndex = (match.index || 0) + originalText.length;
+    try {
+      if (!yamlContent) {
+        return null;
+      }
+      const yamlInfo = this.parseYamlContent(yamlContent);
+      return {
+        ...yamlInfo,
+        originalText,
+        startIndex,
+        endIndex
+      };
+    } catch (error) {
+      this.logError("[YAML\u5904\u7406\u5668] YAML \u89E3\u6790\u9519\u8BEF:", error);
+      return null;
+    }
+  }
+  /**
+   * 解析 YAML 内容
+   * @param yamlContent YAML 字符串内容
+   * @returns 解析后的 YAML 对象
+   */
+  parseYamlContent(yamlContent) {
+    const result = {};
+    const lines = yamlContent.split("\n");
+    let currentKey = "";
+    let isInArray = false;
+    let arrayItems = [];
+    for (const line of lines) {
+      const trimmedLine = line.trim();
+      if (!trimmedLine || trimmedLine.startsWith("#")) {
+        continue;
+      }
+      if (trimmedLine.startsWith("- ")) {
+        if (isInArray && currentKey) {
+          arrayItems.push(trimmedLine.substring(2).trim());
+        }
+        continue;
+      }
+      if (isInArray && !trimmedLine.startsWith("- ")) {
+        if (currentKey) {
+          result[currentKey] = arrayItems;
+        }
+        isInArray = false;
+        arrayItems = [];
+      }
+      const colonIndex = trimmedLine.indexOf(":");
+      if (colonIndex > 0) {
+        const key = trimmedLine.substring(0, colonIndex).trim();
+        const value = trimmedLine.substring(colonIndex + 1).trim();
+        currentKey = key;
+        if (value === "") {
+          isInArray = true;
+          arrayItems = [];
+        } else {
+          result[key] = this.parseYamlValue(value);
+        }
+      }
+    }
+    if (isInArray && currentKey) {
+      result[currentKey] = arrayItems;
+    }
+    return result;
+  }
+  /**
+   * 解析YAML值，自动推断类型
+   * @param value 原始字符串值
+   * @returns 解析后的值
+   */
+  parseYamlValue(value) {
+    const trimmedValue = value.replace(/^["']|["']$/g, "");
+    if (trimmedValue.toLowerCase() === "true")
+      return true;
+    if (trimmedValue.toLowerCase() === "false")
+      return false;
+    if (trimmedValue.toLowerCase() === "null" || trimmedValue === "~")
+      return null;
+    if (/^-?\d+$/.test(trimmedValue)) {
+      return parseInt(trimmedValue, 10);
+    }
+    if (/^-?\d*\.\d+$/.test(trimmedValue)) {
+      return parseFloat(trimmedValue);
+    }
+    if (trimmedValue.includes(",")) {
+      return trimmedValue.split(",").map((item) => item.trim());
+    }
+    return trimmedValue;
+  }
+  /**
+   * 创建飞书 YAML 高亮块
+   * @param yamlInfo YAML 信息
+   * @returns 飞书高亮块对象
+   */
+  createFeishuYamlBlock(yamlInfo) {
+    const content = this.formatYamlContent(yamlInfo);
+    return {
+      block_type: 19,
+      // 高亮块类型
+      callout: {
+        background_color: "LightGrayBackground",
+        // 使用灰色背景
+        icon: {
+          emoji: "\u{1F4C4}"
+          // 使用页面图标
+        },
+        children: [
+          {
+            block_type: 2,
+            // 文本块类型
+            text: {
+              elements: [
+                {
+                  text_run: {
+                    content
+                    // 移除代码样式
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    };
+  }
+  /**
+   * 创建数字格式的飞书 YAML 高亮块（用于 descendant API）
+   * @param yamlInfo YAML 信息
+   * @returns 嵌套块结构
+   */
+  createFeishuYamlDescendants(yamlInfo) {
+    const content = this.formatYamlContent(yamlInfo);
+    const calloutBlockId = `yaml_${Date.now()}_${Math.random().toString(36).slice(2, 11)}`;
+    const textBlockId = `text_${Date.now()}_${Math.random().toString(36).slice(2, 11)}`;
+    return {
+      childrenIds: [calloutBlockId],
+      descendants: [
+        {
+          block_id: calloutBlockId,
+          block_type: 19,
+          callout: {
+            background_color: 6,
+            // 灰色背景（数字格式）
+            border_color: 2,
+            text_color: 5,
+            emoji_id: "page_facing_up"
+          },
+          children: [textBlockId]
+        },
+        {
+          block_id: textBlockId,
+          block_type: 2,
+          children: [],
+          text: {
+            elements: [
+              {
+                text_run: {
+                  content
+                  // 移除代码样式
+                }
+              }
+            ]
+          }
+        }
+      ]
+    };
+  }
+  /**
+   * 格式化 YAML 内容为可读的字符串
+   * @param yamlInfo YAML 信息
+   * @returns 格式化后的字符串
+   */
+  formatYamlContent(yamlInfo) {
+    const lines = ["\u{1F4C4} \u6587\u6863\u4FE1\u606F"];
+    const fieldConfig = {
+      title: { icon: "\u{1F4DD}", label: "\u6807\u9898", priority: 1 },
+      date: { icon: "\u{1F4C5}", label: "\u65E5\u671F", priority: 2 },
+      category: { icon: "\u{1F4C2}", label: "\u7C7B\u522B", priority: 3 },
+      tags: { icon: "\u{1F3F7}\uFE0F", label: "\u6807\u7B7E", priority: 4 },
+      alias: { icon: "\u{1F517}", label: "\u522B\u540D", priority: 5 },
+      stars: { icon: "\u2B50", label: "\u8BC4\u7EA7", priority: 6 },
+      from: { icon: "\u{1F4D6}", label: "\u6765\u6E90", priority: 7 },
+      url: { icon: "\u{1F517}", label: "\u94FE\u63A5", priority: 8 },
+      author: { icon: "\u{1F464}", label: "\u4F5C\u8005", priority: 9 },
+      status: { icon: "\u{1F4CA}", label: "\u72B6\u6001", priority: 10 },
+      priority: { icon: "\u{1F525}", label: "\u4F18\u5148\u7EA7", priority: 11 },
+      created: { icon: "\u{1F195}", label: "\u521B\u5EFA\u65F6\u95F4", priority: 12 },
+      updated: { icon: "\u{1F504}", label: "\u66F4\u65B0\u65F6\u95F4", priority: 13 },
+      version: { icon: "\u{1F522}", label: "\u7248\u672C", priority: 14 },
+      description: { icon: "\u{1F4C4}", label: "\u63CF\u8FF0", priority: 15 }
+    };
+    const allFields = Object.keys(yamlInfo).filter((key) => !["originalText", "startIndex", "endIndex"].includes(key)).sort((a, b) => {
+      var _a, _b;
+      const priorityA = ((_a = fieldConfig[a]) == null ? void 0 : _a.priority) || 999;
+      const priorityB = ((_b = fieldConfig[b]) == null ? void 0 : _b.priority) || 999;
+      return priorityA - priorityB;
+    });
+    for (const key of allFields) {
+      const value = yamlInfo[key];
+      if (value === void 0 || value === null)
+        continue;
+      const config = fieldConfig[key] || { icon: "\u{1F4CC}", label: key, priority: 999 };
+      const formattedValue = this.formatFieldValue(key, value);
+      if (formattedValue) {
+        lines.push(`${config.icon} ${config.label}: ${formattedValue}`);
+      }
+    }
+    return lines.join("\n");
+  }
+  /**
+   * 格式化字段值用于显示
+   * @param key 字段名
+   * @param value 字段值
+   * @returns 格式化后的字符串
+   */
+  formatFieldValue(key, value) {
+    if (value === void 0 || value === null)
+      return "";
+    switch (key) {
+      case "stars":
+        if (typeof value === "number" && value >= 0 && value <= 5) {
+          const starString = "\u2B50".repeat(Math.floor(value));
+          return `${starString} (${value}/5)`;
+        }
+        return this.stringifyValue(value);
+      case "tags":
+        if (Array.isArray(value)) {
+          return value.join(", ");
+        }
+        return this.stringifyValue(value);
+      case "date":
+      case "created":
+      case "updated":
+        if (typeof value === "string") {
+          const date = new Date(value);
+          if (!isNaN(date.getTime())) {
+            return date.toLocaleDateString("zh-CN");
+          }
+        }
+        return this.stringifyValue(value);
+      default:
+        if (Array.isArray(value)) {
+          return value.join(", ");
+        }
+        return this.stringifyValue(value);
+    }
+  }
+  stringifyValue(value) {
+    if (value === void 0 || value === null) {
+      return "";
+    }
+    if (typeof value === "object") {
+      return JSON.stringify(value);
+    }
+    return String(value);
+  }
+  /**
+   * 检查文档是否包含 YAML frontmatter
+   * @param markdown Markdown 文本
+   * @returns 是否包含 YAML
+   */
+  hasYamlFrontmatter(markdown) {
+    return _YamlProcessor.YAML_REGEX.test(markdown);
+  }
+  /**
+   * 移除 Markdown 文本中的 YAML frontmatter
+   * @param markdown Markdown 文本
+   * @returns 移除 YAML 后的文本
+   */
+  removeYamlFrontmatter(markdown) {
+    return markdown.replace(_YamlProcessor.YAML_REGEX, "");
+  }
+  /**
+   * 预览 YAML 转换结果
+   * @param markdown Markdown 文本
+   * @returns 预览信息
+   */
+  previewYamlConversion(markdown) {
+    const yamlInfo = this.extractYaml(markdown);
+    return {
+      hasYaml: yamlInfo !== null,
+      yamlInfo,
+      formattedContent: yamlInfo ? this.formatYamlContent(yamlInfo) : null
+    };
+  }
+  /**
+   * 在文档中插入YAML信息块
+   * @param documentId 文档ID
+   * @param yamlInfo YAML信息
+   * @param insertIndex 插入位置索引
+   */
+  async insertYamlBlockInDocument(documentId, yamlInfo, insertIndex = 0) {
+    try {
+      const documentBlocks = await this.feishuClient.getDocumentBlocksDetailed(documentId);
+      if (!documentBlocks || documentBlocks.length === 0) {
+        console.error("[YAML\u5904\u7406\u5668] \u65E0\u6CD5\u83B7\u53D6\u6587\u6863\u5757\u4FE1\u606F");
+        return false;
+      }
+      const rootBlock = documentBlocks.find((block) => !block.parent_id) || documentBlocks[0];
+      if (!rootBlock) {
+        console.error("[YAML\u5904\u7406\u5668] \u65E0\u6CD5\u627E\u5230\u6587\u6863\u6839\u5757");
+        return false;
+      }
+      const descendants = this.createFeishuYamlDescendants(yamlInfo);
+      await this.feishuClient.createDocumentDescendants(
+        documentId,
+        rootBlock.block_id,
+        insertIndex,
+        descendants.childrenIds,
+        descendants.descendants
+      );
+      return true;
+    } catch (error) {
+      this.logError("[YAML\u5904\u7406\u5668] \u63D2\u5165YAML\u5757\u5931\u8D25:", error, { documentId, insertIndex });
+      return false;
+    }
+  }
+};
+var YamlProcessor = _YamlProcessor;
+YamlProcessor.debugEnabled = false;
+// YAML frontmatter 正则表达式
+YamlProcessor.YAML_REGEX = /^---\s*\n([\s\S]*?)\n---\s*\n/;
+
+// link-processor.ts
+var _LinkProcessor = class {
+  constructor(app, feishuClient, plugin) {
+    this.uploadedDocuments = /* @__PURE__ */ new Map();
+    // 缓存已上传的文档
+    this.processingDocuments = /* @__PURE__ */ new Set();
+    this.app = app;
+    this.vault = app.vault;
+    this.feishuClient = feishuClient;
+    this.plugin = plugin;
+  }
+  static setDebugEnabled(enabled) {
+    this.debugEnabled = enabled;
+  }
+  debug(...args) {
+    if (_LinkProcessor.debugEnabled) {
+      console.debug(...args);
+    }
+  }
+  logError(summary, error, details) {
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    console.error(summary, errorMessage);
+    this.debug(`${summary} \u8BE6\u60C5:`, {
+      ...details,
+      error,
+      errorMessage,
+      errorStack: error instanceof Error ? error.stack : void 0
+    });
+  }
+  /**
+   * 从Markdown内容中提取所有双链引用
+   * @param content Markdown内容
+   * @returns 双链信息数组
+   */
+  extractWikiLinks(content) {
+    const wikiLinks = [];
+    const wikiLinkRegex = /\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g;
+    let match;
+    while ((match = wikiLinkRegex.exec(content)) !== null) {
+      if (!match[1])
+        continue;
+      const title = match[1].trim();
+      const displayText = match[2] || title;
+      const originalText = match[0];
+      const position = match.index;
+      const file = this.findFileByTitle(title);
+      wikiLinks.push({
+        originalText,
+        title,
+        position,
+        ...file && { file }
+        // 只有当file存在时才添加file属性
+      });
+    }
+    return wikiLinks;
+  }
+  /**
+   * 根据标题查找文件
+   * @param title 文档标题
+   * @returns 对应的文件对象或null
+   */
+  findFileByTitle(title) {
+    const files = this.vault.getMarkdownFiles();
+    let matchedFile = files.find((file) => file.basename === title);
+    if (matchedFile)
+      return matchedFile;
+    matchedFile = files.find((file) => {
+      const pathWithoutExt = file.path.replace(/\.md$/, "");
+      return pathWithoutExt === title || pathWithoutExt.endsWith("/" + title);
+    });
+    if (matchedFile)
+      return matchedFile;
+    matchedFile = files.find((file) => {
+      const baseName = file.basename.toLowerCase();
+      const titleLower = title.toLowerCase();
+      return baseName.includes(titleLower) || titleLower.includes(baseName);
+    });
+    if (matchedFile)
+      return matchedFile;
+    return null;
+  }
+  /**
+   * 递归上传引用的文档
+   * @param wikiLinks 双链信息数组
+   * @param onProgress 进度回调
+   * @param applyPermissions 是否应用权限设置（与主文档保持一致）
+   * @param permissions 权限设置对象
+   * @param userId 用户ID（用于转移所有权）
+   * @returns 上传结果映射
+   */
+  async uploadReferencedDocuments(wikiLinks, onProgress, applyPermissions = false, permissions, userId) {
+    const results = /* @__PURE__ */ new Map();
+    for (let i = 0; i < wikiLinks.length; i++) {
+      const wikiLink = wikiLinks[i];
+      if (!wikiLink)
+        continue;
+      const progress = `\u6B63\u5728\u5904\u7406\u5F15\u7528\u6587\u6863 ${i + 1}/${wikiLinks.length}: ${wikiLink.title}`;
+      onProgress == null ? void 0 : onProgress(progress);
+      try {
+        const result = await this.uploadSingleDocument(wikiLink);
+        if (result) {
+          results.set(wikiLink.title, result);
+          wikiLink.feishuUrl = result.url;
+          wikiLink.feishuToken = result.token;
+          if (applyPermissions && permissions && result.token) {
+            try {
+              onProgress == null ? void 0 : onProgress(`\u6B63\u5728\u4E3A\u5F15\u7528\u6587\u6863\u8BBE\u7F6E\u6743\u9650: ${wikiLink.title}`);
+              await this.feishuClient.setDocumentPermissions(result.token, permissions, userId);
+              if (this.plugin.updateHistoryPermissions) {
+                const permissionsToSave = {
+                  isPublic: permissions.isPublic,
+                  allowCopy: permissions.allowCopy,
+                  allowCreateCopy: permissions.allowCreateCopy
+                };
+                await this.plugin.updateHistoryPermissions(result.token, permissionsToSave);
+              }
+            } catch (permissionError) {
+              this.logError(`[\u53CC\u94FE\u5904\u7406] \u5F15\u7528\u6587\u6863\u6743\u9650\u8BBE\u7F6E\u5931\u8D25: ${wikiLink.title}`, permissionError, {
+                title: wikiLink.title
+              });
+            }
+          }
+        }
+      } catch (error) {
+        this.logError(`[\u53CC\u94FE\u5904\u7406] \u6587\u6863\u4E0A\u4F20\u5931\u8D25: ${wikiLink.title}`, error, {
+          title: wikiLink.title
+        });
+      }
+    }
+    return results;
+  }
+  /**
+   * 上传单个文档到飞书
+   * @param wikiLink 双链信息
+   * @returns 上传结果
+   */
+  async uploadSingleDocument(wikiLink) {
+    if (!wikiLink.file) {
+      const foundFile = this.findFileByTitle(wikiLink.title);
+      if (!foundFile)
+        return null;
+      wikiLink.file = foundFile;
+    }
+    if (this.uploadedDocuments.has(wikiLink.title)) {
+      return this.uploadedDocuments.get(wikiLink.title);
+    }
+    if (this.processingDocuments.has(wikiLink.title)) {
+      return null;
+    }
+    this.processingDocuments.add(wikiLink.title);
+    try {
+      const content = await this.app.vault.read(wikiLink.file);
+      const uploadResult = await this.feishuClient.uploadDocument(
+        wikiLink.file.name,
+        content,
+        this.plugin.settings.folderToken
+      );
+      const result = {
+        token: uploadResult.token,
+        url: uploadResult.url,
+        title: wikiLink.title
+      };
+      this.uploadedDocuments.set(wikiLink.title, result);
+      return result;
+    } catch (error) {
+      this.logError(`[\u53CC\u94FE\u5904\u7406] \u6587\u6863\u4E0A\u4F20\u5931\u8D25: ${wikiLink.title}`, error, {
+        title: wikiLink.title
+      });
+      return null;
+    } finally {
+      this.processingDocuments.delete(wikiLink.title);
+    }
+  }
+  /**
+   * 将双链替换为飞书文档链接
+   * @param content 原始内容
+   * @param wikiLinks 双链信息数组
+   * @returns 替换后的内容
+   */
+  replaceWikiLinksWithFeishuLinks(content, wikiLinks) {
+    let processedContent = content;
+    const sortedWikiLinks = [...wikiLinks].sort((a, b) => b.position - a.position);
+    for (const wikiLink of sortedWikiLinks) {
+      if (wikiLink.feishuUrl) {
+        const markdownLink = `[${wikiLink.title}](${wikiLink.feishuUrl})`;
+        processedContent = processedContent.replace(wikiLink.originalText, markdownLink);
+      }
+    }
+    return processedContent;
+  }
+  /**
+   * 处理文档中的所有双链引用
+   * @param content 文档内容
+   * @param onProgress 进度回调
+   * @param applyPermissions 是否应用权限设置（与主文档保持一致）
+   * @param permissions 权限设置对象
+   * @param userId 用户ID（用于转移所有权）
+   * @returns 处理后的内容和上传结果
+   */
+  async processWikiLinks(content, onProgress, applyPermissions = false, permissions, userId) {
+    const wikiLinks = this.extractWikiLinks(content);
+    if (wikiLinks.length === 0) {
+      return {
+        processedContent: content,
+        uploadResults: /* @__PURE__ */ new Map()
+      };
+    }
+    onProgress == null ? void 0 : onProgress("\u6B63\u5728\u4E0A\u4F20\u5F15\u7528\u7684\u6587\u6863...");
+    const uploadResults = await this.uploadReferencedDocuments(
+      wikiLinks,
+      onProgress,
+      applyPermissions,
+      permissions,
+      userId
+    );
+    onProgress == null ? void 0 : onProgress("\u6B63\u5728\u66FF\u6362\u53CC\u94FE\u4E3A\u98DE\u4E66\u94FE\u63A5...");
+    const processedContent = this.replaceWikiLinksWithFeishuLinks(content, wikiLinks);
+    return {
+      processedContent,
+      uploadResults
+    };
+  }
+  /**
+   * 清理缓存
+   */
+  clearCache() {
+    this.uploadedDocuments.clear();
+    this.processingDocuments.clear();
+  }
+  /**
+   * 获取已上传文档的统计信息
+   */
+  getUploadStats() {
+    return {
+      totalUploaded: this.uploadedDocuments.size,
+      uploadedTitles: Array.from(this.uploadedDocuments.keys())
+    };
+  }
+};
+var LinkProcessor = _LinkProcessor;
+// 正在处理的文档，防止循环引用
+LinkProcessor.debugEnabled = false;
+
+// mermaid-converter.ts
+var import_obsidian3 = require("obsidian");
+var MermaidConverter = class {
+  static setDebugEnabled(enabled) {
+    this.debugEnabled = enabled;
+  }
+  static debug(...args) {
+    if (this.debugEnabled) {
+      console.debug(...args);
+    }
+  }
+  static logError(summary, error, details) {
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    console.error(summary, errorMessage);
+    this.debug(`${summary} \u8BE6\u60C5:`, {
+      ...details,
+      error,
+      errorMessage,
+      errorStack: error instanceof Error ? error.stack : void 0
+    });
+  }
+  /**
+   * 检查内容是否包含Mermaid图表
+   * @param content 文档内容
+   * @returns 是否包含Mermaid图表
+   */
+  static hasMermaidCharts(content) {
+    const mermaidRegex = /```mermaid\s*\n([\s\S]*?)\n\s*```/g;
+    return mermaidRegex.test(content);
+  }
+  /**
+   * 从内容中提取所有Mermaid图表信息
+   * @param content 文档内容
+   * @returns Mermaid图表信息数组
+   */
+  static extractMermaidCharts(content) {
+    var _a;
+    const mermaidInfos = [];
+    const mermaidRegex = /```mermaid\s*\n([\s\S]*?)\n\s*```/g;
+    let match;
+    let index = 0;
+    while ((match = mermaidRegex.exec(content)) !== null) {
+      const mermaidContent = (_a = match[1]) == null ? void 0 : _a.trim();
+      if (mermaidContent) {
+        const type = this.detectMermaidType(mermaidContent);
+        const fileName = `mermaid-${type}-${Date.now()}-${index}.png`;
+        mermaidInfos.push({
+          content: mermaidContent,
+          fileName,
+          type
+        });
+        index++;
+      }
+    }
+    return mermaidInfos;
+  }
+  /**
+   * 检测Mermaid图表类型
+   * @param content Mermaid内容
+   * @returns 图表类型
+   */
+  static detectMermaidType(content) {
+    const lines = content.split("\n");
+    const firstLine = lines.length > 0 && lines[0] ? lines[0].trim().toLowerCase() : "";
+    if (firstLine.includes("flowchart") || firstLine.includes("graph")) {
+      return "flowchart";
+    } else if (firstLine.includes("sequencediagram")) {
+      return "sequence";
+    } else if (firstLine.includes("classdiagram")) {
+      return "class";
+    } else if (firstLine.includes("statediagram")) {
+      return "state";
+    } else if (firstLine.includes("erdiagram")) {
+      return "er";
+    } else if (firstLine.includes("gantt")) {
+      return "gantt";
+    } else if (firstLine.includes("pie")) {
+      return "pie";
+    } else if (firstLine.includes("journey")) {
+      return "journey";
+    } else if (firstLine.includes("gitgraph")) {
+      return "gitgraph";
+    } else {
+      return "diagram";
+    }
+  }
+  /**
+   * 将Mermaid内容转换为PNG格式的base64字符串
+   * 使用Obsidian内置渲染，通过DOM捕获SVG元素
+   * @param app Obsidian应用实例
+   * @param mermaidContent Mermaid图表内容
+   * @param options 转换选项
+   * @returns Promise<MermaidConversionResult> 包含PNG数据和尺寸信息的结果对象
+   */
+  static async convertMermaidToPng(app, mermaidContent, options = {}) {
+    let tempContainer = null;
+    let component = null;
+    try {
+      this.debug("[Mermaid\u8F6C\u6362] \u5F00\u59CB\u4F7F\u7528Obsidian\u5185\u7F6E\u6E32\u67D3\u8F6C\u6362Mermaid");
+      tempContainer = document.createElement("div");
+      tempContainer.classList.add("obshare-mermaid-temp-container");
+      document.body.appendChild(tempContainer);
+      component = new import_obsidian3.Component();
+      const markdownContent = `\`\`\`mermaid
+${mermaidContent}
+\`\`\``;
+      await import_obsidian3.MarkdownRenderer.render(
+        app,
+        markdownContent,
+        tempContainer,
+        "",
+        component
+      );
+      await this.waitForMermaidRender(tempContainer);
+      const svgElement = tempContainer.querySelector("svg");
+      if (!svgElement) {
+        throw new Error("\u672A\u627E\u5230\u6E32\u67D3\u540E\u7684SVG\u5143\u7D20");
+      }
+      this.debug("[Mermaid\u8F6C\u6362] \u6210\u529F\u83B7\u53D6SVG\u5143\u7D20\uFF0C\u5F00\u59CB\u8F6C\u6362\u4E3APNG");
+      let svgWidth;
+      let svgHeight;
+      const widthAttr = svgElement.getAttribute("width");
+      const heightAttr = svgElement.getAttribute("height");
+      if (widthAttr && heightAttr && !widthAttr.includes("%") && !heightAttr.includes("%")) {
+        svgWidth = parseFloat(widthAttr);
+        svgHeight = parseFloat(heightAttr);
+      } else {
+        const rect = svgElement.getBoundingClientRect();
+        if (rect.width > 0 && rect.height > 0) {
+          svgWidth = rect.width;
+          svgHeight = rect.height;
+        } else {
+          try {
+            const bbox = svgElement.getBBox();
+            svgWidth = bbox.width || svgElement.clientWidth || 800;
+            svgHeight = bbox.height || svgElement.clientHeight || 600;
+          } catch (e) {
+            svgWidth = svgElement.clientWidth || 800;
+            svgHeight = svgElement.clientHeight || 600;
+          }
+        }
+      }
+      this.debug(`[SVG\u8F6CPNG] SVG\u5C3A\u5BF8: ${svgWidth}x${svgHeight}`);
+      const pngBase64 = await this.svgElementToPng(svgElement, options);
+      const scale = options.scale || this.DEFAULT_SCALE;
+      this.debug("[Mermaid\u8F6C\u6362] \u8F6C\u6362\u5B8C\u6210");
+      return {
+        pngBase64,
+        originalWidth: Math.round(svgWidth),
+        originalHeight: Math.round(svgHeight),
+        scale
+      };
+    } catch (error) {
+      this.logError("[Mermaid\u8F6C\u6362] \u8F6C\u6362\u5931\u8D25:", error);
+      throw error instanceof Error ? error : new Error(String(error));
+    } finally {
+      if (component) {
+        component.unload();
+      }
+      if (tempContainer && tempContainer.parentNode) {
+        tempContainer.parentNode.removeChild(tempContainer);
+      }
+    }
+  }
+  /**
+   * 等待Mermaid渲染完成
+   * @param container 容器元素
+   * @returns Promise<void>
+   */
+  static async waitForMermaidRender(container) {
+    return new Promise((resolve, reject) => {
+      const startTime = Date.now();
+      const checkRender = () => {
+        const svgElement = container.querySelector("svg");
+        if (svgElement) {
+          setTimeout(() => resolve(), 100);
+          return;
+        }
+        if (Date.now() - startTime > this.RENDER_TIMEOUT) {
+          reject(new Error("Mermaid\u6E32\u67D3\u8D85\u65F6"));
+          return;
+        }
+        setTimeout(checkRender, 50);
+      };
+      checkRender();
+    });
+  }
+  /**
+   * 将SVG元素转换为PNG
+   * @param svgElement SVG元素
+   * @param options 转换选项
+   * @returns Promise<string> PNG的base64字符串
+   */
+  static async svgElementToPng(svgElement, options) {
+    return new Promise((resolve, reject) => {
+      try {
+        let svgWidth;
+        let svgHeight;
+        const widthAttr = svgElement.getAttribute("width");
+        const heightAttr = svgElement.getAttribute("height");
+        if (widthAttr && heightAttr && !widthAttr.includes("%") && !heightAttr.includes("%")) {
+          svgWidth = parseFloat(widthAttr);
+          svgHeight = parseFloat(heightAttr);
+        } else {
+          const rect = svgElement.getBoundingClientRect();
+          if (rect.width > 0 && rect.height > 0) {
+            svgWidth = rect.width;
+            svgHeight = rect.height;
+          } else {
+            try {
+              const bbox = svgElement.getBBox();
+              svgWidth = bbox.width + (bbox.x || 0);
+              svgHeight = bbox.height + (bbox.y || 0);
+            } catch (e) {
+              svgWidth = svgElement.clientWidth || 800;
+              svgHeight = svgElement.clientHeight || 600;
+            }
+          }
+        }
+        svgWidth = Math.max(svgWidth, 100);
+        svgHeight = Math.max(svgHeight, 100);
+        this.debug(`[SVG\u8F6CPNG] SVG\u5C3A\u5BF8: ${svgWidth}x${svgHeight}`);
+        const scale = options.scale || this.DEFAULT_SCALE;
+        const targetWidth = Math.round(svgWidth * scale);
+        const targetHeight = Math.round(svgHeight * scale);
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d");
+        if (!ctx) {
+          reject(new Error("\u65E0\u6CD5\u521B\u5EFACanvas\u4E0A\u4E0B\u6587"));
+          return;
+        }
+        canvas.width = targetWidth;
+        canvas.height = targetHeight;
+        const backgroundColor = options.backgroundColor || this.DEFAULT_BACKGROUND_COLOR;
+        ctx.fillStyle = backgroundColor;
+        ctx.fillRect(0, 0, targetWidth, targetHeight);
+        const clonedNode = svgElement.cloneNode(true);
+        if (!(clonedNode instanceof SVGSVGElement)) {
+          reject(new Error("SVG\u514B\u9686\u5931\u8D25"));
+          return;
+        }
+        const clonedSvg = clonedNode;
+        clonedSvg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+        clonedSvg.setAttribute("xmlns:xlink", "http://www.w3.org/1999/xlink");
+        clonedSvg.setAttribute("width", svgWidth.toString());
+        clonedSvg.setAttribute("height", svgHeight.toString());
+        clonedSvg.setAttribute("viewBox", `0 0 ${svgWidth} ${svgHeight}`);
+        this.inlineStyles(clonedSvg);
+        const svgData = new XMLSerializer().serializeToString(clonedSvg);
+        const encodedSvgData = encodeURIComponent(svgData);
+        const svgDataUrl = `data:image/svg+xml;charset=utf-8,${encodedSvgData}`;
+        const img = new Image();
+        img.onload = () => {
+          try {
+            ctx.drawImage(img, 0, 0, targetWidth, targetHeight);
+            const pngDataUrl = canvas.toDataURL("image/png", 1);
+            const base64Data = pngDataUrl.split(",")[1];
+            if (!base64Data) {
+              reject(new Error("\u65E0\u6CD5\u751F\u6210PNG\u6570\u636E"));
+              return;
+            }
+            this.debug(`[SVG\u8F6CPNG] \u8F6C\u6362\u5B8C\u6210\uFF0C\u6700\u7EC8\u5C3A\u5BF8: ${targetWidth}x${targetHeight}`);
+            resolve(base64Data);
+          } catch (error) {
+            reject(error instanceof Error ? error : new Error(String(error)));
+          }
+        };
+        img.onerror = () => {
+          reject(new Error("SVG\u56FE\u7247\u52A0\u8F7D\u5931\u8D25"));
+        };
+        img.src = svgDataUrl;
+      } catch (error) {
+        this.logError("[SVG\u8F6CPNG] \u8F6C\u6362\u5931\u8D25:", error);
+        reject(error instanceof Error ? error : new Error(String(error)));
+      }
+    });
+  }
+  /**
+   * 内联SVG样式，确保样式不丢失
+   * @param svgElement SVG元素
+   */
+  static inlineStyles(svgElement) {
+    try {
+      const allElements = svgElement.querySelectorAll("*");
+      allElements.forEach((element) => {
+        const computedStyle = window.getComputedStyle(element);
+        const importantStyles = [
+          "fill",
+          "stroke",
+          "stroke-width",
+          "stroke-dasharray",
+          "stroke-linecap",
+          "font-family",
+          "font-size",
+          "font-weight",
+          "font-style",
+          "text-anchor",
+          "dominant-baseline",
+          "alignment-baseline",
+          "opacity",
+          "visibility",
+          "display"
+        ];
+        importantStyles.forEach((prop) => {
+          const value = computedStyle.getPropertyValue(prop);
+          if (value && value !== "initial" && value !== "inherit") {
+            element.setAttribute(prop, value.trim());
+          }
+        });
+      });
+    } catch (error) {
+      console.warn("[SVG\u6837\u5F0F\u5185\u8054] \u6837\u5F0F\u5185\u8054\u5931\u8D25\uFF0C\u7EE7\u7EED\u4F7F\u7528\u539F\u59CB\u6837\u5F0F:", error);
+    }
+  }
+  /**
+   * 获取推荐的转换选项
+   * @param mermaidContent Mermaid内容
+   * @returns 推荐的转换选项
+   */
+  static getRecommendedOptions(mermaidContent) {
+    return {
+      scale: this.DEFAULT_SCALE,
+      backgroundColor: this.DEFAULT_BACKGROUND_COLOR
+    };
+  }
+};
+MermaidConverter.DEFAULT_SCALE = 2;
+MermaidConverter.DEFAULT_BACKGROUND_COLOR = "#ffffff";
+MermaidConverter.RENDER_TIMEOUT = 1e4;
+// 10秒超时
+MermaidConverter.debugEnabled = false;
+
 // main.ts
 var NotificationManager = class {
   constructor() {
@@ -2820,7 +3983,7 @@ var NotificationManager = class {
       return;
     }
     this.activeNotifications.add(noticeKey);
-    new import_obsidian2.Notice(message, duration);
+    new import_obsidian4.Notice(message, duration);
     const timeout = setTimeout(() => {
       this.activeNotifications.delete(noticeKey);
       this.notificationTimeouts.delete(noticeKey);
@@ -2845,10 +4008,13 @@ var DEFAULT_SETTINGS = {
   uploadCount: 0,
   agreedToTerms: false,
   apiCallCount: 0,
-  lastResetDate: new Date().toISOString().substring(0, 7)
+  lastResetDate: new Date().toISOString().substring(0, 7),
   // 当前年月
+  enableDoubleLinkMode: true,
+  // 默认启用双链模式
+  debugLoggingEnabled: false
 };
-var FeishuUploaderPlugin = class extends import_obsidian2.Plugin {
+var FeishuUploaderPlugin = class extends import_obsidian4.Plugin {
   constructor() {
     super(...arguments);
     // 飞书客户端实例
@@ -2860,8 +4026,17 @@ var FeishuUploaderPlugin = class extends import_obsidian2.Plugin {
     // 上次保存的敏感数据哈希，用于检测变化
     this.lastSensitiveDataHash = null;
   }
+  applyDebugLoggingSetting() {
+    FeishuApiClient.setDebugEnabled(this.settings.debugLoggingEnabled);
+    MermaidConverter.setDebugEnabled(this.settings.debugLoggingEnabled);
+    CalloutConverter.setDebugEnabled(this.settings.debugLoggingEnabled);
+    YamlProcessor.setDebugEnabled(this.settings.debugLoggingEnabled);
+    LinkProcessor.setDebugEnabled(this.settings.debugLoggingEnabled);
+    CryptoUtils.setDebugEnabled(this.settings.debugLoggingEnabled);
+  }
   async onload() {
     await this.loadSettings();
+    this.applyDebugLoggingSetting();
     if (!this.settings.agreedToTerms) {
       const termsModal = new UserAgreementModal(this.app, this);
       termsModal.open();
@@ -2876,22 +4051,22 @@ var FeishuUploaderPlugin = class extends import_obsidian2.Plugin {
       id: "publish-current-document",
       name: "\u5206\u4EAB\u5F53\u524D\u6587\u6863\u5230\u98DE\u4E66",
       callback: () => {
-        this.uploadCurrentDocument();
+        void this.uploadCurrentDocument();
       }
     });
     this.registerEvent(
       this.app.workspace.on("file-menu", (menu, file) => {
-        if (file instanceof import_obsidian2.TFile && file.extension === "md") {
+        if (file instanceof import_obsidian4.TFile && file.extension === "md") {
           menu.addItem((item) => {
-            item.setTitle("\u5206\u4EAB\u8BE5\u9875\u9762").setIcon("share").onClick(async () => {
-              await this.uploadFile(file);
+            item.setTitle("\u5206\u4EAB\u8BE5\u9875\u9762").setIcon("share").onClick(() => {
+              void this.uploadFile(file);
             });
           });
         }
       })
     );
     this.addRibbonIcon("share", "\u5206\u4EAB\u5F53\u524D\u9875\u9762", (evt) => {
-      this.uploadCurrentDocument();
+      void this.uploadCurrentDocument();
     });
     this.addSettingTab(new FeishuUploaderSettingTab(this.app, this));
   }
@@ -2899,16 +4074,14 @@ var FeishuUploaderPlugin = class extends import_obsidian2.Plugin {
    * 初始化飞书API客户端
    */
   initializeFeishuClient() {
-    console.log("[\u98DE\u4E66\u63D2\u4EF6] \u521D\u59CB\u5316\u5BA2\u6237\u7AEF\uFF0C\u5F53\u524D\u8BBE\u7F6E:", {
-      appId: this.settings.appId ? "\u5DF2\u914D\u7F6E" : "\u672A\u914D\u7F6E",
-      appSecret: this.settings.appSecret ? "\u5DF2\u914D\u7F6E" : "\u672A\u914D\u7F6E",
-      userId: this.settings.userId ? "\u5DF2\u914D\u7F6E" : "\u672A\u914D\u7F6E",
-      folderToken: this.settings.folderToken ? "\u5DF2\u914D\u7F6E" : "\u672A\u914D\u7F6E"
-    });
     if (this.settings.appId && this.settings.appSecret) {
       const asyncCallback = () => {
-        this.incrementApiCallCount().catch((error) => {
-          console.error("[\u98DE\u4E66\u63D2\u4EF6] API\u8C03\u7528\u8BA1\u6570\u66F4\u65B0\u5931\u8D25:", error);
+        void this.incrementApiCallCount().catch((error) => {
+          const errorMessage = error instanceof Error ? error.message : String(error);
+          console.error(`[\u98DE\u4E66\u63D2\u4EF6] API\u8C03\u7528\u8BA1\u6570\u66F4\u65B0\u5931\u8D25: ${errorMessage}`);
+          if (this.settings.debugLoggingEnabled) {
+            console.debug("[\u98DE\u4E66\u63D2\u4EF6] API\u8C03\u7528\u8BA1\u6570\u66F4\u65B0\u5931\u8D25\u8BE6\u60C5:", error);
+          }
         });
       };
       if (this.feishuClient) {
@@ -2921,11 +4094,9 @@ var FeishuUploaderPlugin = class extends import_obsidian2.Plugin {
       } else {
         this.feishuRichClient = createFeishuClient(this.settings.appId, this.settings.appSecret, this.app, asyncCallback);
       }
-      console.log("[\u98DE\u4E66\u63D2\u4EF6] \u5BA2\u6237\u7AEF\u521D\u59CB\u5316\u6210\u529F");
     } else {
       this.feishuClient = null;
       this.feishuRichClient = null;
-      console.log("[\u98DE\u4E66\u63D2\u4EF6] \u5BA2\u6237\u7AEF\u521D\u59CB\u5316\u5931\u8D25\uFF1A\u7F3A\u5C11appId\u6216appSecret");
     }
   }
   onunload() {
@@ -2933,11 +4104,12 @@ var FeishuUploaderPlugin = class extends import_obsidian2.Plugin {
   }
   async loadSettings() {
     const loadedData = await this.loadData();
-    this.settings = Object.assign({}, DEFAULT_SETTINGS, loadedData);
+    const loadedSettings = typeof loadedData === "object" && loadedData !== null ? loadedData : {};
+    this.settings = Object.assign({}, DEFAULT_SETTINGS, loadedSettings);
     const sensitiveFields = ["appId", "appSecret", "folderToken", "userId"];
     let hasPlaintextData = false;
     for (const field of sensitiveFields) {
-      const value = loadedData == null ? void 0 : loadedData[field];
+      const value = loadedSettings[field];
       if (value && typeof value === "string" && !CryptoUtils.isEncryptedData(value)) {
         hasPlaintextData = true;
         break;
@@ -2947,10 +4119,8 @@ var FeishuUploaderPlugin = class extends import_obsidian2.Plugin {
     const sensitiveData = sensitiveFields.map((field) => this.settings[field] || "").join("|");
     this.lastSensitiveDataHash = await this.simpleHash(sensitiveData);
     if (hasPlaintextData) {
-      console.log("[\u98DE\u4E66\u63D2\u4EF6] \u68C0\u6D4B\u5230\u660E\u6587\u654F\u611F\u6570\u636E\uFF0C\u6B63\u5728\u81EA\u52A8\u52A0\u5BC6...");
       const encryptedSettings = await CryptoUtils.encryptSensitiveSettings(this.settings);
       await this.saveData(encryptedSettings);
-      console.log("[\u98DE\u4E66\u63D2\u4EF6] \u660E\u6587\u6570\u636E\u5DF2\u81EA\u52A8\u52A0\u5BC6\u4FDD\u5B58");
     }
     if (this.settings.uploadHistory) {
       this.settings.uploadHistory.forEach((item) => {
@@ -2959,23 +4129,12 @@ var FeishuUploaderPlugin = class extends import_obsidian2.Plugin {
         }
       });
     }
-    console.log("[\u98DE\u4E66\u63D2\u4EF6] \u8BBE\u7F6E\u52A0\u8F7D\u5B8C\u6210\u5E76\u89E3\u5BC6:", {
-      appId: this.settings.appId ? "\u5DF2\u914D\u7F6E" : "\u672A\u914D\u7F6E",
-      appSecret: this.settings.appSecret ? "\u5DF2\u914D\u7F6E" : "\u672A\u914D\u7F6E",
-      userId: this.settings.userId ? "\u5DF2\u914D\u7F6E" : "\u672A\u914D\u7F6E",
-      folderToken: this.settings.folderToken ? "\u5DF2\u914D\u7F6E" : "\u672A\u914D\u7F6E"
-    });
   }
   async saveSettings() {
     const encryptedSettings = await CryptoUtils.encryptSensitiveSettings(this.settings);
     await this.saveData(encryptedSettings);
     this.initializeFeishuClient();
-    console.log("[\u98DE\u4E66\u63D2\u4EF6] \u8BBE\u7F6E\u5DF2\u52A0\u5BC6\u4FDD\u5B58:", {
-      appId: this.settings.appId ? "\u5DF2\u914D\u7F6E" : "\u672A\u914D\u7F6E",
-      appSecret: this.settings.appSecret ? "\u5DF2\u914D\u7F6E" : "\u672A\u914D\u7F6E",
-      userId: this.settings.userId ? "\u5DF2\u914D\u7F6E" : "\u672A\u914D\u7F6E",
-      folderToken: this.settings.folderToken ? "\u5DF2\u914D\u7F6E" : "\u672A\u914D\u7F6E"
-    });
+    this.applyDebugLoggingSetting();
   }
   /**
    * 优化的保存方法：只在必要时进行加密
@@ -2986,13 +4145,11 @@ var FeishuUploaderPlugin = class extends import_obsidian2.Plugin {
     const currentHash = await this.simpleHash(sensitiveData);
     if (this.lastSensitiveDataHash === currentHash) {
       await this.saveData(this.settings);
-      console.log("[\u98DE\u4E66\u63D2\u4EF6] \u6570\u636E\u5DF2\u4FDD\u5B58\uFF08\u65E0\u9700\u91CD\u65B0\u52A0\u5BC6\uFF09");
       return;
     }
     const encryptedSettings = await CryptoUtils.encryptSensitiveSettings(this.settings);
     await this.saveData(encryptedSettings);
     this.lastSensitiveDataHash = currentHash;
-    console.log("[\u98DE\u4E66\u63D2\u4EF6] \u6570\u636E\u5DF2\u52A0\u5BC6\u4FDD\u5B58");
   }
   /**
    * 简单哈希函数
@@ -3005,10 +4162,82 @@ var FeishuUploaderPlugin = class extends import_obsidian2.Plugin {
     return hashArray.map((b) => b.toString(16).padStart(2, "0")).join("");
   }
   /**
+   * 统一收集文档中所有类型的图片信息（包括普通图片、SVG、Mermaid）
+   * @param content 文档内容
+   * @returns 按原文档位置排序的图片信息数组
+   */
+  collectAllImageInfos(content) {
+    var _a;
+    const allImages = [];
+    if (MermaidConverter.hasMermaidCharts(content)) {
+      const mermaidInfos = MermaidConverter.extractMermaidCharts(content);
+      mermaidInfos.forEach((mermaidInfo) => {
+        const mermaidPattern = new RegExp(`\`\`\`mermaid[\\s\\S]*?\`\`\``, "g");
+        let match2;
+        while ((match2 = mermaidPattern.exec(content)) !== null) {
+          const matchContent = match2[0].replace(/```mermaid\s*\n?/, "").replace(/\n?\s*```$/, "").trim();
+          if (matchContent === mermaidInfo.content.trim()) {
+            allImages.push({
+              type: "mermaid",
+              position: match2.index,
+              info: mermaidInfo,
+              originalMatch: match2[0]
+            });
+            break;
+          }
+        }
+      });
+    }
+    const obsidianImageRegex = /!\[\[([^\]]+)\]\]/g;
+    let match;
+    while ((match = obsidianImageRegex.exec(content)) !== null) {
+      const fileName = match[1];
+      if (!fileName) {
+        continue;
+      }
+      const info = {
+        fileName,
+        path: fileName,
+        originalSyntax: "obsidian"
+      };
+      allImages.push({
+        type: "regular",
+        position: match.index,
+        info,
+        originalMatch: match[0]
+      });
+    }
+    const markdownImageRegex = /!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]*)")?\)/g;
+    while ((match = markdownImageRegex.exec(content)) !== null) {
+      const alt = (_a = match[1]) != null ? _a : "";
+      const path = match[2];
+      const title = match[3];
+      if (!path)
+        continue;
+      const decodedPath = decodeURI(path);
+      const fileName = decodedPath.split("/").pop() || decodedPath;
+      const info = {
+        fileName,
+        path: decodedPath,
+        alt,
+        originalSyntax: "markdown",
+        ...title !== void 0 ? { title } : {}
+      };
+      allImages.push({
+        type: "regular",
+        position: match.index,
+        info,
+        originalMatch: match[0]
+      });
+    }
+    allImages.sort((a, b) => a.position - b.position);
+    return allImages;
+  }
+  /**
    * 上传当前文档
    */
   async uploadCurrentDocument() {
-    const activeView = this.app.workspace.getActiveViewOfType(import_obsidian2.MarkdownView);
+    const activeView = this.app.workspace.getActiveViewOfType(import_obsidian4.MarkdownView);
     if (!activeView) {
       this.notificationManager.showNotice("\u8BF7\u5148\u6253\u5F00\u4E00\u4E2AMarkdown\u6587\u6863", 4e3, "no-markdown-doc");
       return;
@@ -3027,15 +4256,6 @@ var FeishuUploaderPlugin = class extends import_obsidian2.Plugin {
    * 上传指定文件
    */
   async uploadFile(file) {
-    console.log("[\u98DE\u4E66\u63D2\u4EF6] \u5F00\u59CB\u4E0A\u4F20\u6587\u4EF6:", file.name);
-    console.log("[\u98DE\u4E66\u63D2\u4EF6] \u5F53\u524D\u914D\u7F6E\u72B6\u6001:", {
-      feishuClient: this.feishuClient ? "\u5DF2\u521D\u59CB\u5316" : "\u672A\u521D\u59CB\u5316",
-      feishuRichClient: this.feishuRichClient ? "\u5DF2\u521D\u59CB\u5316" : "\u672A\u521D\u59CB\u5316",
-      appId: this.settings.appId ? "\u5DF2\u914D\u7F6E" : "\u672A\u914D\u7F6E",
-      appSecret: this.settings.appSecret ? "\u5DF2\u914D\u7F6E" : "\u672A\u914D\u7F6E",
-      userId: this.settings.userId ? "\u5DF2\u914D\u7F6E" : "\u672A\u914D\u7F6E",
-      folderToken: this.settings.folderToken ? "\u5DF2\u914D\u7F6E" : "\u672A\u914D\u7F6E"
-    });
     const client = this.feishuClient;
     if (!client) {
       console.error("[\u98DE\u4E66\u63D2\u4EF6] \u4E0A\u4F20\u5931\u8D25\uFF1A\u5BA2\u6237\u7AEF\u672A\u521D\u59CB\u5316");
@@ -3047,71 +4267,163 @@ var FeishuUploaderPlugin = class extends import_obsidian2.Plugin {
       this.notificationManager.showNotice("\u8BF7\u5148\u5728\u8BBE\u7F6E\u4E2D\u914D\u7F6E\u98DE\u4E66\u6587\u4EF6\u5939Token", 5e3, "missing-folder-token");
       return;
     }
+    let content = await this.app.vault.read(file);
+    const title = file.basename;
     const progressModal = new UploadProgressModal(this.app);
     progressModal.open();
     try {
-      progressModal.updateProgress(10, "\u6B63\u5728\u8BFB\u53D6\u6587\u6863\u5185\u5BB9...");
-      const content = await this.app.vault.read(file);
-      const title = file.basename;
-      progressModal.updateProgress(20, "\u6B63\u5728\u5206\u6790\u6587\u6863\u683C\u5F0F...");
-      const hasImages = /!\[\[.*?\]\]/.test(content);
+      progressModal.updateProgress(5, "\u6B63\u5728\u8BFB\u53D6\u6587\u6863\u5185\u5BB9...");
+      progressModal.updateProgress(10, "\u6B63\u5728\u5206\u6790\u6587\u6863\u683C\u5F0F...");
+      let linkProcessor = null;
+      let linkResult = null;
+      if (this.settings.enableDoubleLinkMode && this.feishuClient) {
+        linkProcessor = new LinkProcessor(this.app, this.feishuClient, this);
+        linkResult = await linkProcessor.processWikiLinks(content, (status) => {
+          const baseProgress = 15;
+          const maxProgress = 35;
+          let currentProgress = baseProgress;
+          if (status.includes("\u6B63\u5728\u4E0A\u4F20\u5F15\u7528\u7684\u6587\u6863")) {
+            currentProgress = baseProgress + 5;
+          } else if (status.includes("\u6B63\u5728\u5904\u7406\u5F15\u7528\u6587\u6863")) {
+            const match = status.match(/(\d+)\/(\d+)/);
+            if (match && match[1] && match[2]) {
+              const current = parseInt(match[1]);
+              const total = parseInt(match[2]);
+              const progressRatio = current / total;
+              currentProgress = baseProgress + 5 + progressRatio * 10;
+            } else {
+              currentProgress = baseProgress + 8;
+            }
+          } else if (status.includes("\u6B63\u5728\u66FF\u6362\u53CC\u94FE\u4E3A\u98DE\u4E66\u94FE\u63A5")) {
+            currentProgress = maxProgress - 2;
+          }
+          progressModal.updateProgress(Math.min(currentProgress, maxProgress), status);
+        });
+        content = linkResult.processedContent;
+      }
+      let cachedYaml = null;
+      if (this.feishuClient) {
+        const yamlProcessor = new YamlProcessor(this.feishuClient);
+        cachedYaml = yamlProcessor.extractYaml(content);
+        if (cachedYaml) {
+          content = yamlProcessor.removeYamlFrontmatter(content);
+        }
+      }
+      progressModal.updateProgress(30, "\u6B63\u5728\u5206\u6790\u6587\u6863\u4E2D\u7684\u56FE\u7247...");
+      const allImageInfos = this.collectAllImageInfos(content);
+      const hasImages = allImageInfos.length > 0;
+      let processedContent = content;
+      let cachedMermaidInfos = [];
+      if (hasImages) {
+        progressModal.updateProgress(35, "\u6B63\u5728\u5904\u7406\u56FE\u7247...");
+        try {
+          for (let i = 0; i < allImageInfos.length; i++) {
+            const imageInfo = allImageInfos[i];
+            if (!imageInfo)
+              continue;
+            const progress = 35 + i / allImageInfos.length * 20;
+            if (imageInfo.type === "mermaid") {
+              progressModal.updateProgress(progress, `\u6B63\u5728\u6E32\u67D3Mermaid\u56FE\u8868 ${i + 1}/${allImageInfos.length}...`);
+              const mermaidInfo = imageInfo.info;
+              const options = MermaidConverter.getRecommendedOptions(mermaidInfo.content);
+              const conversionResult = await MermaidConverter.convertMermaidToPng(this.app, mermaidInfo.content, options);
+              const tempFileName = `temp_${mermaidInfo.fileName}`;
+              const svgConvertOptions = {
+                originalWidth: conversionResult.originalWidth,
+                originalHeight: conversionResult.originalHeight,
+                scale: conversionResult.scale
+              };
+              FeishuApiClient.addMermaidImageToCache(tempFileName, conversionResult.pngBase64, svgConvertOptions);
+              FeishuApiClient.addMermaidImageToCache(mermaidInfo.fileName, conversionResult.pngBase64, svgConvertOptions);
+              mermaidInfo.pngBase64 = conversionResult.pngBase64;
+              mermaidInfo.tempFileName = tempFileName;
+              cachedMermaidInfos.push(mermaidInfo);
+              const imageReference = `![${mermaidInfo.fileName}](${mermaidInfo.fileName})`;
+              if (imageInfo.originalMatch) {
+                processedContent = processedContent.replace(imageInfo.originalMatch, imageReference);
+              }
+            }
+          }
+          content = processedContent;
+        } catch (error) {
+          const errorMessage = error instanceof Error ? error.message : String(error);
+          console.error(`[\u56FE\u7247\u5904\u7406] \u5904\u7406\u56FE\u7247\u5931\u8D25: ${errorMessage}`);
+          if (this.settings.debugLoggingEnabled) {
+            console.debug("[\u56FE\u7247\u5904\u7406] \u5904\u7406\u56FE\u7247\u5931\u8D25\u8BE6\u60C5:", error);
+          }
+          this.notificationManager.showNotice(`\u56FE\u7247\u5904\u7406\u5931\u8D25: ${errorMessage}`, 6e3);
+        }
+      }
       let cachedCallouts = [];
       if (this.feishuClient) {
         const calloutConverter = new CalloutConverter(this.feishuClient);
         cachedCallouts = calloutConverter.extractCallouts(content);
-        console.log(`[\u98DE\u4E66\u63D2\u4EF6] \u68C0\u6D4B\u5230 ${cachedCallouts.length} \u4E2A Callout\uFF0C\u5DF2\u7F13\u5B58\u5185\u5BB9`);
       }
-      console.log(`[\u98DE\u4E66\u63D2\u4EF6] \u68C0\u6D4B\u5230${hasImages ? "\u6709" : "\u65E0"}\u56FE\u7247\uFF0C\u4F7F\u7528${hasImages ? "\u5BCC\u6587\u672C" : "\u7B80\u5355"}\u6A21\u5F0F\u4E0A\u4F20`);
-      progressModal.updateProgress(30, "\u6B63\u5728\u4E0A\u4F20\u6587\u6863\u5230\u98DE\u4E66\u4E91...");
-      let result;
+      let orderedImageInfos = [];
       if (hasImages) {
-        result = await this.feishuRichClient.uploadDocument(
-          file.name,
-          // 完整文件名（包含扩展名）用于上传到云空间
-          content,
-          this.settings.folderToken,
-          (status) => {
-            if (status.includes("\u521B\u5EFA\u5BFC\u5165\u4EFB\u52A1")) {
-              progressModal.updateProgress(50, "\u6B63\u5728\u521B\u5EFA\u5BFC\u5165\u4EFB\u52A1...");
-            } else if (status.includes("\u7B49\u5F85\u5904\u7406")) {
-              progressModal.updateProgress(60, "\u6587\u6863\u6B63\u5728\u5904\u7406\u4E2D...");
-            } else if (status.includes("\u5904\u7406\u4E2D")) {
-              progressModal.updateProgress(70, "\u6B63\u5728\u8F6C\u6362\u6587\u6863\u683C\u5F0F...");
-            }
+        for (const imageInfo of allImageInfos) {
+          if (imageInfo.type === "mermaid") {
+            const mermaidInfo = imageInfo.info;
+            orderedImageInfos.push({
+              path: mermaidInfo.fileName,
+              fileName: mermaidInfo.fileName,
+              position: orderedImageInfos.length
+            });
+          } else {
+            orderedImageInfos.push({
+              path: imageInfo.info.path,
+              fileName: imageInfo.info.fileName,
+              position: orderedImageInfos.length
+            });
           }
-        );
-      } else {
-        result = await this.feishuClient.uploadDocument(
-          file.name,
-          // 完整文件名（包含扩展名）用于上传到云空间
-          content,
-          this.settings.folderToken,
-          (status) => {
-            if (status.includes("\u521B\u5EFA\u5BFC\u5165\u4EFB\u52A1")) {
-              progressModal.updateProgress(50, "\u6B63\u5728\u521B\u5EFA\u5BFC\u5165\u4EFB\u52A1...");
-            } else if (status.includes("\u7B49\u5F85\u5904\u7406")) {
-              progressModal.updateProgress(60, "\u6587\u6863\u6B63\u5728\u5904\u7406\u4E2D...");
-            } else if (status.includes("\u5904\u7406\u4E2D")) {
-              progressModal.updateProgress(70, "\u6B63\u5728\u8F6C\u6362\u6587\u6863\u683C\u5F0F...");
-            }
-          }
-        );
+        }
+      }
+      progressModal.updateProgress(55, "\u6B63\u5728\u4E0A\u4F20\u6587\u6863\u5230\u98DE\u4E66...");
+      const result = await this.performNormalUpload(file, content, hasImages, orderedImageInfos, progressModal);
+      let processStep = 80;
+      if (cachedYaml) {
+        progressModal.updateProgress(processStep, "\u6B63\u5728\u5904\u7406\u6587\u6863\u4FE1\u606F\u5757...");
+        await this.autoProcessYaml(result.token, cachedYaml);
+        processStep = 85;
       }
       if (cachedCallouts.length > 0) {
-        progressModal.updateProgress(80, "\u6B63\u5728\u5904\u7406\u6807\u6CE8\u5757...");
+        progressModal.updateProgress(processStep, "\u6B63\u5728\u5904\u7406\u6807\u6CE8\u5757...");
         await this.autoConvertCallouts(result.token, cachedCallouts);
+        processStep = 90;
+      }
+      progressModal.updateProgress(95, "\u6B63\u5728\u4FDD\u5B58\u4E0A\u4F20\u8BB0\u5F55...");
+      const referencedDocs = this.settings.enableDoubleLinkMode && linkProcessor && linkResult && linkResult.uploadResults.size > 0 ? Array.from(linkResult.uploadResults.values()).map((result2) => ({
+        title: result2.title,
+        docToken: result2.token,
+        url: result2.url
+      })) : void 0;
+      await this.addUploadHistory(title, result.url, result.token, void 0, referencedDocs);
+      if (this.settings.enableDoubleLinkMode && referencedDocs && referencedDocs.length > 0) {
+        for (const refDoc of referencedDocs) {
+          await this.addUploadHistory(
+            refDoc.title,
+            refDoc.url,
+            refDoc.docToken,
+            void 0,
+            void 0,
+            true
+            // 标识为引用文档
+          );
+        }
       }
       progressModal.complete();
-      await this.addUploadHistory(title, result.url, result.token);
       new DocumentPermissionModal(this.app, result.token, result.url, title, this, false).open();
     } catch (error) {
-      console.error("[\u98DE\u4E66\u63D2\u4EF6] \u4E0A\u4F20\u5931\u8D25:", error);
-      let userMessage = "";
       const errorMessage = error instanceof Error ? error.message : String(error);
+      console.error(`[\u98DE\u4E66\u63D2\u4EF6] \u4E0A\u4F20\u5931\u8D25: ${errorMessage}`);
+      if (this.settings.debugLoggingEnabled) {
+        console.debug("[\u98DE\u4E66\u63D2\u4EF6] \u4E0A\u4F20\u5931\u8D25\u8BE6\u60C5:", error);
+      }
+      let userMessage = "";
       if (errorMessage.includes("\u5BFC\u5165\u4EFB\u52A1\u5904\u7406\u8D85\u65F6")) {
         userMessage = "\u6587\u6863\u5904\u7406\u65F6\u95F4\u8F83\u957F\uFF0C\u8BF7\u7A0D\u540E\u624B\u52A8\u68C0\u67E5\u98DE\u4E66\u4E91\u6587\u6863\u4E2D\u7684\u65B0\u6587\u6863\u3002";
         progressModal.complete();
-        new import_obsidian2.Notice(userMessage, 1e4);
+        new import_obsidian4.Notice(userMessage, 1e4);
         return;
       } else if (errorMessage.includes("\u7F51\u7EDC\u8FDE\u63A5\u5931\u8D25")) {
         userMessage = "\u7F51\u7EDC\u8FDE\u63A5\u5931\u8D25\uFF0C\u8BF7\u68C0\u67E5\u4EE5\u4E0B\u9879\u76EE\uFF1A\n1. \u786E\u4FDD\u7F51\u7EDC\u8FDE\u63A5\u6B63\u5E38\n2. \u68C0\u67E5\u9632\u706B\u5899\u8BBE\u7F6E\n3. \u5C1D\u8BD5\u91CD\u65B0\u8FDE\u63A5\u7F51\u7EDC\u540E\u91CD\u8BD5";
@@ -3125,9 +4437,90 @@ var FeishuUploaderPlugin = class extends import_obsidian2.Plugin {
         userMessage = `\u4E0A\u4F20\u5931\u8D25: ${errorMessage}`;
       }
       progressModal.showError(userMessage);
-      new import_obsidian2.Notice(userMessage, 8e3);
+      new import_obsidian4.Notice(userMessage, 8e3);
       if (errorMessage.includes("\u7F51\u7EDC\u8FDE\u63A5\u5931\u8D25")) {
         this.showRetryDialog(file);
+      }
+    } finally {
+      FeishuApiClient.clearMermaidImageCache();
+    }
+  }
+  /**
+   * 执行正常的文档上传流程
+   * @param file 文件对象
+   * @param content 文档内容
+   * @param hasImages 是否包含图片
+   * @param orderedImageInfos 图片信息数组
+   * @param progressModal 进度模态框
+   * @returns 上传结果
+   */
+  async performNormalUpload(file, content, hasImages, orderedImageInfos, progressModal) {
+    let result;
+    if (hasImages) {
+      result = await this.feishuRichClient.uploadDocumentWithImageInfos(
+        file.name,
+        // 完整文件名（包含扩展名）用于上传到云空间
+        content,
+        this.settings.folderToken,
+        (status) => {
+          let currentProgress = 55;
+          if (status.includes("\u521B\u5EFA\u5BFC\u5165\u4EFB\u52A1")) {
+            currentProgress = 60;
+          } else if (status.includes("\u7B49\u5F85\u5904\u7406") || status.includes("\u6B63\u5728\u5904\u7406")) {
+            currentProgress = 65;
+          } else if (status.includes("\u5904\u7406\u4E2D") || status.includes("\u8F6C\u6362")) {
+            currentProgress = 75;
+          } else if (status.includes("\u5904\u7406\u56FE\u7247")) {
+            currentProgress = 80;
+          } else if (status.includes("\u5B8C\u6210")) {
+            currentProgress = 85;
+          }
+          progressModal.updateProgress(currentProgress, status);
+        },
+        orderedImageInfos
+      );
+    } else {
+      result = await this.feishuClient.uploadDocument(
+        file.name,
+        // 完整文件名（包含扩展名）用于上传到云空间
+        content,
+        this.settings.folderToken,
+        (status) => {
+          let currentProgress = 55;
+          if (status.includes("\u521B\u5EFA\u5BFC\u5165\u4EFB\u52A1")) {
+            currentProgress = 60;
+          } else if (status.includes("\u7B49\u5F85\u5904\u7406") || status.includes("\u6B63\u5728\u5904\u7406")) {
+            currentProgress = 65;
+          } else if (status.includes("\u5904\u7406\u4E2D") || status.includes("\u8F6C\u6362")) {
+            currentProgress = 75;
+          } else if (status.includes("\u5B8C\u6210")) {
+            currentProgress = 85;
+          }
+          progressModal.updateProgress(currentProgress, status);
+        }
+      );
+    }
+    return result;
+  }
+  /**
+   * 自动处理文档中的 YAML frontmatter（无用户交互）
+   * @param docToken 文档Token
+   * @param yamlInfo YAML信息
+   */
+  async autoProcessYaml(docToken, yamlInfo) {
+    try {
+      if (!this.feishuClient) {
+        console.warn("[\u98DE\u4E66\u63D2\u4EF6] \u98DE\u4E66\u5BA2\u6237\u7AEF\u672A\u521D\u59CB\u5316\uFF0C\u8DF3\u8FC7 YAML \u5904\u7406");
+        return;
+      }
+      const yamlProcessor = new YamlProcessor(this.feishuClient);
+      await new Promise((resolve) => setTimeout(resolve, 2e3));
+      await yamlProcessor.insertYamlBlockInDocument(docToken, yamlInfo, 0);
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      console.error(`[\u98DE\u4E66\u63D2\u4EF6] YAML \u5904\u7406\u5931\u8D25: ${errorMessage}`);
+      if (this.settings.debugLoggingEnabled) {
+        console.debug("[\u98DE\u4E66\u63D2\u4EF6] YAML \u5904\u7406\u5931\u8D25\u8BE6\u60C5:", error);
       }
     }
   }
@@ -3144,8 +4537,6 @@ var FeishuUploaderPlugin = class extends import_obsidian2.Plugin {
         return;
       }
       if (cachedCallouts.length > 0) {
-        console.log(`[\u98DE\u4E66\u63D2\u4EF6] \u4F7F\u7528\u7F13\u5B58\u7684 ${cachedCallouts.length} \u4E2A Callout\uFF0C\u5F00\u59CB\u81EA\u52A8\u8F6C\u6362`);
-        console.log("[\u98DE\u4E66\u63D2\u4EF6] \u7F13\u5B58\u7684 Callouts:", cachedCallouts);
         const calloutConverter = new CalloutConverter(this.feishuClient);
         await new Promise((resolve) => setTimeout(resolve, 1e3));
         const documentBlocks = await this.feishuClient.getDocumentBlocksDetailed(docToken);
@@ -3153,38 +4544,25 @@ var FeishuUploaderPlugin = class extends import_obsidian2.Plugin {
           console.warn("[\u98DE\u4E66\u63D2\u4EF6] \u65E0\u6CD5\u83B7\u53D6\u6587\u6863\u5757\u4FE1\u606F\uFF0C\u8DF3\u8FC7 Callout \u8F6C\u6362");
           return;
         }
-        console.log(`[\u98DE\u4E66\u63D2\u4EF6] \u83B7\u53D6\u5230 ${documentBlocks.length} \u4E2A\u6587\u6863\u5757`);
         const blocksWithIndex = calloutConverter.addIndexToBlocks(documentBlocks);
-        console.log(`[\u98DE\u4E66\u63D2\u4EF6] \u5DF2\u4E3A ${blocksWithIndex.length} \u4E2A\u6587\u6863\u5757\u6DFB\u52A0\u7D22\u5F15\u4FE1\u606F`);
-        const quoteBlocks = blocksWithIndex.filter((block) => block.block_type === 15);
-        console.log(`[\u98DE\u4E66\u63D2\u4EF6] \u627E\u5230 ${quoteBlocks.length} \u4E2A\u5F15\u7528\u5757 (type=15):`, quoteBlocks);
-        const blockTypes = blocksWithIndex.reduce((acc, block) => {
-          acc[block.block_type] = (acc[block.block_type] || 0) + 1;
-          return acc;
-        }, {});
-        console.log("[\u98DE\u4E66\u63D2\u4EF6] \u6587\u6863\u5757\u7C7B\u578B\u7EDF\u8BA1:", blockTypes);
         const matches = calloutConverter.findMatchingQuoteBlocks(blocksWithIndex, cachedCallouts);
         if (matches.length === 0) {
-          console.log("[\u98DE\u4E66\u63D2\u4EF6] \u672A\u627E\u5230\u5339\u914D\u7684\u5F15\u7528\u5757\uFF0C\u53EF\u80FD\u6587\u6863\u4E2D\u6CA1\u6709\u5BF9\u5E94\u7684 Callout \u5F15\u7528\u5757");
           return;
         }
-        let convertedCount = 0;
         for (const { callout, block } of matches) {
-          const success = await calloutConverter.processSingleCalloutConversion(
+          await calloutConverter.processSingleCalloutConversion(
             docToken,
             callout,
             block
           );
-          if (success) {
-            convertedCount++;
-          }
         }
-        console.log(`[\u98DE\u4E66\u63D2\u4EF6] \u6210\u529F\u8F6C\u6362 ${convertedCount} \u4E2A Callout`);
-      } else {
-        console.log("[\u98DE\u4E66\u63D2\u4EF6] \u7F13\u5B58\u4E2D\u65E0 Callout\uFF0C\u8DF3\u8FC7\u8F6C\u6362");
       }
     } catch (error) {
-      console.error("[\u98DE\u4E66\u63D2\u4EF6] Callout \u81EA\u52A8\u8F6C\u6362\u51FA\u9519:", error);
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      console.error(`[\u98DE\u4E66\u63D2\u4EF6] Callout \u81EA\u52A8\u8F6C\u6362\u51FA\u9519: ${errorMessage}`);
+      if (this.settings.debugLoggingEnabled) {
+        console.debug("[\u98DE\u4E66\u63D2\u4EF6] Callout \u81EA\u52A8\u8F6C\u6362\u51FA\u9519\u8BE6\u60C5:", error);
+      }
     }
   }
   /**
@@ -3192,14 +4570,14 @@ var FeishuUploaderPlugin = class extends import_obsidian2.Plugin {
    */
   showRetryDialog(file) {
     const modal = new RetryModal(this.app, () => {
-      this.uploadFile(file);
+      void this.uploadFile(file);
     });
     modal.open();
   }
   /**
    * 添加上传历史记录
    */
-  async addUploadHistory(title, url, docToken, permissions) {
+  async addUploadHistory(title, url, docToken, permissions, referencedDocuments, isReferencedDocument) {
     const now = new Date();
     const uploadTime = now.getFullYear() + "-" + String(now.getMonth() + 1).padStart(2, "0") + "-" + String(now.getDate()).padStart(2, "0") + " " + String(now.getHours()).padStart(2, "0") + ":" + String(now.getMinutes()).padStart(2, "0");
     const historyItem = {
@@ -3207,12 +4585,14 @@ var FeishuUploaderPlugin = class extends import_obsidian2.Plugin {
       url,
       uploadTime,
       docToken,
-      ...permissions && { permissions }
+      ...permissions && { permissions },
+      ...referencedDocuments && { referencedDocuments },
+      ...isReferencedDocument && { isReferencedDocument }
     };
     this.settings.uploadHistory.unshift(historyItem);
     this.settings.uploadCount++;
     const encryptedSettings = await CryptoUtils.encryptSensitiveSettings(this.settings);
-    this.saveData(encryptedSettings);
+    await this.saveData(encryptedSettings);
   }
   /**
    * 更新历史记录中的权限设置
@@ -3222,8 +4602,25 @@ var FeishuUploaderPlugin = class extends import_obsidian2.Plugin {
     if (historyItem) {
       historyItem.permissions = permissions;
       const encryptedSettings = await CryptoUtils.encryptSensitiveSettings(this.settings);
-      this.saveData(encryptedSettings);
-      console.log("[\u98DE\u4E66\u63D2\u4EF6] \u5386\u53F2\u8BB0\u5F55\u6743\u9650\u5DF2\u66F4\u65B0:", { docToken, permissions });
+      await this.saveData(encryptedSettings);
+    }
+  }
+  /**
+   * 更新现有历史记录的时间戳
+   */
+  async updateHistoryTimestamp(docToken) {
+    const historyItem = this.settings.uploadHistory.find((item) => item.docToken === docToken);
+    if (historyItem) {
+      const now = new Date();
+      const uploadTime = now.getFullYear() + "-" + String(now.getMonth() + 1).padStart(2, "0") + "-" + String(now.getDate()).padStart(2, "0") + " " + String(now.getHours()).padStart(2, "0") + ":" + String(now.getMinutes()).padStart(2, "0");
+      historyItem.uploadTime = uploadTime;
+      const index = this.settings.uploadHistory.indexOf(historyItem);
+      if (index > 0) {
+        this.settings.uploadHistory.splice(index, 1);
+        this.settings.uploadHistory.unshift(historyItem);
+      }
+      const encryptedSettings = await CryptoUtils.encryptSensitiveSettings(this.settings);
+      await this.saveData(encryptedSettings);
     }
   }
   /**
@@ -3235,8 +4632,7 @@ var FeishuUploaderPlugin = class extends import_obsidian2.Plugin {
     if (index !== -1) {
       this.settings.uploadHistory.splice(index, 1);
       const encryptedSettings = await CryptoUtils.encryptSensitiveSettings(this.settings);
-      this.saveData(encryptedSettings);
-      console.log("[\u98DE\u4E66\u63D2\u4EF6] \u5386\u53F2\u8BB0\u5F55\u9879\u5DF2\u5220\u9664:", { docToken });
+      await this.saveData(encryptedSettings);
     }
   }
   /**
@@ -3253,10 +4649,12 @@ var FeishuUploaderPlugin = class extends import_obsidian2.Plugin {
       await this.incrementApiCallCount();
       await this.deleteHistoryItem(docToken);
       this.notificationManager.showNotice(`\u6587\u4EF6 "${title}" \u5DF2\u5220\u9664`, 3e3);
-      console.log("[\u98DE\u4E66\u63D2\u4EF6] \u6587\u4EF6\u548C\u5386\u53F2\u8BB0\u5F55\u5220\u9664\u6210\u529F:", { docToken, title });
     } catch (error) {
-      console.error("[\u98DE\u4E66\u63D2\u4EF6] \u5220\u9664\u6587\u4EF6\u5931\u8D25:", error);
       const errorMessage = error instanceof Error ? error.message : String(error);
+      console.error(`[\u98DE\u4E66\u63D2\u4EF6] \u5220\u9664\u6587\u4EF6\u5931\u8D25: ${errorMessage}`);
+      if (this.settings.debugLoggingEnabled) {
+        console.debug("[\u98DE\u4E66\u63D2\u4EF6] \u5220\u9664\u6587\u4EF6\u5931\u8D25\u8BE6\u60C5:", error);
+      }
       throw new Error(`\u5220\u9664\u6587\u4EF6\u5931\u8D25: ${errorMessage}`);
     }
   }
@@ -3266,8 +4664,7 @@ var FeishuUploaderPlugin = class extends import_obsidian2.Plugin {
   async clearUploadHistory() {
     this.settings.uploadHistory = [];
     const encryptedSettings = await CryptoUtils.encryptSensitiveSettings(this.settings);
-    this.saveData(encryptedSettings);
-    console.log("[\u98DE\u4E66\u63D2\u4EF6] \u5DF2\u6E05\u7A7A\u4E0A\u4F20\u5386\u53F2\u8BB0\u5F55");
+    await this.saveData(encryptedSettings);
     this.notificationManager.showNotice("\u5DF2\u6E05\u7A7A\u4E0A\u4F20\u5386\u53F2\u8BB0\u5F55", 3e3, "history-cleared");
   }
   /**
@@ -3276,22 +4673,17 @@ var FeishuUploaderPlugin = class extends import_obsidian2.Plugin {
   async resetUploadCount() {
     this.settings.uploadCount = 0;
     const encryptedSettings = await CryptoUtils.encryptSensitiveSettings(this.settings);
-    this.saveData(encryptedSettings);
-    console.log("[\u98DE\u4E66\u63D2\u4EF6] \u5DF2\u91CD\u7F6E\u4E0A\u4F20\u6B21\u6570");
+    await this.saveData(encryptedSettings);
     this.notificationManager.showNotice("\u5DF2\u91CD\u7F6E\u4E0A\u4F20\u6B21\u6570", 3e3, "count-reset");
   }
   /**
    * 增加API调用次数
    */
   async incrementApiCallCount() {
-    var _a;
     await this.checkAndResetApiCount();
     this.settings.apiCallCount++;
     const encryptedSettings = await CryptoUtils.encryptSensitiveSettings(this.settings);
-    this.saveData(encryptedSettings);
-    const stack = new Error().stack;
-    const callerLine = ((_a = stack == null ? void 0 : stack.split("\n")[2]) == null ? void 0 : _a.trim()) || "\u672A\u77E5\u8C03\u7528\u8005";
-    console.log("[\u98DE\u4E66\u63D2\u4EF6] \u{1F522} API\u8C03\u7528\u6B21\u6570\u5DF2\u589E\u52A0\uFF0C\u5F53\u524D:", this.settings.apiCallCount, "\u8C03\u7528\u8005:", callerLine);
+    await this.saveData(encryptedSettings);
   }
   /**
    * 检查并重置API调用次数（每月1日北京时间自动重置）
@@ -3301,11 +4693,10 @@ var FeishuUploaderPlugin = class extends import_obsidian2.Plugin {
     const beijingTime = new Date(now.getTime() + 8 * 60 * 60 * 1e3);
     const currentMonth = beijingTime.toISOString().substring(0, 7);
     if (this.settings.lastResetDate !== currentMonth) {
-      console.log("[\u98DE\u4E66\u63D2\u4EF6] \u68C0\u6D4B\u5230\u65B0\u6708\u4EFD\uFF0C\u81EA\u52A8\u91CD\u7F6EAPI\u8C03\u7528\u6B21\u6570");
       this.settings.apiCallCount = 0;
       this.settings.lastResetDate = currentMonth;
       const encryptedSettings = await CryptoUtils.encryptSensitiveSettings(this.settings);
-      this.saveData(encryptedSettings);
+      await this.saveData(encryptedSettings);
     }
   }
   /**
@@ -3317,8 +4708,7 @@ var FeishuUploaderPlugin = class extends import_obsidian2.Plugin {
     const beijingTime = new Date(now.getTime() + 8 * 60 * 60 * 1e3);
     this.settings.lastResetDate = beijingTime.toISOString().substring(0, 7);
     const encryptedSettings = await CryptoUtils.encryptSensitiveSettings(this.settings);
-    this.saveData(encryptedSettings);
-    console.log("[\u98DE\u4E66\u63D2\u4EF6] \u{1F504} \u5DF2\u624B\u52A8\u91CD\u7F6EAPI\u8C03\u7528\u6B21\u6570\uFF0C\u5F53\u524D\u8BA1\u6570:", this.settings.apiCallCount);
+    await this.saveData(encryptedSettings);
     this.notificationManager.showNotice("\u5DF2\u91CD\u7F6EAPI\u8C03\u7528\u6B21\u6570", 3e3, "api-count-reset");
   }
   /**
@@ -3326,22 +4716,30 @@ var FeishuUploaderPlugin = class extends import_obsidian2.Plugin {
    */
   async testNetworkConnection() {
     try {
-      console.log("[\u98DE\u4E66\u63D2\u4EF6] \u5F00\u59CB\u6D4B\u8BD5\u7F51\u7EDC\u8FDE\u63A5");
       if (!this.feishuClient) {
         console.error("[\u98DE\u4E66\u63D2\u4EF6] \u5BA2\u6237\u7AEF\u672A\u521D\u59CB\u5316\uFF0C\u65E0\u6CD5\u6D4B\u8BD5\u8FDE\u63A5");
         return false;
       }
       const result = await this.feishuClient.testConnection();
-      this.incrementApiCallCount();
-      console.log("[\u98DE\u4E66\u63D2\u4EF6] \u7F51\u7EDC\u8FDE\u63A5\u6D4B\u8BD5\u7ED3\u679C:", result);
+      void this.incrementApiCallCount().catch((error) => {
+        const errorMessage = error instanceof Error ? error.message : String(error);
+        console.error(`[\u98DE\u4E66\u63D2\u4EF6] API\u8C03\u7528\u8BA1\u6570\u66F4\u65B0\u5931\u8D25: ${errorMessage}`);
+        if (this.settings.debugLoggingEnabled) {
+          console.debug("[\u98DE\u4E66\u63D2\u4EF6] API\u8C03\u7528\u8BA1\u6570\u66F4\u65B0\u5931\u8D25\u8BE6\u60C5:", error);
+        }
+      });
       return result;
     } catch (error) {
-      console.error("[\u98DE\u4E66\u63D2\u4EF6] \u7F51\u7EDC\u8FDE\u63A5\u6D4B\u8BD5\u5931\u8D25:", error);
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      console.error(`[\u98DE\u4E66\u63D2\u4EF6] \u7F51\u7EDC\u8FDE\u63A5\u6D4B\u8BD5\u5931\u8D25: ${errorMessage}`);
+      if (this.settings.debugLoggingEnabled) {
+        console.debug("[\u98DE\u4E66\u63D2\u4EF6] \u7F51\u7EDC\u8FDE\u63A5\u6D4B\u8BD5\u5931\u8D25\u8BE6\u60C5:", error);
+      }
       return false;
     }
   }
 };
-var DocumentPermissionModal = class extends import_obsidian2.Modal {
+var DocumentPermissionModal = class extends import_obsidian4.Modal {
   // 标识是否允许关闭
   constructor(app, docToken, docUrl, title, plugin, isFromSettings = false) {
     super(app);
@@ -3356,30 +4754,27 @@ var DocumentPermissionModal = class extends import_obsidian2.Modal {
   onOpen() {
     const { contentEl } = this;
     contentEl.empty();
-    contentEl.addClass("feishu-permission-modal");
-    contentEl.createEl("h2", { text: "\u8BBE\u7F6E\u6587\u6863\u6743\u9650" });
+    contentEl.addClass("obshare-feishu-permission-modal");
+    new import_obsidian4.Setting(contentEl).setName("\u8BBE\u7F6E\u6587\u6863\u6743\u9650").setHeading();
     contentEl.createEl("p", { text: `\u4E3A\u6587\u6863 "${this.title}" \u8BBE\u7F6E\u8BBF\u95EE\u6743\u9650` });
-    const permissionContainer = contentEl.createDiv("permission-options");
-    const publicOption = permissionContainer.createDiv("permission-option");
-    const publicCheckbox = publicOption.createEl("input", { type: "checkbox" });
+    const permissionContainer = contentEl.createDiv("obshare-permission-options");
+    const publicOption = permissionContainer.createDiv("obshare-permission-option");
+    const publicCheckbox = publicOption.createEl("input", { type: "checkbox", cls: "obshare-permission-checkbox" });
     publicCheckbox.id = "isPublic";
-    publicCheckbox.style.marginBottom = "8px";
     const publicLabel = publicOption.createEl("label", { text: "\u662F\u5426\u516C\u5F00\u6587\u6863\uFF1F", attr: { for: "isPublic" } });
-    publicLabel.createEl("div", { text: "\u82E5\u60A8\u5F00\u542F\uFF0C\u60A8\u9700\u8981\u9075\u5B88\u98DE\u4E66\u7684\u76F8\u5173\u534F\u8BAE\uFF0C\u60A8\u4F5C\u4E3A\u6587\u6863\u6240\u6709\u8005\uFF0C\u9700\u5BF9\u5176\u5408\u6CD5\u5408\u89C4\u6027\u8D1F\u8D23\uFF0C\u4EFB\u4F55\u7531\u6B64\u4EA7\u751F\u7684\u7EA0\u7EB7\u4E0E\u672C\u63D2\u4EF6\u65E0\u5173\u3002", cls: "option-desc" });
-    const copyOption = permissionContainer.createDiv("permission-option");
-    const copyCheckbox = copyOption.createEl("input", { type: "checkbox" });
+    publicLabel.createEl("div", { text: "\u82E5\u60A8\u5F00\u542F\uFF0C\u60A8\u9700\u8981\u9075\u5B88\u98DE\u4E66\u7684\u76F8\u5173\u534F\u8BAE\uFF0C\u60A8\u4F5C\u4E3A\u6587\u6863\u6240\u6709\u8005\uFF0C\u9700\u5BF9\u5176\u5408\u6CD5\u5408\u89C4\u6027\u8D1F\u8D23\uFF0C\u4EFB\u4F55\u7531\u6B64\u4EA7\u751F\u7684\u7EA0\u7EB7\u4E0E\u672C\u63D2\u4EF6\u65E0\u5173\u3002", cls: "obshare-option-desc" });
+    const copyOption = permissionContainer.createDiv("obshare-permission-option");
+    const copyCheckbox = copyOption.createEl("input", { type: "checkbox", cls: "obshare-permission-checkbox" });
     copyCheckbox.id = "allowCopy";
-    copyCheckbox.style.marginBottom = "8px";
     copyCheckbox.disabled = true;
     const copyLabel = copyOption.createEl("label", { text: "\u662F\u5426\u5141\u8BB8\u590D\u5236\uFF1F", attr: { for: "allowCopy" } });
-    copyLabel.createEl("div", { text: "\u5141\u8BB8\u7528\u6237\u590D\u5236\u6587\u6863\u5185\u5BB9", cls: "option-desc" });
-    const copyCreateOption = permissionContainer.createDiv("permission-option");
-    const copyCreateCheckbox = copyCreateOption.createEl("input", { type: "checkbox" });
+    copyLabel.createEl("div", { text: "\u5141\u8BB8\u7528\u6237\u590D\u5236\u6587\u6863\u5185\u5BB9", cls: "obshare-option-desc" });
+    const copyCreateOption = permissionContainer.createDiv("obshare-permission-option");
+    const copyCreateCheckbox = copyCreateOption.createEl("input", { type: "checkbox", cls: "obshare-permission-checkbox" });
     copyCreateCheckbox.id = "allowCreateCopy";
-    copyCreateCheckbox.style.marginBottom = "8px";
     copyCreateCheckbox.disabled = true;
     const copyCreateLabel = copyCreateOption.createEl("label", { text: "\u662F\u5426\u5141\u8BB8\u521B\u5EFA\u526F\u672C\u3001\u6253\u5370\u3001\u4E0B\u8F7D\uFF1F", attr: { for: "allowCreateCopy" } });
-    copyCreateLabel.createEl("div", { text: "\u5141\u8BB8\u7528\u6237\u521B\u5EFA\u6587\u6863\u526F\u672C\u3001\u6253\u5370\u548C\u4E0B\u8F7D\u6587\u6863", cls: "option-desc" });
+    copyCreateLabel.createEl("div", { text: "\u5141\u8BB8\u7528\u6237\u521B\u5EFA\u6587\u6863\u526F\u672C\u3001\u6253\u5370\u548C\u4E0B\u8F7D\u6587\u6863", cls: "obshare-option-desc" });
     const currentPermissions = this.getCurrentPermissions();
     if (currentPermissions) {
       publicCheckbox.checked = currentPermissions.isPublic;
@@ -3394,10 +4789,17 @@ var DocumentPermissionModal = class extends import_obsidian2.Modal {
         copyCheckbox.checked = false;
         copyCreateCheckbox.checked = false;
       }
-      copyOption.style.opacity = isPublic ? "1" : "0.5";
-      copyCreateOption.style.opacity = isPublic ? "1" : "0.5";
-      copyOption.style.pointerEvents = isPublic ? "auto" : "none";
-      copyCreateOption.style.pointerEvents = isPublic ? "auto" : "none";
+      if (isPublic) {
+        copyOption.removeClass("obshare-permission-option-disabled");
+        copyOption.addClass("obshare-permission-option-enabled");
+        copyCreateOption.removeClass("obshare-permission-option-disabled");
+        copyCreateOption.addClass("obshare-permission-option-enabled");
+      } else {
+        copyOption.removeClass("obshare-permission-option-enabled");
+        copyOption.addClass("obshare-permission-option-disabled");
+        copyCreateOption.removeClass("obshare-permission-option-enabled");
+        copyCreateOption.addClass("obshare-permission-option-disabled");
+      }
     };
     publicOption.onclick = () => {
       publicCheckbox.checked = !publicCheckbox.checked;
@@ -3424,53 +4826,58 @@ var DocumentPermissionModal = class extends import_obsidian2.Modal {
       e.stopPropagation();
     };
     updateOptionStates();
-    const buttonContainer = contentEl.createDiv("modal-button-container");
+    const buttonContainer = contentEl.createDiv("obshare-modal-button-container");
     const submitButton = buttonContainer.createEl("button", { text: "\u63D0\u4EA4\u8BBE\u7F6E", cls: "mod-cta" });
-    submitButton.onclick = async () => {
-      const isPublic = publicCheckbox.checked;
-      const allowCopy = copyCheckbox.checked;
-      const allowCreateCopy = copyCreateCheckbox.checked;
-      const permissions = {
-        isPublic,
-        allowCopy,
-        allowCreateCopy,
-        allowPrintDownload: allowCreateCopy,
-        // 新增参数：根据用户选择设置特殊权限
-        copyEntity: allowCopy ? "anyone_can_view" : "only_full_access",
-        securityEntity: allowCreateCopy ? "anyone_can_view" : "only_full_access"
-      };
-      submitButton.disabled = true;
-      submitButton.textContent = "\u8BBE\u7F6E\u4E2D...";
-      try {
-        if (!this.plugin.settings.userId) {
-          throw new Error("\u8BF7\u5148\u5728\u8BBE\u7F6E\u4E2D\u914D\u7F6E\u60A8\u7684\u98DE\u4E66\u7528\u6237ID");
-        }
-        console.log("[\u98DE\u4E66\u63D2\u4EF6] \u4F7F\u7528\u914D\u7F6E\u7684\u7528\u6237ID:", this.plugin.settings.userId);
-        if (this.isFromSettings) {
-          await this.plugin.feishuClient.updateDocumentPermissionsOnly(this.docToken, permissions);
-        } else {
-          await this.plugin.feishuClient.setDocumentPermissions(this.docToken, permissions, this.plugin.settings.userId);
-        }
-        const permissionsToSave = {
+    submitButton.onclick = () => {
+      void (async () => {
+        const isPublic = publicCheckbox.checked;
+        const allowCopy = copyCheckbox.checked;
+        const allowCreateCopy = copyCreateCheckbox.checked;
+        const permissions = {
           isPublic,
           allowCopy,
-          allowCreateCopy
+          allowCreateCopy,
+          allowPrintDownload: allowCreateCopy,
+          // 新增参数：根据用户选择设置特殊权限
+          copyEntity: allowCopy ? "anyone_can_view" : "only_full_access",
+          securityEntity: allowCreateCopy ? "anyone_can_view" : "only_full_access"
         };
-        this.forceClose();
-        if (!this.isFromSettings) {
-          this.plugin.updateHistoryPermissions(this.docToken, permissionsToSave);
-          new UploadResultModal(this.app, this.docUrl, this.title).open();
-        } else {
-          this.plugin.updateHistoryPermissions(this.docToken, permissionsToSave);
-          this.plugin.notificationManager.showNotice("\u6587\u6863\u6743\u9650\u8BBE\u7F6E\u6210\u529F", 3e3);
+        submitButton.disabled = true;
+        submitButton.textContent = "\u8BBE\u7F6E\u4E2D...";
+        try {
+          if (!this.plugin.settings.userId) {
+            throw new Error("\u8BF7\u5148\u5728\u8BBE\u7F6E\u4E2D\u914D\u7F6E\u60A8\u7684\u98DE\u4E66\u7528\u6237ID");
+          }
+          if (this.isFromSettings) {
+            await this.plugin.feishuClient.updateDocumentPermissionsOnly(this.docToken, permissions);
+          } else {
+            await this.plugin.feishuClient.setDocumentPermissions(this.docToken, permissions, this.plugin.settings.userId);
+            await this.applyPermissionsToReferencedDocuments(permissions, this.plugin.settings.userId);
+          }
+          const permissionsToSave = {
+            isPublic,
+            allowCopy,
+            allowCreateCopy
+          };
+          this.forceClose();
+          if (!this.isFromSettings) {
+            await this.plugin.updateHistoryPermissions(this.docToken, permissionsToSave);
+            new UploadResultModal(this.app, this.docUrl, this.title).open();
+          } else {
+            await this.plugin.updateHistoryPermissions(this.docToken, permissionsToSave);
+            this.plugin.notificationManager.showNotice("\u6587\u6863\u6743\u9650\u8BBE\u7F6E\u6210\u529F", 3e3);
+          }
+        } catch (error) {
+          const errorMessage = error instanceof Error ? error.message : String(error);
+          console.error(`[\u98DE\u4E66\u63D2\u4EF6] \u6743\u9650\u8BBE\u7F6E\u5931\u8D25: ${errorMessage}`);
+          if (this.plugin.settings.debugLoggingEnabled) {
+            console.debug("[\u98DE\u4E66\u63D2\u4EF6] \u6743\u9650\u8BBE\u7F6E\u5931\u8D25\u8BE6\u60C5:", error);
+          }
+          this.plugin.notificationManager.showNotice(`\u6743\u9650\u8BBE\u7F6E\u5931\u8D25: ${errorMessage}`, 5e3, "permission-error");
+          submitButton.disabled = false;
+          submitButton.textContent = "\u63D0\u4EA4\u8BBE\u7F6E";
         }
-      } catch (error) {
-        console.error("[\u98DE\u4E66\u63D2\u4EF6] \u6743\u9650\u8BBE\u7F6E\u5931\u8D25:", error);
-        const errorMessage = error instanceof Error ? error.message : String(error);
-        this.plugin.notificationManager.showNotice(`\u6743\u9650\u8BBE\u7F6E\u5931\u8D25: ${errorMessage}`, 5e3, "permission-error");
-        submitButton.disabled = false;
-        submitButton.textContent = "\u63D0\u4EA4\u8BBE\u7F6E";
-      }
+      })();
     };
   }
   onClose() {
@@ -3491,10 +4898,49 @@ var DocumentPermissionModal = class extends import_obsidian2.Modal {
     this.close();
   }
   /**
+   * 为引用文档设置相同的权限
+   */
+  async applyPermissionsToReferencedDocuments(permissions, userId) {
+    try {
+      const history = this.plugin.settings.uploadHistory.find((h) => h.docToken === this.docToken);
+      if (!history) {
+        return;
+      }
+      if (!history.referencedDocuments) {
+        return;
+      }
+      if (history.referencedDocuments.length === 0) {
+        return;
+      }
+      for (const refDoc of history.referencedDocuments) {
+        try {
+          await this.plugin.feishuClient.setDocumentPermissions(refDoc.docToken, permissions, userId);
+          await this.plugin.updateHistoryPermissions(refDoc.docToken, {
+            isPublic: permissions.isPublic,
+            allowCopy: permissions.allowCopy,
+            allowCreateCopy: permissions.allowCreateCopy
+          });
+        } catch (error) {
+          const errorMessage = error instanceof Error ? error.message : String(error);
+          console.error(`[\u98DE\u4E66\u63D2\u4EF6] \u5F15\u7528\u6587\u6863\u6743\u9650\u8BBE\u7F6E\u5931\u8D25: ${refDoc.title}: ${errorMessage}`);
+          if (this.plugin.settings.debugLoggingEnabled) {
+            console.debug(`[\u98DE\u4E66\u63D2\u4EF6] \u5F15\u7528\u6587\u6863\u6743\u9650\u8BBE\u7F6E\u5931\u8D25\u8BE6\u60C5: ${refDoc.title}`, error);
+          }
+        }
+      }
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      console.error(`[\u98DE\u4E66\u63D2\u4EF6] \u5F15\u7528\u6587\u6863\u6743\u9650\u8BBE\u7F6E\u8FC7\u7A0B\u51FA\u9519: ${errorMessage}`);
+      if (this.plugin.settings.debugLoggingEnabled) {
+        console.debug("[\u98DE\u4E66\u63D2\u4EF6] \u5F15\u7528\u6587\u6863\u6743\u9650\u8BBE\u7F6E\u8FC7\u7A0B\u51FA\u9519\u8BE6\u60C5:", error);
+      }
+    }
+  }
+  /**
    * 检测并转换 Callout
    */
 };
-var UploadResultModal = class extends import_obsidian2.Modal {
+var UploadResultModal = class extends import_obsidian4.Modal {
   constructor(app, url, title) {
     super(app);
     this.url = url;
@@ -3503,19 +4949,24 @@ var UploadResultModal = class extends import_obsidian2.Modal {
   onOpen() {
     const { contentEl } = this;
     contentEl.empty();
-    contentEl.addClass("feishu-success-modal");
-    contentEl.createEl("h2", { text: "\u4E0A\u4F20\u6210\u529F\uFF01" });
-    contentEl.createEl("p", { text: `\u6587\u6863 "${this.title}" \u5DF2\u6210\u529F\u4E0A\u4F20\u5230\u98DE\u4E66\u4E91\u6587\u6863` });
+    contentEl.addClass("obshare-feishu-success-modal");
+    const successTitle = "\u4E0A\u4F20\u6210\u529F\uFF01";
+    const successMessage = `\u6587\u6863 "${this.title}" \u5DF2\u6210\u529F\u4E0A\u4F20\u5230\u98DE\u4E66\u4E91\u6587\u6863`;
+    new import_obsidian4.Setting(contentEl).setName(successTitle).setHeading();
+    contentEl.createEl("p", { text: successMessage });
     const linkEl = contentEl.createEl("a", {
       text: this.url,
       href: this.url
     });
     linkEl.setAttribute("target", "_blank");
-    const buttonContainer = contentEl.createDiv("modal-button-container");
+    const buttonContainer = contentEl.createDiv("obshare-modal-button-container");
     const copyButton = buttonContainer.createEl("button", { text: "\u590D\u5236\u94FE\u63A5" });
     copyButton.onclick = () => {
-      navigator.clipboard.writeText(this.url);
-      new import_obsidian2.Notice("\u94FE\u63A5\u5DF2\u590D\u5236\u5230\u526A\u8D34\u677F");
+      void navigator.clipboard.writeText(this.url).then(() => {
+        new import_obsidian4.Notice("\u94FE\u63A5\u5DF2\u590D\u5236\u5230\u526A\u8D34\u677F");
+      }).catch(() => {
+        new import_obsidian4.Notice("\u590D\u5236\u5931\u8D25\uFF0C\u8BF7\u624B\u52A8\u590D\u5236\u94FE\u63A5");
+      });
     };
     const openButton = buttonContainer.createEl("button", { text: "\u6253\u5F00\u6587\u6863" });
     openButton.onclick = () => {
@@ -3531,7 +4982,7 @@ var UploadResultModal = class extends import_obsidian2.Modal {
     contentEl.empty();
   }
 };
-var RetryModal = class extends import_obsidian2.Modal {
+var RetryModal = class extends import_obsidian4.Modal {
   constructor(app, onRetry) {
     super(app);
     this.onRetry = onRetry;
@@ -3539,15 +4990,11 @@ var RetryModal = class extends import_obsidian2.Modal {
   onOpen() {
     const { contentEl } = this;
     contentEl.empty();
-    contentEl.createEl("h2", { text: "\u7F51\u7EDC\u8FDE\u63A5\u5931\u8D25" });
+    new import_obsidian4.Setting(contentEl).setName("\u7F51\u7EDC\u8FDE\u63A5\u5931\u8D25").setHeading();
     const descEl = contentEl.createEl("div", { cls: "retry-modal-desc" });
     descEl.createEl("p", { text: "\u4E0A\u4F20\u5931\u8D25\uFF0C\u53EF\u80FD\u662F\u7F51\u7EDC\u8FDE\u63A5\u95EE\u9898\u3002" });
     descEl.createEl("p", { text: "\u8BF7\u68C0\u67E5\u7F51\u7EDC\u8FDE\u63A5\u540E\u91CD\u8BD5\uFF0C\u6216\u7A0D\u540E\u518D\u8BD5\u3002" });
-    const buttonContainer = contentEl.createEl("div", { cls: "retry-modal-buttons" });
-    buttonContainer.style.display = "flex";
-    buttonContainer.style.gap = "10px";
-    buttonContainer.style.justifyContent = "flex-end";
-    buttonContainer.style.marginTop = "20px";
+    const buttonContainer = contentEl.createEl("div", { cls: "obshare-retry-modal-buttons" });
     const cancelBtn = buttonContainer.createEl("button", { text: "\u53D6\u6D88" });
     cancelBtn.onclick = () => {
       this.close();
@@ -3563,225 +5010,355 @@ var RetryModal = class extends import_obsidian2.Modal {
     contentEl.empty();
   }
 };
-var FeishuUploaderSettingTab = class extends import_obsidian2.PluginSettingTab {
+var FeishuUploaderSettingTab = class extends import_obsidian4.PluginSettingTab {
   constructor(app, plugin) {
     super(app, plugin);
     this.plugin = plugin;
   }
+  /**
+   * 按页面聚合上传历史记录
+   * @param uploadHistory 上传历史记录数组
+   * @returns 按页面标题聚合的Map
+   */
+  groupUploadHistoryByPage(uploadHistory) {
+    const groupedMap = /* @__PURE__ */ new Map();
+    uploadHistory.forEach((item) => {
+      const pageTitle = item.title;
+      if (!groupedMap.has(pageTitle)) {
+        groupedMap.set(pageTitle, {
+          uploads: [],
+          isReferencedDocument: item.isReferencedDocument || false
+        });
+      }
+      groupedMap.get(pageTitle).uploads.push(item);
+    });
+    groupedMap.forEach((group) => {
+      group.uploads.sort((a, b) => {
+        const timeA = new Date(a.uploadTime.replace(" ", "T"));
+        const timeB = new Date(b.uploadTime.replace(" ", "T"));
+        return timeB.getTime() - timeA.getTime();
+      });
+    });
+    const sortedEntries = Array.from(groupedMap.entries()).sort((a, b) => {
+      const uploadsA = a[1].uploads;
+      const uploadsB = b[1].uploads;
+      if (uploadsA.length === 0 || uploadsB.length === 0) {
+        return uploadsB.length - uploadsA.length;
+      }
+      const firstUploadA = uploadsA[0];
+      const firstUploadB = uploadsB[0];
+      if (!firstUploadA || !firstUploadB) {
+        return 0;
+      }
+      const latestTimeA = new Date(firstUploadA.uploadTime.replace(" ", "T"));
+      const latestTimeB = new Date(firstUploadB.uploadTime.replace(" ", "T"));
+      return latestTimeB.getTime() - latestTimeA.getTime();
+    });
+    return new Map(sortedEntries);
+  }
   display() {
     const { containerEl } = this;
     containerEl.empty();
-    containerEl.createEl("h1", { text: "\u57FA\u7840\u8BBE\u7F6E" });
+    const headerContainer = containerEl.createDiv({ cls: "obshare-header-container" });
+    const headerSetting = new import_obsidian4.Setting(headerContainer).setName("\u57FA\u7840\u8BBE\u7F6E").setHeading();
+    headerSetting.nameEl.empty();
+    const titleRow = headerSetting.nameEl.createDiv({ cls: "obshare-title-row" });
+    titleRow.createSpan({ text: "\u57FA\u7840\u8BBE\u7F6E", cls: "obshare-settings-title" });
+    const githubLink = titleRow.createEl("a", {
+      href: "https://github.com/xigua222/ObShare",
+      cls: "obshare-github-link"
+    });
+    githubLink.setAttribute("target", "_blank");
+    const iconSpan = githubLink.createSpan({ cls: "obshare-github-link-icon" });
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("width", "16");
+    svg.setAttribute("height", "16");
+    svg.setAttribute("viewBox", "0 0 48 48");
+    svg.setAttribute("fill", "none");
+    const pathOuter = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    pathOuter.setAttribute("fill-rule", "evenodd");
+    pathOuter.setAttribute("clip-rule", "evenodd");
+    pathOuter.setAttribute("d", "M24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4ZM0 24C0 10.7452 10.7452 0 24 0C37.2548 0 48 10.7452 48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24Z");
+    pathOuter.setAttribute("fill", "currentColor");
+    const pathInner = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    pathInner.setAttribute("fill-rule", "evenodd");
+    pathInner.setAttribute("clip-rule", "evenodd");
+    pathInner.setAttribute("d", "M19.1833 45.4716C18.9898 45.2219 18.9898 42.9973 19.1833 38.798C17.1114 38.8696 15.8024 38.7258 15.2563 38.3667C14.437 37.828 13.6169 36.1667 12.8891 34.9959C12.1614 33.8251 10.5463 33.64 9.89405 33.3783C9.24182 33.1165 9.07809 32.0496 11.6913 32.8565C14.3044 33.6634 14.4319 35.8607 15.2563 36.3745C16.0806 36.8883 18.0515 36.6635 18.9448 36.2519C19.8382 35.8403 19.7724 34.3078 19.9317 33.7007C20.1331 33.134 19.4233 33.0083 19.4077 33.0037C18.5355 33.0037 13.9539 32.0073 12.6955 27.5706C11.437 23.134 13.0581 20.2341 13.9229 18.9875C14.4995 18.1564 14.4485 16.3852 13.7699 13.6737C16.2335 13.3589 18.1347 14.1343 19.4734 16.0001C19.4747 16.0108 21.2285 14.9572 24.0003 14.9572C26.772 14.9572 27.7553 15.8154 28.5142 16.0001C29.2731 16.1848 29.88 12.7341 34.5668 13.6737C33.5883 15.5969 32.7689 18.0001 33.3943 18.9875C34.0198 19.9749 36.4745 23.1147 34.9666 27.5706C33.9614 30.5413 31.9853 32.3523 29.0384 33.0037C28.7005 33.1115 28.5315 33.2855 28.5315 33.5255C28.5315 33.8856 28.9884 33.9249 29.6465 35.6117C30.0853 36.7362 30.117 39.948 29.7416 45.247C28.7906 45.4891 28.0508 45.6516 27.5221 45.7347C26.5847 45.882 25.5669 45.9646 24.5669 45.9965C23.5669 46.0284 23.2196 46.0248 21.837 45.8961C20.9154 45.8103 20.0308 45.6688 19.1833 45.4716Z");
+    pathInner.setAttribute("fill", "currentColor");
+    svg.appendChild(pathOuter);
+    svg.appendChild(pathInner);
+    iconSpan.appendChild(svg);
+    githubLink.createSpan({ text: "Star on GitHub" });
+    const encourageText = headerContainer.createEl("div", {
+      text: "\u63D2\u4EF6\u5B8C\u5168\u514D\u8D39\u5F00\u6E90\uFF0C\u5982\u679C\u60A8\u559C\u6B22\u8FD9\u4E2A\u63D2\u4EF6\uFF0C\u6073\u8BF7\u5E2E\u5FD9\u70B9\u4E2A star\uFF0C\u8FD9\u4F1A\u662F\u5BF9\u4F5C\u8005\u6781\u5927\u7684\u9F13\u52B1~",
+      cls: "obshare-encourage-text"
+    });
     const descEl = containerEl.createDiv();
-    descEl.createEl("p", { text: "\u4F60\u9700\u8981\u914D\u7F6E\u98DE\u4E66\u5E94\u7528App ID\u3001App secret\u3001\u60A8\u7684\u98DE\u4E66\u7528\u6237ID\u3001\u60A8\u7684\u6587\u4EF6\u5939token\u624D\u80FD\u6B63\u5E38\u542F\u52A8\u6B64\u63D2\u4EF6" });
-    descEl.createEl("p").innerHTML = '\u5B8C\u6210\u914D\u7F6E\u9884\u8BA1\u9700\u89815-10\u5206\u949F\uFF0C\u8BF7\u53C2\u9605\uFF1A<a href="https://itlueqqx8t.feishu.cn/docx/XUJmdxbf7octOFx3Vt0c3KJ3nWe" target="_blank">\u5FEB\u901F\u914D\u7F6E\u60A8\u7684ObShare</a>';
-    const appIdSetting = new import_obsidian2.Setting(containerEl).setName("App ID").setDesc("\u98DE\u4E66\u5E94\u7528\u7684App ID").addText((text) => text.setPlaceholder("\u8F93\u5165App ID").setValue(this.plugin.settings.appId).onChange(async (value) => {
+    descEl.createEl("p", { text: "\u4F60\u9700\u8981\u914D\u7F6E\u98DE\u4E66\u5E94\u7528 App ID\u3001App secret\u3001\u60A8\u7684\u98DE\u4E66\u7528\u6237 ID\u3001\u60A8\u7684\u6587\u4EF6\u5939 token \u624D\u80FD\u6B63\u5E38\u542F\u52A8\u6B64\u63D2\u4EF6" });
+    const docLinkP = descEl.createEl("p");
+    docLinkP.createSpan({ text: "\u5B8C\u6210\u914D\u7F6E\u9884\u8BA1\u9700\u89815-10\u5206\u949F\uFF0C\u8BF7\u53C2\u9605\uFF1A" });
+    const docLink = docLinkP.createEl("a", {
+      text: "\u5FEB\u901F\u914D\u7F6E\u60A8\u7684ObShare",
+      href: "https://itlueqqx8t.feishu.cn/docx/XUJmdxbf7octOFx3Vt0c3KJ3nWe"
+    });
+    docLink.setAttribute("target", "_blank");
+    const appIdSetting = new import_obsidian4.Setting(containerEl).setName("App ID").setDesc("\u98DE\u4E66\u5E94\u7528\u7684App ID").addText((text) => text.setPlaceholder("\u8F93\u5165App ID").setValue(this.plugin.settings.appId).onChange((value) => {
       this.plugin.settings.appId = value;
-      await this.plugin.saveSettings();
+      void this.plugin.saveSettings();
     }));
-    appIdSetting.nameEl.innerHTML = 'App ID <span style="color: red;">*</span>';
-    const appSecretSetting = new import_obsidian2.Setting(containerEl).setName("App Secret").setDesc("\u98DE\u4E66\u5E94\u7528\u7684App Secret").addText((text) => text.setPlaceholder("\u8F93\u5165App Secret").setValue(this.plugin.settings.appSecret).onChange(async (value) => {
+    appIdSetting.nameEl.empty();
+    appIdSetting.nameEl.createSpan({ text: "App ID " });
+    appIdSetting.nameEl.createSpan({ text: "*", cls: "obshare-required-field" });
+    const appSecretSetting = new import_obsidian4.Setting(containerEl).setName("App secret").setDesc("\u98DE\u4E66\u5E94\u7528\u7684 App secret").addText((text) => text.setPlaceholder("\u8F93\u5165 App secret").setValue(this.plugin.settings.appSecret).onChange((value) => {
       this.plugin.settings.appSecret = value;
-      await this.plugin.saveSettings();
+      void this.plugin.saveSettings();
     }));
-    appSecretSetting.nameEl.innerHTML = 'App Secret <span style="color: red;">*</span>';
-    const userIdSetting = new import_obsidian2.Setting(containerEl).setName("\u7528\u6237ID").setDesc("\u60A8\u7684\u98DE\u4E66\u7528\u6237ID").addText((text) => text.setPlaceholder("\u8F93\u5165\u60A8\u7684\u98DE\u4E66\u7528\u6237ID").setValue(this.plugin.settings.userId).onChange(async (value) => {
+    appSecretSetting.nameEl.empty();
+    appSecretSetting.nameEl.createSpan({ text: "App secret " });
+    appSecretSetting.nameEl.createSpan({ text: "*", cls: "obshare-required-field" });
+    const userIdSetting = new import_obsidian4.Setting(containerEl).setName("\u7528\u6237ID").setDesc("\u60A8\u7684\u98DE\u4E66\u7528\u6237ID").addText((text) => text.setPlaceholder("\u8F93\u5165\u60A8\u7684\u98DE\u4E66\u7528\u6237ID").setValue(this.plugin.settings.userId).onChange((value) => {
       this.plugin.settings.userId = value;
-      await this.plugin.saveSettings();
+      void this.plugin.saveSettings();
     }));
-    userIdSetting.nameEl.innerHTML = '\u7528\u6237ID <span style="color: red;">*</span>';
-    const folderTokenSetting = new import_obsidian2.Setting(containerEl).setName("\u6587\u4EF6\u5939Token").setDesc("\u98DE\u4E66\u4E91\u7A7A\u95F4\u6587\u4EF6\u5939\u7684Token\uFF0C\u6587\u6863\u5C06\u4E0A\u4F20\u5230\u6B64\u6587\u4EF6\u5939").addText((text) => text.setPlaceholder("\u8F93\u5165\u6587\u4EF6\u5939Token").setValue(this.plugin.settings.folderToken).onChange(async (value) => {
+    userIdSetting.nameEl.empty();
+    userIdSetting.nameEl.createSpan({ text: "\u7528\u6237ID " });
+    userIdSetting.nameEl.createSpan({ text: "*", cls: "obshare-required-field" });
+    const folderTokenSetting = new import_obsidian4.Setting(containerEl).setName("\u6587\u4EF6\u5939Token").setDesc("\u98DE\u4E66\u4E91\u7A7A\u95F4\u6587\u4EF6\u5939\u7684Token\uFF0C\u6587\u6863\u5C06\u4E0A\u4F20\u5230\u6B64\u6587\u4EF6\u5939").addText((text) => text.setPlaceholder("\u8F93\u5165\u6587\u4EF6\u5939Token").setValue(this.plugin.settings.folderToken).onChange((value) => {
       this.plugin.settings.folderToken = value;
-      await this.plugin.saveSettings();
+      void this.plugin.saveSettings();
     }));
-    folderTokenSetting.nameEl.innerHTML = '\u6587\u4EF6\u5939Token <span style="color: red;">*</span>';
-    new import_obsidian2.Setting(containerEl).setName("\u6D4B\u8BD5\u8FDE\u63A5").setDesc("\u6D4B\u8BD5\u98DE\u4E66API\u8FDE\u63A5\u662F\u5426\u6B63\u5E38").addButton((button) => button.setButtonText("\u6D4B\u8BD5\u8FDE\u63A5").onClick(async () => {
-      if (!this.plugin.feishuClient) {
-        this.plugin.notificationManager.showNotice("\u8BF7\u5148\u914D\u7F6EApp ID\u548CApp Secret", 4e3, "missing-config");
-        return;
-      }
-      try {
-        button.setButtonText("\u6D4B\u8BD5\u4E2D...");
-        const success = await this.plugin.testNetworkConnection();
-        if (success) {
-          this.plugin.notificationManager.showNotice("\u7F51\u7EDC\u8FDE\u63A5\u6D4B\u8BD5\u6210\u529F\uFF01", 3e3, "test-success");
-        } else {
-          new import_obsidian2.Notice("\u7F51\u7EDC\u8FDE\u63A5\u6D4B\u8BD5\u5931\u8D25\uFF0C\u8BF7\u68C0\u67E5\u7F51\u7EDC\u548C\u914D\u7F6E");
-        }
-      } catch (error) {
-        const errorMessage = error instanceof Error ? error.message : String(error);
-        if (errorMessage.includes("\u7F51\u7EDC\u8FDE\u63A5\u5931\u8D25")) {
-          new import_obsidian2.Notice("\u7F51\u7EDC\u8FDE\u63A5\u5931\u8D25\uFF0C\u8BF7\u68C0\u67E5\u7F51\u7EDC\u8FDE\u63A5\u540E\u91CD\u8BD5");
-        } else {
-          new import_obsidian2.Notice(`\u8FDE\u63A5\u6D4B\u8BD5\u5931\u8D25: ${errorMessage}`);
-        }
-      } finally {
-        button.setButtonText("\u6D4B\u8BD5\u8FDE\u63A5");
-      }
+    folderTokenSetting.nameEl.empty();
+    folderTokenSetting.nameEl.createSpan({ text: "\u6587\u4EF6\u5939Token " });
+    folderTokenSetting.nameEl.createSpan({ text: "*", cls: "obshare-required-field" });
+    new import_obsidian4.Setting(containerEl).setName("\u4E0A\u4F20\u8BBE\u7F6E").setHeading();
+    new import_obsidian4.Setting(containerEl).setName("\u53CC\u94FE\u6A21\u5F0F").setDesc("\u53CC\u94FE\u6A21\u5F0F\u53EF\u4EE5\u81EA\u52A8\u5E2E\u4F60\u4E0A\u4F20\u6587\u6863\u5185\u6240\u6709[[]]\u5F15\u7528\u7684\u6587\u6863\uFF0C\u81EA\u52A8\u5EFA\u7ACB\u94FE\u63A5\uFF0C\u4F7F\u5F97\u60A8\u7684\u5206\u4EAB\u66F4\u52A0\u4FBF\u6377\u5B8C\u6574\uFF0C\u4F46\u5728\u5F15\u7528\u6587\u6863\u6570\u91CF\u591A\u7684\u60C5\u51B5\u4E0B\uFF0C\u53EF\u80FD\u4F7F\u4E0A\u4F20\u901F\u5EA6\u53D8\u6162\uFF0C\u9700\u8981\u7B49\u5F85\u66F4\u4E45\u3002").addToggle((toggle) => toggle.setValue(this.plugin.settings.enableDoubleLinkMode).onChange((value) => {
+      this.plugin.settings.enableDoubleLinkMode = value;
+      void this.plugin.saveSettings();
     }));
-    containerEl.createEl("h1", { text: "\u6570\u636E\u7EDF\u8BA1" });
-    new import_obsidian2.Setting(containerEl).setName("\u5206\u4EAB\u6587\u6863\u6570").setDesc(`\u60A8\u5DF2\u6210\u529F\u5206\u4EAB ${this.plugin.settings.uploadCount} \u4E2A\u6587\u6863`).addButton((button) => button.setButtonText("\u91CD\u7F6E\u8BA1\u6570").setWarning().onClick(() => {
-      this.plugin.resetUploadCount();
-      this.display();
+    new import_obsidian4.Setting(containerEl).setName("\u8C03\u8BD5\u65E5\u5FD7").setDesc("\u542F\u7528\u540E\u4F1A\u5728\u5F00\u53D1\u8005\u63A7\u5236\u53F0\u8F93\u51FA\u8C03\u8BD5\u4FE1\u606F\uFF0C\u7528\u4E8E\u6392\u67E5\u95EE\u9898\u3002").addToggle((toggle) => toggle.setValue(this.plugin.settings.debugLoggingEnabled).onChange((value) => {
+      this.plugin.settings.debugLoggingEnabled = value;
+      this.plugin.applyDebugLoggingSetting();
+      void this.plugin.saveSettings();
+    }));
+    new import_obsidian4.Setting(containerEl).setName("\u6D4B\u8BD5\u8FDE\u63A5").setDesc("\u6D4B\u8BD5\u98DE\u4E66API\u8FDE\u63A5\u662F\u5426\u6B63\u5E38").addButton((button) => button.setButtonText("\u6D4B\u8BD5\u8FDE\u63A5").onClick(() => {
+      void (async () => {
+        if (!this.plugin.feishuClient) {
+          this.plugin.notificationManager.showNotice("\u8BF7\u5148\u914D\u7F6E App ID \u548C App secret", 4e3, "missing-config");
+          return;
+        }
+        try {
+          button.setButtonText("\u6D4B\u8BD5\u4E2D...");
+          const success = await this.plugin.testNetworkConnection();
+          if (success) {
+            this.plugin.notificationManager.showNotice("\u7F51\u7EDC\u8FDE\u63A5\u6D4B\u8BD5\u6210\u529F\uFF01", 3e3, "test-success");
+          } else {
+            new import_obsidian4.Notice("\u7F51\u7EDC\u8FDE\u63A5\u6D4B\u8BD5\u5931\u8D25\uFF0C\u8BF7\u68C0\u67E5\u7F51\u7EDC\u548C\u914D\u7F6E");
+          }
+        } catch (error) {
+          const errorMessage = error instanceof Error ? error.message : String(error);
+          if (errorMessage.includes("\u7F51\u7EDC\u8FDE\u63A5\u5931\u8D25")) {
+            new import_obsidian4.Notice("\u7F51\u7EDC\u8FDE\u63A5\u5931\u8D25\uFF0C\u8BF7\u68C0\u67E5\u7F51\u7EDC\u8FDE\u63A5\u540E\u91CD\u8BD5");
+          } else {
+            new import_obsidian4.Notice(`\u8FDE\u63A5\u6D4B\u8BD5\u5931\u8D25: ${errorMessage}`);
+          }
+        } finally {
+          button.setButtonText("\u6D4B\u8BD5\u8FDE\u63A5");
+        }
+      })();
+    }));
+    new import_obsidian4.Setting(containerEl).setName("\u6570\u636E\u7EDF\u8BA1").setHeading();
+    new import_obsidian4.Setting(containerEl).setName("\u5206\u4EAB\u6587\u6863\u6570").setDesc(`\u60A8\u5DF2\u6210\u529F\u5206\u4EAB ${this.plugin.settings.uploadCount} \u4E2A\u6587\u6863`).addButton((button) => button.setButtonText("\u91CD\u7F6E\u8BA1\u6570").setWarning().onClick(() => {
+      void (async () => {
+        await this.plugin.resetUploadCount();
+        this.display();
+      })();
     }));
     const currentMonth = new Date().toISOString().substring(0, 7);
     const isCurrentMonth = this.plugin.settings.lastResetDate === currentMonth;
     const displayCount = isCurrentMonth ? this.plugin.settings.apiCallCount : 0;
-    new import_obsidian2.Setting(containerEl).setName("\u672C\u6708API\u8C03\u7528\u6B21\u6570").setDesc(`\u672C\u6708\u5DF2\u8C03\u7528\u98DE\u4E66API ${displayCount} \u6B21`).addButton((button) => button.setButtonText("\u91CD\u7F6E\u8BA1\u6570").setWarning().onClick(() => {
-      this.plugin.resetApiCallCount();
-      this.display();
-    }));
-    containerEl.createEl("h1", { text: "\u5206\u4EAB\u7BA1\u7406" });
-    if (this.plugin.settings.uploadHistory.length === 0) {
-      containerEl.createEl("p", { text: "\u6682\u65E0\u4E0A\u4F20\u8BB0\u5F55", cls: "upload-history-empty" });
-    } else {
-      new import_obsidian2.Setting(containerEl).setName("\u6E05\u7A7A\u5386\u53F2\u8BB0\u5F55").setDesc("\u5206\u4EAB\u5386\u53F2\u8BB0\u5F55").addButton((button) => button.setButtonText("\u6E05\u7A7A").setWarning().onClick(() => {
-        this.plugin.clearUploadHistory();
+    new import_obsidian4.Setting(containerEl).setName("\u672C\u6708API\u8C03\u7528\u6B21\u6570").setDesc(`\u672C\u6708\u5DF2\u8C03\u7528\u98DE\u4E66API ${displayCount} \u6B21`).addButton((button) => button.setButtonText("\u91CD\u7F6E\u8BA1\u6570").setWarning().onClick(() => {
+      void (async () => {
+        await this.plugin.resetApiCallCount();
         this.display();
-      }));
-      const historyContainer = containerEl.createDiv("upload-history-container");
-      this.plugin.settings.uploadHistory.forEach((item, index) => {
-        const historyItem = historyContainer.createDiv("upload-history-item");
-        const headerEl = historyItem.createDiv("upload-history-header");
-        const titleEl = headerEl.createEl("div", {
-          text: item.title,
-          cls: "upload-history-title"
-        });
-        const timeEl = headerEl.createEl("div", {
-          text: item.uploadTime,
-          cls: "upload-history-time"
-        });
-        const linkRowEl = historyItem.createDiv("upload-history-link-row");
-        const linkEl = linkRowEl.createEl("a", {
-          text: item.url,
-          href: item.url,
-          cls: "upload-history-link"
-        });
-        linkEl.setAttribute("target", "_blank");
-        const copyIcon = linkRowEl.createEl("span", {
-          text: "\u{1F4CB}",
-          cls: "upload-history-copy-icon"
-        });
-        copyIcon.onclick = () => {
-          navigator.clipboard.writeText(item.url);
-          new import_obsidian2.Notice("\u94FE\u63A5\u5DF2\u590D\u5236\u5230\u526A\u8D34\u677F");
-        };
-        const permissionIcon = linkRowEl.createEl("span", {
-          text: "\u2699\uFE0F",
-          cls: "upload-history-copy-icon"
-        });
-        permissionIcon.onclick = () => {
-          const permissionModal = new DocumentPermissionModal(
-            this.app,
-            item.docToken,
-            item.url,
-            item.title,
-            this.plugin,
-            true
-            // isFromSettings = true
-          );
-          permissionModal.open();
-        };
-        const deleteIcon = linkRowEl.createEl("span", {
-          text: "\u{1F5D1}\uFE0F",
-          cls: "upload-history-copy-icon"
-        });
-        deleteIcon.onclick = async () => {
-          const confirmed = confirm(`\u786E\u5B9A\u8981\u5220\u9664\u6587\u4EF6 "${item.title}" \u5417\uFF1F
-
-\u6CE8\u610F\uFF1A\u6B64\u64CD\u4F5C\u5C06\u5220\u9664\u98DE\u4E66\u4E91\u6587\u6863\u4E2D\u7684\u6587\u4EF6\uFF01`);
-          if (!confirmed) {
-            return;
-          }
-          await this.plugin.deleteHistoryItem(item.docToken);
+      })();
+    }));
+    new import_obsidian4.Setting(containerEl).setName("\u5206\u4EAB\u7BA1\u7406").setHeading();
+    if (this.plugin.settings.uploadHistory.length === 0) {
+      containerEl.createEl("p", { text: "\u6682\u65E0\u4E0A\u4F20\u8BB0\u5F55", cls: "obshare-upload-history-empty" });
+    } else {
+      new import_obsidian4.Setting(containerEl).setName("\u6E05\u7A7A\u5386\u53F2\u8BB0\u5F55").setDesc("\u5206\u4EAB\u5386\u53F2\u8BB0\u5F55").addButton((button) => button.setButtonText("\u6E05\u7A7A").setWarning().onClick(() => {
+        void (async () => {
+          await this.plugin.clearUploadHistory();
           this.display();
-          try {
-            if (this.plugin.feishuClient) {
-              await this.plugin.feishuClient.deleteFile(item.docToken);
-              await this.plugin.incrementApiCallCount();
-              console.log("[\u8BBE\u7F6E\u9875\u9762] \u6587\u4EF6\u5220\u9664\u6210\u529F:", { docToken: item.docToken, title: item.title });
-            }
-          } catch (error) {
-            console.error("[\u8BBE\u7F6E\u9875\u9762] API\u5220\u9664\u6587\u4EF6\u5931\u8D25:", error);
-            if (error instanceof Error && (error.message.includes("404") || error.message.includes("not found"))) {
-              this.plugin.notificationManager.showNotice(
-                "\u5220\u9664\u5931\u8D25\uFF0C\u8BF7\u60A8\u5728\u98DE\u4E66\u4E91\u6587\u6863\u4E2D\u81EA\u884C\u5C1D\u8BD5\u5220\u9664\u3002",
-                5e3
-              );
-            } else {
-              this.plugin.notificationManager.showNotice(
-                "\u5220\u9664\u5931\u8D25\uFF0C\u8BF7\u60A8\u5728\u98DE\u4E66\u4E91\u6587\u6863\u4E2D\u81EA\u884C\u5C1D\u8BD5\u5220\u9664\u3002",
-                5e3
-              );
-            }
+        })();
+      }));
+      const groupedHistory = this.groupUploadHistoryByPage(this.plugin.settings.uploadHistory);
+      const historyContainer = containerEl.createDiv("obshare-upload-history-container");
+      groupedHistory.forEach((pageGroup, pageTitle) => {
+        const pageGroupContainer = historyContainer.createDiv("obshare-page-group-container");
+        const pageGroupHeader = pageGroupContainer.createDiv("obshare-page-group-header");
+        const groupTitleText = pageGroup.isReferencedDocument ? `\u{1F517} ${pageTitle}` : pageTitle;
+        const groupTitleEl = pageGroupHeader.createEl("div", {
+          text: groupTitleText,
+          cls: "obshare-page-group-title"
+        });
+        const uploadCountEl = pageGroupHeader.createEl("div", {
+          text: `${pageGroup.uploads.length} \u6B21\u4E0A\u4F20`,
+          cls: "obshare-page-group-count"
+        });
+        const uploadsContainer = pageGroupContainer.createDiv("obshare-page-uploads-container");
+        pageGroup.uploads.forEach((item, index) => {
+          const historyItem = uploadsContainer.createDiv("obshare-upload-history-item");
+          if (index === 0) {
+            historyItem.addClass("obshare-upload-history-item-latest");
           }
-        };
+          const headerEl = historyItem.createDiv("obshare-upload-history-header");
+          const timeContainer = headerEl.createDiv("obshare-upload-time-container");
+          const timeEl = timeContainer.createEl("div", {
+            text: item.uploadTime,
+            cls: "obshare-upload-history-time"
+          });
+          if (index === 0) {
+            const newTagEl = timeContainer.createEl("span", {
+              text: "New",
+              cls: "obshare-upload-new-tag"
+            });
+          }
+          const linkRowEl = historyItem.createDiv("obshare-upload-history-link-row");
+          const linkEl = linkRowEl.createEl("a", {
+            text: item.url,
+            href: item.url,
+            cls: "obshare-upload-history-link"
+          });
+          linkEl.setAttribute("target", "_blank");
+          const copyIcon = linkRowEl.createEl("span", {
+            text: "\u{1F4CB}",
+            cls: "obshare-upload-history-copy-icon"
+          });
+          copyIcon.onclick = () => {
+            void navigator.clipboard.writeText(item.url).then(() => {
+              new import_obsidian4.Notice("\u94FE\u63A5\u5DF2\u590D\u5236\u5230\u526A\u8D34\u677F");
+            }).catch(() => {
+              new import_obsidian4.Notice("\u590D\u5236\u5931\u8D25\uFF0C\u8BF7\u624B\u52A8\u590D\u5236\u94FE\u63A5");
+            });
+          };
+          const permissionIcon = linkRowEl.createEl("span", {
+            text: "\u8BBE\u7F6E",
+            cls: "obshare-upload-history-copy-icon"
+          });
+          permissionIcon.onclick = () => {
+            const permissionModal = new DocumentPermissionModal(
+              this.app,
+              item.docToken,
+              item.url,
+              item.title,
+              this.plugin,
+              true
+              // isFromSettings = true
+            );
+            permissionModal.open();
+          };
+          const deleteIcon = linkRowEl.createEl("span", {
+            text: "\u5220\u9664",
+            cls: "obshare-upload-history-copy-icon"
+          });
+          deleteIcon.onclick = () => {
+            const modal = new DeleteConfirmationModal(
+              this.app,
+              `\u786E\u5B9A\u8981\u5220\u9664\u6587\u4EF6 "${item.title}" \u5417\uFF1F
+
+\u6CE8\u610F\uFF1A\u6B64\u64CD\u4F5C\u5C06\u5220\u9664\u98DE\u4E66\u4E91\u6587\u6863\u4E2D\u7684\u6587\u4EF6\uFF01`,
+              async () => {
+                await this.plugin.deleteHistoryItem(item.docToken);
+                this.display();
+                try {
+                  if (this.plugin.feishuClient) {
+                    await this.plugin.feishuClient.deleteFile(item.docToken);
+                    await this.plugin.incrementApiCallCount();
+                  }
+                } catch (error) {
+                  const errorMessage = error instanceof Error ? error.message : String(error);
+                  console.error(`[\u8BBE\u7F6E\u9875\u9762] API\u5220\u9664\u6587\u4EF6\u5931\u8D25: ${errorMessage}`);
+                  if (this.plugin.settings.debugLoggingEnabled) {
+                    console.debug("[\u8BBE\u7F6E\u9875\u9762] API\u5220\u9664\u6587\u4EF6\u5931\u8D25\u8BE6\u60C5:", error);
+                  }
+                  if (error instanceof Error && (error.message.includes("404") || error.message.includes("not found"))) {
+                    this.plugin.notificationManager.showNotice(
+                      "\u5220\u9664\u5931\u8D25\uFF0C\u8BF7\u60A8\u5728\u98DE\u4E66\u4E91\u6587\u6863\u4E2D\u81EA\u884C\u5C1D\u8BD5\u5220\u9664\u3002",
+                      5e3
+                    );
+                  } else {
+                    this.plugin.notificationManager.showNotice(
+                      "\u5220\u9664\u5931\u8D25\uFF0C\u8BF7\u60A8\u5728\u98DE\u4E66\u4E91\u6587\u6863\u4E2D\u81EA\u884C\u5C1D\u8BD5\u5220\u9664\u3002",
+                      5e3
+                    );
+                  }
+                }
+              }
+            );
+            modal.open();
+          };
+        });
       });
     }
   }
 };
-var UploadProgressModal = class extends import_obsidian2.Modal {
+var DeleteConfirmationModal = class extends import_obsidian4.Modal {
+  constructor(app, message, onConfirm) {
+    super(app);
+    this.message = message;
+    this.onConfirm = onConfirm;
+  }
+  onOpen() {
+    const { contentEl } = this;
+    contentEl.empty();
+    new import_obsidian4.Setting(contentEl).setName("\u786E\u8BA4\u5220\u9664").setHeading();
+    contentEl.createEl("p", { text: this.message });
+    const buttonContainer = contentEl.createDiv("obshare-modal-button-container");
+    const confirmButton = buttonContainer.createEl("button", { text: "\u786E\u8BA4\u5220\u9664", cls: "mod-warning" });
+    const cancelButton = buttonContainer.createEl("button", { text: "\u53D6\u6D88" });
+    cancelButton.onclick = () => {
+      this.close();
+    };
+    confirmButton.onclick = () => {
+      void Promise.resolve(this.onConfirm()).finally(() => {
+        this.close();
+      });
+    };
+  }
+  onClose() {
+    const { contentEl } = this;
+    contentEl.empty();
+  }
+};
+var UploadProgressModal = class extends import_obsidian4.Modal {
   // 伪进度最大值
   constructor(app) {
     super(app);
+    // 添加标题元素引用
     this.currentProgress = 0;
     this.currentStep = "";
     this.isCompleted = false;
     this.fakeProgressTimer = null;
     this.lastRealProgress = 0;
-    this.maxFakeProgress = 85;
+    this.maxFakeProgress = 90;
   }
   onOpen() {
     const { contentEl } = this;
     contentEl.empty();
-    contentEl.addClass("feishu-upload-progress-modal");
-    contentEl.style.cssText = `
-			padding: 30px;
-			text-align: center;
-			min-width: 400px;
-			border-radius: 8px;
-		`;
-    const title = contentEl.createEl("h2", { text: "\u6B63\u5728\u4E0A\u4F20\u6587\u6863" });
-    title.style.cssText = `
-			margin-bottom: 20px;
-			color: var(--text-normal);
-			font-size: 18px;
-		`;
-    this.stepText = contentEl.createEl("div", { text: "\u51C6\u5907\u4E0A\u4F20..." });
-    this.stepText.style.cssText = `
-			margin-bottom: 20px;
-			color: var(--text-muted);
-			font-size: 14px;
-		`;
-    const progressContainer = contentEl.createDiv("progress-container");
-    progressContainer.style.cssText = `
-			width: 100%;
-			height: 8px;
-			background: var(--background-modifier-border);
-			border-radius: 4px;
-			overflow: hidden;
-			margin-bottom: 15px;
-		`;
-    this.progressBar = progressContainer.createDiv("progress-bar");
-    this.progressBar.style.cssText = `
-			height: 100%;
-			background: linear-gradient(90deg, var(--interactive-accent), var(--interactive-accent-hover));
-			width: 0%;
-			transition: width 0.3s ease;
-			border-radius: 4px;
-		`;
-    this.progressText = contentEl.createEl("div", { text: "0%" });
-    this.progressText.style.cssText = `
-			color: var(--text-muted);
-			font-size: 12px;
-			margin-bottom: 20px;
-		`;
-    const hintText = contentEl.createEl("div", { text: "\u8BF7\u4FDD\u6301\u7F51\u7EDC\u8FDE\u63A5\uFF0C\u4E0D\u8981\u5173\u95ED\u6B64\u7A97\u53E3" });
-    hintText.style.cssText = `
-			color: var(--text-muted);
-			font-size: 12px;
-			font-style: italic;
-		`;
+    contentEl.addClass("obshare-feishu-upload-progress-modal");
+    const titleText = "\u6B63\u5728\u4E0A\u4F20\u6587\u6863";
+    const titleSetting = new import_obsidian4.Setting(contentEl).setName(titleText).setHeading();
+    this.titleElement = titleSetting.nameEl;
+    this.titleElement.addClass("obshare-progress-modal-title");
+    this.stepText = contentEl.createEl("div", { text: "\u51C6\u5907\u4E0A\u4F20...", cls: "obshare-progress-modal-step" });
+    const progressContainer = contentEl.createDiv("obshare-feishu-upload-progress");
+    this.progressText = progressContainer.createEl("div", { text: "0%", cls: "obshare-progress-text" });
+    const progressBarBg = progressContainer.createEl("div", { cls: "obshare-progress-bar" });
+    this.progressBar = progressBarBg.createEl("div", { cls: "obshare-progress-fill" });
+    this.progressBar.setCssProps({ "--obshare-progress-width": "0%" });
+    this.stepText = contentEl.createEl("div", { text: "\u51C6\u5907\u4E0A\u4F20...", cls: "obshare-progress-modal-step" });
+    contentEl.createEl("div", { text: "\u8BF7\u4FDD\u6301\u7F51\u7EDC\u8FDE\u63A5\uFF0C\u4E0D\u8981\u5173\u95ED\u6B64\u7A97\u53E3", cls: "obshare-progress-hint" });
     this.startFakeProgress();
   }
   /**
@@ -3811,7 +5388,7 @@ var UploadProgressModal = class extends import_obsidian2.Modal {
   setProgress(progress) {
     this.currentProgress = progress;
     if (this.progressBar) {
-      this.progressBar.style.width = `${this.currentProgress}%`;
+      this.progressBar.setCssProps({ "--obshare-progress-width": `${this.currentProgress}%` });
     }
     if (this.progressText) {
       this.progressText.textContent = `${Math.round(this.currentProgress)}%`;
@@ -3867,10 +5444,10 @@ var UploadProgressModal = class extends import_obsidian2.Modal {
   showError(errorMessage) {
     if (this.stepText) {
       this.stepText.textContent = `\u4E0A\u4F20\u5931\u8D25: ${errorMessage}`;
-      this.stepText.style.color = "var(--text-error)";
+      this.stepText.addClass("obshare-progress-error");
     }
     if (this.progressBar) {
-      this.progressBar.style.background = "var(--text-error)";
+      this.progressBar.addClass("obshare-progress-error");
     }
     setTimeout(() => {
       this.close();
@@ -3882,26 +5459,18 @@ var UploadProgressModal = class extends import_obsidian2.Modal {
     contentEl.empty();
   }
 };
-var UserAgreementModal = class extends import_obsidian2.Modal {
+var UserAgreementModal = class extends import_obsidian4.Modal {
   constructor(app, plugin) {
     super(app);
     this.plugin = plugin;
-    this.component = new import_obsidian2.Component();
+    this.component = new import_obsidian4.Component();
   }
   onOpen() {
     const { contentEl } = this;
     contentEl.empty();
-    contentEl.addClass("user-agreement-modal");
-    contentEl.createEl("h2", { text: "ObShare \u7528\u6237\u534F\u8BAE" });
-    const agreementContainer = contentEl.createDiv({ cls: "agreement-content" });
-    agreementContainer.style.maxHeight = "500px";
-    agreementContainer.style.overflowY = "auto";
-    agreementContainer.style.padding = "15px";
-    agreementContainer.style.border = "1px solid var(--background-modifier-border)";
-    agreementContainer.style.borderRadius = "5px";
-    agreementContainer.style.marginBottom = "20px";
-    agreementContainer.style.width = "100%";
-    agreementContainer.style.boxSizing = "border-box";
+    contentEl.addClass("obshare-user-agreement-modal");
+    new import_obsidian4.Setting(contentEl).setName("ObShare \u7528\u6237\u534F\u8BAE").setHeading();
+    const agreementContainer = contentEl.createDiv({ cls: "obshare-agreement-content" });
     const agreementText = `\u6B22\u8FCE\u4F7F\u7528ObShare\uFF08\u4EE5\u4E0B\u7B80\u79F0"\u672C\u63D2\u4EF6"\uFF09\u3002\u5728\u4F7F\u7528\u672C\u63D2\u4EF6\u4E4B\u524D\uFF0C\u8BF7\u60A8\u4ED4\u7EC6\u9605\u8BFB\u5E76\u7406\u89E3\u4EE5\u4E0B\u6761\u6B3E\u3002\u4F7F\u7528\u672C\u63D2\u4EF6\u5373\u89C6\u4E3A\u60A8\u5DF2\u540C\u610F\u5E76\u9075\u5B88\u672C\u534F\u8BAE\u3002
 
 \u672C\u63D2\u4EF6\u662F\u4E00\u6B3E\u7528\u4E8E\u5C06\u60A8\u50A8\u5B58\u5728\u672C\u5730Obsidian\u7B14\u8BB0\u901A\u8FC7\u98DE\u4E66\uFF08\u4E0B\u79F0"\u76EE\u6807\u670D\u52A1"\uFF09\u5F00\u653E\u5E73\u53F0 api \u63A5\u53E3\u4E0A\u4F20\u5230\u60A8\u7684\u98DE\u4E66\u8D26\u53F7\u6240\u5C5E\u7684\u4E91\u7A7A\u95F4/\u4E91\u6587\u6863\uFF0C\u4ECE\u800C\u4F7F\u5F97\u60A8\u53EF\u4EE5\u66F4\u52A0\u65B9\u4FBF\u5206\u4EAB\u548C\u7BA1\u7406\u81EA\u5DF1\u7684\u7B14\u8BB0\u3002
@@ -3951,28 +5520,27 @@ var UserAgreementModal = class extends import_obsidian2.Modal {
 2. **\u7528\u6237\u81EA\u4E3B\u9000\u51FA\u673A\u5236**\u3002\u60A8\u53EF\u968F\u65F6\u5378\u8F7D\u672C\u63D2\u4EF6\u6216\u5220\u9664\u672C\u5730\u914D\u7F6E\u6587\u4EF6\uFF08\u5982 \`data.json\`\uFF09\u4EE5\u7EC8\u6B62\u4F7F\u7528\u3002\u4E00\u65E6\u5378\u8F7D\uFF0C\u6240\u6709\u672C\u5730\u7F13\u5B58\u6570\u636E\u5C06\u88AB\u6E05\u9664\uFF0C\u4F46\u60A8\u5728\u98DE\u4E66\u7B49\u5916\u90E8\u5E73\u53F0\u5DF2\u7ECF\u4E0A\u4F20\u7684\u5185\u5BB9\u4E0D\u4F1A\u56E0\u6B64\u5220\u9664\uFF0C\u4ECD\u9700\u60A8\u81EA\u884C\u5904\u7406\uFF0C\u60A8\u4ECD\u9700\u5BF9\u4E0A\u4F20\u81F3\u98DE\u4E66\u7B49\u5916\u90E8\u5E73\u53F0\u7684\u5185\u5BB9\u8D1F\u8D23\u3002
 
 3. **\u63D2\u4EF6\u7EC8\u6B62\u4F7F\u7528**\u3002\u82E5\u53D1\u73B0\u672C\u63D2\u4EF6\u5B58\u5728\u4E25\u91CD\u5B89\u5168\u6F0F\u6D1E\u3001\u6076\u610F\u884C\u4E3A\u6216\u8FDD\u53CD\u5F00\u6E90\u539F\u5219\u7684\u60C5\u51B5\uFF0C\u4F5C\u8005\u6709\u6743\u7ACB\u5373\u505C\u6B62\u7EF4\u62A4\u6216\u53D1\u5E03\u7EC8\u6B62\u7248\u672C\u3002\u5C4A\u65F6\u5EFA\u8BAE\u7528\u6237\u5C3D\u5FEB\u8FC1\u79FB\u6570\u636E\u5E76\u505C\u6B62\u4F7F\u7528\u3002`;
-    import_obsidian2.MarkdownRenderer.renderMarkdown(agreementText, agreementContainer, "", this.component);
-    const buttonContainer = contentEl.createDiv({ cls: "agreement-buttons" });
-    buttonContainer.style.display = "flex";
-    buttonContainer.style.justifyContent = "flex-end";
-    buttonContainer.style.gap = "10px";
+    void import_obsidian4.MarkdownRenderer.render(this.app, agreementText, agreementContainer, "", this.component);
+    const buttonContainer = contentEl.createDiv({ cls: "obshare-agreement-buttons" });
     const rejectButton = buttonContainer.createEl("button", {
       text: "\u62D2\u7EDD"
     });
     rejectButton.onclick = () => {
       this.close();
-      new import_obsidian2.Notice("\u60A8\u5DF2\u62D2\u7EDD\u7528\u6237\u534F\u8BAE\uFF0C\u63D2\u4EF6\u529F\u80FD\u5C06\u4E0D\u53EF\u7528\u3002", 5e3);
+      new import_obsidian4.Notice("\u60A8\u5DF2\u62D2\u7EDD\u7528\u6237\u534F\u8BAE\uFF0C\u63D2\u4EF6\u529F\u80FD\u5C06\u4E0D\u53EF\u7528\u3002", 5e3);
     };
     const agreeButton = buttonContainer.createEl("button", {
       text: "\u540C\u610F\u5E76\u7EE7\u7EED",
       cls: "mod-cta"
     });
-    agreeButton.onclick = async () => {
-      this.plugin.settings.agreedToTerms = true;
-      await this.plugin.saveSettings();
-      this.plugin.completeInitialization();
-      this.close();
-      new import_obsidian2.Notice("\u6B22\u8FCE\u4F7F\u7528 ObShare\uFF01", 3e3);
+    agreeButton.onclick = () => {
+      void (async () => {
+        this.plugin.settings.agreedToTerms = true;
+        await this.plugin.saveSettings();
+        this.plugin.completeInitialization();
+        this.close();
+        new import_obsidian4.Notice("\u6B22\u8FCE\u4F7F\u7528 ObShare\uFF01", 3e3);
+      })();
     };
   }
   onClose() {
