@@ -117,5 +117,10 @@ MD 模拟结果精细地揭示了两种酶变体的不同催化策略。首先�
 
 # 九：近期工作
 
+刘雪婷课题组长期致力于微生物天然药物的发现与创造，利用合成生物学策略合成“非天然”的活性天然产物及其关键酶催化机制研究。课题组采用基因组挖掘策略高效发现新颖抗感染活性天然产物（Angew.  Chem. 2013；Org. Lett. 2013；Org. Lett. 2016；Cell Chem. Biol. 2020；J.  Agric. Food Chem. 2024, 2025；ACS Chem. Biol.  2025等）；并进一步通过计算化学与蛋白质工程的融合创新，激活天然产物关键酶的新颖催化功能，创造了一系列“非天然”的新颖化合物（Nat.  Prod. Rep. 2018；Org. Lett. 2021；JACS Au 2022，ACS Catal. 2023，Angew.  Chem. 2024，ACS Catal. 2025等）。
+
+课题组主页：https://biotech.ecust.edu.cn/2018/0329/c7935a74416/page.htm
+
+[2025 ACS Catal. | G2螺旋功能可塑区揭示真菌双功能萜合酶催化二倍半萜环化的立体构型选择性调控机制](https://mp.weixin.qq.com/s/iV7WdDi4gfGERbW5ZzSdTQ)
 
 [2024 Angew | 分子动力学模拟辅助改造 PfNS 芳香族残基簇以实现真菌二倍半萜合酶的功能转换](https://mp.weixin.qq.com/s/JdW_lOfAsTYU-AxW6kNJLQ)
