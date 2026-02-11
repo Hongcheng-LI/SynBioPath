@@ -111,3 +111,11 @@ MD 模拟结果精细地揭示了两种酶变体的不同催化策略。首先�
 
 **Q2: 文章中提到的 *dia*-quiannulatene 与已知的 quiannulatene 有何区别？**
 **A2:** 两者均属于五环二倍半萜骨架，主要的区别在于立体化学构型。**Figure 3** 和相关的 DFT 分析指出，*dia*-quiannulatene（如化合物 **4-6**）与 quiannulatene（化合物 **1**）在 A 环的立体构型以及 C2 位构型上存在差异（Diastereomeric difference）。这种差异源于环化过程中中间体 **IM7** 与 **IM7a** 的构象不同，导致后续的环化和重排路径发生了细微但决定性的偏转，最终形成了非对映异构的骨架结构。
+
+
+---
+
+# 九：近期工作
+
+
+[2024 Angew | 分子动力学模拟辅助改造 PfNS 芳香族残基簇以实现真菌二倍半萜合酶的功能转换](https://mp.weixin.qq.com/s/JdW_lOfAsTYU-AxW6kNJLQ)
