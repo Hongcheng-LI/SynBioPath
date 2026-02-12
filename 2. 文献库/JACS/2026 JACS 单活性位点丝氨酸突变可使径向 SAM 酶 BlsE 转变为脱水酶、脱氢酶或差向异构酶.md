@@ -1,10 +1,10 @@
-这是一份基于你提供的 *Journal of the American Chemical Society* (2026) 文献的深度分析报告。
+
 
 ---
 
 # 一：基本信息
 
-**文章题目**：The Radical SAM Enzyme BlsE Can Operate as a Dehydratase, Dehydrogenase, or Epimerase upon Mutation of a Single Active Site Serine Residue（）
+**文章题目**：The Radical SAM Enzyme BlsE Can Operate as a Dehydratase, Dehydrogenase, or Epimerase upon Mutation of a Single Active Site Serine Residue
 **文章 DOI 号**：10.1021/jacs.5c18279
 **期刊名称**：*Journal of the American Chemical Society* (JACS)
 **通讯作者**：Hung-wen Liu (刘鸿文)
