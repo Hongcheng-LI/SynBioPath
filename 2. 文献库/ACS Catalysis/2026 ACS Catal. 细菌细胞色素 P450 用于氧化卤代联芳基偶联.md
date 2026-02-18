@@ -11,8 +11,8 @@
 **通讯作者**：Yousong Ding（丁有松）；Yifan Wang；Guangrong Zheng
 **通讯作者工作单位**：
 - **丁有松**：佛罗里达大学药学院药物化学系 (Department of Medicinal Chemistry, University of Florida)；
-- Yifan Wang：乔治亚大学化学系 (Department of Chemistry, University of Georgia)
-- Guangrong Zheng：
+- **Yifan Wang**：乔治亚大学化学系 (Department of Chemistry, University of Georgia)
+- **Guangrong Zheng**：佛罗里达大学药学院药物化学系 (Department of Medicinal Chemistry, University of Florida)；
 
 ---
 
