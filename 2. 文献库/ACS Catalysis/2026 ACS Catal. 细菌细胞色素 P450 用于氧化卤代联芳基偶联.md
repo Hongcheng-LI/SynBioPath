@@ -1,4 +1,4 @@
-![0d58ac76-46dc-45ac-9705-5e3af04a9370.png](https://synbiopath.online/0d58ac76-46dc-45ac-9705-5e3af04a9370.png)
+![image.png](https://synbiopath.online/0d58ac76-46dc-45ac-9705-5e3af04a9370.png)
 
 
 ---
@@ -8,7 +8,7 @@
 **文章题目**：Bacterial Cytochrome P450 for Oxidative Halogenated Biaryl Coupling
 **文章 DOI 号**：10.1021/acscatal.5c08060
 **期刊名称**：*ACS Catalysis*
-**通讯作者**：Guangrong Zheng, Yifan Wang, Yousong Ding
+**通讯作者**：Yousong Ding（丁有松）Guangrong Zheng, Yifan Wang, 
 **通讯作者工作单位**：佛罗里达大学药学院药物化学系 (Department of Medicinal Chemistry, University of Florida)；乔治亚大学化学系 (Department of Chemistry, University of Georgia)
 
 ---
