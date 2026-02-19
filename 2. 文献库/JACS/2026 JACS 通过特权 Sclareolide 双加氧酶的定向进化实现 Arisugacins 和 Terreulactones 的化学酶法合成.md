@@ -61,7 +61,7 @@
 
 #### 实验结果与深度解析
 如 **Figure 4** 所示，合成路线从 Sclareolide (**1**) 出发，首先利用 **STAC5** 酶进行 C5$\alpha$-羟基化得到化合物 **14**。随后，利用 Burgess 试剂进行脱水反应构建 $\Delta^{4,5}$ 双键，接着通过 KHMDS/P(OMe)$_3$/O$_2$ 体系引入 $\alpha$-羟基，最后经由 NaIO$_4$ 介导的 C-环氧化断裂（Renata 小组报道的方法），仅需 5 步即可高效得到关键中间体 **17**。相比之下，传统化学法受限于 Sclareolide C5 位的惰性，必须绕道进行多步官能团转化。这一结果直观地展示了生物催化在“氧化态编辑”上的巨大优势，能够直接在非活化碳氢键上引入官能团，从而改写逆合成分析的逻辑。
-![image.png](https://synbiopath.online/20260219155823472.png)
+![image.png](https://synbiopath.online/20260219160015314.png)
 
 > "This route stands in stark contrast to traditional routes to 17 from sclareolide which... require a protracted 11-step sequence to correct the inherent oxidation-state disparity."
 
@@ -71,7 +71,9 @@
 
 #### 实验结果与深度解析
 合成从化合物 **16**（由 **1** 经两步酶法氧化得到）开始。首先保护 3,5-二醇得到硅缩醛 **19**，随后在 C2 位引入羟基得到 **20**（**Figure 5**）。由于硅缩醛对还原条件不稳定，作者巧妙地采用了 Suarez 氧化断裂（PIDA/I$_2$）策略，成功切断 C-C 键并异构化得到烯醛 **21**。在尝试构建五环骨架的关键 [3 + 3] 环化步骤中，作者遇到了挑战。如 **Figure 5** 表格所示，初始条件（EDDA 催化）产率极低，推测是硅保护基的大位阻阻碍了亚胺的形成。通过移除硅保护基得到 **22**，反应活性显著提高，但 **22** 不稳定。最终，通过使用乙二胺乙酸盐作为催化剂，并在 150 °C 下反应，成功以 42% 的产率获得了关键的五环二醇中间体 **24**。
+![image.png](https://synbiopath.online/20260219155823472.png)
 获得 **24** 后，作者通过一系列后期修饰完成了全合成（**Figure 6**）。利用 Mukaiyama 水合反应在 **24** 的 C9-C11 双键上引入叔羟基，高立体选择性地得到了 **Arisugacin J (3)**，其结构经 **X-ray 单晶衍射**确证。随后，通过对 C3 羟基的乙酰化得到 **Arisugacin D (28)**；通过 Dess-Martin 氧化得到 **Terreulactone C (29)**；进而通过 $\alpha,\beta$-脱氢得到 **Terreulactone B (4)**；或通过 NaBH$_4$ 还原得到 **Arisugacin M (30)**。这一系列转化充分证明了中间体 **24** 的多能性以及化学酶法策略在构建复杂混源萜方面的强大能力。
+![image.png](https://synbiopath.online/20260219160038274.png)
 
 > "To the best of our knowledge, these sequences constitute the first syntheses of arisugacin J, arisugacin D, arisugacin M, terreulactone C, and terreulactone B."
 
