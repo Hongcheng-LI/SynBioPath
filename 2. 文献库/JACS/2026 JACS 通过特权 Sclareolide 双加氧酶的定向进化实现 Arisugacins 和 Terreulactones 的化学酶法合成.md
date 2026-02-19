@@ -1,15 +1,13 @@
-
+![image.png](https://synbiopath.online/20260219155332086.png)
 
 ---
 
-# 深度分析报告：基于定向进化构建特权 Sclareolide 双加氧酶实现 Arisugacins 和 Terreulactones 的化学酶法合成
-
 ## 一：基本信息
 
-**文章题目**：Chemoenzymatic Synthesis of Arisugacins and Terreulactones via Directed Evolution of a Privileged Sclareolide Dioxygenase（）
+**文章题目**：Chemoenzymatic Synthesis of Arisugacins and Terreulactones via Directed Evolution of a Privileged Sclareolide Dioxygenase
 **文章 DOI 号**：10.1021/jacs.5c22624
 **期刊名称**：*Journal of the American Chemical Society* (JACS)
-**通讯作者**：李剑 (Jian Li)
+**通讯作者**：李键 (Jian Li)
 **通讯作者工作单位**：上海交通大学变革性分子前沿科学中心，化学化工学院，协同生物合成化学国家重点实验室 (Frontiers Science Center for Transformative Molecules, School of Chemistry and Chemical Engineering, State Key Laboratory of Synergistic Chem-Bio Synthesis, Shanghai Jiao Tong University)
 
 ---
@@ -17,6 +15,7 @@
 ## 二：核心速览
 
 本研究建立了一个高效的化学酶法合成平台，旨在解决多环萜类化合物位点和化学选择性氧化的合成难题。研究团队以廉价的手性源 Sclareolide（香紫苏内酯）为起始原料，通过对非血红素 Fe(II)/$\alpha$-酮戊二酸依赖型双加氧酶 AndA 进行多轮定向进化，成功获得了 STAC 系列突变体。这些突变体能够对 Sclareolide 的 C1、C3 和 C5 位点进行精准的 C-H 键羟基化，活性相比野生型提高了 82 倍，并实现了克级至十克级的制备。利用该酶法平台，作者开发了简洁的合成路线：通过 C5 羟基化模块实现了 (+)-phorbadione 的形式合成；通过 C1/C3/C5 的正交氧化策略，结合 Suarez 氧化断裂和胺催化的形式 [3 + 3] 环化反应，构建了关键中间体，从而完成了 Arisugacin J、D、M 以及 Terreulactone C、B 的首次全合成。该工作确立了 AndA 作为一种类似于 P450BM3 的“特权”萜类氧化酶的地位，为从简单手性原料合成高度氧化的混源萜类天然产物提供了通用策略。
+![image.png](https://synbiopath.online/20260219155426195.png)
 
 ---
 
@@ -45,7 +44,7 @@
 
 ### （一）AndA 酶的定向进化与 Sclareolide 的位点选择性氧化
 #### 实验目的与设计逻辑
-为了在 Sclareolide（化合物 **1**）的惰性碳骨架上引入 C1、C3 和 C5 位的羟基，作者没有选择传统的化学氧化（通常偏向 C2 位），而是选择了酶法策略。基于前期 AndA 晶体结构（PDB 4W6Z）的**分子对接（Molecular Docking）**分析，作者发现化合物 **1** 的 $\alpha$-面朝向活性中心的 Fe(II) 离子，且其结构与 AndA 的天然底物相似。基于此结构信息，作者推测通过对底物结合口袋附近的残基进行**饱和突变**，可以重新编程酶的区域选择性。
+为了在 Sclareolide（化合物 **1**）的惰性碳骨架上引入 C1、C3 和 C5 位的羟基，作者没有选择传统的化学氧化（通常偏向 C2 位），而是选择了酶法策略。基于前期 AndA 晶体结构（PDB 4W6Z）的**分子对接（Molecular Docking）** 分析，作者发现化合物 **1** 的 $\alpha$-面朝向活性中心的 Fe(II) 离子，且其结构与 AndA 的天然底物相似。基于此结构信息，作者推测通过对底物结合口袋附近的残基进行**饱和突变**，可以重新编程酶的区域选择性。
 
 #### 实验结果与深度解析
 通过多轮定向进化，作者成功构建了针对不同位点的特异性氧化酶。如 **Figure 2** 所示，进化路线分为三条分支。首先，筛选前期突变体库发现 AndA I69Y N120C 能产生微量 C5$\alpha$ 氧化产物 **14**，而 I69Y Y138H 能氧化 C1$\alpha$。针对 C1 氧化，通过对 Q66、A229 等残基的迭代突变，最终获得了突变体 **STAC1** (AndA Q66P I69Y Y138H A229D)，其将化合物 **1** 转化为 **12** 的转化率高达 81%。针对 C3 氧化，筛选发现双突变体 I69Y N157T 具有独特的 C3 选择性，进一步引入 A229M 突变后获得 **STAC3**，转化率达到 92%（产物 **13**）。针对最具挑战性的 C5 氧化，通过对 Y138、N157、R66、I70 等位点的系统优化，获得了六突变体 **STAC5**，其生成 C5$\alpha$-羟基化产物 **14** 的转化率达到 82%。这些结果表明，通过精细调控活性口袋的极性和空间位阻（如 Q66P 改变骨架刚性，A229 调整空间），可以显著改变酶对刚性萜类骨架的识别模式。此外，**Figure 3** 展示了在 C5-羟基化产物 **14** 的基础上进行的第二阶段进化。为了模拟 Arisugacin 家族的氧化模式，需要在 **14** 的基础上引入 C1 和 C3 氧化。作者以 **14** 为底物进行筛选，发现 **STAC5** 的前体突变体具有一定活性，经过进一步对 Q66 和 A229 的饱和突变，获得了 **STAC5C1**（92% 转化率生成 **15**）和 **STAC5C3**（79% 转化率生成 **16**）。这一系列**干湿结合**的实验不仅验证了分子模拟的预测，还提供了一套互补的生物催化剂库，能够以克级规模制备多种氧化态的 Labdane 中间体。
