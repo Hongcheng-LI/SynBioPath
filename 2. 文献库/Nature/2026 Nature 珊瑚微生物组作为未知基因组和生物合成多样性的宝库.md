@@ -65,14 +65,20 @@
 ![image.png](https://synbiopath.online/20260226074140833.png)
 
 **Figure 3** 的详细统计表明，珊瑚微生物组不仅在未知基因比例上远超海洋水体，其每个物种编码的 GCF 数量更是达到了外海物种的两倍以上。值得注意的是，这些代谢通路的产物类别分布具有明显偏好，核糖体合成和翻译后修饰肽 (RiPPs) 以及一型聚酮合酶 (T1PKS) 的比例异常突出。与已知生化表征的数据库 (MIBiG) 对比时，研究团队发现高达 64% 的 GCFs 是本研究首次发现的全新家族，且绝大多数未在周围海水中检测到。在不同宿主类型之间，火珊瑚的微生物群落展现出了惊人的丰度，其每个物种携带的 GCF 数量不仅远超软珊瑚和石珊瑚，甚至在归一化采样深度后超越了长期被公认为海洋“药物工厂”的海绵。这一数据彻底扭转了过往对造礁珊瑚生物合成潜力被低估的认知偏差。
+![image.png](https://synbiopath.online/20260226074210390.png)
 
->[The two environments shared less than 10% of GCFs (411), and the proportions of the detected natural product classes also varied.]
+>The two environments shared less than 10% of GCFs (411), and the proportions of the detected natural product classes also varied.
 
 ### （三）候选“超级生产者”的锁定与宿主响应验证
 #### 实验目的与设计逻辑
 宏观的统计比较需要最终落脚于具体的微生物类群，以便为后续的分子生物学实验提供明确的靶点。研究团队基于基因组中完整 BGC 的数量排名，致力于在大量 MAG 中筛选出类比于陆地放线菌的海洋“天然产物超级生产者”。同时，为了证明这些基于序列预测的生物合成通路并非仅是“进化遗迹”，作者设计了精妙的湿实验共培养体系，通过转录组学和代谢组学验证这些超级生产者在接收到宿主源信号分子后，能否真正启动并表达其次级代谢途径。
 #### 实验结果与深度解析
-通过严苛的过滤标准，研究团队在庞大数据库中成功锚定了 20 个具有超级生产者潜质的候选物种，且它们全部缺乏既往分类学记录。如 **Figure 4** 所示，来自 Acidobacteriota（酸杆菌门）的类群占据了绝对的统治地位，其中包括三个拥有极高完整 BGC 数量的代表性物种（MAG48, MAG13, MAG20）。进一步结合 Tara Pacific 的 16S rRNA 基因扩增子测序数据，证实这些 BGC 丰富的 Acidobacteriota 谱系在整个太平洋的造礁珊瑚中不仅广泛存在，且具备极高的相对丰度。不仅如此，**Extended Data Figure 3** 的广义不相似性模型 (GDM) 强有力地暗示了这些 Acidobacteriota ASVs 的分布与珊瑚宿主的转录组表达模式密切相关，进一步强调了它们作为关键共生体的生态地位。为了从功能上确证其活性，研究人员选取了相关的酸杆菌菌株开展了实验室共培养湿实验。**Extended Data Figure 4** 详尽记录了这一关键结果：当在培养基中引入提取自微孔珊瑚的天然提取物时，该菌株内近半数的 BGCs 核心基因发生了显著的上调表达（中位 $\log_2$ 倍数变化 $>0.585$）。伴随转录水平的激活，高分辨液相色谱串联质谱 (HPLC-HRMS/MS) 构建的分子网络图谱清晰显示，数个未知的代谢物簇仅在添加了珊瑚源信号的实验组中被诱导产生。这种干湿实验相互印证的闭环，不仅证实了 Acidobacteriota 蕴含巨大挖掘潜力，更揭示了由宿主环境精确调控的微生物化学防卫机制。
+通过严苛的过滤标准，研究团队在庞大数据库中成功锚定了 20 个具有超级生产者潜质的候选物种，且它们全部缺乏既往分类学记录。如 **Figure 4** 所示，来自 Acidobacteriota（酸杆菌门）的类群占据了绝对的统治地位，其中包括三个拥有极高完整 BGC 数量的代表性物种（MAG48, MAG13, MAG20）。进一步结合 Tara Pacific 的 16S rRNA 基因扩增子测序数据，证实这些 BGC 丰富的 Acidobacteriota 谱系在整个太平洋的造礁珊瑚中不仅广泛存在，且具备极高的相对丰度。
+![image.png](https://synbiopath.online/20260226074257842.png)
+
+不仅如此，**Extended Data Figure 3** 的广义不相似性模型 (GDM) 强有力地暗示了这些 Acidobacteriota ASVs 的分布与珊瑚宿主的转录组表达模式密切相关，进一步强调了它们作为关键共生体的生态地位。为了从功能上确证其活性，研究人员选取了相关的酸杆菌菌株开展了实验室共培养湿实验。
+
+**Extended Data Figure 4** 详尽记录了这一关键结果：当在培养基中引入提取自微孔珊瑚的天然提取物时，该菌株内近半数的 BGCs 核心基因发生了显著的上调表达（中位 $\log_2$ 倍数变化 $>0.585$）。伴随转录水平的激活，高分辨液相色谱串联质谱 (HPLC-HRMS/MS) 构建的分子网络图谱清晰显示，数个未知的代谢物簇仅在添加了珊瑚源信号的实验组中被诱导产生。这种干湿实验相互印证的闭环，不仅证实了 Acidobacteriota 蕴含巨大挖掘潜力，更揭示了由宿主环境精确调控的微生物化学防卫机制。
 
 >[Highlighting Acidobacteriota spp. as particularly BGC-rich aligns with the growing recognition of this phylum as containing candidate natural product super-producers.]
 
