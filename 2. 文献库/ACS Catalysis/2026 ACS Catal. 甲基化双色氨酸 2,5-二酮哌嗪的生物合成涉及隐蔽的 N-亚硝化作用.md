@@ -1,9 +1,10 @@
-这是一份基于您提供的英文文献《Biosynthesis of Methylated Ditryptophan 2,5-Diketopeprazine Involves Cryptic *N*-nitrosation》撰写的深度分析报告。本报告严格遵循您的各项指令，尤其是对第五部分散文式长段落和图表全覆盖的要求。
+![image.png](https://synbiopath.online/20260225094606804.png)
+
 
 ---
 
 # 一：基本信息
-**文章题目**：Biosynthesis of Methylated Ditryptophan 2,5-Diketopeprazine Involves Cryptic *N*-nitrosation（甲基化双色氨酸 2,5-二酮哌嗪的生物合成涉及隐蔽的 *N*-亚硝化作用）
+**文章题目**：Biosynthesis of Methylated Ditryptophan 2,5-Diketopeprazine Involves Cryptic *N*-nitrosation（）
 **文章 DOI 号**：10.1021/acscatal.5c09282
 **期刊名称**：*ACS Catalysis*
 **通讯作者**：何俊斌 (Jun-Bin He)，唐功利 (Gong-Li Tang)
