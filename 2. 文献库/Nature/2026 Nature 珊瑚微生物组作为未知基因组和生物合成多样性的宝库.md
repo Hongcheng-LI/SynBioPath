@@ -53,14 +53,18 @@
 ![image.png](https://synbiopath.online/20260226074020763.png)
 
 这些微生物群落并非随机分布，**Figure 2** 中基于 Jaccard 距离的主坐标分析 (PCoA) 明确显示，不同珊瑚（石珊瑚、火珊瑚、软珊瑚）以及海绵的微生物组在物种组成上呈现出极端的宿主特异性。更重要的是，珊瑚共生微生物的相对丰度随着与宿主物理距离的增加（从珊瑚体表到外海）呈现断崖式下降。这种强烈的生态位隔离暗示了共生微生物在漫长的进化中为了适应营养贫瘠但生态关系复杂的珊瑚黏液环境，发展出了高度特化的基因库和代谢网络。
+![image.png](https://synbiopath.online/20260226074057507.png)
 
->[Coral and sponge microbiomes were largely host-specific and we found the biosynthetic potential in reef-building corals to be as rich as, or even richer than, that of sponges or the surrounding waters.]
+>Coral and sponge microbiomes were largely host-specific and we found the biosynthetic potential in reef-building corals to be as rich as, or even richer than, that of sponges or the surrounding waters.
 
 ### （二）全局生物合成潜力的计算评估与基因挖掘
 #### 实验目的与设计逻辑
 在确立了珊瑚微生物组的系统发育新颖性后，研究团队假设这些未知的遗传暗物质必然编码着大量新颖的次级代谢产物。为了验证这一假设，作者利用 antiSMASH 生物信息学流程对庞大的基因组集合进行了深度的基因组挖掘 (Genome Mining)，将预测出的生物合成基因簇系统聚类为基因簇家族 (Gene Cluster Families, GCFs)。该设计旨在通过大尺度量化与比较，回答一个核心问题：造礁珊瑚能否媲美甚至超越传统海洋天然产物发现来源（如海绵）的生物合成潜力？
 #### 实验结果与深度解析
-基因组挖掘的干实验结果以前所未有的规模展示了珊瑚礁的化学宝库潜力。分析表明，珊瑚礁微生物组比广阔开放水域的微生物组拥有显著更大的基因组平均尺寸，且大量富含真核生物样蛋白 (Eukaryotic-like proteins, ELPs)，这在 **Extended Data Figure 2** 中得到了充分展示，暗示这些微生物具有复杂的宿主互作和定植机制。**Figure 3** 的详细统计表明，珊瑚微生物组不仅在未知基因比例上远超海洋水体，其每个物种编码的 GCF 数量更是达到了外海物种的两倍以上。值得注意的是，这些代谢通路的产物类别分布具有明显偏好，核糖体合成和翻译后修饰肽 (RiPPs) 以及一型聚酮合酶 (T1PKS) 的比例异常突出。与已知生化表征的数据库 (MIBiG) 对比时，研究团队发现高达 64% 的 GCFs 是本研究首次发现的全新家族，且绝大多数未在周围海水中检测到。在不同宿主类型之间，火珊瑚的微生物群落展现出了惊人的丰度，其每个物种携带的 GCF 数量不仅远超软珊瑚和石珊瑚，甚至在归一化采样深度后超越了长期被公认为海洋“药物工厂”的海绵。这一数据彻底扭转了过往对造礁珊瑚生物合成潜力被低估的认知偏差。
+基因组挖掘的干实验结果以前所未有的规模展示了珊瑚礁的化学宝库潜力。分析表明，珊瑚礁微生物组比广阔开放水域的微生物组拥有显著更大的基因组平均尺寸，且大量富含真核生物样蛋白 (Eukaryotic-like proteins, ELPs)，这在 **Extended Data Figure 2** 中得到了充分展示，暗示这些微生物具有复杂的宿主互作和定植机制。
+![image.png](https://synbiopath.online/20260226074140833.png)
+
+**Figure 3** 的详细统计表明，珊瑚微生物组不仅在未知基因比例上远超海洋水体，其每个物种编码的 GCF 数量更是达到了外海物种的两倍以上。值得注意的是，这些代谢通路的产物类别分布具有明显偏好，核糖体合成和翻译后修饰肽 (RiPPs) 以及一型聚酮合酶 (T1PKS) 的比例异常突出。与已知生化表征的数据库 (MIBiG) 对比时，研究团队发现高达 64% 的 GCFs 是本研究首次发现的全新家族，且绝大多数未在周围海水中检测到。在不同宿主类型之间，火珊瑚的微生物群落展现出了惊人的丰度，其每个物种携带的 GCF 数量不仅远超软珊瑚和石珊瑚，甚至在归一化采样深度后超越了长期被公认为海洋“药物工厂”的海绵。这一数据彻底扭转了过往对造礁珊瑚生物合成潜力被低估的认知偏差。
 
 >[The two environments shared less than 10% of GCFs (411), and the proportions of the detected natural product classes also varied.]
 
