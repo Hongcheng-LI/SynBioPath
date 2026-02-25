@@ -7,8 +7,10 @@
 **文章题目**：Biosynthesis of Methylated Ditryptophan 2,5-Diketopeprazine Involves Cryptic *N*-nitrosation
 **文章 DOI 号**：10.1021/acscatal.5c09282
 **期刊名称**：*ACS Catalysis*
-**通讯作者**：唐功利 (Gong-Li Tang)；何俊斌 (Jun-Bin He)，
-**通讯作者工作单位**：中国科学院上海有机化学研究所，生命有机化学国家重点实验室 (State Key Laboratory of Chemical Biology, Shanghai Institute of Organic Chemistry, Chinese Academy of Sciences)
+**通讯作者**：唐功利 (Gong-Li Tang)； Jun-Bin He
+**通讯作者工作单位**：
+- **唐功利**：中国科学院上海有机化学研究所，生命有机化学国家重点实验室 (State Key Laboratory of Chemical Biology, Shanghai Institute of Organic Chemistry, Chinese Academy of Sciences)
+- Jun-Bin He：中国科学院上海有机化学研究所，生命有机化学国家重点实验室 (State Key Laboratory of Chemical Biology, Shanghai Institute of Organic Chemistry, Chinese Academy of Sciences)
 
 ---
 
@@ -21,7 +23,7 @@
 1. **基因组挖掘与表型关联**：通过基因组挖掘在 *Micromonospora okii* 中锁定包含环二肽合酶（CDPS）、ANL 酶和甲基转移酶（MT）的未知基因簇，通过构建基因敲除突变株确定该基因簇对特定代谢物生成的控制作用。
 2. **“隐蔽”中间体的捕捉与结构确证**：针对甲基转移酶敲除株中积累的不稳定代谢物，通过优化分离流程、采用高分辨率质谱（HRMS）和体内同位素标记（$^{15}$N 和 $^{18}$O），结合二维核磁共振（2D NMR）技术，精确鉴定 *N*-亚硝基的存在及其连接位置。
 3. **体外途径重构与时序解析**：异源表达纯化关键酶 Mr3558 和 Mr3559，在体外重构双酶级联反应，确证 *N*-亚硝化作用对后续甲基化修饰的“守门人（Gatekeeper）”性质及严格的反应时序。
-4. **计算生物学辅助的机制解析**：利用 AlphaFold 3 预测酶的三维结构并进行分子对接（Molecular docking），提出独特的底物结合口袋模型，最终通过定点突变和底物适应性测试进行生化验证。
+4. **计算生物学辅助的机制解析**：利用 AlphaFold 3 预测酶的三维结构并进行分子对接（Molecular docking），提出独特的底物结合口袋模型，最终通过定点突变和底物适应性测试进行生化验证。-
 
 ---
 
