@@ -4,7 +4,7 @@
 ---
 
 # 一：基本信息
-**文章题目**：Biosynthesis of Methylated Ditryptophan 2,5-Diketopeprazine Involves Cryptic *N*-nitrosation（）
+**文章题目**：Biosynthesis of Methylated Ditryptophan 2,5-Diketopeprazine Involves Cryptic *N*-nitrosation
 **文章 DOI 号**：10.1021/acscatal.5c09282
 **期刊名称**：*ACS Catalysis*
 **通讯作者**：何俊斌 (Jun-Bin He)，唐功利 (Gong-Li Tang)
