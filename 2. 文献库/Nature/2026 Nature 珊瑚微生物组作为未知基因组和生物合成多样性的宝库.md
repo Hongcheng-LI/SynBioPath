@@ -80,14 +80,20 @@
 ![image.png](https://synbiopath.online/20260226074327078.png)
 
 **Extended Data Figure 4** 详尽记录了这一关键结果：当在培养基中引入提取自微孔珊瑚的天然提取物时，该菌株内近半数的 BGCs 核心基因发生了显著的上调表达（中位 $\log_2$ 倍数变化 $>0.585$）。伴随转录水平的激活，高分辨液相色谱串联质谱 (HPLC-HRMS/MS) 构建的分子网络图谱清晰显示，数个未知的代谢物簇仅在添加了珊瑚源信号的实验组中被诱导产生。这种干湿实验相互印证的闭环，不仅证实了 Acidobacteriota 蕴含巨大挖掘潜力，更揭示了由宿主环境精确调控的微生物化学防卫机制。
+![image.png](https://synbiopath.online/20260226074404784.png)
 
->[Highlighting Acidobacteriota spp. as particularly BGC-rich aligns with the growing recognition of this phylum as containing candidate natural product super-producers.]
+>Highlighting Acidobacteriota spp. as particularly BGC-rich aligns with the growing recognition of this phylum as containing candidate natural product super-producers.
 
 ### （四）全新 RiPPs 翻译后修饰酶的发现与机理重构
 #### 实验目的与设计逻辑
 为了将信息学预测转化为切实的化学发现，研究团队选取了酸杆菌门中两个极为特殊的 RiPPs 基因簇（*aci* 簇与 *tha* 簇）进行异源表达与深度生化表征。传统的 lanthipeptide 成熟过程通常依赖激酶域的 ATP 磷酸化，而生物信息学分析提示 *tha* 簇中包含一个罕见的葡萄糖-甲醇-胆碱 (GMC) 家族氧化还原酶 (ThaO) 替代了传统的修饰酶。为了解开这种未知酶催化逻辑的分子机制，研究人员将大肠杆菌表达系统结合了 AlphaFold 结构模拟、同位素标记底物示踪、定点突变以及二维核磁共振等尖端分析手段，系统推导了其反应途径。
 #### 实验结果与深度解析
-针对选定的酸杆菌基因簇，湿实验数据的呈现令人极其振奋。首先，针对 *aci* 簇，**Figure 5** 与 **Extended Data Figure 5** 展示了该途径编码的三类羊毛硫肽合成酶 (AciKC) 能够精准地对两个富含甘氨酸的前体多肽（AciA1 和 AciA2）进行多达七次脱水修饰，证实了新类群中存在保守但活跃的多肽修饰功能。然而更为惊艳的突破来自对 *tha* 簇的解析。**Figure 5** 结合 **Extended Data Figure 6** 阐明，前体肽 ThaA 在共表达二类羊毛硫肽合成酶 ThaM 时会发生特异性脱水并形成 D,L-立体构型的羊毛硫醚大环；当进一步引入 GMC 家族酶 ThaO 时，质谱数据敏锐捕捉到了在富含甘氨酸-半胱氨酸基序处额外产生的高达 20 Da 的质量偏移。通过 AlphaFold2 对前体与修饰酶的相互作用界面进行结构预测模拟，研究者定位了高度疑似的催化位点。随后，通过严密的 ${}^{15}\text{N}$ 和 ${}^{13}\text{C}$ 稳定同位素原位标记，结合马菲试剂衍生化，证实了该过程不涉及碳或氮原子的丢失。随后的丙氨酸扫描定点突变（**Extended Data Figure 7**）与最终决定性的 1H-13C HSQC/HMBC 杂核二维核磁共振图谱（**Extended Data Figure 8**）确凿地证明：ThaO 作为一种缺乏 ATP 结合域的全新酶类，竟然能在极温和条件下高效催化相邻的残基发生脱氢环化，从而原位生成由生物信息学完全未曾预料的非典型多肽化合物 **1**，其核心特征为罕见的噻唑 (Thiazole) 骨架。
+针对选定的酸杆菌基因簇，湿实验数据的呈现令人极其振奋。首先，针对 *aci* 簇，**Figure 5** 与 **Extended Data Figure 5** 展示了该途径编码的三类羊毛硫肽合成酶 (AciKC) 能够精准地对两个富含甘氨酸的前体多肽（AciA1 和 AciA2）进行多达七次脱水修饰，证实了新类群中存在保守但活跃的多肽修饰功能。然而更为惊艳的突破来自对 *tha* 簇的解析。
+![Uploading file...wztsv]()
+
+**Figure 5** 结合 **Extended Data Figure 6** 阐明，前体肽 ThaA 在共表达二类羊毛硫肽合成酶 ThaM 时会发生特异性脱水并形成 D,L-立体构型的羊毛硫醚大环；当进一步引入 GMC 家族酶 ThaO 时，质谱数据敏锐捕捉到了在富含甘氨酸-半胱氨酸基序处额外产生的高达 20 Da 的质量偏移。通过 AlphaFold2 对前体与修饰酶的相互作用界面进行结构预测模拟，研究者定位了高度疑似的催化位点。随后，通过严密的 ${}^{15}\text{N}$ 和 ${}^{13}\text{C}$ 稳定同位素原位标记，结合马菲试剂衍生化，证实了该过程不涉及碳或氮原子的丢失。
+
+随后的丙氨酸扫描定点突变（**Extended Data Figure 7**）与最终决定性的 1H-13C HSQC/HMBC 杂核二维核磁共振图谱（**Extended Data Figure 8**）确凿地证明：ThaO 作为一种缺乏 ATP 结合域的全新酶类，竟然能在极温和条件下高效催化相邻的残基发生脱氢环化，从而原位生成由生物信息学完全未曾预料的非典型多肽化合物 **1**，其核心特征为罕见的噻唑 (Thiazole) 骨架。
 
 为了进一步拓展这种新型酶学的底物宽容度与应用边界，研究团队通过同源序列搜索锁定了独立于羊毛硫肽合成酶的相似簇 *the*，并对其编码的 TheO 酶进行了工程化改造测试。如 **Extended Data Figure 9** 与 **Figure 5** 最后部分所示，即使截断前体肽的序列长度，TheO 依然能高效形成相应的修饰化合物 **2**。当把核心底物序列融合连接到商业化抗菌肽 Protegrin-1 的 N 端时，该复合体同样成功实现了噻唑化修饰。生物学活性测定证实，被高度修饰的靶向杂合肽对人类中性粒细胞弹性蛋白酶展现出了显著的低微摩尔级别抑制活性（IC$_{50}$ = 2.6 $\mu$M）。这一系列由干实验假设起步，经由蛋白质空间对接指导，最终由多维波谱学验证的闭环论证，完美揭示了一种全新的核糖体合成肽成熟分子密码。
 
