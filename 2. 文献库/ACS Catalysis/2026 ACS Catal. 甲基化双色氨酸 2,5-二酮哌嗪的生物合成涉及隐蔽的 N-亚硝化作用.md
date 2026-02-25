@@ -10,7 +10,7 @@
 **通讯作者**：唐功利 (Gong-Li Tang)； Jun-Bin He
 **通讯作者工作单位**：
 - **唐功利**：中国科学院上海有机化学研究所，生命有机化学国家重点实验室 (State Key Laboratory of Chemical Biology, Shanghai Institute of Organic Chemistry, Chinese Academy of Sciences)
-- Jun-Bin He：中国科学院上海有机化学研究所，生命有机化学国家重点实验室 (State Key Laboratory of Chemical Biology, Shanghai Institute of Organic Chemistry, Chinese Academy of Sciences)
+- **Jun-Bin He**：中国科学院上海有机化学研究所，生命有机化学国家重点实验室 (State Key Laboratory of Chemical Biology, Shanghai Institute of Organic Chemistry, Chinese Academy of Sciences)
 
 ---
 
