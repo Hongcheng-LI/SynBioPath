@@ -100,6 +100,7 @@
 ![image.png](https://synbiopath.online/20260226074655731.png)
 
 为了进一步拓展这种新型酶学的底物宽容度与应用边界，研究团队通过同源序列搜索锁定了独立于羊毛硫肽合成酶的相似簇 *the*，并对其编码的 TheO 酶进行了工程化改造测试。如 **Extended Data Figure 9** 与 **Figure 5** 最后部分所示，即使截断前体肽的序列长度，TheO 依然能高效形成相应的修饰化合物 **2**。当把核心底物序列融合连接到商业化抗菌肽 Protegrin-1 的 N 端时，该复合体同样成功实现了噻唑化修饰。生物学活性测定证实，被高度修饰的靶向杂合肽对人类中性粒细胞弹性蛋白酶展现出了显著的低微摩尔级别抑制活性（IC$_{50}$ = 2.6 $\mu$M）。这一系列由干实验假设起步，经由蛋白质空间对接指导，最终由多维波谱学验证的闭环论证，完美揭示了一种全新的核糖体合成肽成熟分子密码。
+![image.png](https://synbiopath.online/20260226074723565.png)
 
 >[We detected thiazole formation in the fusion protein, demonstrating that TheO can install thiazoles on engineered hybrid peptide substrates.]
 
