@@ -8,11 +8,9 @@
 **期刊名称**：Nature
 **通讯作者**：Shinichi Sunagawa；Jörn Piel；Lucas Paoli
 **通讯作者工作单位**：
-- **Shinichi Sunagawa**：
-- **Jörn Piel**：苏黎世联邦理工学院微生物研究所 (ETH Zürich)；洛桑联邦理工学院生命科学学院全球健康研究所 (EPFL)；
-- **Lucas Paoli**：
-
-
+- **Shinichi Sunagawa**：苏黎世联邦理工学院；生物学系；微生物学研究所与瑞士生物信息学研究所 (ETH Zürich)；
+- **Jörn Piel**：苏黎世联邦理工学院微生物研究所 (ETH Zürich)；
+- **Lucas Paoli**：苏黎世联邦理工学院；生物学系；微生物学研究所与瑞士生物信息学研究所 (ETH Zürich)；洛桑联邦理工学院生命科学学院全球健康研究所 (EPFL)；
 
 ---
 
