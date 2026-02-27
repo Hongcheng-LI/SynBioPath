@@ -8,12 +8,12 @@
 **期刊名称**：PNAS (Proceedings of the National Academy of Sciences)
 **通讯作者**：Nancy P. Keller；Milton T. Drott；Anne Pringle
 **通讯作者工作单位**：
-- **Nancy P. Keller**：威斯康星大学麦迪逊分校医学微生物学与免疫学系 (University of Wisconsin, Madison)。
+- **Nancy P. Keller**：威斯康星大学麦迪逊分校医学微生物学与免疫学系；植物病理学系 (University of Wisconsin, Madison)
 - **Milton T. Drott**：威斯康星大学麦迪逊分校细菌学系 (University of Wisconsin, Madison)；
 - Anne Pringle：
 美国农业部农业研究局谷物疾病实验室 (USDA ARS, Cereal Disease Laboratory) / 明尼苏达大学植物与微生物生物学系 (University of Minnesota, St. Paul)；
 威斯康星大学麦迪逊分校医学微生物学与免疫学系及植物病理学系 (University of Wisconsin, Madison)。
-威斯康星大学麦迪逊分校植物病理学系
+
 
 ---
 
