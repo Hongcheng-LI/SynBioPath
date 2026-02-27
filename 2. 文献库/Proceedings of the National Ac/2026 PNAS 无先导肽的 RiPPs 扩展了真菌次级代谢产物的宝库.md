@@ -1,11 +1,12 @@
+![image.png](https://synbiopath.online/20260227111140683.png)
 
 ---
 
 ## 一：基本信息
-**文章题目**：Leaderless RiPPs expand the repertoire of fungal secondary metabolites ()
+**文章题目**：Leaderless RiPPs expand the repertoire of fungal secondary metabolites
 **文章 DOI 号**：10.1073/pnas.2529748123
 **期刊名称**：PNAS (Proceedings of the National Academy of Sciences)
-**通讯作者**：Anne Pringle, Milton T. Drott, Nancy P. Keller
+**通讯作者**：Nancy P. Keller；Milton T. Drott；Anne Pringle
 **通讯作者工作单位**：
 威斯康星大学麦迪逊分校细菌学系 (University of Wisconsin, Madison)；
 美国农业部农业研究局谷物疾病实验室 (USDA ARS, Cereal Disease Laboratory) / 明尼苏达大学植物与微生物生物学系 (University of Minnesota, St. Paul)；
