@@ -48,32 +48,36 @@
 解开“孤儿”天然产物身世之谜的第一步，是必须在物质层面对其进行严丝合缝的结构确认。由于前人推测部分环肽属于真菌 MSDIN 家族衍生物，但因为始终未能将其映射到任何经典基因序列上，这迫使研究团队设计了一条“由化学表征逆推基因解码”的整合分析路径。为了获得无争议的实体依据，作者利用高分辨率液相色谱从野生蘑菇的粗提物中富集环肽，再使用核磁共振波谱 (NMR) 和高分辨质谱 (HR-MS) 相结合的方法对肽骨架和构型进行精准验证。在获取了确凿的氨基酸序列后，作者设计了针对性的干实验算法优化，放宽传统生物信息学预测模型中对“先导序列存在”和“核心序列 C 端脯氨酸存在”的严苛限制，以此在蘑菇基因组库中大海捞针，力图为这些未知分子找到遗传母体。
 #### 实验结果与深度解析
 通过严密的分离与结构表征体系，研究人员在 *Amanita phalloides* 的粗提物中成功分离并详尽鉴定了九种单环肽化合物的完整物理结构。通过 Figure 1 的归类分析可以清晰看到，除了已经被熟知的经典带有先导序列和脯氨酸的分子（如化合物 **antamanide** 与 **cycloamanide B**）之外，还有多个分子的来历十分特殊，特别是作者首次通过实验验证确定了化合物 **cycloamanide E** 与 **cycloamanide F** 的精确结构。令人兴奋的是，当研究人员将这些确认过的核心肽段提交给放宽条件的优化基因挖掘管道时，那些长久以来身世不明的分子如化合物 **cycloamanide A** 以及具有差向异构特征的单环肽 **cycloamanide C1/C2** 和 **cycloamanide D1/D2**，完美地匹配到了三组特殊的基因编码区上。数据显示，产生化合物 **cycloamanide C1/C2** 与 **cycloamanide D1/D2** 的对应基因在 N 端核心区域上游完全缺失了传统意义上必需的先导肽片段，而编码化合物 **cycloamanide A** 的基因组则在核心区域的末端丢弃了普遍认为用于大环化识别的标志性脯氨酸残基。这些非经典的变体强有力地证实，在真菌体内，原本被视作 RiPPs 加工合成绝对前提条件的特征序列，其实质上的容忍度和结构弹性远超人们的既有认知，彻底打破了真菌天然产物挖掘过程中的结构刻板印象。
+![image.png](https://synbiopath.online/20260227112106290.png)
 
->[Using a chemistry-guided approach, we confirmed the structure of nine monocyclic peptides isolated from *A. phalloides* and matched five of them to genes lacking either a leader or a proline, expanding the structural design repertoire of fungal RiPPs.]
+>Using a chemistry-guided approach, we confirmed the structure of nine monocyclic peptides isolated from *A. phalloides* and matched five of them to genes lacking either a leader or a proline, expanding the structural design repertoire of fungal RiPPs.
 
 ### （二）高通量转录读段映射确证无先导肽的遗传本源
 #### 实验目的与设计逻辑
 在全基因组水平发现这些非经典的短序列编码区后，学界面临的一个重大质疑是：这些所谓的“无先导肽”位点，会不会仅仅是由于测序技术瓶颈导致的基因组序列组装断裂、错义拼接，亦或是长期退化而不具备翻译活性的假基因片段？为了将这些质疑彻底排除，研究者设计了一项严密的转录组水平验证干实验。通过将从活跃生长的野生蘑菇组织中提取的高质量 RNA-seq 数据，重新精准映射回对应的基因组重叠群位置，作者试图通过验证真实发生的转录边界以及上游启动子框的阅读相容性，在分子生物学的中心法则层面上确证无先导肽翻译过程的真实合理性。
 #### 实验结果与深度解析
 真实环境下的转录数据给出了极其震撼且不容辩驳的结论。Figure 2 详实而生动地描绘了编码化合物 **cycloamanide C1/C2** 与 **cycloamanide D1/D2** 的基因位点的 RNA 转录覆写图谱。从比对的测序深度分布直方图可以一目了然地看出，该位点不仅是一个功能健全的表达区，其转录起点甚至精准紧贴着核心序列本身。更加致命的干实验证据在于对序列各阅读框的氨基酸翻译预测分析：研究者严密核查了所映射的 5' 端非翻译区 (5' UTR) 以及更远的上游序列，在所有可能的三重阅读框内竟然找不到任何能够作为先导序列起点的甲硫氨酸 (ATG) 密码子。这从根本逻辑上宣判了该核糖体翻译的起跑线只能是在核心序列的最前端。更进一步地，序列对齐结果敏锐地捕捉到了该位点上存在的极其细微的单核苷酸多态性 (SNPs) 共分离现象。由于基因组内存在两个相邻的杂合突变，其中一个等位基因特有的 V6P 突变位点精确解释了这两种大环化产物在物质层面上表现出的差向异构化学分化。这种分子水平的“天衣无缝”不仅证明了这绝非组装伪影，更是以确凿的数据为科学界证实：不需要传统的先导序列作为牵引锚点，这些核心分子依然可以在体内顺利完成包括大环化在内的极其复杂的后修饰折叠过程。
+![image.png](https://synbiopath.online/20260227112136563.png)
 
->[There was no start codon within or upstream of the 5' UTR in any reading frame, conclusively demonstrating MLGFLVLP is a leaderless MSDIN.]
+>There was no start codon within or upstream of the 5' UTR in any reading frame, conclusively demonstrating MLGFLVLP is a leaderless MSDIN.
 
 ### （三）转录表达模式揭示无先导分子在入侵种群中的生态学重要性
 #### 实验目的与设计逻辑
 *Amanita phalloides* 的独特之处不仅在于其致命的毒性，更在于其成功从欧洲原产区大举入侵北美加利福尼亚的生态学奇迹。既然该物种在入侵地保留并极度扩增了包含非典型 RiPPs 在内的众多 MSDIN 家族成员，那么这些缺乏先导肽的非常规次级代谢物究竟是无关紧要的进化冗余，还是在其攻城略地的生态适应中发挥着关键效能？为了探索这一宏大的化学生态学命题，研究团队设计了一套大尺度群体比较转录组学方案。通过分别量化收集自欧洲本地和加州入侵地的众多野生子实体的总转录库，作者力图评估这些非经典基因是否对新环境产生了某种转录响应上的分歧，以此剖析其次级代谢调控对种群微进化的潜在贡献。
 #### 实验结果与深度解析
 通过组学大数据的横向比较，生态学的图景逐渐浮出水面。Figure 3 中的多变量主成分分析 (PCA) 模型揭示了一道巨大的鸿沟，来自加州入侵地的转录表达谱与原生欧洲样本形成了极其显著的地理生态聚类分离，暗示着入侵群体在基因转录水平已经发生了深刻的重塑适应。当研究者的目光聚焦于不同类型次级代谢基因的具体表达丰度时，出现了完全颠覆预期的结果：编码无先导序列（代表化合物 **cycloamanide C1/C2**）和无脯氨酸序列（代表化合物 **cycloamanide A**）的非经典基因，并非处于低表达边缘状态，而是强势跻身于全基因组表达量最高的前十五位名录中。如数据分布的小提琴图所呈现，这些非经典基因片段的表达水准通常比那些为人熟知的典型致死毒素基因高出成百上千倍。更为关键的是，这种表达红利在加州种群中被显著放大，其转录丰度展现出与子实体成熟度的高度相关性。在自然界残酷的生存选择中，真菌极少会浪费巨大的生物合成能量去大批量转录并制造无效的复杂环肽分子。这种在入侵群体中表现出的、对无先导肽修饰途径近乎狂热的表达偏好强烈暗示，这些被结构生物学视角长久忽视的微小环肽分子，极有可能参与了调节寄主树木共生信号、抵御当地新土著病原物捕食等尚未被察觉的高级生态互作逻辑中。
+![image.png](https://synbiopath.online/20260227112202173.png)
 
->[We observed a significant correlation between mushroom maturity and expression of the leaderless cycloamanide C1/C2 locus but only in mushrooms from the invasive range.]
+>We observed a significant correlation between mushroom maturity and expression of the leaderless cycloamanide C1/C2 locus but only in mushrooms from the invasive range.
 
 ### （四）非经典架构的系统发育演替及其宏大进化历史重构
 #### 实验目的与设计逻辑
 明确了无先导与无脯氨酸分子在现存生物体内的活跃状态后，必须回答的一个终极进化生物学问题是：这种脱离经典构型的 RiPPs 途径，究竟是近期由于遗传漂变偶然发生的“残次”突变被固定，还是伴随着某种深刻的功能驱动贯穿于漫长演化岁月中的独立分支？为了探寻这背后的演化动力学规律，研究人员构建了一个极其复杂的最大似然进化树分析框架。由于 MSDIN 基因家族的核心序列过于短小容易引发同质性假象，作者巧妙地采用了边缘连接的分区优化模型，通过将高度保守的内含子区域与相对具有选择压力的编码区/跟随序列拆分单独拟合，以求获得对这些非经典系统发生节点最稳健、最接近真实的拓扑结构重构，从而解析其祖先发生状态。
 #### 实验结果与深度解析
 进化树的结构最终揭晓了真菌世界内部惊人的结构演化灵活性。在 Figure 4 所展示的大规模最大似然系统发育图谱中，非经典序列并非孤立地表现为树干边缘随机出现的噪声节点，相反，这些无先导肽以及缺乏脯氨酸的变种密集分布并在特定的致死性毒伞分支内成功形成规模化扩增。拓扑分析明确显示，产生类似化合物 **cycloamanide C1/C2** 及 **cycloamanide D1/D2** 这种完全丢失先导区域的基因类群并非一蹴而就的单次抛弃事件，而是可能经历了深远的历史沉淀。其中一个非常古老的无先导分支保留了高度同源且极其稳定的下游跟随序列特征，并且该特征不仅仅局限于死帽蕈，甚至在与其亲缘关系较远的某些近缘种群内也有所保留。与之对应，在产生类似化合物 **cycloamanide A** 的分支路径上，研究者观察到了强烈的近期快速进化痕迹，其旁系同源先导序列发生了明显的假基因化崩塌迹象。这种系统发育层面上的动态分化进程确切地表明，大自然在真菌的核糖体多肽合成工厂里不断进行着极限测试。失去先导肽或者丢掉用于传统分子大环化的脯氨酸尾巴，不仅未能摧毁整条次级代谢大分子的加工流水线，反而赋予了真菌在化学防卫空间里更为游刃有余的“轻装上阵”能力。这些古老且仍在不断衍生变异的非经典分子谱系，为后人研究酶在缺乏前体锚定域时如何维持极其精准空间催化选择性的问题提供了最为关键的分子演化标本。
+![Uploading file...ybclr]()
 
->[Our results demonstrate non-canonical MSDINs have expanded in the lethal *Amanita*, both with conserved ancient lineages and with more recently evolved variants.]
+>Our results demonstrate non-canonical MSDINs have expanded in the lethal *Amanita*, both with conserved ancient lineages and with more recently evolved variants.
 
 ---
 
