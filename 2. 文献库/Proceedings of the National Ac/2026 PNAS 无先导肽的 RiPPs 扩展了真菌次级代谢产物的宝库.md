@@ -10,10 +10,7 @@
 **通讯作者工作单位**：
 - **Nancy P. Keller**：威斯康星大学麦迪逊分校医学微生物学与免疫学系；植物病理学系 (University of Wisconsin, Madison)
 - **Milton T. Drott**：明尼苏达大学植物与微生物生物学系 (University of Minnesota, St. Paul)；美国农业部农业研究局谷物疾病实验室 (USDA ARS, Cereal Disease Laboratory)
-- 
-- Anne Pringle：
- / ；
-威斯康星大学麦迪逊分校医学微生物学与免疫学系及植物病理学系 (University of Wisconsin, Madison)。
+- **Anne Pringle**：威斯康星大学麦迪逊分校医学微生物学与免疫学系及植物病理学系 (University of Wisconsin, Madison)。
 威斯康星大学麦迪逊分校细菌学系 (University of Wisconsin, Madison)；
 
 ---
