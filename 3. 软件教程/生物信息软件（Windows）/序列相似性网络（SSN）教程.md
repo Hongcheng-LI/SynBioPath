@@ -28,17 +28,10 @@ https://www.ncbi.nlm.nih.gov/protein/UFA62170.1/?report=fasta
 根据视频中介绍，如果直接在 EFI-EST 网站中上传 Fasta 文件，那么会直接报错。因此作者采用了其他的策略。
 ![image.png](https://synbiopath.online/20260228223917061.png)
 
-帮我添加以下几个分类：
+帮我添加以下几个分类到实验耗材与试剂采购版块：
 索莱宝：[http://www.solarbio.com/](http://www.solarbio.com/)
 阿拉丁：https://www.aladdin-e.com/
 麦克林：https://www.macklin.cn/
 中国普通微生物菌种保藏管理中心：https://www.cgmcc.net/
+国药：https://www.reagent.com.cn/
 
-
-### 中国普通微生物菌种保藏管理中心
-
-](https://baike.baidu.com/item/%E4%B8%AD%E5%9B%BD%E6%99%AE%E9%80%9A%E5%BE%AE%E7%94%9F%E7%89%A9%E8%8F%8C%E7%A7%8D%E4%BF%9D%E8%97%8F%E7%AE%A1%E7%90%86%E4%B8%AD%E5%BF%83/3912722)
-
-### 中国普通微生物菌种保藏管理中心
-
-](https://baike.baidu.com/item/%E4%B8%AD%E5%9B%BD%E6%99%AE%E9%80%9A%E5%BE%AE%E7%94%9F%E7%89%A9%E8%8F%8C%E7%A7%8D%E4%BF%9D%E8%97%8F%E7%AE%A1%E7%90%86%E4%B8%AD%E5%BF%83/3912722)
