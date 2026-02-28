@@ -29,9 +29,9 @@ https://www.ncbi.nlm.nih.gov/protein/UFA62170.1/?report=fasta
 ![image.png](https://synbiopath.online/20260228223917061.png)
 
 帮我添加以下几个分类到实验耗材与试剂采购版块：
-索莱宝：[http://www.solarbio.com/](http://www.solarbio.com/)
+索莱宝：http://www.solarbio.com/
 阿拉丁：https://www.aladdin-e.com/
 麦克林：https://www.macklin.cn/
 中国普通微生物菌种保藏管理中心：https://www.cgmcc.net/
 国药：https://www.reagent.com.cn/
-源叶：
+
