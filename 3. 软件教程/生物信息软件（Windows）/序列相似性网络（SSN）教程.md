@@ -32,4 +32,13 @@ https://www.ncbi.nlm.nih.gov/protein/UFA62170.1/?report=fasta
 索莱宝：[http://www.solarbio.com/](http://www.solarbio.com/)
 阿拉丁：https://www.aladdin-e.com/
 麦克林：https://www.macklin.cn/
+中国普通微生物菌种保藏管理中心：https://www.cgmcc.net/
 
+
+### 中国普通微生物菌种保藏管理中心
+
+](https://baike.baidu.com/item/%E4%B8%AD%E5%9B%BD%E6%99%AE%E9%80%9A%E5%BE%AE%E7%94%9F%E7%89%A9%E8%8F%8C%E7%A7%8D%E4%BF%9D%E8%97%8F%E7%AE%A1%E7%90%86%E4%B8%AD%E5%BF%83/3912722)
+
+### 中国普通微生物菌种保藏管理中心
+
+](https://baike.baidu.com/item/%E4%B8%AD%E5%9B%BD%E6%99%AE%E9%80%9A%E5%BE%AE%E7%94%9F%E7%89%A9%E8%8F%8C%E7%A7%8D%E4%BF%9D%E8%97%8F%E7%AE%A1%E7%90%86%E4%B8%AD%E5%BF%83/3912722)
