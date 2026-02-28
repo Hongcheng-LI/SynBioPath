@@ -31,3 +31,5 @@ https://www.ncbi.nlm.nih.gov/protein/UFA62170.1/?report=fasta
 帮我添加以下几个分类：
 索莱宝：[http://www.solarbio.com/](http://www.solarbio.com/)
 阿拉丁：https://www.aladdin-e.com/
+麦克林：https://www.macklin.cn/
+
