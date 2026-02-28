@@ -21,3 +21,6 @@ https://www.ncbi.nlm.nih.gov/protein/UFA62170.1/?report=fasta
 
 ## （一）Blast 分析
 
+首先，对目标序列进行 Blast 分析，
+
+视频中介绍
