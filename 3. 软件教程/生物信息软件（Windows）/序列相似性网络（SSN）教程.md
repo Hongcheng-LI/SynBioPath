@@ -34,4 +34,4 @@ https://www.ncbi.nlm.nih.gov/protein/UFA62170.1/?report=fasta
 麦克林：https://www.macklin.cn/
 中国普通微生物菌种保藏管理中心：https://www.cgmcc.net/
 国药：https://www.reagent.com.cn/
-
+源叶：
