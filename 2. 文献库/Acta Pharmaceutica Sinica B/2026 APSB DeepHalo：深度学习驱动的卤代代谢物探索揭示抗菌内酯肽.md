@@ -44,9 +44,16 @@
 #### 实验目的与设计逻辑
 在质谱数据中，氯和溴原子会呈现极其独特的天然同位素峰形，但由于复杂生物基质中的共洗脱干扰以及仪器响应偏差，传统的基于机器学习或规则匹配的方法极易产生高假阳性。为了解决这一痛点，作者设计了一个名为 DeepHalo 的端到端计算干实验平台。该平台的核心逻辑在于不再依赖简单的丰度比例比对，而是通过构建双分支的同位素神经网络模型 (EPM) 并引入罕见元素数据，强制网络学习真实的复杂多维同位素分布特征。同时，为了纠正质谱提取过程中不可避免的峰强度畸变，作者创新性地设计了一个异常同位素模式检测自编码器模型 (ADM)，以此从源头上过滤掉劣质的质谱特征。
 #### 实验结果与深度解析
-通过对模拟与真实质谱大数据的深度训练，作者成功搭建了表现卓越的 DeepHalo 架构。如 Figure 1 所示，该工作流无缝集成了 PyOpenMS 的特征提取模块与深度学习的精准预测模块。在具体模型构建上，Figure 2 详细展示了 EPM 所采用的 IsoNN 架构，该双分支网络能够并行处理同位素峰的质量差与相对强度，并通过注入高斯噪声来增强模型的鲁棒性。为了应对实验中常见的脱氢异构体共洗脱干扰，作者特意在训练集中生成了人造的假同位素分布。ADM 模型的异常检测阈值则巧妙地通过重构误差曲线的拐点被精确设定在 $7.915 \times 10^{-5}$。当这些干实验模块被组装后，其性能迎来了质的飞跃。Table 1 的对比数据令人瞩目：在评估真实复杂世界数据集 (CASMI2016_Myxo_plus) 时，DeepHalo 的 EPM 模型在区分卤代与非卤代化合物的任务中，不仅实现了绝对完美的 100% 召回率和 1.0000 的精确度，更成为了所有测试方法中唯一实现零假阳性率 (FPR) 的算法。相较于传统的 ChloroDBPFinder 或 HaloSeeker，深度学习在解析复杂、特定元素的同位素特征上展现出了降维打击般的优势。
+通过对模拟与真实质谱大数据的深度训练，作者成功搭建了表现卓越的 DeepHalo 架构。如 Figure 1 所示，该工作流无缝集成了 PyOpenMS 的特征提取模块与深度学习的精准预测模块。
+![image.png](https://synbiopath.online/20260301130549880.png)
 
->[Our DNN-based element prediction model (EPM) exhibited superior performance across both simulated and real datasets, significantly outperforming other tools.]
+在具体模型构建上，Figure 2 详细展示了 EPM 所采用的 IsoNN 架构，该双分支网络能够并行处理同位素峰的质量差与相对强度，并通过注入高斯噪声来增强模型的鲁棒性。为了应对实验中常见的脱氢异构体共洗脱干扰，作者特意在训练集中生成了人造的假同位素分布。ADM 模型的异常检测阈值则巧妙地通过重构误差曲线的拐点被精确设定在 $7.915 \times 10^{-5}$。当这些干实验模块被组装后，其性能迎来了质的飞跃。
+![image.png](https://synbiopath.online/20260301130622080.png)
+
+Table 1 的对比数据令人瞩目：在评估真实复杂世界数据集 (CASMI2016_Myxo_plus) 时，DeepHalo 的 EPM 模型在区分卤代与非卤代化合物的任务中，不仅实现了绝对完美的 100% 召回率和 1.0000 的精确度，更成为了所有测试方法中唯一实现零假阳性率 (FPR) 的算法。相较于传统的 ChloroDBPFinder 或 HaloSeeker，深度学习在解析复杂、特定元素的同位素特征上展现出了降维打击般的优势。
+![image.png](https://synbiopath.online/20260301130646136.png)
+
+>Our DNN-based element prediction model (EPM) exhibited superior performance across both simulated and real datasets, significantly outperforming other tools.
 
 ### （二）工作流多维参数敏感性分析与全流程基准测试
 #### 实验目的与设计逻辑
