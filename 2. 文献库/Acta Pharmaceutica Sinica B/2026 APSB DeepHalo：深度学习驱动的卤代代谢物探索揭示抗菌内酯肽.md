@@ -90,8 +90,9 @@ Table 1 的对比数据令人瞩目：在评估真实复杂世界数据集 (CASM
 在从基因到物质层面的深度剖析后，必须回答其药学转化潜能的问题。鉴于化合物 **1** 在初期筛查中对革兰氏阳性菌展现出活性，研究者针对临床上极为棘手的耐万古霉素肠球菌 (VRE) 进行了深度的药理学考察。除了常规的最低抑菌浓度 (MIC) 测定，作者特别设计了棋盘法微量稀释实验以探究其与现有临床一线抗生素的协同效应。为了克服纯体外细胞学实验难以模拟活体复杂药代动力学的局限，研究者进一步引入了活体大蜡螟 (*Galleria mellonella*) 感染模型，以检验该化合物在真实生理环境中干预致死性感染的有效性及协同效应。
 #### 实验结果与深度解析
 一连串的药理学验证给出了极具希望的临床前数据。首先，如 Figure 6 的抑菌谱图所示，无论是天然的 aglomycin A 还是其截短物，均对各类多重耐药的肠球菌及金黄色葡萄球菌临床分离株展现出了强劲的抑制效果，其 MIC 值稳定在 4 至 8 $\mu$g/mL 之间。当评估协同效应时，惊艳的转折出现了：Figure 6 的棋盘法测定显示，化合物 **1** 与临床核心药物利奈唑胺 (linezolid) 联用时，其部分抑菌浓度 (FIC) 指数大幅降至 0.375，跨越了 0.5 的严格协同阈值。时间-杀菌动力学曲线进一步揭示，两者的组合在 24 小时内能够引发超过 1-2 $log_{10}$ CFU/mL 的细菌量崩塌式下降，成功将原本各自仅具抑菌性质的药物组合转化为强效的杀菌利器。最终的考验来自活体动物模型，Figure 6 中的 Kaplan-Meier 生存曲线直观地展示，在接受了致死剂量的 VRE 感染后，相较于对照组或单一药物治疗组的悲惨存活率，以 2.5 mg/kg 的化合物 **1** 与 0.5 mg/kg 的利奈唑胺进行协同联合给药的大蜡螟幼虫，其存活率获得了极具统计学意义的绝地反弹 ($P = 0.0006$)。这种体内药效的飞跃性提升，强烈暗示化合物 **1** 可能通过干扰细菌特定靶点深刻改变了利奈唑胺的药效学机制，使其具备了开发为应对抗生素耐药危机的破局性辅助药物的巨大潜力。
+![image.png](https://synbiopath.online/20260301130908941.png)
 
->[We propose that this discrepancy may partially stem from a transformation of the pharmacological mode from bacteriostatic to bactericidal upon combination.]
+>We propose that this discrepancy may partially stem from a transformation of the pharmacological mode from bacteriostatic to bactericidal upon combination.
 
 ---
 
