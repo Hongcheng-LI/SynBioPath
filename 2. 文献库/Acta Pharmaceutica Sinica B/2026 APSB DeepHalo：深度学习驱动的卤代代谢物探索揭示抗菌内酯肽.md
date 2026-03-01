@@ -59,25 +59,31 @@ Table 1 的对比数据令人瞩目：在评估真实复杂世界数据集 (CASM
 #### 实验目的与设计逻辑
 任何算法在投入大规模实际应用前，都必须清楚其在不同仪器硬件条件下的性能边界。为了确立 DeepHalo 在真实场景中的最佳运行参数，研究团队利用添加了精确已知化合物的复杂培养基质谱数据，系统评估了质谱分辨率、质量精度以及自行设计的层次化“卤素置信度得分” (H-score) 对最终预测结果的影响。这一评估逻辑旨在为后续处理超过千份未经人工干预的粗提物原始数据建立一套高度自动化、兼顾高灵敏度与高精确度的筛选标尺。
 #### 实验结果与深度解析
-通过严苛的基准测试，DeepHalo 展现出了极高的稳定性和压倒性的运算效率。Figure 3 揭示了仪器参数对结果的直接影响：当质谱分辨率达到 20,000、质量精度达到 3 ppm 时，DeepHalo 即可输出极为优异的预测表现。数据同时证实，引入基于 ADM 模型的同位素模式验证步骤虽然会引起极微小的召回率下降，但能大幅度提升精确度和整体的 F1 得分。此外，Figure 3 的阈值敏感性分析明确指出，在面对不同质量的数据集时，将 H-score 阈值设定为 0.4 能够最完美地平衡召回率与精确度。在确立了这些参数后，Table 2 展示了 DeepHalo 在完整工作流层面与其他主流软件的硬核对决。在包含 145 个样本的大型 CASMI 2022 真实挑战集中，当其他所有竞争软件在经历 12 小时的漫长等待后均以计算崩溃或超时告终时，DeepHalo 仅耗时短短 16.7 分钟便完成了全盘解析，且依旧保持了 100% 的精准度。这种在处理速度上跨越数量级的优势，彻底扫清了将其应用于超大规模代谢组学数据挖掘的技术障碍。
+通过严苛的基准测试，DeepHalo 展现出了极高的稳定性和压倒性的运算效率。Figure 3 揭示了仪器参数对结果的直接影响：当质谱分辨率达到 20,000、质量精度达到 3 ppm 时，DeepHalo 即可输出极为优异的预测表现。数据同时证实，引入基于 ADM 模型的同位素模式验证步骤虽然会引起极微小的召回率下降，但能大幅度提升精确度和整体的 F1 得分。此外，Figure 3 的阈值敏感性分析明确指出，在面对不同质量的数据集时，将 H-score 阈值设定为 0.4 能够最完美地平衡召回率与精确度。
+![image.png](https://synbiopath.online/20260301130720300.png)
 
->[The DeepHalo pipeline demonstrated superior precision and recall with dramatically reduced computational time, significantly outperforming all comparable tools.]
+在确立了这些参数后，Table 2 展示了 DeepHalo 在完整工作流层面与其他主流软件的硬核对决。在包含 145 个样本的大型 CASMI 2022 真实挑战集中，当其他所有竞争软件在经历 12 小时的漫长等待后均以计算崩溃或超时告终时，DeepHalo 仅耗时短短 16.7 分钟便完成了全盘解析，且依旧保持了 100% 的精准度。这种在处理速度上跨越数量级的优势，彻底扫清了将其应用于超大规模代谢组学数据挖掘的技术障碍。
+![image.png](https://synbiopath.online/20260301130739074.png)
+
+>The DeepHalo pipeline demonstrated superior precision and recall with dramatically reduced computational time, significantly outperforming all comparable tools.
 
 ### （三）高通量质谱挖掘锁定目标菌株与全新环肽的结构确证
 #### 实验目的与设计逻辑
 在完成算法的打磨后，研究人员正式将 DeepHalo 投入到由 53 株链霉菌和 1 株小单孢菌在不同培养基下生成的 1296 份高分辨质谱粗提物数据的海洋中。结合算法生成的高精度前体离子预测以及 MS2 串联质谱数据，研究者将其与全球天然产物社会分子网络 (GNPS) 的在线去重复数据库进行对接整合。该实验设计意图通过剔除已知的背景分子，在大尺度网络拓扑结构中精确定位含有卤素信号但未被数据库收录的孤儿节点，进而指导大规模发酵体系中的液相色谱靶向分离，最终在湿实验层面获取这些未知的物质实体。
 #### 实验结果与深度解析
 通过这种算法导向的化学发掘策略，物质发现的效率极为惊人。Figure 4 首先展示了由 DeepHalo 生成并映射至 GNPS 的宏大分子网络。在这个网络中，研究团队不仅以极高置信度快速识别出了 svetamycins、lysolipin I 等五大家族已知卤代分子，更敏锐地捕捉到了一个在数据库中完全空白的卤代特征节点网络。顺藤摸瓜，作者锁定了产出该信号的优势菌株 *Streptomyces* sp. 11-23，并实施了放大发酵与层析分离。借助紫外吸收与高分辨质谱，研究人员成功提纯了目标化合物 aglomycin A（化合物 **1**）及其微量类似物。随后的二维核磁共振波谱 (NMR) 湿实验表征彻底揭开了该分子的神秘面纱。Figure 4 详尽展示了核磁图谱对该环状五肽骨架的精细拼接：通过 ${}^{1}\text{H}-{}^{1}\text{H}$ COSY 和关键的 HMBC 异核多键相关信号，作者确证了该分子不仅包含一个极其罕见的由色氨酸演变而来的 3-氯邻氨基苯甲酸 (3-Cl-AA) 侧链残基，其大环核心更镶嵌着一个在自然界极其罕见的环氧缬氨酸 (epoxy-Val) 结构单元。结合手性衍生化色谱与基于密度泛函理论的量子化学计算模拟 (DP4+)，其全立体构型被严密敲定。这些结合了前沿信息学与尖端波谱学的分析，证实了 DeepHalo 挖掘出的不仅是新分子，更代表了自然界尚未被充分认知的化学设计空间。
+![image.png](https://synbiopath.online/20260301130809532.png)
 
->[Given the distinctive structure of 1, the producer strain, *Streptomyces* sp. 11-23, was sequenced to elucidate its biosynthetic pathway.]
+>Given the distinctive structure of 1, the producer strain, *Streptomyces* sp. 11-23, was sequenced to elucidate its biosynthetic pathway.
 
 ### （四）罕见前体生物合成基因簇的锁定与酶学机理推导
 #### 实验目的与设计逻辑
 发现化合物 **1** 独特的氯代氨基酸及环氧基团后，研究团队迅速转向了解析这些非常规结构是如何在放线菌的“分子组装线”上被制造出来的。作者利用全基因组测序生成了高维干实验数据，并以已知的色氨酸卤化酶 (PrnA) 为探针，在基因组中大海捞针寻找对应的生物合成基因簇 (BGC)。为了将计算机预测的通路转化为无懈可击的生物学证据，研究人员精心设计了针对关键非核糖体肽合成酶 (NRPS) 的框内敲除湿实验。通过对比野生型与突变体在代谢图谱上的表型差异，验证该基因簇装配该大环内酯肽的确切功能逻辑。
 #### 实验结果与深度解析
 计算生物学与分子遗传学的碰撞清晰勾勒出了物质的装配蓝图。通过信息学探针扫描，作者在基因组中成功锚定了被命名为 *agl* 的生物合成基因簇。如 Figure 5 所示，生物信息学深度分析揭示了该基因簇包含两个庞大的离散型非核糖体肽合成酶基因 *algN* 和 *aglJ*。有趣的是，通路中还聚集了一组色氨酸代谢相关基因（AglC/D/E/F），其中 AglE 作为卤化酶负责色氨酸的氯代，而 AglC 则代表了自然界首个被报道的偏好底物为 7-氯色氨酸的 2,3-双加氧酶 (TDO)，它们协同将色氨酸转化为罕见的 3-Cl-AA 前体。为验证核心骨架的合成，研究人员成功敲除了编码游离腺苷酰化-硫酯化结构域的 *aglB* 基因。Figure 5 中的提取离子色谱图确凿地表明，在 $\Delta aglB$ 突变体中，目标分子 **1** 及其环状类似物彻底消失，取而代之的是其前体二肽化合物 **2** 的大量积累；而在互补菌株中则恢复了原产物的合成。更为精彩的是针对罕见环氧基团的机理解析：由于推测环氧化源于脱氢-环氧化级联反应，作者敲除了推测的细胞色素 P450 氧化酶基因 *aglG*。湿实验数据敏锐地捕捉到，$\Delta aglG$ 菌株丧失了环氧代谢物的生产能力，却出乎意料地积累了仅含有普通缬氨酸的全新前体产物 aglomycin E（化合物 **5**）。这一决定性的表型不仅实证了 P450 酶 AglG 参与了缬氨酸侧链的深度氧化修饰过程，更为将来通过合成生物学手段理性改造该酶底物口袋提供了直接的遗传学靶标。
+![image.png](https://synbiopath.online/20260301130837662.png)
 
->[Reintroduction of aglG into its mutant strain (C-$\Delta$aglG) restored the production of 1 and 3 while dramatically reducing the levels of 2 and 5.]
+>Reintroduction of aglG into its mutant strain (C-$\Delta$aglG) restored the production of 1 and 3 while dramatically reducing the levels of 2 and 5.
 
 ### （五）基于体内外模型的药代动力学级协同抗菌评价
 #### 实验目的与设计逻辑
