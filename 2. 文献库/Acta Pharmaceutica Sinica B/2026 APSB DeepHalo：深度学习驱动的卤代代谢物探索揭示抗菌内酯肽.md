@@ -1,4 +1,4 @@
-
+![image.png](https://synbiopath.online/20260301130316512.png)
 
 ---
 
@@ -6,10 +6,9 @@
 **文章题目**：DeepHalo: Deep learning-powered exploration of halogenated metabolites uncovering antibacterial depsipeptides 
 **文章 DOI 号**：10.1016/j.apsb.2026.02.010
 **期刊名称**：Acta Pharmaceutica Sinica B
-**通讯作者**：Xingxing Li, Bin Hong, Yunying Xie
+**通讯作者**：Yunying Xie（解云英）；Bin Hong（洪斌）；Xingxing Li（李星星）
 **通讯作者工作单位**：
 中国医学科学院北京协和医学院医药生物技术研究所，合成生物学创新药物国家重点实验室；
-中国科学院大学电子电气与通信工程学院。
 
 ---
 
