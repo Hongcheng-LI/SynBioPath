@@ -77,10 +77,12 @@
 
 #### 实验结果与深度解析
 通用法则在异源酶的改造上取得了无可辩驳的成功。**Figure 5** 详细记录了对 PsCNMT 的突变分析，结果表明双突变体 PsCNMT-E197A-L198F 的催化产物生成量相比单突变体或野生型出现了显著提升。干实验层面的 100 ns 分子动力学模拟轨迹极其稳健地显示，引入的 F198 其苯环中心与 SAM 的腺嘌呤环之间始终维持在约 4 Å 的最佳距离，形成了极其强烈的 $\pi$-$\pi$ 堆积相互作用，从根本上锁死了辅助因子在活性口袋内的剧烈热振动。
+![image.png](https://synbiopath.online/20260307144501640.png)
 
 为了对这种微观稳定效应进行宏观定量，作者在 **Figure 6** 中绘制了米氏动力学曲线。生化数据清晰地表明，相较于对照组，经过 L198F 工程化改造的酶不仅维持了优良的底物亲和力，其催化转化数 ($k_{cat}$) 及整体催化效率 ($k_{cat}/K_m$) 更是获得了约 1.22 倍和 1.07 倍的显著提升。这种利用干实验明确空间拓扑逻辑、利用湿实验精准打靶的工程化闭环，为未来大批量定制化创制高周转率底盘酶提供了标准的作业蓝图。
+![image.png](https://synbiopath.online/20260307144517802.png)
 
->[These kinetic results demonstrate that the L198F substitution enhances catalytic turnover while maintaining efficient substrate binding, supporting the idea that this rational design strategy could be broadly applied.]
+>These kinetic results demonstrate that the L198F substitution enhances catalytic turnover while maintaining efficient substrate binding, supporting the idea that this rational design strategy could be broadly applied.
 
 ---
 
