@@ -43,9 +43,11 @@
 ### （一）转录组挖掘与新型酶功能分化的生化确证
 #### 实验目的与设计逻辑
 为了寻找具有优异生化特性的新型甲基转移酶，研究团队将目光投向了生物碱代谢极其丰富的云南地不容。在开展具体实验前，作者首先通过 **Figure 1** 系统性地梳理了自然界中已知的四种典型 BIA NMTs 的催化反应，包括 CNMT、TNMT、RNMT 和 PavNMT，为后续的同源序列比对奠定了理论基准。基于隐马尔可夫模型，研究人员从转录组大数据这一干实验平台中成功挖掘出两个具有高度序列同源性（68.90%）的候选基因 SyNMT1 和 SyNMT2。随后，为了确证其真实的生物学功能，作者设计了体外纯酶生化湿实验，利用一系列具有不同甲基化程度的前体化合物进行催化测试，意图揭示这两种高度同源的酶在底物宽容度上是否存在显著的演化分歧。
+![image.png](https://synbiopath.online/20260307144324852.png)
 
 #### 实验结果与深度解析
 基因组的微小差异在生化表型上引发了截然不同的催化轨迹。**Figure 2** 的系统发育树表明，SyNMT1 和 SyNMT2 均与已知物种的 CNMT 聚为一类。然而，体外酶促湿实验却揭示了令人意外的功能分化。色谱数据显示，两种酶均不能识别最原始的前体 (S)-norcoclaurine（化合物 **1**），但都能将 (S)-coclaurine（化合物 **2**）顺利转化为 (S)-N-methylcoclaurine（化合物 **3**）。关键的区别在于，SyNMT1 展现出了极其惊人的底物杂泛性，它不仅能进一步催化化合物 **3** 生成二甲基化的 (S)-magnocurarine（化合物 **6**），还能特异性识别并催化 (S)-norarmepavine（化合物 **4**）生成化合物 **5**。这种广泛的底物适应性使得 SyNMT1 的功能更倾向于 RNMT，而高度同源的 SyNMT2 则严格遵循了典型 CNMT 的狭窄催化谱。这种同源序列背后的功能分野，强烈暗示在两者的活性口袋内存在隐秘的关键氨基酸残基，充当着调控底物杂泛性的分子开关。
+![Uploading file...qy1nw]()
 
 >[Noticeably, despite high sequence homology... SyNMT1 exhibited functional divergence, acting like a BIA RNMT, while SyNMT2 adhered to the canonical catalytic activity of a typical BIA CNMT.]
 
