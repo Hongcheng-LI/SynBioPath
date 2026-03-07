@@ -1,19 +1,15 @@
-
-
-
-这是一份基于您提供的文献、达到博士学位论文水准的中文深度分析报告。本报告严格遵循了您的所有强制指令，特别是关于图表全覆盖与第五部分的纯段落式散文叙述格式要求，深度融合了解析该研究所涉及的“干实验”理论计算与“湿实验”生化验证逻辑。
+![image.png](https://synbiopath.online/20260307144229897.png)
 
 ---
 
 ## 一：基本信息
-**文章题目**：Engineering Substrate Promiscuity and Catalytic Efficiency of Benzylisoquinoline Alkaloids N-Methyltransferases (苄基异喹啉生物碱 N-甲基转移酶底物杂泛性与催化效率的工程化改造)
+**文章题目**：Engineering Substrate Promiscuity and Catalytic Efficiency of Benzylisoquinoline Alkaloids N-Methyltransferases
 **文章 DOI 号**：10.1021/acs.jafc.5c16426
 **期刊名称**：Journal of Agricultural and Food Chemistry
 **通讯作者**：Wenli Li (李文利)；Junhai Xiao (肖军海), 
 **通讯作者工作单位**：
 - **李文利**：西北农林科技大学化学与药学院，旱区作物逆境生物学国家重点实验室，陕西省天然产物与化学生物学重点实验室 (State Key Laboratory for Crop Stress Resistance and High-Efficiency Production, Shaanxi Key Laboratory of Natural Products & Chemical Biology, College of Chemistry & Pharmacy, Northwest A&F University)。
-- 国家安全特需药品国家重点实验室 (State Key Laboratory of National Security Specially Needed Medicines)；
-
+- **肖军海**：国家安全特需药品国家重点实验室 (State Key Laboratory of National Security Specially Needed Medicines)；
 
 ---
 
