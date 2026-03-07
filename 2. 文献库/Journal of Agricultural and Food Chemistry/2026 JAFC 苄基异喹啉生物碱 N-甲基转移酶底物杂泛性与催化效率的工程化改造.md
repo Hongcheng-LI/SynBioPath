@@ -47,9 +47,9 @@
 
 #### 实验结果与深度解析
 基因组的微小差异在生化表型上引发了截然不同的催化轨迹。**Figure 2** 的系统发育树表明，SyNMT1 和 SyNMT2 均与已知物种的 CNMT 聚为一类。然而，体外酶促湿实验却揭示了令人意外的功能分化。色谱数据显示，两种酶均不能识别最原始的前体 (S)-norcoclaurine（化合物 **1**），但都能将 (S)-coclaurine（化合物 **2**）顺利转化为 (S)-N-methylcoclaurine（化合物 **3**）。关键的区别在于，SyNMT1 展现出了极其惊人的底物杂泛性，它不仅能进一步催化化合物 **3** 生成二甲基化的 (S)-magnocurarine（化合物 **6**），还能特异性识别并催化 (S)-norarmepavine（化合物 **4**）生成化合物 **5**。这种广泛的底物适应性使得 SyNMT1 的功能更倾向于 RNMT，而高度同源的 SyNMT2 则严格遵循了典型 CNMT 的狭窄催化谱。这种同源序列背后的功能分野，强烈暗示在两者的活性口袋内存在隐秘的关键氨基酸残基，充当着调控底物杂泛性的分子开关。
-![Uploading file...qy1nw]()
+![image.png](https://synbiopath.online/20260307144349420.png)
 
->[Noticeably, despite high sequence homology... SyNMT1 exhibited functional divergence, acting like a BIA RNMT, while SyNMT2 adhered to the canonical catalytic activity of a typical BIA CNMT.]
+>Noticeably, despite high sequence homology... SyNMT1 exhibited functional divergence, acting like a BIA RNMT, while SyNMT2 adhered to the canonical catalytic activity of a typical BIA CNMT.
 
 ### （二）结合分子对接与突变验证锁定杂泛性关键分子开关
 #### 实验目的与设计逻辑
@@ -57,8 +57,9 @@
 
 #### 实验结果与深度解析
 通过干湿联动的极致验证，底物识别的分子密码被彻底破译。**Figure 3** 详细展示了 SyNMT1 的结构模型与突变体活性。对接模型揭示，相较于含有大体积侧链的谷氨酸，SyNMT1 中较小的丙氨酸 (A216) 赋予了活性口袋更大的空间容积，使得底物在初次甲基化后能够发生动态的重定位。湿实验完美印证了这一干实验推演：当将 SyNMT1 的 A216 突变为大体积且带负电的谷氨酸 (A216E) 时，突变体瞬间丧失了将化合物 **3** 转化为化合物 **6** 的能力，其广谱的 RNMT 活性被强制压缩为狭窄的 CNMT 活性。此外，对接模型还提示相邻的 F217 可能通过 $\pi$-$\pi$ 堆积作用稳定 SAM 辅因子，而 F217L 的突变湿实验也证实了该残基对产物生成速率的显著贡献。这些数据无懈可击地证明了，活性口袋的物理容积及静电环境是决定酶底物杂泛性的核心控制阀。
+![image.png](https://synbiopath.online/20260307144413693.png)
 
->[Our rational mutagenesis results verify that the A216 (SyNMT1)/E218 (SyNMT2) acts as a critical functional switch for substrate preference by altering the active-site cavity and dynamic positioning of the substrate.]
+>Our rational mutagenesis results verify that the A216 (SyNMT1)/E218 (SyNMT2) acts as a critical functional switch for substrate preference by altering the active-site cavity and dynamic positioning of the substrate.
 
 ### （三）空间重塑引发惊艳的 N-至 O-甲基化催化翻转
 #### 实验目的与设计逻辑
@@ -66,15 +67,18 @@
 
 #### 实验结果与深度解析
 在对 SyNMT2 突变体的测试中，诞生了本项研究最具突破性的科学发现。如 **Figure 4** 的突变体色谱及结构对接叠加图所示，当引入 L219F 突变后，该酶虽然完全丧失了对原本的化合物 **2** 和 **3** 的 N-甲基化活性，但竟然奇迹般地获得了对最原始前体 (S)-norcoclaurine（化合物 **1**）的 C6 位 O-甲基化活性，成功生成了化合物 **2**。这是科学史上首次报道的 BIA NMT 发生向 O-甲基转移酶 (6OMT) 功能翻转的案例。干实验的分子动力学模拟从底层热力学完美解释了这一奇迹：在野生型模型中，化合物 **1** 的 C6-OH 距离 SAM 的硫原子远达 4.9 Å，无法发生质子转移；而在 L219F 突变体中，庞大的苯丙氨酸侧链像一个楔子，强行迫使底物的异喹啉环发生空间扭转，使得 C6-OH 被极其完美地推向距离 SAM 仅 2.9 Å 的最佳催化攻击位点。这一通过理论计算预测结合质谱实证的成果，彻底打破了催化类型间不可逾越的鸿沟。
+![image.png](https://synbiopath.online/20260307144436554.png)
 
->[To the best of our knowledge, this is the first report of a BIA NMT catalyzing O-methylation... F219 likely reorients the substrate-binding mode to favor the alignment of the 6-OH for methyl transfer.]
+>To the best of our knowledge, this is the first report of a BIA NMT catalyzing O-methylation... F219 likely reorients the substrate-binding mode to favor the alignment of the 6-OH for methyl transfer.
 
 ### （四）理性设计在提升泛用型底盘酶催化效率中的应用
 #### 实验目的与设计逻辑
 基础机制解析的最终目的是为了指导合成生物学工程化改造的实际应用。为了检验上述从云南地不容中总结出的“芳香环堆积稳定 SAM 辅因子”规律是否具有普适性，研究团队将目光转向了已被广泛研究但体外效率不佳的罂粟来源酶 PsCNMT。由于该酶在底盘细胞代谢工程中被高频使用，作者设计了一套精准定点诱变湿实验，将其对应的亮氨酸突变为苯丙氨酸 (E197A-L198F)。通过稳态动力学测定 ($K_m$ 和 $k_{cat}$) 以及长达 100 纳秒的分子动力学模拟轨迹干实验，旨在从宏观动力学和微观原子相互作用两个维度，验证理性改造对提升工业靶标酶催化潜能的巨大价值。
 
 #### 实验结果与深度解析
-通用法则在异源酶的改造上取得了无可辩驳的成功。**Figure 5** 详细记录了对 PsCNMT 的突变分析，结果表明双突变体 PsCNMT-E197A-L198F 的催化产物生成量相比单突变体或野生型出现了显著提升。干实验层面的 100 ns 分子动力学模拟轨迹极其稳健地显示，引入的 F198 其苯环中心与 SAM 的腺嘌呤环之间始终维持在约 4 Å 的最佳距离，形成了极其强烈的 $\pi$-$\pi$ 堆积相互作用，从根本上锁死了辅助因子在活性口袋内的剧烈热振动。为了对这种微观稳定效应进行宏观定量，作者在 **Figure 6** 中绘制了米氏动力学曲线。生化数据清晰地表明，相较于对照组，经过 L198F 工程化改造的酶不仅维持了优良的底物亲和力，其催化转化数 ($k_{cat}$) 及整体催化效率 ($k_{cat}/K_m$) 更是获得了约 1.22 倍和 1.07 倍的显著提升。这种利用干实验明确空间拓扑逻辑、利用湿实验精准打靶的工程化闭环，为未来大批量定制化创制高周转率底盘酶提供了标准的作业蓝图。
+通用法则在异源酶的改造上取得了无可辩驳的成功。**Figure 5** 详细记录了对 PsCNMT 的突变分析，结果表明双突变体 PsCNMT-E197A-L198F 的催化产物生成量相比单突变体或野生型出现了显著提升。干实验层面的 100 ns 分子动力学模拟轨迹极其稳健地显示，引入的 F198 其苯环中心与 SAM 的腺嘌呤环之间始终维持在约 4 Å 的最佳距离，形成了极其强烈的 $\pi$-$\pi$ 堆积相互作用，从根本上锁死了辅助因子在活性口袋内的剧烈热振动。
+
+为了对这种微观稳定效应进行宏观定量，作者在 **Figure 6** 中绘制了米氏动力学曲线。生化数据清晰地表明，相较于对照组，经过 L198F 工程化改造的酶不仅维持了优良的底物亲和力，其催化转化数 ($k_{cat}$) 及整体催化效率 ($k_{cat}/K_m$) 更是获得了约 1.22 倍和 1.07 倍的显著提升。这种利用干实验明确空间拓扑逻辑、利用湿实验精准打靶的工程化闭环，为未来大批量定制化创制高周转率底盘酶提供了标准的作业蓝图。
 
 >[These kinetic results demonstrate that the L198F substitution enhances catalytic turnover while maintaining efficient substrate binding, supporting the idea that this rational design strategy could be broadly applied.]
 
