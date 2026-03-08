@@ -1,14 +1,14 @@
-
+![image.png](https://synbiopath.online/20260308133244174.png)
 
 ---
 
 ## 一：基本信息
-**文章题目**：Enzymatic Synthesis of Kynurenic Acid-Linked Dipeptides with C-Terminal Amide (含 C-端酰胺的犬尿烯酸连接二肽的酶促合成)
+**文章题目**：Enzymatic Synthesis of Kynurenic Acid-Linked Dipeptides with C-Terminal Amide
 **文章 DOI 号**：10.1021/acscatal.6c00080
 **期刊名称**：ACS Catalysis
-**通讯作者**：Zhuan Zhang
+**通讯作者**：Zhuan Zhang（张转）
 **通讯作者工作单位**：
-中国医学科学院北京协和医学院医药生物技术研究所，国家卫生健康委抗微生物药物生物技术重点实验室，中国医学科学院合成生物学与药物创新重点实验室，天然药物活性物质与功能国家重点实验室。
+- **张转**：中国医学科学院北京协和医学院医药生物技术研究所，国家卫生健康委抗微生物药物生物技术重点实验室，中国医学科学院合成生物学与药物创新重点实验室，天然药物活性物质与功能国家重点实验室。
 
 ---
 
