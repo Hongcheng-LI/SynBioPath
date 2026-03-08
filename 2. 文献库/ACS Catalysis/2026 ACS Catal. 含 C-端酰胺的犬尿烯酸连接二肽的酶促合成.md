@@ -59,6 +59,7 @@
 
 #### 实验结果与深度解析
 通过干湿实验数据的紧密咬合，一条令人震撼的非常规生物合成链条浮出水面。体内发酵湿实验表明，仅由 NRPS (KazA) 和甲基转移酶共同作用时，合成路线并不会直接停留在开链多肽，而是自发闭环积累成特征性的二酮哌嗪 (Diketopiperazine, DKP) 骨架衍生物（中间体 **3** 及甲基化的 **5**）。其中纯化的甲基转移酶 KazE 展现了对底物的极高亲和力。整个故事的真正高潮发生在 P450 氧化酶 KazC 介入之后。如 Figure 2 的催化网络图 (Figure 2B) 及相关的微粒体体外转化色谱图 (Figure 2C) 所示，当在体外体系中利用 KazC 处理 DKP 中间体 **5** 时，检测器捕捉到了一个短暂存在的关键羟基化中间体 **6**。极为特殊的是，无论是在体外缓冲液中还是在共表达株内，这个被 C7-位羟基化的 DKP 结构 **6** 都表现出了极端的化学不稳定性。在生理微酸性至中性环境 (pH 7.0-8.0) 刺激下，中间体 **6** 会发生剧烈的自发开环重排，其坚固的 DKP 核心环中的 sp3 C-N 键被不可逆地切断，最终暴露出特征性的 C-端酰胺基团，并形成了终产物 **1**。这一系列连续的体外验证，不仅证明了该途径并非使用常规的直链酰胺转移酶，而是利用了一套“先闭环成 DKP、再氧化触发开环”的绝妙曲线救国策略，揭示了酶学促发与非酶促自发裂解相结合的新型生物合成逻辑。
+![image.png](https://synbiopath.online/20260308134022031.png)
 
 >[KazC catalyzes the hydroxylation of 5 to yield 6, and 6 undergoes a pH-dependent, general acid-base catalysts-assisted DKP ring opening to afford 1.]
 
@@ -68,6 +69,7 @@
 
 #### 实验结果与深度解析
 这套将原子追踪与能量计算完美融合的设计，为这条非典型催化途径提供了最坚实的机制注脚。在湿实验同位素示踪中，当饲喂了双 ${}^{15}\text{N}$ 标记的色氨酸后，高分辨质谱精确捕捉到了相应产物质量数整体平移的现象，这无可辩驳地证明了终产物中游离的 C-端酰胺氮原子确实来源于色氨酸最初的 $\alpha$-氨基，从而坐实了 Figure 2B 中推导的原子转移流向。更为惊艳的是基于 DFT 体系的干实验计算结果。如 Figure 2B 中的精细分子能量势垒模型所示，当羟基化引发 DKP 开环生成中间态 Int II 后，由于该状态下新形成的酰胺氮原子孤对电子与紧邻的羰基发生了强烈的共振离域现象，直接削弱了其亲核性。数据计算清晰地表明，该中间体想要逆向闭环退回原结构的活化能（$\Delta G^{\ddagger} = 5.3 \text{ kcal/mol}$）远高于被分子内的 N-甲基苯胺基团直接进行亲核进攻发生分子内重排的势垒（$\Delta G^{\ddagger} = 3.2 \text{ kcal/mol}$）。更具决定意义的热力学计算显示，终产物化合物 **1** 的系统吉布斯自由能比前体 **6** 剧烈下降了 24.5 kcal/mol。这种巨大的能量“瀑布”效应，使得开环重排反应在动力学竞争与热力学稳定性上都占据了绝对的统治地位，完美地解释了这种打破常规 DKP 稳定性的非酶促重组的底层驱动力。
+![image.png](https://synbiopath.online/20260308134022031.png)
 
 >[Our hypothesis was further supported by density functional theory (DFT) calculations... indicating that formation of 1 is kinetically preferred.]
 
@@ -77,6 +79,7 @@
 
 #### 实验结果与深度解析
 体外与体内的宽泛底物测试向世人展示了这座生物催化工厂惊人的杂泛性与工程化潜力。如 Figure 3 的化合物矩阵库详尽展示，该酶促系统对非天然底物具有极高的接纳度。在导入了 10 种不同的取代色氨酸和 7 种氨基酸类似物后，前段的 NRPS 模块表现出卓越的灵活性，成功将多达 8 种取代底物拼装，在体系中创造性地积累了 20 种全新的 DKP 中间体。更为关键的是，下游的 P450 氧化酶 KazC 成功克服了多种底物的空间位阻，将其中 11 种 DKP 顺利氧化并触发了裂解重排机制，最终释放出相应的 KYNA 酰胺衍生物。放大纯化使得研究者成功解除了诸如含氟、含氯修饰的特异性产物的绝对核磁结构。尽管后续使用平行人工膜渗透率测定 (PAMPA) 发现当前的修饰尚未突破血脑屏障的高渗透性瓶颈，但这种能够直接利用廉价前体高效组装极其复杂的带 C-端酰胺的立体分子的催化网络，已经确凿无疑地证明了其作为“插拔式”非天然药物发现平台的核心价值。
+![image.png](https://synbiopath.online/20260308134105382.png)
 
 >[Our findings provide a valuable and versatile biocatalytic platform for the efficient synthesis of KYNA amide derivatives from readily available tryptophan derivatives.]
 
