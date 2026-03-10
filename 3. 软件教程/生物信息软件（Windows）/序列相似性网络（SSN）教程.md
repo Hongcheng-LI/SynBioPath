@@ -24,8 +24,9 @@ https://www.ncbi.nlm.nih.gov/protein/UFA62170.1/?report=fasta
 首先，对目标序列进行 Blast 分析
 ![image.png](https://synbiopath.online/20260228223701885.png)
 
-点击图中的 Download，在之前的操作中，直接选择下载 Fasta格式的序列 
-⚠️upload failed, check dev console
+点击图中的 Download，在之前的操作中，直接选择下载 Fasta格式的序列时，上传到 EFI-EST 网站中去，会导致报错，因此我们选择下载 CSV 格式的文件
+![image.png](https://synbiopath.online/20260310211227917.png)
+
 
 
 根据视频中介绍，如果直接在 EFI-EST 网站中上传 Fasta 文件，那么会直接报错。因此作者采用了下方的策略。
