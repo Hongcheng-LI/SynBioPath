@@ -27,10 +27,6 @@ https://www.ncbi.nlm.nih.gov/protein/UFA62170.1/?report=fasta
 点击图中的 Download，在之前的操作中，直接选择下载 Fasta格式的序列时，上传到 EFI-EST 网站中去，会导致报错，因此我们选择下载 CSV 格式的文件
 ![image.png](https://synbiopath.online/20260310211227917.png)
 
-
-
-
-
-
-
+打开刚刚下载的 CSV 文件，复制文件中的 Accession Number 号，粘贴到文本文件中。
+随后，进入下面的网站，上传刚刚下载下来的 CSV 文件，获得 Blastp获得的同源蛋白的序列
 https://www.ncbi.nlm.nih.gov/sites/batchentrez
