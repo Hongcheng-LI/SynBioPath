@@ -35,3 +35,5 @@ https://www.ncbi.nlm.nih.gov/sites/batchentrez
 在新的窗口中，点击 Retrieve records for 25 UID(s)，进入新的界面
 ![image.png](https://synbiopath.online/20260310212250408.png)
 
+在这个界面中，选中所有的目标序列之后，点击 Send to，选择为 File，格式为 fasta，点击 create file，即可获得目标序列同源蛋白的 fasta 序列。
+![image.png](https://synbiopath.online/20260310213301498.png)
