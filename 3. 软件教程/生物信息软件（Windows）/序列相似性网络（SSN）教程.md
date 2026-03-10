@@ -45,5 +45,5 @@ https://www.ncbi.nlm.nih.gov/sites/batchentrez
 https://efi.igb.illinois.edu/efi-est/
 ![image.png](https://synbiopath.online/20260310215643621.png)
 
-在 Fasta 界面，点击 Choose a file
+在 Fasta 界面，点击 Choose a file，上传刚刚获得的 fasta文件，提交之后，输入人物名和邮箱，点击 submit analysis。
 ![image.png](https://synbiopath.online/20260310215712867.png)
