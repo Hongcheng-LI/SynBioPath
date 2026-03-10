@@ -92,11 +92,13 @@ Table 4 的定量分析显示，相较于未做全局底盘优化的对照株 EM
 
 #### 实验结果与深度解析
 通过多尺度的物理观测与质谱解构，重组疫苗的完美微观形貌被彻底揭示。在超微结构层面，Figure 5A 的 TEM 切片图像敏锐捕捉到了工程菌在表达阶段发生的剧烈细胞被膜重塑，周质空间的显著膨胀和囊泡状结构的涌现，为高度糖基化大分子的周质内装配及分泌加工提供了直观的细胞学证据。而在纯化后的成品表征中，Figure 5B 的负染电镜图像展示了糖缀合物形成了轮廓清晰、直径在 10 到 50 nm 之间的球形或寡聚体结构。
-![Uploading file...j02ib]()
+![image.png](https://synbiopath.online/20260310122527480.png)
 
 这与叠加展示的 DLS 粒径分布曲线高度吻合，且 Figure 7 的 SEC-HPLC 数据进一步证实了其主要分布于 80-120 kDa 这一理想的大分子量区间，这赋予了其极佳的淋巴结引流与抗原提递潜能。
+![image.png](https://synbiopath.online/20260310122621466.png)
 
 最令人震撼的技术突破来自于分子层面的解剖：Figure 6 的高分辨 MS/MS 碎裂质谱图中，不仅捕获到了极其特征性的含罕见脱氧糖的母离子碎片（如 m/z 351.129 的 $[\text{Glc-6dTAl2Ac}]^+$ 和 m/z 189.076 的 $[\text{6dTAl2Ac}]^+$），其严密的序列断裂碎片 b/y 离子群更是无可辩驳地将庞大的多糖挂载点死死地锁定在 CTB 载体蛋白序列的第 40 位丝氨酸 (Ser40) 上。这一位点特异性的直接证据，彻底宣告了基于 *O*-糖基化路径的体内组装系统在维持产物构象均一性和结构明确性上，对传统随机化学交联构成了压倒性的技术优势。
+![image.png](https://synbiopath.online/20260310122549337.png)
 
 >[Mass spectrometry (MS) analysis confirmed the precise site-selective glycosylation of the glycoconjugates produced by optimized strain EMK004.]
 
