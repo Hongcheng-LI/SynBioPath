@@ -29,8 +29,7 @@ https://www.ncbi.nlm.nih.gov/protein/UFA62170.1/?report=fasta
 
 
 
-根据视频中介绍，如果直接在 EFI-EST 网站中上传 Fasta 文件，那么会直接报错。因此作者采用了下方的策略。
-![image.png](https://synbiopath.online/20260228223917061.png)
+
 
 
 
