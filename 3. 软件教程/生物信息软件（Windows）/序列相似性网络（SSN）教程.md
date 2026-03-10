@@ -37,3 +37,13 @@ https://www.ncbi.nlm.nih.gov/sites/batchentrez
 
 在这个界面中，点击 Send to，选择为 File，格式为 fasta，点击 create file，即可获得目标序列同源蛋白的 fasta 序列。
 ![image.png](https://synbiopath.online/20260310213301498.png)
+
+
+## （二）EFI-EST 分析
+
+打开下列网址，进入 EFI-EST 网站
+https://efi.igb.illinois.edu/efi-est/
+![image.png](https://synbiopath.online/20260310215643621.png)
+
+在 Fasta 界面，点击 Choose a file
+![image.png](https://synbiopath.online/20260310215712867.png)
