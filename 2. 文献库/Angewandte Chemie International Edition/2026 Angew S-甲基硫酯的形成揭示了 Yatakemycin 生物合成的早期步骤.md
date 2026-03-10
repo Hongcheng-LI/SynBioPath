@@ -3,10 +3,10 @@
 ---
 
 ## 一：基本信息
-**文章题目**：*S*-Methyl Thioester Formation Uncovers Early Biosynthetic Steps of Yatakemycin（*S*-甲基硫酯的形成揭示了 Yatakemycin 的早期生物合成步骤）
+**文章题目**：*S*-Methyl Thioester Formation Uncovers Early Biosynthetic Steps of Yatakemycin
 **文章 DOI 号**：10.1002/anie.202522109
 **期刊名称**：Angewandte Chemie International Edition
-**通讯作者**：Jinyue Pu (蒲金月), Lifeng Pan (潘李锋), Gong-Li Tang (唐功利)
+**通讯作者**：Gong-Li Tang (唐功利)；Lifeng Pan (潘李锋)；Jinyue Pu (蒲津越)
 **通讯作者工作单位**：
 中国科学院大学杭州高等研究院化学与材料科学学院浙江省糖药物研究重点实验室；
 中国科学院上海有机化学研究所生命有机化学国家重点实验室。
@@ -46,7 +46,11 @@
 自然界中包含特定含硫基团的分子极其稀少且合成机制特殊。为了从遗传本源上探寻 YTM 中该特殊官能团的形成逻辑，研究团队首先系统梳理了现有文献中已知含硫代羧酸及 *S*-甲基硫酯基团的代表性天然产物结构。随后，基于已克隆的 YTM **生物合成基因簇 (Biosynthetic gene cluster, BGC)**，作者利用生物信息学工具进行序列比对与网络聚类分析，试图在庞杂的未知功能基因中锁定与硫代羧酸生成及甲基化相关的核心修饰基因。为了将这一干实验预测转化为确凿的生物学证据，研究人员设计了严密的体内遗传学湿实验，通过分别敲除这些候选基因并观察代谢表型，旨在验证它们在组装完整 YTM 骨架过程中的绝对必要性。
 
 #### 实验结果与深度解析
-通过结构生物学回顾与信息学发掘，YTM 生物合成的核心疑团初步显露端倪。如 Figure 1a-c 所示，在自然界中，含有硫代羧酸（如 thioplatensimycin）或 *S*-甲基硫酯的天然产物极为罕见，且 YTM（化合物 **1**）是已知唯一将 *S*-甲基硫酯基团安装在苯并二吡咯骨架上的复杂抗生素。深入探究 Figure 2a 所示的 YTM 基因簇以及 Figure 2b 中先前推测的合成路径，作者发现大量功能未知的基因。借助基于蛋白质序列相似性的 SSN 干实验分析（Figure 2c），研究人员敏锐地捕捉到 YtkF 作为一种假定的 CoA 转移酶，在进化网络中呈现为无紧密同源物的“孤岛”，暗示其可能参与了极不寻常的硫转移过程。同时，预测的酰基-CoA 连接酶 YtkG 和唯一的假定甲基转移酶 YtkW 也被锁定为核心候选者。体内的基因敲除与互补湿实验为这些预测提供了决定性的数据支撑。Figure 2d 的 UPLC 色谱图清晰地展示，当野生型菌株中的 *ytkG*、*ytkF* 或 *ytkW* 基因被单独失活时（峰 ii, iv, vi），YTM 的特征性产物峰彻底消失；而当这些基因被外源质粒重新引入互补后（峰 iii, v, vii），生物合成能力得以完美恢复。这一严密的遗传学闭环，强有力地确证了这三个 BGC 内基因是构建该抗生素活性分子的绝对先决条件。
+通过结构生物学回顾与信息学发掘，YTM 生物合成的核心疑团初步显露端倪。如 Figure 1a-c 所示，在自然界中，含有硫代羧酸（如 thioplatensimycin）或 *S*-甲基硫酯的天然产物极为罕见，且 YTM（化合物 **1**）是已知唯一将 *S*-甲基硫酯基团安装在苯并二吡咯骨架上的复杂抗生素。
+![image.png](https://synbiopath.online/20260310120040607.png)
+
+深入探究 Figure 2a 所示的 YTM 基因簇以及 Figure 2b 中先前推测的合成路径，作者发现大量功能未知的基因。借助基于蛋白质序列相似性的 SSN 干实验分析（Figure 2c），研究人员敏锐地捕捉到 YtkF 作为一种假定的 CoA 转移酶，在进化网络中呈现为无紧密同源物的“孤岛”，暗示其可能参与了极不寻常的硫转移过程。同时，预测的酰基-CoA 连接酶 YtkG 和唯一的假定甲基转移酶 YtkW 也被锁定为核心候选者。体内的基因敲除与互补湿实验为这些预测提供了决定性的数据支撑。Figure 2d 的 UPLC 色谱图清晰地展示，当野生型菌株中的 *ytkG*、*ytkF* 或 *ytkW* 基因被单独失活时（峰 ii, iv, vi），YTM 的特征性产物峰彻底消失；而当这些基因被外源质粒重新引入互补后（峰 iii, v, vii），生物合成能力得以完美恢复。这一严密的遗传学闭环，强有力地确证了这三个 BGC 内基因是构建该抗生素活性分子的绝对先决条件。
+![image.png](https://synbiopath.online/20260310120109369.png)
 
 >[These results confirm that ytkG, ytkF, and ytkW are indispensable for YTM biosynthesis.]
 
@@ -56,6 +60,7 @@
 
 #### 实验结果与深度解析
 体内缺失的拼图在精巧的体外实验中被完美补齐，揭示了初级代谢与次级代谢之间精妙的物质交汇。依据基因组挖掘，作者锁定了潜在的初级代谢硫转移系统 SsSCP1a/SsAE1，并在 Figure 3a 中提出了其工作模型，即通过腺苷酰化活化后加载无机硫源。在生化重构实验中，Figure 3b 汇总了测试的底物及催化途径。色谱分析显示了逐级酶促反应的清晰图景：首先，如 Figure 3c 所示，在 ATP 和 CoA 存在下，YtkG 能够特异性识别探针底物化合物 **3** 并生成 CoA 偶联的活化中间体化合物 **4**。随后，最为关键的硫插入步骤在 Figure 3d 中得到证实，当向体系中加入 YtkF 以及无机硫源 NaSH（或重构的 SsSCP1a/SsAE1 硫供体系统）时，中间体 **4** 顺利转化为含有游离硫代羧酸基团的化合物 **5**。最终的闭环呈现在 Figure 3e 中，当终极甲基转移酶 YtkW 和甲基供体 SAM 被加入该一锅法反应体系后，检测器敏锐地捕捉到了分子量增加 14 Da 的终产物——*S*-甲基硫酯化合物 **6** 的强势积累。这一系列连贯的体外生化证据不仅完美解构了该非典型官能团的装配流水线，更首次在实验层面上证实了复杂放线菌如何通过招募初级代谢的必需元件来武装其次级代谢抗生素产物。
+![image.png](https://synbiopath.online/20260310120143839.png)
 
 >[These results demonstrate that complete in vitro reconstitution of S-methyl thioester biosynthesis from compound 3 can be achieved by coupling YtkG/F/W from the BGC with the SsSCP1a/SsAE1 sulfur-transfer pathway from primary metabolism.]
 
@@ -65,6 +70,7 @@
 
 #### 实验结果与深度解析
 通过跨越基因簇边界的追踪与干湿结合的结构分析，前体激活的神秘“守门人”机制被彻底揭开。寻找簇外酶的过程详见 Figure 4a，通过以 MxSafC 为序列探针，作者成功鉴定了位于 YTM 基因簇 1.26 Mb 之外的游离酶 SsMT9（即 YtkMT）。Figure 4b 和 4c 的体外及体内湿实验数据清晰无误地表明，YtkMT 能够精准催化多巴或底物 **3b** 的羟基甲基化生成 **3e**，且其基因的敲除直接导致了活体中 YTM 产量的断崖式崩塌，证实了这一簇外基因在整条流水线中的核心枢纽地位。为解析后续酶的底物特异性，研究人员合成了多种单/双甲基化前体（**3d**, **3e**, **3f**, **3g**）进行体外测试，结果发现 YtkG/F/W 级联仅能顺畅地将包含单甲基的 **3d** 及 **3e** 分别转化为相应的产物 **6b** 及 **6a**（Figure 4d, e），而对双甲基化的 **3g** 完全拒载。为了在原子层面解释这种“挑剔”的行为，干实验模型发挥了核心作用。Figure 4f 和 4g 展示了 YtkG 的预测结构及其底物结合口袋：相比于同源物 CahJ，YtkG 的疏水空腔（如 V222, F245 等残基构成）空间几何限制极其严格。该计算模型完美再现了单甲基化的 **3** 或 **3d** 能够舒适地嵌入空腔，而双甲基化的 **3g** 则因严重的立体碰撞（steric clash）无法结合，从而从能量和构象上精准解释了为何 *O*-甲基化必须作为整个硫化模块的绝对生化前提。
+![image.png](https://synbiopath.online/20260310120220240.png)
 
 >[These in vitro and in vivo results confirm that SsMT9 is a key gene closely associated with YTM biosynthesis, despite being located 1.26 Mb away from the ytk gene cluster.]
 
@@ -74,6 +80,7 @@
 
 #### 实验结果与深度解析
 完整的合成全景图与高精度的酶学微观机制在此得到完美交汇。首先，整合所有数据，作者在 Figure 5 中绘制了修订后的 YTM 早期生物合成途径：多巴经由簇外酶 YtkMT 介导的 *O*-甲基化与环化后生成 **3d**，继而被 YtkG 激活，由 YtkF 招募初级代谢硫源生成硫代羧酸 **5b**，最终由 YtkW 封端甲基化生成 **6b**，为后续大环拼接提供 A 亚基。在机制解析层面，Figure 6a-c 展示了在 2.38 Å 分辨率下解析的 YtkW 同源二聚体晶体结构。在这个经典的 SAM-MT 折叠结构中，SAM 深深嵌入一个高度负电性的溶剂可及通道内。分子对接计算模型（Figure 6d, e）生动展示了不稳定的底物 **5b** 是如何完美契合进该结合口袋的：其硫代羧酸基团深插入底部，与 H118、H119 和 K190 形成极强的氢键网络，更将关键的硫原子精准锚定在距离 SAM 活性甲基仅 4.2 Å 的完美催化射程内。后续的酶学突变湿实验（Figure 6f）给出了极具说服力的证实：当突变掉计算预测参与结合底物的 F21 或 L188 时，酶活显著下降；而一旦突变掉双组氨酸催化核心（H118A 或 H119A），酶活几乎彻底丧失。基于这一干湿高度吻合的数据链，作者在 Figure 6g 中令人信服地提出了该酶依赖双组氨酸网络攫取质子并促进硫阴离子亲核攻击的全新催化模型。
+![image.png](https://synbiopath.online/20260310120244851.png)
 
 >[Based on these combined structural and biochemical analyses, we proposed a catalytic mechanism involving H118 and H119 for the conversion of substrate 5b by YtkW.]
 
