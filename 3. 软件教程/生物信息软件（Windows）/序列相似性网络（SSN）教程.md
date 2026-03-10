@@ -28,5 +28,10 @@ https://www.ncbi.nlm.nih.gov/protein/UFA62170.1/?report=fasta
 ![image.png](https://synbiopath.online/20260310211227917.png)
 
 打开刚刚下载的 CSV 文件，复制文件中的 Accession Number 号，粘贴到文本文件中。
-随后，进入下面的网站，选择 Protein，上传刚刚处理好的  txt 文件，点击 Retrieve，获得 Blastp 获得的同源蛋白的序列
+随后，进入下面的网站，选择 Protein，上传刚刚处理好的  txt 文件，点击 Retrieve，
 https://www.ncbi.nlm.nih.gov/sites/batchentrez
+![image.png](https://synbiopath.online/20260310212305701.png)
+
+在新的窗口中，点击 Retrieve records for 25 UID(s)，进入新的界面
+![image.png](https://synbiopath.online/20260310212250408.png)
+
