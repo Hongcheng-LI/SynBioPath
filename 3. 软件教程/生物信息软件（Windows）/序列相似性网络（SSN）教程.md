@@ -29,3 +29,5 @@ https://www.ncbi.nlm.nih.gov/protein/UFA62170.1/?report=fasta
 ![image.png](https://synbiopath.online/20260228223917061.png)
 
 
+
+https://www.ncbi.nlm.nih.gov/sites/batchentrez
