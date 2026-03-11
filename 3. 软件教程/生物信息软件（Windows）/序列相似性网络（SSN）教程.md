@@ -40,9 +40,17 @@ EFI-EST：https://efi.igb.illinois.edu/efi-est/
 https://efi.igb.illinois.edu/efi-est/
 ![image.png](https://synbiopath.online/20260310215643621.png)
 
-在 Query Sequence 处输入目标序列，在 UniProt BLAST query e-value 处输入默认值 5；Maximum number of sequences retrieved 处输入默认值 1000，此处输入的数值越大，在 Cytoscape 中处理的时间越长，第一次操作建议选择默认值即可。Sequence database 有三种选项，Uniprot，Uniprot90，Uniprot50。这三个数据库的区别是
+在 Query Sequence 处输入目标序列，在 UniProt BLAST query e-value 处输入默认值 5；Maximum number of sequences retrieved 处输入默认值 1000，序列太多会导致后面 Cytoscape 画图时电脑卡顿，第一次操作建议选择默认值即可。Sequence database 有三种选项，Uniprot，Uniprot90，Uniprot50。
+
+这三个数据库的区别是
+- 「Uniprot」通常指**UniProtKB 全库 / UniRef100**，是完整的原始蛋白数据库；
+- 「Uniprot90/Uniprot50」官方标准名称为**UniRef90/UniRef50**，是 UniProt 官方基于全库做的**序列相似性去冗余聚类子集**，不是独立的新数据库，所有序列和注释均来源于 UniProtKB。
+
+一开始我们可以先用 **Uniprot** 数据库，如果后面发现序列实在太多，可以选择使用 **UniRef90** 数据库。这相当于 UniProt 帮你做了一个“去重”：把相似度 >90% 的序列合并成一个代表点。这样既保证了物种多样性（全面），又大大减少了数据冗余，画出来的图也更漂亮！
 ![image.png](https://synbiopath.online/20260311161659896.png)
 
+
+### 2. 方法二
 
 在此处，我们也给出在 NCBI 中通过 Blast 检索获得用于构建序列分子网络所需要的序列数据的过程
 
