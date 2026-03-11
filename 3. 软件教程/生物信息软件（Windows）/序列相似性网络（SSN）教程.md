@@ -138,5 +138,6 @@ https://efi.igb.illinois.edu/efi-est/
 
 ### 2. 导入文件
 
-打开 Cytoscape，
+打开 Cytoscape，点击左上角的 File -> Import -> Network from File...，- 选中你刚才从 EFI 网站下载的 **.xgmml** 文件并打开。
 ![image.png](https://synbiopath.online/20260311190230323.png)
+
