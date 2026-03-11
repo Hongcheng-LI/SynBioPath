@@ -89,6 +89,17 @@ https://www.ncbi.nlm.nih.gov/sites/batchentrez
 点击 Dataset Analysis（数据集分析）标签页，该标签页会生成序列特征的直方图、箱线图，以及 BLAST 全序列两两比对的统计结果，为后续 **SSN Finalization** 环节的参数（比对得分阈值、序列长度过滤）设置提供数据依据。
 ![image.png](https://synbiopath.online/20260311172902363.png)
 
+在 Sequences as a Function of Full Length Histogram (序列长度分布直方图)中，图中有一个极其突兀且尖锐的紫色高峰，对应的横坐标（长度）大约在 **390 - 410** 个氨基酸左右。而在此之外，几乎没有其他高度的柱子。说明这个蛋白家族在长度上**非常保守**。它大概率是一个单结构域的蛋白质。那些极少数特别短的（比如长度小于300的）可能是测序不完整的“碎片（Fragments）”，特别长的可能是融合蛋白。我们可以在下一步设置长度过滤，把那些碎片剔除掉，保证进入网络图的都是完整的序列。
+![image.png](https://synbiopath.online/20260311173630984.png)
+
+Alignment Length vs Alignment Score Box Plot (比对长度与AS得分的箱线图) 是最重要的一张图，可以看到曲线一开始急速上升，然后在横坐标（AS）达到 **25~35** 左右时，曲线突然**变平了（Plateau）**，变成了一条水平的直线，对应的纵坐标（比对长度）正好是大约 350-400。这进一步印证了它是单结构域蛋白。当 AS 得分极低时，BLAST 只能比对上蛋白质的一小段（比如几十个氨基酸）；**当 AS 超过大约 35 之后，BLAST 的比对长度就达到了整个蛋白质的全长（~400 aa）**。说明 **AS 阈值绝对不能低于 35 这个“拐点”！** 如果 AS 选太低，网络图中会出现大量仅靠“局部小片段相似”就连在一起的错误连线。因此，你的 AS 阈值**至少要大于 35**。
+![image.png](https://synbiopath.online/20260311174233583.png)
+
+Percent Identity vs Alignment Score Box Plot (序列一致性百分比与AS得分箱线图) 是一条近似直线的上升曲线。EFI 官方强烈建议，初始的 SSN 网络应该选择 **序列一致性（Percent Identity）在 35% 到 40% 左右** 对应的 AS 值。我们在图的纵坐标找到 35%-40%，横向看过去，对应的横坐标 AS 值大约在 **35 到 45** 之间。结合图2和图3，我们可以断定，初始 AS 阈值设置在 **40 左右** 是非常科学的。
+![image.png](https://synbiopath.online/20260311174258341.png)
+
+Edge Count vs Alignment Score Plot (连线数量与AS得分图) 这张图是用来评估你的电脑会不会“卡死”的。EFI 提示中写了：16GB 内存的电脑可以轻松打开 200万（2M）条边的网络。我们可以看到这张图是一条逐渐下降的曲线。如果你选 AS = 40，对应的纵坐标（连线数）大约是 **400k（40万条边）**。40 万条边远远低于电脑的极限，所以你可以放心大胆地生成包含所有序列的**全网络图（Full SSN）**，不需要生成压缩版的代表节点网络（Rep Node SSN）。
+
 
 在 SSN Finalization 界面，我们会看到一个叫 **Alignment Score Threshold（AS）** 的参数，AS 这个参数是用来筛选连线的。**AS = 50 相当于 BLAST 的 E-value 为 10 的负 50 次方**。AS 值越大，要求两条序列越像才能连线，图里的簇（Cluster）就会分得越散。你可以用不同的 AS 值生成好几个网络，到时候看看哪个聚类效果最符合你的研究预期。
 
