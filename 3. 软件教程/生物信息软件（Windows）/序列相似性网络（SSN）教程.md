@@ -83,7 +83,7 @@ https://www.ncbi.nlm.nih.gov/sites/batchentrez
 
 ### 1. 对从 EFI-EST 中获得的序列数据进行分析
 
-
+我们在 EFI-EST 中通过 **Option A (BLAST)** 进行 
 
 ### 2. 对从 NCBI 中获得的数据进行分析
 
