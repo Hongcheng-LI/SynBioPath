@@ -49,6 +49,7 @@ https://efi.igb.illinois.edu/efi-est/
 一开始我们可以先用 **Uniprot** 数据库，如果后面发现序列实在太多，可以选择使用 **UniRef90** 数据库。这相当于 UniProt 帮你做了一个“去重”：把相似度 >90% 的序列合并成一个代表点。这样既保证了物种多样性（全面），又大大减少了数据冗余，画出来的图也更漂亮！
 ![image.png](https://synbiopath.online/20260311161659896.png)
 
+在最下面输入任务名和邮箱，点击 submit analysis。
 
 ### 2. 方法二
 
@@ -78,5 +79,5 @@ https://www.ncbi.nlm.nih.gov/sites/batchentrez
 https://efi.igb.illinois.edu/efi-est/
 ![image.png](https://synbiopath.online/20260310215643621.png)
 
-在 Fasta 界面，点击 Choose a file，上传刚刚获得的 fasta文件，提交之后，输入人物名和邮箱，点击 submit analysis。
+在 Fasta 界面，点击 Choose a file，上传刚刚获得的 fasta文件，提交之后，输入任务名和邮箱，点击 submit analysis。
 ![image.png](https://synbiopath.online/20260310215712867.png)
