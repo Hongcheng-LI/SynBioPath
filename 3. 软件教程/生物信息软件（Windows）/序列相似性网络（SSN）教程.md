@@ -40,6 +40,8 @@ EFI-EST：https://efi.igb.illinois.edu/efi-est/
 https://efi.igb.illinois.edu/efi-est/
 ![image.png](https://synbiopath.online/20260310215643621.png)
 
+在 Query Sequence 处输入目标序列，在 UniProt BLAST query e-value 处输入默认值 5
+![image.png](https://synbiopath.online/20260311161659896.png)
 
 
 在此处，我们也给出在 NCBI 中通过 Blast 检索获得用于构建序列分子网络所需要的序列数据的过程
