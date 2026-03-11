@@ -128,4 +128,12 @@ https://efi.igb.illinois.edu/efi-est/
 
 随后，我们就可以按照 「对从 EFI-EST 中获得的序列数据进行分析」中的步骤进行分析处理了。
 
+## （三）使用 Cytoscape 绘制并美化 SSN 图
+
+### 1. 下载并安装软件：
+
+去官网 ([https://cytoscape.org/](https://www.google.com/url?sa=E&q=https%3A%2F%2Fcytoscape.org%2F)) 下载 **Cytoscape** 并安装（它是免费的。如果提示需要安装 Java 运行环境，请按提示安装）。
+
+
+### 2. 导入文件
 
