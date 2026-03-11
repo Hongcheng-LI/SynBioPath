@@ -14,7 +14,10 @@ GenBank: UFA62170.1
 
 https://www.ncbi.nlm.nih.gov/protein/UFA62170.1/?report=fasta
 
-## （二）所用软件
+## （二）所用工具
+
+EFI-EST：https://efi.igb.illinois.edu/efi-est/
+
 
 
 # 三：实操教程
