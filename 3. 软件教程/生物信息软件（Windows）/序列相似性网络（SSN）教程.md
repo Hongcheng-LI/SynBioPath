@@ -51,6 +51,9 @@ https://efi.igb.illinois.edu/efi-est/
 
 在最下面输入任务名和邮箱，点击 submit analysis。
 
+此时，会提示任务完成后邮箱中会收到一封邮件。
+![image.png](https://synbiopath.online/20260311162812520.png)
+
 ### 2. 方法二
 
 在此处，我们也给出在 NCBI 中通过 Blast 检索获得用于构建序列分子网络所需要的序列数据的过程
