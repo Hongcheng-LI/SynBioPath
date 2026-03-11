@@ -34,6 +34,14 @@ EFI-EST：https://efi.igb.illinois.edu/efi-est/
 
 如果单说”全面性”（序列的数量和广度），NCBI 绝对比 UniProt 更全面；但是，如果是为了“做 SSN 分析”，使用 EFI-EST 自带的 UniProt 检索通常是更好、更实用的选择。
 
+### 1. 方法一
+
+打开下列网址，进入 EFI-EST 网站
+https://efi.igb.illinois.edu/efi-est/
+![image.png](https://synbiopath.online/20260310215643621.png)
+
+
+
 在此处，我们也给出在 NCBI 中通过 Blast 检索获得用于构建序列分子网络所需要的序列数据的过程
 
 首先，对目标序列进行 Blast 分析
