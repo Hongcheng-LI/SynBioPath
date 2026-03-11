@@ -144,3 +144,5 @@ https://efi.igb.illinois.edu/efi-est/
 当 Cytoscape 处于如下状态时，就代表已经导入完成了
 ![image.png](https://synbiopath.online/20260311192057610.png)
 
+点击工具栏中的 Layout -> Circular Layout
+![image.png](https://synbiopath.online/20260311194533983.png)
