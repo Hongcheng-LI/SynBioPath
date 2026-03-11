@@ -96,3 +96,5 @@ https://efi.igb.illinois.edu/efi-est/
 
 此时，服务器会在后台计算所有序列两两之间的相似性。算好后，会给你的邮箱发一封邮件，点击邮件里的链接。
 
+在打开的连接中，可以看到在 Dataset Summary 处列出了这个数据集的各种信息，此时我们 
+![image.png](https://synbiopath.online/20260311170723752.png)
