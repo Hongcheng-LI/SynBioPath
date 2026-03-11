@@ -94,4 +94,5 @@ https://efi.igb.illinois.edu/efi-est/
 在 Fasta 界面，点击 Choose a file，上传刚刚获得的 fasta文件，提交之后，输入任务名和邮箱，点击 submit analysis。
 ![image.png](https://synbiopath.online/20260310215712867.png)
 
-此时，服务器会在后台计算所有序列两两之间的相似性。算好后，会给你的邮箱发一封邮件，点击邮件里的链接，或者在网站的“Previous Jobs”里找到你的任务并点开。
+此时，服务器会在后台计算所有序列两两之间的相似性。算好后，会给你的邮箱发一封邮件，点击邮件里的链接。
+
