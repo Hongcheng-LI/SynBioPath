@@ -26,12 +26,12 @@ https://www.ncbi.nlm.nih.gov/protein/UFA62170.1/?report=fasta
 - **情况 B：你已经有了一个包含很多条序列的文件（FASTA格式）**。比如几十上百条序列，你想看看它们之间的聚类关系。可以直接上传到 EFI-EST 网站，进行分析。
 
 如果是情况 A，也有两种处理方法：
-- **方法一**：直接在 EFI-EST 网站中选择 **Option A (BLAST)**。把你的那条序列粘贴进去，设置最多提取多少条同源序列（比如默认的1000条或5000条），即可获得用于构建序列分子网络所需要的序列数据。
+- **方法一**：直接在 EFI-EST 网站中选择 **Option A (BLAST)**。把你的那条序列粘贴进去，设置最多提取多少条同源序列（比如默认的1000条或5000条），，在 UniProt 数据库中进行检索，即可获得用于构建序列分子网络所需要的序列数据。
 - **方法二**：在 NCBI 中对这条序列进行 Blastp 搜索，下载对应的 Fasta 序列合集，也可获得用于构建序列分子网络所需要的序列数据。
 
-对于情况 A，我们用方法二来获取所需要的序列数据
+如果单说”全面性”（序列的数量和广度），NCBI 绝对比 UniProt 更全面；但是，如果是为了“做 SSN 分析”，使用 EFI-EST 自带的 UniProt 检索通常是更好、更实用的选择。
 
-## （一）Blast 分析
+在此处，我们也给出在 NCBI 中通过 Blast 检索获得用于构建序列分子网络所需要的序列数据的过程
 
 首先，对目标序列进行 Blast 分析
 ![image.png](https://synbiopath.online/20260228223701885.png)
@@ -47,11 +47,11 @@ https://www.ncbi.nlm.nih.gov/sites/batchentrez
 在新的窗口中，点击 Retrieve records for 25 UID(s)，进入新的界面
 ![image.png](https://synbiopath.online/20260310212250408.png)
 
-在这个界面中，点击 Send to，选择为 File，格式为 fasta，点击 create file，即可获得目标序列同源蛋白的 fasta 序列。
+在这个界面中，点击 Send to，选择为 File，格式为 fasta，点击 create file，即可获得用于构建序列分子网络所需要的序列数据。
 ![image.png](https://synbiopath.online/20260310213301498.png)
 
 
-## （二）EFI-EST 分析
+## （二）使用 EFI-EST 网站生成网络文件（XGMML）
 
 打开下列网址，进入 EFI-EST 网站
 https://efi.igb.illinois.edu/efi-est/
