@@ -34,7 +34,7 @@ EFI-EST：https://efi.igb.illinois.edu/efi-est/
 
 如果单说”全面性”（序列的数量和广度），NCBI 绝对比 UniProt 更全面；但是，如果是为了“做 SSN 分析”，使用 EFI-EST 自带的 UniProt 检索通常是更好、更实用的选择。
 
-### 1. 方法一
+### 1. 在 EFI-EST 中获得序列数据
 
 打开下列网址，进入 EFI-EST 网站
 https://efi.igb.illinois.edu/efi-est/
@@ -57,7 +57,7 @@ https://efi.igb.illinois.edu/efi-est/
 等任务完成之后，就可以获得用于构建序列相似性网络的序列数据了。
 
 
-### 2. 方法二
+### 2. 在 NCBI 中获得序列数据
 
 在此处，我们也给出在 NCBI 中通过 Blast 检索获得用于构建序列分子网络所需要的序列数据的过程
 
@@ -81,9 +81,17 @@ https://www.ncbi.nlm.nih.gov/sites/batchentrez
 
 ## （二）使用 EFI-EST 网站生成网络文件（XGMML）
 
+### 1. 对从 EFI-EST 中获得的序列数据进行分析
+
+
+
+### 2. 对从 NCBI 中获得的数据进行分析
+
 打开下列网址，进入 EFI-EST 网站
 https://efi.igb.illinois.edu/efi-est/
 ![image.png](https://synbiopath.online/20260310215643621.png)
 
 在 Fasta 界面，点击 Choose a file，上传刚刚获得的 fasta文件，提交之后，输入任务名和邮箱，点击 submit analysis。
 ![image.png](https://synbiopath.online/20260310215712867.png)
+
+此时，会收到一封邮件，提示
