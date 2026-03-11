@@ -99,4 +99,7 @@ https://efi.igb.illinois.edu/efi-est/
 在打开的连接中，可以看到在 Dataset Summary 处列出了这个数据集的各种信息，此时我们点击 SSN Finalization，进行 SSN 网络优化
 ![image.png](https://synbiopath.online/20260311170723752.png)
 
-在 SSN Finalization 界面，我们会看到一个叫 **Alignment Score Threshold（AS）** 的参数，这个参数是用来筛选连线的。**AS = 50 相当于 BLAST 的 E-value 为 10 的负 50 次方**。
+在 SSN Finalization 界面，我们会看到一个叫 **Alignment Score Threshold（AS）** 的参数，AS 这个参数是用来筛选连线的。**AS = 50 相当于 BLAST 的 E-value 为 10 的负 50 次方**。AS 值越大，要求两条序列越像才能连线，图里的簇（Cluster）就会分得越散。
+
+我们可以用不同的 AS 值生成好几个网络，到时候看看哪个聚类效果最符合我们的研究预期。
+
