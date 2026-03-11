@@ -40,7 +40,7 @@ EFI-EST：https://efi.igb.illinois.edu/efi-est/
 https://efi.igb.illinois.edu/efi-est/
 ![image.png](https://synbiopath.online/20260310215643621.png)
 
-在 Query Sequence 处输入目标序列，在 UniProt BLAST query e-value 处输入默认值 5；Maximum number of sequences retrieved 处输入默认值 1000，此处输入的数值越大，在 Cytoscape 中处理的时间越长，第一次操作建议选择默认值即可。Sequence database 有三种选项，Uniprot，Uniprot90，Uniprot50。这三个数据库的 
+在 Query Sequence 处输入目标序列，在 UniProt BLAST query e-value 处输入默认值 5；Maximum number of sequences retrieved 处输入默认值 1000，此处输入的数值越大，在 Cytoscape 中处理的时间越长，第一次操作建议选择默认值即可。Sequence database 有三种选项，Uniprot，Uniprot90，Uniprot50。这三个数据库的区别是
 ![image.png](https://synbiopath.online/20260311161659896.png)
 
 
