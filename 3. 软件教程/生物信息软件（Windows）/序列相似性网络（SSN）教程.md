@@ -144,7 +144,20 @@ https://efi.igb.illinois.edu/efi-est/
 当 Cytoscape 处于如下状态时，就代表已经导入完成了
 ![image.png](https://synbiopath.online/20260311192057610.png)
 
-点击工具栏中的 Layout -> Prefuse Force Directed Layout -> alignment_score
-![image.png](https://synbiopath.online/20260311194831990.png)
+#### 3. **给网络图“整形”（改变布局）**：
 
-注意：在
+刚导进去的时候，所有的点（序列）可能挤成一团方块，非常难看。
+
+点击工具栏中的 Layout -> Prefuse Force Directed Layout -> alignment_score，软件会计算一会儿，然后图就会“炸开”，相似的序列会聚集成一簇一簇的（Cluster）。这就有了SSN的雏形了！
+![image.png](https://synbiopath.online/20260312105458141.png)
+
+>注意：在构建序列相似性网络 SSN 图谱时，Prefuse Force Directed Layout 是最通用的一种布局方式，适合大多数中小型网络。当超过 1000  条数据时，应选择 Prefuse Force Directed OpenCL Layout，该算法会使用 GPU 加速（OpenCL），处理大规模网络更快。
+>
+>在应用 Prefuse 力导向布局时，会提供不同的选项应用“边权重（edge weight）”来影响节点的排列。一般默认使用 alignment_score（比对得分）作为权重，该选项非常适合基于同源/相似性构建的网络（如蛋白家族、基因 ortholog 网络）。
+
+#### 4. **给网络图“上色”（美化）**
+
+在软件左侧面板，点击 **Style（样式）** 标签页。
+![image.png](https://synbiopath.online/20260312105656150.png)
+
+**给节点上色 (Node Fill Color)**：找到 Fill Color，展开它。你可以根据序列的属性（比如物种分布、序列长度、或者是不是你的目标序列）来上色。在 Column 里选择你想映射的属性（比如 Description 或 Length），然后在 Mapping Type 选择 Discrete Mapping（离散映射）或 Continuous Mapping（连续映射），接着挑一个好看的调色板。
