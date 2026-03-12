@@ -164,4 +164,12 @@ https://efi.igb.illinois.edu/efi-est/
 ![image.png](https://synbiopath.online/20260312110110490.png)
 
 **改变节点形状 (Shape)**：点击 Shape，可以把默认的序列设置成圆形，把你的目标研究序列设置成巨大的星星或三角形，让它醒目，接着挑一个好看的调色板。
+![image.png](https://synbiopath.online/20260312111017197.png)
 
+**去掉碍眼的标签 (Label)**：默认可能每个点上都有很长的名字，显得杂乱。在 Style -> Node -> Label 里，把映射清空，点就变干净了。
+![image.png](https://synbiopath.online/20260312111056424.png)
+
+#### 5. 导出图片
+
+调整到你满意的样子后，点击 File -> Export -> Network to Image -> SVG
+![image.png](https://synbiopath.online/20260312111205858.png)
