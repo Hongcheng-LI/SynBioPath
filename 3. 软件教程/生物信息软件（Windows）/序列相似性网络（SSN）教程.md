@@ -171,5 +171,6 @@ https://efi.igb.illinois.edu/efi-est/
 
 #### 5. 导出图片
 
-调整到你满意的样子后，点击 File -> Export -> Network to Image -> SVG
+调整到你满意的样子后，点击 File -> Export -> Network to Image -> SVG，勾选 Hide Labels。
 ![image.png](https://synbiopath.online/20260312111205858.png)
+
