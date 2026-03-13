@@ -207,6 +207,8 @@ https://efi.igb.illinois.edu/efi-est/
 在 Fill Color 的 Bypass 栏（第三列）点一下，点击 ColarBrowser Diverging -> RGB，输入颜色代码 07478D，或输入RGB代码：R 7 G 71 B 141。
 ![image.png](https://synbiopath.online/20260313170056615.png)
 
+**强制显示名字**：在 Label 的 Bypass 栏（第三列）点一下，输入文字 pigA1，回车。
+
 
 **给节点上色 (Node Fill Color)**：找到 Fill Color，展开它。你可以根据序列的属性（比如物种分布、序列长度、或者是不是你的目标序列）来上色。在 Column 里选择你想映射的属性（比如 Description 或 Length），然后在 Mapping Type 选择 Discrete Mapping（离散映射）或 Continuous Mapping（连续映射），接着挑一个好看的调色板。
 ![image.png](https://synbiopath.online/20260312110110490.png)
