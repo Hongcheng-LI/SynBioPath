@@ -183,7 +183,10 @@ https://efi.igb.illinois.edu/efi-est/
 ![image.png](https://synbiopath.online/20260313164336245.png)
 
 **把标签位置移到下方**：
-- 勾选左侧属性列表最下方的 Properties 下拉菜单，确保 Label Position（标签位置）被勾选显示出来了。
+- 勾选左侧属性列表中的 More Properties 下拉菜单，确保 Label Position（标签位置）被勾选显示出来。
+![image.png](https://synbiopath.online/20260313164533827.png)
+![image.png](https://synbiopath.online/20260313164623002.png)
+
 - 找到 **Label Position**，点击左侧的默认方块，会弹出一个九宫格位置设置。
 - 把 Node Anchor（节点锚点）选在**中下（South）**，把 Label Anchor（标签锚点）选在**中上（North）**。这就代表文字会挂在节点的正下方。
 
