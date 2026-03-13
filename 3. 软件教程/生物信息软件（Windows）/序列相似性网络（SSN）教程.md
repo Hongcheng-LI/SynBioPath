@@ -163,13 +163,17 @@ https://efi.igb.illinois.edu/efi-est/
 在 Cytoscape 左侧控制面板，点击 **Style**（样式）标签页，确保下方选中的是 **Node**（节点）。
 ![image.png](https://synbiopath.online/20260313154519868.png)
 
-找到 **Fill Color**（填充色），然后点击 Fill Color 最左侧的默认颜色块，选一个统一的**浅蓝色**。
-![image.png](https://synbiopath.online/20260313162143623.png)
+找到 **Fill Color**（填充色），然后点击 Fill Color 最左侧的默认颜色块，点击 ColarBrowser Diverging -> RGB，输入颜色代码 CADBEF，或输入RGB代码：R 202 G 219 B 239。
+![image.png](https://synbiopath.online/20260313163405304.png)
 
-**增加黑色描边**：找到 **Border Paint**（边框颜色），点击左侧默认色块，选**黑色**；找到 **Border Width**（边框宽度），点击左侧默认数字，输入 **3.0**（默认是 0，所以看不见边框）。
+
+**增加黑色描边**：找到 **Border Paint**（边框颜色），点击左侧默认色块，选**黑色**；找到 **Border Width**（边框宽度），点击左侧默认数字，输入 **6.0**（默认是 0，所以看不见边框）。
 ![image.png](https://synbiopath.online/20260313162430211.png)
 
-**调整节点大小和形状**：找到左侧控制面板中的 Height 和 Width，把默认值改为 30。然后找到 Shape，把形状改为圆形。
+**调整节点大小和形状**：找到左侧控制面板中的 Height 和 Width，把默认值改为 50。然后找到 Shape，把形状改为圆形。
+![image.png](https://synbiopath.online/20260313163813149.png)
+
+**调淡连线颜色**：点击下方的 **Edge**（边）标签，找到 Stroke Color (Unselected)，把默认颜色改为**浅灰色**，这样连线就不会喧宾夺主。
 
 **给节点上色 (Node Fill Color)**：找到 Fill Color，展开它。你可以根据序列的属性（比如物种分布、序列长度、或者是不是你的目标序列）来上色。在 Column 里选择你想映射的属性（比如 Description 或 Length），然后在 Mapping Type 选择 Discrete Mapping（离散映射）或 Continuous Mapping（连续映射），接着挑一个好看的调色板。
 ![image.png](https://synbiopath.online/20260312110110490.png)
