@@ -157,7 +157,8 @@ https://efi.igb.illinois.edu/efi-est/
 >
 >在应用 Prefuse 力导向布局时，会提供不同的选项应用“边权重（edge weight）”来影响节点的排列。一般默认使用 alignment_score（比对得分）作为权重，该选项非常适合基于同源/相似性构建的网络（如蛋白家族、基因 ortholog 网络）。
 
-#### 4. **给网络图“上色”（美化）**
+
+#### 4. 统一节点样式
 
 在软件左侧面板，点击 **Style（样式）** 标签页。
 ![image.png](https://synbiopath.online/20260312105656150.png)
