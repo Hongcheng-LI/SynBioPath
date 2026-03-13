@@ -167,7 +167,7 @@ https://efi.igb.illinois.edu/efi-est/
 ![image.png](https://synbiopath.online/20260313163405304.png)
 
 
-**增加黑色描边**：找到 **Border Paint**（边框颜色），点击左侧默认色块，选**黑色**；找到 **Border Width**（边框宽度），点击左侧默认数字，输入 **6.0**（默认是 0，所以看不见边框）。
+**增加黑色描边**：找到 **Border Paint**（边框颜色），点击左侧默认色块，选**黑色**；找到 **Border Width**（边框宽度），点击左侧默认数字，输入 **5.0**（默认是 0，所以看不见边框）。
 ![image.png](https://synbiopath.online/20260313162430211.png)
 
 **调整节点大小和形状**：找到左侧控制面板中的 Height 和 Width，把默认值改为 50。然后找到 Shape，把形状改为圆形。
@@ -177,6 +177,7 @@ https://efi.igb.illinois.edu/efi-est/
 ![image.png](https://synbiopath.online/20260313164005149.png)
 
 
+## 5 
 **给节点上色 (Node Fill Color)**：找到 Fill Color，展开它。你可以根据序列的属性（比如物种分布、序列长度、或者是不是你的目标序列）来上色。在 Column 里选择你想映射的属性（比如 Description 或 Length），然后在 Mapping Type 选择 Discrete Mapping（离散映射）或 Continuous Mapping（连续映射），接着挑一个好看的调色板。
 ![image.png](https://synbiopath.online/20260312110110490.png)
 
