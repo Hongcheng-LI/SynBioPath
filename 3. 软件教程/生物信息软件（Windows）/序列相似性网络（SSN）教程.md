@@ -204,7 +204,7 @@ https://efi.igb.illinois.edu/efi-est/
 回到左侧 Style -> Node 面板，属性栏的第三列有一个空白的小方块，这叫 Bypass 专栏，意思是“只对当前选中的节点强制生效”。
 ![image.png](https://synbiopath.online/20260313165820218.png)
 
-在 Fill Color 的 Bypass 栏（第三列）点一下，。
+在 Fill Color 的 Bypass 栏（第三列）点一下，点击 ColarBrowser Diverging -> RGB，输入颜色代码 07478D，或输入RGB代码：R 202 G 219 B 239。。
 
 
 **给节点上色 (Node Fill Color)**：找到 Fill Color，展开它。你可以根据序列的属性（比如物种分布、序列长度、或者是不是你的目标序列）来上色。在 Column 里选择你想映射的属性（比如 Description 或 Length），然后在 Mapping Type 选择 Discrete Mapping（离散映射）或 Continuous Mapping（连续映射），接着挑一个好看的调色板。
