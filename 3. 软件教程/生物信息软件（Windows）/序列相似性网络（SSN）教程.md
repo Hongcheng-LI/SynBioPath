@@ -196,7 +196,11 @@ https://efi.igb.illinois.edu/efi-est/
 **调整字体大小**：找到 **Label Font Size**，把默认值改为 16。勾选左侧属性列表中的 More Properties 下拉菜单，选中 Label Font Face（标签字体）。找到左侧控制面板中的 Label Font Face，选择字体为 **Arial Bold**。
 ![image.png](https://synbiopath.online/20260313165253438.png)
 
-#### 6. 
+#### 6. 给特殊节点上色（Bypass 功能）
+
+在图上用鼠标**单独点击选中**你想高亮的那个节点（比如你想作为 pigA1 的那个节点，选中后它会变成黄色提示被选中）。
+
+
 
 **给节点上色 (Node Fill Color)**：找到 Fill Color，展开它。你可以根据序列的属性（比如物种分布、序列长度、或者是不是你的目标序列）来上色。在 Column 里选择你想映射的属性（比如 Description 或 Length），然后在 Mapping Type 选择 Discrete Mapping（离散映射）或 Continuous Mapping（连续映射），接着挑一个好看的调色板。
 ![image.png](https://synbiopath.online/20260312110110490.png)
