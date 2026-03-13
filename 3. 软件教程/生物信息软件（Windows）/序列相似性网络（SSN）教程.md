@@ -210,7 +210,7 @@ https://efi.igb.illinois.edu/efi-est/
 **强制显示名字**：在 Label 的 Bypass 栏（第三列）点一下，输入文字 pigA1，回车。
 ![image.png](https://synbiopath.online/20260313170453040.png)
 
-此时，会发现 Lable 有些小，因此我们选择 Lable Font Size，将 Lable 的字体大小改为 60。
+此时，会发现 Lable 有些小，因此我们选择 Lable Font Size，将 Lable 的字体大小改为 50。
 ![image.png](https://synbiopath.online/20260313170633978.png)
 
 **改变字体颜色**：在 Label Color 的 Bypass 栏点一下，点击 ColarBrowser Diverging -> RGB，输入颜色代码 07478D，或输入RGB代码：R 7 G 71 B 141，设置 Lable 的颜色与 Node 的颜色一致。
@@ -219,9 +219,15 @@ https://efi.igb.illinois.edu/efi-est/
 重复上述操作，选中另一个节点，把它的 Bypass 颜色设为红色（颜色代码 F03A27，或输入RGB代码：R 240 G 58 B 39），标签写上 pigA2。
 ![image.png](https://synbiopath.online/20260313171208992.png)
 
-重复上述操作，给所有需要标记的节点进行颜色标注和标签注释。
+重复上述操作，给所有需要标记的节点进行颜色标注和标签注释，并根据实际情况调整标签的颜色，字体大小，位置等内容，最后得到下图。
+![image.png](https://synbiopath.online/20260313173332643.png)
 
 
+#### 7. 内容排版
+
+现在的排列稍微有点乱，SSN 图最经典的特征是：**大簇在上面，孤立的小点（Singletons）像矩阵一样整齐排列在最下面**。在此处，我们用最适合 SSN 的 yFiles 插件来进行一键完美排版。
+
+点击顶部菜单栏 **Apps** -> **App Manager...**
 
 **给节点上色 (Node Fill Color)**：找到 Fill Color，展开它。你可以根据序列的属性（比如物种分布、序列长度、或者是不是你的目标序列）来上色。在 Column 里选择你想映射的属性（比如 Description 或 Length），然后在 Mapping Type 选择 Discrete Mapping（离散映射）或 Continuous Mapping（连续映射），接着挑一个好看的调色板。
 ![image.png](https://synbiopath.online/20260312110110490.png)
