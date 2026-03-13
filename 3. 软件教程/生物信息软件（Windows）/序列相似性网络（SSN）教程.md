@@ -161,7 +161,10 @@ https://efi.igb.illinois.edu/efi-est/
 #### 4. 统一节点样式
 
 在 Cytoscape 左侧控制面板，点击 **Style**（样式）标签页。。
-![image.png](https://synbiopath.online/20260312105656150.png)
+![image.png](https://synbiopath.online/20260313154519868.png)
+
+确保下方选中的是 **Node**（节点）。
+
 
 **给节点上色 (Node Fill Color)**：找到 Fill Color，展开它。你可以根据序列的属性（比如物种分布、序列长度、或者是不是你的目标序列）来上色。在 Column 里选择你想映射的属性（比如 Description 或 Length），然后在 Mapping Type 选择 Discrete Mapping（离散映射）或 Continuous Mapping（连续映射），接着挑一个好看的调色板。
 ![image.png](https://synbiopath.online/20260312110110490.png)
