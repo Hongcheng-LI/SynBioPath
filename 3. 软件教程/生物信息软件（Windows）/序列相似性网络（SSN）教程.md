@@ -227,7 +227,20 @@ https://efi.igb.illinois.edu/efi-est/
 
 现在的排列稍微有点乱，SSN 图最经典的特征是：**大簇在上面，孤立的小点（Singletons）像矩阵一样整齐排列在最下面**。在此处，我们用最适合 SSN 的 yFiles 插件来进行一键完美排版。
 
-点击顶部菜单栏 **Apps** -> **App Manager...**
+点击顶部菜单栏 **Apps** -> **App Store** -> **Show App Store**
+![image.png](https://synbiopath.online/20260313173718071.png)
+
+在搜索框输入 **yFiles**，会弹出一个网站界面（https://apps.cytoscape.org/search?q=yFiles），找到 **yFiles Layout Algorithms**。
+![image.png](https://synbiopath.online/20260313173939509.png)
+
+点击 **yFiles Layout Algorithms**，在新弹出的界面中点击 Download。
+![image.png](https://synbiopath.online/20260313174028208.png)
+
+返回 CytoScape，点击顶部菜单栏 **Apps** -> **App Store** -> **Install Apps from File**，找到刚刚下载的 **yFiles Layout Algorithms** 文件，即可完成 yFiles 的安装。
+![image.png](https://synbiopath.online/20260313174150454.png)
+
+点击顶部菜单栏 **Layout** -> **yFiles Layouts** -> **yFiles Organic Layout**。
+
 
 **给节点上色 (Node Fill Color)**：找到 Fill Color，展开它。你可以根据序列的属性（比如物种分布、序列长度、或者是不是你的目标序列）来上色。在 Column 里选择你想映射的属性（比如 Description 或 Length），然后在 Mapping Type 选择 Discrete Mapping（离散映射）或 Continuous Mapping（连续映射），接着挑一个好看的调色板。
 ![image.png](https://synbiopath.online/20260312110110490.png)
