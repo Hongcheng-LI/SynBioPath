@@ -216,7 +216,12 @@ https://efi.igb.illinois.edu/efi-est/
 **改变字体颜色**：在 Label Color 的 Bypass 栏点一下，点击 ColarBrowser Diverging -> RGB，输入颜色代码 07478D，或输入RGB代码：R 7 G 71 B 141，设置 Lable 的颜色与 Node 的颜色一致。
 ![image.png](https://synbiopath.online/20260313170832791.png)
 
-重复上述操作，选中另一个节点，把它的 Bypass 颜色设为红色（颜色代码 F03A27，或输入RGB代码：R 7 G 71 B 141），标签写上 pigA2。
+重复上述操作，选中另一个节点，把它的 Bypass 颜色设为红色（颜色代码 F03A27，或输入RGB代码：R 240 G 58 B 39），标签写上 pigA2。
+![image.png](https://synbiopath.online/20260313171208992.png)
+
+重复上述操作，给所有需要标记的节点进行颜色标注和标签注释。
+
+
 
 **给节点上色 (Node Fill Color)**：找到 Fill Color，展开它。你可以根据序列的属性（比如物种分布、序列长度、或者是不是你的目标序列）来上色。在 Column 里选择你想映射的属性（比如 Description 或 Length），然后在 Mapping Type 选择 Discrete Mapping（离散映射）或 Continuous Mapping（连续映射），接着挑一个好看的调色板。
 ![image.png](https://synbiopath.online/20260312110110490.png)
