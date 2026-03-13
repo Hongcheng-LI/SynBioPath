@@ -182,6 +182,11 @@ https://efi.igb.illinois.edu/efi-est/
 **隐藏所有默认标签**：回到 **Node**（节点）样式页面，找到 **Label**，点击映射旁边的 🗑️ 垃圾桶，删掉它。现在整个图变得干干净净，没有任何文字。
 ![image.png](https://synbiopath.online/20260313164336245.png)
 
+**把标签位置移到下方**：
+- 勾选左侧属性列表最下方的 Properties 下拉菜单，确保 Label Position（标签位置）被勾选显示出来了。
+- 找到 **Label Position**，点击左侧的默认方块，会弹出一个九宫格位置设置。
+- 把 Node Anchor（节点锚点）选在**中下（South）**，把 Label Anchor（标签锚点）选在**中上（North）**。这就代表文字会挂在节点的正下方。
+
 
 
 **给节点上色 (Node Fill Color)**：找到 Fill Color，展开它。你可以根据序列的属性（比如物种分布、序列长度、或者是不是你的目标序列）来上色。在 Column 里选择你想映射的属性（比如 Description 或 Length），然后在 Mapping Type 选择 Discrete Mapping（离散映射）或 Continuous Mapping（连续映射），接着挑一个好看的调色板。
