@@ -45,6 +45,7 @@
 
 #### 实验结果与深度解析
 通过大尺度的基因文库筛查与干实验进化树构建，研究团队成功在海量微生物中描绘出了生产该类分子的进化图谱。作者利用设计好的 HCS 简并引物对包含 1638 个基因组 DNA 的环境分离菌株文库进行了全面扩增，最终获得了 67 株含有目标基因片段的阳性菌株。为了从这 67 株候选者中挑出最具潜力的“黑马”，研究人员引入了基于扩增序列的干实验系统发育树分析，结果详见 **Figure 2**。在该系统发育图谱中，67 个命中菌株与 27 个已知参考菌株被系统地划分为 7 个主要的进化分支 (Clades 1-7)。**Figure 2** 中用红色粗体和下划线特别标注了那些最终被证实实际产生目标化合物的菌株。极其引人瞩目的是，在系统树的第 7 分支 (Clade 7) 的核心区域，出现了一个由未被充分研究的类芽孢杆菌 (*Paenibacillus*) 组成的独特亚群（如 BYK1458 和 GAI108 等）。由于过往关于此类 $\beta$-分支聚酮的发现绝大多数集中于放线菌（如链霉菌属），这一进化树上的新颖节点强烈暗示这些类芽孢杆菌体内极有可能蕴藏着碳骨架前所未见的全新 $\beta$-分支聚酮分子，从而为后续的针对性液体发酵与化学分离提供了精准的导航。
+![image.png](https://synbiopath.online/20260313095925895.png)
 
 >[By employing phylogenetic analysis of the partial HCS homolog-encoding gene sequences obtained through PCR amplification, we successfully sorted various types of $\beta$-branched conjugated polyketides into seven clades to construct their clade-structure atlas in nature.]
 
@@ -54,6 +55,7 @@
 
 #### 实验结果与深度解析
 双重标志物策略的有效性在这一步得到了极其壮观的展现。通过紫外特征的代谢组学巡查，研究人员成功从挑选出的类芽孢杆菌及链霉菌的发酵提取物中，精确定位了大量呈现出典型多烯振动精细结构的新型代谢物质谱峰。随着发酵规模的放大与分离纯化的实施，**Figure 3** 惊艳地展示了七个通过此策略全新发现的复杂 $\beta$-分支共轭聚酮类天然产物的绝对化学结构。这其中包括从类芽孢杆菌 BYK1458 中分离出的包含独特四氢吡喃酮和苯甲酰胺基团的 paenillaene（化合物 **1**），从类芽孢杆菌 GAI108 中挖掘出的具有极大多环内酯骨架及不同氧化修饰状态的 paeniformicins A-D（化合物 **2**-**5**），以及从一株海洋来源链霉菌中发现的具有密集共轭系统的高级同系物 pulvomycins E-F（化合物 **6**-**7**）。这些庞大且结构瑰丽的全新物质实体的成功获取，无可辩驳地证实了通过结合基因组同源性与代谢物紫外精细结构特征，能够跨越门类界限，在自然界中高通量、定制化地“采摘”具有极高结构复杂度的特定药理骨架。
+![image.png](https://synbiopath.online/20260313095946020.png)
 
 >[Vibronic fine structures in UV spectra were utilized as metabolomic hallmarks in natural product discovery and facilitated the rapid identification of $\beta$-branched conjugated polyketides in small-scale cultures.]
 
@@ -63,6 +65,7 @@
 
 #### 实验结果与深度解析
 通过核磁共振网络与基因组解码的完美缝合，paenillaene 的完整三维分子密码被彻底揭开。正如 **Figure 4** 的关键核磁相关图所示，研究人员首先利用 COSY 信号精确构建了数段孤立的自旋系统，随后凭借极为关键的 HMBC 长程耦合信号跨越季碳障碍，将庞大的共轭四烯链、特征性的 $\beta$-甲基分支（C-33 和 C-35）、末端独特的苯甲酰胺基团以及核心的四氢吡喃酮环完美地铰接在一起，确立了其包含 35 个碳原子的庞大平面拓扑框架。在解决其五个手性中心 (3R, 5S, 19S, 20S, 23S) 的绝对构型难题时，全基因组深度挖掘发挥了至关重要的作用。干实验序列分析揭示，负责合成该分子的 *trans*-AT PKS 装配线中，特定的 KR 结构域（如 KR2, KR7, KR8）在 LDD 签名基序的特定位置含有诊断性的天冬氨酸残基，这在聚酮合酶组装法则中严格对应着 B1 型还原结果。这一从基因密码底层推导出的立体构型预测与核磁共振 ROESY 实验中观察到的空间交叉峰（如 H-19 与 H2-24 的空间相互作用）达成了天衣无缝的印证。这种利用酶学逻辑辅助核磁确证的跨界策略，不仅完美解析了化合物 **1**，更从根本上验证了其通过生物合成途径中苯甲酸起始单元接入甘氨酸的非凡演化历程。
+![image.png](https://synbiopath.online/20260313100005286.png)
 
 >[The absolute configuration of the hydroxy group-bearing stereogenic centers, which could not be determined by the modified Mosher’s method... could be predicted by analyzing the presence of a diagnostic Asp residue at the third position within an LDD signature motif in the KR domains.]
 
@@ -72,6 +75,7 @@
 
 #### 实验结果与深度解析
 现代计算化学与传统波谱学的碰撞给出了无可辩驳的结构定论。在平面骨架层面，**Figure 5** 生动展现了化合物 **2** 中密集的二维核磁关联网络，其中 HMBC 信号（特别是 H-21 与 C-1 酯羰基的远程耦合）确凿地“锁死”了该分子的 22 元巨型内酯环结构。在面对最棘手的 C-20 和 C-21 立体中心构型时，研究者首先利用基于 *J* 耦合常数分析结合 ROESY 空间相关性的湿实验数据，将相对构型范围缩小至 20R*/21S*。随后，计算化学展现出了极高的决定力：通过在理论真空中对分子的四种可能非对映异构体进行 DFT 级别的 NMR 化学位移预测，并运用 DP4 数学模型将理论光谱与实测光谱进行相关性分析，计算结果以罕见的 100% 压倒性概率将绝对构型唯一地指向了 20R, 21S（参见正文补充材料描述）。基于这一坚实的框架，作者顺利地推导出了具有开链形态及琥珀酸侧链修饰的同源物 **3** 到 **5** 的结构变异规律。这种将复杂的宏观大环通过波谱学解构，再将微观手性中心交给量子力学算力去“一锤定音”的研究范式，确保了整个发现管线中化学实体的绝对可靠性。
+![image.png](https://synbiopath.online/20260313100023100.png)
 
 >[For the stereochemistry of C-20 and C-21, conformational search and DP4 computational calculation were applied to propose 20R and 21S with 100% probability.]
 
