@@ -170,7 +170,7 @@ https://efi.igb.illinois.edu/efi-est/
 **增加黑色描边**：找到 **Border Paint**（边框颜色），点击左侧默认色块，选**黑色**；找到 **Border Width**（边框宽度），点击左侧默认数字，输入 **5.0**（默认是 0，所以看不见边框）。
 ![image.png](https://synbiopath.online/20260313162430211.png)
 
-**调整节点大小和形状**：找到左侧控制面板中的 Height 和 Width，把默认值改为 50。然后找到 Shape，把形状改为圆形。
+**调整节点大小和形状**：找到左侧控制面板中的 Height 和 Width，把默认值改为 25。然后找到 Shape，把形状改为圆形。
 ![image.png](https://synbiopath.online/20260313163813149.png)
 
 **调淡连线颜色**：点击下方的 **Edge**（边）标签，找到 Stroke Color (Unselected)，点击 ColarBrowser Diverging -> RGB，输入颜色代码 DDDDDD，或输入RGB代码：R 221 G 221 B 221。把默认颜色改为**浅灰色**，这样连线就不会喧宾夺主。
@@ -210,7 +210,7 @@ https://efi.igb.illinois.edu/efi-est/
 **强制显示名字**：在 Label 的 Bypass 栏（第三列）点一下，输入文字 pigA1，回车。
 ![image.png](https://synbiopath.online/20260313170453040.png)
 
-此时，会发现 Lable 有些小，因此我们选择 Lable Font Size，将 Lable 的字体大小改为 50。
+此时，会发现 Lable 有些小，因此我们选择 Lable Font Size，将 Lable 的字体大小改为 24。
 ![image.png](https://synbiopath.online/20260313170633978.png)
 
 **改变字体颜色**：在 Label Color 的 Bypass 栏点一下，点击 ColarBrowser Diverging -> RGB，输入颜色代码 07478D，或输入RGB代码：R 7 G 71 B 141，设置 Lable 的颜色与 Node 的颜色一致。
