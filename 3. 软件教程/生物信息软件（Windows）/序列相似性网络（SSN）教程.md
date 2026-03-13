@@ -193,7 +193,7 @@ https://efi.igb.illinois.edu/efi-est/
 - 把 Node Anchor（节点锚点）选在**中下（South）**，把 Label Anchor（标签锚点）选在**中上（North）**。这就代表文字会挂在节点的正下方。
 ![image.png](https://synbiopath.online/20260313164906720.png)
 
-**调整字体大小**：找到 **Label Font Size**，把默认值改大，比如改为 16，并可以在 Label Font Face 中设为**加粗（Bold）**。
+**调整字体大小**：找到 **Label Font Size**，把默认值改为 16。勾选左侧属性列表中的 More Properties 下拉菜单，选中 Label Font Face（标签字体）被勾选显示出来，。
 
 **给节点上色 (Node Fill Color)**：找到 Fill Color，展开它。你可以根据序列的属性（比如物种分布、序列长度、或者是不是你的目标序列）来上色。在 Column 里选择你想映射的属性（比如 Description 或 Length），然后在 Mapping Type 选择 Discrete Mapping（离散映射）或 Continuous Mapping（连续映射），接着挑一个好看的调色板。
 ![image.png](https://synbiopath.online/20260312110110490.png)
