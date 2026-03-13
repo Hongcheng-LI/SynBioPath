@@ -147,9 +147,11 @@ https://efi.igb.illinois.edu/efi-est/
 #### 3. **给网络图“整形”（改变布局）**：
 
 刚导进去的时候，所有的点（序列）可能挤成一团方块，非常难看。
+![image.png](https://synbiopath.online/20260313113519363.png)
 
 点击工具栏中的 Layout -> Prefuse Force Directed Layout -> alignment_score，软件会计算一会儿，然后图就会“炸开”，相似的序列会聚集成一簇一簇的（Cluster）。这就有了SSN的雏形了！
-![image.png](https://synbiopath.online/20260312105458141.png)
+![image.png](https://synbiopath.online/20260313113551413.png)
+
 
 >注意：在构建序列相似性网络 SSN 图谱时，Prefuse Force Directed Layout 是最通用的一种布局方式，适合大多数中小型网络。当超过 1000  条数据时，应选择 Prefuse Force Directed OpenCL Layout，该算法会使用 GPU 加速（OpenCL），处理大规模网络更快。
 >
