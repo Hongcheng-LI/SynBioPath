@@ -243,7 +243,13 @@ https://efi.igb.illinois.edu/efi-est/
 ![image.png](https://synbiopath.online/20260313175040991.png)
 
 
-![OUCF108-pigBGC Full Network.png](https://synbiopath.online/OUCF108-pigBGC Full Network.png)
+#### 8. 导出图片
+
+全部调整满意后，点击顶部菜单 **File** -> **Export** -> **Network to Image...**。
+- 如果为了放进 Word 或 PPT 汇报，建议导出 **PNG** 格式，下面的 Zoom 放大倍数选 **300%** 甚至更高（保证非常清晰）。
+- 如果要发 SCI 论文，建议导出 **PDF** 或 **SVG** 矢量格式。
+![image.png](https://synbiopath.online/20260313175218258.png)
+
 
 
 **给节点上色 (Node Fill Color)**：找到 Fill Color，展开它。你可以根据序列的属性（比如物种分布、序列长度、或者是不是你的目标序列）来上色。在 Column 里选择你想映射的属性（比如 Description 或 Length），然后在 Mapping Type 选择 Discrete Mapping（离散映射）或 Continuous Mapping（连续映射），接着挑一个好看的调色板。
