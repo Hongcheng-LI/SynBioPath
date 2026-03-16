@@ -5,7 +5,7 @@
 **文章题目**：Reaction-Conditioned Enzyme Discovery with Multimodal Deep Learning
 **文章 DOI 号**：10.64898/2026.03.09.710689
 **期刊名称**：bioRxiv (Preprint)
-**通讯作者**： Pan Tan (谈攀)；Liang Hong (洪亮),
+**通讯作者**： Pan Tan (谈攀)；Liang Hong (洪亮)
 **通讯作者工作单位**：
 上海交通大学上海国家应用数学中心及自然科学研究院 (Shanghai National Center for Applied Mathematics & Institute of Natural Sciences, Shanghai Jiao Tong University)；
 上海人工智能实验室 (Shanghai Artificial Intelligence Laboratory)；
@@ -47,6 +47,7 @@
 为了让计算机像顶尖有机化学家一样洞察化学转化并据此寻找催化剂，研究团队首先需要解决机器对化学语言的“理解”问题。作者设计了一个宏大的多模态学习架构 VenusRXN，其核心设计逻辑是分别建立对“化学”和“生物大分子”极具表征力的编码器，并在高维空间中强制它们对话。对于反应部分，必须超越简单的底物分子指纹，真正捕捉在反应过程中哪些化学键断裂、哪些原子发生了转移。随后，设计了包含对比学习和联合匹配头的多模态训练干实验方案，利用公开的庞大生化反应数据库，迫使原本孤立的蛋白质语言模型与化学图网络产生强烈的语义共鸣。
 #### 实验结果与深度解析
 这套具有革命性架构的多模态引擎在 **Figure 1** 的全景宏观结构图中得到了完整解构。作者首先精心雕琢了名为 Mol-Graphormer 的图Transformer基础模块（**Figure 1a**），并在 **Figure 1b** 的自监督预训练管线中，强制要求该网络完成掩码原子属性预测、反应中心定位以及图对比学习，这赋予了其捕捉原子间拓扑规则的底蕴。为了动态刻画化学反应这一“过程”本身，**Figure 1c** 展示了通过原子映射技术生成的缩合反应图 (CGR) 网络，使得反应物和产物在同一张网络中完成了结构演化的编码。在建立了这个强大的化学“大脑”后，**Figure 1d** 及 **Figure 1e** 揭示了跨模态联合训练的核心：模型将化学反应图的输出与蛋白质语言模型的输出投入同一个对比学习空间，通过同时引入硬标签对比与软标签对齐机制，并结合交叉注意力 (Cross-attention) 进行特征级融合，极大地平滑了“一对多”或“多对多”的复杂酶学催化映射。完成这一深度融合后，正如 **Figure 1f** 所列举的应用场景，VenusRXN 可以游刃有余地在由反应查酶、由模板酶查新酶、以及催化动力学微调等多种任务中大放异彩。在随后的消融分析中（文中提及的 Supplementary Fig. 1），包含 CGR 以及图预训练的完整 VenusRXN 架构在极难层级的 EC 编号预测任务中拿下了 71.5% 的压倒性准确率，这从底层逻辑上证明了其化学反应编码器的强大判别力。
+![image.png](https://synbiopath.online/20260316092701465.png)
 
 > "By seamlessly unifying a pre-trained reaction encoder with a protein language model, VenusRXN achieves a fine-grained, high-dimensional alignment of chemical and biological representations."
 
