@@ -7,7 +7,7 @@
 **期刊名称**：bioRxiv (Preprint)
 **通讯作者**： Pan Tan (谈攀)；Liang Hong (洪亮)
 **通讯作者工作单位**：
-上海交通大学上海国家应用数学中心及自然科学研究院 (Shanghai National Center for Applied Mathematics & Institute of Natural Sciences, Shanghai Jiao Tong University)；
+谈攀：上海交通大学上海国家应用数学中心及自然科学研究院 (Shanghai National Center for Applied Mathematics & Institute of Natural Sciences, Shanghai Jiao Tong University)；
 上海人工智能实验室 (Shanghai Artificial Intelligence Laboratory)；
 上海交通大学生命科学技术学院，微生物代谢国家重点实验室 (State Key Laboratory of Microbial Metabolism, and School of Life Sciences & Biotechnology, Shanghai Jiao Tong University)。
 
@@ -79,6 +79,7 @@
 计算化学的终极舞台永远是合成生物学真实细胞工厂中的物质转化。为了挑战这一巅峰，研究团队发起了对超过 3 亿条未知蛋白质序列（NCBI NR 数据库）的全局无差别扫描。目标设定为制备 2 型糖尿病重磅药物利格列汀的核心手性中间体 (R)-1-cbz-3-aminopiperidine，该反应极其严苛：需要一种未被自然界报道的 $\omega$-转氨酶，不仅要能容纳极其庞大的非天然酮类底物，还要能强行使用 D-丝氨酸作为氨基供体。作者利用 VenusRXN 从数亿汪洋中精准捞出排名前十的未知序列，并在大肠杆菌无细胞体系中部署了极其严密的纯化表达、反应孵育及手性高效液相色谱 (HPLC) 的湿实验检测管线，意图用坚实的化学物质产出和手性纯度彻底证明这套干实验挖掘系统的工业级成药转化效能。
 #### 实验结果与深度解析
 干实验的庞大算力与湿实验的精细催化在此刻达成了最壮丽的交响。在针对极其庞大的非天然二线酮和 D-丝氨酸的挑战中，模型从 3 亿个候选中精准锚定了编号为 TA-3 的新型转氨酶。如 **Figure 5a** 的合成路线与 **Figure 5c** 预测的三维折叠构象所示，随后在大肠杆菌表达系统中的湿实验验证给出了令人极度振奋的捷报。**Figure 5e** 中极其干净利落的液相色谱及手性色谱峰确凿无疑地证明：纯化后的 TA-3 酶在体外反应池中极其高效地切断并重组了非天然底物的化学键，达到了高达 45% 的工业级底物转化率。更为惊世骇俗的是，其催化的产物对映体过量值 (ee) 突破了 >99% 的绝对立体选择性关卡，完美达成了手性制药工业的最高标准。与此同时，在另一个抗糖尿病药物阿卡波糖前体 valienol 的磷酸化湿实验中（**Figure 5b** 和 **5d**），该模型推荐的前 10 个候选激酶中竟然有 8 个在体外无细胞实验中表现出了真实的催化活性，尤其是 C9 激酶展示出了卓越的转化效能。这种无需耗时昂贵的三维折叠预测，仅依靠数分钟向量计算就能跨越数亿暗物质宇宙并“点石成金”的闭环结果，彻底粉碎了传统基于同源比对挖掘的边界。
+![image.png](https://synbiopath.online/20260316092903210.png)
 
 > "With surprising precision, the model pinpointed active candidates within the top 10 sequences directly from a global search space of over 300 million proteins... unlocking the boundless potential of new-to-nature biocatalyst."
 
@@ -87,6 +88,7 @@
 仅仅知道某个酶能否催化反应是酶挖掘的初级阶段，而工业应用和酶工程迭代的终极追求是预测“它到底催化得有多快”。为了验证前期多模态庞大预训练积累的物理化学语义是否有助于定量推演酶的催化转化数 ($k_{cat}$)，作者设计了模型微调 (Fine-tuning) 的干实验环节。通过引入含有数千个真实动力学参数对的 TurNup 数据集，研究者在保持网络架构的基础上，将预测头改造为回归网络。实验中严密设置了“仅输入反应”、“仅输入酶”以及“反应-酶联合输入”三种模式，并将其与当前最强的 XGBoost 动力学预测基线进行全面的统计学指标火拼，旨在证明联合编码器中的交叉注意力机制真正捕获了底物与酶口袋之间微观适配导致的动力学跃升密码。
 #### 实验结果与深度解析
 在涉及复杂化学动力学的微调任务中，模型多模态表征深度的优势被展现得淋漓尽致。**Figure 6** 的条形图矩阵及详细散点回归分析清晰地勾勒了各模型的战斗力象限：无论输入通道如何变换，VenusRXN 在均方误差 (MSE)、$R^2$ 决定系数以及最具说服力的斯皮尔曼相关系数上均形成了对原霸主 TurNup 模型的绝对超越（相关系数全线突破 0.6）。极其令人深思的一个细节是，即便仅仅让 VenusRXN 看到纯粹的“蛋白质序列”（单模态输入），其预测动力学的准确度（0.63）竟然就已经能够与 TurNup 利用了反应与酶双模态信息的巅峰成绩（0.65）相匹敌。这从侧面有力地证实了模型在早期的海量对比对齐训练中，其蛋白质向量内部已经被强行注入并“折叠”了极度丰富的化学底物偏好与反应活性阈值语义。而当重新把反应和酶同时输入联合编码器时，模型的性能毫无悬念地冲上了最高峰。这一结果极其符合经典酶学米氏方程背后的物理学实质：催化转化数不仅取决于酶蛋白骨架固有的构象振动动力学，更极度依赖于被催化的特定反应底物在活性口袋中的诱导契合与静电过渡态稳定。联合编码器成功内化了这一微观世界的热力学博弈。
+![image.png](https://synbiopath.online/20260316092918041.png)
 
 > "This demonstrates that through multimodal learning, all three encoders of VenusRXN can be efficiently transferred to the $k_{cat}$ prediction task and successfully identify enzymes with high $k_{cat}$ values."
 
