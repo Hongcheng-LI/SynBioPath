@@ -7,9 +7,8 @@
 **期刊名称**：bioRxiv (Preprint)
 **通讯作者**： Pan Tan (谈攀)；Liang Hong (洪亮)
 **通讯作者工作单位**：
-谈攀：上海交通大学上海国家应用数学中心及自然科学研究院 (Shanghai National Center for Applied Mathematics & Institute of Natural Sciences, Shanghai Jiao Tong University)；
-上海人工智能实验室 (Shanghai Artificial Intelligence Laboratory)；
-上海交通大学生命科学技术学院，微生物代谢国家重点实验室 (State Key Laboratory of Microbial Metabolism, and School of Life Sciences & Biotechnology, Shanghai Jiao Tong University)。
+- **谈攀**：上海交通大学上海国家应用数学中心及自然科学研究院 (Shanghai National Center for Applied Mathematics & Institute of Natural Sciences, Shanghai Jiao Tong University)；上海人工智能实验室 (Shanghai Artificial Intelligence Laboratory)；
+- **洪亮**：上海交通大学上海国家应用数学中心及自然科学研究院 (Shanghai National Center for Applied Mathematics & Institute of Natural Sciences, Shanghai Jiao Tong University)；上海人工智能实验室 (Shanghai Artificial Intelligence Laboratory)；上海交通大学生命科学技术学院，微生物代谢国家重点实验室 (State Key Laboratory of Microbial Metabolism, and School of Life Sciences & Biotechnology, Shanghai Jiao Tong University)。
 
 ---
 
