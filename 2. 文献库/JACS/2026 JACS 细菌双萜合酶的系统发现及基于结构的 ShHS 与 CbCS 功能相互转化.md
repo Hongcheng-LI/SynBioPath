@@ -1,3 +1,4 @@
+![image.png](https://synbiopath.online/20260318095217014.png)
 
 ---
 
@@ -43,7 +44,9 @@
 为了系统性地扩张细菌双萜的化学空间，作者试图规避传统序列比对方法在 I 型萜类合酶功能预测上的局限性。本研究利用蛋白质家族数据库构建了序列相似性网络，旨在将具有潜在新颖催化活性的未知合酶与已表征的单萜、倍半萜及双萜合酶在聚类空间中隔离开来。基于这一网络，作者挑选了 313 个处于未知聚类簇中的候选基因，并将其导入经过前体供应优化的酿酒酵母体系中进行高通量表型验证，以期通过代谢物分析直接确证其生化功能。
 
 #### 实验结果与机理解析
-通过大规模的异源表达筛选，本研究显著扩展了细菌萜类化合物的结构多样性。正如 Figure 1 所示，该图对比了目前已知特征的细菌 I 型双萜合酶产生的 35 种骨架（Figure 1A），并重点展示了本研究新鉴定的多种具有前所未见碳骨架的萜类化合物（Figure 1B），包括具有复杂多环系统的 hundungane 和 castenholzane 骨架。这一发现的计算与生化基础详细呈现于 Figure 2 中。Figure 2A 的序列相似性网络图清晰地展示了未知合酶（红色节点）如何游离于已表征序列之外，证实了选样策略的有效性。在酵母表达系统中，气相色谱-质谱联用分析揭示了 16 种合酶具备显著的双萜催化活性（Figure 2B）。随后的大规模发酵与多维核磁共振分析，确定了 10 种新颖的二萜结构（Figure 2C）。其中，来源于 *Streptomyces hundungensis* 的 ShHS 酶催化生成了具有极度重排的 6-6-6 三环化合物 hundungol A（化合物 **1**），而来自绿弯菌的一株未命名细菌的 CbCS 酶则生成了 sphaeroane 型双萜 chloroflexotol A（化合物 **2**）。这些结构的确证不仅验证了前期干实验预测的准确性，也为后续深入探讨萜类合酶的反应机理提供了独特的物质实体。
+通过大规模的异源表达筛选，本研究显著扩展了细菌萜类化合物的结构多样性。正如 Figure 1 所示，该图对比了目前已知特征的细菌 I 型双萜合酶产生的 35 种骨架（Figure 1A），并重点展示了本研究新鉴定的多种具有前所未见碳骨架的萜类化合物（Figure 1B），包括具有复杂多环系统的 hundungane 和 castenholzane 骨架。这一发现的计算与生化基础详细呈现于 Figure 2 中。
+
+Figure 2A 的序列相似性网络图清晰地展示了未知合酶（红色节点）如何游离于已表征序列之外，证实了选样策略的有效性。在酵母表达系统中，气相色谱-质谱联用分析揭示了 16 种合酶具备显著的双萜催化活性（Figure 2B）。随后的大规模发酵与多维核磁共振分析，确定了 10 种新颖的二萜结构（Figure 2C）。其中，来源于 *Streptomyces hundungensis* 的 ShHS 酶催化生成了具有极度重排的 6-6-6 三环化合物 hundungol A（化合物 **1**），而来自绿弯菌的一株未命名细菌的 CbCS 酶则生成了 sphaeroane 型双萜 chloroflexotol A（化合物 **2**）。这些结构的确证不仅验证了前期干实验预测的准确性，也为后续深入探讨萜类合酶的反应机理提供了独特的物质实体。
 
 > "In this study, large-scale genome mining combined with yeast-based heterologous expression was employed to functionally screen 313 bacterial type I terpene synthases... substantially expanding the known structural diversity of bacterial diterpenoids."
 
