@@ -72,8 +72,9 @@
 
 #### 实验结果与深度解析
 静态的晶体结构为理解动态的碳正离子控制提供了绝佳的物理骨架。**Figure 3** 清晰地呈现了 CbCS 极具代表性的酶学基础。**Figure 3A** 的全景叠加图表明，CbCS 拥有经典的 I 型 TS 结构折叠。令人瞩目的是，当结合底物类似物后，酶的 C、D 和 F 螺旋发生了显著的向内收缩运动。这种由开态向闭态的转变，为底物提供了一个极其密闭且疏水的反应腔室，防止高能碳正离子过早被外部水溶剂淬灭。在 **Figure 3B** 中，高分辨率的电子密度图清晰地展示了包含经典富天冬氨酸基序 (88DDMYE92) 和 NSE 基序在内的精密网络，它们死死地钳制住了三个镁离子及底物的焦磷酸离去基团，为启动离子化和初始环化瀑布提供了完美的空间锚定。
+![image.png](https://synbiopath.online/20260318095519577.png)
 
->[These structural changes reflect a transition from an open to a closed conformation and provide a structural basis for a deeper understanding of substrate activation and the ensuing cyclization cascade.]
+>These structural changes reflect a transition from an open to a closed conformation and provide a structural basis for a deeper understanding of substrate activation and the ensuing cyclization cascade.
 
 ### （四）结构引导的定点突变与复杂酶功能的定向转化
 #### 实验目的与设计逻辑
@@ -81,8 +82,9 @@
 
 #### 实验结果与深度解析
 通过理性的分子外科手术，极其复杂的酶催化重定向被完美实现。**Figure 4** 集中展示了这一逆天改命的工程化成果。**Figure 4A** 的活性口袋叠加图直观地标定了那些决定分歧的红色高亮残基。令人惊叹的化学生物学突破体现在 **Figure 4B** 的质谱色谱阵列中：当将 ShHS 中带有负电荷和较大体积的 E193 和 L196 突变为 CbCS 中对应的 T 和 Y (ShHS-E193T, L196Y) 时，该酶竟然奇迹般地放弃了生成其原本复杂的 hundungane 骨架，转而大量合成了 CbCS 的标志性简单产物 chloroflexotol A（化合物 **2**）。逆向操作同样成功：将 CbCS 进行 T194E 和 Y197L 突变后，它也越界生成了属于 ShHS 阵营的重排产物 **12**、**14** 和 **15**。此外，针对控制反应活泼性的 N81 位点，CbCS-N81T 的突变引发了极其丰富的衍生重排，促生了大量旁路化合物（如 **11**-**13**，**16**，结构见 **Figure 4C**）。这一系列数据在 **Figure 4D** 的示意图中得到了完美的理论升华：突变所带来的静电荷变化（如引入或移除偶极辅助稳定效应）及立体位阻变动，精确地改变了中间体 **H** 的构象空间和能量势面，使得反应轨迹如同列车变轨一般驶入了完全不同的终点。这确凿地证明了，酶对高活性中间体的控制不仅仅是宏观的屏蔽，更是微观原子级电荷与体积的极限博弈。
+![image.png](https://synbiopath.online/20260318095545613.png)
 
->[These results demonstrate that subtle variations at one or a few active-site positions are sufficient to redirect carbocation rearrangement trajectories and reshape diterpene skeletons.]
+>These results demonstrate that subtle variations at one or a few active-site positions are sufficient to redirect carbocation rearrangement trajectories and reshape diterpene skeletons.
 
 ---
 
