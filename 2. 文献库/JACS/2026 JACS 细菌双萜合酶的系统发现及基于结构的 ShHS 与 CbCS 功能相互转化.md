@@ -48,9 +48,13 @@
 为了突破已知细菌双萜化学空间的局限，研究团队采用了一种不依赖于序列高同源性的发现策略。由于 I 型萜类合酶仅保留极少数关键金属结合基序（如 DDxxD 和 NSE），整体序列变异极大，传统的基于序列推测产物的方法完全失效。为此，作者首先构建了一个宏大的干实验框架——细菌萜类合酶的序列相似性网络 (SSN)，旨在通过聚类分析主动避开那些已知的单萜和倍半萜合酶簇，专门挑选处于网络边缘的“暗物质”基因。随后，作者将这 313 个候选未知基因直接推入湿实验验证环节，利用底盘经过优化的酿酒酵母为它们提供丰富的香叶基香叶基焦磷酸 (GGPP) 前体，力图通过高通量 GC-MS 筛选直接“唤醒”这些沉睡的催化剂，并在后续的发酵中捕获具有全新骨架的化合物实体。
 
 #### 实验结果与深度解析
-通过干湿联动的海量筛查，细菌双萜的化学多样性版图得到了极其壮观的扩张。**Figure 1** 宏观呈现了这一化学空间的飞跃：其中 **Figure 1A** 总结了已知特征细菌 I 型 TS 产生的骨架，而 **Figure 1B** 骄傲地展示了本研究全新发现的新骨架，包括呈现极其复杂桥环系统的 Hundungane A-C 骨架以及 Castenholzane 骨架（涵盖化合物 **1**, **11**-**15**, **17**, **3** 等）。这一发现的基石在 **Figure 2** 中得到了详细的拆解。**Figure 2A** 的 SSN 网络图清晰地表明，被选中的未知 DTSs（红色节点）被成功地与已知的单萜（黄色）和倍半萜（绿色）隔离开来。**Figure 2B** 的 GC-MS 色谱图阵列展示了酿酒酵母异源表达的决定性胜利，16 个细菌合酶展现出了强劲的双萜催化活性。最终，结合分离纯化与核磁共振，**Figure 2C** 汇总了所鉴定的标志性化合物 **1** 至 **10**，其中特别值得瞩目的是由放线菌合酶 ShHS 催化生成的极度重排的三环化合物 hundungol A（化合物 **1**），以及由绿弯菌合酶 CbCS 催化生成的 sphaeroane 型双萜 chloroflexotol A（化合物 **2**），和由 RcCS 催化生成的双环 castenholzol（化合物 **3**）。这些前所未见的碳骨架直接证实了基于网络聚类的基因发掘策略在捕捉高度新颖次级代谢物方面的绝对统治力。
+通过干湿联动的海量筛查，细菌双萜的化学多样性版图得到了极其壮观的扩张。**Figure 1** 宏观呈现了这一化学空间的飞跃：其中 **Figure 1A** 总结了已知特征细菌 I 型 TS 产生的骨架，而 **Figure 1B** 骄傲地展示了本研究全新发现的新骨架，包括呈现极其复杂桥环系统的 Hundungane A-C 骨架以及 Castenholzane 骨架（涵盖化合物 **1**, **11**-**15**, **17**, **3** 等）。
+![image.png](https://synbiopath.online/20260318095338310.png)
 
->[To identify interesting new DTSs, a screening of uncharacterized type I TSs... through heterologous expression in a yeast strain with optimized GGPP supply was envisioned.]
+这一发现的基石在 **Figure 2** 中得到了详细的拆解。**Figure 2A** 的 SSN 网络图清晰地表明，被选中的未知 DTSs（红色节点）被成功地与已知的单萜（黄色）和倍半萜（绿色）隔离开来。**Figure 2B** 的 GC-MS 色谱图阵列展示了酿酒酵母异源表达的决定性胜利，16 个细菌合酶展现出了强劲的双萜催化活性。最终，结合分离纯化与核磁共振，**Figure 2C** 汇总了所鉴定的标志性化合物 **1** 至 **10**，其中特别值得瞩目的是由放线菌合酶 ShHS 催化生成的极度重排的三环化合物 hundungol A（化合物 **1**），以及由绿弯菌合酶 CbCS 催化生成的 sphaeroane 型双萜 chloroflexotol A（化合物 **2**），和由 RcCS 催化生成的双环 castenholzol（化合物 **3**）。这些前所未见的碳骨架直接证实了基于网络聚类的基因发掘策略在捕捉高度新颖次级代谢物方面的绝对统治力。
+![image.png](https://synbiopath.online/20260318095358431.png)
+
+>To identify interesting new DTSs, a screening of uncharacterized type I TSs... through heterologous expression in a yeast strain with optimized GGPP supply was envisioned.
 
 ### （二）复杂双萜骨架的同位素追踪与量子化学计算机制解析
 #### 实验目的与设计逻辑
