@@ -6,9 +6,9 @@
 **文章 DOI 号**：10.1021/jacs.6c02649
 **期刊名称**：Journal of the American Chemical Society
 **通讯作者及工作单位**：
-**Jeroen S. Dickschat**：德国波恩大学 Kekulé 有机化学与生物化学研究所 (Kekulé-Institute for Organic Chemistry and Biochemistry, University of Bonn)
-**卞光凯**：中国科学院深圳先进技术研究院，深圳合成生物学创新研究院，定量合成生物学重点实验室 (State Key Laboratory of Quantitative Engineering Biology, Shenzhen Institute of Synthetic Biology, Center of Materials Synthetic Biology, Shenzhen Institutes of Advanced Technology, Chinese Academy of Sciences)
-**徐娟**：华中农业大学园艺林学学院，果蔬园艺作物种质创新与利用全国重点实验室，湖北洪山实验室 (National Key Laboratory for Germplasm Innovation & Utilization of Horticultural Crops, College of Horticulture and Forestry, Huazhong Agricultural University)
+- **Jeroen S. Dickschat**：德国波恩大学 Kekulé 有机化学与生物化学研究所 (Kekulé-Institute for Organic Chemistry and Biochemistry, University of Bonn)
+- **卞光凯**：中国科学院深圳先进技术研究院，深圳合成生物学创新研究院，定量合成生物学重点实验室 (State Key Laboratory of Quantitative Engineering Biology, Shenzhen Institute of Synthetic Biology, Center of Materials Synthetic Biology, Shenzhen Institutes of Advanced Technology, Chinese Academy of Sciences)
+- **徐娟**：华中农业大学园艺林学学院，果蔬园艺作物种质创新与利用全国重点实验室，湖北洪山实验室 (National Key Laboratory for Germplasm Innovation & Utilization of Horticultural Crops, College of Horticulture and Forestry, Huazhong Agricultural University)
 
 ---
 
