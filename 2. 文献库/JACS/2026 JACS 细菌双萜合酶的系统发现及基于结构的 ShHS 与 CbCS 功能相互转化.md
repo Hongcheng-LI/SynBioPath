@@ -62,8 +62,9 @@
 
 #### 实验结果与深度解析
 通过同位素铁证与量子计算的深度交织，一条令人惊叹的碳正离子舞蹈轨迹被完美勾勒出来。**Scheme 1** 全景式地重现了这段惊心动魄的微观化学反应。计算表明，反应从 GGPP 异构化开始，经历一系列势垒极低且高度放热的闭环反应（从 **A** 到 **G**），极其顺畅地生成了一个关键的中间体碳正离子 **H**。这个中间体 **H** 正是控制命运的分叉点：如果在此处直接被水分子淬灭，就会生成 CbCS 的标志性简单产物 **2**；但如果继续发生级联反应，则会走向更深的重排。更为精彩的是后续通向 ShHS 特征产物的途径，特别是从中间体 **M** 到 **N** 发生了一次极其罕见的 1,5-氢负离子迁移。为了证实这一惊艳的干实验推演，作者进行了极度严苛的同位素标记湿实验。当使用 $(2\text{-}^{13}\text{C})$IPP 和 $(R)\text{-}(1\text{-}^2\text{H})$GPP 饲喂酶时，目标产物 **14** 的碳谱中出现了一个明显的高场位移且裂分为三重峰的特征信号，这无可辩驳地提供了氢原子从 C2 直接跃迁至 C1 形成直接碳-氘键的物理学铁证。这一系列实验完美证实了 **Scheme 1** 中绘制的完整碳正离子级联瀑布，并确立了中间体 **H** 作为分流两大合酶产物的关键枢纽。
+![image.png](https://synbiopath.online/20260318095456639.png)
 
->[By integrating stable isotope labeling experiments with DFT calculations, we elucidated an intricate carbocation cascade underlying ShHS catalysis.]
+>By integrating stable isotope labeling experiments with DFT calculations, we elucidated an intricate carbocation cascade underlying ShHS catalysis.
 
 ### （三）晶体结构解析与关键催化口袋氨基酸的锁定
 #### 实验目的与设计逻辑
