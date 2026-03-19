@@ -3,7 +3,7 @@
 ***
 
 # 一：基本信息
-**文章题目**：Biosynthesis of cinchona alkaloids (金鸡纳生物碱的生物合成)
+**文章题目**：Biosynthesis of cinchona alkaloids
 **文章 DOI 号**：10.1038/s41586-026-10227-x
 **期刊名称**：Nature
 **通讯作者及工作单位**：
@@ -65,6 +65,7 @@
 
 ### （四）导向生物合成与非天然卤代衍生物的开发
 基于工程化底盘细胞的成功建立，作者敏锐地意识到该多酶复合网络可能具有广泛的底物容忍度，从而可用于合成高附加值的药物类似物。在（图5）中，研究人员展示了将一系列非天然卤代底物引入该生物合成体系的结果。该图详细列出了针对色胺（Tryptamine）前体芳环不同位点进行的氟代与氯代修饰设计（化合物 **3b-3g**）。随后的 LC-MS 峰面积积分数据及相应色谱峰清晰表明，重组的烟草表达平台能够高效地摄取 5-氟、5-氯、6-氟、6-氯以及 7-位修饰的色胺底物，并将其与马钱子苷共价连接后，一路引导经过环化、脱去、氧化及扩环等极其严苛的化学步骤，最终稳定产出相对应的非天然卤代 Dihydrocinchoninone 和 Dihydrocinchonidinone 类似物（如 **8f'+9f'**, **8c'+9c'** 等）。通过图表中与天然底物 **3** 和 **3a** 的转化效率对比可以发现，尽管引入了具有较大位阻及电负性变化的卤素原子，该工程酶系依然保持了令人瞩目的催化通量。这一部分实验将研究从基础代谢机制的解析，直接升华到了极具工业应用前景的合成生物学药物创制层面。
+![image.png](https://synbiopath.online/20260319100746978.png)
 
 > "These results suggest that the identified biosynthetic genes can be used to produce halogenated cinchona alkaloid analogues, which will be potentially useful for medicinal chemistry applications given the clinical use and attractiveness of halogenated quinolines."
 
