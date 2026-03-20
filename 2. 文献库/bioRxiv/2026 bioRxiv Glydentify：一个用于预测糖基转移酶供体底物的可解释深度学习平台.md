@@ -40,6 +40,7 @@
 为了构建能够应对 GT 供体特异性预测挑战的模型，作者需要设计一个既能充分表征核苷酸糖供体细微立体化学差异，又能有效处理蛋白质同源噪声与结构多样性的计算架构。
 #### 实验结果与机理解析
 本研究首先在（图1A）中系统梳理了供体分子的化学多样性，详细展示了 **UDP-Glucose**、**UDP-Galactose**、**UDP-GlcA** 以及 **GDP-Mannose** 等核苷酸糖供体在立体化学和官能团上的微小区别，凸显了区分这些分子的艰巨性。为了构建可靠的训练环境，作者在（图1B）中展示了严谨的数据整理流程，该流程从 UniProt 提取高可信度标注序列，通过隐马尔可夫模型进行结构折叠分类，并利用聚类算法滤除冗余，最终建立了涵盖 GT-A 与 GT-B 两大折叠类型的精净训练集。在此数据基础上，（图1C）详细呈现了 Glydentify 的核心网络架构。该架构独立部署了预训练的小分子编码器与蛋白质语言模型，并通过双向交叉注意力模块促使双方特征进行深度融合。多标签分类头的设计使得该平台能够针对每一个 GT-供体对输出独立的概率评分。这一系列基于表示学习的设计有效规避了传统方法对多重序列比对的依赖，使得模型能够直接捕捉供体与酶之间深度的生物物理映射。
+![image.png](https://synbiopath.online/20260320102436497.png)
 
 > "This design allows Glydentify to learn directly from protein sequences and donor molecules, bypassing the need for handcrafted features or sequence alignments."
 
@@ -48,6 +49,7 @@
 在完成模型架构设计后，作者通过与现有的通用酶底物预测工具进行基准对比，并引入依据序列同源性和物种来源划分的测试集，旨在全面评估该平台对未知序列的泛化能力。
 #### 实验结果与机理解析
 作者首先在（图2A）中汇报了模型在全局水平上的卓越表现。数据表明，采用了 SaProt 与 UniMol V2 组合的 Glydentify 在精确率-召回率曲线下面积（PR-AUC）等各项指标上均大幅超越了 ESP 和 EZspecificity 等通用预测器，证明针对特定酶族的定制化深度学习架构具有绝对优势。为了进一步探究模型对同源漂移的鲁棒性，作者在（图2B）中根据测试集与训练集的序列一致性进行了分箱分析。结果揭示，即便在序列相似度低于 20% 的高度远缘同源物区间内，Glydentify 依然保持了显著高于基准的预测效能，证明其学习到了超越表层序列的深层结构逻辑。此外，（图2C）的供体特异性性能剖析指出，模型对数据丰度较高的主流供体展现出极高的预测精度，但也客观暴露出对稀有供体学习不足的普遍性机器学习限制。在物种维度上，（图2D）的数据验证了该模型在后生动物、植物及真菌来源的 GT 中均能实现优异的性能提升。这系列详实的基准测试确证了融合结构感知的语言模型在解决高度类别不平衡与同源发散问题上的核心价值。
+![image.png](https://synbiopath.online/20260320102458173.png)
 
 > "Overall, our data showed that Glydentify outperforms the protein-encoder-only baselines across all donor classes that meet the inclusion criterion."
 
@@ -55,7 +57,11 @@
 #### 实验目的与设计逻辑
 为了验证该计算平台在真实未知生物学场景中的实用性，作者刻意选取了未参与模型训练且功能极其复杂的植物 GT47 家族以及近期发现的真菌 GT139 家族酶，对其供体预测结果进行严苛的体外实验确证。
 #### 实验结果与机理解析
-基于（表1）汇总的独立验证集信息，Glydentify 在序列一致性极低（最低仅为 26.5%）的条件下，依然为所有待测酶输出了高置信度的供体预测评分。为了探索这些预测的合理性，作者在（图3A）中利用 AlphaFold3 重建了新型真菌酶 Cgm1 与其预测供体 **GDP-Man** 的复合物模型，清晰展示了活性位点 DXD 基序与底物二磷酸基团的配位结合。同理，（图3B）呈现了代表性植物酶 **Sp415-C** 与其预测供体 **UDP-Xyl** 及其受体分子的三元对接复合物，进一步从结构生物学角度支撑了计算结果。为了获得决定性的物理证据，作者对植物酶进行了重组表达与纯化。在无受体环境下的体外测定中，（图3C）的数据表明 **Sp124-E** 在加入 **UDP-Xyl** 时展现出显著的背景水解活性，确证了其对木糖供体的特异性偏好。在更为严谨的完整催化反应体系中，（图3D）以及（图3E）分别记录了 **Sp415-C** 与 **Sp124-C** 在引入半乳糖醛酸寡糖受体后，特定于 **UDP-Xyl** 底物的 UDP 释放量激增。这些客观的体外生化数据完美印证了计算模型的预测输出，证明了 Glydentify 有能力作为高通量功能注释的可靠前置筛选工具。
+基于（表1）汇总的独立验证集信息，Glydentify 在序列一致性极低（最低仅为 26.5%）的条件下，依然为所有待测酶输出了高置信度的供体预测评分。
+![image.png](https://synbiopath.online/20260320102602199.png)
+
+为了探索这些预测的合理性，作者在（图3A）中利用 AlphaFold3 重建了新型真菌酶 Cgm1 与其预测供体 **GDP-Man** 的复合物模型，清晰展示了活性位点 DXD 基序与底物二磷酸基团的配位结合。同理，（图3B）呈现了代表性植物酶 **Sp415-C** 与其预测供体 **UDP-Xyl** 及其受体分子的三元对接复合物，进一步从结构生物学角度支撑了计算结果。为了获得决定性的物理证据，作者对植物酶进行了重组表达与纯化。在无受体环境下的体外测定中，（图3C）的数据表明 **Sp124-E** 在加入 **UDP-Xyl** 时展现出显著的背景水解活性，确证了其对木糖供体的特异性偏好。在更为严谨的完整催化反应体系中，（图3D）以及（图3E）分别记录了 **Sp415-C** 与 **Sp124-C** 在引入半乳糖醛酸寡糖受体后，特定于 **UDP-Xyl** 底物的 UDP 释放量激增。这些客观的体外生化数据完美印证了计算模型的预测输出，证明了 Glydentify 有能力作为高通量功能注释的可靠前置筛选工具。
+![image.png](https://synbiopath.online/20260320102521743.png)
 
 > "Despite low sequence similarity to the current training set, Glydentify accurately predicted donor sugar identity across the newly characterized enzymes."
 
@@ -64,6 +70,7 @@
 深度学习模型常被视为“黑匣子”，作者试图通过解析模型内部的注意力权重分布，探究其是否在无监督状态下自发学习到了符合经典酶动力学与结构生物物理学的催化约束条件。
 #### 实验结果与机理解析
 作者提取了交叉注意力层的高权重残基，并将其映射至复合物的三维空间中以测定距离分布。如（图4A）所示，在 GT-A 家族中，高注意力权重残基的物理距离分布在 16.6 埃左右呈现单峰集中态势，表明模型高度关注催化口袋及近端支架的直接相互作用。而在（图4B）中，GT-B 家族的注意力分布则展现出 13.6 埃与 22.7 埃的双峰模式，这深刻契合了 GT-B 酶构象中用于底物捕获的“柔性铰链”及结构域闭合运动的动态特性。为了剖析生化线索的捕捉能力，（图4C）展示了 B3GAT3 酶的三维预测结构，模型成功赋予了紧邻 **UDP-GlcA** 带负电荷的 C5 羧基旁的一个精氨酸以极高的注意力得分，表明其精确识别了决定特异性的静电离子键相互作用。进一步地，（图4D）对复杂 GT-47 家族的分析揭示，Glydentify 并没有局限于直接接触底物的第一壳层氨基酸，而是高度关注了位于催化口袋外围的保守半胱氨酸及苯丙氨酸残基网络。这一发现强烈暗示，模型已具备从全局序列中提取第二壳层共进化空间网络的能力。这系列可解释性分析确凿地证明，模型并非依赖简单的序列偏差，而是内化了多层次的结构与生化底层逻辑。
+![image.png](https://synbiopath.online/20260320102542049.png)
 
 > "Overall, our analysis of residues with high attention scores revealed that Glydentify does not rely on a single simplistic feature; instead, the model integrates multiple layers of information, including direct biochemical interactions, structural context, and patterns conserved across evolution to predict donor specificity."
 
