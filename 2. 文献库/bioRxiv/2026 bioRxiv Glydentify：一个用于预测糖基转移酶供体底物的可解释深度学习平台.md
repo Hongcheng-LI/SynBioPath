@@ -1,12 +1,13 @@
+![image.png](https://synbiopath.online/20260320102045120.png)
 
-
+---
 
 ## 一：基本信息
-**文章题目**：Glydentify: An explainable deep learning platform for glycosyltransferase donor substrate prediction ()
+**文章题目**：Glydentify: An explainable deep learning platform for glycosyltransferase donor substrate prediction
 **文章 DOI 号**：10.64898/2026.03.13.711695
 **期刊名称**：bioRxiv
 **通讯作者及工作单位**：
-**Natarajan Kannan**：美国佐治亚大学生物化学与分子生物学系 (Department of Biochemistry and Molecular Biology, University of Georgia)
+- **Natarajan Kannan**：美国佐治亚大学生物化学与分子生物学系 (Department of Biochemistry and Molecular Biology, University of Georgia)
 
 ---
 
