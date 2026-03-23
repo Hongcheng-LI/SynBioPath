@@ -1,6 +1,7 @@
 import json
 import urllib.request
 import os
+import re
 import uuid
 
 config_path = r'C:\Users\lhc\.newmax\skills\feishu-doc-reader\reference\feishu_config.json'
@@ -26,73 +27,60 @@ def get_token():
     TOKEN_CACHE = json.loads(resp.read())['tenant_access_token']
     return TOKEN_CACHE
 
-def safe_json_loads(data):
-    """Load JSON with UTF-8 lenient decoding (replaces invalid sequences instead of failing)"""
-    if isinstance(data, bytes):
-        text = data.decode('utf-8', errors='replace')
-        return json.loads(text)
-    return json.loads(data)
-
-def get_doc_title(doc_token):
-    """Get document title from API - returns correctly encoded text"""
-    url = 'https://open.feishu.cn/open-apis/docx/v1/documents/' + doc_token
-    req = urllib.request.Request(url, headers={'Authorization': 'Bearer ' + get_token()})
-    resp = urllib.request.urlopen(req)
-    data = safe_json_loads(resp.read())
-    if data.get('code') == 0:
-        return data.get('data', {}).get('document', {}).get('title', 'Untitled')
-    return 'Untitled'
-
-def get_doc_blocks(doc_token):
-    """Get document blocks with lenient UTF-8 decoding"""
-    url = 'https://open.feishu.cn/open-apis/docx/v1/documents/' + doc_token + '/blocks?page_size=500'
-    req = urllib.request.Request(url, headers={'Authorization': 'Bearer ' + get_token()})
-    resp = urllib.request.urlopen(req)
-    data = safe_json_loads(resp.read())
-    if data.get('code') == 0:
-        return data.get('data', {})
-    return {}
-
 def get_wiki_doc_token(wiki_token):
-    """Get underlying docx token from wiki token"""
     url = 'https://open.feishu.cn/open-apis/wiki/v2/spaces/get_node?token=' + wiki_token
     req = urllib.request.Request(url, headers={'Authorization': 'Bearer ' + get_token()})
     resp = urllib.request.urlopen(req)
-    data = safe_json_loads(resp.read())
+    data = json.loads(resp.read())
     if data.get('code') == 0:
         return data.get('data', {}).get('node', {}).get('obj_token', '')
     return ''
 
-def get_text_from_elements(elements):
-    parts = []
-    for el in elements:
-        tr = el.get('text_run', {})
-        content = tr.get('content', '')
-        style = tr.get('text_element_style', {})
-        if style.get('bold'):
-            content = '**' + content + '**'
-        if style.get('italic'):
-            content = '*' + content + '*'
-        if style.get('inline_code'):
-            content = '`' + content + '`'
-        if style.get('strikethrough'):
-            content = '~~' + content + '~~'
-        if style.get('underline'):
-            content = '<u>' + content + '</u>'
-        if 'link' in tr:
-            link = tr['link'].get('url', '')
-            if link:
-                content = '[' + content + '](' + link + ')'
-        parts.append(content)
-    return ''.join(parts)
+def get_doc_title(doc_token):
+    url = 'https://open.feishu.cn/open-apis/docx/v1/documents/' + doc_token
+    req = urllib.request.Request(url, headers={'Authorization': 'Bearer ' + get_token()})
+    resp = urllib.request.urlopen(req)
+    data = json.loads(resp.read())
+    if data.get('code') == 0:
+        return data.get('data', {}).get('document', {}).get('title', 'Untitled')
+    return 'Untitled'
+
+def get_raw_content(doc_token):
+    url = 'https://open.feishu.cn/open-apis/docx/v1/documents/' + doc_token + '/raw_content'
+    req = urllib.request.Request(url, headers={'Authorization': 'Bearer ' + get_token()})
+    resp = urllib.request.urlopen(req)
+    data = json.loads(resp.read())
+    if data.get('code') == 0:
+        return data.get('data', {}).get('content', '')
+    return ''
+
+def get_image_tokens(doc_token):
+    """Get all image tokens from document blocks"""
+    url = 'https://open.feishu.cn/open-apis/docx/v1/documents/' + doc_token + '/blocks?page_size=500'
+    req = urllib.request.Request(url, headers={'Authorization': 'Bearer ' + get_token()})
+    resp = urllib.request.urlopen(req)
+    data = json.loads(resp.read())
+    if data.get('code') == 0:
+        items = data.get('data', {}).get('items', [])
+        image_tokens = []
+        for item in items:
+            if item.get('block_type') == 27:
+                token = item.get('image', {}).get('token', '')
+                if token:
+                    image_tokens.append(token)
+        return image_tokens
+    return []
 
 def get_image_url(doc_token, image_token):
     url = 'https://open.feishu.cn/open-apis/docx/v1/documents/' + doc_token + '/images/' + image_token + '/download'
     req = urllib.request.Request(url, headers={'Authorization': 'Bearer ' + get_token()})
-    resp = urllib.request.urlopen(req)
-    data = safe_json_loads(resp.read())
-    if data.get('code') == 0:
-        return data.get('data', {}).get('url', '')
+    try:
+        resp = urllib.request.urlopen(req)
+        data = json.loads(resp.read())
+        if data.get('code') == 0:
+            return data.get('data', {}).get('url', '')
+    except:
+        pass
     return None
 
 def download_image(url):
@@ -120,154 +108,136 @@ def upload_to_picgo(image_bytes):
         pass
     return None
 
-def convert_blocks_to_md(blocks_data, doc_token):
-    items = blocks_data.get('items', [])
-    children_map = {}
-    for item in items:
-        pid = item.get('parent_id', '')
-        if pid not in children_map:
-            children_map[pid] = []
-        children_map[pid].append(item)
+def parse_raw_content_to_md(content, image_map):
+    """Convert raw content text to markdown format"""
+    lines = content.split('\n')
+    md_lines = []
+    i = 0
+    image_idx = 0
 
-    image_cache = {}
+    while i < len(lines):
+        line = lines[i].strip()
+        if not line:
+            md_lines.append('')
+            i += 1
+            continue
 
-    def render_block(block, indent=0):
-        bt = block.get('block_type')
-        block_id = block.get('block_id')
+        # Skip standalone image.png references at start (cover image)
+        if line == 'image.png' and i <= 2:
+            i += 1
+            continue
 
-        if bt == 2:
-            return get_text_from_elements(block.get('text', {}).get('elements', []))
+        # Section headers: "一：", "二：", etc.
+        if re.match(r'^[\u4e00-\u9fff]\u3001', line) or re.match(r'^[\u4e00-\u9fff]\uff1a', line):
+            header_match = re.match(r'^([\u4e00-\u9fff]\uff1a)(.*)', line)
+            if header_match:
+                rest = header_match.group(2).strip()
+                if rest:
+                    md_lines.append('## ' + rest)
+                else:
+                    md_lines.append('## ' + line)
+            else:
+                md_lines.append('## ' + line)
+            i += 1
+            continue
 
-        if bt == 3:
-            return '## ' + get_text_from_elements(block.get('heading1', {}).get('elements', []))
-        if bt == 4:
-            return '## ' + get_text_from_elements(block.get('heading2', {}).get('elements', []))
-        if bt == 5:
-            return '### ' + get_text_from_elements(block.get('heading3', {}).get('elements', []))
-        if bt in (6, 7, 8, 9, 10, 11):
-            key = 'heading' + str(bt)
-            prefix = '#' * (bt - 2)
-            return prefix + ' ' + get_text_from_elements(block.get(key, {}).get('elements', []))
+        # Sub-headers: short Chinese text (research background, methods, etc.)
+        if i > 0 and 2 <= len(line) <= 20 and re.match(r'^[\u4e00-\u9fff]+$', line):
+            md_lines.append('### ' + line)
+            i += 1
+            continue
 
-        if bt in (12, 14, 18):
-            prefix = ' ' * indent + '- '
-            content = get_text_from_elements(block.get('text', {}).get('elements', []))
-            child_parts = []
-            for child_id in children_map.get(block_id, []):
-                child_block = next((x for x in items if x['block_id'] == child_id), None)
-                if child_block:
-                    child_md = render_block(child_block, indent + 2)
-                    if child_md:
-                        child_parts.append(child_md)
-            result = prefix + content
-            if child_parts:
-                result += '\n' + '\n'.join(child_parts)
-            return result
+        # Key-value pairs: "文章题目：...", "文章 DOI 号：..."
+        matched = False
+        for sep in ['\uff1a']:
+            idx = line.find(sep)
+            if 0 < idx < 40:
+                key = line[:idx].strip()
+                value = line[idx+1:].strip()
+                if value:
+                    md_lines.append('**' + key + '：**' + value)
+                    matched = True
+                    break
+        if not matched:
+            md_lines.append(line)
 
-        if bt in (13, 15, 17):
-            prefix = ' ' * indent + '1. '
-            content = get_text_from_elements(block.get('text', {}).get('elements', []))
-            child_parts = []
-            for child_id in children_map.get(block_id, []):
-                child_block = next((x for x in items if x['block_id'] == child_id), None)
-                if child_block:
-                    child_md = render_block(child_block, indent + 2)
-                    if child_md:
-                        child_parts.append(child_md)
-            result = prefix + content
-            if child_parts:
-                result += '\n' + '\n'.join(child_parts)
-            return result
+        # Image references
+        if line == 'image.png':
+            if image_idx < len(image_map):
+                img_data = image_map[image_idx]
+                url = img_data.get('picgo_url') or img_data.get('original_url')
+                if url:
+                    md_lines.append(f'![]({url})')
+                else:
+                    md_lines.append(f'![image](image_{image_idx + 1}.png)')
+                image_idx += 1
+            i += 1
+            continue
 
-        if bt == 16:
-            code = block.get('code', {}).get('elements', [])
-            lang = block.get('code', {}).get('style', {}).get('language', '')
-            code_text = get_text_from_elements(code)
-            lang_str = '```' + lang + '\n' if lang else '```\n'
-            return lang_str + code_text + '\n```'
+        # Figure captions: "Figure 2a: ..."
+        fig_match = re.match(r'^(Figure|Figure\s+)(\d+[a-z]?)\s*[:\uff1a]\s*(.*)', line, re.IGNORECASE)
+        if fig_match:
+            caption = fig_match.group(3).strip()
+            if caption:
+                md_lines.append(f'*Figure {fig_match.group(2)}: {caption}*')
+            else:
+                md_lines.append(f'**Figure {fig_match.group(2)}**')
+            i += 1
+            continue
 
-        if bt in (24, 25):
-            return '> ' + get_text_from_elements(block.get('quote', {}).get('elements', []))
+        fig_match2 = re.match(r'^(图|figure)\s*(\d+[a-z]?)\s*[:\uff1a]\s*(.*)', line, re.IGNORECASE)
+        if fig_match2:
+            caption = fig_match2.group(3).strip()
+            if caption:
+                md_lines.append(f'*{fig_match2.group(1).title()} {fig_match2.group(2)}: {caption}*')
+            else:
+                md_lines.append(f'**Figure {fig_match2.group(2)}**')
+            i += 1
+            continue
 
-        if bt == 26:
-            return '---'
+        # Bold lines (research highlights numbered items)
+        bold_match = re.match(r'^(\d+\.)\s+(.*)', line)
+        if bold_match:
+            md_lines.append('**' + bold_match.group(1) + '** ' + bold_match.group(2))
+            i += 1
+            continue
 
-        if bt == 27:
-            image_token = block.get('image', {}).get('token', '')
-            if image_token not in image_cache:
-                img_url = get_image_url(doc_token, image_token)
-                picgo_url = None
-                if img_url:
-                    img_bytes = download_image(img_url)
-                    picgo_url = upload_to_picgo(img_bytes)
-                image_cache[image_token] = picgo_url if picgo_url else (img_url if img_url else None)
-            url = image_cache.get(image_token)
-            if url:
-                return '![]( ' + url + ')'
-            return ''
+        # Regular paragraphs
+        if line not in md_lines[-1] if md_lines else False:
+            md_lines.append(line)
+        else:
+            md_lines.append(line)
+        i += 1
 
-        if bt == 19:
-            rows = []
-            for child_id in children_map.get(block_id, []):
-                child_block = next((x for x in items if x['block_id'] == child_id), None)
-                if child_block and child_block.get('block_type') == 32:
-                    row_cells = []
-                    for cell_id in children_map.get(child_id, []):
-                        cell_block = next((x for x in items if x['block_id'] == cell_id), None)
-                        if cell_block:
-                            cell_text = get_text_from_elements(cell_block.get('tableCell', {}).get('elements', []))
-                            row_cells.append(cell_text)
-                    if row_cells:
-                        rows.append('| ' + ' | '.join(row_cells) + ' |')
-            if rows:
-                col_count = len(rows[0].split('|')) - 2
-                sep = '| ' + ' | '.join(['---'] * col_count) + ' |'
-                return '\n'.join([rows[0], sep] + rows[1:])
-            return ''
-
-        for key in ['text', 'paragraph']:
-            if key in block:
-                elements = block[key].get('elements', [])
-                if elements:
-                    return get_text_from_elements(elements)
-        return ''
-
-    root = next((x for x in items if x.get('block_type') == 1), None)
-    if not root:
-        return ""
-    root_id = root.get('block_id')
-
-    md_parts = []
-    for child_id in children_map.get(root_id, []):
-        child_block = next((x for x in items if x['block_id'] == child_id), None)
-        if child_block:
-            md = render_block(child_block)
-            if md:
-                md_parts.append(md)
-
-    return '\n\n'.join(md_parts)
+    return '\n'.join(md_lines)
 
 def sanitize_filename(s):
-    import re
     return re.sub(r'[<>:"/\\|?*]', '_', s)[:60]
 
-wiki_tokens = ['HBbnwt9AbinTQgkc4mucm3QMn5k', 'KXy1w4mjZiX2QHkhj0scbNl7nO5']
-
-results = []
-for wiki_token in wiki_tokens:
+def process_wiki_doc(wiki_token):
     doc_token = get_wiki_doc_token(wiki_token)
     if not doc_token:
-        print('Failed to get doc token for wiki:', wiki_token)
-        continue
+        return None, 'Failed to get doc token'
 
     title = get_doc_title(doc_token)
-    print('Title: ' + title)
+    content = get_raw_content(doc_token)
 
-    blocks_data = get_doc_blocks(doc_token)
-    items = blocks_data.get('items', [])
-    print('Blocks: ' + str(len(items)))
+    # Get image tokens
+    image_tokens = get_image_tokens(doc_token)
+    image_map = []
+    for img_token in image_tokens:
+        img_url = get_image_url(doc_token, img_token)
+        picgo_url = None
+        if img_url:
+            try:
+                img_bytes = download_image(img_url)
+                picgo_url = upload_to_picgo(img_bytes)
+            except Exception as e:
+                pass
+        # Store tuple (url, uploaded_url)
+        image_map.append({'original_url': img_url, 'picgo_url': picgo_url})
 
-    md_content = convert_blocks_to_md(blocks_data, doc_token)
+    md_body = parse_raw_content_to_md(content, image_map)
 
     safe_title = sanitize_filename(title)
     out_file = out_base + '/' + safe_title + '.md'
@@ -280,12 +250,25 @@ for wiki_token in wiki_tokens:
         f.write('source: feishu_wiki\n')
         f.write('---\n\n')
         f.write('# ' + title + '\n\n')
-        f.write(md_content)
+        f.write(md_body)
 
-    print('Saved: ' + out_file)
-    results.append((title, out_file))
+    return title, out_file
+
+# Main
+wiki_tokens = ['HBbnwt9AbinTQgkc4mucm3QMn5k', 'KXy1w4mjZiX2QHkhj0scbNl7nO5']
+
+results = []
+for wiki_token in wiki_tokens:
+    print('Processing:', wiki_token)
+    title, result = process_wiki_doc(wiki_token)
+    if title:
+        print('  Title:', title)
+        print('  Saved:', result)
+        results.append((title, result))
+    else:
+        print('  Error:', result)
 
 print('\nAll done!')
 for t, p in results:
-    print('  ' + t)
-    print('    -> ' + p)
+    print(' ', t)
+    print('   ->', p)
