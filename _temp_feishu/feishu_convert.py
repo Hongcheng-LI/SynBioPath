@@ -2,7 +2,6 @@ import json
 import urllib.request
 import os
 import uuid
-import re
 
 config_path = r'C:\Users\lhc\.newmax\skills\feishu-doc-reader\reference\feishu_config.json'
 with open(config_path) as f:
@@ -11,7 +10,7 @@ app_id = config['app_id']
 app_secret = config['app_secret']
 
 out_base = "C:/Software/Data/03-GitHub/SynBioPath"
-temp_dir = f"{out_base}/_temp_feishu"
+temp_dir = out_base + "/_temp_feishu"
 os.makedirs(temp_dir, exist_ok=True)
 
 TOKEN_CACHE = None
@@ -26,6 +25,43 @@ def get_token():
     resp = urllib.request.urlopen(req)
     TOKEN_CACHE = json.loads(resp.read())['tenant_access_token']
     return TOKEN_CACHE
+
+def safe_json_loads(data):
+    """Load JSON with UTF-8 lenient decoding (replaces invalid sequences instead of failing)"""
+    if isinstance(data, bytes):
+        text = data.decode('utf-8', errors='replace')
+        return json.loads(text)
+    return json.loads(data)
+
+def get_doc_title(doc_token):
+    """Get document title from API - returns correctly encoded text"""
+    url = 'https://open.feishu.cn/open-apis/docx/v1/documents/' + doc_token
+    req = urllib.request.Request(url, headers={'Authorization': 'Bearer ' + get_token()})
+    resp = urllib.request.urlopen(req)
+    data = safe_json_loads(resp.read())
+    if data.get('code') == 0:
+        return data.get('data', {}).get('document', {}).get('title', 'Untitled')
+    return 'Untitled'
+
+def get_doc_blocks(doc_token):
+    """Get document blocks with lenient UTF-8 decoding"""
+    url = 'https://open.feishu.cn/open-apis/docx/v1/documents/' + doc_token + '/blocks?page_size=500'
+    req = urllib.request.Request(url, headers={'Authorization': 'Bearer ' + get_token()})
+    resp = urllib.request.urlopen(req)
+    data = safe_json_loads(resp.read())
+    if data.get('code') == 0:
+        return data.get('data', {})
+    return {}
+
+def get_wiki_doc_token(wiki_token):
+    """Get underlying docx token from wiki token"""
+    url = 'https://open.feishu.cn/open-apis/wiki/v2/spaces/get_node?token=' + wiki_token
+    req = urllib.request.Request(url, headers={'Authorization': 'Bearer ' + get_token()})
+    resp = urllib.request.urlopen(req)
+    data = safe_json_loads(resp.read())
+    if data.get('code') == 0:
+        return data.get('data', {}).get('node', {}).get('obj_token', '')
+    return ''
 
 def get_text_from_elements(elements):
     parts = []
@@ -54,7 +90,7 @@ def get_image_url(doc_token, image_token):
     url = 'https://open.feishu.cn/open-apis/docx/v1/documents/' + doc_token + '/images/' + image_token + '/download'
     req = urllib.request.Request(url, headers={'Authorization': 'Bearer ' + get_token()})
     resp = urllib.request.urlopen(req)
-    data = json.loads(resp.read())
+    data = safe_json_loads(resp.read())
     if data.get('code') == 0:
         return data.get('data', {}).get('url', '')
     return None
@@ -198,11 +234,10 @@ def convert_blocks_to_md(blocks_data, doc_token):
 
     root = next((x for x in items if x.get('block_type') == 1), None)
     if not root:
-        return "", "Untitled"
+        return ""
     root_id = root.get('block_id')
 
     md_parts = []
-    title = 'Untitled'
     for child_id in children_map.get(root_id, []):
         child_block = next((x for x in items if x['block_id'] == child_id), None)
         if child_block:
@@ -210,50 +245,47 @@ def convert_blocks_to_md(blocks_data, doc_token):
             if md:
                 md_parts.append(md)
 
-    for item in items:
-        if item.get('block_type') in (2, 3, 4, 5) and title == 'Untitled':
-            for key in ['text', 'heading1', 'heading2', 'heading3']:
-                if key in item:
-                    elements = item[key].get('elements', [])
-                    if elements:
-                        t = get_text_from_elements(elements).strip()
-                        if t:
-                            title = t
-                            break
-            if title != 'Untitled':
-                break
+    return '\n\n'.join(md_parts)
 
-    return '\n\n'.join(md_parts), title
+def sanitize_filename(s):
+    import re
+    return re.sub(r'[<>:"/\\|?*]', '_', s)[:60]
 
 wiki_tokens = ['HBbnwt9AbinTQgkc4mucm3QMn5k', 'KXy1w4mjZiX2QHkhj0scbNl7nO5']
 
 results = []
 for wiki_token in wiki_tokens:
-    blocks_file = temp_dir + '/feishu_blocks_' + wiki_token + '.json'
-    with open(blocks_file, 'r', encoding='utf-8') as f:
-        blocks_data = json.load(f)
+    doc_token = get_wiki_doc_token(wiki_token)
+    if not doc_token:
+        print('Failed to get doc token for wiki:', wiki_token)
+        continue
 
-    root = next((x for x in blocks_data.get('items', []) if x.get('block_type') == 1), None)
-    doc_token = root.get('block_id', wiki_token) if root else wiki_token
+    title = get_doc_title(doc_token)
+    print('Title: ' + title)
 
-    md_content, title = convert_blocks_to_md(blocks_data, doc_token)
+    blocks_data = get_doc_blocks(doc_token)
+    items = blocks_data.get('items', [])
+    print('Blocks: ' + str(len(items)))
 
-    safe_title = re.sub(r'[<>:"/\\|?*]', '_', title)[:60]
+    md_content = convert_blocks_to_md(blocks_data, doc_token)
+
+    safe_title = sanitize_filename(title)
     out_file = out_base + '/' + safe_title + '.md'
 
     with open(out_file, 'w', encoding='utf-8') as f:
         f.write('---\n')
         f.write('title: "' + title + '"\n')
         f.write('feishu_wiki_token: "' + wiki_token + '"\n')
-        f.write('doc_token: "' + doc_token + '"\n')
+        f.write('feishu_doc_token: "' + doc_token + '"\n')
+        f.write('source: feishu_wiki\n')
         f.write('---\n\n')
         f.write('# ' + title + '\n\n')
         f.write(md_content)
 
-    print('Saved: ' + title)
+    print('Saved: ' + out_file)
     results.append((title, out_file))
 
-print('\nDone!')
+print('\nAll done!')
 for t, p in results:
     print('  ' + t)
     print('    -> ' + p)
