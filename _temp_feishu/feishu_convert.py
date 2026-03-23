@@ -122,8 +122,12 @@ def parse_raw_content_to_md(content, image_map):
             i += 1
             continue
 
-        # Skip standalone image.png references at start (cover image)
-        if line == 'image.png' and i <= 2:
+        # Skip cover image and title line at the very beginning
+        if i == 0:
+            # First line is the title (already in frontmatter/H1)
+            i += 1
+            continue
+        if line == 'image.png' and i <= 3:
             i += 1
             continue
 
@@ -148,65 +152,46 @@ def parse_raw_content_to_md(content, image_map):
             continue
 
         # Key-value pairs: "文章题目：...", "文章 DOI 号：..."
-        matched = False
-        for sep in ['\uff1a']:
-            idx = line.find(sep)
-            if 0 < idx < 40:
-                key = line[:idx].strip()
-                value = line[idx+1:].strip()
-                if value:
-                    md_lines.append('**' + key + '：**' + value)
-                    matched = True
-                    break
-        if not matched:
-            md_lines.append(line)
+        # (must check before sub-header since some lines have ： and look like headers)
+        kv_matched = False
+        idx = line.find('\uff1a')  # ：
+        if 0 < idx < 50:
+            key = line[:idx].strip()
+            value = line[idx+1:].strip()
+            if value:
+                md_lines.append('**' + key + '：**' + value)
+                kv_matched = True
 
-        # Image references
-        if line == 'image.png':
-            if image_idx < len(image_map):
-                img_data = image_map[image_idx]
-                url = img_data.get('picgo_url') or img_data.get('original_url')
-                if url:
-                    md_lines.append(f'![]({url})')
+        if not kv_matched:
+            # Sub-headers: short Chinese text without ： (research background, methods, etc.)
+            if 2 <= len(line) <= 25 and re.match(r'^[\u4e00-\u9fff\u002d\u2014]+$', line):
+                md_lines.append('### ' + line)
+            # Image references
+            elif line == 'image.png':
+                if image_idx < len(image_map):
+                    img_data = image_map[image_idx]
+                    url = img_data.get('picgo_url') or img_data.get('original_url')
+                    if url:
+                        md_lines.append(f'![]({url})')
+                    else:
+                        md_lines.append(f'![image](image_{image_idx + 1}.png)')
+                    image_idx += 1
+            # Figure captions: "Figure 2a: ..."
+            elif re.match(r'^(Figure|Figure\s+)(\d+[a-z]?)\s*[:\uff1a]\s*(.*)', line, re.IGNORECASE):
+                fig_m = re.match(r'^(Figure|Figure\s+)(\d+[a-z]?)\s*[:\uff1a]\s*(.*)', line, re.IGNORECASE)
+                caption = fig_m.group(3).strip()
+                if caption:
+                    md_lines.append(f'*Figure {fig_m.group(2)}: {caption}*')
                 else:
-                    md_lines.append(f'![image](image_{image_idx + 1}.png)')
-                image_idx += 1
-            i += 1
-            continue
-
-        # Figure captions: "Figure 2a: ..."
-        fig_match = re.match(r'^(Figure|Figure\s+)(\d+[a-z]?)\s*[:\uff1a]\s*(.*)', line, re.IGNORECASE)
-        if fig_match:
-            caption = fig_match.group(3).strip()
-            if caption:
-                md_lines.append(f'*Figure {fig_match.group(2)}: {caption}*')
+                    md_lines.append(f'**Figure {fig_m.group(2)}**')
+            # Bold lines (research highlights numbered items)
+            elif re.match(r'^(\d+\.)\s+(.*)', line):
+                bm = re.match(r'^(\d+\.)\s+(.*)', line)
+                md_lines.append('**' + bm.group(1) + '** ' + bm.group(2))
+            # Regular paragraph
             else:
-                md_lines.append(f'**Figure {fig_match.group(2)}**')
-            i += 1
-            continue
+                md_lines.append(line)
 
-        fig_match2 = re.match(r'^(图|figure)\s*(\d+[a-z]?)\s*[:\uff1a]\s*(.*)', line, re.IGNORECASE)
-        if fig_match2:
-            caption = fig_match2.group(3).strip()
-            if caption:
-                md_lines.append(f'*{fig_match2.group(1).title()} {fig_match2.group(2)}: {caption}*')
-            else:
-                md_lines.append(f'**Figure {fig_match2.group(2)}**')
-            i += 1
-            continue
-
-        # Bold lines (research highlights numbered items)
-        bold_match = re.match(r'^(\d+\.)\s+(.*)', line)
-        if bold_match:
-            md_lines.append('**' + bold_match.group(1) + '** ' + bold_match.group(2))
-            i += 1
-            continue
-
-        # Regular paragraphs
-        if line not in md_lines[-1] if md_lines else False:
-            md_lines.append(line)
-        else:
-            md_lines.append(line)
         i += 1
 
     return '\n'.join(md_lines)
