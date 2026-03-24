@@ -19,7 +19,7 @@ source: feishu_wiki
 微生物次级代谢产物在种间竞争、防御和通讯中扮演着关键角色。生物膜 (Biofilm) 是微生物抵抗外界压力、增强生存能力的重要生活方式。芽孢杆菌 (Bacillus) 是一类广泛存在于植物表面的附生菌，能产生多种脂肽类化合物用于抑制植物病原菌。本研究旨在深入探索一株从黄瓜叶片分离的、具有生防潜力的芽孢杆菌 G2112 的化学多样性，并探究其产生的特定代谢产物在微生物群落互作中的生态学功能，特别是对其他细菌生物膜形成的影响。
 ### 前期研究
 在本文发表前，已知芽孢杆菌能产生多种非核糖体合成的脂肽，如 surfactins, iturins 和 fengycins，它们主要作为生物表面活性剂或抗生素发挥作用。Nobilamides 是一类结构较为罕见的 N-酰基（去）脂肽，最初从链霉菌中发现，具有抑制辣椒素受体、抗病毒和抑制肿瘤细胞迁移等活性。其中，A-3302-B (1) 被报道对革兰氏阳性菌有抗菌活性。然而，芽孢杆菌属中产生 nobilamides 的报道非常少，其结构多样性和生态学功能（特别是作为信号分子）基本未知。
-![image](image_1.png)
+![](https://synbiopath.online/feishu_placeholder/image_1.png)
 
 ### 本文突破点
 本文对芽孢杆菌 G2112 的代谢产物进行了系统研究，取得了多个重要突破：
@@ -49,26 +49,26 @@ source: feishu_wiki
 实验结果与分析 (Experimental Results & Analysis)
 **结果描述：**Bacillus sp. G2112 不仅产生常见的 surfactins, iturins 和 fengycins，还产生了一个种类异常丰富的 nobilamide 家族。通过分离和鉴定，共确定了 18 种 nobilamide 结构，包括 4 个已知和 14 个新化合物。这些结构的多样性体现在 N-端酰基链、氨基酸序列和肽链骨架（环状/线性，七肽/五肽）等多个层面。
 **Figure 2a：**HPLC-MS 基峰图和提取离子流图展示了发酵液中存在四种主要的脂肽家族，其中 nobilamides 是一大类。
-![image](image_2.png)
+![](https://synbiopath.online/feishu_placeholder/image_2.png)
 
 **Figure 2b：**GNPS 分子网络图清晰地展示了一个由 nobilamide 类似物组成的庞大集群，其中多个节点的 m/z 值不同，直观地反映了其结构多样性。
-![image](image_3.png)
+![](https://synbiopath.online/feishu_placeholder/image_3.png)
 
 **Figure 5, 6, 7, 8：**系统地展示了不同类型 nobilamide 的结构变体：
 **Figure 5：**N-端酰基链的变化（乙酰基、丙酰基、异丁酰基等）。
-![image](image_4.png)
+![](https://synbiopath.online/feishu_placeholder/image_4.png)
 
 **Figure 6：**第 6/7 位氨基酸的变化（丙氨酸 vs. 甘氨酸/丝氨酸/苏氨酸）。
-![image](image_5.png)
+![](https://synbiopath.online/feishu_placeholder/image_5.png)
 
 **Figure 7：**第 1/3 位氨基酸的变化（苯丙氨酸 vs. 亮氨酸）。
-![image](image_6.png)
+![](https://synbiopath.online/feishu_placeholder/image_6.png)
 
 **Figure 8：**线性肽与截短肽。
-![image](image_7.png)
+![](https://synbiopath.online/feishu_placeholder/image_7.png)
 
 **Figure 4：**通过 MS/MS 碎片分析，展示了区分环状内酯和线性肽的关键裂解规律。环状的 A-3302-B (1) 在开环后，其 b₄ 离子会丢失一个水分子，导致 b₄-b₃ 离子的质量差为 83 amu；而线性的 nobilamide A (4) 则不会，其 b₄-b₃ 离子的质量差为 101 amu（一个苏氨酸残基的质量）。
-![image](image_8.png)
+![](https://synbiopath.online/feishu_placeholder/image_8.png)
 
 **研究部分二：**Nobilamides 及其他主要脂肽的产生动力学分析
 实验目的与设计 (Experimental Goal & Design)
@@ -77,13 +77,13 @@ source: feishu_wiki
 实验结果与分析 (Experimental Results & Analysis)
 **结果描述：**不同脂肽家族的产生时序存在显著差异。Surfactins 和 nobilamides 在菌株生长的极早期（2 小时）就已经开始产生，并在第 2 天达到峰值。而 iturins 和 fengycins 则在 24 小时后才开始大量合成，并在第 3 天达到峰值。在 nobilamide 家族内部，环状内酯（如 A-3302-B）先产生并达到峰值，而线性肽（如 nobilamide A）则持续积累，暗示后者可能是前者的降解产物。
 **Figure 3a (主要脂肽家族的产生动力学)：**这张图展示了四种主要脂肽家族代表性分子的产量随时间变化的曲线。
-![image](image_9.png)
+![](https://synbiopath.online/feishu_placeholder/image_9.png)
 
 **Surfactin C 和 A-3302-B (1)（nobilamide 代表）：**这两条曲线在 2 小时就已经起步，并在 48 小时（第 2 天）左右达到峰值。这表明 surfactins 和 nobilamides 是生长早期就开始合成的分子。
 **Iturin A 和 Fengycin A：**这两条曲线在 2 小时几乎为零，直到 **24 小时（第 1 天）**之后才开始快速上升，并在 72 小时（第 3 天）左右达到峰值。这表明 iturins 和 fengycins 是生长中后期才大量合成的分子。
 **分析：**这种产生时序上的**“两班倒”策略，强烈暗示了不同脂肽具有不同的生态学功能。早期产生的 surfactins 和 nobilamides 可能主要负责菌株的快速定植、表面运动和早期通讯**。而后期产生的 iturins 和 fengycins（已知具有更强的抗真菌活性）则可能是在菌落建立后，用于抵御其他真菌竞争者的“重型武器”。
 **Figure 3b (Nobilamide 家族内部的产生动力学)：**这张图进一步放大了 nobilamide 家族内部不同结构类型分子的产量变化。
-![image](image_10.png)
+![](https://synbiopath.online/feishu_placeholder/image_10.png)
 
 **环状内酯 (Lactones)：**以 A-3302-B (1) 和 A-3302-A (2) 为代表的环状 nobilamides，其产量在 48-70 小时之间达到峰值，随后开始下降。
 **线性肽 (Linear peptides)：**以 nobilamide A (4) 和 nobilamide S (18) 为代表的线性肽，其产量则在整个 4 天的监测周期内持续上升。
@@ -96,12 +96,12 @@ source: feishu_wiki
 实验结果与分析 (Experimental Results & Analysis)
 **结果描述：**Nobilamides 表现出高度特异的抗菌活性。A-3302-B (1) 及其 N-端酰基类似物 A-3302-A (2) 和 nobilamide J (9) 对机会性病原菌 Lysinibacillus sphaericus 表现出强效的抑制活性，且这种活性仅在一个狭窄的浓度窗口内（0.5-20 μg/孔）出现。同时，1 也对金黄色葡萄球菌有很强的抑制作用。
 **Figure S96：**琼脂扩散图显示，在测试的多种细菌中，只有 S. aureus 和 L. sphaericus 对 A-3302-B (1) 敏感，形成了清晰的抑菌圈。
-![image](image_11.png)
+![](https://synbiopath.online/feishu_placeholder/image_11.png)
 
 **Figure S97a 和 Table S1：**展示了 1 对 L. sphaericus 的剂量效应。抑菌圈在 5 μg/孔时最大，而在更低（0.05 μg）或更高（50-100 μg）的浓度下，抑制效果反而减弱或消失。这种非典型的剂量-反应关系非常有趣。
-![image](image_12.png)
+![](https://synbiopath.online/feishu_placeholder/image_12.png)
 
-![image](image_13.png)
+![](https://synbiopath.online/feishu_placeholder/image_13.png)
 
 **Figure S97b：**显示了 N-端酰基链不同的 2 和 9 同样对 L. sphaericus 有活性，表明 N-端酰基链的微小变化不影响其抗菌靶点。
 **研究部分四：**Nobilamides 诱导生物膜形成的功能研究
@@ -111,10 +111,10 @@ source: feishu_wiki
 **结果描述：**Nobilamides 是一类广谱的生物膜形成促进剂。几乎所有测试的 nobilamides 都能显著促进革兰氏阴性菌 Pseudomonas spp. 和革兰氏阳性菌 Mycobacterium aurum 的生物膜形成。而对于其产生菌自身或其他芽孢杆菌，则没有影响。
 Figure 9 是本部分的核心数据，展示了生物膜定量的柱状图。
 **图 9a, 9b, 9c：**与对照组 (ctr) 相比，加入 A-3302-B (1)、nobilamide A (4)、nobilamide S (18) 和 nobilamide W (22) 后，P. syringae, Pseudomonas sp. G124 和 M. aurum 的生物膜生成量（吸光度）都出现了显著（p < 0.01）或非常显著的增加。
-![image](image_14.png)
+![](https://synbiopath.online/feishu_placeholder/image_14.png)
 
 **图 9d, 9e, 9f：**对于 L. sphaericus、B. amyloliquefaciens 以及产生菌自身 (B. sp. G2112)，nobilamides 的加入没有引起生物膜生成的显著变化。
-![image](image_15.png)
+![](https://synbiopath.online/feishu_placeholder/image_15.png)
 
 **分析：**这一结果揭示了 nobilamides 的一个全新生态学功能。它不是直接杀死这些细菌，而是通过释放化学信号，迫使它们从浮游生长状态转变为生物膜状态。这在生态竞争中是一种非常“聪明”的策略。
 ## 总体结论
