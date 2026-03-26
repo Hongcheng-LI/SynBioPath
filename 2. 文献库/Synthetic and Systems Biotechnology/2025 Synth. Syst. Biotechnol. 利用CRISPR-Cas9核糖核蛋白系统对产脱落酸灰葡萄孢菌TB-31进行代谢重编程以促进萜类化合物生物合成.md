@@ -42,16 +42,20 @@
 
 ### （二）ABA 缺陷型突变株的表型评价与质谱代谢追踪
 为了评估靶向遗传重排对工业菌株生理稳态的潜在冲击，并追踪代谢阻断的直接化学后果，作者对突变体进行了详细的表型分析与高分辨质谱鉴定。研究人员首先在 Figure 2A 中拍摄并对比了野生型 TB-31 与八种不同遗传背景突变株在第 3 天与第 7 天的菌落形态，结果显示所有基因敲除株均维持了与亲本高度一致的浅灰色色素沉着与气生菌丝特征。这一观察结果由 Figure 2B 的菌落直径统计数据所印证，表明核心代谢途径的切除未引发统计学上的显著生长缺陷。更进一步，液体发酵的生长曲线证实，无论是在单基因敲除（Figure 2C）还是多基因大片段删除（Figure 2D）的情境下，突变株的光密度（OD600）增殖轨迹与野生型完全重合，确立了其作为稳健工业底盘的生理基础。在代谢物验证层面，作者利用 MS/MS 碎片分析精准捕捉了因酶促模块缺失而堆积的特征性生化前体。Figure 2E 呈现了野生型中特征性脱落酸分子的质谱裂解峰，而 Figure 2F 则展示了 △*bcaba1* 菌株中特异累积的未知前体化合物碎片。同理，Figure 2G 与 Figure 2H 的高精度质谱图分别精准指认了由于相应的羟化酶或脱氢酶缺失，导致在 △*bcaba2* 与 △*bcaba4* 中出现的 1'-deoxy-ABA 及 1',4'-trans-ABA diol 中间体的异常堆积。这些生化结构证据完美契合了预期设计的代谢阻断节点。
+![image.png](https://synbiopath.online/20260326111823908.png)
 
 > "These results suggest that the single knockout of the ABA biosynthesis gene did not significantly affect the growth of B. cinerea TB-31."
 
 ### （三）转录组学揭示全局碳代谢向萜类合成的重编程
 由于单一终产物途径的切断往往会引发牵一发而动全身的代谢网络反馈，作者采用转录组学对初级碳流和 MVA 途径的基因表达景观进行了深度剖析。为确保高通量数据的严谨性，作者首先在 Figure 3A 和 Figure 3B 中分别提供了 △*bcaba3* 与 △*bcaba1234* 突变株 RNA-seq 与 RT-qPCR 表达量折叠变化（FC）的线性回归分析图，两者极高的相关系数（R² > 0.94）确立了测序数据的可靠度。代谢重编程的核心证据集中呈现于 Figure 3C，该热图详细追踪了 MVA 途径所有关键节点酶的表达动态；数据明确显示，乙酰辅酶A C-乙酰转移酶及 HMG-CoA 还原酶等限速驱动基因在 △*bcaba1234* 菌株中呈现出剧烈的上调表达（红色热区），标志着细胞自发地启动了前体合成的代偿与强化。在次级代谢层面的次生效应由 Figure 3D 的热图所捕捉，表明灰葡萄孢菌素与类胡萝卜素等其他簇的转录发生了适应性波动。更为深层的是，Figure 3E 的初级代谢热图揭示，碳流正在经历系统性的重新分配；在此突变体中，戊糖磷酸途径与糖酵解途径的基因呈现协同上调，而 TCA 循环部分基因下调。这种转录组层级的响应策略清晰阐明了真菌如何通过节约能量循环的碳消耗，转而为乙酰辅酶A的池化与萜类合成提供充沛的碳骨架与还原力储备。
+![image.png](https://synbiopath.online/20260326111846455.png)
 
 > "Integrated analysis of gene expression heatmaps and differential expression of key genes in the △bcaba1234 strain revealed metabolic flux redistribution involving the following adaptive adjustments: increased upstream supply..."
 
 ### （四）代谢组学验证普适性萜类前体的大量累积与溢流
-为了将转录本层面的预测转化为真实的生化合成潜能确证，研究团队实施了覆盖胞内前体与胞外分泌物的靶向及非靶向代谢组学分析。作者首先在 Figure 4A 的主成分分析（PCA）中展示，野生型、△*bcaba3* 与核心底盘 △*bcaba1234* 形成了三个相互独立的代谢聚类，证明了全局代谢稳态的根本性偏移；Figure 4B 的韦恩图进一步量化了各组间差异代谢物的重叠与分布。至关重要的是，Figure 4C 至 Figure 4H 详细定量了 MVA 途径沿线极其珍贵的核心代谢物库。柱状图清晰揭示，相较于细胞内丙酮酸（Figure 4C）的微弱波动，△*bcaba1234* 菌株在甲羟戊酸内酯（Figure 4D）、异戊烯基焦磷酸（IPP，Figure 4E）以及通用萜类装配线底物 GPP（Figure 4F）、FPP（Figure 4G）和 GGPP（Figure 4H）的绝对丰度上均呈现出极其显著的阶梯式爆发累积。在证实了胞内核苷酸池的充盈后，作者转向探究胞外代谢物的溢流情况。Figure 5A 与 Figure 5B 提供的火山图不仅验证了 ABA 产物在突变体中的彻底消失，更捕捉到了大量其他分泌性萜类物质的上调。为了实现多组学维度的交叉确证，Figure 5C 与 Figure 5D 采用九象限图将基因表达差异与代谢物丰度差异进行了拓扑学上的同向映射。最终，通过 Figure 5E 及 Figure 5F 的加权基因共表达网络分析（WGCNA）矩阵图，研究团队精确地将诸如山楂酸等特定萜类的累积与共表达模块内的特定基因绑定，从系统生物学高度彻底证实了切断 ABA 这一巨大碳汇，能够将全细胞代谢动能强制灌注并锁定于普适性萜类前体的生物合成上。
+为了将转录本层面的预测转化为真实的生化合成潜能确证，研究团队实施了覆盖胞内前体与胞外分泌物的靶向及非靶向代谢组学分析。作者首先在 Figure 4A 的主成分分析（PCA）中展示，野生型、△*bcaba3* 与核心底盘 △*bcaba1234* 形成了三个相互独立的代谢聚类，证明了全局代谢稳态的根本性偏移；Figure 4B 的韦恩图进一步量化了各组间差异代谢物的重叠与分布。至关重要的是，Figure 4C 至 Figure 4H 详细定量了 MVA 途径沿线极其珍贵的核心代谢物库。柱状图清晰揭示，相较于细胞内丙酮酸（Figure 4C）的微弱波动，△*bcaba1234* 菌株在甲羟戊酸内酯（Figure 4D）、异戊烯基焦磷酸（IPP，Figure 4E）以及通用萜类装配线底物 GPP（Figure 4F）、FPP（Figure 4G）和 GGPP（Figure 4H）的绝对丰度上均呈现出极其显著的阶梯式爆发累积。
+
+在证实了胞内核苷酸池的充盈后，作者转向探究胞外代谢物的溢流情况。Figure 5A 与 Figure 5B 提供的火山图不仅验证了 ABA 产物在突变体中的彻底消失，更捕捉到了大量其他分泌性萜类物质的上调。为了实现多组学维度的交叉确证，Figure 5C 与 Figure 5D 采用九象限图将基因表达差异与代谢物丰度差异进行了拓扑学上的同向映射。最终，通过 Figure 5E 及 Figure 5F 的加权基因共表达网络分析（WGCNA）矩阵图，研究团队精确地将诸如山楂酸等特定萜类的累积与共表达模块内的特定基因绑定，从系统生物学高度彻底证实了切断 ABA 这一巨大碳汇，能够将全细胞代谢动能强制灌注并锁定于普适性萜类前体的生物合成上。
 
 > "Quantitative analysis revealed that key metabolic intermediates of the MVA pathway, including GPP, FPP, and GGPP, significantly accumulated in both mutant strains compared with B. cinerea TB-31."
 
