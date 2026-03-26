@@ -63,6 +63,7 @@
 
 ### （五）靶向整合平台的开发及异源基因表达确证
 在成功构建富含通用萜类前体的底盘细胞后，为了证明该系统具备承接并表达外源植物或真菌萜类合成酶的应用潜力，作者开发了基于预留位点的无痕整合测试。研究的分子设计呈现于 Figure 6A 之中，作者巧妙利用之前实验中残留在基因组上的 *G418* 抗性盒作为归巢位点，通过设计靶向该抗性基因的 RNP 复合物，引导包含 *mCherry* 红色荧光蛋白基因的供体片段发生同源重组，这不仅实现了外源基因的定点整合，更同时破坏了抗性标记，恢复了底盘的敏感性。这一重组操作的宏观生物学验证展示在 Figure 6B 的激光共聚焦显微图像中。该组显微影像依次提供了重组菌丝的明场形态、广泛分布于细胞质内的高强度且均一的 mCherry 红色荧光、指示多核分布的 DAPI 蓝色核染色，以及精确共定位的合并图像。荧光信号的稳定表达不仅证实了该基因组位点的转录活跃性，更确凿地向学界展示，所构建的 △*bcaba1234* 底盘与适配的 RNP 整合工具，已构成了一套闭环的、即插即用的高级合成生物学制造平台。
+![image.png](https://synbiopath.online/20260326111958754.png)
 
 > "These results demonstrate that the CRISPR/Cas9 system established in this study enables precise targeted integration, making it a versatile tool for endogenous and heterologous gene expression in B. cinerea."
 
