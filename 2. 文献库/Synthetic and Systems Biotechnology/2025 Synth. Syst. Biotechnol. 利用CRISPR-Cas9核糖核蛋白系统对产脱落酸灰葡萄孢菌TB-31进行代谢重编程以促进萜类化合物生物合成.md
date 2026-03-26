@@ -7,8 +7,8 @@
 **文章 DOI 号**：10.1016/j.synbio.2025.12.002
 **期刊名称**：Synthetic and Systems Biotechnology
 **通讯作者及工作单位**：
-- **Dan Shu**: 四川省农业微生物药剂重点实验室 (Agricultural Microbial Agents Key Laboratory of Sichuan Province)
-- **Hong Tan**: 四川省农业微生物药剂重点实验室 (Agricultural Microbial Agents Key Laboratory of Sichuan Province)
+- **舒丹**: 中国科学院成都生物研究所，四川省农业微生物药剂重点实验室 (Agricultural Microbial Agents Key Laboratory of Sichuan Province)
+- **谭红**: 中国科学院成都生物研究所，四川省农业微生物药剂重点实验室 (Agricultural Microbial Agents Key Laboratory of Sichuan Province)
 
 ---
 
