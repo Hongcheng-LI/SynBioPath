@@ -36,6 +36,7 @@
 
 ### （一）RNP-CRISPR/Cas9 系统的建立与 ABA 基因簇的精准删除
 为了克服灰葡萄孢菌复杂的遗传操作壁垒，作者设计了无质粒残留的体外 RNP 基因编辑策略，以实现内源性次级代谢基因簇的系统性清除。作者在 Figure 1A 与 Figure 1B 中详细描绘了该系统的工作流程，展示了在体外组装含有目标 sgRNA 的 Cas9 RNP 复合物，并将其与携带短暂筛选标记（如 pTEL-hyg 或含 G418 抗性盒的供体 DNA）联合导入真菌原生质体的全过程。这种策略巧妙地利用了瞬时选择压力，为后续的无痕重组提供了基础。通过该优化系统，作者首先针对 ABA 生物合成簇的单个基因进行了逐一突破。Figure 1C、Figure 1D、Figure 1E 与 Figure 1F 提供了基于同源定向修复的单基因敲除基因组结构验证图，分别确证了对 *bcaba1*、*bcaba2*、*bcaba3* 和 *bcaba4* 基因的高效破坏。在验证了单基因靶向能力后，研究团队进一步挑战了超大核酸片段的连续敲除。Figure 1G 展示了通过双靶点 sgRNA 成功删除长达 5.8 kb 片段以生成 △*bcaba124* 突变体的构型，而 Figure 1H 则呈现了最为核心的遗传重构，即彻底切除总长约 13.5 kb 的完整四基因簇，生成核心底盘株 △*bcaba1234*。这一系列分子图谱确凿地证明了该 RNP 体系在应对多核真菌复杂染色体结构修饰时的卓越效能。
+![image.png](https://synbiopath.online/20260326111803063.png)
 
 > "The successful deletion of bcaba1, bcaba2, bcaba3, and bcaba4 in B. cinerea TB-31 was confirmed through diagnostic PCR, DNA sequencing, and RT-qPCR."
 
