@@ -1,17 +1,14 @@
-
-
-
-这是一份基于您提供的英文文献，严格遵照您的各项核心原则、格式铁律与文风指令撰写的深度分析报告。
+![image.png](https://synbiopath.online/20260328162252058.png)
 
 ***
 
 ## 一：基本信息
-**文章题目**：Relay Oxidation with Engineered P450 BM3 and Aldo-Keto Reductase: Chemoenzymatic Synthesis of Erythrina Alkaloids (工程化P450 BM3与醛酮还原酶的中继氧化：刺桐生物碱的化学酶法合成)
+**文章题目**：Relay Oxidation with Engineered P450 BM3 and Aldo-Keto Reductase: Chemoenzymatic Synthesis of Erythrina Alkaloids
 **文章 DOI 号**：10.1021/acscatal.6c00910
 **期刊名称**：ACS Catalysis
 **通讯作者及工作单位**：
-**Huilei Yu**：华东理工大学生物反应器工程国家重点实验室，生物制造协同创新中心 (State Key Laboratory of Bioreactor Engineering, Shanghai Collaborative Innovation Center for Biomanufacturing, East China University of Science and Technology)
-**Ran Hong**：中国科学院上海有机化学研究所，化学生物学国家重点实验室 (State Key Laboratory of Chemical Biology, Shanghai Institute of Organic Chemistry, Chinese Academy of Sciences)
+**郁惠蕾**：华东理工大学生物反应器工程国家重点实验室，生物制造协同创新中心 (State Key Laboratory of Bioreactor Engineering, Shanghai Collaborative Innovation Center for Biomanufacturing, East China University of Science and Technology)
+**洪然**：中国科学院上海有机化学研究所，化学生物学国家重点实验室 (State Key Laboratory of Chemical Biology, Shanghai Institute of Organic Chemistry, Chinese Academy of Sciences)
 
 ---
 
@@ -41,14 +38,27 @@
 #### 实验目的与设计逻辑
 为了突破传统化学试剂无法在不破坏分子其他区域的前提下实现特定 C−H 键羟化的困境，作者设计了利用生物催化进行底盘修饰的逆合成路线，并对 P450 BM3 变体库进行初始筛选以评估底物宽泛性。
 #### 实验结果与机理解析
-作者首先在 Figure 1A 中展示了具有典型四环螺胺骨架的多种刺桐生物碱结构代表，奠定了研究对象的立体化学复杂性。随后，Figure 1B 详述了基于前期研究的逆合成分析路线，其中羟肟酸 **7** 经化学合成为关键的消旋前体 **rac-6**。Figure 1C 明确指出了传统化学氧化的瓶颈：在试图氧化 **rac-6** 的 C2 位时，强氧化剂优先攻击 C11 苄位生成 α-酮内酰胺 **8**，而无法生成目标产物 **9**；并且此时 C5 位螺环的立体化学仍处于未受控状态。为解决此问题，Figure 1D 提出了融合工程化 P450 BM3 与脱氢酶中继动力学拆分的生物催化策略。在初始酶学筛选中，Figure 2 的 LC-MS 色谱图清晰显示，催化 **rac-6** 后主要生成了三个具有明显质谱特征（m/z 316.05, 316.10, 314.05）的产物峰 P1 (**trans-10**)、P2 (**cis-10**) 以及过渡氧化的酮类副产物 P3 (**9**)。Table 1 的数据进一步量化了代表性变体的初始转化效率，结果表明诸如 2A1、4H5、8C7 以及 IV−H4 等前期进化的变体均展现出不同程度的催化活性。其中，变体 8C7 实现了高达 95% 的转化率，但产物分布主要集中于 **cis-10** (46%) 且伴有 21% 的副产物 **9**。这表明初始酶虽然成功扭转了区域选择性（专一性进攻 C2 位），但在非对映选择性的精确把控及防止底物过度氧化上存在明显缺陷，指明了后续定向进化的改造空间。
+作者首先在 Figure 1A 中展示了具有典型四环螺胺骨架的多种刺桐生物碱结构代表，奠定了研究对象的立体化学复杂性。随后，Figure 1B 详述了基于前期研究的逆合成分析路线，其中羟肟酸 **7** 经化学合成为关键的消旋前体 **rac-6**。Figure 1C 明确指出了传统化学氧化的瓶颈：在试图氧化 **rac-6** 的 C2 位时，强氧化剂优先攻击 C11 苄位生成 α-酮内酰胺 **8**，而无法生成目标产物 **9**；并且此时 C5 位螺环的立体化学仍处于未受控状态。为解决此问题，Figure 1D 提出了融合工程化 P450 BM3 与脱氢酶中继动力学拆分的生物催化策略。
+![image.png](https://synbiopath.online/20260328162332779.png)
+
+在初始酶学筛选中，Figure 2 的 LC-MS 色谱图清晰显示，催化 **rac-6** 后主要生成了三个具有明显质谱特征（m/z 316.05, 316.10, 314.05）的产物峰 P1 (**trans-10**)、P2 (**cis-10**) 以及过渡氧化的酮类副产物 P3 (**9**)。
+![image.png](https://synbiopath.online/20260328162350867.png)
+
+Table 1 的数据进一步量化了代表性变体的初始转化效率，结果表明诸如 2A1、4H5、8C7 以及 IV−H4 等前期进化的变体均展现出不同程度的催化活性。其中，变体 8C7 实现了高达 95% 的转化率，但产物分布主要集中于 **cis-10** (46%) 且伴有 21% 的副产物 **9**。这表明初始酶虽然成功扭转了区域选择性（专一性进攻 C2 位），但在非对映选择性的精确把控及防止底物过度氧化上存在明显缺陷，指明了后续定向进化的改造空间。
+![image.png](https://synbiopath.online/20260328162622856.png)
+
 > "In this work, an asymmetric total synthesis of erythrina alkaloids was successfully achieved through a chemoenzymatic strategy involving relay oxidation with engineered monooxygenase P450 BM3 and aldo-keto reductase (AKR)."
 
 ### （二）提升 P450 BM3 催化烯丙位 C−H 键羟化非对映选择性的定向进化
 #### 实验目的与设计逻辑
 针对初始变体 8C7 产物混合度高且过度氧化的缺陷，研究团队实施了针对关键残基的位点饱和突变工程，旨在通过重塑催化口袋微环境，将产物构型严格约束为单一的顺式非对映异构体对 (**cis-10**)。
 #### 实验结果与机理解析
-研究人员依据同源对接模型选定了 16 个靠近底物的关键残基进行 NNK 饱和突变筛选。Figure 3 的柱状图全面呈现了多轮突变筛选后的产物分布轨迹。数据显示，引入 L437P 单点突变后，**trans:cis** 的非对映选择性比例 (dr) 从初始的 42:58 显著跃升至 13:87，并且有害副产物 **9** 的累积被有效抑制至 2% 以下。进一步在 A328 位点叠加 V 或 I 突变后，催化特异性达到了惊人的高度。Table 2 详细解构了关键进化变体在分子手性层面的反应偏好：野生型背景的 8C7 对 **(5S)-6** 及 **(5R)-6** 均表现出极差的选择性；而最终进化出的双突变体 8C7/A328V/L437P 在催化 **(5S)-6** 时完全排除了 **10a** 的生成，实现了 0:100 的绝对 **10c** 偏好；同时将 **(5R)-6** 的氧化比例从 37:63 强力反转为 98:2 的 **10d** 偏好。这种双向极端选择性的建立，使得反应系统能够从消旋底物中高度富集结构规整的 **cis-10** 产物对，为后续利用还原酶进行对映体特异性筛分提供了绝对纯净的生化基础。
+研究人员依据同源对接模型选定了 16 个靠近底物的关键残基进行 NNK 饱和突变筛选。Figure 3 的柱状图全面呈现了多轮突变筛选后的产物分布轨迹。数据显示，引入 L437P 单点突变后，**trans:cis** 的非对映选择性比例 (dr) 从初始的 42:58 显著跃升至 13:87，并且有害副产物 **9** 的累积被有效抑制至 2% 以下。进一步在 A328 位点叠加 V 或 I 突变后，催化特异性达到了惊人的高度。
+![image.png](https://synbiopath.online/20260328162417344.png)
+
+Table 2 详细解构了关键进化变体在分子手性层面的反应偏好：野生型背景的 8C7 对 **(5S)-6** 及 **(5R)-6** 均表现出极差的选择性；而最终进化出的双突变体 8C7/A328V/L437P 在催化 **(5S)-6** 时完全排除了 **10a** 的生成，实现了 0:100 的绝对 **10c** 偏好；同时将 **(5R)-6** 的氧化比例从 37:63 强力反转为 98:2 的 **10d** 偏好。这种双向极端选择性的建立，使得反应系统能够从消旋底物中高度富集结构规整的 **cis-10** 产物对，为后续利用还原酶进行对映体特异性筛分提供了绝对纯净的生化基础。
+![image.png](https://synbiopath.online/20260328162659394.png)
+
 > "Through two rounds of saturation mutagenesis, we successfully integrated the A328 V and L437P mutations into the 8C7 background, ultimately generating an efficient catalyst for the allylic C−H oxidation of rac-6 to cis-10."
 
 ### （三）P450 BM3 突变体立体选择性反转的分子动力学机制解析
@@ -56,13 +66,23 @@
 为从原子层面阐明 8C7/A328V/L437P 变体如何实现对消旋底物极高的物理区分与非对映选择性反转，作者引入了 100 ns 级别的全原子分子动力学 (MD) 模拟对过渡态结合构象进行理论拆解。
 #### 实验结果与机理解析
 通过构建具有催化活性中间体 (Compound I, Cpd I) 的复合物模型，Figure 4A 与 Figure 4B 分别展示了未深度进化的 8C7 变体在结合 **(5R)-6** 与 **(5S)-6** 时的空间拓扑网络。在 8C7 中，底物的酰胺氢与 L437 的羰基氧形成了一道关键氢键，使得底物牢牢定锚在血红素正上方，此时 C2 位的两个前手性氢原子到活性氧的距离分别为 3.6 Å (pro-R) 和 3.7 Å (pro-S)。这种几乎无差异的反应距离从物理层面解释了该酶对羟基构型选择性的失效。相比之下，Figure 4C 揭示了双突变体中 A328V 所产生的强大空间位阻效应；大体积的缬氨酸侧链强制挤压底物发生偏转，导致 **pro(R)-H** 距离被推远至 4.4 Å，而 **pro(S)-H** 仍维持在高效的 3.1 Å 反应半径内，完美吻合了实验上 98:2 的极端对映比例。更深层次的构象变化由 Figure 4D 的野生型与突变体结构叠合图所揭示；L437P 突变由于脯氨酸固有的二面角刚性，诱发了周边骨架主链的显著位移。这一刚性拉扯彻底破坏了原本存在于底物与 437 位点间的关键氢键网络，使得底物的结合姿态从能量导向转变为严格的空间位阻导向。理论模型与宏观反应结果的深度吻合，确证了多点突变通过重构第二壳层氢键与第一壳层位阻协同调控底物催化构型的力学本质。
+![image.png](https://synbiopath.online/20260328162447767.png)
+
 > "This distinct positional differentiation resulted in the exclusive observation of the (2S)−OH productive pose in the 100 ns MD simulation, aligning with the experimental diastereoselectivity ratio of 98:2."
 
 ### （四）建立基于 AKR 的动力学拆分与氧化中继体系的优化
 #### 实验目的与设计逻辑
 由于 P450 直接羟化难以同时实现 C5 螺环中心的绝对手性控制，作者设计了酶促动力学拆分中继策略，引入具有绝对对映特异性的醛酮还原酶 (AKR) 来区分并固定 **cis-10** 中的两对对映异构体。
 #### 实验结果与机理解析
-研究团队从候选库中筛选出对 2S 羟基构型具有极高活性的 SjAKR。Figure 5A 清晰阐明了 SjAKR 催化底物脱氢的化学机制：利用 Lys77 激活的 Tyr48 作为通用碱夺取醇羟基质子，并同步向 NADP+ 传递负氢离子。为解释 SjAKR 的极高拆分特异性，Figure 5B 与 Figure 5C 的分子对接结果展示了两种异构体底物在活性口袋中的空间匹配度。在处理 **(2S, 5R)-10** 时 (Figure 5B)，羟基氢到 Tyr48 氧的距离极为有利地保持在 5.2 Å；而结合其对映体 **(2R, 5S)-10** 时 (Figure 5C)，该距离被拉长至完全失去反应活性的 6.2 Å，由此奠定了 SjAKR 只氧化前者生成 **(5R)-9**，而原封保留 **10c** 的分子动力学基础。为实现工业级规模放大，Table 3 详细总结了对双重辅因子再生系统 (NADP+/NADPH) 的优化轨迹，确证以 BstFDH 介导的甲酸氧化系统最能适应体系环境，在 5 L 反应器中达到 93% 的高转化率。最终，Figure 6A 的时间进程曲线表明 P450 BM3 的羟化在中继系统中可于 6 小时内完成 93% 转化；随后的 Figure 6B 证实，在加入 SjAKR 后的动力学拆分仅需 1 小时即可高效终结。这两张动力学曲线确证了串联系统将繁杂的多非对映异构体混合物，极为高效地分流为光学纯度超过 97% ee 的 **10c** 与 **9b** 的双轨结果。
+研究团队从候选库中筛选出对 2S 羟基构型具有极高活性的 SjAKR。Figure 5A 清晰阐明了 SjAKR 催化底物脱氢的化学机制：利用 Lys77 激活的 Tyr48 作为通用碱夺取醇羟基质子，并同步向 NADP+ 传递负氢离子。为解释 SjAKR 的极高拆分特异性，Figure 5B 与 Figure 5C 的分子对接结果展示了两种异构体底物在活性口袋中的空间匹配度。在处理 **(2S, 5R)-10** 时 (Figure 5B)，羟基氢到 Tyr48 氧的距离极为有利地保持在 5.2 Å；而结合其对映体 **(2R, 5S)-10** 时 (Figure 5C)，该距离被拉长至完全失去反应活性的 6.2 Å，由此奠定了 SjAKR 只氧化前者生成 **(5R)-9**，而原封保留 **10c** 的分子动力学基础。
+![image.png](https://synbiopath.online/20260328162506457.png)
+
+为实现工业级规模放大，Table 3 详细总结了对双重辅因子再生系统 (NADP+/NADPH) 的优化轨迹，确证以 BstFDH 介导的甲酸氧化系统最能适应体系环境，在 5 L 反应器中达到 93% 的高转化率。
+![image.png](https://synbiopath.online/20260328162732753.png)
+
+最终，Figure 6A 的时间进程曲线表明 P450 BM3 的羟化在中继系统中可于 6 小时内完成 93% 转化；随后的 Figure 6B 证实，在加入 SjAKR 后的动力学拆分仅需 1 小时即可高效终结。这两张动力学曲线确证了串联系统将繁杂的多非对映异构体混合物，极为高效地分流为光学纯度超过 97% ee 的 **10c** 与 **9b** 的双轨结果。
+![image.png](https://synbiopath.online/20260328162525468.png)
+
 > "The relay oxidation system, synergistically combining directed evolution-optimized P450 BM3 with a stereoselective SjAKR, enabled both regio- and diastereoselective C2−H bond functionalization and stereochemical mastery at C5..."
 
 ### （五）刺桐生物碱靶标分子的不对称全合成
@@ -70,6 +90,8 @@
 基于中继氧化体系所提供的大规模高光学纯度的高级手性合成子，研究团队将其重新接入不对称全合成路线中，旨在验证该生物催化策略在彻底解决复杂天然产物立体化学装配中的决定性效用。
 #### 实验结果与机理解析
 作者在 Figure 7 中详细展示了完整的双向全合成演化流。首先，针对经动力学拆分保留下来的 **10c** 手性前体，研究利用硼烷-二甲硫醚复合物实现酰胺还原与硼氢化-氧化串联，克服位阻难题构建出醇类中间体 **11a** (收率 63%)。随后，中间体 **11a** 经二氧化锰温和氧化生成非对映纯的烯酮 **12a**。最后的立体中心构筑利用经典的 Mitsunobu 反应发生构型翻转，完美合成了 (+)-3-demethoxyerythratidinone ((+)-**1**)。在并行路线中，脱氢生成的 **9b** 手性中心 (C5 构型与前述底物完全相反) 在经由 NaBH4 硼氢化还原处理后，沿用了完全一致的化学转化序列（水合、氧化、环化），高效完成了靶标分子左旋异构体 (−)-3-demethoxyerythratidinone ((−)-**1**) 的构建。整个图解不仅确证了化学反应对保留生物催化既定手性的高保真度，更深刻证明了这种由单一 P450 提供前体池、由单一 AKR 发挥“剪道”作用的分流中继策略，能够以极高的原子与步骤经济性同时包揽两种天然构型生物碱的发散性创制。
+![image.png](https://synbiopath.online/20260328162540665.png)
+
 > "The C2-regioselective oxidation mediated by P450 BM3 played a pivotal role in enabling asymmetric synthesis. This transformation not only installed an oxygen functional group site-selectively at the allylic position but also generated a key intermediate for the subsequent kinetic resolution catalyzed by SjAKR..."
 
 ---
