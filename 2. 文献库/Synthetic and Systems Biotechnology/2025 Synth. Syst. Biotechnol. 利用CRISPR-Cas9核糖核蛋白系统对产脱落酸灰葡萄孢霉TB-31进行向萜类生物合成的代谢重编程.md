@@ -80,7 +80,7 @@
 
 #### 实验结果与机理解析
 为了验证定制化位点定点整合的可行性，研究团队采用了将外源负载精确引导至已被破坏的抗性基因座位的策略。Figure 6A 详尽绘制了定点整合的基因组修饰蓝图：通过针对残留的 *G418* 抗性盒序列设计特异性 sgRNA，配合两端携带同源臂的供体 DNA，将受 *PgpdA* 强启动子驱动的 **红橙荧光蛋白 (*mCherry*)** 表达框精确敲入 $\Delta$*bcaba1234* 底盘的特定基因座中。在此过程中，抗性筛选压力的适时撤除确保了非整合外源质粒的完全丢失，实现了高安全性的无痕替换。整合成功后的分子表型与细胞学表型均得到了极具说服力的原位确证。Figure 6B 展示了高分辨荧光显微成像的结果：在明场 (Light) 背景下的健康菌丝内，mCherry 通道捕获到了极其强烈且分布均匀的红光发射；当与细胞核特异性染料 DAPI 的蓝色荧光信号进行合并 (Merge) 时，清晰显示外源报告蛋白在细胞内实现了高度稳定的折叠与功能性表达。这一可视化的细胞学证据不仅最终校验了 RNP 靶向系统的绝对精准度，更在逻辑终点上确立了 $\Delta$*bcaba1234* 作为具有广阔适配性的超级萜类细胞工厂的高阶合成生物学价值。
-
+![image.png](https://synbiopath.online/20260326111958754.png)
 > "These results demonstrate that the CRISPR/Cas9 system established in this study enables precise targeted integration, making it a versatile tool for endogenous and heterologous gene expression in B. cinerea."
 
 ---
