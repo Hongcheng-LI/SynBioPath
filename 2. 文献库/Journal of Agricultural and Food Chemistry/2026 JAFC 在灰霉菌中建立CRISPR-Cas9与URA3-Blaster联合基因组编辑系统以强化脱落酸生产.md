@@ -56,6 +56,7 @@
 
 #### 实验结果与机理解析
 为了寻找具备肉眼可见表型的理想指示基因，作者锁定了与黑色素合成相关的两个靶标。Figure 4A 的菌落形态对比显示，敲除 *Bcpks13* (BA05突变株) 展现出高度明显的白化表型，而 *Bcpks12* 敲除株 (BA04) 与野生型无异，因此 *Bcpks13* 被选定为系统效率评估的金标准指示基因。为了实现 sgRNA 的有效转录，Figure 4B 对真菌同源的 5S rRNA 启动子序列进行了多重比对分析，成功鉴定出 *B. cinerea* 基因组中保守且转录活性极高的内源 Bc5SrRNA 启动子（序列同源性超 80%）。基于此，Figure 4C 展示了高度集成的质粒图谱，将 Cas9 表达盒、Bc5SrRNA 驱动的 sgRNA 模块无缝克隆至包含 *hisG-BcURA3* 筛选标记的载体中。激动人心的是，定量评估实验（Figure 4D）揭示，传统同源重组 (HR) 仅能获得极低比例的正转化子，而采用该优化的 CRISPR/Cas9 系统，白化表型突变体的获得率（即精确敲除效率）飙升至惊人的 100%。这一断层式的数据跃升证明底层的基因编辑技术瓶颈已被彻底打通。
+![image.png](https://synbiopath.online/20260403174428316.png)
 
 > "The system successfully generated mutants exhibiting the expected phenotype, achieving a gene-editing efficiency of 100%, which is significantly higher than conventional homologous recombination methods."
 
@@ -65,6 +66,7 @@ ABA 的骨架严格依赖于 MVA 途径的前体衍生物。胞质乙酰辅酶A 
 
 #### 实验结果与机理解析
 为了确证乙酰辅酶A拉动策略的有效性，Figure 5A 首先梳理了由葡萄糖经糖酵解到乙酰辅酶A再进入 MVA 通路的网络分布。在单基因维度，Figure 5B 展示了过表达 *Bcadh* (BA06)、*Bcacs* (BA07) 以及 ATP-柠檬酸裂解酶亚基 *Bcacly1* (BA08) 时的生物量与 ABA 产量柱状图。数据表明，BA07 与 BA08 分别实现了 11.59% 和 28.38% 的显著产量提振；然而，BA06 不仅产量骤降，生物量亦减少 22.77%，这可能源于乙醇氧化产生的乙酸在胞内毒性积累而毒害了菌丝发育。为了进一步逼近极限，作者在 BA09 中换用了超强启动子 *Pthi4* 来驱动 *Bcacly1*，但 Figure 5C 的数据令人意外地显示 ABA 产量反而大跌 29.76%。基于蛋白质复合物组装机制的深度推导，作者假设单亚基极度过量打破了 ACL 全酶（由 Bcacly1 与 Bcacly2 构成）的化学计量平衡，进而造成严重代谢负担。通过设计双级联过表达策略，Figure 5D 呈现了在 BA10 突变株中同时过表达 *Bcacly1* 与 *Bcacly2* 的发酵结果，其 ABA 产量即刻逆转并回升至 1.18 g/L，超越了单基因水平。进一步，考虑到 ACL 酶反应直接消耗底物，Figure 5E 考察了外源碳流的补充效应。结果确证，向 BA10 发酵体系中补充 0.5 g/L 或 1.0 g/L 的外源柠檬酸，通过缓解底物限制，使 ABA 最终滴度分别增至对比对照的 13.89% 与 14.41%（相较野生型飙升 38.66%）。该部分数据严密验证了异源模块在化学计量与底物供应双重维度的协同增效逻辑。
+![image.png](https://synbiopath.online/20260403174454582.png)
 
 > "These findings indicate that moderate citrate supplementation can alleviate substrate limitation and promote acetyl-CoA synthesis."
 
@@ -73,7 +75,11 @@ ABA 的骨架严格依赖于 MVA 途径的前体衍生物。胞质乙酰辅酶A 
 法尼基焦磷酸 (FPP) 处在重要的代谢分岔口，除流向 ABA 外，还大量流入 Botrydial (一种植物毒素) 及 Squalene (甾醇前体) 等庞大的副产物代谢池。为了将碳汇“逼回”目标途径，本研究实施了靶向基因敲除与启动子截短策略。此外，考虑到 P450 酶（Bcaba1/2）定位于内质网 (ER)，作者试图评估全局内质网扩增调控基因的作用。
 
 #### 实验结果与机理解析
-作者首先构建了竞争途径图谱 (Figure 6A) 来指引改造。当利用编辑系统敲除介导 Botrydial 合成的关键环化酶基因 *Bcbot2* 时，Figure 6B 的结果显示 BA11 菌株的 ABA 产量与生物量竟毫无波动，这提示在本文使用的液态发酵条件下，该毒素合成途径本身处于表观遗传的静默态，并未与 ABA 发生实际的碳竞争。然而，针对不可或缺的 Squalene 旁路，Figure 6C 表明使用 40 mg/L 特比萘芬（鲨烯环氧酶抑制剂）进行化学抑制能够使 ABA 产量提升 6.8%。为了将这一干预转化为遗传性状，考虑到完全敲除致死，Figure 6D 展示了极其精巧的启动子工程：将鲨烯合酶基因 *Bcerg9* 的天然启动子大幅截短至 200 bp，以实现其表达量的弱化。Figure 6E 显示这种截短菌株 (BA12) 的 ABA 滴度显著攀升了 19.85%；但也同时付出了生物量衰退 25.96% 的代价，证实了极度钳制基础代谢必然引发细胞生长的负面反噬。在细胞器维度，Figure 7A 展示了分别过表达预测参与内质网稳态调控的因子 *Bchac1* (BA13) 与 *Bcice2* (BA14) 的发酵性能，两者并未改变 ABA 的积累；即便是 Figure 7B 中运用强启动子 *Pthi4* 驱动 *Bcice2* (BA15)，亦未见显著起色。这推导出单维度的宿主因子过表达不足以在 *B. cinerea* 中自发诱导能够承载巨量 P450 异源折叠的内质网形态扩张，表明高等真核细胞器的重构亟需更复杂的多基因网络协同介入。
+作者首先构建了竞争途径图谱 (Figure 6A) 来指引改造。当利用编辑系统敲除介导 Botrydial 合成的关键环化酶基因 *Bcbot2* 时，Figure 6B 的结果显示 BA11 菌株的 ABA 产量与生物量竟毫无波动，这提示在本文使用的液态发酵条件下，该毒素合成途径本身处于表观遗传的静默态，并未与 ABA 发生实际的碳竞争。然而，针对不可或缺的 Squalene 旁路，Figure 6C 表明使用 40 mg/L 特比萘芬（鲨烯环氧酶抑制剂）进行化学抑制能够使 ABA 产量提升 6.8%。为了将这一干预转化为遗传性状，考虑到完全敲除致死，Figure 6D 展示了极其精巧的启动子工程：将鲨烯合酶基因 *Bcerg9* 的天然启动子大幅截短至 200 bp，以实现其表达量的弱化。Figure 6E 显示这种截短菌株 (BA12) 的 ABA 滴度显著攀升了 19.85%；但也同时付出了生物量衰退 25.96% 的代价，证实了极度钳制基础代谢必然引发细胞生长的负面反噬。
+![image.png](https://synbiopath.online/20260403174526866.png)
+
+在细胞器维度，Figure 7A 展示了分别过表达预测参与内质网稳态调控的因子 *Bchac1* (BA13) 与 *Bcice2* (BA14) 的发酵性能，两者并未改变 ABA 的积累；即便是 Figure 7B 中运用强启动子 *Pthi4* 驱动 *Bcice2* (BA15)，亦未见显著起色。这推导出单维度的宿主因子过表达不足以在 *B. cinerea* 中自发诱导能够承载巨量 P450 异源折叠的内质网形态扩张，表明高等真核细胞器的重构亟需更复杂的多基因网络协同介入。
+![image.png](https://synbiopath.online/20260403174541609.png)
 
 > "Repression of squalene synthase expression via a truncated promoter successfully enhanced ABA production, but it also caused significant inhibition of cell growth."
 
@@ -82,7 +88,9 @@ ABA 的骨架严格依赖于 MVA 途径的前体衍生物。胞质乙酰辅酶A 
 丝状真菌基因组中蕴藏着庞大但功能未知的次级代谢基因簇 (BGCs)，其合成组分极易构成与目标产物竞争碳源、还原力乃至辅因子的“暗物质”。为了厘清这些 BGCs 对 ABA 合成效能的隐性干扰，作者采取了“全景式扫描”策略，平行敲除多种骨架合酶，并通过定量其对 ABA 核心生物合成基因的转录反馈，确立底层调控网络。
 
 #### 实验结果与机理解析
-本节首先基于生物信息学预测 (Table 1) 锁定了 6 个编码非核糖体肽合成酶 (NRPS)、二萜环化酶及聚酮合成酶 (PKS) 的巨大结构基因 (*Bcnrps3, Bcnrps6, Bcnrps7, Bcphs1, Bcchs1, Bcpks12*)，它们分别对应铁载体、视网膜前体、黑色素等次级终产物。为了评估其功能重要性，Figure 8A 展示了敲除株在 PDA 平板上的形态发育，其中 *Bcnrps6* 的敲除展现出严重的营养生长受阻，证明其可能深度参与了维持胞内某些核心生理循环，其余变异株的生长速率则得以保持。最深刻的机理映射体现在 Figure 8B 的发酵谱上：敲除 *Bcpks12* 与 *Bcphs1* 使 ABA 的宏观积累量分别提升了 5.6% 和 11.08%，这意味着阻断黑色素与部分二萜合成不仅节约了直接的碳骨架汇流，更可能优化了 ATP 与 NADPH 的全局分配；反之，敲除 *Bcnrps7* 却导致 ABA 产量重挫 32.76%。为了探究这种宏观现象是否深入至分子调控层，Figure 8C 对野生型与变异株中 ABA 路径中枢限速酶 *Bcaba1* 和 *Bcaba2* 进行了 RT-qPCR 绝对丰度解析。结果显示出惊人的数据耦合度：在增产的 *Bcpks12* 与 *Bcphs1* 敲除株内，*Bcaba1* (提升1.63至1.48倍) 与 *Bcaba2* (提升1.21至2.37倍) 的 mRNA 水平表现出强劲的转录激活上调；而在减产的 *Bcnrps6* 与 *Bcnrps7* 缺失株中，这两个 P450 基因的转录活性遭受了极度严厉的镇压下调（降幅高达 48.77% 至 73.95%）。此部分结果彻底证实了真菌基因组内的远缘次级代谢模块不仅存在底物竞争物理隔离，彼此间更以未知的交互级联调控方式在转录水平深刻统御着关键产物的合成通量。
+本节首先基于生物信息学预测 (Table 1) 锁定了 6 个编码非核糖体肽合成酶 (NRPS)、二萜环化酶及聚酮合成酶 (PKS) 的巨大结构基因 (*Bcnrps3, Bcnrps6, Bcnrps7, Bcphs1, Bcchs1, Bcpks12*)，它们分别对应铁载体、视网膜前体、黑色素等次级终产物。
+
+为了评估其功能重要性，Figure 8A 展示了敲除株在 PDA 平板上的形态发育，其中 *Bcnrps6* 的敲除展现出严重的营养生长受阻，证明其可能深度参与了维持胞内某些核心生理循环，其余变异株的生长速率则得以保持。最深刻的机理映射体现在 Figure 8B 的发酵谱上：敲除 *Bcpks12* 与 *Bcphs1* 使 ABA 的宏观积累量分别提升了 5.6% 和 11.08%，这意味着阻断黑色素与部分二萜合成不仅节约了直接的碳骨架汇流，更可能优化了 ATP 与 NADPH 的全局分配；反之，敲除 *Bcnrps7* 却导致 ABA 产量重挫 32.76%。为了探究这种宏观现象是否深入至分子调控层，Figure 8C 对野生型与变异株中 ABA 路径中枢限速酶 *Bcaba1* 和 *Bcaba2* 进行了 RT-qPCR 绝对丰度解析。结果显示出惊人的数据耦合度：在增产的 *Bcpks12* 与 *Bcphs1* 敲除株内，*Bcaba1* (提升1.63至1.48倍) 与 *Bcaba2* (提升1.21至2.37倍) 的 mRNA 水平表现出强劲的转录激活上调；而在减产的 *Bcnrps6* 与 *Bcnrps7* 缺失株中，这两个 P450 基因的转录活性遭受了极度严厉的镇压下调（降幅高达 48.77% 至 73.95%）。此部分结果彻底证实了真菌基因组内的远缘次级代谢模块不仅存在底物竞争物理隔离，彼此间更以未知的交互级联调控方式在转录水平深刻统御着关键产物的合成通量。
 
 > "These findings indicate that the individual deletion of key secondary metabolite biosynthesis genes... significantly affects the transcription of core genes in the ABA biosynthetic pathway, thereby influencing ABA production levels."
 
