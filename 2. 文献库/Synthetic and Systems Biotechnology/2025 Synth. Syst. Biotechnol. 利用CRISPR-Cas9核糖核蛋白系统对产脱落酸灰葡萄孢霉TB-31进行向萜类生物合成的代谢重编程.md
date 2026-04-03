@@ -51,7 +51,7 @@
 
 #### 实验结果与机理解析
 研究首先对野生型及各突变株的宏观发育指标进行了细致考察。Figure 2A 提供了 TB-31 及其各衍生敲除株在第 3 天和第 7 天的菌落形态学图像，直观表明代谢通路的阻断并未引发菌落表型的肉眼可见缺陷，气生菌丝的发育维持正常状态。定量的菌落直径分析进一步支持了这一点，Figure 2B 揭示各工程菌株与原始菌株在扩展速率上无显著统计学差异。在液体发酵环境中，Figure 2C 展示的单基因突变株生长曲线与 Figure 2D 呈现的多基因突变株生长动力学（OD600）均与野生型高度重合，有力确证了 ABA 次级代谢网络的消融不干涉核心的初级细胞增殖。随后，质谱分析阐明了通路中断带来的确切化学后果。Figure 2E 的 MS/MS 碎片图谱作为阳性对照，确认了原生 TB-31 菌株中脱落酸 (**ABA**) 的大量存在。相比之下，基因切除导致了显著的中间体堆积：Figure 2F 展示了 $\Delta$*bcaba1* 突变体中特定质量电荷比峰的捕获，该物质被初步鉴定为 **$\alpha$-($\gamma$)-紫罗兰亚基乙酸 ($\alpha$-($\gamma$)-ionylidene acetic acid)**；Figure 2G 揭示了 $\Delta$*bcaba2* 菌株中特异性积累的 **1'-脱氧-ABA (1'-deoxy-ABA)** 质谱碎片，直接印证了 C-1' 羟基化步骤的分子瘫痪；最后，Figure 2H 明确指出了 $\Delta$*bcaba4* 菌株中 **1',4'-反式-ABA 二醇 (1',4'-trans-ABA diol)** 的停滞积累，符合最终氧化脱氢步骤丧失的生化预期。这些精准的质谱谱图不仅证实了基因编辑在蛋白功能层面的彻底性，也清晰勾勒出了因催化断层引发的通量淤积现象。
-
+![image.png](https://synbiopath.online/20260326111823908.png)
 > "These results further confirmed the complete loss of function of the target gene."
 
 ### （三）全基因组转录重编程与代谢通量向甲羟戊酸途径的重定向
@@ -60,7 +60,7 @@
 
 #### 实验结果与机理解析
 为了确保组学推导的严谨性，作者首先对 RNA-seq 数据的可靠性进行了验证。Figure 3A 及 Figure 3B 分别显示了 $\Delta$*bcaba3* 和全簇缺失株 $\Delta$*bcaba1234* 中转录组测序数据与 RT-qPCR 验证数据的线性回归分析，极高的相关系数（R² 分别为 0.94 与 0.97）确立了后续表达谱分析的坚实置信度。聚焦于目标重定向节点，Figure 3C 的相对转录水平热图揭示了一个核心发现：在 $\Delta$*bcaba1234* 菌株中，驱动甲羟戊酸途径运转的多个关键限速酶（如 **乙酰辅酶A C-乙酰转移酶 (Acetyl-CoA C-acetyltransferase)** 和 **HMG-CoA 还原酶 (HMG-CoA reductase)**）均呈现出显著的上调表达。这种转录层面的激增，明确指示了细胞在缺失特定产物漏槽后，主动提升了对前体生物合成路径的投入。除了核心通路外，全景式的次级代谢转录热图 (Figure 3D) 进一步刻画了周边路径的波动，包括类胡萝卜素合成基因的下调及某些聚酮合酶途径的补偿性上调，体现了次级代谢网络的高度联动性。为了维持向 MVA 途径的通量灌注，初级代谢枢纽亦发生了深刻的重排。Figure 3E 的热图详细描绘了细胞内初级代谢途径的协同调控：糖酵解与磷酸戊糖途径 (PPP) 相关的基因被强劲激活以保障充足的碳骨架与还原力 (NADPH)，而同时三羧酸 (TCA) 循环中的关键节点被下调。这种“开源节流”的转录重构战略，极大地限制了 **乙酰辅酶A (Acetyl-CoA)** 向能量代谢的过度消耗，从而以最优配置将其强制分流至 MVA 途径，为新型高价值萜类的组装打造了极度充裕的物质基础。
-
+![image.png](https://synbiopath.online/20260326111846455.png)
 > "Ultimately, this redistribution enables cells to focus metabolic resources on terpenoid precursor production following blocked ABA synthesis, reflecting the adaptive remodeling of the fungal metabolic network."
 
 ### （四）细胞内外代谢组学揭示的萜类前体及终产物谱系重构
@@ -68,8 +68,10 @@
 转录组学仅提供了通量重定向的调控意图，为了在物质绝对丰度层面上确证代谢流的真实流向，研究结合非靶向与广泛靶向代谢组学技术，并引入加权基因共表达网络分析 (WGCNA)，以期全景式地捕捉通用萜类前体的大规模富集及胞外副产物图谱的变迁。
 
 #### 实验结果与机理解析
-非靶向细胞内代谢物谱的宏观差异首先通过 Figure 4A 中的主成分分析 (PCA) 图得以确立，TB-31 与两株改造菌 $\Delta$*bcaba3*、$\Delta$*bcaba1234* 在高维空间中的彻底分离，映射出代谢表型的根本性重塑。Figure 4B 的韦恩图量化了各组间差异代谢物的交集与特异性重叠。更深入的定量分析精准锁定了重编程导致的前体溢出效应。从糖代谢端点看，Figure 4C 证实了 **丙酮酸 (Pyruvic acid)** 在突变体中的大量留存，而 Figure 4D 则显示了 MVA 途径早期中间体 **甲羟戊酸内酯 (Mevalonolactone)** 的显著增加。最为关键的含碳骨架前体积聚在随后的一系列柱状图中得到确证：在 $\Delta$*bcaba1234* 底盘中，Figure 4E、Figure 4F、Figure 4G 和 Figure 4H 依次展示了通用异戊二烯砌块 **异戊烯基二磷酸 (IPP)**、**香叶基二磷酸 (GPP)**、**法尼基二磷酸 (FPP)** 及其高级延伸产物 **香叶基香叶基二磷酸 (GGPP)** 出现了爆发式的大规模积累。视角转向胞外靶向代谢组，火山图直观揭示了通量溢流对胞外分泌谱的改变，Figure 5A 显示了 $\Delta$*bcaba3* 中的有限变动，而 Figure 5B 凸显了 $\Delta$*bcaba1234* 中大量不同类型萜类化合物的剧烈上调与下调波动。为了建立基因与代谢物之间的直接关联映射，Figure 5C 和 Figure 5D 的九象限相关图将转录谱与代谢谱紧密偶联，展示了协同或拮抗的表达-丰度模式。最终，通过加权网络构建，Figure 5E 清晰划分了与差异非靶向代谢物强相关的核心转录模块，而 Figure 5F 的热图则将特定的胞外靶向萜类（如被显著分流合成的 **山楂酸 (Crataegolic acid)** 等）与其底层的遗传共表达簇进行了严密绑定，从而在系统生物学维度上无死角地解析了该异源表达底盘的优越代谢势能。
-
+非靶向细胞内代谢物谱的宏观差异首先通过 Figure 4A 中的主成分分析 (PCA) 图得以确立，TB-31 与两株改造菌 $\Delta$*bcaba3*、$\Delta$*bcaba1234* 在高维空间中的彻底分离，映射出代谢表型的根本性重塑。Figure 4B 的韦恩图量化了各组间差异代谢物的交集与特异性重叠。更深入的定量分析精准锁定了重编程导致的前体溢出效应。从糖代谢端点看，Figure 4C 证实了 **丙酮酸 (Pyruvic acid)** 在突变体中的大量留存，而 Figure 4D 则显示了 MVA 途径早期中间体 **甲羟戊酸内酯 (Mevalonolactone)** 的显著增加。最为关键的含碳骨架前体积聚在随后的一系列柱状图中得到确证：在 $\Delta$*bcaba1234* 底盘中，Figure 4E、Figure 4F、Figure 4G 和 Figure 4H 依次展示了通用异戊二烯砌块 **异戊烯基二磷酸 (IPP)**、**香叶基二磷酸 (GPP)**、**法尼基二磷酸 (FPP)** 及其高级延伸产物 **香叶基香叶基二磷酸 (GGPP)** 出现了爆发式的大规模积累。
+![image.png](https://synbiopath.online/20260326111913721.png)
+视角转向胞外靶向代谢组，火山图直观揭示了通量溢流对胞外分泌谱的改变，Figure 5A 显示了 $\Delta$*bcaba3* 中的有限变动，而 Figure 5B 凸显了 $\Delta$*bcaba1234* 中大量不同类型萜类化合物的剧烈上调与下调波动。为了建立基因与代谢物之间的直接关联映射，Figure 5C 和 Figure 5D 的九象限相关图将转录谱与代谢谱紧密偶联，展示了协同或拮抗的表达-丰度模式。最终，通过加权网络构建，Figure 5E 清晰划分了与差异非靶向代谢物强相关的核心转录模块，而 Figure 5F 的热图则将特定的胞外靶向萜类（如被显著分流合成的 **山楂酸 (Crataegolic acid)** 等）与其底层的遗传共表达簇进行了严密绑定，从而在系统生物学维度上无死角地解析了该异源表达底盘的优越代谢势能。
+![image.png](https://synbiopath.online/20260326111933101.png)
 > "Our analysis, which integrates transcriptome and metabolome data, has revealed a set of genes that are significantly related to endogenous terpenoids and their biosynthetic precursors."
 
 ### （五）底盘细胞的基因组定点靶向整合与异源表达验证
