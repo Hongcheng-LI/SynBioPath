@@ -89,8 +89,10 @@ ABA 的骨架严格依赖于 MVA 途径的前体衍生物。胞质乙酰辅酶A 
 
 #### 实验结果与机理解析
 本节首先基于生物信息学预测 (Table 1) 锁定了 6 个编码非核糖体肽合成酶 (NRPS)、二萜环化酶及聚酮合成酶 (PKS) 的巨大结构基因 (*Bcnrps3, Bcnrps6, Bcnrps7, Bcphs1, Bcchs1, Bcpks12*)，它们分别对应铁载体、视网膜前体、黑色素等次级终产物。
+![image.png](https://synbiopath.online/20260403174611331.png)
 
 为了评估其功能重要性，Figure 8A 展示了敲除株在 PDA 平板上的形态发育，其中 *Bcnrps6* 的敲除展现出严重的营养生长受阻，证明其可能深度参与了维持胞内某些核心生理循环，其余变异株的生长速率则得以保持。最深刻的机理映射体现在 Figure 8B 的发酵谱上：敲除 *Bcpks12* 与 *Bcphs1* 使 ABA 的宏观积累量分别提升了 5.6% 和 11.08%，这意味着阻断黑色素与部分二萜合成不仅节约了直接的碳骨架汇流，更可能优化了 ATP 与 NADPH 的全局分配；反之，敲除 *Bcnrps7* 却导致 ABA 产量重挫 32.76%。为了探究这种宏观现象是否深入至分子调控层，Figure 8C 对野生型与变异株中 ABA 路径中枢限速酶 *Bcaba1* 和 *Bcaba2* 进行了 RT-qPCR 绝对丰度解析。结果显示出惊人的数据耦合度：在增产的 *Bcpks12* 与 *Bcphs1* 敲除株内，*Bcaba1* (提升1.63至1.48倍) 与 *Bcaba2* (提升1.21至2.37倍) 的 mRNA 水平表现出强劲的转录激活上调；而在减产的 *Bcnrps6* 与 *Bcnrps7* 缺失株中，这两个 P450 基因的转录活性遭受了极度严厉的镇压下调（降幅高达 48.77% 至 73.95%）。此部分结果彻底证实了真菌基因组内的远缘次级代谢模块不仅存在底物竞争物理隔离，彼此间更以未知的交互级联调控方式在转录水平深刻统御着关键产物的合成通量。
+![image.png](https://synbiopath.online/20260403174639974.png)
 
 > "These findings indicate that the individual deletion of key secondary metabolite biosynthesis genes... significantly affects the transcription of core genes in the ABA biosynthetic pathway, thereby influencing ABA production levels."
 
