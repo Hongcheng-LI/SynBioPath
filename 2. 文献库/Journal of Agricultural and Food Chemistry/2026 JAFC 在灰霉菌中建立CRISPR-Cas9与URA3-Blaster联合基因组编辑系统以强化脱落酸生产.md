@@ -39,7 +39,14 @@
 实施复杂代谢工程的前提是确立清晰的生化靶点及具备迭代改造能力的底层遗传工具。为此，作者首先全面梳理了由乙酰辅酶A起始的 ABA 核心合成路径。针对灰霉菌中由于抗生素选择标记有限导致的多基因编辑瓶颈，本部分着力开发基于 URA3 基因的尿嘧啶营养缺陷型反向筛选系统，以期实现抗性标记的无限次循环利用。
 
 #### 实验结果与机理解析
-作者首先构建了全局代谢网络拓扑图，Figure 1 系统勾勒了 *B. cinerea* 中 ABA 的生物合成级联：以葡萄糖衍生的 Acetyl-CoA 和法尼基焦磷酸 (FPP) 为前体，经由倍半萜合成酶 Bcaba3 环化生成中间体 $\alpha$-ionylideneethane，随后受到细胞色素 P450 单加氧酶 Bcaba1 与 Bcaba2 的连续氧化，最终由短链脱氢酶 Bcaba4 催化完成 ABA 的装配。在理清途径后，作者着手解决遗传工具受限问题。Figure 2A 描绘了敲除内源 *BcURA3* 的分子设计模型，即利用侧翼的同源臂进行替换。为了验证筛选条件，Figure 2B 的表型敏感性实验确证了野生型菌株在含有 3 g/L 及以上 5-FOA (5-氟乳清酸) 的培养基中生长遭到完全抑制。经过转化后，Figure 2C 清楚地显示，构建成功的 BA01 突变株丧失了在无尿嘧啶培养基上的生长能力，却能在添加了尿嘧啶、尿苷和 5-FOA 的负筛选平板上正常定殖，确证了缺陷株表型的成功获得。为了检验该标记系统在靶位点的“可插入与可切除”性能，Figure 3A 展示了将夹带 *hisG* 直向重复序列的 *BcURA3* 表达盒整合至假定靶位点 *BcniiA*，继而通过分子内同源重组实现标记自切除的策略。Figure 3B 的基因组 PCR 电泳结果展示，转化子产生了一条 5.3 kb 的条带，证明重组表达盒已精准锚定在基因组中。随后，对在 5-FOA 上存活的抗性克隆进行扩增，Figure 3C 中的 1.5 kb 截短片段从物理距离上完美证实了 *BcURA3* 标记已被完整剥离。这些数据确证 URA3-Blaster 体系能够支撑 *B. cinerea* 基因组的多轮次连续改造。
+作者首先构建了全局代谢网络拓扑图，Figure 1 系统勾勒了 *B. cinerea* 中 ABA 的生物合成级联：以葡萄糖衍生的 Acetyl-CoA 和法尼基焦磷酸 (FPP) 为前体，经由倍半萜合成酶 Bcaba3 环化生成中间体 $\alpha$-ionylideneethane，随后受到细胞色素 P450 单加氧酶 Bcaba1 与 Bcaba2 的连续氧化，最终由短链脱氢酶 Bcaba4 催化完成 ABA 的装配。
+![image.png](https://synbiopath.online/20260403174314163.png)
+
+在理清途径后，作者着手解决遗传工具受限问题。Figure 2A 描绘了敲除内源 *BcURA3* 的分子设计模型，即利用侧翼的同源臂进行替换。为了验证筛选条件，Figure 2B 的表型敏感性实验确证了野生型菌株在含有 3 g/L 及以上 5-FOA (5-氟乳清酸) 的培养基中生长遭到完全抑制。经过转化后，Figure 2C 清楚地显示，构建成功的 BA01 突变株丧失了在无尿嘧啶培养基上的生长能力，却能在添加了尿嘧啶、尿苷和 5-FOA 的负筛选平板上正常定殖，确证了缺陷株表型的成功获得。
+![image.png](https://synbiopath.online/20260403174337333.png)
+
+为了检验该标记系统在靶位点的“可插入与可切除”性能，Figure 3A 展示了将夹带 *hisG* 直向重复序列的 *BcURA3* 表达盒整合至假定靶位点 *BcniiA*，继而通过分子内同源重组实现标记自切除的策略。Figure 3B 的基因组 PCR 电泳结果展示，转化子产生了一条 5.3 kb 的条带，证明重组表达盒已精准锚定在基因组中。随后，对在 5-FOA 上存活的抗性克隆进行扩增，Figure 3C 中的 1.5 kb 截短片段从物理距离上完美证实了 *BcURA3* 标记已被完整剥离。这些数据确证 URA3-Blaster 体系能够支撑 *B. cinerea* 基因组的多轮次连续改造。
+![image.png](https://synbiopath.online/20260403174359859.png)
 
 > "These results demonstrate that the URA3-blaster system in *B. cinerea* enables efficient target gene knockout and marker recycling, providing a powerful tool for multigene editing."
 
