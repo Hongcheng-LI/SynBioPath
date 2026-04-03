@@ -7,7 +7,7 @@
 **文章 DOI 号**：10.1021/acs.jafc.5c14153
 **期刊名称**：Journal of Agricultural and Food Chemistry
 **通讯作者及工作单位**：
-**Tian-Qiong Shi**：南京师范大学食品与制药工程学院，微生物技术国家重点实验室 (State Key Laboratory of Microbial Technology, School of Food Science and Pharmaceutical Engineering, Nanjing Normal University)
+**施天穹**：南京师范大学食品与制药工程学院，微生物技术国家重点实验室 (State Key Laboratory of Microbial Technology, School of Food Science and Pharmaceutical Engineering, Nanjing Normal University)
 
 ---
 
