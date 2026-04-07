@@ -8,7 +8,7 @@
 **期刊名称**：Green Chemistry
 **通讯作者及工作单位**：
 **李春**：清华大学化学工程系，工业生物催化教育部重点实验室 (Key Lab for Industrial Biocatalysis, Ministry of Education, Department of Chemical Engineering, Tsinghua University)；清华大学合成与系统生物学中心 (Center for Synthetic and Systems Biology, Tsinghua University)；北京重组蛋白合成生物制造重点实验室 (Beijing Key Laboratory of Recombinant Protein Synthetic Biomanufacturing)；绿色生物制造全国重点实验室 (State Key Laboratory of Green Biomanufacturing)
-**Xudong Feng**：北京理工大学化学与化工学院生化工程研究所，工业和信息化部医药分子科学与制药工程重点实验室 (Key Laboratory of Medical Molecule Science and Pharmaceutical Engineering, Ministry of Industry and Information Technology, Institute of Biochemical Engineering, School of Chemistry and Chemical Engineering, Beijing Institute of Technology)
+**冯旭东**：北京理工大学化学与化工学院生化工程研究所，工业和信息化部医药分子科学与制药工程重点实验室 (Key Laboratory of Medical Molecule Science and Pharmaceutical Engineering, Ministry of Industry and Information Technology, Institute of Biochemical Engineering, School of Chemistry and Chemical Engineering, Beijing Institute of Technology)
 
 ---
 
