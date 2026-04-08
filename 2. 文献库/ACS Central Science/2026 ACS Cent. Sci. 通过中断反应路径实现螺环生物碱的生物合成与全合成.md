@@ -1,9 +1,9 @@
-
+![image.png](https://synbiopath.online/20260408153416427.png)
 
 ***
 
 ## 一：基本信息
-**文章题目**：Propellane Alkaloid Biosynthesis and Total Synthesis via Interrupted Reaction Pathways ()
+**文章题目**：Propellane Alkaloid Biosynthesis and Total Synthesis via Interrupted Reaction Pathways
 **文章 DOI 号**：10.1021/acscentsci.6c00057
 **期刊名称**：ACS Central Science
 **通讯作者及工作单位**：
