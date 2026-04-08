@@ -3,11 +3,17 @@
 ***
 
 ## 一：基本信息
+
 **文章题目**：Propellane Alkaloid Biosynthesis and Total Synthesis via Interrupted Reaction Pathways
+
 **文章 DOI 号**：10.1021/acscentsci.6c00057
+
 **期刊名称**：ACS Central Science
+
 **通讯作者及工作单位**：
+
 **Yi Tang**：加利福尼亚大学洛杉矶分校化学与生物分子工程系及化学与生物化学系 (Department of Chemical and Biomolecular Engineering and Department of Chemistry and Biochemistry, University of California, Los Angeles)
+
 **Neil K. Garg**：加利福尼亚大学洛杉矶分校化学与生物化学系 (Department of Chemistry and Biochemistry, University of California, Los Angeles)
 
 ---
