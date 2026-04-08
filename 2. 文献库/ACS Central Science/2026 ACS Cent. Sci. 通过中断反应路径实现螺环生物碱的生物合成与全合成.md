@@ -41,6 +41,7 @@
 
 #### 实验结果与机理解析
 通过对分离获得的高纯度代谢产物进行多维核磁共振与高分辨质谱联用解析，研究系统表征了该新型真菌代谢物库。Figure 1a 详细展示了新鉴定的 *subrubines* 家族成员的平面化学结构，其中包括化合物 **1** (*subrubine* A) 至化合物 **6**。这些衍生物表现出多样化的侧链修饰，例如核心环戊烷系统上的羟甲基取代或大体积酯基连接。基于这些结构数据，Figure 1b 提取并着重标注了该家族分子共同拥有的极具张力的核心组分 **7**，即由 diaza[3.3.3]propellane 与 pyrrolidinoindoline 相互交联形成的致密稠环系统。为界定该结构的罕见程度，Figure 1c 罗列了文献中迄今为止报道的具有相似稠环特征的代表性天然产物，具体包括 minfiensine (**10**)、vincorine (**11**)、borreverine (**12**) 以及 flustramine T (**14**)。对比结构分析显示，包含该高拥挤度 diaza[3.3.3]propellane 核心的分子此前仅存在于极少数的植物分类群中。*subrubines* 家族化合物的表征，明确证实了自然界微生物域中同样具备生物合成此类极端张力骨架的酶学系统，这为后续的遗传挖掘与机制解析提供了确切的实体分子靶标。
+![image.png](https://synbiopath.online/20260408154218668.png)
 
 > "The diaza[3.3.3]propellane present in 1−4 represents the first example of this structure found in a microbial natural product."
 
@@ -50,6 +51,7 @@
 
 #### 实验结果与机理解析
 针对酶促中断反应机制的理论推导首先在机制对比图中得到明晰展示。Figure 2a 对比了典型与非典型 OYE 的催化流向，指出当第 196 位残基为酪氨酸 (Y) 时，反应进入常规的双电子还原及质子化路径；然而，当该位点突变为缺乏供质子能力的苯丙氨酸 (F) 时，反应则停滞于高能量的烯醇负离子阶段，继而开放了后续亲电捕获的反应通道。基于此核心机制，Figure 2b 呈现了曲霉属真菌 OYE 家族的序列比对概率分布图，统计结果表明 96.0% 的序列保守保留了 Y196，仅有极低比例 (1.6%) 发生了 F196 突变。进一步的基因组定位数据展示于 Figure 2c，结果揭示包含该突变酶序列（命名为 *subF*）的真菌菌株，均在同源区域内携带有未被表征的、包含**非核糖体肽合成酶 (Nonribosomal peptide synthetase, NRPS)** 的独立基因簇（即 *sub* 基因簇）。为了将该孤儿基因簇与特定的实体化学分子建立直接映射，Figure 2d 展示了基于 LC-MS 的比较代谢组学**提取离子色谱图 (Extracted ion chromatogram, EIC)**。质谱数据显示，在土曲霉 (*A. terreus*) 野生型提取物中可捕捉到痕量的靶标代谢物 **1**，但当对 *subF* 基因实施特异性敲除后，该代谢物的特征质谱峰彻底消失。同时，在含有高同源 *sub* 基因簇的红紫青霉 (*P. subrubescens*) 提取物中，明确检测到了化合物 **1** 至 **4** 的大量积累。综合比对数据证实，携带特定 OYE 突变的 *sub* 基因簇正是负责合成 *subrubines* 家族的核心遗传元件。
+![image.png](https://synbiopath.online/20260408154257432.png)
 
 > "Comparative metabolomics was used to determine the natural product associated with sub BGC. ... Gratifyingly, one metabolite 1 produced by P. subrubescens was produced in trace amounts by the wild-type A. terreus, but was absent from the ΔsubF strain."
 
@@ -59,6 +61,7 @@
 
 #### 实验结果与机理解析
 早期代谢前体的修饰路径通过体内外数据的交叉验证获得了确切的酶学支撑。Figure 3a 描绘了生物合成起始阶段的推导机制，表明色氨酸经酶促脱羧生成色胺前体后，接受异戊烯基转移酶 SubE 与辅助因子 DMAPP 的双重底物催化，生成了引入异戊烯基的关键中间体 **15**，以此作为后续复杂氧化的前体。为全面探究 SubE 的底物宽泛性与体外催化效率，Figure 3b 总结了该酶针对一系列含不同取代出色胺类似物的体外转化数据，结果表明 SubE 能够底物兼容且高产率地催化生成多种高级中间体（如生成 **16** 产率 56%，生成 **17** 产率 40%）。为了从结构生物学层面解构该高立体选择性的物理起源，Figure 3c 呈现了基于 AlphaFold 预测生成的 SubE-DMAPP 复合物三维对接模型。模型清晰揭示，DMAPP 底物的结合严格受限于由多个带正电荷残基（如 R104, K191 与 K259）构筑的静电锚定位点，这一空间排布强制性地要求供体仅能从吲哚环系统的 *Re* 表面发起进攻，从而构成了立体专一性转化的物理学屏障。基于该优异的生物催化特性，Figure 3d 构建并图示了能够原位提供 DMAPP 的一锅法酶促合成平台。基于该平台，Figure 3e 详细列举了成功合成并分离表征的衍生分子结构，其中包括含全取代手性碳中心的化合物 **16** 和 **17**，以及一种已知的具备抗菌活性的非天然产物 **18** 及其结构类似物 **19**。该体外生化试验证明了 SubE 在构筑复杂吲哚骨架 C3 季碳中心的核心价值。
+![image.png](https://synbiopath.online/20260408154319518.png)
 
 > "SubE therefore catalyzes a reaction analogous to AnaPT and ComQ, during which an indolinium is generated via stereoselective prenylation at indole C3, followed by intramolecular aminoethyl nitrogen capture."
 
@@ -68,6 +71,7 @@
 
 #### 实验结果与机理解析
 通过对工程菌株发酵产物的逐层质谱分析，核心骨架的代谢网络流向得以完整再现。Figure 4a 直观展示了构巢曲霉中多种不同酶基因组合后产物提取物的 LC-MS 离子流谱图比对。数据确证，当仅表达基础模块 *subAE* 时，发酵系统内高度累积中间体 **15**；当逐步引入细胞色素 P450 编码基因 *subB*、*subG* 后，代谢流发生分流，转化为进一步氧化的中间体；而当整个核心基因组装配完成后，成功实现了骨架闭合中间体 **6** 以及更高级修饰产物 **1/2/3** 的异源生成。为了严格鉴定致使螺环闭合的责任酶，Figure 4b 提取并量化了在不完全与完全基因组合下化合物 **6** 的相对产率。柱状统计数据确凿表明，目标分子 **6** 的大规模生成绝对依赖于 *subF* 基因的共表达。尤为关键的是，当人为利用定点突变技术将 SubF 的第 176 位苯丙氨酸回溯为野生型酪氨酸（即构建 F176Y 突变体）时，产物 **6** 的丰度发生彻底崩塌。该反向验证实验提供了直接的生化证据，证实活性中心质子供体的缺失是引发碳骨架重排的刚性构象前提。为进一步补全机理链条，Figure 4c 统计了所推断的氧化态关键前体 **26** 在特定基因组合菌株中的相对积累量；随后 Figure 4d 提取并呈现了包含中间体 **26**（m/z 259.1441）及其他各级产物在特定反应截点的 LC-MS 提取离子色谱峰。上述动态变化数据完整支撑了核心催化循环假设：即前体分子在经过前端 P450 氧化暴露烯醛共轭系统后，接受 SubF 催化的氢负离子转移，由于质子化路径受阻而停滞于烯醇负离子态；随后，该高能中间体不可逆地对分子内生成的亲电脒基碳核心发起曼尼希加成，从而在酶腔内完成了高空间张力 diaza[3.3.3]propellane 螺环骨架的组装。
+![image.png](https://synbiopath.online/20260408154358597.png)
 
 > "Therefore, the propellane synthase activity of SubF can be attributed to broader active site residues that reroute the canonical enolate intermediate toward an intramolecular Mannich cyclization."
 
@@ -77,6 +81,7 @@
 
 #### 实验结果与机理解析
 化学反应序列的设计及实施在原子经济性与立体控制上表现出极高的效率。Figure 5a 剖析了靶标分子 (−)-*pensubrubine* (**4**) 异常拥挤的三维空间排布，并给出了将其骨架逆向拆解为简单的对甲氧基苯肼衍生物与光学活化环戊酮片段的逆合成断裂路线。随后，Figure 5b 的机理推导对比了典型费歇尔吲哚化与其中断变体在中间体能量学上的差异。在典型条件下，经[3,3]-σ 重排产生的关键吲哚咛中间体会不可逆地脱去 C3 位质子，生成热力学稳定的平面吲哚底物 **35**；然而，在中断反应变体中，由于底物在 C3 位预先引入了全取代烷基（彻底消除了可供解离的质子），芳构化热力学驱动被迫中止。这一反应停滞状态使得活性极高的吲哚咛中间体 **34** 继而被体系内的分子内亲核基团捕获，发生二次成键生成立体中心密集的复杂吲哚啉骨架 **36**。依托此确证的反应机理，Figure 5c 详尽展示了通向最终靶分子的七步全合成历程。以可商业获取的手性组分 **37** 为起始底物，经过光催化的氰甲基化修饰制备得到关键的高级酮前体 **42**。在弱酸催化与加热条件下，底物 **42** 与苯肼 **27** 发生了核心的中断费歇尔吲哚化反应。得益于前体自带手性中心的位阻引导，该串联成环反应呈现出优异的非对映选择性，高效产出了具有完整 diaza[3.3.3]propellane 核心的非对映异构体 **44**。最后，中间体 **44** 经过常规脱保护转化为游离态 **45**，并经四丁基氟化铵 (TBAF) 介导的终步脱硅保护，高收率地获得了化学全合成的 (−)-*pensubrubine* (**4**)。化学合成品的全部波谱特征及光学旋光数据与天然提取样本完美吻合，从而明确无误地确立了天然产物核心多环系统 C3-C2-C3' 的绝对空间立体构型。
+![image.png](https://synbiopath.online/20260408154422523.png)
 
 > "Our total synthesis of (−)-4 was achieved in just seven steps from known compound 38. The concise nature of our approach can be attributed to the strategic use of interrupted Fischer indolization chemistry to construct the core framework in a rapid and diastereoselective fashion."
 
