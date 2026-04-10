@@ -1,21 +1,18 @@
-
-
-
-这是一份基于您提供的学术文献撰写的深度分析报告。报告严格遵照所有格式指令与学术文风规范，对研究的逻辑链条、每一个图表及子图的数据以及计算模拟结果进行了全景式的段落化解析。
+![image.png](https://synbiopath.online/20260410091424993.png)
 
 ***
 
 # 一：基本信息
-**文章题目**：Structural and Mechanistic Insights into Fgm3-Catalyzed Cβ−Cγ Bond Cleavage of an Amino Acid (Fgm3催化氨基酸Cβ−Cγ键断裂的结构与机制解析)
+**文章题目**：Structural and Mechanistic Insights into Fgm3-Catalyzed Cβ−Cγ Bond Cleavage of an Amino Acid
 
 **文章 DOI 号**：10.1021/acscatal.6c01156
 
 **期刊名称**：ACS Catalysis
 
 **通讯作者及工作单位**：
-**Pengfei Fang**: 中国科学院上海有机化学研究所生命有机化学国家重点实验室 (State Key Laboratory of Chemical Biology, Shanghai Institute of Organic Chemistry, University of Chinese Academy of Sciences)
-**Zhijun Tang**: 中国科学院上海有机化学研究所生命有机化学国家重点实验室 (State Key Laboratory of Chemical Biology, Shanghai Institute of Organic Chemistry, University of Chinese Academy of Sciences)
-**Wen Liu**: 中国科学院上海有机化学研究所生命有机化学国家重点实验室 (State Key Laboratory of Chemical Biology, Shanghai Institute of Organic Chemistry, University of Chinese Academy of Sciences)
+**刘文**: 中国科学院上海有机化学研究所生命有机化学国家重点实验室 (State Key Laboratory of Chemical Biology, Shanghai Institute of Organic Chemistry, University of Chinese Academy of Sciences)
+**汤志军**: 中国科学院上海有机化学研究所生命有机化学国家重点实验室 (State Key Laboratory of Chemical Biology, Shanghai Institute of Organic Chemistry, University of Chinese Academy of Sciences)
+**房鹏飞**: 中国科学院上海有机化学研究所生命有机化学国家重点实验室 (State Key Laboratory of Chemical Biology, Shanghai Institute of Organic Chemistry, University of Chinese Academy of Sciences)
 
 ---
 
@@ -46,7 +43,11 @@
 为了阐明 Fgm3 在致病分子合成途径中的具体定位及其发挥非典型催化功能的分子基础，作者首先系统梳理了反应路线，并设计获取了该酶在结合辅因子状态下的高分辨率晶体结构，以此作为后续机制推演的三维坐标基准。
 
 #### 实验结果与机理解析
-基于生物合成背景，Figure 1 详细勾勒了 fusaoctaxin B 前体分子 guanidino acetic acid (GAA) 的多酶级联生成途径。图中明确展示了该通路的起点：L-arginine (**化合物 1**) 首先被细胞色素 P450 酶 Fgm1 氧化生成核心中间体 4(S)-hydroxy-L-arginine (**化合物 2**)。随后，目标酶 Fgm3 介入，直接催化 **2** 发生高度罕见的 Cβ−Cγ 键断裂，生成 L-alanine (**化合物 3**) 以及含有胍基的乙醛片段 guanidino acetaldehyde (**化合物 4**)。后者经自发环化生成 **5**，再由下游水解酶处理最终导向 GAA。在确立此生化角色后，作者成功解析了 Fgm3 全酶 (holo-Fgm3) 的 1.67 Å 晶体结构。Figure 2A 全景呈现了该酶形成 C2 对称同源二聚体的整体架构，表明其通过紧密的二聚化实现活性形态。进一步的亚基拆解在 Figure 2B 中显示，单体由一个包含七股 β 折叠 (β1−β7) 核心与十二根 α 螺旋的大结构域，以及一个包含四股 β 折叠与六根 α 螺旋的小结构域组装而成。Figure 2C 中的表面电势与相互作用面分析揭示，二聚体界面埋藏了广阔的疏水与极性互补面积。最为核心的催化核心区细节展示于 Figure 2D。该图清晰表征了 PLP 辅因子如何被深埋于结构域交界处：不仅通过残基 Lys222 的 ε-氨基形成共价的内部醛亚胺 (internal aldimine)，其吡啶环还被 His116 的 π-π 堆叠及 Val198 的疏水作用紧紧夹持；而磷酸基团则被多重极性网络稳固锚定。通过与同源酶的比对，作者发现 Fgm3 虽然继承了 fold type I 家族的核心折叠，但在底物通道处的螺旋排布存在显著缩短与重构，这为其容纳超长修饰氨基酸奠定了基础。
+基于生物合成背景，Figure 1 详细勾勒了 fusaoctaxin B 前体分子 guanidino acetic acid (GAA) 的多酶级联生成途径。图中明确展示了该通路的起点：L-arginine (**化合物 1**) 首先被细胞色素 P450 酶 Fgm1 氧化生成核心中间体 4(S)-hydroxy-L-arginine (**化合物 2**)。随后，目标酶 Fgm3 介入，直接催化 **2** 发生高度罕见的 Cβ−Cγ 键断裂，生成 L-alanine (**化合物 3**) 以及含有胍基的乙醛片段 guanidino acetaldehyde (**化合物 4**)。后者经自发环化生成 **5**，再由下游水解酶处理最终导向 GAA。
+![image.png](https://synbiopath.online/20260410091651105.png)
+
+在确立此生化角色后，作者成功解析了 Fgm3 全酶 (holo-Fgm3) 的 1.67 Å 晶体结构。Figure 2A 全景呈现了该酶形成 C2 对称同源二聚体的整体架构，表明其通过紧密的二聚化实现活性形态。进一步的亚基拆解在 Figure 2B 中显示，单体由一个包含七股 β 折叠 (β1−β7) 核心与十二根 α 螺旋的大结构域，以及一个包含四股 β 折叠与六根 α 螺旋的小结构域组装而成。Figure 2C 中的表面电势与相互作用面分析揭示，二聚体界面埋藏了广阔的疏水与极性互补面积。最为核心的催化核心区细节展示于 Figure 2D。该图清晰表征了 PLP 辅因子如何被深埋于结构域交界处：不仅通过残基 Lys222 的 ε-氨基形成共价的内部醛亚胺 (internal aldimine)，其吡啶环还被 His116 的 π-π 堆叠及 Val198 的疏水作用紧紧夹持；而磷酸基团则被多重极性网络稳固锚定。通过与同源酶的比对，作者发现 Fgm3 虽然继承了 fold type I 家族的核心折叠，但在底物通道处的螺旋排布存在显著缩短与重构，这为其容纳超长修饰氨基酸奠定了基础。
+![image.png](https://synbiopath.online/20260410091737443.png)
 
 > "Together, these interactions secure the PLP within the active site and provide electrostatic stabilization in a catalytically competent conformation."
 
@@ -56,6 +57,7 @@
 
 #### 实验结果与机理解析
 通过对结合不同分子的复合晶体进行解析，Figure 3 系统展示了该酶活性口袋在催化轨迹上的空间快照。Figure 3A 展示了浸泡天然底物类似物 L-Arg (**1**) 后捕获的 Fgm3-**1** 复合物。该大图及局部放大子图叠加了 5 秒、90 秒与 5 分钟三个不同浸泡时间点的晶体学数据。数据显示，由于缺乏关键的 γ-羟基，**1** 的结合相对松散，随着时间推移，其末端胍基发生了明显向内部磷酸基团滑移的构象改变，表明缺乏反应触发基团的底物无法在活性中心形成稳定的反应姿态。相比之下，Figure 3B 展示的 Fgm3-**2** (4(S)-hydroxy-L-arginine) 复合物结构则揭示了真实的催化起始构象。在该子图中，底物 **2** 以完美的构型契合在拱形口袋内，其 α-羧基被 Arg375 和 Asn170 牢牢固定，而侧链末端的胍基则通过与 Gln51 羰基的氢键及 Phe357 的阳离子-π 相互作用被死死锚定。最关键的结构发现是，底物的 γ-羟基被精准定位在距离残基 His116 咪唑氮原子仅 2.6 Å 的位置。这种苛刻的原子间距强烈暗示 His116 充当了催化该逆羟醛裂解反应的关键碱基。最后，Figure 3C 呈现了共结晶获取的产物结合态复合物 (Fgm3-**3**)。图中显示产物 L-Ala (**3**) 仍与 PLP 维持着外部醛亚胺 (external aldimine) 构象，同时展示了催化裂解与碎片释放后活性口袋空间的回缩与复原。结合所有复合物数据，作者证明了 Fgm3 不依赖于显著的全局结构重排，而是依靠高度预组织的结合网络强制底物扭转至反应所需的张力构象。
+![image.png](https://synbiopath.online/20260410091817416.png)
 
 > "This geometry strongly suggests that His116 deprotonates the γ-hydroxyl group, thereby triggering the retro-aldol-like Cβ−Cγ bond cleavage."
 
@@ -65,6 +67,7 @@
 
 #### 实验结果与机理解析
 此部分实验数据整合于 Figure 4 的突变体活性条形图中。作者系统构建并表达了 12 个关键残基的突变体，并测定了它们对真实底物 **2** 的裂解能力。结果清晰地反映了各微观作用力的权重：作为共价结合 PLP 的核心残基，K222A 突变导致酶活性彻底丧失，符合内部醛亚胺的必须作用。破坏 PLP 疏水夹持的 V198A 以及氢键网络关键点 Y221A 同样表现出活性的完全丧失，这与野生型结构中观测到的稳定共面要求一致。在底物锚定方面，负责稳定胍基的 Q51A 与提供阳离子-π 互作的 F357A 突变体几乎没有催化活性，证明了远端基团锚定在迫使 Cβ−Cγ 键进入裂解构象中的决定性作用。一个出乎意料但符合逻辑的发现是，位于柔性区域的 F356A 突变体表现出了较野生型高出两倍的相对活性；作者推测切除庞大苯环释放了空间位阻，使得局部环区向内收缩并增强了对辅因子的亲和力。最后，针对最为关键的假定催化碱，作者制备了 H116A、H116F 及 H116Y 突变体。条形图数据不可辩驳地证明，无论是消除极性还是保留芳香环但破坏酸碱性质，替换 His116 均会导致活性的彻底覆灭。这一生化表征与晶体学观测完美互证，严密确立了 His116 作为夺取 γ-羟基质子的广义碱的身份。
+![image.png](https://synbiopath.online/20260410091839851.png)
 
 > "These data indicate that His116 functions as a general base, deprotonating the γ-hydroxyl of 2 to facilitate the Cβ−Cγ bond cleavage."
 
@@ -73,7 +76,11 @@
 为从理论层面证实从结构中推导出的电子转移过程，并量化该极度不寻常的碳碳键断裂路径在能量上的可行性，作者综合实验证据提出了完整的化学机制模型，并运用量子力学与分子力学混合模拟 (QM/MM) 对整个反应坐标上的能垒分布进行了精确描绘。
 
 #### 实验结果与机理解析
-作者首先在 Figure 5 中描绘了推演的反应化学全历程。该机制图详尽拆解了从状态 I 到 VIII 的演变：首先，底物 **2** 进攻结合在 Lys222 上的 PLP 形成外部醛亚胺 (状态 II)；随后，关键残基 His116 作为碱夺取底物 γ-羟基的质子，引发电子重排并直接导致 Cβ−Cγ 键断裂，释放出带有胍基的醛片段，留下与 PLP 结合的氨基丙烯酸酯中间体；最后，在水分子的介导下完成双键的质子化及内部醛亚胺的再生。为了从物理化学定律上确证这一机制，作者构建了酶簇模型并开展了多步计算，其结果汇编于 Figure 6 中。Figure 6A 提供了一条包含多个过渡态 (TS1 至 TS12) 的吉布斯自由能波动曲线；而 Figure 6B 则与此对应，绘制了沿反应坐标的微观中间体 (EI1 至 EI12) 的确切化学结构。理论计算指明，反应前期由 Lys222 夺取 α-质子形成醌型共振态的步骤需要跨越 20.0 kcal/mol 的能垒。最为关键的 Cβ−Cγ 键断裂由 His116 引发，经过相应的过渡态，在此过程中，游离出来的水分子被锚定于 His116 附近，极大地降低了后续重加氢的系统能量。计算明确揭示了 His116 不仅作为初期的广义催化碱，更在随后的产物 L-丙氨酸生成阶段充当了质子穿梭机 (proton shuttle)。QM/MM 能量全景图中的每一步活化能均处于酶促反应的合理范围之内，从而为这种新型远端碳碳键断裂提供了坚不可摧的理论依据。
+作者首先在 Figure 5 中描绘了推演的反应化学全历程。该机制图详尽拆解了从状态 I 到 VIII 的演变：首先，底物 **2** 进攻结合在 Lys222 上的 PLP 形成外部醛亚胺 (状态 II)；随后，关键残基 His116 作为碱夺取底物 γ-羟基的质子，引发电子重排并直接导致 Cβ−Cγ 键断裂，释放出带有胍基的醛片段，留下与 PLP 结合的氨基丙烯酸酯中间体；最后，在水分子的介导下完成双键的质子化及内部醛亚胺的再生。
+![image.png](https://synbiopath.online/20260410091901924.png)
+
+为了从物理化学定律上确证这一机制，作者构建了酶簇模型并开展了多步计算，其结果汇编于 Figure 6 中。Figure 6A 提供了一条包含多个过渡态 (TS1 至 TS12) 的吉布斯自由能波动曲线；而 Figure 6B 则与此对应，绘制了沿反应坐标的微观中间体 (EI1 至 EI12) 的确切化学结构。理论计算指明，反应前期由 Lys222 夺取 α-质子形成醌型共振态的步骤需要跨越 20.0 kcal/mol 的能垒。最为关键的 Cβ−Cγ 键断裂由 His116 引发，经过相应的过渡态，在此过程中，游离出来的水分子被锚定于 His116 附近，极大地降低了后续重加氢的系统能量。计算明确揭示了 His116 不仅作为初期的广义催化碱，更在随后的产物 L-丙氨酸生成阶段充当了质子穿梭机 (proton shuttle)。QM/MM 能量全景图中的每一步活化能均处于酶促反应的合理范围之内，从而为这种新型远端碳碳键断裂提供了坚不可摧的理论依据。
+![image.png](https://synbiopath.online/20260410091925018.png)
 
 > "Collectively, these simulations delineate the full free-energy landscape of Fgm3 catalysis and reveal a dual role of His116 as both a general base in Cβ−Cγ bond cleavage and a proton shuttle in the subsequent alanine formation process."
 
