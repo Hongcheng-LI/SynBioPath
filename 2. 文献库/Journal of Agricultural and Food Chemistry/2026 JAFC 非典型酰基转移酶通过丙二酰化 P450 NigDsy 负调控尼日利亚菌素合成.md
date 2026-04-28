@@ -45,10 +45,13 @@
 ### （一）尼日利亚菌素基因簇的呈现及 SyPmatA 调控模型
 
 #### 实验目的与设计逻辑
-在开展功能性实验之前，作者首先通过 Figure 1 呈现了本研究的核心背景与假设模型。Figure 1A 提供了游丝链霉菌中尼日利亚菌素生物合成基因簇（nig<sub>sy</sub>）的全景，通过与已报道的链霉菌 DSM4137 的同源基因比对，为后续的靶向基因操作奠定序列基础。Figure 1B 则以示意图形式明确了本研究的总体假说，即 SyPmatA 对 P450 单加氧酶 NigD<sub>Sy</sub> 的赖氨酸丙二酰化修饰如何负调控尼日利亚菌素的末端合成步骤。
+在开展实验之前，作者首先通过 Figure 1 呈现了本研究的核心背景与假设模型。Figure 1A 展示了游丝链霉菌中尼日利亚菌素生物合成基因簇（nig<sub>sy</sub>），通过与已报道的链霉菌 DSM4137 的同源基因比对，为后续的靶向基因操作奠定序列基础。Figure 1B 则以示意图形式明确了本研究的总体假说，即 SyPmatA 对 P450 单加氧酶 NigD<sub>Sy</sub> 的赖氨酸丙二酰化修饰如何负调控尼日利亚菌素的末端合成步骤。
 
 #### 实验结果与机理解析
 由 Figure 1A 所展示的基因组织可以看出，nig<sub>sy</sub> 基因簇涵盖了典型的 I 型聚酮合酶（PKS）、氧化酶、环化酶、甲基转移酶及一个调控因子，其与 DSM4137 的 nig 簇在基因间的氨基酸一致性介于 **56% 至 88%** 之间（详见支持信息表 S7）。这一高度保守的排布暗示该途径在功能上的同源性。尤为关键的是，位于该基因簇末端的细胞色素 P450 单加氧酶基因 nigD<sub>sy</sub>，被推定为负责将前体 Grisorixin 羟化生成终产物尼日利亚菌素的末端催化酶。Figure 1B 以示意图形式提炼了本研究的核心假设：一个远离 nig<sub>sy</sub> 基因簇的 IV 型 GNAT 酶 SyPmatA，以丙二酰辅酶 A 为酰基供体，特异性地将丙二酰基团转移至 NigD<sub>Sy</sub> 的表面赖氨酸残基上，由此抑制该酶的催化活性，从而在翻译后水平对尼日利亚菌素的生物合成进行负调控。这一机制模型为全篇研究提供了明确的假说靶向。
+
+![image.png](https://synbiopath.online/20260428132102665.png)
+
 
 > "Figure 1. Nigericin biosynthesis in S. yousoufensis OUC6819. (A) Genetic organization of the nigericin biosynthetic gene cluster nig<sub>sy</sub> ... (B) Schematic diagram of the mechanism by which SyPmatA regulates nigericin biosynthesis."
 
@@ -60,7 +63,11 @@
 #### 实验结果与机理解析
 如 Figure 2A 和 Figure 2B 所示，HPLC-DAD 和 HPLC-ELSD 的代谢谱分析清晰表明，与 WT 相比，ΔsyPmatA 突变株中多个聚酮化合物的产量发生了改变。Figure 2C 通过色谱峰面积归一化定量揭示了这一变化的程度：尼日利亚菌素（nigericin）的产量提升最为显著，达到 **5.2 倍**；Reedsmycin A 提升了 **2.1 倍**；而 Piericidin A 仅提升了 **1.2 倍**，增幅微弱。这表明 SyPmatA 的负调控作用对不同聚酮途径存在差异性，且对尼日利亚菌素途径的影响最为突出。根据系统发育分析（Figure 2D），SyPmatA 属于 **IV 型 GNAT**，但与此前鉴定的所有链霉菌酰基转移酶（如 Sco0988 相似度仅 13.9%/22.7%，GrhJ 相似度仅 18.1%/31.8%）的序列同源性均极低，暗示其可能拥有独特的功能或底物谱。
 
+![image.png](https://synbiopath.online/20260428132157295.png)
+
 在确定了 SyPmatA 与尼日利亚菌素产量的负相关关系后，为确证其是否通过翻译后修饰发挥作用，作者利用 pan-Kace 和 pan-Kmal 抗体对 WT 和突变体的全细胞裂解液进行免疫印迹分析。Figure 3A 的结果显示，与 WT 相比，ΔsyPmatA 菌株在培养第 5 天和第 7 天的全局蛋白乙酰化和丙二酰化水平均出现下降，**其中以第 7 天的丙二酰化水平降低最为明显**（Lanes 10-12）。这一结果直接将 SyPmatA 的功能与细胞内蛋白赖氨酸丙二酰化关联起来。
+
+![image.png](https://synbiopath.online/20260428132226420.png)
 
 > "SyPmatA might serve as a lysine acetyltransferase and/or malonyltransferase."
 
@@ -72,7 +79,11 @@
 #### 实验结果与机理解析
 比较丙二酰化组学数据在尼日利亚菌素生物合成途径中鉴定到三个赖氨酸丙二酰化位点，分别位于 P450 酶 NigD<sub>Sy</sub> 的 **K224** 位点（通过 MS/MS 中 y10* 与 y9 离子间 **170.1 Da** 的特征质量差确证，Figure 3B）以及聚酮合酶 NigAII<sub>Sy</sub> 酮基还原酶结构域（KR domain）的 K1895 和 K1905 位点上。鉴于 NigD<sub>Sy</sub> 被推定为催化尼日利亚菌素合成的最后一步羟基化反应（Figure 3C），K224 位点的丙二酰化成为重点研究对象。
 
+![image.png](https://synbiopath.online/20260428132246329.png)
+
 为验证 SyPmatA 是否能直接催化 NigD<sub>Sy</sub> 的丙二酰化，作者分别进行了体外乙酰化与丙二酰化反应。如 Figure 4A 所示，在 SyPmatA 与底物 NigD<sub>Sy</sub> 及丙二酰辅酶 A 共孵育后，抗丙二酰赖氨酸抗体检测到**强烈的阳性信号**，而使用乙酰辅酶 A 时乙酰化信号未见明显增强，证实 SyPmatA 是一种**特异性赖氨酸丙二酰转移酶**而非乙酰转移酶。对照实验显示 SyPmatA 对 NigAII<sub>Sy</sub>-KR 无任何修饰活性，排除了其作为底物的可能。为了精确定位修饰位点，作者将 NigD<sub>Sy</sub> 中所有赖氨酸残基逐一突变为精氨酸（K→R）。Figure 4B 的免疫印迹结果表明，**NigD<sub>Sy</sub><sup>K224R</sup> 突变体几乎完全丧失了被 SyPmatA 丙二酰化的能力**，而其它 K→R 突变体仍能被有效修饰。这一系列实验在生化层面确凿地证明了 **SyPmatA 直接并特异性地催化 NigD<sub>Sy</sub> 上 K224 位点的赖氨酸丙二酰化**。
+
+![image.png](https://synbiopath.online/20260428132307091.png)
 
 > "SyPmatA can specifically catalyze malonylation of NigD<sub>Sy</sub> at K224 in vitro, consistent with the in vivo malonylome data."
 
@@ -84,6 +95,8 @@
 #### 实验结果与机理解析
 作者将 nigD<sub>Sy</sub>、nigD<sub>Sy</sub><sup>K224E</sup> 和 nigD<sub>Sy</sub><sup>K224R</sup> 在 ΔsyPmatA 菌株中进行了过表达，并通过 HPLC-ELSD 对发酵产物进行定量分析（Figure 5A, 5B）。数据显示，在 ΔsyPmatA 突变体中过表达野生型 nigD<sub>Sy</sub> 能将尼日利亚菌素产量提升至 **27.2 ± 4.0 mg/L**（3.7 倍于 WT），直接佐证了 **NigD<sub>Sy</sub> 是合成途径中的限速酶**。值得注意的是，过表达模拟组成型丙二酰化的突变体 nigD<sub>Sy</sub><sup>K224E</sup> 产生的尼日利亚菌素产量为 30.7 ± 1.1 mg/L，与过表达野生型 nigD<sub>Sy</sub> 的产量无显著差异。作者推测，即使在 syPmatA 缺失的背景下，菌株基因组中**可能存在其它内源性丙二酰转移酶**对过表达的野生型 NigD<sub>Sy</sub> K224 进行功能冗余性修饰，从而使其表型趋同于 K224E 突变体。最关键的证据在于，过表达去修饰模拟突变体 nigD<sub>Sy</sub><sup>K224R</sup> 则使尼日利亚菌素产量进一步提升至 **41.9 ± 2.1 mg/L**，比过表达野生型及 K224E 突变体的菌株分别高出 **1.6 倍和 1.4 倍**。这一结果强烈表明，**阻止 K224 位的丙二酰化修饰，即解除 SyPmatA 施加的负调控，是释放 NigD<sub>Sy</sub> 最大催化潜力的关键**。结合 AlphaFold3 预测的结构模型，作者发现 K224 位于 NigD<sub>Sy</sub> 蛋白表面 α12 螺旋末端，K224E 突变将此处表面电荷由碱性转变为酸性（Supporting Information Figure S9）。尽管 K224 不直接处于催化中心，这一表面静电势的显著变化可能**以类似于“静电开关”的变构效应长程调制蛋白质的催化功能**。
 
+![image.png](https://synbiopath.online/20260428132355100.png)
+
 > "Overexpression of nigD<sub>Sy</sub><sup>K224R</sup> in the ΔsyPmatA mutant increased nigericin yield to 41.9 ± 2.1 mg/L ... which was 1.6- and 1.4-fold higher than the ΔsyPmatA/nigD<sub>Sy</sub> and ΔsyPmatA/nigD<sub>Sy</sub><sup>K224E</sup> strains, respectively."
 
 ### （五）基于 PTM 机制改造与发酵优化的高产工程菌株构建
@@ -94,13 +107,15 @@
 #### 实验结果与机理解析
 作者首先评估了 8 种培养基对工程菌株尼日利亚菌素产量的影响，确定 MC 培养基为最优基础（Supporting Information Figure S10）。随后对碳源、氮源和金属离子的单因素优化显示（Figure 5C），**碳源的替换具有最显著的效果**：以葡萄糖替代甘油作为碳源，尼日利亚菌素产量提升至 **236.1 ± 27.4 mg/L**，增幅高达 **5.6 倍**。作者认为，作为可被快速利用的碳源，葡萄糖能高效合成 ATP 及聚酮合酶的前体物质——乙酰辅酶 A 和丙二酰辅酶 A，从而增强了代谢流。此外，以 Mn<sup>2+</sup> 置换 Mg<sup>2+</sup> 亦使产量提升了 **3.9 倍**。基于最优条件（MC-glucose 培养基），作者在 **5 L 生物反应器**中进行了放大发酵。工程菌株 ΔsyPmatA/nigD<sub>Sy</sub><sup>K224R</sup> 的最终尼日利亚菌素产量达到惊人的 **444.5 ± 3.5 mg/L (10.3 ± 1.3 mg/mL DCW)**，相较于初始培养条件下的 WT 菌株，**产量提升了 61.9 倍**。这一数据不仅验证了 PTM 靶向改造策略的工业应用潜力，也为尼日利亚菌素的高效发酵生产提供了新范例。
 
+![image.png](https://synbiopath.online/20260428132413104.png)
+
 > "Fermentation optimization and scale-up in a 5L-bioreactor using the engineered strain ΔsyPmatA/nigD<sub>Sy</sub><sup>K224R</sup> achieved a final titer of 444.5 mg/L, representing a 61.9-fold improvement over the wild-type strain."
 
 ---
 
 # 六：总体结论
 
-本研究首次发现并系统表征了一种由 IV 型 GNAT 蛋白 **SyPmatA** 介导的、全新的尼日利亚菌素生物合成翻译后负调控机制。通过整合比较丙二酰化组学、体外生化与体内遗传学证据，作者确凿地证明了 **SyPmatA 作为一种非典型的赖氨酸丙二酰转移酶，特异性地催化尼日利亚菌素生物合成途径末端酶——细胞色素 P450 单加氧酶 NigD<sub>Sy</sub> ——其表面 K224 位点的丙二酰化修饰**，从而抑制了由 Grisorixin 向 Nigericin 转化的终末羟基化步骤的催化效率。基于这一分子机制，作者理性设计了基因工程菌株，通过敲除 syPmatA 并引入去修饰模拟突变体 nigD<sub>Sy</sub><sup>K224R</sup>，结合定向发酵优化，**在 5 L 生物反应器中将尼日利亚菌素产量从 WT 株的 7.1 mg/L 一举提升至 444.5 mg/L，实现了高达 61.9 倍的惊人增产**。该研究不仅极大地丰富了链霉菌中蛋白赖氨酸酰化修饰调控次级代谢的理论认知，揭示了丙二酰辅酶 A 兼具聚酮延伸单元与修饰供体的双重功能角色，也为未来通过精准靶向 PTM 修饰机制进行高产药用天然产物的代谢工程改造提供了开创性范例。
+本研究首次发现并系统表征了一种由 IV 型 GNAT 蛋白 **SyPmatA** 介导的、全新的尼日利亚菌素生物合成翻译后负调控机制。通过整合比较丙二酰化组学、体外生化与体内遗传学证据，作者证明了 **SyPmatA 作为一种非典型的赖氨酸丙二酰转移酶，特异性地催化尼日利亚菌素生物合成途径末端酶——细胞色素 P450 单加氧酶 NigD<sub>Sy</sub> ——其表面 K224 位点的丙二酰化修饰**，从而抑制了由 Grisorixin 向 Nigericin 转化的终末羟基化步骤的催化效率。基于这一分子机制，作者理性设计了基因工程菌株，通过敲除 syPmatA 并引入去修饰模拟突变体 nigD<sub>Sy</sub><sup>K224R</sup>，结合定向发酵优化，**在 5 L 生物反应器中将尼日利亚菌素产量从 WT 株的 7.1 mg/L 一举提升至 444.5 mg/L，实现了高达 61.9 倍的惊人增产**。该研究不仅极大地丰富了链霉菌中蛋白赖氨酸酰化修饰调控次级代谢的理论认知，揭示了丙二酰辅酶 A 兼具聚酮延伸单元与修饰供体的双重功能角色，也为未来通过精准靶向 PTM 修饰机制进行高产药用天然产物的代谢工程改造提供了开创性范例。
 
 ---
 
