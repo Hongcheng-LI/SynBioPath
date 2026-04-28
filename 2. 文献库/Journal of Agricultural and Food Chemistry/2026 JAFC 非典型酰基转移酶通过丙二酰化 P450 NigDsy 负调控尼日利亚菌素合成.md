@@ -1,3 +1,5 @@
+![image.png](https://synbiopath.online/20260428132627238.png)
+
 # 一：基本信息
 
 **文章题目**：Unusual Acyltransferase Negatively Regulates Nigericin Production via Malonylation of P450 NigD<sub>sy</sub>
