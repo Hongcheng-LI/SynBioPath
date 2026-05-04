@@ -78,7 +78,7 @@
 
 **Figure 3C** 为侧链中间体喂养实验的 LC-MS 结果（图 3C-i 至 3C-vii）。将化合物 **4** 直接饲喂给 AN-*lpg1236*（不含 *lpg7-10*）可恢复 **3** 的生成（图 3C-vi-vii）；将 isovaleric acid (5) 饲喂给 AN-*lpg123689*（不含 *lpg7, lpg10*）也可恢复 **3** 的生成（图 3C-iv）。此外，将 isovaleraldehyde (7) 饲喂给 AN-*lpg123689* 同样检测到 **3**（图 3C-v）。这些结果共同证明 **5** 和 **4** 是侧链合成的关键中间体，且 **7** 可在体内或缓冲条件下自发氧化为 **5**（图 3D-vi-vii）。
 
-![Uploading file...p20oc]()
+![image.png](https://synbiopath.online/20260504162648566.png)
 
 > “These results confirm that L- Leu is indeed incorporated into the synthesis of 4 via the deamination and 1-C decarboxylation.”
 
@@ -121,6 +121,8 @@
 ### （五）完整的生物合成模型
 
 **Figure 4** 以总结性示意图的形式，完整呈现了从 L-亮氨酸出发，经 Lpg10、Lpg7、Lpg6、Lpg9、Lpg8 协同作用生成 isoheptylic acid (4)，继而由 Lpg6（或宿主内源酶 XP_050469183.1）活化生成 **9**，并由 Lpg3 催化与 Lpg1/Lpg2 生成的倍半萜核心 **2** 发生酯化，最终得到 aculealdehyde (3) 的全路径。图中以方框突出展示了宿主内源 CoA 连接酶对 **4** 向 **9** 转化的补偿作用。该模型突出了三个核心创新点：(1) Lpg1 作为非典型膜结合 TC 催化生成 **ent-β-longipinene**；(2) Lpg2 实现双位点远端羟化；(3) Lpg6 作为一个单酶同时启动 hrPKS 延伸与终产物酯化两个关键步骤，且 hrPKS 的起始单元为来源于 L-亮氨酸代谢的支链 CoA 酯 (8)，而非经典的小分子酰基 CoA。
+
+![image.png](https://synbiopath.online/20260504162711566.png)
 
 ---
 
