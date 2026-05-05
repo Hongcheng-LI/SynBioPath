@@ -2,14 +2,14 @@
 
 # 一：基本信息
 
-**文章题目**：Machine-Learning-Guided Discovery of Cytochrome P450 Enzymes for Bioproduction of Jolkinolides and Other Labdane-Related Diterpenoids（机器学习引导的细胞色素 P450 酶发现及其在 jolkinolides 与其他 labdane 相关二萜生物生产中的应用）
+**文章题目**：Machine-Learning-Guided Discovery of Cytochrome P450 Enzymes for Bioproduction of Jolkinolides and Other Labdane-Related Diterpenoids
 
 **文章 DOI 号**：https://doi.org/10.1021/jacs.6c05010
 
 **期刊名称**：Journal of the American Chemical Society
 
 **通讯作者及工作单位**：
-- **Jiachen Zi**：中国医学科学院 北京协和医学院 药物研究所 天然药物活性物质与功能国家重点实验室 (State Key Laboratory of Bioactive Substance and Function of Natural Medicines, CAMS Key Laboratory of Enzyme and Biocatalysis of Natural Drugs, and NHC Key Laboratory of Biosynthesis of Natural Products, Institute of Materia Medica, Chinese Academy of Medical Sciences & Peking Union Medical College, Beijing 100050, China)
+- **訾佳辰**：中国医学科学院 北京协和医学院 药物研究所 天然药物活性物质与功能国家重点实验室 (State Key Laboratory of Bioactive Substance and Function of Natural Medicines, CAMS Key Laboratory of Enzyme and Biocatalysis of Natural Drugs, and NHC Key Laboratory of Biosynthesis of Natural Products, Institute of Materia Medica, Chinese Academy of Medical Sciences & Peking Union Medical College, Beijing 100050, China)
 
 ---
 
