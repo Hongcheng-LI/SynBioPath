@@ -1,5 +1,7 @@
 ![image.png](https://synbiopath.online/20260505171622573.png)
 
+---
+
 # 一：基本信息
 
 **文章题目**：Machine-Learning-Guided Discovery of Cytochrome P450 Enzymes for Bioproduction of Jolkinolides and Other Labdane-Related Diterpenoids
@@ -18,6 +20,8 @@
 植物来源的 labdane 相关二萜 (labdane-related diterpenoids, LRDs) 是一类结构多样且数量庞大的天然产物，占全部萜类化合物的 10% 以上，广泛参与植物激素调节、植保素防御以及食品添加剂和制药工业等多个领域。在生物合成层面，LRDs 源于共同的 precursors geranylgeranyl diphosphate (GGPP)，经 class II 二萜合酶 (copalyl diphosphate synthase, CPS) 催化生成各类 copalyl diphosphate (CPP) 及其羟基化类似物，再经 class I 二萜合酶 (kaurene synthase, KS 或 kaurene synthase-like, KSL) 进一步环化，形成 kaurene、abietane、atisane、pimarane 等多种骨架。随后，细胞色素 P450 酶 (CYPs) 对这些二萜烯烃进行氧化修饰，包括羟化及进一步氧化形成醛、酮、羧酸、内酯等官能团。
 
 **Figure 1** 呈现了本研究关注的典型 LRD 骨架及其代表性活性分子。图中展示了 *Euphorbia fischeriana* 中已鉴定的四种二萜烯烃：由 EfTPS54 (ent-CPS) 与 EfTPS14 (ent-neoabietadiene synthase) 协作生成的 **ent-neoabietadiene (1)**；由 EfTPS54 与 EfTPS43 生成的 **ent-atiserene (2)**；由 EfTPS54 与 EfTPS1 生成的 **ent-kaurene (3)**；以及由 EfTPS54 与 EfTPS41 生成的 **ent-isopimara-7(8),15-diene (4)**。图中同时标出了 jolkinolides 类化合物的代表结构——jolkinolide B 和 17-hydroxy-jolkinolide B，其结构特征为一个与 C 环稠合的 α,β-不饱和 γ-内酯环，该内酯环被认为是其抗癌活性的关键药效团。此外，图中还指明了两种微量但活性极强的 jolkinolides——helioscopinolide A 和 helioscopinolide E，它们在 *E. fischeriana* 中的含量仅为约 3 mg/kg 植物干重。
+
+![image.png](https://synbiopath.online/20260505172037876.png)
 
 尽管已有大量关于 LRD 生物合成的研究报道，但对某些特定骨架位点的氧化修饰以及特征性官能团（如 α,β-不饱和 γ-内酯）的形成机制仍不明确。植物基因组中通常编码数百个 CYP 基因，且 CYP 序列多样性高、底物选择性宽泛，加之植物生物合成基因在基因组中呈分散分布而非成簇存在，使得从植物中准确鉴定参与目标代谢物生物合成的 CYP 基因极为困难。传统的局部序列比对搜索（以已知酶为查询序列）和整合转录组-代谢组分析方法在处理 CYP 家族时准确性有限。近年来，机器学习方法在建立序列-功能关系和结构-功能关系方面展现出巨大潜力，可显著提高酶挖掘的准确性。基于此，本研究旨在构建一个基于序列相似性与底物化学空间距离的监督学习模型，用于从 *E. fischeriana* 的 CYP 库中高效预测能够氧化 LRD 烯烃的候选 CYP，进而阐明 jolkinolides 的生物合成途径，并建立其异源生物生产体系。
 
