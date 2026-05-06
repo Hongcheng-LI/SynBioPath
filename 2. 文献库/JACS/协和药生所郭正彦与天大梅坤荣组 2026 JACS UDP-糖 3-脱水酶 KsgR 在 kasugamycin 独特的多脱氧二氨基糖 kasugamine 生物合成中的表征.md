@@ -22,6 +22,8 @@
 
 **Figure 1A** 展示了本研究关注的 kasugamine（2,4-diamino-2,3,4,6-tetradeoxy-D-mannose, **1**）的化学结构。这是一种罕见的多脱氧二氨基糖，目前仅在氨基糖苷类抗生素 kasugamycin (KSG, **2**) 和抗分枝杆菌化合物 mimosaminomycin (**3**) 中被发现。化合物 **2** 由 *Streptomyces kasugensis* 产生，已作为农用杀菌剂用于防治水稻稻瘟病长达六十余年。结构上，**2** 以 **1** 为核心骨架，并连接一个 carboxyformimidoyl 基团和一个 D-chiro-inositol 部分。其作用机制涉及与 40S/30S 核糖体亚基 E 位点与 P 位点界面的特异性结合，或干扰 mRNA 上 70S 翻译起始复合物的形成，从而阻断蛋白质合成。近年来的研究进一步拓展了 **2** 的药理学相关性，显示其对结核分枝杆菌、单纯疱疹病毒 2 型乃至 COVID-19 均具有潜在活性，凸显了其重要的医学价值。
 
+![image.png](https://synbiopath.online/20260506101733825.png)
+
 尽管 **2** 具有重要价值，目前仅有三种关于其对映异构体的化学全合成报道，主要挑战在于构建 **1**，该步骤需要最多的反应步骤。尽管 **2** 的生物合成基因簇 (biosynthetic gene cluster, BGC) 已于数十年前被鉴定，但关于 **1** 的生物合成知之甚少。此前仅知 KasQ（与本研究中的 KsgQ 具有 100% 的序列一致性）负责将 uridine diphosphate-N-acetyl-D-glucosamine (UDP-GlcNAc, **4**) 转化为 uridine diphosphate-N-acetyl-D-mannosamine (UDP-ManNAc, **5**)，这是通过生化与生物物理分析以及同位素标记饲喂实验证实的第一个步骤。此外，两个乙酰转移酶 KasF 和 KasH 通过对 **1** 的 2-N’-乙酰化使其失活，表明它们作为修饰酶参与 **2** 的耐药性。
 
 为了解析 kasugamine (**1**) 的生物合成并阐明 **2** 的完整途径，作者对一株产 **2** 的 *S. kasugensis* CGMCC 4.1057 进行了全基因组测序，并通过生物信息学分析鉴定出一个推定的 **2** BGC——**kg** 簇（与先前报道的 BGC 具有 99% 的同源性，**Figure 1B**）。该簇中多个基因被预测参与核苷酸-糖的修饰，包括 epimerase (KsgQ)、deacetylase (KsgB)、dehydratase (KsgD 和 KsgR) 以及 aminotransferase (KsgC)。本研究旨在通过体外生化重构、稳定同位素饲喂、晶体学分析及定点突变，完整揭示从 UDP-GlcNAc (**4**) 到 kasugamine 糖供体 UDP-2,4-diamino-2,3,4,6-tetradeoxy-D-mannose (**6**) 的生物合成途径，并重点阐明 KsgR 作为一种新型 UDP-糖 3-脱水酶的催化机制。
