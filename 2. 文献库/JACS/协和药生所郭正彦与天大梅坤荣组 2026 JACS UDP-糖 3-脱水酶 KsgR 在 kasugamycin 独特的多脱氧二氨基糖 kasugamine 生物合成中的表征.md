@@ -94,7 +94,9 @@
 
 ![image.png](https://synbiopath.online/20260506155049472.png)
 
-**Figure 3C** 展示了 KsgR 的级联反应结果。由于 **8** 不稳定，作者在 KsgD 反应生成 **8** 后，直接加入 KsgR、PLP 和 L-Glu 继续反应。图 3C-i 为 **7** 标准品；图 3C-ii 为 **8**（KsgD 单独反应后立即进样）；图 3C-iii 为 KsgD + KsgR 反应后的 HPLC 图谱，**出现一个新峰 9，同时 8 峰消失；图 3C-iv 为不加 KsgR 的对照，**无 9 生成。HR-ESIMS 显示 9 的 [M-H]⁻ 为 \(m/z\) 530.0588（计算值 530.0582），比 8（546.0532）减少 16 Da（一分子氧），与一个羟基被氢取代（脱氧）一致**，且该脱氧发生在 C-3 位（见下文机理）。**Figure 3D** 展示了 KsgC 的催化功能。在 KsgD + KsgR 反应生成 **9** 后，加入 KsgC，HPLC 检测到 **6** 的生成（图 3D-v）。**该结果证明 KsgC 催化 9 的 4-胺化（转氨基）生成 6。** KsgC 的 PLP 依赖性通过以下实验确认：纯化的 KsgC 含有 PLP（Figure S22）；与 L-Glu 孵育后生成 PMP 和 α-酮戊二酸（α-KG）（Figure S22）；将 KsgC 与 **6** 和 α-KG 反向孵育可生成 **9**（Figure S21）。值得注意的是，当用 L-谷氨酰胺 (L-Gln) 替代 L-Glu 作为氨基供体时，反应效率显著提高（Figure S27），这可能是体内真实的氨基供体。
+**Figure 3C** 展示了 KsgR 的级联反应结果。由于 **8** 不稳定，作者在 KsgD 反应生成 **8** 后，直接加入 KsgR、PLP 和 L-Glu 继续反应。图 3C-i 为 **7** 标准品；图 3C-ii 为 **8**（KsgD 单独反应后立即进样）；图 3C-iii 为 KsgD + KsgR 反应后的 HPLC 图谱，**出现一个新峰 9，同时 8 峰消失；图 3C-iv 为不加 KsgR 的对照，无 9 生成。HR-ESIMS 显示 9 的 [M-H]⁻ 为 \(m/z\) 530.0588（计算值 530.0582），比 8（546.0532）减少 16 Da（一分子氧），与一个羟基被氢取代（脱氧）一致**，且该脱氧发生在 C-3 位（见下文机理）。**Figure 3D** 展示了 KsgC 的催化功能。在 KsgD + KsgR 反应生成 **9** 后，加入 KsgC，HPLC 检测到 **6** 的生成（图 3D-v）。**该结果证明 KsgC 催化 9 的 4-胺化（转氨基）生成 6。** KsgC 的 PLP 依赖性通过以下实验确认：纯化的 KsgC 含有 PLP（Figure S22）；与 L-Glu 孵育后生成 PMP 和 α-酮戊二酸（α-KG）（Figure S22）；将 KsgC 与 **6** 和 α-KG 反向孵育可生成 **9**（Figure S21）。值得注意的是，当用 L-谷氨酰胺 (L-Gln) 替代 L-Glu 作为氨基供体时，反应效率显著提高（Figure S27），这可能是体内真实的氨基供体。
+
+![image.png](https://synbiopath.online/20260506155232463.png)
 
 此外，作者还发现 KsgC 能够直接以 KsgD 的产物 **8** 为底物，通过 4-转氨基生成一个新型二氨基糖 UDP-2,4-diamino-2,4,6-trideoxy-D-mannose (**10**)，其结构经 HR-ESIMS 和 NMR 确证（Figure S25, Table S6）。**10** 中 H-3 与 H-4 的耦合常数 J = 10.5 Hz 以及 ROESY 中 H-4 与 H-6 的相关信号确认了 4-氨基的 axial 构型。该发现间接验证了 **8** 是 4,6-脱水产物，并为合成新型核苷酸糖提供了捷径。通过优化氨基供体（L-Gln），作者成功建立了 KsgQ、KsgB、KsgD、KsgC 四酶一锅反应高效生产 **10** 的体系（Figure S28）。
 
