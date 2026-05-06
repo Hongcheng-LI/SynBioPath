@@ -1,21 +1,26 @@
+![image.png](https://synbiopath.online/20260506100745883.png)
+
+---
 
 # 一：基本信息
 
-**文章题目**：Characterization of UDP-Sugar 3-Dehydrase KsgR in the Biosynthesis of a Distinctive Multideoxy Diamino-Sugar Kasugamine of Kasugamycin（UDP-糖 3-脱水酶 KsgR 在 kasugamycin 独特的多脱氧二氨基糖 kasugamine 生物合成中的表征）
+**文章题目**：Characterization of UDP-Sugar 3-Dehydrase KsgR in the Biosynthesis of a Distinctive Multideoxy Diamino-Sugar Kasugamine of Kasugamycin
 
 **文章 DOI 号**：https://doi.org/10.1021/jacs.6c03331
 
 **期刊名称**：Journal of the American Chemical Society
 
 **通讯作者及工作单位**：
-- **Zhengyan Guo**：中国医学科学院 北京协和医学院 医药生物技术研究所 微生物药物生物技术化学生物学重点实验室 (NHC Key Laboratory of Biotechnology for Microbial Drugs, Institute of Medicinal Biotechnology, Chinese Academy of Medical Sciences & Peking Union Medical College, Beijing 100050, China)；中国医学科学院 北京协和医学院 医药生物技术研究所 微生物代谢工程研究室 药物合成生物学重点实验室 (CAMS Key Laboratory of Synthetic Biology for Drug Innovation, Department of Microbial Metabolic Engineering, Institute of Medicinal Biotechnology, Chinese Academy of Medical Sciences & Peking Union Medical College, Beijing 100050, China)
-- **Kunrong Mei**：天津大学 药物科学与技术学院 合成生物学国家重点实验室 (State Key Laboratory of Synthetic Biology (MOST), School of Pharmaceutical Science and Technology, Faculty of Medicine, Tianjin University, Tianjin 300072, China)
+- **郭正彦**：中国医学科学院 北京协和医学院 医药生物技术研究所 微生物药物生物技术化学生物学重点实验室 (NHC Key Laboratory of Biotechnology for Microbial Drugs, Institute of Medicinal Biotechnology, Chinese Academy of Medical Sciences & Peking Union Medical College, Beijing 100050, China)；中国医学科学院 北京协和医学院 医药生物技术研究所 微生物代谢工程研究室 药物合成生物学重点实验室 (CAMS Key Laboratory of Synthetic Biology for Drug Innovation, Department of Microbial Metabolic Engineering, Institute of Medicinal Biotechnology, Chinese Academy of Medical Sciences & Peking Union Medical College, Beijing 100050, China)
+- **梅坤荣**：天津大学 药物科学与技术学院 合成生物学国家重点实验室 (State Key Laboratory of Synthetic Biology (MOST), School of Pharmaceutical Science and Technology, Faculty of Medicine, Tianjin University, Tianjin 300072, China)
 
 ---
 
 # 二：研究背景
 
-高度脱氧糖（highly deoxygenated sugars）广泛存在于多种具有重要生物学活性的天然产物中，并常对其活性发挥关键作用。例如，来源于刺糖多孢菌 (Saccharopolyspora spinosa) 的 insecticidal spinosad 中的 D-forosamine、大环内酯类抗生素 erythromycin 和 oleandomycin 中的 D-desosamine、抗肿瘤 angucycline 抗生素 landomycin 和 urdamycin 中的 L-rhodnose，以及革兰氏阴性菌脂多糖 O-抗原中的 CDP-L-ascarylose 和 GDP-L-colitose 等。**Figure 1A** 展示了本研究关注的 kasugamine（2,4-diamino-2,3,4,6-tetradeoxy-D-mannose, **1**）的化学结构。这是一种罕见的多脱氧二氨基糖，目前仅在氨基糖苷类抗生素 kasugamycin (KSG, **2**) 和抗分枝杆菌化合物 mimosaminomycin (**3**) 中被发现。化合物 **2** 由 *Streptomyces kasugensis* 产生，已作为农用杀菌剂用于防治水稻稻瘟病长达六十余年。结构上，**2** 以 **1** 为核心骨架，并连接一个 carboxyformimidoyl 基团和一个 D-chiro-inositol 部分。其作用机制涉及与 40S/30S 核糖体亚基 E 位点与 P 位点界面的特异性结合，或干扰 mRNA 上 70S 翻译起始复合物的形成，从而阻断蛋白质合成。近年来的研究进一步拓展了 **2** 的药理学相关性，显示其对结核分枝杆菌、单纯疱疹病毒 2 型乃至 COVID-19 均具有潜在活性，凸显了其重要的医学价值。
+高度脱氧糖（highly deoxygenated sugars）广泛存在于多种具有重要生物学活性的天然产物中，并常对其活性发挥关键作用。例如，来源于刺糖多孢菌 (Saccharopolyspora spinosa) 的 insecticidal spinosad 中的 D-forosamine、大环内酯类抗生素 erythromycin 和 oleandomycin 中的 D-desosamine、抗肿瘤 angucycline 抗生素 landomycin 和 urdamycin 中的 L-rhodnose，以及革兰氏阴性菌脂多糖 O-抗原中的 CDP-L-ascarylose 和 GDP-L-colitose 等。
+
+**Figure 1A** 展示了本研究关注的 kasugamine（2,4-diamino-2,3,4,6-tetradeoxy-D-mannose, **1**）的化学结构。这是一种罕见的多脱氧二氨基糖，目前仅在氨基糖苷类抗生素 kasugamycin (KSG, **2**) 和抗分枝杆菌化合物 mimosaminomycin (**3**) 中被发现。化合物 **2** 由 *Streptomyces kasugensis* 产生，已作为农用杀菌剂用于防治水稻稻瘟病长达六十余年。结构上，**2** 以 **1** 为核心骨架，并连接一个 carboxyformimidoyl 基团和一个 D-chiro-inositol 部分。其作用机制涉及与 40S/30S 核糖体亚基 E 位点与 P 位点界面的特异性结合，或干扰 mRNA 上 70S 翻译起始复合物的形成，从而阻断蛋白质合成。近年来的研究进一步拓展了 **2** 的药理学相关性，显示其对结核分枝杆菌、单纯疱疹病毒 2 型乃至 COVID-19 均具有潜在活性，凸显了其重要的医学价值。
 
 尽管 **2** 具有重要价值，目前仅有三种关于其对映异构体的化学全合成报道，主要挑战在于构建 **1**，该步骤需要最多的反应步骤。尽管 **2** 的生物合成基因簇 (biosynthetic gene cluster, BGC) 已于数十年前被鉴定，但关于 **1** 的生物合成知之甚少。此前仅知 KasQ（与本研究中的 KsgQ 具有 100% 的序列一致性）负责将 uridine diphosphate-N-acetyl-D-glucosamine (UDP-GlcNAc, **4**) 转化为 uridine diphosphate-N-acetyl-D-mannosamine (UDP-ManNAc, **5**)，这是通过生化与生物物理分析以及同位素标记饲喂实验证实的第一个步骤。此外，两个乙酰转移酶 KasF 和 KasH 通过对 **1** 的 2-N’-乙酰化使其失活，表明它们作为修饰酶参与 **2** 的耐药性。
 
