@@ -1,4 +1,4 @@
-
+![image.png](https://synbiopath.online/20260507102442840.png)
 
 ***
 
@@ -11,10 +11,10 @@
 **期刊名称**：Nature Computational Science
 
 **通讯作者及工作单位**：
-- **朱瑞新**：同济大学生命科学与技术学院，生物医药研究中心 (School of Life Sciences and Technology, Tongji University; Biomedical Research Center, Tongji University)
-- **张国庆**：复旦大学附属中山医院，肝病研究所 (Institute of Liver Diseases, Zhongshan Hospital, Fudan University)
-- **赵国屏**：上海市疾病与健康基因组学重点实验室，复旦大学生命科学学院 (Shanghai Key Laboratory of Disease and Health Genomics, School of Life Sciences, Fudan University)
 - **焦娜**：复旦大学附属中山医院，肝病研究所 (Institute of Liver Diseases, Zhongshan Hospital, Fudan University)
+- **赵国屏**：上海市疾病与健康基因组学重点实验室，复旦大学生命科学学院 (Shanghai Key Laboratory of Disease and Health Genomics, School of Life Sciences, Fudan University)
+- **张国庆**：复旦大学附属中山医院，肝病研究所 (Institute of Liver Diseases, Zhongshan Hospital, Fudan University)
+- **朱瑞新**：同济大学生命科学与技术学院，生物医药研究中心 (School of Life Sciences and Technology, Tongji University; Biomedical Research Center, Tongji University)
 
 ---
 
