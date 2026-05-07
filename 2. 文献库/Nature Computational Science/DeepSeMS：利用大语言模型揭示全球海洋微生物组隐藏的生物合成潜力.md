@@ -4,7 +4,7 @@
 
 # 一：基本信息
 
-**文章题目**：DeepSeMS: revealing the hidden biosynthetic potential of the global ocean microbiome with a large language model ()
+**文章题目**：DeepSeMS: revealing the hidden biosynthetic potential of the global ocean microbiome with a large language model
 
 **文章 DOI 号**：10.1038/s43588-026-00983-1
 
