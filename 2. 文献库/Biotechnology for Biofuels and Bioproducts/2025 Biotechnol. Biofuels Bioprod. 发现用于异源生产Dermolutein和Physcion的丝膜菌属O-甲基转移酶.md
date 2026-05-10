@@ -1,10 +1,10 @@
-好的，作为一名在生物化学与分子生物学领域的资深学者，我将基于您提供的文献和严格的指令要求，撰写一份达到中国顶尖高校博士学位论文水准的深度分析报告。
+![image.png](https://synbiopath.online/20260510105943725.png)
 
 ---
 
 # 一：基本信息
 
-**文章题目**：Discovery of Cortinarius O-methyltransferases for the heterologous production of dermolutein and physcion (发现用于异源生产Dermolutein和Physcion的丝膜菌属O-甲基转移酶)
+**文章题目**：Discovery of Cortinarius O-methyltransferases for the heterologous production of dermolutein and physcion
 
 **文章 DOI 号**：10.1186/s13068-025-02625-6
 
