@@ -1,10 +1,10 @@
-
+![image.png](https://synbiopath.online/20260512155323171.png)
 
 ---
 
 # 一：基本信息
 
-**文章题目**：COMMBAT: A web platform for exploring expression control of biosynthetic gene clusters (COMMBAT：用于探索生物合成基因簇表达调控的网络平台)
+**文章题目**：COMMBAT: A web platform for exploring expression control of biosynthetic gene clusters ()
 
 **文章 DOI 号**：10.1093/nar/gkaf1210
 
