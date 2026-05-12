@@ -111,6 +111,8 @@
 
 **Figure 6d** 展示了BifN的体外活性。将纯化的BifN与L-Lys共孵育，经Fmoc衍生化后检测到了Fmoc-3-OH-L-Lys (m/z 385.2)，热失活酶对照无信号。这一结果证明**BifN是一个作用于游离L-赖氨酸的3-羟化酶**，而非作用于PCP结合底物。这与基于系统发育分析的预测 (Figure S53) 相符：BifN属于游离氨基酸羟化酶亚家族。
 
+![Uploading file...ltxxw]()
+
 综合上述结果，作者提出了修饰氨基酸的完整生物合成顺序：L-Trp → (BifE) → 4-OH-L-Trp → (BifF) → 4-MeO-L-Trp → (BifK/I) → 5-Cl-4-MeO-L-Trp；以及L-Lys → (BifN) → 3R-OH-L-Lys。这些稀有砌块随后被相应的NRPS A结构域识别并装配到肽链中。值得注意的是，**在生产者菌株发酵中几乎未检测到游离的3R-OH-L-Lys (**3**)，表明A3结构域可能优先选择3R-OH-L-Lys而非L-Lys，或者C4结构域具有“门控”功能以防止L-Lys的掺入**。
 
 > “These data support a model in which BifE hydroxylates C4 of L-Trp, the product of which is then methylated by BifF prior to halogenation at C5 by BifK… BifN acts on free L-Lys and does not act on an NRPS-bound substrate during biosynthesis.”
