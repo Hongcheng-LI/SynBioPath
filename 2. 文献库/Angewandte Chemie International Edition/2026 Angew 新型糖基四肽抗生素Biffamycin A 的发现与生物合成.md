@@ -111,7 +111,7 @@
 
 **Figure 6d** 展示了BifN的体外活性。将纯化的BifN与L-Lys共孵育，经Fmoc衍生化后检测到了Fmoc-3-OH-L-Lys (m/z 385.2)，热失活酶对照无信号。这一结果证明**BifN是一个作用于游离L-赖氨酸的3-羟化酶**，而非作用于PCP结合底物。这与基于系统发育分析的预测 (Figure S53) 相符：BifN属于游离氨基酸羟化酶亚家族。
 
-![Uploading file...ltxxw]()
+![image.png](https://synbiopath.online/20260512163850834.png)
 
 综合上述结果，作者提出了修饰氨基酸的完整生物合成顺序：L-Trp → (BifE) → 4-OH-L-Trp → (BifF) → 4-MeO-L-Trp → (BifK/I) → 5-Cl-4-MeO-L-Trp；以及L-Lys → (BifN) → 3R-OH-L-Lys。这些稀有砌块随后被相应的NRPS A结构域识别并装配到肽链中。值得注意的是，**在生产者菌株发酵中几乎未检测到游离的3R-OH-L-Lys (**3**)，表明A3结构域可能优先选择3R-OH-L-Lys而非L-Lys，或者C4结构域具有“门控”功能以防止L-Lys的掺入**。
 
@@ -127,7 +127,9 @@
 
 基于上述全部结果，**Figure 7** 总结了biffamycin A的完整生物合成途径：起始于游离L-Trp和L-Lys的修饰，生成砌块5-Cl-4-MeO-L-Trp和3R-OH-L-Lys。随后，BifC的A1装载L-Ile至PCP1，A2装载修饰色氨酸至PCP2，C2催化形成二肽；BifB的A3装载3R-OH-L-Lys，经E3异构化为D构型，C3形成三肽；A4装载Gly，C4形成四肽；最终，嵌入的SurE结构域催化四肽硫酯的大环内酰胺化，生成环四肽苷元。该苷元被BifA外排后，由BifO提供多异戊二烯磷酸-甘露糖，经BifP催化将甘露糖基转移至3-羟基-D-赖氨酸的侧链氧原子上，完成biffamycin A的生物合成。
 
-**Table 1** 列出了化合物 **1** 及其衍生物对多种微生物的MIC值 (μg/mL)。**Biffamycin A (**1**) 对甲氧西林耐药金黄色葡萄球菌 (MRSA) 和万古霉素耐药金黄色葡萄球菌 (VRSA) 均显示 **8 μg/mL** 的MIC，对 *Streptococcus pyogenes* 为 32 μg/mL，对 *Mycobacterium smegmatis* 为 16 μg/mL**。对于革兰氏阴性菌 (***E. coli***， ***P. aeruginosa** *) 在测试浓度下无活性，符合糖肽类抗生素的典型谱。重要的是，**1** 对人胚胎肾细胞 HEK293 在 128 μg/mL 浓度下未显示细胞毒性。构效关系分析显示：aglycon (**6**) 对MRSA的MIC为 64 μg/mL，活性比 **1** 降低了8倍；而des-hydroxy aglycon (**3**) 在 128 μg/mL 下完全无活性。**这一结果表明：甘露糖基化显著增强了抗菌活性 (约8倍)，而赖氨酸C3位的羟基是活性所必需的**。特别值得注意的是，**1** 对VRSA与对MRSA的活性相同 (均为 8 μg/mL)，而万古霉素对同一VRSA菌株的MIC为 16 μg/mL。**这强烈提示biffamycin A的作用机制不同于万古霉素 (后者与D-Ala-D-Ala结合)，或者它能够规避由 *vanA* 基因介导的万古霉素耐药机制**。
+![image.png](https://synbiopath.online/20260512163935276.png)
+
+**Table 1** 列出了化合物 **1** 及其衍生物对多种微生物的MIC值 (μg/mL)。**Biffamycin A (**1**) 对甲氧西林耐药金黄色葡萄球菌 (MRSA) 和万古霉素耐药金黄色葡萄球菌 (VRSA) 均显示 **8 μg/mL** 的MIC，对 *Streptococcus pyogenes* 为 32 μg/mL，对 *Mycobacterium smegmatis* 为 16 μg/mL**。对于革兰氏阴性菌 (***E. coli***， ***P. aeruginosa** ) 在测试浓度下无活性，符合糖肽类抗生素的典型谱。重要的是，**1** 对人胚胎肾细胞 HEK293 在 128 μg/mL 浓度下未显示细胞毒性。构效关系分析显示：aglycon (**6**) 对MRSA的MIC为 64 μg/mL，活性比 **1** 降低了8倍；而des-hydroxy aglycon (**3**) 在 128 μg/mL 下完全无活性。**这一结果表明：甘露糖基化显著增强了抗菌活性 (约8倍)，而赖氨酸C3位的羟基是活性所必需的**。特别值得注意的是，**1** 对VRSA与对MRSA的活性相同 (均为 8 μg/mL)，而万古霉素对同一VRSA菌株的MIC为 16 μg/mL。**这强烈提示biffamycin A的作用机制不同于万古霉素 (后者与D-Ala-D-Ala结合)，或者它能够规避由 *vanA* 基因介导的万古霉素耐药机制**。
 
 > “The ability of 1 to inhibit the growth of MRSA equally well as VRSA indicates that 1 either has a mechanism of action different from vancomycin or that it circumvents VanA-mediated resistance.”
 
