@@ -129,7 +129,9 @@
 
 ![image.png](https://synbiopath.online/20260512163935276.png)
 
-**Table 1** 列出了化合物 **1** 及其衍生物对多种微生物的MIC值 (μg/mL)。**Biffamycin A (**1**) 对甲氧西林耐药金黄色葡萄球菌 (MRSA) 和万古霉素耐药金黄色葡萄球菌 (VRSA) 均显示 **8 μg/mL** 的MIC，对 *Streptococcus pyogenes* 为 32 μg/mL，对 *Mycobacterium smegmatis* 为 16 μg/mL**。对于革兰氏阴性菌 (***E. coli***， ***P. aeruginosa** ) 在测试浓度下无活性，符合糖肽类抗生素的典型谱。重要的是，**1** 对人胚胎肾细胞 HEK293 在 128 μg/mL 浓度下未显示细胞毒性。构效关系分析显示：aglycon (**6**) 对MRSA的MIC为 64 μg/mL，活性比 **1** 降低了8倍；而des-hydroxy aglycon (**3**) 在 128 μg/mL 下完全无活性。**这一结果表明：甘露糖基化显著增强了抗菌活性 (约8倍)，而赖氨酸C3位的羟基是活性所必需的**。特别值得注意的是，**1** 对VRSA与对MRSA的活性相同 (均为 8 μg/mL)，而万古霉素对同一VRSA菌株的MIC为 16 μg/mL。**这强烈提示biffamycin A的作用机制不同于万古霉素 (后者与D-Ala-D-Ala结合)，或者它能够规避由 *vanA* 基因介导的万古霉素耐药机制**。
+**Table 1** 列出了化合物 **1** 及其衍生物对多种微生物的MIC值 (μg/mL)。**Biffamycin A (**1**) 对甲氧西林耐药金黄色葡萄球菌 (MRSA) 和万古霉素耐药金黄色葡萄球菌 (VRSA) 均显示 **8 μg/mL** 的MIC，对 *Streptococcus pyogenes* 为 32 μg/mL，对 *Mycobacterium smegmatis* 为 16 μg/mL**。对于革兰氏阴性菌 (***E. coli***， *P. aeruginosa*) 在测试浓度下无活性，符合糖肽类抗生素的典型谱。重要的是，**1** 对人胚胎肾细胞 HEK293 在 128 μg/mL 浓度下未显示细胞毒性。构效关系分析显示：aglycon (**6**) 对MRSA的MIC为 64 μg/mL，活性比 **1** 降低了8倍；而des-hydroxy aglycon (**3**) 在 128 μg/mL 下完全无活性。**这一结果表明：甘露糖基化显著增强了抗菌活性 (约8倍)，而赖氨酸C3位的羟基是活性所必需的**。特别值得注意的是，**1** 对VRSA与对MRSA的活性相同 (均为 8 μg/mL)，而万古霉素对同一VRSA菌株的MIC为 16 μg/mL。**这强烈提示biffamycin A的作用机制不同于万古霉素 (后者与D-Ala-D-Ala结合)，或者它能够规避由 *vanA* 基因介导的万古霉素耐药机制**。
+
+![image.png](https://synbiopath.online/20260512164039003.png)
 
 > “The ability of 1 to inhibit the growth of MRSA equally well as VRSA indicates that 1 either has a mechanism of action different from vancomycin or that it circumvents VanA-mediated resistance.”
 
