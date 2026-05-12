@@ -95,6 +95,8 @@
 
 **Figure 5** 计算了质子化形式 [1_3R]<sup>+</sup> (biffamycin A在生理pH下的可能状态) 的全局最小能量构象及其构象分布。图中显示，质子化的赖氨酸侧链氨基与K1羰基氧及甘露糖的-CH<sub>2</sub>OH形成强氢键桥，将分子锁定在一个高度刚性的构象中，该构象中含有5个分子内氢键，其中还包括甲氧基氧参与的双重氢键。**这种“锁定”的三级结构可能对其抗菌活性至关重要。**
 
+![image.png](https://synbiopath.online/20260512163742188.png)
+
 > “The global minimum energy conformation of biffamycin A, specifically in its protonated form [1_3R]<sup>+</sup>, calculated at the r<sup>2</sup>SCAN-3c level of theory in water... the protonated lysine amino group... forms a strong bridge... leading to a ‘locked-in’ tertiary structure... which might well be critical for its bactericidal activity.”
 
 ## （四）5-氯-4-甲氧基-L-色氨酸和3R-羟基-L-赖氨酸生物合成的体外与体内重构
