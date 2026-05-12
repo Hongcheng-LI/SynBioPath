@@ -69,9 +69,13 @@
 ### 实验结果与机理解析
 **Figure 3a** 展示了最终确定的所有相关化合物结构，包括 biffamycin A (**1**，R = Ile)，biffamycin B (**2**，R = Val)，aglycon (**6**, 无糖基), des-hydroxy aglycon (**3**, 无羟基和糖基), 以及N-乙酰化衍生物(**7**，用于NMR辅助解析)。化合物 **1** 的分子式为 C<sub>32</sub>H<sub>47</sub>ClN<sub>6</sub>O<sub>11</sub>，是一个环四肽甘露糖苷。
 
+![image.png](https://synbiopath.online/20260512163634294.png)
+
 **Figure 3b** 显示了 **1** 的LC-HRMS/MS碎片图谱，通过解析关键的碎片离子，作者确定了氨基酸的连接顺序。例如，**m/z 596.2435** 的碎片对应失去甘露糖基的[M+H-162]<sup>+</sup>，**m/z 448.1710** 碎片进一步对应失去Ile和Gly残基后的剩余部分，这些数据支持了从前到后的肽链顺序：Ile → (Cl,MeO-Trp) → (OH-Lys) → Gly。
 
 **Figure 3c** 总结了用于结构解析的关键2D NMR (HSQC， HMBC， COSY) 相关信号，这些信号分别用于解析化合物 **3**, **4**, **5**, **6** 的结构。其中，化合物 **4** (5-氯-4-甲氧基-L-色氨酸) 和 **5** (3-羟基-D-赖氨酸) 是两个从未在天然产物中报道过的稀有氨基酸残基。**Figure 3d** 展示了半合成衍生物 **7** 的耦合HSQC-edited谱图。该谱图中，糖基异头碳-质子信号呈现为双峰，测得的 **1J<sub>CH</sub> = 167.4 Hz**。这一数值与α-D-甘露吡喃糖苷的标准值 (167.5 Hz) 高度吻合，而与β-D-甘露吡喃糖苷的典型值 (约160 Hz) 存在显著差异，从而**确证了甘露糖基的α-构型**。至此，化合物 **1** 的结构被完整确定为：cyclo[L-Ile - (5-Cl-4-MeO-L-Trp) - (3-O-α-D-mannosyl-D-Lys) - Gly]。
+
+![image.png](https://synbiopath.online/20260512163649699.png)
 
 > “To determine the anomeric configuration of mannose, we ran a coupled HSQCedited spectrum to measure the one-bond carbon-proton coupling constants. For the anomeric carbon, <sup>1</sup>J<sub>CH</sub> = 167.4 Hz, which would suggest an α-D-mannopyranose residue on 7 (Figure 3).”
 
@@ -86,6 +90,8 @@
 **Figure 4d** 为化合物 **7** 的实验<sup>13</sup>C NMR谱图 (部分，170-180 ppm区域)， **Figure 4e** 为DFT计算得到的7_3R和7_3S在该区域的<sup>13</sup>C化学位移。**关键观测结果是：实验谱图中羰基碳的化学位移顺序为 II > WI > GI (其中II为Ile羰基，WI为Trp羰基，GI为Gly羰基)。这一顺序与7_3R的计算结果完全一致，而与7_3S的顺序 (WI > GI > II) 显著不同。** 尽管K1羰基 (Lys羰基) 的实验位移介于WI和GI之间，而7_3R计算预测的K1与GI重合，但作者指出7_3R的高能构象中K1酰胺键的翻转可导致其位移向低场移动2.2 ppm，因此总体匹配度仍支持7_3R (>75%)。
 
 **Figure 4f** 比较了<sup>1</sup>H NMR谱。实验谱图中，K6NH (赖氨酸侧链末端氨基质子) 的化学位移高于KNH (赖氨酸主链酰胺质子)，即顺序 K6NH > KNH；而7_3R的计算完美再现了这一顺序，且绝对位移值匹配良好 (K6NH偏差<0.6 ppm)。相反，7_3S的计算则预测了相反的顺序。因此，**从<sup>1</sup>H NMR数据可获得100%的匹配度支持7_3R**。综合而言，作者以接近90%的置信度 (75%来自<sup>13</sup>C，100%来自<sup>1</sup>H) 确定了**化合物1中3-羟基赖氨酸的绝对构型为3R**，这与植物病原真菌 *Helminthosporium victoriae* 产生的HV-toxin M中罕见的3R-OH-Lys一致。
+
+![image.png](https://synbiopath.online/20260512163724606.png)
 
 **Figure 5** 计算了质子化形式 [1_3R]<sup>+</sup> (biffamycin A在生理pH下的可能状态) 的全局最小能量构象及其构象分布。图中显示，质子化的赖氨酸侧链氨基与K1羰基氧及甘露糖的-CH<sub>2</sub>OH形成强氢键桥，将分子锁定在一个高度刚性的构象中，该构象中含有5个分子内氢键，其中还包括甲氧基氧参与的双重氢键。**这种“锁定”的三级结构可能对其抗菌活性至关重要。**
 
