@@ -47,9 +47,17 @@
 为了从 *S. albidoflavus* S4 中发现新型天然产物，作者首先关注于一个含有嵌入式SurE环化酶结构域的非常规NRPS BGC。通过全基因组序列分析，作者鉴定出一个由17个基因组成的 BGC，命名为 *bif* (biffamycin)。为推测其产物结构，作者对核心NRPS酶 (BifC和BifB) 的腺苷酸化结构域底物特异性进行了预测，并根据修饰酶的保守功能对潜在的氨基酸修饰进行推断。鉴于该BGC在原始宿主中不表达或表达极低，作者采用启动子工程策略，通过染色体缺失替换和附加体质粒补充相结合的方式，实现其组成型高表达，为产物的检测和分离创造条件。
 
 ### 实验结果与机理解析
-**Figure 1a** 展示了 *bif*  BGC的基因组织：17个基因按照推测功能以颜色编码，包括两个NRPS核心基因 *bifC* 和 *bifB*，以及多个修饰酶(如卤化酶BifK、甲基转移酶BifF、羟化酶BifN)和糖基化相关基因 (BifO, BifP)。**Figure 1b** 详细展示了BifC和BifB的模块组织。BifC为双模块酶，结构域组成为 A1-PCP1-C2-A2-PCP2；BifB同样为双模块，其结构域组成为 C3-A3-PCP3-E3-C4-A4-PCP4-SurE。值得注意的是，**SurE结构域嵌入在BifB的C-末端**，这与前期报道的独立SurE不同，是首次在NRPS巨型酶中发现顺式编码的SurE结构域。利用PARAS工具对A结构域活性位点进行预测，结果 (Figure S1) 表明：A1识别Val/Ile/Leu，A2识别Trp，A3识别Lys，A4识别Gly。结合E3结构域的存在 (预计将Lys异构化为D构型)，作者初步推算出产物预测为环[L-Val/L-Ile/L-Leu - L-Trp - D-Lys - Gly]的环四肽骨架。**Figure 1c** 总结了基于生物信息学的各蛋白功能预测，包括：BifE和BifF负责Trp修饰，BifK/I负责卤化，BifN负责Lys羟基化，BifP和BifO负责甘露糖基化，BifBSurE负责环化，BifA为MFS家族外排泵。
+**Figure 1a** 展示了 *bif*  BGC的基因组织：17个基因按照推测功能以颜色编码，包括两个NRPS核心基因 *bifC* 和 *bifB*，以及多个修饰酶(如卤化酶BifK、甲基转移酶BifF、羟化酶BifN)和糖基化相关基因 (BifO, BifP)。**Figure 1b** 详细展示了BifC和BifB的模块组织。BifC为双模块酶，结构域组成为 A1-PCP1-C2-A2-PCP2；BifB同样为双模块，其结构域组成为 C3-A3-PCP3-E3-C4-A4-PCP4-SurE。值得注意的是，**SurE结构域嵌入在BifB的C-末端**，这与前期报道的独立SurE不同，是首次在NRPS巨型酶中发现顺式编码的SurE结构域。利用PARAS工具对A结构域活性位点进行预测，结果 (Figure S1) 表明：A1识别Val/Ile/Leu，A2识别Trp，A3识别Lys，A4识别Gly。结合E3结构域的存在 (预计将Lys异构化为D构型)，作者初步推算出产物预测为环[L-Val/L-Ile/L-Leu - L-Trp - D-Lys - Gly]的环四肽骨架。
+
+![image.png](https://synbiopath.online/20260512163526238.png)
+
+**Figure 1c** 总结了基于生物信息学的各蛋白功能预测，包括：BifE和BifF负责Trp修饰，BifK/I负责卤化，BifN负责Lys羟基化，BifP和BifO负责甘露糖基化，BifBSurE负责环化，BifA为MFS家族外排泵。
+
+![image.png](https://synbiopath.online/20260512163541745.png)
 
 然而，野生型菌株在常规培养基中几乎不产生目标化合物。为此，作者实施了去调控策略：首先在染色体上删除 *bifO-bifDI* 区域，并插入带有强组成型 *ermE\** 启动子的抗性标记 (Figure S5)，以驱动剩余的 *bifCBA* 基因转录；同时构建整合质粒pBiff，将 *bifPOKIJIFENHD2DI* 置于 *ermE\** 和 *rpsL(XC)* 启动子控制下，导入上述工程菌，得到 *ΔbifO-bifDI/pBiff* 菌株。**Figure 2a** 的LC-HRMS谱图清晰地显示，去调控后的菌株在最小培养基 (MM) 中培养时，可以检测到两个主要的代谢物峰 (保留时间分别为 6.5 min 和 6.8 min)，其质谱信号与预测的糖基化环四肽分子量一致 (实测 m/z 713.2811 和 727.2974，均为 [M+H]<sup>+</sup>)，而在启动子工程前的菌株中仅能检测到微量的对应信号。含量更高的产物 (m/z 727.2974) 被命名为 biffamycin A (**1**)，另一个为 biffamycin B (**2**)。**Figure 2b** 展示了化合物 **1** 的提取离子流色谱图 (EIC) 及其同位素分布模式，其中M+2峰强度约为M峰的1/3，**清晰表明该化合物含有一个氯原子**。尽管初始预测认为A1模块掺入的是Val，但化合物 **1** 的分子量比预测的Val类似物高出14 Da，提示可能存在Ile或Leu。为验证这一点，作者在MM培养基中分别添加Val、Ile或Leu进行培养。**Figure S6** (文中提及，数据未在主图显示，但作为结果的一部分) 显示，补充Ile或Leu能够大幅提高 **1** 的产量并几乎完全抑制 **2** 的产生，而补充Val则有利于 **2** 的产生。这表明A1结构域具有一定的底物宽泛性，且Ile是 **1** 的主要构成氨基酸。因此，后续研究采用添加Ile的培养基来制备 **1**。
+
+![image.png](https://synbiopath.online/20260512163558235.png)
 
 > “De-regulation of the bif BGC led to reliable detection of two compounds with an isotopic distribution pattern consistent with a singly chlorinated species, and a mass consistent with the predicted hexosylated compound... The latter compound was the more abundant product and therefore was named biffamycin A (1) and is the focus of this study...”
 
