@@ -52,6 +52,8 @@
 
 在功能验证实验中，将 *ctrR3*, *ctrR4* 与 *ctrACS* 三个基因在米曲霉中共表达后，LCMS 分析（**Figure 1B, 1C**）表明，转化子产生了一个未经转化的米曲霉（**Figure 1A**）中不存在的主要代谢物。该产物经分离纯化及全面的 NMR、旋光分析，被确证为 **CJ-13,982（化合物 7）**，其产量达到 **12.5 mg·L⁻¹**。**该结果**明确地将 ctr BGC 与烷基柠檬酸类化合物的生物合成联系起来，并首次通过异源表达实现了化合物 7 的全生物合成。此外，作者还从发酵产物中分离并表征了化合物 7 的 17-甲酯（化合物 **16**，0.5 mg·L⁻¹）、13-/14-/15-羟基及 15-氧代衍生物（化合物 **17a-d**，3 mg·L⁻¹）以及 14-氧代衍生物（化合物 **18**，0.9 mg·L⁻¹）等米曲霉副产物，这些副产物揭示了异源宿主对中间体可能发生的非特异性氧化。
 
+
+
 > *Our results show that total biosynthesis can be used as an effective platform for the synthesis of known and new specialised metabolites with bioactive properties.*
 
 ### （二）CtrR1 的功能表征与 Cinatrin（化合物 8, 9）的生物合成
