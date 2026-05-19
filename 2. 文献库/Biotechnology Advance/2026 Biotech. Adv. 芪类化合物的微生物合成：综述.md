@@ -1,13 +1,13 @@
 # 一、文献基本信息
 
-**文章题目**：Microbial biosynthesis of stilbenoids: A comprehensive review (芪类化合物的微生物合成：综述)
+**文章题目**：Microbial biosynthesis of stilbenoids: A comprehensive review
 
-**文章 DOI 号**：10.1016/j.biotechadv.2025.108922 (基于原文信息推断)
+**文章 DOI 号**：10.1016/j.biotechadv.2025.108922
 
 **期刊名称**：Biotechnology Advances
 
 **通讯作者及工作单位**：
-- **Xiaonan Liu**：湖北工业大学 (Hubei University of Technology, China) ； 非粮生物质能源国家重点实验室 (State key Laboratory of Non-food Biomass Energy Technology, Nanning, China)
+- **刘晓楠**：湖北工业大学 (Hubei University of Technology, China) ； 非粮生物质能源国家重点实验室 (State key Laboratory of Non-food Biomass Energy Technology, Nanning, China)
 
 ---
 
