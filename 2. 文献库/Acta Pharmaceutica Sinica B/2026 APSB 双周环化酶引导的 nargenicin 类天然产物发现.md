@@ -1,4 +1,6 @@
+![image.png](https://synbiopath.online/20260521161441933.png)
 
+---
 # 一、基本信息
 
 **文章题目**：Bispericyclase guided discovery of nargenicin-type natural products（）
@@ -20,6 +22,8 @@ Nargenicin 类天然产物是一类结构独特的聚酮大环内酯抗生素，
 Nargenicin A1 的作用机制已被阐明：其特异性抑制 DNA 聚合酶 III 的催化 α 亚基 DnaE，通过诱导 DNA 损伤发挥抗菌活性。Streptoseomycin 则对微需氧病原菌 *Helicobacter pylori* 表现出强效抑制活性。结构上的复杂性与生物活性的独特性，使得该类化合物的生物合成机制成为研究热点。本课题组前期的研究发现，NgnD 与 StmD 作为 **双周环化酶 (bispericyclase)**，能够同时催化 **[6+4]** 与 **[4+2]** 周环反应，两者可通过 Cope 重排相互转化；其中 **[6+4]** 环加成的 **6/10/6** 加合物是真正的生物合成中间体，经羟化引发 [3,3]-Cope 重排与烯醇-酮互变异构后形成 **10/6/6** 三环骨架。
 
 然而，该类化合物的完整生物合成途径，特别是聚酮骨架组装完成后的后续氧化、甲基化以及额外环系的形成步骤，仍 largely elusive。已报道的 BGCs 仅有 **ngn**（nargicin）与 **stm**（streptoseomycin）两个，极大地限制了组合生物合成与途径工程研究。因此，如何系统性地挖掘该类天然产物的生物合成潜力，发现新型同系物并阐明其修饰机制，是该领域的核心科学问题。
+
+![image.png](https://synbiopath.online/20260521161524202.png)
 
 ---
 
