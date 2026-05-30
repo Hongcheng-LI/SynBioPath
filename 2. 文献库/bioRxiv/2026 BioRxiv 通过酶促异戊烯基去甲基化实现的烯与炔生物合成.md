@@ -1,3 +1,6 @@
+![image.png](https://synbiopath.online/20260530123140140.png)
+
+
 # 一、基本信息
 
 **文章题目**：Biosynthetic allene and alkyne formation by enzymatic prenyl demethylation
