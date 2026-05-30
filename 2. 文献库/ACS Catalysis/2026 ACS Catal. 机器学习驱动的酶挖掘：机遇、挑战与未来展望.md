@@ -1,6 +1,6 @@
 # 一、文献基本信息
 
-**文章题目**：Machine Learning-Driven Enzyme Mining: Opportunities, Challenges, and Future Perspectives ()
+**文章题目**：Machine Learning-Driven Enzyme Mining: Opportunities, Challenges, and Future Perspectives
 
 **文章 DOI 号**：10.1021/acscatal.5c04814
 
