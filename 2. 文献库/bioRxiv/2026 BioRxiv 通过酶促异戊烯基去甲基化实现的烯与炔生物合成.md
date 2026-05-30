@@ -14,8 +14,6 @@
 - **Kendall N. Houk**：加利福尼亚大学洛杉矶分校，化学与生物化学系 (Department of Chemistry and Biochemistry, University of California, Los Angeles)
 - **Masao Ohashi**：加利福尼亚大学洛杉矶分校，化学与生物分子工程系 (Department of Chemical and Biomolecular Engineering, University of California, Los Angeles)
 
-
-
 ---
 
 # 二、研究背景
@@ -23,6 +21,8 @@
 烯与炔是天然产物中两类具有高反应性的官能团，在合成化学、药物化学与生物正交化学中具有广泛应用。叠氮-炔烃 1,3-偶极环加成（CuAAC 点击化学）以及近年来发展的烯烃参与的双膦-铜催化点击反应，均凸显了这些官能团在化学生物学中的核心地位。自然界中已知超过 **2000 种** 含炔天然产物和 **150 余种** 含烯天然产物，代表性分子包括珊瑚来源的 norditerpenoid ginamallene、真菌来源的环肽 pseudoxylallemycin B（含 **O-homoallenyl-L-Tyr**，即化合物 **1**）以及 sinuxylamide B（含 **O-but-2-ynyl-L-Tyr**，即化合物 **6**）。尽管烯与炔广泛存在，其生物合成机制却长期未被阐明。迄今为止，唯一报道的烯形成酶是藻类 violaxanthin de-epoxidase 类似酶 VDL1，通过 1,2-消除反应催化 violaxanthin 向 neoxanthin 的转化；炔形成酶则有少数几例报道，包括叁键形成的 diiron 蛋白与 P450 酶。上述数据表明，自然界中仍存在大量未被发现的烯与炔形成酶。
 
 作者从 **CYP51（羊毛甾醇 14α-去甲基酶）** 催化的氧化去甲基化反应中获得灵感：CYP51 通过氧化性 C(sp³)-C 键断裂，将一个完整的甲基从 sp³ 杂化碳上切除，从而在 C14-C15 位引入双键（**图 1c**）。基于此，作者提出如下假说：对 **异戊烯基 (prenyl group)** 上 sp² 杂化碳的甲基进行类似的氧化去甲基化，可分别形成烯或炔（**图 1b**）。具体而言，四电子氧化 prenyl 的末端甲基生成醛或偕二醇中间体，随后发生氧化性 C-C 键均裂，产生乙烯基自由基中间体；该自由基后续的 **氢原子攫取 (HAT)** 位点决定了产物类型——从末端 sp³ 碳上攫氢生成 **末端烯**，从 sp² 乙烯基碳上攫氢生成 **内部炔**（**图 1d**）。该假说若被证实，将揭示一条此前未被报道的、由 P450 酶催化的烯与炔形成的新途径。
+
+![image.png](https://synbiopath.online/20260530123922097.png)
 
 ---
 
