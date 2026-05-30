@@ -1,15 +1,16 @@
 # 一、基本信息
 
-**文章题目**：Biosynthetic allene and alkyne formation by enzymatic prenyl demethylation（）
+**文章题目**：Biosynthetic allene and alkyne formation by enzymatic prenyl demethylation
 
 **文章 DOI 号**：10.64898/2026.05.26.727785 (bioRxiv preprint)
 
-**期刊名称**：bioRxiv (预印本，投稿中)
+**期刊名称**：bioRxiv 
 
 **通讯作者及工作单位**：
+
 - **Masao Ohashi**：加利福尼亚大学洛杉矶分校，化学与生物分子工程系 (Department of Chemical and Biomolecular Engineering, University of California, Los Angeles)
 - **Kendall N. Houk**：加利福尼亚大学洛杉矶分校，化学与生物化学系 (Department of Chemistry and Biochemistry, University of California, Los Angeles)
-- **Yi Tang**：加利福尼亚大学洛杉矶分校，化学与生物分子工程系 (Department of Chemical and Biomolecular Engineering, University of California, Los Angeles)
+
 
 ---
 
