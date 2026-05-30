@@ -7,9 +7,10 @@
 **期刊名称**：bioRxiv 
 
 **通讯作者及工作单位**：
-
-- **Masao Ohashi**：加利福尼亚大学洛杉矶分校，化学与生物分子工程系 (Department of Chemical and Biomolecular Engineering, University of California, Los Angeles)
+- **Yi Tang**：加利福尼亚大学洛杉矶分校，化学与生物分子工程系 (Department of Chemical and Biomolecular Engineering, University of California, Los Angeles)
 - **Kendall N. Houk**：加利福尼亚大学洛杉矶分校，化学与生物化学系 (Department of Chemistry and Biochemistry, University of California, Los Angeles)
+- **Masao Ohashi**：加利福尼亚大学洛杉矶分校，化学与生物分子工程系 (Department of Chemical and Biomolecular Engineering, University of California, Los Angeles)
+
 
 
 ---
