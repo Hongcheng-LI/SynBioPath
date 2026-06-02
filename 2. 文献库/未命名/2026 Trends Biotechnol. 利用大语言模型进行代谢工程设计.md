@@ -1,4 +1,6 @@
+![image.png](https://synbiopath.online/20260602092254908.png)
 
+---
 # 一、基本信息
 
 **文章题目**：Leveraging large language models for metabolic engineering design
