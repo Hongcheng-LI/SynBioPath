@@ -1,14 +1,15 @@
+
 # 一、基本信息
 
-**文章题目**：Leveraging large language models for metabolic engineering design（利用大语言模型进行代谢工程设计）
+**文章题目**：Leveraging large language models for metabolic engineering design
 
 **文章 DOI 号**：10.1016/j.tibtech.2026.03.026
 
 **期刊名称**：Trends in Biotechnology
 
 **通讯作者及工作单位**：
-- **汤红婷 (Hongting Tang)**：中山大学农业与生物技术学院 (School of Agriculture and Biotechnology, Shenzhen Campus of Sun Yat-sen University, Sun Yat-sen University)
 - **李斐然 (Feiran Li)**：清华大学深圳国际研究生院 (Tsinghua Shenzhen International Graduate School, Tsinghua University)
+- **汤红婷 (Hongting Tang)**：中山大学农业与生物技术学院 (School of Agriculture and Biotechnology, Shenzhen Campus of Sun Yat-sen University, Sun Yat-sen University)
 
 ---
 
