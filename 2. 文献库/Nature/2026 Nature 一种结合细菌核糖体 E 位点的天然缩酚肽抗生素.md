@@ -1,3 +1,5 @@
+![image.png](https://synbiopath.online/20260604094513897.png)
+
 # 一、基本信息
 
 **文章题目**：A natural depsipeptide antibiotic binds the E-site of the bacterial ribosome
