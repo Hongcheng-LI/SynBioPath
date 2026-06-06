@@ -1,3 +1,5 @@
+![image.png](https://synbiopath.online/20260606132748204.png)
+
 # 一、基本信息
 
 **文章题目**：Expanding the versatility of the protein master Pichia pastoris towards efficient biosynthesis of diterpenoid sclareol
@@ -9,7 +11,6 @@
 **通讯作者及工作单位**：
 - **Yongjin J. Zhou (周雍进)**：中国科学院大连化学物理研究所 (Dalian Institute of Chemical Physics, Chinese Academy of Sciences, Dalian, China)
 - **Peng Cai (蔡鹏)**：中国科学院大连化学物理研究所 (Dalian Institute of Chemical Physics, Chinese Academy of Sciences, Dalian, China)
-
 
 ---
 
