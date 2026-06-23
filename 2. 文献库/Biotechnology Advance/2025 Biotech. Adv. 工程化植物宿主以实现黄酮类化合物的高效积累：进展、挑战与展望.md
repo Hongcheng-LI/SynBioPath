@@ -1,6 +1,8 @@
+![image.png](https://synbiopath.online/20260623235802453.png)
+
 # 一、文献基本信息
 
-**文章题目**：Engineering plant hosts for high-efficiency accumulation of flavonoids: Advances, challenges and perspectives（工程化植物宿主以实现黄酮类化合物的高效积累：进展、挑战与展望）
+**文章题目**：Engineering plant hosts for high-efficiency accumulation of flavonoids: Advances, challenges and perspectives
 
 **文章 DOI 号**：10.1016/j.biotechadv.2025.108692
 
@@ -22,6 +24,8 @@
 
 ### (一) 黄酮类化合物的分布、分类及生物学功能
 
+![image.png](https://synbiopath.online/20260623235855874.png)
+
 [图 1：黄酮类化合物的骨架结构、分类及对人/植物的功能] 以示意图形式展示了黄酮类化合物的基本结构特征——由两个苯环 (A 环和 B 环) 通过含三个碳原子的酮桥 (C 环) 连接而成。基于 C 环结构差异，黄酮类化合物被划分为七大类：黄酮醇 (flavonols)、黄酮 (flavones)、异黄酮 (isoflavones)、花青素 (anthocyanidins)、黄烷酮 (flavanones)、黄烷醇 (flavanols) 和查尔酮 (chalcones)。该图同时归纳了这些化合物在植物中的多重功能：抵御氧化损伤、增强抗逆性、介导植物与其它生物互作以及调节植物激素运输；在人类健康方面，则涵盖抗氧化、抗癌、抗炎、免疫调节及心血管保护等活性。
 
 在植物体内的分布方面，黄酮类化合物的组成在不同组织间呈现显著差异。叶片中的黄酮类化合物主要以黄酮及黄酮糖苷形式存在，其含量受光照强度、温度和营养状况等环境因素调控；叶片颜色的变化与花青素密切相关，例如 Phoebe boumei 叶片红色的主要贡献者为 cyanidin-3-O-glucoside。花朵中花青素的组成与含量在不同花色品种间差异显著——Camellia oleifera 粉色花瓣的主色素为 cyanidin-3-O-(6′-O-p-coumaroyl) glucoside，而红色花瓣则以 peonidin-3-O-glucoside 为主。果实中的黄酮类化合物在成熟过程中积累，赋予果实颜色和抗氧化能力，葡萄果皮中花青素和黄酮含量在不同光照和温度条件下变化显著。根系和茎秆中的黄酮类化合物主要以防御相关化合物的形式存在，例如棉花根系中的山奈酚 (kaempferol) 和槲皮素 (quercetin) 可响应磷饥饿胁迫。
@@ -32,7 +36,11 @@
 
 [图 2A：典型黄酮类化合物的生物合成途径] 详细展示了从苯丙烷代谢途径出发的黄酮合成路线。对香豆酰辅酶 A (p-coumaroyl-CoA) 是途径的关键起始分子，其与三个丙二酰辅酶 A (malonyl-CoA) 分子在查尔酮合酶 (chalcone synthase, CHS) 催化下缩合生成查尔酮，随后经查尔酮异构酶 (chalcone isomerase, CHI) 转化为黄烷酮——这是进入各类黄酮分支途径的重要节点。黄烷酮可经黄烷酮-3-羟化酶 (flavanone-3-hydroxylase, F3H)、黄酮合酶 (flavone synthase, FNS)、黄酮醇合酶 (flavonol synthase, FLS)、二氢黄酮醇-4-还原酶 (dihydroflavonol 4-reductase, DFR)、花青素合酶 (anthocyanidin synthase, ANS) 等一系列酶促反应，分别导向黄酮、黄酮醇、花青素等不同分支。此外，多种修饰酶（糖基转移酶 GTs、甲基转移酶 MTs、羟化酶 HOs、酰基转移酶 ATs）对黄酮骨架进行后修饰，极大地扩展了黄酮类化合物的结构多样性。
 
+![image.png](https://synbiopath.online/20260623235949167.png)
+
 [图 2B：MYB1110-bHLH1-WDR1 复合物调控花青素合成途径关键基因的示意图] 展示了转录因子复合物对途径基因的协同激活机制。在猕猴桃 (Actinidia chinensis) 中，R2R3-MYB (MYB1110)、bHLH (bHLH1) 和 WD40 (WDR1) 三个蛋白形成 MBW 三元复合物，共同调控 CHS、DFR、ANS 等关键酶基因的表达。**MBW 复合物的形成不仅增强了单个转录因子的调控效率，还通过蛋白-蛋白相互作用实现了信号整合与环境响应**。
+
+![image.png](https://synbiopath.online/20260624000000110.png)
 
 [图 2C：植物中黄酮生物合成调控的激活子与抑制子] 以简化示意图归纳了不同类型转录因子在调控网络中的角色。[表 1：调控黄酮生物合成的代表性转录因子] 则提供了更为详尽的基因层面信息。该表涵盖了 R2R3-MYB、bHLH、WRKY、BBX、bZIP、AP2/ERF、HD-ZIP、GRAS、YABBY 及 HSF 等十余个转录因子家族，分别列出了其在特定植物物种中调控的靶基因、功能类型（激活子/抑制子）及对黄酮积累的影响。值得关注的是，**同一转录因子家族内部成员的功能可能截然相反**——例如 R2R3-MYB 家族中既有激活子（如 AtPAP1 促进花青素合成与转运），也有抑制子（如 Pyrus communis MYB1 抑制黄酮醇、黄烷酮和花青素积累）。这一发现表明，精细调控黄酮积累需要精准操控特定转录因子而非泛泛地激活整个通路。
 
