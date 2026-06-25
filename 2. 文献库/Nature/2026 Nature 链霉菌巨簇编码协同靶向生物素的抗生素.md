@@ -59,10 +59,12 @@
 作者以 *Streptomyces* sp. WAC05950 菌株中的 *svn* BGC 为起点，通过分析其侧翼序列，拼接出了一个跨度约为65.8 kb的完整遗传位点。该位点的边界由两个编码链霉亲和素（streptavidin）的基因标记，后者是一种已知的高亲和力生物素结合蛋白。在边界之内，该位点被清晰地划分为四个功能独立的生物合成基因簇（子簇），作者根据其产物分别命名为：stravidin 簇（*svn*）、acidomycin 簇（*aci*）、dapamycin 簇（*dap*）和 α-Me-KAPA 簇（*kap*）。为了评估这种多子簇组织模式的进化意义，作者构建了系统发育“缠结图”（tanglegram），将巨簇的系统发育树与其对应的链霉菌宿主全基因组系统发育树进行对比（Fig. 1a）。分析结果显示，这两个系统树在拓扑结构上具有高度的一致性，并且许多分支节点具有超过80%的自展值支持。**这一发现强有力地表明，该巨簇是一个垂直遗传、长期共进化的单位，而非随机的基因重排或水平转移的产物。** 进一步在NCBI数据库中搜索发现，该巨簇在超过3,200个链霉菌基因组中的出现频率（约1.1%）惊人地高，与链霉素和四环素这类在筛选中被频繁发现的抗生素BGCs的流行率相当（Fig. 1b），这凸显了其在链霉菌天然产物化学中的普遍性与重要性。
 
 ![image.png](https://synbiopath.online/20260625090855515.png)
+Fig. 1
 
 由于该巨簇的遗传信息庞大且复杂，直接对原始菌株进行遗传操作和产物分析颇具挑战。为此，作者采用了酵母转化相关重组技术，成功地以单拷贝质粒pCGW为载体，克隆了完整的65.8 kb巨簇，获得重组质粒pADSK。同时，为了将庞大的代谢网络“去卷积”为可追踪的单一组分，作者利用λ-Red重组技术对pADSK进行编辑，分别构建了仅保留单一子簇的衍生物质粒（如pSvn-ermEp*、pAci-kasOp*、pDap-kasOp*和pKap-kasOp*），并引入了强启动子以提升产量（Fig. 1c）。将这些质粒分别转入异源宿主 *S. coelicolor* M1154 后，通过对比发酵产物的液相色谱-质谱（LC-MS）总离子流图（Fig. 1d），作者成功地将色谱图中的各个主峰归属于特定的子簇。例如，*svn* 簇的表达产生了峰1-14，*dap* 簇产生了峰15和16，*aci* 簇产生了峰21，而 *kap* 簇则产生了峰17-20。这个实验不仅证实了所有四个子簇都具备独立的生物合成功能，也为后续大量化合物的分离纯化、结构鉴定和活性筛选奠定了基础，**首次从实验层面证明了一个位于同一遗传位点的“巨簇”确实编码了多个不同结构类型的天然产物家族**。
 
 ![image.png](https://synbiopath.online/20260625090904800.png)
+Fig. 1
 
 ### (二) 四类“反生物素”化合物的发现与结构确证
 
@@ -75,10 +77,12 @@
 通过对13个stravidin类似物（峰1-14）进行靶向分离，作者获得了包括已知的stravidin S2（1）、S4（10）、S5（12）以及一个新发现的O-甲基化衍生物O-Me-S2在内的多个纯品。通过1D和2D NMR技术，其结构得到了确证（Supplementary Tables 2, 3）。对于峰21，其分子量和二级质谱碎片信息与商业标准品acidomycin完全一致（Supplementary Fig. 3），证实了 *aci* 簇就是负责acidomycin生物合成的基因簇。值得注意的是，作者通过基因敲除实验（Extended Data Fig. 4）纠正了文献中将acidomycin生产归因于生物素核心操纵子（*bioFBAD*）的错误注释，明确了其生物合成来源。
 
 ![image.png](https://synbiopath.online/20260625090953069.png)
+Extended Data Fig. 4
 
 对于首次发现的dapamycin家族，作者纯化了峰15和16，并利用高分辨质谱和NMR技术解析出其结构为不饱和的二元羧酸氨基酸衍生物，分别命名为dapamycin A（2-氨基-5,7-二烯壬二酸）和dapamycin B（2-N-丙氨酰-5,7-二烯壬二酸）（Supplementary Table 5）。同样，来自 *kap* 簇的峰17被鉴定为α-Me-KAPA（2-甲基-7-酮-8-氨基壬酸），峰19为其N-乙酰化形式，而峰18和20则被确认为α-Me-KAPA的自发二聚化吡嗪衍生物，并被排除在后续的功能研究之外（Supplementary Tables 6, 7）。最重要的是，作者通过LC-MS分析确认，在原始菌株 *Streptomyces* sp. WAC05950 的发酵液中，同样能够检测到stravidin S2、acidomycin、dapamycin A/B以及α-Me-KAPA的共生产（Extended Data Fig. 5）。**该结果将遗传蓝图、异源表达产物与天然生产者的真实代谢产物紧密联系在一起，为整个研究的生理相关性提供了最直接的证据。**
 
 ![image.png](https://synbiopath.online/20260625091019800.png)
+Extended Data Fig. 5
 
 ### (三) 化合物靶向生物素代谢通路的验证与机制解析
 
@@ -89,6 +93,9 @@
 #### 实验结果与机理解析
 
 抗菌活性测试表明，在生物素匮乏的培养基中，stravidin S2、acidomycin、dapamycin B和α-Me-KAPA对一系列革兰氏阴性菌（如大肠杆菌、肺炎克雷伯菌）和分枝杆菌（如耻垢分枝杆菌）展现了强烈或可逆的抑制活性，而添加生物素则能完全或部分消除其活性（Fig. 2b; Extended Data Fig. 6a）。**这一结果是四种化合物靶向生物素代谢的最直接证据。** 为了进一步在活细胞内验证这一点，作者使用了携带 *bioBp*-GFP报告质粒的大肠杆菌。*bioB* 基因的表达受到生物素水平严格的负调控：当胞内生物素匮乏时，*bioB* 启动子被激活。实验结果显示，无论是已知的靶向BioA的stravidin S2，还是靶向BioB的acidomycin，亦或是新发现的dapamycin B和α-Me-KAPA，**在0.5倍MIC浓度下均能显著诱导GFP荧光信号增强**，其程度与无药物对照（生物素饥饿）相当，而对照抗生素氨苄青霉素则无此效应（Fig. 2c）。**这无可辩驳地证明，所有四种化合物在作用于细菌后，都引发了细胞内生物素饥饿的生理状态。**
+
+![image.png](https://synbiopath.online/20260625091134467.png)
+Fig. 2
 
 为了精确锁定dapamycin B和α-Me-KAPA的作用靶点，作者系统地开展了代谢中间体补充实验。他们利用了一系列大肠杆菌生物素合成途径的基因敲除株（ΔbioF, ΔbioA, ΔbioD, ΔbioB），这些菌株的生长严格依赖于外源添加特定中间体。结果（Fig. 2d; Extended Data Fig. 7）呈现出非常清晰的格局：stravidin S2的活性可以被DAPA（BioA的产物）和DTB（BioD的产物）挽救，但无法被其底物KAPA挽救，这与amiclenomycin通过共价结合不可逆抑制BioA的已知机制吻合。Acidomycin的活性只能在极高浓度下被DTB部分挽救，这与其作为BioB竞争性抑制剂的特性一致。对于dapamycin B，虽然在大肠杆菌中由于活性不持久而难以判断，但在耻垢分枝杆菌中，其活性可以被极低浓度的DTB高效挽救，而不能被DAPA或KAPA挽救，**这强烈暗示其靶点是BioD，即催化DTB合成的酶**。α-Me-KAPA的抑制谱则非常独特：它可以被KAPA、DAPA和DTB三种中间体挽救，且其挽救浓度曲线与stravidin S2（BioA抑制剂）高度相似，**暗示α-Me-KAPA可能并非简单地抑制某个酶，而是作为BioA的“伪底物”被摄入代谢通路**。
 
@@ -101,6 +108,9 @@
 #### 实验结果与机理解析
 
 作者首先发现，**dapamycin B的抗菌活性在缺失二肽转运蛋白基因 *dppC* 的大肠杆菌突变体中完全消失**，而stravidin S2的活性不受影响（Fig. 3a）。这表明dapamycin B是依赖于DppC转运体进入细胞的。通过LC-MS定量分析，作者发现与野生型菌株相比，在 *ΔdppC* 突变体的培养上清中，dapamycin B的消耗显著减少，而其水解产物dapamycin A的生成量也大幅降低（Fig. 3b）。**这一结果确凿地证明dapamycin B是一个前药，它依赖于DppC转运进入胞内，随后被水解为dapamycin A。**
+
+![image.png](https://synbiopath.online/20260625091212326.png)
+Fig. 3
 
 与此同时，为了确定α-Me-KAPA是否真的是BioA的底物，作者建立了体外酶活检测体系。实验表明，当重组BioA酶与α-Me-KAPA共孵育时，**能够检测到与天然底物KAPA相似的、呈剂量依赖性的荧光信号增加**，该信号来源于对产物α-Me-DAPA的衍生化（Fig. 3f）。LC-MS分析进一步证实了α-Me-DAPA的生成（Supplementary Fig. 9a）。**这一结果推翻了α-Me-KAPA是抑制剂的假设，证明其实际上是BioA的一个替代底物。** 更令人惊奇的是，当作者将BioA、BioD与α-Me-KAPA在体外进行偶联反应时，**检测到了α-Me-DTB（α-甲基-脱硫生物素）的生成**。而用α-Me-KAPA处理大肠杆菌活细胞后，在细胞内提取物中更是直接检测到了α-Me-DTB及其下游产物α-Me-biotin（α-甲基生物素）（Supplementary Fig. 9b）。这意味着α-Me-KAPA能够“劫持”整个生物素合成通路，从BioA开始，经过BioD，直至被BioB酶转化为一个非天然的α-甲基生物素。
 
@@ -116,7 +126,15 @@
 
 棋盘法实验揭示了丰富多彩的相互作用模式（Fig. 4a; Extended Data Fig. 9）。在大肠杆菌中，stravidin S2（BioA抑制剂）与acidomycin（BioB抑制剂）展现了极强的协同作用，分数抑菌浓度指数（FICI）低至0.079-0.313。α-Me-KAPA同样与stravidin S2（FICI=0.188）和acidomycin（FICI=0.375）协同。然而，dapamycin B因与stravidin S2共享Dpp转运系统，二者表现为拮抗（FICI=9.0）。在耻垢分枝杆菌中，绝大多数组合（stravidin S2 + acidomycin, S2 + α-Me-KAPA, acidomycin + α-Me-KAPA）均表现出良好的协同性（FICI 0.25-0.5）。最为重要的是，当作者在stravidin S2与acidomycin的棋盘实验中加入亚抑菌浓度的α-Me-KAPA时，**观察到前两者的协同杀菌区域明显向左下偏移，证明三药联合能进一步增强抑制效果**（Fig. 4b）。**这些结果表明，巨簇编码的化合物确实构成了一个多层次、协同作用的化学网络。**
 
+![image.png](https://synbiopath.online/20260625091255618.png)
+Fig. 4
+
+![image.png](https://synbiopath.online/20260625091429815.png)
+Extended Data Fig. 9
+
 为了评估这一策略在治疗上的潜力，作者选用了对多粘菌素、头孢噻肟和氟喹诺酮类耐药的大肠杆菌临床分离株C0244建立小鼠全身感染模型。鉴于生物素代谢在宿主体内受到严格调控，作者首先给小鼠注射了链霉亲和素，以耗竭血液中的游离生物素，从而模拟“生物素限制”环境，使药物能够发挥作用。实验结果显示，作为单药治疗，stravidin S2（50 mg/kg）和α-Me-KAPA（50 mg/kg）在感染后1小时给药，能够分别在血液和多个器官中将细菌载量**降低98-99%和96-99%**（Fig. 4c; Extended Data Fig. 10a）。而acidomycin和dapamycin B在此模型下未表现出显著疗效。遵循体外交互作用的结果，作者进一步将低剂量的stravidin S2（1 mg/kg）和α-Me-KAPA（25 mg/kg）联合给药，**发现与各自单药相比，联合用药组的细菌载量进一步下降了71-96%**（Fig. 4c; Extended Data Fig. 10d），**在体内强力证实了二者的协同抗感染效果**。这一发现不仅验证了“反生物素巨簇”作为“天然联合疗法”的生物学意义，也为针对生物素代谢的抗生素研发提供了极具前景的临床前候选方案。
+
+![image.png](https://synbiopath.online/20260625091357622.png)
 
 ---
 
