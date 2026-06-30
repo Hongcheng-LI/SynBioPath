@@ -1,3 +1,6 @@
+![image.png](https://synbiopath.online/20260630130758461.png)
+
+---
 # 一、基本信息
 
 **文章题目**：Substrate Scope and Catalytic Mechanism of α,β-Epoxyketone Synthase EpnF Illuminated by In Situ Esterase-Mediated Deprotection
