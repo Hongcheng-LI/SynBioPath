@@ -1,4 +1,4 @@
-![Uploading file...7ji6t]()
+![image.png](https://synbiopath.online/20260708171253897.png)
 
 # 一、基本信息
 
