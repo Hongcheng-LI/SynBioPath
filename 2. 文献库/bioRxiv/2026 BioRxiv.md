@@ -53,6 +53,8 @@
 
 作者首先采用 micro-AUROC 和 micro-AUPR 评估模型对所有酶-底物对的整体判别能力。如图 1A–D 所示，FusionESP 和 EZSpecificity 在两个酶家族上的 micro-AUROC 均接近 0.5 的随机基线，micro-AUPR 亦与随机分类器持平。这一结果远低于模型原始报道的优异性能，**表明两模型对完全未遇的酶和底物组合缺乏可靠的泛化能力**。
 
+![image.png](https://synbiopath.online/20260713160607257.png)
+
 然而，当作者将指标分解为 per-enzyme 的 macro-AUROC 时，情况出现明显变化。图 1E 显示，大多数酶的 macro-AUROC 高于 0.5 的随机基线，均值范围从 FusionESP 在 NTL 上的 0.67 到 EZSpecificity 在 NTL 上的 0.74（附表 S1）。这表明模型在面对某一特定酶的底物时，尚能在一定程度上区分正负样本。但 per-enzyme macro-AUPR 的分析（图 1F）揭示，仅 40% (EZSpecificity/NTL) 至 60% (FusionESP/NTL) 的酶优于随机基线，提示模型在将阳性底物排至前列方面的能力有限。这种 AUROC 与 AUPR 之间的背离，本质上是由于数据集高度不平衡（正样本比例极低，附表 S1 中 prevalence 介于 0.041 至 0.155 之间）所致：**AUROC 对正负样本比例的敏感性较低，而 AUPR 在不平衡数据下更能反映模型对少数类的排序质量**。
 
 为更直接地模拟实际筛选负担，作者计算了 per-enzyme 的 Recall@10%、Recall@20% 和 ΔNormalized Enrichment Factor (ΔNEF)。如图 1G 和附表 S2 所示，在 top 10% 预测中呈现优于随机早期富集的酶占比仅 10% (EZSpecificity/NTL) 至 23% (FusionESP/α-KG)；该比例在 top 20% 时上升至 20% (EZSpecificity/NTL) 至 32% (EZSpecificity/α-KG)。从全局 Recall 看，所有模型的 Recall@10% 均在 0.07 至 0.15 之间，**接近甚至低于随机基线**。综合上述结果，作者得出结论：尽管 FusionESP 和 EZSpecificity 在 per-enzyme 水平上捕捉到了一定的局部信号，但这些模型并未学习到一个跨酶、跨底物、可泛化的“交互作用”评分——其预测更可能依赖于酶自身的特征偏置而非酶-底物兼容性的真实表征。
