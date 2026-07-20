@@ -79,7 +79,7 @@
 - **数据支撑与图表解读**：
     
     - **Figure 2A** 直观对比了 1953 年的假说（上）与本文的发现（下）。旧假说认为大黄素是前体，而本文证明了 EA 先自发氧化偶联为 EB，然后 EB 在 RugG 催化下生成 pHyp，最终氧化为 Hyp。
-        ![image.png](https://synbiopath.online/20260120102029483.png)
+        ![image.png|103](https://synbiopath.online/20260120102029483.png)
 
     - **Figure 2B** 是本部分的核心数据。HPLC 图谱 (590 nm) 显示：
         ![image.png](https://synbiopath.online/20260120102040665.png)
