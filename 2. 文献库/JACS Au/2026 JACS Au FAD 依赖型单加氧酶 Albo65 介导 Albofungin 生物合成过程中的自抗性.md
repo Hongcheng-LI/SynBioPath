@@ -1,13 +1,15 @@
+![image.png](https://synbiopath.online/20260720162127684.png)
+
 # 一、基本信息
 
-**文章题目**：The FAD-Dependent Monooxygenase Albo65 Mediates Self-Resistance in Albofungin Biosynthesis（FAD 依赖型单加氧酶 Albo65 介导 Albofungin 生物合成中的自我抗性）
+**文章题目**：The FAD-Dependent Monooxygenase Albo65 Mediates Self-Resistance in Albofungin Biosynthesis
 
 **文章 DOI 号**：https://doi.org/10.1021/jacsau.6c00352
 
 **期刊名称**：JACS Au
 
 **通讯作者及工作单位**：
-- **Huimin Zhao**：伊利诺伊大学厄巴纳-香槟分校化学系、化学与生物分子工程系、生物化学系；Carl R. Woese 基因组生物学研究所 (Department of Chemistry, Department of Chemical and Biomolecular Engineering, and Department of Biochemistry, University of Illinois Urbana-Champaign; Carl R. Woese Institute for Genomic Biology, University of Illinois Urbana-Champaign)
+- **赵惠民**：伊利诺伊大学厄巴纳-香槟分校化学系、化学与生物分子工程系、生物化学系；Carl R. Woese 基因组生物学研究所 (Department of Chemistry, Department of Chemical and Biomolecular Engineering, and Department of Biochemistry, University of Illinois Urbana-Champaign; Carl R. Woese Institute for Genomic Biology, University of Illinois Urbana-Champaign)
 
 
 # 二、研究背景
