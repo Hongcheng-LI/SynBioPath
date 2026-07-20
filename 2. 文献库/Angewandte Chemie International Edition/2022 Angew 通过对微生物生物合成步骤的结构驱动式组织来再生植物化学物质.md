@@ -53,7 +53,7 @@
     
 - **酶功能异源表征 (Heterologous Characterization of Enzyme Function)**：将候选 P450 酶基因 _rugG_ 在米曲霉 (_Aspergillus oryzae_) NSAR1 中进行异源表达，构建工程菌 AO-rugG。通过向该菌株的培养基中**饲喂 (feeding)** 不同的化学底物（大黄素、EA、EB），然后用 HPLC-MS 分析产物，来确定 RugG 的真实底物和催化功能。
     
-- **基因组****挖掘与基因编辑 (****Genome** **Mining & Genetic Editing)**：对筛选出的高产 EB 潜力菌株 _Cladosporium fulvum_ CF91 进行全基因组测序，利用 antiSMASH 软件定位到负责合成类似产物（cladofulvin）的生物合成基因簇 (_cla_ BGC)。随后，通过基因敲除技术，删除了该 BGC 中位于 EB 下游的关键基因 _claM_ 和 _claC_，以实现 EB 的大量积累。
+- **基因组挖掘与基因编辑 (**Genome Mining & Genetic Editing)**：对筛选出的高产 EB 潜力菌株 _Cladosporium fulvum_ CF91 进行全基因组测序，利用 antiSMASH 软件定位到负责合成类似产物（cladofulvin）的生物合成基因簇 (_cla_ BGC)。随后，通过基因敲除技术，删除了该 BGC 中位于 EB 下游的关键基因 _claM_ 和 _claC_，以实现 EB 的大量积累。
     
 - **菌株共培养 (Co-cultivation)**：将高产 EB 的工程菌 (如 CF91 ΔclaM) 与催化 EB 转化的工程菌 (AO-rugG) 在同一个培养体系中共同培养，通过跨物种的“代谢接力”来实现金丝桃素的生物合成。
     
@@ -61,7 +61,7 @@
     
 - **补料分批发酵 (Fed-batch Fermentation)**：为了提高产量，采用补料分批发酵策略，在特定时间点向发酵体系中补加诱导剂（麦芽糖）以增强关键酶 RugG 的表达，从而提高前体转化效率。
     
-- **光化学****转化 (Photochemical Transformation)**：在发酵结束后，利用低功率 (15 W) 的 LED 光反应器对含有原金丝桃素 (pHyp) 的发酵液进行光照处理，促进其发生最后的脱氢环化反应，高效地转化为最终产物金丝桃素 (Hyp)。
+- **光化学转化 (Photochemical Transformation)**：在发酵结束后，利用低功率 (15 W) 的 LED 光反应器对含有原金丝桃素 (pHyp) 的发酵液进行光照处理，促进其发生最后的脱氢环化反应，高效地转化为最终产物金丝桃素 (Hyp)。
     
 
 ## 四：实验设计及结果分析
