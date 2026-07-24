@@ -1,4 +1,5 @@
 
+![image.png](https://synbiopath.online/20260724103737637.png)
 
 # 一、基本信息
 
