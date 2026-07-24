@@ -71,11 +71,17 @@
 
 如图 1A 所示，作者首先标示了腺嘌呤骨架的原子编号及 N6 取代位置，并将 CKs 分为异戊二烯型、芳香型和 furfuryl CKs。iP、tZ、cZ 与 dihydrozeatin 共享异戊二烯侧链，但氧化状态、双键几何构型及还原程度不同；MeoT、BA 和 MemT 则连接芳香侧链。该结构分类说明，**CK 活性并不只取决于腺嘌呤核心，N6 侧链的构型与氧化状态同样构成关键活性决定因素。**
 
+![image.png](https://synbiopath.online/20260724103930493.png)
+
 图 1B 将植物异戊二烯型 CK 的合成和失活整合于同一反应图中。新生合成途径先由 IPT 将 dimethylallyl pyrophosphate 转移至 ATP、ADP 或 AMP，形成 iPRTP、iPRDP 或 iPRMP；CYP735A 可在 LOG 切割前羟基化核苷酸侧链，最终生成 tZ。cZ 则主要来自 tRNA 异戊烯基化、顺式羟基化和 tRNA 降解。图右侧显示 CKX 裂解为 adenine 属于不可逆降解，而 N-糖基化和 O-糖基化分别改变活性或形成可逆储存形式。
 
 与植物模型相对照，图 1C 对全文发现进行了预先归纳。FexA 以 AMP 和 DMAPP 合成 iP；FexB 将其转化为 tZ、cZ 及 pyrrole-CK **6**；FexC 既能氧化裂解侧链，也可生成 C1′-keto-iP **16**；FexC 与 FexD 则共同形成 Δ1-iP **17** 和 Δ1-tZ **19**。**该图提出的核心区别是，_Fusarium_ 以吡咯环形成和双键异构化作为 CK 失活方式，而植物主要依赖侧链裂解与糖基化。**
 
+⚠️upload failed, check dev console
+
 在图 2A 的 SSN 中，植物、子囊菌、担子菌、酵母目及 _Cuscuta_ 来源 LOG 各自形成相对独立的网络区域。在经典真菌 LOG 网络之外，研究识别出一个规模较小但边界清晰的 IPT-LOG 融合蛋白簇。该簇并非普通 LOG 序列的随机延伸，而是形成独立的序列群，说明 IPT 与 LOG 的融合可能经历了特定的功能选择，并可作为真菌 CK 新生合成途径的基因组标志。
+
+![image.png](https://synbiopath.online/20260724162547872.png)
 
 图 2B 对融合蛋白的物种来源进行了量化。所检出的序列中，**108 条来自 _Fusarium_，10 条来自 _Claviceps_**，其余分别来自 _Dactylonectria_、_Clonostachys_、_Ilyonectria_、_Ustilaginoidea_、_Epichloë_ 和 _Rhexocercosporidium_ 等植物相关真菌。融合蛋白对 _Fusarium_ 的高度富集提示，该酶体系可能并非真菌普遍的基础代谢模块，而更可能与部分植物病原真菌的生态适应有关。
 
