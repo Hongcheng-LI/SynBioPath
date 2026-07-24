@@ -163,7 +163,7 @@ FexC 与植物 CKX 同属 FAD 依赖型 BBE-like oxidase 超家族，序列上�
 
 图 4H 将这些证据整合为分支反应模型。FexC 首先利用 FAD 从 iP **1** 的 C1′—N6 邻位体系移除氢，形成亚胺中间体。该中间体可被水进攻并裂解为 adenine **13** 和醛 **14**；也可在水加成后再次脱氢，保留 C—N 键并形成 C1′-keto-iP **16**；若 FexD 在亚胺水解前结合，则利用 NADPH 实施 1,4-还原，生成 Δ1-iP **17**。
 
-![image.png|103](https://synbiopath.online/20260724164328891.png)
+![image.png](https://synbiopath.online/20260724164629394.png)
 
 **FexC 的初始脱氢是 3 条反应分支的共同入口，而中间体后续被水、FexC 再氧化或 FexD 还原所截获，决定最终发生降解、C1′ 氧化还是双键异构化。FexD 甚至能够与玉米 ZmCKX 耦联生成化合物 17**，说明其识别对象更可能是通用亚胺中间体，而不是 FexC 特有的蛋白相互作用界面。
 
