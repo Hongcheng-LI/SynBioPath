@@ -1,23 +1,19 @@
-以下报告继续按照此前上传的《文献阅读 Prompt》执行，覆盖正文全部 Figure 1–7 及其子图。该论文正文未设置 Table 或 Scheme；补充材料另含 Figures S1–S132 和 Tables S1–S3。
+
 
 # 一、基本信息
 
-**文章题目**：A Machine Learning-Based Genome Mining Approach Reveals Unprecedented Biarylitide Diversity（基于机器学习的基因组挖掘方法揭示广泛的 biarylitide 多样性）
+**文章题目**：A Machine Learning-Based Genome Mining Approach Reveals Unprecedented Biarylitide Diversity
 
 **文章 DOI 号**：10.1021/jacsau.6c00500
 
 **期刊名称**：JACS Au
-
-**作者**：Leo Padva、Jemma Gullick、Friederike Biermann、Laura J. Coe、Yongwei Zhao、Sam Tucker、Lukas Zimmer、Julien Tailhades、Stefan Kehraus、Ralf B. Schittenhelm、James J. De Voss、Eric J. N. Helfrich、Max J. Cryle、Max Crüsemann
 
 **通讯作者及工作单位**：
 
 - **Max J. Cryle**：莫纳什大学莫纳什生物医学发现研究所生物化学与分子生物学系 (Department of Biochemistry and Molecular Biology, The Monash Biomedicine Discovery Institute, Monash University)；澳大利亚肽与蛋白质科学创新卓越研究中心 (ARC Centre of Excellence for Innovations in Peptide and Protein Science)
     
 - **Max Crüsemann**：波恩大学药学生物学研究所 (Institute of Pharmaceutical Biology, University of Bonn)；法兰克福歌德大学药学生物学研究所 (Institute of Pharmaceutical Biology, Goethe University Frankfurt)
-    
 
-该论文于 2026 年 4 月 1 日投稿，7 月 2 日完成修订，7 月 6 日被接收。Leo Padva 和 Jemma Gullick 为共同第一作者。论文以 CC-BY 4.0 协议开放获取，作者声明不存在竞争性经济利益。
 
 # 二、研究背景
 
