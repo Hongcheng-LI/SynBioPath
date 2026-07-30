@@ -161,12 +161,17 @@ LC-HRMS 分析（Supplementary Fig. 7）显示，*S. albulus* 的主要多烯产
 ### 实验结果与证据解析
 
 ![image.png](https://synbiopath.online/20260730164851396.png)
+
 **Table 1** 和 **Extended Data Fig. 7** 的数据显示：
 - AmB-L-digitoxose 对 10 种病原体中的 8 种表现出优于 AmB 的活性，例如对 *C. albicans* ATCC 90028 的活性提高 **2.7 倍**，对 *F. oxysporum* 提高 **2 倍**。
 - NysA3 对 6 种病原体优于 NysA1，特别是对 *F. solani* 活性提高 **10.2 倍**。
 - 然而，**Figure 4D** 显示 AmB-L-digitoxose 和 NysA3 的溶血活性（EC<sub>50</sub>）均高于母体化合物，即**毒性同步增加**。这意味着单靠第二糖基化虽然提高了抗真菌效力，但未能解决选择性毒性问题。
 
+![image.png](https://synbiopath.online/20260730164944363.png)
+
 作者在文中提出了一个机制性解释（**Extended Data Fig. 6**）：NysA1 在缓冲液中以约 55:45 的活性/非活性异构体混合物形式存在，而 NysA3 仅以单一峰存在，说明 C35 糖基可能将异构化平衡向活性构象偏移，从而提高了表观活性。该解释目前仍属于**基于色谱行为的合理推测**，尚缺乏直接的结构证据（如 NMR 构象分析）来证实异构体比例变化与活性之间的定量关系。
+
+![Uploading file...qous1]()
 
 ## (七) PcsA 酰胺转移酶的底物范围拓展与 C16 修饰
 
