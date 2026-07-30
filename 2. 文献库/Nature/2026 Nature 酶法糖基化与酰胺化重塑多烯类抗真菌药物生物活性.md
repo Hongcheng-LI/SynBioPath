@@ -91,13 +91,13 @@
 
 **Figure 3A** 展示了 *S. noursei* 和 *S. albulus* 基因组中含 *nysSV* 的糖基合成基因簇的组织结构。该簇包含 6 个基因，预测负责 TDP-L-digitoxose 的生物合成和转移。值得注意的是，该簇与主 nystatin BGC 位于不同的染色体位点——这在细菌天然产物途径中并不常见。作者在文中专门指出了这一点，暗示这类“远程”功能关联可能在此前未被充分认识。
 
+![image.png](https://synbiopath.online/20260730164551944.png)
+
 LC-HRMS 分析（Supplementary Fig. 7）显示，*S. albulus* 的主要多烯产物的质量与 NysA3 一致，而 NysA1 仅为微量组分。作者对主要产物进行了纯化和 **NMR 全解析**（Supplementary Fig. 8），首次确认了 C35 位 L-digitoxose 的连接，与先前基于降解研究提出的 NysA3 结构推测一致。更关键的是，**Extended Data Fig. 2** 的 HPLC 定量显示，*S. albulus* 可生产 **NysA3 达 759 ± 10 mg/L**，而 NysA1 仅为微量；相比之下，*S. noursei* 的主要产物为 NysA1（555 ± 14 mg/L）。这一产量差异为后续 RT-qPCR 实验提供了表型基础。
 
 为直接验证 NysSV 的功能，作者设计了**反向糖基化实验**。其逻辑是：GT 催化的糖基化反应是可逆的。若 NysSV 确实负责 NysA3 的合成，则当以纯化的 NysA3 和 TDP 与 NysSV 孵育时，应观察到脱糖产物 NysA1 的生成。**Figure 3F** 的 HPLC 分析显示，SnNysSV 和 SaNysSV 均能以高效率将 NysA3 转化为 NysA1。该结果强有力地支持 NysSV 在 NysA3 生物合成中的作用。
 
 进一步，RT-qPCR 分析（Supplementary Fig. 11）显示 *S. albulus* 中 *nysSV* 子簇的表达水平显著高于 *S. noursei*，这与前者高产 NysA3 的表型一致，从转录水平解释了产量差异。
-
-> **关于证据强度的补充分析**：上述实验证明了 NysSV 在异源和体外条件下对 NysA3 的合成具有**充分性**（sufficiency）——即 NysSV 足以催化该反应。但论文未提供在 *S. albulus* 或 *S. noursei* 中对 *nysSV* 基因的直接敲除实验。因此，“NysSV 在天然宿主中对于 NysA3 的生产是**必需的**（necessary）”这一结论，当前主要由相关性和反向反应间接支持，而非直接的遗传学敲除-回补证据。这是该研究在证据链闭合方面的一个可识别的缺口。
 
 ## (三) MycS3 参与 mycopeptin 途径的双糖化
 
@@ -109,9 +109,11 @@ LC-HRMS 分析（Supplementary Fig. 7）显示，*S. albulus* 的主要多烯产
 
 **Figure 3B** 展示了 *myc* BGC 的组织结构：包含 6 个 PKS 基因（共 19 个模块）以及包括 *mycS3* 在内的多个修饰酶基因。LC-HRMS 和 NMR 分析（Supplementary Figs. 13–15）确认了 mycopeptin 为主要产物，同时检测到少量的二氢 mycopeptin 以及一个 C35 位含有两分子 L-digitoxose 的五烯同系物——该化合物与近期报道的 mandimycin 结构一致。
 
+![image.png](https://synbiopath.online/20260730164611221.png)
+
 体外实验中，MycS3 与二氢 mycopeptin 和 TDP-L-digitoxose 孵育后，LC-HRMS 检测到单 L-digitoxose 加成产物（Supplementary Fig. 16）。该产物在 *S. netropsis* 提取物中也以极低含量存在（**Figure 3D**），提示其为 mycopeptin 向 mandimycin 转化途径中的中间体。这些数据表明 MycS3 是该双糖化步骤的催化酶。
 
-> **分析**：此部分的核心贡献在于将 MycS3 锚定在一个此前未被完整解析的生物合成途径中，并首次为 mandimycin 类化合物的生物合成提供了酶学证据。但体外实验使用的是二氢 mycopeptin（而非 mycopeptin 本身），且作者未明确说明为何选择二氢形式进行反应——这可能反映了底物可获得性或溶解性方面的考虑。
+![image.png](https://synbiopath.online/20260730164630233.png)
 
 ## (四) KfuSV 参与 kasufungin 的生物合成
 
@@ -122,6 +124,8 @@ LC-HRMS 分析（Supplementary Fig. 7）显示，*S. albulus* 的主要多烯产
 ### 实验结果与证据解析
 
 **Figure 3C** 比较了 *kfu* BGC 与 selvamicin BGC 的组织结构相似性。基于生物信息学分析，作者预测了 *kfu* PKS 的大环内酯核心结构，并根据 LC-HRMS 数据推测了五种多烯产物 kasufungin A–E 的结构（**Extended Data Fig. 4A–D**）。其中 kasufungin B 产量最高，被分离并进行 NMR 全解析（Supplementary Fig. 18），确认其具有与 selvamicin 不同的多烯骨架和糖基组成。
+
+![image.png](https://synbiopath.online/20260730164656531.png)
 
 **Figure 3G** 显示，以 kasufungin B 和 TDP 为底物，KfuSV 可催化其转化为 kasufungin D（脱糖产物为 kasufungin D 的反向反应——实际上是 KfuSV 将 kasufungin B 的 L-digitoxose 去除，生成 kasufungin D）。该结果确认了 KfuSV 在 kasufungin 生物合成中负责 C27 位（对应 AmB/NysA1 的 C35 位）的 L-digitoxose 安装。
 
