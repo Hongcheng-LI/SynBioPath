@@ -1,3 +1,5 @@
+![image.png](https://synbiopath.online/20260730165633783.png)
+
 # 一、基本信息
 
 **文章题目**：Enzymatic glycosylation and amidation reshapes polyene bioactivity
