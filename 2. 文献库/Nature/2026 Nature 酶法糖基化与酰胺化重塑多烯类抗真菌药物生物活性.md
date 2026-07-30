@@ -77,9 +77,9 @@
 
 如 **Figure 2** 所示，四种 GTs 中，KfuSV 对 AmB 和 NysA1 表现出最高的糖基化活性。作者进一步扩展了 KfuSV 的糖供体谱：通过级联酶法从 19 种糖前体合成相应的 TDP-糖，LC-HRMS 检测显示 KfuSV 可接受其中 **11 种 TDP-糖**作为供体，产生多种糖基化多烯衍生物。这一结果揭示了 KfuSV 具有异常宽泛的糖供体杂泛性。此外，作者还显示 KfuSV 可对另外三种多烯骨架进行糖基化（Supplementary Fig. 4），说明其多烯底物范围也相对宽泛。
 
-**Figure 2A** 总结了 11 种可被 KfuSV 利用的 TDP-糖的结构。**Extended Data Fig. 1** 则呈现了糖供体筛选的代表性 LC-HRMS 数据。作者在文中指出 SelSV 对非天然底物活性极低，而 KfuSV 活性最高——这种差异为后续选择 KfuSV 作为工具酶用于异源表达和工程改造提供了依据。
+![image.png](https://synbiopath.online/20260730164408867.png)
 
-> **此处需要说明**：论文正文未报告每种 TDP-糖的具体转化率或动力学参数。文中所用表述“11 of the 19 TDP sugars tested”为定性或半定量判断，精确的相对活性数据在正文中未予提供。
+**Figure 2A** 总结了 11 种可被 KfuSV 利用的 TDP-糖的结构。**Extended Data Fig. 1** 则呈现了糖供体筛选的代表性 LC-HRMS 数据。作者在文中指出 SelSV 对非天然底物活性极低，而 KfuSV 活性最高——这种差异为后续选择 KfuSV 作为工具酶用于异源表达和工程改造提供了依据。
 
 ## (二) NysSV 负责 NysA3 生物合成的确证
 
