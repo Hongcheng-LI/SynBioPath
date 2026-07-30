@@ -198,13 +198,15 @@ NMR 确证了所有 C16 衍生物的结构（Supplementary Figs. 32–44）。�
 
 ### 实验结果与证据解析
 
-**Table 1** 和 **Extended Data Fig. 8** 的数据显示：
+![image.png](https://synbiopath.online/20260730165146382.png)
 
+**Table 1** 和 **Extended Data Fig. 8** 的数据显示：
 - 双修饰变体（Nys31–34）对多数测试病原体的活性优于 NysA1 和 NysA3，部分变体甚至优于 AmB。例如，**Nys33 对唑类耐药 *A. fumigatus* cyp51A<sup>TR34/L98H</sup> 的活性是 AmB 的 2.5 倍、是 NysA1 的 5 倍**。
 - 对 *Fusarium* 物种，NysA3 衍生物的活性比 NysA1 提高 2–9 倍。
 - **Figure 5A** 显示，所有双修饰变体（Nys31–34）的溶血 EC<sub>50</sub> 均显著高于 NysA3 和 AmB，即**毒性显著降低**。其中 Nys34 的溶血 EC<sub>50</sub> 约为 AmB 的 3–8 倍。
 
 **Figure 5C–E** 的哺乳动物细胞毒性实验进一步表明，Nys34 在 HEK293、A549 和 HEPG2 细胞系中的 IC<sub>50</sub> 均显著高于 AmB（**3–8 倍更低毒性**）。
+
 
 在机制层面，**Figure 5G–I** 的 UV-Vis 滴定实验显示，AmB 和 NysA1 与麦角固醇结合时表现出特征性的光谱变化，而 **Nys34 在任何麦角固醇比例下均无光谱变化**。与此一致，**Figure 5J–L** 显示，当 Nys34 与 5 倍摩尔过量麦角固醇预孵育后，其对 *S. cerevisiae* 的 IC<sub>50</sub> 几乎不变；而 AmB 和 NysA1 的活性分别下降 **11.8 倍**和 **3.4 倍**。这强烈提示 Nys34 的作用机制已不再是经典的“甾醇海绵”模式——这是一个相当意外的发现，因为多烯类药物的甾醇结合被认为是其抗真菌活性的核心机制。
 
