@@ -129,11 +129,14 @@ LC-HRMS 分析（Supplementary Fig. 7）显示，*S. albulus* 的主要多烯产
 
 **Figure 3G** 显示，以 kasufungin B 和 TDP 为底物，KfuSV 可催化其转化为 kasufungin D（脱糖产物为 kasufungin D 的反向反应——实际上是 KfuSV 将 kasufungin B 的 L-digitoxose 去除，生成 kasufungin D）。该结果确认了 KfuSV 在 kasufungin 生物合成中负责 C27 位（对应 AmB/NysA1 的 C35 位）的 L-digitoxose 安装。
 
+![image.png](https://synbiopath.online/20260730164719052.png)
+
 **Extended Data Fig. 5** 进一步显示，SelSV 虽然不能识别其天然产物 selvamicin 进行反向反应（因其糖基已被 4-O-甲基化），但可识别 kasufungin B 和 NysA3 进行反向糖基化。这提示 SelSV 的底物识别受糖基 C4 位甲基化状态影响，而 4-O-甲基化可能由 SelS12 甲基转移酶在糖基转移之后完成。
+
+![image.png](https://synbiopath.online/20260730164804102.png)
 
 此外，作者生成了 KfuSV 的 AlphaFold 模型（Supplementary Fig. 20），显示其具有典型的 GT-B 折叠。定点突变实验提示 His13 可能与 C35-OH 形成氢键并作为广义碱基参与催化，H294、T299 和 D318 可能参与催化或底物结合。其中 T297A 突变体对非天然多烯底物的活性反而提高，提示该酶的底物范围可通过工程改造进一步拓宽。
 
-> **分析**：KfuSV 是整篇文章中表征最深入的 GT——它不仅具有最宽泛的体外底物谱，还在异源宿主中实现了功能表达（见下一节），且其结构模型和关键活性位点残基得到了初步验证。但需要注意，AlphaFold 预测和定点突变所提出的催化机制仍是**基于结构模型的合理推测**，尚未经晶体学或更系统的动力学验证。
 
 ## (五) GTs 在异源宿主中的功能表达与 AmB-L-digitoxose 的制备
 
