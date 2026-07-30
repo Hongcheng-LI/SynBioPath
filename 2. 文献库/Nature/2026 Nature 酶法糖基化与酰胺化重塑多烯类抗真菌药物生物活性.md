@@ -148,9 +148,9 @@ LC-HRMS 分析（Supplementary Fig. 7）显示，*S. albulus* 的主要多烯产
 
 **Figure 4A** 的 RP-HPLC 分析显示，携带 *kfuSV* 子簇的 *S. nodosus* 发酵产物中出现了一个新的 405 nm 吸收峰（多烯特征吸收），与空载体对照相比为新增产物。LC-HRMS 显示该产物的质量与 AmB 加一分子脱氧糖一致。作者分离纯化了该产物并通过 **NMR 全解析**（Supplementary Fig. 22）确证其结构为 **AmB-35-L-digitoxose**——即 L-digitoxose 连接在 AmB 的 C35 位。同样，*Sa-nysSV* 子簇的导入也产生了相同的产物（Supplementary Fig. 23）。
 
-该实验具有重要的转化意义：它证明了无需化学合成，仅通过在 AmB 生产菌株中导入一个糖基合成与转移的基因簇，即可直接通过发酵获得 C35 位糖基化的 AmB 衍生物。作者在文中指出，这种方法“ultimately lead to more cost-effective production of improved polyene antifungal agents”。
+![image.png](https://synbiopath.online/20260730164822980.png)
 
-> **证据强度分析**：NMR 全解析为该产物的结构提供了确定性证据。但作者未报道 AmB-L-digitoxose 在工程菌株中的发酵产量或滴度，也未进行发酵工艺优化。因此，该方法在经济可行性上尚处于概念验证阶段。
+该实验具有重要的转化意义：它证明了无需化学合成，仅通过在 AmB 生产菌株中导入一个糖基合成与转移的基因簇，即可直接通过发酵获得 C35 位糖基化的 AmB 衍生物。作者在文中指出，这种方法“ultimately lead to more cost-effective production of improved polyene antifungal agents”。
 
 ## (六) 第二糖基化对抗真菌活性和毒性的影响
 
@@ -160,8 +160,8 @@ LC-HRMS 分析（Supplementary Fig. 7）显示，*S. albulus* 的主要多烯产
 
 ### 实验结果与证据解析
 
+![image.png](https://synbiopath.online/20260730164851396.png)
 **Table 1** 和 **Extended Data Fig. 7** 的数据显示：
-
 - AmB-L-digitoxose 对 10 种病原体中的 8 种表现出优于 AmB 的活性，例如对 *C. albicans* ATCC 90028 的活性提高 **2.7 倍**，对 *F. oxysporum* 提高 **2 倍**。
 - NysA3 对 6 种病原体优于 NysA1，特别是对 *F. solani* 活性提高 **10.2 倍**。
 - 然而，**Figure 4D** 显示 AmB-L-digitoxose 和 NysA3 的溶血活性（EC<sub>50</sub>）均高于母体化合物，即**毒性同步增加**。这意味着单靠第二糖基化虽然提高了抗真菌效力，但未能解决选择性毒性问题。
