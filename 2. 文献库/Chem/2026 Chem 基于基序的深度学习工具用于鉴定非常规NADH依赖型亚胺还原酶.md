@@ -1,17 +1,17 @@
 
+![image.png](https://synbiopath.online/20260803155821089.png)
 
 # 一、基本信息
 
 **文章题目**：A motif-based deep learning tool for the identification of unusual NADH-dependent imine reductases
 
-**文章DOI号**：
+**文章DOI号**：10.1016/j.chempr.2026.102956
 
 **期刊名称**： *Chem* 
 
 **通讯作者及工作单位**：
 - **郑高伟 (Gao-Wei Zheng)**：华东理工大学生物反应器工程国家重点实验室，上海生物制造协同创新中心 (State Key Laboratory of Bioreactor Engineering, Shanghai Collaborative Innovation Center for Biomanufacturing, East China University of Science and Technology)
 - **范贵生 (Gui-Sheng Fan)**：华东理工大学信息科学与工程学院 (School of Information Science and Engineering, East China University of Science and Technology)
-
 
 
 # 二、研究背景
