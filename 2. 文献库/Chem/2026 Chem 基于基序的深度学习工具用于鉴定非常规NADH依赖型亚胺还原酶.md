@@ -140,6 +140,8 @@
 
 **Figure 3B 的热图**（包括主图及Supplementary Figures S76-S80）系统展示了四条酶的底物活性。以下分区解析：
 
+![image.png](https://synbiopath.online/20260803160529520.png)
+
 **（1）亚胺还原底物谱（Figure 3B上半部分及Supplementary Figure S76）**
 
 对于2-芳基吡咯啉底物，四酶均显示NADH偏好。但偏好模式和底物选择性存在显著差异：
