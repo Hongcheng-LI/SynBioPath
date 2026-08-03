@@ -37,6 +37,8 @@
 
 **最后是机制解析**。作者解析了BublRED与NADH和NADPH的共晶结构，结合AlphaFold3模拟的酶-底物复合物模型，鉴定了决定NADH偏好性的关键残基，特别是**Asp32**与NADH核糖羟基之间的关键氢键相互作用，以及**Arg34**因静电排斥和空间位阻而排斥NADPH的构象机制。动力学参数测定印证了结构观察——BublRED对NADH的亲和力(Kₘ = 0.06 mM)显著高于NADPH (Kₘ = 0.26 mM)。
 
+![image.png](https://synbiopath.online/20260803160306908.png)
+
 # 四、研究方法
 
 - **HIBADH数据库构建**：从NCBI和UniProt数据库中检索"3-hydroxyisobutyrate dehydrogenase"关键词，合并去重后获得157,306条蛋白序列，作为后续基序检索的序列池。
