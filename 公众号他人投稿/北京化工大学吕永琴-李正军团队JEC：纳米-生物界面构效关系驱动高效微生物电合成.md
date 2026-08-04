@@ -59,3 +59,11 @@ AgNP为何能引发如此显著的生物-材料界面响应？转录组学分析
 图5：转录组揭示系统级电-代谢重编程
 
 图6：策略拓展性验证：2,3-丁二醇电合成
+
+**【文章信息】**
+
+该研究成果发表于能源化学领域权威期刊 Journal of Energy Chemistry。
+
+论文标题：Spatial organization of biohybrids governs electron utilization in microbial electrosynthesis
+
+DOI：https://doi.org/10.1016/j.jechem.2026.07.045
