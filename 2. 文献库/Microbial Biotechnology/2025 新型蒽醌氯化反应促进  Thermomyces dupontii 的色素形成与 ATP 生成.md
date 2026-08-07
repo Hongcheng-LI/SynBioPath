@@ -85,11 +85,15 @@ Figure 1G 所示 Δ*hal* 株含约 72 bp 缺失。由于 72 bp 可保持开放�
 
 Figure 2A 显示，野生型在 37 ℃ 和 45 ℃ 均产生 carviolin A 1，而 37 ℃ 下积累量较高。Δ*hal*  中 carviolin A 仍然存在，说明 Hal 不参与蒽醌核心骨架合成；但野生型中的两个主要峰 2 和 3 在 Δ*hal*  中消失，表明其形成依赖 _hal_。
 
+![image.png](https://synbiopath.online/20260807101145894.png)
+
 化合物 2 的 [M–H]− 为 m/z 333，并伴有约 3:1 强度比例的 m/z 335 峰，符合单氯化合物的同位素特征。其分子式为 C16H11O6Cl。NMR 中一个芳香次甲基消失并出现新的季碳，结合 HMBC 定位，作者将其确定为 **10-chlorocarviolin A，CA-Cl**。
 
 化合物 3 的分子式为 C32H20O9Cl2，NMR 结果显示其由 CA-Cl 2 与 10-chloroemodin 4 偶联形成。化合物 3 呈紫色，而单氯代 CA-Cl 呈黄色，说明二聚和共轭范围扩大明显改变了色素性质。野生型中还可检测到微量 emodin-Cl 4，而 Δ*hal* 中消失，支持 Hal 也与 emodin 氯化相关。
 
 Figure 2E 显示在 _E. coli_ 中获得了纯化 Hal。Figure 2F 中，完整体外体系加入 Hal 和 carviolin A 后出现与化合物 2 对应的目标峰，而 carviolin A 和化合物 2 标准品分别用于保留时间比较。这一结果证明 **纯化 Hal 在包含 FAD、flavin reductase、NAD(H) 再生系统和 Cl− 的体系中足以催化 carviolin A 氯化。**
+
+![image.png](https://synbiopath.online/20260807101233569.png)
 
 不过，该实验采用 50 μM Hal 和 1 mM 底物，酶与底物摩尔比约为 1:20，反应时间长达 12 h。论文未报告转化率、比活力、动力学参数、卤离子选择性，也未完整展示缺酶、缺 FAD、缺 Fre 或缺 Cl− 对照。因此，它完成了定性功能确证，但尚未达到系统生化表征水平。
 
