@@ -1,3 +1,4 @@
+![image.png](https://synbiopath.online/20260807095819409.png)
 
 
 # 一、基本信息
@@ -12,14 +13,14 @@
 
 **通讯作者及工作单位**：
 
-- **Xuemei Niu**：云南大学生命科学学院，云南生物资源保护与利用国家重点实验室、云南省绿色生物制造基础研究与创新应用重点实验室、教育部微生物资源重点实验室 (State Key Laboratory for Conservation and Utilization of Bio-Resources in Yunnan; Yunnan Key Laboratory of Basic Research and Innovative Application for Green Biological Production; Key Laboratory for Microbial Resources of the Ministry of Education; School of Life Sciences, Yunnan University)
+- **牛雪梅**：云南大学生命科学学院，云南生物资源保护与利用国家重点实验室、云南省绿色生物制造基础研究与创新应用重点实验室、教育部微生物资源重点实验室 (State Key Laboratory for Conservation and Utilization of Bio-Resources in Yunnan; Yunnan Key Laboratory of Basic Research and Innovative Application for Green Biological Production; Key Laboratory for Microbial Resources of the Ministry of Education; School of Life Sciences, Yunnan University)
 
 
 # 二、研究背景
 
 蒽醌是重要的真菌天然色素，通常由乙酰辅酶 A 和丙二酰辅酶 A 经聚酮合酶途径合成。其颜色和理化性质可通过甲基化、羟基化、糖基化、二聚化和卤化等修饰进一步改变。以往研究多关注蒽醌的结构、活性和工业用途，而天然修饰反应为何会随环境变化，以及这些修饰是否参与真菌生态适应，仍缺少直接研究。
 
-_Thermomyces dupontii_ 是一种嗜热真菌，最适生长温度高于 45 ℃，但也能在 37 ℃ 的相对低温下生存。作者团队此前发现，该真菌在 37 ℃ 时积累较多 carviolin A，菌落颜色随之加深。Carviolin A 还能参与 Fe3+ 向 Fe2+ 的转化，并促进胞外 Fenton 反应，由此分解环境中的有机物并释放热量。然而，胞外 Fenton 化学可能消耗细胞的还原力，使胞内 ATP 水平下降。因此，真菌似乎需要在胞外能量获取和胞内 ATP 生成之间维持平衡。
+_Thermomyces dupontii_ 是一种嗜热真菌，最适生长温度高于 45 ℃，但也能在 37 ℃ 的相对低温下生存。作者团队此前发现，该真菌在 37 ℃ 时积累较多 carviolin A，菌落颜色随之加深。Carviolin A 还能参与 Fe<sup>3+</sup> 向 Fe<sup>2+</sup> 的转化，并促进胞外 Fenton 反应，由此分解环境中的有机物并释放热量。然而，胞外 Fenton 化学可能消耗细胞的还原力，使胞内 ATP 水平下降。因此，真菌似乎需要在胞外能量获取和胞内 ATP 生成之间维持平衡。
 
 本研究进一步关注 carviolin A 的氯化修饰。作者提出，位于蒽醌生物合成基因簇中的黄素依赖型卤化酶基因 _hal_ 可能在低温下被激活，通过氯化 carviolin A、emodin 及相关中间体改变色素组成，并进一步影响氧化还原状态和 ATP 生成。论文试图回答三个问题：Hal 的天然底物和产物是什么；氯化是否影响真菌颜色与表型；氯化反应是否参与低温适应和能量代谢。
 
@@ -27,15 +28,15 @@ _Thermomyces dupontii_ 是一种嗜热真菌，最适生长温度高于 45 ℃�
 
 作者首先使用药物亲和响应靶标稳定性分析 (drug affinity responsive target stability, DARTS)，寻找可能与 carviolin A 相互作用的蛋白，再将候选蛋白与野生型和蒽醌缺失株 Δ_An_ 的转录组数据交叉比较，最终将 _hal_ 确定为重点候选基因。
 
-随后，作者构建 Δ_hal_ 突变株，比较其与野生型在 37 ℃ 和 45 ℃ 下的代谢轮廓。通过 HRMS 同位素峰、放大发酵、NMR 和 ECD，鉴定 carviolin A、emodin 及二氢蒽醌的单氯代、双氯代和二聚衍生物。纯化 Hal 后，作者建立包含黄素还原酶和辅酶再生系统的体外反应，验证 Hal 能够直接将 carviolin A 转化为氯代产物。
+随后，作者构建 Δ*hal* 突变株，比较其与野生型在 37 ℃ 和 45 ℃ 下的代谢轮廓。通过 HRMS 同位素峰、放大发酵、NMR 和 ECD，鉴定 carviolin A、emodin 及二氢蒽醌的单氯代、双氯代和二聚衍生物。纯化 Hal 后，作者建立包含黄素还原酶和辅酶再生系统的体外反应，验证 Hal 能够直接将 carviolin A 转化为氯代产物。
 
-在功能层面，作者比较 Δ_hal_ 与野生型的菌落颜色、产孢、萌发和 Congo Red 敏感性，并测定 Cl−、氧化还原电位、ROS、耗氧速率、ATP、线粒体膜电位、NAD(H)、NADP(H) 和铁离子状态。最后，作者提出蒽醌具有两种相互补充的能量功能：未氯化蒽醌主要支持胞外 Fenton 化学，氯化反应则促进线粒体膜电位和胞内 ATP 形成。
+在功能层面，作者比较 Δ*hal* 与野生型的菌落颜色、产孢、萌发和 Congo Red 敏感性，并测定 Cl<sup>−</sup>、氧化还原电位、ROS、耗氧速率、ATP、线粒体膜电位、NAD(H)、NADP(H) 和铁离子状态。最后，作者提出蒽醌具有两种相互补充的能量功能：未氯化蒽醌主要支持胞外 Fenton 化学，氯化反应则促进线粒体膜电位和胞内 ATP 形成。
 
 # 四、研究方法
 
 - **DARTS 靶标筛选**：将 _T. dupontii_ 总蛋白与 carviolin A 孵育，再用 pronase 限制性水解；受配体保护的蛋白条带经 LC–MS/MS 鉴定。
     
-- **转录组交叉筛选与 RT-PCR**：比较野生型和 Δ_An_ 的转录水平，并在 Δ_An_ 中补加 20 μM carviolin A，检测候选基因是否受到 carviolin A 调控。
+- **转录组交叉筛选与 RT-PCR**：比较野生型和 Δ*An* 的转录水平，并在 Δ*An* 中补加 20 μM carviolin A，检测候选基因是否受到 carviolin A 调控。
     
 - **热真菌 CRISPR–Cas9 编辑**：使用适用于 _T. dupontii_ 的 Cas9 和 tRNA–sgRNA 系统破坏 _hal_ 与 _AnO_，通过 PCR 和 Sanger 测序确认编辑。
     
