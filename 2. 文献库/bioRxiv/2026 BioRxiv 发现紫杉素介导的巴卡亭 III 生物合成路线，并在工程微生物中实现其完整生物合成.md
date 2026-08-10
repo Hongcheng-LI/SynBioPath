@@ -103,11 +103,15 @@ baccatin VI（16）
 
 Figure 3A 显示，2OGD 候选 TOGD5 以 7β-acetoxytaxusin-2α-ol（12）为底物时产生两个新峰。主产物 a 为发生骨架重排的 5,10,13-acetyl-10-debenzoylbrevifoliol-2α-ol（14），少量产物 b 则为目标 C1 羟化产物 7β-acetoxytaxusin-1β,2α-diol（13）。二者均经 HRMS 和 NMR 确认，因此 TOGD5 被重新命名为 T1OH。
 
+![image.png](https://synbiopath.online/20260810110051760.png)
+
 T1OH 与此前报道的 T1βH-184 序列一致性为 98.4%，但 T1OH 对三种含 C2 苯甲酰基的化合物 20、21 和 23 均无可检测活性。该结果直接表明，**在本文鉴定的 T1OH 介导路线中，C2 苯甲酰化会阻止后续 C1 羟化，因而 C1 羟化必须发生在 C2 苯甲酰化之前**。这修正了将 13-deacetyl-1β-dehydroxybaccatin VI（21）视为 T1OH 底物的既有模型。
 
 作者随后逐步补齐从化合物 13 到 baccatin VI 的反应。Figure 3B 显示 TBT 在 AAE4 辅助下将 13 的 C2 羟基苯甲酰化，生成化合物 15；HRMS、NMR 和分离标准品确认了其结构（Figure 3E、I）。Figure 3C 中，表达 CYP725A55 的酵母在接受化合物 15 后生成与 baccatin VI 标准品具有相同精确质量、保留时间和 MS/MS 碎片的产物 d（Figure 3F），支持 CYP725A55 在含 C1 羟基、C2 苯甲酰基的底物上完成氧化及氧杂环丁烷形成。
 
 Figure 3G–H 回顾已鉴定的 AT5：该酶将 2α,7β-dihydroxytaxusin（11）的 C7 羟基乙酰化，生成化合物 12。Figure 3I 最终形成以下顺序：
+
+![image.png](https://synbiopath.online/20260810110111601.png)
 
 taxadiene-5α-ol（2）  
 → 既有上游路线形成 2α,7β-dihydroxytaxusin（11）  
@@ -120,8 +124,6 @@ taxadiene-5α-ol（2）
 → CYP725A55 构建氧杂环丁烷  
 → baccatin VI（16）。
 
-逐底物验证使这一路线比多基因共表达后根据终产物反推顺序更有说服力。但是，作者筛选的是特定候选集合，不能完全排除红豆杉中还存在能够作用于晚期 C2 苯甲酰化底物的其他 C1 羟化酶。因此，更准确的表述是确定了 **T1OH-taxusin 路线**的反应顺序，而非绝对否定所有可能的平行路线。
-
 ### （四）通过单点突变提高 T1OH 的目标产物选择性
 
 #### 实验目的与设计逻辑
@@ -132,9 +134,13 @@ taxadiene-5α-ol（2）
 
 作者获得了 T1OH 的无配体晶体结构，但未获得底物或辅因子复合物。Figure 4A 根据 PointSite 在该结构上标出不同置信度的潜在结合位点。作者选择 19 个高置信度残基进行丙氨酸突变，获得选择性改善的 T1OH_M1 和 T1OH_M2；进一步饱和突变后获得 T1OH_M3。
 
+![image.png](https://synbiopath.online/20260810110157465.png)
+
 Figure 4B 展示目标 C1 羟化和旁路骨架重排的竞争关系。Figure 4C 的 HPLC 图显示，野生型主要形成化合物 14，T1OH_M1 和 T1OH_M3 则逐步提高化合物 13 的相对比例。Figure 4D 显示目标产物占比由野生型的 **13.6% 提高至 T1OH_M3 的 65.2%**，实现主副产物比例反转。
 
 Figure 4E 展示 T1OH 整体晶体结构，Figure 4F–G 基于无配体结构对底物和 α-酮戊二酸进行分子对接，Figure 4H 标出活性口袋周围的疏水残基及突变位点。作者据此提出，T1OH_M3 以较小侧链取代原有较大残基，扩展口袋空间并改变 α-酮戊二酸及底物的相对定位，从而使氧化轨迹偏向正常 C1 羟化而非骨架重排。
+
+![image.png](https://synbiopath.online/20260810110210072.png)
 
 实验结果确实证明突变能够改变产物分配，但“系统阐明了结构机制”的表述偏强。目前只有野生型无配体结构、计算对接和突变结果，没有 T1OH_M3 复合物结构、位点特异动力学、自由基中间体或反应轨迹证据。并且 Figure 4 主要报告产物比例，没有清晰比较总转化率和催化效率；选择性提高不必然意味着总目标产物生产能力按相同比例增加。作者后续也承认 T1OH_M3 活性仍弱于 TBT 所介导的苯甲酰化，说明该酶尚未完全解除限速。
 
@@ -148,9 +154,13 @@ T5OH 是 taxadiene 后的第一个氧化酶，但其产物谱非常复杂。即�
 
 Figure 5A 汇总以往研究中 T5OH 产生 taxadiene-5α-ol、OCT、iso-OCT 等多种产物的情况；Figure 5B 显示 FoTO1 虽提高目标产物比例，但同时促进环氧旁产物 3 形成。作者利用 FoldX 设计 26 个候选突变，并通过分子对接和近攻击构象比例排序，再逐一在 taxadiene 生产酵母中验证。
 
+![image.png](https://synbiopath.online/20260810110239245.png)
+
 Figure 5C–D 显示，单点突变体 T5OH_M1 在从头合成体系中使 taxadiene-5α-ol 成为主产物，比例接近 **70%**，而野生型体系仍积累多个 OCT 类旁产物。Figure 5E 进一步比较 FoTO1 与野生型或突变型 T5OH 的组合：野生型体系大致形成等量化合物 2 和 3，而 T5OH_M1/FoTO1 体系中目标产物比例超过 **85%**。
 
 进一步的底物喂养显示，野生型 T5OH/FoTO1 可以将已经形成的 taxadiene-5α-ol 再次氧化为环氧化合物 3，而 T5OH_M1 对化合物 2 的二次氧化能力降低。因此，突变的核心作用不仅是促进第一次 C5 羟化，还在于阻断目标产物继续进入旁路。
+
+![image.png](https://synbiopath.online/20260810110258148.png)
 
 Figure 5F 将 taxadiene 对接至已报道的 T5OH 晶体结构，Figure 5G–I 比较目标产物和不同旁产物的计算构象。Figure 5J 据此提出，野生型口袋允许中间体折叠并形成紧凑的环氧多环结构；T5OH_M1 引入较大的芳香侧链后产生空间位阻，限制这种构象塌缩，而较伸展的 taxadiene-5α-ol 仍可形成。
 
@@ -166,7 +176,11 @@ CXE16 和 CXE18 具有较宽底物谱，若过早接触上游中间体，可能�
 
 Figure 6A 展示完整模块。酿酒酵母从糖出发合成 GGPP 和 taxadiene，随后表达 T5OH、T13OH、多个乙酰转移酶、羟化酶、T1OH、TBT、CYP725A55 等，完成 baccatin VI 合成。作者还引入由 RgPAL、ScCCLA294G、PhCHD 和 PhKAT 构成的人工 benzoyl-CoA 供给模块，并增加 T1OH_M3、DBAT 和 T2OH 拷贝。
 
+![image.png](https://synbiopath.online/20260810110321079.png)
+
 Figure 6B 显示工程酵母 YL_V14 出现与 baccatin VI 标准品一致的 LC-MS 峰，而缺少完整末端模块的对照不产生相同信号。Figure 6D 的 MS/MS 碎片进一步支持产物为 baccatin VI。与此同时，菌株仍大量积累 1β-dehydroxybaccatin VI，说明 T1OH_M3 与后续反应的竞争仍是关键瓶颈。
+
+![image.png](https://synbiopath.online/20260810110334251.png)
 
 在第二模块中，作者构建同时表达 CXE18、CXE16 和 T9ox 的大肠杆菌 EBAIII。Figure 6C 显示，向该菌株加入 baccatin VI 后出现与 baccatin III 标准品一致的 LC-MS 峰，空载大肠杆菌对照未生成该产物；Figure 6E 的 MS/MS 碎片也与标准品相符。
 
@@ -175,9 +189,6 @@ Figure 6B 显示工程酵母 YL_V14 出现与 baccatin VI 标准品一致的 LC-
 1. 工程酵母能够从糖合成 baccatin VI；
     
 2. 工程大肠杆菌能够将外加 baccatin VI 转化为 baccatin III。
-    
-
-但需要严格指出，论文没有展示将酵母实际产生的 baccatin VI 分离或直接输送给大肠杆菌，并最终从糖获得 baccatin III 的连续实验；也没有进行共培养、串联发酵或同位素示踪。大肠杆菌实验使用的是外加 baccatin VI。因此，**本文实现的是完整途径的分模块功能验证，而不是已经运行成功的端到端微生物接力生产过程**。此外，论文没有报告 baccatin VI 和 baccatin III 的具体滴度、转化率、得率或生产强度，距离评价工艺性能和工业可行性仍有明显距离。
 
 # 六、总体结论
 
