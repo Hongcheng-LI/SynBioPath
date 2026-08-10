@@ -5,14 +5,16 @@
 **文章 DOI 号**：10.64898/2026.07.31.742161
 
 **通讯作者及工作单位**：
-
+- **周志华**：中国科学院分子植物科学卓越创新中心、植物生理生态研究所；南京农业大学农业合成生物学中心
+- **王平平**：南京农业大学前沿交叉研究院农业合成生物学中心（Center for Agricultural Synthetic Biology, Academy for Advanced Interdisciplinary Studies, Nanjing Agricultural University）
+- 
 - **Tong Zhang**：中国科学院分子植物科学卓越创新中心、植物生理生态研究所、合成生物学重点实验室（CAS-Key Laboratory of Synthetic Biology, CAS Center for Excellence in Molecular Plant Sciences, Institute of Plant Physiology and Ecology, Chinese Academy of Sciences）
     
 - **Jianxu Li**：上海辰山植物园植物功能基因组学与资源上海市重点实验室、上海辰山植物科学研究中心、中国科学院分子植物科学卓越创新中心（Shanghai Key Laboratory of Plant Functional Genomics and Resources, Shanghai Chenshan Botanical Garden）
     
-- **Pingping Wang**：南京农业大学前沿交叉研究院农业合成生物学中心（Center for Agricultural Synthetic Biology, Academy for Advanced Interdisciplinary Studies, Nanjing Agricultural University）
+
     
-- **周志华**：中国科学院分子植物科学卓越创新中心、植物生理生态研究所；南京农业大学农业合成生物学中心
+
     
 
 # 二、研究背景
