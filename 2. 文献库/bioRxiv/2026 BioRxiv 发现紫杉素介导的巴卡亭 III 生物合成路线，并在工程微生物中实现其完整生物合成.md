@@ -69,9 +69,13 @@ Figure 1B 展示多种从红豆杉中分离到的 C13 酮基紫杉烷，说明 C
 
 Figure 2A 的 MALDI-MSI 显示，baccatin III 的离子信号主要分布于红豆杉茎的外围表皮区域。Figure 2B 将茎细胞划分为多个 UMAP 聚类，补充数据进一步显示已知 T9ox 在表皮细胞中高表达。作者据此推测其他末端酶也可能具有表皮特异表达。
 
+![image.png](https://synbiopath.online/20260810105807267.png)
+
 Figure 2C 给出 C13 去乙酰化酶的筛选流程：比较表皮细胞与木质部细胞，选取在表皮表达且在木质部表达低于其 10% 的前 1000 个差异基因，再从中筛出 19 个 α/β-水解酶候选。该策略将代谢物空间分布与单细胞表达联系起来，比传统整组织共表达具有更高的空间分辨率，但仍属于候选优先级排序，不能单独证明这些基因参与途径。
 
 作者以 9-dihydro-13-acetylbaccatin III（17）为底物开展候选粗酶反应。Figure 2D 显示，只有表达 CXE16 的粗酶体系形成更极性的产物 a，空载对照未发生相同转化。HRMS 和 NMR 将产物确认为失去 C13 乙酰基的 9-dihydrobaccatin III（18；Figure 2G、J）。CXE16 也能将 1β-dehydroxybaccatin VI（20）转化为相应的 C13 去乙酰化产物 21，但不能直接作用于 baccatin VI（16），说明其位点选择性受到底物整体修饰状态影响。
+
+![image.png](https://synbiopath.online/20260810105854326.png)
 
 Figure 2E 显示，T9ox 可将 9-dihydrobaccatin III（18）氧化为 baccatin III（19），产物通过 HRMS、NMR 和标准品比较确证（Figure 2H、J）。该结果直接建立了“先 C13 去乙酰化、再 C9 氧化”的末端连接。
 
