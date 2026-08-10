@@ -1,3 +1,5 @@
+![image.png](https://synbiopath.online/20260810105558746.png)
+
 # 一、基本信息
 
 **文章题目**：Discovery of a taxusin-mediated route to baccatin III enables its complete biosynthesis in engineered microbes
@@ -7,16 +9,9 @@
 **通讯作者及工作单位**：
 - **周志华**：中国科学院分子植物科学卓越创新中心、植物生理生态研究所；南京农业大学农业合成生物学中心
 - **王平平**：南京农业大学前沿交叉研究院农业合成生物学中心（Center for Agricultural Synthetic Biology, Academy for Advanced Interdisciplinary Studies, Nanjing Agricultural University）
-- 
-- **Tong Zhang**：中国科学院分子植物科学卓越创新中心、植物生理生态研究所、合成生物学重点实验室（CAS-Key Laboratory of Synthetic Biology, CAS Center for Excellence in Molecular Plant Sciences, Institute of Plant Physiology and Ecology, Chinese Academy of Sciences）
+- **李建戌**：上海辰山植物园植物功能基因组学与资源上海市重点实验室、上海辰山植物科学研究中心、中国科学院分子植物科学卓越创新中心（Shanghai Key Laboratory of Plant Functional Genomics and Resources, Shanghai Chenshan Botanical Garden）
+- **张通**：中国科学院分子植物科学卓越创新中心、植物生理生态研究所、合成生物学重点实验室（CAS-Key Laboratory of Synthetic Biology, CAS Center for Excellence in Molecular Plant Sciences, Institute of Plant Physiology and Ecology, Chinese Academy of Sciences）
     
-- **Jianxu Li**：上海辰山植物园植物功能基因组学与资源上海市重点实验室、上海辰山植物科学研究中心、中国科学院分子植物科学卓越创新中心（Shanghai Key Laboratory of Plant Functional Genomics and Resources, Shanghai Chenshan Botanical Garden）
-    
-
-    
-
-    
-
 # 二、研究背景
 
 紫杉醇（paclitaxel）是重要的抗肿瘤药物，目前工业生产主要依赖从红豆杉植物中提取巴卡亭 III（baccatin III）或 10-deacetylbaccatin III，再通过半合成引入 C13 侧链。近年来，紫杉醇四环核心骨架构建所需的多种羟化酶、酰基转移酶、去乙酰化酶和氧杂环丁烷合酶相继被鉴定，但巴卡亭 III 途径仍存在两个关键问题：一是复杂修饰反应的真实先后顺序尚不清楚，尤其是 C1 羟化、C2 苯甲酰化及氧杂环丁烷形成之间的顺序；二是以本氏烟草多基因共表达为主的研究难以将单酶功能、植物内源酶贡献和旁路反应完全区分开来。作者此前已解析从 taxadiene-5α-ol 经紫杉素（taxusin）形成 1β-dehydroxybaccatin VI 的路线。本研究在此基础上寻找缺失的 C13 去乙酰化酶和 C1 羟化酶，重新连接紫杉素与巴卡亭 III，并尝试在工程微生物中重构完整路线。
