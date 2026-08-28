@@ -9,7 +9,7 @@
 **通讯作者及工作单位**：
 - **李盛英**：山东大学微生物技术国家重点实验室 (State Key Laboratory of Microbial Technology, Shandong University, Qingdao, Shandong 266237, China)；青岛海洋科学与技术中心海洋生物学与生物技术实验室 (Laboratory for Marine Biology and Biotechnology, Qingdao Marine Science and Technology Center, Qingdao, Shandong 266237, China)
 - **杜磊**：山东大学微生物技术国家重点实验室 (State Key Laboratory of Microbial Technology, Shandong University, Qingdao, Shandong 266237, China)；华中农业大学生命科学技术学院农业微生物学国家重点实验室湖北洪山实验室 (National Key Laboratory of Agricultural Microbiology, College of Life Science and Technology, Hubei Hongshan Laboratory, Huazhong Agricultural University, Wuhan 430070, China)
-- **Xiang Sheng**：中国科学院天津工业生物技术研究所低碳制造工程生物学国家重点实验室 (State Key Laboratory of Engineering Biology for Low-Carbon Manufacturing, Tianjin Institute of Industrial Biotechnology, Chinese Academy of Sciences, Tianjin 300308, China)；国家合成生物技术创新中心 (National Technology Innovation Center for Synthetic Biology, Tianjin 300308, China)
+- **盛翔**：中国科学院天津工业生物技术研究所低碳制造工程生物学国家重点实验室 (State Key Laboratory of Engineering Biology for Low-Carbon Manufacturing, Tianjin Institute of Industrial Biotechnology, Chinese Academy of Sciences, Tianjin 300308, China)；国家合成生物技术创新中心 (National Technology Innovation Center for Synthetic Biology, Tianjin 300308, China)
 
 
 # 二、研究背景
