@@ -1,16 +1,16 @@
 # 一、基本信息
 
-**文章题目**：Indole Diketopiperazine Dimerization Catalyzed by Dye-Decolorizing Peroxidases via Hydroxyl-to-Carbon Radical Relay（染料脱色过氧化物酶通过羟基到碳自由基中继催化吲哚二酮哌嗪二聚化）
+**文章题目**：Indole Diketopiperazine Dimerization Catalyzed by Dye-Decolorizing Peroxidases via Hydroxyl-to-Carbon Radical Relay
 
 **文章 DOI 号**：10.1021/acscatal.6c03866
 
 **期刊名称**：ACS Catalysis
 
 **通讯作者及工作单位**：
-
+- **李盛英**：山东大学微生物技术国家重点实验室 (State Key Laboratory of Microbial Technology, Shandong University, Qingdao, Shandong 266237, China)；青岛海洋科学与技术中心海洋生物学与生物技术实验室 (Laboratory for Marine Biology and Biotechnology, Qingdao Marine Science and Technology Center, Qingdao, Shandong 266237, China)
+- **杜磊**：山东大学微生物技术国家重点实验室 (State Key Laboratory of Microbial Technology, Shandong University, Qingdao, Shandong 266237, China)；华中农业大学生命科学技术学院农业微生物学国家重点实验室湖北洪山实验室 (National Key Laboratory of Agricultural Microbiology, College of Life Science and Technology, Hubei Hongshan Laboratory, Huazhong Agricultural University, Wuhan 430070, China)
 - **Xiang Sheng**：中国科学院天津工业生物技术研究所低碳制造工程生物学国家重点实验室 (State Key Laboratory of Engineering Biology for Low-Carbon Manufacturing, Tianjin Institute of Industrial Biotechnology, Chinese Academy of Sciences, Tianjin 300308, China)；国家合成生物技术创新中心 (National Technology Innovation Center for Synthetic Biology, Tianjin 300308, China)
-- **Lei Du**：山东大学微生物技术国家重点实验室 (State Key Laboratory of Microbial Technology, Shandong University, Qingdao, Shandong 266237, China)；华中农业大学生命科学技术学院农业微生物学国家重点实验室湖北洪山实验室 (National Key Laboratory of Agricultural Microbiology, College of Life Science and Technology, Hubei Hongshan Laboratory, Huazhong Agricultural University, Wuhan 430070, China)
-- **Shengying Li**：山东大学微生物技术国家重点实验室 (State Key Laboratory of Microbial Technology, Shandong University, Qingdao, Shandong 266237, China)；青岛海洋科学与技术中心海洋生物学与生物技术实验室 (Laboratory for Marine Biology and Biotechnology, Qingdao Marine Science and Technology Center, Qingdao, Shandong 266237, China)
+
 
 # 二、研究背景
 
