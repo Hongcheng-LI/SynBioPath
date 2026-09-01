@@ -1,3 +1,6 @@
+
+
+
 # 一、基本信息
 
 **文章题目**：The Biosynthesis of a Fungal Flavonoid, Chlorflavonin, Precisely Controlled by Two Types of Equilibrium States
