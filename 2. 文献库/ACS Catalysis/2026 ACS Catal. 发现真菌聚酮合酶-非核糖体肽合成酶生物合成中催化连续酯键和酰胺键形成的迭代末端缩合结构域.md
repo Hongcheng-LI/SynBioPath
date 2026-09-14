@@ -52,8 +52,9 @@
 
 ![image.png](https://synbiopath.online/20260914144201725.png)
 
-Figure S3 给出基因大小、预测功能及同源蛋白；Figure S4 展示异源表达质粒构建。作者据此提出，该未报道的基因组合可能合成新 PK-NRP 产物，并选择 *A. nidulans* 异源表达作为切入点。
+Figure S3 给出基因大小、预测功能及同源蛋白；作者据此提出，该未报道的基因组合可能合成新 PK-NRP 产物，并选择 *A. nidulans* 异源表达作为切入点。
 
+![image.png](https://synbiopath.online/20260914144325833.png)
 
 ### (二) 异源重构确定产物谱与基因功能
 
