@@ -48,7 +48,12 @@
 
 #### 实验结果与证据解析
 
-*neo* 簇包含四个基因：*neoA* 编码高还原型 PKS（KS-MAT-DH-MT-ER-KR-ACP），*neoB* 编码单模块 NRPS（A-T-C<sub>T</sub>），*neoC* 编码 IDO 同源物，*neoD* 编码 α/β 水解酶。BLAST 分析还发现 *A. udagawae* IFM 46973 中存在高度同源簇 *neo'*，氨基酸水平同源性 >90%。Figure S3 给出基因大小、预测功能及同源蛋白；Figure S4 展示异源表达质粒构建。作者据此提出，该未报道的基因组合可能合成新 PK-NRP 产物，并选择 *A. nidulans* 异源表达作为切入点。
+*neo* 簇包含四个基因：*neoA* 编码高还原型 PKS（KS-MAT-DH-MT-ER-KR-ACP），*neoB* 编码单模块 NRPS（A-T-C<sub>T</sub>），*neoC* 编码 IDO 同源物，*neoD* 编码 α/β 水解酶。BLAST 分析还发现 *A. udagawae* IFM 46973 中存在高度同源簇 *neo'*，氨基酸水平同源性 >90%。
+
+![image.png](https://synbiopath.online/20260914144201725.png)
+
+Figure S3 给出基因大小、预测功能及同源蛋白；Figure S4 展示异源表达质粒构建。作者据此提出，该未报道的基因组合可能合成新 PK-NRP 产物，并选择 *A. nidulans* 异源表达作为切入点。
+
 
 ### (二) 异源重构确定产物谱与基因功能
 
