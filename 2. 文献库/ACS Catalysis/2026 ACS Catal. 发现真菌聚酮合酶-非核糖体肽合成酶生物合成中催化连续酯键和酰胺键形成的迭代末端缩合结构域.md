@@ -1,20 +1,28 @@
+![image.png](https://synbiopath.online/20260914143938963.png)
+
 # 一、基本信息
 
-**文章题目**：Discovery of an Iterative Terminal Condensation Domain Catalyzing Sequential Ester and Amide Bond Formation in Fungal Polyketide Synthase-Nonribosomal Peptide Synthetase Biosynthesis（发现真菌聚酮合酶-非核糖体肽合成酶生物合成中催化连续酯键和酰胺键形成的迭代末端缩合结构域）
+**文章题目**：Discovery of an Iterative Terminal Condensation Domain Catalyzing Sequential Ester and Amide Bond Formation in Fungal Polyketide Synthase-Nonribosomal Peptide Synthetase Biosynthesis
 
 **文章 DOI 号**：10.1021/acscatal.6c05712
 
 **期刊名称**：ACS Catalysis
 
+**第一作者**：王子安、马传腾、王文雪
+
 **通讯作者及工作单位**：
 
-- **Dehai Li（李德海）**：中国海洋大学医药学院、海洋药物教育部重点实验室；三亚海洋研究院；深海多圈层与地球系统前沿科学中心；青岛海洋科技中心海洋药物与生物制品实验室 (School of Medicine and Pharmacy, Ocean University of China; Key Laboratory of Marine Drugs, Ministry of Education; Sanya Oceanographic Institution; Frontiers Science Center for Deep Ocean Multispheres and Earth System; Laboratory for Marine Drugs and Bioproducts, Qingdao Marine Science and Technology Center)
-
-共同第一作者为 Zian Wang、Chuanteng Ma 和 Wenxue Wang。
+- **李德海**：中国海洋大学医药学院、海洋药物教育部重点实验室；三亚海洋研究院；深海多圈层与地球系统前沿科学中心；青岛海洋科技中心海洋药物与生物制品实验室
 
 # 二、研究背景
 
-真菌聚酮-非核糖体肽 (polyketide-nonribosomal peptide, PK-NRP) 杂合天然产物通常由聚酮合酶 (polyketide synthase, PKS) 与非核糖体肽合成酶 (nonribosomal peptide synthetase, NRPS) 协同装配。经典途径中，PKS 与 NRPS 融合为多结构域巨酶，C 端 NRPS 的缩合 (condensation, C) 结构域在酰基载体蛋白 (acyl carrier protein, ACP) 结合的聚酮链与硫酯化 (thiolation, T) 结构域结合的氨基酸之间形成酰胺键，随后由 Dieckmann 环化酶或还原释放结构域决定产物释放方式。除经典融合系统外，真菌中还发现离散协作型 PKS-NRPS，例如 ThmA/ThmB、DrcA/DrcB 和 Restin3/RstmB 等。这些系统常依赖末端缩合结构域 (terminal condensation domain, C<sub>T</sub>) 形成酯键或酰胺键，但已报道的 C<sub>T</sub> 通常只催化一种连接类型，底物识别逻辑相对固定。因此，是否存在同一 C<sub>T</sub> 在连续催化循环中迭代形成化学性质不同的酯键和酰胺键，是理解真菌 PK-NRP 装配逻辑的重要缺口。本文从一株红树林根际来源真菌 *Neosartorya udagawae* HDN13-313 中挖掘到非经典 *neo* 基因簇，并围绕其产物 Neodiabzacids A/B 及类似物，试图回答单模块 NRPS NeoB 的 C<sub>T</sub> 是否能够迭代催化酯化和酰胺化，以及其底物形式如何区分。
+真菌聚酮-非核糖体肽 (polyketide-nonribosomal peptide, PK-NRP) 杂合天然产物通常由聚酮合酶 (polyketide synthase, PKS) 与非核糖体肽合成酶 (nonribosomal peptide synthetase, NRPS) 协同装配。
+
+经典途径中，PKS 与 NRPS 融合为多结构域巨酶，C 端 NRPS 的缩合 (condensation, C) 结构域在酰基载体蛋白 (acyl carrier protein, ACP) 结合的聚酮链与硫酯化 (thiolation, T) 结构域结合的氨基酸之间形成酰胺键，随后由 Dieckmann 环化酶或还原释放结构域决定产物释放方式。除经典融合系统外，真菌中还发现离散协作型 PKS-NRPS，例如 ThmA/ThmB、DrcA/DrcB 和 Restin3/RstmB 等。这些系统常依赖末端缩合结构域 (terminal condensation domain, C<sub>T</sub>) 形成酯键或酰胺键，但已报道的 C<sub>T</sub> 通常只催化一种连接类型，底物识别逻辑相对固定。因此，是否存在同一 C<sub>T</sub> 在连续催化循环中迭代形成化学性质不同的酯键和酰胺键，是理解真菌 PK-NRP 装配逻辑的重要缺口。
+
+![image.png](https://synbiopath.online/20260914144026924.png)
+
+本文从一株红树林根际来源真菌 *Neosartorya udagawae* HDN13-313 中挖掘到非经典 *neo* 基因簇，并围绕其产物 Neodiabzacids A/B 及类似物，试图回答单模块 NRPS NeoB 的 C<sub>T</sub> 是否能够迭代催化酯化和酰胺化，以及其底物形式如何区分。
 
 # 三、研究思路
 
@@ -29,7 +37,6 @@
 - **SNAC 硫酯探针与喂养实验**：化学合成 1-SNAC、3-SNAC、5-SNAC、7-SNAC、Ant-SNAC 和 Bza-SNAC，喂给表达 *neoB*、*neoD* 或突变体的菌株，模拟 ACP 结合底物并判断缩合步骤的底物形式。
 - **体外酶学**：尝试纯化全长 NeoB 未成功，转而纯化同源 NeoB' 的 T+C<sub>T</sub> 截短二结构域，与 Ant-SNAC/Bza-SNAC 及 free 1、1-SNAC、free 3、3-SNAC 反应，LC-MS 检测产物。
 - **生物活性测试**：对化合物 5 和 7 进行革兰阴性、革兰阳性菌的 MIC 测定，阳性对照为 colistin 和 vancomycin。
-- **Supporting Information 支撑**：Table S1–S12 提供引物、质粒、菌株、NMR 数据及 C<sub>T</sub> 序列信息；Figure S1–S91 提供背景、序列比对、喂养、HRMS 和 NMR 谱图。
 
 # 五、实验设计及结果分析
 
