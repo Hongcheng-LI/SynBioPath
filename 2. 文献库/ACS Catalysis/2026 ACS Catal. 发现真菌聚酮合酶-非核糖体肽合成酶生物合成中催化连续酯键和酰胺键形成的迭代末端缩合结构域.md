@@ -122,6 +122,9 @@ Figure 3A 显示，NeoB-C<sub>T</sub> 形成独立于已知酯键或酰胺键形
 
 缺失 *neoD* 的 AN::*neoAB* 菌株中 3–8 产量急剧下降（Figure 3B(vi)），证明 NeoD 对双 Ant 修饰产物形成重要。喂养 1-SNAC 或 3-SNAC 给表达 *neoD* 的菌株可增加 free 1 或 3 的检测水平，说明 NeoD 能水解这些硫酯底物；但 5-SNAC 或 7-SNAC 未产生可检测 free 5 或 7，可能由于摄取或底物选择性限制（Figure S16）。作者据此提出，**NeoD 负责从 PKS 释放第一步酯化产物，生成 free 3/4，为第二步酰胺化提供底物**。Scheme 1 总结模型：NeoA 以 propionyl-CoA 或 acetyl-CoA 为起始单元，经四轮延伸生成 ACP-1/2；NeoB 的 A 结构域装载 Ant 到 T 结构域；C<sub>T</sub> 催化 C-3 羟基对 T-Ant 的亲核攻击形成酯键，生成 ACP-3/4；NeoD 或内源水解酶释放 free 3/4；C<sub>T</sub> 再催化 free 3/4 的氨基与 T-Ant 或 T-Bza 形成酰胺键，生成 5/6 或 7/8。NeoC 通过 L-犬尿氨酸途径补充 Ant 池，但 Ant 主要仍来自莽草酸途径。该模型整合了遗传、喂养、体外和结构分析证据，但第一步酯化的直接体外重构、NeoD 与 NeoA/NeoB 的互作仍待验证。
 
+![image.png](https://synbiopath.online/20260914144839912.png)
+
+
 ### (八) 生物活性初探
 
 作者测试了化合物 5 和 7 对多种革兰阴性和革兰阳性菌的 MIC，结果均 **>64 μg/mL**，未观察到显著抑菌活性。该结果仅说明在受试菌株和浓度范围内无显著活性，不能推断此类化合物在生态或生理场景中完全没有功能。
