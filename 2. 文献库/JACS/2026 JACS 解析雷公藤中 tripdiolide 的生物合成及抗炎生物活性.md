@@ -1,3 +1,5 @@
+![image.png](https://synbiopath.online/20260918180111125.png)
+
 # 一、基本信息
 
 **文章题目**：Unraveling the Biosynthesis and Anti-Inflammatory Bioactivity of Tripdiolide from *Tripterygium wilfordii*
@@ -8,10 +10,10 @@
 
 **通讯作者及工作单位**：
 
-- **黄璐琦**：中国中医科学院中药资源中心道地药材品质保障与可持续利用国家重点实验室 (State Key Laboratory for Quality Assurance and Sustainable Use of Dao-di Herbs, National Resource Center for Chinese Materia Medica, China Academy of Chinese Medical Sciences, CACMS)
-- **胡雅婷**：首都医科大学中医药学院 (School of Traditional Chinese Medicine, Capital Medical University)；中国中医科学院中药资源中心道地药材品质保障与可持续利用国家重点实验室 (State Key Laboratory for Quality Assurance and Sustainable Use of Dao-di Herbs, Institute of Chinese Materia Medica, CACMS)
-- **张彦琼**：中国中医科学院中药资源中心道地药材品质保障与可持续利用国家重点实验室 (State Key Laboratory for Quality Assurance and Sustainable Use of Dao-di Herbs, Institute of Chinese Materia Medica, CACMS)
-- **张一峰**：中国中医科学院中药资源中心道地药材品质保障与可持续利用国家重点实验室 (State Key Laboratory for Quality Assurance and Sustainable Use of Dao-di Herbs, National Resource Center for Chinese Materia Medica, CACMS)；北京生命科学研究院 (Beijing Life Science Academy)
+- **黄璐琦**：中国中医科学院中药资源中心道地药材品质保障与可持续利用国家重点实验室 
+- **胡雅婷**：首都医科大学中医药学院；中国中医科学院中药资源中心道地药材品质保障与可持续利用国家重点实验室
+- **张彦琼**：中国中医科学院中药资源中心道地药材品质保障与可持续利用国家重点实验室
+- **张一峰**：中国中医科学院中药资源中心道地药材品质保障与可持续利用国家重点实验室；北京生命科学研究院
 
 ---
 
