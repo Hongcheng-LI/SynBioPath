@@ -61,6 +61,8 @@
 
 如 Figure 1a 所示，TP 和 TPD 的化学结构仅差 C-2 羟基。TP 生物合成途径包括 TwTPS7(v2) 和 TwTPS27(v2) 催化的二萜环化，CYP82D274、CYP71BE86 和 CYP71BE85 等参与的氧化，生成 triptophenolide (8)，随后经 CYP82D213 介导的三环氧反应生成 triptonide (TN)，再经 C-14 还原和 C-2 羟基化。该图属于途径总结和机制推导框架，明确了本研究的核心缺口是 C-2 羟化酶。
 
+![image.png](https://synbiopath.online/20260918180745893.png)
+
 Figure 1b 显示，*CYP71BE* 基因在雷公藤多条染色体上分布，其中 Chr19 含 24 个完整 *CYP71BE* 基因，Chr21 含 14 个，Chr11 和 Chr16 各含 1 个。Chr19 和 Chr21 之间存在大片段结构重排和同源重组迹象，提示染色体交叉事件。Figure 1c 基于 40 个 CYP71BE 的最大似然系统发育树（1000 bootstrap）表明，这些基因按染色体成簇分布，其复制和新功能化与雷公藤全基因组三倍化 (whole-genome triplication, WGT) 事件相关。同义/非同义替换值分析提示该亚家族扩张受到纯化选择。上述结果属于生物信息学和进化证据，支持 *CYP71BE* 亚家族扩张可能促进雷公藤二萜结构多样性，但不能直接证明某个基因的催化功能。
 
 ## (二) CYP71BE272 催化 TP 的 C-2 羟基化生成 TPD
