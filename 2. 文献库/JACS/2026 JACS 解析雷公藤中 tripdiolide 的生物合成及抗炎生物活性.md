@@ -10,8 +10,8 @@
 
 - **黄璐琦**：中国中医科学院中药资源中心道地药材品质保障与可持续利用国家重点实验室 (State Key Laboratory for Quality Assurance and Sustainable Use of Dao-di Herbs, National Resource Center for Chinese Materia Medica, China Academy of Chinese Medical Sciences, CACMS)
 - **胡雅婷**：首都医科大学中医药学院 (School of Traditional Chinese Medicine, Capital Medical University)；中国中医科学院中药资源中心道地药材品质保障与可持续利用国家重点实验室 (State Key Laboratory for Quality Assurance and Sustainable Use of Dao-di Herbs, Institute of Chinese Materia Medica, CACMS)
-- **Yanqiong Zhang**：中国中医科学院中药资源中心道地药材品质保障与可持续利用国家重点实验室 (State Key Laboratory for Quality Assurance and Sustainable Use of Dao-di Herbs, Institute of Chinese Materia Medica, CACMS)
-- **Yifeng Zhang**：中国中医科学院中药资源中心道地药材品质保障与可持续利用国家重点实验室 (State Key Laboratory for Quality Assurance and Sustainable Use of Dao-di Herbs, National Resource Center for Chinese Materia Medica, CACMS)；北京生命科学研究院 (Beijing Life Science Academy)
+- **张彦琼**：中国中医科学院中药资源中心道地药材品质保障与可持续利用国家重点实验室 (State Key Laboratory for Quality Assurance and Sustainable Use of Dao-di Herbs, Institute of Chinese Materia Medica, CACMS)
+- **张一峰**：中国中医科学院中药资源中心道地药材品质保障与可持续利用国家重点实验室 (State Key Laboratory for Quality Assurance and Sustainable Use of Dao-di Herbs, National Resource Center for Chinese Materia Medica, CACMS)；北京生命科学研究院 (Beijing Life Science Academy)
 
 ---
 
