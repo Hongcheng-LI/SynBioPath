@@ -1,3 +1,5 @@
+![image.png](https://synbiopath.online/20260919100445118.png)
+
 ## 一、基本信息
 
 **文章题目**：Engineering a versatile *Aspergillus niger* platform for efficient and scalable biosynthesis of polyketides
