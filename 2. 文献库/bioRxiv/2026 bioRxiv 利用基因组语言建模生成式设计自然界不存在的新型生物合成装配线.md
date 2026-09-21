@@ -1,3 +1,5 @@
+![image.png](https://synbiopath.online/20260921115129599.png)
+
 # 一、基本信息
 
 **文章题目**：Generative Design of New-to-nature Biosynthetic Assembly Lines with Genomic Language Modeling
@@ -14,7 +16,9 @@
 
 # 二、研究背景
 
-I 型聚酮合酶 (type I polyketide synthase, PKS) 是典型的模块化生物合成装配线，其催化结构域按共线性顺序排列，通过酮基合成酶 (ketosynthase, KS)、酰基转移酶 (acyltransferase, AT)、酰基载体蛋白 (acyl carrier protein, ACP) 以及 β-碳加工结构域脱水酶 (dehydratase, DH)、烯酰还原酶 (enoylreductase, ER)、酮基还原酶 (ketoreductase, KR) 的协同作用，合成结构复杂的天然产物。天然 PKS 通过模块和结构域重组实现化学多样性，这一特性长期激励人们通过“即插即用”式结构域交换来设计非天然产物。然而，理性结构域或模块替换往往产量低、结果难以预测，原因是模块兼容性和域间通讯受复杂的蛋白质-蛋白质相互作用、底物通道和催化循环协调控制。既有进化引导的融合位点选择虽能改善嵌合装配线构建，但多步催化仍常因域间接触和底物传递不匹配而功能受损。作者因此提出核心假设：在大规模宏基因组序列上训练的基因组语言模型 (genomic language model, gLM) 可能已内化天然生物合成基因簇 (biosynthetic gene cluster, BGC) 中兼容结构域与模块配对的“隐式语法”，从而能够生成功能更优的嵌合装配线。本文以 gLM2 为基础，结合离散扩散 (discrete diffusion) 和结构域水平条件控制，尝试对嵌合 I 型 PKS 进行生成式重设计，以提升非天然分子 δ-戊内酰胺 (δ-valerolactam, VL) 的产量。
+I 型聚酮合酶 (type I polyketide synthase, PKS) 是典型的模块化生物合成装配线，其催化结构域按共线性顺序排列，通过酮基合成酶 (ketosynthase, KS)、酰基转移酶 (acyltransferase, AT)、酰基载体蛋白 (acyl carrier protein, ACP) 以及 β-碳加工结构域脱水酶 (dehydratase, DH)、烯酰还原酶 (enoylreductase, ER)、酮基还原酶 (ketoreductase, KR) 的协同作用，合成结构复杂的天然产物。天然 PKS 通过模块和结构域重组实现化学多样性，这一特性长期激励人们通过“即插即用”式结构域交换来设计非天然产物。然而，理性结构域或模块替换往往产量低、结果难以预测，原因是模块兼容性和域间通讯受复杂的蛋白质-蛋白质相互作用、底物通道和催化循环协调控制。既有进化引导的融合位点选择虽能改善嵌合装配线构建，但多步催化仍常因域间接触和底物传递不匹配而功能受损。
+
+作者因此提出核心假设：在大规模宏基因组序列上训练的基因组语言模型 (genomic language model, gLM) 可能已内化天然生物合成基因簇 (biosynthetic gene cluster, BGC) 中兼容结构域与模块配对的“隐式语法”，从而能够生成功能更优的嵌合装配线。本文以 gLM2 为基础，结合离散扩散 (discrete diffusion) 和结构域水平条件控制，尝试对嵌合 I 型 PKS 进行生成式重设计，以提升非天然分子 δ-戊内酰胺 (δ-valerolactam, VL) 的产量。
 
 # 三、研究思路
 
