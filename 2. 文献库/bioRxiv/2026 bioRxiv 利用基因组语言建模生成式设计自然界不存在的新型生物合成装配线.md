@@ -1,15 +1,15 @@
 # 一、基本信息
 
-**文章题目**：Generative Design of New-to-nature Biosynthetic Assembly Lines with Genomic Language Modeling（利用基因组语言建模生成式设计自然界不存在的新型生物合成装配线）
+**文章题目**：Generative Design of New-to-nature Biosynthetic Assembly Lines with Genomic Language Modeling
 
 **文章 DOI 号**：https://doi.org/10.64898/2026.09.11.750945
 
-**期刊名称**：bioRxiv 预印本（未经同行评审）
+**期刊名称**：bioRxiv 预印本
 
 **通讯作者及工作单位**：
 
 - **Andre Cornman**：Tatta Bio（Tatta Bio, Cambridge, MA, USA）
-- **Jay D. Keasling**：联合生物能源研究所 (Joint BioEnergy Institute, JBEI)；加州大学伯克利分校生物工程系 (Department of Bioengineering, University of California, Berkeley)；劳伦斯伯克利国家实验室生物系统与工程部 (Biological Systems and Engineering Division, Lawrence Berkeley National Laboratory)；加州大学伯克利分校定量生物科学研究所 (California Institute for Quantitative Biosciences, QB3)
+- **Jay D. Keasling**：联合生物能源研究所；加州大学伯克利分校生物工程系；劳伦斯伯克利国家实验室生物系统与工程部；加州大学伯克利分校定量生物科学研究所
 - **Yunha Hwang**：Tatta Bio（Tatta Bio, Cambridge, MA, USA）
 
 # 二、研究背景
