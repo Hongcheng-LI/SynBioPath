@@ -1,0 +1,96 @@
+{
+  "pass": false,
+  "major_issues": [],
+  "minor_issues": [
+    {
+      "issue": "Table 2 裁剪图底部 3b 行 (2.42, 3.45, 0%, 2.77, 4.01, 98%) 被切至底边缘，底边框缺失",
+      "source_locator": "PDF 第 8 页 Table 2",
+      "correction": "建议裁剪范围扩大至 bbox [0.05, 0.05, 0.5, 0.62] 以完整包含 3b 行及表格底边框"
+    },
+    {
+      "issue": "Figure 5 裁剪图最末一行图注被截，仅显示至 'heteroatom-connected sp² carbons (X-'，缺失 '(sp²)).'",
+      "source_locator": "PDF 第 6 页 Figure 5",
+      "correction": "建议裁剪范围扩大至 bbox [0.05, 0.04, 0.5, 0.40] 以完整包含图注"
+    },
+    {
+      "issue": "草稿标题翻译中将 'Revised' 直译为 '修订'，原文 1b 在标题中实际语境为 'alternatively proposed'，建议用 '备选' 替代",
+      "source_locator": "图注 Figure 1",
+      "correction": "建议改为 '原构型 (1a) 与备选构型 (1b)' 或保留 'originally proposed/ revised' 原文术语"
+    }
+  ],
+  "figure_coverage": {
+    "expected_labels": [
+      "Figure 1",
+      "Figure 2",
+      "Figure 3",
+      "Figure 4",
+      "Figure 5",
+      "Figure 6",
+      "Figure 7",
+      "Figure 8",
+      "Figure 9",
+      "Table 1",
+      "Table 2"
+    ],
+    "covered_labels": [
+      "Figure 1",
+      "Figure 2",
+      "Figure 3",
+      "Figure 4",
+      "Figure 5",
+      "Figure 6",
+      "Figure 7",
+      "Figure 8",
+      "Figure 9",
+      "Table 1",
+      "Table 2"
+    ],
+    "missing_panels": [],
+    "missing_pages": []
+  },
+  "verified_claims": [
+    {
+      "claim": "GFN2NMR 为 54 层 GCN，18 个残差块，每块 3 层 GCN，使用 NNConv 消息传递与两路头自注意力",
+      "source_locator": "PDF 第 4 页 Details of the Model",
+      "evidence": "Our optimized model comprises 54 GCN layers, which are organized into 18 stacked residual blocks with shortcut connections. Each residual block consists of 3 stacked GCN units with a shortcut connection...two-head self-attention weights"
+    },
+    {
+      "claim": "Exp9K 含 9000+ 化合物、110,000+ 标记碳；训练集 7455、测试集 1792；外部验证集 Set A 含 92 个分子",
+      "source_locator": "PDF 第 2-4 页",
+      "evidence": "over 9000 compounds with over 110,000 carbons...Exp9K; training set (7455 molecules) and test set (1792 molecules)...92 molecules"
+    },
+    {
+      "claim": "Diast-set 含 978,000 个标记碳，由 STS 协议 (MAE < 0.9 ppm) 计算",
+      "source_locator": "PDF 第 3 页",
+      "evidence": "STS protocol, which has a mean absolute error (MAE) of less than 0.9 ppm...another set of 978,000 labeled carbons (Diast-set)"
+    },
+    {
+      "claim": "Table 1 Set C 正确率: GFN2NMR-full 72%, GFN2NMR-Exp9K 64%, CASCADE 52% (n.c.=2)",
+      "source_locator": "PDF 第 7 页 Table 1",
+      "evidence": "GFN2NMR-full 72%, scaled MAE = 1.31; GFN2NMR-Exp9K 64%, scaled MAE = 1.48; CASCADE 52%, n.c. = 2"
+    },
+    {
+      "claim": "Set B GFN2NMR-full 全部 13 对修订结构正确指派；DFT 正确 11 对 (mPW1PW91/6-311G*//B3LYP/6-31G* + M06-2X/def2-TZVP)",
+      "source_locator": "PDF 第 7 页 Table 1",
+      "evidence": "GFN2NMR-full Correct = 13, Wrong = 0...mPW1PW91/6-311G*//B3LYP/6-31G* (M06-2X/def2-TZVP single-point energy) Correct = 11, Wrong = 2"
+    },
+    {
+      "claim": "MTX 指派: 1a MAE=1.62, RMS=2.17, DP4=100%; 1b-1 MAE=1.85, RMS=2.44, DP4=0%; 1b-2 MAE=1.77, RMS=2.38, DP4=0%",
+      "source_locator": "PDF 第 8 页 Table 2",
+      "evidence": "1a MAE 1.62, RMS 2.17, DP4 100%; 1b-1 MAE 1.85, RMS 2.44, DP4 0%; 1b-2 MAE 1.77, RMS 2.38, DP4 0%"
+    },
+    {
+      "claim": "GFN2NMR-full 单构象计算耗时约 3.97 s；对 MW > 200 Da 比 DFT 快 3-4 个数量级",
+      "source_locator": "PDF 第 7-8 页",
+      "evidence": "approximately 3.97 s per conformer; calculation speed of GFN2NMR is 3 to 4 orders of magnitude faster than DFT"
+    },
+    {
+      "claim": "Figure 6 Set A 指标: GFN2NMR-full R²=0.9983/MAE=1.75/RMS=2.30/Max=11.90; CASCADE R²=0.9967/MAE=2.32/RMS=3.16/Max=15.87; Ensemble NMR Prediction R²=0.9966/MAE=2.28/RMS=3.21/Max=17.70",
+      "source_locator": "PDF 第 6 页 Figure 6",
+      "evidence": "图内标注与正文 'both GFN2NMR-Exp9K and GFN2NMR-full outperformed the other two tools' 一致"
+    }
+  ],
+  "identity_matches": true,
+  "classification_supported": true,
+  "crop_complete": false
+}

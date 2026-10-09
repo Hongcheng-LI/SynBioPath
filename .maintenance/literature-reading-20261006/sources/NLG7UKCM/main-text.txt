@@ -1,0 +1,890 @@
+
+[PDF physical page 1]
+Chemotype- and Target-Driven Genome Mining for a New Natural
+Product Inhibitor of Bacterial Peptide Deformylase
+Jonas H. Costa-Martini, Eva E. Adams, and Chad W. Johnston*
+Cite This: J. Am. Chem. Soc. 2025, 147, 21400−21407
+Read Online
+ACCESS
+Metrics & More
+Article Recommendations
+*
+sı
+Supporting Information
+ABSTRACT: Antibiotics are essential for modern medicine, but
+their use drives the evolution of antimicrobial resistance (AMR)
+that limits the long-term efficacy of any one drug. To keep pace
+with AMR and preserve our ability to treat bacterial infections, it is
+essential that we identify antibiotics with new structures and targets
+that are not affected by clinical resistance. Historically, most
+developmental candidates for antibiotics have come from microbial
+natural products, as they feature chemical structures and biological
+activities that have been honed over millions of years of evolution.
+Unfortunately, as classical bioactivity screens for natural product
+discovery are blind to the pharmacological properties of their hits, they often identify molecules with functional groups that limit
+their utility as drugs. One prominent example is actinonin, an inhibitor of bacterial peptide deformylase (PDF) whose activity is
+dependent on a hydroxamate moiety associated with toxicity in vivo. The abundance of bacterial genomes now presents an
+opportunity for target-based natural product discovery, where biosynthetic pathways can be mined for molecules that possess desired
+activities but lack known pharmacophores. Here, we use bioinformatics to lead a chemotype-sensitive, target-based search for natural
+product inhibitors of bacterial PDF that lack the conserved metal chelating group. We describe the discovery, heterologous
+expression, biosynthesis, total synthesis, and activity of the gammanonins: actinonin homologues from Gammaproteobacteria.
+Moving forward, we hope this chemotype- and target-driven approach will help to expedite the discovery of new leads for antibiotic
+development.
+■INTRODUCTION
+Antibiotics are keystone drugs that provide us an ability to
+fight or prevent bacterial infections, thus enabling invasive
+surgeries, immunosuppressive therapies, and other hallmarks of
+modern medicine. Unfortunately, the use of antibiotics also
+drives the development and dissemination of antimicrobial
+resistance (AMR) that limits their viability.1 As many
+antibiotics reuse chemical scaffolds or affect conserved targets
+and binding sites, emergent resistance mechanisms can imperil
+multiple generations of drugs. Multidrug resistant Gram-
+negative bacteria now pose a particularly daunting threat, as
+their outer membrane provides an intrinsic barrier that further
+limits treatment options.2 The challenge of AMR highlights the
+need for continued antibiotic discovery, with an emphasis on
+targets and chemotypes not already impacted by clinical
+resistance.3
+Historically, microbial natural products have been our most
+important source of antibiotics,4 as these molecules feature
+privileged structures and activities that have evolved over
+millions of years.5 Although bioactivity screening of microbial
+extracts has produced many of the antibiotic scaffolds still used
+today, such efforts have suffered from diminishing returns due
+to oversampling, and can uncover toxic hits with limited
+potential for development. A classic example is chloramphe-
+nicol, an inhibitor of bacterial ribosomes discovered during a
+bioactivity screen in 1947. Though effective at fighting
+infections in humans, the para-nitrobenzene and dihaloalkane
+moieties of chloramphenicol produce toxic metabolic by-
+products following oral or intravenous administration, leading
+to aplastic anemia that limits the use of this drug.6,7 Recent
+examples include actinonin8 and matlystatin,9 hydroxamate
+inhibitors of bacterial peptide deformylase (PDF; Figure 1a):
+an essential enzyme that removes formate from the N-formyl-
+methionine that initiates bacterial protein translation. Surpris-
+ingly, resistance to actinonin is not achieved by mutations in
+PDF, but through inactivation of methionyl-tRNA formyl-
+transferase, yielding bacteria with significantly reduced fitness
+and virulence.10 Despite the promise of PDF as an antibiotic
+target, the hydroxamate present on natural inhibitors is
+metabolically unstable and mutagenic in vivo.6,11 Actinonin
+derivatives that have undergone clinical trials thus feature more
+Received:
+December 13, 2024
+Revised:
+May 28, 2025
+Accepted:
+May 29, 2025
+Published: June 10, 2025
+Article
+pubs.acs.org/JACS
+© 2025 American Chemical Society
+21400
+https://doi.org/10.1021/jacs.4c17876
+J. Am. Chem. Soc. 2025, 147, 21400−21407
+Downloaded via OCEAN UNIV OF CHINA on July 25, 2025 at 11:46:39 (UTC).
+See https://pubs.acs.org/sharingguidelines for options on how to legitimately share published articles.
+
+
+
+[PDF physical page 2]
+stable reverse hydroxamates,12 though such molecules still had
+unfavorable safety profiles relative to linezolid.
+In the past decade, natural product discovery has undergone
+a renaissance driven by microbial genome sequencing.13 Bio-
+and chemo-informatic methods can now use antibiotic
+biosynthetic gene clusters (BGCs) to guide the discovery of
+new molecules from diverse bacteria.14,15 As antibiotic BGCs
+often contain self-protection genes that act as resistant copies
+of the associated target, molecules with specific activities can
+be mined directly from genomes.16−18 This technique provides
+a chance to revisit unrealized targets and find new leads with
+alternative pharmacophores.
+Here, we apply this target-centric mining approach to scan
+BGCs for hydroxamate-free inhibitors of bacterial peptide
+deformylase (PDF). This search revealed a novel BGC from
+Gammaproteobacteria, encoding molecules that resemble
+actinonin but lack the known hydroxamate. We report the
+identification, isolation, heterologous expression, total syn-
+thesis, biosynthesis, and activity of these new natural products,
+the gammanonins.
+■RESULTS
+Profiling Candidate BGCs for PDF Inhibitors. To find
+BGCs that likely encode antibiotic inhibitors of bacterial PDF,
+we used the ClusterScout19 tool to search over 135,000
+sequenced and annotated bacterial genomes from the
+Integrated Microbial Genomes (IMG) database.20 Using
+nonribosomal peptide synthetase (NRPS) domains as hooks,
+we searched for BGCs with a colocalized PDF (<10 kb away).
+This initial search returned 158 candidates, which could be
+further refined to 73 leads by eliminating isolated domains,
+BGCs for siderophores, and pathways positioned next to the
+lone genomic PDF. We used CORASON21 to group leads into
+21 distinct families of NRPS BGCs bearing a colocalized PDF
+that could serve as a putative self-protection gene18 (Figure
+1b). Among this series, 18 BGCs were found in prolific Gram
+positive Actinomycetes,22 while a single candidate could be
+found in Gram negative Cyanobacteria, Alphaproteobacteria,
+and Gammaproteobacteria. Two BGCs (Figure S1, BGC12,
+16) resembled matlystatin,9 while another (BGC10) likely
+encodes the related hydroxamate-free inhibitor Sch-382583.23
+Three BGCs (Figure S1, BGC1, 13, 21) matched or were
+closely related to the pathway for lydiamycin,24 which
+resembles Sch-382583, was recently described as a PDF
+inhibitor,25 and includes a resistant PDF gene in its BGC.25 A
+full series of representative BGCs recovered from this search is
+available as a Supporting Data set, accompanied by an
+annotated CORASON alignment (Figure S1).
+Figure 1. Resistance-guided discovery of novel genetic pathways for antibiotic inhibitors of peptide deformylase. (a) Actinonin and matlystatin are
+established antibiotic inhibitors of bacterial peptide deformylase (PDF). Both feature a hydroxamate that chelates a metal ion in the PDF active site.
+(b) ClusterScout was used to find biosynthetic gene clusters (BGCs) with nonribosomal peptide (NRPS) genes colocalized with an additional
+genomic copy of PDF, which may provide protection against nascent PDF inhibitory natural products. A BGC alignment was generated using
+CORASON. These BGCs have varying similarity to the pathways for actinonin and matlystatin. (c) A candidate BGC from Gammaproteobacteria
+was selected for further analysis. Plasmids were designed to enable heterologous expression in E. coli strain BAP1. (d) Molecular networking
+between a fractionated V. tubiashii extract and an extract from our heterologous expression strain identified a small series of peptides with apparent
+similarity to the annotated leucine-valine dipeptide. (e) Extracted ion chromatograms (EICs) of the two dominant ions identified in our molecular
+networking analysis, along with a base peak chromatogram (BPC) of the associated E. coli culture extract.
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.4c17876
+J. Am. Chem. Soc. 2025, 147, 21400−21407
+21401
+
+
+
+[PDF physical page 3]
+The most compelling lead in our analysis was the BGC from
+Gammaproteobacteria, including species of Vibrio and Photo-
+rhabdus. This minimal pathway features one polyketide
+synthase (PKS) module, three NRPS modules, a priming
+phosphopantetheinyl transferase (PPTase), a pathway-specific
+methyltransferase (MT), and critically, a PDF gene embedded
+in the biosynthetic operon (Figure 1c, Table S1). The
+predicted chemical product of this BGC is a polyketide-
+extended tripeptidecomparable to actinonin, but without a
+hydroxamate or other metal chelating group. Use of the
+pathway-specific MT in NCBI BLAST searches revealed more
+identical pathways in Xenorhabdus and Brenneria. This BGC
+has also been linked to intragenus antibacterial activity in
+Vibrio,26 suggesting it encodes an antibiotic. Given these
+features, we chose to investigate this BGC in the hopes of
+finding a new, hydroxamate-free inhibitor of bacterial PDF.
+Investigating a Candidate BGC from Gammaproteo-
+bacteria. We obtained Vibrio tubiashii DSM 19142 from the
+German Collection of Microorganisms and Cell Cultures
+(DSMZ) and repeated the culture and extraction conditions
+previously reported to enrich for bioactivity from the Vibrio
+ordalii isolate 12B09.26 Unfortunately, the reported UV signal
+(300 nm) for this product was absent and a diagnostic mass
+was never reported. As genetic inactivation in V. tubiashii
+proved intractable, we chose to heterologously express this
+pathway in the E. coli BL21(DE3) derivative BAP127 to find
+BGC-associated products. The BGC was cloned into two pET
+Duet plasmids, with inducible T7 promoters supporting the
+expression of each assembly line gene as well as the
+cotranscribed PDF and MT (Figure 1c). BAP1 E. coli with
+this refactored pathway were grown in M9 minimal media,
+induced, and incubated overnight at 37, 30, or 16 °C. Cultures
+were centrifuged and the resulting cell pellets and supernatants
+were extracted and analyzed by high-resolution liquid
+chromatography-coupled mass spectrometry (HR-LCMS).
+To identify metabolites associated with BGC expression, we
+used Global Natural Product Social Molecular Networking
+(GNPS)28 to compare our extracts of V. tubiashii and our
+engineered E. coli. A series of peptide metabolites related to the
+GNPS annotated leucine-valine dipeptide was shared between
+V. tubiashii and BAP1 when induced at 16 °C (Figure 1d,e).
+These three molecules are variably modified tripeptides,
+present in very low concentrations in supernatants and cell
+pellets. As an alternative, we made expression plasmids from
+the matching BGC in Photorhabdus asymbiotica DSM 15149,
+resulting in identical products in similarly low concentrations
+(Figure S2). As heterologous expression of the V. tubiashii
+BGC provided better yields than the native organism and
+employed a chemically defined culture media, we pursued E.
+coli as a producer for all future work.
+To assess which metabolite represented the final product of
+our BGC, we added stable isotopically labeled methionine and
+acetate, which should reveal the involvement of the MT and
+the terminating PKS module (Figure S3). While the methyl
+group was seen in all metabolites, the PKS-associated acetate
+was only found in 374.3 [M + H] (1), suggesting the other
+molecules result from failed transmission between assembly
+line enzymes. Adenylation domain substrate predictions29,30
+suggested a composition of one L-leucine and two L-valine
+residues (Table S2), corroborated by MS/MS of the 344.3 [M
++ H] tripeptide (2). To confirm this, we used solid phase
+peptide synthesis (SPPS) to create tripeptide variants with
+leucine, valine, isoleucine, and N-methyl-valine at different
+positions. The synthetic tripeptide of N-methyl-L-valine-L-
+valine-L-leucine was identical to the natural tripeptide (2;
+Figure S4). A series of minor ions (358.3 [M + H]) were also
+seen, corresponding to valine-to-leucine/isoleucine substitu-
+tions by MS/MS. To resolve the structure of the complete
+natural product 1, we grew, extracted, and processed 100 L of
+our engineered E. coli producer strain. Combined cell pellet
+and supernatant extracts were separated using size exclusion
+chromatography and semipreparative LCMS to afford 7.8 mg
+of 2 and 1.8 mg of 1 (Figure 2a), sufficient for structure
+elucidation by NMR. As expected, 2 matches our synthetic
+tripeptide, while 1 features a polyketide extended leucine diol
+reminiscent of the residue statine31,32 (statinol).
+Synthesis of 1. To assign the secondary alcohol in 1 we
+established a total synthesis, generating the N-methylated
+dipeptide by SPPS and coupling it to an appropriate isomer of
+statinol. Synthesis of statinol followed an established route to
+statine31,32 yielding R/S diastereomers of the Fmoc-L-statine
+ethyl ester as key intermediates. NMR analysis of Mosher
+esters33 was used to establish S as the dominant product (ee:
+0.85), consistent with prior reports of statine synthesis.31
+Following the isolation of each diastereomer, a second
+reduction and deprotection yielded pure statinols. Coupling
+the major isomer (L-S-statinol) with our dipeptide yielded a
+product with an identical retention time and MS/MS
+fragmentation pattern to 1 (Figures 2a and S5).
+Resolving the Biosynthesis of 1. This BGC had several
+unusual features that we wished to resolve. Most notably, α-N-
+methylation is apparently achieved in trans, in contrast to
+nearly34 all bacterial nonribosomal peptides which feature cis-
+acting N-methyltransferase domains embedded in the NRPS.35
+To investigate MT substrate preference, we made N-acetyl-
+cysteamine (SNAC36) versions of each intermediate, expressed
+and purified the MT, and performed methylation reactions in
+vitro. LCMS indicated that the MT cannot methylate
+individual amino acyl SNACs and preferentially acts on the
+enzyme-bound polyketide-extended tripeptide (Figure 2b).
+When the MT was removed from our expression plasmids, we
+did not observe 1, 2, or unmethylated 2, but rather only
+unmethylated 1 (Figure S6). The lack of signal for
+unmethylated 2 suggests this tripeptide may be degraded by
+the cell or that MT overexpression contributes to premature
+release of 2 from the assembly line. Next, we sought to
+Figure 2. Structures of BGC products and biosynthesis by an unusual
+trans-acting N-methyltransferase. (a) The absolute structures of 1 and
+2 were established by NMR and total synthesis. (b) The substrate
+preference of the N-methyltransferase was assessed using N-acetyl-
+cysteamine (SNAC) analogs of biosynthetic intermediates. BPCs of
+enzymatic reactions are depicted (black) alongside EICs of unreacted
+(magenta) and methylated (cyan) SNAC peptides. This enzyme
+preferentially N-methylates polyketide-extended tripeptide SNACs.
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.4c17876
+J. Am. Chem. Soc. 2025, 147, 21400−21407
+21402
+
+
+
+[PDF physical page 4]
+investigate the roles of the tandem acyl carrier protein (ACP)
+domains37 in the PKS. We suspected one ACP may be used by
+cis-acting PKS domains, while the second may be used for in-
+trans methylation. Replacing the key serine residues in each
+ACP with alanine merely reduced yields of 1 and did not result
+in novel intermediates (Figure S7), suggesting these domains
+are essentially redundant.37
+Assessing the Activity of 1. Finally, we sought to test the
+activity of 1 and the role of the BGC-associated PDF enzyme.
+First, we removed the PDF from our plasmids and analyzed
+culture extracts to confirm this gene is not involved in
+biosynthesis. Removal did not result in the production of new
+intermediates and had only a minor impact on yields of 1
+(Figure S7). Surprisingly, the removal of the assumed self-
+protection gene did not impact the growth of induced E. coli
+(Figure S8). To test whether E. coli is intrinsically resistant to
+1, we overexpressed and purified the E. coli PDF enzyme
+(Figure S9). For testing, we used an in vitro end point assay to
+measure the capacity of PDF to liberate a primary amine from
+an N-formylated tripeptide substrate, detected by the
+fluorogenic reporter molecule fluorescamine.38 We did not
+observe inhibition of E. coli PDF by 1, in contrast to an
+actinonin positive control (Figure S10). Given prior reports of
+this BGC showing anti-Vibrio activity26 and the apparent self-
+protection gene in the operon, we tested if 1 could inhibit
+Vibrio PDF enzymes. We expressed and purified the BGC-
+associated PDF along with house-keeping PDFs from V.
+tubiashii and V. crassostreae a species with known sensitivity
+to this BGC product26 (Figure S9). As with E. coli, we did not
+see inhibition of PDF activity by 1 (Figure S10).
+To assess whether a missing metal binding group may
+explain the lack of bioactivity, we synthesized N-carboxymeth-
+yl-L-valine-L-valine-L-(S)-statinol (3) and repeated our anti-
+bacterial and enzyme inhibition assays. This modified product
+did not show appreciable PDF inhibition (Figure S11) or
+antibacterial activity (Table S3). While 3 could theoretically be
+biosynthesized by using carboxy-S-adenosyl-methionine (Cx-
+SAM39 as a cosubstrate in lieu of SAM, it was not observed in
+extracted cultures from Vibrio or our E. coli expression system.
+Overexpressing genes for Cx-SAM biosynthesis during BGC
+induction also failed to yield the expected product.
+Collectively, these studies suggested a bioactive product of
+this BGC was absent in our native and heterologous producers.
+Metabolomic Analysis of Bioactive Samples. To find
+the molecule responsible for the antibacterial activity reported
+from this BGC, we obtained the original producer strain (V.
+ordalii 12B09) and a corresponding BGC knockout.26 Spot-on-
+lawn assays using V. crassostreae as an indicator revealed a clear
+zone of inhibition associated with wildtype 12B09 that was
+absent with either the knockout or V. tubiashii (Figure 3a).
+Extraction, HR-LCMS processing, and GNPS analysis of
+12B09 cultures revealed a series of abundant molecules that
+were related to 1 but were not seen in prior analyses (Figure
+3b,c). Oddly, cultures of P. asymbiotica also contained these
+metabolites, which were not seen when these exact genes were
+expressed in E. coli (Figures S2 and S12). Based on their
+masses and fragmentation patterns, these molecules varied
+from 1 in having a terminal aldehyde instead of the observed
+alcohol (4−5). The complete suite of observed masses could
+then be explained by spontaneous dehydration of a reactive β-
+hydroxy-aldehyde (6), and conversion from an aldehyde to
+alcohol by cellular aldehyde reductase (7) (Figure S13).
+Discovery and Description of Gammanonin. To find
+the product responsible for antibacterial activity we iteratively
+fractionated extracted cultures of V. ordalii 12B09 and
+performed bioactivity assays against V. crassostreae (Figure
+S14). Antibacterial activity was exclusively tied to a single peak
+seen in HR-LCMS analysis (372.3 [M + H], 4; Figure 3c).
+During isolation, this molecule slowly converted to a 354.3 [M
++ H] ion and a second 372.3 [M + H] ion that eluted earlier,
+immediately after 1. Structure elucidation by 2D NMR
+revealed the active molecule to be a cyclic hemiaminal,
+explaining its inherent reactivity and distinct in-source
+fragmentation during LCMS. Given its similarity to actinonin
+and origins in Gammaproteobacteria, we named this new
+molecule gammanonin (4, Figure 4).
+The cyclic hemiaminal of gammanonin is reminiscent of the
+tetrahydroisoquinoline alkaloids,40 where this feature acts as a
+covalent, electrophilic warhead. To assess whether hemiaminal
+formation is spontaneous, we synthesized the linear aldehyde
+5. SPPS was initiated with Weinreb AM resin loaded with
+Fmoc-L-(S)-statine, which was extended to the tripeptide and
+released as an aldehyde by cleaving from the resin with lithium
+aluminum hydride.41 HR-LCMS revealed the formation of the
+aldehyde, corresponding to the earlier eluting 372.3 [M + H]
+ion (5), along with the presumed α,β-unsaturated aldehyde (6,
+354.3 [M + H]) and a dimer caused by an intermolecular aldol
+side reaction. The hemiaminal 4 was a minor component,
+Figure 3. Metabolomic analysis of antibacterial extracts. (a) Spot-on-
+lawn assays show that V. ordalii 12B09 (BGC+) inhibits V.
+crassostreae, while a BGC-knockout and V. tubiashii do not. (b)
+Molecular networking of extracts from four bacteria carrying the BGC
+reveal a series of new metabolites related to 1, seen in V. ordalii 12B09
+and P. asymbiotica. (c) EICs of the new ions identified in a
+fractionated extract from V. ordalii 12B09, including the isolated
+active molecule, 4.
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.4c17876
+J. Am. Chem. Soc. 2025, 147, 21400−21407
+21403
+
+
+
+[PDF physical page 5]
+suggesting its biosynthesis may be achievedat least in part
+spontaneously (Figure S15).
+Biological Activity of Gammanonin. Having isolated 4
+by bioactivity-guided fractionation, we next wished to assess
+whether it inhibited bacterial PDF. Using the same assay we
+employed previously, we found gammanonin was capable of
+inhibiting PDFs from E. coli, V. crassostreae, and the house-
+keeping copy from V. tubiashii (Figure 5a−c). Dose response
+comparisons show 4 is less potent than actinonin, and that
+inhibition could be improved by preincubating PDF with 4
+prior to substrate addition (Figure S16) consistent with a
+covalent mechanism of action. As expected, the BGC
+associated PDF (GamD) displayed a degree of resistance to
+4 (Figure 5d). A phylogenetic tree of Gammaproteobacteria
+PDF sequences show that GamD genes from diverse bacteria
+form a distinct clade (Figure S17), in line with the expectation
+that this protein is evolved to protect against gammanonin.
+Such PDF comparisons also showed conserved residues that
+were altered in GamD, including amino acids found near the
+actinonin binding site42 (Figure S18a). In particular, a
+conserved cysteine found in all non-GamD PDF sequences
+from Gammaproteobacteria attracted our attention as a
+potential site for gammanonin reactivity. However, mutating
+this cysteine to the valine found in GamD was insufficient to
+grant gammanonin resistance (Figure S18b,c).
+To finish our investigation of gammanonin we used
+multiwell serial dilutions to determine minimum inhibitory
+concentrations (MICs) against a panel of diverse bacteria.
+Unsurprisingly, our indicator strain V. crassostreae was sensitive
+to gammanonin, its growth being partially inhibited by 4 μg
+mL−1 and completely inhibited by 8 μg mL−1. However,
+excluding marginal activity toward the closely related V.
+anguillarum (16 μg mL−1) all other bacteria were surprisingly
+unaffected, including a tolC-deficient E. coli (Table S3). As
+Vibrio and E. coli PDFs are established to be gammanonin-
+sensitive, target-independent resistance likely complicates
+whole cell antibacterial activity. To assess which bacteria may
+be potentially sensitive to gammanonin, we scanned bacterial
+genomes for instances where GamD had been acquired as an
+apparent resistance gene. Lone GamD homologues could be
+found in isolates of Klebsiella, Yersinia, Acinetobacter, and other
+Gammaproteobacteria (Figure S19). Revisiting our inhibition
+assay using a copy of this enzyme from insensitive Streptococcus
+agalactiae, we found that 4 was effectively inactive, suggesting it
+may be specific for PDF from Gram negative bacteria (Figure
+S20).
+■DISCUSSION
+Microbial natural products feature chemical structures and
+biological activities that have been honed through natural
+selection to provide a fitness advantage to their producer.
+Unsurprisingly, these evolved molecules have served as vital
+leads for pharmaceuticals.4 In this work, we present a
+chemotype-sensitive approach to natural product genome
+mining, with the goal of identifying antibacterial inhibitors of
+peptide deformylase that lack the hydroxamate11 group found
+in prior developmental leads like actinonin.8,9 Using this
+approach, we successfully identified a series of BGCs for
+suitable antibiotics (Figure 1b), including a reported BGC for
+lydiamycin24,25 and a likely pathway for the known PDF
+inhibitor Sch-382583.23 The gammanonin BGC stands out
+among these hits, as it is found in several Gram negative
+Gammaproteobacteria and features a simple, highly conserved
+operon structure that includes a cotranscribed PDF gene
+(Figure 4). The presence of the gam pathway in Vibrio species
+is unusual, as this genus has only previously been known to
+produce nonribosomal peptide siderophores43−45 and the
+similarly widely distributed antibiotic andrimid.46 While the
+gam BGC had been linked to antagonistic “superkiller” Vibrio
+isolates,26 this antibacterial phenotype appears to require high
+basal levels of expression, as is apparent in V. ordalii 12B09
+(Figure 3a).
+Figure 4. Structure and biosynthesis of gammanonin. The gam BGC
+encodes an NRPS-PKS assembly line with a unique reductase (RE)
+domain, along with the trans-acting N-methyltransferase GamE, self-
+protection PDF GamD, and GamF PPTase. GamE acts primarily on
+the polyketide-extended tripeptide. Given the abundance of 4 in
+extracts and the dissimilarity of the RE domain, hemiaminal formation
+may be assisted by the enzyme during release from the PKS.
+Figure 5. Inhibition of PDF enzymes by gammanonin. Purified PDF
+enzymes were used in a fluorescamine assay, measuring release of a
+free amine from a formylated peptide substrate. 100 μM gammanonin
+(GAM) was assayed against 100 μM actinonin, alongside negative
+(DTT) and positive (DMSO) controls. Statistically significant
+inhibition was seen against PDFs from (a) E. coli, (b) V. crassostreae,
+and (c) V. tubiashii. The BGC-associated PDF enzyme GamD (d)
+demonstrated a degree of resistance to the effects of gammanonin
+treatment. Error bars represent mean with standard deviation. Data
+points represent biological replicates from a representative experi-
+ment. Statistical significance determined by two-tailed Student’s t test.
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.4c17876
+J. Am. Chem. Soc. 2025, 147, 21400−21407
+21404
+
+
+
+[PDF physical page 6]
+Despite its small size, the gam BGC contains several unusual
+features. The trans-acting N-methyltransferase GamE is, to our
+knowledge, the first instance of on-assembly line α-N-
+methylation being performed in trans, as this is typically
+achieved by cis-acting domains35 or following release from the
+NRPS.34 We are similarly unaware of other examples of α-N-
+methylation occurring on an elongated enzyme-bound peptide.
+While we suspect that N-methylation is likely important for
+recognition by PDF, this modification may also serve to limit
+formation of inactive imine macrocycles following release from
+PKS. On that point, the reductase (Re) domain of the GamC
+PKS is similarly odd, bearing limited sequence similarity to the
+many well-characterized Re domains that are abundant in
+NRPS and PKS BGCs.47 Given the levels of 4 in culture
+extracts relative to those from aldehyde synthesis, it is tempting
+to speculate that the Re domain actively directs formation of
+the hemiaminal, which later decays to equilibrium with the free
+aldehyde. Proper stoichiometry of gam biosynthetic genes is
+evidently essential for the formation of bioactive products, as
+shown by the accumulation of 2 when overexpressing GamE,
+or the contrasting metabolomic profiles from native and
+heterologous expression of the P. asymbiotica pathway.
+Similarly, we expect these differences in expression may
+explain why the effectively silent gam BGC in V. tubiashii fails
+to produce 4 under laboratory conditions, despite the
+reductase sharing >93% pairwise identity with the 12B09
+homologue.
+Peptide deformylase is an unrealized clinical target for
+antibiotics.2 This small metalloenzyme plays an essential role
+in bacterial protein translation by removing formate from the
+initiating N-formyl-methionine found on nascent polypeptides.
+Prior developmental leads for PDF inhibitory antibiotics have
+been derived from actinonin, which uses an N-terminal
+hydroxamate to access and chelate the active site metal.48
+Resistance to actinonin is surprisingly achieved by inactivating
+mutations in methionyl-tRNA formyl-transferase, yielding slow
+growing mutants with poor fitness in vivo.10 While actinonin
+derivatives underwent phase II clinical trials for acute bacterial
+skin and skin structure infection and displayed efficacy
+comparable to linezolid, they had a less favorable safety
+profile.12 These optimized actinonin derivatives already
+featured the less effective but more metabolically stable
+reverse-hydroxamate. Further substitution with less potent
+metal binding groups results in less ineffective inhibitors.49
+Such molecules are also often capable of inhibiting human
+metalloenzymes,50 including the mitochondrial copy of PDF,51
+presenting an additional challenge for their development.
+Gammanonin (4) appears to offer a new means of inhibiting
+PDF. Despite its resemblance to actinonin, 4 lacks a functional
+group capable of engaging the active site metal. Bioactivity-
+guided fractionation identified 4 as the sole active component
+of V. ordalii 12B09 culture extracts, indicating the conspicuous
+hemiaminal is essential for antibacterial activity. This func-
+tional group typically acts as a covalent, electrophilic
+warhead.40 As such, we expect gammanonin to inhibit PDF
+by labeling a nucleophilic residue and occluding the substrate
+binding pocket.52 This apparently distinct mechanism suggests
+that hybrid antibiotics with metal-binding and hemiaminal
+warheads could offer a new pathway to improve target
+specificity and PDF inhibition. Still, while the hemiaminal
+warhead of 4 was necessary for antibacterial activity, it remains
+unclear how this moiety engages its target, and whether 4 is the
+sole gammanonin congener capable of inhibiting PDF. Given
+the inconsistent correlation we observed between PDF
+inhibition and antibacterial activity, it seems likely that
+gammanonin resistance can be provided by a PDF-
+independent mechanism. We speculate this may be achieved
+by nonspecific aldehyde reduction by house-keeping metabolic
+enzymes, yielding inactive alcohol congeners such as 1 and 7.
+This could also explain the abundance of inactive 1 during
+heterologous expression in E. coli. Based on MICs, enzyme
+assays, and resistance gene mining, it appears that gammanonin
+predominantly affects Gram negative bacteria, suggesting a
+degree of specificity not observed with actinonin.48 A more
+comprehensive evaluation of gammanonin’s activity spectra
+and mechanism is underway in the hopes of providing a new
+developmental lead for antibiotic inhibitors of PDF.
+■ASSOCIATED CONTENT
+*
+sı Supporting Information
+The Supporting Information is available free of charge at
+https://pubs.acs.org/doi/10.1021/jacs.4c17876.
+Methods, materials, supplementary figures, supplemen-
+tary tables , and NMR spectra (PDF)
+An additional supplementary data set including BGC
+sequences for Figure 1b is also available (ZIP)
+■AUTHOR INFORMATION
+Corresponding Author
+Chad W. Johnston −Department of Biochemistry &
+Molecular Pharmacology and Department of Molecular
+Virology & Microbiology, Baylor College of Medicine,
+Houston, Texas 77030, United States;
+orcid.org/0000-
+0002-1988-709X; Email: chad.johnston@bcm.edu
+Authors
+Jonas H. Costa-Martini −Department of Biochemistry &
+Molecular Pharmacology, Baylor College of Medicine,
+Houston, Texas 77030, United States
+Eva E. Adams −Department of Biochemistry & Molecular
+Pharmacology, Baylor College of Medicine, Houston, Texas
+77030, United States
+Complete contact information is available at:
+https://pubs.acs.org/10.1021/jacs.4c17876
+Author Contributions
+All authors contributed to writing and editing and have given
+approval to the final version of the manuscript.
+Funding
+This work was supported by seed funds from the Baylor
+College of Medicine, by an R21 grant from the National
+Institute
+of
+General
+Medical
+Sciences
+(NIGMS;
+1R21GM154190), by the Translational Research Institute for
+Space Health through NASA (NNX16AO69A), and by a
+recruitment grant from the Cancer Prevention and Research
+Institute of Texas (CPRIT; RR210066). C.W.J. is a CPRIT
+Scholar in Cancer Research.
+Notes
+The authors declare no competing financial interest.
+■ACKNOWLEDGMENTS
+The authors would like to acknowledge members of the
+laboratory of Prof. Yongcheng Song for guidance in synthetic
+chemistry efforts, Prof. Anna Malovannaya and the BCM Mass
+Spectrometry Proteomics Core for their assistance with protein
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.4c17876
+J. Am. Chem. Soc. 2025, 147, 21400−21407
+21405
+
+
+
+[PDF physical page 7]
+analysis, and Prof. Kevin MacKenzie for assistance with NMR
+data collection and analysis. The authors also wish to
+acknowledge Prof. John Schwarz of Texas A&M University
+at Galveston for contributing Vibrio isolates. EcM2.1.dtolC was
+a gift from George Church (Addgene # 64053). Streptococcus
+agalactiae and Bacillus cereus isolates were a kind gift from Prof.
+Katy Patras at the Baylor College of Medicine. The authors
+also wish to thank Prof. Hans Wildschutte for providing the V.
+ordalii 12B09 strain, and Prof. Otto Cordero and Prof. Glen
+D’Souza for helpful discussions and for providing the V. ordalii
+12B09 knockout strain. Finally, the authors wish to thank all
+members of the Johnston laboratory for their advice and
+guidance throughout this work.
+■REFERENCES
+(1) Cook, M. A.; Wright, G. D. The Past, Present, and Future of
+Antibiotics. Sci. Transl. Med. 2022, 14 (657), No. eabo7793.
+(2) Theuretzbacher, U.; Blasco, B.; Duffey, M.; Piddock, L. J. V.
+Unrealized Targets in the Discovery of Antibiotics for Gram-Negative
+Bacterial Infections. Nat. Rev. Drug Discovery 2023, 22 (12), 957−975.
+(3) Miethke, M.; Pieroni, M.; Weber, T.; Brönstrup, M.; Hammann,
+P.; Halby, L.; Arimondo, P. B.; Glaser, P.; Aigle, B.; Bode, H. B.;
+Moreira, R.; Li, Y.; Luzhetskyy, A.; Medema, M. H.; Pernodet, J.-L.;
+Stadler, M.; Tormo, J. R.; Genilloud, O.; Truman, A. W.; Weissman,
+K. J.; Takano, E.; Sabatini, S.; Stegmann, E.; Brötz-Oesterhelt, H.;
+Wohlleben, W.; Seemann, M.; Empting, M.; Hirsch, A. K. H.; Loretz,
+B.; Lehr, C.-M.; Titz, A.; Herrmann, J.; Jaeger, T.; Alt, S.;
+Hesterkamp, T.; Winterhalter, M.; Schiefer, A.; Pfarr, K.; Hoerauf,
+A.; Graz, H.; Graz, M.; Lindvall, M.; Ramurthy, S.; Karlén, A.; Van
+Dongen, M.; Petkovic, H.; Keller, A.; Peyrane, F.; Donadio, S.;
+Fraisse, L.; Piddock, L. J. V.; Gilbert, I. H.; Moser, H. E.; Müller, R.
+Towards the Sustainable Discovery and Development of New
+Antibiotics. Nat. Rev. Chem. 2021, 5 (10), 726−749.
+(4) Wright, G. D. Opportunities for Natural Products in 21st
+Century Antibiotic Discovery. Nat. Prod. Rep. 2017, 34 (7), 694−701.
+(5) Lewis, K.; Lee, R. E.; Brötz-Oesterhelt, H.; Hiller, S.; Rodnina,
+M. V.; Schneider, T.; Weingarth, M.; Wohlgemuth, I. Sophisticated
+Natural Products as Antibiotics. Nature 2024, 632 (8023), 39−49.
+(6) Blagg, J. Structural Alerts for Toxicity. Burger’s Medicinal
+Chemistry And Drug Discovery; Wiley, 2003; pp 301−334.
+(7) Stepan, A. F.; Walker, D. P.; Bauman, J.; Price, D. A.; Baillie, T.
+A.; Kalgutkar, A. S.; Aleo, M. D. Structural Alert/Reactive Metabolite
+Concept as Applied in Medicinal Chemistry to Mitigate the Risk of
+Idiosyncratic Drug Toxicity: A Perspective Based on the Critical
+Examination of Trends in the Top 200 Drugs Marketed in the United
+States. Chem. Res. Toxicol. 2011, 24 (9), 1345−1410.
+(8) Wolf, F.; Leipoldt, F.; Kulik, A.; Wibberg, D.; Kalinowski, J.;
+Kaysser, L. Characterization of the Actinonin Biosynthetic Gene
+Cluster. ChemBiochem 2018, 19 (11), 1189−1195.
+(9) Leipoldt, F.; Santos-Aberturas, J.; Stegmann, D. P.; Wolf, F.;
+Kulik, A.; Lacret, R.; Popadić, D.; Keinhörster, D.; Kirchner, N.;
+Bekiesch, P.; Gross, H.; Truman, A. W.; Kaysser, L. Warhead
+Biosynthesis and the Origin of Structural Diversity in Hydroxamate
+Metalloproteinase Inhibitors. Nat. Commun. 2017, 8 (1), 1965.
+(10) Margolis, P. S.; Hackbarth, C. J.; Young, D. C.; Wang, W.;
+Chen, D.; Yuan, Z.; White, R.; Trias, J. Peptide Deformylase in
+Staphylococcus Aureus: Resistance to Inhibition Is Mediated by
+Mutations in the Formyltransferase Gene. Antimicrob. Agents Chemo-
+ther. 2000, 44 (7), 1825−1831.
+(11) Smith, G. F. Designing Drugs to Avoid Toxicity. In Progress in
+Medicinal Chemistry; Elsevier, 2011, Vol. 50, pp. 1−47.
+(12) Corey, R.; Naderer, O. J.; O’Riordan, W. D.; Dumont, E.;
+Jones, L. S.; Kurtinecz, M.; Zhu, J. Z. Safety, Tolerability, and Efficacy
+of GSK1322322 in the Treatment of Acute Bacterial Skin and Skin
+Structure Infections. Antimicrob. Agents Chemother. 2014, 58 (11),
+6518−6527.
+(13) Scherlach, K.; Hertweck, C. Mining and Unearthing Hidden
+Biosynthetic Potential. Nat. Commun. 2021, 12 (1), 3864.
+(14) Johnston, C. W.; Skinnider, M. A.; Wyatt, M. A.; Li, X.; Ranieri,
+M. R. M.; Yang, L.; Zechel, D. L.; Ma, B.; Magarvey, N. A. An
+Automated Genomes-to-Natural Products Platform (GNP) for the
+Discovery of Modular Natural Products. Nat. Commun. 2015, 6 (1),
+8421.
+(15) Skinnider, M. A.; Johnston, C. W.; Edgar, R. E.; Dejong, C. A.;
+Merwin, N. J.; Rees, P. N.; Magarvey, N. A. Genomic Charting of
+Ribosomally Synthesized Natural Product Chemical Space Facilitates
+Targeted Mining. Proc. Natl. Acad. Sci. U. S. A. 2016, 113 (42),
+No. E6343−E6351.
+(16) Culp, E. J.; Sychantha, D.; Hobson, C.; Pawlowski, A. C.;
+Prehna, G.; Wright, G. D. ClpP Inhibitors Are Produced by a
+Widespread Family of Bacterial Gene Clusters. Nat. Microbiol. 2022, 7
+(3), 451−462.
+(17) Culp, E. J.; Waglechner, N.; Wang, W.; Fiebig-Comyn, A. A.;
+Hsu, Y.-P.; Koteva, K.; Sychantha, D.; Coombes, B. K.; Van
+Nieuwenhze, M. S.; Brun, Y. V.; Wright, G. D. Evolution-Guided
+Discovery of Antibiotics That Inhibit Peptidoglycan Remodelling.
+Nature 2020, 578 (7796), 582−587.
+(18) Mungan, M. D.; Alanjary, M.; Blin, K.; Weber, T.; Medema, M.
+H.; Ziemert, N. ARTS 2.0: Feature Updates and Expansion of the
+Antibiotic Resistant Target Seeker for Comparative Genome Mining.
+Nucleic Acids Res. 2020, 48 (W1), W546−W552.
+(19) Hadjithomas, M.; Chen, I.-M. A.; Chu, K.; Huang, J.; Ratner,
+A.; Palaniappan, K.; Andersen, E.; Markowitz, V.; Kyrpides, N. C.;
+Ivanova, N. N. IMG-ABC: New Features for Bacterial Secondary
+Metabolism Analysis and Targeted Biosynthetic Gene Cluster
+Discovery in Thousands of Microbial Genomes. Nucleic Acids Res.
+2017, 45 (D1), D560−D565.
+(20) Palaniappan, K.; Chen, I.-M. A.; Chu, K.; Ratner, A.; Seshadri,
+R.; Kyrpides, N. C.; Ivanova, N. N.; Mouncey, N. J. IMG-ABC v.5.0:
+An Update to the IMG/Atlas of Biosynthetic Gene Clusters
+Knowledgebase. Nucleic Acids Res. 2020, 48 (D1), D422−D430.
+(21) Navarro-Muñoz, J. C.; Selem-Mojica, N.; Mullowney, M. W.;
+Kautsar, S. A.; Tryon, J. H.; Parkinson, E. I.; De Los Santos, E. L. C.;
+Yeong, M.; Cruz-Morales, P.; Abubucker, S.; Roeters, A.; Lokhorst,
+W.; Fernandez-Guerra, A.; Cappelini, L. T. D.; Goering, A. W.;
+Thomson, R. J.; Metcalf, W. W.; Kelleher, N. L.; Barona-Gomez, F.;
+Medema, M. H. A Computational Framework to Explore Large-Scale
+Biosynthetic Diversity. Nat. Chem. Biol. 2020, 16 (1), 60−68.
+(22) Gavriilidou, A.; Kautsar, S. A.; Zaburannyi, N.; Krug, D.;
+Müller, R.; Medema, M. H.; Ziemert, N. Compendium of Specialized
+Metabolite Biosynthetic Diversity Encoded in Bacterial Genomes.
+Nat. Microbiol. 2022, 7 (5), 726−735.
+(23) Chu, M.; Mierzwa, R.; He, L.; Xu, L.; Gentile, F.; Terracciano,
+J.; Patel, M.; Miesel, L.; Bohanon, S.; Kravec, C.; Cramer, C.;
+Fischman, T. O.; Hruza, A.; Ramanathan, L.; Shipkova, P.; Chan, T.-
+M. Isolation and Structure Elucidation of Two Novel Deformylase
+Inhibitors Produced by Streptomyces Sp. Tetrahedron Lett. 2001, 42
+(21), 3549−3551.
+(24) Libis, V.; MacIntyre, L. W.; Mehmood, R.; Guerrero, L.;
+Ternei, M. A.; Antonovsky, N.; Burian, J.; Wang, Z.; Brady, S. F.
+Multiplexed Mobilization and Expression of Biosynthetic Gene
+Clusters. Nat. Commun. 2022, 13 (1), 5256.
+(25) Ford, J. J.; Santos-Aberturas, J.; Hems, E. S.; Sallmen, J. W.;
+Bögeholz, L. A. K.; Polturak, G.; Osbourn, A.; Wright, J. A.; Rodnina,
+M. V.; Vereecke, D.; Francis, I. M.; Truman, A. W. Discovery of
+lydiamycin A biosynthetic gene cluster in the plant pathogen
+Rhodococcus fascians guides structural revision and identification of
+molecular target. bioRxiv 2024.
+(26) Cordero, O. X.; Wildschutte, H.; Kirkup, B.; Proehl, S.; Ngo,
+L.; Hussain, F.; Le Roux, F.; Mincer, T.; Polz, M. F. Ecological
+Populations of Bacteria Act as Socially Cohesive Units of Antibiotic
+Production and Resistance. Science 2012, 337 (6099), 1228−1231.
+(27) Pfeifer, B. A.; Admiraal, S. J.; Gramajo, H.; Cane, D. E.; Khosla,
+C. Biosynthesis of Complex Polyketides in a Metabolically Engineered
+Strain of E. Coli. Science 2001, 291 (5509), 1790−1792.
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.4c17876
+J. Am. Chem. Soc. 2025, 147, 21400−21407
+21406
+
+
+
+[PDF physical page 8]
+(28) Aron, A. T.; Gentry, E. C.; McPhail, K. L.; Nothias, L.-F.;
+Nothias-Esposito, M.; Bouslimani, A.; Petras, D.; Gauglitz, J. M.;
+Sikora, N.; Vargas, F.; Van Der Hooft, J. J. J.; Ernst, M.; Kang, K. B.;
+Aceves, C. M.; Caraballo-Rodríguez, A. M.; Koester, I.; Weldon, K.
+C.; Bertrand, S.; Roullier, C.; Sun, K.; Tehan, R. M.; Boya, C. A.; A,
+M. H.; Gutiérrez, M. H.; Ulloa, M.; Tejeda Mora, J. A.; Mojica-Flores,
+R.; Lakey-Beitia, J.; Vásquez-Chaves, V.; Zhang, Y.; Calderón, A. I.;
+Tayler, N.; Keyzers, R. A.; Tugizimana, F.; Ndlovu, N.; Aksenov, A.
+A.; Jarmusch, A. K.; Schmid, R.; Truman, A. W.; Bandeira, N.; Wang,
+M.; Dorrestein, P. C. Reproducible Molecular Networking of
+Untargeted Mass Spectrometry Data Using GNPS. Nat. Protoc.
+2020, 15 (6), 1954−1991.
+(29) Blin, K.; Shaw, S.; Kloosterman, A. M.; Charlop-Powers, Z.; van
+Wezel, G. P.; Medema, M. H.; Weber, T. anti SMASH 6.0: Improving
+Cluster Detection and Comparison Capabilities. Nucleic Acids Res.
+2021, 49 (W1), W29−W35.
+(30) Skinnider, M. A.; Johnston, C. W.; Gunabalasingam, M.;
+Merwin, N. J.; Kieliszek, A. M.; MacLellan, R. J.; Li, H.; Ranieri, M. R.
+M.; Webster, A. L. H.; Cao, M. P. T.; Pfeifle, A.; Spencer, N.; To, Q.
+H.; Wallace, D. P.; Dejong, C. A.; Magarvey, N. A. Comprehensive
+Prediction of Secondary Metabolite Structure and Biological Activity
+from Microbial Genome Sequences. Nat. Commun. 2020, 11 (1),
+6058.
+(31) Rittle, K. E.; Homnick, C. F.; Ponticello, G. S.; Evans, B. E. A
+Synthesis of Statine Utilizing an Oxidative Route to Chiral.Alpha.-
+Amino Aldehydes. J. Org. Chem. 1982, 47 (15), 3016−3018.
+(32) Yang, S.; Zhang, W.; Ding, N.; Lo, J.; Liu, Y.; Clare-Salzler, M.
+J.; Luesch, H.; Li, Y. Total Synthesis of Grassystatin A, a Probe for
+Cathepsin E Function. Bioorg. Med. Chem. 2012, 20 (15), 4774−4780.
+(33) Du, Y. E.; Cui, J.; Cho, E.; Hwang, S.; Jang, Y.-J.; Oh, K.-B.;
+Nam, S.-J.; Oh, D.-C. Serratiomycins D1−D3, Antibacterial Cyclic
+Peptides from a Serratia Sp. and Structure Revision of Serratiomycin.
+J. Nat. Prod. 2024, 87 (5), 1330−1337.
+(34) Shi, R.; Lamb, S. S.; Zakeri, B.; Proteau, A.; Cui, Q.; Sulea, T.;
+Matte, A.; Wright, G. D.; Cygler, M. Structure and Function of the
+Glycopeptide N-Methyltransferase MtfA, a Tool for the Biosynthesis
+of Modified Glycopeptide Antibiotics. Chem. Biol. 2009, 16 (4), 401−
+410.
+(35) Süssmuth, R. D.; Mainz, A. Nonribosomal Peptide Synthesis
+Principles and Prospects. Angew. Chem. Int. Ed. 2017, 56 (14), 3770−
+3821.
+(36) Ehmann, D. E.; Trauger, J. W.; Stachelhaus, T.; Walsh, C. T.
+Aminoacyl-SNACs as Small-Molecule Substrates for the Condensa-
+tion Domains of Nonribosomal Peptide Synthetases. Chem. Biol.
+2000, 7 (10), 765−772.
+(37) Rahman, A. S.; Hothersall, J.; Crosby, J.; Simpson, T. J.;
+Thomas, C. M. Tandemly Duplicated Acyl Carrier Proteins, Which
+Increase Polyketide Antibiotic Production, Can Apparently Function
+Either in Parallel or in Series. J. Biol. Chem. 2005, 280 (8), 6399−
+6408.
+(38) Yang, N.; Sun, C. The Inhibition and Resistance Mechanisms
+of Actinonin, Isolated from Marine Streptomyces Sp. NHF165,
+against Vibrio Anguillarum. Front. Microbiol. 2016, 7, 1467.
+(39) Kim, J.; Xiao, H.; Bonanno, J. B.; Kalyanaraman, C.; Brown, S.;
+Tang, X.; Al-Obaidi, N. F.; Patskovsky, Y.; Babbitt, P. C.; Jacobson,
+M. P.; Lee, Y. S.; Almo, S. C. Structure-guided discovery of the
+metabolite carboxy-SAM that modulates tRNA function. Nature 2013,
+498 (7452), 123−126.
+(40) Wen, W.-H.; Zhang, Y.; Zhang, Y.-Y.; Yu, Q.; Jiang, C.-C.;
+Tang, M.-C.; Pu, J.-Y.; Wu, L.; Zhao, Y.-L.; Shi, T.; Zhou, J.; Tang, G.-
+L. Reductive inactivation of the hemiaminal pharmacophore for
+resistance against tetrahydroisoquinoline antibiotics. Nat. Commun.
+2021, 12 (1), 7085.
+(41) Wilson, T. A.; Tokarski, R. J.; Sullivan, P.; Demoret, R. M.;
+Orjala, J.; Rakotondraibe, L. H.; Fuchs, J. R. Total Synthesis of
+Scytonemide A Employing Weinreb AM Solid-Phase Resin. J. Nat.
+Prod. 2018, 81 (3), 534−542.
+(42) Guilloteau, J. P.; Mathieu, M.; Giglione, C.; Blanc, V.; Dupuy,
+A.; Chevrier, M.; Gil, P.; Famechon, A.; Meinnel, T.; Mikol, V. The
+crystal structures of four peptide deformylases bound to the antibiotic
+actinonin reveal two distinct types: a platform for the structure-based
+design of antibacterial agents. J. Mol. Biol. 2002, 320 (5), 951−962.
+(43) Keating, T. A.; Marshall, C. G.; Walsh, C. T. Vibriobactin
+Biosynthesis in Vibrio Cholerae: VibH Is an Amide Synthase
+Homologous to Nonribosomal Peptide Synthetase Condensation
+Domains. Biochemistry 2000, 39 (50), 15513−15521.
+(44) Di Lorenzo, M.; Poppelaars, S.; Stork, M.; Nagasawa, M.;
+Tolmasky, M. E.; Crosa, J. H. A Nonribosomal Peptide Synthetase
+with a Novel Domain Organization Is Essential for Siderophore
+Biosynthesis in Vibrio Anguillarum. J. Bacteriol. 2004, 186 (21), 7327−
+7336.
+(45) Zane, H. K.; Naka, H.; Rosconi, F.; Sandy, M.; Haygood, M.
+G.; Butler, A. Biosynthesis of Amphi-Enterobactin Siderophores by
+Vibrio Harveyi BAA-1116: Identification of a Bifunctional Non-
+ribosomal Peptide Synthetase Condensation Domain. J. Am. Chem.
+Soc. 2014, 136 (15), 5615−5618.
+(46) Wietz, M.; Mansson, M.; Gotfredsen, C. H.; Larsen, T. O.;
+Gram, L. Antibacterial Compounds from Marine Vibrionaceae
+Isolated on a Global Expedition. Mar. Drugs 2010, 8 (12), 2946−
+2960.
+(47) Little, R. F.; Hertweck, C. Chain release mechanisms in
+polyketide and non-ribosomal peptide biosynthesis. Nat. Prod. Rep.
+2022, 39 (1), 163−205.
+(48) Chen, D. Z.; Patel, D. V.; Hackbarth, C. J.; Wang, W.; Dreyer,
+G.; Young, D. C.; Margolis, P. S.; Wu, C.; Ni, Z. J.; Trias, J.; White, R.
+J.; Yuan, Z. Actinonin, a naturally occurring antibacterial agent, is a
+potent deformylase inhibitor. Biochemistry 2000, 39 (6), 1256−1262.
+(49) Madison, V.; Duca, J.; Bennett, F.; Bohanon, S.; Cooper, A.;
+Chu, M.; Desai, J.; Girijavallabhan, V.; Hare, R.; Hruza, A.; Hendrata,
+S.; Huang, Y.; Kravec, C.; Malcolm, B.; McCormick, J.; Miesel, L.;
+Ramanathan, L.; Reichert, P.; Saksena, A.; Wang, J.; Weber, P. C.;
+Zhu, H.; Fischmann, T. Binding affinities and geometries of various
+metal ligands in peptide deformylase inhibitors. Biophys. Chem. 2002,
+101−102, 239−247.
+(50) Antczak, C.; Radu, C.; Djaballah, H. A profiling platform for the
+identification of selective metalloprotease inhibitors. J. Biomol. Screen.
+2008, 13 (4), 285−294.
+(51) Lee, M. D.; She, Y.; Soskis, M. J.; Borella, C. P.; Gardner, J. R.;
+Hayes, P. A.; Dy, B. M.; Heaney, M. L.; Philips, M. R.; Bornmann, W.
+G.; Sirotnak, F. M.; Scheinberg, D. A. Human mitochondrial peptide
+deformylase, a new anticancer target of actinonin-based antibiotics. J.
+Clin. Invest. 2004, 114 (8), 1107−1116.
+(52) Lin, H.; Wang, M.; Zhang, Y. W.; Tong, S.; Leal, R. A.; Shetty,
+R.; Vaddi, K.; Luengo, J. I. Discovery of Potent and Selective Covalent
+Protein Arginine Methyltransferase 5 (PRMT5) Inhibitors. ACS Med.
+Chem. Lett. 2019, 10 (7), 1033−1038.
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.4c17876
+J. Am. Chem. Soc. 2025, 147, 21400−21407
+21407

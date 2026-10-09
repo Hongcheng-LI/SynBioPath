@@ -1,0 +1,2282 @@
+
+[PDF physical page 1]
+                                                   Article
+
+
+A generative deep learning approach to de novo
+antibiotic design
+
+Graphical abstract                                Authors
+
+                                                                       Aarti Krishnan, Melis N. Anahtar,
+                                                             Jacqueline A. Valeri, ..., Connor W. Coley,
+                                                                      Felix Wong, James J. Collins
+
+                                              Correspondence
+                                                             jimjc@mit.edu
+
+                                                           In brief
+
+                                             A generative AI platform is developed for
+                                                    de novo antibiotic design, yielding lead
+                                                  compounds with selective antibacterial
+                                                                            activity, distinct mechanisms of action,
+                                                    and in vivo efficacy against multidrug-
+                                                                     resistant N. gonorrhoeae and S. aureus.
+
+
+
+
+
+Highlights
+• Genetic algorithms and variational autoencoders enable
+   fragment-based and de novo design
+
+• Seven of 24 custom-synthesized compounds show
+   selective antibacterial activity
+
+• Two lead compounds display unique modes of action
+   against N. gonorrhoeae and S. aureus
+
+• Two lead compounds show efficacy against multidrug-
+   resistant strains and in mouse models
+
+
+
+
+
+           Krishnan et al., 2025, Cell 188, 1–18
+          October 16, 2025 © 2025 Elsevier Inc. All rights are reserved, including those
+             for text and data mining, AI training, and similar technologies.
+             https://doi.org/10.1016/j.cell.2025.07.033                                                                ll
+
+
+[PDF physical page 2]
+  Please cite this article in press as: Krishnan et al., A generative deep learning approach to de novo antibiotic design, Cell (2025), https://doi.
+  org/10.1016/j.cell.2025.07.033
+
+                                                                                                                       ll
+
+
+Article
+A generative deep learning approach
+to de novo antibiotic design
+
+Aarti Krishnan, 1,2,3,4,25 Melis N. Anahtar, 1,2,4,5,25 Jacqueline A. Valeri, 1,2,4,25 Wengong Jin,6,7 Nina M. Donghia, 4
+Leif Sieben, 1,2,4,8 Andreas Luttens, 1,2 Yu Zhang,1,2,4 Seyed Majed Modaresi, 1,2,4 Andrew Hennes, 1,4 Jenna Fromer, 9
+Parijat Bandyopadhyay, 1,2 Jonathan C. Chen,1,2 Danyal Rehman, 10 Ronak Desai, 1,11,12 Paige Edwards, 1,2 Ryan S. Lach, 13
+Marie-Ste´phanie Aschtgen, 14 Margaux Gaborieau, 14 Massimiliano Gaetani, 15,16 Samantha G. Palace, 17 Satotaka Omori,13
+Lutete Khonde, 18 Yurii S. Moroz,19,20,21 Bruce Blough, 22 Chunyang Jin, 22 Edmund Loh, 14,23 Yonatan H. Grad,17
+Amir Ata Saei, 14 Connor W. Coley, 9,24 Felix Wong, 1,2,13 and James J. Collins 1,2,4,26, *
+1Infectious Disease and Microbiome Program, Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA
+2Institute for Medical Engineering & Science and Department of Biological Engineering, Massachusetts Institute of Technology, Cambridge,
+MA 02139, USA
+3Whitehead Institute for Biomedical Research, Cambridge, MA 02142, USA
+4Wyss Institute for Biologically Inspired Engineering, Harvard University, Boston, MA 02115, USA
+5Departments of Pathology and Medicine, Massachusetts General Hospital, Boston, MA 02114, USA
+6Eric and Wendy Schmidt Center, Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA
+7Khoury College of Computer Sciences, Northeastern University, Boston, MA 02115, USA
+8Department of Chemistry and Applied Biosciences, ETH Zu¨ rich, 8093 Zu¨ rich, Switzerland
+9Department of Chemical Engineering, Massachusetts Institute of Technology, Cambridge, MA 02139, USA
+10Mila-Quebec AI Institute, Montre´al, QC H2S 3H1, Canada
+11Department of Chemistry, Massachusetts Institute of Technology, Cambridge, MA 02139, USA
+12Harvard Medical School, Boston, MA 02115, USA
+13Integrated Biosciences, Inc., Redwood City, CA 94065, USA
+14Department of Microbiology, Tumor and Cell Biology, Karolinska Institute, 171 77 Stockholm, Sweden
+15Division of Chemistry I, Department of Medical Biochemistry and Biophysics, Karolinska Institute, 17 177 Stockholm, Sweden
+16Chemical Proteomics Unit, Science for Life Laboratory (SciLifeLab), 171 77Stockholm, Sweden
+17Department of Immunology and Infectious Diseases, Harvard T. H. Chan School of Public Health, Boston, MA 02115, USA
+18Center for the Development of Therapeutics, Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA
+19Enamine Ltd., 67 Winston Churchill Street, Kyiv 02094, Ukraine
+20Chemspace LLC, 85 Winston Churchill Street, Kyiv 02094, Ukraine
+21Department of Chemistry, Taras Shevchenko National University of Kyiv, 60 Volodymyrska Street, Kyiv 01601, Ukraine
+22Center for Drug Discovery, RTI International, Research Triangle Park, Durham, NC 27713, USA
+23Clinical Microbiology, Karolinska University Hospital, 171 76 Stockholm, Sweden
+24Department of Electrical Engineering and Computer Science, Massachusetts Institute of Technology, Cambridge, MA 02139, USA
+25These authors contributed equally
+26Lead contact
+*Correspondence: jimjc@mit.edu
+https://doi.org/10.1016/j.cell.2025.07.033
+
+
+
+
+SUMMARY
+
+The antimicrobial resistance crisis necessitates structurally distinct antibiotics. While deep learning ap-
+proaches can identify antibacterial compounds from existing libraries, structural novelty remains limited.
+Here, we developed a generative artificial intelligence framework for designing de novo antibiotics through
+two approaches: a fragment-based method to comprehensively screen >10 7 chemical fragments in silico
+against Neisseria gonorrhoeae or Staphylococcus aureus, subsequently expanding promising fragments,
+and an unconstrained de novo compound generation, each using genetic algorithms and variational autoen-
+coders. Of 24 synthesized compounds, seven demonstrated selective antibacterial activity. Two lead com-
+pounds exhibited bactericidal efficacy against multidrug-resistant isolates with distinct mechanisms of
+action and reduced bacterial burden in vivo in mouse models of N. gonorrhoeae vaginal infection and meth-
+icillin-resistant S. aureus skin infection. We further validated structural analogs for both compound classes as
+antibacterial. Our approach enables the generative deep-learning-guided design of de novo antibiotics,
+providing a platform for mapping uncharted regions of chemical space.
+
+
+
+
+
+                                                                                  Cell 188, 1–18, October 16, 2025 © 2025 Elsevier Inc.    1
+                                       All rights are reserved, including those for text and data mining, AI training, and similar technologies.
+
+
+[PDF physical page 3]
+  Please cite this article in press as: Krishnan et al., A generative deep learning approach to de novo antibiotic design, Cell (2025), https://doi.
+  org/10.1016/j.cell.2025.07.033
+
+          ll
+                                                                   Article
+
+
+INTRODUCTION                                               diverse mechanisms of action, and could reduce the down-
+                                                          stream attrition rates commonly associated with target-centric
+Antibiotic-resistant bacterial infections underlie an urgent public   methods.37  Despite  their  potential,  phenotypic-guided ap-
+health crisis and are associated with approximately five million   proaches to both fragment-based and de novo molecule gener-
+annual deaths globally. 1 Bacterial pathogens such as Neisseria   ation remain underexplored, representing a significant opportu-
+gonorrhoeae and Staphylococcus aureus are categorized as ‘‘ur-    nity to develop novel chemical entities informed by biological
+gent’’ and ‘‘serious’’ threats, respectively, by the U.S. Centers for   outcomes rather than predefined structural constraints.
+Disease Control and Prevention (CDC) due to the widespread     Here, we present a deep learning-based approach to the
+incidence of resistance to existing antibiotics and dearth of   generative design of antibiotic compounds using fragments as
+new, effective antibiotic treatments. 2 Between 1980 and 2003,   starting points or generating these compounds de novo. In our
+only five antibacterial agents were developed by the top 15 phar-   fragment-based approach, we used GNNs to comprehensively
+maceutical companies. 3 There is a dire and growing need for   screen >45 million chemical fragments in silico and identified
+structurally novel compounds, especially those with unique   fragments predicted to have  selective  antibacterial  activity
+mechanisms  of  action,  to  overcome  antibiotic-resistant   against N. gonorrhoeae and S. aureus. To expand the fragments
+infections.                                                             into molecules, we provided them as inputs to two types of
+  Given the extensive time and resources needed for antibiotic   generative algorithms—a genetic algorithm based on chemically
+discovery, computational approaches to facilitate the identifica-   reasonable mutations (CReM) and a variational autoencoder
+tion of new candidates have emerged. Recently, deep learning   (VAE). In our de novo approach, we removed the need for a frag-
+approaches have been used to screen millions of compounds   ment input and allowed the CReM and VAE models to design
+in silico for activity against diverse pathogens. 4–10 A graph neural   molecules  based  on  knowledge  learned  during  training.
+network (GNN), for example, is a type of deep learning model   Together, these models generated >36 million previously une-
+that has successfully been used to predict antibacterial activity.   numerated compounds with predicted antibacterial activity. Af-
+GNNs represent chemical structures as mathematical graphs    ter down selection, we synthesized 24 compounds and empiri-
+and iteratively update graph node and edge values using ‘‘mes-    cally validated 7 compounds to be antibacterial. Two of these
+sage passing’’ operations. 11 Ultimately, for a given molecule, a   compounds, NG1 and DN1, displayed high potency and selec-
+GNN produces a single output value between 0 and 1, represent-    tivity, with mechanisms of action distinct from those of clinically
+ing the predicted probability that the molecule possesses a   used antibiotics and efficacy in mouse models of infection. Our
+specific  property  of  interest  (e.g.,  antibacterial  activity  or   approach provides a platform for the generative deep-learning-
+cytotoxicity).                                               guided design of antibiotic candidates, facilitating the discovery
+  Although  deep  learning  approaches  have  substantially   of antibacterial compounds and enabling the efficient explora-
+increased discovery rates 4–8 and facilitated the discovery of a   tion of vast, uncharted regions of chemical space.
+new structural class of antibiotics, 7 they have largely been
+applied to existing in silico small molecule libraries, limiting the  RESULTS
+structural diversity that can be explored. Drug-like chemical
+space has been theoretically estimated to contain ∼10 60 com-   Applying GNN models to large fragment spaces
+pounds, 12 but the largest in silico libraries currently contain  As chemical fragments underlie the biological activity of structural
+only ∼10 11 compounds. 13,14 Generative  artificial intelligence   classes of compounds and graph search algorithms can accu-
+(AI) approaches can expand beyond these known chemical    rately identify substructures associated with selective antibacte-
+spaces 15–22 and have recently been applied to both antimicrobial    rial molecules, 7,12 we reasoned that fragments offer starting
+peptide design 23–25 and to the design and optimization of small   points for designing structurally unique antibacterial molecules
+molecules. 26–31 A recent study explored a large chemical space   using generative models. We found that the antibacterial predic-
+using a Monte Carlo tree search coupled to a GNN and found   tion scores of commonly used antibiotics in three major classes
+compounds with antibacterial  activity against Acinetobacter   are indeed associated with the prediction scores of their corre-
+baumannii when used in the presence of an outer membrane   sponding fragments (STAR Methods; Figure S1A). Accordingly,
+permeabilizerwhen used in the presence of an outer membrane  we comprehensively screened large, enumerated chemical frag-
+permeabilizer. 32  Developing  and  experimentally  validating   ment spaces using Chemprop models11 based on GNNs that
+generative AI methods that can design structurally novel anti-   predict the antibacterial activity of a given fragment or molecule
+bacterial molecules, beyond those enumerated in commercial   against N. gonorrhoeae or S. aureus (Figure 1A). These models
+chemical spaces, would substantially augment the capability to   were previously trained and benchmarked on empirical, binarized
+search chemical space for antibiotic candidates.                growth inhibition data for 38,765 compounds screened against
+  In recent years, fragment-based drug discovery (FBDD) has   N. gonorrhoeae American Type  Culture  Collection (ATCC)
+emerged as a powerful tool for drug design, offering an efficient   49226 and 39,312 compounds screened against S. aureus
+framework to screen large fragment libraries against a specific   RN4220, a methicillin-susceptible strain, at a final concentration
+protein target. 33–36 By contrast, target-agnostic approaches pri-   of 50 μM7,8 (Table S1). To further assess our models’ predictive
+oritize phenotypic measurements from the start. By screening    capabilities, we performed additional analyses and observed
+against whole-cell activity rather than specific molecular targets,   that the prediction scores for N. gonorrhoeae and S. aureus (1)
+phenotypic approaches can integrate useful structural informa-    significantly differed between compounds that were experimen-
+tion across diverse chemotypes, can  yield molecules with    tally active and inactive (Figure S1B), (2) were influenced by
+
+
+
+2     Cell 188, 1–18, October 16, 2025
+
+
+[PDF physical page 4]
+  Please cite this article in press as: Krishnan et al., A generative deep learning approach to de novo antibiotic design, Cell (2025), https://doi.
+  org/10.1016/j.cell.2025.07.033
+
+                                                                                                                       ll
+Article
+
+
+
+
+
+Figure 1. GNNs predict chemical fragments and compounds with antibacterial activity against N. gonorrhoeae
+(A) Schematic of the fragment-based generation approach.
+(B) t-SNE representation of chemical space, showing that fragment libraries represent chemical space diverse from known antibiotics.
+(C) Rank-ordered fragment prediction scores from the N. gonorrhoeae antibacterial activity model.
+(D) Computational filters applied to sets of fragments, resulting in final sets of fragments for N. gonorrhoeae.
+(E) Rank-ordered plot of fragment (above) and compound (below) prediction scores for available compounds procured for empirical testing at 50 μM.
+(F) Chemical structures of fragment F1 and associated active compounds from (E). The fragment is highlighted in the compounds.
+(G) MIC and CC 50 values for the compounds in (F). n = 2, * indicates values >64 μg/mL, and # indicates values >32 μg/mL.
+See also Figure S1.
+
+
+
+certain functional groups (Figure S1C), and (3) demonstrated spe-   fragments containing up to 11 atoms of C, N, O, and F from the
+cies specificity (Figure S1D). These analyses indicated that our   Generated DataBase-11 (GDB-11) (26,434,571 fragments); (2) all
+models could reliably identify antibacterial compounds and frag-   additional possible fragments containing up to 11 atoms of C, N,
+ments as starting points for generative AI algorithms. To avoid se-   O, Cl, and S from GDB-13 (1,089,000 fragments); and (3) all frag-
+lecting human cytotoxic compounds, we counter-screened frag-   ments in the Enamine readily accessible (REAL) database, which
+ments  using human  cytotoxicity models  for  hepatocellular   have improved synthetic accessibility and can vary in the num-
+carcinoma (HepG2), human skeletal muscle cells (HSkMCs),   ber of atoms per fragment 38–42 (18,338,026 fragments). We
+and human lung fibroblasts (IMR-90) that we had previously   then examined the structural novelty spanned by these fragment
+trained and benchmarked (Table S1). 7                                 libraries by visualizing the chemical space they occupied relative
+  To comprehensively search fragment space, we assembled a   to our training library and our manually compiled set of 559
+database of >45 million chemical fragments with chemically  known antibacterial compounds (Data S1). We used a t-distrib-
+meaningful structures (‘‘possible fragments’’). The database   uted stochastic neighbor embedding (t-SNE) plot based on Tani-
+combines three large libraries: (1) all possible (chemically stable)  moto similarity using RDKit fingerprints as a distance metric, a
+
+
+
+                                                                                                        Cell 188, 1–18, October 16, 2025    3
+
+
+[PDF physical page 5]
+  Please cite this article in press as: Krishnan et al., A generative deep learning approach to de novo antibiotic design, Cell (2025), https://doi.
+  org/10.1016/j.cell.2025.07.033
+
+          ll
+                                                                   Article
+
+
+commonly used measure of chemical similarity (Figure 1B). This   brary comprising >6 million molecules (STAR Methods). There-
+two-dimensional projection of chemical space, in which structur-    fore, we reasoned that a generative approach to the design of
+ally  similar fragments or compounds  cluster, showed  that  compounds based on F1 could enable the exploration of much
+the fragment libraries substantially expand on the chemical di-   larger chemical spaces and produce compounds with higher po-
+versity beyond that of known antibiotics (Data S1). Thus, our cu-   tency and selectivity.
+ration  resulted  in a  consolidated, exhaustive database  of   We leveraged two generative machine learning algorithms: a
+45,858,026 unique fragments spanning a diverse subset of   genetic algorithm based on CReM and a fragment-based VAE
+chemical space.                                               (F-VAE) 17,20,46 (Figures 2A and 2C). CReM is a computational
+                                                        framework that starts with a compound of interest and generates
+Fragment-based generative design of antibacterial       new molecules by adding, replacing, or deleting atoms and func-
+compounds                                                           tional groups. When additions are made, they are sampled from
+We virtually screened our fragment library using Chemprop  up to 1,557,992 distinct structures containing only common
+models predicting antibacterial activity against N. gonorrhoeae   atoms (C, N, O, S, P, F, Cl, Br, I, and B) from ChEMBL.47 In our
+(Figure 1C) and shortlisted those with prediction scores > 0.05 in   pipeline, we coupled CReM to Chemprop models for antibacte-
+the GDB databases and, due to better synthetic accessibility, >    rial activity prediction (hereafter referred to as F-CReM), such
+0.1 in the Enamine REAL database (Figure S1E). This resulted in   that only high-scoring compounds containing F1 (prediction
+3,844,505 fragments (8.4%) predicted to be active against   score > 0.7) were successively provided as inputs for the next
+N. gonorrhoeae (Figure 1D). To prioritize structurally novel and   round of molecule generation. After five rounds of selection,
+selective fragments with no obvious chemical liabilities, we im-   where each round resulted in progressively higher-scoring com-
+plemented a series of filters on the fragments (Figures 1D and   pounds (Figure 2B), we generated 518,203 F1-containing com-
+S1E). First, we removed fragments that were predicted to be   pounds. To obtain an experimentally tractable list of promising
+cytotoxic (cytotoxicity prediction score > 0.5) by any of the three   molecules, we filtered these compounds based on their pre-
+human cell cytotoxicity models (HepG2, HSkMC, and IMR-90).   dicted antibiotic activity and cytotoxicity, Tanimoto similarity to
+Second, we removed fragments containing pan-assay interfer-  known antibiotics, and calculated synthetic complexity (based
+ence substructures (PAINS) or Brenk substructures, which   on either the synthetic accessibility score [SAscore], 48 retrosyn-
+are associated with unfavorable properties such as promiscu-   thetic accessibility score [RAscore], 49 or R-score from Spaya Ik-
+ous binding, toxicity, chemical reactivity, and metabolic insta-   tos 50) (STAR Methods). We further ensured that the compounds
+bility. 43,44 Third, we required that all remaining fragments be   of interest did not display PAINS or Brenk alerts. This resulted in
+structurally distinct from those in known antibiotics, which we   285 F-CReM-generated compounds with predicted  activity
+enforced by requiring the Tanimoto similarity to be <0.5 with   against N. gonorrhoeae (Figure 2D).
+respect to any compound in our curated set of 559 known anti-      In addition to F-CReM, which relies on computational sam-
+bacterial compounds (STAR Methods; Data S1; Figure S1E).   pling  of  chemical  modifications, we  employed  a  deep
+The number of unique fragments passing these  filters was   learning-based VAE  for generative design. Specifically, we
+1,156,945 (Figure 1D).                                     developed an F-VAE trained on all 1,686,695 compounds from
+  To validate that our screening approach successfully identifies  ChEMBL (v2019). 47 The F-VAE architecture (Figure 2C) consists
+fragments with antibacterial activity, we searched for full com-   of a graph convolutional network encoder module, in which mo-
+pounds that contained any of our filtered fragments and selected   lecular graphs are encoded as latent vectors, as well as a recur-
+those  predicted  to be  antibacterial (compound  prediction   rent graph decoder module, in which latent vectors are con-
+score  >  0.1)  and  non-cytotoxic  (cytotoxicity  prediction   verted back to molecular graphs. The decoding procedure
+score < 0.5), without PAINS or Brenk substructures, and struc-   starts from a fragment and expands it atom-by-atom until the
+turally distinct from known antibiotics (Tanimoto similarity < 0.5).   assembled structure converges into a compound. Compounds
+Applying these filters to 799,149 compounds from the Broad   are designed by the F-VAE by sampling the latent space gener-
+Institute, 6–8,45 we obtained 66 molecules representing 27 frag-   ated from an input fragment (e.g., by creating random latent
+ments  for  testing  against  N.  gonorrhoeae ATCC  49226   vectors and passing them to the decoder). By applying the
+(Figure 1E). We found that 7 of them inhibited the growth of   F-VAE, we generated 6,937,677 molecules containing fragment
+N. gonorrhoeae at 50 μM, resulting in a working true discovery   F1. We then used our Chemprop models to predict antibacterial
+rate of 10.6% (Figure 1E; Table S2; Data S2). Notably, a single    activity for all of these molecules. Filtering the molecules simi-
+fragment, F1, was represented in two active Broad (BRD) com-    larly to above (STAR Methods; Figure S1F), we obtained 678
+pounds, BRD1 and BRD2 (Figure 1F), and their minimum inhibi-   F-VAE-generated compounds with predicted activity against
+tory concentrations (MICs) ranged from 8 to 16 μg/mL. The com-   N. gonorrhoeae (Figure 2D).
+pounds also exhibited a range of selectivity values, with half-    To  better  understand  and  comparatively  assess  the
+maximal cytotoxic concentration (CC 50 ) of 32 to >128 μg/mL   chemical matter produced by the two generative models, we
+when tested against HEK293, HepG2, and HSkMC cells, respec-   evaluated their physicochemical properties and synthesizability
+tively (Figure 1G). The therapeutic indices (TIs; ratio of human cell   (Figure 2E). We found that F-CReM-generated compounds typi-
+CC 50 to MIC) were thus between 2 and 8 for the two compounds    cally possessed lower molecular weights, lower calculated
+associated with F1. To identify molecules associated with F1 ex-   partition coefficients (calculated log P; clogP), 51 and lower
+hibiting higher TIs, we searched for analogs containing F1 and   calculated  topological  polar  surface  area  (TPSA)  values,
+found a paucity of compounds in a purchasable compound li-  compared  to  F-VAE-generated compounds.  Both models
+
+
+
+4     Cell 188, 1–18, October 16, 2025
+
+
+[PDF physical page 6]
+  Please cite this article in press as: Krishnan et al., A generative deep learning approach to de novo antibiotic design, Cell (2025), https://doi.
+  org/10.1016/j.cell.2025.07.033
+
+                                                                                                                       ll
+Article
+
+
+
+
+
+Figure 2. Generative deep-learning-guided design of compounds containing fragment F1 with predicted antibacterial activity
+(A) Schematic of the genetic algorithm based on F-CReM and examples of filtered generated compounds, with fragment F1 highlighted.
+(B) Distributions of antibacterial activity prediction scores from five rounds of compound generation using F-CReM.
+(C) Schematic of the F-VAE algorithm and examples of filtered generated compounds, with fragment F1 highlighted.
+(D) Computational filters applied to fragment-based designed compounds, resulting in two final sets of compounds shortlisted for chemical synthesis.
+(E) Molecular weights, TPSA, calculated log P (clogP), hydrogen bond acceptors, hydrogen bond donors, and retrosynthetic accessibility score (RAscore) values
+for all filtered compounds generated by F-CReM and F-VAE, compared with the median of known Gram-negative antibiotics.
+(F) Structures of two designed and synthesized compounds, NG1 and NG2.
+(G) MICs against N. gonorrhoeae ATCC 49226 and CC 50 values of the compounds for three different human cell types. n = 2, * indicates values >128 μg/mL.
+(H) MICs of compound NG1 against various bacterial species. Results are representative of two biological replicates.
+See also Figure S2.
+
+
+
+generated synthesizable molecules, with comparable RAscores  TPSA values compared to known Gram-negative antibiotics
+as computed by a machine learning (ML)-based synthetic feasi-   (Figure 2E). Taken together, our analyses suggest that our gener-
+bility estimator. 49 In general, all compounds generated based on   ative approach can produce realistic and synthesizable com-
+F1 exhibited lower molecular weights, lower numbers of H-bond   pounds with promising Chemprop prediction scores. We there-
+acceptors  and  donors,  higher  clogP  values,  and  lower   fore aimed to synthesize and test several of these compounds.
+
+
+
+                                                                                                        Cell 188, 1–18, October 16, 2025    5
+
+
+[PDF physical page 7]
+  Please cite this article in press as: Krishnan et al., A generative deep learning approach to de novo antibiotic design, Cell (2025), https://doi.
+  org/10.1016/j.cell.2025.07.033
+
+          ll
+                                                                   Article
+
+
+Synthesis and experimental validation of fragment-         To investigate the mechanism of action further, we tested
+based designed compounds                               whether NG1 treatment alters membrane fluidity using a Laurdan
+Synthesizing deep learning-generated compounds can be chal-   dye assay, 6 where  cells with decreased membrane  fluidity
+lenging due to the possibility of formidable or undefined synthe-   exhibit  increases  in  Laurdan  fluorescence.  Treatment  of
+sis routes. Therefore, to obtain a diverse and reasonably sized   N. gonorrhoeae cells with NG1 resulted in a modest increase in
+set of compounds for synthesis, we prioritized compounds that   Laurdan fluorescence, suggesting that NG1 may act, in part,
+were structurally dissimilar from each other and had the highest   by decreasing membrane fluidity (Figure 3D). We hypothesized
+predicted antibacterial scores (>0.7) (Figure 2D; STAR Methods).   that this would compromise membrane integrity and tested
+This resulted in 80 compounds, which were evaluated by com-    this hypothesis by measuring the uptake of a hydrophobic fluo-
+mercial chemical synthesis providers. After attempting to syn-   rescent probe, 1-N-phenylnaphthylamine (NPN), which fails to
+thesize 27 compounds (9 from CReM and 18 from F-VAE), we   penetrate intact outer membranes. NG1 treatment resulted in a
+successfully synthesized two (NG1 and NG2) with high (>95%)   significant increase in NPN fluorescence, suggesting that the
+purity (Figure  2F). Both molecules were generated by the   outer  membranes  of   cells  were  indeed  compromised
+F-VAE model. We empirically tested the compounds and found   (Figure 3E). NG1-treated N. gonorrhoeae cells also exhibited
+that NG1, but not NG2, inhibited the growth of N. gonorrhoeae   increased fluorescence of SYTOX green (a DNA-intercalating
+ATCC 49226 with an MIC of 0.5 μg/mL (Figure 2G). Determining   dye) that only penetrates cells with compromised membranes
+selectivity as before, we found that NG1 had CC50 values of 25–   (Figure 3F), supporting the suggestion that membrane damage
+128 μg/mL against HEK293, HepG2, and HSkMC cells, resulting   leads to cell death. We then directly examined the morphological
+in TIs of 50–256 (Figure 2G). NG1 is structurally dissimilar to   changes induced by NG1 treatment by performing cryogenic
+active compounds in the training dataset and possesses favor-   transmission electron microscopy (cryo-TEM) on N. gonor-
+able physicochemical properties (Table S5). Interestingly, NG1   rhoeae ATCC 49226 cells. We found pronounced changes,
+exhibited narrow-spectrum activity against N. gonorrhoeae and   where the NG1-treated cells showed reduced area and round-
+Neisseria meningitidis—the only other pathogenic Neisseria spe-   ness and increased elongation (Figures S2D and S2E).
+cies—but not against Neisseria cinerea and Neisseria mucosa    As NG1 might compromise bacterial membranes by acting on
+(two human commensal species) or any other Gram-positive or   membrane-related proteins, we performed a proteome integral
+Gram-negative species tested (Figure 2H). NG1 also exhibited    solubility alteration (PISA) assay to study possible protein targets
+potent activity against highly drug-resistant N. gonorrhoeae   on a proteome-wide scale. 53 The assay revealed a striking
+strains, including the first strain found in the United States that   destabilization of the lipooligosaccharide (LOS) export system
+had lost susceptibility not just to ceftriaxone but to all other drugs   protein, LptA (p value = 1.9 × 10− 7 , log 2 fold change = − 2.4),
+previously recommended  for  first-line treatment (Figure 3A;  upon treatment of N. gonorrhoeae lysate with NG1 (Figure 3G).
+Table S4). These data consistently indicate that NG1 is antibac-   Time-resolved RNA sequencing experiments revealed a dose-
+terial against multidrug-resistant and pathogenic  strains  of   dependent up-regulation of lptA in response to NG1 treatment,
+N. gonorrhoeae, suggesting that it might act through a mecha-    in addition to changes in either upstream or downstream pro-
+nism of action to which resistance has not yet evolved.            teins of the LOS biosynthesis pathway (Figures 3H and S2F).
+                                                          Given NG1’s potential effect on LOS, we hypothesized that
+Mechanism of action, toxicology, and in vivo efficacy of   NG1 would synergize with polymyxin B, an antibiotic that extra-
+NG1                                                                       cellularly binds lipid A, 54 and indeed observed a potent synergis-
+We investigated the mechanism of action of NG1 by first exam-    tic interaction (fractional inhibitory concentration index < 0.5)
+ining whether the compound was bactericidal. In a time-kill exper-   (Figure 3I). Taken together, these experimental results strongly
+iment using N. gonorrhoeae ATCC 49226, NG1 exhibited concen-   suggest that LptA is the main target of NG1. This mechanism
+tration-dependent   killing,  with  efficacy  similar  to  that  of   of action is notable, as LptA has been a proposed, 55 but as yet
+azithromycin (Figure 3B), and a minimum bactericidal concentra-   undrugged, antibiotic target in the LOS biosynthesis pathway.
+tion (MBC) of 1 μg/mL (Figure 3C). In suppressor mutant genera-     Given that NG1 appears to inhibit LptA, a protein absent in eu-
+tion experiments on solid agar, the frequency of resistance against   karyotic cells, 56 we aimed to further study its translational poten-
+NG1 was 4.3 × 10− 8 at 8× MIC. The spontaneously arising NG1-     tial. We first carried out in vitro toxicology studies measuring hu-
+resistant isolates retained susceptibility to ceftriaxone, azithromy-  man red blood cell (RBC) hemolysis and bacterial mutagenesis.
+cin, and ciprofloxacin, with unchanged MICs relative to those of  We found that NG1 was neither hemolytic nor mutagenic up to
+the parental susceptible strain (Figure S2A). The lack of cross-   concentrations of 64 μg/mL, the highest tested (Figures S2G
+resistance was supported by checkerboard assays demon-   and S2H). Building on these observations, we tested the efficacy
+strating that NG1 acted indifferently (neither synergistically nor   of NG1 in a mouse model of N. gonorrhoeae vaginal infection.
+antagonistically) to ceftriaxone, fosfomycin, and CCCP, indicating   Here, ovariectomized and estradiol-treated mice were intravagi-
+that NG1 does not act similarly to other cell-wall- and membrane    nally inoculated with N. gonorrhoeae ATCC 49226. Two h later,
+proton motive force (PMF)-targeting antibiotics (Figure S2B).   mice were given their first dose of intravaginal NG1 (1%), ceftri-
+Indeed, NG1 did not alter the PMF, as measured by the potentio-   axone (0.1%), or vehicle control, followed by four additional
+metric fluorophore 3,3-dipropylthiadicarbocyanine iodide (DiSC3-   doses within a 24 h period (Figure 3J). We found that mice
+[5]),4,7,52 which displays an increase in fluorescence when the   treated with NG1 exhibited a significant decrease in vaginal bac-
+membrane potential, ΔΨ, is disrupted and a decrease in fluores-    terial load (two-sided Mann-Whitney U test, p = 0.0120) of ∼3
+cence when the pH gradient, ΔpH, is dissipated52 (Figure S2C).    logs in colony-forming units (CFUs) relative to vehicle-treated
+
+
+
+6     Cell 188, 1–18, October 16, 2025
+
+
+[PDF physical page 8]
+  Please cite this article in press as: Krishnan et al., A generative deep learning approach to de novo antibiotic design, Cell (2025), https://doi.
+  org/10.1016/j.cell.2025.07.033
+
+                                                                                                                       ll
+Article
+
+
+
+
+
+Figure 3. Mechanistic study and in vivo efficacy of compound NG1
+(A) MICs against wild-type and antibiotic-resistant strains of N. gonorrhoeae (listed in Table S4). Each data point represents a strain tested in biological duplicates.
+(B) Time-kill curves for ATCC 49226 treated with NG1 or azithromycin. Mean ± SD; n = 2.
+
+                                                                                                             (legend continued on next page)
+
+
+                                                                                                        Cell 188, 1–18, October 16, 2025    7
+
+
+[PDF physical page 9]
+  Please cite this article in press as: Krishnan et al., A generative deep learning approach to de novo antibiotic design, Cell (2025), https://doi.
+  org/10.1016/j.cell.2025.07.033
+
+          ll
+                                                                   Article
+
+
+mice (Figure 3K). Furthermore, treatment with NG1 was well-   ments using the same prediction score thresholds as before. Of
+tolerated by all mice. Overall, these results support the transla-   these fragments, 432,919 (0.94%) were predicted to be active
+tional potential of NG1 with topical in vivo efficacy in treating a   against S. aureus (Figure 4A), and 259,807 unique fragments re-
+model of N. gonorrhoeae infection.                          mained  after  filtering  for low predicted human cytotoxicity
+                                                                scores, no obvious chemical liabilities, and structural novelty.
+Synthesis and analysis of structural analogs of NG1       To validate that the identified fragments were associated with
+Building on the high selectivity of NG1, as well as to further test  compounds with antibacterial activity against S. aureus, we
+the functional significance of fragment F1, we investigated its   searched our set of 799,149 compounds from the Broad Institute
+structure-activity landscape by synthesizing and testing struc-   as well as the Enamine purchasable space to identify com-
+tural analogs. We synthesized 74 analogs primarily by altering   pounds containing these fragments. Applying similar filters as
+two functional groups, R1 and R2, connected to the pyrrolidine   above to these compounds, we found 130 compounds repre-
+ring and the amine, respectively (Figure S3A). Testing all analogs,   senting 68 unique fragments that we procured for empirical
+we found eight active molecules against N. gonorrhoeae ATCC   testing against S. aureus RN4220 (Figure 4B). We found that
+49226, with MIC values between 16 and 32 μg/mL (Figures   19 compounds inhibited the growth of S. aureus at 50 μM or
+S3B and S3C). We also procured four analogs in the Enamine   below, resulting in a working true discovery rate of 14.6%
+REAL Space library, and one of the four compounds, named   (Figure 4B; Table S2; Data S2). Notably, the active fragment
+NG1 analog, was active against N. gonorrhoeae ATCC 49226   with the highest model prediction score, F2, was represented
+with an MIC of 4 μg/mL. Additionally, its CC 50 values against    in the second-highest scoring compound, EN1 (Figure 4C),
+HEK293, HepG2, and HSkMC cells were higher than those of   with  an MIC  of  8  μg/mL  against  methicillin-susceptible
+NG1 (Figure S3D). Given its promise for further development,   S. aureus (MSSA) RN4220 and methicillin-resistant S. aureus
+we investigated the NG1 analog’s mechanism of action as   (MRSA) BAA1556. EN1 also exhibited half-maximal inhibitory
+above and found that  it acted similarly to NG1 (Figures S3E–   concentration (CC 50 ) values ranging from 32 to >64 μg/mL
+S3G). From this analysis, we observed that compounds with  when  tested  against HEK293, HepG2, and HSkMC  cells
+an R1 group containing a 2,3-dichlorophenyl group were more   (Figure 4D), indicating favorable selectivity.
+effective at inhibiting N. gonorrhoeae than those with a 2,4-di-    EN1 contained a unique 1,4-epoxycyclohexane moiety, and a
+chlorophenyl group, and compounds containing either group   search within Enamine’s 64 billion compound space yielded only
+were more efficacious than those with a 2-chlorophenyl or   38 structures containing F2, suggesting that it might be a rare
+phenyl group alone (Figure 3L). Together, these findings support   and appropriate starting point for generative AI algorithms that
+the antibacterial activity of fragment F1 and its associated mole-   expand on its associated chemical space. We applied F-CReM
+cules, suggesting the possibility that additional optimization will   and F-VAE to F2, and these models generated 141,109 and
+improve the potency and selectivity of this structural class of   3,297,292 molecules, respectively (Figure 4E). Filtering the re-
+antibacterial compounds.                                            sulting  molecules   similarly  as  before  (STAR  Methods;
+                                                                Figure S1F), we retained the top 210 compounds predicted to
+Design of compounds with activity against S. aureus      be antibacterial against S. aureus. These remaining compounds
+Having taken a fragment-based approach to designing com-   were down-selected to five compounds by a medicinal chemist
+pounds active against N. gonorrhoeae, we asked whether the   to prioritize properties such as synthesizability, stability, perme-
+same approach could produce compounds active against a    ability, drug-likeness, and diversity; however, none of these
+Gram-positive pathogen, S. aureus. To start, we predicted anti-  compounds were synthetically accessible within typical synthe-
+bacterial activity against S. aureus using an ensemble of 20   sis time frames and costs. To circumvent synthesizability obsta-
+GNN-based Chemprop models. 11,45,57 We used this ensemble   cles and determine if preserving the entire F2 fragment is essen-
+of S. aureus models to screen our original set of 45,858,026 frag-    tial for our approach, we truncated F2 to a more synthetically
+
+
+
+
+(C) MBC of NG1 in ATCC 49226. Mean ± SD; n = 2.
+(D) Membrane rigidification of ATCC 49226 treated with NG1 at 64 μg/mL and control compounds, as measured by the Laurdan generalized polarization (GP).
+Mean ± SD; n = 2.
+(E) Loss of membrane integrity of ATCC 49226 treated with NG1 and DMSO, as measured by the uptake of the hydrophobic fluorescent probe, 1-N-
+phenylnaphthylamine (NPN). Mean ± SD; n = 2.
+(F) Membrane permeabilization of ATCC 49226 treated with NG1 or Triton X-100, as seen by a time-dependent increase in SYTOX green fluorescence signal
+normalized to the untreated control. Mean ± SD; n = 2.
+(G) Volcano plot of PISA results from FA 1090 lysate treated with NG1 compared with the vehicle control. The most significantly affected protein, LptA, is shown in
+purple.
+(H) Expression levels of lptA in FA 1090 treated with NG1 at 4× MIC, expressed in log 2 counts-per-million (CPM).
+(I) Checkerboard study of NG1 and polymyxin B (PMB) in ARB #0187 revealing a synergistic effect. Data are representative of biological duplicates.
+(J) Schematic of the in vivo study of NG1 in the N. gonorrhoeae vaginal infection model using strain ATCC 49226. Treatment with vehicle, NG1, or ceftriaxone was
+administered intravaginally for five doses.
+(K) Bacterial titers in vaginal lavage fluid. Horizontal lines represent median log 10 CFU/mL values. Data represent treatment with vehicle control (n = 8), NG1 (n = 9),
+or ceftriaxone (n = 5). Two-sided Mann-Whitney U test compared with vehicle: *p ≤ 0.05, **p ≤ 0.01. Horizontal lines represent medians.
+(L) Summary of a structure-activity relationship analysis for NG1.
+See also Figures S2 and S3.
+
+
+
+8     Cell 188, 1–18, October 16, 2025
+
+
+[PDF physical page 10]
+  Please cite this article in press as: Krishnan et al., A generative deep learning approach to de novo antibiotic design, Cell (2025), https://doi.
+  org/10.1016/j.cell.2025.07.033
+
+                                                                                                                       ll
+Article
+
+
+
+
+
+Figure 4. Effect of fragment modification on synthesizability and antibacterial activity
+(A) Rank-ordered fragment prediction scores as determined by the S. aureus antibacterial activity model (above) and computational filters applied to the frag-
+ments (below).
+(B) Rank-ordered fragment (above) and compound (below) prediction scores for available compounds procured for empirical testing at 50 μM.
+(C) Structure of fragment F2 and its associated active compound from (B). The fragment is highlighted in EN1.
+(D) MIC and CC 50 values for EN1. n = 2, * indicates values >64 μg/mL.
+(E) Structures of fragment F2 and the truncated fragment F2 ′ , with the number of molecules generated for both fragments by the F-CReM and F-VAE models.
+(F) Computational filters applied to down-selected compounds using fragment F2′ .
+(G) RAscore of molecules generated by F-CReM and F-VAE using fragments F2 and F2 ′.
+
+                                                                                                             (legend continued on next page)
+
+
+
+                                                                                                        Cell 188, 1–18, October 16, 2025    9
+
+
+[PDF physical page 11]
+  Please cite this article in press as: Krishnan et al., A generative deep learning approach to de novo antibiotic design, Cell (2025), https://doi.
+  org/10.1016/j.cell.2025.07.033
+
+          ll
+                                                                   Article
+
+
+accessible starting point, F2 ′ (Figure 4E). We used F-CReM and   of 64 μg/mL. Remarkably, six molecules (27.3%; DN1–DN6)
+F-VAE to generate 106,557 and 18,164,746 molecules based on  showed antibacterial activity and were structurally dissimilar to
+F2 ′ and down-selected 9,684 molecules as before (Figure 4F;   each other (Figures 5F and 5G; Data S2), suggesting that our
+STAR Methods). As expected, the molecules associated with   generative models can design antibacterial molecules de novo
+F2 ′ were more likely to be synthesizable than those associated   without the requirement of a fragment as a starting point.
+with F2, as measured by two metrics: RAscore (Figure 4G)    To further investigate the six active compounds, we deter-
+and a  retrosynthesis  planning  tool, ASKCOS  (Automated   mined their MICs against MSSA RN4220, MRSA BAA1556,
+System for Knowledge-based Continuous Organic Synthesis)   and, as a starting point for assessing spectrum, N. gonorrhoeae
+(Figure 4H).58 Intriguingly, F-VAE-generated molecules were  ATCC 49226. DN1 was the most potent and selective against
+consistently predicted and selected by a medicinal chemist to   S. aureus, with an MIC of 4 μg/mL for both MSSA RN4220 and
+be more synthesizable than those from F-CReM and exhibited  MRSA BAA1556 and a TI of 32 for HEK293, HepG2, and
+more drug-like properties (Figure S4A; Table S3). Confirming  HSkMC cells. By contrast, DN4 was the least potent and selec-
+these  predictions, we were able to synthesize 16 F-VAE-    tive, with an MIC of 64 μg/mL for S. aureus and a TI of 2
+designed molecules within typical synthesis time frames and   (Figure 6A). Four of the six compounds also exhibited MICs ≤
+costs. We found that only one of these 16 compounds (6.25%)   8 μg/mL for N. gonorrhoeae, despite being selected based on
+(Figure S4B; Data S2) demonstrated activity against S. aureus    their S. aureus model prediction scores. To further assess their
+RN4220, with a marginal MIC of 128 μg/mL, the highest concen-   spectrum of activity, we tested each compound against a panel
+tration tested (Figure 4I). By contrast, six of 12 additional mole-   of Gram-positive and Gram-negative species. We found that
+cules (50%) (Figure S4B; Data S2) procured from the Enamine  DN1–DN3 exhibited broad-spectrum activity against Gram-pos-
+REAL Space containing the original F2 fragment displayed activ-    itive bacteria, including Bacillus subtilis and vancomycin-sus-
+ity, exhibiting MICs as low as 16 μg/mL (Figure 4I). Together,   ceptible Enterococcus faecalis. However, none of the six com-
+these findings indicate that preservation of F2 is important for   pounds inhibited the growth of other tested Gram-negative
+antibacterial activity and that designing compounds based on   species   or   Gram-neutral   Mycobacterium   tuberculosis
+this particular fragment appears to result in a trade-off between   (Figure 6B; Data S2). Interestingly, DN1–DN3 gained activity
+antibacterial activity and synthesizability.                         against E. coli when the outer membrane was permeabilized
+                                                            through genetic (lptD4213) or chemical (polymyxin B nonapep-
+Generation, synthesis, and experimental validation of de     tide co-treatment) means, or when efflux pumps were genetically
+novo designed compounds                                   disrupted (ΔtolC). In combination with polymyxin B nonapeptide,
+To further investigate the generality of our approach, we asked if  DN1–DN3 also effectively inhibited the growth of wild-type
+our generative models could design antibacterial molecules   E. coli, A. baumannii, and P. aeruginosa, and DN1 gained activity
+without the need  for specific fragments as  starting points   against K. pneumoniae and M. tuberculosis (Data S2). These
+(Figure  5A). We modified our models by  providing  either   findings suggest that the efficacy of DN1–DN3 is hindered by
+ammonia, methane, or water as inputs to CReM (Figure 5B)   outer membranes, which may act to block penetration or in-
+and no fragment as input to a junction tree variational autoen-   crease efflux of these compounds.
+coder (JT-VAE) (Figure 5C). Together, the models generated     Although DN1–DN3 exhibited similar spectra of activity to
+29,014,974 molecules. Interestingly, the JT-VAE model pro-   each other, performing membrane PMF assays as above for
+duced more drug-like molecules (Figure 5D; Table S3), while   S. aureus cells treated with each of DN1–DN6 resulted in mark-
+compounds produced by CReM tended to have high molecular   edly different DiSC 3 (5) fluorescence profiles (Figure 6C), consis-
+weights and many H-bond acceptors and donors (which could   tent with the observation that these compounds are structurally
+reduce membrane permeability) (Figure 5D; Table S3). CReM    distinct. DN1 and DN6 treatment resulted in similar dissipation of
+compounds were predicted to be highly unsynthesizable by  ΔΨ; however, microscopic imaging of morphological changes in
+both the RAscore (Figure 5D) and the ASKCOS retrosynthesis   B. subtilis 168 revealed that treatment with DN6 resulted in fila-
+prediction tool (Figure S5A; Table S3). We therefore prioritized   mentation and membrane rupture after 2 h, in contrast to treat-
+molecules generated by JT-VAE and filtered them for favorable   ment with DN1–DN5 (Figures 6D, 6E, and S6A). Given DN1’s po-
+properties, including high predicted antibacterial scores against   tency,  we   investigated    its   potential  membrane-active
+S. aureus, low predicted cytotoxicity scores, and Tanimoto sim-  mechanism by testing whether DN1 alters membrane fluidity us-
+ilarity to known antibiotics (Figure S5B). The down selection re-   ing a Laurdan dye assay as before. 6 Treatment of S. aureus cells
+sulted in 4,831 molecules that were manually inspected and   with DN1 resulted in a modest increase in Laurdan fluorescence
+shortlisted to 90 compounds based on synthesizability and di-   (Figure 6F), suggesting a decrease in membrane fluidity. Per-
+versity (Figure 5E). After review by a chemical synthesis vendor,   forming cryo-TEM on both MSSA RN4220 and N. gonorrhoeae
+we procured 22 molecules and tested them against MSSA  ATCC 49226 cells treated with compound at 4× MIC, we found
+RN4220 and MRSA BAA1556 at a high starting concentration   pronounced morphological changes in the membranes of both
+
+
+
+
+(H) Predicted retrosynthesis success rates as determined by ASKCOS for molecules generated by F-CReM and F-VAE using fragments F2 and F2 ′.
+(I) MICs of 12 compounds from the Enamine REAL space with fragment F2 and 16 de novo designed and synthesized compounds with the fragment F2′ against
+S. aureus RN4220.
+See also Figure S4.
+
+
+
+10    Cell 188, 1–18, October 16, 2025
+
+
+[PDF physical page 12]
+  Please cite this article in press as: Krishnan et al., A generative deep learning approach to de novo antibiotic design, Cell (2025), https://doi.
+  org/10.1016/j.cell.2025.07.033
+
+                                                                                                                       ll
+Article
+
+
+
+
+
+Figure 5. De novo generation of antibacterial compounds without a fragment starting point
+(A) Schematic of the de novo generative approach.
+(B) Schematic of the de novo genetic algorithm based on CReM and examples of generated compounds.
+(C) Schematic of the de novo JT-VAE algorithm and examples of generated compounds.
+(D) Molecular properties and RAscores for a random subset of 10,000 compounds generated by the de novo CReM and JT-VAE models, compared with the
+median of known Gram-positive antibiotics.
+(E) Computational filtering and summary of experimental results for JT-VAE-designed compounds.
+(F) Experimental validation of 22 JT-VAE-designed molecules against S. aureus when tested at 64 μg/mL. n = 2.
+(G) Structures of the six de novo designed compounds with activity against MSSA RN4220 and MRSA BAA1556.
+See also Figure S5.
+
+
+bacteria. In MSSA, we observed thickening of the membrane   ing faster bactericidal activity than that of vancomycin, a first-line
+and increased perimeter  (Figures 6G, 6H, and S6B), and    antibiotic for treating S. aureus infections. Additionally, the MBC
+in N. gonorrhoeae, we observed dislodging of the membrane   of DN1 was 8 μg/mL for MSSA RN4220 (Figure 7B). In sponta-
+and increased  cell swelling (Figure S6C), quantified further   neous mutant generation experiments on solid agar, no colonies
+by  increased  cell  roundness  and  decreased  elongation   emerged after 7 days of incubation at 4× and 8× MIC, suggesting
+(Figure S6D). Overall, these results indicate that our de novo   a low frequency of resistance (<9.6 × 10− 9 for MSSA RN4220 and
+design models can generate bona fide antibacterial compounds   <1.0 × 10− 9 for MRSA BAA1556). Similarly, the MIC of DN1 for
+and that a subset of structurally distinct compounds exhibit  MRSA BAA1556 did not meaningfully increase after 30 serial pas-
+different, membrane-active mechanisms of action.              sages in LB (lysogeny broth) or LB supplemented with 0.002%
+                                                       Tween. DN1 also inhibited the growth of 10 multidrug-resistant
+Resistance and in vivo efficacy of DN1                      Gram-positive  isolates from the CDC-FDA (Food and Drug
+Building on our previous findings, we aimed to further investigate   Administration) Antimicrobial Resistance  Isolate Bank (ARB),
+the translational relevance of DN1. Time-kill experiments indi-   including isolates from the vancomycin-intermediate S. aureus
+cated  that DN1  substantially  decreased  log-phase MSSA   (VISA), aminoglycoside/tetracycline-resistant (ATR), and  tedi-
+RN4220 CFUs as early as 2 h post-treatment (Figure 7A), exhibit-    zolid/linezolid  (oxazolidinone)-resistant  staphylococci  (TLZD)
+
+
+
+                                                                                                        Cell 188, 1–18, October 16, 2025   11
+
+
+[PDF physical page 13]
+  Please cite this article in press as: Krishnan et al., A generative deep learning approach to de novo antibiotic design, Cell (2025), https://doi.
+  org/10.1016/j.cell.2025.07.033
+
+          ll
+                                                                   Article
+
+
+
+
+
+Figure 6. Characterization of de novo designed compounds DN1–DN6
+(A) MICs against S. aureus RN4220, MRSA BAA1556, N. gonorrhoeae ATCC 49226, and CC 50 values of the compounds in three different human cell types. n = 2, *
+indicate values >128 μg/mL.
+(B) MICs against various Gram-positive species (top) and Gram-negative bacterial species (middle), or in combination with a sub-MIC concentration of polymyxin
+B nonapeptide (bottom). n = 2. See also Table S4.
+(C) DiSC 3 (5) fluorescence of S. aureus RN4220 treated with DN1–DN6, valinomycin (positive control), and DMSO (negative control).
+(D) Images of B. subtilis 168 cells treated with the active de novo designed compounds at 2× MIC for 2 h. DAPI in blue and FM4-64 in red.
+(E) Area of untreated and compound-treated (2× MIC) B. subtilis cells, where n is the number of cells quantified and ****p ≤ 0.0001, evaluated using a two-sided
+Mann-Whitney U test.
+
+
+                                                                                                             (legend continued on next page)
+
+
+
+
+12    Cell 188, 1–18, October 16, 2025
+
+
+[PDF physical page 14]
+  Please cite this article in press as: Krishnan et al., A generative deep learning approach to de novo antibiotic design, Cell (2025), https://doi.
+  org/10.1016/j.cell.2025.07.033
+
+                                                                                                                       ll
+Article
+
+
+panels, with MICs of 8 μg/mL across all tested isolates (Figure 7C;   the diversity of enumerated chemical space, yet these libraries
+Table S4). Consistent with its activity against N. gonorrhoeae   sample an infinitesimal fraction of drug-like chemical space, which
+ATCC 49226, DN1 exhibited MICs at or below 16 μg/mL against    is estimated to contain ∼1060 compounds. Here, we have pre-
+a panel of drug-resistant N. gonorrhoeae isolates (Figure 7D).      sented a deep learning-enabled approach to the generative
+  As DN1 exhibited a favorable resistance profile and physico-   design of compounds with antibacterial activity. Using GNNs as
+chemical properties (Table S5), we aimed to evaluate its potential   scoring functions, we first comprehensively screened >45 million
+for therapeutic development. For this, we tested DN1 for efficacy   chemical fragments to identify selective antibacterial starting
+in treating a mouse model of MRSA BAA1556 skin infection. In   points against N. gonorrhoeae or S. aureus. We then developed
+this model, each mouse was rendered neutropenic and inflicted   two models—a genetic algorithm-based model (CReM) and a vari-
+with a skin wound. After inoculation of ∼10 5 CFU of MRSA, each   ational autoencoder (VAE)—to generate compounds based on
+wound was topically treated with DN1 (1% w/v) six times before   these fragments. While fragments offer consistent and tractable
+all mice were sacrificed, and the wounds were excised for CFU   starting points, these models can also generate molecules de
+determination 25 h after infection (Figure 7E). We found that   novo, without any fragment input, as demonstrated. Of the 24
+treatment with DN1 significantly decreased the average bacte-  compounds that we designed using these generative approaches
+rial load by 10-fold relative to vehicle (two-sided Mann-Whitney   and subsequently  synthesized, two compounds—NG1 and
+U test, p = 0.0043), with efficacy similar to that of fusidic acid,  DN1—possessed narrow-spectrum activity against pathogenic
+a positive control antibiotic used in the clinical treatment of   Neisseria and broad-spectrum activity against Gram-positive bac-
+Staphylococcus infections (Figure 7F). Together, these findings    teria and N. gonorrhoeae, respectively. Both compounds ex-
+support the translational potential of DN1, highlighting its effi-   hibited mechanisms of action distinct from those of often-used an-
+cacy in treating a model of topical staphylococcal infection.        tibiotics and were effective in reducing bacterial titers in different
+                                                              animal models of infection. Additionally, both compounds ex-
+Synthesis and analysis of structural analogs of DN1          hibited a structure-activity landscape that can be productively
+As a starting point for further developing and optimizing DN1, we   used for further optimization. Together, our results enable the
+investigated its structure-activity landscape similarly to NG1. We   generative design of two unique structural classes of antibacterial
+modified the position or type of halogen atom (Cl or F) on the aryl  compounds and demonstrate the ability of our platform to explore
+ring and replaced the central pyrrolidine with 4- or 6-membered   uncharted regions of chemical space.
+nitrogen-containing heterocycles. Of the 19 analogs synthesized     Here, we focused on implementing two molecular generation
+(Data S2) that include these modifications, we found that five an-   models: CReM and VAE. Despite CReM’s reliance on rule-
+alogs exhibited MICs ranging from 2 to 8 μg/mL when tested   based features of bioactive molecules to either grow or intro-
+against MSSA RN4220, MRSA BAA1556, and a panel of 10   duce modifications and generate structurally diverse mole-
+MRSA isolates from the ARB (Figures S7A and S7B). A more   cules, our VAE-based models consistently generated com-
+potent analog, DN1–164, exhibited MICs ≤ 4 μg/mL for all anti-   pounds  that were more  drug-like and  synthesizable. Our
+biotic-resistant S. aureus strains tested and against wild-type   platform is modular in that other generative models, such as
+N. gonorrhoeae without increase in cytotoxicity against human   generative adversarial networks, 15,59 molecular transformers, 60
+cells, resulting in TIs > 32 (Figure S7C). The most potent analogs   flow-based models, 61  diffusion-based methods, 21,62–64 and
+(DN1–154, DN1–164, and DN1–173) increased DiSC 3(5) fluores-   fragment  linkers, 65 can be readily incorporated. Combining
+cence in S. aureus RN4220 cells, suggesting that, similar to DN1,   these diverse approaches and continuing to explore fragments
+these analogs  dissipate  the ΔΨ component  of  the PMF   that lead to readily synthesizable molecules will enable new
+(Figure S7D). Furthermore, the chemical structures of the active   portions of chemical space to be harnessed for successful de
+analogs suggest that substitutions of the central pyrrolidine are   novo design efforts.
+tolerated, the placement of a halogen in the meta position of    Our approach also allowed for the models to have different
+the aryl ring might improve potency, and the carboxylic acid is   chemical starting points, enabling either constrained (fragment-
+needed for activity (Figure 7G). Thus, these findings highlight a   based) or unconstrained (de novo) design. Using fragments as
+broad structure-activity landscape relevant to improving the   starting points possesses several unique advantages. First, it al-
+selectivity of our de-novo-generated compound, DN1, and its   lows one to comprehensively search molecular building blocks
+associated chemical series.                                               (e.g., all possible combinations of up to 11 atoms comprised of
+                                                            C, N, O, and F) to systematically identify and exploit underex-
+DISCUSSION                                                 plored areas of chemical space that would otherwise be unlikely
+                                                                    to be sampled by generative methods. The disparity between
+The unmet need for novel antibiotics is large and growing. Virtual   the millions of fragments that our GNN models predicted to be
+screening of chemical compound libraries offers a way to leverage   antibacterial and the hundreds of fragments that could be found
+
+
+
+
+(F) Membrane rigidification of RN4220 treated with DN1 at 32 μg/mL and control compounds, as measured by the Laurdan generalized polarization (GP). Mean ±
+SD; n = 2.
+(G) Cryo-TEM images of untreated and DN1-treated (4× MIC) S. aureus.
+(H) Quantification of S. aureus membrane thickness (untreated, n = 14; DN1, n = 11). ****p ≤ 0.0001, evaluated using a two-sided Mann-Whitney U test.
+See also Figure S6.
+
+
+
+                                                                                                        Cell 188, 1–18, October 16, 2025   13
+
+
+[PDF physical page 15]
+  Please cite this article in press as: Krishnan et al., A generative deep learning approach to de novo antibiotic design, Cell (2025), https://doi.
+  org/10.1016/j.cell.2025.07.033
+
+          ll
+                                                                   Article
+
+
+ A                       B                  C               D
+
+
+
+
+
+ E                           F                G
+
+
+
+
+
+Figure 7. Mechanistic study and in vivo efficacy of DN1
+(A) Time-kill curves for S. aureus RN4220 treated with DN1 or vancomycin. Mean ± SD; n = 2.
+(B) MBC of DN1 in RN4220. Mean ± SD; n = 2.
+(C) MICs against antibiotic-resistant strains of S. aureus (listed in Table S4). Each data point represents a strain tested in biological duplicates.
+(D) MICs against wild-type and antibiotic-resistant strains of N. gonorrhoeae (listed in Table S4). Each data point represents a strain tested in biological duplicates.
+(E) Schematic of the in vivo study of DN1 in a neutropenic mouse skin infection model using MRSA strain ATCC BAA1556. Treatment with vehicle, DN1, or fusidic
+acid was administered topically in six doses.
+(F) Bacterial titers in skin tissue. Horizontal lines indicate median CFU/mouse values. Data represent treatment with vehicle control (n = 6), DN1 (n = 6), or fusidic
+acid (n = 6). Two-sided Mann-Whitney U test compared with vehicle treatment: *p ≤ 0.05, **p ≤ 0.01.
+(G) Summary of the structure-activity relationship analysis for DN1.
+See also Figures S6 and S7.
+
+
+
+within commercially available libraries suggests that much of anti-   bacterial  activity  against  highly  drug-resistant  strains  of
+bacterial chemical space indeed remains underexplored. Second,   N. gonorrhoeae and Gram-positive bacteria, highlighting the
+by screening fragments based on target-agnostic phenotypic out-    versatility of generative AI models when coupled to antibacterial
+comes, specifically bacterial growth inhibition, our method in-   scoring functions.
+creases the likelihood of discovering molecules with unique      Overall, these findings underscore the value of multiple
+mechanisms of action that potentially circumvent existing antimi-   approaches to the generative design of antibiotics and that
+crobial resistance mechanisms. Lastly, if chosen carefully, a high-   the choice of a chemical starting point should be guided
+ly synthesizable starting point can constrain the search space to   by strategic considerations, including chemical novelty, di-
+realistic, drug-like molecules, reduce the  risk of generating   versity, and synthesizability. We anticipate that future studies
+implausible structures, and facilitate a coherent structure-activity    will leverage multi-objective optimization frameworks to iden-
+relationship analysis. In contrast to the fragment-based approach,    tify compounds that simultaneously satisfy multiple criteria,
+de novo design without predefined chemical starting points en-   including high  antibacterial  activity, synthetic  accessibility,
+ables unrestricted exploration of chemical space and more vari-   low  toxicity, and  favorable  drug-like  properties such as
+ability in the properties of the generated compounds. After manual   metabolic   stability,  low  protein  binding,  and  optimal
+inspection and stringent filtering for structural novelty, low pre-   pharmacodynamics.
+dicted cytotoxicity, and synthesizability, the tested de novo de-
+signed compounds produced a high working true discovery rate   Limitations of the study
+of 27% and were structurally diverse with drug-like properties.   Despite our observations of high working true discovery rates
+Importantly, compounds from both approaches exhibited anti-  and promising chemical diversity of generated molecules, it is
+
+
+
+14    Cell 188, 1–18, October 16, 2025
+
+
+[PDF physical page 16]
+  Please cite this article in press as: Krishnan et al., A generative deep learning approach to de novo antibiotic design, Cell (2025), https://doi.
+  org/10.1016/j.cell.2025.07.033
+
+                                                                                                                       ll
+Article
+
+
+possible for the ML models used here to produce false posi-    Akhila Kosaraju, Dr. Leanne Minall, and Dr. Joseph Vacca for their helpful
+tive predictions or generate structurally non-diverse mole-    insights on the de novo designed molecules. Chemical synthesis was pro-
+cules. Model outputs should therefore be analyzed on a   vided by Enamine Ltd. (Kyiv, Ukraine). A.K. was supported by the Swiss Na-
+                                                                                        tional Science Foundation under grant number SNSF_203071. M.N.A. was
+case-by-case basis, and when such outputs appear prom-
+                                                                     supported by the NIH under awards T32CA921641 and K08AI182474. J.A.
+ising, the compounds should be empirically tested. Further-    V. was supported by a scholarship from the Siebel Scholars Foundation. W.
+more, the utility of our generative approach heavily relies on    J. was supported by the Eric and Wendy Schmidt Center at the Broad Insti-
+the ability to synthesize compounds for validation. As evi-    tute of MIT and Harvard. A.L. was supported by the Knut and Alice Wallen-
+denced by the small number of generated compounds that   berg Foundation under award KAW2022.0347. J.F. was supported by the
+we could synthesize, chemical synthesis remains a challenge    National Science Foundation Graduate Research Fellowship under grant
+                                                                            no. 2141064. R.D. was supported by NIH award number T32GM144273
+when molecules are not designed according to prespecified
+                                                                     from the National Institute of General Medical Sciences. A.A.S. was sup-
+synthetic routes. Improvements in synthesizability predictors   ported by a Swedish Research Council grant under award 2023-02692
+and complex retrosynthesis-based algorithms should enable   and Karolinska Institutet Faculty Funding under award 2-188/2022. Chem-
+larger sets of de novo designed compounds to be experimen-    ical proteomics at the Karolinska  Institutet (Chemistry  I Division, MBB
+tally tested and validated.                                            Department), Unit of SciLifeLab, and node of the Swedish National Infra-
+                                                                                structure for Biological Mass Spectrometry (BioMS), provided full support
+RESOURCE AVAILABILITY                                                           in the experimental design, performance, and data analysis of the PISA ex-
+                                                                           periments. S.G.P. and Y.H.G. were supported by the NIH under awards R01
+Lead contact                                                       AI132606 and R01 AI153521. F.W. was supported by the National Institute
+Further information and requests for resources should be directed to and will    of Allergy and Infectious Diseases of the National Institutes of Health under
+be fulfilled by the lead contact, James J. Collins (jimjc@mit.edu).             award number K25AI168451 and the James S. McDonnell Foundation. This
+                                                                 work is part of the Antibiotics-AI Project, which is directed by J.J.C. and
+Materials availability                                                  supported by the Audacious Project, Flu Lab, LLC, the Sea Grape Founda-
+All unique/stable reagents generated in this study are available from the lead    tion, Rosamund Zander and Hansjorg Wyss for the Wyss Foundation, and
+contact with a completed materials transfer agreement.                    an anonymous donor.
+
+Data and code availability                                AUTHOR CONTRIBUTIONS
+  • All data reported in this paper will be shared by the lead contact upon
+      request.                                                                Conceptualization, A.K., M.N.A., J.A.V., F.W., and J.J.C.; methodology, A.K.,
+  • A code platform for reproducing all analyses in this work is available    M.N.A., J.A.V., W.J., and F.W.; algorithm development and execution, A.K.,
+       via  the  GitHub  repository:  https://github.com/aartikrish/de-novo-    M.N.A., J.A.V., W.J., and F.W.; computational analysis, A.K., M.N.A., J.A.V.,
+       antibiotics.                                                              W.J., L.S., A.H., J.F., J.C.C., D.R., P.E., M. Gaborieau, and F.W.; mechanistic
+  • Data generated from the computational pipeline and experimental    characterization, A.K., M.N.A., N.M.D., L.S., Y.Z., S.M.M., A.H., P.B., R.D., R.
+      chemical screening are available as Data S1 and S2, as well as on the    S.L., M.-S.A., M. Gaborieau, M. Gaetani, S.G.P., S.O., and F.W.; chemistry
+     Zenodo repository: https://doi.org/10.5281/zenodo.15191826.            expertise and analog design, A.L., L.K., Y.S.M., B.B., and C.J.; manuscript
+  • Data generated from chemical synthesis of the de novo designed com-    writing, A.K., M.N.A., J.A.V., and F.W.; manuscript review and editing, all au-
+     pounds and RNA sequencing experiments can be accessed via the    thors; supervision, A.K., M.N.A., E.L., Y.H.G., A.A.S., C.W.C., F.W., and J.J.
+     Zenodo repository: https://doi.org/10.5281/zenodo.15191826.             C.; funding acquisition, F.W. and J.J.C.
+  • Proteomics data are available at PRIDE under accession PRIDE:
+     PXD063107.                                         DECLARATION OF INTERESTS
+  • Any additional information required to re-analyze the data reported in
+       this paper can be made available from the lead contact upon request.    J.J.C. is an academic co-founder and Scientific Advisory Board chair of
+                                                                     Phare Bio, a non-profit venture focused on antibiotic drug development, an
+                                                                  academic co-founder and board member of Cellarity, and the founding Sci-
+ACKNOWLEDGMENTS                                                                 entific Advisory Board chair of Integrated Biosciences. M.N.A.  is a co-
+                                                                         founder and consultant to Day Zero Diagnostics. F.W. is a co-founder of
+This work was supported by National Institutes of Health (NIH) grants R01    Integrated Biosciences. R.S.L. and S.O. have equity interests in Integrated
+AI146194 and K25AI168451, DTRA grant HDTRA-12210032, and the Broad    Biosciences. Y.S.M. is an employee of Enamine Ltd. and a scientific advisor
+Institute of MIT and Harvard. This work was supported in part by Oracle    of Chemspace LLC.
+Cloud credits and related resources provided by Oracle for Research. We
+thank MIT SuperCloud and Lincoln Laboratory Supercomputing Center  STAR★METHODS
+for providing high-performance computing resources; Chemistry Center
+for Combating Antibiotic-Resistant Bacteria (CC4CARB), an National Insti-    Detailed methods are provided in the online version of this paper and include
+tute  of  Allergy and  Infectious  Diseases  (NIAID)-led  partnership  with    the following:
+Research Triangle Institute (RTI), for designing and synthesizing compound     • KEY RESOURCES TABLE
+analogs under contract number 75N93021C00002; and the SeqCenter for     • EXPERIMENTAL MODEL AND STUDY PARTICIPANT DETAILS
+assistance with RNA sequencing analysis. R-scores and chemical synthe-         ○ Cell culture
+sis advice were provided by Iktos (Spaya) as part of an academic partner-         ○ Bacterial cell culture
+ship. Some illustrations were adapted from BioRender.com. We thank Dr.         ○ Mouse models
+Jean-Louis Reymond of the University of Bern for the academic license     • METHOD DETAILS
+to access the Generated DataBase libraries and Dr. Dongsoo Yun, Nano-         ○ Computational methods
+technology Material Core Staff at the Koch Institute for Integrative Cancer         ○ SHAP analysis of molecular feature importance
+Research, Cambridge, MA, USA, for performing the cryo-TEM imaging.         ○ De novo design of compounds with generative models
+The authors also thank Armaun Sanayei and Christopher Giuliano for their         ○ Experimental methods
+time and  for providing constructive feedback on the manuscript and         ○ Proteomics-based target identification with PISA
+computational analysis and Dr. Sandy Gould, Dr. Aakanksha Gulati, Dr.         ○ Bacterial cytological profiling
+
+
+
+                                                                                                        Cell 188, 1–18, October 16, 2025   15
+
+
+[PDF physical page 17]
+  Please cite this article in press as: Krishnan et al., A generative deep learning approach to de novo antibiotic design, Cell (2025), https://doi.
+  org/10.1016/j.cell.2025.07.033
+
+          ll
+                                                                   Article
+
+
+
+      ○ Cryo-TEM analysis of bacterial morphology                          13. Enamine. (2023). Enamine REAL Space. https://enamine.net/compound-
+  • QUANTIFICATION AND STATISTICAL ANALYSIS                            collections/real-compounds/real-space-navigator.
+
+                                                                              14. Tingle, B.I., Tang, K.G., Castanon, M., Gutierrez, J.J., Khurelbaatar, M.,
+                                                                           Dandarchuluun, C., Moroz, Y.S., and Irwin, J.J. (2023). ZINC-22─A Free
+SUPPLEMENTAL INFORMATION
+                                                                                         Multi-Billion-Scale Database of Tangible Compounds for Ligand Discov-
+                                                                                           ery. J. Chem. Inf. Model. 63, 1166–1176. https://doi.org/10.1021/acs.
+Supplemental information can be found online at https://doi.org/10.1016/j.cell.
+                                                                               jcim.2c01253.
+2025.07.033.
+                                                                              15. De Cao, N., and Kipf, T. (2018). MolGAN: An implicit generative model for
+                                                                                 small molecular graphs. Preprint at arXiv. https://doi.org/10.48550/arxiv.
+Received: February 24, 2024
+                                                                           1805.11973.
+Revised: April 21, 2025
+Accepted: July 20, 2025                                                       16. Go´ mez-Bombarelli, R., Wei, J.N., Duvenaud, D., Herna´ ndez-Lobato, J.M.,
+                                                                                                Sa´ nchez-Lengeling, B., Sheberla, D., Aguilera-Iparraguirre, J., Hirzel, T.D.,
+                                                                  Adams, R.P., and Aspuru-Guzik, A. (2018). Automatic Chemical Design
+REFERENCES                                                            Using a Data-Driven Continuous Representation of Molecules. ACS
+                                                                               Cent. Sci. 4, 268–276. https://doi.org/10.1021/acscentsci.7b00572.
+ 1. GBD 2021 Antimicrobial Resistance Collaborators (2024). Global burden    17. Jin, W., Barzilay, R., and Jaakkola, T. (2018). Junction Tree Variational Au-
+    of bacterial antimicrobial resistance 1990–2021: a systematic analysis       toencoder for Molecular Graph Generation. Proceedings of the 35th Inter-
+    with forecasts to 2050. Lancet 404, 1199–1226. https://doi.org/10.1016/        national Conference on Machine Learning 80, 2323–2332. https://doi.org/
+    S0140-6736(24)01867-1.                                                    10.48550/arxiv.1802.04364.
+ 2. Centers for Disease Control and Prevention (CDC). (2019). Antibiotic resis-    18. Blaschke, T., Aru´ s-Pous, J., Chen, H., Margreitter, C., Tyrchan, C., Engkv-
+    tance  threats  in the United  States, 2019.  https://doi.org/10.15620/           ist, O., Papadopoulos, K., and Patronov, A. (2020). REINVENT 2.0: an AI
+    cdc:82532.                                                                          tool for de novo drug design. J. Chem.  Inf. Model. 60, 5918–5922.
+ 3. Spellberg, B., Powers, J.H., Brass, E.P., Miller, L.G., and Edwards, J.E.        https://doi.org/10.1021/acs.jcim.0c00915.
+    (2004). Trends in antimicrobial drug development: implications for the    19. Zhou, Z., Kearnes, S., Li, L., Zare, R.N., and Riley, P. (2019). Optimization
+    future. Clin. Infect. Dis. 38, 1279–1286. https://doi.org/10.1086/420937.          of molecules via deep reinforcement learning. Sci. Rep. 9, 10752. https://
+ 4. Stokes, J.M., Yang, K., Swanson, K., Jin, W., Cubillos-Ruiz, A., Donghia,       doi.org/10.1038/s41598-019-47148-x.
+    N.M., MacNair, C.R., French, S., Carfrae, L.A., Bloom-Ackermann, Z.,    20. Polishchuk, P. (2020). CReM: chemically reasonable mutations framework
+    et al. (2020). A deep learning approach to antibiotic discovery. Cell 180,         for structure generation. J. Cheminform. 12, 28. https://doi.org/10.1186/
+    688–702.e13. https://doi.org/10.1016/j.cell.2020.01.021.                     s13321-020-00431-w.
+ 5. Liu, G., Catacutan, D.B., Rathod, K., Swanson, K., Jin, W., Mohammed, J.    21. Xu, M., Yu, L., Song, Y., Shi, C., Ermon, S., and Tang, J. (2022). GeoDiff: a
+    C., Chiappino-Pepe, A., Syed, S.A., Fragis, M., Rachwalski, K., et al.       Geometric Diffusion Model for Molecular Conformation Generation. Pre-
+    (2023). Deep learning-guided discovery of an antibiotic targeting Acineto-         print at arXiv. https://doi.org/10.48550/arxiv.2203.02923.
+    bacter baumannii. Nat. Chem. Biol. 19, 1342–1350. https://doi.org/10.
+                                                                              22. O¨ zc¸ elik, R., Brinkmann, H., Criscuolo, E., and Grisoni, F. (2025). Genera-
+    1038/s41589-023-01349-8.
+                                                                                                tive deep learning for de novo drug design-a chemical space odyssey.
+ 6. Zheng, E.J., Valeri, J.A., Andrews, I.W., Krishnan, A., Bandyopadhyay, P.,                                                                                              J. Chem. Inf. Model. 65, 7352–7372. https://doi.org/10.1021/acs.jcim.
+    Anahtar, M.N., Herneisen, A., Schulte, F., Linnehan, B., Wong, F., et al.                                                                         5c00641.
+    (2024). Discovery of antibiotics that selectively kill metabolically dormant
+                                                                              23. Cesaro, A., Bagheri, M., Torres, M., Wan, F., and de la Fuente-Nunez, C.
+    bacteria.  Cell Chem.  Biol. 31, 712–728.e9.  https://doi.org/10.1016/j.
+                                                                                        (2023). Deep learning tools to accelerate antibiotic discovery. Expert
+    chembiol.2023.10.026.
+                                                                               Opin. Drug Discov. 18, 1245–1257. https://doi.org/10.1080/17460441.
+ 7. Wong, F., Zheng, E.J., Valeri, J.A., Donghia, N.M., Anahtar, M.N., Omori,                                                                          2023.2250721.
+     S., Li, A., Cubillos-Ruiz, A., Krishnan, A., Jin, W., et al. (2024). Discovery
+                                                                              24. Wan, F., Kontogiorgos-Heintz, D., and de la Fuente-Nunez, C. (2022).
+    of a structural class of antibiotics with explainable deep learning. Nature
+                                                               Deep generative models for peptide design. Digit. Discov. 1, 195–208.
+    626, 177–185. https://doi.org/10.1038/s41586-023-06887-8.
+                                                                                https://doi.org/10.1039/d1dd00024a.
+ 8. Anahtar, M.N., Valeri, J.A., Krishnan, A., Donghia, N.M., Palace, S.G.,
+                                                                              25. Wan, F., Wong, F., Collins, J.J., and de la Fuente-Nunez, C. (2024). Ma-    Zheng, E.J., Gulati, A., Jorgenson, A., Junaid, A., Bandyopadhyay, P., et
+                                                                               chine learning for antimicrobial peptide identification and design. Nat.     al. (2025) Deep learning-enabled discovery of antibiotics effective against
+                                                                           Rev. Bioeng. 2, 392–407. https://doi.org/10.1038/s44222-024-00152-x.
+    Neisseria gonorrhoeae. In press.
+                                                                              26. Chen, L., Yu, L., and Gao, L. (2023). Potent antibiotic design via guided 9. Patel, J.S., Norambuena, J., Al-Tameemi, H., Ahn, Y.-M., Perryman, A.L.,
+                                                                           search  from  antibacterial  activity  evaluations.  Bioinformatics  39,   Wang, X., Daher, S.S., Occi, J., Russo, R., Park, S., et al. (2021). Bayesian
+                                                                            btad059. https://doi.org/10.1093/bioinformatics/btad059.    Modeling and Intrabacterial Drug Metabolism Applied to Drug-Resistant
+    Staphylococcus aureus. ACS Infect. Dis. 7, 2508–2521. https://doi.org/    27. Chen, N., Yang, L., Ding, N., Li, G., Cai, J., An, X., Wang, Z., Qin, J., and
+    10.1021/acsinfecdis.1c00265.                                                   Niu, Y. (2022). Recurrent neural network (RNN) model accelerates the
+10. Pereira, J.C., Daher, S.S., Zorn, K.M., Sherwood, M., Russo, R., Perryman,       development of antibacterial metronidazole derivatives. RSC Adv. 12,
+    A.L., Wang, X., Freundlich, M.J., Ekins, S., and Freundlich, J.S. (2020). Ma-       22893–22901. https://doi.org/10.1039/d2ra01807a.
+    chine Learning Platform to Discover Novel Growth Inhibitors of Neisseria    28. Krishnan, S.R., Bung, N., Padhi, S., Bulusu, G., Misra, P., Pal, M., Oruganti,
+    gonorrhoeae. Pharm. Res. 37, 141. https://doi.org/10.1007/s11095-020-         S., Srinivasan, R., and Roy, A. (2023). De novo design of anti-tuberculosis
+    02876-y.                                                                agents using a structure-based deep learning method. J. Mol. Graph.
+11. Yang, K., Swanson, K., Jin, W., Coley, C., Eiden, P., Gao, H., Guzman-       Model. 118, 108361. https://doi.org/10.1016/j.jmgm.2022.108361.
+    Perez, A., Hopper, T., Kelley, B., Mathea, M., et al. (2019). Analyzing    29. Zeng, X., Wang, F., Luo, Y., Kang, S.-G., Tang, J., Lightstone, F.C., Fang,
+    learned molecular representations for property prediction. J. Chem. Inf.         E.F., Cornell, W., Nussinov, R., and Cheng, F. (2022). Deep generative mo-
+    Model. 59, 3370–3388. https://doi.org/10.1021/acs.jcim.9b00237.                lecular design reshapes drug discovery. Cell Rep. Med. 3, 100794. https://
+12. Wong, F., de la Fuente-Nunez, C., and Collins, J.J. (2023). Leveraging arti-       doi.org/10.1016/j.xcrm.2022.100794.
+     ficial intelligence in the fight against infectious diseases. Science 381,    30. Zhavoronkov, A., Ivanenkov, Y.A., Aliper, A., Veselov, M.S., Aladinskiy, V.
+    164–170. https://doi.org/10.1126/science.adh1114.                                 A., Aladinskaya, A.V., Terentiev, V.A., Polykovskiy, D.A., Kuznetsov, M.D.,
+
+
+
+16    Cell 188, 1–18, October 16, 2025
+
+
+[PDF physical page 18]
+  Please cite this article in press as: Krishnan et al., A generative deep learning approach to de novo antibiotic design, Cell (2025), https://doi.
+  org/10.1016/j.cell.2025.07.033
+
+                                                                                                                       ll
+Article
+
+
+
+    Asadulaev, A., et al. (2019). Deep learning enables rapid identification of        ternational Conference on Machine Learning 119, 4849–4859. https://doi.
+    potent DDR1 kinase inhibitors. Nat. Biotechnol. 37, 1038–1040. https://       org/10.48550/arxiv.2002.03244.
+    doi.org/10.1038/s41587-019-0224-x.
+                                                                              47. Mendez, D., Gaulton, A., Bento, A.P., Chambers, J., De Veij, M., Fe´ lix, E.,
+31. Ren, F., Ding, X., Zheng, M., Korzinkin, M., Cai, X., Zhu, W., Mantsyzov, A.,        Magarin˜ os, M.P., Mosquera, J.F., Mutowo, P., Nowotka, M., et al. (2019).
+    Aliper, A., Aladinskiy, V., Cao, Z., et al. (2023). AlphaFold accelerates arti-      ChEMBL: towards direct deposition of bioassay data. Nucleic Acids Res.
+     ficial intelligence powered drug discovery: efficient discovery of a novel        47, D930–D940. https://doi.org/10.1093/nar/gky1075.
+   CDK20 small molecule inhibitor. Chem. Sci. 14, 1443–1452. https://doi.
+                                                                              48. Ertl, P., and Schuffenhauer, A. (2009). Estimation of synthetic accessibility
+    org/10.1039/d2sc05709c.
+                                                                            score of drug-like molecules based on molecular complexity and fragment
+32. Swanson, K., Liu, G., Catacutan, D.B., Arnold, A., Zou, J., and Stokes, J.M.        contributions. J. Cheminform. 1, 8. https://doi.org/10.1186/1758-2946-
+    (2024). Generative AI for designing and validating easily synthesizable and        1-8.
+    structurally novel antibiotics. Nat. Mach. Intell. 6, 338–353. https://doi.org/
+                                                                              49. Thakkar, A., Chadimova´ , V., Bjerrum, E.J., Engkvist, O., and Reymond, J.-    10.1038/s42256-024-00809-7.
+                                                                                           L. (2021). Retrosynthetic accessibility score (RAscore) - rapid machine
+33. Erlanson, D.A., McDowell, R.S., and O’Brien, T. (2004). Fragment-based                                                                                learned synthesizability classification from AI driven retrosynthetic plan-
+    drug discovery. J. Med. Chem. 47, 3463–3482. https://doi.org/10.1021/                                                                                       ning. Chem. Sci. 12, 3339–3349. https://doi.org/10.1039/d0sc05401a.
+    jm040031v.
+                                                                              50. Parrot, M., Tajmouati, H., da Silva, V.B.R., Atwood, B.R., Fourcade, R.,
+34. Erlanson, D.A., Fesik, S.W., Hubbard, R.E., Jahnke, W., and Jhoti, H.
+                                                                            Gaston-Mathe´ , Y., Do Huu, N., and Perron, Q. (2023). Integrating synthetic
+    (2016). Twenty years on: the impact of fragments on drug discovery.
+                                                                                          accessibility with AI-based generative drug design. J. Cheminform. 15, 83.
+    Nat.  Rev.  Drug  Discov.  15,  605–619.  https://doi.org/10.1038/nrd.
+                                                                                https://doi.org/10.1186/s13321-023-00742-8.
+    2016.109.
+                                                                              51. Wildman, S.A., and Crippen, G.M. (1999). Prediction of Physicochemical
+35. Babaoglu, K., and Shoichet, B.K. (2006). Deconstructing fragment-based
+                                                                          Parameters by Atomic Contributions. J. Chem.  Inf. Comput. Sci. 39,
+     inhibitor discovery. Nat. Chem. Biol. 2, 720–723. https://doi.org/10.1038/
+                                                                          868–873. https://doi.org/10.1021/ci990307l.
+   nchembio831.
+36. de Souza Neto, L.R., Moreira-Filho, J.T., Neves, B.J., Maidana, R.L.B.R.,    52. Farha, M.A., Verschoor, C.P., Bowdish, D., and Brown, E.D. (2013).
+    Guimara˜ es, A.C.R., Furnham, N., Andrade, C.H., and Silva, F.P. (2020).        Collapsing the proton motive force to identify synergistic combinations
+    In silico Strategies to Support Fragment-to-Lead Optimization in Drug Dis-        against Staphylococcus aureus. Chem. Biol. 20, 1168–1178. https://doi.
+    covery. Front. Chem. 8, 93. https://doi.org/10.3389/fchem.2020.00093.         org/10.1016/j.chembiol.2013.07.006.
+37. Sams-Dodd, F. (2005). Target-based drug discovery: is something wrong?    53. Gaetani, M., Sabatier, P., Saei, A.A., Beusch, C.M., Yang, Z., Lundstro¨ m,
+   Drug Discov. Today 10, 139–147. https://doi.org/10.1016/S1359-6446(04)         S.L., and Zubarev, R.A. (2019). Proteome Integral Solubility Alteration: A
+    03316-1.                                                               High-Throughput   Proteomics  Assay   for   Target   Deconvolution.
+                                                                                              J. Proteome  Res.  18,  4027–4037.  https://doi.org/10.1021/acs.jpro-
+38. Fink, T., Bruggesser, H., and Reymond, J.-L. (2005). Virtual exploration of
+                                                                         teome.9b00500.
+    the small-molecule chemical universe below 160 Daltons. Angew. Chem.
+     Int. Ed. Engl. 44, 1504–1508. https://doi.org/10.1002/anie.200462457.       54. Manioglu, S., Modaresi, S.M., Ritzmann, N., Thoma, J., Overall, S.A.,
+                                                                      Harms, A., Upert, G., Luther, A., Barnes, A.B., Obrecht, D., et al. (2022).
+39. Fink, T., and Reymond, J.-L. (2007). Virtual exploration of the chemical uni-
+                                                                                          Antibiotic polymyxin arranges lipopolysaccharide into crystalline struc-
+    verse up to 11 atoms of C, N, O, F: assembly of 26.4 million structures
+                                                                                    tures to  solidify the  bacterial membrane. Nat. Commun. 13, 6195.
+    (110.9 million stereoisomers) and analysis for new ring systems, stereo-
+                                                                                https://doi.org/10.1038/s41467-022-33838-0.
+    chemistry, physicochemical properties, compound classes, and drug dis-
+    covery.  J. Chem.  Inf. Model.  47, 342–353.  https://doi.org/10.1021/    55. Vetterli, S.U., Zerbe, K., Mu¨ller, M., Urfer, M., Mondal, M., Wang, S.-Y.,
+    ci600423u.                                                             Moehle, K., Zerbe, O., Vitale, A., Pessi, G., et al. (2018). Thanatin targets
+40. Blum, L.C., and Reymond, J.-L. (2009). 970 million druglike small mole-        the intermembrane protein complex required for lipopolysaccharide trans-
+    cules for virtual screening in the chemical universe database GDB-13.        port in Escherichia coli. Sci. Adv. 4, eaau2634. https://doi.org/10.1126/
+     J. Am. Chem. Soc. 131, 8732–8733. https://doi.org/10.1021/ja902302h.        sciadv.aau2634.
+41. Ruddigkeit, L., van Deursen, R., Blum, L.C., and Reymond, J.-L. (2012).    56. Theuretzbacher, U., Blasco, B., Duffey, M., and Piddock, L.J.V. (2023). Un-
+    Enumeration of 166 billion organic small molecules in the chemical uni-        realized targets in the discovery of antibiotics for Gram-negative bacterial
+    verse database GDB-17. J. Chem. Inf. Model. 52, 2864–2875. https://         infections. Nat. Rev. Drug Discov. 22, 957–975. https://doi.org/10.1038/
+    doi.org/10.1021/ci300415d.                                              s41573-023-00791-6.
+
+42. Grygorenko, O.O., Radchenko, D.S., Dziuba, I., Chuprina, A., Gubina, K.    57. Wong, F., Omori, S., Li, A., Krishnan, A., Lach, R.S., Rufo, J., Wilson, M.Z.,
+     E., and Moroz, Y.S. (2020). Generating multibillion chemical space of      and Collins, J.J. (2025). An explainable deep learning platform for molec-
+    readily accessible screening compounds. iScience 23, 101681. https://         ular discovery. Nat. Protoc. 20, 1020–1056. https://doi.org/10.1038/
+    doi.org/10.1016/j.isci.2020.101681.                                        s41596-024-01084-x.
+
+43. Brenk, R., Schipani, A., James, D., Krasowski, A., Gilbert, I.H., Frearson,    58. Tu, Z., Choure, S.J., Fong, M.H., Roh, J., Levin, I., Yu, K., Joung, J.F., Mor-
+     J., and Wyatt, P.G. (2008). Lessons learnt from assembling screening li-       gan, N., Li, S.-C., Sun, X., et al. (2025). ASKCOS: an open source software
+    braries for drug discovery for neglected diseases. ChemMedChem 3,        suite for synthesis planning. Preprint at arXiv. https://doi.org/10.48550/ar-
+    435–444. https://doi.org/10.1002/cmdc.200700139.                           xiv.2501.01835.
+
+44. Lipinski, C.A., Lombardo, F., Dominy, B.W., and Feeney, P.J. (2001).    59. Goodfellow, I.J., Pouget-Abadie, J., Mirza, M., Xu, B., Warde-Farley, D.,
+    Experimental and computational approaches to estimate solubility and        Ozair, S., Courville, A., and Bengio, Y. (2014). Generative Adversarial
+    permeability in drug discovery and development settings. Adv. Drug Deliv.        Nets. Advances in Neural Information Processing Systems. Proceedings
+    Rev. 46, 3–26. https://doi.org/10.1016/s0169-409x(00)00129-0.                  of the 27th International Conference on Neural Information Processing
+45. Wong, F., Omori, S., Donghia, N.M., Zheng, E.J., and Collins, J.J. (2023).      Systems 2, 2672–2680.
+    Discovering small-molecule senolytics with deep neural networks. Nat.                                                                              60. Schwaller, P., Laino, T., Gaudin, T., Bolgar, P., Hunter, C.A., Bekas, C.,
+    Aging 3, 734–750. https://doi.org/10.1038/s43587-023-00415-z.                                                                   and Lee, A.A. (2019). Molecular Transformer: A Model for Uncertainty-
+46. Jin, W., Barzilay, R., and Jaakkola, T. (2020). Multi-Objective Molecule        Calibrated Chemical Reaction Prediction. ACS Cent. Sci. 5, 1572–1583.
+    Generation using Interpretable Substructures. Proceedings of the 37th In-        https://doi.org/10.1021/acscentsci.9b00576.
+
+
+
+                                                                                                        Cell 188, 1–18, October 16, 2025   17
+
+
+[PDF physical page 19]
+  Please cite this article in press as: Krishnan et al., A generative deep learning approach to de novo antibiotic design, Cell (2025), https://doi.
+  org/10.1016/j.cell.2025.07.033
+
+          ll
+                                                                   Article
+
+
+
+61. Bengio, Y., Deleu, T., Hu, E.J., Lahlou, S., Tiwari, M., and Bengio, E. (2023).    72. Ruddigkeit, L., Blum, L.C., and Reymond, J.-L. (2013). Visualization and
+   GFlowNet Foundations. J. Mach. Learn Res. 24, 1–55. https://doi.org/10.         Virtual Screening of the Chemical Universe Database GDB-17. ,J. Chem.
+    48550/arxiv.2111.09266.                                                                        Inf. Model. 53, 56–65.
+
+62. Oestreich, M., Merdivan, E., Lee, M., Schultze, J.L., Piraud, M., and    73. Papp, J.R., Rowlinson, M.-C., O’Connor, N.P., Wholehan, J., Razeq, J.H.,
+    Becker, M. (2025). DrugDiff: small molecule diffusion model with flexible       Glennen, A., Ware, D., Iwen, P.C., Lee, L.V., and Hagan, C. (2018). Accu-
+    guidance towards molecular properties. J. Cheminform. 17, 23. https://       racy and reproducibility of the Etest to detect drug-resistant Neisseria
+    doi.org/10.1186/s13321-025-00965-x.                                     gonorrhoeae to contemporary treatment. J. Med. Microbiol. 67, 68–73.
+63. Alakhdar, A., Poczos, B., and Washburn, N. (2024). Diffusion models in de        https://doi.org/10.1099/jmm.0.000651.
+   novo drug design. J. Chem. Inf. Model. 64, 7238–7256. https://doi.org/10.    74. Foerster, S., Unemo, M., Hathaway, L.J., Low, N., and Althaus, C.L. (2016).
+    1021/acs.jcim.4c01107.                                                             Time-kill curve analysis and pharmacodynamic modelling for in vitro eval-
+64. Morehead, A., and Cheng, J. (2024). Geometry-complete diffusion for 3D        uation of antimicrobials against Neisseria gonorrhoeae. BMC Microbiol.
+    molecule generation and optimization. Commun. Chem. 7, 150. https://        16, 216. https://doi.org/10.1186/s12866-016-0838-9.
+    doi.org/10.1038/s42004-024-01233-z.                                     75. Ipsen, J.Ø., and Sørensen, D.M. (2022). ATP hydrolytic activity of purified
+65. Imrie, F., Bradley, A.R., van der Schaar, M., and Deane, C.M. (2020). Deep       Spf1p correlate with micellar lipid fluidity and is dependent on conserved
+    generative models for 3D linker design. J. Chem. Inf. Model. 60, 1983–       residues in transmembrane helix M1. PLoS One 17, e0274908. https://doi.
+    1995. https://doi.org/10.1021/acs.jcim.9b01120.                              org/10.1371/journal.pone.0274908.
+
+66. Lundberg, S., and Lee, S.-I. (2017). A Unified Approach to Interpreting    76. Modaresi, S.M., Sugiyama, R., Tram, N.D.T., Jakob, R.P., Phan, C.-S.,
+   Model Predictions. Adv. Neural Inf. Process. Syst. 30. https://doi.org/10.        Saei, A.A., Morishita, Y., Mu¨ hlethaler, T., Lim, J., Ritz, D., et al. (2024). An-
+    48550/arxiv.1705.07874.                                                                 tibiotics that Kill Gram-negative Bacteria by Restructuring the Outer Mem-
+67. Policar, P.G., Strazar, M., and Zupan, B. (2024). openTSNE: A Modular Py-       brane Protein BamA. Preprint at bioRxiv. https://doi.org/10.1101/2024.12.
+    thon Library for t-SNE Dimensionality Reduction and Embedding. J. Stat.       16.628070.
+    Softw. 109, 1–30. https://doi.org/10.18637/jss.v109.i03.                    77. Zhang, X., Lytovchenko, O., Lundstro¨ m, S.L., Zubarev, R.A., and Gaetani,
+68. Cutler, K.J., Stringer, C., Lo, T.W., Rappez, L., Stroustrup, N., Brook Peter-      M. (2022). Proteome integral solubility alteration (PISA) assay in mamma-
+    son, S., Wiggins, P.A., and Mougous, J.D. (2022). Omnipose: a high-pre-         lian cells for deep, high-confidence, and high-throughput target deconvo-
+    cision morphology-independent solution for bacterial cell segmentation.         lution. Bio Protoc 12, e4556. https://doi.org/10.21769/BioProtoc.4556.
+    Nat.  Methods  19,  1438–1448.  https://doi.org/10.1038/s41592-022-    78. Gaetani, M., and Zubarev, R.A. (2023). Proteome Integral Solubility Alter-
+    01639-4.                                                                         ation (PISA)  for High-Throughput Ligand Target Deconvolution with
+69. CDC. (2018). CDC and FDA Antibiotic Resistance Isolate Bank. https://       Increased Statistical Significance and Reduced Sample Amount. Methods
+    www.cdc.gov/antimicrobial-resistance/php/public-health-strategy/             Mol. Biol. 2554, 91–106. https://doi.org/10.1007/978-1-0716-2624-5_7.
+    index.html.                                                               79. Zhang, X., Lytovchenko, O., Lundstro¨ m, S.L., Zubarev, R.A., and Gaetani,
+70. Wade, J.J., and Graver, M.A. (2007). A fully defined, clear and protein-free      M. (2022). Proteome Integral Solubility Alteration (PISA) Assay in Mamma-
+     liquid medium permitting dense growth of Neisseria gonorrhoeae from         lian Cells for Deep, High-Confidence, and High-Throughput Target Decon-
+    very low inocula. FEMS Microbiol. Lett. 273, 35–37. https://doi.org/10.        volution. Bio Protoc. 12, e4556. https://doi.org/10.21769/BioProtoc.4556.
+    1111/j.1574-6968.2007.00776.x.                                           80. Raterman, E.L., and Jerse, A.E. (2019). Female Mouse Model of Neisseria
+71. Enamine. (2020). Enamine REAL Fragments database. https://enamine.       gonorrhoeae Infection. Methods Mol. Biol. 1997, 413–429. https://doi.org/
+    net/compound-collections/real-compounds/real-database.                   10.1007/978-1-4939-9496-0_24.
+
+
+
+
+
+18    Cell 188, 1–18, October 16, 2025
+
+
+[PDF physical page 20]
+  Please cite this article in press as: Krishnan et al., A generative deep learning approach to de novo antibiotic design, Cell (2025), https://doi.
+  org/10.1016/j.cell.2025.07.033
+
+                                                                                                                       ll
+Article
+
+
+STAR★METHODS
+
+KEY RESOURCES TABLE
+
+
+
+
+REAGENT or RESOURCE                   SOURCE                             IDENTIFIER
+
+Bacterial and virus strains
+
+Staphylococcus aureus RN4220 (MSSA)           DSMZ-German Collection of         DSM 26309
+                                                Microorganisms and Cell Cultures
+                                      GmbH, Leibniz Institute
+
+Staphylococcus aureus FPR3757 (MRSA)         ATCC - American Type                BAA-1556
+                                                     Culture Collection
+
+Neisseria gonorrhoeae F-18                  ATCC                              49226
+
+Neisseria gonorrhoeae FA1090                ATCC                              700825
+
+Bacillus subtilis 168                        ATCC                              23857
+
+Escherichia coli BW25113                  DSMZ                      DSM 27469
+
+Escherichia coli K-12 MG1655                 ATCC                              700926
+
+Escherichia coli JW5503-KanS                EC GRC – E coli Genetic             CGSC: 14206
+(ΔtolC832::FRT)                                 Resource Center
+
+Escherichia coli RFM795 (lptD4213)             EC GRC – E coli Genetic             CGSC: 14179
+                                              Resource Center
+
+Klebsiella pneumoniae NCTC 9633              ATCC                              13883
+
+Pseudomonas aeruginosa PAO1               ATCC                              47085
+
+Acinetobacter baumannii 5377                 ATCC                              17978
+
+Mycobacterium tuberculosis H37Ra             ATCC                              25177
+
+CDC & FDA Antibiotic Resistance             CDC & FDA AR Isolate Bank              https://wwwn.cdc.gov/arisolatebank/;
+Bank (ARB) isolates                                                             See Table S4 for unique identifiers
+
+Chemicals, peptides, and recombinant proteins
+
+De novo generated compounds and analogs          This study; synthesized by             See Data S2
+                                            Enamine Ltd. (Kyiv, Ukraine)
+
+NG1 analogs                            CC4CARB (Chemistry Center for        See Data S2
+                                             Combating Antibiotic-Resistant Bacteria)
+
+Vancomycin                                          Fisher Scientific                      AAJ6279003
+
+Valinomycin                                  Thermo Fisher                       V1644
+
+Triclosan                                           MilliporeSigma                       72779
+
+Azithromycin                              Cayman Chemical                    15004
+
+Ceftriaxone                               Cayman Chemical                    18866
+
+Fosfomycin sodium                                 MilliporeSigma                       34089
+
+CCCP (carbonyl cyanide m-chlorophenyl hydrazone)  MedChemExpress                    HY-100941
+
+Fusidic acid                                         MilliporeSigma                       F0881
+
+Ciprofloxacin                                        MilliporeSigma                       17850
+
+Kanamycin sulfate                                   MilliporeSigma                       60615
+
+DMSO                                              MilliporeSigma                      D5879
+
+PrestoBlue Cell Viability Reagent                       Invitrogen                          A13261
+
+Resazurin                                           MilliporeSigma                      R7017
+
+Triton X-100                                        MilliporeSigma                       T8787
+
+DiSC 3(5)                                               Invitrogen                         D306
+Laurdan                                           Sigma-Aldrich                        40227
+
+NPN (N-phenyl-1-naphthylamine)                    Sigma-Aldrich                        104043
+
+SYTOX Green                                          Invitrogen                          S7020
+
+TRIzol Reagent                               Thermo Fisher                       15596026
+
+Chloroform                                        Sigma-Aldrich                      C2432
+
+                                                                                                                (Continued on next page)
+
+
+
+                                                                                               Cell 188, 1–18.e1–e13, October 16, 2025   e1
+
+
+[PDF physical page 21]
+  Please cite this article in press as: Krishnan et al., A generative deep learning approach to de novo antibiotic design, Cell (2025), https://doi.
+  org/10.1016/j.cell.2025.07.033
+
+          ll
+                                                                   Article
+
+
+
+Continued
+
+REAGENT or RESOURCE                   SOURCE                             IDENTIFIER
+
+FM4-64                                     Thermo Fisher                       T13320
+
+DAPI                                       Thermo Fisher                      D1306
+
+Experimental models: Cell lines
+
+HEK293                                ATCC                             CRL-1573
+
+HepG2                                ATCC                             HB-8065
+
+HSkMC                                ATCC                              PCS-950-010
+
+IMR90                                 ATCC                             CCL-186
+
+Experimental models: Organisms/strains
+
+Female C57BL/6J mice                          Jackson Laboratory                   000664
+
+Female BALB/cJ                                Jackson Laboratory                   000651
+
+Female ovariectomized BALB/cJ mice              Jackson Laboratory                   000651
+
+Software and algorithms
+Chemprop                                  Yang et al. 11                           https://github.com/chemprop/chemprop
+
+RDKit                                          RDKit                                     https://www.rdkit.org
+SHAP                                         Lundberg and Lee 66                      https://github.com/slundberg/shap
+openTSNE                                             Policar et al. 67                            https://opentsne.readthedocs.io
+CReM                                             Polishchuk 20                            https://github.com/DrrDom/crem
+F-VAE                                                   Jin et al. 46                              https://github.com/wengong-
+                                                                                                          jin/multiobj-rationale
+JT-VAE                                                 Jin et al. 17                              https://github.com/wengong-
+                                                                                            jin/hgraph2graph
+ASKCOS                                    Tu et al. 58                                 https://askcos.mit.edu
+
+GraphPad Prism v10.1.0                        GraphPad Software                    https://www.graphpad.com
+
+Harmony & Signal Image Artist                      PerkinElmer                         N/A
+Omnipose                                             Cutler et al. 68                             https://github.com/kevinjohncutler/omnipose
+
+Proteome Discoverer                           Thermo Fisher                           v3.2
+
+edgeR v4.4.2                                     Bioconductor                             https://bioconductor.org/packages/release/
+                                                                                           bioc/html/edgeR.html
+
+clusterProfiler v4.10.0                             Bioconductor                            https://www.bioconductor.org/
+                                                                                             packages//2.13/bioc/html/
+                                                                                                         clusterProfiler.html
+
+Deposited data
+
+Code platform for reproducing                        This study                                  https://github.com/aartikrish/
+all analyses in this work                                                                         de-novo-antibiotics
+
+Data generated from the computational               This study                          Zenodo repository:
+pipelines (fragment based and de novo design)                                                https://doi.org/10.5281/zenodo.15191826
+Data generated from experimental              Wong et al. 7; Anahtar et al.8            Zenodo repository
+chemical screening                                                                          https://doi.org/10.5281/zenodo.15191826
+
+RNA sequencing data                                This study                          Zenodo repository
+                                                                                            https://doi.org/10.5281/zenodo.15191826
+
+Proteomics data                                     This study                         PRIDE ID: PXD063107
+
+Other
+
+SpectraMax M3 Multi-Mode                         Molecular Devices                    N/A
+Microplate Reader
+
+JEM-2100F Field Emission                     JEOL                              N/A
+Electron Microscope for Cryo-TEM
+
+Gatan Cryoplunge                              Gatan                             N/A
+
+                                                                                                                (Continued on next page)
+
+
+
+
+
+e2    Cell 188, 1–18.e1–e13, October 16, 2025
+
+
+[PDF physical page 22]
+  Please cite this article in press as: Krishnan et al., A generative deep learning approach to de novo antibiotic design, Cell (2025), https://doi.
+  org/10.1016/j.cell.2025.07.033
+
+                                                                                                                       ll
+Article
+
+
+
+Continued
+
+REAGENT or RESOURCE                   SOURCE                             IDENTIFIER
+
+Opera Phenix 2 Confocal Microscope                PerkinElmer                         N/A
+for High-Content Screening
+
+Biometra T-GRADIENT thermocycler                   Analytik Jena                        8464070201
+
+Orbitrap Exploris 480 Mass Spectrometer          Thermo Fisher Scientific              BRE725539
+
+NovaSeq X Plus                                         Illumina                            N/A
+
+Labcyte Echo 555 Acoustic Dispenser            Beckman Coulter                    N/A
+
+Qubit 4 Fluorometer                           Thermo Fisher                       N/A
+
+Direct-zol RNA Miniprep Plus Kit                Zymo Research                     R2070
+
+Sep-Pak C18 Column                            Waters                             N/A
+
+PepMap C18 trap and RSLC                     Thermo Fisher                       N/A
+nano-LC columns
+
+
+
+
+EXPERIMENTAL MODEL AND STUDY PARTICIPANT DETAILS
+
+
+Cell culture
+Human cell lines were obtained from ATCC: HEK293 (CRL-1573), HepG2 (HB-8065), HSkMCs (PCS-950-010) and IMR-90 (Institute
+for Medical Research-90 cell line; CCL-186). HEK293 and HepG2 cells were grown to log phase in high-glucose Dulbecco’s Modified
+Eagle Medium (DMEM; Corning 10-013-CV) supplemented with 10% fetal bovine serum (FBS; ThermoFisher 16140071) and 1%
+penicillin-streptomycin (ThermoFisher 15070063). HSkMCs were grown in mesenchymal stem cell basal medium for adipose, um-
+bilical and bone marrow-derived MSCs (ATCC: PCS-500-030) supplemented with ATCC’s primary skeletal muscle growth kit
+(ATCC: PCS-950-040) and 1% penicillin-streptomycin. IMR-90 cells were grown in in Eagle’s Minimum Essential Medium (EMEM;
+ATCC 30-2003) supplemented with 10% FBS and 1% penicillin-streptomycin. Cells were cultured at 37 ◦ C and 5% CO 2 in humidi-
+ty-controlled incubators and passaged <5-10 times. All cell lines were authenticated by the supplier, ATCC, using STR profiling.
+
+
+Bacterial cell culture
+The main bacterial strains used in this study include methicillin-susceptible Staphylococcus aureus RN4220 (MSSA DSM 26309;
+DSMZ German Collection of Microorganisms and Cell Cultures, Leibniz Institute), methicillin-resistant Staphylococcus aureus
+FPR3757 (MRSA USA300; ATCC BAA-1556), and Neisseria gonorrhoeae (ATCC 49226). Other common strains include N. gonor-
+rhoeae FA 1090 (ATCC 700825), Bacillus subtilis 168 (ATCC 23857), Escherichia coli BW25113 (DSMZ 27469), MG1655 (ATCC
+700926), JW5503-KanS (ΔtolC832::FRT, CGSC 14206), and RFM795 (lptD4213) (CGSC 14179), Klebsiella pneumoniae (ATCC
+13883), Pseudomonas aeruginosa PAO1 (ATCC 47085), Acinetobacter baumannii (ATCC 17978) and Mycobacterium tuberculosis
+MTB H37Ra (ATCC 25177). Additional bacterial isolates in Table S4 were obtained from the CDC & FDA Antibiotic Resistance
+(AR) Isolate Bank (Atlanta, Georgia). 69 All bacterial strains were authenticated by their respective suppliers: ATCC, DSMZ and/or
+CDC, using next-generation sequencing or Sanger sequencing. Unless specified, LB medium containing 1.5% Difco agar (Becton
+Dickinson 244520) was used to grow individual colonies. Cells were grown in liquid LB (Becton Dickinson 244620) from single col-
+onies aerobically in 14 mL Falcon tubes using 2-3 mL working volumes without antibiotic selection. The cultures were incubated at 37
+◦ C in a light-insulated, humidity-controlled chamber, shaking at 300 rpm. All Neisseria strains were passaged twice on chocolate agar
+plates (CAP; Hardy Diagnostics, H25). Several colonies were picked from plates to obtain a desired OD600 and grown in specialized
+Graver Wade media 70 at 37 ◦ C with 5% CO 2 in a humidity-controlled incubator.
+
+Mouse models
+All animal studies were performed at the Wyss Institute at Harvard in accordance with protocol IS00000852-6, approved by the Har-
+vard Medical School Institutional Animal Care and Use Committee and the Committee on Microbiological Safety. All mice were all
+purchased from Jackson Laboratory and housed in pathogen-free facility maintained at 20-26ºC ambient temperature, 40-65% rela-
+tive humidity, and a 12:12 light-dark cycle. Enrichment devices were included in the animal environments as required and changed bi-
+weekly. For NG1, female BALB/c mice had a 1 week acclimation period to the mouse facility prior to testing the toxicity (healthy; 6–
+8 weeks old, 20 ± 2 g) and efficacy (healthy; ovariectomized at Jackson Laboratory, 23 ± 3 g). None of the mice had been involved in
+previous procedures. For DN1, female C57BL/6J mice had a 48-hour acclimation period upon arrival to the mouse facility prior to
+testing the toxicity (healthy; 6-12 weeks old, weight of 22 ± 2 g) and efficacy (rendered neutropenic with cyclophosphamide on
+Day -4 and Day -1; 19 ± 2 g).
+
+
+
+
+
+                                                                                               Cell 188, 1–18.e1–e13, October 16, 2025   e3
+
+
+[PDF physical page 23]
+  Please cite this article in press as: Krishnan et al., A generative deep learning approach to de novo antibiotic design, Cell (2025), https://doi.
+  org/10.1016/j.cell.2025.07.033
+
+          ll
+                                                                   Article
+
+
+METHOD DETAILS
+
+
+Computational methods
+Machine learning models
+Chemprop 11 is a software package that implements directed message-passing neural networks (D-MPNNs). Here, these models are
+trained on binarized data representing the empirical growth inhibitory activity of compounds. As described previously, 11 D-MPNNs,
+which are a form of graph neural networks (GNNs), take as input a simplified molecular-input line-entry system (SMILES) string of a
+compound and convert it to a molecular graph representation. Graph convolutional operations are applied to each atom and bond,
+and information from local substructures of the compound are aggregated. An intermediate vector representation is generated by
+collapsing the information associated with each bond and atom into a single embedding. This embedding is then concatenated
+to a list of global biophysical features, such as molecular weight, which are used to potentially improve the predictions made, and
+the output is then passed to a fully-connected feed-forward neural network. The output of each trained model is a score between
+0 and 1, representing the probability that the input molecule is antibacterial (0: does not inhibit bacterial growth and 1: inhibits bac-
+terial growth). The output of an ensemble was taken as the average of all models in the ensemble.
+  In this work, ensembles of 20 binary classification Chemprop models for two bacterial species, N. gonorrhoeae and S. aureus, were
+trained on 38,765 and 39,312 compounds (as described in detail in Anahtar et al. 8 and Wong et al.7 ), respectively. Training datasets
+containing the experimentally-determined inhibitory activity of each compound are available in Anahtar et al. 8 and Wong et al.7 Hy-
+perparameter optimization was performed, and each ensemble was previously benchmarked. 7,8 Chemprop models predicting cyto-
+toxicity against human cells were previously developed and described in Wong et al. 7 ; in this work, we use these models to predict
+the cytotoxicity of a given fragment or compound against human hepatocellular carcinoma (HepG2), human skeletal muscle cells
+(HSkMCs), and human lung fibroblasts (IMR-90). The output of these models is a score between 0 and 1, describing the probability
+that the inputted compound is cytotoxic (0: non-toxic and 1: toxic).
+
+
+SHAP analysis of molecular feature importance
+Model setup and background data
+A SHAP (SHapley Additive exPlanations) analysis was conducted to quantify the contribution of 2D RDKit-derived descriptors (200
+features) to antibacterial activity predictions. Features were stored in .npz format, and background data comprised the first 100 com-
+pounds from the dataset. Data were split into 240 equal-sized chunks to enable parallel execution across a high-performance
+computing (HPC) cluster.
+SHAP feature attribution for antibacterial activity models
+To interpret the contribution of molecular descriptors to model predictions, we applied SHAP analysis to neural network models
+trained to predict antibacterial activity from RDKit-derived 2D chemical features. Separate SHAP analyses were performed for
+models trained on N. gonorrhoeae and S. aureus, each using the same set of 200 standardized descriptors as model input. SHAP
+values were computed using a model-agnostic approach with the shap.Explainer class, where predictions were generated via a
+custom wrapper around the Chemprop command-line interface. This wrapper accepted NumPy arrays of feature vectors, saved
+them to temporary files compatible with Chemprop, and invoked model inference using subprocess calls. A background set of
+100 representative molecules was used to approximate conditional expectations for feature ablation. To parallelize SHAP compu-
+tations, the full dataset was divided into 240 chunks and processed independently across a CPU-based HPC cluster. For each chunk,
+SHAP values were computed and saved as serialized objects. After completion, all chunks were aggregated into a single SHAP
+explanation object per species. We calculated global feature importance by taking the mean absolute SHAP value across all mole-
+cules for each descriptor. The top 10 most influential features were visualized in SHAP summary plots, annotated with short chemical
+descriptions and colored by feature value. All 200 features were also exported to a CSV file reporting their names, descriptive anno-
+tations, and mean SHAP contributions. These results enabled identification of key structural and physicochemical properties asso-
+ciated with antibacterial activity across species-specific models. SHAP analysis was performed in Python 3.10 on CPU nodes on the
+high performance computing cluster. Predictions were generated using the Chemprop CLI (version 1.6.1). RDKit (version 2024.3.6)
+was used for descriptor generation. All scripts utilized shap, matplotlib, numpy, and pandas for computation and visualization.
+Species specificity of Chemprop models
+To examine the species specificity of the different models for N. gonorrhoeae and S. aureus, our original training data that were empir-
+ically tested against both species were split into a training set (80%) and test set (20%). Both N. gonorrhoeae- and S. aureus-specific
+models were re-trained and the mean predicted scores were compared with the antibacterial activity of the test set. Compounds with
+high mean scores against one species demonstrated selective activity against that species, and compounds with high (or low) mean
+scores against both species demonstrated activity (inactivity) against both species.
+Fragment and compound libraries
+A fragment library comprising 45,858,026 fragments was assembled from the Generated DataBase (GDB, courtesy of Dr. Jean-Louis
+Reymond at the University of Bern, Switzerland) and the Readily AccessibLe (REAL) fragment database from Enamine. 71 The GDB
+libraries enumerate all theoretically-possible fragments up to a prespecified number of atoms following simple chemical stability and
+synthetic feasibility rules.72 To compile a set of 11-atom fragments including C, N, O, F, Cl, and S atoms, we combined the entire
+GDB-11 39 (fragments up to 11 atoms including C, N, O, and F atoms, N = 26,434,571) and all up-to-11-atom fragments in the
+
+
+
+e4    Cell 188, 1–18.e1–e13, October 16, 2025
+
+
+[PDF physical page 24]
+  Please cite this article in press as: Krishnan et al., A generative deep learning approach to de novo antibiotic design, Cell (2025), https://doi.
+  org/10.1016/j.cell.2025.07.033
+
+                                                                                                                       ll
+Article
+
+
+GDB-1340 (which includes C, N, O, Cl, and S atoms, N = 1,089,000). Enamine fragments (version October 5, 2022, N = 18,338,026)
+were obtained from the Enamine REAL database.
+  To experimentally assess chemically diverse compounds containing the above fragments, as well as to search for analogs, we
+assembled a database from two large purchasable libraries: 799,149 compounds from the Broad Institute and 6,138,200 commer-
+cially available compounds from MolPort, MayBridge, and Ambinter.
+Identification and selection of fragments and compounds associated with antibiotic activity
+All 45,858,026 fragments, containing readily-accessible fragments from the Enamine REAL Fragment database, were scored using
+the trained N. gonorrhoeae 8 and S. aureus ensemble 7 models, as described above. All 6,937,349 compounds were scored using both
+N. gonorrhoeae and S. aureus ensembles. For the analysis shown in Figure S1A, three fragments representative of known antibiotics
+were encoded using the following SMILES strings: nitrofuran: ‘O=[N+](O)c1ccco1’; fluoroquinolone: ‘O=C(O)c2c[nH]c1ccc(F)
+cc1c2=O’; and carbapenem: ‘O=C(O)C1=CCC2CC(=O)N12’. Compounds containing these moieties were identified in a manually-
+compiled set of 559 known antibiotics and antiseptics 6 (Data S1). Compounds containing the fragments were identified using RDKit’s
+HasSubstructMatch function, and the known antibacterial compounds were subsequently scored using either the N. gonorrhoeae or
+S. aureus ensembles. We found that the prediction scores for compounds correlated with the prediction scores of the fragment alone
+(Figure S1A), supporting the performance of an algorithm that identifies fragments with high predictive scores for the discovery and
+design of selective antibacterial compounds.
+  As detailed in the main text, our approach to fragment selection and compound testing involved the following steps. For each of
+N. gonorrhoeae and S. aureus, fragments with antibiotic activity prediction scores > 0.05 or > 0.1 were retained in the GDB and REAL
+libraries, respectively. Of these fragments, those with cytotoxicity prediction scores < 0.5 across all three human cell types (HepG2,
+HSkMC, and IMR90) were retained. Fragments were then tested for the presence of PAINS or Brenk substructures using RDKit’s
+FilterCatalogParams.FilterCatalogs.PAINS and FilterCatalogParams.FilterCatalogs.BRENK built-in structure lists, respectively. To
+focus on structurally novel fragments, only fragments with maximum Tanimoto similarity < 0.5 with respect to the aforementioned
+set of 559 known antibiotics were retained. Here, Tanimoto similarity was calculated using Morgan fingerprints, with radius equal
+to 2 and number of bits equal to 2048. The remaining fragments were matched to compounds using RDKit’s HasSubstructMatch
+function. Matched compounds were considered if they had an antibacterial activity prediction score > 0.1, and matched compounds
+were filtered in the same way for cytotoxicity and structural novelty as described for fragments above (GitHub repository, see data
+and code availability).
+
+
+De novo design of compounds with generative models
+CReM: chemically reasonable mutations framework
+For the genetic algorithm based on F-CReM described in this work, a modified version of CReM 20 was implemented. For each run of
+the algorithm, the SMILES string of a fragment and molecule containing the fragment was provided as input; the former was provided
+in order to ensure that all generated compounds possessed the fragment using RDKit’s HasSubstructMatch() function, and the latter
+was provided as a seed. For de novo design of molecules based on CReM, the SMILES string of either ammonia, methane, or water
+was provided as input.
+  By default, CReM provides two methods: ‘grow’ and ‘mutate’ (as implemented in the CReM Python package). Ranges for param-
+eter combinations were provided as additional input. Parameter combinations for grow algorithms included max_atom (4, 6, 8, and
+10 were used), min_atom (0 was used), and radius (2 and 3 were used), while the parameter combinations for mutate algorithms
+included the max_size (4, 6, 8, and 10 were used), min_size (0 was used), radius (2 and 3 were used), min_inc (-2 was used), and
+max_inc (2 was used). All possible combinations of these parameters were considered using a full grid search. For a given parameter
+set, the algorithm proceeded as follows:
+
+      (i) The original molecule was used to generate de novo molecules with either the grow or mutate function from CReM, and mol-
+     ecules that did not contain the original fragment were discarded.
+      (ii) Compounds containing PAINS and Brenk substructures were excluded.
+      (iii) Chemprop scores for the resulting molecules were calculated using either the S. aureus or N. gonorrhoeae ensemble.
+     (iv)  If the user-defined scoring method was set to ‘regular score’, then the compounds were ranked according to the Chemprop
+      models (chempropsco). If not, modified scores that incorporate additional criteria were calculated. The additional criteria
+       included the following variables: SAScore (predicted synthesizability score), tansim (Tanimoto similarity to known antibiotics),
+      hepg2 (predicted toxicity score for HepG2 cells), and prim (predicted toxicity score for HSkMC cells). To improve speed, pre-
+       diction scores from the IMR-90 cytotoxicity ensemble were not considered as additional variables here, but all generated
+     compounds were eventually filtered based on cytotoxicity prediction scores from all three cytotoxicity ensembles (as
+      described in Down-selection of generated compounds for synthesis and testing below). Modified scores (adj_score) were
+       calculated based on the original score (chempropsco) and the additional variables according to the formula:
+   adj_score = (2.0 * chempropsco) - ((sascore / 10.0) + tansim + hepg2 + prim).
+    (v) Finally, to seed the next iteration of the algorithm, we calculated the number of compounds generated and scored in steps (i)-
+         (iv) above (Ngen ) and compared it to the sum of two prespecified numbers, Ntop and Nrand . If max_atom_range ≥ 8, then Ntop = 2
+     and Nrand = 1; else Ntop = 5 and N rand = 5. If Ngen ≤ Ntop + N rand , then all N gen compounds were used to seed the next iteration.
+
+
+
+                                                                                               Cell 188, 1–18.e1–e13, October 16, 2025   e5
+
+
+[PDF physical page 25]
+  Please cite this article in press as: Krishnan et al., A generative deep learning approach to de novo antibiotic design, Cell (2025), https://doi.
+  org/10.1016/j.cell.2025.07.033
+
+          ll
+                                                                   Article
+
+
+      Otherwise, the N top highest-scoring compounds among the Ngen generated compounds, as well as Nrand other randomly cho-
+      sen compounds among the Ngen generated compounds were used to seed the next iteration.
+
+Fragment-based Variational Autoencoder (F-VAE)
+The F-VAE described in the main text was inspired by fragment-based drug discovery strategies often used by medicinal chemists.
+The algorithm starts with fragments associated with specific properties of interest (e.g., antibacterial activity) and expands these frag-
+ments into molecules. In particular, our rationale-conditioned molecular graph generator is a variational autoencoder which com-
+pletes a full molecule, G, given a fragment, S. Since each fragment (S) may be realized into many different molecules, we introduce
+a latent variable, z, to generate diverse outputs:
+                                                 ∫
+                                            P(G|S) =   P(G|S; z)P(z)dz;
+
+                                                                                              z
+
+where P(z) is the prior distribution. The F-VAE model consists of a graph encoder and a graph decoder. In this case, the encoder is a
+message passing neural network (MPNN) which learns the approximate posterior for variational inference. In the graphical represen-
+tation of each molecule, each atom or bond is represented by a one-hot encoding of its atom or bond type. The encoder then uses
+three message-passing layers, followed by an average pooling operation, to transform the initial graph representation into a
+20-dimensional latent vector, z G .
+  The decoder then generates a molecule (a molecular graph) according to its breadth-first order. In each step, the model generates
+a new atom and all its connecting edges. During generation, we maintained a queue that contained frontier nodes in the graph with
+neighbors to be generated. Let G t be the partial graph generated by step t. To ensure that the full molecule, G, contains S as a sub-
+graph, we set the initial state of G 0 = S and put all the leaf atoms (atoms with degree = 1 in the graph) in the queue. In each generation
+step, the decoder first runs an MPNN over the current graph to compute an atom representation, hv , for each atom, v. Suppose that
+the first atom in the queue is v. The decoder then expands the current molecule using three decision steps:
+
+   1. Predict whether there will be a new atom attached to v. The probability of this expansion step is predicted based on the latent
+      vector, z G , and atom representation of v: p v = sigmoid(MLP(h v ;zG )).
+   2.  If pv > 0:5, discard v and move on to the next node in the queue. Otherwise, create a new atom, u, predict its atom type, and
+     append it to the queue.
+   3. Predict the bond type between u and other leaf nodes in the queue. Since atoms are generated in breadth-first order, there are
+     no bonds between u and atoms not in the queue. To fully capture edge dependencies, we predict the bonds between u and
+     atoms in the queue sequentially, and we update the representation of u when new bonds are added to the molecule.
+
+  The F-VAE was pre-trained on 1,686,695 molecules from ChEMBL (version 22) to enable the model to generate realistic molecules.
+Each training example was a pair, (S, G), where S is a random connected subgraph of a molecule G with up to 15 atoms. We trained
+the generative model to maximize the likelihood of the ground truth molecule G given fragment S, using the following hyperpara-
+meters: hidden_size = 400, batch_size = 16, MPNN depth = 3, learning rate = 1e-3, optimizer = Adam, and epoch = 20.
+Junction Tree Variational Autoencoder (JT-VAE)
+The JT-VAE described in the main text is a deep generative model designed to generate a molecule without a starting fragment. It
+represents a molecule at two different levels: an atom graph that represents how atoms are connected to each other and a junction
+tree that captures how chemical motifs are connected to each other. The model consists of an encoder that maps a molecular graph
+and a junction tree to a latent representation and a decoder that reconstructs a molecule by sequentially assembling chemical sub-
+structures based on the learned junction tree structure. The encoder of JT-VAE is a hierarchical MPNN with three layers.
+
+   1. Motif layer: This layer represents how the motifs are coarsely connected in the graph. This layer provides essential information
+       for the motif prediction in the decoding process.
+   2. Attachment layer: This layer encodes the connectivity between motifs at a fine-grained level, highlighting the attachment points
+     between two chemical motifs.
+   3. Atom layer: The atom layer is a molecular graph representing how its atoms are connected, where each node represents an
+     atom, and each edge represents a bond.
+
+  The decoder generates a molecule motif by motif according to their depth-first order, using the information encoded by the latent
+representation. In each generation step, the decoder expands the current molecule based on two predictions:
+
+   1. Motif Prediction: The model predicts the next motif to be attached to the current graph.
+   2. Attachment Prediction: Next, the model needs to predict the attachment configuration between the newly selected motif and
+      the current graph.
+
+  The above three predictions together give an autoregressive factorization of the distribution over the next motif and its attachment.
+We trained JT-VAE on 1,686,695 drug-like compounds from the ChEMBL database, the same training set as F-VAE. We trained the
+
+
+
+e6    Cell 188, 1–18.e1–e13, October 16, 2025
+
+
+[PDF physical page 26]
+  Please cite this article in press as: Krishnan et al., A generative deep learning approach to de novo antibiotic design, Cell (2025), https://doi.
+  org/10.1016/j.cell.2025.07.033
+
+                                                                                                                       ll
+Article
+
+
+generative model to maximize the likelihood of the molecules in the training set. The model hyperparameters are as follows: hidden_
+size = 400, batch_size = 16, MPNN depth = 3, learning rate = 1e-3, optimizer = Adam, and epoch = 20. By sampling from JT-VAE
+latent space 40 million times, we generated 28,534,490 unique molecules and ranked them based on their predicted antibacterial
+properties.
+Down-selection of generated compounds for synthesis and testing
+All compounds were down-selected based on (i) de-duplication of SMILES, (ii) predicted antibacterial score, (iii) maximum Tanimoto
+similarity with respect to the set of known antibiotics as well as all active antibacterial compounds in the respective training set, (iv)
+synthesizability score (SAscore 48 or RAscore 49 ), and (v) predicted HepG2 and/or HSkMC cytotoxicity score. Both SAscore and RA-
+score were used only to sample different synthetic accessibility scoring approaches.
+  For fragments F1, F2 and F2’, F-CReM compounds were down selected using predicted antibacterial score > 0.7, SAScore < 3,
+Tanimoto similarity < 0.5, and HepG2 and HSkMC cytotoxicity score < 0.2. Compounds that contained a β-lactam motif, as defined
+by those returning True using HasSubstructMatch() with the molecule described by ‘O=C1CCN1’, were additionally filtered out to
+preserve structural novelty. For fragments F1, F2 and F2’, F-VAE generated-compounds were filtered using predicted antibacterial
+score > 0.3, RAScore > 0.8, Tanimoto similarity < 0.4, and HepG2 cytotoxicity score < 0.2.
+Visualization with t-SNE
+t-SNE plots were generated using openTSNE’s TSNE() function with perplexity 45, Euclidean distance as the metric, and PCA initial-
+ization. Molecules were represented as RDKit fingerprints with min_path=1, max_path=7, n_bits=2048.
+ASKCOS retrosynthesis planning tool
+The Monte Carlo tree search retrosynthesis model in ASKCOS 58 was used to generate retrosynthetic pathways to each compound.
+The retrosynthetic search was run on nodes with four CPUs with an expansion time of 60 seconds, a branching factor of 25, and a
+maximum depth of 6. All other search parameters were set to ASKCOS defaults. We consider the search successful if ASKCOS iden-
+tified at least one retrosynthetic path from the target compound to purchasable compounds.
+
+
+Experimental methods
+Chemical compounds
+Compounds with high purity (>90%) were procured either from the Broad Institute Center for the Development of Therapeutics
+(CDoT) or from commercial chemical vendors including BIONET-Key Organics Ltd.(Cornwall, UK), ChemBridge (San Diego, CA),
+ChemDiv (San Diego, CA), Maybridge (Altrincham, UK), MedChemExpress (Monmouth Junction, NJ), TargetMol (Boston, MA),
+Vitas-M (Hong Kong, China), and Enamine (Kyiv, Ukraine). Stock solutions and serial dilutions of all compounds were freshly prepared
+in dimethyl sulfoxide (DMSO; MilliporeSigma D5879), unless stated otherwise. Known antibiotics were obtained as follows: vanco-
+mycin (Fisher Scientific AAJ6279003), valinomycin (Thermo Fisher, V1644), triclosan (MilliporeSigma, 72779), azithromycin (Cayman
+Chemical, 15004), ceftriaxone (sodium salt hydrate, Cayman Chemical, 18866), fosfomycin sodium (MilliporeSigma, 34089), CCCP
+(carbonyl cyanide m-chlorophenyl hydrazone; MedChemExpress, HY-100941), and fusidic acid (Millipore Sigma F0881), all dis-
+solved in DMSO. Kanamycin sulfate (MilliporeSigma, 60615) was dissolved in ultrapure MilliQ-water and ciprofloxacin powder
+(MilliporeSigma 17850) was dissolved in dilute acid (0.1 M HCl). De novo generated compounds, and their respective analogs
+were synthesized and procured from Enamine (Kyiv, Ukraine). Analogs of compounds containing fragment F1 (NG1 analogs)
+were designed and synthesized by CC4CARB (Chemistry Center for Combating Antibiotic-Resistant Bacteria), an NIAID-led (Na-
+tional Institute of Allergy and Infectious Diseases) partnership with RTI (Research Triangle Institute).
+MIC, MBC, and bacterial growth inhibition assays
+For S. aureus, a bacterial suspension of ∼10 5 CFU/mL was obtained either by performing a 1:10,000 dilution of an overnight culture,
+picked from a single colony, or a 1:500 dilution of an OD 600 0.08 suspension in fresh LB (Becton Dickinson 244620). Cells were
+seeded in a 96-well plate, with 99 μL of bacteria and one μL of two-fold serially diluted compound in DMSO. Plates were sealed
+with breathable membranes (Millipore Sigma Z763624) and incubated for 18-24 hours at 37 ◦ C with 5% CO 2 . The MIC was deter-
+mined as the minimum concentration for which OD600 < 0.1, as measured using a SpectraMax M3 plate reader. For initial screening
+experiments, active compounds were determined as those for which OD 600 < 0.15. For calculating the MBC (maximum bactericidal
+concentration), overnight treated cells were removed from incubation and serially diluted 10-fold in room temperature LB. Five μL was
+spotted on LB agar plates and allowed to dry at room temperature before stationary incubation at 37 ◦ C overnight for 16 to 24 h. CFUs
+were determined by manual counting, and all measurements are based on counts containing at least six colonies.
+  For N. gonorrhoeae, MICs were determined via broth microdilution when screening compounds, via agar dilution when confirming
+values for a given candidate small molecule (e.g., NG1), or via ETEST when testing a standard-of-care antibiotic, per CLSI M100 and
+M07 guidelines. Prior to MIC testing, frozen stocks were passaged twice on chocolate agar plates (CAP; Hardy Diagnostics, H25).
+N. gonorrhoeae broth microdilution was performed by first preparing the bacterial inoculum by picking individual colonies from an
+overnight CAP, suspending in PBS to OD600 0.08, and diluting the suspension 1:200 in Graver Wade media. 70 Within 15 minutes
+of inoculum preparation, each well of a 96- or 384-well plate was inoculated with bacteria and compound (serially diluted in
+DMSO) such that the final DMSO concentration in each well was ≤1% and bacterial concentration was ∼5 × 10 5 CFU/mL. Plates
+were incubated at 36-37◦ C with 5% CO 2 for 20-24 hours. The MIC was determined as the concentration of compound resulting
+in complete inhibition of growth both visually and as measured by PrestoBlue HS Cell Viability Reagent (Invitrogen) after 1-2 hours
+of incubation. N. gonorrhoeae agar dilution was performed for candidate small molecules by first preparing agar dilution plates
+
+
+
+                                                                                               Cell 188, 1–18.e1–e13, October 16, 2025   e7
+
+
+[PDF physical page 27]
+  Please cite this article in press as: Krishnan et al., A generative deep learning approach to de novo antibiotic design, Cell (2025), https://doi.
+  org/10.1016/j.cell.2025.07.033
+
+          ll
+                                                                   Article
+
+
+following CLSI M07 guidelines. Briefly, serial dilutions of 100× compound stock solutions were made in DMSO and added to molten
+agar, made of gonococcal (GC) medium base (BD Difco 228950) with 1% IsovitaleX Enrichment (BD 211876), which had been equil-
+ibrated to 45-50◦ C in a water bath. The agar and compound solution were mixed thoroughly and poured into a 6-well plate and al-
+lowed to solidify at room temperature. A DMSO-only growth control was included with every dilution series. Plates were used imme-
+diately or stored in sealed plastic bags at 4 ◦ C for up to a week and allowed to equilibrate to room temperature before use. The
+bacterial inoculum was prepared by making a 1:10 dilution of a 0.5 McFarland standardized inoculum of each bacterial strain in sterile
+saline and inoculating 2 μL of the suspension onto each marked location of a plate. The inoculated plates were allowed to dry and
+incubated at 36-37◦ C with 5% CO 2 for 16-20 hours while inverted. MICs were read on a dark surface, with growth on the growth
+control plate required for validity. Neisseria gonorrhoeae ETESTs (bioMe´ rieux) were performed as described previously. 73 Briefly,
+a sterile swab was soaked in a 0.5 McFarland standard bacterial suspension, excess fluid was removed, and the swab was used
+to evenly cover the entire surface of a plate of GC agar base with 1% IsoVitaleX. The plate was allowed to completely dry before
+placing an ETEST with sterile forceps, incubating for 18-24 hours at 37 ◦ C with 5% CO 2 , and reading the MIC as the lowest antibiotic
+concentration that inhibited growth.
+  For M. tuberculosis, 100 μL of exponentially growing bacteria was seeded at a density of 5 × 10 4 cells per well in 7H9 supplemented
+with ADS (albumin dextrose saline), incubated with drug for 5 days at 37 ◦ C, then incubated for another 24 hours with 15 μL of 0.02%
+resazurin (w/v), and fluorescence was read with a SpectraMax M3 plate reader (Ex = 530 nm, Em = 590 nm).
+  For other species not previously specified, an OD600 0.08 suspension was made in PBS and diluted 1:500 in fresh LB or Haemo-
+philus Test Medium Broth (Remel) for Haemophilus. Each well of a 96-well plate received 99 μL of the bacterial suspension and 1 μL of
+compound. Plates were incubated at 37 ◦ C in ambient conditions, except for Haemophilus (5% CO 2), for 18-24 hours and MICs were
+read visually and confirmed by measuring OD600 values. All assays were performed in biological duplicates.
+Bacterial time-kill assays
+For MSSA RN4220, cells were diluted 1:10,000 from an overnight culture into fresh LB and plated into 96-well flat-bottom clear plates
+using 99 μL working volumes. Plates were then sealed with breathable membranes, and cells were grown to early exponential phase,
+OD 600 ∼ 0.01 (corresponding to ∼10 6 CFU/mL) in a 37 ◦ C incubator with shaking at 300 rpm. One μL of compound in two-fold serial
+dilutions in DMSO was then added to each well to the final concentrations indicated, and bacterial cell cultures were sealed and re-
+incubated at 37 ◦ C with shaking at 300 rpm. At indicated times, cells were removed from incubation, serially diluted in room-temper-
+ature LB, and spotted on LB agar (Becton Dickinson 244520) in rectangular plates. Plated cells on LB agar were allowed to dry at
+room temperature before stationary incubation at 37 ◦ C overnight (18-24 hours). CFUs counts were manually determined. For
+N. gonorrhoeae, time-kill assays were performed as previously described. 74 Specifically, a 0.5 McFarland suspension was prepared
+in sterile PBS using individual colonies picked from chocolate agar plates that had been grown for 18-20 hours at 37 ◦ C in a humid 5%
+CO 2 -enriched atmosphere. The suspension was diluted 1:500 in pre-warmed (37 ◦ C) GW media and 90 μL was added to each well in a
+round-bottom 96-well plate. The plate was pre-incubated for 4 hours with shaking at 150 rpm in a 35 ◦ C, 5% CO 2 -enriched incubator.
+At time 0, 10 μL of PBS (growth control) or antimicrobial (to achieve a final concentration of 0.5×, 1×, 2×, or 4× MIC, where the MIC of
+NG1 was 0.5 μg/mL and azithromycin MIC was 0.25 μg/mL) was added to each well of pre-incubated bacteria in duplicate, with a
+separate row for each time point. At indicated times, the corresponding row of cells was removed from incubation, serially diluted
+in PBS, and spotted on GC agar in rectangular plates. After drying at room temperature, plates were incubated overnight (18-24
+hours) without shaking and CFU counts were manually determined.
+Cytotoxicity assay and CC 50 determination
+A resazurin-based assay, which quantifies the number of live cells in a sample, was used to monitor human cell viability in the pres-
+ence of a compound. For CC50 determination, 99 μL cells were plated into 96-well clear flat-bottom black tissue-culture-treated
+plates (Corning 3603) at a density of 10 4 cells/well and incubated at 37 ◦ C with 5% CO 2 . Twenty-four hours after plating, each well
+received 1 μL of two-fold serially-diluted test compound. Additional wells were treated with 1 μL of DMSO as a negative control
+and Triton X-100 (0.1% final concentration) as a positive control. Cells treated with the compound were re-incubated for 24 hours,
+after which 0.15 mM resazurin (Millipore Sigma R7017) was added to each well. After an additional 24 hours of incubation, the fluo-
+rescence was read at excitation/emission at 550/590 nm using a SpectraMax M3 plate reader. CC 50 values were calculated by
+normalizing the fluorescence values based on the positive and negative controls and performing a nonlinear fit with the [Inhibitor]
+vs. response – Variable slope function in GraphPad Prism (v.10.1.0). HepG2 and HEK293 CC 50 values for BRD1 and BRD2 were
+determined as above, except in 384-well plates seeded with 4500 viable cells/well, where cells were treated with 1 μL (for
+HepG2) or 500 nL (for HEK293) of compound that were transferred using an acoustic dispenser (Labcyte Echo 555). All experiments
+were performed in biological duplicate.
+Spontaneous mutant generation and frequency of resistance experiments
+N. gonorrhoeae. Isolated colonies of N. gonorrhoeae ATCC 49226 were picked from an overnight plate to make a heavy suspension in
+PBS. The suspension was serially diluted and plated on chocolate agar to determine the initial inoculum, and 500 μL of the suspen-
+sion was added to each GC agar plate containing 0, 1×, 2×, 4×, or 8× MIC of NG1. The suspension was spread and allowed to dry
+before stationary incubation at 37 ◦ C in a 5% CO 2 incubator for 3 days. Colonies that emerged on each plate were individually picked
+and the elevated NG1 MIC was confirmed using both agar dilution and broth microdilution methods in parallel with the parental strain
+for comparison. The frequency of resistance was calculated as the total number of colonies counted divided by the total number of
+bacteria inoculated on each plate.
+
+
+
+e8    Cell 188, 1–18.e1–e13, October 16, 2025
+
+
+[PDF physical page 28]
+  Please cite this article in press as: Krishnan et al., A generative deep learning approach to de novo antibiotic design, Cell (2025), https://doi.
+  org/10.1016/j.cell.2025.07.033
+
+                                                                                                                       ll
+Article
+
+
+  S. aureus. MSSA RN4220 was picked from single colonies and grown overnight in 2 mL of fresh LB. OD 600 was measured and the
+suspension was serially diluted and plated on solid agar (with no compound) to determine the initial inoculum. One mL of the same
+overnight culture (∼10 9 CFU) was aliquoted and centrifuged at 3700 × g for 5 min. The cell pellet was resuspended to a final volume of
+500 μL in fresh LB, then pipetted onto the surface of LB agar plates containing 1×, 2×, 4× or 8× agar MIC of DN1 (4 μg/mL). Cells
+were then spread using a bent, sterile inoculating loop, and plates were dried and inverted before stationary overnight incubation at
+37 ◦ C. The next day, plates were removed from incubation, and colonies that grew on each plate were counted to calculate the fre-
+quency of resistance as above.
+DiSC 3(5) fluorescence
+Individual colonies of S. aureus RN4220 were picked and grown in 2 mL liquid LB overnight at 37 ◦ C with shaking at 300 rpm. Cells
+were diluted 1:100 from the overnight cultures into liquid LB and grown to mid-log phase, OD600 ∼0.5, at 37 ◦ C with shaking at
+300 rpm. For N. gonorrhoeae, multiple colonies from the overnight CAP were resuspended in prewarmed Graver Wade media to
+achieve OD 600 ∼0.5. DiSC 3(5) (Invitrogen D306) was dissolved in DMSO and added to liquid cultures at a final concentration of
+1 μM. After additional incubation in the presence of DiSC 3 (5) for 1 to 2 h, cells were plated in 200 μL working volumes in black, opaque
+flat-bottom 96-well plates, after which fluorescence was measured every 30 seconds for 5 minutes at an excitation/emission of 622/
+670 nm using a SpectraMax M3 plate reader. Cells were either untreated or treated with DMSO (1%), NG1, DN1, and DN1 analogs at
+a final concentration of 10 μg/mL (10× MIC). Other control antibiotics were also tested at 10× MIC. Fluorescence was measured
+immediately following treatment according to the same specifications as above.
+Laurdan membrane fluidity assay
+An OD 600 of 0.5 cell suspension of either N. gonorrhoeae ATCC 49226 in Graver Wade media or S. aureus RN4220 in LB was pre-
+pared. As previously described, 6 a solution of 1 mM Laurdan (Sigma-Aldrich 40227) was prepared in 100% DMF (Sigma-Aldrich
+PHR1553) and stored in the dark at -20 ◦ C. Then, 100 μL of the 1 mM Laurdan stock was added to the cell suspension and incubated
+for 10 minutes at 37 ◦ C with shaking at 300 rpm while covered with aluminum foil. The cells were then centrifuged at 4,000 rpm for
+5 minutes and washed three times in 10 mL of PBS with 0.2% (w/v) glucose. Cells were then resuspended in 10 mL of the same so-
+lution and distributed into a single 96-well opaque flat-bottom plate (Costar Black Polystyrene Plate, 266) with 100 μL per well and
+198 μL in column 1. Two μL of NG1, NG1 analog, or DN1, starting at 128 μg/mL, was added to column 1, and serially diluted across
+columns 2-12 to obtain a final total volume of 100 μL in each well. To the control wells, Tween-20 (Sigma-Aldrich 655204), a known
+membrane fluidizer 75 starting at a concentration of 0.5% was added. Untreated or DMSO treated (1%) cells served as the negative
+control and triclosan (starting at 62.5 μg/mL) and azithromycin (starting at 250 μg/mL) were included as positive or neutral antibiotic
+controls. A kinetic read was taken every 45 seconds at 37 ◦ C using a SpectraMax M3 plate reader, exciting the plate at 330 nm and
+taking two emission readings at 460 nm and 500 nm. The Laurdan generalized polarization (GP) was calculated with the formula: GP =
+(I460 - I 500)/(I 460 + I 500 ), where I 460 indicates the fluorescence intensity at 460 nm and I 500 indicates the fluorescence intensity at 500 nm.
+All fluidity measurements were performed in biological duplicate.
+NPN assay
+Ten mL of an OD 600 of 1 cell suspension of N. gonorrhoeae ATCC 49226 was prepared in Graver Wade media. As previously
+described, 6 the cell suspension was spun at 4,000 rpm, 4◦ C for 15 minutes, washed twice in 5 mM HEPES buffer (Sigma-Aldrich
+SRE0065) with 20 mM glucose, and resuspended in an equal volume of the 20 μM NPN (Sigma-Aldrich 104043) in HEPES buffer.
+A 96-well opaque flat-bottom plate (Costar Black Polystyrene Plate, 266) was prepared with 100 μL of cells in 20 μM NPN in
+HEPES buffer added to columns 2-12. In column 1, 198 μL of 20 μM NPN in HEPES buffer was added, followed by 2 μL of NG1
+or NG1 analog (starting concentration of 128 μg/mL). One hundred μL from column 1 was serially diluted across columns 2-12 to
+obtain a final total volume of 100 μL in each well. DMSO (1%) treated cells served as the negative control. Plates were then incubated
+at room temperature for 1 hour with no shaking and the fluorescence at 355/420 nm (excitation/emission) was read using a
+SpectraMax M3 plate reader with readings taken from the top. All measurements were normalized to corresponding values from
+the untreated control and performed in biological duplicates.
+SYTOX Green assay
+Ten mL of an OD 600 of 0.5 cell suspension of N. gonorrhoeae ATCC 49226 was prepared in Graver Wade media. Ninety eight μL of cell
+suspension was added to a 96-well opaque flat-bottom plate (Costar Black Polystyrene Plate, 266), with 198 μL of cells to column 1.
+Two μL of NG1 or NG1 analog (starting concentration of 128 μg/mL) was added to column 1 and 100 μL from column 1 was serially
+diluted across columns 2-12 to obtain a final total volume of 100 μL in each well. One μL of SYTOX Green Nucleic Acid Stain (5mM,
+S7020, Invitrogen, Carlsbad, CA), a DNA intercalating dye, was then added to each well at a final concentration of 5 μM. DMSO (1%)
+treated cells served as the negative control, and Triton X-100 served as positive control, resulting in fully compromised membranes.
+At selected time points (0, 2 and 4 hours post-treatment), fluorescence at 504/523 nm (excitation/emission) was read with a
+SpectraMax M3 plate reader. All measurements were normalized to the untreated control and performed in biological duplicate.
+
+
+Proteomics-based target identification with PISA
+Sample preparation
+Colonies from an overnight plate culture of N. gonorrhoeae FA 1090 (ATCC 700825) were resuspended in 650 mL of GC
+medium (Proteose Peptone No. 3, corn starch, dipotassium phosphate, monopotassium phosphate and sodium chloride; pH
+adjusted at 7.2 and autoclaved). The medium was supplemented with IsoVitalex 1% v/V final (BD 211876). The bacteria were cultured
+
+
+
+                                                                                               Cell 188, 1–18.e1–e13, October 16, 2025   e9
+
+
+[PDF physical page 29]
+  Please cite this article in press as: Krishnan et al., A generative deep learning approach to de novo antibiotic design, Cell (2025), https://doi.
+  org/10.1016/j.cell.2025.07.033
+
+          ll
+                                                                   Article
+
+
+at 37 ◦ C with 5% CO 2 and grown to an OD600 of approximately 0.3. Both bacterial cultures and lysates were treated in four replicates
+with 10 μM of each antibiotics for 20 min at 37 ◦ C.
+  The protocols for preparing bacterial cultures and lysates were adapted from Modaresi et al.76 For each condition, 20 mL of bac-
+terial culture was used (4 conditions × 4 replicates × 2 antibiotics). The bacteria cells were washed with 37 ◦ C PBS. To prepare the
+native cell lysate, pelleted bacteria were resuspended in 2 mL lysis buffer (PBS + Halt protease inhibitor) in Eppendorf tubes. The
+bacteria were subjected to five freeze-thaw cycles in liquid nitrogen to extract proteins. Then the samples were centrifuged at
+7000g for 5 min at RT to remove debris. The supernatant was then collected and treated with the antibiotic or DMSO for 20 min
+at 37◦ C. Each replicate was then aliquoted into 12-wells in a 96-well PCR plate (40 μL per well). The samples were then exposed
+to a temperature gradient from 46-70◦ C in the Biometra T-GRADIENT thermocycler for 3 min followed by an additional 3 min at
+RT and then snap frozen. The 12 samples for each replicate were then pooled into a single tube, transferred to polypropylene ultra-
+centrifuge tubes and centrifuged at 100,000g for 20 min at 4 ◦ C. The supernatant was collected for proteomics analysis.
+   Briefly, as previously published, 77–79 30 μg of each sample was reduced with 10 mM DTT, alkylated with 50 mM IAA in the dark and
+subjected to methanol chloroform precipitation. Samples were resuspended in 20 mM EPPS buffer, 8 M urea, pH 8.0, and then
+diluted down to 1.6 M urea and digested with trypsin (1:60 trypsin:protein). Each digest was labeled using TMTpro 16-plex reagents
+(Thermo Fischer), and the samples were pooled and cleaned using a Sep-Pack C18 column (Waters).
+NanoLC-MS/MS analysis
+The pooled sample was fractionated off-line by capillary reversed phase chromatography at pH 10 into 12 fractions and dried.
+NanoLC-MS/MS analyses were performed on an Orbitrap Exploris 480 mass spectrometer (Thermo Fisher Scientific). The instrument
+was equipped with an EASY ElectroSpray source and connected online to an Ultimate 3000 nanoflow UPLC system. The samples
+were pre-concentrated and desalted online using a PepMap C18 nano-trap column (length - 2 cm; inner diameter - 75 μm; particle
+size - 3 μm; pore size - 100 A˚ ; Thermo Fisher Scientific) with a flow rate of 3 μL/min for 5 min. Peptide separation was performed on an
+EASY-Spray C18 reversed- phase nano-LC column (Acclaim PepMap RSLC; length - 50 cm; inner diameter - 2 μm; particle size -
+2 μm; pore size – 100 A˚ ; Thermo Scientific) at 55 ◦ C and a flow rate of 300 nL/min. Peptides were separated using a binary solvent
+system consisting of 0.1% (v/v) FA, 2% (v/v) ACN (solvent A) and 98% ACN (v/v), 0.1% (v/v) FA (solvent B). They were eluted with
+a gradient of 3–26% B in 97 min, and 26–95% B in 9 min. Subsequently, the analytical column was washed with 95% B for 5 min
+before re-equilibration with 3% B. The mass spectrometer was operated in a data-dependent acquisition mode. A survey mass spec-
+trum (from m/z 375 to 1500) was acquired in the Orbitrap analyzer at a nominal resolution of 120,000. The automatic gain control
+(AGC) target was set as 100% standard, with the maximum injection time of 50 ms. The most abundant ions in charge states 2 +
+to 7 + were isolated in a 3-second cycle, fragmented using HCD MS/MS with 33% normalized collision energy, and detected in
+the Orbitrap analyzer at a nominal mass resolution of 50,000. The AGC target for MS/MS was set as 250% standard with a maximum
+injection time of 120 ms, whereas dynamic exclusion was set to 45 seconds with a 10-ppm mass window.
+Data processing
+Proteome Discoverer 3.2 software (Thermo Scientific) was utilized for the database search and quantification against the UniProt
+N. gonorrhoeae (UP000000535; 2106 entries) protein database, downloaded on 28 February 2025. Cysteine carbamidomethylation
+was set as a fixed modification, along with TMT-related modifications, methionine oxidation, deamidation of arginine and asparagine
+as variable modifications. Enzyme specificity was defined as trypsin with a maximum of two missed cleavages. A 1% false discovery
+rate was employed as a filter at both the protein and peptide levels. Contaminants were removed, and proteins with missing values
+were eliminated. The quantified abundance of each protein in each sample (labeled with a different TMT) was normalized to the total
+intensity of all proteins in that sample. For each protein, the average normalized protein abundance in the antibiotic-treated replicates
+was divided by the average normalized abundance of that protein in the vehicle-treated replicates. The average ratio across repli-
+cates of each compound compared to the vehicle control was calculated, and the Log2 values of these ratios were determined. A
+two-tailed student’s t-test was employed to calculate the p-value.
+Checkerboard assays
+The broth microdilution MICs of NG1, ceftriaxone, fosfomycin, CCCP, and PMB were determined to be 0.5, 0.008, 31.25, and 1 μg/
+mL, respectively, for ATCC 49226. The broth dilution MICs for NG1 and polymyxin B were found to be 8 and 187.5 μg/mL, respec-
+tively, for CDC-FDA ARB #0187. Two-fold serial dilutions of each compound were made to achieve 10× to 0.156× MIC final concen-
+trations. The bacterial inoculum was made with a 1:200 dilution of an N. gonorrhoeae OD600 0.08 suspension in Graver Wade media.
+Each well of a 96-well round-bottom clear plate (Corning 3799) received 98 μL of the bacterial suspension and 1 μL each of two-fold
+serially diluted compound at 100× final concentration, keeping the final DMSO concentration ≤1%. The plates were incubated over-
+night at 37 ◦ C with 5% CO2 in a humidity-controlled incubator without shaking. After overnight incubation, OD600 was measured and
+then 10 μL of PrestoBlue™ Cell Viability Reagent (Invitrogen, A13261) was added to each well to obtain quantitative cell viability mea-
+surements. Four hours post-incubation at 37 ◦ C, fluorescence was read at an excitation/emission of 550/590 nm using a SpectraMax
+M3 plate reader. MICs were determined as the minimum inhibitory concentration that leads to at least 50% growth inhibition
+(compared to the untreated control), and the fractional inhibitory concentration index (FICi) for drug combinations was determined.
+FICi was calculated as follows:
+
+                                            MIC AB  MIC BA
+                                                      FICi =      +
+                                             MIC A  MIC B
+
+
+
+e10   Cell 188, 1–18.e1–e13, October 16, 2025
+
+
+[PDF physical page 30]
+  Please cite this article in press as: Krishnan et al., A generative deep learning approach to de novo antibiotic design, Cell (2025), https://doi.
+  org/10.1016/j.cell.2025.07.033
+
+                                                                                                                       ll
+Article
+
+
+where MIC A and MIC B are the MIC of each antibiotic when administered individually. MIC AB is the MIC of antibiotic A in combination
+with antibiotic B, and MIC BA is the MIC of antibiotic B in combination with antibiotic A. FICi of <0.5 indicates synergy, values between
+0.5-4 indicate indifference, and >4 indicates antagonism.
+RNAseq
+N. gonorrhoeae FA1090 (ATCC 700825) was grown to mid-log phase in Graver Wade medium (OD600 ∼0.3). Compounds were added
+at 4× final MIC, and an equivalent volume of DMSO was added to control cultures. Following treatment, cultures were returned to the
+incubator and 1 mL aliquots were collected at specified time points: 0, 15, 30, and 60 minutes. Each condition was tested in triplicate.
+All samples were immediately centrifuged after collection at 15,000 × g for 1 minute to pellet cells. Supernatants were removed and
+pellets were resuspended in pre-warmed TRIzol reagent (65 ◦ C; ThermoFisher, Cat# 15596026), vortexed, and placed on wet ice for
+5 minutes. To all samples, chloroform (Sigma-Aldrich, Cat# C2432) was added, mixed, and centrifuged at 12,000 × g for 15 minutes
+at 4 ◦ C. The aqueous layer was mixed with 100% ethanol, incubated at room temperature for 5 minutes, and the RNA was purified
+using the Direct-zol RNA Miniprep Plus Kit (Zymo Research, Cat# R2070) according to the manufacturer’s protocol. RNA was eluted
+in 100 μL nuclease-free water following a 5-minute incubation. RNA concentration was measured using a Qubit 4 Fluorometer
+(ThermoFisher) per manufacturer guidelines.
+  Library preparation was carried out using the Illumina® Stranded Total RNA Prep, Ligation with Ribo-Zero Plus kit with 10 bp
+unique dual indices. Prepared libraries were sequenced on a NovaSeq X Plus platform (Illumina), generating paired-end 150 bp
+reads. FASTQ files were generated using Illumina’s BCL Convert (v4.2.4). Reads were aligned to the N. gonorrhoeae FA1090 refer-
+ence genome (NCBI: GCF_000006845.1). Gene-level annotations were used to quantify expression levels. Gene read counts were
+analyzed using the edgeR package in R (verson 4.4.2). Differential expression was calculated using a generalized linear model (GLM)
+approach. Genes with a false discovery rate (FDR) < 0.05 were considered significantly differentially expressed. KEGG pathway anal-
+ysis was performed using gene set enrichment analysis in the clusterProfiler R package (v4.10.0).
+
+
+Bacterial cytological profiling
+Bacterial strain and culture conditions
+All cytological profiling experiments were performed using Bacillus subtilis strain 168 in biological duplicates. Cultures were grown
+overnight in tryptic soy broth (TSB) at 37◦ C with shaking at 220 rpm. Overnight cultures were diluted from an OD600 of 0.7 into fresh
+TSB and seeded into poly-D-lysine–coated black-wall, clear-bottom 96-well plates (Millipore Sigma, CLS3842) for imaging.
+Drug treatment and fixation
+Cells were incubated at 37 ◦ C with orbital shaking (50 rpm) for 30 minutes post-seeding before treatment with either vehicle control or
+antibiotics. Drug exposure was carried out for 1.5 hours. Following treatment, cells were fixed with 4% paraformaldehyde (PFA) in
+phosphate-buffered saline (PBS) for 15 minutes at room temperature and washed twice with PBS prior to staining.
+Staining and imaging
+Fixed cells were stained using FM4-64 (membrane; Thermo Fisher, T13320) and DAPI (nuclei; Thermo Fisher, D1306) according to
+the manufacturer’s instructions. Imaging was performed using an Opera Phenix 2 high-content confocal microscope (PerkinElmer)
+equipped with a 63× water-immersion objective. Confocal z-stacks were acquired with five planes spaced 1 μm apart. Brightfield
+images were acquired in parallel.
+Image analysis and feature extraction
+Raw images were processed using Harmony (PerkinElmer) and Signal Image Artist. Bacterial segmentation and morphometric
+feature extraction were performed using Omnipose. Objects were filtered to remove background and artifacts using built-in heuris-
+tics, and single cell areas (in μm2 ) were extracted. Feature distributions were aggregated across fields of view and exported for down-
+stream analysis. Summary statistics were computed using custom Python scripts. Group comparisons were evaluated using
+nonparametric Mann-Whitney U tests.
+
+
+Cryo-TEM analysis of bacterial morphology
+Sampling
+Neisseria gonorrhoeae (ATCC 49226) and Staphylococcus aureus (RN4220) was grown overnight in stationary cultures. Cells were
+harvested by transferring the culture to a 5 mL tube and centrifuging at 2000 rpm for 1 minutes. The supernatant was discarded, and
+the cell pellets were washed twice by resuspending in 3 mL of phosphate-buffered saline (PBS; Sigma-Aldrich) and centrifuging un-
+der the same conditions. After the final wash, the cells were resuspended in 99 μL of LB and 1 μL of the drug (NG1 or DN1 at 4× MIC).
+The samples were incubated at 37◦ C for 2 hours. The final cell suspension was centrifuged again, adjusted to an optical density at
+600 nm (OD600 ) of 0.3 and fixed in 2.5% glutaraldehyde at 4 ◦ C for 1 hour. Following fixation, the cells were washed three times with
+deionized water. 3 μL of the cell suspension was applied to glow-discharged carbon-coated grids. The grids were vitrified in liquid
+ethane using a Gatan Cryoplunge system and the imaging was carried out using a JEOL 2100F transmission electron microscope.
+
+
+
+
+
+                                                                                               Cell 188, 1–18.e1–e13, October 16, 2025  e11
+
+
+[PDF physical page 31]
+  Please cite this article in press as: Krishnan et al., A generative deep learning approach to de novo antibiotic design, Cell (2025), https://doi.
+  org/10.1016/j.cell.2025.07.033
+
+          ll
+                                                                   Article
+
+
+Image processing and segmentation
+Raw cryo-TEM images of S. aureus and N. gonorrhoeae were manually segmented to delineate the cell boundary and, when visible,
+the cytosolic region. Segmented binary masks of cryo-TEM images were analyzed using a custom Python pipeline built with OpenCV,
+scikit-image, and SciPy. For each object, region properties including area, perimeter, major and minor axis lengths were extracted.
+Elongation was defined as the ratio of major to minor axis length, and roundness as its inverse. Objects with an area less than 50
+pixels were excluded. Image-specific scale factors (μm/pixel), retrieved from a CSV calibration file, were applied to convert all mea-
+surements to physical units. When inner membrane masks were available, membrane thickness was estimated by computing the
+Euclidean distance transform between outer and inner membrane masks. The average distance was doubled to approximate mem-
+brane thickness.
+  Per-cell measurements were aggregated across images and saved as.csv files. Summary statistics (mean ± standard deviation)
+were computed for each group. Group comparisons (e.g., DN1-treated vs. untreated) were evaluated using two-sided Mann-Whitney
+U tests (ranksum), appropriate for non-normally distributed data.
+Toxicity studies
+Hemolysis and modified Ames genotoxicity studies were performed as described previously. 7 To test the systemic toxicity of DN1,
+healthy female C57BL/6J mice were given a single 100 mg/kg dose of DN1, which three out of three mice tolerated. An additional
+three mice were given four doses of 50 mg/kg every 6 hours, which they all also tolerated. To test the systemic toxicity of NG1, healthy
+female BALB/c mice were given increasing doses of NG1, up to 100 mg/kg. Both compounds were formulated in a 10% compound in
+DMSO:45% PEG300:45% water solution and administered as a 200 μL intraperitoneal injection. Mice were observed for at least 24
+hours for typical signs of toxicity, including impaired movement, lethality, and irritation. Results were representative of at least three
+mice per dose of each compound.
+Mouse S. aureus topical wound infection model
+Female C57BL/6J mice were given over a week to acclimate and then rendered neutropenic with cyclophosphamide (Cytoxan) on
+Day -4 (150 mg/kg, I.P.) and Day -1 (100 mg/kg I.P.). On Day 0, a fresh suspension of S. aureus BAA1556 was prepared in tryptic soy
+broth and titered via serial dilution and plating. Mice were given buprenorphine for anesthesia and kept sedated under isoflurane va-
+pors (3%) during the infection procedure. A ∼1.5 cm 2 patch of skin was prepared on each mouse’s dorsal surface by shaving the fur,
+sterilizing the underlying skin with iodine and ethanol swabs thrice, allowing the skin to dry completely, and abrading the skin until
+visibly damaged (reddening and glistening) but not bleeding. Five μL of the S. aureus suspension, corresponding to an inoculum
+of 1.5 × 10 5 CFU, was pipetted onto the skin to initiate the bacterial infection. Treatments were administered at 1, 4, 8, 16, 21,
+and 24 hours post-infection by pipetting 40 μL of formulation topically onto the infected skin and allowing to dry. Treatments groups
+consisted of n = 6 mice receiving DN1 (1% final concentration, prepared as described above), n = 6 mice receiving vehicle control
+(DMSO:PEG300:water at 10%:45%:45%), and n = 6 mice receiving the fusidic acid positive control (0.25% final concentration in
+DMSO:PEG300:water at 10%:45%:45%) At 25 hours post-infection (∼1 hour following the last topical treatment), all mice were
+euthanized by CO 2 asphyxiation, and wounds were wiped with an alcohol pad, excised, weighed, and homogenized in 2 mL of sterile
+PBS using a Polytron PT10-35 with a 12 mm aggregate that was cleaned with ethanol and water between samples. Homogenized
+wounds were serially diluted and plated onto BHI agar to determine bacterial titers (CFU/g tissue).
+Mouse N. gonorrhoeae vaginal infection model
+Female ovariectomized BALB/cJ mice were given over a week to acclimate prior to handling. As described previously, 80 two days
+prior to infection (Day -2), vaginal lavage was performed for estrous staging and monitoring of the vaginal microbiota via culture on
+MacConkey and Brain Heart Infusion agar plates. To increase susceptibility to infection, each mouse received a dose of 17B-estra-
+diol (0.23 mg, I.P.) on Day -2 and Day 0. To reduce the overgrowth of commensal bacteria that occurs with estradiol treatment, mice
+were given streptomycin (1.2 mg, I.P.) and vancomycin (0.6 mg, I.P.) (1 dose on Day -2, two doses at least 5 hours apart on Day -1,
+and one dose Day 0) as well as trimethoprim (0.4 g/L) in the drinking water (refreshed on Day 0). On Day 0, the inoculum was prepared
+by collecting isolated colonies of N. gonorrhoeae ATCC 49226 from an overnight chocolate agar plate in sterile PBS to achieve an
+OD 600 0.2. Within one hour of preparation, the vagina was first rinsed with 30 μL of 50 mM HEPES (pH 7.4) and then 20 μL of the bac-
+terial suspension (∼3 × 10 6 CFU per mouse) was pipetted intravaginally while the mouse was held by the tail with paws grasping the
+wire cage for at least 1 minute. Serial dilutions of the bacterial suspension were plated onto chocolate agar to determine the initial
+inoculum. Treatments were administered at 2, 6, 10, 18, and 24 hours after infection by pipetting 20 μL of test compound NG1
+(1% final concentration in 10% DMSO, 45% PEG300, 45% water), ceftriaxone (0.1% w/v in water), or vehicle control (10%
+DMSO, 45% PEG300, 45% water) intravaginally; mice were suspended by the tail for 1 minute before being released into the
+cage. At 24 hours after infection, mice were euthanized by CO 2 asphyxiation and vaginal lavage was performed using 50 μL of Graver
+Wade media with 0.05% saponin. N. gonorrhoeae burden was determined by plating 30 μL of neat lavage and 10-fold serial dilutions
+in PBS onto Thayer Martin Agar Improved (Thermo Fisher); colonies were counted after 18-24 hours of incubation at 37 ◦ C with
+5% CO 2 .
+
+QUANTIFICATION AND STATISTICAL ANALYSIS
+
+
+All statistical analyses were performed using Python scripts and/or GraphPad Prism (version 10.1.0). Details of the statistical tests
+used, the exact value of n, what n represents, as well as measures of central tendency (mean or median) and dispersion (e.g.,
+
+
+
+e12   Cell 188, 1–18.e1–e13, October 16, 2025
+
+
+[PDF physical page 32]
+  Please cite this article in press as: Krishnan et al., A generative deep learning approach to de novo antibiotic design, Cell (2025), https://doi.
+  org/10.1016/j.cell.2025.07.033
+
+                                                                                                                       ll
+Article
+
+
+standard deviation) are provided in the figure legends and STAR Methods section. For each analysis, the choice of statistical test
+(e.g., student’s t-test or non-parametric tests, such as the Mann-Whitney U or Kolmogorov-Smirnov test) was based on the data
+type and experimental design. For mouse experiments, sample sizes were determined by power calculations in GraphPad Prism
+to detect a 1-2 log-fold change in effect size and mouse availability. Group allocation was determined by cage, where each cage
+contained 3-5 mice that all received the same treatment. No data were excluded from the analyses in the study. The data were
+assumed to be non-normal; thus, a two-sided Mann-Whitney test was performed using GraphPad Prism. Statistical details can
+be found in the figure legends.
+
+
+
+
+
+                                                                                               Cell 188, 1–18.e1–e13, October 16, 2025  e13
+
+
+[PDF physical page 33]
+                                                                                                                       ll
+Article
+
+
+Supplemental figures
+
+
+
+
+
+                                                                                                                                  (legend on next page)
+
+
+[PDF physical page 34]
+          ll
+                                                                   Article
+
+
+
+
+
+Figure S1. Computational analyses of the predictive capabilities of Chemprop models, related to Figure 1
+(A) Known fragments (pictured above) were scored and compared with known antibiotics containing these fragments (n, number of antibiotics scored). Scores
+were generated by separate N. gonorrhoeae and S. aureus growth inhibitory activity-predicting ensembles of Chemprop models.
+(B) Kolmogorov-Smirnov (K-S) statistic showing the predictive capabilities of the Chemprop models for both N. gonorrhoeae and S. aureus. It is a non-parametric
+test and quantifies the maximum distance between their cumulative distribution functions, capturing where the two distributions (‘‘active’’ and ‘‘inactive’’ pre-
+dictions) diverge the most. K-S statistic of 0 indicates perfect agreement, while values closer to 1 reflect greater divergence. Smaller p values (typically below
+0.05) suggest that the data are likely coming from different distributions.
+(C) Shapley additive explanations (SHAP) analysis to assess feature importance from both N. gonorrhoeae and S. aureus Chemprop models. Shown are the top
+10 features that modestly contribute to the models’ performance.
+(D) Species specificity of the N. gonorrhoeae and S. aureus models by comparing the mean predicted scores generated by each model for compounds that were
+empirically tested against both bacterial species.
+(E) Histograms showing the different thresholds used for the down selection of the fragments: RAscore, antibacterial prediction scores by N. gonorrhoeae and
+S. aureus Chemprop models, cytotoxicity prediction scores against hepatocellular carcinoma (HepG2), human skeletal muscle cells (HSkMCs), and human lung
+fibroblasts (IMR-90), and Tanimoto similarity to known antibiotics.
+(F) Histograms showing the different thresholds used for the down selection of fragment-based (F1 and F2) generated compounds: antibacterial prediction scores
+by N. gonorrhoeae and S. aureus Chemprop models, cytotoxicity prediction scores against hepatocellular carcinoma (HepG2), and Tanimoto similarity to known
+antibiotics.
+
+
+[PDF physical page 35]
+                                                                                                                       ll
+Article
+
+
+
+
+
+Figure S2. Mechanistic insights and toxicological properties of NG1, related to Figures 2 and 3
+(A) MICs of NG1-resistant isolates from spontaneous generation experiments to known antibiotics: azithromycin, ceftriaxone, and ciprofloxacin.
+(B) Checkerboard assays to assess synergistic or antagonistic effects of NG1 with cell-wall-targeting antibiotics (ceftriaxone and fosfomycin) and a membrane
+PMF-targeting compound (CCCP), indicating indifference to each combination.
+(C) DiSC 3 (5) traces of N. gonorrhoeae cells treated with NG1, indicating a lack of effect on either component of the PMF. Results are representative of two
+biological replicates.
+(D) Quantification of morphological changes observed in the area, perimeter, roundness, and elongation of NG1-treated N. gonorrhoeae from cryo-TEM images.
+(E) Representative image of an elongated cell (treated with NG1) compared with the wild-type untreated condition.
+(F) Gene expression analysis showing LOS biosynthesis-related genes that are significantly differentially expressed in NG1-treated conditions relative to the
+untreated control.
+(G) Fractional hemolysis measurements of human red blood cells (RBCs) treated with NG1 at the indicated final concentrations. Vehicle (1% DMSO) was used as
+a negative control, and Triton X-100, a detergent, was used as a positive control. Points represent values from two biological replicates.
+(H) Ames mutagenesis test measurements of the fractions of revertant S. typhimurium TA100 cultures treated with NG1 at the indicated final concentrations.
+Vehicle (1% DMSO) was used as a negative control, and 5 μg/mL sodium azide was used as a positive control. Points represent values from two biological
+replicates.
+
+
+[PDF physical page 36]
+          ll
+                                                                   Article
+
+
+
+
+
+Figure S3. Designed and tested analogs of NG1 and mechanistic characterization of NG1 analog, related to Figure 3
+(A) Hits from 74 analogs of fragment F1 tested with modifications in functional groups R1 and R2.
+(B) Structures of the eight active analogs with MIC ≤ 32 μg/mL. All other analogs were inactive with MICs > 64 μg/mL.
+(C) MIC and CC 50 values of human cells treated with the active analogs.
+(D) MIC and CC 50 values of NG1 analog, the most potent active analog of NG1. Points represent two biological replicates.
+(E) Membrane rigidification of N. gonorrhoeae cells treated with NG1 analog (at 64 μg/mL) and Tween 20 (membrane fluidizer) with the Laurdan membrane fluidity
+assay. Shown is the generalized polarization (GP) observed in two biological replicates.
+
+                                                                                                             (legend continued on next page)
+
+
+[PDF physical page 37]
+                                                                                                                       ll
+Article
+
+
+
+
+
+(F) Loss of membrane integrity of N. gonorrhoeae cells treated with NG1 analog (at 64 μg/mL), as measured by the uptake of the hydrophobic fluorescent probe,
+1-N-phenylnaphthylamine (NPN). Shown is the fluorescence measurement, normalized to the untreated control, observed in two biological replicates.
+(G) Lysis of N. gonorrhoeae cells treated with NG1 analog or Triton X-100 (positive control), as seen by an increase in SYTOX green fluorescence signal with time,
+measured at 0, 2, and 4 h post-treatment. Data represent the fluorescence, normalized to the untreated control, observed in two biological replicates.
+
+
+[PDF physical page 38]
+          ll
+                                                                   Article
+
+
+
+
+
+Figure S4. Structures and properties of molecules related to EN1, related to Figure 4
+(A) Physiochemical properties of F2 and F2′ molecules generated by F-CReM and F-VAE.
+(B) Structures of all tested compounds containing F2 and F2 ′ . Active molecules with MIC ≤ 128 μg/mL are highlighted in blue, indicating that preservation of the
+fragment is important for antibacterial activity.
+
+
+[PDF physical page 39]
+                                                                                                                       ll
+Article
+
+
+
+
+
+Figure S5. Thresholds used to down-select JT-VAE molecules and their predicted synthesizability via ASKCOS, related to Figure 5
+(A) Predicted retrosynthesis success rate as determined by ASKCOS for de novo molecules generated by both CReM and JT-VAE.
+(B) Histograms showing the different thresholds used for the down selection of de novo-generated compounds by JT-VAE: antibacterial prediction scores by
+N. gonorrhoeae and S. aureus Chemprop models, cytotoxicity prediction scores against hepatocellular carcinoma (HepG2), and Tanimoto similarity to known
+antibiotics.
+
+
+[PDF physical page 40]
+          ll
+                                                                   Article
+
+
+
+
+
+Figure S6. Bacterial morphological changes induced by DN1–DN6 treatment, related to Figure 6
+(A) Morphological changes observed in B. subtilis 168 treated for 2 h with DN1–DN6 entirely de novo molecules at 1× MIC.
+(B) Quantification of different parameters from cryo-TEM images of S. aureus RN4220 untreated or treated with DN1. ‘‘n’’ indicates the number of cells used for
+the quantification, and comparisons were evaluated using a two-sided Mann-Whitney U test. Each data point represents a single cell. Related to Figure 6G.
+(C) Representative cryo-TEM images of N. gonorrhoeae ATCC 49226 untreated or treated with DN1, showing membrane dislodgement and swelling of the cells.
+(D) Quantification of the different parameters based on several cryo-TEM images of N. gonorrhoeae ATCC 49226 untreated or treated with DN1. ‘‘n’’ indicates the
+number of cells used for the quantification, and comparisons were evaluated using a two-sided Mann-Whitney U test. Each data point represents a single cell.
+
+
+[PDF physical page 41]
+                                                                                                                       ll
+Article
+
+
+
+
+
+Figure S7. Designed and tested analogs of DN1 and their mechanistic characterization, related to Figure 7
+(A) Six active analogs of DN1 with MICs ≤ 32 μg/mL. MIC and CC 50 values of the compounds tested against MSSA RN4220 and three different human cell lines
+are shown, along with their chemical structures. Details of all analogs tested are in Data S2.
+(B) MICs of the DN1 analogs against drug-resistant S. aureus isolates with vancomycin-intermediate (VISA) resistance, aminoglycoside/tetracycline resistance
+(ATR), and tedizolid/linezolid (oxazolidinone) resistance (TLZD) from the CDC-FDA ARB.
+(C) MIC of DN1–164 against antibiotic-resistant strains of N. gonorrhoeae.
+(D) DiSC 3 (5) of S. aureus cells treated with DN1 analogs. Results are representative of two biological replicates.

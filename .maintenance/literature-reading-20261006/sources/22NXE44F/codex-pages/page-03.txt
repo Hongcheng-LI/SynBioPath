@@ -1,0 +1,60 @@
+W364  Nucleic Acids Research, 2011, Vol. 39, Web Server issue
+
+
+(xi, yi) is needed where xi is from Rn and the labels yi are in    data set to get a more robust average of the predictor
+(+1,   1) for two-class problems.                          performance on new test data.
+
+TSVMs
+                                                                 Applicability domainTSVMs extend classical SVMs by the property of making
+use of unlabeled data to train more robust classiﬁers, es-    The applicability domain of a predictor is a concept that
+pecially in the case of scarce labeled training data (18).     helps to give for each predictor query a feedback whether
+TSVMs try to determine a separating hyperplane that     that query  is too far away from the data used during
+does not cut clusters of data by forcing the hyperplane     training or whether that instance  lies within the, say,
+to go through low data density regions. This is enforced   95% support volume of the training data. Predictions
+by keeping the margin clear of unlabeled data points.     for  queries  that do  not  lie  within  the  applicability
+However, the objective function of TSVMs  is not that    domain of the model should be handled with more care.
+easily optimized as the classical SVM objective, hence   To model the applicability domain of our model we made
+heuristics have to be used to optimize the objective. For    use of the 1-Class SVM concept as described by Scho¨ lkopfNRPSpredictor2 we make use of the SVMlight package     et al. (19). Therefore, we modelled the 95% support of our                                        Downloaded
+that offers such an heuristic to train TSVM classiﬁers (18).    data using the 1-Class SVM functionality of LIBSVM. We                                                                                                                                                                                                                                                                                 from                                                                 selected values for g and n in such a way as to achieve a
+Prediction levels and predictor quality                                                                      recall of  95% on left out data and then trained a 1-class
+NRPSpredictor2 was designed to predict the putative   SVM for the whole data set using these parameters to
+substrate speciﬁcity on four different hierarchical levels     describe the 95% support volume in feature space of our
+for  bacterial A-domains and on one  level for fungal     data.
+A-domains. The  bacterial  levels  are:  gross  physico-
+chemical  properties  of  the  substrate  (hydrophobic–
+aromatic, hydrophobic–aliphatic and hydrophilic), large
+clusters, small clusters and on a single amino acid level   RESULTS
+(Table  1). The fungal predictor predicts only on the     Predictor quality
+gross  physico-chemical  properties  level  (hydrophobic-
+                                                 The quality of each bacterial predictor as determined byaromatic, hydrophobic-aliphatic and hydrophilic) due to
+                                                      our model validation  is given  in Table  1.  It can bethe lack of sufﬁcient fungal training data to allow further
+                                                        observed that the predictors at the highest hierarchicalsubdivision of substrate clusters. However, within the web
+                                                                      level are the best-performing ones. At the level of grossserver we trigger the bacterial models to give also more
+ﬁne grained predictions for fungal signatures. An overview    physico-chemical   properties  we  have  an  average
+of the set of bacterial prediction levels is given in Table 1.    F-measure of F = 0.94, whereas the average F-measure at
+For many substrates there are only very few labeled     the most ﬁne-grained level (single substrates) is F = 0.80.
+A-domains, like the 2-amino-butyric acid (Abu) speciﬁcity     Generally, the average performance as quantiﬁed by the
+with less than ﬁve known A-domain sequences. For these    F-measure is F = 0.94 for the three class level, F = 0.93
+speciﬁcities  no  SVM-model  was  built.  Instead,  we     for the large clusters level, F = 0.89 for the small clusters                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              https://academic.oup.com/nar/article/39/suppl_2/W362/2506164
+make use of the Nearest-Neighbor Rule to get a speciﬁcity     level and F = 0.80 for the single substrate level. The fungal
+                                                                                                                                        by
+prediction, by reporting for each query the substrate     predictor has an average F-measure of F = 0.84 at the
+speciﬁcity of the most similar active-site signature (based     three class level. Table 1 also gives for each prediction                                                                                                                                                                                                                                                                                                                                                     guest
+on the Stachelhaus code) in our database, along with the     task the best performing kernel, feature encoding and                                                                                                                                        on
+sequence identity.                         SVM type (classic or TSVM).                                                                                                                                        31
+                                    A general trend is that, except from the more exotic
+Predictor validation                                       aromatic substrates, like the hydroxy-benzoic derivatives                                                              that can be predicted very well, the other more common                            OctoberTo quantify the performance of the NRPSpredictor2 we
+                                                        aromatic substrates are predicted less reliably. One reasonused the F-measure as quality criterion, which is deﬁned as                                                      might be the observed promiscuity of the A-domains                2025the harmonic mean of precision and recall. The precision
+is deﬁned by prec = tp/(tp+fp) and the recall (or sensitiv-     utilizing these substrates (10). When compared with the
+ity) is deﬁned by rec = tp/(tp+fn), where tp, fp and fn are     original version of the NRPSpredictor (Table 1) the new
+the number of true positives, false positives and false nega-     version could improve the performance (F-measure) on
+tives, respectively. The precision (or positive predictive     the large cluster level and on the small clusters level by
+value) measures how reliable a positive prediction of a    roughly  one  percentage  point.  While  the  original
+substrate speciﬁcity detector  is and the recall measures    NRPSpredictor was able to predict the membership to
+how good the detector is in ﬁnding the true positives. To     clusters of amino acids only, NRPSpredictor2 also can
+determine the performance on new test data we applied a     predict  single  amino  acid  speciﬁcities.  The  newly
+repeated external validation scheme. We split the whole    introduced applicability domain gives further information
+data set into half, selected and trained a SVM model on    on the quality of the speciﬁcity prediction. Upon request
+one half of the data and evaluated the predictor perform-     of many colleagues working on fungal NRPSs, a predictor
+ance on the other half, the independent test set. This pro-     speciﬁc  for  fungal NRPS sequences was  included  in
+cedure was repeated on 10 shufﬂed versions of the whole    NRPSpredictor2.

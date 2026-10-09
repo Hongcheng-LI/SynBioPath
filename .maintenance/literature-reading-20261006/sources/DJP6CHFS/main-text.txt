@@ -1,0 +1,666 @@
+
+[PDF physical page 1]
+                                                       Engineering Microbiology 6 (2026) 100302
+
+
+
+                                                   Contents lists available at ScienceDirect
+
+                            Engineering Microbiology
+
+
+                         journal homepage: https://www.keaipublishing.com/en/journals/engineering-microbiology/
+
+
+Original Research Article
+
+An eﬃcient endogenous type I-E CRISPR-Cas genome-editing platform for
+producing transglutaminase in Streptomyces mobaraensis
+
+Dan Wang, Mengjun Sun, Qingxu Meng, Qianjin Kang, Linquan Bai ∗
+
+State Key Laboratory of Microbial Metabolism, School of Life Sciences and Biotechnology, Shanghai Jiao Tong University, Shanghai, 200240, China
+
+
+
+a r t i c l e    i n f o            a b s t r a c t
+
+
+Keywords:                                          Streptomyces mobaraensis  is an industrially important actinomycete capable of producing transglutaminase
+Streptomyces mobaraensis                            (TGase), a valuable crosslinking enzyme that is widely used in the food, pharmaceutical, and textile industries.
+Endogenous CRISPR-Cas system                   However, its genetic manipulation remains challenging owing to the lack of eﬃcient genome-editing tools. Here,
+Genome editing
+                                    we characterized an endogenous type I-E CRISPR-Cas system in S. mobaraensis IPIO2 through bioinformatics
+Transglutaminase
+                                                    analysis and plasmid interference assays, identifying the protospacer adjacent motif as 5 ′ -AAC-3 ′ . We engineered
+Comparative proteomics
+                                           an artiﬁcial editing plasmid, pCRISPR, by inserting a mini-CRISPR array (repeat-spacer-repeat) and homologous
+                                              recombination repair templates into the replicative plasmid pJTU1278. This system exhibited high editing eﬃ-
+                                                       ciencies, achieving 70% for single-gene deletions and 75–80% for large DNA fragment deletions ranging from
+                                         10 to 40 kb. Based on this system, deletion of four genes consistently downregulated during TGase production,
+                                                 identiﬁed through comparative proteomics, enhanced TGase production by 8.5–18.5%. Furthermore, deleting
+                                                 the pseudouridimycin and piericidin A1 biosynthetic gene clusters using this system signiﬁcantly improved the
+                                                     safety proﬁle of TGase production, resulting in a 17% increase in TGase yield. This study established a robust and
+                                            eﬃcient endogenous CRISPR-Cas-based genome-editing platform in S. mobaraensis , providing a powerful tool for
+                                                       strain engineering and industrial optimization of TGase production.
+
+
+
+1. Introduction                                                emerged as a powerful strategy for identifying enzymes and regula-
+                                                                           tory proteins associated with the production of metabolites in bacte-
+   Transglutaminase (TGase), an industrially important crosslinking en-      ria [ 12 , 24–27 ]. However, the successful implementation of such ap-
+zyme, was ﬁrst discovered in Streptomyces mobaraensis (formerly clas-     proaches critically depends on the availability of eﬃcient genome-
+siﬁed as Streptoverticillium mobaraense ) by Ando et al. [ 1 , 2 ] Since then,     editing tools.
+TGase has been produced on a large scale in S. mobaraensis and approved        Currently available genome-editing tools in S. mobaraensis , such as
+by the U.S. Food and Drug Administration [ 3 ]. TGase catalyzes three key     the 𝜑 C31-derived integration plasmid pSET152 for gene overexpres-
+reactions: (1) acyl transfer, (2) deamidation, and (3) protein crosslinking     sion and the CRISPRi-dCas9 system for gene repression, enable moder-
+between glutamine residues (acyl donor) and lysine residues (acyl ac-     ate modulation of gene expression [ 20 , 28 , 29 ]. However, only a limited
+ceptor) [ 3–5 ]. These versatile catalytic activities make TGase an invalu-    number of gene deletion methods have been reported for S. mobaraen-
+able biocatalyst in food, pharmaceutical, textile, and other industries       sis to date [ 21 , 23 , 30 ]. Wang et al. employed the replicative plasmid,
+[ 6–10 ]. Notably, TGase has been widely used to improve the texture,    pKC1132, to delete the lexA gene, thereby elucidating its role in the
+binding properties, and overall quality of protein-based foods, such as     regulatory network governing TGase production [ 21 ]. This conventional
+meat, bakery, and soy products [ 11 ].                                  approach relies on the homologous arms ﬂanking the target gene to me-
+   Numerous strategies have been developed to enhance TGase produc-     diate single- and double-crossover events [ 31 ], which substantially re-
+tion, including mutagenesis breeding [ 12 , 13 ], optimization of medium      stricts the eﬃciency and precision of gene deletion. Therefore, further
+composition [ 2 , 14 , 15 ] and fermentation conditions [ 16–19 ], as well as     studies on more eﬃcient and precise genome-editing tools are required.
+genetic engineering strategies, such as promoter engineering, gene copy       Although emerging CRISPR-Cas systems (e.g., Cas9 and Cas12) have
+number ampliﬁcation, signal peptide optimization, and regulatory gene     revolutionized genome editing in model organisms [ 32 , 33 ], they are of-
+manipulation [ 20–23 ]. Despite these eﬀorts, the industrial-scale pro-     ten ineﬃcient in industrial strains owing to the cytotoxicity of Cas pro-
+duction of TGases remains challenging. Omics-driven metabolic engi-     teins and their low transformation eﬃciency [ 34 , 35 ]. Type I CRISPR-Cas
+neering, particularly comparative transcriptomics and proteomics, has     systems are extensively distributed in sequenced prokaryotic genomes,
+
+
+
+  ∗ Corresponding author.
+    E-mail address: bailq@sjtu.edu.cn (L. Bai) .
+
+https://doi.org/10.1016/j.engmic.2026.100302
+Received 19 May 2026; Received in revised form 30 July 2026; Accepted 2 August 2026
+Available online 22 August 2026
+2667-3703/Copyright © 2026 The Authors. Publishing services by Elsevier B.V. on behalf of KeAi Communications Co. Ltd. This is an open access article under the
+CC BY-NC-ND license ( http://creativecommons.org/licenses/by-nc-nd/4.0/)
+
+
+[PDF physical page 2]
+D. Wang, M. Sun, Q. Meng et al.                                                                                                                 Engineering Microbiology 6 (2026) 100302
+
+
+accounting for 36.3% of bacteria and 52.8% of archaea [ 36 ], and have    a 5 ′ -trinucleotide (NNN) extension. Complementary oligos with Xba I
+been investigated and developed into genome-editing tools for various    and Eco RI-compatible overhangs were designed and annealed by heat-
+bacteria and archaea over the past decade [ 37–48 ]. The endogenous     ing at 95 °C for 10 min, followed by slow cooling to 16 °C. The re-
+type I-B system has been developed as a highly eﬃcient genome-editing     sulting double-stranded DNA fragments were ligated into Xba I/ Eco RI
+tool for Saccharopolyspora spinosa [ 37 ]. Similarly, the engineered type I-     (Cat. No F5581S and F5536S; LABLEAD Inc.) -linearized pSET152
+E system from Streptomyces avermitilis achieved 100% editing eﬃciency     to generate a  set of pSET152-NNN-S15/S10 interference plasmids
+for fragments ranging from 8 bp to 50 kb and even maintained an eﬃ-     (Table S2). Each plasmid was introduced into S. mobaraensis IPIO2
+ciency of 91.7 ± 7.2% for large 100-kb deletions, signiﬁcantly outper-     via intergeneric conjugation [ 52 ] using 108 spores per experiment,
+forming CRISPR-Cas9 systems [ 39 ]. Therefore, harnessing endogenous    and conjugation eﬃciency was assessed by counting the number of
+type I CRISPR-Cas systems oﬀers a promising solution for the challeng-     exconjugants.
+ing genetic manipulation of the TGase-producing strain S. mobaraensis .
+   Bioinformatic analysis revealed that a complete type I-E CRISPR-Cas
+system naturally occurs in S. mobaraensis IPIO2. In the present study,     2.4. Construction of CRISPR-Cas-based editing plasmids and mutants
+we systematically characterized the DNA interference capability of this
+endogenous system and repurposed it for genome editing. The system         All plasmids and primers used in this study are summarized in Ta-
+enabled the eﬃcient deletion of single genes and gene clusters, with     bles S2 and S3. The shuttle vector pJTU1278 was used as the back-
+eﬃciencies exceeding 70%. Using this system, we demonstrated that    bone for the CRISPR-Cas-based editing plasmids. A mini-CRISPR array
+the targeted deletion of genes downregulated during TGase production     (leader-repeat-spacer-repeat-terminator) was ampliﬁed via PCR using
+resulted in enhanced TGase yields. Furthermore, the deletion of the     the primer pairs sgRNA-F1/R1, sgRNA-F2/R2, and sgRNA-F3/R3 and
+biosynthetic gene clusters for pseudouridimycin and piericidin A1 im-     subsequently assembled via overlap PCR. The resulting fragments were
+proved the safety proﬁle of TGase preparations. This study establishes a     cloned into the pBluescript II SK( + ) vector, which served as a template
+robust and eﬃcient genome-editing platform for S. mobaraensis , paving     for generating a mini-CRISPR array containing the targeting spacer se-
+the way for the enhanced and safer production of TGase.                  quences.
+                                                                The construction of the pCRISPR-tg-1 plasmid is described below.
+2. Materials and methods                                       The mini-CRISPR array containing a 32-bp spacer sequence target-
+                                                                         ing the tg gene was ampliﬁed by PCR using crRNA-F1/tg1-crRNA-R1
+2.1. Strains and culture conditions                                   and tg1-crRNA-F2/crRNA-R2 and assembled via overlap PCR using the
+                                                                      primers crRNA-F1/R2. Two homologous arms ﬂanking the tg gene,
+   The bacterial strains used in this study are listed in Table S1. The   UHA and DHA, were ampliﬁed via PCR using the primers tg-UHA-F/R
+wild-type strain S. mobaraensis IPIO2 and its genetically derived strains    and tg-DHA-F/R, respectively. The mini-CRISPR array, UHA, and DHA
+were cultured on Gauze’s Medium NO.1 agar (20 g/L soluble starch,    were then cloned into the pJTU1278 vector at the Bam HI/ Kpn I sites
+0.5 g/L MgSO4 ·7H2 O, 0.5 g/L K2 HPO4 ·3H2 O, 0.5 g/L NaCl, 1 g/L     using a NovoRec® plus One step PCR Cloning Kit (Cat. No NR005,
+KNO3 ·3H2 O, 0.01 g/L FeSO4 ·7H2 O, 20 g/L agar) to allow sporulation    Novoprotein Scientiﬁc  Inc., China), generating the editing plasmid
+at 30 °C. For conjugation and electroporation, ISP4 agar [10 g/L solu-     pCRISPR-tg-1.
+ble starch, 2 g/L (NH4 )2 SO4 , 1 g/L K2 HPO4 ·3H2 O, 2 g/L CaCO3 , 1 g/L       The editing plasmid was introduced into S. mobaraensis using elec-
+NaCl, 1 g/L MgSO4 ·7H2 O, 100 𝜇L/L inorganic salt solution (10 g/L     troporation [ 52 ]. After cultivation at 30 °C for 5–7 d, the transformants
+ZnSO4 ·7H2 O, 10 g/L MnCl2 ·4H2 O, 10 g/L FeSO4 ·7H2 O), 20 g/L agar]    were inoculated onto Gauze’s Medium NO.1 agar supplemented with
+supplemented with 5% 2 × YT broth (16 g/L tryptone, 10 g/L yeast ex-    10 𝜇g/mL thiostrepton and 50 𝜇g/mL trimethoprim. To conﬁrm the
+tract, 5 g/L NaCl) and 20 mM MgCl2 was used for transformant growth    complete deletion of the target gene and isolate pure mutants, transfor-
+at 30 °C. For plasmid construction and conjugation, Escherichia coli DH5 𝛼    mants were screened via colony PCR using two primer pairs: one pair
+and ET12567/pUZ8002 were cultured in LB medium or on LB agar at    ﬂanking the upstream and downstream homology arms (outside PCR)
+37 °C with the appropriate antibiotics.                               and the other targeting the internal regions of the target gene or gene
+                                                                                cluster (inside PCR). The PCR products were analyzed using agarose gel
+2.2. Bioinformatics analysis of the endogenous CRISPR-Cas system             electrophoresis. A pure genotype deletion was deﬁned as the presence
+                                                                              of only outside PCR products and the absence of inside PCR products.
+   To investigate the endogenous CRISPR-Cas system in S. mobaraen-    The simultaneous detection of both products indicates mixed-genotype
+sis IPIO2, its genome sequence was analyzed using CRISPRCasFinder     transformants, whereas the presence of only the inside PCR products
+( https://crisprcas.i2bc.paris-saclay.fr/CrisprCasFinder/Index ) with the     suggests deletion failure owing to unsuccessful recombination or plas-
+default parameters [ 49 ]. One CRISPR-Cas locus of type I-E was identi-    mid instability. Editing eﬃciency was calculated as the percentage of
+ﬁed in the analysis.                                                          correctly edited transformants among all the PCR-identiﬁed transfor-
+   To determine the protospacer adjacent motif (PAM) sequences,     mants.
+the  identiﬁed CRISPR  spacers were  submitted  to  CRISPRTarget        For plasmid curing, transformants with the correct gene or gene clus-
+( http://bioanalysis.otago.ac.nz/CRISPRTarget/crispr_analysis.html)  to      ter deletions were transferred onto Gauze’s Medium NO.1 agar without
+search for matched protospacers [ 50 ]. Frequently recurring ﬂanking     thiostrepton. After one passage, single colonies were streaked onto agar
+sequences of these protospacers were regarded as potential PAMs. All     plates with or without thiostrepton. Colonies that grew on plates with-
+ﬂanking sequences (–8 to –1 nt) were aligned and visualized using     out thiostrepton but failed to grow on plates with thiostrepton were
+WebLogo ( https://weblogo.berkeley.edu/logo.cgi ) [ 51 ] to illustrate se-     considered to have lost the editing plasmids.
+quence conservation and motif distribution.
+
+
+2.3. Plasmid interference assays                                                2.5. RNA sequencing
+
+
+   Plasmid interference assays were performed to validate targeted        For RNA sequencing (RNA-seq), mycelia were harvested after 4, 12,
+cleavage activity of the endogenous CRISPR-Cas system (Fig. S1). The     16, 24, 28, and 42 h of IPIO2 fermentation. Total RNA extraction and
+interference plasmids were constructed by inserting spacer 15 (S15)    RNA-seq were conducted by Shanghai Personal Biotechnology Co., Ltd.,
+or spacer 10 (S10) into the integrative vector pSET152. Oligonu-    and the transcription level of each gene was quantiﬁed as normalized
+cleotides containing the S15 or S10 sequences were synthesized with     fragments per kilobase million (FPKM).
+
+
+                                                                        2
+
+
+[PDF physical page 3]
+D. Wang, M. Sun, Q. Meng et al.                                                                                                                 Engineering Microbiology 6 (2026) 100302
+
+
+2.6. Proteome determination                                            high performance liquid chromatography time-of-ﬂight mass spectrom-
+                                                                             etry (Agilent 6546 LC/Q-TOF) using an Agilent Eclipse Plus-C18 col-
+   For proteomic analysis, mycelia were collected after 16, 24, and 42 h   umn (5 μm, 4.6 × 150 mm). The column temperature was maintained
+of IPIO2 fermentation. Intracellular proteins were extracted and ana-     at 30 °C, and the ﬂow rate was set at 0.4 mL/min. A sample volume of
+lyzed at the Analysis and Testing Center of Shanghai Jiao Tong Univer-    10 μL was injected for analysis. Mobile phase A was 0.1% formic acid
+sity. Proteomic identiﬁcation was achieved through peptide database     in deionized water, and mobile phase B was acetonitrile.
+searching using BLAST. The expression of each protein was quantiﬁed       Pseudouridimycin analysis: Pseudouridimycin was detected in pos-
+based on the peak intensities of the corresponding peptides, reﬂecting      itive ion mode ( m/z 487.1896 [M + H]+ ), and chromatographic separa-
+the normalized abundance of each protein.                                  tion was performed using the following gradient elution program: 0–
+                                                            20 min, 5–95% B; 20–23 min, isocratic at 95% B; 23–25 min, isocratic
+2.7. Fermentation and enzyme activity analysis of TGase                       at 5% B.
+                                                                                   Piericidin A1 analysis: Piericidin A1 was detected in the positive ion
+   IPIO2 and its derivative strains were incubated on Gauze’s Medium    mode ( m/z 416.2795 [M + H]+ ), and chromatographic separation was
+NO.1 agar at 30 °C for 7 d to induce sporulation. Approximately 109     achieved using the following gradient elution program: 0–5 min, iso-
+colony-forming units of spores from one agar plate were inoculated into     cratic at 20% B; 5–35 min, 20–80% B; 35–45 min, 80–100% B; 45–
+30 mL of seed medium (20 g/L glycerol, 6 g/L yeast, 25 g/L ﬁsh peptone,    55 min, isocratic at 100% B; 55–60 min, isocratic at 20% B.
+2 g/L MgSO4 ·7H2 O, 2 g/L K2 HPO4 ·3H2 O, pH 7.4) and cultured in a
+rotary shaker at 30 °C and 220 rpm for 24 h. Subsequently, 3 mL of     3. Results
+the resulting seed culture was transferred to 30 mL of the fermentation
+medium (same as the seed medium) in triplicate and incubated under     3.1. Functional characterization of the endogenous type I-E CRISPR-Cas
+the same conditions for 36–42 h until TGase activity began to decline.      system in S. mobaraensis IPIO2
+   TGase activity was measured using a colorimetric method, as previ-
+ously described [ 53 ]. The fermentation cultures were ﬁrst centrifuged,       Endogenous CRISPR-Cas systems are promising candidates for the
+and the supernatants were collected and diluted appropriately. Then,    development of a simpliﬁed and eﬀective genome-editing platform
+200 𝜇L of the diluted sample was mixed with 2 mL of preheated solution     [ 40 , 54 , 55 ]. Given that the heterologous CRISPR-Cas9 system does not
+A (0.2 M Tris–HCl, 0.1 M hydroxylamine hydrochloride, 0.01 M reduced    work well in S. mobaraensis , we sought to characterize and harness its na-
+glutathione, 0.03 M N - 𝛼-CBZ-Gln-Gly, pH 6.0) and incubated in a water     tive CRISPR-Cas system as a potential genome-editing tool. Bioinformat-
+bath at 37 °C for 10 min. The reaction was terminated by adding 2 mL of      ics analysis of the S. mobaraensis IPIO2 genome revealed a complete type
+solution B, a mixture of 3 M HCl, 12% (w/v) trichloroacetic acid (TCA),     I-E CRISPR-Cas locus, comprising a CRISPR array and an associated cas
+and 5% (w/v) FeCl3 in 0.1 M HCl (all components were mixed at equal    gene cluster ( Fig. 1 a). The cas genes, including cas3, cas8, cas11, cas7,
+volumes). The OD525 value of the reaction products was measured using     cas5, cas6, cas1 , and cas2 , are involved in the interference and adap-
+a spectrophotometer (TECAN, Spark®). Enzyme activity was quantiﬁed     tation phases of the CRISPR-Cas system. Consistent with the canonical
+using a hydroxamate standard curve.                                       architecture of type I-E CRISPR-Cas systems [ 56 , 57 ], the cascade com-
+   SDS-PAGE was performed using 12% resolving gels with 5% stacking     plex is composed of Cas5, Cas6, Cas7, Cas8, and Cas11, which form a
+gels in a Tris-glycine-SDS buﬀer. Samples were mixed with 5 × SDS    Cascade–crRNA complex. Subsequently, the Cas8 subunit recognizes the
+sample loading buﬀer containing 5% 𝛽-mercaptoethanol and boiled for   PAM sequence and binds to the target DNA, and the helicase-nuclease
+5 min, and 5 𝜇L of each sample was loaded per well. Electrophoresis    Cas3 is recruited to the Cascade–DNA complex and progressively de-
+was conducted at 80 V for stacking and at 120 V for separation until     grades the target DNA [ 56 , 58 ] (Fig. S2). Additionally, RNA-seq proﬁling
+the dye front reached the bottom of the gel. Gels were stained with 1%    conﬁrmed that all eight cas genes were transcriptionally active during
+Coomassie Brilliant Blue R-250 for 10 min and destained overnight with     fermentation (Fig. S3), supporting the functional potential of this en-
+10% acetic acid. Protein bands were visualized using an Illumination    dogenous system.
+panel, and TGase was identiﬁed based on its known molecular weight       The CRISPR array consists of 19 conserved 29-bp repeats, which are
+of 37.4 kDa.                                                             predicted to form stable stem-loop secondary structures ( Fig. 1 b) and
+                                                                         are interspersed with 18 unique spacers (designated as spacer 1 through
+2.8. Biomass measurement                                                18, average length of 32 bp) ( Fig. 1 a, Fig. S4). To assess the targeting
+                                                                             potential of these spacers, all 18 spacers were analyzed via BLAST us-
+   Biomass was measured by collecting 1 mL of the culture from each     ing CRISPRTarget. Seven spacers (spacers 1, 3, 8, 10, 13, 14, and 15)
+replicate at 42 h of fermentation. Following centrifugation, the super-    showed high homology with sequences from exogenous plasmids, sug-
+natant was discarded, and the resulting cell pellet was dried to a constant     gesting their possible original targets for CRISPR interference (Fig. S5).
+weight.                                                                    In addition to spacer–protospacer complementarity, DNA cleavage in
+                                                                      type I systems requires the presence of a PAM adjacent to the 5 ′ -end of
+2.9. Determination of the intracellular amino acid pool                       the protospacer, which can discriminate between self and non-self DNA
+                                                              and initiate the process of identifying and cleaving target DNA [ 59 , 60 ].
+   The culture broth (1 mL) was collected after 28 h and centrifuged at    To determine the speciﬁc PAM sequence recognized by this system, we
+13,800 × g for 5 min. The harvested mycelia were washed twice with     ﬁrst analyzed the 5 ′ -ﬂanking sequences of all matched protospacers us-
+distilled water and resuspended in 1 mL of HCl/TCA solution (0.1 M     ing WebLogo, which revealed the nucleotide frequencies of the putative
+HCl/10% TCA; 1:2, v/v). The cell suspensions were disrupted by soni-   PAM sequences ( Fig. 1 c). To unambiguously determine the functional
+cation on ice for 10 min and centrifuged at 13,800 × g for 20 min. The   PAM sequence and validate interference activity, we conducted plas-
+supernatants were subjected to quantitative amino acid analysis using    mid interference assays (Fig. S1). Nine candidate PAM sequences (5 ′ -
+an automatic amino acid analyzer (Hitachi l -8900–1, Japan).           GAT-3 ′ , 5 ′ -GAC-3 ′ , 5 ′ -GGT-3 ′ , 5 ′ -GGC-3 ′ , 5 ′ -AAT-3 ′ , 5 ′ -AAC-3 ′ , 5 ′ -AGT-
+                                                            3 ′ , 5 ′ -AGC-3 ′ , and 5 ′ -AAG-3 ′ ), derived from the WebLogo analysis re-
+2.10. Liquid chromatography-mass spectrometry analysis of                       sults, were separately cloned into pSET152 immediately upstream of
+pseudouridimycin and piericidin A1 production                              the protospacer (spacer 15). The native repeat-derived sequence 5 ′ -CCC-
+                                                            3 ′ located immediately upstream of the native spacers was used as the
+   The fermentation cultures were harvested after 42 h, and extraction     negative control. Spacer 15 was selected as the test object because it
+was performed using methanol. The extracts were then analyzed via    matched most protospacers (Fig. S5a). Ten interference plasmids and
+
+
+                                                                        3
+
+
+[PDF physical page 4]
+D. Wang, M. Sun, Q. Meng et al.                                                                                                                 Engineering Microbiology 6 (2026) 100302
+
+
+
+
+
+Fig. 1. Characterization of the type I-E CRISPR-Cas system in Streptomyces mobaraensis IPIO2. a. Genomic organization of type I-E CRISPR-Cas locus, including
+the cas gene cluster ( cas3-cas8-cas11-cas7-cas5-cas6-cas1-cas2 ) and the CRISPR array consisting of 19 repeats (black diamonds) and 18 spacers (rectangular colored
+squares). b. Predicted stem-loop structure of the crRNA in the endogenous type I-E CRISPR-Cas system. c. The putative protospacer adjacent motif (PAM) derived
+from bioinformatics analysis of protospacer 5 ′ -ﬂanking sequences using WebLogo. d, e. Plasmid interference assays validating the functional PAM. The number of
+exconjugants per 108 spores for each interference plasmid were averaged from two biological replicates. Gray represents the negative control; red indicates the
+functional PAM (5 ′ -AAC-3 ′ ) recognized by this the type I-E CRISPR-Cas system.
+
+
+
+the vector plasmid pSET152 were then individually transformed into S.    a mini-CRISPR array and two donor fragments (UHA and DHA) ﬂank-
+mobaraensis IPIO2. The plasmid harboring the PAM 5 ′ -AAC-3 ′ and spacer     ing the tg gene into the replicative plasmid pJTU1278 [ 31 ] ( Fig. 2 a).
+15 showed signiﬁcantly lower transformation eﬃciency than that of the    The mini-CRISPR array contains a repeat-spacer-repeat sequence, with
+negative control ( Fig. 1 d, Fig. S6). A similar reduction was observed for     expression driven by the native promoter of the CRISPR array. Two 32-
+the plasmid harboring the PAM 5 ′ -AAC-3 ′ and spacer 10, further sug-    bp spacers immediately downstream of the 5 ′ -AAC-3 ′ site were selected
+gesting 5 ′ -AAC-3 ′ as the PAM sequence for this system ( Fig. 1 e, Fig. S6).     within the tg coding region. The control plasmid 1278-tg, containing
+   These ﬁndings indicate that the endogenous type I-E CRISPR-Cas     only two donor fragments, was then constructed ( Fig. 2 b).
+system possesses target-cleavage activity and recognizes 5 ′ -AAC-3 ′ as        After introduction into S. mobaraensis IPIO2 via electroporation,
+its functional PAM. Furthermore, the S. mobaraensis IPIO2 genome was    pCRISPR-tg yielded fewer transformants than the control plasmid 1278-
+found to contain 104,062 5 ′ -AAC-3 ′ sites, with an average of 15.8 sites      tg, suggesting that CRISPR-mediated targeting resulted in cell death.
+per gene, highlighting the potential utility of this native CRISPR-Cas     Next, 10 transformants for each pCRISPR-tg plasmid were selected from
+system for targeted genome editing in S. mobaraensis .                      the thiostrepton-containing media and veriﬁed via PCR ampliﬁcation
+                                                                       using two sets of primers: one set ﬂanking the tg gene (TG-out-F/R) and
+3.2. Highly eﬃcient gene deletion based on the endogenous type I-E           another set targeting internal regions of the gene (TG-in-F/R). For both
+CRISPR-Cas system                                                   pCRISPR-tg-1 and pCRISPR-tg-2, seven out of 10 transformants (70%)
+                                                                 produced a short DNA band of the expected size ( ∼460 bp) with the
+   The tg gene, encoding TGase, was selected as the initial target in S.    ﬂanking primers and showed no bands with the internal primers, indi-
+mobaraensis IPIO2 for developing a CRISPR-based genome-editing tool,     cating successful deletion of the tg gene. For pCRISPR-tg-1–9 transfor-
+as TGase activity can be readily quantiﬁed using a colorimetric method     mants, both wild-type and tg -deleted bands were observed, identifying
+[ 53 ]. First, we constructed the CRISPR plasmid pCRISPR-tg by inserting       it as a mixed-genotype strain ( Fig. 2 c). By contrast, no deletions were
+
+
+                                                                        4
+
+
+[PDF physical page 5]
+D. Wang, M. Sun, Q. Meng et al.                                                                                                                 Engineering Microbiology 6 (2026) 100302
+
+
+
+
+
+Fig. 2. Repurposing the native type I-E CRISPR-Cas system for gene deletion in Streptomyces mobaraensis IPIO2. a. Schematic diagram of the editing plasmid pCRISPR-
+tg for tg gene deletion. b. Schematic diagram of the homologous recombination plasmid 1278-tg for tg gene deletion. c. (i) Two spacers within the tg gene were
+selected for CRISPR plasmid construction, along with two pairs of primers used to verify the tg deletion mutants. (ii, iii) PCR veriﬁcation of tg deletion eﬃciency in
+transformants obtained from thiostrepton selection (Round 1) using the primers TG-out-F/R (ii) and TG-in-F/R (iii). Two transformants carrying the control plasmid
+1278-tg served as negative controls. M: 1 kb plus DNA marker; P: pCRISPR-tg-1/2 plasmid as template; G: IPIO2 genome as template. Lanes 1-–10: individual
+transformants. d. Transglutaminase (TGase) activity assay of the fermentation cultures of all transformants. Transformants with successful tg deletion lost the ability
+to produce TGase, while the mixed-genotype transformants exhibited a marked decrease in TGase activity. e. PCR analysis of single colonies derived from pCRISPR-
+tg-1–1 transformants after plasmid curing (Round 2) using primers TG-out-F/R. M: 1 kb plus DNA marker; P: pCRISPR-tg-1 plasmid as template; G: IPIO2 genome (as
+template). Lanes 1–−19: individual colonies. f. PCR analysis of single colonies derived from 1278-tg-1 transformants after plasmid curing (Round 2) using primers
+TG-out-F/R. M: 1 kb plus DNA marker; P: 1278-tg plasmid as template; G: IPIO2 genome (as template). Lanes 1–−19: individual colonies.
+
+
+
+
+observed for the control plasmid 1278-tg ( Fig. 2 c). Additionally, the        Next, we evaluated the eﬃciency of marker-less mutant isolation
+TGase activity of the transformants was measured. Consistent with the     following plasmid curing. pCRISPR-tg-1–1 (conﬁrmed tg deletion) and
+PCR ampliﬁcation results, the tg -deleted transformants exhibited no de-     1278-tg-1 (single-crossover) transformants were subjected to nonselec-
+tectable TGase activity, conﬁrming successful gene deletion, whereas     tive sporulation to allow plasmid curing. Nineteen single colonies of
+the mixed-genotype pCRISPR-tg-1–9 transformant showed markedly re-    each strain were randomly selected and analyzed via PCR using the
+duced activity ( Fig. 2 d).                                             ﬂanking primer pair TG-out-F/R. All 19 colonies (100%) derived from
+
+
+
+                                                                        5
+
+
+[PDF physical page 6]
+D. Wang, M. Sun, Q. Meng et al.                                                                                                                 Engineering Microbiology 6 (2026) 100302
+
+
+pCRISPR-tg-1–1 transformants retained the tg -deleted genotype, indi-     food-grade TGase applications. To eliminate this hazard and demon-
+cating stable and complete gene deletion ( Fig. 2 e). In contrast, approx-     strate the capacity of this system for large-fragment deletion, an 11.8-
+imately half (10/19, 52.6%) of the colonies derived from control 1278-    kb fragment within the pum BGC was chosen as the target. The CRISPR
+tg-1 transformants exhibited the desired tg deletion, whereas the remain-    plasmid pCRISPR-pum was constructed by cloning a spacer targeting the
+ing colonies reverted to the wild-type genotype ( Fig. 2 f).                    central region of this 11.8-kb target fragment, together with ﬂanking
+   Taken together, these results demonstrate that the endogenous type    homologous recombination arms, into the pJTU1278 backbone, which
+I-E CRISPR-Cas system enables eﬃcient and precise genome editing in    was then introduced into S. mobaraensis IPIO2 ( Fig. 4 a). Compared with
+S. mobaraensis , substantially outperforming traditional homologous re-     that for single-gene deletion, transformation with pCRISPR-pum yielded
+combination methods in both editing eﬃciency and mutant screening.     fewer transformants (only four; data not shown). All four genes were
+                                                                      veriﬁed via colony PCR and DNA sequencing. Notably, 75% of the trans-
+                                                                     formants (3/4) showed successful deletion of the pum BGC ( Fig. 4 b, Fig.
+3.3. Harnessing comparative proteomics and the native CRISPR-Cas system
+                                                                         S10), and the absence of pseudouridimycin in their fermentation prod-
+to enhance TGase production
+                                                                            ucts was conﬁrmed via LC-MS analysis ( Fig. 4 c).
+                                                                               In addition, the production of another secondary metabolite, pieri-
+   Comparative proteomic analyses of S. mobaraensis IPIO2 were per-
+                                                                             cidin A1, was conﬁrmed in IPIO2 using antiSMASH and LC-MS analysis
+formed at 16, 24, and 42 h of fermentation, corresponding to the early,
+                                                                        (Table S5). Piericidin A1 is a potent inhibitor of the mitochondrial and
+logarithmic, and late stationary phases of TGase production, respec-
+                                                                               bacterial respiratory chain complex I and acts as a ubiquinone analog
+tively (Fig. S7). Time-series analysis was then performed to identify
+                                                                             that disrupts electron transport and oxidative phosphorylation [ 63 ]. Its
+diﬀerentially expressed proteins potentially involved in TGase biosyn-
+                                                     BGC ( pie BGC, cluster 29) is relatively large, spanning approximately
+thesis. Among the proteins exhibiting consistently reduced abundance
+                                                            50 kb (Table S5). To evaluate the feasibility of deleting larger fragments
+( ≥ 2-fold decrease in both the 24 h/16 h and 42 h/24 h comparisons,
+                                                                     while eliminating piericidin A1 production, we constructed pCRISPR-
+p < 0.05), ﬁve with known functions were selected for further inves-
+                                                                                   pie, designed to delete a 40-kb fragment within the pie BGC, with a
+tigation ( Fig. 3 a). These candidates included an amino acid adeny-
+                                                                        spacer targeting the central region of the target fragment ( Fig. 4 d). This
+lation domain-containing protein (SMDS_42), a ketosynthase chain-
+                                                                    plasmid was then introduced into the IPIO2 Δpum strain, and ﬁve result-
+length factor (SMDS_1045) and  its co-transcribed acyl carrier pro-
+                                                                         ing transformants were subjected to PCR veriﬁcation and DNA sequenc-
+tein (SMDS_1044), a hemin transporter (SMDS_1204), and an RNA
+                                                                                 ing. Here, 80% of the transformants (4/5) showed successful deletion
+polymerase-binding protein (SMDS_957) (Fig. S8, Table S4). Consider-
+                                                                              of the 40-kb fragment of the pie BGC ( Fig. 4 e, Fig. S10), which was
+ing their reduced abundance during TGase production, we hypothesized
+                                                                             further corroborated by LC-MS analysis ( Fig. 4 f). The pum and pie BGC-
+that these proteins function as negative regulators or metabolic competi-
+                                                                         deleted mutant, IPIO2 Δpum Δpie, exhibited a 17% increase in TGase
+tors, thereby limiting TGase production.
+                                                                             yield compared with that of the parental IPIO2 strain ( Fig. 4 g), with no
+   To test this hypothesis, ﬁve genes were individually disrupted us-
+                                                                     apparent diﬀerence in cell growth ( Fig. 4 h). Analysis of the intracellu-
+ing the endogenous CRISPR-Cas system. Four pCRISPR-based knockout
+                                                                                     lar amino acid pools revealed that the deletion of these two BGCs led
+plasmids were constructed, one of which was designed to simultane-
+                                                                            to a signiﬁcantly higher accumulation of most amino acids, resulting
+ously delete the co-transcribed genes SMDS_1044 and SMDS_1045 , and
+                                                                              in their increased availability for TGase synthesis (Fig. S11) and likely
+then introduced into the parental IPIO2 strain (Fig. S9). Subsequent de-
+                                                                          contributing to its enhanced yield. Therefore, removing these clusters
+tection of TGase activity in the four resulting mutants revealed notable
+                                                                        generates a safer TGase-producing strain and confers a promotive eﬀect
+increases in TGase production compared with that in the control. Specif-
+                                                             on TGase production.
+ically, the inactivation of SMDS_42 led to an 18.5% increase in TGase
+                                                                                   Collectively, these results demonstrated the high eﬃciency of the
+yield, and the simultaneous deletion of SMDS_1044 and SMDS_1045 and
+                                                                endogenous CRISPR-Cas system in mediating large-fragment deletions
+individual deletions of SMDS_1204 and SMDS_957 resulted in an approx-
+                                                                      ranging from 10 to 40 kb in S. mobaraensis .
+imately 8.5% increase in yield ( Fig. 3 b). SDS-PAGE analysis of the fer-
+mentation cultures of these four mutants revealed more intense TGase
+                                                                           4. Discussion
+bands than those of the control ( Fig. 3 c), conﬁrming the enhanced pro-
+duction levels. Additionally, all mutants exhibited a modest but consis-
+                                                                  Advancements in metabolic engineering depend heavily on the ac-
+tent increase in biomass ( Fig. 3 d). These ﬁndings demonstrate a com-
+                                                                                     cessibility of eﬃcient and reliable genetic manipulation tools. Here, we
+parative proteomics-informed approach for increasing TGase yield in S.
+                                                                          characterized and repurposed the native type I-E CRISPR-Cas system of
+mobaraensis IPIO2.
+                                                                                    S. mobaraensis as an eﬃcient genome-editing tool, which achieved over
+                                                   75% editing eﬃciency for gene deletions. CRISPR-Cas systems such as
+3.4. The endogenous type I-E CRISPR-Cas system eﬃciently deletes large       type II Cas9 and type V Cas12 are commonly used for genome edit-
+DNA fragments                                                           ing in Streptomyces [ 32 , 33 , 64–66 ]. However, their application is of-
+                                                                        ten constrained by the severe toxicity resulting from oﬀ-target eﬀects
+   Genomic analysis of IPIO2 using antiSMASH version 7.1.0 revealed    and the low transformation eﬃciency of large editing plasmids, partic-
+the presence of multiple secondary metabolite biosynthetic gene clusters     ularly in industrial strains [ 34 , 35 , 54 , 67 ]. In contrast, type I systems,
+(BCGs). Given the diverse biological activities of secondary metabolites     highly prevalent in actinomycetes, account for approximately 98% of
+[ 61 ], these gene clusters pose potential safety concerns for food-grade      all the CRISPR-Cas systems identiﬁed in Streptomyces [ 54 ], suggesting
+TGase production. To address this issue, the eﬃcient deletion of BCGs     their superior compatibility and reduced cytotoxicity. Furthermore, the
+responsible for these potentially toxic secondary metabolites is neces-     genome-integrated cascade complex facilitates streamlined genetic ma-
+sary.                                                                      nipulations using a compact plasmid carrying only a synthetic guide
+   The BCG of pseudouridimycin ( pum BGC, cluster 1) was identiﬁed   RNA (sgRNA) cassette, thereby improving both transformation eﬃ-
+in IPIO2 using antiSMASH, and its production during fermentation was     ciency and editing feasibility.
+conﬁrmed via liquid chromatography-mass spectrometry (LC-MS) (Ta-        Conventional homologous recombination requires sequential screen-
+ble S5). Pseudouridimycin is a nucleoside analog antibiotic that ex-     ing for single-crossover integrants, followed by counterselection for
+hibits selective physiological toxicity by potently inhibiting bacterial     double-crossover mutants after plasmid curing ( Fig. 2 b). The theoret-
+RNA polymerase through competition with UTP for the nucleotide ad-      ical probability of obtaining a mutant versus a wild-type revertant after
+dition site, thereby blocking transcription and bacterial growth [ 62 ].    a double crossover is up to 50%. However, this method is inherently
+Thus, its production during fermentation presents safety concerns for    time-consuming and ineﬃcient owing to its reliance on low-frequency
+
+
+                                                                        6
+
+
+[PDF physical page 7]
+D. Wang, M. Sun, Q. Meng et al.                                                                                                                 Engineering Microbiology 6 (2026) 100302
+
+
+
+
+
+Fig. 3. Deletion of the downregulated genes identiﬁed through comparative proteomics. a. Volcano plot of the comparative proteomics data. Each dot represents a
+quantiﬁed protein. Blue dots indicate the expression ratio of at 24 h versus that at 16 h, and red dots indicate the expression ratio of at 42 h versus that at 24 h. The
+horizontal dashed line represents the signiﬁcance threshold (p ≤ 0.05; —log10 p-value ≥ 1.3), and the vertical dashed lines denote the 2-fold increase (right, log2
+fold change ≥ 1) or decrease (left, log2 fold change ≤ –−1) thresholds. Six proteins ( ≥ 2-fold decrease in both 24 h/16 h and 42 h/24 comparisons, p ≤ 0.05) are
+labeled with their protein IDs. b. Transglutaminase (TGase) activity of four mutants (IPIO2 Δ42, IPIO2 Δ1044/1045, IPIO2 Δ1204, and IPIO2 Δ957) and the wild-type
+IPIO2. Error bars represent the mean ± SD standard deviation (n = 3 biological replicates). ∗ p < 0.05; ∗ ∗ p < 0.01; ∗ ∗ ∗ p < 0.001; ns, not signiﬁcant (two-tailed paired
+t -tests). c. SDS-PAGE analysis of the fermentation cultures of four mutants and the wild-type IPIO2. Denser TGase bands in the mutant strains indicate enhanced
+TGase production. d. Biomass of four mutants and the wild-type IPIO2. n = 3 biological replicates.
+
+
+homologous recombination events. In contrast, the replicative plasmid      tal validation. After prediction via CRISPRTarget, we conﬁrmed that this
+pJTU1278, mediating homologous recombination-based deletion in S.    system recognizes 5 ′ -AAC-3 ′ as its preferred PAM through plasmid inter-
+mobaraensis , achieved a maximum deletion eﬃciency of 52.6% ( Fig. 2 f),     ference assays, which aligns with the canonical PAM observed in other
+which is consistent with this theoretical limit. Moreover, the segrega-     well-characterized type I-E systems [ 39 , 68 ]. To utilize this endogenous
+tion of wild-type and mutant colonies necessitates extensive screen-    system for genome editing, we constructed a replicative editing plas-
+ing, which further prolongs the process. In contrast, the endogenous    mid, pCRISPR, using the pJTU1278 backbone. This plasmid includes an
+type I-E CRISPR-Cas system developed in the present study signiﬁcantly    sgRNA cassette consisting of a promoter, repeat-spacer-repeat, and a ter-
+enhanced both the eﬃciency and simplicity of genome editing (Ta-     minator. The promoter originates from the endogenous CRISPR array to
+ble S6). In the ﬁrst round, CRISPR-mediated one-step editing directly     ensure normal transcription in S. mobaraensis . The spacer length was set
+enriched the successful editing events, bypassing the need for time-     to 32 bp, matching the average size of natural spacers. This design was
+consuming counterselection. More importantly, after plasmid elimina-    conﬁrmed to support high editing eﬃciency. Shorter spacers may im-
+tion, all CRISPR-edited colonies stably maintained the intended dele-    prove transformation eﬃciency but often reduce editing eﬃciency [ 39 ].
+tion, thereby avoiding the extensive secondary screening required in     Therefore, further optimization of the spacer length may help strike a
+conventional approaches. Thus, the endogenous CRISPR-Cas system im-     balance between transformation and editing eﬃciency.
+proves editing eﬃciency and streamlines the overall workﬂow, provid-     We also observed fewer transformants with the editing plasmid
+ing a robust and time-eﬃcient platform for genetic manipulation in S.    pCRISPR-tg than with the control plasmid 1278-tg, suggesting that
+mobaraensis .                                                       CRISPR-mediated targeting resulted in cell death, which is likely ow-
+   While the consensus PAM for type I-E systems is generally reported     ing to the nonspeciﬁc endonuclease activity of Cas3 [ 57 ]. Therefore,
+as 5 ′ -AAN-3 ′ [ 39 , 68 ], the speciﬁc PAM preference requires experimen-     the expression and activity of Cas3 must be tightly controlled to ensure
+
+
+
+                                                                        7
+
+
+[PDF physical page 8]
+D. Wang, M. Sun, Q. Meng et al.                                                                                                                 Engineering Microbiology 6 (2026) 100302
+
+
+
+
+
+Fig. 4. The endogenous CRISPR-Cas- system mediated mediates genome editing for large DNA deletions. a. Schematic illustration of the pum biosynthesis gene
+cluster (BGC) (11.8 kb) deletion in IPIO2. b. PCR screening of four pum BGC-deleted transformants obtained through thiostrepton selection using two pairs of primers
+indicated in Fig. Fig. 4 a. The predicted size of the PCR products was 828 bp (yellow squarerectangle) using for pum-out-F/R, while no band was observed for using
+pum-in-F/R, in the deletion strains. M: 1 kb plus DNA marker; P: pCRISPR-pum (as a control); G: Genomic DNA of IPIO2 (as a control). Lanes 1–−4: diﬀerent
+numbers of the transformants. c. Liquid chromatography-mass spectrometry (LC-MS) analysis of pseudouridimycin ( m/z 487.1896 [M + H] + ) from the fermentation
+extracts of the IPIO2 Δpum transformants. d. Schematic illustration of the pie BGC (40.1 kb) deletion in IPIO2 Δpum. e. PCR veriﬁcation of ﬁve pie BGC-deleted
+transformants obtained through thiostrepton selection using two pairs of primers indicated in Fig. Fig. 4 d The predicted size of PCR products was 696 bp (yellow
+square rectangle) using for pie-out-F/R, while no band was observed using for pie-in-F/R, in the deletion strains. M: 1 kb plus DNA marker; P: pCRISPR-pie (as
+a control); G: Genomic DNA of IPIO2 Δpum (as a control). Lanes 1–−5: diﬀerent numbers of the transformants. f. LC-MS analysis of piericidin A1 ( m/z 416.2795
+[M + H] + ) from the fermentation extracts of the IPIO2 Δpum Δpie transformants. g. TGase activity of the edited strain IPIO2 Δpum Δpie. h. Biomass of IPIO2 Δpum Δpie.
+Error bars represent the mean ± SD standard deviation (n = 3 biological replicates). ∗ p < 0.05; ∗ ∗ p < 0.01; ∗ ∗ ∗ p < 0.001; ns, not signiﬁcant (two-tailed paired
+t -tests).
+
+
+
+                                                                        8
+
+
+[PDF physical page 9]
+D. Wang, M. Sun, Q. Meng et al.                                                                                                                 Engineering Microbiology 6 (2026) 100302
+
+
+speciﬁc targeting and avoid imposing a growth burden on the host. This    Declaration of competing interest
+can be achieved using inducible promoters to regulate Cas3 expression
+or sgRNA transcription. Furthermore, the nonspeciﬁc endonuclease ac-       The author Linquan Bai is an Editorial Board Member for Engineer-
+tivity of Cas3 raises the possibility of oﬀ-target cleavage at unintended     ing Microbiology and was not involved in the editorial review or the
+genomic sites. An accurate assessment of oﬀ-target events is required,     decision to publish this article.
+involving experimental validation including the whole-genome sequenc-
+ing of multiple-edited strains [ 32 ].                                CRediT authorship contribution statement
+   The primary goal of developing this type I-E CRISPR-Cas system
+is to optimize TGase production in S. mobaraensis . Advances in multi-      Dan Wang: Writing – review & editing, Validation, Methodology, In-
+omics technologies have enabled the genome-wide identiﬁcation of can-     vestigation, Data curation. Mengjun Sun: Validation, Methodology, In-
+didates for rational metabolic engineering [ 24 , 69 , 70 ]. In this study,     vestigation. Qingxu Meng: Methodology, Investigation. Qianjin Kang:
+we analyzed the dynamic changes in intracellular protein abundance     Writing – review & editing, Supervision, Methodology. Linquan Bai:
+by comparing proteomic proﬁles at three key time points (16, 24,     Writing – review & editing, Supervision, Project administration, Fund-
+and 42 h) during fermentation. Five proteins showing consistently re-     ing acquisition, Data curation, Conceptualization.
+duced abundance concurrent with TGase production were selected as
+candidate deletion targets for enhanced TGase production. The dele-    Acknowledgments
+tion of these targets led to an increase in TGase yield, demonstrat-
+ing that comparative proteomics provides a reliable strategy for strain        This work was ﬁnancially supported by the Shanghai Municipal Sci-
+improvement. Notably, the deletion of SMDS_42 resulted in a greater    ence and Technology Major Project, Shanghai Municipal Commission
+increase in TGase production (18.5%) than that after the deletion of     of Science and Technology ( 24HC2810200), and Dongsheng Biotech
+other genes (8.5%), which may be attributed to the higher abundance     (Taixing) Co., Ltd. to L.B. We thank the Core Facility and Technical Ser-
+of SMDS_42 identiﬁed using the proteomics data (Fig. S8). Conse-     vice Center for SLSB and the Instrumental Analysis Center in SJTU for
+quently, eliminating this highly expressed protein may lead to the mit-     data collection.
+igation of its strong inhibitory eﬀect on TGase production. These ﬁnd-
+ings are consistent with those of previous studies. For example, com-
+                                                             Supplementary materials
+parative proteomic analysis across four fermentation time points in
+S. pogona identiﬁed a novel transcriptional regulator, Sp13016, which
+                                                                The Supporting Material to this article is available free of charge
+was subsequently conﬁrmed to regulate butenyl-spinosyn biosynthe-
+                                                                             online. Table  S1-S6;  Fig. S1-S11. Supplementary  material  associ-
+sis [ 71 , 72 ]. Collectively, these results indicate that proteomics-guided
+                                                                       ated  with  this  article can be  found,  in  the  online  version,  at
+metabolic optimization coupled with eﬃcient genome-editing tools rep-
+                                                                    doi:10.1016/j.engmic.2026.100302 .
+resent an eﬀective strategy for enhancing metabolite production in
+bacteria.                                                          References
+    S. mobaraensis IPIO2 contains 33 putative secondary metabolite
+BGCs (Table S5). As some of these metabolites are cytotoxic, such as       [1] H. Ando, M. Adachi, K. Umeda, A. Matsuura, M. Nonaka, R. Uchio, et al., Puriﬁcation
+ketomemicin and avilamycin, their presence poses considerable safety          and characteristics of a novel transglutaminase derived from microorganisms, Agri
+                                                                                                      Biol Chem. 53 (10) (1989) 2613–2617 .
+risks for food-grade TGase production. To improve the safety proﬁle                                                                                           [2] V. Kolotylo, K. Piwowarek, M. Kieliszek, Production of microbial transglutaminase
+of TGase-producing strains, we assessed the capability of this system          by Streptoverticillium cinnamoneum KKP 1658, EXCLI. J. 23 (2024) 655–671 .
+for large-fragment deletion and achieved eﬃciencies exceeding 75%       [3] L. Duarte, C.R Matte, C.V Bizarro, M.AZ. Ayub, Transglutaminases: part I-origins,
+for large fragments ranging from 10 to 40 kb. The helicase-nuclease            sources, and biotechnological characteristics, World J. Microb. Biot. 36 (1) (2020)
+                                                                               15 .
+activity of Cas3 enables processive DNA degradation, which likely ac-       [4] S.W Fatima, S.K Khare, Current insight and futuristic vistas of microbial transglu-
+counts for the higher eﬃciency observed in this study than with single-           taminase in nutraceutical industry, Microbiol. Res. 215 (2018) 7–14 .
+gene deletions [ 73 , 74 ]. Multi-omics analyses revealed that nearly half       [5] K. Yokoyama, N. Nio, Y. Kikuchi, Properties and applications of microbial transglu-
+                                                                                               taminase, Appl. Microbiol. Biotechnol. 64 (4) (2004) 447–454 .
+of these clusters were transcriptionally active during fermentation (data       [6] M.P Savoca, E. Tonoli, A.G Atobatele, E.AM. Verderio, Biocatalysis by transglutami-
+not shown). We propose that the iterative deletion of these actively ex-            nases: a review of biotechnological applications, Micromachines-Basel. 9 (2018) 11 .
+pressed clusters represents a promising strategy for improving the safety       [7] S.K Chan, T.S Lim, Bioengineering of microbial transglutaminase for biomedical ap-
+                                                                                                            plications, Appl. Microbiol. Biotechnol. 103 (7) (2019) 2973–2984 .
+of TGase-derived products and boosting TGase yield, as supported by our       [8] G. Du, L. Cui, Y. Zhu, J. Chen, Improvement of shrink-resistance and tensile strength
+ﬁnding that eliminating pseudouridimycin and piericidin A1 biosynthe-            of wool fabric treated with a novel microbial transglutaminase from Streptomyces
+sis increased the amino acid pool for TGase production. The current edit-            hygroscopicus , Enzyme Microb. Technol. 40 (7) (2007) 1753–1757 .
+                                                                                           [9] V. Kolotylo, K. Piwowarek, M. Kieliszek, Microbiological transglutaminase: biotech-
+ing plasmid, based on the pIJ101 replicon, requires serial passaging for            nological application in the food industry, Open. Life Sci. 18 (1) (2023) 20220737 .
+approximately 2 weeks for plasmid curing [ 31 ], limiting the speed of it-      [10] L. Duarte, C.R Matte, C.V Bizarro, M.AZ. Ayub, Review transglutaminases: part II-in-
+erative deletions. Therefore, further optimization of the plasmid system,             dustrial applications in food, biotechnology, textiles and leather products, World J.
+                                                                                            Microb. Biot. 36 (1) (2020) 11 .
+through the use of counterselection elements or temperature-sensitive                                                                                      [11] M. Kieliszek, Microbial transglutaminase in food biotechnology: from biochemical
+replicons, may be essential to enable rapid and scalable genetic modiﬁ-          mechanisms to industrial applications, Appl. Microbiol. Biotechnol. 110 (1) (2026)
+cations in S. mobaraensis .                                                       38 .
+   The endogenous type I-E CRISPR-Cas system of S. mobaraensis serves      [12] H. Chang, Z. Zheng, H. Li, Y. Xu, G. Zhen, Y. Zhang, et al., Multi-omics investigation
+                                                                                                       of high-transglutaminase production mechanisms in Streptomyces mobaraensis and
+as a highly eﬃcient and versatile genome-editing platform within its           co-culture-enhanced fermentation strategies, Front. Microbiol. 16 (2025) 1525673.
+native host. This study provides a powerful genetic manipulation plat-      [13] Y. Jiang, Y.-P. Shang, H. Li, C. Zhang, J. Pan, Y.-P. Bai, et al., Enhancing transglu-
+form for the rational engineering of high-yield and safe TGase-producing           taminase production of Streptomyces mobaraensis by iterative mutagenesis breeding
+                                                                                         with atmospheric and room-temperature plasma (ARTP), Bioresour. Bioprocess. 4
+strains.                                                                                             (1) (2017) 37 .
+                                                                                      [14] J.R Xavier, K.V Ramana, R.K Sharma, Screening and statistical optimization of me-
+                                                                                                 dia ingredients for production of microbial transglutaminase, Life Sci. J. 2 (2017)
+                                                                                 216–225 .
+Data availability statement                                                     [15] L. Zhang, L. Zhang, X. Han, M. Du, Y. Zhang, Z. Feng, et al., Enhancement of trans-
+                                                                                            glutaminase production in Streptomyces mobaraensis as achieved by treatment with
+   Any data generated or analyzed in this study are either presented in            excessive MgCl2 , Appl. Microbiol. Biotechnol. 93 (6) (2012) 2335–2343 .
+                                                                                      [16] M.P Bagagli, H.H Sato, Two-staged temperature and agitation strategy for the pro-
+this article and its Supporting Material or are available from the corre-           duction of transglutaminase from a Streptomyces sp. isolated from Brazilian soils,
+sponding author upon request.                                                           Appl. Biochem. Biotechnol. 170 (5) (2013) 1057–1065 .
+
+
+                                                                        9
+
+
+[PDF physical page 10]
+D. Wang, M. Sun, Q. Meng et al.                                                                                                                 Engineering Microbiology 6 (2026) 100302
+
+
+[17] M. Z, G. D, J. C, pH control strategy of batch microbial transglutaminase produc-      [46] W. Cheng, J. Li, L. Lei, Y. Zhu, S. Luo, X. Wang, et al., Unlocking genome engineering
+      tion with Streptoverticillium mobaraense , Enzyme Microb. Technol. 31 (4) (2002)            in Alcaligenes faecalis by exploiting its native type I-F CRISPR-Cas, Microbiol. Spectr.
+     477–481 .                                                                    14 (2026) 5 .
+[18] L. Zhang, L. Zhang, H. Yi, M. Du, Y. Zhang, X. Han, et al., Enhancement of transg-      [47] Q. Zhou, Y. Zhao, C. Ke, H. Wang, S. Gao, H. Li, et al., Repurposing endogenous type
+     lutaminase production in Streptomyces mobaraensis DSM 40587 by non-nutritional             I-E CRISPR-Cas systems for natural product discovery in Streptomyces , Nat. Commun.
+      stress conditions: eﬀects of heat shock, alcohols, and salt treatments, Korean J.         15 (1) (2024) 9833 .
+    Chem. Eng. 29 (7) (2012) 913–917 .                                                [48] Z. Liu, J. Liu, Z. Yang, L. Zhu, Z. Zhu, H. Huang, et al., Endogenous CRISPR-Cas
+[19] M. Zheng, G. Du, J. Chen, S. Lun, Modelling of temperature eﬀects on batch microbial          mediated in situ genome editing: state-of-the-art and the road ahead for engineering
+     transglutaminase fermentation with Streptoverticillium mobaraense , World J. Microb.            prokaryotes, Biotechnol. Adv. 68 (2023) 108241 .
+      Biot. 18 (8) (2002) 767–771 .                                                      [49] D. Couvin, A. Bernheim, C. Toﬀano-Nioche, M. Touchon, J. Michalik, B. Neron, et al.,
+[20] X. Liu, D. Wang, Y. Zhang, X. Zhuang, L. Bai, Identiﬁcation of multiple regulatory           CRISPRCasFinder, an update of CRISRFinder, includes a portable version, enhanced
+     genes involved in TGase production in Streptomyces mobaraensis DSM 40587, Eng.          performance and integrates search for Cas proteins, Nucleic. Acids. Res. 46 (W1)
+      Microbiol. 3 (4) (2023) 100098 .                                                        (2018) W246–W251 .
+[21] X. Shi, H. Yan, F. Yuan, G. Li, J. Liu, C. Li, et al., LexA, an SOS response repressor,      [50] A. Biswas, J.N Gagnon, S.J Brouns, P.C Fineran, C.M Brown, CRISPRTarget: bioin-
+      activates TGase synthesis in Streptomyces mobaraensis , Front. Microbiol. 15 (2024)           formatic prediction and analysis of crRNA targets, RNa Biol. 10 (5) (2013) 817–827 .
+    1397314 .                                                                        [51] G.E Crooks, G. Hon, J.M Chandonia, S.E Brenner, WebLogo: a sequence logo gener-
+[22] T. Xue, M. Sun, D. Chen, X. Yuan, K. Liu, J. Chen, et al., Molecular cloning and             ator, Genome Res. 14 (6) (2004) 1188–1190 .
+     overexpression of the transglutaminase gene from Streptomyces mobaraensis , Food      [52] T. Kieser, M.J Bibb, M.J Buttner, K.F Chater, D.A Hopwood, K. Charter, et al., Prac-
+      Sci Technol Res. 25 (5) (2019) 687–694 .                                                               tical Streptomyces genetics, John Innes Foundation, 2000 .
+[23] F. Yuan, G. Li, Z. Li, M. Li, X. Liu, H. Yang, et al., Eﬃcient biosynthesis of transg-      [53] C. Bourneow, S. Benjakul, H.K A, Hydroxamate-based colorimetric method for di-
+     lutaminase in Streptomyces mobaraensis via systematic engineering strategies, Curr.             rect screening of transglutaminase-producing bacteria, World J. Microb. Biot. 28 (5)
+      Res. Food Sci. 8 (2024) 100756 .                                                        (2012) 2273–2277 .
+[24] X. Liu, Y. Wu, X. Zhang, Q. Kang, Y. Yan, L. Bai, Comparative transcriptome-based      [54] S. Wang, X. Zeng, Y. Jiang, W. Wang, L. Bai, Y. Lu, et al., Unleashing the potential:
+     mining of genes involved in the export of polyether antibiotics for titer improvement,           type I CRISPR-Cas systems in actinomycetes for genome editing, Nat. Prod. Rep. 41
+      Antibiotics. 11 (2022) 600 .                                                                     (9) (2024) 1441–1455 .
+[25] S. Shi, T. Chen, X. Zhao, Comparative transcriptome analysis for metabolic engineer-      [55] J. Zhang, W. Zong, W. Hong, Z.T Zhang, Y. Wang, Exploiting endogenous CRISPR–
+      ing, Methods Mol. Biol. 985 (2013) 447–458 .                                           Cas system for multiplex genome editing in Clostridium tyrobutyricum and engineer
+[26] L. Wang, H. Yang, M. Wu, H. Zhang, J. Zhang, X. Chen, Enhanced 𝜀 -poly- l -lysine           the strain for high-level butanol production, Metab. Eng. 47 (2018) 49–59 .
+     production in Streptomyces albulus through multi-omics-guided metabolic engineer-      [56] H. Morisaka, K. Yoshimi, Y. Okuzaki, P. Gee, Y. Kunihiro, E. Sonpho, et al., CRISPR–
+      ing, Biomolecules. 14 (2024) 7 .                                                      Cas3 induces broad and unidirectional genome editing in human cells, Nat. Com-
+[27] J. Zhang, N. Wang, W. Chen, W. Zhang, H. Zhang, H. Yu, et  al., Integrated         mun. 10 (1) (2019) 5302 .
+     metabolomics and transcriptomics reveal metabolites diﬀerence between wild and      [57] C. Xue, D.G Sashital, Mechanisms of type I-E and I-F CRISPR-Cas systems in Enter-
+      cultivated Ophiocordyceps sinensis , Food Res. Int. 163 (2023) 112275 .                          obacteriaceae , EcoSal. Plus. 8 (2019) 2 .
+[28] H.S Ha, Y.I Hwang, S.U Choi, Application of conjugation using phiC31 att/int system      [58] E. Charpentier, H. Richter, J. van der Oost, M.F White, Biogenesis pathways of RNA
+      for Actinoplanes teichomyceticus , a producer of teicoplanin, Biotechnol. Lett. 30 (7)           guides in archaeal and bacterial CRISPR-Cas adaptive immunity, FEMS Microbiol.
+     (2008) 1233–1238 .                                                                     Rev. 39 (3) (2015) 428–441 .
+[29] Y. Zhao, L. Li, G. Zheng, W. Jiang, Z. Deng, Z. Wang, et al., CRISPR/dCas9-mediated      [59] R. Heler, P. Samai, J.W Modell, C. Weiner, G.W Goldberg, D. Bikard, et al., Cas9
+     multiplex gene repression in Streptomyces , Biotechnol. J. 13 (9) (2018) e1800121 .             speciﬁes functional viral targets during CRISPR-Cas adaptation, Nature 519 (7542)
+[30] Hindra, D. Yang, Q. Teng, L.B Dong, I. Crnovcic, T. Huang, et al., Genome mining of           (2015) 199–202 .
+      Streptomyces mobaraensis DSM 40847 as a bleomycin producer providing a biotech-      [60] Z. Zhang, X. Wu, J. Yang, X. Liu, R. Liu, Y. Song, Highly eﬃcient base editing in
+     nology platform to engineer designer bleomycin analogues, Org. Lett. 19 (6) (2017)            rabbit by using near-PAMless engineered CRISPR/Cas9 variants, Sci. China Life Sci.
+     1386–1389 .                                                                  66 (3) (2023) 635–638 .
+[31] Y. He, Z. Wang, L. Bai, J. Liang, X. Zhou, Z. Deng, Two pHZ1358-derivative vectors      [61] J. Berdy, Bioactive microbial metabolites, J. Antibiot. (Tokyo) 58 (1) (2005) 1–26 .
+      for eﬃcient gene knockout in Streptomyces , J. Microbiol. Biotechnol. 20 (4) (2010)      [62] S.I Maﬃoli, Y. Zhang, D. Degen, T. Carzaniga, G. Del Gatto, S. Serina, et al., Antibac-
+     678–682 .                                                                                                  terial nucleoside-analog inhibitor of bacterial RNA polymerase, Cell 169 (7) (2017)
+[32] Y. Tong, P. Charusanti, L. Zhang, T. Weber, S.Y Lee, CRISPR-Cas9 based engineering          1240–1248.e23 e1223 .
+      of actinomycetal genomes, ACS. Synth. Biol. 4 (9) (2015) 1020–1029 .                  [63] H.R Bridges, J.G Fedor, J.N Blaza, A. Di Luca, A. Jussupow, O.D Jarman, et al.,
+[33] L. Li, K. Wei, G. Zheng, X. Liu, S. Chen, W. Jiang, et al., CRISPR-Cpf1-assisted mul-            Structure of inhibitor-bound mammalian complex I, Nat. Commun. 11 (1) (2020)
+      tiplex genome editing and transcriptional repression in Streptomyces , Appl. Env. Mi-         5261 .
+      crobiol. 84 (18) (2018) e00827-18 .                                                 [64] Y. Liu, W. Tao, S. Wen, Z. Li, A. Yang, Z. Deng, et al., In vitro CRISPR/Cas9 system for
+[34] E.M Musiol-Kroll, A. Tocchetti, M. Sosio, E. Stegmann, Challenges and advances          eﬃcient targeted DNA editing, mBio 6 (2015) 6, doi: 10.1128/mbio.01714-01715 .
+      in genetic manipulation of ﬁlamentous actinomycetes–the remarkable producers of      [65] W.L Yeo, E. Heng, L.L Tan, Y.W Lim, Y.H Lim, S. Hoon, et al., Characterization of
+      specialized metabolites, Nat. Prod. Rep. 36 (9) (2019) 1351–1369 .                         Cas proteins for CRISPR-Cas editing in streptomycetes, Biotechnol. Bioeng. 116 (9)
+[35] Y. Zhao, G. Li, Y. Chen, Y. Lu, Challenges and advances in genome editing technolo-           (2019) 2330–2338 .
+      gies in Streptomyces , Biomolecules. 10 (5) (2020) 734 .                                [66] M.M Zhang, F.T Wong, Y. Wang, S. Luo, Y.H Lim, E. Heng, et al., CRISPR-Cas9
+[36] K.S Makarova, S.A Shmakov, Y.I Wolf, P. Mutz, H. Altae-Tran, C.L Beisel, et al., An            strategy for activation of silent Streptomyces biosynthetic gene clusters, Nat. Chem.
+     updated evolutionary classiﬁcation of CRISPR-Cas systems including rare variants,             Biol. (2017) .
+     Nat. Microbiol. 10 (12) (2025) 3346–3361 .                                          [67] S. Ye, B. Enghiad, H. Zhao, E. Takano, Fine-tuning the regulation of Cas9 expression
+[37] W. Wang, H. He, H. Liu, Y. Gao, F. Dang, X. Zhao, et al., Developing a robust             levels for eﬃcient CRISPR-Cas9 mediated recombination in Streptomyces , J. Ind. Mi-
+    genome editing tool based on an endogenous type I-B CRISPR-Cas system in Sac-            crobiol. Biotechnol. 47 (4–5) (2020) 413–423 .
+      charopolyspora spinosa , Sci. China Life Sci. 68 (5) (2025) 1324–1336 .                   [68] C. Hidalgo-Cantabrana, A.B Crawley, B. Sanchez, R. Barrangou, Characterization
+[38] C. Hidalgo-Cantabrana, Y.J Goh, M. Pan, R. Sanozky-Dawes, R. Barrangou, Genome          and exploitation of CRISPR loci in Biﬁdobacterium longum , Front. Microbiol. 8 (2017)
+      editing using the endogenous type I CRISPR-Cas system in Lactobacillus crispatus ,         1851 .
+      Proc. Natl. Acad. Sci. U S. A 116 (32) (2019) 15774–15783 .                          [69] J.Y Liu, M.C Chang, J.L Meng, C.P Feng, Y. Wang, A comparative proteome approach
+[39] Y. Xie, X. Liu, T. Wu, Y. Luo, Harnessing the Streptomyces -originating type I-E            reveals metabolic changes associated with Flammulina velutipes mycelia in response
+     CRISPR/Cas system for eﬃcient genome editing in Streptomyces , Sci. China Life Sci.            to cold and light stress, J. Agric. Food Chem. 66 (2018) 3716–3725 .
+    68 (4) (2025) 1174–1182 .                                                         [70] J. Rang, H. He, S. Yuan, J. Tang, Z. Liu, Z. Xia, et al., Deciphering the metabolic
+[40] Y. Li, S. Pan, Y. Zhang, M. Ren, M. Feng, N. Peng, et al., Harnessing type I and type          pathway diﬀerence between Saccharopolyspora pogona and Saccharopolyspora spinosa
+        III CRISPR-Cas systems for genome editing, Nucleic. Acids. Res. 44 (4) (2016) e34 .          by comparative proteomics and metabonomics, Front. Microbiol. 11 (2020) 396.
+[41] C.M Whitford, P. Gockel, D. Faurdal, T. Gren, R. Sigrist, T. Weber, Cascade-Cas3      [71] J. Tang, H. He, Y. Li, Z. Liu, Z. Xia, L. Cao, et al., Comparative proteomics reveals
+     enables highly eﬃcient genome engineering in Streptomyces species, Nucleic. Acids.           the eﬀect of the transcriptional regulator Sp13016 on butenyl-spinosyn biosynthesis
+      Res. 53 (6) (2025) gkaf214 .                                                                     in Saccharopolyspora pogona , J. Agric. Food Chem. 69 (2021) 12554–12565 .
+[42] Y. Li, N. Peng, Endogenous CRISPR-Cas system-based genome editing and antimi-      [72] Q. Yang, X. Ding, X. Liu, S. Liu, Y. Sun, Z. Yu, et al., Diﬀerential proteomic pro-
+      crobials: review and prospects, Front. Microbiol. 10 (2019) 2471 .                            ﬁling reveals regulatory proteins and novel links between primary metabolism and
+[43] X. Han, L. Chang, H. Chen, J. Zhao, F. Tian, R.P Ross, et al., Harnessing the endoge-           spinosad production in Saccharopolyspora spinosa , Microb. Cell Fact. 13 (2014) 27 .
+     nous type I-C CRISPR-Cas system for genome editing in Biﬁdobacterium breve , Appl      [73] T. Sinkunas, G. Gasiunas, C. Fremaux, R. Barrangou, P. Horvath, V. Siksnys, Cas3
+     Env. Microbiol. 90 (3) (2024) e0207423 .                                                                     is a single-stranded DNA nuclease and ATP-dependent helicase in the CRISPR/Cas
+[44] F. Cheng, L. Gong, D. Zhao, H. Yang, J. Zhou, M. Li, et al., Harnessing the native         immune system, EMBO J. 30 (7) (2011) 1335–1342 .
+     type I-B CRISPR-Cas for genome editing in a polyploid archaeon, J Genet Genom.      [74] Z.X Yang, Y.W Fu, J.J Zhao, F. Zhang, S.A Li, M. Zhao, et al., Superior ﬁdelity and dis-
+    44 (11) (2017) 541–548 .                                                                             tinct editing outcomes of SaCas9 compared with SpCas9 in genome editing, Genom
+[45] Z. Xu, Y. Li, M. Li, H. Xiang, A. Yan, Harnessing the type I CRISPR-Cas systems for          Proteom Bioinf. 21 (6) (2023) 1206–1220 .
+    genome editing in prokaryotes, Env. Microbiol. 23 (2) (2021) 542–558 .
+
+
+
+
+
+                                                                       10

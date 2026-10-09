@@ -1,0 +1,956 @@
+
+[PDF physical page 1]
+                                                Metabolic Engineering Communications 18 (2024) e00229
+
+                                                 Contents lists available at ScienceDirect
+                    Metabolic Engineering Communications
+
+
+                                            journal homepage: www.elsevier.com/locate/mec
+
+
+Rewiring Saccharomyces cerevisiae metabolism for optimised Taxol®
+precursors production
+Behnaz Nowrouzi a,b,c,d,1,**, Pablo Torres-Montero d, Eduard J. Kerkhoven c,e,f,
+Jos´e L. Martínez d, Leonardo Rios-Solis a,b,g,h,*
+a Institute for Bioengineering, School of Engineering, The University of Edinburgh, Edinburgh, EH9 3BF, United Kingdom
+b Centre for Engineering Biology, The University of Edinburgh, Edinburgh, EH9 3BD, United Kingdom
+c Department of Life Sciences, Chalmers University of Technology, Kemiv¨agen 10, SE-412 96, Gothenburg, Sweden
+d Department of Biotechnology and Biomedicine, Technical University of Denmark, Søltofts Plads Building 223, Kgs. Lyngby, 2800, Denmark
+e Novo Nordisk Foundation Center for Biosustainability, Technical University of Denmark, DK-2800 Kgs. Lyngby, Denmark
+f SciLifeLab, Chalmers University of Technology, SE-412 96, Gothenburg, Sweden
+g School of Natural and Environmental Sciences, Molecular Biology and Biotechnology Division, Newcastle University, Newcastle upon Tyne, NE1 7RU, United Kingdom
+h Department of Biochemical Engineering, The Advanced Centre for Biochemical Engineering, University College London, Gower Street, London, WC1E 6BT, United
+Kingdom
+
+
+A R T I C L E  I N F O                  A B S T R A C T
+
+Handling Editor: Mattheos Koffas                    Saccharomyces cerevisiae has been conveniently used to produce Taxol® anticancer drug early precursors.
+                                           However, the harmful impact of oxidative stress by the first cytochrome P450-reductase enzymes (CYP725A4-
+Keywords:                                 POR) of Taxol® pathway has hampered sufficient progress in yeast. Here, we evolved an oxidative stress-
+Saccharomyces cerevisiae                                resistant yeast strain with three-fold higher titre of their substrate, taxadiene. The performance of the evolved
+Taxol®                                     and parent strains were then evaluated in galactose-limited chemostats before and under the oxidative stress byTaxadiene                                           an oxidising agent. The interaction of evolution and oxidative stress was comprehensively evaluated throughOxidative stress
+Adaptive laboratory evolution                        transcriptomics and metabolite profiles integration in yeast enzyme-constrained genome scale model. Overall,
+                                                 the evolved strain showed improved respiration, reduced overflow metabolites production and oxidative stress
+                                                   re-induction tolerance. The cross-protection mechanism also potentially contributed to better heme, flavin and
+                                  NADPH availability, essential for CYP725A4 and POR optimal activity in yeast. The results imply that the
+                                               evolved strain is a robust cell factory for future efforts towards Taxol© production.
+
+
+1. Introduction                                                         (12)-diene (iso-taxadiene), followed by their hydroxylation by the first
+                                                                 cytochrome P450, CYP725A4 enzyme, to yield the first diterpenoi­
+   Originally extracted from Taxus spp., Taxol® (paclitaxel) is one of    d/oxygenated taxane, taxadiene-5α-ol (T5α-ol), together with other side
+the world’s best-selling anticancer drugs. While the full biosynthesis     diterpenoids (Barton et al., 2016; Edgar et al., 2016; Nowrouzi et al.,
+pathway of this diterpenoid compound has not been elucidated yet,     2022). From there, an array of acetylation, hydroxylation and benzoy­
+certainly the key presence of cytochrome P450 enzymatic complexes     lation furnishing events lead to Taxol® formation (Lange and Conner,
+with multiple cofactor requirements including flavins, NADPH and irons    2021; Walker and Croteau, 2000).
+(Barton et al., 2016; Edgar et al., 2016; Nowrouzi et al., 2022) has     We have previously reported on the construction of a high-taxadiene
+hindered sufficient progress in total drug synthesis by heterologous     producing S. cerevisiae strain, harbouring three copies of taxadiene
+systems. Briefly, Taxol® biosynthesis commences with the conversion of     synthase (TASY) genes (Nowrouzi et al., 2020). In a later study, we
+geranylgeranyl diphosphate (GGPP) into the  first taxane backbone,    proposed that the presence of the uncoupling phenomenon potentially
+taxa-4(5),11(12)-diene  (taxadiene)  and   its  isomer,  taxa-4(20),11     fuels the activity of the CYP725A4 enzyme by providing electron and
+
+ * Corresponding author. Department of Biochemical Engineering, The Advanced Centre for Biochemical Engineering, University College London, Gower Street,
+London, WC1E 6BT, United Kingdom.
+ ** Corresponding author. Institute for Bioengineering, School of Engineering, The University of Edinburgh, Edinburgh, EH9 3BF, United Kingdom.
+    E-mail addresses: Behnaz.Nowrouzi@ed.ac.uk (B. Nowrouzi), Leo.rios@ucl.ac.uk (L. Rios-Solis).
+  1 Ingenza Ltd., Roslin Innovation Centre, Roslin, United Kingdom.
+https://doi.org/10.1016/j.mec.2023.e00229
+Received 1 September 2023; Received in revised form 9 October 2023; Accepted 4 November 2023
+Available online 15 November 2023
+2214-0301/© 2023 Published by Elsevier B.V. on behalf of International Metabolic Engineering Society. This is an open access article under the CC BY-NC-ND
+license (http://creativecommons.org/licenses/by-nc-nd/4.0/).
+
+
+[PDF physical page 2]
+B. Nowrouzi et al.                                                                                                             Metabolic Engineering Communications 18 (2024) e00229
+
+oxygen donors via the radical, reactive intermediates (Nowrouzi et al.,     chemostats. We also characterised the associated changes in iron and
+2022). We have also previously shown that increasing the expression of     flavin availability, which were found to be critical to optimal P450-
+its interacting reductase gene (POR) and elevated taxanes concentra­     reductase  for  the  next enzyme  activity  in  the Taxol® pathway
+tions were destructive to the yeast and productivity. This would hinder    (CYP725A4-POR) (Nowrouzi et al., 2022). The exometabolite results
+the use of multiplexing genome editing approaches for increased diter­    were also integrated into an enzyme-constrained yeast genome-scale
+penoids titre, since the enzymatic-level uncoupling effect would rein­    model to interpret the flux and gene expression changes with more
+force  the  oxidative   stress  (Nowrouzi  and   Rios-Solis,  2021).     confidence (see Fig. 1).
+Unfortunately there is no single study that has exclusively solved the
+reactive oxygen species (ROS) problem in S. cerevisiae. For instance,     2. Materials and methods
+Zhou and colleagues (Zhou et al., 2015) designed a synthetic microbial
+consortium to manage the ROS issue through division of labour among     2.1. Yeast strains
+different microbial cells. Similarly, noting the low yield of taxanes and
+the major detrimental impact of them on cell morphology, Walls and       The S. cerevisiae strain used for adaptive laboratory evolution was
+colleagues (Walls et al., 2022) proposed a DoE-based complex medium    LRS5 (MATa, leu2-3112::HIS3MX6-pGAL1-ERG19/pGAL10-ERG8;ura3-
+formulation to overcome the nutritional stress and increase the taxanes    52::URA3-pGAL1   MvaSA110G/pGAL10-MvaE    (codon-optimised);
+yield. However, economically, neither  of these approaches sound    his3Δ1::hphMX4-pGAL1-ERG12/pGAL10-IDI1;trp1-289::TRP1_pGAL1-
+feasible for introducing the several remaining genes of Taxol® pathway.     CrtE(Xanthophyllomyces    dendrorhous)/pGAL10-ERG20;YPRCdelta15::
+  We earlier showed that a general stress relief is required to enable the     NatMX-pGAL1-CrtE(codon-optimised)/pGAL10-CrtE::ARS1014a::
+higher taxanes production in yeast (Nowrouzi et al., 2022), as the stress    pGAL1-TASY-GFP::ARS1622::pGAL1-MBP-TASY-ERG20*::ARS1114a::
+comes from both CYP725A4-POR molecular activity and their products.    pGAL1-MBP-TASY-ERG20*), previously constructed in Nowrouzi et al.
+Given that our observations was limited to the 2nd step of the multi-step     study (Nowrouzi et al., 2020), and originated from CEN.PK2–1C (Entian
+Taxol® pathway, we speculate that evolving an oxidative stress-resistant    and K¨otter, 2007) (EUROSCARF collection). The evolved strain as a
+strain can robustly improve the taxanes production. Similarly, an earlier     result of adaptation to H2O2 and galactose was named E_LRS5.
+study has shown the detrimental impact of ROS on methyl-D-erythritol
+phosphate (MEP) pathway on taxadiene production which is the starting                                                                                 2.2. Growth media and cultivation platforms
+material for the whole Taxol® pathway (Jeong et al., 2021).
+  On the other hand, many studies on Taxol® production in Taxus spp.                                                                The synthetic defined medium (SD) consisted of 0.79 g/L Complete
+displayed a significant role of biotic and abiotic agents as terpenoid                                                                Supplement Mixture (CSM) powder (Formedium), 5 g/L ammonium
+accumulation elicitors (Barrales-Cure˜no et al., 2022; Escrich et al., 2021;                                                                        sulphate (Fisher Chemical™) and 1.7 g/L yeast nitrogen base without
+Ketchum et al., 1999; Mirjalili and Linden, 1996). Inspired by this nat­                                                             amino acids (Thermo Scientific™) and was supplemented with 2% (w/
+ural phenomenon (Mirjalili and Linden, 1996), we hypothesised that a                                                                           v) galactose (SDG). The routinely used growth medium was composed of
+similar elicitor could potentially stimulate further terpenoid production                                                                          yeast extract (1%(w/v)) (Fisher BioReagents™) and casein peptone (2%
+in yeast. For this reason and to address the associated oxidative stress                                                                     (w/v)) (Merck), and was supplemented with 2% (w/v) glucose (YPD) or
+issue, an adaptive laboratory evolution approach was pursued to adapt                                                                          galactose (YPG) (Thermo Scientific™), for inoculum preparation and
+the taxadiene-producing yeast cells to increasing concentrations of                                                                      production screening, respectively. A 20% (v/v) n-dodecane (ACROS
+hydrogen peroxide. Since our pathway genes were under galactose                                                                Organics™) was used in all cultivations requiring the taxane quantifi­
+promoter control, our cells were grown in galactose-containing com­                                                                          cation to extract the taxanes and prevent their air-stripping.
+plete synthetic mixture medium to induce the taxanes production. In
+addition, dodecane, an overlay used for in situ taxanes extraction, was                                                                                 2.3. EC50 determinationincluded in for comparison.
+   Using gene expression profiling, we investigated the gene expression                                                    A fresh LRS5 glycerol stock was streaked on a YPD agar plate andprofiles of the best-performing evolved colony and the parent strain to                                                                      incubated at 30 ◦C for two days. A 5-mL YPD culture of one randomlyexamine the alterations in the overall yeast physiology before and dur­                                                                     picked colony was prepared. Then, one OD600 unit of the overnight wasing  the hydrogen peroxide (H2O2)  induction  in  galactose-limited                                                                         inoculated in 2 mL of YPG medium in a 24-well deep well microplate
+
+
+
+
+
+                                        Fig. 1. Graphical abstract of the study. Figure was created with BioRender.com.
+
+                                                                        2
+
+
+[PDF physical page 3]
+B. Nowrouzi et al.                                                                                                             Metabolic Engineering Communications 18 (2024) e00229
+
+(Axygen) with a variable range of H2O2 concentrations to assess the half    Xcalibur™ software (ThermoFisher Scientific) was used to process the
+maximal effective concentration (EC50) of this oxidative stress-inducing     data. Geranylgeraniol (GGOH, Sigma Aldrich) was used to quantify the
+agent on taxadiene-producing yeast cell (30 ◦C, 300 rpm, Eppendorf   GGOH concentration. The diterpene totarol (Cayman Chemical) was
+ThermoMixer® C). In a parallel run, YPG medium was further supple­    used to quantify the taxanes.
+mented with 20% (v/v) n-dodecane (ACROS Organics™) to address the
+same question under both oxidative and phase toxicity stresses, repre­     2.7. BioLector cultivations for growth rate measurement
+senting a more realistic picture of the oxygenated taxanes-producing
+cells. The biomass accumulations in both conditions were tested at the       To determine an appropriate dilution rate for chemostat experi­
+end of three days. The EC50 values were determined using the dose-     ments, BioLector cultivations using a combination of glucose and/or
+response fittings calculated by Origin 2021 software.                       galactose in buffered SD medium (buffered with 0.1 M potassium
+                                                                        phthalate monobasic to pH = 6) were performed. The LRS5 and E_LRS5
+2.4. Adaptive Laboratory Evolution (ALE)                                 overnight cultures in YPD were centrifuged at 5000 rpm for 10 min,
+                                                             washed with sterile ultrapure water twice, and back diluted to initial
+   The same LRS5 glycerol stock was again streaked on a YPD agar plate    OD600 = 5 in 1 mL total volume of water. A 30 μL of the cell dilution was
+and incubated at 30 ◦C for two days. Three independent colonies were     then used to inoculate a 48 well flower plate (m2p-labs), containing
+then each incubated in 5 mL of YPD liquid medium in 15-mL falcon tube     galactose: glucose ratio of 25, 50, 75 and 100 at 1, 2, 3 and 4% total
+for 1 day at 30 ◦C, 250 rpm. The cells were then inoculated at the     sugar composition. The microplate was sealed with a gas permeable
+starting OD600 = 1 in SDG medium using a six-well microplate (Greiner    membrane (m2p-labs), and the cultivation was performed in BioLector II
+Bio-One™) and were incubated at 30 ◦C and 350 rpm in a thermomixer     microbioreactor (mp2-labs) at 30 ◦C and 1000 rpm until the early/full
+for 48 h. The Periodic Challenge/Recovery Scheme methodology pro­     stationary phases were observed for both strains. The maximum specific
+posed by Reyes and Kao (Reyes et al., 2014) was adapted to increase the    growth rates for each triplicate were calculated by growthrates R
+LRS5 tolerance to increasing concentrations of H2O2 (with or without     package(Petzoldt, 2020)  using a nonparametric smoothing  spline
+dodecane) while they were producing taxanes. Briefly, one OD600 unit of     function.
+48-h cultures were transferred to a 12-well microplate (Greiner Bio-­
+One™) containing new SDG medium. For each colony, an extra tech­                                                                                 2.8. Bioreactor cultivationsnical replicate was also included. Based on the EC50 calculations, the
+cells were initially challenged with 2.13 mM of H2O2 (H condition) or                                                                The glycerol stocks of LRS5 and E_LRS5 strains were streaked on new0.46 mM of H2O2 and 20% (v/v) dodecane (DH condition) for two days                                                     YPD medium for two days. A single colony of each were then grown inand allowed to rest without H2O2 presence for the subsequent three                                                            10 mL of YPD medium at 30 ◦C, 250 rpm and the whole preculture wasdays, using 50 μL of inoculum for each cultivation round. During the                                                                            transferred to 100 mL of buffered SDG medium (pH = 6) in 500-mLresting period, for DH condition, dodecane was continued to be sup­                                                                             baffled shake flasks for additional 1–2 days until a suitable cell den­plemented in the fresh medium. Parallel extracellular measurement of                                                                                      sity could be achieved for bioreactor inoculation. The preculture cellsH2O2 using Pierce™ Quantitative Peroxide Assay Kit (Thermo Fisher                                                               were then inoculated at initial OD600 = 0.1 in triplicates in 1L BiostatScientific) ensured that this compound fully entered the yeast. The cells                                                                  Qplus bioreactors (Sartorius Stedim Biotech). The bioreactor cultiva­were  routinely  cross-checked  by  microscopy  for  any  microbial                                                                              tions were performed in 500 mL of SDG medium containing 20 g/Lcontamination. The ALE process (two-day challenge and three-day rest)                                                                          galactose (separately autoclaved), 6.7 g/L yeast nitrogen base withwas repeated until no further improvement in the cell growth was                                                      ammonium sulphate and without amino acids and 0.79 g/L completeobserved, when the final H2O2 resistance concentration reached 10 and                                                                            synthetic mixture. The pH was adjusted to six using 2 M NaOH, and two12 mM of H2O2, with and without dodecane. All final yeast cultures were                                                                     drops of antifoam 204 (Merck) per liter were added to reduce thestreaked on YPD agar medium and single colonies from each culture was                                                                     foaming. The galactose-limited chemostat cultures started once the off-preserved in 50% glycerol at −80 ◦C for further analysis.                                                                       gas CO2 started to drop in the batch culture, denoting the depletion of
+                                                                        the carbon source. The chemostat cultures were carried out using the2.5. Taxane production assessment of yeast strains                                                            same medium supplemented with 10 g/L galactose, at a dilution rate of
+                                                                        0.1 h−1, and it lasted for 50 h (five residence times) for each steady state.   The LRS5 and all evolved strains from H2O2 and H2O2+dodecane                                                         Upon RNA and physiological samplings, the steady state II (SSII) startedstress were incubated in 5 mL of YPD liquid medium in 15-mL falcon                                                                    with the same condition, except that the feeding medium also containedtube at 30 ◦C, 250 rpm. The 24-hr precultures were then inoculated in                                                          H2O2 at a final concentration of 0.5 mM, added separately after the1.5 mL of total YPG medium supplemented with 20% (v/v) dodecane in                                                        medium was autoclaved. The bioreactors were run at 30 ◦C with 60048-well FlowerPlates (mp2-labs). The plate was sealed with two layers                                                        rpm agitation and airflow of 0.5 standard liter per minute (SLPM). Theof gas-permeable membrane (Thermo Scientific™) to avoid dodecane                                                    pH was controlled to remain at six using 2 M of each NaOH and H₂SO₄.evaporation and product loss. The cells were incubated at 30 ◦C and 800                                                             The oxygen uptake rate (OUR) and the carbon dioxide evolution raterpm for 72 h using Eppendorf ThermoMixer® C. By the end of the                                                                 (CER) values were calculated according to the bioreactor manufacturer’scultivation, dodecane was extracted from each triplicate set for further                                                                              (Sartorius Stedim Biotech) guideline, at 25.4971 L M volume of gas. Theanalysis  with GC-MS and  the biomass  accumulations were  also                                                                             respiratory quotient (RQ) was determined by the following formula:measured. The best-performing colony, with the highest taxadiene titre,
+was labelled E_LRS5 and was used for all the subsequent experiments.    RQ = CER
+                                                     OUR
+2.6. Diterpenoid identification and quantification
+                                                                                 2.9. Dry cell weight and extracellular metabolites measurements
+  A 50 μL of dodecane overlay was extracted from each culture media
+and analysed by GC–MS using Trace 1300 GC (ThermoFisher Scientific),         All samplings were performed at the same time after removing the
+equipped with TraceGOLD TG-5MS (30 m × 0.25 mm × 0.25 μm). The    dead volume. The dry cell weights and biomass accumulations during
+mass spectra in the range of 40–650 m/z was recorded on a Thermo    each steady state were measured by retrieving 10 mL of culture broth
+Scientific ISQ Series single quadrupole mass spectrometer at EI ionisa­    from each reactor. From that, 1 mL was used for OD600 measurement
+tion mode. The GC temperature programme began at 120 ◦C (3 min) and    and the other 9 mL were filtered using pre-weighed 0.45-μm MCE filter
+was then raised to 250 ◦C at a rate of 20 ◦C/min with a 3-min hold time.     papers (MontaMil ®). This was followed by drying the filter in the
+
+                                                                        3
+
+
+[PDF physical page 4]
+B. Nowrouzi et al.                                                                                                             Metabolic Engineering Communications 18 (2024) e00229
+
+microwave for 10 min and 2–3 days of desiccation. The extracellular     adjusted p value of <0.05 and log2 fold change threshold at zero. The
+metabolites including ethanol, succinate, acetate, glycerol and pyruvate    pathway enrichment analyses were performed with pathfindR (Ulgen
+productions of both steady states and strains were analysed using ion-     et al., 2019) R package, based on the Kyoto Encyclopedia of Genes and
+exchange HPLC. The samples were first filtered using a 0.45 μm filter.    Genomes (KEGG) database (Kanehisa and Goto, 2000) for pathways and
+The samples were then analysed by injecting them into a Bio-Rad     the p values were adjusted using the default Bonferroni method. The
+Aminex HPX-87H column at 60 ◦C. The injection volume was 20 μL    package org.Sc.sgd.db (Carlson, 2019) was used for gene ontology (GO)
+and the elution solvent was 5 mM H2SO4 at a flow rate of 0.6 mL min−1.     overrepresentation  analysis using  clusterProfiler (Yu  et  al., 2012)
+The  off-gas ethanol was  also included  in the  total ethanol  flux     package, with p values corrected according to Benjamini and Hoch­
+measurement.                                                             berg’s false discovery rate test (Benjamini and Hochberg, 1995). The
+                                                                 gene sets smaller than 10 and larger than 500 genes were ignored for
+2.10. Sampling for transcriptomics analysis                              both GO and KEGG enrichment analyses. All RNA-seq analyses were
+                                                                  performed on Eddie, The University of Edinburgh’s high-performance
+   The RNA-seq samplings were performed by discarding the dead    computing cluster using 12 cores of 10 Gigabytes RAM memory in
+volume followed by retrieving 1-mL culture broth at a minimum of 10     Intel® Xeon® Processor E5-2630 v3 (2.4 GHz) processor.
+OD600 units in Eppendorf tubes, which were pre-cooled at −20 ◦C. The
+samples were immediately placed on ice and quickly centrifuged in a                                                                            2.13.  Statistical analyses for biomass and flux measurements
+pre-chilled centrifuge for 2 min at 19,341×g. Upon removing the su­
+pernatants, the samples were flash frozen in liquid nitrogen and stored at                                                                                   All statistical analyses of this study were performed in R version−80 ◦C for further analysis.                                                                                4.1.3. Two-way analysis of variance (ANOVA) was used to study the
+                                                                                   effect of the strain type and the continuous culture state (steady states I
+2.11. Total RNA extraction and Library preparation with polyA selection                                                                        or II) on carbon recovery and flux changes, using R stats package. The
+and HiSeq sequencing                                                                         Bonferroni-corrected t-test was performed for the pairwise comparisons,
+                                                                                at a significance of adjusted p < 0.05. The biomass and taxanes pro­
+  RNA extractions, library preparations and sequencing were con­                                                                      duction by the evolved and parent cells were compared using the
+ducted at Azenta US, Inc. Total RNA was extracted using Qiagen RNeasy                                                                          Kruskal-Wallis test. For the same analysis, the pairwise comparison
+Plus mini  kit following the manufacturer’s  instructions (Qiagen).                                                                           against the control condition was performed by Dunnett’s multiple
+Extracted RNA samples were quantified using Qubit 2.0 Fluorometer                                                                   comparisons test at a significance of p < 0.05, using DescTools R
+(Life Technologies) and RNA integrity was checked using Agilent                                                                  package (Signorell et al., 2022).
+TapeStation 4200 (Agilent Technologies). RNA sequencing libraries
+were prepared using the NEBNext Ultra II RNA Library Prep Kit for
+Illumina following the manufacturer’s  instructions (NEB).  Briefly,     2.14. Preparation of models and flux balance analysis
+mRNAs were first enriched with Oligo(dT) beads. Enriched mRNAs were
+fragmented for 15 min at 94 ◦C. First strand and second strand com­       The ecYeastGEM model (GECKO toolbox 2.0 (Domenzain et  al.,
+plementary DNAs (cDNAs) were subsequently synthesised. The cDNA     2022); ecYeastGEM_batch.mat) was used as the yeast model. This
+fragments were end repaired and adenylated at 3′-ends, and universal     enzyme-constrained model already contained 8028 reactions and 4153
+adapters were ligated to cDNA fragments, followed by index addition     metabolites and was manipulated by adding 32 reactions and 24 me­
+and library enrichment by limited-cycle PCR. The sequencing libraries     tabolites with separate forward and reverse, arm and protein exchange
+were validated on the Agilent TapeStation (Agilent Technologies) and     reactions for terpenes synthesis and their import and export, to achieve
+quantified using Qubit 2.0 Fluorometer (Invitrogen) as well as by    mass balance. For both strains under the  stress, the models were
+quantitative PCR (KAPA Biosystems) (see Fig. S1 and Table S1). The    extended with hydrogen peroxide intracellular transport and exchange
+sequencing libraries were clustered on a flowcell lane. After clustering,     reactions to resemble the stress condition. The coefficients of the enzyme
+the flowcell was loaded on the Illumina HiSeq instrument (4000 or     pseudometabolites  in each  reaction were  calculated according  to
+equivalent) according to the manufacturer’s instructions. The samples     S´anchez et al. (2017), by querying the Kcat values from BRENDA data­
+were sequenced using a 2 × 150bp Paired End (PE) configuration. Image     base (Chang et al., 2021). When the Kcat values were not directly
+analysis and base calling were conducted by the HiSeq Control Software.     available for the enzymes, it was calculated using the following formula:
+Raw sequence data (.bcl files) generated from Illumina HiSeq was con­         ⎛ ⎞
+                                                                     )                                                                          (                                                                            )                                                                   (                                                                             (                                                                               )                                                                                                                                                                μmol                                             ⎜verted       into            fastq                    files and                       demultiplexed                                      using                                              Illumina’s                                                         bcl2fastq                                                            2.17                                                                                                                                               g                                                                                                                                           mg                                                                                                                                                          min                                                                                                                                      mg ⎟⎟                                             ⎜                                                                      SA                                                                                 ×60                                                                    × 103                                                                                                                                              mol                                                                                                                                                                           g                                                                                                                                                           h                                                                                                                             min                                             ⎠× MW                                             ⎝software.       One            mismatch                    was                          allowed for                                      index                                          sequence                                                             identification.
+                                                         (1)
+2.12. RNA-seq analysis                                                                Kcat  h =            (μmol)
+                                                                                                        106   mol
+   RNA-seq data was processed using nf-core RNA-seq pipeline version
+3.7 (Ewels et al., 2020), run on Nextflow version 20.12.0-edge and    where SA is the specific activity and MW is the molecular weight of the
+singularity configuration profile (Di Tommaso et  al., 2017). After    enzyme. The heterologous genes in the mevalonate (MVA) pathway
+pre-processing the reads, they were mapped onto reference Ensembl    were added to their associated reactions in the model. The script for
+yeast R64-1-1 genome (available on Amazon Web Services iGenomes)     addition of the new reactions and related modifications is available in
+by Salmon (Patro et  al., 2017), followed by transcript abundance     the   figshare   repository:   https://figshare.com/s/3f00d32c57c2a
+quantification using the same software with the default parameters. The    189d2db.
+data quality was checked with multiQC software (Ewels et al., 2016).       Four models, two per strain (for each steady state), were then created
+The tximport R package (Soneson et al., 2015) was then used to aggre­    by constraining the fluxes of off-gas and exo-metabolomes at a fixed
+gate the transcript-level estimates into gene level abundances before    growth rate (dilution rate), considering 5% measurement error to avoid
+differential gene expression using the Wald test implemented in the    model over-constraining. The reactions related to medium components
+DESeq2 R package (Love et al., 2014) for both effect-based and pairwise     uptakes, terpene export, unmeasured metabolic fluxes and overflow
+comparisons. The lfcShrink function with ashr shrinkage estimator     metabolites were set to open with a maximum upper boundary (UB) of
+(Stephens, 2017) was then used to estimate the expression changes more    1000 and lower boundary (LB) of −1000 mmol/gDW/h. The models
+accurately. The  differentially expressed genes were  filtered by an    were then optimised by FBA by setting the non-growth associated
+
+                                                                        4
+
+
+[PDF physical page 5]
+B. Nowrouzi et al.                                                                                                             Metabolic Engineering Communications 18 (2024) e00229
+
+maintenance (NGAM) reaction (r_4046) as the objective function. After     microbial cells, also help with reducing the toxicity and air-stripping of
+fixing the NGAM reaction boundaries by the calculated value from the     these products (Ajikumar et al., 2010; Nowrouzi et al., 2020; Sarrade-­
+FBA analysis, the flux through cytoplasmic, mitochondrial and peroxi­    Loucheur et al., 2020). However, the used organic overlay might inev­
+somal  thioredoxin  reactions  (r_0550No1;  r_0550No2;  r_0551No1;     itably be toxic (Jongedijk et al., 2015; Santoyo-Garcia et al., 2022).
+r_0552No1; r_0552No2) were set open to activate the core antioxidant     Therefore, to address the oxidative stress with or without the potential
+mechanism in all models. The manipulation of the models was finalised     overlay phase toxicity under the continuous production of terpenes, two
+by minimising the total enzyme pseudo-metabolite pool exchange flux.     evolution lines were designed to increase the resistance towards the
+All simulations were performed using COBRA Toolbox (Heirendt et al.,    hydrogen peroxide (H) or dodecane and hydrogen peroxide (DH),
+2019; Schellenberger et al., 2011) with Gurobi Optimiser (version 9.5.1)     starting with a suitable dose of H2O2 in which at least 50% final biomass
+as the solver in MATLAB R2021a.                                      could be preserved (EC50) (Fig. 2B). By the end of 56 days, the H2O2
+                                                                        concentration tolerance was increased by 5.6-fold and 21.9-fold, at H
+2.15. Random sampling of the solution spaces and flux enrichment          and DH conditions, respectively (Fig. 2C).
+analysis                                                            As illustrated in Fig. 2D, the initial screening of the evolved and the
+                                                                       parent strain revealed that the taxadiene and its isomer, iso-taxadiene,
+   The random sampling algorithm implemented in RAVEN toolbox    and geranylgeraniol (GGOH), the dephosphorylated by-product of tax­
+(Agren et al., 2013; Wang et al., 2018) was employed to investigate the     adiene synthase substrate (geranylgeranyl diphosphate; GGPP) (Song
+flux distributions in each enzyme-constrained model. A total of 10,000     et al., 2017), were all increased by 2.3-, 2.5-, and 2.4-fold, and 2.1-,1.5-,
+random samples were collected for each model followed by their pair­    and 1.6-fold, in DH and H conditions, respectively, with taxadiene and
+wise comparisons by the Kruskal-Wallis test. Upon normalizing the re­   GGOH production being significantly higher in DH condition compared
+sults by the average CO2 production flux value, COBRA Toolbox     to the control (p = 0.045 and p = 0.012). The final biomass from both H
+(Heirendt et al., 2019; Schellenberger et al., 2011) flux enrichment    and DH were found to be significantly different from each other (p =
+analysis function was used to perform pairwise comparisons of means of     0.008), but remained relatively similar to that of control.
+random samples from each model to find the changes in fluxes through       While dodecane has been conveniently used as an overlay for
+enrichment by their genes, using hypergeometric 1-sided test and false     recovering taxanes products from microbial systems, some recent
+discovery rate (FDR) correction for multiple testing at a significance     studies have demonstrated the applicability of the resin beads to capture
+level of 0.05 and fold change cut-off = 1. The intersection of the genes     the taxanes (Santoyo-Garcia et al., 2023). However, while these new
+enriched by gene expression and flux enrichment in the same regulation    methods have been proved successful for reducing reactive oxygen
+direction showed the flux-gene expression correlations. The whole     species, improving final biomass and capturing novel taxanes, they fail
+random sampling analysis was performed in MATLAB R2021a on VLX     to capture all the oxygenated taxanes produced by cytochrome P450
+servers on XRDP Linux Remote Desktop, hosted by the School of Engi­    enzymes, potentially due to their higher volatility (Santoyo-Garcia et al.,
+neering at The University of Edinburgh.                                 2022). While we achieved superior product  titre in DH condition,
+                                                                              potentially due to the  strains’ pre-adaptation to dodecane or the
+3. Results & discussion                                           dodecane acting as an oxygen vector (Blaga et al., 2018), for the sake of
+                                                                              simplicity in our study design, the rest of our study only focused on the H
+3.1. Evolving taxadiene-producing yeast on H2O2 as an elicitor for higher       condition. Here, we solely further investigated the performance of the
+Taxol® precursors production                                             best-performing colony evolved from the H condition which we called
+                                                                    E_LRS5. The overall taxadiene, iso-taxadiene and GGOH titres by E_LRS5
+    Earlier we reported that the higher oxygenated taxanes production    were 103.3 ± 15.2, 4.00 ± 3.4 and 11.8 ± 2.3 mg/L, which represented
+by Taxus cuspidata CYP725A4 and POR was associated with the release    a 2.9- (adjusted p = 0.005), 1.7- (adjusted p = 0.001), and 3.3-fold
+of reactive metabolites, potentially acting as oxygen/electron donors     (adjusted p = 0.001) improvement compared to the original LRS5.
+while imposing oxidative stress on yeast (Nowrouzi et  al., 2022).     Similarly, the final biomass accumulation of E_LRS5 also improved by
+Therefore, a robust yeast cell factory for producing highly oxygenated    around 1.6-fold to 33.3 ± 3.9 (adjusted p = 0.011), representing a
+taxanes like Taxol® was needed to efficiently address this paradoxical     two-fold improvement in the taxadiene yield (3.1 mg/L/OD600). All
+issue. To further examine if the oxidative stress and overall, the toxicity     associated chromatograms and mass spectra of produced taxanes are
+issue, was related to oxygenated-taxanes production, our preliminary     provided in Figs. S2–4.
+experiments tested the effect of increasing concentrations of hydrogen       To mimic the oxidative stress induction under the controlled condi­
+peroxide (H2O2), a known oxidant agent, on several of our in-house      tions, we then sought to study the E_LRS5 and LRS5 physiologies in
+yeast strains. These included the wild-type CEN.PK strain, an engi­    chemostat cultures, for which we first attempted to determine a dilution
+neered CEN.PK strain with overexpressed genes in mevalonate (MVA)     rate suitable to both strains. Due to the slow growth of S. cerevisiae on
+pathway (mGTy116) (Reider Apel et al., 2017), taxadiene-producing     galactose compared to glucose (Paulo et al., 2015), the effect of different
+mGTy116  (LRS5)  (Nowrouzi   et   al.,  2020)  and  oxygenated     galactose: glucose composition at 1–4% final total sugar concentration
+taxanes-producing LRS5 (LRS6) (Walls et al., 2020) in YPG medium    was investigated in BioLector microbioreactors using complete synthetic
+supplemented with dodecane, representing a realistic, normal scenario,     mixture media without any dodecane addition. The results showed that
+under which taxanes are induced and removed in situ by an organic     the growth rate significantly increased in all cases in comparison to the
+overlay. The results revealed the superiority of LRS5 in final biomass    LRS5 strain (Fig. 2E). Our results were however contrary to Hong et al.
+compared to mGTy116 and LRS6, where almost half of LRS5 final     study (Hong and Nielsen, 2013), where the maximum specific growth
+biomass was retained at 2 mM final H2O2 concentration (Fig. 2A).     rate of the galactose-adapted yeast strains was lower in a glucose me­
+Hence, we initially concluded that the LRS5 strain might resist the    dium. Also, here the maximum growth rate at 3% galactose condition for
+oxidative  stress, in comparison to mGTy116 showing the weakest    E_LRS5 (0.25 ± 0.01) exceeded by around 1.6-fold from the maximum
+resistance, likely due to overaccumulation of toxic prenyl pyrophos­     specific growth rate of 0.16 h−1 reported for CEN.PK 113-7D during the
+phates (Martin et al., 2003). This observation further strengthened our     aerobic batch cultivation in a 3% galactose-containing medium (de
+hypothesis that adapting LRS5 to increased oxidative stress would    Jongh et al., 2008). As illustrated in Figs. S5–6, notably, the lag phase in
+benefit the biomass and taxadiene production over time, as we earlier     the evolved strain using pure galactose was also longer by approxi­
+showed a strong correlation between the biomass accumulation and    mately two-fold with a shorter exponential phase, potentially as a pro­
+taxadiene production by LRS5 (Nowrouzi et al., 2020).                      tection mechanism against the stress (Kussell, 2013).
+   Biphasic culture systems, besides enabling the terpenoids recovery in
+
+                                                                        5
+
+
+[PDF physical page 6]
+B. Nowrouzi et al.                                                                                                             Metabolic Engineering Communications 18 (2024) e00229
+
+
+
+
+
+Fig. 2. Summary of adaptive laboratory evolution results and small-scale physiological parameters measurements. A) The effect of increased concentration
+of H2O2 on the final biomass of selected yeast strains. All strains were cultivated in YPG+20% (v/v) dodecane medium for 3 day at 30 ◦C, 450 rpm. CEN.PK: CEN.
+PK2–1C (Entian and K¨otter, 2007); mGTy116: CEN.PK yeast strain with overexpressed genes in mevalonate pathway (Reider Apel et al., 2017); LRS5: mGTy116
+harbouring three copies of taxadiene synthase genes (Nowrouzi et al., 2020); LRS6: LRS5 harbouring Taxus cuspidata taxadien-5α-hydroxylase (CYP725A4), cyto­
+chrome P450 reductase (POR) and taxa-4(20),11(12)-dien-5α-olO-acetyl transferase (TAT) genes for production of oxygenated and acetylated taxanes (Walls et al.,
+2020). The data show the mean ± SD of biological triplicates. B) EC50 determination for LRS5 under dodecane and hydrogen peroxide (DH) or hydrogen peroxide (H)
+stresses. The LRS5 strain was cultivated for 3 day at 30 ◦C, 450 rpm. For all DH conditions, 100% dodecane was utilised. The data show the mean ± SD of biological
+triplicates. C) Biomass plot for adapting the taxadiene-producing strain (LRS5) to H2O2 (H) and H2O2+Dodecane (DH), while growing on a complete synthetic
+mixture with 2% (w/v) galactose (SDG). The line plots represent the mean ± SD of three biological and two technical replicates. The green dots on each plot show the
+start of the H2O2 induction period. The increasing H2O2 concentrations (concentration increased every 5 days) at H condition were: 2.13, 2.13, 2.63, 3.63, 4.63, 6, 8,
+10, 10, 12 and 12 mM. The increasing H2O2 concentrations at DH condition (increased concentration every 5 days and then fixed) were: 0.46, 0.46, 1, 2, 2, 3, 5, 8, 10,
+10 and 10 mM. The values were selected based on the biomass results obtained at the end of each resting period. D) Taxanes and biomass accumulation from parent
+strain (control: LRS5) and evolved strains (E_LRS5 from H (H2O2) and DH (H2O2+Dodecane) conditions) after 72-h cultivations in YP-galactose medium (2% w/v) at
+30 ◦C. The data show mean ± SD of three biological and two technical replicates for the evolved strains and triplicates of the parent strain (LRS5). The asterisks
+indicate significant differences by Dunnett’s multiple comparisons test (***: adjusted p < 0.001, **: adjusted p < 0.01, *: adjusted p < 0.05), relative to control
+conditions (SS II vs. SSI and/or E_LRS5 vs. LRS5). E) Growth rates comparison of the best-performing evolved colony (E_LRS5) and parent strain (LRS5) in SDG
+medium (pH = 6) containing 1–4% total sugar at 25–100% galactose: glucose ratios. The mean ± SD values of biological triplicates are shown. Figure was created
+with BioRender.com. (For interpretation of the references to colour in this figure legend, the reader is referred to the Web version of this article.)
+
+
+
+                                                                        6
+
+
+[PDF physical page 7]
+B. Nowrouzi et al.                                                                                                             Metabolic Engineering Communications 18 (2024) e00229
+
+3.2. Respiration is an antioxidant defence mechanism in H2O2- and          performed (see Tables S3–5; Figures S7 C-E). To this end, at cut-off of
+galactose-evolved taxadiene-producing yeast                                log2 fold change (LFC) = 0 and FDR <0.05, 1607 and 1675 genes were
+                                                                  found to be up- and downregulated, respectively, by evolution (see
+  Maximum growth rates (μmax) of 0.12 ± 0.01 for LRS5 and 0.24 ±     Fig. S7. B). From this, 90% and 73% were uniquely up- and down­
+0.01 h−1 for E_LRS5 were achieved under 1% galactose addition,     regulated, respectively, highlighting the significant impact of adaptive
+therefore our subsequent chemostat experiments were performed at a     laboratory evolution on the overall superior performance of E_LRS5.
+dilution rate of 0.1 h−1. This also presented us with the advantage of     This was further supported by the clear genotype separation by principal
+eliminating the negative catabolite repression effect of glucose on the    component analysis (PCA) (see Fig. S7. A). The number of upregulated
+induction of galactose promoters, which we previously used to over­    and downregulated genes remarkably decreased to 176 and 455, and
+express several of the MVA pathway as well as the taxadiene synthase    223 and 106 for oxidative stress and interaction factors, respectively,
+genes in LRS5 (Nowrouzi et al., 2020). Despite this, we appreciate that     denoting the relative robustness of E_LRS5 against the oxidative stress.
+depending on the strain, the galactose: glucose ratio sensing can play a       To investigate the metabolic mechanisms underlying the different
+role in GAL genes induction (Renan et al., 2015).                          physiologies of both strains under the two steady states, an enzyme-
+   To mimic the stress associated with oxygenated taxanes products in     constrained yeast genome scale model was used to generate condition-
+yeast, the LRS5 and E_LRS5 physiologies were studied through RNA-seq,     specific models, followed by optimisation towards the maximisation of
+off-gas and exo-metabolites analyses before (steady state  I; SSI) and    ATP production (non-growth associated maintenance (NGAM)) and
+during the oxidative stress induction (steady state II; SSII) in chemostats.     unconstraining the thioredoxin-using reactions, as the heterologous
+To study the impact of evolution and oxidative stress, besides the dif­     protein production/H2O2 induction is correlated with increased anti­
+ferential gene expression analysis, enrichment analysis with respect to     oxidant defence mechanism in yeast (Garrido and Grant, 2002). This
+protein-protein interaction subnetworks (Ulgen  et  al., 2019) were    was followed by random sampling to study the metabolic fluxes with
+
+
+
+
+
+Fig. 3. Phenotyping. A) Total carbon recovery for LRS5 and E_LRS5, normalised per mmol of galactose for ethanol, acetate, glycerol, pyruvate, and succinate. The
+mean ± SD of biological triplicates is shown. The summary of only statistically significant adjusted p values from the t-test (threshold: adjusted p < 0.05) for
+comparison of product-based carbon recovery is as follows: Glycerol (LRS5: One-E_LRS5: One: 0.0003; E_LRS5: Two-LRS5: Two: 0.009); Ethanol (LRS5: One-E_LRS5:
+One: 0.001; LRS5: Two-E_LRS5: Two: 0.001); Pyruvate (LRS5: One-E_LRS5: One: 2.22e-07; LRS5: Two-E_LRS5: Two: 6.55e-08). B) Microscopic images of LRS5 and
+E_LRS5 in continuous cultures before and during oxidative stress induction. The bars represent 5 μm and the images were taken under 100× magnification using a
+Motic BA310E microscope (Motic, Hong Kong). C) Galactose uptake rates by LRS5 and E_LRS5 chemostat cultures. The cells were cultivated in SDG medium,
+containing 10 g/L galactose, at a dilution rate of 0.1 h−1, during steady state I (SSI), without extra oxidative stress, and with 0.5 mM H2O2 continuously feeding the
+cell (steady state II; SSII). The data show mean ± SD of triplicates. D) OUR, CER and RQ plots for LRS5 and E_LRS5. The data show the mean ± SD of biological
+triplicates. The asterisks indicate significant differences by pairwise t-test (***: adjusted p < 0.001, **: adjusted p < 0.01, *: adjusted p < 0.05), relative to control
+conditions (SS II vs. SSI and/or E_LRS5 vs. LRS5). Figure was created with BioRender.com.
+
+                                                                        7
+
+
+[PDF physical page 8]
+B. Nowrouzi et al.                                                                                                             Metabolic Engineering Communications 18 (2024) e00229
+
+respect to evolution and oxidative stress induction. We then identified     induction. Of note, E_LRS5 strain had similar dry cell weights at both
+the up- and down-regulated reactions (E_LRS5 vs. LRS5 and their cor­     steady states (SSI: 2.43 ± 0.15 g/L and SSII: 2.39 ± 0.11 g/L) which
+responding steady states) at cut-off = 1 and FDR <0.05, based on the    might be due to the reduction in cell volume and mitochondrial network
+statistically significant overrepresented genes from the flux enrichment     expansion (Kim et al., 2020).
+analysis (McGarrity et al., 2020).                                                 Earlier we reported on the filamentous growth of LRS5 due to
+   The carbon recovery profiles revealed that the major contributor to     nutrient starvation (Walls et al., 2022). While we did not observe such
+the overflow metabolites was ethanol (SSI–SSII, LRS5: 23.3 ± 1.90 %     elongated filamentous phenotype in our study, one can first relate such
+and 25 ± 0.61 %, E_LRS5: 16.5 ± 1.21 % and 17.4 ± 1.32 %), followed    morphology to non-quiescence, with characteristics including impaired
+by acetate at a minor level (SSI–SSII, LRS5: 6.64 ± 0.25 % and 7.25 ±     mitochondrial respiration, decreased trehalose and glycogen conserva­
+0.35 %, E_LRS5: 6.72 ± 0.86 % and 7.66 ± 0.58 %) (Fig. 3A); During     tion and life span extension by chronic oxidative stress (Mohammad
+SSI, E_LRS5 produced less ethanol, acetate, CO2 and glycerol, in contrast     et al., 2020), which is unlikely to be the reason behind this changed
+to pyruvate (see Table S2). However, this reduction was only significant    phenotype in our evolved strain. For instance, E_LRS5 depicted a higher
+for ethanol (adjusted p = 0.00016), glycerol (adjusted p = 3.057e-05)     respiratory capacity with a 1.2-fold lower RQ value (1.25 ± 0.04 vs.
+and pyruvate (adjusted p = 1.4e-06) production. Succinate production     1.48 ± 0.07; adjusted p = 0.004) (Fig. 3D), with similar values at SSII,
+remained negligible for LRS5, while we did not detect this compound in     1.48 ± 0.06 (LRS5) and 1.32 ± 0.05 (E_LRS5) (adjusted p = 0.039),
+the E_LRS5 medium. The pyruvate dehydrogenase bypass, composed of     justifying the lower ethanol accumulation by E_LRS5. We also observed
+pyruvate decarboxylase (PDH), aldehyde dehydrogenase (ADHs) and     the upregulation of trehalose and glycogen biosynthesis (GLC3, GSY1,
+acetyl-CoA synthase (ACSs), plays an intermediate role in the produc­    GPH1) and downregulation of glycogen hydrolysis, glucoamylases and
+tion of the major source of cytoplasmic acetyl-CoA in yeast (Qin et al.,     glucanases like EXG1, BGL2 and β-1,3-glucan synthase FKS1. Similarly,
+2020) while decarboxylating the pyruvate to ethanol and acetate, also    NCW2, a deletion of which is known to activate the glucan and chitin
+generating NADPH. The higher accumulation of pyruvate in E_LRS5 SSI     biosynthesis in the yeast cell wall, was amongst the most strongly
+culture  associates well with the downregulation  of the genes  of    downregulated genes (LFC: 2.18) (Queiroz et al., 2020), which inter­
+pyruvate-catabolising PDC1, PDC5 and DLD1, and the upregulation of     estingly became the most strongly upregulated gene considering the
+pyruvate-synthesising PYK2 and AGX1 (McNeil et al., 1994). The low­     evolution and oxidative stress interaction effect (LFC: 0.69). Similarly,
+ered acetate flux is probably due to the downregulation of the mito­    we noticed the general downregulation of the Leloir pathway genes and
+chondrial ALD5 and cytosolic ALD6 and their catalysing reactions.     regulators and reaction fluxes (GAL1, GAL2, GAL3, GAL7, GAL10,
+Despite this, we observed the downregulation of acetate-using ACS1 and    GAL11 and GAL80), which was in accordance with 1.2-fold lower
+ACS2, where it is likely that the upregulation in LAT1 and LPD1 ex­     galactose consumption rate in E_LRS5 (1.66 ± 0.2 mmol/gDW/h;
+pressions together with others like mitochondrial acetyl-CoA transferase     adjusted p = 0.038), with almost similar value achieved at SSII (1.65 ±
+ACH1 effectively replaced ACSs to produce the acetyl-CoA. At the same     0.05 mmol/gDW/h) (Fig. 3C). The upregulation of PGM2, with the
+time, the absence of succinate in E_LRS5 cultures relates to the general    enzyme  at  the  glycolysis and pentose phosphate pathway (PPP)
+upregulation of succinate dehydrogenases (SDH1, SDH2, SDH3 and     branches, was also in line with Hong and Nielsen (2013) study, where
+SDH4),  which  compensated   for   the   slight   upregulation   of     the adaptive  laboratory  evolution on  galactose  resulted  in  over­
+succinate-consuming LSC2. While the lower ethanol exchange flux     expression of PGM2 towards the trehalose and glycogen biosynthesis.
+cannot be explained by the upregulation of ADH3 and ADH4 and their   We concurrently observed a strong significant upregulation in maltases
+predicted    reaction    fluxes   and    the   downregulation    of      like MAL12, MAL32, isomaltase IMA1, glucose-producing glycogen
+ethanol-metabolising ADH2, we can postulate the lowered reaction     phosphorylase GPH1 and most hexose transporters (HXT17, HXT6,
+fluxes from pyruvate consumption mainly be due to decreased flux    HXT13 and HXT7). Considering both evolution and oxidative stress,
+through pyruvate decarboxylation reactions. The downregulation of    however, the HXT6 gene was downregulated, without any other changes
+glycerol-producing GPD2 and GPP1  as  well  as dihydroxyacetone     in the other stated genes. Hence, we can postulate that to combat the
+phosphate-accumulating GUT2  and  DAK2,  and  upregulation  of    carbon starvation at the next oxidative stress induction, E_LRS5 prefer­
+glycerol-consuming GPD1, GPP2 and GUT1, justify the reduced glycerol     entially invested in recycling the intracellular carbon instead of taking
+production by E_LRS5.                                          up more galactose and for this, it tended to synthesise the long-chain
+   Upon introduction of the oxidative stress agent, the ethanol and     carbons as protecting and carbon-storing agents (Kocaefe-¨Ozs¸en et al.,
+acetate production fluxes further increased, which might be due to the     2022). Further to this hypothesis, except the upregulation of TDH2,
+strong downregulation of ADH2. It is known that the higher biomass    PGK1, PGM2, GPM1, GPM3 and PYK2, we observed the downregulation
+yield can lead to a higher acetate production (Ostergaard et al., 2000),     of glycolysis pathway genes, and the reaction fluxes, as well as the
+which was in accordance with the higher acetate flux in E_LRS5 upon     upregulation of non-oxidative PPP and its fluxes due to downregulation
+oxidative induction. Furthermore, the upregulation of ACS2 and its     of PGI1 (Qin et al., 2020; Ralser et al., 2007). Indeed, lower glycolysis
+catalysing reaction flux at E_LRS5 SSII explains the higher accumulation     has been associated with increased oxidative phosphorylation to pro­
+of acetate, similar to LRS5. Compared to LRS5, the E_LRS5 also showed    mote the respiration (Dai et al., 2018) and to improve the stress toler­
+1.3- and 1.2-fold higher biomass yields per mmol of consumed galactose    ance  (Martínez  et  al.,  2016).  This  well matches  the  significant
+at SSI (adjusted p = 0.007) and SSII (adjusted p = 0.038), respectively,     upregulation of the majority of oxidative phosphorylation complexes by
+depicting the better carbon usage in this strain compared to the parent     evolution, as opposed to both evolution and oxidative stress induction,
+strain (see Table S2). An increased TCA capacity can reduce the carbon    which only slightly upregulated a few corresponding genes including
+conversion to ethanol and NADH oxidation into glycerol (Vemuri et al.,    ATP14, COX8 and VMA6, while downregulated PMA1 and ATP2,
+2007), explaining the lower glycerol and ethanol accumulation by     explaining the slightly higher RQ value of E_LRS5. Clearly, upon intro­
+E_LRS5.                                                             ducing the exogenous H2O2, the correlated flux through glycolysis and
+                                                                        the oxidative PPP remained metabolically unchanged, highlighting the
+3.3. Anticipation and cross-protection mechanisms act to promote the         robustness of the E_LRS5 upon the oxidative stress re-exposure.
+carbon and protein recycling pathways upon oxidative stress re-induction,          Secondly, there was a possibility that the signalling pathways have
+in H2O2- and galactose-adapted taxadiene-producing yeast                     also played a part, as according to Hong and Nielsen (2013), the evo­
+                                                                             lution on galactose resulted in mutations in RAS-Protein Kinase A
+  We noticed a remarkable difference in the yeast morphology be­    (Ras-PKA) signalling pathway, and not in the galactose pathway. Also,
+tween both strains (Fig. 3B), where E_LRS5 showed more budding scars     the MAPK cascade sub-pathway, the cell wall integrity (CWI) pathway,
+compared to LRS5, and this improved further upon the oxidative stress      is known to regulate the filamentous growth pathway in response to
+
+                                                                        8
+
+
+[PDF physical page 9]
+B. Nowrouzi et al.                                                                                                             Metabolic Engineering Communications 18 (2024) e00229
+
+nutrient starvation (Birkaya et al., 2009). Here, while we observed the     postulate that the enzymatic contents related to taxadiene synthesis
+strong upregulation of its flocculin-encoding gene FLO11 by evolution    were favoured with sufficient ribosome biosynthesis, lipid and vesicular
+(LFC = 1.43), several Mitogen-activated protein kinase (MAPK) signal­    machinery while reducing the proteome allocation costs for metabolic
+ling pathway genes like SLT2, SSK1, HOG1, YPS1, SWI6, CDC42, MID2,    pathways like glycolysis, resulting in E_LRS5 faster growth rate at our
+STE11, ATG33, and ROM2 were downregulated opposed to the effect of      initial experiments (Dai et al., 2018).
+evolution and oxidative stress. However, several cell surface sensors
+(SLG1, WSC3 and MID2) were downregulated, and PTC1, with a role in     3.4. The decreased purine biosynthesis and increased cell cycle arrest and
+the CWI reduction (Bi and Park, 2012; Sanz et al., 2022), was upregu­     hydrophilins expressions likely promoted the antioxidant defence
+lated. Similarly, PRM5, known as a marker for CWI activation involved    mechanism and longevity in H2O2- and galactose-adapted yeast
+in cell wall biogenesis induction, was one of the most strongly down­
+regulated genes due to evolution (LFC = −2.63), decreasing the possi­     We also noticed the downregulation of gene expression and reaction
+bility of CWI being involved in E_LRS5 filamentous growth.                 flux through glycine-cleaving GCVs in the folate cycle, which denote the
+   Thirdly, we noticed the strong upregulation of the nutrient starvation     nitrogen source sufficiency in E_LRS5  SSI, preventing the glycine
+and low-pH induced genes (Zuzuarregui and del Olmo, 2004) SPI1 and     catabolism (Piper et al., 2002). Likewise, there was a drop in purine
+YGP1  (LFC:  1.44 and  2.06,  respectively).  SPI1  is a weak  acid     biosynthesis, likely to prevent the excess ATP production, and this was
+stress-induced enzyme which through the cell wall remodelling, it im­     particularly more evident for E_LRS5 SSII than that of LRS5. Previous
+proves the cell viability and minimises the plasma membrane damage     studies have illustrated that purine starvation results in increased
+(Sim˜oes et al., 2006) and its overexpression leads to pseudohyphal     oxidative stress tolerance and the cell cycle arrest (Kokina et al., 2019;
+growth (Cardona et al., 2012). The overexpression of YGP1 which is also     Ozolina et al., 2017). We can then hypothesise that the downregulated
+a yeast cell wall glycoprotein has been linked to a fluffy, non-smooth     purine biosynthesis together with any nutrient starvation and galactose
+yeast colony morphology that more readily forms filaments (Kuthan     supplementation, all have contributed to the improved survivability and
+et al., 2003) and it might explain the different morphology we observe     potential cell cycle arrest to promote yeast longevity and the antioxidant
+for both strains, with and without the stress induction.                    events (Petti et al., 2011), representing an active budding phenotype
+  On the point of cell wall remodelling,  it is also known that the    and causing the activation of the non-respiratory mitochondrial genes
+secretory pathway stress and damage to ER quality control can lead to      (Petti et al., 2011). As a result, mitophagy, a quality control process for
+unfolded protein response (UPR) activation to reduce the cell wall     the degradation of damaged mitochondria to suppress the mitochondrial
+damage and increase the secretory pathway folding capacity or to heat    ROS accumulation (Kanki et  al., 2015), was significantly enriched
+shock response (HSR) activation to enable the ubiquitin-proteasome and     considering both evolution and oxidative stress effects. Moreover, the
+chaperone to relieve the cell stress(Jim´enez-Guti´errez et al., 2020). This     evolution upregulated the glutaredoxins and glutathione S-transferases,
+then explains the moderate upregulation of genes related to protein     as the yeast’s major antioxidant machinery, together with thioredoxins
+sorting into endosome and vacuolar, Golgi and exocyst trafficking as    and glutathione/glutaredoxins (Grant, 2001). In this regard, the mito­
+well as the misfolded-protein targeting heat shock proteins HSP42 and     chondrial thioredoxin reductase TRX3, was significantly upregulated,
+HSP26 and oxidative-stress defeating HSP70 isoform, SSA3 (Gupta et al.,     indicating the long-term adaptation mainly affected the mitochondrial
+2018; Specht et al., 2011) by evolution. In contrast, the cumulative ef­     thioredoxin system (Cheng et  al., 2019), while both evolution and
+fect of both evolution and oxidative stress induction caused the upre­     oxidative stress likely affected the cytosolic thioredoxin system by
+gulation of the endoplasmic reticulum protein processing pathway,     upregulating TRX1. Similarly, the sodium and potassium ATPases,
+ubiquitin-mediated proteolysis and endocytosis pathway genes. Hence,    known to protect against the induced cell death (Hoeberichts et al.,
+apparently, the evolved yeast has devised different protection strategies    2010) were amongst the most highly downregulated genes by the evo­
+to deal with the misfolded proteins. It would then be intriguing to     lution (LFC: 1.67, −1.91, −1.85 and −1.12, respectively). Likewise,
+imagine that the exogenous oxidative stress application resulted in     hydrophilin genes (induced under the dehydration stress) (SIP18; LFC:
+increased protein degradation to compensate for this extra burden on     3.17, STF2; LFC: 0.54, GRE1; LFC: 1.91) were strongly upregulated by
+E_LRS5 which could also contribute to more ROS formation. This clearly     evolution. SIP18 is known to reduce the H2O2-induced yeast apoptosis
+shows a combination of the cross-protection and anticipation likely     (Rodríguez-Porrata et al., 2012) and GRE1 and STF2 can confer anti­
+occurred to improve the microbial fitness against the stressor, poten­     oxidant capacity as they have been associated with increased cell
+tially in favour of the diterpenoids formation. In this regard, compared      viability upon restoring the rehydration (L´opez-Martínez et al., 2012).
+to LRS5, E_LRSII showed a 1.1-fold higher NGAM flux at SSI, showing
+that this strain spends higher energy producing the correctly folded     3.5. Taxadiene has antioxidant properties and the improved TCA cycle
+protein and potentially reducing the misfolded protein fraction. On the      activity likely provides the required NADPH for diterpenoids production by
+other hand, increased respiration brought forward more ATP yield and    H2O2 and galactose-adapted yeast
+hence a balance between ATP production and ribosome biosynthesis
+was needed. Likewise, we noticed that the cytosolic ribosome biogenesis        Overexpressing  the  phosphoketolase and  transaldolase  in PPP
+genes were downregulated, while the mitochondrial ribosomal biogen­    downstream has been shown to increase the NADPH capability (R. Chen
+esis genes were upregulated by evolution, the opposite of which was     et al., 2022). Also, acute oxidative stress induction was shown to inhibit
+observed by the cumulative effect of both evolution and oxidative stress     glycolysis, but increasing the PPP metabolism in Hayes et al. study
+induction, likely due to the already high availability of them due to    (Hayes et al., 2020). NADPH is also a redox sink, whereby its con­
+evolution. Indeed, respiration is less proteome-efficient than fermenta­    sumption elevates during oxidative stress as a means of detoxification
+tion (Elsemman et  al., 2022) and ribosome synthesis can limit the     (Pollak et al., 2007) and the Taxol® cytochrome P450 enzymes like
+growth (Pfeiffer and Morley, 2014). It is however worth noting that the    CYP725A4 also rely on its electrons to activate the dioxygen molecule
+yeast produces a surplus of ribosomes during stressful conditions to     for diterpenoids production. Hence, we could assume that the oxidative
+quickly use them for fast growth upon shifting to the normal condition      stress likely benefits the Taxol® P450s activity in future aside from the
+(Metzl-Raz et al., 2017). Despite not having studied the proteomes of the     other advantages we stated earlier.
+studied conditions, apparently, the ribosome biogenesis likely favoured       As illustrated in Fig. 4, herein, we noticed the downregulation of
+the respiratory processes rather than the metabolic pathways in E_LRS5,    NADPH-producing ZWF1, ALD6, ALD5, GND1, TKL1 and RPE1, the
+an approach LRS5 strain followed to respond to three different factors of     deletion of the last three been reported to increase the sensitivity to
+taxadiene, galactose and oxidative stress while minimising its enzymatic    hydrogen peroxide (Thorpe  et  al., 2004).  In  contrast,  the  other
+costs to further couple its productivity with its growth. We can therefore    NADPH-producing enzymes,  cytosolic IDP2 and peroxisomal IDP3
+
+                                                                        9
+
+
+[PDF physical page 10]
+B. Nowrouzi et al.                                                                                                             Metabolic Engineering Communications 18 (2024) e00229
+
+
+
+
+
+                                                                                                                                                 (caption on next page)
+
+
+
+                                                                        10
+
+
+[PDF physical page 11]
+B. Nowrouzi et al.                                                                                                             Metabolic Engineering Communications 18 (2024) e00229
+
+Fig. 4. Effect of the adaptive laboratory evolution and oxidative stress on the central carbon metabolism gene expression and flux changes. The
+mevalonate pathway produces the precursors to terpene and ergosterol biosynthesis. Significant changes to the gene expression and fluxes (mean of n = 10,000
+random samples) were selected at log2 fold change = 0 and fold change = 1, respectively, with FDR <0.05. The heatmap boxes show the following pairwise gene
+expression and flux comparisons from left to right (changes with regards to oxidative stress induction in E_LRS5; changes with regards to evolution only (during
+steady state I); changes with regards to evolution effect during steady state II; changes with regards to oxidative stress induction in LRS5). The black colour in the
+heatmaps shows no significant changes to the expression of the genes at the specific contrast level. The differential gene expressions were also examined by the effect
+of evolution, oxidative stress and their interplay and are displayed by triple circles in the order of left to right, where the upregulation and downregulation of the
+genes are shown with blue and red colours, respectively. Genes without significant expression change at any comparison were highlighted in red. The white colour in
+the triple circles denotes no significant changes to the expression of the genes with respect to condition variables. Where the flux changes were increased or decreased
+compared to the control level by their genes, it was shown with purple and yellow circles, respectively. The -P stands for phosphate for all metabolites. Figure was
+created with BioRender.com. (For interpretation of the references to colour in this figure legend, the reader is referred to the Web version of this article.)
+
+isocitrate dehydrogenases belonging to the TCA cycle were upregulated,     3.6. The oxidative stress re-induction in H2O2- and galactose-adapted
+denoting that the TCA cycle is responsible for the NADPH generation in     taxadiene-producing yeast likely promotes the flavin formation in favour
+the evolved strain, where most TCA cycle genes and reaction fluxes were     of CYP725A4
+upregulated. Also, the evolution caused a general downregulation of
+arginine, alanine, lysine, leucine, and tryptophan biosynthesis genes. It       Taxadiene is the substrate to Taxol® CYP725A4 and its interacting
+is known that proline, serine and alanine catabolism and decreased     reductase POR, each functioning through their prosthetic groups, being
+arginine biosynthesis can help in ATP regeneration through TCA cycle    heme and flavins, respectively. In addition to these enzymes, the effi­
+(Liang et al., 2014) and proline is known to act as the oxidative and     cient assembly of the cofactor-requiring components of the electron
+osmotic stress protectant (Liang et al., 2014). Also, decreased arginine     transfer chain (ETC), active in mitochondrial respiration, relies on both
+and sulphur amino acid biosynthesis are known to promote lipid     mitochondrial flavin adenine dinucleotide (FAD) import, and heme
+biosynthesis and oxidative stress reduction for recombinant protein     synthesis. We therefore studied the changes to biosynthetic pathways of
+production  (X.  Chen  et   al.,  2022).  The  polyamines  exporter     these cofactors to answer if E_LRS5 suited the integration of the later
+protein-encoding TPO1 and ornithine decarboxylase SPE1 were also    P450 enzyme(s).
+downregulated, both known to be activated during oxidative stress to       The flavin-dependent enzymes, mainly located in mitochondria,
+increase the lysine uptake from medium to free up NADPH for antioxi­     constitute about 1.1% of the total yeast proteome, with the majority
+dant system (Olin-Sandoval et al., 2019). This denotes the sufficiency of     requiring FAD and the rest depending on flavin mononucleotide (FMN),
+NADPH cofactor in E_LRS5 strain as indicated previously. However, we    both formed initially from riboflavin (Gudipati et al., 2014). Briefly, the
+noticed an upregulation of the sulphur assimilation pathway genes     riboflavin biosynthesis forms through the conversion of guanosine
+acting upstream to the antioxidant enzymes. Therefore, our previous     triphosphate (GTP) or ribulose 5-phosphate to  its intermediate or
+assumption for increasing the oxidative stress as a proxy for higher    through direct riboflavin uptake from the medium via plasma mem­
+NADPH  availability was  partly  true,  as  the  upregulation  of  the    brane flavin transporter MCH5 (Spitzner et al., 2008). This is followed
+NADPH-requiring amino acid biosynthesis and sulphur assimilation    by the enzymatic steps encoded by RIBs, and then the activity of the
+pathways both pinpoint to the NADPH inadequacy (Ask et al., 2013).       riboflavin kinase (FMN1) to synthesise the FMN, its conversion into FAD
+   As the expression of their genes remained unchanged due to both     in mitochondria by FAD synthase (FAD1) and its export into the extra­
+evolution and oxidative stress effects,  it is therefore likely that the     mitochondrial phase via FLX1 FAD transporter enzyme (Bafunno et al.,
+NADPH sources would still be abundant for CYP725A4 activity, how­     2004).
+ever, further experiments would still be needed.                         The flavin cofactor availability is of extreme importance, where for
+   We, nevertheless, found a significant general downregulation in the     instance the increased phenolic acids  titre was achieved by over­
+early MVA pathway, forming the backbone of the Taxol® precursors,     expression of MCH5, RIB1 and FLX1 (R. Chen et  al., 2022). While
+and NADPH-requiring fatty acid biosynthesis genes expression and re­     riboflavin has been reported to increase the resistance against the H2O2
+action fluxes, except for ERG8 and MVD1, catalysing the conversion of    (Maslanka and Zadrag-Tecza, 2022), in our study, except RIB7 and its
+mevalonate-P mevalonate-PP and to IPP/DMAPP. Despite this, both     reaction flux that was upregulated, other RIBs including RIB1, RIB4 and
+evolution and oxidative stress induction upregulated the expression of    RIB5 as well as the putative endoplasmic reticulum-associated FAD
+ERG3, ERG7 and ERG27 (Fig. 4). Besides giving strength and fluidity to     transporters FLC1 and FLC2 and the mitochondrial FAD transporter
+yeast cell membranes, ergosterols have been reported to increase yeast    FLX1, were all downregulated by evolution. This potentially denotes the
+resistance towards different lignocellulosic inhibitors (Endo  et  al.,    lower availability of the mitochondrial FAD in E_LRS5 compared to
+2008). The downregulation in this pathway was contrary to our previous    LRS5. In contrast, the interaction of the evolution and oxidative stress
+strategy of overexpressing its genes for improving the taxadiene titre    both resulted in increased expression of RIB4 and RIB5, potentially
+(Nowrouzi et al., 2020) as well as to Hong et al. study (Hong et al.,     highlighting the overaccumulation of FMN and FAD precursors by the
+2011), where galactose adaptation upregulated the ergosterol pathway.     evolution that made them remain sufficient at SSII (Fig. 5A). Also, at
+Furthermore, as the excess NADPH is known to be spent in the ergosterol      SSII, only RIB5 and FMN1 were upregulated, potentially to counteract
+pathway to counteract its harmful effect, there is a possibility that either     the extra stress burden that needed to be compensated with the FMN
+E_LRS5 does not over-accumulate the NADPH, or the evolved cell pri­     availability (Chen et al., 2020). While our earlier study did not show any
+oritises its use for other biological processes. In this regard, we however     significant effect from FMN on diterpenoid production, others have re­
+observed that LPP1 and DPP1, catalysing the conversion of GGPP to     ported on its remarkable toxicity reduction capability in yeast (Chen
+GGOH (Song et al., 2017), were upregulated by the evolution, possibly     et al., 2020; X. Chen et al., 2022). Hence, we can speculate that E_LRS5
+indicating the GGPP overaccumulation (Nowrouzi et al., 2020) despite      likely better serves the expression of Taxol® P450 genes like CYP725A4,
+the MVA pathway downregulation. Since we observed higher GGOH and     despite observing no changes in FAD1 expression and its promoting ef­
+taxadiene titre in E_LRS5, it is plausible that yeast already possessed a      fect on increased biomass and diterpenoids production and electron
+more active MVA pathway which necessitated its strong downregulation     transfer (Gudipati et al., 2014). However, there is also a possibility that
+to reduce the toxicity of its products. A recent study by Jeong et al.     the FAD was already highly available, and the earlier steps were
+(2021) also mentioned GGPP toxicity in E. coli; therefore, it is likely that     rate-limiting for its higher production.
+the increased GGOH and taxadiene titres were to counteract the toxicity
+of excess GGPP.
+
+                                                                        11
+
+
+[PDF physical page 12]
+B. Nowrouzi et al.                                                                                                             Metabolic Engineering Communications 18 (2024) e00229
+
+
+
+
+
+Fig. 5. Riboflavin and heme synthesis flux and expression profile alterations with respect to evolution and oxidative stress induction for A) flavin and B)
+heme biosynthesis. Significant changes to the gene expression and fluxes (mean of n = 10,000 random samples) were selected at log2 fold change = 0 and fold
+change = 1, respectively, with FDR <0.05. The heatmap boxes show the following pairwise gene expression and flux comparisons from left to right (changes with
+regards to oxidative stress induction in E_LRS5; changes with regards to evolution only (during steady state I); changes with regards to evolution effect during steady
+state II; changes with regards to oxidative stress induction in LRS5). The black colour in the heatmaps show no significant changes to the expression of the genes at
+the specific contrast level. The differential gene expressions were also examined by the effect of evolution, oxidative stress and their interplay and are displayed by
+triple circles in the order of left to right, where the upregulation and downregulation of the genes are shown with blue and red colours, respectively. Genes without
+significant expression changes at any comparison were highlighted in red. The white colour in the triple circles denote no significant changes to the expression of the
+genes with respect to condition variables. Where the flux changes were increased or decreased compared to the control level by their genes, it was shown with purple
+and yellow circles, respectively. The -P stands for phosphate and e−stands for electron. Figure was created with BioRender.com. (For interpretation of the references
+to colour in this figure legend, the reader is referred to the Web version of this article.)
+
+3.7. The oxidative stress re-induction in H2O2- and galactose-adapted      HEM4 and HEM12, with enzymes involved in synthesising the in­
+taxadiene-producing yeast decreased the iron overaccumulation and heme      termediates to heme b synthesis were all upregulated (Fig. 5B). Similar
+b degradation                                                               to the metabolic shift from fermentation to respiration that induces the
+                                                   HAP transcription factor to stimulate the heme-requiring respiratory
+   In S. cerevisiae, the heme synthesis starts with succinyl-CoA and     proteins and ETC (Zhang et al., 2017), HEM2, 3 and 12 genes are known
+glycine condensation or through importing iron into mitochondria     to activate the induction of the TCA cycle and oxidative phosphorylation
+under the iron deficiency (Li et al., 2020). We already observed an     to source more succinyl-CoA for heme synthesis (Zhang et al., 2017),
+upregulation in the TCA cycle succinyl-CoA-producing LPD1 and KGD2,    which aligns well with our previous observation: more active respiration
+as well as the AGX1, catalysing the formation of glycine from glyoxylate.     in E_LRS5, compared to LRS5. Similarly, heme b-consuming enzymes
+  We set out to investigate the expression changes of genes directly    encoded by heme A: farnesyltransferase COX10, heme a synthase COX15
+involved in heme b synthesis for its incorporation into the CYP725A4    and mitochondrial ferredoxin YAH1 were all upregulated by evolution.
+enzyme. The heme b synthesis goes through the porphyrin metabolism    However, upon introduction of H2O2 in E_LRS5 culture, no expression
+pathway, which was also found to be significantly enriched by the    change was detected, except that the heme b-synthesising HEM1,
+evolution, where the expression and reaction fluxes of HEM2, HEM3,    HEM13, HEM15 and heme b-consuming YAH1  expressions were
+
+                                                                        12
+
+
+[PDF physical page 13]
+B. Nowrouzi et al.                                                                                                             Metabolic Engineering Communications 18 (2024) e00229
+
+decreased. Indeed, while heme synthesis can benefit the CYP725A4     in the long term.
+expression in the Taxol® pathway, we earlier showed that the heme, be       While the adaptation occurred in a chemically defined medium, we
+it ready heme or heme precursor like 5-aminolevulinate, can negatively     assessed the performance of the evolved and parental strains in rich
+result in decreased biomass and diterpenoid formation (Nowrouzi et al.,    medium. Industrial settings still tend to rely on rich media formulations,
+2022). This, therefore, justifies the increased reaction flux and expres­    however depending on the form of cultivation (batch, fed-batch or
+sion of HEM2 to consume these iron sources. Interestingly, comparing     continuous) and the associated production and product costs, the me­
+the LRS5 and E_LRS5 gene expressions upon oxidative stress induction,    dium composition can differ. As this manuscript served to provide a
+no changes to COX10 expression occurred in E_LRS5 and apparently,    thorough examination of the flux and transcription changes across
+minimising the heme b degradation can render E_LRS5 a possibly better     several key pathway levels, it is suggested that the future works for
+cell factory for expressing the Taxol® P450 enzymes. Here, we also    medium development benefit from both metabolic model and tran­
+observed the upregulation of HAP2, HAP3, HAP4 and HAP5 genes due to     scriptional data for designing the kinetic models towards medium
+evolution. HAP1, known to induce the expression of the ergosterol     optimisation for industrial scale production. Clearly, the presence of
+biosynthesis and superoxide dismutase genes, was however down­     mutation(s) have contributed to the better fitness of the evolved strain in
+regulated, potentially explaining the downregulation of the ergosterol     response to oxidative stress. While out of the current study scope, the
+pathway. We, however, can speculate that despite the downregulation    genome  sequencing and  reverse  engineering  approaches  can  be
+of HAP1, the upregulation of HAP2-5 regulated the flux TCA cycle and     considered in future works for identifying the underlying mutations.
+ETC enzymes (Zhang et al., 2017), while being in accordance with more     Regardless, as of now, the expression of Taxol® pathway genes are
+respiratory status at E_LRS5 during steady state I (SSI). From the other     conveniently controlled by galactose induction in yeast. Hence, changes
+perspective, we can argue that the iron economisation was towards     to cell factory design are suggested to only activate the CYP725A4-POR
+prioritising the expression of H2O2-degrading iron-containing catalases     expression upon achieving sufficient intracellular taxadiene level and to
+like heme b-containing CTT1 (Cassanova et al., 2005). Similarly, CCC1,     allow the yeast to optimise its resources timely and stepwise. On this
+known to be activated to store the excess iron and defeat the iron toxicity     matter, there is still a need to obtain purified taxadiene to first enable the
+(Li et al., 2001, 2017; Li and Ward, 2018) under the excess cytosolic iron     faster development of specific taxadiene-responsive promoter-based
+availability, was downregulated by evolution, pinpointing to potential     biosensors.
+iron limitation in the cytosol. Despite this, considering the effect of both
+evolution and oxidative agent, we observed its upregulation, likely to    Author contributions
+minimise the ROS generation by excess iron.
+                                                             Behnaz Nowrouzi: Conceptualization, Methodology, Investigation,
+4. Conclusions                                                    Data Curation, Formal Analysis, Software, Writing  - Original Draft,
+                                                                      Writing  - Review &  Editing, Funding  acquisition Pablo  Torres-
+    Earlier  studies  revealed  the  presence  of  oxidative  stress  in    Montero: Investigation, Writing - Review & Editing Eduard J. Kerk­
+S. cerevisiae cell factories expressing Taxus sp. CYP725A4 and its cognate    hoven: Methodology, Resources, Writing - Review & Editing, Supervi­
+reductase gene POR, hampering the production of the highly oxygenated     sion Jos´e L. Martínez: Methodology, Resources, Writing - Review &
+anticancer drug, Taxol® precursors in yeast. Using adaptive laboratory     Editing, Supervision, Funding acquisition Leonardo Rios-Solis: Re­
+evolution, we evolved a taxadiene-producing yeast strain with increased     sources, Writing - Review & Editing, Supervision, Funding acquisition.
+tolerance  against hydrogen peroxide (H2O2) while growing on a
+galactose-containing defined medium. The best-performing evolved    Declaration of competing interest
+strain showed approximately three-fold higher taxadiene titre, and later,
+decreased overflow metabolites production in galactose-limited che­       The authors declare that they have no known competing financial
+mostat cultures. To mimic the oxidative stress induction, the exometa­     interests or personal relationships that could have appeared to influence
+bolic and expression profiles of the best-performing evolved strain and     the work reported in this paper.
+the parent strain before and during the H2O2 induction were studied.
+Integrating these data with an enzyme-constrained metabolic model    Data availability
+showed that the evolution caused the strong upregulation of the mito­
+chondrial respiration as well as the downregulation of the glycolysis and      Upon obtaining formal written consent from the first author, all
+mevalonate pathway, the latter forming the geranylgeranyl diphosphate     evolved strains generated in this study can only be made available for
+(GGPP) as the taxadiene synthase substrate. This likely indicated that    non-commercial purposes (Nowrouzi, 2022). The log2 fold changes and
+the antioxidant properties of taxadiene caused its higher production or     adjusted p values for the genes discussed/illustrated in this manuscript
+this was to defeat the GGPP toxicity as reported earlier, all of which     are available at https://figshare.com/s/3717f4b900bc19124ea7 (RNA-
+potentially resulted in high yeast budding and cell cycle arrest as a     seq) and https://figshare.com/s/7bd488ddf6b4516876d8 (flux enrich­
+defence mechanism. The higher respiration was associated with the    ment analysis). The gene expression datasets are available at Gene
+elevated upregulation of mitochondrial ribosomal and downregulation     Expression Omnibus (GSE225783). All other generated datasets are
+of the cytosolic ribosomal genes. The upregulation of the TCA cycle and     available on the supplementary information or will be made available
+antioxidant machinery and the downregulation of amino acid produc­    upon request from the corresponding author.
+tion, likely pinpoint to the higher NADPH in the evolved strain, which
+also acts as the cofactor to cytochrome P450 enzymes of the Taxol®    Acknowledgements
+pathway. The oxidative stress induction also downregulated the heme b
+biosynthesis and upregulated the flavin biosynthesis, which were earlier       The authors would like to thank Mark Lauchlan and Stuart Martin at
+reported to improve Taxol® early diterpenoids production. On the other    The School of Engineering, University of Edinburgh, UK for their tech­
+hand, the oxidative stress likely caused higher protein misfolding in the     nical support with GC-MS analysis. Thanks to Tina Johansen at the DTU
+evolved strain, while the re-introduction of the oxidative stress induced     Fermentation Core, DTU, Denmark for her assistance with HPLC anal­
+the proteasomal degradation, as was with storing the branched oxidant-      ysis. This work was supported by The University of Edinburgh’s Prin­
+protecting molecules like trehalose and glycogen and hydrolysing them     cipal’s  Career Development  Scholarship,  Federation  of European
+upon H2O2 re-induction. This points to the existence of both cross-     Microbiological Societies Research and Training grant (FEMS-GO-2021-
+protection and anticipation mechanisms that contributed to greater     044), European Molecular Biology Organization Scientific Exchange
+microbial fitness, being beneficial to Taxol® cytochrome P450 enzymes     Grant (9232), British Council  - Metabolic Engineering grant (Grant
+
+                                                                        13
+
+
+[PDF physical page 14]
+B. Nowrouzi et al.                                                                                                             Metabolic Engineering Communications 18 (2024) e00229
+
+number: R46889), Engineering and Physical Sciences Research Council     de Jongh, W.A., Bro, C., Ostergaard, S., Regenberg, B., Olsson, L., Nielsen, J., 2008. The
+(Grant number: EP/R513209/1) and the Novo Nordisk Foundation           roles of galactitol, galactose-1-phosphate, and phosphoglucomutase in galactose-                                                                                        induced toxicity in Saccharomyces cerevisiae. Biotechnol. Bioeng. 101, 317–326.
+(Grant Number NNF20CC0035580), within the framework  of the          https://doi.org/10.1002/bit.21890.
+Fermentation  Based  Biomanufacturing  Initiative  (Grant  number:      Di Tommaso, P., Chatzou, M., Floden, E.W., Barja, P.P., Palumbo, E., Notredame, C.,
+NNF17SA0031362)  and  the  AIM-Bio  project  (Grant  number:         2017. Nextflow enables reproducible computational workflows. Nat. Biotechnol. 35,                                                                                     316–319. https://doi.org/10.1038/nbt.3820.
+NNF19SA0057794).                                                           Domenzain, I., S´anchez, B., Anton, M., Kerkhoven, E.J., Mill´an-Oropeza, A., Henry, C.,
+                                                                                                Siewers, V., Morrissey, J.P., Sonnenschein, N., Nielsen, J., 2022. Reconstruction of a
+Appendix A. Supplementary data                                                   catalogue of genome-scale metabolic models with enzymatic constraints using                                                                   GECKO 2.0. Nat. Commun. 13, 3766. https://doi.org/10.1038/s41467-022-31421-
+                                                                                                         1.
+   Supplementary data to this article can be found online at https://doi.      Edgar, S., Zhou, K., Qiao, K., King, J.R., Simpson, J.H., Stephanopoulos, G., 2016.
+org/10.1016/j.mec.2023.e00229.                                                     Mechanistic insights into taxadiene epoxidation by taxadiene-5α-hydroxylase. ACS                                                                              Chem. Biol. 11, 460–469. https://doi.org/10.1021/acschembio.5b00767.
+                                                                               Elsemman, I.E., Rodriguez Prado, A., Grigaitis, P., Garcia Albornoz, M., Harman, V.,
+References                                                                     Holman, S.W., van Heerden, J., Bruggeman, F.J., Bisschops, M.M.M.,
+                                                                                          Sonnenschein, N., Hubbard, S., Beynon, R., Daran-Lapujade, P., Nielsen, J.,
+Agren, R., Liu, L., Shoaie, S., Vongsangnak, W., Nookaew, I., Nielsen, J., 2013. The              Teusink, B., 2022. Whole-cell modeling in yeast predicts compartment-specific
+   RAVEN Toolbox and its use for generating a genome-scale metabolic model for             proteome constraints that drive metabolic strategies. Nat. Commun. 13, 801.
+    Penicillium chrysogenum. PLoS Comput. Biol. 9, e1002980.                                  https://doi.org/10.1038/s41467-022-28467-6.
+Ajikumar, P.K., Xiao, W.-H., Tyo, K.E.J., Wang, Y., Simeon, F., Leonard, E., Mucha, O.,      Endo, A., Nakamura, T., Ando, A., Tokuyasu, K., Shima, J., 2008. Genome-wide
+    Phon, T.H., Pfeifer, B., Stephanopoulos, G., 2010. Isoprenoid pathway optimization           screening of the genes required for tolerance to vanillin, which is a potential
+    for Taxol precursor overproduction in Escherichia coli. Science 330, 70–74. https://            inhibitor of bioethanol fermentation, in Saccharomyces cerevisiae. Biotechnol.
+    doi.org/10.1126/science.1191652.                                                             Biofuels 1, 3. https://doi.org/10.1186/1754-6834-1-3.
+Ask, M., Bettiga, M., Duraiswamy, V.R., Olsson, L., 2013. Pulsed addition of HMF and        Entian, K.-D., K¨otter, P., 2007. 25 yeast genetic strain and plasmid collections. In:
+    furfural to batch-grown xylose-utilizing Saccharomyces cerevisiae results in different            Stansfield, I., Stark, M.J.R.B.T.-M. in M. (Eds.), Yeast Gene Analysis. Academic Press,
+    physiological responses in glucose and xylose consumption phase. Biotechnol.                pp. 629–666. https://doi.org/10.1016/S0580-9517(06)36025-4.
+    Biofuels 6, 181. https://doi.org/10.1186/1754-6834-6-181.                                Escrich, A., Almagro, L., Moyano, E., Cusido, R.M., Bonfill, M., Hosseini, B., Palazon, J.,
+Bafunno, V., Giancaspero, T.A., Brizio, C., Bufano, D., Passarella, S., Boles, E., Barile, M.,          2021. Improved biotechnological production of paclitaxel in Taxus media cell
+    2004. Riboflavin uptake and FAD synthesis in Saccharomyces cerevisiae                        cultures by the combined action of coronatine and calix[8]arenes. Plant Physiol.
+    mitochondria: involvement of the Flx1p carrier in FAD export. J. Biol. Chem. 279,          Biochem. 163, 68–75. https://doi.org/10.1016/j.plaphy.2021.03.047.
+    95–102. https://doi.org/10.1074/jbc.M308230200.                                     Ewels, P., Magnusson, M., Lundin, S., K¨aller, M., 2016. MultiQC: summarize analysis
+Barrales-Cure˜no, H.J., Ramos Valdivia, A.C., Soto Hern´andez, M., 2022. Increased                  results for multiple tools and samples in a single report. Bioinformatics 32,
+    production of taxoids in suspension cultures of Taxus globosa after elicitation. Future         3047–3048. https://doi.org/10.1093/bioinformatics/btw354.
+    Pharmacology. https://doi.org/10.3390/futurepharmacol2010004.                      Ewels, P.A., Peltzer, A., Fillinger, S., Patel, H., Alneberg, J., Wilm, A., Garcia, M.U., Di
+Barton, N.A., Marsh, B.J., Lewis, W., Narraidoo, N., Seymour, G.B., Fray, R., Hayes, C.J.,         Tommaso, P., Nahnsen, S., 2020. The nf-core framework for community-curated
+    2016. Accessing low-oxidation state taxanes: is taxadiene-4(5)-epoxide on the taxol           bioinformatics pipelines. Nat. Biotechnol. 38, 276–278. https://doi.org/10.1038/
+    biosynthetic pathway? Chem. Sci. 7, 3102–3107. https://doi.org/10.1039/                  s41587-020-0439-x.
+   C5SC03463A.                                                                          Garrido, E.O., Grant, C.M., 2002. Role of thioredoxins in the response of Saccharomyces
+Benjamini, Y., Hochberg, Y., 1995. Controlling the false discovery rate: a practical and             cerevisiae to oxidative stress induced by hydroperoxides. Mol. Microbiol. 43,
+    powerful approach to multiple testing. J. Roy. Stat. Soc. B 57, 289–300. https://doi.          993–1003. https://doi.org/10.1046/j.1365-2958.2002.02795.x.
+    org/10.1111/j.2517-6161.1995.tb02031.x.                                              Grant, C.M., 2001. Role of the glutathione/glutaredoxin and thioredoxin systems in yeast
+Bi, E., Park, H.-O., 2012. Cell polarization and cytokinesis in budding yeast. Genetics           growth and response to stress conditions. Mol. Microbiol. 39, 533–541. https://doi.
+    191, 347–387. https://doi.org/10.1534/genetics.111.132886.                              org/10.1046/j.1365-2958.2001.02283.x.
+Birkaya, B., Maddi, A., Joshi, J., Free, S.J., Cullen, P.J., 2009. Role of the cell wall           Gudipati, V., Koch, K., Lienhart, W.-D., Macheroux, P., 2014. The flavoproteome of the
+    integrity and filamentous growth mitogen-activated protein kinase pathways in cell           yeast Saccharomyces cerevisiae. Biochim. Biophys. Acta 1844, 535–544. https://doi.
+    wall remodeling during filamentous growth. Eukaryot. Cell 8, 1118–1133. https://           org/10.1016/j.bbapap.2013.12.015.
+    doi.org/10.1128/EC.00006-09.                                                      Gupta, A., Puri, A., Singh, P., Sonam, S., Pandey, R., Sharma, D., 2018. The yeast stress
+Blaga, A.C., Ciobanu, C., Cas¸caval, D., Galaction, A.-I., 2018. Enhancement of ergosterol           inducible Ssa Hsp70 reduces α-synuclein toxicity by promoting its degradation
+    production by Saccharomyces cerevisiae in batch and fed-batch fermentation                 through autophagy. PLoS Genet. 14, e1007751.
+    processes using n-dodecane as oxygen-vector. Biochem. Eng. J. 131, 70–76. https://      Hayes, J.D., Dinkova-Kostova, A.T., Tew, K.D., 2020. Oxidative stress in cancer. Cancer
+    doi.org/10.1016/j.bej.2017.12.010.                                                             Cell 38, 167–197. https://doi.org/10.1016/j.ccell.2020.06.001.
+Cardona, F., Del Olmo, M.L., Aranda, A., 2012. Phylogenetic origin and transcriptional       Heirendt, L., Arreckx, S., Pfau, T., Mendoza, S.N., Richelle, A., Heinken, A.,
+    regulation at the post-diauxic phase of SPI1, in Saccharomyces cerevisiae. Cell. Mol.             Haraldsd´ottir, H.S., Wachowiak, J., Keating, S.M., Vlasov, V., Magnusd´ottir, S.,
+     Biol. Lett. 17, 393–407. https://doi.org/10.2478/s11658-012-0017-4.                      Ng, C.Y., Preciat, G., ˇZagare, A., Chan, S.H.J., Aurich, M.K., Clancy, C.M.,
+Carlson, M., 2019. org.Sc.sgd.db: Genome Wide Annotation for Yeast. https://doi.org/          Modamio, J., Sauls, J.T., Noronha, A., Bordbar, A., Cousins, B., El Assal, D.C.,
+    10.18129/B9.bioc.org.Sc.sgd.db.                                                               Valcarcel, L.V., Apaolaza, I., Ghaderi, S., Ahookhosh, M., Ben Guebila, M.,
+Cassanova, N., O’Brien, K.M., Stahl, B.T., McClure, T., Poyton, R.O., 2005. Yeast                 Kostromins, A., Sompairac, N., Le, H.M., Ma, D., Sun, Y., Wang, L., Yurkovich, J.T.,
+    flavohemoglobin, a nitric oxide oxidoreductase, is located in both the cytosol and the            Oliveira, M.A.P., Vuong, P.T., El Assal, L.P., Kuperstein, I., Zinovyev, A., Hinton, H.
+    mitochondrial matrix: effects of respiration, anoxia, and the mitochondrial genome              S., Bryant, W.A., Arag´on Artacho, F.J., Planes, F.J., Stalidzans, E., Maass, A.,
+   on its intracellular level and distribution. J. Biol. Chem. 280, 7645–7653. https://          Vempala, S., Hucka, M., Saunders, M.A., Maranas, C.D., Lewis, N.E., Sauter, T.,
+    doi.org/10.1074/jbc.M411478200.                                                            Palsson, B.Ø., Thiele, I., Fleming, R.M.T., 2019. Creation and analysis of biochemical
+Chang, A., Jeske, L., Ulbrich, S., Hofmann, J., Koblitz, J., Schomburg, I., Neumann-               constraint-based models using the COBRA Toolbox v.3.0. Nat. Protoc. 14, 639–702.
+    Schaal, M., Jahn, D., Schomburg, D., 2021. BRENDA, the ELIXIR core data resource          https://doi.org/10.1038/s41596-018-0098-2.
+    in 2021: new developments and updates. Nucleic Acids Res. 49, D498–D508.            Hoeberichts, F.A., Perez-Valle, J., Montesinos, C., Mulet, J.M., Planes, M.D., Hueso, G.,
+    https://doi.org/10.1093/nar/gkaa1025.                                                 Yenush, L., Sharma, S.C., Serrano, R., 2010. The role of K+ and H+ transport systems
+Chen, R., Gao, J., Yu, W., Chen, X., Zhai, X., Chen, Y., Zhang, L., Zhou, Y.J., 2022.              during glucose- and H2O2-induced cell death in Saccharomyces cerevisiae. Yeast 27,
+    Engineering cofactor supply and recycling to drive phenolic acid biosynthesis in            713–725. https://doi.org/10.1002/yea.1767.
+    yeast. Nat. Chem. Biol. 18, 520–529. https://doi.org/10.1038/s41589-022-01014-6.      Hong, K.-K., Nielsen, J., 2013. Adaptively evolved yeast mutants on galactose show
+Chen, X., Ji, B., Hao, X., Li, X., Eisele, F., Nystr¨om, T., Petranovic, D., 2020. FMN reduces            trade-offs in carbon utilization on glucose. Metab. Eng. 16, 78–86. https://doi.org/
+    Amyloid-β toxicity in yeast by regulating redox status and cellular metabolism. Nat.          10.1016/j.ymben.2013.01.007.
+   Commun. 11, 867. https://doi.org/10.1038/s41467-020-14525-4.                    Hong, K.-K., Vongsangnak, W., Vemuri, G.N., Nielsen, J., 2011. Unravelling evolutionary
+Chen, X., Li, X., Ji, B., Wang, Y., Ishchuk, O.P., Vorontsov, E., Petranovic, D., Siewers, V.,            strategies of yeast for improving galactose utilization through integrated systems
+    Engqvist, M.K.M., 2022. Suppressors of amyloid-β toxicity improve recombinant               level analysis. Proc. Natl. Acad. Sci. U. S. A. 108, 12179–12184. https://doi.org/
+    protein production in yeast by reducing oxidative stress and tuning cellular                10.1073/pnas.1103219108.
+    metabolism. Metab. Eng. 72, 311–324. https://doi.org/10.1016/j.                      Jeong, S.-H., Park, J.-B., Wang, Y., Kim, G.-H., Zhang, G., Wei, G., Wang, C., Kim, S.-W.,
+    ymben.2022.04.005.                                                                 2021. Regulatory molecule cAMP changes cell fitness of the engineered Escherichia
+Cheng, L., Zhang, X., Zheng, X., Wu, Z., Weng, P., 2019. RNA-seq transcriptomic analysis              coli for terpenoids production. Metab. Eng. 65, 178–184.
+    of green tea polyphenols regulation of differently expressed genes in Saccharomyces       Jim´enez-Guti´errez, E., Alegría-Carrasco, E., Sellers-Moya, ´A., Molina, M., Martín, H.,
+     cerevisiae under ethanol stress. World J. Microbiol. Biotechnol. 35, 59. https://doi.          2020. Not just the wall: the other ways to turn the yeast CWI pathway on. Int.
+    org/10.1007/s11274-019-2639-4.                                                            Microbiol. 23, 107–119. https://doi.org/10.1007/s10123-019-00092-2.
+Dai, Z., Huang, M., Chen, Y., Siewers, V., Nielsen, J., 2018. Global rewiring of cellular       Jongedijk, E., Cankar, K., Ranzijn, J., van der Krol, S., Bouwmeester, H., Beekwilder, J.,
+    metabolism renders Saccharomyces cerevisiae Crabtree negative. Nat. Commun. 9,            2015. Capturing of the monoterpene olefin limonene produced in Saccharomyces
+    3059. https://doi.org/10.1038/s41467-018-05409-9.                                                cerevisiae. Yeast 32, 159–171. https://doi.org/10.1002/yea.3038.
+
+
+                                                                        14
+
+
+[PDF physical page 15]
+B. Nowrouzi et al.                                                                                                             Metabolic Engineering Communications 18 (2024) e00229
+
+Kanehisa, M., Goto, S., 2000. KEGG: kyoto encyclopedia of genes and genomes. Nucleic      Nowrouzi, B., Rios-Solis, L., 2021. Redox metabolism for improving whole-cell P450-
+    Acids Res. 28, 27–30. https://doi.org/10.1093/nar/28.1.27.                                  catalysed terpenoid biosynthesis. Crit. Rev. Biotechnol. 1–25. https://doi.org/
+Kanki, T., Furukawa, K., Yamashita, S., 2015. Mitophagy in yeast: molecular mechanisms          10.1080/07388551.2021.1990210.
+   and physiological role. Biochim. Biophys. Acta Mol. Cell Res. 1853, 2756–2765.          Olin-Sandoval, V., Yu, J.S.L., Miller-Fleming, L., Alam, M.T., Kamrad, S., Correia-
+    https://doi.org/10.1016/j.bbamcr.2015.01.005.                                          Melo, C., Haas, R., Segal, J., Pe˜na Navarro, D.A., Herrera-Dominguez, L., M´endez-
+Ketchum, R.E., Gibson, D.M., Croteau, R.B., Shuler, M.L., 1999. The kinetics of taxoid            Lucio, O., Vowinckel, J., Mülleder, M., Ralser, M., 2019. Lysine harvesting is an
+    accumulation in cell suspension cultures of Taxus following elicitation with methyl           antioxidant strategy and triggers underground polyamine metabolism. Nature 572,
+    jasmonate. Biotechnol. Bioeng. 62, 97–105. https://doi.org/10.1002/(sici)1097-            249–253. https://doi.org/10.1038/s41586-019-1442-6.
+    0290(19990105)62:1<97::aid-bit11>3.0.co;2-c.                                         Ostergaard, S., Olsson, L., Johnston, M., Nielsen, J., 2000. Increasing galactose
+Kim, J., Darlington, A., Salvador, M., Utrilla, J., Jim´enez, J.I., 2020. Trade-offs between          consumption by Saccharomyces cerevisiae through metabolic engineering of the GAL
+    gene expression, growth and phenotypic diversity in microbial populations. Curr.           gene regulatory network. Nat. Biotechnol. 18, 1283–1286. https://doi.org/10.1038/
+    Opin. Biotechnol. 62, 29–37. https://doi.org/10.1016/j.copbio.2019.08.004.               82400.
+Kocaefe-¨Ozs¸en, N., Yilmaz, B., Alkım, C., Arslan, M., Topalo˘glu, A., Kısakesen, H.             Ozolina, Z., Kokina, A., Liepins, J., 2017. Adenine starvation is signalled through
+    lbrahim, Gülsev, E., Çakar, Z.P., 2022. Physiological and molecular characterization          environmental stress response system in budding yeast Saccharomyces cerevisiae.
+    of an oxidative stress-resistant Saccharomyces cerevisiae strain obtained by                    Environ. Exper. Biol. 283–288.
+    evolutionary engineering. Front. Microbiol.                                                Patro, R., Duggal, G., Love, M.I., Irizarry, R.A., Kingsford, C., 2017. Salmon provides fast
+Kokina, A., Ozolina, Z., Liepins, J., 2019. Purine auxotrophy: possible applications             and bias-aware quantification of transcript expression. Nat. Methods 14, 417–419.
+   beyond genetic marker. Yeast 36, 649–656. https://doi.org/10.1002/yea.3434.              https://doi.org/10.1038/nmeth.4197.
+Kussell, E., 2013. Evolution in microbes. Annu. Rev. Biophys. 42, 493–514. https://doi.       Paulo, J.A., O’Connell, J.D., Gaun, A., Gygi, S.P., 2015. Proteome-wide quantitative
+    org/10.1146/annurev-biophys-083012-130320.                                            multiplexed profiling of protein expression: carbon-source dependency in
+Kuthan, M., Devaux, F., Janderov´a, B., Slaninov´a, I., Jacq, C., Palkov´a, Z., 2003.                Saccharomyces cerevisiae. Mol. Biol. Cell 26, 4063–4074. https://doi.org/10.1091/
+    Domestication of wild Saccharomyces cerevisiae is accompanied by changes in gene          mbc.E15-07-0499.
+    expression and colony morphology. Mol. Microbiol. 47, 745–754. https://doi.org/         Petti, A.A., Crutchfield, C.A., Rabinowitz, J.D., Botstein, D., 2011. Survival of starving
+    10.1046/j.1365-2958.2003.03332.x.                                                         yeast is correlated with oxidative stress response and nonrespiratory mitochondrial
+Lange, B.M., Conner, C.F., 2021. Taxanes and taxoids of the genus Taxus – a                      function. Proc. Natl. Acad. Sci. U. S. A. 108, E1089–E1098. https://doi.org/10.1073/
+    comprehensive inventory of chemical diversity. Phytochemistry 190, 112829.               pnas.1101494108.
+    https://doi.org/10.1016/j.phytochem.2021.112829.                                       Petzoldt, T., 2020. Growthrates: Estimate Growth Rates from Experimental Data.
+Li, L., Bertram, S., Kaplan, J., Jia, X., Ward, D.M., 2020. The mitochondrial iron exporter        Pfeiffer, T., Morley, A., 2014. An evolutionary perspective on the Crabtree effect. Front.
+    genes MMT1 and MMT2 in yeast are transcriptionally regulated by Aft1 and Yap1.          Mol. Biosci. 1, 17. https://doi.org/10.3389/fmolb.2014.00017.
+     J. Biol. Chem. 295, 1716–1726. https://doi.org/10.1074/jbc.RA119.011154.              Piper, M.D.W., Hong, S.P., Eissing, T., Sealey, P., Dawes, I.W., 2002. Regulation of the
+Li, L., Chen, O.S., McVey Ward, D., Kaplan, J., 2001. CCC1 is a transporter that mediates           yeast glycine cleavage genes is responsive to the availability of multiple nutrients.
+    vacuolar iron storage in yeast. J. Biol. Chem. 276, 29515–29519. https://doi.org/         FEMS Yeast Res. 2, 59–71. https://doi.org/10.1111/j.1567-1364.2002.tb00069.x.
+    10.1074/jbc.M103944200.                                                                 Pollak, N., D¨olle, C., Ziegler, M., 2007. The power to reduce: pyridine nucleotides – small
+Li, L., Kaplan, J., Ward, D.M., 2017. The glucose sensor Snf1 and the transcription factors          molecules with a multitude of functions. Biochem. J. 402, 205–218. https://doi.org/
+   Msn2 and Msn4 regulate transcription of the vacuolar iron importer gene CCC1 and         10.1042/BJ20061638.
+    iron resistance in yeast. J. Biol. Chem. 292, 15577–15586. https://doi.org/10.1074/       Qin, N., Li, L., Ji, X., Li, X., Zhang, Y., Larsson, C., Chen, Y., Nielsen, J., Liu, Z., 2020.
+    jbc.M117.802504.                                                                    Rewiring central carbon metabolism ensures increased provision of acetyl-CoA and
+Li, L., Ward, D.M., 2018. Iron toxicity in yeast: transcriptional regulation of the vacuolar       NADPH required for 3-oh-propionic acid production. ACS Synth. Biol. 9, 3236–3244.
+    iron importer Ccc1. Curr. Genet. 64, 413–416. https://doi.org/10.1007/s00294-             https://doi.org/10.1021/acssynbio.0c00264.
+    017-0767-7.                                                                          Queiroz, M.G., Elsztein, C., de Morais, M.A.J., 2020. The effects of the Ncw2 protein of
+Liang, X., Dickman, M.B., Becker, D.F., 2014. Proline biosynthesis is required for                Saccharomyces cerevisiae on the positioning of chitin in response to cell wall damage.
+    endoplasmic reticulum stress tolerance in Saccharomyces cerevisiae. J. Biol. Chem.            Antonie Leeuwenhoek 113, 265–277. https://doi.org/10.1007/s10482-019-01335-
+    289, 27794–27806. https://doi.org/10.1074/jbc.M114.562827.                                  y.
+L´opez-Martínez, G., Rodríguez-Porrata, B., Margalef-Catal`a, M., Cordero-Otero, R., 2012.       Ralser, M., Wamelink, M.M., Kowald, A., Gerisch, B., Heeren, G., Struys, E.A., Klipp, E.,
+   The STF2p hydrophilin from Saccharomyces cerevisiae is required for dehydration             Jakobs, C., Breitenbach, M., Lehrach, H., Krobitsch, S., 2007. Dynamic rerouting of
+     stress tolerance. PLoS One 7, e33324.                                                      the carbohydrate flux is key to counteracting oxidative stress. J. Biol. 6, 10. https://
+Love, M.I., Huber, W., Anders, S., 2014. Moderated estimation of fold change and                doi.org/10.1186/jbiol61.
+    dispersion for RNA-seq data with DESeq2. Genome Biol. 15, 550. https://doi.org/        Reider Apel, A., d’Espaux, L., Wehrs, M., Sachs, D., Li, R.A., Tong, G.J., Garber, M.,
+    10.1186/s13059-014-0550-8.                                                           Nnadi, O., Zhuang, W., Hillson, N.J., Keasling, J.D., Mukhopadhyay, A., 2017.
+Martin, V.J.J., Pitera, D.J., Withers, S.T., Newman, J.D., Keasling, J.D., 2003.              A Cas9-based toolkit to program gene expression in Saccharomyces cerevisiae. Nucleic
+    Engineering a mevalonate pathway in Escherichia coli for production of terpenoids.           Acids Res. 45, 496–508. https://doi.org/10.1093/nar/gkw1023.
+    Nat. Biotechnol. 21, 796–802. https://doi.org/10.1038/nbt833.                       Renan, E.-C., Yonatan, S., M, C.S., B, I.J., Jue, W., J, M.C., Michael, S., 2015. Galactose
+Martínez, J.L., Meza, E., Petranovic, D., Nielsen, J., 2016. The impact of respiration and          metabolic genes in yeast respond to a ratio of galactose and glucose. Proc. Natl.
+    oxidative stress response on recombinant α-amylase production by Saccharomyces            Acad. Sci. USA 112, 1636–1641. https://doi.org/10.1073/pnas.1418058112.
+     cerevisiae. Metab. Eng. Commun. 3, 205–210. https://doi.org/10.1016/j.                 Reyes, L.H., Gomez, J.M., Kao, K.C., 2014. Improving carotenoids production in yeast via
+    meteno.2016.06.003.                                                                     adaptive laboratory evolution. Metab. Eng. 21, 26–33. https://doi.org/10.1016/j.
+Maslanka, R., Zadrag-Tecza, R., 2022. Different life strategies in genetic backgrounds of          ymben.2013.11.002.
+    the Saccharomyces cerevisiae yeast cells. Fungal Biol. 126, 498–510. https://doi.org/       Rodríguez-Porrata, B., Carmona-Gutierrez, D., Reisenbichler, A., Bauer, M., Lopez, G.,
+    10.1016/j.funbio.2022.04.004.                                                                         Escot´e, X., Mas, A., Madeo, F., Cordero-Otero, R., 2012. Sip18 hydrophilin prevents
+McGarrity, S., Karvelsson, S.T., Sigurj´onsson, ´O.E., Rolfsson, ´O., 2020. Comparative               yeast cell death during desiccation stress. J. Appl. Microbiol. 112, 512–525. https://
+    metabolic network flux analysis to identify differences in cellular metabolism.               doi.org/10.1111/j.1365-2672.2011.05219.x.
+   Methods Mol. Biol. 2088, 223–269. https://doi.org/10.1007/978-1-0716-0159-4_         S´anchez, B.J., Zhang, C., Nilsson, A., Lahtvee, P.-J., Kerkhoven, E.J., Nielsen, J., 2017.
+    11.                                                                                Improving the phenotype predictions of a yeast genome-scale metabolic model by
+McNeil, J.B., McIntosh, E.M., Taylor, B.V., Zhang, F.R., Tang, S., Bognar, A.L., 1994.             incorporating enzymatic constraints. Mol. Syst. Biol. 13, 935. https://doi.org/
+    Cloning and molecular characterization of three genes, including two genes                10.15252/msb.20167411.
+    encoding serine hydroxymethyltransferases, whose inactivation is required to render       Santoyo-Garcia, J.H., Walls, L.E., Nowrouzi, B., Galindo-Rodriguez, G.R., Ochoa-
+    yeast auxotrophic for glycine. J. Biol. Chem. 269, 9155–9165.                                    Villareal, M., Loake, G.J., Dimartino, S., Rios-Solis, L., 2022. In situ solid-liquid
+Metzl-Raz, E., Kafri, M., Yaakov, G., Soifer, I., Gurvich, Y., Barkai, N., 2017. Principles of           extraction enhances recovery of taxadiene from engineered Saccharomyces cerevisiae
+     cellular resource allocation revealed by condition-dependent proteome profiling.                cell factories. Sep. Purif. Technol. 290 https://doi.org/10.1016/j.
+     Elife 6. https://doi.org/10.7554/eLife.28034.                                            seppur.2022.120880.
+Mirjalili, N., Linden, J.C., 1996. Methyl jasmonate induced production of taxol in            Santoyo-Garcia, J.H., Walls, L.E., Valdivia-Cabrera, M., Malcı, K., Jonguitud-Borrego, N.,
+    suspension cultures of Taxus cuspidata: ethylene interaction and induction models.            Halliday, K.J., Rios-Solis, L., 2023. The synergetic effect from the combination of
+    Biotechnol. Prog. 12, 110–118. https://doi.org/10.1021/bp9500831.                           different adsorption resins in batch and semi-continuous cultivations of S. Cerevisiae
+Mohammad, K., Baratang Junio, J.A., Tafakori, T., Orfanos, E., Titorenko, V.I., 2020.               cell factories to produce acetylated Taxanes precursors of the anticancer drug Taxol.
+   Mechanisms that link chronological aging to cellular quiescence in budding yeast.            Biotechnol. Bioeng. 120, 2160–2174. https://doi.org/10.1002/bit.28487.
+     Int. J. Mol. Sci. https://doi.org/10.3390/ijms21134717.                                 Sanz, A.B., García, R., Pav´on-Verg´es, M., Rodríguez-Pe˜na, J.M., Arroyo, J., 2022. Control
+Nowrouzi, B., 2022. Design of Microbial Cell Factories Using Integrated Synthetic                 of gene expression via the yeast CWI pathway. Int. J. Mol. Sci. https://doi.org/
+    Biology and Systems Biology for the Production of Taxol®, an Anticancer Drug. The          10.3390/ijms23031791.
+    University of Edinburgh.                                                             Sarrade-Loucheur, A., Ro, D.-K., Faur´e, R., Remaud-Sim´eon, M., Truan, G., 2020.
+Nowrouzi, B., Li, R.A., Walls, L.E., d’Espaux, L., Malcı, K., Liang, L., Jonguitud-                  Synthetic derivatives of (+)-epi-α-bisabolol are formed by mammalian cytochromes
+    Borrego, N., Lerma-Escalera, A.I., Morones-Ramirez, J.R., Keasling, J.D., Rios-             P450 expressed in a yeast reconstituted pathway. ACS Synth. Biol. 9, 368–380.
+     Solis, L., 2020. Enhanced production of taxadiene in Saccharomyces cerevisiae.                https://doi.org/10.1021/acssynbio.9b00399.
+    Microb. Cell Factories 19, 200. https://doi.org/10.1186/s12934-020-01458-2.            Schellenberger, J., Que, R., Fleming, R.M.T., Thiele, I., Orth, J.D., Feist, A.M.,
+Nowrouzi, B., Lungang, L., Rios-Solis, L., 2022. Exploring optimal Taxol® CYP725A4               Zielinski, D.C., Bordbar, A., Lewis, N.E., Rahmanian, S., Kang, J., Hyduke, D.R.,
+     activity in Saccharomyces cerevisiae. Microb. Cell Factories 21, 197. https://doi.org/           Palsson, B.Ø., 2011. Quantitative prediction of cellular metabolism with constraint-
+    10.1186/s12934-022-01922-1.
+
+                                                                        15
+
+
+[PDF physical page 16]
+B. Nowrouzi et al.                                                                                                             Metabolic Engineering Communications 18 (2024) e00229
+
+    based models: the COBRA Toolbox v2.0. Nat. Protoc. 6, 1290–1307. https://doi.org/      Thorpe, G.W., Fong, C.S., Alic, N., Higgins, V.J., Dawes, I.W., 2004. Cells have distinct
+    10.1038/nprot.2011.308.                                                         mechanisms to maintain protection against different reactive oxygen species:
+Signorell, A., Aho, K., Alfons, A., Anderegg, N., Aragon, T., Arachchige, C., Arppe, A.,             oxidative-stress-response genes. Proc. Natl. Acad. Sci. U. S. A. 101, 6564–6569.
+    Baddeley, A., Barton, K., Bolker, B., Borchers, H.W., Caeiro, F., Champely, S.,               https://doi.org/10.1073/pnas.0305888101.
+    Chessel, D., Chhay, L., Cooper, N., Cummins, C., Dewey, M., Doran, H.C., Dray, S.,       Ulgen, E., Ozisik, O., Sezerman, O.U., 2019. pathfindR: an R package for comprehensive
+    Dupont, C., Eddelbuettel, D., Ekstrom, C., Elff, M., Enos, J., Farebrother, R.W.,                identification of enriched pathways in omics data through active subnetworks.
+    Fox, J., Francois, R., Friendly, M., Galili, T., Gamer, M., Gastwirth, J.L., Gegzna, V.,           Front. Genet.
+    Gel, Y.R., Graber, S., Gross, J., Grothendieck, G., Jr, F.E.H., Heiberger, R.,              Vemuri, G.N., Eiteman, M.A., McEwen, J.E., Olsson, L., Nielsen, J., 2007. Increasing
+    Hoehle, M., Hoffmann, C.W., Hojsgaard, S., Hothorn, T., Huerzeler, M., Hui, W.W.,       NADH oxidation reduces overflow metabolism in Saccharomyces cerevisiae. Proc.
+    Hurd, P., Hyndman, R.J., Jackson, C., Kohl, M., Korpela, M., Kuhn, M., Labes, D.,             Natl. Acad. Sci. U. S. A. 104, 2402–2407. https://doi.org/10.1073/
+    Leisch, F., Lemon, J., Li, D., Maechler, M., Magnusson, A., Mainwaring, B.,                 pnas.0607469104.
+    Malter, D., Marsaglia, G., Marsaglia, J., Matei, A., Meyer, D., Miao, W., Millo, G.,        Walker, K., Croteau, R., 2000. Taxol biosynthesis: molecular cloning of a benzoyl-CoA:
+    Min, Y., Mitchell, D., Mueller, F., Naepflin, M., Navarro, D., Nilsson, H.,                    taxane 2alpha-O-benzoyltransferase cDNA from taxus and functional expression in
+    Nordhausen, K., Ogle, D., Ooi, H., Parsons, N., Pavoine, S., Plate, T., Prendergast, L.,            Escherichia coli. Proc. Natl. Acad. Sci. U. S. A. 97, 13591–13596. https://doi.org/
+    Rapold, R., Revelle, W., Rinker, T., Ripley, B.D., Rodriguez, C., Russell, N., Sabbe, N.,          10.1073/pnas.250491997.
+    Scherer, R., Seshan, V.E., Smithson, M., Snow, G., Soetaert, K., Stahel, W.A.,             Walls, L.E., Malcı, K., Nowrouzi, B., Li, R.A., D’Espaux, L., Wong, J., Dennis, J.A.,
+    Stephenson, A., Stevenson, M., Stubner, R., Templ, M., Lang, D.T., Therneau, T.,              Semi˜ao, A.J.C., Wallace, S., Martinez, J.L., Keasling, J.D., Rios-Solis, L., 2020.
+     Tille, Y., Torgo, L., Trapletti, A., Ulrich, J., Ushey, K., VanDerWal, J., Venables, B.,          Optimizing the biosynthesis of oxygenated and acetylated Taxol precursors in
+    Verzani, J., Iglesias, P.J.V., Warnes, G.R., Wellek, S., Wickham, H., Wilcox, R.R.,            Saccharomyces cerevisiae using advanced bioprocessing strategies. Biotechnol.
+    Wolf, P., Wollschlaeger, D., Wood, J., Wu, Y., Yee, T., Zeileis, A., 2022. DescTools:           Bioeng. 118, 279–293. https://doi.org/10.1002/bit.27569.
+    Tools for Descriptive Statistics.                                                           Walls, L.E., Martinez, J.L., Rios-Solis, L., 2022. Enhancing Saccharomyces cerevisiae
+Sim˜oes, T., Mira, N.P., Fernandes, A.R., S´a-Correia, I., 2006. The SPI1 gene, encoding a          taxane biosynthesis and overcoming nutritional stress-induced pseudohyphal
+    glycosylphosphatidylinositol-anchored cell wall protein, plays a prominent role in           growth. Microorganisms 10. https://doi.org/10.3390/microorganisms10010163.
+    the development of yeast resistance to lipophilic weak-acid food preservatives. Appl.      Wang, H., Marciˇsauskas, S., S´anchez, B.J., Domenzain, I., Hermansson, D., Agren, R.,
+    Environ. Microbiol. 72, 7168–7175. https://doi.org/10.1128/AEM.01476-06.                 Nielsen, J., Kerkhoven, E.J., 2018. RAVEN 2.0: a versatile toolbox for metabolic
+Soneson, C., Love, M.I., Robinson, M.D., 2015. Differential Analyses for RNA-Seq:              network reconstruction and a case study on Streptomyces coelicolor. PLoS Comput.
+    Transcript-Level Estimates Improve Gene-Level Inferences [version 1; Peer Review: 2            Biol. 14, e1006541.
+    Approved, p. F1000Res 4. https://doi.org/10.12688/f1000research.7563.1.             Yu, G., Wang, L.-G., Han, Y., He, Q.-Y., 2012. clusterProfiler: an R package for comparing
+Song, T.-Q., Ding, M.-Z., Zhai, F., Liu, D., Liu, H., Xiao, W.-H., Yuan, Y.-J., 2017.                  biological themes among gene clusters. OMICS 16, 284–287. https://doi.org/
+    Engineering Saccharomyces cerevisiae for geranylgeraniol overproduction by                 10.1089/omi.2011.0118.
+    combinatorial design. Sci. Rep. 7, 14991 https://doi.org/10.1038/s41598-017-          Zhang, T., Bu, P., Zeng, J., Vancura, A., 2017. Increased heme synthesis in yeast induces
+    15005-4.                                                                           a metabolic switch from fermentation to respiration even under conditions of
+Specht, S., Miller, S.B.M., Mogk, A., Bukau, B., 2011. Hsp42 is required for sequestration           glucose repression. J. Biol. Chem. 292, 16942–16954. https://doi.org/10.1074/jbc.
+    of protein aggregates into deposition sites in Saccharomyces cerevisiae. JCB (J. Cell          M117.790923.
+     Biol.) 195, 617–629. https://doi.org/10.1083/jcb.201106037.                         Zhou, K., Qiao, K., Edgar, S., Stephanopoulos, G., 2015. Distributing a metabolic
+Spitzner, A., Perzlmaier, A.F., Geillinger, K.E., Reihl, P., Stolz, J., 2008. The proline-           pathway among a microbial consortium enhances production of natural products.
+    dependent transcription factor Put3 regulates the expression of the riboflavin                Nat. Biotechnol. 33, 377–383. https://doi.org/10.1038/nbt.3095.
+    transporter MCH5 in Saccharomyces cerevisiae. Genetics 180, 2007–2017. https://        Zuzuarregui, A., del Olmo, M., 2004. Expression of stress response genes in wine strains
+    doi.org/10.1534/genetics.108.094458.                                                  with different fermentative behavior. FEMS Yeast Res. 4, 699–710. https://doi.org/
+Stephens, M., 2017. False discovery rates: a new deal. Biostatistics 18, 275–294. https://          10.1016/j.femsyr.2004.01.008.
+    doi.org/10.1093/biostatistics/kxw041.
+
+
+
+
+
+                                                                        16

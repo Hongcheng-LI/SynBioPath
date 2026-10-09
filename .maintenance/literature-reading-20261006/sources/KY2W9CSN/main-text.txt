@@ -1,0 +1,1694 @@
+
+[PDF physical page 1]
+Catalytic Cycle of Type II 4′-Phosphopantetheinyl Transferases
+Sabine Gavalda,△Alexandre Faille,△Simone Fioccola,△Minh Chau Nguyen, Coralie Carivenc,
+Karine Rottier, Yann Rufin, Stéphane Saitta, Georges Czaplicki, Christophe Guilhot, Christian Chalut,
+Marie Brut,* Lionel Mourey,* and Jean-Denis Pedelacq*
+Cite This: ACS Catal. 2024, 14, 8561−8575
+Read Online
+ACCESS
+Metrics & More
+Article Recommendations
+*
+sı
+Supporting Information
+ABSTRACT: Polyketides are a diverse class of compounds with significant interest
+in the pharmaceutical industry. They are synthesized by polyketide synthases (PKSs),
+which consist of large multienzyme systems. Post-translational modification of acyl-
+carrier protein (ACP) domains is crucial for PKS and fatty acid synthase function and
+involves phosphopantetheinyl transferases (PPTases) that attach a 4′-phosphopante-
+theine (Ppant) moiety from coenzyme A (CoA) to a conserved serine residue on the
+ACP domain. This modification enables communication between the ACP and other
+enzymatic domains within the same PKS. In Mycobacterium tuberculosis, PptT is
+essential for bacillus replication and survival during infection. This study focuses on
+unraveling the activation mechanism of an ACP domain by PptT. It combines
+biochemical and structural analyses with advanced molecular dynamics simulations to
+elucidate the precise mechanism of CoA’s Ppant arm transfer onto the ACP domain.
+The findings from this research contribute to a deeper understanding of polyketide
+biosynthesis with major implications for anti-TB drug discovery efforts.
+KEYWORDS: PPTase, PptT, Mycobacterium tuberculosis, Ppant transfer, X-ray crystallography, molecular dynamics, DFT, QM/MM
+■INTRODUCTION
+Polyketides represent a chemically and functionally diverse
+class of compounds that are of great interest in the
+pharmaceutical industry.1 Typically, aromatic polyketides are
+biosynthesized by type II polyketide synthases (PKSs) in an
+iterative process that involves a small set of discrete proteins.
+In contrast, the biosynthesis of reduced polyketides, such as
+the lipids present in the cell envelope of mycobacteria, involves
+protein domains housed within gigantic multienzyme systems
+termed type I PKSs. Essential for PKS activity are the
+ketosynthase (KS), acyl transferase (AT), and acyl carrier
+protein (ACP) domains. AT, often referred to as the
+“gatekeeper”, catalyzes the transfer of an elongation unit
+(from malonyl-CoA, (2S)-methylmalonyl-CoA, or carboxyl-
+acyl-CoA) to the ACP domain, while KS catalyzes the
+formation of C−C bonds between the acyl-ACP and an
+elongation unit, resulting in the production of an ACP-bound
+β-keto ester.
+Post-translational modification of ACP domains is a
+universal process indispensable to the proper functioning of
+PKS molecular factories. This modification is catalyzed by
+phosphopantetheinyl transferases (PPTases), which utilize
+coenzyme A (CoA) and divalent cations as cofactors (Figure
+1A). This step implies the covalent linkage of a 4′-
+phosphopantetheine (Ppant) moiety from CoA to a conserved
+serine residue of the ACP domain.2 Anchoring the starting unit
+at the SH extremity of the Ppant arm acts as a signal for the
+“shuttle” ACP domain to communicate with the other
+enzymatic domains, facilitating the proper reactions. In
+Mycobacterium tuberculosis, PptT is essential for the replication
+and survival of the bacillus during both acute and chronic
+phases of infection in mice.3 Consequently, PptT is the focus
+of intensive anti-TB drug discovery programs between
+academia and the pharmaceutical industry.4,5 In this study,
+we set out to unravel the intricate steps involved in the
+activation mechanism of an ACP domain by PptT. Our
+approach involves a combination of biochemical and structural
+analyses as well as cutting-edge density functional theory
+(DFT)-cluster and quantum mechanics/molecular mechanics
+(QM/MM) molecular dynamics (MD) simulations to shed
+light on the precise mechanism by which the Ppant arm of
+CoA is transferred onto its cognate ACP domain.
+■RESULTS
+Stability and Activity of PptT. Initially, the purification of
+PptT was carried out in the presence of Mg2+ and CoA to
+ensure its expression in a soluble form,6 without knowledge of
+Received:
+December 22, 2023
+Revised:
+April 22, 2024
+Accepted:
+April 24, 2024
+Published: May 17, 2024
+Research Article
+pubs.acs.org/acscatalysis
+© 2024 American Chemical Society
+8561
+https://doi.org/10.1021/acscatal.3c06249
+ACS Catal. 2024, 14, 8561−8575
+Downloaded via OCEAN UNIV OF CHINA on July 19, 2024 at 04:05:54 (UTC).
+See https://pubs.acs.org/sharingguidelines for options on how to legitimately share published articles.
+
+
+
+[PDF physical page 2]
+whether both cofactors were essential for the enzyme’s
+stability. Considering that Mn2+ greatly enhances the activity
+of Sfp-type PPTases7 and possibly their stability, we
+implemented a two-step purification procedure in which the
+immobilized metal affinity chromatography (IMAC) step was
+performed with 1 mM MnCl2, while the size exclusion
+chromatography (SEC) step was carried out in the absence
+of the metal ion. In this scenario, both the extraction and
+purification buffers lacked CoA. Although the SEC profile and
+SDS-PAGE confirmed the enzyme’s monodispersity and high
+purity (Figure S1), differential scanning fluorimetry (DSF)
+experiments revealed relatively low melting temperature (Tm)
+values of approximately 30 °C (Figure 1B), indicating the low
+stability of PptT under these conditions. In contrast, when
+MnCl2 was consistently present throughout the purification
+process, the Tm values could be increased by approximately 15
+°C (Figure 1B).
+Furthermore, we examined the effects of Ca2+ and Mg2+ on
+the stability of PptT as these ions have been reported to
+facilitate the transfer reaction with homologues of PptT: Sfp
+from Bacillus subtilis7,8 and PptAb from Mycobacterium
+abscessus.9 Additionally, we expanded the panel of divalent
+ions to include Ni2+ and Co2+. Both ions are commonly used
+during the IMAC step, and Co2+ has shown activity restoration
+in previous studies.10 Importantly, these divalent ions were
+found to be compatible with the PptT conditioning buffer. At a
+final concentration of 1 mM, each cation affects the stability of
+the enzyme. Among these cations, Ni2+ has the most favorable
+impact, with Tm values above 55 °C, followed by Mn2+ and
+Co2+, while Ca2+ and Mg2+ exhibit the least advantageous
+effects, with Tm values as low as 35 °C (Figure 1B). When
+divalent ions and CoA are combined, there is a significant
+increase in the stability of PptT, leading to Tm values up to 10
+°C higher compared to those using the divalent ion alone
+(Figure 1B). In contrast, replacing CoA with the reaction
+product 3′,5′-ADP has a limited effect on the stability of the
+enzyme, and this effect is observed solely in the presence of Co
+2+ and Ni 2+ ions.
+We also confirmed the enzymatic activity of PptT in vitro by
+using the ACP domain from the type I PKS PpsC of M.
+tuberculosis. PpsC catalyzes crucial biosynthetic steps in the
+production of lipid virulence factors, including phthiocerol
+dimycocerosates and phenolic glycolipids.11 To facilitate this
+analysis, we generated a library of fragments centered on the
+PpsC ACP domain and selected well-expressed and soluble
+constructs.12 The selected ACP fragment (2042−2188) was
+successfully purified using a two-step purification strategy (see
+Methods section). Furthermore, we demonstrated that PptT
+could transfer the P-pant moiety from CoA onto the ACP in
+the presence of either Mn2+ or Mg2+. This transfer was
+visualized through gel electrophoresis on a 10% polyacrylamide
+gel containing 2.5 M urea (Figure 1C).
+Structural Changes upon PptT Activation. The detailed
+structural dissection of the catalytic cycle of PptT begins with
+its three-dimensional structure in the absence of CoA. While
+previous structural studies have reported apo forms of Sfp-type
+PPTases,13,14 purifying PptT in the absence of CoA posed a
+significant challenge due to its beneficial impact on the stability
+of the enzyme.6 From the DSF experiments, we identified
+Mn2+ as a promising cation to successfully compensate for the
+absence of CoA in vitro. Crystals could only be obtained under
+acidic pH conditions, which can hinder cation binding due to
+the protonation state of acidic residues involved in
+coordination, as previously observed by us9 and others.15
+Figure 1. Biophysical and biochemical characterization of PptT. (A) Schematic representation of the post-translational phosphopantetheinylation
+by a PPTase. The PPTase transfers the PPant moiety from CoA to a conserved serine residue on the apo-ACP, resulting in the formation of the
+holo-ACP. (B) Thermal stability of PptT purified in the absence of divalent cations and following subsequent addition of 1 mM M2+(Ca2+, Mg2+,
+Mn2+, Co2+, and Ni2+) and 50 μM CoA or 3′,5′-ADP. The empty histogram bars represent approximate Tm values. (C) Activation time-course of
+the ACP domain (2042−2188) of PpsC by PptT. The transfer of the Ppant group from CoA to the ACP domain is visualized on a 10% native
+polyacrylamide gel supplemented with 2.5 M urea, either in the absence of M2+ or in the presence of 1 mM CaCl2, MgCl2, or MnCl2 at 15 and 60
+min intervals. The control corresponds to the inactivated form of the ACP domain.
+ACS Catalysis
+pubs.acs.org/acscatalysis
+Research Article
+https://doi.org/10.1021/acscatal.3c06249
+ACS Catal. 2024, 14, 8561−8575
+8562
+
+
+
+[PDF physical page 3]
+While the apo-PptT structure confirmed the absence of Mn2+
+at both sites, we identified one Mg2+ ion and its counter acetate
+ion from the crystallization conditions exclusively at site I. The
+coordination sphere is completed by the side chain of D114
+and four water molecules (Figure 2A). Additional density in
+the active site could be attributed to the vector region
+containing the thrombin cleavage site (LVPR↓GF) and the
+NdeI site coding for H-1 and M0 located between the N-
+terminal 6His tag and the PptT sequence, with the histidine
+main-chain and side-chain nitrogen atoms at hydrogen bond
+distances to the oxygen atoms of E157 (Figure 2A).
+The capture of a CoA molecule in the active site cavity of
+PptT has a minimal impact on the positioning of structural
+elements within the characteristic α/β fold, despite the large
+number of polar and apolar interactions involving main-chain
+and side-chain residues (Figure 2B,D). Most differences
+concern the orientation of residue side chains that contribute
+to the anchoring and stabilization of CoA in the cavity (Figure
+2D). Notably, the side chain of R48 undergoes a ∼120°
+rotation, bringing it in the vicinity of the 3′-phosphate of CoA
+and forming salt bridges with the amino groups. Mutating this
+arginine to alanine in PptT slightly decreases the affinity for
+CoA, with limited effects on the activity.15 The absence of
+divalent cations at both sites in the PptT-CoA structure caused
+by the crystallization conditions at pH 4, as previously
+observed in the X-ray structure of PptAb,9 disturbs the
+positioning of side-chain residues involved in metal ion
+coordination. This is the case for H93, a key player during
+catalysis,15 where the imidazole ring of H93 undergoes a 125°
+rotation, bringing its δ-nitrogen at a hydrogen bond distance to
+the α-phosphate of CoA (Figure 2B). The observed conforma-
+tional changes in R48, H93, and, to a lesser extent, R56,
+between the apo and CoA-bound structures cannot be
+attributed to the vector tag since they occur at a significant
+distance from these residues. Interestingly, H-1 and M0 fill the
+gap left by the absence of the Ppant extremity and the
+adenosine group, respectively, while the acetate takes the place
+of the α-phosphate to complete the coordination sphere of
+Mg2+ (Figure 2D). On the other hand, minor conformational
+changes were observed for residues bordering the Ppant
+moiety and the tunnel entrance (Figure 2D).
+Once the Ppant transfer onto an ACP domain is completed,
+the reaction product 3′,5′-ADP is released, and the cycle
+restarts. Good-quality crystals of PptT in complex with 3′,5′-
+ADP were obtained at physiological pH, confirming the
+presence of Mn2+ at both sites with octahedral geometry
+(Figure 2C). The main local rearrangements observed in the
+complex include the rotation of the side chain of E157 toward
+site I and the repositioning of the imidazole ring of H93 to
+favor direct interactions with the 3′-phosphate and the metal
+ion, while all other side-chain positions remain unchanged
+(Figure 2D).
+Overall Structure of PptT-CoA/ACP. In this study, we
+used a long ACP fragment of PpsC spanning from position
+2042 to 2188, encompassing the N- and C-terminal linker
+regions. To foster interactions with PptT, we mutated the
+serine at position 2105 to alanine (S2105A), as previously
+described.2 As a result, PptT and ACP lock into an active
+orientation with the alanine unable to receive the adjacent
+Ppant moiety. We determined the X-ray structure of the
+Figure 2. Crystal structures of PptT. Ribbon representations of PptT are shown for the (A) apo form and for the complexes with (B) CoA and (C)
+3′,5′-ADP. Electron density 2Fo-Fc SA omit maps are contoured at the 1s level. (D) To highlight differences in the positioning of key residues and
+cations, a structural superimposition of all three structures is presented. Residue side chains and CoA are depicted in ball-and-stick mode and color-
+coded according to atom type (blue for nitrogen, red for oxygen, black for phosphate, and orange for sulfur). The Mn2+ and Mg2+ ions at sites I and
+II are colored dark purple and light purple, respectively. Water molecules are represented as red spheres. All figures are in the same orientation.
+ACS Catalysis
+pubs.acs.org/acscatalysis
+Research Article
+https://doi.org/10.1021/acscatal.3c06249
+ACS Catal. 2024, 14, 8561−8575
+8563
+
+
+
+[PDF physical page 4]
+complex using our previously published three-dimensional
+structure of the PptAb-ACP complex as a model.9 Analysis of
+the crystal packing revealed the presence of two ACP
+molecules in the asymmetric unit, each sandwiched between
+two PptT molecules (Figure 3A). All four PptT structures
+exhibit high similarity, with a maximum root mean square
+deviation (RMSD) of 0.8 Å after superimposition over all 225
+Cα atoms and no significant difference in the assignment of
+structural elements. Individual ACP structures also closely
+superimpose with an RMSD of 1.4 Å over 85 Cα atoms.
+Significant conformational changes occur in a stretch of
+unstructured residues in the N-terminal region, stabilized
+Figure 3. Crystal structure of the PptT-CoA/ACP complex. (A) The surface representation depicts four PPTases (colored in blue, yellow, purple,
+and green) and two ACPs (shaded in light and dark gray) within the asymmetric unit. CoA molecules are visualized in a ball-and-stick
+representation following the color code introduced in Figure 2. (B,C) Close-up views showing the ACP domain sandwiched between two PptT
+molecules. Patches of residues involved in polar and nonpolar interactions at the PptT-ACP interface identified using the PDBePISA server44 are
+colored brown. Hydrogen bond interactions are depicted as black dashed lines. The position of mutated S2105A is indicated with a brown sphere.
+Figures in (B,C) are presented in the same orientation.
+Figure 4. Tunnel entrance for the pantothenic acid group of CoA. Surface representation of residues E157, Y160, W170, and F173 delineating the
+tunnel entrance of PptT (A) in the absence and (B) in the presence of CoA. Interactions with the Ppant arm are predominantly of van der Waals
+nature. Distance values between the closest carbon atoms are indicated. CoA and residues are shown as sticks (carbon and phosphate, black;
+nitrogen, blue; and oxygen, red).
+ACS Catalysis
+pubs.acs.org/acscatalysis
+Research Article
+https://doi.org/10.1021/acscatal.3c06249
+ACS Catal. 2024, 14, 8561−8575
+8564
+
+
+
+[PDF physical page 5]
+through numerous van der Waals interactions implying an
+adjacent PptT molecule (Figure 3B,C).
+The PptT-ACP complex and its interacting region exhibit
+similarities to other PPTase-ACP complexes previously
+described by us9 and others.13,16 Two patches of residues in
+loop regions located on the surface of PptT, previously
+designated as segments S1 (positions 40 to 51) and S2
+(positions 116 to 174),9 cap the region containing the
+modified S2105 in the ACP domain, burying an average of
+650 Å2 at the interface (Figures 3B,C and S2). Notably, Y160
+drew our attention for two reasons: (i) its hydroxyl group can
+interact with the indole NH of W2129 in the ACP domain of
+one of the complexes (Figure 3C) and (ii) it forms, along with
+E157, W170, and F173, a conserved cluster of four residues
+that define the tunnel entrance for the pantothenic acid (PA)
+group of CoA (Figure 4). The coordinated changes in the
+orientation of the side chains of Y160 and W170 (the indole
+ring is flipped by 180° between the apo-PptT and PptT-CoA
+structures) significantly impact the widening of the tunnel
+entrance in the presence of PA, accompanied by a noticeable
+increase in the distance between their closest atoms when PA
+is absent from the tunnel (Figure 4).
+MD Study of PptT-CoA/ACP and CoA Conformation.
+Molecular dynamics (MD) simulations were used to study the
+conformational changes of CoA-bound PptT upon interactions
+with the ACP domain and prepare the complex structures for
+subsequent QM/MM calculations. To this end, we have
+compared the systems in the absence and presence of ACP.
+From the classical MD, both complex structures are very stable
+along the trajectories, with RMSD fluctuations (calculated on
+the backbone atoms) around 0.2 Å with and without ACP
+(Figure S3).
+Important features identified from structural experiments are
+all conserved. One can notably cite the triad consisting of
+residues D114, E116, and E157, which coordinates the Mg2+
+ion at site I. The orientation of the side chain of R48 and the
+imidazole ring of H93 toward the 3′-phosphate of CoA
+remains stable (Figure 5A,B). However, the main difference is
+observed around the pyrophosphate group. In the absence of
+ACP, a significant fluctuation of the Oβ-Pβ-Oα-Pα dihedral
+angle is observed, with values ranging from ±180 to −60°
+Figure 5. View of the CoA ligand in PptT alone and in complex with the ACP domain, obtained through MD simulations. In the absence of ACP,
+the main conformations of CoA are shown, with Oβ-Pβ-Oα-Pα dihedral angle values of (A) 176 and (B) −77°. In the Pβ-Oα-Pα bridge, the Oα
+oxygen atom is alternatively oriented inside and outside the active site. In both cases, the interaction between the Mg2+ ion and the Oβ atom is not
+affected and remains stable at around 1.9 Å. (C) In the presence of ACP, the Oβ-Pβ-Oα-Pα dihedral angle is stabilized around a value of 160°,
+similar to the one observed in (A). However, the Pβ phosphate group has been rotated and is replaced by a water molecule that coordinates with
+the Mg2+ ion. The ACP residue S2105 establishes stable hydrogen bonds with the residue E157 and the β-phosphate group. All figures are
+presented in the same orientation.
+ACS Catalysis
+pubs.acs.org/acscatalysis
+Research Article
+https://doi.org/10.1021/acscatal.3c06249
+ACS Catal. 2024, 14, 8561−8575
+8565
+
+
+
+[PDF physical page 6]
+Figure 6. Schematic representations of the simulated reaction mechanism. (A) Starting from the top, a schematic representation and a reduced
+view of the reactant’s active site, labeled R, are provided. On the left side, we illustrate the proton transfer concerted to nucleophilic attack, modeled
+by step 1a, which leads to the formation of IM1a. Following this, in step 2a, we showcase the dissociation of the 3′,5′-ADP moiety from the PptT-
+CoA/ACP complex, leading to the formation of IM2a. Finally, step 3 follows step 2a, during which the 3′,5′-ADP moiety abstracts a proton from an
+activated metal-bound water molecule, leading to P1a. On the right side, we present the alternative step 1b pathway, where the proton is abstracted
+by an activated metal-bound water molecule, leading to the formation of IM1b. Finally, we illustrate the step 2b pathway, where the dissociation of
+the 3′,5′-ADP is catalyzed by the protonation of Oα, resulting in the formation of P1b. (B) Energy profile for the phosphopantetheinyl transfer
+reaction. The energy profile was obtained from the CI extrapolation of external works performed through SMD. Black dashed lines indicate the
+energy profile of step 1a, while blue dashed lines represent its alternative pathway, step 1b. The energy profile corresponding to step 2a is depicted
+in green dashed lines, while steps 2b and 3 are indicated by red and dark-red dashed lines, respectively. Snapshots of the active sites are represented
+in the same orientation.
+ACS Catalysis
+pubs.acs.org/acscatalysis
+Research Article
+https://doi.org/10.1021/acscatal.3c06249
+ACS Catal. 2024, 14, 8561−8575
+8566
+
+
+
+[PDF physical page 7]
+(Figure S4A). This motion is characterized by a flip of the Pα-
+Oα-Pβ bridge, with the oxygen atom oriented toward and
+outside the active site, as shown in Figure 5A,B, respectively. It
+should be noted that this conformational change does not
+affect the interaction between the Mg2+ ion and the Pβ
+phosphate group at site I, which remains at a distance of
+approximately 1.9 Å. In the presence of ACP, a different
+behavior is observed. Upon releasing restraints on the CoA
+atoms, during the equilibration process, the CoA pyrophos-
+phate stabilizes in a different state. As depicted in Figure S4B,
+the Oβ-Pβ-Oα-Pα dihedral angle shows very small fluctuations
+around 170°. While this value is close to the range of 180°
+previously observed without ACP (Figure 5A), the con-
+formation is distinct. Figure 5C shows that the oxygen atom
+from the Pα-Oα-Pβ bridge is oriented toward the active site,
+while the Pβ phosphate group has rotated. It is replaced by a
+water molecule that coordinates with the Mg2+ ion and also
+interacts with E157. The acceptor residue S2105 in the ACP
+domain forms stable hydrogen bonds with both the Pβ
+phosphate group and the residue E157. Consequently, the
+E157 side chain is displaced by 1 Å, creating space for the
+insertion of a water molecule and the rotation of the Pβ
+phosphate group. It is noteworthy that the same result was
+obtained from different starting CoA conformations (Figure
+S5). This state, previously observed in the work by Nguyen et
+al.9 and exemplified in Figure S6, is catalytically relevant.
+Further discussion on this topic is provided in the following
+section, where we describe the QM treatment of the obtained
+active site arrangement to explore the possible reaction paths
+leading to Ppant transfer.
+QM Cluster and QM/MM Study of the Ppant Transfer
+Reaction. Both DFT-cluster and QM/MM calculations were
+used to elucidate the possible reaction pathways. From the
+DFT-cluster approach, we optimized the geometry of the
+reactant, intermediates, and transition states (TSs), facilitating
+rapid screening of the reaction mechanism. Beginning with the
+reactant (Figure S7A), we propose a reaction intermediate
+where the oxygen of residue S2105 is bound to the β-
+phosphate of CoA, while its proton is transferred to an oxygen
+of residue E157. The reaction enthalpy was determined to be
+10.5 kcal/mol, accompanied by an energy barrier of 40.1 kcal/
+mol (Figure S8). Analysis of the intermediate structure (Figure
+S7B) revealed the notable breakage of the phosphodiester
+bond Pα-Oα-Pβ, suggesting a bimolecular reaction mecha-
+nism. We then modeled the product in which the 3′,5′-ADP
+moiety, dissociated in the intermediate, is protonated by an
+activated metal-bound water molecule (Figure S7C). This
+subsequent reaction, when compared to the intermediate, was
+found to be exothermic with an energy barrier of 4.5 kcal/mol
+and a reaction energy of 0.4 kcal/mol (Figure S8).
+To gain a more comprehensive understanding of enzyme
+reactions and consider the whole environment, we imple-
+mented a QM/MM-steered MD (SMD) protocol in which the
+QM region was expanded and treated at the semiempirical
+PM6 level of theory.17 To accelerate the SMD simulations
+without introducing bias due to large dispersion in the
+nonequilibrium work distribution,18−20 we applied the
+Jarzynski relationship21 to estimate the free energy (a detailed
+discussion is presented in the following section). This enabled
+us to thoroughly examine the various reaction pathways
+implicated in the enzymatic reaction.
+We first investigated the dual mechanism proposed by
+Pedelacq and colleagues.9 In their model, the first step of the
+reaction involves the deprotonation of the hydroxyl group of
+the serine acceptor (S2105 in ACP), either by the conserved
+metal-bound glutamate side chain (E157 in PptT) or
+alternatively an activated metal-bound water molecule. This
+step is followed by a nucleophilic attack on the β-phosphate of
+CoA. Although both reaction models propose the formation of
+an intermediate alkoxide group on S2105, our SMD
+trajectories do not support this hypothesis. Indeed, a stable
+alkoxide ion was not observed in our simulation (Figures S9
+and S10). As a result, we propose a slightly different reaction
+model, suggesting that proton transfer and nucleophilic attack
+occur simultaneously in a concerted manner, as illustrated by
+the model in steps 1a and 1b (Figure 6A), respectively. For
+both reaction pathways, we observed the formation of stable
+intermediates labeled IM1a and IM1b (Figure 6B). These
+intermediates correspond to a PptT-CoA/ACP complex with a
+Mg2+ distorted coordination sphere, as depicted in Figure 6A.
+This observation, in contrast to the results obtained from the
+quantum cluster model, suggests that the nucleophilic
+substitution at the phosphorus could take place via a
+unimolecular SN1 associative mechanism. Additionally, a
+notable change was observed in the dihedral angle of S2105,
+shifting from 90 to 0° along trajectories (Figure 6A).
+Simultaneously, the Pα-Oα-Pβ angle flipped by approximately
+180° from its initial position (Figure 6A, IM1a and IM1b).
+This rotation is suggested to be the driving force behind the
+reduction of the serine-pyrophosphate distance during
+nucleophilic attack. Based on the calculated energy difference
+of 8.4 kcal/mol between the TSs 1a and 1b from the two
+proposed pathways, we conclude that step 1a, which is
+associated with the formation of IM1a, is energetically more
+favorable than step 1b, which is associated with IM1b (Figure
+6B).
+In step 2a (Figure 6A), we simulated the subsequent
+dissociation of the 3′,5′-ADP moiety from the PptT-CoA/ACP
+complex, leading to the formation of a second intermediate,
+named IM2a. As for the quantum cluster model, we propose an
+additional step, step 3, in which the Oα atom abstracts a
+Table 1. Selected Distances for the Reactant, TSs, Intermediates, and Product Structures in all of the Simulated Stepsa
+R
+TS1a
+TS1b
+IM1a
+IM1b
+TS2a
+TS2b
+IM2a
+TS3
+P1a
+P1b
+OγS2105-HγS2105
+0.96
+1.48
+1.83
+1.77
+2.90
+3.03
+3.12
+3.91
+4.12
+4.00
+4.11
+HγS2105-OεE157
+1.81
+1.14
+3.12
+1.05
+2.94
+1.19
+1.31
+1.14
+1.15
+1.57
+1.80
+OγS2105-PβCoA
+4.66
+2.74
+2.83
+1.85
+1.78
+1.70
+1.73
+1.68
+1.67
+1.69
+1.68
+PβCoA-OαCoA
+1.66
+1.73
+1.69
+1.83
+1.84
+3.03
+2.69
+3.58
+3.81
+4.04
+3.28
+H1 (H2O)-OαCoA
+3.44
+3.20
+5.28
+4.22
+5.89
+3.52
+1.47
+1.45
+1.39
+1.07
+1.08
+H1 (H2O)-OεE157
+1.99
+2.53
+1.16
+3.45
+1.00
+4.54
+2.94
+2.85
+2.81
+3.13
+2.85
+HγS2105-O (H2O)
+2.97
+2.75
+1.09
+2.50
+0.95
+2.12
+1.66
+1.50
+1.32
+1.07
+1.04
+aAll values reported are in Angstroms.
+ACS Catalysis
+pubs.acs.org/acscatalysis
+Research Article
+https://doi.org/10.1021/acscatal.3c06249
+ACS Catal. 2024, 14, 8561−8575
+8567
+
+
+
+[PDF physical page 8]
+hydrogen atom from an activated metal-bound water molecule
+(Figure 6A). This leads to the formation of a protonated 3′,5′-
+ADP moiety with lower reactivity compared to that of the
+unprotonated form, as indicated by our relaxation calculation
+in the NPT (isothermal−isobaric) ensemble. We named the
+resulting product P1a (Figure 6B). We also explored an
+alternative pathway, named step 2b, in which protonation and
+dissociation of 3′,5′-ADP from the complex occur in a
+concerted manner (Figure 6A), resulting in the formation of
+the product named P1b. Comparing the potential of mean
+force (PMF) extrapolated from SMD, we noted that the energy
+barrier in the mechanism route step 2b is 4.8 kcal/mol higher
+than the energy observed for TS2a in step 2a (Figure 6B). This
+difference suggests that the final product is formed through the
+pathway in which dissociation of the 3′,5′-ADP moiety and Oα
+protonation occur stepwise rather than in a concerted manner.
+Table 1 summarizes the significant interatomic distances
+observed for the reactant, TSs, intermediates, and product
+structures. It is crucial to note that the TS structures presented
+in the table correspond to configurations extracted from the
+highest points of the PMF profiles. Furthermore, it is essential
+to highlight the chemical equivalence of products P1a and P1b
+as they result from the dissociation of the 3′,5′-ADP moiety
+from the PptT-CoA/ACP complex and its protonation. SMD
+simulations indicate that P1b possesses a higher energy (20.9
+kcal/mol) compared to that of P1a (15.2 kcal/mol), as
+depicted in the reaction pathway illustrated in Figure 6. This
+discrepancy in energy can be attributed to the difference in the
+distance between the protonated ADP moiety and the
+complex. Specifically, in P1a, the distance between PβCoA
+and OαCoA is measured at 4.04 Å, whereas it is shorter in P1b,
+measuring at 3.28 Å (Table 1).
+■DISCUSSION
+PPTases are receiving increased attention due to their essential
+role in the biosynthesis of a broad range of natural lipids,
+including lipopolysaccharides and membrane lipids, in all three
+domains of life. In this study, we focused on PptT, a critical
+enzyme for the growth of M. tuberculosis in vitro and during
+infection in mice.3 PptT catalyzes the transfer of a 4′-
+phosphopantetheinyl moiety of CoA to an ACP domain of
+type-I PKSs and nonribosomal peptide synthases. Although
+three-dimensional structures of Sfp-type PPTases, including
+the mycobacterial PptT and PptAb enzymes (69% sequence
+identity), have been described either alone or in complex with
+an ACP domain,9,15,16,22 significant unanswered questions
+remain regarding the chronological events preceding the
+activation of an ACP domain and the mechanism of Ppant
+transfer leading to the formation of the reaction product 3′,5′-
+ADP. This study provides a unique opportunity to recapitulate
+these events by combining a detailed structural analysis of key
+steps with cutting-edge DFT-cluster and QM/MM MD
+simulations, offering unparalleled insights into the activation
+process.
+In the apo-PptT structure, the void is filled by a histidine
+residue (H-1) and the initiator methionine (M0) from an
+adjacent PptT macromolecule in the crystal packing, replacing
+the Ppant arm and the adenosine group (Figure 2A). To
+investigate the potential inhibition of PptT activity in vitro, we
+incubated PptT with a synthesized His-Met dipeptide (data
+not shown). The rationale behind this experiment was to
+determine if the dipeptide could bind to PptT and inhibit its
+activity, thereby serving as a promising inhibitor for future
+studies. Regrettably, no significant inhibition of the PptT
+activity was observed. Furthermore, our attempts to crystallize
+the PptT/His-Met complex were unsuccessful, suggesting that
+the dipeptide may not bind tightly or specifically to the active
+site of PptT.
+We previously demonstrated that divalent metal ions are
+essential for the post-translational modification of ACP
+domains. In the active site cavity of PptAb of M. abscessus,9
+two metal ion-binding sites have been identified, which are also
+present in the PptT structure (Figure 2C). Site I plays a crucial
+role in enzymatic activity by favorably orienting the side chain
+of key catalytic residue E157, while site II contributes
+significantly to the stability of the enzyme through numerous
+direct and indirect water-mediated interactions. The fact that
+metal binding can occur independently of CoA binding
+suggests a two-step scenario in which metal ions bind first,
+followed by CoA. This process would involve the local
+repositioning of the metal ions, water molecules, and side-
+chain residues, ultimately completing the coordination sphere.
+CoA binding also leads to significant structural rearrangements
+in two regions of the PPTase. Most of the changes occur in
+residues R48, R56, and H93. The first two residues stabilize
+the ribose moiety through direct interactions with the 3′-
+phosphate group, while H93 is involved in stabilizing the 3′-
+phosphate and α-phosphate of the 3′,5′-ADP moiety.
+Despite the increasing number of isolated type I ACP
+structures in the PDB, there is limited information available
+regarding the structural organization of the linker regions at the
+N- and C-terminal extremities. Using the AlphaFold2 server
+(https://colab.research.google.com/github/sokrypton/
+ColabFold/blob/main/AlphaFold2.ipynb), we conducted a
+3D structure prediction for the ACP domain of PpsC, as
+depicted in Figure S11A. This prediction unveiled a 16-amino
+acid-long random coil starting at position 2041, as well as a 21-
+amino acid-long unstructured segment followed by a 20-amino
+acid-long α-helical segment that initiates at position 2145. This
+α-helical segment, also referred to as the docking domain
+(DD),23 plays a crucial role in mediating protein−protein
+interactions between the upstream ACP and the downstream
+DD of the ketosynthase (KS) domain within PpsD, thereby
+facilitating the transfer of the polyketide chain. In our
+previously reported X-ray structure of the PptAb-ACP
+complex,9 only the amino acid residues constituting the
+protein core of the ACP domain were visible in the electron
+density map (Figure S11B). In this study, approximately half of
+the N-terminal region could be reconstructed, which is
+attributed to stabilization effects with an adjacent PptT
+molecule within the crystal lattice. However, the predicted α-
+helical region in this segment could not be confirmed (Figure
+S11C). In contrast, residues within the C-terminal region
+remain indiscernible.
+In a previous study, we identified two potential activation
+pathways in the initial step of the Ppant arm transfer
+mechanism on the ACP domain.9 One pathway involves the
+metal-bound E157, abstracting the hydrogen from S2105,
+while the other suggests deprotonation of the hydroxyl group
+of S2105 by an activated metal-bound water molecule. To
+investigate these pathways, we conducted molecular modeling
+coupled with QM/MM calculations. Our findings revealed that
+the absence of an intermediate alkoxide group conflicts with
+the hypothesis of a concerted proton transfer and a
+nucleophilic attack on the β-phosphate of CoA. Subsequently,
+ACS Catalysis
+pubs.acs.org/acscatalysis
+Research Article
+https://doi.org/10.1021/acscatal.3c06249
+ACS Catal. 2024, 14, 8561−8575
+8568
+
+
+
+[PDF physical page 9]
+the reaction favors a TS, where E157 abstracts the hydrogen
+from S2105 in the ACP domain (Figure 6A).
+Furthermore, we investigated the protonation reaction of the
+3′,5′-ADP moiety using both the QM/MM and quantum
+cluster methods. While both methods consistently described
+this process, the quantum cluster model suggests, in contrast to
+the QM/MM model, a bimolecular reaction mechanism
+resulting in the formation of a single intermediate. This
+discrepancy underscores the limitations of the quantum cluster
+model in fully capturing the complexity of the enzymatic
+environment. For instance, the restricted size of the active site
+excludes specific effects from the solvent or distant residues
+that may be crucial for catalytic activity. Additionally, allosteric
+and entropic effects are generally not taken into account in this
+approach.
+Analysis of the energy profiles also reveals disparities
+between models, with the QM/MM method showing a
+reaction energy of 15.2 kcal/mol (Figure 6B), potentially
+overestimated due to the application of a semiempirical level of
+theory. In contrast, the DFT-cluster model yielded a more
+reasonable reaction energy of 0.4 kcal/mol (Figure S8).
+However, the same DFT-cluster model shows an over-
+estimated energy barrier of 40.1 kcal/mol for the TS1 TS
+compared to 19.0 kcal/mol calculated with the QM/MM
+approach (TS1a). This difference may be attributed to the
+inherent simplifications in the cluster model (Methods) and
+the stabilizing effect of a more complex environment
+considered in the QM/MM calculations. Notably, the DFT-
+cluster calculations provide energies for the intermediate (IM)
+and TS2 states, with values of 10.5 and 15.0 kcal/mol,
+respectively, falling within the same range as those found with
+QM/MM. Despite differences in the first energy barrier, both
+methods yield similar path profiles, with step 1 emerging as the
+limiting step in both cases. Both methods converge on
+predicting an endergonic reaction energy and similar geo-
+metries, thereby reinforcing our proposed pathway.
+The attractiveness of PPTases as targets for the development
+of new drugs has fueled numerous research initiatives. In the
+case of Mtb PptT, collaborative efforts between academia and
+the pharmaceutical industry have led to the identification of
+promising molecules, such as amidinourea 8918, and
+subsequent amidino-derived compounds active against PptT
+both in vitro and in vivo4,5 and PptAb in vitro.24 However,
+further optimization of these molecules is still necessary. A
+recent high-throughput screening campaign against PptT has
+emphasized the importance of obtaining an experimentally
+solved apo structure as ligand binding can alter the active site,
+potentially hindering inhibitor discovery.25 Taking advantage
+of the structural changes associated with the four major steps
+of the PptT catalytic cycle described in this study could benefit
+the chemical structure optimization of new compounds.
+■METHODS
+Cloning of PptT and ACP Constructs. The gene
+encoding wild-type PptT was cloned using NdeI and BamHI
+restriction sites under the control of the tet promoter (Ptet)
+from a pTet vector, which contains the spectinomycin
+resistance marker (SpecR), a ColE1 origin of replication, and
+the gene encoding tetracycline repressor (TetR).6 The resulting
+plasmid was introduced into chemically competent E. coli
+BL21(DE3) cells (Invitrogen, Carlsbad, CA, USA) to
+overproduce PptT fused with an N-terminal 6his tag.
+The fragment encoding the ACP domain (positions 2042−
+2188) was PCR amplified using ppsC as a DNA template and
+gene-specific
+forward
+5′-GATATACATATGCAT-
+GACTCGGCGGCCCGCAAAA-3′ and reverse 5′-GAATT-
+CACTAGTTGACTCGCCTCGCGTCGCAGCTT-3′ pri-
+mers with NdeI and SpeI restriction sites in bold. The
+digested product was then inserted into a commercially
+available pET28 vector (Novagen, Madison, WI, USA) with
+an N-terminal 6His tag. Ligated plasmids were transformed
+into chemically competent E. coli BL21ΔentD.26
+Transformed cells expressing PptT or ACP were plated onto
+Luria−Bertani (LB) agar plates containing 75 μg/mL of
+spectinomycin or 35 μg/mL of kanamycin for overnight
+growth at 37 °C, respectively. The selected clones were grown
+in 5 mL of culture containing the same antibiotics. Ten μL of
+cell cultures were diluted 50 times in LB including glycerol
+(20%) for a −80 °C freezer stock. DNA was sequenced by
+Eurofins (Konstanz, Germany). The S2105A ACP fragment
+was created by reassembly PCR, as previously described.9
+Production and Purification of PptT and Complexes
+with CoA and 3′,5′-ADP. Frozen cells expressing the full-
+length PptT were used to start an overnight 3 mL of LB-
+spectinomycin culture at 32 °C prior to inoculation in baffled
+flasks containing 500 mL of the same media. Cells were
+allowed to grow for approximately 2 h at 37 °C before the
+temperature was dropped from 37 to 20 °C. When OD600
+reached 0.5−0.7, cells were induced with 0.3 μg/mL
+anhydrotetracycline (AnTET) and grown for an additional
+18 h prior to harvesting by centrifugation at 4000g for 30 min
+and storage at −80 °C. Bacterial cell pellets were resuspended
+in 20 mL of buffer A [100 mM Tris (pH 7.0), 300 mM NaCl,
+and 1 mM MnCl2] to maintain it in its apo form. After
+sonication (6 cycles of 30 s pulse, 50% amplitude, power 5)
+and centrifugation at 30,000g for 30 min, the lysate was loaded
+onto a 1 mL HisTrap HP (GE Healthcare) affinity column
+pre-equilibrated with the same buffer. Apo-PptT was eluted
+using a 15% step of buffer B [100 mM Tris (pH 7.0), 300 mM
+NaCl, 300 mM imidazole, and 1 mM MnCl2]. Apo-PptT was
+then concentrated using a Vivaspin 20 centrifugal concentrator
+(Sartorius), prior to injection into a size-exclusion column
+(HiLoad 16/60 Superdex 75, GE Healthcare) pre-equilibrated
+with buffer C [50 mM Tris (pH 7.0), 50 mM NaCl, and 1 mM
+MnCl2]. Except for some DSF experiments where MnCl2 was
+removed during size-exclusion chromatography, the same
+protocol was applied for the production of PptT-CoA and
+PptT-3′,5′-ADP with cofactors in the resuspension buffers A
+and B at final concentrations of 50 and 100 μM, respectively.
+Removal of the N6His tag was necessary for the crystallization
+of PptT in complex with ACP and the reaction product 3′,5′-
+ADP. The pooled fractions were mixed with thrombin (1 UE
+for 2 mg of protein, Novagen) to cleave the 6His tag during
+dialysis in buffer D [100 mM Tris (pH 7.0), 100 mM NaCl,
+and 1 mM MnCl2] at 4 °C for 2 h. An additional run through
+the HisTrap HP column was necessary to eliminate the
+residual tagged protein. Unbound PptT was then concentrated
+using a Vivaspin 20 centrifugal concentrator (Sartorius), prior
+to injection into a size-exclusion column (HiLoad 16/60
+Superdex 75, GE Healthcare) pre-equilibrated with buffer C.
+Production and Purification of the ACP Domain.
+Frozen cells expressing the PpsC ACP fragment were used to
+start an overnight 5 mL LB culture at 32 °C supplemented
+with 35 μg/mL kanamycin. This starter culture was used to
+inoculate one baffled flask with 0.5 L of the same media. Cells
+ACS Catalysis
+pubs.acs.org/acscatalysis
+Research Article
+https://doi.org/10.1021/acscatal.3c06249
+ACS Catal. 2024, 14, 8561−8575
+8569
+
+
+
+[PDF physical page 10]
+were allowed to grow for approximately 2 h at 37 °C before the
+temperature was dropped to 30 °C. When OD600 nm reached
+0.5, cells were induced with IPTG at a final concentration of
+0.5 mM and grown for an additional 4 h prior to harvesting by
+centrifugation at 4000g for 30 min and storage at −80 °C. The
+pelleted cells were suspended in 15 mL of buffer E [100 mM
+Tris (pH 7.0) and 300 mM NaCl] and lysed by sonication (4
+cycles of 30 s pulse, 50% amplitude, power 5) prior to
+centrifugation at 30,000g for 45 min. The supernatant was
+mixed with 2 mL of cobalt Talon Superflow resin (GE
+Healthcare 28-9575-02) and left on ice for 10 min. After
+removal of the supernatant, three cycles of resuspension/
+centrifugation of the ACP-bound resin were used to ensure
+thorough washing before the elution of nonspecific contam-
+inants in the presence of buffer E containing 10 mM imidazole.
+Finally, the 6his-ACP was eluted using the same buffer
+supplemented with 300 mM imidazole. The eluted protein
+fractions were pooled, and the 6His tag was removed following
+the procedure described above. The untagged protein was
+concentrated using a Vivaspin 20 centrifugal concentrator
+(Sartorius), prior to injection into a size-exclusion column
+(HiLoad 16/60 Superdex 75, GE Healthcare) pre-equilibrated
+with buffer F [50 mM Tris (pH 7.0) and 50 mM NaCl].
+DSF Experiments. Fluorescence of the SYPRO Orange
+protein gel stain (Invitrogen, USA) was measured using a
+CFX96 real-time PCR detection system (Bio-Rad, Hercules,
+CA, USA). Fluorescence emission measurements were
+monitored at 610 nm from 20 to 90 °C in 0.3 °C increments.
+DSF assays were performed in 96-well clear-bottom hard-shell
+low-profile 96-well plates (BioRad). PptT purified in the
+presence of 1 mM MnCl2 was injected onto a Superdex 75
+analytical column (GE Healthcare) pre-equilibrated with 50
+mM Tris (pH 7.0) and 50 mM NaCl to remove excess Mn2+.
+Twenty-five μL assays were conducted with 3 μM PptT, 100
+mM Tris buffer (pH 7 or 8), 1 mM divalent cations (Ca2+,
+Mg2+, Mn2+, Co2+, or Ni2+), 50 μM cofactors (CoA and 3′,5′-
+ADP), and 10x of Sypro Orange. Each condition was carried
+out in triplicate. Melting temperatures were then calculated by
+using the BioRad CFX Manager software.
+Activity Assays. Activity assays were conducted in the
+presence of 50 nM PptT, 10 μM PpsC ACP domain, 50 mM
+Tris (pH 7), 50 μM CoA, 10 mM DTT, and 1 mM divalent
+cations (CaCl2, MnCl2, or MgCl2). The reaction mixture was
+incubated at 30 °C. Aliquots were then removed at different
+times, and the reaction was stopped in the presence of 100 mM
+EDTA. Samples were then loaded on a 10% polyacrylamide gel
+supplemented with 2.5 M urea.
+X-ray Structure Determination. Highly purified proteins
+were crystallized in an Innovaplate SD-2 crystallography plate
+(Innovadyne Technologies Inc., USA) using commercially
+available kits from Qiagen (Venlo, Netherlands). Drop sizes of
+0.4 μL containing a protein/reservoir ratio of 1:1 were set up
+using the Innovadyne Nanodrop ExtY dispenser (Innovadyne
+Technologies Inc., USA). Crystals were all flash frozen directly
+from the crystallization mixture in liquid nitrogen.
+Purified PptT-CoA was concentrated to ∼400 μM.
+Diffraction-quality PptT-CoA crystals could be obtained within
+3 weeks in the presence of 0.1 M phosphate/citrate (pH 4.0),
+22% PEG 1000, and 0.2 M Li2SO4. In order to accelerate PptT
+crystal growth, we adapted a microseeding protocol where
+crushed platelets served as microseeds for the setup of new
+crystallization trials.27,28 One highly redundant sulfur SAD data
+set was collected at a wavelength of 2 Å at the ESRF beamline
+ID29 (Grenoble, France). Crystals belong to space group
+C2221 with cell parameters a = 99.8 Å, b = 121.3 Å, and c =
+48.8 Å and one molecule per asymmetric unit. A total of 12
+anomalous scatterers, 8 sulfur atoms from 4 cysteines and 4
+methionines in addition to the 3 phosphorus and the sulfur
+atoms from CoA, could be identified, and the X-ray structure
+of PptT was solved at 2.1 Å resolution. Phases have been
+extended to 1.4 Å resolution using an X-ray diffraction data set
+collected at the SOLEIL beamline PX1 (Gif-sur-Yvette,
+France). The final model has been refined at 1.4 Å resolution
+to an R-factor of 0.14% and an R-free of 0.17% (Table S1).
+Single crystals of apo-PptT concentrated to ∼400 μM were
+obtained in 0.1 M Na acetate (pH 4.6) and 3 M Mg acetate.
+Diffraction data were collected at a resolution of 1.7 Å on the
+ESRF ID23-2 beamline. Crystals of the PptT-3′,5′-ADP
+concentrated to ∼200 μM in 0.1 M HEPES (pH 7.5), 20%
+w/v PEG 4K, and 10% v/v 2-propanol diffracted to a
+maximum resolution of 2.5 Å on beamline ID23-1 at the ESRF.
+PptT at 350 μM was mixed with the PpsC ACP domain in a
+1:0.9 molar ratio in the presence of 50 μM CoA and 1 mM
+MgCl2. Plate-like crystals were obtained in the presence of 0.1
+M HEPES (pH 7.5), 10% isopropanol, and 20% PEG4000.
+Optimization of crystallization conditions was realized using
+our Biomek FXp robot (Beckman Coulter, Inc., USA) and
+manually in Linbro plates (Hampton Research, Aliso Viejo,
+USA) containing 500 μL of reservoir solution. The best
+crystallization conditions correspond to 0.1 M HEPES (pH
+7.25), 5% isopropanol, and 24% PEG4000. Thin platelets were
+obtained that diffracted to a resolution limit of 2.5 Å at
+synchrotron sites. A complete X-ray diffraction data set at 2.5 Å
+resolution was collected at the beamline XALOC at the ALBA
+synchrotron in Barcelona, Spain.
+X-ray structures of apo-PptT, PptT-CoA/ACP, and PptT-
+3′,5′-ADP were solved by molecular replacement using
+coordinates of PptT from the PptT-CoA structure as a
+template in PHASER.29 Iterative cycles of manual model
+building in COOT30 and refinement procedures using
+PHENIX refine31 were applied until convergence. Details
+concerning all data collection and refinement statistics are
+listed in Table S1.
+MD Protocol. All classical MD simulations were carried out
+using the AMBER package32 with the FF14SB force field.33
+The parameters of CoA and Mg2+ ions were extracted from the
+AMBER parameter database34,35 and prepared with Ante-
+chamber programs.36 The LEaP module was used to prepare
+the systems (PptT-CoA and PptT-CoA/ACP) and the H++37
+server to adjust the residue protonation states at pH 7 (the
+effect of pH is discussed in Figure S12). Both systems were
+studied in an explicit solvent, surrounded with a rectangular
+water box (with a separation of 10 Å between the protein and
+the sides of the box), using the TIP3P model.38 Na+
+counterions were added to neutralize the total charge. For
+each prepared complex, 50,000 cycles of energy minimization
+were first performed with a 500 kcal·mol−1·Å−2 constraint
+applied to the solute. A second minimization without restraint
+was performed on the whole system. Subsequently, the entire
+system was heated from 0 to 300 K during 200 ps using a
+Langevin thermostat with a collision frequency of 2 ps−1 at
+constant volume. The restraints initially applied on the
+complex were slowly released during the heating process,
+and the system was then equilibrated for another 200 ps.
+Finally, the production setup was implemented in the NPT
+ensemble with 1 atm target pressure using the Berendsen
+ACS Catalysis
+pubs.acs.org/acscatalysis
+Research Article
+https://doi.org/10.1021/acscatal.3c06249
+ACS Catal. 2024, 14, 8561−8575
+8570
+
+
+
+[PDF physical page 11]
+barostat with a pressure relaxation time of 2 ps. Long-range
+electrostatic interactions were treated using the particle−mesh
+Ewald method with a 12.0 Å cutoff, while covalent bonds
+involving hydrogen atoms were constrained using the SHAKE
+algorithm with a 2 fs integration time step. Analyses were
+performed with the CPPTRAJ module of AMBER16,39 while
+the visual MD software40 was used to visualize the trajectories.
+The resulting trajectories are 50 ns in duration. Clustering was
+subsequently performed to extract significant structures as
+starting points for subsequent QM/MM calculations.
+DFT-Cluster Protocol. The cluster model consists of 126
+atoms, including a section of the CoA substrate where the
+cysteamine tail and adenine base have been truncated and
+replaced by a hydrogen atom. It also includes Mg2+ metal ions
+and the side chains of H93, D114, E116, E157, and S2105
+(Figure S7A). However, crucial residues in the vicinity of the
+catalytic site, such as T92 and K161, which may significantly
+stabilize the PptT-CoA/ACP complex, as predicted in the
+QM/MM calculations, were not incorporated into the model.
+Geometrical optimizations were carried out using DFT,
+threatening the system with the hybrid B3LYP41,42 functional
+in conjunction with the Grimme’s D3 dispersion43 correction.
+The Ahlrichs def2-TZVP44 basis set was applied to all the
+atoms, except for metal ions, where aug-cc-pVDZ45 was used.
+Solvation was included using the conductor-like polarizable
+continuum model (CPCM)46 method to estimate the
+surrounding effects of the protein, with a chosen dielectric
+constant of 4.
+QM/MM Dynamics Protocol. The PptT-CoA/ACP
+structure, previously obtained from classical MD, was used
+for QM/MM calculations and SMD. We have considered a
+179-atom QM region with a net charge of −4. This QM region
+includes two Mg2+ ions coordinated by five water molecules,
+the CoA ligand, and specific residues: E116, E157, and D114
+coordinating Mg2+ at site I; H93 coordinating Mg2+ (II); and
+D2104 and S2105 from the ACP domain. The QM/MM
+boundary cuts were applied to C−C bonds, and the edges were
+treated with hydrogen atom links.
+During the QM/MM simulations, the quantum part was
+treated at the semiempirical PM6 level of theory, while the
+MM region was evaluated using the classical ff14SB force
+field.33 The nonbonded cutoff for the long-range electrostatic
+interactions was set at 12 and 8 Å for the MM and QM
+regions, respectively. In the first place, the system was
+minimized without constraint, employing the steepest-con-
+jugate gradient scheme. It was then heated in the NVT
+ensemble for 50 ps at 1 fs/step and equilibrated at a constant
+density for 25 ps using the same ensemble. The stochastic
+Langevin thermostat47 was used to keep the temperature at
+300 K with a collision frequency of 2 ps−1. During the heating
+and equilibration steps, a harmonic restraint was applied on the
+PptT backbone and ACP domain, with a force constant of 10
+kcal·mol−1·Å−2 initially, which was subsequently reduced to 1
+kcal·mol−1·Å−2. Finally, the system was equilibrated in the NPT
+ensemble for 50 ps without any restraints, and the pressure was
+maintained around 1 atm using the Berendsen barostat48 with
+a pressure relaxation of 2 ps. Throughout all steps, the SHAKE
+algorithm49 was enabled to constraint bonds involving
+nonpolar hydrogen atoms. From the last equilibration run,
+we extracted a snapshot corresponding to the shortest
+interatomic distance found between the atoms of OγS2105-
+PβCoA (4.66 Å) and HγS2105-OεE157 (1.81 Å). The
+extrapolated structure was considered the initial configuration
+(the reactant R indicated in the energy graph of Figure 6B) for
+steps 1a and 1b. The graphical representation is included in
+Figure 6A.
+SMD Protocol. In all simulated reaction steps, 96 SMD
+trajectories were performed in the NPT ensemble equilibrated
+at 300 K and 1 atm. A light harmonic restraint of 1 kcal·mol−1·
+Å−2 was applied to the backbone of PptT, the two Mg2+ ions,
+and the ACP domain, except for residues near S2105 (ranging
+from positions 2100 to 2108). The SHAKE algorithm was
+turned off only for the hydrogen bonds involving residues
+belonging to the QM region that participate in the reaction:
+S2105, E157, CoA, and a water molecule bound to Mg2+ (site
+I). For each simulated reaction step, we computed the PMF by
+evolving the Hamiltonian of the system with respect to the λ
+parameter, which was defined as a linear combination of
+relevant interatomic distances (d) involved in the reaction. For
+instance, in the step 1a reaction, where the bond between
+OγS2105 and HγS2105 is stretched, causing the interatomic
+distance of OγS2105 with respect to OεE157 to shorten as
+OγS2105 approaches the PβCoA atom in the nucleophilic
+attack, the λ parameter was expressed as a collective variable,
+CV1a, in which we linearly combined the three atomic
+distances concerning the reaction
+= d
+d
+d
+CV1a
+(O S2105
+H S2105)
+(H S2105
+O E157)
+(O S2105
+P CoA)
+In this way, we obtained a plot of external work Wi done on
+the system for each trajectory and the PMF extracted by the
+Jarzynski estimator with respect to the collective variable CV1a
+(Figure S13). At the end of the simulated reaction steps, we
+collected and included in Table 1 a series of significant
+interatomic distances observed for the reactant, TSs,
+intermediates, and product structure. It is important to
+emphasize that the TS structures contained in the table refer
+to the configurations extracted from the highest point of the
+PMF profiles.
+Step 1a. In this step, the proton transfer from the hydroxyl
+group of S2105 to OεE157, concerted with the nucleophilic
+attack on the PβCoA (Figure 6A,1a), was simulated starting
+from the initial configuration (Figure 6A, R) prepared using
+the aforementioned procedure. For this reaction, we changed
+the collective variable CV1a from −5.5 to −0.9 Å, where the
+starting value corresponds to the linear combination of the
+interatomic distances in the starting configuration, while the
+final value is the predicted collective variable at the end of the
+reaction. A minimum energy point was found along the PMF
+path that corresponds to CV1a = −1.0 (Figure S13). From this
+point, the structure of the IM1a intermediate was extracted.
+IM1a corresponds to a PptT-CoA/ACP complex with a Mg2+
+distorted coordination sphere (Figure 6A), where the distances
+between the positions of OγS2105-PβCoA and PβCoA-
+OαCoA are 1.85 and 1.83 Å, respectively (Table 1). The
+geometry of the complex and the isometric axial distances
+between the entering and leaving groups suggest that the
+nucleophilic substitution at phosphorus could take place with a
+unimolecular SN1 associative mechanism, according to the
+Mildvan model.43 In addition, it was observed that the dihedral
+angle of the Oγ-Cα-Cβ-N bond of S2105 changes its value
+along trajectories from 90 to 0°, while the Pα-Oα-Pβ bond is
+flipped by ∼180° from its initial position. We suggest that this
+rotation might be the reaction “driving force” implied in serine-
+pyrophosphate distance reduction and nucleophilic attack.
+ACS Catalysis
+pubs.acs.org/acscatalysis
+Research Article
+https://doi.org/10.1021/acscatal.3c06249
+ACS Catal. 2024, 14, 8561−8575
+8571
+
+
+
+[PDF physical page 12]
+Step 1b. To simulate the alternative concerted proton
+transfer−nucleophilic attack pathway, where a metal-bound
+water molecule, activated by the nearby E157, deprotonates
+the hydroxyl group of S2105 (Figure 6A,1b), we defined the
+collective variable of the reaction, CV1b, as the linear
+combination of the following atomic distances
+=
++
+d
+d
+d
+d
+d
+CV1b
+(H
+O
+)
+(H
+O E157)
+(O S2105
+H S2105)
+(H S2105
+O
+)
+(O S2105
+P CoA)
+1
+(H O)
+1
+(H O)
+2
+2
+As for step 1a, we obtained the PMF with respect to the
+collective variable, which we varied from −7.5 to 1.0 Å (Figure
+S14). For this step, we observed the formation of a PptT-CoA/
+ACP complex, termed intermediate IM1b, at the end of the
+reaction (Figure 6A). In step 1b, in contrast to step 1a, we
+were able to extract the free energy of the reaction by the
+Jarzynski equality using only 8 work energy profiles among the
+set of 96 trajectories. The remaining 88 realizations were
+discarded because they led to a product where, unlike IM1b,
+the Oγ of S2105 remains protonated due to proton exchange
+with a metal-bound water molecule (Figure S15).
+Step 2a. Starting from the intermediate IM1a, formed in the
+energetically more favorable pathway step 1a, we prepared the
+initial configurations for step 2a. Therefore, the interatomic
+distances of OγS2105-PβCoA and PβCoA-OαCoA were
+harmonically restrained around their initial values. To simulate
+the leaving group dissociation (Figure 6A,2a), we elongated
+the PβCoA-OαCoA bond from 1.83 to 4.0 Å, allowing us to
+extract the intermediate IM2a structure (Figure 6A) from the
+nearest trajectories to the PMF at the local minimum (Figure
+S16). Out of a total of 96 trajectories, we used 67 work profiles
+for this step. In the remaining 29 trajectories, Oα is protonated
+by a metal-bound water molecule, and the energy profile does
+not fall in a local minimum. Consequently, these trajectories
+were excluded from further analysis. In the intermediate IM2a,
+the Oα of the 3′,5′-ADP moiety is separated from PβCoA by
+3.58 Å (Table 1).
+Step 3. In this step, we simulated the protonation of the
+3′,5′-ADP moiety on Oα by an activated metal-bound water
+molecule, which in a concerted way abstracts the proton Hγ
+bonded to the Oε of E157 (Figure 6A,3). To quantify this
+process, we introduced a collective variable (CV3), defined as
+follows
+=
++
+d
+d
+d
+d
+CV3
+(H
+O )
+(H
+O
+)
+(O E157
+H E157)
+(H E157
+O
+)
+1
+1
+(H O)
+(H O)
+2
+2
+The CV3 value varied from −0.8 to 1.1 Å (Figure S17). This
+reaction is completely spontaneous. Along the reaction path,
+IM2a requires overcoming an energy barrier of merely 0.2
+kcal/mol to proceed, resulting in the formation of P1a (Figure
+6A).
+Step 2b. In this step, we conducted simulations involving
+the same reactions as described in step 3 but with the added
+dissociation of the leaving group. This reaction mechanism
+starts with IM1a instead of IM2a (Figure 6A,2b) and leads to
+the formation of the product P1b (Figure 6A). As in the
+previous steps, we defined a collective variable as a linear
+combination of interatomic distances, which we changed in all
+SMD replicates
+= d
+d
+d
+d
+d
+CV2b
+(H
+O )
+(H
+O
+)
+(O E157
+H E157)
+(H E157
+O
+)
+(P CoA
+O )
+1
+1
+(H O)
+(H O)
+2
+2
+The calculated energy barrier for step 2b is 15.6 kcal/mol
+(Figure S18), which is higher than the activation energy of
+10.8 kcal/mol (Figure 6B) observed for the reaction pathway
+where step 3 follows step 2a consecutively. Consequently, it
+can be concluded that the reaction pathway involving step 2b
+is less energetically favorable.
+Extracting the Reaction Energy Profile. The relevant
+equations enabling the calculation of the free energy profiles
+are shown below. For a more comprehensive understanding of
+the theory, we refer to the work by Park and colleagues.20 In
+SMD, an external time-dependent perturbation is applied on
+the system in such a way that its Hamiltonian H (r,λ) evolves
+from an initial state λ0 to a final state λ1, where r indicates the
+configuration of the whole system and λ represents a reaction
+coordinate. If the system evolves through a nonequilibrium
+process, the PMF ΔF and the work W, which represents the
+external work performed to change the reaction coordinate
+from λ0 to λ1, are related to each other by the Jarzynski identity
+=
+e
+e
+F
+W
+(
+)
+(
+)
+(1)
+where
+= k T
+1
+B , with kB and T being the Boltzmann constant
+and the temperature, respectively. The parentheses represent
+an average taken over an ensemble of trajectories, assuming
+that the initial ensemble is equilibrated. To perturb the
+Hamiltonian of the unperturbed system, a harmonic potential
+with a force constant k is chosen. This potential displaces the
+reaction coordinate at a constant velocity, v, following the
+equation
+=
++
+[
+]
+H r
+H r
+k
+r
+vt
+( , )
+( )
+1
+2
+( )
+0
+0
+2
+(2)
+Consequently, the free energy of a process along a reaction
+coordinate can be computed by performing a number of finite
+time transformations, collecting the work done at each time
+step and then properly averaging it as in eq 1.
+The free energy ΔF for a reaction, the so-called PMF, is then
+estimated as a function of the λ parameter for a set of N
+collected works with the following Jarzynski estimator (JE)
+=
+=
+i
+k
+jjjjjj
+y
+{
+zzzzzz
+F
+N
+e
+1 ln
+1
+i
+N
+W
+1
+i
+(3)
+where Wi is the work performed on the system along the ith
+trajectory. However, the Jarzynski estimator can suffer from
+gross inaccuracy, especially when poorly sampled low-work
+values dominate the calculation, particularly if the standard
+deviation of the work distribution is greater than kBT.50 In this
+work, we have adopted one of the two extrapolation methods
+proposed by Ytreberg and Zuckerman,18 which correct the bias
+introduced by the Jarzynski estimator. In particular, the
+cumulative integral (CI) extrapolation improves standard
+nonequilibrium estimates of free energy using a small data
+set of work values. Remarkably, this approach allows us to
+achieve reliable results with only 5−40 times less data than are
+theoretically needed to accurately estimate the ΔF.
+ACS Catalysis
+pubs.acs.org/acscatalysis
+Research Article
+https://doi.org/10.1021/acscatal.3c06249
+ACS Catal. 2024, 14, 8561−8575
+8572
+
+
+
+[PDF physical page 13]
+■ASSOCIATED CONTENT
+*
+sı Supporting Information
+The Supporting Information is available free of charge at
+https://pubs.acs.org/doi/10.1021/acscatal.3c06249.
+Size-exclusion chromatography profiles; X-ray structure
+of the PptT-CoA/ACP complex; RMSD plot; MD study
+of CoA conformation; PptT active site conformation;
+3D comparison of the CoA conformation; quantum
+cluster model; calculated energy profile; deprotonation
+of the S2105 hydroxyl group by the E157 residue and an
+activated metal-bound water molecule; overall structure
+of the ACP domain of PpsC; effect of acidic pH on the
+PptT active site; steps 1a, 1b, 2a, 2b, and 3 simulated
+using SMD; reduced view of the active site found in 88
+realizations discarded in the simulated step 1b; and data
+collection and refinement statistics (PDF)
+■AUTHOR INFORMATION
+Corresponding Authors
+Marie Brut −LAAS-CNRS, Université de Toulouse, CNRS,
+UPS, Toulouse 31031, France; Email: marie.brut@laas.fr
+Lionel Mourey −Institut de Pharmacologie et de Biologie
+Structurale (IPBS), Université de Toulouse, CNRS,
+Université Toulouse IIIPaul Sabatier (UT3), Toulouse
+31077, France;
+orcid.org/0000-0002-8259-1259;
+Email: lionel.mourey@ipbs.fr
+Jean-Denis Pedelacq −Institut de Pharmacologie et de
+Biologie Structurale (IPBS), Université de Toulouse, CNRS,
+Université Toulouse IIIPaul Sabatier (UT3), Toulouse
+31077, France;
+orcid.org/0000-0002-3202-2517;
+Email: jean-denis.pedelacq@ipbs.fr
+Authors
+Sabine Gavalda −Institut de Pharmacologie et de Biologie
+Structurale (IPBS), Université de Toulouse, CNRS,
+Université Toulouse IIIPaul Sabatier (UT3), Toulouse
+31077, France; Carbios, Parc CatarouxBâtiment B80,
+Clermont-Ferrand 63100, France
+Alexandre Faille −Institut de Pharmacologie et de Biologie
+Structurale (IPBS), Université de Toulouse, CNRS,
+Université Toulouse IIIPaul Sabatier (UT3), Toulouse
+31077, France; Cambridge Institute for Medical Research,
+Cambridge Biomedical Campus Keith Peters Building,
+Cambridge CB2 0XY, U.K.
+Simone Fioccola −LAAS-CNRS, Université de Toulouse,
+CNRS, UPS, Toulouse 31031, France
+Minh Chau Nguyen −Institut de Pharmacologie et de Biologie
+Structurale (IPBS), Université de Toulouse, CNRS,
+Université Toulouse IIIPaul Sabatier (UT3), Toulouse
+31077, France; Department of Pharmacology, University of
+Colorado School of Medicine, Aurora, Colorado 80045,
+United States
+Coralie Carivenc −Institut de Pharmacologie et de Biologie
+Structurale (IPBS), Université de Toulouse, CNRS,
+Université Toulouse IIIPaul Sabatier (UT3), Toulouse
+31077, France; Centre de Biologie Structurale, Université de
+Montpellier, CNRS, Inserm, Montpellier 34090, France
+Karine Rottier −Institut de Pharmacologie et de Biologie
+Structurale (IPBS), Université de Toulouse, CNRS,
+Université Toulouse IIIPaul Sabatier (UT3), Toulouse
+31077, France
+Yann Rufin −Institut de Pharmacologie et de Biologie
+Structurale (IPBS), Université de Toulouse, CNRS,
+Université Toulouse IIIPaul Sabatier (UT3), Toulouse
+31077, France
+Stéphane Saitta −Institut de Pharmacologie et de Biologie
+Structurale (IPBS), Université de Toulouse, CNRS,
+Université Toulouse IIIPaul Sabatier (UT3), Toulouse
+31077, France
+Georges Czaplicki −Institut de Pharmacologie et de Biologie
+Structurale (IPBS), Université de Toulouse, CNRS,
+Université Toulouse IIIPaul Sabatier (UT3), Toulouse
+31077, France
+Christophe Guilhot −Institut de Pharmacologie et de Biologie
+Structurale (IPBS), Université de Toulouse, CNRS,
+Université Toulouse IIIPaul Sabatier (UT3), Toulouse
+31077, France;
+orcid.org/0000-0002-8052-4685
+Christian Chalut −Institut de Pharmacologie et de Biologie
+Structurale (IPBS), Université de Toulouse, CNRS,
+Université Toulouse IIIPaul Sabatier (UT3), Toulouse
+31077, France;
+orcid.org/0000-0002-4849-1369
+Complete contact information is available at:
+https://pubs.acs.org/10.1021/acscatal.3c06249
+Author Contributions
+△S.G., A.F., and S.F. contributed equally to this work. J.-D.P.
+supervised the study and was the lead contact. S.G., A.F.,
+M.C.N., C.Ca., K.R., Y.R., S.S., and J.-D.P. conducted and
+analyzed the biochemistry and structural biophysics experi-
+ments. S.F., G.C., and M.B. performed the molecular modeling
+coupled with QM/MM calculations. J.-D.P. wrote the paper
+with contributions from all the authors. C.Ch., C.G., L.M., and
+J.-D.P. provided funding.
+Funding
+This work was supported by the Agence Nationale de la
+Recherche (XPKS-MYCO, grant 09-BLAN-0298-01; PPTases,
+grant ANR-16-CE18-0011-01) and the Région Midi-Pyrénées
+(MYCA, grants 34249 and 09005193; TUBCAN, grant
+11052698).
+Notes
+The authors declare no competing financial interest.
+■ACKNOWLEDGMENTS
+The equipment used for DSF, crystallization experiments, and
+X-ray crystallography is part of the Integrated Screening
+Platform of Toulouse (PICT, IBiSA). We thank Tom
+Terwilliger for careful advice concerning the structure
+determination of the PptT-ACP structure. We thank the
+scientific staff of the European Synchrotron Radiation Facility
+(Grenoble, France), SOLEIL (Gif sur Yvette, France), and
+ALBA (Barcelona, Spain). We particularly thank the staff of
+beamlines ID23-2 and ID29 at the European Synchrotron
+Radiation Facility, beamline XALOC at ALBA, and PROX-
+IMA-1 at SOLEIL, where the crystallographic experiments
+were conducted. We finally thank the CALMIP mesocenter,
+where the simulations were performed using HPC resources
+(grants P1237 and P22015).
+■REFERENCES
+(1) Weissman, K. J.; Leadlay, P. F. Combinatorial Biosynthesis of
+Reduced Polyketides. Nat. Rev. Microbiol. 2005, 3, 925−936.
+(2) Flugel, R. S.; Hwangbo, Y.; Lambalot, R. H.; Cronan, J. E.;
+Walsh, C. T. Holo-(Acyl Carrier Protein) Synthase and Phospho-
+ACS Catalysis
+pubs.acs.org/acscatalysis
+Research Article
+https://doi.org/10.1021/acscatal.3c06249
+ACS Catal. 2024, 14, 8561−8575
+8573
+
+
+
+[PDF physical page 14]
+pantetheinyl Transfer in Escherichia Coli. J. Biol. Chem. 2000, 275
+(2), 959−968.
+(3) Leblanc, C.; Prudhomme, T.; Tabouret, G.; Ray, A.; Burbaud, S.;
+Cabantous, S.; Mourey, L.; Guilhot, C.; Chalut, C. 4′-Phosphopante-
+theinyl Transferase PptT, a New Drug Target Required for
+Mycobacterium Tuberculosis Growth and Persistence In Vivo. PLoS
+Pathog. 2012, 8 (12), No. e1003097.
+(4) Ottavi, S.; Scarry, S. M.; Mosior, J.; Ling, Y.; Roberts, J.; Singh,
+A.; Zhang, D.; Goullieux, L.; Roubert, C.; Bacqué, E.; Lagiakos, H. R.;
+Vendome, J.; Moraca, F.; Li, K.; Perkowski, A. J.; Ramesh, R.; Bowler,
+M. M.; Tracy, W.; Feher, V. A.; Sacchettini, J. C.; Gold, B. S.; Nathan,
+C. F.; Aubé, J. In Vitro and in Vivo Inhibition of the Mycobacterium
+Tuberculosis Phosphopantetheinyl Transferase PptT by Amidinour-
+eas. J. Med. Chem. 2022, 65 (3), 1996−2022.
+(5) Ballinger, E.; Mosior, J.; Hartman, T.; Burns-huang, K.; Gold, B.;
+Morris, R.; Goullieux, L.; Blanc, I.; Vaubourgeix, J.; Lagrange, S.;
+Fraisse, L.; Sans, S.; Couturier, C.; Bacqué, E.; Rhee, K.; Scarry, S. M.;
+Aubé, J.; Yang, G.; Ouerfelli, O.; Schnappinger, D.; Ioerger, T. R.;
+Engelhart, C. A.; Mcconnell, J. A.; Mcaulay, K.; Fay, A.; Roubert, C.;
+Sacchettini, J.; Nathan, C. Opposing Reactions in Coenzyme A
+Metabolism Sensitize Mycobacterium Tuberculosis to Enzyme
+Inhibition. Science 2019, 363, 1−8.
+(6) Rottier, K.; Faille, A.; Prudhomme, T.; Leblanc, C.; Chalut, C.;
+Cabantous, S.; Guilhot, C.; Mourey, L.; Pedelacq, J.-D. J. D. Detection
+of Soluble Co-Factor Dependent Protein Expression in Vivo:
+Application to the 4’-Phosphopantetheinyl Transferase PptT from
+Mycobacterium Tuberculosis. J. Struct. Biol. 2013, 183 (3), 320−328.
+(7) Mofid, M. R. R.; Finking, R.; Essen, L. O. O.; Marahiel, M. a a.
+Structure-Based Mutational Analysis of the 4 ’-Phosphopantetheinyl
+Transferases Sfp from Bacillus Subtilis: Carrier Protein Recognition
+and Reaction Mechanism. Biochemistry 2004, 43 (14), 4128−4136.
+(8) Parris, K. D.; Lin, L.; Tam, A.; Mathew, R.; Hixon, J.; Stahl, M.;
+Fritz, C. C.; Seehra, J.; Somers, W. S. Crystal Structures of Substrate
+Binding to Bacillus Subtilis Holo-(Acyl Carrier Protein) Synthase
+Reveal a Novel Trimeric Arrangement of Molecules Resulting in
+Three Active Sites. Structure 2000, 8 (8), 883−895.
+(9) Nguyen, M. C.; Saurel, O.; Carivenc, C.; Gavalda, S.; Saitta, S.;
+Tran, M. P.; Milon, A.; Chalut, C.; Guilhot, C.; Mourey, L.; Pedelacq,
+J. D. Conformational Flexibility of Coenzyme A and Its Impact on the
+Post-Translational Modification of Acyl Carrier Proteins by 4′-
+Phosphopantetheinyl Transferases. FEBS J. 2020, 287, 4729−4746.
+(10) Beld, J.; Sonnenschein, E. C.; Vickery, C. R.; Noel, J. P.;
+Burkart, M. D. The Phosphopantetheinyl Transferases: Catalysis of a
+Post-Translational Modification Crucial for Life. Nat. Prod. Rep. 2014,
+31 (1), 61−108.
+(11) Faille, A.; Gavalda, S.; Slama, N.; Lherbet, C.; Maveyraud, L.;
+Guillet, V.; Laval, F.; Quémard, A.; Mourey, L.; Pedelacq, J. D.
+Insights into Substrate Modification by Dehydratases from Type I
+Polyketide Synthases. J. Mol. Biol. 2017, 429 (10), 1554−1569.
+(12) Pedelacq, J. D.; Nguyen, H. B.; Cabantous, S.; Mark, B. L.;
+Listwan, P.; Bell, C.; Friedland, N.; Lockard, M.; Faille, A.; Mourey,
+L.; Terwilliger, T. C.; Waldo, G. S. Experimental Mapping of Soluble
+Protein Domains Using a Hierarchical Approach. Nucleic Acids Res.
+2011, 39 (18), No. e125.
+(13) Bunkoczi, G.; Pasta, S.; Joshi, A.; Wu, X.; Kavanagh, K. L.;
+Smith, S.; Oppermann, U. Mechanism and Substrate Recognition of
+Human Holo ACP Synthase. Chem. Biol. 2007, 14, 1243−1253.
+(14) Chirgadze, N. Y.; Briggs, S. L.; McAllister, K. A.; Fischl, A. S.;
+Zhao, G. Crystal Structure of Streptococcus Pneumoniae Acyl Carrier
+Protein Synthase: An Essential Enzyme in Bacterial Fatty Acid
+Biosynthesis. EMBO J. 2000, 19 (20), 5281−5287.
+(15) Vickery, C. R.; Kosa, N. M.; Casavant, E. P.; Duan, S.; Noel, J.
+P.; Burkart, M. D. Structure, Biochemistry, and Inhibition of Essential
+4’-Phosphopantetheinyl Transferases from Two Species of Mycobac-
+teria. ACS Chem. Biol. 2014, 9 (9), 1939−1944.
+(16) Tufar, P.; Rahighi, S.; Kraas, F. I.; Kirchner, D. K.; Löhr, F.;
+Henrich, E.; Köpke, J.; Dikic, I.; Güntert, P.; Marahiel, M. A.; Dötsch,
+V. Crystal Structure of a PCP/Sfp Complex Reveals the Structural
+Basis for Carrier Protein Posttranslational Modification. Chem. Biol.
+2014, 21 (4), 552−562.
+(17) Stewart, J. J. P. Optimization of Parameters for Semiempirical
+Methods V: Modification of NDDO Approximations and Application
+to 70 Elements. J. Mol. Model. 2007, 13 (12), 1173−1213.
+(18) Ytreberg, F. M.; Zuckerman, D. M. Efficient Use of
+Nonequilibrium Measurement to Estimate Free Energy Differences
+for Molecular Systems. J. Comput. Chem. 2004, 25 (14), 1749−1759.
+(19) Boubeta, F. M.; Contestín García, R. M.; Lorenzo, E. N.;
+Boechi, L.; Estrin, D.; Sued, M.; Arrar, M. Lessons Learned about
+Steered Molecular Dynamics Simulations and Free Energy Calcu-
+lations. Chem. Biol. Drug Des. 2019, 93 (6), 1129−1138.
+(20) Park, S.; Schulten, K. Calculating Potentials of Mean Force
+from Steered Molecular Dynamics Simulations. J. Chem. Phys. 2004,
+120 (13), 5946−5961.
+(21) Jarzynski, C. Nonequilibrium Equality for Free Energy
+Differences. Phys. Rev. Lett. 1997, 78 (14), 2690−2693.
+(22) Brut, M.; Estève, A.; Landa, G.; Renvez, G.; Djafari Rouhani,
+M. The Static Modes: An Alternative Approach for the Treatment of
+Macro- and Bio-Molecular Induced-Fit Flexibility. Eur. Phys. J. E
+2009, 28 (1), 17−25.
+(23) Whicher, J. R.; Smaga, S. S.; Hansen, D. A.; Brown, W. C.;
+Gerwick, W. H.; Sherman, D. H.; Smith, J. L. Cyanobacterial
+Polyketide Synthase Docking Domains: A Tool for Engineering
+Natural Product Biosynthesis. Chem. Biol. 2013, 20 (11), 1340−1351.
+(24) Carivenc, C.; Maveyraud, L.; Blanger, C.; Ballereau, S.; Roy-
+Camille, C.; Nguyen, M. C.; Génisson, Y.; Guilhot, C.; Chalut, C.;
+Pedelacq, J. D.; Mourey, L. Phosphopantetheinyl Transferase Binding
+and Inhibition by Amidino-Urea and Hydroxypyrimidinethione
+Compounds. Sci. Rep. 2021, 11 (1), 18042.
+(25) Singh, A.; Ottavi, S.; Krieger, I.; Planck, K.; Perkowski, A.;
+Kaneko, T.; Davis, A. M.; Suh, C.; Zhang, D.; Goullieux, L.; Alex, A.;
+Roubert, C.; Gardner, M.; Preston, M.; Smith, D. M.; Ling, Y.;
+Roberts, J.; Cautain, B.; Upton, A.; Cooper, C. B.; Serbina, N.; Tanvir,
+Z.; Mosior, J.; Ouerfelli, O.; Yang, G.; Gold, B. S.; Rhee, K. Y.;
+Sacchettini, J. C.; Fotouhi, N.; Aubé, J.; Nathan, C. Redirecting
+Raltitrexed from Cancer Cell Thymidylate Synthase to Mycobacte-
+rium Tuberculosis Phosphopantetheinyl Transferase. Sci. Adv. 2024,
+10 (11), 1−17.
+(26) Chalut, C.; Botella, L.; de Sousa-D’Auria, C.; Houssin, C.;
+Guilhot, C. The Nonredundant Roles of Two 4′-Phosphopantetheinyl
+Transferases in Vital Processes of Mycobacteria. Proc. Natl. Acad. Sci.
+U.S.A. 2006, 103 (22), 8511−8516.
+(27) Luft, J. R.; DeTitta, G. T. A Method to Produce Microseed
+Stock for Use in the Crystallization of Biological Macromolecules.
+Acta Crystallogr. Sect. D Biol. Crystallogr. 1999, 55 (5), 988−993.
+(28) Bergfors, T. Seeds to Crystals. J. Struct. Biol. 2003, 142 (1), 66−
+76.
+(29) McCoy, A. J.; Grosse-Kunstleve, R. W.; Adams, P. D.; Winn, M.
+D.; Storoni, L. C.; Read, R. J. Phaser Crystallographic Software. J.
+Appl. Crystallogr. 2007, 40 (4), 658−674.
+(30) Emsley, P.; Lohkamp, B.; Scott, W. G.; Cowtan, K. Features
+and Development of Coot. Acta Crystallogr. D. Biol. Crystallogr. 2010,
+66 (4), 486−501.
+(31) Adams, P. D.; Afonine, P. V.; Bunkóczi, G.; Chen, V. B.; Davis,
+I. W.; Echols, N.; Headd, J. J.; Hung, L.-W.; Kapral, G. J.; Grosse-
+Kunstleve, R. W.; McCoy, A. J.; Moriarty, N. W.; Oeffner, R.; Read, R.
+J.; Richardson, D. C.; Richardson, J. S.; Terwilliger, T. C.; Zwart, P.
+H. PHENIX: A Comprehensive Python-Based System for Macro-
+molecular Structure Solution. Acta Crystallogr. D. Biol. Crystallogr.
+2010, 66 (2), 213−221.
+(32) Case, D. A.; Cerutti, D. S.; Cheatham, T. E. I.; Darden, T. A.;
+Duke, R. E.; Giese, T. J.; Gohlke, H.; Goetz, A. W.; Greene, D.;
+Homeyer, N.; Izadi, S.; Kovalenko, A.; Lee, T. S.; LeGrand, S.; Li, P.;
+Lin, C.; Liu, J.; Luchko, T.; Luo, R.; Mermelstein, D.; Merz, K. M.;
+Monard, G.; Nguyen, H.; Omelyan, I.; Onufriev, A.; Pan, F.; Qi, R.;
+Roe, D. R.; Roitberg, A.; Sagui, C.; Simmerling, C. L.; Botello-Smith,
+W. M.; Swails, J.; Walker, R. C.; Wang, J.; Wolf, R. M.; Wu, X.; Xiao,
+ACS Catalysis
+pubs.acs.org/acscatalysis
+Research Article
+https://doi.org/10.1021/acscatal.3c06249
+ACS Catal. 2024, 14, 8561−8575
+8574
+
+
+
+[PDF physical page 15]
+L.; York, D. M.; Kollman, P. A. Amber 2017 Reference Man; Univ.
+California, San Fr., 2017.
+(33) Maier, J. A.; Martinez, C.; Kasavajhala, K.; Wickstrom, L.;
+Hauser, K. E.; Simmerling, C. Ff14SB: Improving the Accuracy of
+Protein Side Chain and Backbone Parameters from Ff99SB. J. Chem.
+Theory Comput. 2015, 11 (8), 3696−3713.
+(34) Meagher, K. L.; Redman, L. T.; Carlson, H. A. Development of
+Polyphosphate Parameters for Use with the AMBER Force Field. J.
+Comput. Chem. 2003, 24 (9), 1016−1025.
+(35) Allnér, O.; Nilsson, L.; Villa, A. Magnesium Ion-Water
+Coordination and Exchange in Biomolecular Simulations. J. Chem.
+Theory Comput. 2012, 8 (4), 1493−1502.
+(36) Wang, J.; Wang, W.; Kollman, P. A.; Case, D. A. Automatic
+Atom Type and Bond Type Perception in Molecular Mechanical
+Calculations. J. Mol. Graph. Model. 2006, 25 (2), 247−260.
+(37) Anandakrishnan, R.; Aguilar, B.; Onufriev, A. V. H++ 3.0:
+Automating PK Prediction and the Preparation of Biomolecular
+Structures for Atomistic Molecular Modeling and Simulations. Nucleic
+Acids Res. 2012, 40 (W1), 537−541.
+(38) Price, D. J.; Brooks, C. L. A Modified TIP3P Water Potential
+for Simulation with Ewald Summation. J. Chem. Phys. 2004, 121 (20),
+10096−10103.
+(39) Roe, D. R.; Cheatham, T. E. PTRAJ and CPPTRAJ: Software
+for Processing and Analysis of Molecular Dynamics Trajectory Data. J.
+Chem. Theory Comput. 2013, 9 (7), 3084−3095.
+(40) Humphrey, W.; Dalke, A.; Schulten, K. VMD: Visual Molecular
+Dynamics. J. Mol. Graph. 1996, 14, 33−38.
+(41) Lee, C.; Yang, W.; Parr, R. G. Development of the Colle-
+Salvetti Correlation-Energy Formula into a Functional of the Electron
+Density. Phys. Rev. B: Condens. Matter Mater. Phys. 1988, 37 (2),
+785−789.
+(42) Becke, A. D. Density-Functional Thermochemistry. III: The
+Role of Exact Exchange. J. Chem. Phys. 1993, 98 (7), 5648−5652.
+(43) Grimme, S.; Antony, J.; Ehrlich, S.; Krieg, H. A Consistent and
+Accurate Ab Initio Parametrization of Density Functional Dispersion
+Correction (DFT-D) for the 94 Elements H-Pu. J. Chem. Phys. 2010,
+132, 154104.
+(44) Weigend, F.; Ahlrichs, R. Balanced Basis Sets of Split Valence,
+Triple Zeta Valence and Quadruple Zeta Valence Quality for H to Rn:
+Design and Assessment of Accuracy. Phys. Chem. Chem. Phys. 2005, 7
+(18), 3297−3305.
+(45) Dunning, T. H. J. Gaussian Basis Sets for Use in Correlated
+Molecular Calculations. I. The Atoms Boron through Neon and
+Hydrogen. J. Chem. Phys. 1989, 90, 1007−1023.
+(46) Marenich, A. V.; Cramer, C. J.; Truhlar, D. G. Universal
+Solvation Model Based on Solute Electron Density and on a
+Continuum Model of the Solvent Defined by the Bulk Dielectric
+Constant and Atomic Surface Tensions. J. Phys. Chem. B 2009, 113
+(18), 6378−6396.
+(47) Allen, M.; Tildesley, D. Computer Simulation of Liquid Al2O3;
+Clarendon Press Oxford, 1991; Vol. 18.
+(48) Berendsen, H. J. C.; Postma, J. P. M.; Van Gunsteren, W. F.;
+Dinola, A.; Haak, J. R. Molecular Dynamics with Coupling to an
+External Bath. J. Chem. Phys. 1984, 81 (8), 3684−3690.
+(49) Ramírez, C. L.; Zeida, A.; Jara, G. E.; Roitberg, A. E.; Martí, M.
+A. Improving Efficiency in SMD Simulations through a Hybrid
+Differential Relaxation Algorithm. J. Chem. Theory Comput. 2014, 10
+(10), 4609−4617.
+(50) Jarzynski, C. Rare Events and the Convergence of Exponentially
+Averaged Work Values. Phys. Rev. E: Stat., Nonlinear, Soft Matter Phys.
+2006, 73 (4), 046105.
+ACS Catalysis
+pubs.acs.org/acscatalysis
+Research Article
+https://doi.org/10.1021/acscatal.3c06249
+ACS Catal. 2024, 14, 8561−8575
+8575

@@ -1,0 +1,736 @@
+
+[PDF physical page 1]
+Article
+Connecting chemical and protein sequence
+space to predict biocatalytic reactions
+
+
+
+https://doi.org/10.1038/s41586-025-09519-5   Alexandra E. Paton1, Daniil A. Boiko2, Jonathan C. Perkins1,3, Nicholas I. Cemalovic1,3,
+                                         Thiago Reschützegger4, Gabe Gomes2,5,6,7 ✉ & Alison R. H. Narayan1,3 ✉Received: 21 October 2024
+Accepted: 12 August 2025
+                                  The application of biocatalysis in synthesis has the potential to offer streamlinedPublished online: 1 October 2025
+                                        routes towards target molecules1, tunable catalyst-controlled selectivity2, as well
+Open access                                         as processes with improved sustainability3. Despite these advantages, biocatalysis
+   Check for updates                             is often a high-risk strategy to implement, as identifying an enzyme capable of
+                                     performing chemistry on a specific intermediate required for a synthesis can be a
+                                      roadblock that requires extensive screening of enzymes and protein engineering
+                                        to overcome4. Strategies for predicting which enzyme and small molecule are
+                                      compatible have been hindered by the lack of well-studied biocatalytic reaction
+                                            datasets5. The underexploration of connections between chemical and protein
+                                    sequence space constrains navigation between these two landscapes. Here we
+                                        report a two-phase effort relying on high-throughput experimentation to populate
+                                       connections between productive substrate and enzyme pairs and the subsequent
+                                    development of a tool, CATNIP, for predicting compatible α-ketoglutarate (α-KG)/
+                                         Fe(ii)-dependent enzymes for a given substrate or, conversely, for ranking potential
+                                          substrates for a given α-KG/Fe(ii)-dependent enzyme sequence. We anticipate that
+                                     our approach can be readily expanded to further enzyme and transformation classes
+                                  and will derisk the investigation and application of biocatalytic methods.
+
+
+
+The use of enzymes in small-molecule synthesis has transformed the   sequence space can lead to the desired reactivity. For example, towards
+production of commodity chemicals and enabled the construction   the synthesis of GSK2330672, the known transformation of epichloro-
+of complex molecules for decades6. Recent examples of biocatalytic   hydrin by an epoxide hydrolase was used as a starting point for local
+routes to achieve the commercial production of pharmaceutical agents   chemical space exploration to extend this chemistry to a new epoxide10
+underscore the potential of designing synthetic strategies that include   (Fig. 1a). As an alternative, we can explore local protein sequence space
+key biocatalytic steps3. New enzyme-mediated process routes towards   through protein engineering11. Several notable examples of protein
+drugs have decreased step counts by 33% and more than doubled overall   engineering have been applied in the synthesis of pharmaceutical
+yield, on average, compared with the highest-performing chemical    agents7,12, including the engineering of a transaminase for the synthe-
+syntheses7 (Supplementary Information, scheme 1). The potential    sis of sacubitril, a neprilysin inhibitor, which involved the substitution
+to enable new routes towards target molecules through biocatalysis   of 26 amino-acid residues to achieve a 500,000-fold improvement in
+exists in arenas outside process chemistry, as evidenced by a growing    activity13 (Fig. 1a). Thus, established strategies for applying biocatalysis
+body of work from academic groups specializing in chemoenzymatic   rely heavily on known reactions and local exploration in chemical space
+synthesis1 and the potential of enzymatic late-stage functionalization  and protein sequence space forward from these defined connections
+in discovery chemistry2.                                                      (Fig. 1b). Unfortunately, the percentage of enzymes for which chemistry
+  One common limitation of biocatalysis is the unpredictable sub-   has been experimentally characterized is extremely low, with less than
+strate scope of individual enzymes, which can contribute to difficulty   0.3% of sequenced enzymes having a computationally annotated func-
+in developing a biocatalytic method4. Even simple methyl, ethyl and   tion5. As such, most enzymes do not have known connections to sub-
+propyl substituent series, which typically do not show notable reactivity   strate chemical space, contributing to the difficulty in tapping into the
+differences for small-molecule catalysts, can reveal large differences in   potential that these catalysts could bring to the scientific community.
+an enzymatic reaction8. Therefore, to plan an enzymatic reaction into    Machine learning methods can expedite the biocatalytic reaction
+a synthetic route carries substantial risk if the exact reaction on the   discovery process14. For example, a contrastive learning model was
+planned substrate is not already known. As a result, the application of   developed to predict the enzyme commission number of uncharacter-
+biocatalysis is often constrained to known reactions discovered through   ized enzymes15. This provides a prediction for what type of reaction a
+primary or secondary metabolism9. Once a starting point enzyme–sub-   given enzyme is capable of. However, it does not guide us towards the
+strate pair is identified, local exploration of chemical space or protein   native substrate of an enzyme nor provide information on the substrate
+
+1Life Sciences Institute, University of Michigan, Ann Arbor, MI, USA. 2Department of Chemical Engineering, Carnegie Mellon University, Pittsburgh, PA, USA. 3Department of Chemistry,
+University of Michigan, Ann Arbor, MI, USA. 4Department of Chemical Engineering, Federal University of Santa Maria, Santa Maria, Brazil. 5Department of Chemistry, Carnegie Mellon University,
+Pittsburgh, PA, USA. 6Machine Learning Department, Carnegie Mellon University, Pittsburgh, PA, USA. 7Wilton E. Scott Institute for Energy Innovation, Carnegie Mellon University, Pittsburgh, PA,
+USA. ✉e-mail: gabegomes@cmu.edu; arhardin@umich.edu
+
+108  |  Nature  |  Vol 646  |  2 October 2025
+
+
+[PDF physical page 2]
+a  Present approaches to discovering biocatalytic reactions
+                                                  H                                               Ar
+ O      Et       O                             H                                                     Me
+                                                 R                         +        n-Bu                Cl
+                                                                                O          CO2H
+   Analogue          Substrate        EH                                                                                    Substrate            ATA-wt          ATA-r11
+                Local chemical space                                               Biocatalytic reaction                                             Local sequence space
+
+
+
+                                                                  Known
+                                                                                           reaction
+
+
+
+
+
+      Substrates                  Enzymes                    Substrates                     Enzymes                    Substrates                  Enzymes
+
+b   Limitations of present methods                                      c  Our approach
+
+
+
+
+
+                               Vast unexplored chemical                                                                  Discover diverse biocatalytic
+                             and sequence space                                                                                   reactions
+
+                                     Inefﬁcient biocatalytic
+                                                                                                                        Create models to navigate                                      reaction discovery
+                                                                                                               between landscapes
+
+
+
+
+
+       Substrates                                             Enzymes                     Substrates                                             Enzymes
+
+Fig. 1 | Present state of the art in biocatalytic reaction discovery.              biocatalytic reactivity is limited to local exploration of chemical and sequence
+a, Established methods for new biocatalytic reaction discovery. Known          space, inhibiting larger, non-intuitive leaps between the landscapes.
+connections between chemical and protein sequence space can be exploited     There remains a vast unexplored region of substrates and enzymes with
+for new reaction discovery through local exploration. The known reaction      unknown biocatalytic reactivity, creating a higher risk for their incorporation
+between epichlorohydrin and epoxide hydrolase (EH) was used to enable the      as key steps in chemical synthesis. There is at present no method to predict
+reaction on the epoxide analogue towards the synthesis of GSK2330672        compatible enzymes or substrates in the NHI enzyme superfamily.
+(ref. 10). Alternatively, local protein sequence space was explored through        c, Our approach to streamline biocatalytic reaction discovery. We examined
+protein engineering to improve the transformation of the known substrate      diverse substrates and protein sequences for new biocatalytic reactions and
+(Ar = p-biphenyl) with wild-type (wt) amino transaminase (ATA), resulting in     use these data to build machine learning models to predict compatible enzymes
+ATA-r11 after 11 rounds of directed evolution (positions of mutations shown     and substrates.
+in purple)13. b, Limitations of present methods. Expansion of characterized
+
+
+scope. Computational tools can also predict other qualities of a protein   to a specific enzyme family underperform28, probably because of the
+based on its sequence, such as EnzymeMiner, which predicts amenabil-   large differences in substrate selectivity observed across various pro-
+ity to heterologous expression in Escherichia coli (E. coli)16. These tools   tein families29. The generation of models that rely on pre-existing data-
+are useful for guiding initial selection of enzymes to explore experi-   sets30, which are largely taken from the biosynthetic and metabolism
+mentally. However, it is well documented that enzyme annotation and   literature, create limitations, as the array of enzymes and substrates
+predicted compatible substrates often do not align with experimental   have not been experimentally validated against each other, leading to
+validation17, hindering their use in generating in silico datasets.        a risk of false negatives, poor annotations and inaccurate proposed
+  Advances towards achieving predictability in biocatalysis have pro-   biocatalytic reactions that can lead to false positives17.
+vided solutions for navigating locally in either chemical or sequence    Towards characterizing the chemistry possible across an enzyme
+space. Reaction discovery campaigns, such as the profiling of a nitrilase   family and derisking the incorporation of biocatalytic steps into syn-
+library against a small panel of highly similar substrates18 and the   thetic routes, we visualized a two-pronged approach involving high-
+fluorogenic-guided investigation of the substrate scope of hydro­lases19,   throughput experimentation and machine learning. We anticipated
+have revealed trends in enzyme promiscuity. There has also been work   that this would require conducting reactions that profile substrates
+to curate datasets detailing the substrate scope of variants of a given  sampled across chemical space with enzymes that represent the
+parent enzyme20, as exemplified by the profiling of P450 BM3 variants   sequence diversity encompassed by a protein family (Fig. 1c). Once a
+against a panel of small molecules21. From these types of dataset, local   sufficient dataset was obtained, then machine learning models could
+sequence space exploration can be aided by machine learning tools to  be built to navigate between these two landscapes and enable the dis-
+identify variant enzymes with superior catalytic activity22, stereoselec-   covery of biocatalytic reactions in a substrate-oriented or enzyme-
+tivity23, substrate scope24 and thermal stability25. These datasets explore   oriented fashion. Here we detail the first, to our knowledge, example
+locally in sequence space, chemical space or both landscapes (Fig. 1b).   of this approach focused on C–H functionalization reactions mediated
+Attempts to predict biocatalytic reactions have been carried out in  by α-KG non-haem iron(ii)-dependent (NHI) enzymes. Ultimately, this
+several enzyme families26,27. However, established approaches have   experimental effort led to the discovery of more than 200 biocatalytic
+limitations in applicability and accessibility. These constraints include   reactions and provided the data necessary to build a web-based toolkit
+difficulty extrapolating beyond the training set28 and an absence of user-   to suggest compatible substrates and enzymes for an oxidative bio-
+friendly tools26. Further, established approaches that are not restricted   catalytic transformation.
+
+                                                                                                 Nature  |  Vol 646  |  2 October 2025  |  109
+
+
+[PDF physical page 3]
+Article
+
+  In considering which protein family and reaction class to use as a   with a range of substrates, reactions were performed on the 50-μl scale
+test case, we sought an enzyme class that has proved to be useful on   in 96-well plates and were analyzed by liquid chromatography-mass
+the preparative scale31 and performs valuable reactions while argu-   spectrometry (LC-MS). Each reaction was investigated for masses cor-
+ably still underdeveloped in synthetic chemistry32. On the basis of   responding to hydroxylation, chlorination, desaturation and rear-
+this, we chose to focus on a subclass of NHI enzymes that use α-KG as  rangement products (Fig. 3a). Notably, each reaction was conducted
+a co-substrate. From a reactivity standpoint, this class of enzymes is   in triplicate and compared with two negative controls: (1) cell pellet
+appealing on the basis of their ability to access a range of chemistries   containing no overproduced NHI enzyme and (2) a no-substrate control.
+from a conserved radical intermediate to afford C–H functionalization    More than a hundred compounds were assessed as substrates for
+products and desaturation products and mediate skeletal rearrange-   each enzyme in aKGLib1, including a range of scaffolds from commer-
+ments33,34 (Fig. 2a). Also, α-KG-dependent NHI enzymes have practical   cially available amino acids to drugs and other complex molecules
+advantages over other types of enzymes that can mediate the cleavage   (Supplementary Table 5). Of the 111 substrates evaluated in reactions
+of strong C–H bonds or perform oxidative transformations on several   with the entire enzyme library, 35 compounds were transformed by at
+bonds. For example, other subclasses of NHI and cytochrome P450   least one enzyme in aKGLib1, a 32% success rate (Fig. 3a). Furthermore,
+enzymes are fuelled by electrons that are often supplied by a partner   119 of 314 enzymes showed biocatalytic activity on at least one substrate
+reductase35, whereas α-KG-dependent NHI enzymes rely on the oxida-   tested, including 74 with no previously reported activity (Supplemen-
+tion of the small-molecule co-substrate α-KG to drive the formation of   tary Table 4). Notably, numerous enzymes for which a protein band was
+the active oxidant species36 (Fig. 2a). This difference provides a more   not clearly seen by SDS-PAGE analysis showed biocatalytic activity. Most
+uniform set of conditions for α-KG-dependent NHI reactions, which   of the observed reactions were hydroxylation, although desaturation
+have proved to be scalable37.                                         reactions constituted about 20% of the reactions discovered (Fig. 3a).
+  To design a library of α-KG-dependent NHI enzymes that represent   In total, 215 new biocatalytic reactions were observed (Supplemen-
+the sequence diversity of this protein family, we gathered all sequences   tary Table 3). The collection of discovered reactions encompassed
+annotated to have the facial triad of iron-coordinating residues that   substrates that varied substantially in structure, including natural
+is conserved for hydroxylases38 (Fig. 2b). Using the Enzyme Function   products such as cannabidivarin (4), humulene (12) and harmaline (13),
+Initiative–Enzyme Similarity Tool (EFI-EST), 265,632 unique sequences   chemical building blocks such as cinnamic acid analogue (1) and usnic
+were associated with this class39. To reduce the number of sequences   acid (3), common reagents such as 1,8-diazabicyclo[5.4.0]undec-7-ene
+to a manageable amount, redundant orthologues (>90% similarity)   (DBU, 10) and pharmaceutical agents (for example, glyburide (5)). To
+and clusters containing enzymes associated with primary metabolism   define the relationship between compounds, each substrate was quanti-
+were removed, giving a resultant sequence similarity network (SSN)   fied with MORFEUS descriptors46 to generate 21 parameters including
+consisting of 27,005 sequences (Fig. 2b). Work by Lewis and colleagues  measurements of sterics (for example, volume, solvent-accessible
+demonstrated that SSN representations can reveal trends in sequence–   surface area), electronics (for example, HOMO and LUMO energies,
+substrate relationships within the flavin-dependent halogenase family40   electrophilicity) and intermolecular interactions (for example, disper-
+and subsequent studies have shown this correlation in further enzyme   sion descriptors, charge) (Supplementary Table 7). With these features
+classes41–45. Therefore, we sampled several clusters as a strategy to   quantified, we carried out a principal component analysis to represent
+achieve a protein library with a broad substrate scope. In total, 102   the compounds in chemical space (Fig. 3b). Notably, substrates trans-
+sequences were selected from the most populated cluster, 125 unchar-  formed by enzymes in aKGLib1 are well dispersed in chemical space.
+acterized sequences from poorly annotated clusters and 87 further   Ultimately, our experimental effort produced hundreds of new con-
+sequences of enzymes with known or proposed function were selected   nections between chemical space and protein sequence space. Thus,
+to arrive at a 314 enzyme library (aKGLib1; Supplementary Fig. 1).      the development of models that would allow for navigation between
+  Of the enzymes selected, 94 (30%) have a known or suggested native   these landscapes was now within reach.
+reaction including hydroxylation, desaturation, halogenation, epoxi-
+dation, endoperoxidation, demethylation, C–C bond formation and
+skeletal rearrangements (Fig. 2c and Supplementary Figs. 2 and 3). In  Translation from reaction data to machine learning
+an attempt to extrapolate beyond known activity, we used the enzyme  models
+commission machine learning model CLEAN (Contrastive Learning  With the goal of creating robust compatibility predictive models, we
+enabled Enzyme ANnotation)15. CLEAN assigned enzymes in aKGLib1  sought to maximize the number of biocatalytic reactions available
+as oxidoreductases, transferases, hydrolases, lyases and isomerases,   for model training. Therefore, the 215 reactions discovered were com-
+of which 80% were annotated with low confidence (Supplementary   bined with previously reported biocatalytic reactions associated with
+Table 1 and Supplementary Figs. 4 and 5). As anticipated, trends in  enzymes in aKGLib1 (Supplementary Information Section 12). Of the
+substrate class are evident from the SSN generated at a more stringent   literature reactions, eight had been observed experimentally during
+alignment score threshold (Fig. 2c). For example, at alignment score 75,   our reaction discovery efforts and the extra 139 reactions were added
+enzymes characterized to be compatible with an indolizidine scaffold   to the dataset to create BioCatSet1 (Supplementary Table 3). To convert
+are found within a cluster. All selected sequences showed an average   these substrate–enzyme pairs to inputs for machine learning mod-
+sequence percent identity of 13.7%, indicating high library sequence    els, reaction partners were divided into their individual components,
+diversity (Fig. 2c). DNA for the library was synthesized and cloned   comprising 119 substrates and 163 enzymes (Fig. 4a). Each substrate
+into a pET-28b(+) expression vector. E. coli cells were transformed  was converted to a SMILES string using the main protonation state at
+with plasmids encoding for each library member and overexpression   pH 7.5 (ref. 47), featurized using MORFEUS46 and mapped to chemical
+was carried out in 96-well-plate format. Sodium dodecyl sulfate–   space. To quantify the relationship between enzymes, the alignment
+polyacrylamide gel electrophoresis (SDS-PAGE) analysis of crude cell   scores were extracted from the SSN and converted to a normalized
+lysate showed clear protein bands at the expected molecular weight   value (AS%) to capture the relationships as a quantitative matrix input.
+for 78% of enzymes (Supplementary Figs. 6–29).                     With these metrics defined, we took steps towards building pre-
+                                                                   dictive models for navigating between chemical and sequence
+                                                                  space. In a synthetic-chemistry-based endeavour, we constructed a
+High-throughput biocatalytic reaction discovery         substrate-to-enzyme recommendation system to enable the identifi-
+With aKGLib1 in hand, we next investigated the reactivity of each enzyme   cation of new biocatalytic reactions with a given substrate. To achieve
+in a high-throughput fashion. To profile the reactivity of each enzyme    this, each substrate was mapped to chemical space and ten of its nearest
+
+110  |  Nature  |  Vol 646  |  2 October 2025
+
+
+[PDF physical page 4]
+a  Diverse activity of α-KG-dependent enzymes
+                          O                                                                                   Me   O
+                                                                                     OH
+                                       OH    His                                              O        Me            OH
+                        HO          O
+                                                                                                               Me                                                                HO        O    O        O                                                                   FeII                                                                                             O                                                                                                                         Me                                               R                                                                                                         H                                   O
+                               O HO            OH                                                            His                                                                                                             O                                                                                                     H                                                                              OH              Me                            2 H2O                                                                                                      Me                                                                                                      O   OMe      O                                                    O2        H2O                                                                     OH  O
+       α-KG                                                         CO2              Dihydrokaempferol                              Preaustinoid A2
+
+                                                                                                                      Hydroxylation                     Desaturation
+            OH    His               H           O          O     His                                                     .        HO
+                         FeII                                 +            O   FeIV
+                  R                                                R
+        HO                                   HO
+                   His                                                 Substrate                 O  His                                    Substrate-centred radical
+                                                                                                                   Ring-contraction                         Chlorination
+                                                                                 Me                         Me        Cl
+          O                                                                                           CN
+                          3 H2O                                                Me  N+                            HHO
+            OH
+                                    OH    His                                H                                   H                        O
+   O                                                                                                              Me                                O    FeIII
+     Succinate              HO                R                                         NH                    NH    Me
+                                O  His                                                     Cycloclavine                             12-epi-ﬁscherindole G
+b  Curation of diverse α-KG-dependent NHI enzyme library                           c  Trends in and efﬁcacy of library                              Efﬁciency and
+                                                                                                        Selected enzymes SSN and known                                 diversity of
+  Approach to building    NHI SSN                                                                                          scaffolds                                enzyme library
+  NHI enzyme library
+                                                                                      OH                      O
+          OH2
+      His        OH2                                                                                                            NH
+                                                II                                                                                               N
+           Fe
+      His       OH2                                                                   HO                                                enzymes314selected
+           Asp
+
+   α-KG NHI enzyme                                                                    O
+      sequences
+
+    Identify α-KG NHI                                                                      NH                                         70%
+  enzyme sequences                                                                                                                                                               of enzymes are
+                                                                                                                                                                      uncharacterized
+
+
+                                                                                        NH
+                                                                                O
+     Protein families
+  ~265,000 sequences                                                                                                                         13.7%
+                                                                                                                                                           average sequence
+ Filter protein sequences                                                                                                                                            percent identity
+  by percent similarity                                                                      OH
+
+
+
+                                                                                                          Characterized
+                                                                                        enzyme                 N                        78%
+                                                                                                        Uncharacterized          H                                   of enzymes
+       SSN                                                                            enzyme                                                  overexpressed
+   ~27,000 sequences        Node (selected enzyme)    Node (not selected enzyme)     Edge
+                                                                                        Edge
+
+Fig. 2 | Rationale and curation of a diverse α-KG NHI enzyme library, aKGLib1.   were used as a seed for the generation of a SSN (e-value = 5, UniRef90),
+a, Abbreviated catalytic cycle and enzymatic transformations with α-KG-        which, after filtering, resulted in the network shown containing 27,005
+dependent C–H functionalization in natural product biosynthesis. In the active     protein sequences (alignment score = 50, organic full layout). 314 enzymes
+site of α-KG-dependent enzymes, iron is complexed by two histidine residues       (purple) representing 1.16% of the total sequences (grey) were selected across
+and either a carboxylate-containing residue (R = Asp/Glu) or an environmentally   160 clusters, to generate a diverse enzyme library. c, Trends in substrates
+sourced halide (R = Ala/Gly). On α-KG binding and oxidation by atmospheric       within clusters of a SSN and efficacy of aKGLib1. The sequences in the SSN
+oxygen, the active iron(iv)-oxo species can initiate hydrogen atom abstraction    at alignment score = 75 contain 94 enzymes that have previously been
+from the substrate to yield the iron(iii)-hydroxy species and a radical            characterized (purple diamonds) and 220 sequences that are previously
+intermediate. This intermediate can undergo structural rearrangements         uncharacterized (lavender circles, 70% of total library). In clusters containing
+before being terminated by rebound hydroxylation, carbocation formation       several characterized proteins, the known compatible common scaffold
+or halogenation (functionalization by α-KG NHI enzymes in natural product         is highlighted. On performing a multisequence percent identity matrix, it
+biosynthesis shown in green) and generate succinate as a by-product.          was found that sequences only contained 13.7% shared identity, on average.
+b, Workflow to curate a bioinformatics-guided α-KG-dependent NHI enzyme    On transformation and overexpression in E. coli, the presence of protein was
+library (aKGLib1). The enzyme library was selected by collecting characterized    investigated through gel electrophoresis, in which 78% of aKGLib1 showed
+of-interest enzyme sequences, which led to the inclusion of protein families       soluble protein overexpressed at the expected molecular weight.
+IPR008775, IPR005123, IPR027443, IPR026992 and IPR044861. These families
+
+
+neighbours within the BioCatSet1 database were identified (Fig. 4b). The    list, or subsets identified in decreasing order (k), were used to measure
+compatible enzymes for each neighbouring substrate were retrieved   the precision@k, recall@k, enrichment@k and normalized discounted
+and the ten most similar enzymes within aKGLib1 were used to populate   cumulative gain (nDCG)@k (Fig. 4b). precision@k measures the frac-
+an output for the ranking model. The entirety of the output enzyme   tion of entries within the list that are known to be compatible with the
+
+                                                                                                  Nature  |  Vol 646  |  2 October 2025  |  111
+
+
+[PDF physical page 5]
+Article
+
+ a   Biocatalytic reactions examined
+                                     OH                                Scope of substrates and enzymes screened in high-throughput experimentation
+
+                   NHI whole-cell pellet,
+                     α-KG (2 mM),
+        H           NaAsc (1 mM),                                                                                                             215
+                     FeSO4 (0.1 mM)         Hydroxylation             Desaturation                            +                                      discovered
+                                                                                                                                                                            reactions
+                TES buffer pH 7.5 (50 mM),                                     Cl
+             5% DMSO, 10% toluene,
+                    30 °C, 300 rpm, 4 h
+  Substrate (1 mM)
+                                                                                         111 substrates          314 enzymes            64% hydroxylation
+                                    H                               32% were converted    38% showed activity          18% desaturation
+                                            Rearrangement             Chlorination                                                    18% mixed
+
+ b   Diversity of substrates with discovered NHI-mediated reactivity
+                                                                                                                           Cl
+                   OH                 O   Me        Me  HO   O
+                      O
+           HO                                OH            OH        HO               O  H                   H   N
+                                                                                           N   NH          HO
+                                                                                                   S
+                   O              O     Me O    Me                      O   NH          O  O      MeO
+                               Me
+                                          OH          HO             Me
+ MeO       OMe
+                                                                                                               N
+                              O                                   4                             5
+          1                  OH     HO    Me                                                                                       6
+                            2                     3
+                                                                                       OH
+     Observed reaction                                                                                      Ph
+    No reaction found                                                                                      Ph                OH
+     Not screened
+                                                                                                               O
+
+       15                                                                                                             OH
+                                                                                                                                       7
+       O                                                                                                          Me  Me
+   H
+   N
+          OH
+
+                                                                                                                                              8
+                                                        12
+                                                                           11                  10                  9                   N     H            14                       13              Me
+                                         Me
+                                                                                                   MeO           H                                  Me         O                 H                                                                        N               H   H                            N                                                                                               N             H       H
+                                                             N
+  HS        OH   MeO              N                                                                           N               H       MeO        N      O
+        NH2                            Me            Me                                   N
+                                                                                             H                O
+
+Fig. 3 | High-throughput reaction discovery workflow and diversity of       enzymes in triplicate. 32% of substrates underwent biocatalytic transformations
+biocatalytic reactions discovered. a, Biocatalytic reactions were investigated   and 38% of the enzymes showed activity with at least one substrate. This reaction
+in 96-well plates, in which substrate (1 mM in DMSO) was added to a reaction      platform generated 215 new compatible enzyme and substrate pairs.
+mixture containing α-KG-dependent NHI enzymes in whole-cell pellet format     Discovered reactions are represented as a sunburst diagram, including
+(40% vol/vol of roughly 200 mg ml−1 50 mM TES pH 7.5 suspensions), α-KG        hydroxylation (dark green, 64%), desaturation (light green, 18%) and mixed
+(2 mM in H2O), sodium ascorbate (NaAsc, 1 mM in H2O) and iron(ii) sulfate        reaction outcomes (medium green, 14% hydroxylation/desaturation
+heptahydrate (FeSO4, 0.1 mM in H2O) and then treated with toluene (10% vol/      combination, 4% rearrangement). b, All substrates mapped in chemical space.
+vol) to a final volume of 50 µl. Reactions were incubated at 30 °C while shaking     Substrates with activity (dark blue, n = 35), substrates without any observed
+at 300 rpm (15-mm orbital radius) for 4 h. Reactions were quenched, pooled        activity (light blue, n = 76) and further substrates (grey, n = 335) are represented
+and filtered to yield an analytical sample containing one enzyme with five        in chemical space. This was generated by using the charge/protonation states
+substrates (0.100 µM) and all generated reaction products. Reactions were       of substrates at pH 7.5, calculating their MORFEUS descriptors, performing a
+monitored by LC-MS using a 3-min reverse-phase method to identify unreacted    principal component analysis and representing the substrates as values of PC1
+substrate, hydroxylation, desaturation, rearrangement and chlorination        and PC2. Part of the substrates with identified activity are shown in respect to
+products by mass (functionalization shown in green). Using this high-throughput    their position in chemical space.
+reaction platform, 111 unique substrates were scrutinized against 314 NHI
+
+input and recall@k describes the fraction of entries compatible with   substrates for each similar enzyme are retrieved and their nearest
+the input that were populated within the prediction list. enrichment@k   neighbours in chemical space are identified to generate a substrate
+compares the precision with what would be achieved by randomly   rank list. In a similar fashion, precision@k, recall@k, enrichment@k
+sampling BioCatSet1. nDCG@k reflects a weighted version of precision,  and nDCG@k are calculated for the generated substrate prediction list.
+for which entries ranked higher have a greater contribution to the total     After generating the BioCatSet1 dataset, designing the machine
+score. Ideally, at a low value of k, these metrics are high, signifying the   learning pipeline and establishing evaluation metrics, we trained an effi-
+curation of a streamlined rank list.                                      cient model to navigate across substrate chemical and protein sequence
+ We anticipated that this dataset and approach could also be used to   space. A key step in this process was determining the most appropriate
+navigate from a given protein sequence to an area of chemical space to   data-splitting strategy. For a rank-list-based task, the possible division of
+answer the question of which substrate a given enzyme might trans-   train–test data include substrate-oriented, enzyme-oriented or a simul-
+form. Thus, we designed a complementary enzyme-to-substrate   taneous substrate/enzyme split (Fig. 4c). For the substrate-to-enzyme
+model. In this approach, each enzyme is compared with the members   model, we implemented a 50/50 training/test split based on the sub-
+of aKGLib1 to identify its most similar sequences. The compatible   strate data and likewise performed a 50/50 training/test split based
+
+112  |  Nature  |  Vol 646  |  2 October 2025
+
+
+[PDF physical page 6]
+a   Machine learning data preparation
+
+
+
+                                                           MORFEUS                                     Multidimension
+                                                                                                                                          reduction
+
+       215                     139                                                   119 substrates                              21 parameters                                Chemical space    discovered                      reported
+      reactions        reactions
+
+
+                                                                  Compare sequences                                Quantify similarity                                         Machine learning
+           All known reactions                                                                                                                                                    model input
+
+
+
+
+                                                    163 enzymes                             SSN                              Sequence similarity matrix
+
+b   Machine learning design
+
+      Substrate-oriented                 Chemical space                    Machine learning        Sequence space                          Enzyme-oriented                        Training metrics
+     enzyme predictions                                                                  input                                                          substrate predictions
+                                                                                                                                                                                    precision@k = sum hits@k
+                                                                                                                                                                                                         k
+
+                                                                                                                                                                                                  recall@k = sum hits@k
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      i                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          generation                                                                                                                                     generation                                                                                                                           sum hits                                                                                                                                                                                                                                                                    1)                                                                                                                                  DCG@k = ∑i=1p  log2(ihit?+                                                                                                                                                                                                                                    list                                                     list
+
+                                                                                                                                         DCG@k    In                                            Rank                                                Reaction                                                                            Rank                                 In            nDCG@k = IDCG@k
+                                                                                   Substrate
+                                                                                   Principal component analysis
+                                                                       Sequence                                                                                enrichment@k = sum hits@k(lib)
+                                                                Sequence similarity analysis                                                                                        k(sum hits)
+                Out                                                                                                                    Out
+
+                  Substrate in BioCatSet1          Neighbouring substrates      Enzyme in BioCatSet1       Neighbouring enzymes                Predicted reactions (hit)             Predicted reactions (no hit)
+
+c   Building and optimizing the machine learning models
+            Division of training and test set                                 Hyperparameter optimization                                          Comparing baseline and GBM performance
+                                                                     5                                                                                              0.25                           15
+                   50% data                                                                                 depth                                                  0.06                                 0.4        0.20
+                                                                                                                                                                                       10  model                                                                                                                        tree 3                                                0.04                                          0.15
+                                                                                                                                                                              0.10                                                                                                                                                                           0.2                                                                                                                                                                                       5                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         recall@k    nDCG@k                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        precision@k 0.02                                                                                                                                                                              0.05                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 enrichment@k                                                                                                                                                                                                                           Maximum 1                                                                                      models
+                                                                                                                                                                                       0                                                                                                                  0                                                                                                                                                          0                                                                                                                                              0
+        Substrates                          Enzymes                         25    50    75   100                     0   10   20   30   40   50               0   10   20   30   40   50     50% training                    100% training                      Number of trees                                   trained                Number of predictions, k                   Number of predictions, k        Substrate-oriented
+                                                                                  0.050 0.025   0                  and
+          Substrate (train)      Data (train)     Enzyme (train)                                                                                         precision@k      GBM        nDCG@10                                                                                                                                                                                                                                                                                                                                 optimization              Change in nDCG@10          Substrate (test)      Data (test)     Enzyme (test)                                                                                                                                                                                         baseline                                  recall@k              Baseline        enrichment@k
+                                                                                                                                      Model               0    –0.100  –0.200        of
+                   50% data                                     6                                                    0.3                                 1.0        0.66                           15
+                                                                                                                                                                           0.8                                                                                                                                                                              0.64  model                                                                                                                                                    depth                                                                                                                                                                                       10                                                                                                                                       0.2                                                                                                                                                                           0.6                                                                                                                                                                              0.62                                                                                                                             tree 4                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           Performance                                                                                                                                                                              0.60                                                                                                                                       0.1                                                                                                                                                                                       5                                                                                                                                                                           0.4   recall@k   nDCG@k                                                                    2                                                                                                                                                                                                                  precision@k                                     0.2        0.58                                                                                                                                                                            enrichment@k                                                                                                                                                                                                                          Maximum                                               0                           0          0.56                           0
+         Substrates                                        Enzymes                                                                                                                        10   20                                                                                                                                  30   40                                                                                                                                            50               0                                                                                                                                                                 10   20                                                                                                                                                                          30   40                                                                                                                                                                                    50                                                                          25                                                                                50                                                                                      75   100                     0       Enzyme-oriented   100%                training                  50%                                                            training                                                                                                              Number                                                                                                                                                                 of predictions,                                                                                                                                                               k                                                                                                                                                    Number                                                                                                                                                                                                                    of predictions,                                                                                                                                                                                                              k                                                                      Number                                                                                                          of trees
+
+Fig. 4 | Machine learning approach, model building and output. a, The 215      substrates at low k is represented. c, Division of train–test split in a substrate-
+newly discovered reactions were combined with all reported reactions          to-enzyme (top) and enzyme-to-substrate (bottom) rank list task. For the
+(147 total, 139 not experimentally validated) for enzyme sequences in aKGLib1.    substrate-oriented model, a substrate split was chosen to allow for the
+119 substrates, from discovered and literature reactions, were parameterized     introduction of new substrates, without the high data cost of a dual split, and
+with MORFEUS before undergoing principal component analysis of the 21         likewise in the enzyme-oriented model, an enzyme split was chosen. Training of
+features. Enzyme sequences were used to generate a SSN at alignment          a substrate-oriented gradient-boosted model identifies the optimal number of
+score = 5. Alignment scores were normalized as a fraction of the maximum        trees (50) and tree depth (2) and in the enzyme-oriented model, the optimal
+percent identity to generate the alignment score percent (AS %). b, A machine    number of trees (100) and tree depth (6) were found. Machine learning models
+learning model was designed to map a substrate (dark blue) or enzyme (dark      with the parameter optimization incorporated were evaluated against the
+purple) of interest, identify its nearest neighbours (light blue or light purple,      baseline models to calculate precision, recall, nDCG and enrichment at various
+respectively), identify their compatible enzyme sequences (dark purple) and     degrees of k. The GBM model is represented as a solid line and the baseline
+substrates (dark blue) and populate a rank list with their nearest neighbours       linear model is indicated by a dashed line. Precision and nDCG are shown in
+(light purple or light blue, respectively). Metrics to evaluate the rank lists are      dark green and recall and enrichment are shown in light green.
+shown and optimization to populate the rank list with compatible enzymes and
+
+on the enzyme data for the enzyme-to-substrate model. This unusual   than would be observed by randomly sampling aKGLib1 (Supplemen-
+equal split between training and test sets was made to avoid potential   tary Table 8). To further minimize the experimental burden associated
+biases caused by uneven dataset sizes.                              with enzyme screening, a model that rewards populating the enzyme
+  As a baseline model, we built a simple substrate-to-enzyme predic-   prediction list with compatible enzymes at a low k was needed. After
+tion ranking formula that weighed the distance in chemical space over   optimization, we found that distance over five dimensions of chemi-
+two dimensions and the distance in protein sequence space linearly.   cal space provided a more robust calculation for chemical similar-
+This model was able to enrich the predictions ranked in the top ten    ity. To further improve performance, we trained a gradient-boosted
+positions with enzymes compatible with each substrate >4-fold better   decision tree ensemble model (GBM)48 with YetiRank loss function49.
+
+                                                                                                 Nature  |  Vol 646  |  2 October 2025  |  113
+
+
+[PDF physical page 7]
+Article
+
+This model offers an advantage with arbitrarily complex relationships  produced the greatest amount of product on the analytical scale was
+and is relatively robust to overfitting when using proper hyperparam-  used for a 50-mg-scale reaction from which hydroxylated product 17
+eters50. The number of trees and their depth were optimized using a  was isolated in 35% isolated yield.
+grid search procedure50, yielding a model of 50 trees with a depth of 2     Similar success was achieved for more substrates tested in CATNIP.
+(Fig. 4c).                                                       For example, matridine (18, train set), a synthetic precursor towards
+  The performance of the substrate-to-enzyme GBM was compared   matrine natural products provided by Kerkovius et al.51, was hydroxy-
+with the baseline linear model. The GBM has a higher nDCG than the   lated by seven of the top ten enzymes predicted. From a 50-mg-scale
+baseline model at all values of k. Furthermore, the top ten predicted   reaction, (12S)-hydroxymatridine (19) was isolated in 50% yield (Sup-
+enzymes are >7-fold more likely to be compatible with the input sub-   plementary Fig. 34). Also, seven of the top ten enzymes predicted to
+strate than through random sampling of aKGLib1. At low values of k   transform 6-methyleneandrost-4-ene-3,17-dione (20, test set) led to
+(k < 20), the GBM outperforms the baseline model in precision, indicat-   productive reactions. On the preparative scale, 20 was converted in a
+ing that the GBM is most well suited for the curation of a focused enzyme  12% yield to the oxidative alkene cleavage product 21 (Supplementary
+prediction list (Supplementary Table 8). Given this performance, we   Fig. 35). To the best of our knowledge, this is the first example of an
+used a GBM to build the final workflow. Analysis of feature importance  α-KG NHI enzyme performing oxidative alkene cleavage of this type.
+revealed that PC3, which mostly comprises two dipole moments and   Moreover, since the time that our machine learning models and predic-
+nucleofugality, has the greatest weight on the model, followed by PC1   tive workflow were built, new reactions have been reported with this class
+(most heavily comprising dispersion descriptors, solvent-accessible   of enzymes, providing extra test cases for CATNIP. For example, small
+surface area and volume) and the alignment score percent (Supple-   molecules that Renata and colleagues experimentally determined as
+mentary Figs. 30 and 31).                                          compatible substrates of enzymes within this library were in agreement
+  Following this model development, we trained an enzyme-to-   with CATNIP substrate-to-enzyme outputs52 (Supplementary Fig. 36).
+substrate prediction rank model. The baseline model was construc­    The enzyme-to-substrate model was tested in a similar fashion
+ted using the distance in five dimensions of chemical space and nearest-   (Fig. 5b). Using NHI123 from Schizosaccharomyces pombe (test set)
+neighbours calculations were extended to include the training set of   as an input sequence, Clustal Omega was used to identify the ten
+sequence space and entirety of chemical space in the algorithm. The  most similar enzymes within aKGLib1. The substrates associated with
+hyperparameters of a GBM approach were optimized on the basis of   these enzymes were retrieved, providing insight into the potential
+nDCG at k = 10, yielding a model of 100 trees with a depth of 6. With   regions of chemical space compatible with these sequences. The ten
+these optimizations, the precision, recall, nDCG and enrichment were   best-ranked substrates, largely made up of monocyclic and bicyclic
+each measured at various rankings of k. Although minimal differences   oxygen-containing molecules, were tested as substrates in reactions
+in these metrics were observed between the baseline and GBM models,   with NHI123. Four of these substrates were oxidized by NHI123. The top
+these results highlight the generality of the GBM approach, even in   ranked prediction, substrate 22, was transformed by NHI123 to a single
+challenging scenarios (Supplementary Tables 12 and 13).             product in 7% conversion (Supplementary Fig. 37). Similarly, the top
+                                                             ranked substrate for NHI177 from Photorhabdus thracensis (test set),
+                                                        humulene (12), was transformed by NHI177 to deliver a single oxidized
+CATNIP: a web app for prediction of biocatalytic          product in 41% conversion (Supplementary Fig. 38). To test the accu-
+reactions                                                       racy of this model beyond enzymes within BioCatSet1, we submitted
+With two machine learning models constructed, we created an interface   TqaL from Streptomyces violaceusniger (external validation) to CATNIP
+to allow others to access predictions between α-KG NHI enzymes and   to identify the region of chemical space proposed to be compatible
+small-molecule substrates. We created CATNIP (https://catnip.cheme.   with the input enzyme sequence. The top 12 ranked substrates were
+cmu.edu/), a web platform that allows scientists to interact directly   subjected to analytical-scale reactions with TqaL, of which four were
+with the substrate-to-enzyme and enzyme-to-substrate models. In   oxidized, including the second ranked substrate (23), providing an
+the substrate-oriented model, users can input a chemical structure   oxidized product in 42% conversion (Supplementary Fig. 39). Although
+and receive a ranked list of aKGLib1 enzymes (and the corresponding   this enzyme has no characterized activity, it is a homologue of a char-
+sequences) potentially capable of transforming the targeted substrate   acterized enzyme that operates on similar amino acid substrates53,
+(Supplementary Information Tutorial 1). Furthermore, users can gain   reinforcing the performance of the model.
+insight into potential small-molecule substrates for NHI enzymes, using
+the enzyme-to-substrate model (Supplementary Information Tutorial
+2). In this model, users can submit a protein sequence and receive a  Conclusion
+ranked list of small molecules beyond the scope of the training and   Overall, the development of this toolkit advances our ability to navi-
+test set that may be compatible. With the information provided by   gate between chemical and protein sequence space. Specifically, the
+CATNIP, the user can execute a highly focused set of experiments to   curation of aKGLib1, a diverse NHI enzyme library comprising >300
+identify new biocatalytic reactivity. This strategy effectively derisks   wild-type proteins with low sequence identity and profiling of the
+the implementation of biocatalysis in target-oriented synthesis by   biocatalytic activity of these enzymes against >100 small-molecule
+making use of machine learning.                                     substrates led to the discovery of 215 new reactions. This dataset was
+  The CATNIP substrate-to-enzyme workflow was tested with a selec-  combined with literature-reported reactions to make BioCatSet1,
+tion of substrates, starting with the commercially available plant alka-  which was used to train two GBMs, generating substrate-to-enzyme
+loid sparteine (16, train set; Fig. 5a). Sparteine (16) was mapped to  and enzyme-to-substrate rank lists as outputs. With these models, we
+chemical space and CATNIP determined the ten nearest substrates   created CATNIP, an open-access web interface that enables stream-
+within BioCatSet1, which includes highly decorated nitrogen heterocy-   lined biocatalytic reaction discovery. The power of these tools was
+cles, specifically a piperidine, a bicyclic amidine, five indolizidines and   demonstrated through expedited biocatalytic reaction discovery on
+three tetracyclic diamines. These neighbour substrates fed the machine   substrates and enzymes outside the dataset. These reactions represent
+learning model to generate a ranked list of enzymes, which contained  new connections between chemical and protein sequence space, creat-
+four characterized enzyme sequences and six previously uncharacter-   ing opportunities for further exploration of the landscapes through
+ized sequences, which were tested in reactions with sparteine (16).   substrate and protein engineering. We anticipate that this approach
+Seven of the ten reactions conducted resulted in a hydroxylation prod-   can be broadly applied to further enzyme families and reaction classes,
+uct as observed by LC-MS (Supplementary Fig. 33). The enzyme that   offering a method to navigate between chemical and protein sequence
+
+114  |  Nature  |  Vol 646  |  2 October 2025
+
+
+[PDF physical page 8]
+ a   Substrate-oriented discovery of biocatalytic reactions using substrate-to-enzyme CATNIP
+
+      Substrate of interest                      Substrate of interest         Top ranked enzymes                            Product 1                   Characterized product
+                                             Nearest                                                    neighbours                                                                   Unranked enzymes                             Product 2                H      H                                              Substrates                                                                      in model             N                                               Control                                                       substrates                                                                                                                                                                                                                                 count                                     N
+      N                                                                                                                          Ion                              N            OH             H                                                                                                                                                                                                                                                                                                    enzyme                  H
+        16, (–)-sparteine                                                                                                                    17 via NHI304
+       Train set validation                                    123456789                                                                                                          10X                 35% yield                                                                                                                                                                                                                                                                                                                                                                                                               optimal                                                                                                                                                                                                                                                             screen                                                                                      CATNIP                                                                                                                                                                       with
+       H   H                                                                                                H    H             N                      into                                                                                                                                                                                                                       reaction                                                                                                                                                                                                                                 count                          HO             N         H                                                                                                                                                                                                                                                                                                                                                                                                                       reaction                 H
+       N                                                                                                                         Ion                                  N
+
+                                                                                                                 H           H                                                                                                                                               substrates                                                                                                                                                                                                                                                                             analytical
+           18, matridine                                     123456789 X                   19 via NHI304
+                                                                                                            50% yield       Train set validation                      Enter                                                                            10                                                                                                                                                                                                                                                                                                       Perform                                                                                                                     Me O              Me O                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         preparative-scale
+
+                                                                                                              Me   H
+       Me   H                                                                                                                                                                                          count                                                                             Perform
+                                                                                                                                       Ion                                   H   H          H   H
+ O                                                                                              O
+                                              12345678910X                   O
+             20                                                                                                                         21 via NHI091
+        Test set validation                     Chemical space             Sequence space                 Enzyme selection                   12% yield
+
+ b  Enzyme-oriented identiﬁcation of compatible substrates using enzyme-to-substrate CATNIP
+     Enzyme of interest                                                                                                                         Compatible substrate
+                                      Top ranked enzymes          Nearest neighbours           50%     Product 1
+                                        Unranked enzymes            Substrates in model                        Product 2                       Me
+                                                                             Control substrates
+                                                                                                                                                                                                                                                                                                                                                                         Relative                           HO        OH                                                                                                                                                                                                                                                                                                                                                                                                                                                                            conversion
+                                                                                                         Me        COMe
+                                                                                                                                             22          NHI123                                                         0% 123456789                                                                                                            10              7% conversion      Test set validation                                                                                                                                                                                                                                                             screen                                                                          50%                                Me
+                                                                                                          Me                                                                                     CATNIP                                                                                                                                                                                                                                                                                                                                                                                                                                  substrates                                                         into                                                                                                                                                                                                                                                   substrate                                                                                                                                                                                                                                                                                                                                                                       Relative                                                                                                                                                                                                                                                                                                                                                                                                                                                                          conversion                           Me            Me                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          compatible                                                                                                                  sequence                                                                                                                                                                                                                                                                                                                                                                                                                                      analytical   0%          NHI177                                                                                                                                             12                                               12345678910      Test set                validation                                                                                                           41% conversion                                                                       Enter                                                                                                                                                                                                                                                                                                                                                                                                                                                                        Identify                                                                                                                                                                                                                                                                                                       Perform   50%
+                                                                                                       O
+                                                                                                     MeO
+                                                                                                                                                                                                                                                                                                                                                                       Relative                                   H2N                                                                                                                                                                                                                                                                                                                                                                                                                                                                         conversion
+
+                                                                    0%
+                                               123456789101112                    N
+                                                                                                              H
+     TqaL Streptomyces                                                                                                                        23
+         violaceusniger                      Sequence space              Chemical space                     Reaction discovery                 42% conversion
+       External validation
+
+Fig. 5 | Use of the machine learning model for CATNIP. a, Demonstration        products were isolated and characterized for the three substrates of interest,
+of substrate-to-enzyme CATNIP with sparteine (16), matridine (18) and          providing (4S)-hydroxysparteine (17), (12S)-hydroxymatridine (19) and androst-
+6-methyleneandrost-4-ene-3,17-dione (20). In the chemical space map, the       4-ene-3,6,17-trione (21) in 35%, 50% and 12% isolated yields, respectively.
+substrate of interest (open black circle), the nearest substrates over five          b, Demonstration of the enzyme-to-substrate CATNIP model with NHI123,
+dimensions (dark blue circle), unchosen substrates in BioCatSet1 (light blue     NHI177 and TqaL. Each enzyme was mapped to sequence space, which shows
+circle) and substrates without known biocatalytic activity (grey circle) are          all enzymes in the cluster (SSN at alignment score = 75), with the ten most similar
+shown. The sequence space shows all enzymes in the cluster (SSN at alignment    enzymes shown in decreasing shades of purple. Enzymes not predicted in the
+score = 75) with predicted compatible enzymes (k = 10), with rank shown in       top ten sequences are represented as grey nodes. The predicted compatible
+decreasing shades of purple. Enzymes not predicted in the top ten sequences     substrates are identified (dark blue) and mapped to chemical space among all
+are represented as grey nodes. The top ten predicted enzyme sequences were     substrates in BioCatSet1 (light blue) and substrates outside the dataset (grey).
+prepared in whole-cell E. coli and examined for relative product formation in     The best-ranked substrates were tested with the enzyme of interest in triplicate
+triplicate. The x-axis contains the enzyme prediction rank, for which X = no      and the relative product conversion was measured. The x-axis shows the rank of
+enzyme control. The y-axis shows the average relative extracted ion count (n = 3).   the small molecule substrate in decreasing order. The y-axis shows the average
+Several products are represented with various shades of green. The enzyme     normalized relative conversion, as compared with the empty vector control of
+generating the most product was then produced (1 -l cultures in Terrific Broth)    each sample (n = 3). The structure for the best-ranked substrate for each enzyme
+and used in 50-mg-scale biocatalytic reactions as clarified cell lysate. Oxidation    is shown as 22, 12 and 23, respectively.
+
+
+
+
+                                                                                                 Nature  |  Vol 646  |  2 October 2025  |  115
+
+
+[PDF physical page 9]
+Article
+space. Furthermore, this innovation effectively derisks the application    30.  Wang, X., Quinn, D., Moody, T. S. & Huang, M. ALDELE: all-purpose deep learning toolkits
+                                                                                                              for predicting the biocatalytic activities of enzymes. J. Chem. Inf. Model. 64, 3123–3139
+of biocatalysts in organic synthesis.                                                      (2024).
+                                                                                                            31.  Busch, F., Brummund, J., Calderini, E., Schürmann, M. & Kourist, R. Cofactor generation
+                                                                                      cascade for α-ketoglutarate and Fe(II)-dependent dioxygenases. ACS Sustain. Chem. Eng.
+Online content                                                                             8, 8604–8612 (2020).
+                                                                                                32.  Zwick, C. R. & Renata, H. Harnessing the biocatalytic potential of iron- and α-ketoglutarate-
+Any methods, additional references, Nature Portfolio reporting summa-        dependent dioxygenases in natural product total synthesis. Nat. Prod. Rep. 37, 1065–1079
+ries, source data, extended data, supplementary information, acknowl-         (2020).
+                                                                                             33.  Gao, S. S., Naowarojna, N., Cheng, R., Liu, X. & Liu, P. Recent examples of α-ketoglutarate-
+edgements, peer review information; details of author contributions       dependent mononuclear non-haem iron enzymes in natural product biosyntheses.
+and competing interests; and statements of data and code availability         Nat. Prod. Rep. 35, 792–837 (2018).
+are available at https://doi.org/10.1038/s41586-025-09519-5.               34.  Hausinger, R. P. Fe(II)/α-ketoglutarate-dependent hydroxylases and related enzymes.
+                                                                                                                         Crit. Rev. Biochem. Mol. Biol. 39, 21–68 (2004).
+                                                                                               35.  McLean, K. J., Luciakova, D., Belcher, J., Tee, K. L. & Munro, A. W. Biological diversity of
+1.     Li, J., Amatuni, A. & Renata, H. Recent advances in the chemoenzymatic synthesis of            cytochrome P450 redox partner systems. Adv. Exp. Med. Biol. 851, 299–317 (2015).
+     bioactive natural products. Curr. Opin. Chem. Biol. 55, 111–118 (2020).                       36.  Schofield, C. J. & Zhang, Z. Structural and mechanistic studies on
+2.   Romero, E. et al. Enzymatic late-stage modifications: better late than never. Angew. Chem.         2-oxoglutarate-dependent oxygenases and related enzymes. Curr. Opin. Struct. Biol. 9,
+       Int. Ed. 60, 16824–16855 (2021).                                                             722–731 (1999).
+3.   Bayer, T., Wu, S., Snajdrova, R., Baldenius, K. & Bornscheuer, U. T. An update: enzymatic        37.  Seide, S. et al. From enzyme to preparative cascade reactions with immobilized enzymes:
+     synthesis for industrial applications. Angew. Chem. Int. Ed. 64, e202505976 (2025).              tuning Fe(II)/α-ketoglutarate-dependent lysine hydroxylases for application in
+4.   Marshall, J. R., Mangas-Sanchez, J. & Turner, N. J. Expanding the synthetic scope of             biotransformations. Catalysts 12, 354 (2022).
+     biocatalysis by enzyme discovery and protein engineering. Tetrahedron 82, 131926        38.  Hegg, E. L. & Que, L. Jr The 2-His-1-carboxylate facial triad — an emerging structural motif
+     (2021).                                                                                                   in mononuclear non-heme iron(II) enzymes. Eur. J. Biochem. 250, 625–629 (1997).
+5.   Yang, J., Li, F.-Z. & Arnold, F. H. Opportunities and challenges for machine learning-assisted    39.  Zallot, R., Oberg, N. & Gerlt, J. A. The EFI web resource for genomic enzymology tools:
+    enzyme engineering. ACS Cent. Sci. 10, 226–241 (2024).                                         leveraging protein, genome, and metagenome databases to discover novel enzymes and
+6.    Bell, E. L. et al. Biocatalysis. Nat. Rev. Methods Primers 1, 46 (2021).                             metabolic pathways. Biochemistry 58, 4169–4182 (2019).
+7.    Buller, R. et al. From nature to industry: harnessing enzymes for biocatalysis. Science 382,    40.  Fisher, B. F., Snodgrass, H. M., Jones, K. A., Andorfer, M. C. & Lewis, J. C. Site-selective C–H
+    eadh8615 (2023).                                                                         halogenation using flavin-dependent halogenases identified via family-wide activity
+8.   Garzón-Posse, F., Becerra-Figueroa, L., Hernández-Arias, J. & Gamba-Sánchez, D. Whole             profiling. ACS Cent. Sci. 5, 1844–1856 (2019).
+      cells as biocatalysts in organic transformations. Molecules 23, 1265 (2018).                     41.  Atkinson, H. J., Morris, J. H., Ferrin, T. E. & Babbitt, P. C. Using sequence similarity networks
+9.   Tibrewal, N. & Tang, Y. Biocatalysts for natural product biosynthesis. Annu. Rev. Chem.              for visualization of relationships across diverse protein superfamilies. PLoS One 4, e4345
+     Biomol. Eng. 5, 347–366 (2014).                                                               (2009).
+10.  Roiban, G.-D. et al. Development of an enzymatic process for the production of            42.  Copp, J. N., Akiva, E., Babbitt, P. C. & Tokuriki, N. Revealing unexplored sequence-function
+     (R)-2-butyl-2-ethyloxirane. Org. Process Res. Dev. 21, 1302–1310 (2017).                      space using sequence similarity networks. Biochemistry 57, 4651–4662 (2018).
+11.   Arnold, F. H. Directed evolution: bringing new chemistry to life. Angew. Chem. Int. Ed. 57,     43.  Pyser, J. B. et al. Stereodivergent, chemoenzymatic synthesis of azaphilone natural
+    4143–4148 (2018).                                                                           products. J. Am. Chem. Soc. 141, 18551–18559 (2019).
+12.   Tobin, P. H., Richards, D. H., Callender, R. A. & Wilson, C. J. Protein engineering: a new        44.  Lima, S. T. et al. A widely distributed biosynthetic cassette is responsible for diverse plant
+      frontier for biological therapeutics. Curr. Drug. Metab. 15, 743–756 (2014).                        side chain cross-linked cyclopeptides. Angew. Chem. Int. Ed. 62, e202218082 (2023).
+13.  Novick, S. J. et al. Engineering an amine transaminase for the efficient production of a        45.  Ju, S. et al. A biocatalytic platform for asymmetric alkylation of α-keto acids by mining
+      chiral sacubitril precursor. ACS Catal. 11, 3762–3770 (2021).                               and engineering of methyltransferases. Nat. Commun. 14, 5704 (2023).
+14.  Lovelock, S. L. et al. The road to fully programmable protein catalysis. Nature 606, 49–58    46.  Jacot-Descombes, L., Turcani, L. & Jorner, K. morfeus (computer software). https://github.
+     (2022).                                                                                      com/digital-chemistry-laboratory/morfeus (accessed 29 August 2025).
+15.   Yu, T. et al. Enzyme function prediction using contrastive learning. Science 379, 1358–1363     47.  Ropp, P. J., Kaminsky, J. C., Yablonski, S. & Durrant, J. D. Dimorphite-DL: an open-source
+     (2023).                                                                          program for enumerating the ionization states of drug-like small molecules. J. Cheminform.
+16.  Hon, J. et al. EnzymeMiner: automated mining of soluble enzymes with diverse structures,            11, 14 (2019).
+     catalytic properties and stabilities. Nucleic Acids Res. 48, W104–W109 (2020).               48.  Hastie, T., Tibshirani, R. & Friedman, J. in The Elements of Statistical Learning: Data Mining,
+17.  Schnoes, A. M., Brown, S. D., Dodevski, I. & Babbitt, P. C. Annotation error in public              Inference, and Prediction 605–624 (Springer, 2009).
+     databases: misannotation of molecular function in enzyme superfamilies. PLoS Comput.     49.  Lyzhin, I., Ustimenko, A., Gulin, A. & Prokhorenkova, L. Which tricks are important
+      Biol. 5, e1000605 (2009).                                                                            for learning to rank? Proc. 40th Intl Conf. Machine Learning (ICML 2023), PMLR 202,
+18.  Robertson, D. E. et al. Exploring nitrilase sequence space for enantioselective catalysis.          23264–23278 (2023).
+     Appl. Environ. Microbiol. 70, 2429–2436 (2004).                                          50.  Bentéjac, C., Csörgő, A. & Martínez-Muñoz, G. A comparative analysis of gradient boosting
+19.  Wahler, D., Badalassi, F., Crotti, P. & Reymond, J.-L. Enzyme fingerprints by fluorogenic             algorithms. Artif. Intell. Rev. 54, 1937–1967 (2021).
+    and chromogenic substrate arrays. Angew. Chem. Int. Ed. 40, 4457–4460 (2001).              51.  Kerkovius, J. K. et al. A pyridine dearomatization approach to the matrine-type lupin
+20.  Finnigan, W., Hepworth, L. J., Flitsch, S. L. & Turner, N. J. RetroBioCat as a computer-aided           alkaloids. J. Am. Chem. Soc. 144, 15938–15943 (2022).
+     synthesis planning tool for biocatalytic reactions and cascades. Nat. Catal. 4, 98–104      52.  Xu, H., Zhao, J. & Renata, H. Discovery, characterization and synthetic application of a
+     (2021).                                                                             promiscuous nonheme iron biocatalyst with dual hydroxylase/desaturase activity. Angew.
+21.  Fansher, D. J., Besna, J. N., Fendri, A. & Pelletier, J. N. Choose your own adventure: a          Chem. Int. Ed. 63, e202409143 (2024).
+    comprehensive database of reactions catalyzed by cytochrome P450 BM3 variants.       53.  Bunno, R., Awakawa, T., Mori, T. & Abe, I. Aziridine formation by a FeII/α-ketoglutarate
+    ACS Catal. 14, 5560–5592 (2024).                                                     dependent oxygenase and 2-aminoisobutyrate biosynthesis in fungi. Angew. Chem. Int.
+22.  Ma, E. J. et al. Machine-directed evolution of an imine reductase for activity and                Ed. 60, 15827–15831 (2021).
+     stereoselectivity. ACS Catal. 11, 12433–12445 (2021).
+23.  Ao, Y.-F. et al. Structure- and data-driven protein engineering of transaminases for            Publisher’s note Springer Nature remains neutral with regard to jurisdictional claims in
+     improving activity and stereoselectivity. Angew. Chem. Int. Ed. 62, e202301660 (2023).      published maps and institutional affiliations.
+24.  Supekar, S. et al. A machine learning-guided approach to navigate the substrate activity
+    scope of galactose oxidase: application in the conversion of pharmaceutically relevant                Open Access This article is licensed under a Creative Commons Attribution-
+     bulky secondary alcohols. ACS Catal. 14, 17233–17243 (2024).                                          NonCommercial-NoDerivatives 4.0 International License, which permits any
+25.  King, B. R., Sumida, K. H., Caruso, J. L., Baker, D. & Zalatan, J. G. Computational stabilization                  non-commercial use, sharing, distribution and reproduction in any medium or
+     of a non-heme iron enzyme enables efficient evolution of new function. Angew. Chem. Int.     format, as long as you give appropriate credit to the original author(s) and the source, provide
+     Ed. 64, e202414705 (2025).                                                       a link to the Creative Commons licence, and indicate if you modified the licensed material. You
+26.  Mou, Z. et al. Machine learning-based prediction of enzyme substrate scope: application    do not have permission under this licence to share adapted material derived from this article
+     to bacterial nitrilases. Proteins 89, 336–347 (2021).                                        or parts of it. The images or other third party material in this article are included in the article’s
+27.  Yang, M. et al. Functional and informatics analysis enables glycosyltransferase activity       Creative Commons licence, unless indicated otherwise in a credit line to the material. If
+     prediction. Nat. Chem. Biol. 14, 1109–1117 (2018).                                            material is not included in the article’s Creative Commons licence and your intended use is not
+28.  Kroll, A., Ranjan, S., Engqvist, M. K. M. & Lercher, M. J. A general model to predict small       permitted by statutory regulation or exceeds the permitted use, you will need to obtain
+    molecule substrates of enzymes based on machine and deep learning. Nat. Commun. 14,    permission directly from the copyright holder. To view a copy of this licence, visit http://
+    2787 (2023).                                                                           creativecommons.org/licenses/by-nc-nd/4.0/.
+29.  Goldman, S., Das, R., Yang, K. K. & Coley, C. W. Machine learning modeling of family wide
+     enzyme-substrate specificity screens. PLoS Comput. Biol. 18, e1009853 (2022).        © The Author(s) 2025
+
+
+
+
+
+116  |  Nature  |  Vol 646  |  2 October 2025
+
+
+[PDF physical page 10]
+                                                                                       Wilmington) for their generous contribution of complex molecules and K. V. Brown (University
+Data availability                                                                   of Michigan) and R. Snajdrova and E. Tassano (Novartis Institutes for Biomedical Research, Inc.)
+                                                                                                         for helpful discussions.
+All of the experiments discussed are provided in the Supplementary
+Information. The data are available at https://huggingface.co/gomes-   Author contributions A.R.H.N., J.C.P. and A.E.P. conceptualized the high-throughput
+group/catnip.                                                                       generation of connections between chemical space and protein sequence space.                                                                                                                     J.C.P. performed bioinformatic investigations, designed the enzyme library and performed
+                                                                            SDS-PAGE analysis. A.E.P. developed the experimental high-throughput reaction platform,
+                                                                                  performed biocatalytic reactions, analysed LC-MS data, proposed the concept for chemical
+Code availability                                                      and sequence space navigation, designed the baseline metric for enzyme ranking and
+                                                                                    executed part of the preparative-scale biocatalytic chemistry. T.R. generated initial MORFEUS
+All of the code is available at https://doi.org/10.5281/zenodo.16779318    descriptors. G.G. and D.A.B. designed and implemented the machine learning pipeline,
+(ref. 54).                                                                                  including chemical space analysis, candidate generation and reranking procedures, as well as
+                                                                                  developed the CATNIP platform. N.I.C. assisted in high-throughput reaction discovery and
+                                                                                  performed part of the preparative-scale biocatalytic chemistry. A.R.H.N. and G.G. secured
+54.  Paton, A. E. et al. Connecting chemical and protein sequence space to predict biocatalytic                                                                                       funding and oversaw the project. A.E.P., D.A.B., G.G. and A.R.H.N. wrote the manuscript, with
+     reactions (v0.1). Zenodo https://doi.org/10.5281/zenodo.16779318 (2024).                                                                                              input from all authors.
+
+Acknowledgements This research was supported by funds from the Life Sciences Institute      Competing interests The authors declare no competing interests.
+and the Department of Chemistry at the University of Michigan. Part of the enzyme library was
+built in collaboration with the Joint Genome Institute (JGI) DNA Synthesis Program. Efforts to      Additional information
+profile the reactivity of the enzyme library were supported by the Novartis Global Scholars       Supplementary information The online version contains supplementary material available at
+Program. Aspects of the data science components of this project were supported by the          https://doi.org/10.1038/s41586-025-09519-5.
+Camille Dreyfus Teacher-Scholar Award (TC-20-061) and the MBioFAR Program at the         Correspondence and requests for materials should be addressed to Gabe Gomes or
+University of Michigan (A.R.H.N.). This work is part of the National Science Foundation Center      Alison R. H. Narayan.
+for Chemoenzymatic Synthesis (2221346, A.R.H.N. and G.G.). G.G. thanks Carnegie Mellon        Peer review information Nature thanks Uwe Bornscheuer and the other, anonymous,
+University and the departments of chemistry and chemical engineering for the start-up         reviewer(s) for their contribution to the peer review of this work. Peer reviewer reports are
+support. We thank S. Reisman (California Institute of Technology), K. Brummond (University of      available.
+Pittsburgh), J. Schomaker (University of Wisconsin) and J. Morgan (University of North Carolina     Reprints and permissions information is available at http://www.nature.com/reprints.

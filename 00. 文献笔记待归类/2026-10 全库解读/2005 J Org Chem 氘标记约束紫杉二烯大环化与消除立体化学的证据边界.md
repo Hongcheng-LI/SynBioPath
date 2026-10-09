@@ -1,0 +1,217 @@
+---
+type: literature-reading
+zotero_key: T653KQDL
+doi: "10.1021/jo0502091"
+paper_type: research
+classification_status: pending
+reading_status: main-text-and-figures-read
+review_status: codex-source-checked
+human_full_paper_review: false
+source_attachment: 9PCTXUVK
+source_sha256: c86c9f443fd9db95ad5cbfb9f85e31b96c6d56b9b97361e4213cfb0f4f420da0
+created: 2026-10-08
+---
+
+> 原文来源：[Zotero 条目](zotero://select/library/items/T653KQDL)；[DOI](https://doi.org/10.1021/jo0502091)；由当前 Codex 读取原始主文并核对图表，尚未经人工逐项复核。 来源限制：All9physicalmainpagesfullreadviewed5authorsJOC704667–4675DOI;GA2Figures2Tables6Schemes5unnumberedstructuregroups16crops；SIotherNMRGCMSrawtracescompletecharacterizationnotreadindependentreanalysisnotclaimed；C1GGPPenantio98–99assumedanalogygeranylPPnotdirecteachGGPP;C4precursor95to5late91to9inferredcorrected8to1epoxideratio；Table1H2alpha1.62H2beta1.72bodycallinghigherfield1.72conflictingdescriptor retained；ReferenceTablesracemictaxadienenotcrystalofTSorreactivecarbocation;Karplusanglemodelnotfixedenzymeconformation；Figure1StoCSYabsenceofbothsignals nottwoDs isotopecount1blockedspintransfer pathway modelplusNOE；RlabelC1to2alpha Slabelto2beta supportsinversionnotdirecttimesresolvedconcertedness；TransmethylC16D3label1.09disappears1.32remainsFigure2extra1.36impuritynotnewproduct；Oppositefaces14re15siantiaddition requiresknownH1beta+priorpeakassignments;H11transadditionalfluoroprobestudynotsolecurrentisotopeproof；C4productGC10to10to80MS273273272;firsttaxa34isomer24TENTATIVE basedMSfragmentnotfullNMR；Unlabeled24about1exoisomer25about4–5 vslabel10each;isotopeeffectinterpretation noexactkHkDcalculated；H5betaeliminationbodypredominantlyvsexclusively;91to9substratepuritylimiteddetectionnotuniversalabsoluteexclusivity；Preparatives5to10percenttypical6notpurekcatindustrialTaxolpathconversion;nerrorPnotreported；DirectC11toC7protontransferoractive-siteindirectnonexchangingrelayexplicitbothretained；EnzBschematicunspecifiedbase notconfirmedTSresidue;twistboatenergeticfavorabilitymodelnotmeasuredbarrier。
+
+# 文献基本信息
+
+**英文题目：** Stereochemistry of the Macrocyclization and Elimination Steps in Taxadiene Biosynthesis through Deuterium Labeling。**中文题目：** 通过氘标记研究紫杉二烯生物合成中大环化及消除步骤的立体化学。**作者：** Qingwu Jin、David C. Williams、Mehri Hezari、Rodney Croteau、Robert M. Coates；通讯作者 Robert M. Coates。**机构：** University of Illinois 化学系及 Washington State University 生物化学研究机构。**期刊：** The Journal of Organic Chemistry，2005，70，4667–4675，原始研究。**网页发表：** 2005-05-12。**DOI：** 10.1021/jo0502091。**Zotero key：** T653KQDL。
+
+本次读取本地正文全部 9 个物理页，包括合成、酶促实验及讨论。完整覆盖摘要结构图、两张 NMR Figure、两张 Table、六张 Scheme、基础结构组和四组编号反应式。截图保持全部结构编号、氘位置和图注，避免裁切后改变原子的对应关系。Supporting Information 的其他谱图、GC/MS 原始图和完整合成表征未读取；不能把正文中的作者赋值表述为已独立重解析所有原始数据。
+
+**核心认识：** 三类位置明确的氘标记建立了 GGPP 到 taxadiene 的原子与立体对应关系，支持 C1 构型反转、末端双键的总体 anti 加成和主产物形成时优先消除 H5β。这些约束不等同于直接观察酶内碳正离子、实测全部能垒或证明唯一的质子迁移机制。
+
+
+![Graphical Abstract 原文第 1 页](https://synbiopath.online/T653KQDL-Graphical-Abstract-p1-complete-ef173906a1924803.png)
+
+*Graphical Abstract：原文 Graphical Abstract：完整结构、数据与图注；保留所有氘位置和编号（原文 PDF 截图）。*
+
+
+# 研究背景
+
+Taxadiene synthase 将线性 GGPP 转变为紫杉烷三环骨架，是紫杉醇生物合成早期的重要反应。碳骨架连接已经可以由最终产物结构确定，但许多立体信息在反应前后没有直接可见的手性中心变化。例如 CH₂OPP 的两个氢原本不可由普通终点结构区分，末端两个甲基也需要明确的空间对应才能推断加成面。
+
+作者将此前机制模型中的待解问题拆为起始碳的保留或反转、对末端双键的进攻面、双环中间体桥头关系以及末端消除哪一个氢。前人的同位素研究已经支持 C11 的氢最终出现在 C7，但不能单独回答所有这些问题。本文用新标记回答其中三项，桥头 H11 构型另有同期含氟探针研究提供证据；不能将两篇研究的实验对象混成一篇。
+
+此前给酶补加 cembrene A 或 verticillene 未形成 taxadiene，排除了简单的游离底物再利用模式，却不能由此排除酶内紧密结合的部分环化状态。稳定中性分子、酶结合的碳正离子和最终产物属于不同对象。Figure 之外的基础结构组帮助区分这些相似骨架。
+
+
+![Unnumbered Structure Graphic 1 原文第 2 页](https://synbiopath.online/T653KQDL-Unnumbered-Structure-Graphic-1-p2-complete-4c313544dc64b6ed.png)
+
+*Unnumbered Structure Graphic 1：原文 Unnumbered Structure Graphic 1：完整结构、数据与图注；保留所有氘位置和编号（原文 PDF 截图）。*
+
+
+# 研究思路
+
+作者首先建立三类互补底物：C1 的两个立体异构单氘标记用于追踪起始构型；末端 trans 甲基的三氘标记用于确定双键两端的面选择；C4 的立体选择性单氘标记用于判断最终 H5 的去留。随后分别进行酶促反应，通过质谱计数和 NMR 定位把底物位置与产物位置对应起来。
+
+Scheme 1 是此前提出的总体环化框架，既包含初始大环化，也包含质子转移、后续关环和消除。这些箭头在本文中并非具有相同的验证强度：氘的去向来自实验读出，具体中间体构象则部分来自模型和其他论文。
+
+研究还先对 taxadiene 在 C₆D₆ 中进行独立 NMR 赋值，以解决微量产物稳定性和峰重叠问题。也就是说，标记实验的可靠解释依赖前置的峰身份确认，不能只把“少了一个峰”当作完整立体结论。
+
+
+![Scheme 1 原文第 2 页](https://synbiopath.online/T653KQDL-Scheme-1-p2-complete-8aad1a73c7ae5d3e.png)
+
+*Scheme 1：原文 Scheme 1：完整结构、数据与图注；保留所有氘位置和编号（原文 PDF 截图）。*
+
+
+# 研究方法
+
+作者化学合成位置明确的标记 GGPP，采用衍生化、NMR 和双键异构体分离评价底物身份。C1 标记底物的约 98–99% 对映纯度是根据相同方法制备的 geranyl PP 类比而假定，并非本篇直接测定每一份 GGPP。C4 标记前体最初为 95:5，后续以不对称环氧化得到 8:1 非对映比，再考虑环氧化本身的 95:5 选择性，作者推得约 91:9。不同数值属于不同阶段和测定关系，不应统一写成“所有底物纯度 99%”。
+
+酶促体系使用 Taxus brevifolia 来源的 N 端截短 M60 TS，经大肠杆菌表达和纯化。正文报告该制备纯度大于 96%，使用含 Mg²⁺ 的缓冲体系，在饱和水平氘底物及少量放射示踪物存在下获取可分析产物。典型产率约 6%，实验部分报告 5–10% 范围。此项是制备读出，不是 kcat、工业生产率或整个紫杉醇路径的转化率。
+
+GC/MS 用于区分同位素质量及产物异构体，NMR 包括 HMBC、HMQC、TOCSY、NOE 与耦合分析。作者采用 C₆D₆，是为了避免微量样品在可能含少量酸的 CDCl₃ 中受到影响。文章没有报告重复次数、标准差、置信区间或显著性检验，不能自行补充 n 或 P 值。SI 未读取，也未进行独立脉冲序列和原始积分复算。
+
+
+![Scheme 2 原文第 3 页](https://synbiopath.online/T653KQDL-Scheme-2-p3-complete-05d6552b737736ff.png)
+
+*Scheme 2：原文 Scheme 2：完整结构、数据与图注；保留所有氘位置和编号（原文 PDF 截图）。*
+
+
+
+![Scheme 3 原文第 4 页](https://synbiopath.online/T653KQDL-Scheme-3-p4-complete-b282394ec729cb4e.png)
+
+*Scheme 3：原文 Scheme 3：完整结构、数据与图注；保留所有氘位置和编号（原文 PDF 截图）。*
+
+
+# 实验设计及结果分析
+
+### 1. 完整赋值是标记定位的前提
+
+Table 1 给出合成消旋 taxadiene 在 C₆D₆ 中的 ¹H/¹³C 赋值，Table 2 给出选择性照射下的 NOE。HMBC 将两个甲基与 C11 等碳联系起来，再通过 NOE 区分 C16 和 C17。C16 甲基为 δ 1.09，C17 为 δ 1.32；这两个峰身份决定了后续三氘标记结果如何解释。
+
+H2α 和 H2β 位于拥挤区域，Table 1 分别列 δ 1.62 与 1.72。C17/C19 甲基照射后在 1.72 的 NOE 支持该峰为 H2β。正文一句将所赋峰称为“higher field resonance”，但 1.72 比 1.62 更低场；此措辞与实际数字不一致，笔记依照表和相关证据记下峰位置，并保留原文措辞问题。
+
+耦合常数用于推断 A 环扭曲拟船式及 C 环拟椅式构象。作者引用相关衍生物的既有晶体作比较，但本研究没有直接测定反应状态的 TS 复合物。Karplus 推导的角度依赖模型和取样构象，也不等同于每个分子或酶内中间体固定具有所列精确角度。
+
+
+![Table 1 原文第 5 页](https://synbiopath.online/T653KQDL-Table-1-p5-complete-a89b584efba33bbd.png)
+
+*Table 1：原文 Table 1：完整结构、数据与图注；保留所有氘位置和编号（原文 PDF 截图）。*
+
+
+
+![Table 2 原文第 5 页](https://synbiopath.online/T653KQDL-Table-2-p5-complete-6c316f8acac0e171.png)
+
+*Table 2：原文 Table 2：完整结构、数据与图注；保留所有氘位置和编号（原文 PDF 截图）。*
+
+
+### 2. C1 双立体标记支持起始碳构型反转
+
+Figure 1a 为未标记参考，b、c 分别来自 (R)- 与 (S)-[1-²H₁]GGPP。质谱支持两种产物均保留一个氘，但质量增加只能提供数目信息，具体位置仍需 NMR。
+
+(R) 底物产物的 TOCSY 在 1.62 附近缺少 H2α 对应读出，而 1.69 的峰被解释为 H2β 受到同碳氘取代引起约 −0.03 ppm 位移。这支持氘位于产物 2α。对应反应式 1 给出这一映射。
+
+(S) 底物产物在同一区域两个相关 TOCSY 读出都消失。作者解释为 H2β 被氘替换后，中断经同碳耦合传递到 H2α 的主要传播路径；不能因此错误认定两个氢均被替换。对 C20 甲基照射后仍能观察到 H2α 的 NOE，为氢仍在该处提供补充证据。反应式 2 据此将氘定位于 2β。
+
+两组互补映射及已知骨架共同支持起始 C1 的构型反转。这个结果使先发生某类烯丙位重排再以保留方式环化的模型不利，但没有直接测得 C–O 断裂与各 C–C 成键的时间次序，因此“可能协同”仍属于机制解释。
+
+
+![Figure 1 原文第 6 页](https://synbiopath.online/T653KQDL-Figure-1-p6-complete-d78172f629d7fb70.png)
+
+*Figure 1：原文 Figure 1：完整结构、数据与图注；保留所有氘位置和编号（原文 PDF 截图）。*
+
+
+
+![Unnumbered Structure Graphic 2 原文第 6 页](https://synbiopath.online/T653KQDL-Unnumbered-Structure-Graphic-2-p6-complete-1b2edbb0a593d31e.png)
+
+*Unnumbered Structure Graphic 2：原文 Unnumbered Structure Graphic 2：完整结构、数据与图注；保留所有氘位置和编号（原文 PDF 截图）。*
+
+
+
+![Unnumbered Structure Graphic 3 原文第 6 页](https://synbiopath.online/T653KQDL-Unnumbered-Structure-Graphic-3-p6-complete-57e6d4f8bc39f19f.png)
+
+*Unnumbered Structure Graphic 3：原文 Unnumbered Structure Graphic 3：完整结构、数据与图注；保留所有氘位置和编号（原文 PDF 截图）。*
+
+
+### 3. 末端甲基标记约束总体 anti 加成
+
+Figure 2 对比普通产物与 [16,16,16-²H₃]GGPP 所得产物。后者 1.09 的 C16 甲基峰几乎消失，1.32 的 C17 峰仍存在，支持 trans 末端甲基映射到产物 C16。图注明确下谱 1.36 的额外峰来自杂质，不能把它误认作标记迁移形成的新产物。
+
+结合已知产物 H1β 构型，作者推得新形成的 C1–C14 和 C15–C10 键位于底物 14,15 双键的相反面，对应总体 anti 加成及 C15 的 si 面参与。该判断依赖前述甲基赋值与底物几何身份，不是从一个峰缺失直接推出所有反应面的结论。
+
+Scheme 4 同时画出可生成不同桥头关系的折叠方案，说明本文新标记结果并未单独排尽 H11 的所有可能性。最终偏向 trans 双环模型，还结合同期含氟探针和相关天然骨架证据。本文不能被概括为“氘实验一项直接证明全部桥头构型”。
+
+
+![Figure 2 原文第 6 页](https://synbiopath.online/T653KQDL-Figure-2-p6-complete-f8d228aaba3e6321.png)
+
+*Figure 2：原文 Figure 2：完整结构、数据与图注；保留所有氘位置和编号（原文 PDF 截图）。*
+
+
+
+![Unnumbered Structure Graphic 4 原文第 6 页](https://synbiopath.online/T653KQDL-Unnumbered-Structure-Graphic-4-p6-complete-e4702f9cf36a8741.png)
+
+*Unnumbered Structure Graphic 4：原文 Unnumbered Structure Graphic 4：完整结构、数据与图注；保留所有氘位置和编号（原文 PDF 截图）。*
+
+
+
+![Scheme 4 原文第 7 页](https://synbiopath.online/T653KQDL-Scheme-4-p7-complete-0b782ad3dbbbdbe0.png)
+
+*Scheme 4：原文 Scheme 4：完整结构、数据与图注；保留所有氘位置和编号（原文 PDF 截图）。*
+
+
+### 4. C4 标记的去留及分支比例支持优先消除 H5β
+
+(R)-[4-²H₁]GGPP 的产物 GC 面积比为 **10:10:80**，相应分子离子为 273、273、272。主要的 4(5),11(12)-taxadiene 不保留氘，两个较小异构体保留一个氘。反应式 4 画出这一总体读出；这里的面积比不是三项分别的分离收率。
+
+第二峰与外双键异构体 25 的参照相符，第三峰对应正常产物 2；第一峰 24 的 3(4) 双键结构则是作者根据质谱与碎片缺失作出的 tentative assignment，不能提升为获得完整 NMR 的确证。主产物丢失指定面氘的事实支持最终成双键主要移除 H5β。
+
+未标记底物中 24 约 1%，外双键异构体通常 4–5%；标记后两条支路提高，作者用断裂 C–D 的初级同位素效应造成竞争分支放大解释。文章没有给出可独立引用的 kH/kD 数值，不能从面积比自行等同推导精确动力学同位素效应。
+
+正文在一处使用“predominantly”，另一处写“exclusively”。考虑底物约 91:9 的构型纯度、有限的检测信息及部分产物仍属暂定赋值，笔记采用“在所测条件下主要选择该面消除”。不能自动外推成所有底物和条件下绝无另一面反应。
+
+
+![Unnumbered Structure Graphic 5 原文第 7 页](https://synbiopath.online/T653KQDL-Unnumbered-Structure-Graphic-5-p7-complete-575428ea2c6c0948.png)
+
+*Unnumbered Structure Graphic 5：原文 Unnumbered Structure Graphic 5：完整结构、数据与图注；保留所有氘位置和编号（原文 PDF 截图）。*
+
+
+
+![Scheme 6 原文第 8 页](https://synbiopath.online/T653KQDL-Scheme-6-p8-complete-d778fccf98eaf97a.png)
+
+*Scheme 6：原文 Scheme 6：完整结构、数据与图注；保留所有氘位置和编号（原文 PDF 截图）。*
+
+
+### 5. 构象与质子迁移图解仍包含未决机制
+
+Scheme 5 将初始双环构象翻转、链段旋转和第三环形成连接起来；Scheme 6 将最终构象与不同消除分支连接。产物标记提供空间和原子约束，但这些瞬态构象没有在本文中直接观察。
+
+作者明确保留直接分子内 C11→C7 迁移与活性位点残基介导的间接过程。最终氢落在同一个位置并保持标记，不足以单独排除一个不与外界交换的酶内中转。文中讨论其他萜合酶的残基经验，属于类比背景，不能自动移植为 TS 已确认的质子受体。
+
+对于为何较高能量外观的 H5β 消除占优，作者提出活性位点碱的接近可能重要，同时明确原因并不清楚。Scheme 6 的 Enz-B 表示假定功能角色，未指定且验证具体残基；不能把图中的功能符号当作已完成残基鉴定。
+
+
+![Scheme 5 原文第 7 页](https://synbiopath.online/T653KQDL-Scheme-5-p7-complete-83e8a97b1040ffbe.png)
+
+*Scheme 5：原文 Scheme 5：完整结构、数据与图注；保留所有氘位置和编号（原文 PDF 截图）。*
+
+
+# 总体结论
+
+本文通过互补氘标记和 NMR 定位，把起始碳、末端甲基和最终消除氢的立体对应关系连起来，支持 C1 反转、总体 anti 大环化与优先 H5β 消除。结果显著收紧了 TS 环化模型的空间约束，但仍需要其他研究补足桥头构型和瞬态机制，也没有决定质子转移只能采取直接路径。
+
+# 论文评价
+
+优点是标记设计分别针对不同立体未知量，并先解决谱峰身份与重叠，再解释氘去向。互补 C1 标记尤其避免将信号消失机械当作原子缺失；对 TOCSY 传播路径和杂质峰的说明使证据链更加可追踪。
+
+局限包括部分底物纯度采用类比或模型校正、低制备产率、SI 未独立读取、小比例异构体暂定赋值及重复与不确定性报告有限。本文是机制约束研究，不能把产物比例变化写成可重复的工业选择性优化。构象图具有解释力，但其节点与箭头的实验支持程度不同。
+
+对课题的启示是标记实验要同时检查原子计数、位置、面选择和分析传递机制，避免仅由质量变化下结构结论。下一步若要比较迁移方案，应使设计能区分直接转移和酶内中转，并保留完整底物纯度及产物检测信息。这里是解读者提出的证据完善方向，不代表本文已完成相应验证。
+
+# 关键问题及回答
+
+**问题 1：两种 C1 标记产物质谱相同，为什么仍能判不同立体映射？**
+
+质谱主要回答氘的数量，TOCSY、位移和 NOE 则区分其位置与面。两种产物都保留一个氘不意味着它们在立体上相同，需要组合不同观测进行解释。
+
+**问题 2：10:10:80 是否是精确的动力学同位素效应数值？**
+
+不是，它是所报告的产物 GC 面积比。作者据分支增强提出初级同位素效应解释，未提供可直接等同于该比例的 kH/kD 测定。
+
+**问题 3：本篇是否证明 C11→C7 的质子完全不经过酶？**
+
+没有。作者保留不与外界交换的酶内间接转移过程。标记原子终点与最终构型提供限制，却不独立决定中间全部传递路径。
+
+> 分类状态：待全部文献笔记完成后统一分类归档。

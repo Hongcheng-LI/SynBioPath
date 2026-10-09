@@ -1,0 +1,329 @@
+
+[PDF physical page 1]
+RESEARCH
+
+
+FUNCTION PREDICTION                                                                    tion (vectors or matrices) of protein sequence
+                                                                                                 that is readable by machine while still retain-
+                                                                                          ing the important features and informationEnzyme function prediction using contrastive learning
+                                                                                               carried by the enzyme. In CLEAN’s task, the
+Tianhao Yu1,2,3†, Haiyang Cui1,2,3†, Jianan Canal Li3,4, Yunan Luo5, Guangde Jiang1,2, Huimin Zhao1,2,3,6*     amino acid sequences with the same EC num-
+                                                                                         ber have a small Euclidean distance, whereas
+Enzyme function annotation is a fundamental challenge, and numerous computational tools have been         sequences with different EC numbers have a
+developed. However, most of these tools cannot accurately predict functional annotations, such as enzyme      large distance. Contrastive losses were used to
+commission (EC) number, for less-studied proteins or those with previously uncharacterized functions or        train the model with supervision (16, 18). During
+multiple activities. We present a machine learning algorithm named CLEAN (contrastive learning–enabled       the training process (Fig. 1A), each reference
+enzyme annotation) to assign EC numbers to enzymes with better accuracy, reliability, and sensitivity         sequence (anchor) in the training dataset was
+compared with the state-of-the-art tool BLASTp. The contrastive learning framework empowers CLEAN to      sampled with a sequence with the same EC
+confidently (i) annotate understudied enzymes, (ii) correct mislabeled enzymes, and (iii) identify promiscuous   number (positive) and a sequence with a differ-
+enzymes with two or more EC numbers—functions that we demonstrate by systematic in silico and in vitro     ent EC number (negative). Aiming to facilitate
+experiments. We anticipate that this tool will be widely used for predicting the functions of uncharacterized      training efficiency by providing the model with
+enzymes, thereby advancing many fields, such as genomics, synthetic biology, and biocatalysis.               challenging negative samples—instead of draw-
+                                                                                           ing them randomly—negative sequences with
+                                                                               embeddings that had a small Euclidean dis-
+     he development of DNA sequencing tech-    similarity–based (7–9), homology-based (10, 11),   tance with the anchor were prioritized.
+      nologies, and particularly genomics and    structure-based (12, 13), and machine learning     In the training stage, the protein representa-    metagenomics tools, has led to the dis-   (ML)–based (14, 15) approaches. Among them,    tion obtained from the language model ESM-      Downloaded
+     covery             of numerous                        protein                              sequences                                          sequence                                                                       Basic                                                                          Local Align-                                                        similarity–based                                                                                         1b                                                                                             used                                                                                                           as the input                                                                                                                                of                                                                                                               a feedforward                                                                                                             (19) was
+    from organisms                     across                                   all branches                                           of                                      ment Search                                                           Tools for proteins                                                                   (BLASTp)                                                                                                                is the                                                                                          neural                                                                                              network,                                                                                          whose                                                                                                           output                                                                                                                                  layer                                                                                                                produced  fromlife.TFor example, UniProt Knowledgebase has   most widely used tool (7). However, BLASTp   a refined, function-aware embedding of the
+cataloged ~190million proteinsequences. How-   and other alignment tools annotate functions    input protein. The learning objective is a con-
+ever, only <0.3% (approximately half a million)   based solely on sequence similarity, making the    trastive loss function that minimizes the dis-
+of these proteins were reviewed by human cu-    prediction result less reliable when sequence   tance between the anchor and the positive
+rators, out of which <19.4% are supported by    similarity is low. On the other hand, almost all   while maximizing the distance between the
+clear experimental evidence (1). Consequently,   the existing ML models, such as DeepEC (14)   anchor and the negative. When making pre-
+protein function annotation is highly depen-   and ProteInfer (15), are based on a multilabel    dictions, the representation of an EC number                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                https://www.science.org
+dent on computational annotation methods.    classification framework and suffer from the    cluster center was obtained by averaging the at
+However, the study on large-scale, community-    limited and imbalanced training dataset that   learned embeddings of all sequences in the
+based critical assessment of protein function    is common in biology. Therefore, a robust    training set belonging to that EC number (Fig.
+annotation (CAFA) found that ~40% of the    tool with better accuracy and EC coverage is    1B). Subsequently, the pairwise distances be-                                                                                                                                                                                                                                                                                                                                                                                                                                                            Northwest
+automatically annotated enzymes using exist-    required to unlock the potential of currently   tween the query sequence and all EC number
+ing computational tools are incorrectly anno-    uncharacterized proteins and to understand    cluster centers were calculated. EC numbers                                                                                                                                                    A&F
+tated (2). Therefore, functional annotation of    the range of protein functions.                   of clusters that are significantly close to the
+proteins remains an overwhelming challenge     In this work, we report a ML model named   query sequence are predicted as the EC num-
+in protein science. Particularly, the inequality   CLEAN (contrastive learning–enabled enzyme    bers for the input protein (supplementary text,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Universityin protein annotation of understudied and   annotation) for enzyme function prediction.    section 1).
+promiscuous proteins has impeded biomedical   CLEAN was trained on high-quality data from     The database used for model development on
+progress and drug discovery (3, 4).               UniProt, taking amino acid sequence as input   and evaluation was a universal protein knowl-
+  Enzyme commission (EC) number isthe most   and outputting a list of enzyme functions (EC   edgebase UniProt (1). Two EC selection meth-                                                                                                                                                                                                                                                                                                                                                          October
+well-known numerical classification scheme of   numbers as the example) ranked by the likeli-   ods were developed to predict confident EC                                                                                                                                                    15,
+enzymes, which specifies the catalytic function   hood. To validate the accuracy and robustness   numbers from the output ranking (Fig. 1C):
+of an enzyme by four digits. Because experi-    of CLEAN, we performed extensive in silico ex-     (i) a greedy approach that selects EC numbers  2025
+mental characterization of the function of a tar-    periments. Furthermore, we challenged CLEAN    that have the maximum separation (stand out)
+get enzyme is often laborious and expensive,    to annotate EC numbers for an in-house col-   from other EC numbers in terms of the pair-
+numerous computational tools for enzyme func-    lected database of all uncharacterized halo-   wise distance to the query sequence and (ii) a
+tion annotation have been developed (1, 5, 6).   genases (36 in total) followed by case studies   P value–based method that identifies EC num-
+They include but are not limited to sequence    as in vitro experimental validation. CLEAN out-    bers with statistical significance compared with
+                                          performed other EC number annotation tools   background (see materials and methods).
+                                                   at these tasks, including BLASTp and state-of-   On a train-test split in which none of the en-
+1Department of Chemical and Biomolecular Engineering,         the-art ML models.                        zymes in the test set share >50% identity with
+University of Illinois Urbana-Champaign, Urbana, IL 61801,                                            any enzymes in the training set, using the
+USA. 2Carl R. Woese Institute for Genomic Biology, University    Model development and evaluation                                                                                         maximum-separationselectionmethod, CLEAN
+of Illinois Urbana-Champaign, Urbana, IL 61801, USA.
+3National Science Foundation Molecule Maker Lab Institute,      Unlike previously developed ML algorithms   achieved a 0.865 F1 score—a commonly used
+University of Illinois Urbana-Champaign, Urbana, IL 61801,       that frame EC number prediction tasks as a    accuracy metric indicating the harmonic mean
+USA. 4Department of Computer Science, Cornell University,                                                 multilabel classification problem, CLEAN used    of precision and recall. Even at 10% sequence
+Ithaca, NY 14850, USA. 5School of Computational Science and
+Engineering, Georgia Institute of Technology, Atlanta, GA       a contrastive learning (16, 17) framework. Our    identity clustering, CLEAN reached a 0.67 F1
+30308, USA. 6US Department of Energy Center for Advanced     training objective is to learn an embedding    score. Additionally, CLEAN achieved much
+Bioenergy and Bioproducts Innovation, University of Illinois      space of enzymes where the Euclidean dis-    higher performance compared with the base-
+Urbana-Champaign, Urbana, IL 61801, USA.
+*Corresponding author. Email: zhao5@illinois.edu             tance reflects the functional similarities. The    line method using ESM-1b without contrastive
+†These authors contributed equally to this work.             embedding refers to a numerical representa-    learning (fig. S1).
+
+
+Yu et al., Science 379, 1358–1363 (2023)    31 March 2023                                                                                      1 of 6
+
+
+[PDF physical page 2]
+RESEARCH   | RESEARCH ARTICLE
+
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Downloaded
+                                                                                                                                                                                                     from
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                https://www.science.org
+                                                                                                   at
+                                                                                                                                                                                                                                                                                                                                                                                                                                                            Northwest
+                                                                                                                                                    A&F
+
+Fig. 1. The contrastive learning–based framework of CLEAN. (A) During       enzymes under this EC number. When predicting the EC number, the query sequence
+training, positives and negatives were sampled on the basis of EC numbers. The      embedding was compared with each EC number’s representation (shown as ainput sequences were embedded and passed through a neural network. The series of    parallelogram with cool colors) to obtain the pairwise Euclidean distance between the      University
+squares with warm colors stands for the representation of input sequence embedded   query sequence and each EC number. The distance reflects the similarity between   on
+by ESM-1b. Similarly, the sequence embeddings obtained from the supervised     EC numbers and the query sequence. (C) When used as a classification model,
+contrastive learning neural network are illustrated by cool colors. (B) The         two methods, maximum separation (above) and P value (below), were implemented to                                                                                                                                                                                                                                                                                                                                                          October
+representations of an EC number are obtained by averaging the representations of     prioritize confident predictions of EC numbers from the ranking order.
+                                                                                                                                                    15,
+                                                                                                                                                                                                     2025
+Benchmarking CLEAN with previous EC        CLEAN resulted in the highest value in various    (Fig. 2B). Notably, in this challenging task,
+number annotation tools                        multilabel accuracy metrics, including preci-  CLEAN had a 3.0-fold higher F1 score than
+After training, the prediction performance of    sion (0.597) and recall (0.481), when compared    ProteInfer (0.166) and an almost 5.8-fold higher
+CLEAN was systematically investigated by com-   with ProteInfer and DeepEC (Fig. 2A). Also,    score than DeepEC (0.085). The evaluations on
+paring it with six state-of-the-art EC number   CLEAN achieved an F1 score of 0.499, whereas    the New-392 and Price-149 datasets demon-
+annotation tools [i.e., ProteInfer (15), DeepEC    ProteInfer and DeepEC had scores of 0.309 and    strate that CLEAN is more precise and reliable
+(14), BLASTp, DEEPre (20), CatFam (21), and    0.230, respectively.                          than previously developed ML-based models
+ECPred (22)]. Two independent datasets not     The second independent dataset, denoted as    for predicting functions for newly discovered
+included in any model’s development were    Price-149, was a set of experimentally validated    proteins, especially the ones without known
+used to deliver a fair and rigorous benchmark    results described by Price et al. (23). The Price-   enzyme functions.
+study. The first dataset, New-392, consisted of   149 dataset was first curated by ProteInfer (15)
+392 enzyme sequences covering 177 different    as a challenging dataset because the existing    Understanding CLEAN’s performance on
+EC numbers, containing data from Swiss-Prot   sequences were determined to be incorrectly    annotating understudied EC number
+released after CLEAN was trained (April 2022).    or inconsistently labeled in databases like Kyoto    Next, we investigated why CLEAN performs
+The prediction scenario represented a practi-   Encyclopedia of Genes and Genomes (KEGG)    better than other ML models on understudied
+cal situation, where the labeled knowledgebase   by automated annotation methods. Again,   EC numbers. We curated a validation dataset
+was the Swiss-Prot database and functions   CLEAN achieved the highest F1 score (0.495)   with enzymes from rare EC numbers to test our
+of query sequences were unknown. Overall,   comparedwithBLASTp,ProteInfer,andDeepEC    hypothesis that, compared with the multilabel
+
+
+Yu et al., Science 379, 1358–1363 (2023)    31 March 2023                                                                   2 of 6
+
+
+[PDF physical page 3]
+RESEARCH   | RESEARCH ARTICLE
+
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Downloaded
+                                                                                                                                                                                                     from
+
+
+
+Fig. 2. Quantitative comparison of CLEAN with the state-of-the-art EC           recall values were binned by the number of times that the EC number appeared
+number prediction tools. (A) Evaluation of CLEAN’s performance toward           in the training set—i.e., the bin (0,5] means that the EC numbers occurs less
+three multilabel accuracy metrics (precision, recall, and F1 score) examined on    than five times in the training set. The box plots show the results of fivefold
+the New-392 database. Four top-ranked models, ProteInfer, DeepEC, CatFam,       cross-validation. (E) Evaluation on the combined datasets of Price-149 andand ECPred, were used for comparison. (B) Comparison of CLEAN, BLASTp,      New-392 binned by the number of times that the EC number appeared in                                                       https://www.science.org
+ProteInfer, DeepEC, DEEPre, CatFam, and ECPred on the Price-149 database.      CLEAN’s training dataset. (F) Prediction accuracy of CLEAN on an in-house–   at
+(C) Comparison of CLEAN, ProteInfer, and DeepEC on a dataset of underrepresented    curated halogenase dataset compared with six commonly used tools (BLASTp,
+EC numbers. (D) The accuracy binned plot of CLEAN using the test set with        ProteInfer, DeepEC, DEEPre, ECPred, and COFACTOR). This dataset had good
+<50% identity to the training set evaluated with SupconH loss. Precision and       diversity covering 11 different EC numbers.                                                                                                                                                                                                                                                                                                                                                                                                                                                            Northwest
+                                                                                                                                                    A&F
+classification framework, contrastive learning   pendent datasets (New-392 and Price-149) were    Euclidean distances between enzyme sequence
+could better handle the imbalanced nature of   combined and revisited. As shown in Fig. 2E,   embeddings and EC number embeddings
+EC numbers, where some EC numbers have   the accuracy performance was studied sepa-    (materials and methods). Knowing the predic-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Universitythousands of enzyme examples and some only    rately based on the number of times that EC    tion confidence, researchers can make quanti-
+have very few (less than five). In this validation   numbers appeared in the training set. As ex-    tative interpretations of CLEAN’s prediction. on
+dataset, each type of EC number had no more    pected, ProteInfer and DeepEC showed a bias   The confidence quantification can also help
+than five occurrences, and more than 3000 sam-   toward popular EC numbers, limited by the   CLEAN to avoid overprediction by reporting                                                                                                                                                                                                                                                                                                                                                          October
+ples were included in this dataset covering    classification framework. By contrast, CLEAN   the third level of EC number when the con-                                                                                                                                                    15,
+more than 1000 different EC numbers. Note   showed the most superiority in predicting    fidence is low (figs. S11 to S14 and supplemen-
+that ProteInfer and DeepEC were evaluated   understudied functions and maintained high    tary text, section 3).                                      2025
+using their released pretrained models; thus,    accuracy regardless of the EC occurrences. The
+our curated validation set appeared during    challenge posed by the biased dataset to the    Experimental validation
+both models’ training process. In other words,    classification model was the lack of positive    Next, we sought to validate the prediction accu-
+both ProteInfer and DeepEC had an advan-   examples for understudied EC numbers. As a    racy of CLEAN in assigning EC numbers using
+tage that both models have seen the validation    result, classification models can hardly learn    halogenases as a proof-of-concept study. Hal-
+dataset used in Fig. 2C during training, result-   from the limited positive examples. To further   ogenases have been increasingly used for bio-
+ing in the acceptable 0.625 to 0.782 F1 score.    analyze the hypothesis that CLEAN can lever-    catalytic C-H functionalization because of their
+Despite this added advantage, CLEAN out-   age not only positive examples but also nega-    excellentcatalyst-controlledselectivity(23,24,25).
+performed both methods, achieving a 0.817 F1    tive examples through contrastive learning,    Generally, small molecules with halogen atoms
+score (Fig. 2C).                            Supcon-Hard loss (SupconH)—a loss function   produced by halogenases have promising bio-
+ We analyzed CLEAN’s performance based    that samples more negatives compared with    activity and physicochemical properties, thereby
+on the number of times that the EC number    triplet loss—was implemented (materials and    offering broad application in pharmaceutical
+occurred in the training set. Even at 50% se-   methods; supplementary text, section 2; and   and agrochemical fields (24, 26, 27). To date,
+quence identity clustering, where the test set     fig. S2).                                  36 incompletely annotated halogenases have
+and train set had a low similarity, CLEAN’s     Moreover, we implemented a method to   been identified from UniProt, covering all four
+performance did not drop considerably when   quantify the prediction result confidence.    types of halogenases [haloperoxidase, flavin-
+the number of training examples was scarce  We fitted a two-component Gaussian mix-    dependent, a-ketoglutarate (a-KG)–dependent,
+(Fig. 2D). With the given results, the two inde-    ture model (GMM) on the distribution of the   andS-adenosyl-L-methionine(SAM)–dependent
+
+
+Yu et al., Science 379, 1358–1363 (2023)    31 March 2023                                                                    3 of 6
+
+
+[PDF physical page 4]
+RESEARCH   | RESEARCH ARTICLE
+
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Downloaded
+                                                                                                                                                                                                     from
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               https://www.science.org
+                                                                                                   at
+                                                                                                                                                                                                                                                                                                                                                                                                                                                            Northwest
+                                                                                                                                                    A&F
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              University
+                                                                                                   on
+                                                                                                                                                                                                                                                                                                                                                          October
+                                                                                                                                                    15,
+                                                                                                                                                                                                     2025
+
+
+
+
+
+Fig. 3. Experimental validation of CLEAN on uncharacterized halogenases.       functions. Chain A in each crystal structure was used for structural superposition.
+(A) The accuracy degree heatmap of EC numerical ID was shown for the           (E) Nucleophilic substitution of SAM with halide ions or H2O toward SsFlA. (F to
+36 identified halogenases. (B) Heatmap of sequence identity among the          K) HPLC analysis of reaction mixtures of SAM and NaCl/NaF/H2O with blank (F),
+uncharacterized proteins and positive control (PC) enzymes. The color bar with        purified MJ1651 (G), purified TTHA0338 (H), and purified SsFlA [(I) to (K)]. The
+the “viridis” color scale indicates percentage. (C) The SAM hydroxide adenosyl-      peaks of substrate SAM (1), product adenosine (2), 5′-fluoro-5′-deoxyadenosine
+transferase MJ1651-TTHA0338 reaction. (D) Structural superposition of the           (5′-FDA) (3), and 5′-chloro-5′-deoxyadenosine (5′-ClDA) (4) were labeled with light
+three-dimensional (3D) structures of uncharacterized proteins MJ1651 [Protein         yellow, orange, green, and dark green, respectively, which were also aligned at
+Data Bank (PDB) ID: 2F4N (28)], TTHA0338 [PDB ID: 2CW5 (39)], and positive       the same retention time. UV, ultraviolet; mAU, milli–absorbance unit. (L to Q) Mass
+control enzyme PH0463 [PDB ID: 1WU8 (40)]. The same structural superposition     spectra of compounds obtained from the reaction mixtures: substrate 1 in the
+was performed for SsFlA [PDB ID: 5B6I (30)], SalL [PDB ID: 2Q6O (41)], and ScFlA    blank reaction system (L), adenosine (2) in MJ1651 catalyzed reaction (M),
+[PDB ID: 1RQR (42)]. The superposition shows that the 3D structures of these        adenosine (2) in TTHA0338 catalyzed reaction (N), 5′-FDA (3) (O), 5′-ClDA (4)
+SAM-binding enzymes are very similar; yet, CLEAN can accurately distinguish their     (P), and adenosine (2) (Q). m/z, mass/charge ratio.
+
+
+Yu et al., Science 379, 1358–1363 (2023)    31 March 2023                                                               4 of 6
+
+
+[PDF physical page 5]
+RESEARCH   | RESEARCH ARTICLE
+
+
+halogenase] (Fig. 3A and table S2). These hal-   range are often challenging to predict. These      12. C. Zhang, P. L. Freddolino, Y. Zhang, Nucleic Acids Res. 45,
+ogenases were either labeled with uncharac-    results suggest that our sequence-based model       W291–W299 (2017).
+terized and/or hypothetical proteins in UniProt   CLEAN performed better than structure-based      13. A. Roy, J. Yang, Y. Zhang, Nucleic Acids Res. 40, W471–W477
+                                                                                                                                                  (2012).
+or had conflicting annotations in the litera-   methods [e.g., COFACTOR (12, 13)] in dealing      14.  J. Y. Ryu, H. U. Kim, S. Y. Lee, Proc. Natl. Acad. Sci. U.S.A. 116,
+ture. The halogenase dataset is particularly   with enzymes with similar structures but dif-        13996–14001 (2019).
+challenging because the halogenase family is    ferent functions.                                                     15. T. Sanderson, M. L. Bileschi, D. Belanger, L. J. Colwell, eLife 12,
+                                                                                                                    e80942 (2023).
+understudied, and only a limited number of                                                                                   16. P. Khosla et al., in Advances in Neural Information
+halogenases are available in the database. With    Discussion                                                          Processing Systems, H. Larochelle, M. Ranzato, R. Hadsell,
+expert curation and experimental validations   Through systematic in silico and in vitro ex-        M. F. Balcan, H. Lin, Eds. (Curran Associates, Inc., 2020),
+                                                                                                                                                pp. 18661–18673.
+showing later, all 36 halogenases were confi-    perimental validations, we have demonstrated      17. M. Heinzinger et al., NAR Genom. Bioinform. 4, lqac043
+dentially annotated with EC numbers. Over-    that CLEAN achieves superior prediction per-          (2022).
+all, CLEAN achieved much better prediction   formance relative to six state-of-the-art tools      18. F. Schroff, D. Kalenichenko, J. Philbin, in 2015 IEEE Conference
+                                                                                                                            on Computer Vision and Pattern Recognition (CVPR)
+accuracy (86.7 to 100%; Fig. 2F and Fig. 3A)     (i.e., ProteInfer, BLASTp, DeepEC, DEEPre,          (IEEE, 2015), pp. 815–823.
+compared with the six other commonly used   COFACTOR, and ECPred). A comprehensive      19. A. Rives et al., Proc. Natl. Acad. Sci. U.S.A. 118, e2016239118
+computational tools (e.g., ~11.1% in DeepEC    analysis on an uncharacterized halogenase          (2021).
+                                                                                                                                           20. Y. Li et al., Bioinformatics 34, 760–769 (2018).
+and 11.1 to 61.1% in ProteInfer). The latter    dataset indicated that CLEAN can characterize      21. C. Yu, N. Zavaljevski, V. Desai, J. Reifman, Proteins 74,
+range corresponds to the prediction accu-    the hypothetical proteinsandcorrect mislabeled       449–460 (2009).
+racy at different digits of EC number (from    proteins, where most sequence-, structure-, and      23.22. A.M. DalkiranN. Price etet al.,al., BMCNatureBioinformatics557, 503–50919,(2018).334 (2018).
+digit 1 to digit 4). These results demonstrate   ML-based annotation tools predict incorrectly     24. C. Crowe et al., Chem. Soc. Rev. 50, 9443–9481 (2021).
+that CLEAN can distinguish enzyme func-    or are unable to produce a prediction. Iden-      25. K. Prakinee et al., Nat. Catal. 5, 534–544 (2022).
+                                                                                                                                            26. J. Latham, E. Brandenburger, S. A. Shepherd, B. R. K. Menon,tions even within the regime of similar bio-    tifying enzyme promiscuity is essential for im-            J. Micklefield, Chem. Rev. 118, 232–269 (2018).                                        Downloaded
+catalytic reactions.                           proving the performance of existing enzymes      27. V. Agarwal et al., Chem. Rev. 117, 5619–5674 (2017).
+                                                                                                                                            28. K. N. Rao, S. K. Burley, S. Swaminathan, Proteins 70, 572–577                                                                                                                                                                                                     from  Among these 36 halogenases, three enzymes    (3, 31), which can be effectively achieved by         (2008).
+named MJ1651, TTHA0338, and SsFlA showed   CLEAN (e.g., SsFlA with three functions). Un-      29. A. S. Eustáquio, J. Härle, J. P. Noel, B. S. Moore, ChemBioChem
+conflicting functions according to the com-    like classification models, contrastive learning           9, 2215–2219 (2008).
+                                                                                                                                          30. H. Sun et al., Angew. Chem. Int. Ed. 55, 14277–14280
+parison between literature (28–30) and the     is more suitable for biological data, which is         (2016).
+description in UniProt. CLEAN predicted new    usually imbalanced or biased and scarce.          31. H. Nam et al., Science 337, 1101–1104 (2012).
+EC numbers in these three cases, suggesting    We believe that CLEAN will be a powerful      32. O. Shalem, N. E. Sanjana, F. Zhang, Nat. Rev. Genet. 16,
+                                                                                                                             299–311 (2015).
+that other potential functions might occur.    tool for predicting the catalytic function of     33. Y. Wang et al., Chem. Rev. 121, 12384–12444 (2021).
+Therefore, we performed in vitro experiments   query enzymes, which can greatly facilitate     34. H. Zhao, ACS Synth. Biol. 11, 3550 (2022).                                                                                                                                             35. X.-M. Sun, Y.-S. Xu, H. Huang, Trends Biotechnol. 39, 648–650                https://www.science.org
+to validate these predictions. High-performance    studies in functional genomics (32), enzymology,          (2021).                           at
+liquid chromatography–mass spectrometry   enzyme engineering (33), synthetic biology (34),     36. G. B. Kim, W. J. Kim, H. U. Kim, S. Y. Lee, Curr. Opin. Biotechnol.
+(HPLC-MS) analysis coupled with enzyme ki-   metabolic engineering (35, 36), and retrobio-         64, 1–9 (2020).netic analysis confirmed that MJ1651 is SAM    synthesis (37, 38). Moreover, the general lan-      37.38. D.T. YuRother,et al.,S.Nat.Malzacher,Catal. 6,Nat.137–151Catal.(2023).4, 92–93 (2021).                         Northwest
+hydrolase (EC 3.13.1.8), as CLEAN predicted,   guage model representation topped with the      39. S. Satoh et al., RIKEN Structural Genomics/Proteomics Initiative
+rather than chlorinase (EC 2.5.1.94) or fluori-    contrastive learning workflow used by CLEAN         (RSGI), Crystal Structure of the Conserved Hypothetical                                                                                                                                                  Protein TTHA1091 from Thermus thermophilus HB8 (PDB,     A&F
+nase (EC 2.5.1.63), as mislabeled in UniProt and   can readily be adapted to other prediction tasks                                                                                                                                             Entry 1VGG, 2004); http://doi.org/10.2210/pdb1vgg/pdb.
+by the selected computational tools used in this    not limited to enzymatic activities, such as func-     40. K. Shimizu, N. Kunishima, RIKEN Structural Genomics/
+work (Fig. 3, C, D, F, G, and M; fig. S3; fig. S4, A    tional catalogue (FunCat) and gene ontology         Proteomics Initiative (RSGI), Crystal structure of project                                                                                                              PH0463 from Pyrococcus horikoshii OT3 (PDB, Entry 1WU8,           Universityand B; fig. S5A; fig. S7; and table S3). CLEAN    (GO). The user-friendly feature of our frame-
+                                                                                                                                     2005); http://doi.org/10.2210/pdb1wu8/pdb.         onalso correctly annotated TTHA0338, which   work allows CLEAN to be used as an indepen-      41. A. S. Eustáquio, F. Pojer, J. P. Noel, B. S. Moore, Nat. Chem. Biol.
+belongs to the DUF62 Pfam family with no   dent tool in a high-throughput manner and as          4, 69–74 (2008).
+                                                                                                                                            42. C. Dong et al., Nature 427, 561–565 (2004).known function, as a SAM hydrolase (Fig. 3, C,   a software component integrated into other     43. T. Yu et al., Enzyme function prediction using contrastive            October
+D, H, and N; figs. S5B and S7; and table S3).    computational platforms. The superior perfor-          learning, version 1.0.0, Zenodo (2023); https://doi.org/                                                                                                                                                    15,
+With the exception of BLASTp successfully   mance of CLEAN in predicting understudied         10.5281/zenodo.7582241.
+predicting the target TTHA0338, all other six    proteins should greatly expand the bioinfor-   ACKNOWLEDGMENTS                                    2025
+commonly used computational tools failed to    matics toolbox, thereby laying the cornerstone    We thank H. Ren and C. Huang for their suggestions on the
+predict MJ1641 and TTHA0338. These results    for future detailed mechanistic studies.                characterization of the products formed by halogenases. We also
+revealed that CLEAN is favorable for correcting                                                                      thank for Z. Zhang, C. Huang, and Z. Pei for valuable discussion
+                                                                                                                       and guidance on experimental validation. Funding: This work
+mislabeled enzymes and accurately identifying                                                             was supported by the Molecule Maker Lab Institute: An AI
+understudied catalytic functions. CLEAN also   REFERENCES AND NOTES                                Research Institutes program supported by the US National Science
+confidently identified the promiscuous enzyme       1.  UniProt Consortium, Nucleic Acids Res. 49, D480–D489              Foundation (NSF) under grant no. 2019897 (H.Z.). Any opinions,
+                                                                              (2021).                                                                  findings, and conclusions or recommendations expressed in
+SsFlA with three EC numbers (EC 2.5.1.63, EC      2.  P. Radivojac et al., Nat. Methods 10, 221–227 (2013).                this material are those of the author(s) and do not necessarily
+2.5.1.94, and EC 3.13.1.8; Fig. 3, E, I to K, and      3.  K. Hult, P. Berglund, Trends Biotechnol. 25, 231–238                 reflect those of the NSF. Author contributions: T.Y., Y.L.,
+O to Q). These observations confirmed that      4.  C.(2007).J. Jeffery, Phil. Trans. R. Soc. B 373, 20160523 (2018).        and H.Z. conceived of the presented idea. T.Y. implemented the
+CLEAN could effectively recall defined biolog-      5.  E. W. Sayers et al., Nucleic Acids Res. 50, D20–D26              computational framework. T.Y., Y.L., H.Z., and J.C.L. designed
+                                                                                                                                        the in silico experiments. T.Y. and J.C.L. contributed to data
+ical activity and capture elements of enzyme         (2022).                                                          preparation and carried out the in silico experiments. J.C.L.
+                                                                             6.  M. Blum et al., Nucleic Acids Res. 49, D344–D354 (2021).
+promiscuity. The precision of CLEAN is im-      7.  S. F. Altschul, W. Gish, W. Miller, E. W. Myers, D. J. Lipman,        contributed to cleaning up code. H.C. and H.Z. planned the in vitro
+pressive in distinguishing SAM-binding pro-            J. Mol. Biol. 215, 403–410 (1990).                                experiments. H.C. and G.J. carried out in vitro experiments and
+                                                                             8.  D. K. Desai, S. Nandi, P. K. Srivastava, A. M. Lynn,                data analysis. T.Y. and H.C. wrote the manuscript with input from
+teins with homologous structures (fig. S3C)                                                                          Adv. Bioinformatics 2011, 743782 (2011).                                     all authors. All authors discussed the results and contributed to the
+and sequence identity ranging from 20.5 to      9.  S. F. Altschul et al., Nucleic Acids Res. 25, 3389–3402               final manuscript. H.Z. provided supervision and resources for this
+35.7% for everything but SsFlA versus ScFlA,         (1997).                                                              study. Competing interests: The authors declare that they have
+                                                                            10. A. Krogh, M. Brown, I. S. Mian, K. Sjölander, D. Haussler, J. Mol. Biol.     no competing interests. Data and materials availability: All
+which is 87.6% (Fig. 3B and fig. S6). Functions         235, 1501–1531 (1994).                                          data and code generated as part of this study are freely accessible
+of proteins with sequence identities in this       11. M. Steinegger et al., BMC Bioinformatics 20, 473 (2019).            in either the supplementary materials or open repositories. Code
+
+
+Yu et al., Science 379, 1358–1363 (2023)    31 March 2023                                                                       5 of 6
+
+
+[PDF physical page 6]
+RESEARCH   | RESEARCH ARTICLE
+
+
+
+for model development and validation are freely accessible at          Science. No claim to original US government works. https://www.       Tables S1 to S3
+Zenodo (43) and GitHub (https://github.com/tttianhao/CLEAN).       science.org/about/science-licenses-journal-article-reuse                References (44–80)
+CLEAN is converted into an easy-to-use web server and made                                                      MDAR Reproducibility Checklist
+freely accessible at https://moleculemaker.org/alphasynthesis.     SUPPLEMENTARY MATERIALS
+The following datasets curated in previous publications and            science.org/doi/10.1126/science.adf2465                            View/request a protocol for this paper from Bio-protocol.
+databases were used: Price-149 (15) and New-392 (43). License        Materials and Methods
+information: Copyright © 2023 the authors, some rights reserved;     Supplementary Text                                             Submitted 8 October 2022; accepted 6 March 2023
+exclusive licensee American Association for the Advancement of          Figs. S1 to S15                                                      10.1126/science.adf2465
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Downloaded
+                                                                                                                                                                                                     from
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               https://www.science.org
+                                                                                                   at
+                                                                                                                                                                                                                                                                                                                                                                                                                                                            Northwest
+                                                                                                                                                    A&F
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              University
+                                                                                                   on
+                                                                                                                                                                                                                                                                                                                                                          October
+                                                                                                                                                    15,
+                                                                                                                                                                                                     2025
+
+
+
+
+
+Yu et al., Science 379, 1358–1363 (2023)    31 March 2023                                                                  6 of 6

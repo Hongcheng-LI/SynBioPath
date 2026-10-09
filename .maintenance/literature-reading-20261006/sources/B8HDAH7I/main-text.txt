@@ -1,0 +1,1166 @@
+
+[PDF physical page 1]
+                                        Articles
+                                                                                             https://doi.org/10.1038/s41587-022-01226-0
+
+Identification of antimicrobial peptides from the
+human gut microbiome using deep learning
+
+Yue Ma      1,2,5, Zhengyan Guo     3,4,5, Binbin Xia1,2,5, Yuwei Zhang2,3,5, Xiaolin Liu1,2, Ying Yu1,2, Na Tang2,3,
+Xiaomei Tong1, Min Wang2,3, Xin Ye1,2, Jie Feng2,3, Yihua Chen     2,3 ✉ and Jun Wang     1,2 ✉
+
+The human gut microbiome encodes a large variety of antimicrobial peptides (AMPs), but the short lengths of AMPs pose a
+challenge for computational prediction. Here we combined multiple natural language processing neural network models, includ-
+ing LSTM, Attention and BERT, to form a unified pipeline for candidate AMP identification from human gut microbiome data.
+Of 2,349 sequences identified as candidate AMPs, 216 were chemically synthesized, with 181 showing antimicrobial activity
+(a positive rate of >83%). Most of these peptides have less than 40% sequence homology to AMPs in the training set. Further
+characterization of the 11 most potent AMPs showed high efficacy against antibiotic-resistant, Gram-negative pathogens and
+demonstrated significant efficacy in lowering bacterial load by more than tenfold against a mouse model of bacterial lung infec-
+tion. Our study showcases the potential of machine learning approaches for mining functional peptides from metagenome data
+and accelerating the discovery of promising AMP candidate molecules for in-depth investigations.
+
+
+     he emergence and quick spread of antibiotic-resistant patho-   health increasingly are being recognized10–12. The gut microbiome
+      gens causes increasing numbers of difficult-to-treat infections   encodes highly diverse genes, being one of the largest reservoirs for
+     and poses a threat to global health, as infection-related fatali-   antibiotic-resistant genes13. At the same time, as a result of long-termTties caused by drug-resistant pathogens are predicted to account   competition and co-evolution,  it is expected to produce a large
+for the highest number of deaths around the world by 2050 (ref. 1).  number of antimicrobials against even multi-drug-resistant (MDR)
+In 2017, the World Health Organization published a  priority    bacteria14. Multiple cases have demonstrated that, in the human
+pathogens list for new antimicrobial drugs, collectively named as   gut, AMPs are capable of modulating inter-species competition and
+ESKAPE2. Among these pathogens, Gram-negative bacteria, such   maintaining community structure. For instance, a gut microbial
+as carbapenem-resistant Enterobacteriaceae (CRE), are of particu-    lantibiotic peptide restored host resistance to vancomycin-resistant
+lar concern owing to their ability to rapidly develop antibiotic resis-   Enterococcus15, with additional reports of their effects on host
+tance3. However, a combination of lack of economic incentives and   immunity16. According to bioinformatics analysis, a large number
+market failure has led to a gradual decline in discovery and devel-   of potential AMP families in the human gut microbiome remain to
+opment efforts and very few antibiotics being commercialized in   be studied in depth14.
+recent decades4.                                            The large number of potential AMPs derived from the human
+  A large number of existing antibiotics and many other medi-   gut microbiome, thus, in theory, could serve as a source of can-
+cines originate from microbial metabolites. Among the bioactive   didates against infectious bacteria17. Until now, however, the dis-
+secondary metabolites, short peptides attract extensive attention for   covery of AMPs has remained largely experimentally driven, and
+their high diversity and wide bioactivity spectra, and the particu-   bioinformatic approaches have remained challenging owing to the
+larly large group of antimicrobial peptides (AMPs) from bacteria    relatively short length and low sequence similarities among AMPs18.
+have been used for treating bacterial, fungal and viral infections       Artificial intelligence approaches, in particular natural language
+and even cancer5. Antibiotics have already been developed from   processing (NLP) methods, can learn sequence features autono-
+bacterial AMPs, primarily from non-ribosomally synthesized pep-   mously and might enable the identification of candidate AMPs by
+tides and ribosomally synthesized and post-translationally modi-   identifying features from genome sequences, even short sequences
+fied peptides. In addition, class II and class III bacteriocins6 can be   with low homology. Machine learning has already successfully
+ribosomally synthesized and function without modification. This   identified small molecules with antibiotic effects, such as hialicin19,
+means that they can be directly identified from microbial genomes,   as well as inhibitors for DDR1 enzyme from small molecules20. In
+similarly to AMPs from eukaryotic genomes, such as human LL37   addition, short AMPs have been recently generated in silico through
+(cathelicidin)7. AMPs differ from small-molecule antibiotics as they   the combination of deep learning and physiochemical selection
+have lower susceptibility to resistance development in pathogens8   from controlled data generation21–25, establishing the feasibility of
+and stronger phylogenetic barriers within bacteria against horizon-   such an approach.
+tal transfer of developed resistance9.                               Here we demonstrate that the combination of neural network
+   Developments  in sequencing technology have enabled  the   models (NNMs) for autonomous learning of AMP sequence fea-
+in-depth understanding of microbiomes, especially in the human   tures and large-scale human microbiome data resources can dis-
+gut, the contributions of which to host metabolic and immune   cover AMPs with high antibacterial potency (Fig. 1). We constructed
+
+
+1CAS Key Laboratory of Pathogenic Microbiology and Immunology, Institute of Microbiology, Chinese Academy of Sciences, Beijing, China. 2University
+of Chinese Academy of Sciences, Beijing, China. 3State Key Laboratory of Microbial Resources, Institute of Microbiology, Chinese Academy of Sciences,
+Beijing, China. 4Institute of Medicinal Biotechnology, Chinese Academy of Medical Sciences & Peking Union Medical College, Beijing, China.
+5These authors contributed equally: Yue Ma, Zhengyan Guo, Binbin Xia, Yuwei Zhang. ✉e-mail: chenyihua@im.ac.cn; junwang@im.ac.cn
+
+Nature Biotechnology | VOL 40 | June 2022 | 921–931 | www.nature.com/naturebiotechnology                                                           921
+
+
+[PDF physical page 2]
+                                                 NATuRE BiOTEcHnOLOGyArticles
+
+
+                                                 Metagenome collection 154,723              MIC (µM)        Drug resistence         MIC (µM)
+    AMP data   Non-AMP data                                                                            150              E. coli         E. coli (E01-7-1)        300  E01-7-1
+                                                                      Selection score                         0                              A. baumannii (Ab3)      0
+                                                                                                                 200             S. aureus       FEP     R                                                                                                                                                                  300  Ab3                                                                                                                                S             10,321                                                                                                                                                                                                                                                                                                                   I                                    3,030,124
+                                                                     Ref genome 4,409             0                          IPM      NT        0
+                                                     Small ORF                                            c_AMPs                                      c_AMPs
+                                                              prediction
+                      2        8                                                                                           Metaproteome                :                                                      sORF 211,759,711                        Test        Train                                                                                                  108,806,019                                       0.3   ALP (E. coli)
+                                    Prediction           AMP                                           Length                                                                                    ***
+                               models                prediction                                     <50 AA                                      0.1           Build
+        models                                              c_AMPs 20,426,401             sProtein                                               1.0   2.5   5.0  10.0
+                                                                                                   19,881,257                                         MIC
+                                                                                                                                                                                      Hemolysis
+
+                             Best combination
+                                                                                                     Intersection
+                                                       Network                                                                                                                                    c_AMPs                                                              c_AMPs with coding potential 2,349
+                                                                analysis                                                                  181
+                                                                                                                                                           Day1            Day7
+           Model 1
+           Model 2                                                           Experiment verification 216                                          0
+           Model 3
+           Model 4                                                                                                                       –20%
+           Model 5
+                                                                                                                            Test bacteria                 Infection model
+
+Fig. 1 | Schematic representation of study workflow. In this study, we started from collecting sequences to build training and test sets and then built and
+optimized NNMs to form the AMP prediction pipeline (left). We then mined metagenomic and metaproteomic data for potential AMPs, further filtering
+using correlational network analysis between candidate AMPs and bacteria, resulting in candidate AMPs for chemical synthesis and in vitro validations
+(middle). Promising candidates are selected from initial screening and further subjected to efficacy tests against MDR bacteria, in vivo experiments in an
+animal model of a bacterial lung infection and mechanistic assays (right).
+
+and combined multiple NNMs and mined potential AMPs in large    We found  that  the  proportion  of  true-positive (TP) and
+metagenomic data. In total, 216 novel peptides were chemically syn-   false-positive (FP) sequences identified by different models varied
+thesized, and at least 181 of them were confirmed with antibacte-   greatly: LSTM predicted 56 times FPs and 11% more TPs than BERT,
+rial activity (83.8%). Further selection identified AMPs with high   and ATT predicted 46% more FPs and 5% more TPs than BERT
+efficacy against MDR, Gram-negative bacteria and potency against   (Supplementary Table 1). These differences do not simply reflect
+in vivo infection in an animal model. Our work highlights the   the distinct sensitivities of the different models, because, when we
+potential of the combination of machine learning and large metage-   compared the TPs and FPs shared by all models (TPs: 1,678 and
+nomic datasets to improve AMP prediction and identify new classes   FPs: 3,981) and extracted the prediction vectors of these TPs and
+of functional AMP molecules.                                  FPs in the last hidden layer of each model, only less than 0.3% of all
+                                                                   pairwise correlations of these sequences among five models were
+Results                                                                  significantly correlated (false discovery rate (FDR) < 0.05) (Fig. 2c
+Combining NLP models to create a unified pipeline for AMP   and Supplementary Table 2).
+identification. We applied NLP algorithms to construct AMP pre-     As their prediction biases were independent of each other, we
+diction models, including five NNMs belonging to three classes   explored combining these different models to further improve
+(Fig. 2b). Our basal model was based on Veltri et al.,26 an NNM with   Precision and to decrease FPs. We eventually tested the intersection
+long short-term memory (LSTM) as the core layer that has already   of various combinations of models (2–5 models) and evaluated the
+been shown as effective for AMP identification. A second model   combinations of models using Precision, Recall and Area Under the
+replaced the LSTM layer with an Attention layer, resulting in an   Precision Recall Curve (AUPRC; Methods). Ranking by AUPRC,
+ATT model. Lastly, we included a transformer-based Bidirectional   as well as these two parameters, revealed that the combination with
+Encoder  Representations from Transformers (BERT)  model27.   the highest Precision was a combination of three models at 91.31%
+Hyperparameters of the NLP models were tested and screened   (ATT, LSTM and BERT, with a ~15% improvement compared to
+using independent datasets (Methods), and all models converged   the best performance of a single BERT model), with Recall reaching
+rapidly during training (Extended Data Fig. 1b).                  83.32% and highest AUPRC of 0.9244 (Fig. 2d and Supplementary
+  We optimized the performance of the models and formed a   Table 3). A comparison with other currently available AMP predic-
+unified pipeline for AMP identification. For ATT and LSTM, we   tion methods using the same test dataset revealed that our pipe-
+have also included balanced training datasets (named b_ATT and   line surpassed all others in terms of AUPRC (Fig. 2e) and Precision
+b_LSTM, respectively) for comparison and later re-trained the   (other tools: 27.21~2.67%), and, whereas four of the tools predicted
+two models using the full non-AMP training dataset. Initially, our   0.66–6.75% more TP AMPs than ours, the FPs were 74–~182-fold
+key evaluation parameter Precision (defined as the proportion of   higher than our pipeline (Table 1). These results support that our
+true positives within all predicted positives) was less than 50% for   pipeline combining multiple NLP models is a robust approach for
+each model alone (Supplementary Table 1). Re-analysis separat-  AMP identification from sequence data.
+ing sequences by length revealed that precisions were higher for
+peptides ≤50 amino acids (AAs) (55% of previously confirmed   Identification of many candidate AMPs in large metagenomic
+AMPs were shorter than 50 AAs (Supplementary Table 1)), so we   cohorts. The human microbiome has a complex community
+retained smaller peptides in the test set for the re-evaluation of   structure, and  it is possible that the constituent microbes could
+the models.                                                employ many AMPs to help compete for resources or stabilize the
+
+922                                                   Nature Biotechnology | VOL 40 | June 2022 | 921–931 | www.nature.com/naturebiotechnology
+
+
+[PDF physical page 3]
+NATuRE BiOTEcHnOLOGy                                              Articles
+
+community structure. We, therefore, conducted AMP mining in   randomly chosen from a predicted non-AMP set, of which six were
+human microbiome data. The identification of small open-reading   successfully synthesized, among which only one is effective (mini-
+frames (sORFs; 5–50 AAs in length) in metagenomic data  is   mal inhibitory concentration (MIC) ≤ 125 μM), indicating that our
+extremely time- and computational resource-consuming (need to  method has a low FN rate of approximately 16.67% (Supplementary
+assembly); we, therefore, used direct sORF prediction in representa-   Table 4), close to the calculated FN rate (1-Recall; Supplementary
+tive genomes that were previously assembled based on metagenom-   Table 3). The 11 c_AMPs with the highest antibacterial activity were
+ics studies28. A total of 154,723 representative genomes of organisms   selected with criteria that the occurrences of c_AMPs were among
+present in human microbiome samples were filtered based on   the top ten c_AMPs against each strain (Fig. 4a and Supplementary
+more than 90% completeness (47.7%; Fig. 3a) and selection score   Tables 5 and 6). The remainders are shown in Extended Data Fig.
+(Methods). We eventually focused on 4,409 qualified representative    2; potential origins of the 181 AMPs are provided in Supplementary
+genomes (Fig. 3b).                                                Table 7. Among those 11 potent c_AMPs, seven were originally
+   Sequential prediction and filtering of AMPs were performed to   found in the species genome from Bacteroides, which is known to
+refine the putative AMP list. In total, 20,426,401 were predicted as   contain potential probiotic species, suggesting that the AMPs might
+putative AMPs from non-redundant sORF sequences contained   participate in pathogen inhibition. A total of 157 c_AMPs showed
+within the representative genomes. Given that in silico prediction   inhibitory effects against Gram-negative bacteria. Retrospectively,
+of sORFs does not ensure that they are expressed as proteins, we  we compared some available AMP prediction tools to examine our
+subsequently cross-checked with  available metaproteomic data   181 verified c_AMPs and found that all the tools predicted 30–178
+(19,881,257 non-redundant peptides) to screen for ‘very likely’   of the c_AMPs to be TPs (Supplementary Table 8).
+expressed peptides and eventually identified 2,349 as candidate    We then evaluated the similarity of the 181 c_AMPs with pre-
+AMPs (c_AMPs) with a length distribution ranging from 6 AAs to   viously reported antibacterial AMPs. The results support that our
+50 AAs (Extended Data Fig. 1c).                             method could identify AMPs based on internal relationships of
+  We subsequently analyzed the c_AMPs based on an association  AAs in the sequences instead of the sequence similarity with AMPs
+network analysis using metagenomic datasets from large cohorts.   used in the training dataset. When our training dataset involved
+Given the known effects of some AMPs in regulating and stabiliz-  AMPs of microbial and eukaryotic origin without dissecting differ-
+ing community structure29,30, we hypothesized that c_AMPs with   ent AMP classes, the highest identity among our verified c_AMPs
+strong negative correlations with members of a microbiome thus   to the closest AMPs used in the training dataset was only 61.4%,
+potentially inhibit bacterial growth and are more likely to be func-   and most had less than 40% identity (Fig. 4b). When we calculated
+tional; and this network could help further eliminate FPs in our   the identities among our c_AMPs and non-AMPs of the training
+discovery. We accordingly examined metagenomic datasets totaling   dataset, the closest identities between AMPs and non-AMPs had a
+11,011 samples from 15 independent cohorts, most with more than   median of 33.3%, higher than that of our c_AMPs versus known
+100 samples (Fig. 3c). For each cohort, we used a mapping-based  AMPs (median of 31.1%) (Extended Data Fig. 3a). In addition, our
+approach to calculate the c_AMP abundances, as well as bacterial   verified c_AMPs were not merely predicted based on AA composi-
+relative abundances at both the genus and species level, to construct   tion, as they have seemingly different AA compositions in compari-
+c_AMP–microbial correlation networks, which were different from   son to known AMPs (Extended Data Fig. 3c), displaying a relatively
+bacterial correlations because one potential AMP could be encoded   higher proportion of Glu, Lys, Asn and Gln residues (1.25-, 1,29-,
+by multiple bacteria and vice versa. By retaining those negative cor-   1.35- and 1.64-fold, respectively) and fewer Cys, His, Leu and Trp
+relations having an FDR ≤ 0.05 and appearing in seven or more   (0.56-, 0.72-, 0.68- and 0.61-fold, respectively); details are provided
+cohorts, we obtained 368 and 266 non-redundant c_AMPs, respec-   in Supplementary Table 9.
+tively, for species-level and genus-level networks, with 241 shared
+(Fig. 3d,e).                                                          Shortlisting the most potent peptides against Gram-negative
+                                                                      bacteria. We examined the efficacy of the top 11 c_AMPs from
+Experimental validation verifies high proportion of functional   our initial antibacterial activity screening against the commonly
+AMPs. We then chemically synthesized the 241 shared c_AMPs for   studied  antibiotic-resistant, Gram-negative  bacterial pathogens.
+verification and characterization. Twenty-five peptides failed after   All 11 c_AMPs showed inhibitory activities against E. coli DH5α
+three rounds of chemical syntheses and resulted in 216 c_AMPs. We   and P. aeruginosa (ATCC 15692) (Fig. 4a). Then, the species of
+then examined the antibacterial activity of the 216 c_AMPs against   bacteria for antibacterial testing were expanded to Acinetobacter
+Staphylococcus aureus (American Type Culture Collection (ATCC)   baumannii (ATCC 19606), Klebsiella pneumoniae (NCTC 5056)
+6538), Bacillus subtilis (ATCC 23857), Escherichia coli DH5α and   and Enterobacter cloacae (ATCC 13047) and performed quanti-
+Pseudomonas aeruginosa (ATCC 15692) (two Gram-positive and   fication of MIC. For K. pneumoniae, a total of ten c_AMPs have
+two Gram-negative) at 60 μM concentration in liquid media. This   MIC < 25 μM, and, for other Gram-negative species, including A.
+identified 181 peptides with antibacterial activity (that is, inhibiting   baumanii, E. cloacae and E. coli, at least one c_AMP reached MIC
+the growth of at least one bacteria), representing a positive rate of   of 25 μM. Also, a total of nine c_AMPs reached <20 μM in their
+83.8% (181/216). Simultaneously, a negative set of ten peptides was  MIC against at least one Gram-negative bacterial species (Fig. 4c
+
+
+Fig. 2 | Establishing AMP prediction pipeline combining NLP models. a, Length distribution of AMPs and non-AMPs initially collected from various
+databases for training. Most AMPs were below 300 AAs. Later, we selected length-matched sets of AMPs and non-AMPs for training (Extended Data
+Fig. 1a). b, Summary of five NLP models included for testing and building the prediction pipeline, including LSTM models using two training datasets
+(LSTM using ten times of non-AMPs than AMPs for training and b_LSTM using equal amounts of AMPs and non-AMPs for training (Methods)); Attention
+models using two training datasets (ATT and b_ATT; training data ratios are identical to LSTM and b_LSTM (Methods)); and one BERT model. FC, fully
+connected; FV, feature vector; GELU, Gaussian error linear unit (the activation functions). c, Overview of correlations between vectors of prediction values
+in the last hidden layer of each NNM, for all shared FPs (up) and TPs (down). In each panel, the FDRs of Spearman correlations of prediction vectors
+between the prediction value vectors for each sequence are plotted on the y axis, and significant correlations are marked in red. The x axis indicates the
+Spearman correlation coefficients. Overall, less than 0.3% of the correlations were significant. d, AUPRCs for different combinations of NLP models.
+The three with highest values are shown, and the combination of ATT + LSTM + BERT had the highest AUPRC (0.9244) as well as the highest Precision
+(91.31%). e, AUPRCs for representative non-NLP methods that we used for comparison are included in Table 1.
+
+Nature Biotechnology | VOL 40 | June 2022 | 921–931 | www.nature.com/naturebiotechnology                                                      923
+
+
+[PDF physical page 4]
+                                                 NATuRE BiOTEcHnOLOGyArticles
+
+a                                                                       c       b_ATT         ATT        b_LSTM      LSTM
+     50      AMPs
+   (%)                                                                                     1.0
+     30                                                                                 0.5                                                   ATT
+
+                                                                            0         Proportion                                                                                   –0.4   0 0.2
+                                                                0.05%
+      0                                                                                 1.0                          FP  FDR    Numbers                                                                 300+
+                                                                                          0.5                                    ≥0.05     39,697        b_LSTM     20    Non-AMPs
+   (%)                                                                        0                                     <0.05  113 (0.28%)
+         Proportion 10                                                                                               FDR 1.00.5  –0.25 0 0.25   –0.2 0     0.4                         LSTM
+
+      0                                                                     0
+         6–50   51–100   101–150   151–200   201–250   251–300               –0.4    0  0.2   –0.4   0 0.2    –0.4    0  0.2
+                                Length distribution (AA)                                1.0
+
+b                                                                                        0.5                                                BERT
+   Input         Conv1         Maxpool       LSTM      FC      FV        0
+ 1    : 1                                                                                   –0.2 0     0.4   –0.2 0  0.2    –0.4    0  0.2 –0.3   0  0.2
+
+   Input         Conv1         Maxpool       LSTM      FC      FV        1.0
+1    : 10                                                                                  0.5                                                   ATT
+
+   Input         Conv1         Maxpool           Attention    FC      FV        0
+                                                                                        –0.3   0  0.2
+ 1    : 1
+                                                                                          1.0                                                                                              TP  FDR   Numbers
+   Input         Conv1         Maxpool           Attention    FC      FV
+                                                                                          0.5                                    ≥0.05    16,737        b_LSTM
+1    : 10                                                                                                                   <0.05  43 (0.26%)
+                                                                            0
+                               Transformer         Transformer                              FDR   –0.4   0 0.2    –0.3   0    0.3                                                                                          1.0
+
+                                                                                          0.5                                                LSTM
+                               Transformer         Transformer
+   Input                                          FC      FV        0
+1    : 10                                                                                  –0.2 0     0.4   –0.2 0  0.2    –0.4   0 0.2
+                                                                                          1.0
+
+                                                                                          0.5                                                BERT                               Transformer         Transformer
+
+                                                                            0
+                                                                                          –0.2 0  0.2      –0.2 0  0.2    –0.4    0  0.2  –0.2  0   0.2
+                                                                                               Spearman’s correlation coefficient
+          Transformer encoder    FC    GELU     Norm
+
+
+d                                                                         e
+                1.00                                                                                   1.0
+
+
+
+                                                                                                        0.8
+                0.75
+
+
+                                                                                                        0.6
+
+                0.50                                              Precision                                                                                                                                                                                                                                                                                                                   Precision
+                                                                                                        0.4
+
+                 ATT + LSTM + BERT (AUC = 0.9244)                                 AMP Scanner vr2 (AUC = 0.26)
+                0.25
+                 ATT + b_LSTM + LSTM (AUC = 0.9243)                                         iAMP_Pred (AUC = 0.37)
+                                                                                                        0.2
+                  b_ATT + ATT + LSTM + BERT (AUC = 0.9241)                                    AMPir (AUC = 0.03)
+                     Other model combinations (AUC < 0.924)                                   AxPEP (AUC = 0.60)
+                0                                                                       0
+                    0        0.25       0.50       0.75       1.00                              0       0.2       0.4       0.6       0.8       1.0
+                                            Recall                                                                                Recall
+
+and Supplementary Table 10). Compared to known AMPs with   2 and Mastoparan-like peptide 12c precursor were also synthe-
+MIC measures in all of our collected AMP databases (1,009 MIC   sized and used as positive controls in our study, and their MICs
+values for E. coli in total, 858 for S. aureus), our c_AMPs had MICs   are overall in the same magnitude as reported in previous research
+among the lowest (~1% percentile) of all AMPs. In fact, only seven   (Supplementary Table 12).
+previously confirmed AMPs have lower MICs against E. coli than    MDR, Gram-negative bacteria, such as CRE and members
+our selected c_AMPs (Fig. 4d and Supplementary Table 11). Among   of ESKAPE (K. pneumoniae, A. baumannii,  P. aeruginosa and
+those, Beta defensin 2, Cathelicidin BF, Defensin_NP-1, Magainin   Enterobacter spp), are of particular concern31. To assess the abil-
+
+924                                                   Nature Biotechnology | VOL 40 | June 2022 | 921–931 | www.nature.com/naturebiotechnology
+
+
+[PDF physical page 5]
+NATuRE BiOTEcHnOLOGy                                              Articles
+
+ Table 1 | Comparison of performance between our pipeline and other currently available AMP prediction tools
+
+ Method              TP          FP         TN          FN          Precision (%)           F1 score (%)    MCC (%)
+ Ours                904         86            66,924           181          91.31                     87.13             87.03
+ Macrel                785           2,100          64,910        300         27.21                  39.55            43.03
+ AxPEP                  1,040          6,411          60,599        45          13.96                 24.37             34.61
+ iAMP-2L               910          7,044         59,966          175         11.44                   20.13            28.60
+ iAMP Pred             933           9,833           57,177           152         8.67                    15.75            24.48
+ AMP Scanner v2        965           15,736         51,274          120        5.78                   10.85             19.05
+ AMPir               264           7,687          59,323          821         3.32                  5.84               5.01
+ iAMP-CA2L            337           12,303        54,707         748        2.67                    4.91             4.09
+
+ We calculated the incidences of TP (true positive), FP (false positive), TN (true negative) and FN (false negative) predictions of each tool and then Precision, F1 score and Matthews correlation coefficient
+ (MCC). Our pipeline has the highest Precision, and seven tools (Macrel60, AxPEP61, iAMP-2L62, iAMP-Pred63, AMP-scanner version 2 (ref. 26), AMPir64 and iAMP-CA2L65) have higher FP rates despite
+ predicting more TPs.
+
+
+ity of the selected c_AMPs against MDR, Gram-negative bacteria,   time–kill assays asserted that the bactericidal effects were mani-
+we performed growth inhibition assays against ten clinical isolates   fested within 2–6 h (Fig. 5b). We first used transmission electron
+of MDR A. baumannii (three strains), E. coli (three strains)32 and   microscopy (TEM) to monitor potential morphological changes
+K. pneumoniae (four strains with the antibiotic resistance profiles   in E. coli DH5α cells upon c_AMP1043 treatment (MIC = 2 μM,
+displayed in Fig. 4e). In brief, all of the assayed strains are known to   treated with 1× and 10× MIC for 5 h) and dose-dependent wrin-
+be resistant to third-generation cephalosporins ceftazidime, ceftri-   kling exhibited in the AMP-treated cells, with cell content leaking
+axone, cefepime and sulbactam cefoperazone (CAZ, CRO, FEP and   out at the 1× MIC dose; at higher concentration, the cells collapsed
+SCF); all of the K. pneumoniae and E. coli clinical isolates, as well as   and lysed (Fig. 5d and Extended Data Fig. 4a,b), suggesting that
+A. baumannii Ab8, were resistant to at least one carbapenem anti-   the integrity of the cell wall decreased. We carried out four experi-
+biotic ertapenem, imipenem or meropenem (ETP, IPM or MEM).   ments to determine the exact cellular components affected by c_
+In our assay, c_AMP1043 reached <10 μM MIC against all of the  AMP1043. Whereas measuring the extracellular levels of alkaline
+clinical isolates, and seven c_AMPs reached <20 μM MIC against   phosphatase (ALP) from collapsed E. coli DH5α cells (treated with
+at least nine clinical isolates (Fig. 4f and Supplementary Table 13).   1×, 2.5×, 5× and 10× MIC for 1 h—the four c_AMP concentra-
+Therefore, our selected candidates have low similarity to known   tions used in all following mechanism assays) revealed no change
+AMPs but have broad-spectrum and potent antibacterial activity,   compared to non-treated bacteria (Fig. 5f, ALP), we did detect
+including against MDR, Gram-negative bacteria.                    increased fluorescence intensity with the membrane-impermeable
+                                                            probe propidium iodide (PI). After treating the cells with c_AMPs
+Selected c_AMPs are effective against bacterial lung infections in   for 1 h, we found that the PI intensity increased as the c_AMP1043
+a mouse model. Before conducting in vivo infection experiments   concentration  increased, thus  indicating  cell membrane  dis-
+with mice, we evaluated the toxicity of the 11 c_AMPs against   ruption  (Fig.  5f,  PI). We next applied the fluorescent probe
+eukaryotic cells, including HCT116 cells (human colorectal cancer   1-N-phenylnaphthylamine (NPN) to examine the permeability of
+cell line) and fresh human erythrocytes. We performed hemolysis   the outer membrane of E. coli DH5α cells (treated with c_AMPs for
+and cytotoxicity assays on these 11 peptides using various concen-   30 min). The dose-dependent fluorescence intensity enhancement
+trations and estimated respective IC50/CC50 values (Fig. 5a and   that we observed suggested that c_AMP1043 damaged the integrity
+Supplementary Table 14). Combining these results and our MIC   of the outer membrane (Fig. 5f, NPN). Additionally, we employed
+data for the c_AMPs against MDR K. pneumoniae (ATCC 700603)   the potentiometric fluoroprobe 3,3′-dipropylthiadicarbocyanine
+(Supplementary Table 15 and Fig. 4c), we selected c_AMP1043, c_   iodide (DiSC3(5)). We detected a c_AMP1043 dose-dependent
+AMP593 and c_AMP575 for in vivo analysis using a mouse model   increase in DiSC3(5) signal intensity after cells were treated with
+infected with K. pneumoniae for which we monitored body weight  c_AMPs for 1 h (Fig. 5f, DiSC3(5)), findings demonstrating that
+recovery as the primary readout33,34. Compared to the vehicle-treated  c_AMP1043 can disrupt the membrane potential. These results
+control group, infected mice treated with the c_AMPs showed sig-   establish that the disruption of the outer membrane potential con-
+nificantly faster rates of body weight recovery (Fig. 5c); additional   tributes to the observed inhibitory effects of c_AMP1043 against
+colony-forming units (c.f.u.) and real-time polymerase chain reac-   the growth of Gram-negative bacteria.
+tion assays further confirmed a significant decrease of K. pneu-     The potential membrane disruption and cell wall damage-related
+moniae load in mouse lung 24 h after c_AMP treatments (Fig. 5e),    effects of the other ten c_AMPs were also assessed in assays against
+indicating that c_AMPs reduced severity of the bacterial infection.   E. coli. Using the aforementioned ALP, PI, NPN and DiSC3(5) assays,
+Specifically, whereas roughly half of the vehicle-treated control  we identified eight peptides acting on membranes and causing dis-
+group displayed reduced body weight for more than 7 d, all the mice   ruption, among which two also lysed cell walls (Extended Data
+treated with c_AMPs had recovered to their original body weight   Fig. 4c). Still, two remaining peptides, c_AMP593 and c_AMP575,
+by this point. The results demonstrate that the three c_AMPs exert   which were effective in treating mouse infection models, and our
+antibacterial activity against lung infection without any obvious   current combination of functional assays did not result in poten-
+adverse effects on the host and deserve further investigations.           tial mechanisms. Notably, after 30 d of continuous treatment with
+                                                                   the c_AMP1043, no resistance could be detected in E. coli DH5α
+Mechanisms of action of c_AMPs. We then focused on eluci-   (Extended Data Fig. 4d). Because we included AMPs in our train-
+dating the mechanisms of action for selected AMPs, particularly   ing datasets without distinguishing their chemical classes or mecha-
+c_AMP1043, which showed the highest efficacy in vitro against   nisms, aiming to discover AMPs via hidden sequence features, the
+K. pneumoniae. The common mechanism of AMPs is bacterial   results here indicate that our pipeline might also capture AMPs with
+lysis by forming pores on cell walls or membranes35–38, and our   different functional mechanisms.
+
+Nature Biotechnology | VOL 40 | June 2022 | 921–931 | www.nature.com/naturebiotechnology                                                     925
+
+
+[PDF physical page 6]
+                                                 NATuRE BiOTEcHnOLOGyArticles
+
+              a                                                b
+
+
+                                                                                                   1,189
+                              80,930   73,793                                                                        Species-level ref
+                                                <90                               3,220                  Genus-level ref
+                                              ≥90
+
+                              Completeness                                                       Final ref
+
+                c     CH01       CH02       CH03      CH04    CH05     CH06    CH07      CH08     Year
+                                                                                                               2012
+                                                                                                               2013
+                        330         1,399         442        804       57       398       125        1,294        2014
+                                                                                                               2015
+                                                                                                               2016
+                                                                                                               2017
+                                                                                                               2019
+
+                    CH09       CH10       CH11       CH12     CH13      CH14         CH15                                                                                                                            Ancestry
+
+                                                                                                                   European
+                                                                                                                            East Asian
+                        471         207          812          306        32         160            4,174
+                                                                                                                              Middle Eastern
+                                                                                                                               North American
+                                                                                                                Admixed
+
+             d                                                  e
+
+                  Genus                                                        Species
+                          level                                                                        level
+
+
+                                                                                                                                                                                                           c_AMPs
+                                                                                                     241
+                                                                                                                                                                                                           Shared
+
+
+
+
+
+                        Bacterium
+                    c_AMPs
+
+
+Fig. 3 | Mining candidate AMPs from metagenomic data. a, Overview of representative genomes and their completeness that were assembled from
+large-scale metagenomic data, from the study of Pasolli et al.28 (Methods). b, Overview taxonomical levels that can be assigned for the selected
+representative genomes, after we filtered on contig numbers, completeness and level of ornamentations (Methods). c, Summary of cohorts whose
+metagenomic data were used for AMP mining, with year of publication and cohort size and ancestry information provided for each cohort. d,e, Network
+of negatively correlated AMPs and bacterial genera (d) and species (e), respectively, showing only significant correlations (Spearman correlation and
+FDR < 0.05) appearing in more than six cohorts, which we used for further selecting AMPs with high occurrences and potential effectiveness (Methods).
+Light purple dots represent AMPs; light blue dots represent bacteria.
+
+Discussion                                                         these approaches with shorter peptides, particularly for those lacking
+The recent surge in applying artificial intelligence approaches in bio-   significant homology45. In the training dataset, we observed signifi-
+medical research has brought up many new opportunities, including   cantly higher homologies among known AMPs (median, 88.9%) than
+image-processing-related tools for clinical diagnostics of eye39, lung40,   between known AMPs and non-AMPs (a median of 28.6% and 33.3%
+cancer tissue pathologies41 and antibiotics19,42. In this study, by treating   for the balanced and unbalanced datasets, respectively, both P < 0.05;
+peptide sequences as text and applying NLP methods, together with   Extended Data Fig. 3b). In contrast, NLP methods based on different
+using large datasets of gut microbiome sequences, we identified many  NNMs have been shown to be more effective in identifying particular
+microbial functional peptides. Previously, typical approaches for iden-   subsets of sequences; in our example, validated c_AMPs share less
+tifying proteins with similar functions were based on sequence align-   than 50% of homology to known AMPs.
+ment, such as BLAST, or identifying conserved motifs and domains    We used three different NLP models and noted that each had
+using hidden Markov models14,43,44; however, it is difficult to apply   independent predictive biases; we, therefore, optimized predictive
+
+926                                                   Nature Biotechnology | VOL 40 | June 2022 | 921–931 | www.nature.com/naturebiotechnology
+
+
+[PDF physical page 7]
+NATuRE BiOTEcHnOLOGy                                              Articles
+
+performance by combining these models into a unified pipe-   particular action mechanism (Extended Data Fig. 4c). Indeed, in
+line. By considering the intersection of three models, we obtained   our training dataset, we used solely the sequence information of
+>0.92 AUPRC and >91%  Precision  in  distinguishing AMPs   experimentally verified AMPs, and, yet, our approach managed to
+from non-AMPs in the testing datasets. It is worth noting that   detect deep, hidden features within them and consequently discov-
+ever-accumulating AMPs in reference databases, improvement on   ered diverse AMPs in metagenomes.
+data quality and methodological advances in NLP models would     Although NLP methods  currently  take  text  (in our  case,
+further improve the power of mining AMPs. Although our pipeline   sequences) as input, future efforts could incorporate structural infor-
+used a relatively straightforward combination of models (prediction   mation that is critical for peptide functions. Currently, among our
+score >0.5 in each model) to achieve a balance between Precision   selected peptides, we observed an enrichment of helix-dominated
+and Recall, further optimization on various cutoffs for prediction   peptides as revealed by circular dichroism (7/11; Extended Data
+scores, as well as inclusion of both NLP and non-NLP methods, can   Fig. 5), agreeing with previous findings of alpha-helix, pore-forming
+be carried out in future applications.                                peptides among the most potent AMPs21,54,55. Another 11 randomly
+  We applied our AMP-mining methods to human gut micro-   chosen peptides from the rest of the 181 peptides displayed highly
+biome data, which have been anticipated to be a large reservoir   diverse, complex structures. For the selected c_AMPs, their low
+of functional proteins, including AMPs46,47. For context, although  MICs against E. coli and S. aureus are similar to the best-known
+microbial AMPs have a long history of experimental discovery48,  AMPs, and the rich collection of molecules enables us to further
+and their medical potentials have been widely recognized,  it is   select those with low cytotoxicity against eukaryotic cells for in vivo
+clear that the verified AMPs account for only a small fraction of    testing, eventually aiming to clinical use. Available MIC data in
+all the AMPs in nature5. Our approach theoretically enables further   the curated AMP database revealed only seven AMPs with lower
+mining of AMPs from metagenomic sequences and can, therefore,  MIC toward E. coli; among those, no AMP was of bacterial origin,
+provide candidates for various applications (including genetic engi-   and only one animal cathelicidin from banded krait (Bungarus fas-
+neering). We cross-checked with metaproteomics data to ensure   ciatus) was tested to be effective on MDR, Gram-negative bacteria.
+the expression of potential peptides and further selected AMPs   Retrospectively, MIC values against a limited number of bacteria
+that were significantly negatively correlated to bacterial species in   were available only for a small proportion of all AMPs and, thus,
+multiple metagenomic cohorts29,49, to select potential c_AMPs for   were not considered as a selection criterion in our study, leaving
+follow-up functional studies. With potentially over-stringent inclu-  room for further pruning of AMP data for training or even mining
+sion criteria, we still identified more than 200 candidates, and 181   a subgroup of highly potent AMPs if more data become available.
+were confirmed to exert antimicrobial activities. Given that some    We eventually selected three peptides of low toxicity in assays
+chemically synthesized peptides might lose certain biological func-   using human cells and confirmed their effectiveness against typi-
+tions by not generating secondary structures, and only four bacte-   cal lung bacterial infection by K. pneumoniae in a mouse model.
+rial strains were used in the initial antibacterial activity assays, the   These and other c_AMPs can serve as starting points for pharma-
+inactive c_AMPs that were filtered out might also exert antimicro-   ceutical optimization—for example, via peptide stapling56 or chi-
+bial properties for other bacteria.                                 merization57—to support further potency increases. Additionally,
+   Follow-up investigations confirmed that our method can dis-   further in-depth profiling of the action mechanisms of these
+cover diverse, unreported AMPs, which exert distinct antimicrobial  c_AMPs can also help increase their specificity, as, so far, all mech-
+activity spectra and employ different mechanisms of antibacterial   anisms discovered focused on the cell membrane. Moreover, such
+action. Several studies with manual filtering of features for AMP   modifications could attenuate some of the toxicity against mam-
+prediction or optimization were carried out previously50–53. Our   malian cells that precluded further validation of potent c_AMPs
+pipeline also did not particularly rely on sequence similarity or   with in vivo assays; additionally, in broader industrial applica-
+AA composition for AMP prediction (Fig. 4b and Extended Data   tions, this problem might be less critical for AMPs. In particu-
+Fig. 3c) because our verified c_AMPs had low homology with    lar, c_AMP67, c_AMP69 and c_AMP660 showed activity against
+known AMPs, and mechanistic  analysis  of  selected c_AMPs  MDR, Gram-negative bacteria—one  of  the major  infectious
+confirmed that our approach did not selectively identify AMPs of   threats in clinics and with few effective antibiotics approved for
+
+
+
+Fig. 4 | Experimental validation and potency assays of predicted AMPs. a, Spectra and level of bacterial inhibition of 11 short-listed c_AMPs against the four
+strains of bacteria used for the initial screening, showing that they are effective (green) against multiple species, and with high potency of bacterial inhibition
+(up to >75% reduction in OD600, at a concentration of 60 μM). ‘*’ means 0.01 < P ≤ 0.05; ‘**’ means 0.001 < P ≤ 0.01; and ‘***’ means P ≤ 0.001 in Dunnett’s test
+(two-sided). b, Distribution of highest similarity between 181 verified c_AMPs in our study to that of the training dataset. Most of our c_AMPs have less than
+40% similarity to previously known AMPs in the training dataset. Data are presented as mean values ± s.e.m. c, Distribution of MICs of 11 selected c_AMPs
+against expanded list of pathogens; for K. pneumoniae, all c_AMPs have MIC < 25 μM; and for other Gram-negative species, including A. baumanii, E. cloacae and
+E. coli, at least one c_AMP reached MIC of 25 μM. At the same time, all c_AMPs reached <10 μM in MIC against one Gram-negative bacterial species. Data
+are presented as mean values ± s.e.m. d, The range of MICs obtained for our selected AMPs (purple) with reference to collected MIC values in the database,
+against E. coli (left, light red for known AMPs) and S. aureus (right, blue for known AMPs), demonstrating that our AMPs are among the most potent discovered
+so far. n = 3 independent experiments. Data are presented as mean values ± s.e.m. e, Antibiotic resistance profiles representative of MDR, Gram-negative
+(MDR G−) bacteria strains, including A. baumannii (Ab3, Ab8 and Ab11), K. pneumoniae (NK04047, NK06129, NK08334 and NK01067) and E. coli (E01-7-1,
+E02-7-2 and E02-16-2). Antibiotic resistance: red means resistant (R), purple means susceptible increased exposure (I), green means susceptible (S) and blank
+block means not tested (N). Antibiotics that have been tested in those strains included Amikacin (AK), Amoxicillin-clavulanate (AMC), Ampicillin (AMP),
+Aztreonam (ATM), Chloramphenicol (C), Ceftazidime (CAZ), Chloramphenicol (CAP), Cefazolin, Ciprofloxacin (CIP), Cephalexin (CL), Ceftriaxone (CRO),
+Cefotaxime (CTX), Cefuroxime (CXM), Ertapenem (ETP), Cefepime (FEP), Cefoxitin (FOX), Gentamicin (GEN), Imipenem (IPM), Levofloxacin/Hemihydrate
+(LEV), Meropenem (MEM), Minocycline-HCL (MIN), Nalidixicacid (NA), Polymyxin-B (PB), Cefoperazone/sulbactam (SCF), Trimethoprim (TMP),
+Sulfamethoxazole (SXT), Tetracycline (TC), tigecycline, Ticarcillin (TIM), Tobramycin (TOB) and Piperacillin/tazobactam (TZP). f, Corresponding MICs of
+11 selected c_AMPs against tested MDR G− bacteria strains, demonstrating that multiple c_AMPs (such as c_AMP1043, c_AMP575, c_AMP595, c_AMP660
+and c_AMP2043) are highly potent against all strains, and the rest of the c_AMPs, except c_AMP518, are potent against multiple strains. Data are presented
+as mean values ± s.e.m.
+
+Nature Biotechnology | VOL 40 | June 2022 | 921–931 | www.nature.com/naturebiotechnology                                                      927
+
+
+[PDF physical page 8]
+                                                 NATuRE BiOTEcHnOLOGyArticles
+
+clinical use58,59. Thus, exploring modifications of the peptides that      Overall, our study showcases the  utility of combining NLP
+might reduce mammalian cytotoxicity while preserving antibacte-   methods and large microbiome data for the mining of AMPs.
+rial activity might merit further attention.                    Our proof-of-concept study yielded voluminous diverse AMPs
+
+
+a                                                        d
+
+                                                           S. aureus
+                        Ctrl
+                                                           B. subtilis                  2
+
+                                                           E. coli
+          c_AMP660     **    ***   ***    **
+                                                           P. aeruginosa                         (mM)]  0
+         c_AMP1655      *    ***   ***   ***                                                                                                                                                                                                                                                                log10[MIC
+                                                                           –2
+         c_AMP1043     ***    *    ***   ***
+
+                                                                                             Published data
+           c_AMP67     ***   ***   ***   ***                               –4
+                                                         Relative OD600                       Our data
+                                                          0.25                                                                                                          E. coli                     S. aureus
+          c_AMP250     ***    *    ***   ***        0.50
+                                                          0.75             e
+          c_AMP593                                               AK                                ***   ***   ***        1.00                                                         AMC
+                                                         AMP
+          c_AMP575                                        Effective                                                          ATM                                ***   ***   ***                          C
+                                                             Non-effective                                                          CAZ
+          c_AMP240                                             CAP                                ***   ***                                                                                                               Cefazolin
+                                                                            CIP
+                                                                                                  CRO
+           c_AMP69     ***          ***   ***                       CXM
+                                                                                                                ETP
+                                                                FEP                                          R          c_AMP518
+                          ***          ***                                                                           FOX           I
+                                                         GEN                                             S
+                                                                                                                          IPM    N         c_AMP2041                                    ***   ***                            LEV
+                                                                                             MEM
+                                                                    MIN
+b                                                                                                       NA   30                                                           PB
+                                                                                                             SCF
+                                                           TMP
+                                                                                                                SXT
+                                                       Identity                          TC
+   20
+                             Needleman–Wunsch algorithm                                                                                            Tigecyclinenumbers                                                                       TIM
+                                                                                                          TOB
+                                                                  TZPCount 10
+                                                                                                                                          Ab3    Ab8      Ab11                                                                                                                                                                                                                                                                                E01-7-1          E02-7-2           E02-16-2                                                                                                                                                                                                                                                                                                                                                                                     NK04047          NK06129          NK08334          NK01067                                                                                           f
+    0
+               30             40             50             60        c_AMP2041
+                                   Proportion (%)
+                                                                c_AMP660
+c                                                               c_AMP593                                                 MIC (µM)
+        100
+                                                                c_AMP575                                                        50
+         75                                                      c_AMP1655                                                        100
+      (µM)                                                                                                                                ≥125         50                                                       c_AMP240
+      MIC
+                                                                c_AMP1043
+         25
+                                                                 c_AMP67
+
+          0                                                       c_AMP69
+
+
+
+                                                  E.                                                      faecium                aureus                                                                       cloacae      coli               c_AMP250                                                                c_AMP518
+                                             E.               E.     S.                                                                                                                                               pneumoniae                   baumanniiA.                  aeruginosaP.
+                             K.
+
+928                                                   Nature Biotechnology | VOL 40 | June 2022 | 921–931 | www.nature.com/naturebiotechnology
+
+
+[PDF physical page 9]
+NATuRE BiOTEcHnOLOGy                                              Articles
+
+             a                                                  b  10                                                                               c_AMP1043   Ploymyxin B
+                                                                            Cytotoxicity                  c_AMP593
+                                                               Hemolysis                  9                                  CC50)                                                                                     ml)  8    c_AMP575Control                                                                                                             per
+              or 6                                                                               6
+
+                  3                                                   log2(IC50                                                                                                                                                                                                                                                                                        log10(c.f.u.  4
+                  0              n.d.  n.d.         n.d.                     n.d.
+
+                                                                               2
+                                                                                     0     1     2     4     6     8
+                                                                                                  Time (h)                                                                                         c_AMP2041          c_AMP660          c_AMP593          c_AMP575            c_AMP1655          c_AMP240            c_AMP1043         c_AMP67         c_AMP69          c_AMP250          c_AMP518
+
+                    c            c_AMP1043       K. pneumoniae           d
+                           0                          *                                    K. pneumoniae      c_AMP1043
+                                                                              c_AMP575         c_AMP593
+                                (%) –10                     **
+                                               **                                           loss
+                         –20                                                                              **
+                                                                Weight –30                                                      12          *   *
+
+                         –40                                                       9
+                               c_AMP593     **    *    *                                                                                                           log10(c.f.u.)                           0
+                                               *                                       6
+                                (%)                         –10
+                                           loss
+                         –20                                                       3
+                                                                Weight –30
+                                                                                                             **
+                                                                                  10              *                         –40
+                                                                                                      *
+                               c_AMP575           *    *                         8                           0
+                                                    **
+                                (%) –10
+                                               *                                       6                                           loss                         –20                                                                                                                                                                                                                                                                       log10(copies)
+                                                                                   4                                                                Weight –30
+
+                         –40                                                       2
+                             0    1    2    3    4    5    6 (Days)
+
+                e            E. coli (c_AMP1043; 1× MIC = 2 µM; treated 5 h)           E. coli (HEPES)
+
+
+
+
+
+                              2 µm                                1 µm
+                                                                                              2 µm            2 µm
+
+                       f                                                 25,000                                                              PI (treated 1 h)                      0.08  ALP (treated 1 h)                                                               NPN (treated 0.5 h)      8,000  DISC3 (5) (treated 1 h)                                                                               40,000
+                                                 20,000
+                      0.06                                                      30,000                        6,000
+                                                 15,000
+                      0.04                                                      20,000                        4,000
+                                                 10,000
+                      0.02                          5,000                        10,000                        2,000
+
+                      0                           0                           0                         0
+                                      MIC        2.5MIC      5MIC       10MIC               MIC        2.5MIC      5MIC       10MIC               MIC        2.5MIC      5MIC       10MIC              MIC        2.5MIC      5MIC       10MIC
+
+that confer their various antibacterial effects via divergent action   applications (for example, antibiotic-resistant bacteria), our study
+mechanisms. Beyond providing this set of promising candidate   shows that an NLP-driven approach can achieve a high success
+molecules for further improvement for challenging pharmaceutical   rate for target class peptide identification in a much-shortened
+
+Nature Biotechnology | VOL 40 | June 2022 | 921–931 | www.nature.com/naturebiotechnology                                                    929
+
+
+[PDF physical page 10]
+                                                 NATuRE BiOTEcHnOLOGyArticles
+
+
+Fig. 5 | c_AMP treatment of a mouse model of bacterial infection and mechanistic assays for c_AMP1043. a, Eukaryotic toxicity screen and hemolysis
+experiment determined CC50/IC50 for selected AMPs, shown as log2-transformed values. CC50 was determined using the MTT test on HCT116 cells
+with a range of concentrations (Methods); hemolysis was determined using selected AMPs and fresh human red blood cells and different concentrations
+of AMPs (Methods). ND, not determined—that is, no hemolytic effects. b, Time–kill assays of three c_AMPs used in the animal experiments. E. coli cells
+were then treated with 16× MIC AMPs in liquid media, and c.f.u. was measured at continual time points. Results indicate that the lowest c.f.u. values were
+achieved between 2 and 6 h. n = 3 in each group, with polymyxin B as positive control. c, Three c_AMPs without significant toxicity against mammalian
+cells were effective in treating a mouse model of K. pneumoniae infection. Mice were inoculated intra-nasally with 109 c.f.u. of K. pneumoniae (ATCC7
+00603) strain first, and, on day 2, 50 μl (5× MIC) of c_AMPs were intra-nasally administered to infected mice, n = 7 for each group. Compared with the
+non-treated, K. pneumoniae-infected group, the c_AMP-treated group showed significantly faster recovery of body weight. *P < 0.05 and **P < 0.01 in
+two-sided t-test. d, Bacterial load significantly decreased in the lung tissues after being treated with c_AMPs. The c.f.u. was determined on standardized
+weight of tissues in K. pneumoniae-infected lungs and c_AMP-treated lungs, using Mueller–Hinton agar (CaMHA) (Methods). n = 6–7 per group;
+ ‘*’ denotes P < 0.05 and ‘**’ denotes P < 0.01 in two-sided t-test. e, TEM examination of E. coli cells treated with c_AMP1043 and HEPES, showing cell
+content leakage and disruption of cell wall/membrane; experiments were performed in triplicate with similar results, and one representative figure is
+shown. f, Mechanistic tests, including ALP, PI, NPN and DISC3(5) assays, revealed that c_AMP1043 is capable of functioning via disruption of the outer
+membrane of Gram-negative bacteria E. coli. In PI, NPN and DISC3(5) assays, dosage-dependent increase of signals was observed, reflecting the effects
+of c_AMP1043 on corresponding cell components. n = 3 for each assay.
+
+timeframe compared to traditional experiment-based methods.    13.   Kent, A. G., Vill, A. C., Shi, Q., Satlin, M. J. & Brito, I. L. Widespread transfer
+This approach also represents a ‘re-purposing’ application for          of mobile antibiotic resistance genes within individual gut microbiomes
+the many sequencing-based studies of environmental and medi-         revealed through bacterial Hi-C. Nat. Commun. 11, 4379 (2020).                                                                                        14.   Sberro, H. et al. Large-scale analyses of human microbiomes reveal
+cal metagenomics with large-scale datasets, to discover a part of        thousands of small, novel genes. Cell 178, 1245–1259 (2019).
+the functional ‘dark matter’. It is clear that the application of this    15.  Kim, S. G. et al. Microbiota-derived lantibiotic restores resistance against
+approach can greatly facilitate the identification and prioritization         vancomycin-resistant Enterococcus. Nature 572, 665–669 (2019).
+of peptide agents for research and for therapies. Lastly,  it bears    16.   Li., J. et al. Mining the human tonsillar microbiota as autoimmune
+emphasizing that very similar approaches should be suitable for         modulator. Preprint at bioRxiv https://www.biorxiv.org/content/                                                                                        10.1101/719807v1.full (2019).
+mining other types of peptides involved in microbial signaling and    17.  Walsh, C. T. Insights into the chemical logic and enzymatic machinery of
+for modulating host immunity or metabolism.                        NRPS assembly lines. Nat. Prod. Rep. 33, 127–135 (2016).
+                                                                                        18.   Spänig, S. & Heider, D. Encodings and models for antimicrobial peptide
+Online content                                                                               classification for multi-resistant pathogens. BioData Min. 12, 7 (2019).
+Any methods,  additional  references, Nature Research  report-    19.   Stokes, J. M. et al. A deep learning approach to antibiotic discovery. Cell                                                                                      180, 688–702 (2020).
+ing summaries, source data, extended data, supplementary infor-    20.  Zhavoronkov, A. et al. Deep learning enables rapid identification of potent
+mation, acknowledgements, peer review information; details of      DDR1 kinase inhibitors. Nat. Biotechnol. 37, 1038–1040 (2019).
+author contributions and competing interests; and statements of    21.  Das, P. et al. Accelerated antimicrobial discovery via deep generative models
+data and code availability are available at https://doi.org/10.1038/        and molecular dynamics simulations. Nat. Biomed. Eng. 5, 613–623 (2021).
+s41587-022-01226-0.                                                              22.  Nagarajan, D. et al. Computational antimicrobial peptide design and                                                                                          evaluation against multidrug-resistant clinical isolates of bacteria. J. Biol.
+                                                                         Chem. 293, 3492–3509 (2018).Received: 6 July 2021; Accepted: 19 January 2022;                                                                                        23.  Van Oort, C. M., Ferrell, J. B., Remington, J. M., Wshah, S. & Li, J.
+Published online: 3 March 2022                              AMPGAN v2: machine learning-guided design of antimicrobial peptides.
+                                                                                                                                              J. Chem. Inf. Model. 61, 2198–2207 (2021).
+References                                                                        24.  Wang, C., Garlick, S. & Zloh, M. Deep learning for novel antimicrobial
+ 1.    O’Neil, J. Tackling drug-resistant infections globally: final report and                  peptide design. Biomolecules 11, 471 (2021).
+     recommendations. (Review on Antimicrobial Resistance, 2016).                  25.  Gupta, A. & Zou, J. Feedback GAN for DNA optimizes protein functions.
+ 2.   De Oliveira, D. M. P. et al. Antimicrobial resistance in ESKAPE pathogens.           Nat. Mach. Intell. 1, 105–111 (2019).
+      Clin. Microbiol. Rev. 33, e00102-19 (2020).                                       26.   Veltri, D., Kamath, U. & Shehu, A. Deep learning improves antimicrobial
+ 3.    Tacconelli, E. et al. Global priority list of antibiotic-resistant bacteria to guide         peptide recognition. Bioinformatics 34, 2740–2747 (2018).
+      research, discovery, and development of new antibiotics. (World Health           27.   Devlin., J., Chang., M.-W., Lee., K. & Toutanova., K. BERT: pre-training of
+      Organization, 2017).                                                        deep bidirectional transformers for language understanding. Preprint at
+ 4.  PEW Charitable Trusts. Analysis shows continued deficiencies in antibiotic           https://arxiv.org/abs/1810.04805 (2018).
+     developments since 2014. PEW https://www.pewtrusts.org/en/                   28.   Pasolli, E. et al. Extensive unexplored human microbiome diversity revealed
+      research-and-analysis/data-visualizations/2019/five-year-analysis-shows-            by over 150,000 genomes from metagenomes spanning age, geography, and
+      continued-deficiencies-in-antibiotic-development (2019).                                    lifestyle. Cell 176, 649–662 (2019).
+ 5.    Lazzaro, B. P., Zasloff, M. & Rolff, J. Antimicrobial peptides: application         29.   Bevins, C. L. & Salzman, N. H. Paneth cells, antimicrobial peptides
+     informed by evolution. Science 368, eaau5480 (2020).                          and maintenance of intestinal homeostasis. Nat. Rev. Microbiol. 9,
+6.   Heng, N. C. K. & Tagg, J. R. What’s in a name? Class distinction for               356–368 (2011).
+      bacteriocins. Nat. Rev. Microbiol. 4, 160–160 (2006).                             30.  Login, F. H. et al. Antimicrobial peptides keep insect endosymbionts under
+7.   Chen, X. et al. Roles and mechanisms of human cathelicidin LL-37 in                 control. Science 334, 362–365 (2011).
+      cancer. Cell. Physiol. Biochem. 47, 1060–1073 (2018).                            31.  World Health Organization. 2019 Antibacterial Agents in Clinical
+8.    Yu, G., Baeder, D. Y., Regoes, R. R. & Rolff, J. Predicting drug resistance            Development (World Health Organization, 2019).
+      evolution: insights from antimicrobial peptides and antibiotics. Proc. Biol.       32.  Gong, L. et al. A nosocomial respiratory infection outbreak of
+       Sci. 285, 20172687 (2018).                                                        carbapenem-resistant Escherichia coli ST131 with multiple transmissible
+9.    Kintses, B. et al. Phylogenetic barriers to horizontal transfer of                           blaKPC-2 carrying plasmids. Front. Microbiol. 11, 2068 (2020).
+      antimicrobial peptide resistance genes in the human gut microbiota.            33.  Upert, G., Luther, A., Obrecht, D. & Ermert, P. Emerging peptide antibiotics
+      Nat. Microbiol. 4, 447–458 (2019).                                               with therapeutic potential. Med. Drug Discov. 9, 100078 (2021).
+10.   Buffie, C. G. & Pamer, E. G. Microbiota-mediated colonization resistance       34.  Cigana, C. et al. Efficacy of the novel antibiotic POL7001 in preclinical
+      against intestinal pathogens. Nat. Rev. Immunol. 13, 790–801 (2013).               models of Pseudomonas aeruginosa pneumonia. Antimicrob. Agents
+11.   Bisanz, J. E. et al. A genomic toolkit for the mechanistic dissection of               Chemother. 60, 4991–5000 (2016).
+      intractable human gut bacteria. Cell Host Microbe 27, 1001–1013 (2020).        35.   Florin, T. et al. An antimicrobial peptide that inhibits translation by
+12.  Wilson, M. R. et al. The human gut bacterial genotoxin colibactin alkylates          trapping release factors on the ribosome. Nat. Struct. Mol. Biol. 24,
+    DNA. Science 363, eaar7785 (2019).                                          752–757 (2017).
+
+930                                                   Nature Biotechnology | VOL 40 | June 2022 | 921–931 | www.nature.com/naturebiotechnology
+
+
+[PDF physical page 11]
+NATuRE BiOTEcHnOLOGy                                              Articles
+
+36.  Gagnon, M. G. et al. Structures of proline-rich peptides bound to the           52.  Lertampaiporn, S., Vorapreeda, T., Hongsthong, A. & Thammarongtham, C.
+     ribosome reveal a common mechanism of protein synthesis inhibition.            Ensemble-AMPPred: robust AMP prediction and recognition using the
+      Nucleic Acids Res. 44, 2439–2450 (2016).                                       ensemble learning method with a new hybrid feature for differentiating
+37.  Chu, H. et al. Human α-defensin 6 promotes mucosal innate immunity           AMPs. Genes 12, 137 (2021).
+     through self-assembled peptide nanonets. Science 337, 477–481 (2012).         53.   Barrett, R., Jiang, S. & White, A. D. Classifying antimicrobial and
+38.   Loth, K. et al. The ancestral N-terminal domain of big defensins drives              multifunctional peptides with Bayesian network models. Pept. Sci. 110,
+      bacterially triggered assembly into antimicrobial nanonets. mBio 10,               e24079 (2018).
+     e01821-19 (2019).                                                                54.  Kumar, P., Kizhakkedathu, J. N. & Straus, S. K. Antimicrobial peptides:
+39.  De Fauw, J. et al. Clinically applicable deep learning for diagnosis and                  diversity, mechanism of action and strategies to improve the activity and
+      referral in retinal disease. Nat. Med. 24, 1342–1350 (2018).                           biocompatibility in vivo. Biomolecules 8, 4 (2018).
+40.  Coudray, N. et al. Classification and mutation prediction from non-small       55.  Guha, S., Ghimire, J., Wu, E. & Wimley, W. C. Mechanistic landscape of
+       cell lung cancer histopathology images using deep learning. Nat. Med. 24,          membrane-permeabilizing peptides. Chem. Rev. 119, 6040–6085 (2019).
+     1559–1567 (2018).                                                               56.  Mourtada, R. et al. Design of stapled antimicrobial peptides that are stable,
+41.   Kather, J. N. et al. Deep learning can predict microsatellite instability                nontoxic and kill antibiotic-resistant bacteria in mice. Nat. Biotechnol. 37,
+      directly from histology in gastrointestinal cancer. Nat. Med. 25,                   1186–1197 (2019).
+     1054–1056 (2019).                                                               57.   Luther, A. et al. Chimeric peptidomimetic antibiotics against Gram-negative
+42.  Xiong, Z. et al. Pushing the boundaries of molecular representation for                bacteria. Nature 576, 452–458 (2019).
+     drug discovery with the graph attention mechanism. J. Med. Chem. 63,          58.  Munoz-Price, L. S. et al. Clinical epidemiology of the global expansion of
+     8749–8760 (2020).                                                                           Klebsiella pneumoniae carbapenemases. Lancet Infect. Dis. 13, 785–796 (2013).
+43.  Zhong, H. et al. Distinct gut metagenomics and metaproteomics signatures     59.  Bonomo, R. A. et al. Carbapenemase-producing organisms: a global
+      in prediabetics and treatment-naïve type 2 diabetics. EBioMedicine 47,               scourge. Clin. Infect. Dis. 66, 1290–1297 (2018).
+     373–383 (2019).                                                                  60.   Santos-Júnior, C. D., Pan, S., Zhao, X. M. & Coelho, L. P. Macrel:
+44.   Fjell, C. D., Hancock, R. E. & Cherkasov, A. AMPer: a database and an              antimicrobial peptide screening in genomes and metagenomes. PeerJ 8,
+     automated discovery tool for antimicrobial peptides. Bioinformatics 23,             e10555 (2020).
+     1148–1155 (2007).                                                               61.  Bhadra, P., Yan, J., Li, J., Fong, S. & Siu, S. W. I. AmPEP: sequence-based
+45.  Zhao, X., Wu, H., Lu, H., Li, G. & Huang, Q. LAMP: a database linking              prediction of antimicrobial peptides using distribution patterns of amino
+      antimicrobial peptides. PLoS ONE 8, e66557 (2013).                                 acid properties and random forest. Sci. Rep. 8, 1697 (2018).
+46.  Chu, J., Vila-Farres, X. & Brady, S. F. Bioactive synthetic-bioinformatic          62.   Xiao, X., Wang, P., Lin, W. Z., Jia, J. H. & Chou, K. C. iAMP-2L: a two-level
+      natural product cyclic peptides inspired by nonribosomal peptide                     multi-label classifier for identifying antimicrobial peptides and their
+      synthetase gene clusters from the human microbiome. J. Am. Chem. Soc.             functional types. Anal. Biochem. 436, 168–177 (2013).
+     141, 15737–15741 (2019).                                                        63.  Meher, P. K., Sahu, T. K., Saini, V. & Rao, A. R. Predicting antimicrobial
+47.   Garcia-Gutierrez, E., Mayer, M. J., Cotter, P. D. & Narbad, A. Gut                    peptides with improved accuracy by incorporating the compositional,
+     microbiota as a source of novel antimicrobials. Gut Microbes 10, 1–21               physico-chemical and structural features into Chou’s general PseAAC. Sci.
+      (2019).                                                                            Rep. 7, 42362 (2017).
+48.  Ryu, M., Park, J., Yeom, J. H., Joo, M. & Lee, K. Rediscovery of                  64.   Fingerhut, L., Miller, D. J., Strugnell, J. M., Daly, N. L. & Cooke, I. R.
+      antimicrobial peptides as therapeutic agents. J. Microbiol. 59,                       ampir: an R package for fast genome-wide prediction of antimicrobial
+     113–123 (2021).                                                                       peptides. Bioinformatics 36, 5262–5263 (2020).
+49.   Cullen, T. W. et al. Gut microbiota. Antimicrobial peptide resistance            65.   Xiao, X., Shao, Y. T., Cheng, X. & Stamatovic, B. iAMP-CA2L: a new
+     mediates resilience of prominent gut commensals during inflammation.          CNN-BiLSTM-SVM classifier based on cellular automata image for
+      Science 347, 170–175 (2015).                                                          identifying antimicrobial peptides and their functional types. Brief.
+50.   Müller, A. T., Gabernet, G., Hiss, J. A. & Schneider, G. modlAMP: Python           Bioinform. 22, bbab209 (2021).
+      for antimicrobial peptides. Bioinformatics 33, 2753–2755 (2017).
+51.  Agrawal, P. & Raghava, G. P. S. Prediction of antimicrobial potential of a        Publisher’s note Springer Nature remains neutral with regard to jurisdictional claims in
+     chemically modified peptide from its tertiary structure. Front. Microbiol. 9,     published maps and institutional affiliations.
+     2551 (2018).                                          © The Author(s), under exclusive licence to Springer Nature America, Inc. 2022
+
+
+
+
+
+Nature Biotechnology | VOL 40 | June 2022 | 921–931 | www.nature.com/naturebiotechnology                                                           931
+
+
+[PDF physical page 12]
+                                                 NATuRE BiOTEcHnOLOGyArticles
+
+Methods                                                            The most fundamental model is a convolutional NNM with LSTM layer
+Data collection. We collected, in total, five kinds of datasets in our study,               architecture, which has been used in the current research of Veltri et al.26. Details of
+including AMPs, non-AMPs, representative bacterial genomes, metaproteome and     this architecture were as follows: the embedding layer (input_dim: 21, output_dim:
+large-scale metagenome.                                                    128 and input_length: 300); the 1D Conv layer (nb_filter: 64, filter_length: 16,
+                                                                                                  strides: 1, activation: relu); 1D max pooling layer (pool_size: 5, strides: 5); LSTM
+AMPs. AMP data were mainly collected from four public AMP datasets—            layer (units: 100, unroll: True, stateful: False); and dense layer (units: 1, activation:
+ADAM26, APD66, CAMP67 and LAMP45—which cover most of AMP sequences       sigmoid). The second model was created by changing the LSTM layer to the
+from different sources (downloaded as of 2 October 2018). These four datasets      Attention layer in the same NNM architecture of the first model90. The Attention
+were merged into a large dataset, and the duplicated sequence in the dataset         layer can effectively capture long-range dependencies91—connections between any
+was removed, resulting in 10,327 AMP sequences, and the length of these         two (or more) AAs in the whole protein sequences, instead of only neighboring
+sequences range from 6 AAs to 518 AAs. Five sequences whose lengths are        AAs. This model has no adding extra input information; further parameters
+longer than 300 AAs were removed from the dataset, resulting in 10,322             for other layers were units = 100, unroll = True, stateful = False; epochs = 200,
+non-redundant AMPs, 55.17% of which were shorter than 50 AAs (Fig. 2a).         batch size = 20, learning rate = 0.001. ADAM optimizer (with beta_1 = 0.9,
+Note that peptides with only anticancer activity are not our target (AMPs            beta_2 = 0.999, epsilon = None, decay = 0.0, amsgrad = False) was used for ATT/
+contain antibacterial, antiviral and antifungal activity5), and, in the database,     LSTM model optimization, with loss function Cross entropy; dropout was set to
+only 0.15% (15 of 10,327 AMPs) were labeled with anticancer; however, all of        0.1 after MaxPooling1D layer. Both models used the same amount of non-AMPs
+these AMPs also have antibacterial activity. Eventually, we got 10,322 AMP          (8,290), subsisted from 74,838 non-AMPs, to first establish balanced training
+sequences in total for subsequent analysis.                                    models as baselines (b_LSTM and b_ATT). Then, we used the higher amount of
+                                                               non-AMPs (all 74,838) in the training data to train the two models mentioned
+Non-AMPs. The non-AMP dataset was downloaded from UniProt (http://www.       above to obtain our third and fourth classification models (LSTM and ATT). All
+uniprot.org) by setting the ‘subcellular location’ filter to cytoplasm and removing      four models were built with the Keras framework (version 2.2.4, https://www.keras.
+any entry that matched the following keywords: antimicrobial, antibiotic, antiviral,     io) using a sequential model and a TensorFlow (version 1.14.0)92 deep learning
+antifungal, effector or excreted (downloaded as of 20 November 2018). Then, we       library back-end. The last model was a pre-trained representation model applied
+deleted the duplicated sequences in the dataset and kept only peptides shorter than    in NLP called BERT. BERT learns contextual information from an unsupervised
+300 AAs. Meanwhile, the sequences identical to any AMPs were removed from the    corpus and generates corresponding representation vectors; it has been recognized
+non-AMP dataset so there were 3,029,894 non-AMP sequences left, among which      for its wide adaptability to different NLP downstream tasks, including text
+114,995 were shorter than 50 AAs (Fig. 2a).                                                classification and sequence annotation. This model was fine-tuned from a
+                                                                                     pre-trained model (bert-base-uncased) provided in the original study as weights
+Training dataset. The training dataset was used for building NLP models. The AMP    that have been initialized well. BERT was trained with PyTorch (version 1.0.1)93.
+dataset was first split into two sets at a ratio of 8:2, with 8,290 AMPs kept in the     We treated AAs as text information with each AA as a one-word code. During
+training dataset. The non-AMP training dataset contained 74,838 sequences (with      training, AAs were separated by gaps, and sequence beginnings/ends were marked
+matched distribution to that of the AMP training dataset; Extended Data Fig. 1a).     with [CLS] and [SEP] labels. We then added a linear layer at the end of the BERT
+                                                                     model to reduce the dimension to 2. Initial parameters from ‘bert-base-uncased’
+Test dataset. The test dataset was used to evaluates the performance of NLP models.   were then fine-tuned with Cross entropy as loss function, ADAM with default
+The AMPs in the test dataset and the training set are independent of each other, as     parameters as optimizer, batch size = 64 and learning rate = 2 × 10−5. To prevent
+are the non-AMPs; a total of 2,032 and 2,908,751 sequences were kept in AMP and     over-fitting, we trained with ‘early-stop’ strategy, in that models were stopped
+non-AMP, respectively. The peptides in the test dataset with lengths of 50 AAs or     and saved when they started to decrease in performance. Additional ten-fold
+fewer were taken as the final test dataset, which contained 1,085 AMPs and 58,776     cross-validation was applied. All models converged quickly during training. For
+non-AMPs.                                                                          individual models, they were fixed and unchanged after the training, and a peptide
+                                                                              with prediction score greater than 0.5 (positive) is considered a candidate AMP.
+Validation datasets. We collected 677 bacteriocins from the BAGEL4 database68 as        For hyperparameters, we used a third, albeit small, dataset (667 AMPs
+AMPs and a total of 5,541 non-AMPs from the Neme et al. study69 (downloaded as    and 5,541 non-AMPs) for their choices, namely batch_size and learning_rate.
+of 30 September 2018). This part of the data is not included in the training or test     For BERT, we tuned the learning_rate between 1 × 10−6 and 5 × 10−5 and the
+set and used only to tune hyperparameters.                                          batch_size between 32 and 128. Forsteps Attention and LSTM models, we used dynamic
+                                                                                        learning_rate: new_lr = 0.9 × lr  5  , 0.9 being the decay rate, 5 being the decay
+Representative genomes. The representative genomes dataset was derived from          steps, steps = global_step, lr = learning_rate starting at 0.001; batch_size was tested
+species-level genome bins, which contain 154,723 genomes28, and was used to           at 10, 20 and 40. This has set the optimal batch_size for all models and optimal
+predicted sORF sequences. We kept only the bins whose completeness was greater     learning_rate for BERT.
+than 90%, which filters out more than half of the bins (Fig. 3a). We constructed a
+species-level resolution, non-redundant representative genomes dataset. To achieve    Prediction pipeline by combination of multiple models. We used the test dataset
+this, we defined a selection score (= 0.7 × completeness − 0.1 × number of contigs     that is composed of 2,908,751 non-AMPs and 2,032 AMPs as input data of these
+− 0.3 × contamination) and selected the one with the highest score when multiple      five classification models and made the results output as vectors. These result
+bins were present for the same taxonomic classification. For bins that cannot be        vectors include before-training information about a series of prediction features
+assigned to the species level, we used kr (version 2.0.2)70 to calculate pairwise           of these five classification models, in particular hidden layers of the NNMs as well
+distances between bins, and those with distance less than 0.1 were merged into         as their processed features of input sequences. We extracted the last hidden layer
+the same species-level operational taxonomic units, with the genomic bin with the     (except fully connected layer) of values of NNMs from Attention, LSTM or BERT,
+highest selection score as representative. The final representative genomes dataset      reflecting their individual properties in sequence classifications. For each sequence,
+contains 4,409 high-quality species-level annotations.                                the output vector of size 1 × N was obtained, without any processed information
+                                                                              added. N in each model is determined during building of the models: for BERT,
+Metaproteome. In this study, to ensure that our sORFs are indeed expressed,           N = 768; for Attention models, N = 64; and for LSTM, N = 100. Each model reached
+multiple metaproteome datasets were used to select AMP sequences. These             different numbers of TPs and FPs: outside of 2,032 AMPs and 2,908,751 non-AMPs
+metaproteome datasets were collected from Gavin et al.71, Tanca et al.72, Sandip         in test sets, BERT has TP = 1,777 and FP = 19,408; LSTM has TP = 1,968 and
+et al.73, Young et al.74 and Zhong et al.43. We combined these five metaproteome        FP = 624,417; b_LSTM has TP = 1,917 and FP = 98,339; ATT has TP = 1,827 and
+datasets and selected the sequences with lengths shorter than 50 AAs, resulting in      FP = 20,185; and b_ATT has TP = 1,909 and FP = 107,375. We chose the TPs
+19,881,257 peptides.                                                     and FPs shared by all models (TP: 1,678 and FP: 3,981) and calculated pairwise
+                                                                                         correlations (ten pairs) of the same sequence among the five models.
+Large-scale metagenome. To identify the AMPs that have the inhibitory potential       We defined evaluation parameters to evaluate the performance of different
+toward either a wide range of bacteria or specific groups, we established            model combinations. The first, Precision of intersection, is defined as follows:
+correlations between AMPs and bacterial taxa in 15 independent, large-scale                       n∩             ∩n                                                                                                                          TPi                                                                                                                                       i=1                  Among                                   those,                                  11 cohorts                                                 contain                                                                   at                                                                      least 100 human gutmetagenomic                cohorts75–89.                                                                                                                    Precisioni = ∩n                                                                                         ∩n                                                                   +microbiome samples,                  and all                           cohorts                                     contain,                                             in total,                                                  11,011                                                          samples.                                                                                                                                 i=1 TPi                                                                                                                                             i=1 FPi                                                                                                             i=1
+Establishment and curation of NNMs. We trained, in total, five NNMs to            Here, the letter n in the equation represents the number of models; the symbol ∩
+distinguish AMPs from non-AMPs. To start with, we converted the AMP and        means the intersection algorithm of models; and TP and FP stand for true positive
+non-AMP datasets into a fixed-size vector, and the 20 basic AAs were converted      and false positive, respectively. The common Precision is defined as TP/(TP + FP);
+to 1~20 numerical form (details in Supplementary Table 16). Sequence vectors are     however, the TP and FP were exchanged by ∩TP and ∩FP in our Precision.
+padded with 0 if the raw sequence did not reach 300 AAs. The sequence vectors                                ∩n                                                                                                                       TPiadd the number 1/0 in the last column as the classification label of the sequences,                                       Recall =   i=1indicating AMPs/non-AMPs, respectively.                                                           CP
+
+
+                                                                            Nature Biotechnology | www.nature.com/naturebiotechnology
+
+
+[PDF physical page 13]
+NATuRE BiOTEcHnOLOGy                                              Articles
+
+The second, Recall, is defined as follows:                                         each single well containing 200 μl of final volume. The OD600 value of each well
+   CP refers to condition positive. Our new parameter resembles the parameter      was measured after culture at 37 °C for 12 h, and we normalized OD as calculated
+Recall, which has also been called sensitivity. Commonly, Recall = TP/CP, and we     by (experimental group OD – blank OD) / (control group OD – blank OD). We
+used intersection TP instead of TP.                                             used Prism software (version 8.4.0) to perform Dunnett’s test for comparing
+  We used this dataset as a benchmark for the different AMP prediction            experimental groups with a control group (two-sided). All experiments were
+methods, using AUPRCs as evaluation parameters for these models in addition       performed with three independent replicates.
+to the Precision, using the function of precision_recall_curve from the sklearn.
+metrics module (Python 3). The relevant scripts are available on GitHub.         MIC determination. MIC determination of AMPs was performed by broth
+                                                                                 microdilution as described in Clinical and Laboratory Standards Institute
+Prediction of sORFs and candidate AMPs. We used the ‘getorf’ function of the        guidelines103. In brief, E. coli strains (DH5α, E01-7-1, E02-7-2 and E02-16-2),
+EMBOSS software package (version 6.6.0.0) to predict sORFs from representative       P. aeruginosa (ATCC 15692,) A. baumannii strains (ATCC 19606, Ab3, Ab8 and
+genomes. The parameters were set as ‘-find 2 -table 11 -minsize 15 -maxsize 150’94.    Ab11), K. pneumoniae strains (NCTC 5056, NK67, NK04047, NK06129 and
+Then, the sORF dataset was predicted by our pipeline to identify c_AMPs.           NK08334), B. subtilis (ATCC 23857), S. aureus (ATCC 6538) and E. cloacae (ATCC
+                                                                            13047) were inoculated in cation-adjusted Mueller–Hinton broth (CaMHB, QDRS
+Selection of protein potential AMPs with multi-omics. To ensure that sORFs         Biotec, cat. no. 11865) at 37 °C overnight. The cultures were diluted 1:100 using the
+predicted in silico are likely expressed to proteins/peptides, we cross-examined         fresh CaMHB and subsequently cultured to the exponential phase (OD600 of 0.4–
+with metaproteomic datasets. We calculated the k-mers of all sORF sequences           0.6), and then the cell concentration was adjusted to approximately 5 × 105 c.f.u. per
+(where k is at least half the length of the sequence, and the maximum value               milliliter, and 100-μl aliquots were transferred into 96-well plates containing 100 μl
+is the original length of the sequence) and checked for peptide sequences               of different AMP solutions diluted serially two-fold. The tested ranges of AMPs
+in metaproteomics data. If there is a perfect match between a k-mer and a            were from 500 µM to 0.98 µM. After incubating at 37 °C for 16–18 h, the MIC was
+metaproteomic peptide, it indicated that more than half of the sequence of a          determined as the minimum concentration of c_AMPs where bacteria showed no
+specific sORF is present as a peptide in proteomics data, which provides additional     detectable growth. For E. faecium (ATCC 19434), the same assay was conducted
+evidence that this sORF is likely to be expressed.                                under anaerobic conditions using Brain-Heart Infusion Broth as the test medium.
+                                                                                       All assays were performed in triplicate. All experiments were performed with three
+c_AMP profiling in gut metagenomic samples. To obtain abundance information    independent replicates.
+of c_AMPs in each metagenomic sample, we used PALADIN software (version
+1.4.0) to align c_AMP sequences with metagenomics reads95 and then used            Cytotoxicity against mammalian cells. Cytotoxicity of c_AMPs was determined
+SAMtools (version 1.7) to calculate the abundance of c_AMPs (functions of           using the MTT Cell Proliferation and Cytotoxicity Assay Kit (Solarbio).
+SAMtools used included ‘sort’, ‘index’ and ‘idxstats’)96 by calculating their coverage     Exponentially growing HCT116 cells were seeded in 96-well microtiter plates in
+per million reads.                                                                  appropriate cell culture medium. After 24-h incubation at 37 °C with 5% CO2 in
+                                                                              atmosphere, medium was replaced with fresh medium, and c_AMPs of various
+Taxonomic profiling of gut metagenomic samples. Relative abundances of           concentrations were added, followed by 48-h incubation. Each c_AMP experiment
+bacteria corresponding to representative genomes were calculated by MetaPhlAn2    was performed with four independent replicates. Cell viability was monitored by
+(ref. 97). The unique clade-specific marker genes used as reference in MetaPhlAn2      the addition of MTT solution and measurement of optical density at OD490 after
+were updated by our selected representative genome, and all other parameters           4 h. Each c_AMP experiment was performed with three replicates. The CC50 value
+remained unchanged.                                                                  of each c_AMP was calculated by using online tools: https://www.aatbio.com/tools/
+                                                                                           ic50-calculator.
+Network analysis and candidate AMP selection. The correlation between
+taxonomical composition (genus and species level for each sample) and c_AMPs      Hemolysis effect of c_AMPs. Fresh collected human red blood cells were first
+was calculated by the corAndPvalue (Spearman) function from the R package        washed with PBS until the upper phase was clear after centrifugation (2,000 r.p.m.)
+WGCNA (version 1.68)98,99. We selected c_AMPs (ranging from 74 to 1,599;         and allocated onto 96-well U-bottom plates. Each c_AMP was diluted and added
+Supplementary Table 17) and bacterial genera/species that appear in more than 5%     to the wells of various concentrations. After 1 h at 37 °C, cells were centrifuged at
+of the samples in each cohort, and correlational P value was adjusted to FDR using     3,000 r.p.m. for 10 min. The supernatant was diluted, and OD570 was measured. All
+the function ‘mt.rawp2adjp’ (Benjamini–Hochberg correction) of the multtest         experiments were performed with three independent replicates. The IC50 value
+package in R100 (version 3.4.1; FDR threshold: 0.05). The screened correlation pairs     of each c_AMP was calculated using online tools: https://www.aatbio.com/tools/
+were kept when they appeared in at least seven cohorts, and correlational network      ic50-calculator.
+was visualized using Cytoscape (version 3.6.1)101.                                       Additional method details on time-dependent killing, resistance, mouse model
+                                                                      and biochemical assays, including PI, DiSC3(5), NPN and ALP, TEM and circular
+Sequence similarity estimation. We applied the Needleman–Wunsch algorithm      dichroism, can be found in the Supplementary Information.
+in the function ‘needleall’ from the EMBOSS software package (version 6.6.0.0)
+to estimate the similarity between our c_AMPs and AMPs in the training            Reporting Summary. Further information on research design is available in the
+dataset—first, by alignment, and second, by counting the identical AA pairs in the     Nature Research Reporting Summary linked to this article.
+alignment. The parameters used are all default, and the parameter ‘identity’ was
+sifted out for the graph.                                     Data availability
+                                                               Our study contains only publicly available AMP, non-AMP, metagenome andAA frequencies. The function ‘ProteinAnalysis’ was used to calculate the AA                                                                        metaproteome data. AMP data were mainly collected from four public AMP
+content in percentages of each peptide. This function was imported from the                                                                  datasets—ADAM: http://bioinformatics.cs.ntou.edu.tw/adam/, APD: http://
+Biopython module ‘Bio.SeqUtils.ProtParam’ (version 1.75)102.                                                                              aps.unmc.edu, CAMP: http://www.camp.bicnirrh.res.in/ and LAMP: http://
+                                                                              biotechlab.fudan.edu.cn/database/lamp/—which cover most of AMP sequencesPeptide synthesis. The peptides used in this study were synthesized by solid-phase                                                                      from different sources (downloaded as of 2 October 2018). The non-AMP
+peptide synthesis102 by Royo Biotech, and their accurate molecular weights were                                                                                      dataset was downloaded from UniProt (https://www.uniprot.org) by setting the
+determined by mass spectrometry. The purity of all peptides was determined by                                                                                            ‘subcellular location’ filter to cytoplasm and removing any entry that matches the
+high-performance liquid chromatography, and all purity was greater than 90%.                                                                                   following keywords: antimicrobial, antibiotic, antiviral, antifungal, effector or
+                                                                                   excreted (downloaded as of 20 November 2018). Validation datasets: non-AMPsBacterial inhibition experiment. Four strains of bacteria—including                                                                                    part ENA project ID is PRJEB19640; AMPs part was downloaded from http://representative Gram-positive bacteria B. subtili (ATCC 23857) and S. aureus                                                                                 bagel4.molgenrug.nl/index.php. The representative genomes dataset was derived
+(ATCC 6538) and representative Gram-negative bacteria E. coil DH5α and          from species-level genome bins: https://opendata.lifebit.ai/table/SGB. TheP. aeruginosa (ATCC 15692)—were streaked on Luriae–Bertani (LB) agar medium                                                                        metaproteome datasets were collected from https://www.ebi.ac.uk/pride, PRIDE
+and incubated at 37 °C overnight. The individual colonies were picked into LB                                                                                       project IDs: PXD005780, PXD008870, PXD003907 and PXD000114. The 15
+culture medium and shaken at 120 r.p.m. at 37 °C overnight. The LB bacterial                                                                               independent, large-scale metagenomic cohorts—BioProject IDs: PRJNA422434,
+suspension was diluted to the predetermined starting concentration (optical                                                                        PRJEB4336, PRJEB1220, PRJEB6337, PRJEB6456, PRJEB10878, PRJEB11532,
+density at 600 nm (OD600) = 0.1) and then again diluted 1,000 times for the          PRJNA319574, PRJEB9584, PRJNA290380, PRJEB6337, PRJEB15371,
+inhibition test.                                                                  PRJNA356102 and https://github.com/MetaSUB/MetaSUB-metadata. Source data
+  We thawed freeze-dried powder of c_AMPs and dissolved in double-distilled                                                                                      are provided with this paper.
+water to 2.4 mmol L−1. We set three experimental groups to test c_AMP
+antibacterial activity: (1) blank control group, 200 μl of LB solution; (2) bacterial
+control group, 100 μl of LB solution and 100 μl of bacterial solution; and (3)       Code availability
+low-c_AMPs group (60 μmol L−1), 100 μl of LB solution, 95 μl of bacterial solution    The c_AMP prediction codes can be found at https://github.com/
+and 5 μl of c_AMP solution. Experiments were performed on 96-well plates with      mayuefine/c_AMPs-prediction.
+
+
+Nature Biotechnology | www.nature.com/naturebiotechnology
+
+
+[PDF physical page 14]
+                                                 NATuRE BiOTEcHnOLOGyArticles
+
+References                                                                        91.   Vaswani., A. et al. Attention is all you need. Preprint at https://arxiv.org/
+66.  Wang, G., Li, X. & Wang, Z. APD3: the antimicrobial peptide database as a          abs/1706.03762 (2017).
+      tool for research and education. Nucleic Acids Res. 44, D1087–D1093 (2016).    92.  Abadi, M. et al. TensorFlow: large-scale machine learning on heterogeneous
+67.  Waghu, F. H., Barai, R. S., Gurung, P. & Idicula-Thomas, S. CAMPR3: a              distributed systems. Preprint at https://arxiv.org/abs/1603.04467 (2016).
+      database on sequences, structures and signatures of antimicrobial peptides.     93.   Paszke., A. et al. PyTorch: an imperative style, high-performance deep
+      Nucleic Acids Res. 44, D1094–D1097 (2016).                                         learning library. 33rd Conference on Neural Information Processing Systems
+68.  van Heel, A. J., de Jong, A., Montalbán-López, M., Kok, J. & Kuipers, O. P.          (NeurIPS 2019); https://proceedings.neurips.cc/paper/2019/file/bdbca288fee
+     BAGEL3: automated identification of genes encoding bacteriocins and               7f92f2bfa9f7012727740-Paper.pdf
+      (non-)bactericidal posttranslationally modified peptides. Nucleic Acids Res.      94.   Rice, P., Longden, I. & Bleasby, A. EMBOSS: the European Molecular
+      41, W448–W453 (2013).                                                         Biology Open Software Suite. Trends Genet. 16, 276–277 (2000).
+69.  Neme, R., Amador, C., Yildirim, B., McConnell, E. & Tautz, D. Random        95.  Westbrook, A. et al. PALADIN: protein alignment for functional profiling
+     sequences are an abundant source of bioactive RNAs or peptides. Nat. Ecol.         whole metagenome shotgun data. Bioinformatics 33, 1473–1478 (2017).
+      Evol. 1, 0217 (2017).                                                             96.   Li, H. et al. The Sequence Alignment/Map format and SAMtools.
+70.  Domazet-Loso, M. & Haubold, B. Efficient estimation of pairwise distances           Bioinformatics 25, 2078–2079 (2009).
+     between genomes. Bioinformatics 25, 3221–3227 (2009).                         97.   Segata, N. et al. Metagenomic microbial community profiling using unique
+71.  Gavin, P. G. et al. Intestinal metaproteomics reveals host-microbiota                   clade-specific marker genes. Nat. Methods 9, 811–814 (2012).
+      interactions in subjects at risk for type 1 diabetes. Diabetes Care 41,             98.  Zhang, B. & Horvath, S. A general framework for weighted gene
+     2178–2186 (2018).                                                                co-expression network analysis. Stat. Appl. Genet. Mol. Biol. 4, Article17
+72.  Tanca, A., Palomba, A., Pisanu, S., Addis, M. F. & Uzzau, S. Enrichment or           (2005).
+      depletion? The impact of stool pretreatment on metaproteomic                  99.   Langfelder, P. & Horvath, S. WGCNA: an R package for weighted
+      characterization of the human gut microbiota. Proteomics 15,                         correlation network analysis. BMC Bioinformatics 9, 559 (2008).
+     3474–3485 (2015).                                                            100.  Pollard, K. S., Gilbert, H. N., Ge, Y., Taylor, S. & Dudoit, S. multtest:
+73.   Chatterjee, S. et al. A comprehensive and scalable database search system            resampling-based multiple hypothesis testing. scienceopen.com https://www.
+      for metaproteomics. BMC Genomics 17, 642 (2016).                              scienceopen.com/document?vid=43b5caa2-bac4-47c7-80d1-ee9c30ba9be7
+74.  Young, J. C. et al. Metaproteomics reveals functional shifts in microbial and          (2011).
+    human proteins during a preterm infant gut colonization case. Proteomics      101. Shannon, P. et al. Cytoscape: a software environment for integrated models
+      15, 3463–3473 (2015).                                                                 of biomolecular interaction networks. Genome Res. 13, 2498–2504 (2003).
+75.  Danko, D. et al. A global metagenomic map of urban microbiomes and         102. Cock, P. J. et al. Biopython: freely available Python tools for computational
+      antimicrobial resistance. Cell 184, 3376−3393 (2021).                              molecular biology and bioinformatics. Bioinformatics 25, 1422–1423 (2009).
+76.   Zeevi, D. et al. Personalized nutrition by prediction of glycemic responses.      103. Wayne, P. A. Performance Standards for Antimicrobial Disk Susceptibility
+      Cell 163, 1079–1094 (2015).                                                               Tests (Clinical and Laboratory Standards Institute, 1991).
+77.  Vatanen, T. et al. Variation in microbiome LPS immunogenicity contributes
+      to autoimmunity in humans. Cell 165, 842–853 (2016).               Acknowledgements
+78.  Schirmer, M. et al. Linking the human gut microbiome to inflammatory        This work was supported by the Strategic Priority Research Program of the Chinese
+      cytokine production capacity. Cell 167, 1125–1136 (2016).                  Academy of Sciences (grant no. XDB29020000); the National Key Research and
+79.  Bäckhed, F. et al. Dynamics and stabilization of the human gut microbiome    Development Program of China (grant nos. 2018YFC2000500 and 2018YFA0901900);
+     during the first year of Life. Cell Host Microbe 17, 690–703 (2015).              the National Natural Science Foundation of China (grant nos. 32025002, 91857101 and
+80.   Nielsen, H. B. et al. Identification and assembly of genomes and genetic        31771481); the Biological Resources Programme of the Chinese Academy of Sciences
+     elements in complex metagenomic samples without using reference              (grant no. KFJ-BRP-009); and the Beijing Nova Program (202077/202120).
+     genomes. Nat. Biotechnol. 32, 822–828 (2014).
+81.  Qin, J. et al. A metagenome-wide association study of gut microbiota in     Author contributions      type 2 diabetes. Nature 490, 55–60 (2012).
+82.  Le Chatelier, E. et al. Richness of human gut microbiome correlates with        J.W. and Y.C. conceptualized and managed this study. Y.M. developed the bioinformatics
+      metabolic markers. Nature 500, 541–546 (2013).                                   pipeline and screening. Y.M., X.L., B.X., Z.G., Y.Z., Y.Y., N.T., X.T. and M.W. carried out
+83.   Xie, H. et al. Shotgun metagenomics of 250 adult twins reveals genetic and     the experiments. Y.M., Z.G., B.X., X.L., X.Y., J.F., Y.C. and J.W. analyzed the data. Y.M.,
+     environmental impacts on the gut microbiome. Cell Syst. 3, 572–584 (2016).     X.L., Y.C. and J.W. drafted the manuscript. J.F., Y.C. and J.W. edited the manuscript.
+84.   Mitchell, A. L. et al. EBI Metagenomics in 2017: enriching the analysis of
+      microbial communities, from sequence reads to assemblies. Nucleic Acids    Competing interests
+      Res. 46, D726–D735 (2018).                                           The authors declare no competing interests.
+85.   Yu, J. et al. Metagenomic analysis of faecal microbiome as a tool towards
+      targeted non-invasive biomarkers for colorectal cancer. Gut 66, 70–78 (2017).
+86.   Liu, W. et al. Unique features of ethnic mongolian gut microbiome revealed   Additional information
+     by metagenomic analysis. Sci. Rep. 6, 34826 (2016).                          Extended data is available for this paper at https://doi.org/10.1038/s41587-022-
+87.  He, Q. et al. Two distinct metacommunities characterize the gut microbiota     01226-0.
+      in Crohn’s disease patients. Gigascience 6, 1–11 (2017).                       Supplementary information The online version contains supplementary material
+88.  Qin, N. et al. Alterations of the human gut microbiome in liver cirrhosis.        available at https://doi.org/10.1038/s41587-022-01226-0.
+     Nature 513, 59–64 (2014).                                                                            Correspondence and requests for materials should be addressed to
+89.  Human Microbiome Project Consortium. Structure, function and diversity                                                                               Yihua Chen or Jun Wang.
+      of the healthy human microbiome. Nature 486, 207–214 (2012).
+90.   Tang., G., Müller., M., Rios., A. & Sennrich., R. Why self-attention? A          Peer review information Nature Biotechnology thanks Luis Pedro Coelho and the other,
+      targeted evaluation of neural machine translation architectures. Preprint at     anonymous, reviewer(s) for their contribution to the peer review of this work.
+      https://arxiv.org/abs/1808.08946 (2018).                                       Reprints and permissions information is available at www.nature.com/reprints.
+
+
+
+
+
+                                                                            Nature Biotechnology | www.nature.com/naturebiotechnology
+
+
+[PDF physical page 15]
+NATuRE BiOTEcHnOLOGy                                              Articles
+
+
+
+
+
+Extended Data Fig. 1 | Length distribution of datasets and model converge in the training stage. a, The length distribution of sequences in three training
+sets (Train AMPs: training set for AMP sequences, Train Non-AMPs: training set for non-AMP sequences with similar amount of sequences to that of Train
+AMPs, Train 10Non-AMPs: training set for non-AMP sequences with 10 times amount of sequences to that of Train AMPs) training data are matched. The
+colored squares indicate the different length distributions. This was plotted by http://www.bioinformatics.com.cn. b, The loss during training process of
+different models. Attention and LSTM models converged with 100-200 epochs of training steps, while Bert converged with higher number of epochs. c,
+Length distribution of 2,349 candidate AMPs from the metagenomic cohorts in our study.
+
+
+
+
+
+Nature Biotechnology | www.nature.com/naturebiotechnology
+
+
+[PDF physical page 16]
+                                                 NATuRE BiOTEcHnOLOGyArticles
+
+
+
+
+
+Extended Data Fig. 2 | Spectra and level of bacterial inhibition of all c_AMPs against the four strains of bacteria used for the initial screening. Green
+color indicates that a c_AMPs significantly decreased the OD of at least one of the testing species. ‘*’ denotes 0.01 < p ≤ 0.05, ‘#’ denotes 0.001 < p ≤ 0.01
+and ‘+’ denotes p ≤ 0.001, all in Dunnett’s test (two-sided).
+
+
+
+
+
+                                                                            Nature Biotechnology | www.nature.com/naturebiotechnology
+
+
+[PDF physical page 17]
+NATuRE BiOTEcHnOLOGy                                              Articles
+
+
+
+
+
+Extended Data Fig. 3 | Identities between AMPs and non-AMPs in our training set/discovered AMPs, and amino acid composition. a, Identity
+distributions based on multiple sequence alignment between c_AMPs and training set of AMPs/10Non-AMPs (see Methods), the grey line indicates the
+median of the identity values, Med stand for median identity. b, Sequence identity distributions in the training set, there was significantly higher identities
+among AMPs than between AMPs and non-AMPs (both balanced and unbalanced sets). One-sided Wilcoxon test was performed for each comparison.
+c, Amino acids composition of c_AMPs discovered in our study, and of known AMPs/non-AMPs in training sets (balanced dataset, pink; and unbalanced
+dataset, light yellow).
+
+
+
+
+
+Nature Biotechnology | www.nature.com/naturebiotechnology
+
+
+[PDF physical page 18]
+                                                 NATuRE BiOTEcHnOLOGyArticles
+
+
+
+
+
+Extended Data Fig. 4 | See next page for caption.
+
+
+
+
+                                                                            Nature Biotechnology | www.nature.com/naturebiotechnology
+
+
+[PDF physical page 19]
+NATuRE BiOTEcHnOLOGy                                              Articles
+
+Extended Data Fig. 4 | c_AMPs mechanism of action and resistance development. a, Transmission electronic microscopy (TEM) examination of E. coli
+DH5α cells treated with c_AMP1043 at 10× MIC concentration, showing cell content leakage and cell wall/membrane disruption. Experiments were
+performed in triplicates with similar results and one representative figure is shown. b, Section photo of E. coli DH5α cells treated with c_AMP1043 and
+HEPES as control, with c_AMP1043 at MIC and 10× MIC concentration in the test, and three microscope images at difference magnifications were
+selected for each treatment. Experiments were performed in triplicates with similar results and one representative figure is shown. c, Mechanistic assays
+against E. coli DH5α for the ten other c_AMPs in the selected list. ALP, PI, NPN and DISC3(5) assays were used to examine the potential mechanism of
+function of c_AMPs, in particular the disruption of membrane of G- bacteria E. coli (see Methods and Results). Colored lines indicate dosage-dependent
+increase of signals. N = 3 independent experiments. Data are presented as mean values +/− SEM. d, Resistance development experiment of AMP1043 by
+serial passage against E. coli DH5α. The y-axis indicates the MIC measured directly from the tubes during the serial passages (μM) and the x-axis is the
+number of passages. In 30 passages, no observed resistance occurred as MIC remained <10 μM. N = 3 independent experiments.
+
+
+
+
+
+Nature Biotechnology | www.nature.com/naturebiotechnology
+
+
+[PDF physical page 20]
+                                                 NATuRE BiOTEcHnOLOGyArticles
+
+
+
+
+
+Extended Data Fig. 5 | See next page for caption.
+
+
+
+
+                                                                            Nature Biotechnology | www.nature.com/naturebiotechnology
+
+
+[PDF physical page 21]
+NATuRE BiOTEcHnOLOGy                                              Articles
+
+Extended Data Fig. 5 | Determination of peptide structures using circular dichroism (CD) spectra. a, CD results for the 11 most potent peptides and b,
+corresponding proportions of secondary structures calculated from CD data using CDNN. Purple: in water phase; dark blue: peptide mixed with 20 times
+of DMPE/DMPG lipid mixture (see Methods). c, and d, Further CD results and predicted structures of 11 randomly selected peptides with AMP activity.
+e, positive control Magainin 2, with CD results (left), predicted proportions of each secondary structure (middle) and known structure in PDB (right,
+accession no. 2LSA).
+
+
+
+
+
+Nature Biotechnology | www.nature.com/naturebiotechnology
+
+
+[PDF physical page 22]
+
+
+
+[PDF physical page 23]
+
+
+
+[PDF physical page 24]

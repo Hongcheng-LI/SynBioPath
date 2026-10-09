@@ -1,0 +1,99 @@
+{
+  "pass": false,
+  "major_issues": [
+    {
+      "issue": "Table 1 裁剪图（PDF 第 7 页）仅显示 δC 列，δH（J in Hz）列被截掉；裁剪右侧边界过早，仅到约 x≈0.55，未到达表格右沿。完整 Table 1 应包含 H-4: 6.24 (1H, d, J = 0.5 Hz)、H-5: 6.11 (1H, d, J = 1.9 Hz)、H-7: 6.59 (1H, d, J = 1.9 Hz) 等数据。",
+      "source_locator": "PDF 第 7 页 Table 1 裁剪图（草稿 bbox=[0.28, 0.09, 0.66, 0.28]）",
+      "correction": "正确 normalized bbox 应约为 [0.28, 0.09, 0.70, 0.30]，包含完整 δH 列。"
+    },
+    {
+      "issue": "化合物 4 分子式 C14H12O5 与 HR-ESI-MS 内部不一致：C14H12O5 精确质量 260.0685，[M+H]+ = 261.0757；但实测 m/z 277.0800、原文 'calcd 277.0712' 实际对应 C14H12O6（精确质量 276.0634，[M+H]+ 277.0706）。分子式应为 C14H12O6，差一个氧，影响不饱和度计算与结构鉴定依据。",
+      "source_locator": "PDF 第 6 页 2.4 节（'Compound 4 was assigned a molecular formula of C14H12O5...([M + H]+ at m/z 277.0800, calcd 277.0712)'）",
+      "correction": "草稿应在 source_gaps 中标注此矛盾；正确分子式为 C14H12O6。"
+    },
+    {
+      "issue": "化合物 4 的 C-3 归属在正文与 Table 1 之间不一致：正文写 'two methine signals at δH 4.70 (H-3) and 4.51 (H-4)'，暗示 C-3 为次甲基且带 H；但 Table 1 列出 C-3 为 δC 152.2, C（季碳，无 δH 信号）。若 C-3 确为季碳，则 nor-4-hydroxy-toralactone 结构需重新审视。",
+      "source_locator": "PDF 第 6 页正文 vs 第 7 页 Table 1",
+      "correction": "草稿应注明此差异，不应在不核实前提下复述 '两个新的次甲基信号'。"
+    },
+    {
+      "issue": "Figure 6 与 2.3 节对 PigI2/化合物 10 的功能描述内部不一致：2.3/2.4 节定义 9/10 为 MW 548 的氢化二聚体副产物（m/z 549.1755，[M+H]+），2.7 节与 Figure 6 却将化合物 10 归属为 PigI2 催化生成的氧化产物 semixanthomegnin；二者分子式/C30H?O?不同。草稿虽在 source_gaps 中提及此矛盾，但 Figure 6 解读部分仍复述 'PigI2 据推断负责生成 semixanthomegnin 等氧化衍生物'，未与 2.3 节定性对齐。",
+      "source_locator": "PDF 第 6 页 2.3 节、第 7 页 2.4 节、第 9-10 页 2.7 节与 Figure 6",
+      "correction": "草稿应明确标注 'semixanthomegnin (10)' 为原文表述，与 MW 548 氢化产物定性矛盾，原文未消解。"
+    }
+  ],
+  "minor_issues": [
+    {
+      "issue": "草稿 Figure 4A 解读中化合物 1 和 4 的 R 基团标注与原图不符：原图化合物 1 为 R1=CH3, R2=H, R3=CH3（草稿误写 R2=OH）；化合物 4 为 R1=CH3, R2=OH, R3=H（草稿误写 R1=H，并多出 R4=H）。虽不影响 C-4 羟基的核心结论，但属于对 Figure 4A 的错误转写。",
+      "source_locator": "草稿 Figure 4 分析段落",
+      "correction": "更正为 1 (R1=CH3, R2=H, R3=CH3)、4 (R1=CH3, R2=OH, R3=H)。"
+    },
+    {
+      "issue": "PigC2 归属歧义未标注：2.1 节将 PigC2 与 pig1 特异性基因（PigB1、PigD1、PigG1）并列；2.3 节将 PigC2 作为 pig2 簇基因处理。草稿在描述 pig1 特有基因时纳入了 PigC2，未说明此歧义。",
+      "source_locator": "PDF 第 4 页 2.1 节 vs 第 6 页 2.3 节",
+      "correction": "草稿应注明 PigC2 簇归属在原文中存在歧义。"
+    }
+  ],
+  "figure_coverage": {
+    "expected_labels": [
+      "Figure 1",
+      "Figure 2",
+      "Figure 3",
+      "Table 1",
+      "Figure 4",
+      "Figure 5",
+      "Figure 6"
+    ],
+    "covered_labels": [
+      "Figure 1",
+      "Figure 2",
+      "Figure 3",
+      "Table 1",
+      "Figure 4",
+      "Figure 5",
+      "Figure 6"
+    ],
+    "missing_panels": [],
+    "missing_pages": []
+  },
+  "verified_claims": [
+    {
+      "claim": "pig2 核心基因（pigA2、pigN2、pigF2）表达 FPKM > 600；pig1 对应同源基因（pigA1、pigH1、pigO1）FPKM < 10",
+      "source_locator": "PDF 第 4 页 2.2 节",
+      "evidence": "the core genes of pig2, including pigA2 (NR-PKS), pigN2 (O-methyltransferase), and pigF2 (laccase), were expressed at high levels (FPKM > 600), whereas the corresponding orthologs in pig1 (pigA1, pigH1, pigO1) expressed at very low levels (FPKM < 10)"
+    },
+    {
+      "claim": "PigA1（pig1）与 PigA2（pig2）氨基酸序列一致性 67%",
+      "source_locator": "PDF 第 3 页 2.1 节末",
+      "evidence": "PigA1 (from pig1) and PigA2 (from pig2), which share 67% amino acid sequence identity"
+    },
+    {
+      "claim": "pig1（Cluster 2.2）48.3 kb，pig2（Cluster 39.1）49.1 kb",
+      "source_locator": "PDF 第 3 页 2.1 节",
+      "evidence": "pig1 (Cluster 2.2, 48.3 kb) and pig2 (Cluster 39.1, 49.1 kb, Figure 1A)"
+    },
+    {
+      "claim": "nor-4-hydroxy-toralactone (4) 对 C. auris 的 MIC = 12.5 µg mL⁻¹",
+      "source_locator": "PDF 第 1 页摘要 / 第 9 页 2.6 节",
+      "evidence": "the new derivative nor-4-hydroxy-toralactone (4) displayed moderate antifungal activity against C. auris with an MIC of 12.5 µg mL−1"
+    },
+    {
+      "claim": "nor-toralactone (2) 对 S. aureus CCARM 3090 的 MIC = 12.5 µg mL⁻¹",
+      "source_locator": "PDF 第 9 页 2.6 节",
+      "evidence": "Compound 2 (nor-toralactone) exhibited moderate antibacterial activity against Staphylococcus aureus CCARM 3090 with a minimum inhibitory concentration (MIC) of 12.5 µg mL−1"
+    },
+    {
+      "claim": "antiSMASH 检测 59 个候选 BGC，其中 32 个为 PKS 簇",
+      "source_locator": "PDF 第 3 页 2.1 节",
+      "evidence": "antiSMASH detected 59 putative BGCs, of which 32 were classified as polyketide synthase (PKS) gene clusters"
+    },
+    {
+      "claim": "P. javanicum OUCF108 由 ITS 鉴定，与模式株序列一致性 99.86%",
+      "source_locator": "PDF 第 3 页 2.1 节",
+      "evidence": "identified as P. javanicum on the basis of its internal transcribed spacer (ITS) sequence (99.86% identity with the type strain)"
+    }
+  ],
+  "identity_matches": true,
+  "classification_supported": true,
+  "crop_complete": false
+}

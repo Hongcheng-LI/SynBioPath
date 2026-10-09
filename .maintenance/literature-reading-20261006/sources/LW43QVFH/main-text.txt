@@ -1,0 +1,632 @@
+
+[PDF physical page 1]
+                            RESEARCH                  BIOLOGY                                     OPEN ACCESS                                      ARTICLE | SYSTEMS
+
+    Reconstruction of human metabolic models with large language
+   models
+         Jiahao Luoa,b,1, Hao Wangc,1      , Devlin Moyerd,e, Zhetao Guoa,b, Jonathan L. Robinsonf, Johan Gustafssong,h, Mihail Antonc,i, Yu Chenj      ,
+        Eduard J. Kerkhovenc,k,l      , Jens Nielsenc,f,2      , and Feiran Lia,b,2
+
+           Affiliations are included on p. 11.
+
+         Contributed by Jens Nielsen; received June 24, 2025; accepted March 12, 2026; reviewed by Vassily Hatzimanikatis and Hyun Uk Kim
+
+       Genome-­scale metabolic models (GEMs) have become essential tools for understand­
+       ing human metabolism. Here, we introduce Human2, a consensus human GEM with     Significance
+       enhanced precision and biological relevance, which leverages large language models
+      (LLMs) and GitHub Action checks to streamline automated, efficient, and collaborative     Human metabolic models are
+        curation. Human2 supports the reconstruction of tissue-­and organ-­specific models tai­        essential tools for understanding
+        lored to sex-­and age-­specific human groups. By integrating transcriptomic, proteomic,     how the body processes
+      and kinetic data, we reveal distinct metabolic features across these groups, such as sig­        nutrients, enabling the
+        nificant differences in arachidonic acid and leukotriene metabolism. The specific models        identification of disease
+       were integrated into a dynamic whole-­body framework, marking an enzyme-­constrained      mechanisms and potential
+       dynamic model that simulates interorgan metabolite exchanges under varying nutritional                                                                                                 therapeutic strategies. However,
+         states, from feeding to fasting. Our work highlights the transformative role of LLMs in                                                                                                    building and curating these
+    GEM reconstruction and introduces a whole-­body dynamic simulation that integrates                                                                                  models has traditionally relied        kinetic data, offering a powerful resource for multiscale human metabolism modeling.
+                                                                             on labor-intensive expert efforts,
+         genome-­scale metabolic model | large language model | organ-­specific model | whole-­body model         limiting their scalability and
+                                                                                                   accuracy. To overcome this,
+     Human metabolism is an intricate process involving numerous biochemical reactions and     we developed an automated
+        metabolic pathways (1, 2), which are closely linked to human health. Many diseases, such      approach that integrates large
+         as hypertension, obesity, diabetes, cardiovascular diseases, and cancer, are often associated       language models with expert
+       with abnormal metabolic states (3, 4). To elucidate the inherent complexities of human      knowledge to support high-
+       metabolism, it is essential to reconstruct comprehensive genome-scale metabolic models        quality metabolic model curation.
+      (GEMs) of humans (5).                                                         The resulting model, Human2,
+         The most recent human GEM, Human1 (6), was reconstructed by integrating several       along with its associated45.58.187.218.          earlier human GEMs- HMR2 (7), iHsa (8), and Recon3D (5), and serves as a generic GEM       ecosystem—including sex- and        that describes the metabolic functions across all human cells and tissues. Human1 has been                                                                                                       age-specific tissue/organ models,address      utilized as a valuable platform for omics data analysis, disease biomarker discovery, and under­
+                                                                                      whole-body metabolic modelsIP     standing metabolic abnormalities (9–11). Despite systematic and extensive curation, current
+      human GEMs contain certain ambiguous information, such as incorrect gene-protein-reaction      (WBMs), and enzyme-constrainedfrom      (GPR) associations, reactions introduced for gap-filling and simulation purposes, as well as      WBMs—enables the simulation
+2026      inherited errors from previous human GEMs during their integration (12). These challenges,       of metabolism across diverse
+3,    common in metabolic modeling, highlight the need for both continuous curation and more        tissues, life stages, and
+June      efficient tools for GEM updates. Recent advances in human metabolism research have clarified        nutritional states. This
+on     functions for some previously ambiguous genes and uncharacterized genes (13, 14), docu­      advancement significantly
+       mented in databases and literature text. This presents an opportunity to curate human GEMs,       accelerates metabolic research
+       though it requires extensive data mining and manual effort. Meanwhile, the development of      and paves the way for more
+         large language models (LLMs), such as ChatGPT (15) and Llama (16), has exhibited remark­                                                                                                    accessible and precise
+         able proficiency in natural language comprehension and generation tasks, particularly excelling45.58.187.218                                                                                                  applications in personalized        in scientific literature mining and interdisciplinary knowledge integration (17, 18). Thus, byby                                                                                           medicine, nutrition science,         leveraging these capabilities, we can extract the latest insights of human metabolism, including
+       gene functions, and streamline the curation process. This approach offers a more efficient and      and drug discovery.
+       comprehensive path toward enhancing the quality of human GEMs.
+          High-quality human GEMs are key to developing organ- or cell-specific models by
+        integrating omics data, which enable the analysis of particular metabolic changes in cancer      Copyright © 2026 the Author(s). Published by PNAS. This
+          cells (19), reveal disease mechanisms (20), and facilitate drug discovery (21). Moreover,     openAttribution-­NonCommercial-­NoDerivativesaccess article is distributed under CreativeLicenseCommons4.0 (CChttps://www.pnas.org     pioneering whole-body metabolic models (WBMs) have been developed by integrating       BY-­NC-­ND).
+        the tissue- and organ-specific models together to simulate complex systematic human         1J.L.from                                                                                                             and H.W. contributed equally to this work.                                                                                           whom correspondence may be addressed. Email:        metabolic disorders such as type 1 diabetes (22), SARS-CoV (23), and Alzheimer’s disease      2To
+        (24). However, the limited precision of generic human GEMs restricts their ability to      nielsenj@chalmers.se or feiranli@sz.tsinghua.edu.cn.
+        accurately predict reliable dynamic flux changes in metabolite levels at the whole-body      Thishttps://www.pnas.org/lookup/suppl/doi:10.1073/pnas.​article contains supporting information online at
+          level, as well as their capacity to simulate the complexities of diverse human groups with      2516511123/-­/DCSupplemental.Downloaded
+         distinct physiological characteristics such as age (25). Meanwhile, GECKO 3.0 has      Published April 8, 2026.
+
+      PNAS  2026  Vol. 123  No. 15 e2516511123                                       https://doi.org/10.1073/pnas.2516511123 1 of 12
+
+
+[PDF physical page 2]
+       demonstrated great performance in improving flux simulations                                                              Fig. 2A
+       by integrating deep learning-based k﻿cat predictions, offering a tool
+        that incorporates kinetic constraints into GEMs (26), but it has
+       not been applied for WBMs.                                                                                       SI Appendix
+          Here, we present Human2, a  systematically curated and
+        version-controlled human GEM that pioneers the integration of                                                                                  ­
+     LLM assistance. To demonstrate the predictive power of the                                                Dataset S1
+       model, we reconstruct organ-specific GEMs from Human2 and                                                                 Fig. 2A
+         investigate the metabolic network structures and functional dif­        Dataset S2
+        ferences across diverse organs and explore age-related metabolic
+          shifts. By integrating these organ-specific models into whole-body     Dataset S3
+       frameworks, and applying kinetic constraints with GECKO 3.0,                                                               https://
+      we examine physiological factors influencing basal metabolism    chatgpt.com/g/g-HlJmY33es-metabolic-analysis-of-human-
+       and simulate interorgan metabolite exchange under varying nutri­       ­                                                                            ­
+        tional states, including fed and fasted conditions.
+
+      Results                                                                               SI Appendix, Fig. S1
+      Human2 Development With Community  Effort and LLM                                                       Fig. 2B
+        Assistance.                                                                                                                                                 ­
+                                                                                       ­
+                                            27
+
+                28                                                                                                                                               ­
+                                                                                                            31
+                                      Fig. 1                                  32       33         34               35
+                                                                                      Dataset S4
+                                                13
+                                 29                                                             36   Fig. 2C
+
+                                                                 https://github.com/SysBioChalmers/Human-GEM 37
+                                                                                                                                                                         ­
+45.58.187.218.
+address
+IP
+from
+2026
+3,
+June
+on
+45.58.187.218
+by
+https://www.pnas.org
+                           of the curation process and key features of Human2. The main branch represents the latest stable Human-­GEM, while the develop branchfrom       Fig. 1.   Overview
+         serves as a staging area for changes from feature branches, allowing for testing and integration. (A) Within the Human-­GEM framework, users can report
+          errors, raise concerns, and propose improvements or modifications, facilitating continuous refinement of the model. The repository incorporates three types
+          of quality checks, including LLM-­assisted review and automated GitHub Actions. (B) GPT checks to validate the consistency between literature reports, database
+          descriptions, and model representations. (C) Automated GitHub Actions related to model structure, essentiality tasks and gene essentiality include pull request
+         checks and the release checks. Every branch merge and release triggers rigorous quality controls to ensure the functional integrity and reliability of Human-­Downloaded
+       GEM.
+
+   2 of 12   https://doi.org/10.1073/pnas.2516511123                                                                           pnas.org
+
+
+[PDF physical page 3]
+45.58.187.218.
+address
+IP
+from       Fig. 2.   Keysubsystems updatesamong curatedin Human2.reactions.(A) LLM-­assisted(B) Evolutionandof manualthe Human-­GEMvalidation fromresultsHuman1for gene–reactionto Human2 associations,across versions,alongsideshowingthethedistributionaddition, ofremoval,the topand15
+2026      modificationcoefficient (MCC)of reactionsperformance(rxns),of metabolitesgene essentiality(mets),predictionsand genes.across(C) Distributionsuccessive versionsof subcellularof Human-­GEM,protein localizationsvalidated againstin Human2.CRISPR(D)screenMatthewsdatacorrelationfrom Hart
+3,      et al. (30). (E) Overall composition of Human2, including the total number of genes, reactions, and metabolites. Abbreviations: meta, metabolism; Gly, glycine;
+June       Ser,tryptophan;serine; Thr,biosyn,threonine;biosynthesis.Arg, arginine; Pro, proline; Val, valine; Leu, leucine; Ile, isoleucine; His, histidine; Lys, lysine; Phe, phenylalanine; Tyr, tyrosine; Trp,
+on
+
+      With extensive curations, maintaining model functionality and sta­   Human2 Outperformed Previous Human GEMs. Human2,
+          bility is challenging. To address this, we integrated automated vali­     refined through extensive curation, aligns more closely with human
+        dation tasks into the Human-GEM GitHub repository, including    metabolism than Human1. We validated this using multiple45.58.187.218        checks for YAML model structure integrity, unused and dead-end     metrics: reaction association per gene decreased (SI Appendix,
+by     metabolites [MACAW (38)], duplicate reactions [via MEMOTE     Fig. S2A), while cross-­references for reactions and metabolites
+        (39) and MACAW (38)], and key metabolic tasks critical to human     increased (SI Appendix, Fig. S2 B-C). Gene essentiality tests on cell-­
+           cells. Changes are permitted only after passing these automated val­     line specific GEMs (from RNA-­seq of Hart 2015 and DepMap
+         idations, providing a safeguard for model reliability (Fig. 1 B-C). For     datasets, built with ftINIT) showed Human2 outperforming
+       major releases of Human-GEM, additional gene essentiality checks   Human1 in MCC scores (SI Appendix, Fig. S2D), together
+       were conducted to ensure predictive accuracy (Fig. 2D).              with a 10% GPR consistency gain with function descriptionhttps://www.pnas.org                                                                  with LLM assessment  (SI Appendix,  Fig. S2E). Simulations
+from                                                                  Fig. 2E      of 112 inborn errors of metabolism (IEMs) showed Human2                                                                             surpassing Human1 in accuracy, with ec-­Human2 reaching 65.4%
+                                                                               (SI Appendix, Fig. S2F and Dataset S5). This improved predictive
+                                                                    performance can directly attribute to the refinement of GPR
+                                                                                      ­     associations. Specifically, correcting inaccurate “OR” relationshipsDownloaded
+                                                                         eliminated erroneous alternative pathways that previously caused
+
+      PNAS  2026  Vol. 123  No. 15 e2516511123                                       https://doi.org/10.1073/pnas.2516511123 3 of 12
+
+
+[PDF physical page 4]
+          false-­positive  metabolic  tasks,  thereby  enabling  the  correct                          SI Appendix, Fig. S8A
+         identification of essential genes (SI Appendix, Extended Results).
+      To assess the impact of potential biases in public datasets such as                                           SI Appendix, Fig. S8B
+      DepMap, HMDB, and VMH, we then validated Human2 using
+       independent resources, including the Project Score database (40)         47 48
+         for CRISPR dependency and IEMbase (41) for metabolic diseases.
+     Human2 showed consistent performance across these external
+       benchmarks (SI Appendix, Fig. S3), supporting the robustness of     SI Appendix, Fig. S8     Dataset S6
+       our findings and confirming that it provides a stable improvement      To further investigate the differences between the organ-specific
+        in model quality.                                               models, we performed a sensitivity analysis on all reactions within
+          Flux variability analysis, with enzyme constraints from GECKO    the models categorized by subsystem, to uncover age-related func­
+        3.0 framework, revealed tighter solution spaces in Human2     tional rewiring (SI Appendix, Materials and Methods). Fatty acid
+        (SI Appendix, Fig. S4A), with ec-Human2 achieving ~81% flux    metabolism, including leukotriene and arachidonic acid metabolic
+        consistency in NCI-60 cell-lines versus 79% for ec-Human1    pathways, showed significant declines with age in both sexes
+        (SI Appendix, Fig. S4B). Human2 achieves a 81% MEMOTE     (SI Appendix, Fig. S9), highlighting that the capacity for metab­
+        score (39) (SI Appendix, Fig. S5) and passed all tasks of FROG     olizing fatty acids decreased in the elderly when compared to
+        (42). These simulations and comparisons confirm Human2’s     adults (49–51). Arachidonic acid metabolism and leukotriene
+       enhanced quality and predictive power.                          metabolism play a pivotal role in numerous inflammatory diseases,
+                                                                    such as asthma and arthritis (52). Arachidonic acid is stored on
+     WBM Reconstructions with Human2.                           the inner surface of the cell membrane, which can be hydrolyzed
+                                                                            to its free form by phospholipase A2 and subsequently metabolized
+                                                ­                                            into a spectrum of bioactive mediators, including prostanoids,
+                                                      Fig. 3A                    leukotrienes, epoxyeicosatrienoic acids, eicosatetraenoic acids, and
+                                                                              lipoxins (53). Many of these mediators have emerged as novel
+                                                                      ­                ­                   preventive and therapeutic targets for cardiovascular diseases, can­
+                                                      9       cers, and inflammatory disorders (54). Therefore, these patholog­
+                                                                                                      ­            ical  metabolic  alterations  associated  with  arachidonic  acid
+                              43                      44     metabolism and leukotriene metabolism can be a crucial contrib­
+      45                                                              uting factor to healthy human aging processes.
+                                                  Fig. 3B     SI Appendix,
+         Fig. S6A                                  ­
+
+                                                          SI Appendix,      Fig. 3E             SI Appendix, Fig. S6 E and F
+         Fig. S6B
+                                                                               ­45.58.187.218.                                                                                                                               Fig. 3F
+address
+IP                             ­
+from                         SI Appendix, Fig. S7                                       Fig. 3F                                                                                                                ­
+2026                                                                             ­                  ­
+3,                                                                      Validation of WBMs for BMR Simulations and Identification of
+June                                                  46      Sex-­Specific Aging Biomarkers. With WBMs, we calculated the
+on                                                                            basal metabolic rate (BMR) (55) for different human groups,
+                                                               which  is defined as the minimal rate of energy expenditure
+                                                                          required to sustain basic physiological functions in an individual
+       46                                                       under standardized conditions of rest and postabsorptive state
+                                                        ­                                        (Materials and Methods). Our  analysis  revealed  that BMRs45.58.187.218                                                                        simulated from WBMs aligned more closely with measured values
+by                    ­                                                      than those derived from traditional Mifflin-­St Jeor equations (56)
+                     Fig. 3 A-­B                                                (SI Appendix, Fig. S10 A-D). To further evaluate the quantitative
+                                                                               predictive capability of the WBM, we compared the model-­
+                               46                                   ­    predicted metabolic  rates  against independent  physiological
+                                                         Fig. 3C             measurements obtained from the literature (57). Specifically,
+        SI Appendix, Fig. S6 C-D                                              ­   we utilized individual-­level Resting Energy Expenditure (REE)https://www.pnas.org                                                                            data, which serves as a reliable proxy for daily metabolic demand.
+                           Fig. 3D                                          Incorporating specific physiological constraints enabled the WBMfrom                                                                                       ­     to generate personalized predictions that correlated significantly
+                                                                    with independent REE measurements (SI Appendix, Fig. S11).
+                                                                     These results suggest that our constraint-­based modeling approach
+                                                                                     effectively captures the physiological heterogeneity of individualDownloaded                                                                     metabolism. To understand which physiological factors most
+
+   4 of 12   https://doi.org/10.1073/pnas.2516511123                                                                           pnas.org
+
+
+[PDF physical page 5]
+45.58.187.218.
+address
+IP
+from
+2026
+3,
+June
+on
+          Fig. 3.   Reconstruction, comparison and analysis of WBMs of different ages and sexes. (A) Workflow of the reconstruction of WBMs based on Human2. (B)
+          Distribution of 7781 RNA-­seq profiles from GTEx across different organs and groups. (C) Gene count distribution for 10 common organ-­specific models (Brain,
+         Heart, Kidney, Liver, Lung, Muscle, Pancreas, sIEC, Spleen, Stomach) in different human groups. Harvey and Harvetta are previously published WBMs for adults,
+         representing male and female groups, respectively. (D) Evaluation of organ-­specific metabolic tasks in four models (liver, heart, kidney, and adipocytes) for adult45.58.187.218      groups. (E) Number of reactions in five WBMs. (F) Comparison of WBM similarities (Jaccard Index) among five different groups.
+by
+         significantly affect BMR, we performed a parameter importance    and Dataset S7). Conversely, BMR predictions showed higher
+         analysis using SHapley Additive exPlanations (SHAP) algorithm     sensitivity to biofluid exchange rates, particularly for glucose and
+        (58). Our analysis indicated that fat-­free body mass has stronger     alanine exchanges in the brain, muscle, and liver. Given that these
+       impacts on BMR than other physiological factors (SI Appendix,    exchange bounds are derived from organ-­specific physiological
+         Fig. S10E), consistent with literature report (25). We further     data, this sensitivity highlights the dominant role of organ masshttps://www.pnas.org     performed a global sensitivity analysis to assess the robustness     distributions in determining organismal metabolic  rates. To
+from     of BMR predictions to variations in model parameters, covering     investigate the genetic determinants of BMR, we used WBMs          all 608 organ biomass compositions and 15 biofluid exchange     to simulate the effects of single-­gene perturbations. The majority
+        constraints (excluding gases, water, and ions). The predictions were     of gene perturbations had negligible impact on BMR; however,
+         largely robust to changes in organ biomass composition, indicating    perturbations of 34 genes led to significant BMR alterations.
+        that BMR estimation  is not strongly driven by fine-­grained   Among these, three gene perturbations decreased BMR by moreDownloaded
+       assumptions of biomass composition (SI Appendix, Fig. S12    than 5%, while 31 increased it by over 5% (SI Appendix, Fig. S10F).
+
+      PNAS  2026  Vol. 123  No. 15 e2516511123                                       https://doi.org/10.1073/pnas.2516511123 5 of 12
+
+
+[PDF physical page 6]
+        Notably, most of the affected gene-­associated reactions were linked     of human body, we simulated metabolic  flux  distributions
+        to the transport reaction subsystem. For example, perturbations of    under various dietary intakes, focusing on how food uptake
+      ENSG00000066230 (SLC9A3), ENSG00000090020 (SLC9A1),     influences metabolic responses at the whole-­body level. Given the
+       and ENSG00000115616 (SLC9A2)—encoding Na+/H+ antiporters—    computational challenges associated with WBM, we simplified the
+        led to significant elevations in BMR.                          model to build coreWBM, which centers on seven key organs—
+          Metabolites associated with aging serve as key biomarkers for     brain, lungs, liver, skeletal muscle, kidneys, skin, and heart—where
+        unraveling aging mechanisms and advancing antiaging strategies    most metabolic activity occurs (63, 64) (Materials and Methods).
+       and personalized medicine (59). With WBMs for four distinct
+       groups—adult male,  adult  female,  elderly male, and  elderly
+      female—we set the demand reaction of metabolites as targets to
+        evaluate the metabolite release capacity across different age and sex
+        groups. Thus, metabolites exhibiting differential release capacity            63 64                                                       ­
+       between elderly and adult groups were identified as potential aging
+        biomarkers. Considering that blood and urine are easily accessible
+         biofluids for clinical testing, our investigation focused exclusively
+      on metabolites within these compartments. The results successfully
+         identified some reported aging biomarkers including arachidonic
+        acid (60), L-lactate (60), and pyruvate (61), thus validating the
+          reliability of our approach and our WBMs (SI Appendix, Fig. S13A).                      Fig. 4A                                      ﻿
+       Furthermore, all metabolites in both compartments were classified
+        into seven categories—including organic acids, organ oxygen com­
+       pounds, nucleotides, lipids, organoheterocyclic compounds, ben­
+        zenoids, and organic nitrogen compounds—using the ClassyFire                                  65
+        tool (62). Comparisons between elderly to adults are shown in
+        SI Appendix, Fig. S13 B–E (male urine: B; male blood: C; female
+        urine: D; female blood: E). While most metabolites remained con­
+         sistent across age groups, we observed different sex-specific meta­    SI Appendix, Fig. S14
+        bolic signatures. Male WBMs demonstrated significantly elevated                                                                                  ­
+        organic acid metabolites, such as L-lactate and cysteine, in both                                                                                  ­
+       blood and urine when compared elderly to adult WBM (SI Appendix,
+         Fig. S13 B and C). In contrast, female WBM exhibited a greater level                                                                                  ­
+        of nucleic acid metabolites, including cytidine and deoxyadenosine,
+        in these same compartments (SI Appendix, Fig. S13 D and E).
+       These sex-dependent metabolic shifts during aging provide valuable
+         insights into physiological adaptations and offer potential biomark­
+         ers for age-related conditions.45.58.187.218.                                                                                                      Fig. 4 B–D    Dataset S8                     ­
+address     Whole-­BodySimulation AcrossEnergyDietsProductionWith CoreWBM.and MetabolicTo evaluateResponseswhether
+IP     reconstructed WBMs can  effectively capture the complexity                                                      Fig. 4 B–D
+from
+2026
+3,
+June
+on
+45.58.187.218
+by
+https://www.pnas.org
+from
+
+
+          Fig. 4.   Simulation and analysis of different food uptake with coreWBM. (A) Correlation between the 1,882 USDA-­documented food energy data and the
+         predicted ATP production in coreWBM. Simulation of interorgan metabolite exchange with beef (B), cornstarch (C), and butter (D) intake, respectively. The redDownloaded
+          double-­lined box represents blood circulation.
+
+   6 of 12   https://doi.org/10.1073/pnas.2516511123                                                                           pnas.org
+
+
+[PDF physical page 7]
+        kidneys exhibit adaptability by absorbing different metabolites in     intermediates, owing to its tendency to yield pyruvate via the
+        response to dietary changes while invariably maintaining L-lactate     catalysis by lactate dehydrogenase (LDH). The exchange of tissue
+         release. Correspondingly, the brain consistently uptakes L-lactate     L-lactate and pyruvate in circulation helps maintain NAD+/
+        to sustain its high energy demands. These findings highlight the  NADH homeostasis across tissues, enabling the body to buffer
+       important role of interorgan metabolite shuttling, confirming   NAD(H) disturbances regardless of their origin. This extensive
+        previous studies (64, 66), while providing insights into how spe­     sharing of L-lactate between organs effectively uncouples glycolysis
+          cific organs adapt to dietary changes.                          from the TCA cycle within individual organs, permitting inde­
+                                                                      pendent, organ-specific regulation of these two metabolic path­
+      Dynamic metabolic Adaptation Simulation During Fasting Using    ways. These results validate the predictive power of reconstructed
+      Enzyme ­Constrained CoreWBM.                    WBMs in capturing the complex and integrative nature of human
+                                   ­                                                 metabolism. They also demonstrate that human metabolic changes
+                                                                               are constrained not only by regulatory mechanisms but also by
+                                                                                    intracellular enzyme abundance and enzyme kinetics.
+
+                                                     Discussion
+                                              We present Human2, an improved human GEM that enhances
+                                  26                        model accuracy and expands its applications. Compared to pre­
+                                                                                              ­               vious versions, Human2 outperforms in gene essentiality predic­
+                                    ­             Fig. 5A                                    tions, flux distribution, and IEMs, offering a more reliable resource
+                                                     67      for metabolic modeling. Human2 is the first GEM which inte­
+                                                                                 grates LLM for GEM curation. Manual curation has long been a
+                                                                                        ­                  bottleneck in GEM development, as existing automated recon­
+                                                                             struction pipelines and gap-filling methods struggle with scalabil­
+                                                                                         ity and accuracy (69–71). To address this, we integrated LLMs to
+                                                                           streamline model curation, significantly reducing manual efforts
+                                                                   Fig. 5B      while maintaining high quality. By leveraging prompt engineering,
+                                                         we improved model accuracy and cross-species  applicability.
+                                 68                          Looking ahead, LLMs hold the potential to further refine GEMs
+                                                                by predicting reaction directionalities, protein localizations (72),
+                                                              and novel gene functions (73), accelerating high-quality GEM
+                                                                  development  at  scale while minimizing human  effort. This
+                                                                   approach could eventually lead to real-time updates of the model
+                                                                                  as new data becomes available, further accelerating research.
+                                                                    Moreover, this LLM-based pipeline can be adapted to curate
+                                                    Fig. 5C            GEMs for other species, such as Escherichia coli (74) and yeast45.58.187.218.        To assess the robustness of ec-coreWBM predictions to uncer­     (75, 76), whose update pace has slowed in recent years due to the
+address      taintieson two keyin kineticenzymesparameters,involved inwesubstrateperformedmobilization:a sensitivityglycogenanalysis     increasingtion followingmanualextensiveeffort requiredcuration.forForextractingexample,valuablewe appliedinforma­this
+IP     phosphorylase and fatty acid CoA ligase. We systematically per­     pipeline to iML1515 (E. coli) and flagged 1,089 potential incon­
+from     turbed their Km and kcat values during the fasting simulation.     sistencies for further analysis (SI Appendix, Extended Results).       Changes in the K﻿m of glycogen phosphorylase altered the rate of     Additionally, this pipeline can facilitate large-scale curation of
+2026     glycogenolysis; lower K﻿m values accelerated glycogen depletion    numerous draft GEMs, including over 30000 models generated
+3,    and advanced the shift to lipid oxidation. In contrast, the system    with tools such as ModelSEED (69), AGORA (71, 77), APOLLO
+June    was largely insensitive to variations in the K﻿m of lipase. Varying     (78), and CarveME (70). However, these models often contain
+on     the kcat of either enzyme produced negligible effects on fasting    numerous errors and may lack species-specific information. Due
+       dynamics or substrate switching times (SI Appendix, Fig. S15).     to the significant manual curation required, they remain in draft
+       These results indicate that the predicted fasting phenotype of ini­    form and are limited in their applications because of these inac­
+          tial glycogen use followed by fat oxidation is robust to reasonable     curacies. Nevertheless, the automatic LLM-based pipeline devel­
+        uncertainty in kinetic parameters and is primarily influenced by    oped in this study holds great promise for improving accuracy and45.58.187.218        substrate affinity. We further evaluated robustness under dynamic    expanding the utility of these models.
+by     nutritional states by extending the simulations to longer fasting      Given the inherent complexity of human biology, it is more
+        periods (up to 45 h) and refeeding. During prolonged fasting, the     effective to use a tailored, specific model framework to address
+      model predicted progressive glycogen depletion followed by sus­     particular biological questions, rather than relying on a compre­
+        tained fatty acid utilization. Refeeding simulations showed rapid     hensive, generic GEM (19, 20, 79). Human2 enables a flexible
+       glycogen replenishment and corresponding metabolic flexibility    framework, offering both reducibility and expandability to address
+        (SI Appendix, Fig. S16). These findings suggest that enzyme kinet­     diverse biological questions. We demonstrated its ability to gen­https://www.pnas.org      ics and proteome constraints are major determinants of fuel     erate tissue- and organ-specific models, revealing key metabolic
+        switching across both fasting and refeeding conditions.               differences such as those in arachidonic acid and leukotriene meta­from         The ec-coreWBM successfully recapitulated L-lactate’s estab­    bolism across age groups. When assembled into WBMs, Human2
+        lished role as a pivotal cross-feeding metabolite actively engaged    enabled systemic metabolic investigations, identifying fat-free
+        in interorgan metabolic crosstalk under both fed and fasted states    body mass as a major determinant of BMR. Furthermore, the
+         (SI Appendix, Fig. S17), aligning with previous work by Rabinowitz     nucleic acid metabolites identified through our WBM analysisDownloaded         et al. (63, 64). L-lactate constitutes a pivotal source of TCA cycle     across different age groups serve as potential biomarkers of aging.
+
+      PNAS  2026  Vol. 123  No. 15 e2516511123                                       https://doi.org/10.1073/pnas.2516511123 7 of 12
+
+
+[PDF physical page 8]
+45.58.187.218.
+address
+IP
+from
+2026
+3,
+June
+on
+45.58.187.218
+by
+
+
+          Fig. 5.   Dynamic flux simulation with ec-­coreWBM during fasting. (A) Overview of the ec-­coreWBM reconstruction for fasting simulations. (B) Changes in
+         glycogen and fat concentrations over a 10-­h fasting period. (C) Interorgan metabolite exchange during the glycogen depletion phase (blue lines) and fat
+         depletion phase (red lines).https://www.pnas.org
+from    To translate our computational predictions into clinical applica­     metabolites. These analyses should be conducted in both healthy         tion, future systematic experimental and clinical validation can    and metabolic-disease populations to evaluate diagnostic perfor­
+       be done in the future. Clinically, large-scale epidemiological    mance and sex-specific effect sizes. Further refinements into core­
+        cohorts with stratified data by sex and age can be done to measure  WBM facilitated dietary impact analysis with 1,882 different
+        the proposed biomarkers using targeted metabolomics approaches     foods, while ec-coreWBMs provided high-resolution insights intoDownloaded
+        to quantify plasma or urine concentrations of nucleic acid    dynamic metabolic shifts over time. The coreWBM simplifies the
+
+   8 of 12   https://doi.org/10.1073/pnas.2516511123                                                                           pnas.org
+
+
+[PDF physical page 9]
+        global human metabolic network into seven key organs and a     an automerge check function and it is executed after every update in the
+        unified blood compartment, reducing computational complexity    Human-­GEM  repository. These autopull request checking tasks include
+        while retaining support for experimentally measured metabolite     multiple  critical assessments: “testYamlConversion”, “testMetabolicTasks”,
+       exchange constraints. Currently it serves as a generic metabolic      “sanityCheck”, “memoteTest,” and “macawTests”. The “testYamlConversion”
+         scaffold, future extensions could incorporate individual physio­     assessment validates Human-­GEM’s structural consistency through bidirec­
+         logical parameters to scale organ masses, enabling personalized      tional model-­YAML format conversion. The “testMetabolicTasks” evaluation con­
+       metabolic digital twins for precision nutrition.                           firms Human-­GEM’s capability to successfully perform 57 essential metabolic
+                                                                                                   tasks. The “sanityCheck” scripts leverage functionalities from COBRApy (82) to          In the future, Human2 can also be updated to integrate the
+                                                                                                 identify unused genes and metabolites within the Human-­GEM framework.       thermodynamic and temperature-related constraints for more                                                                                    Furthermore, “memoteTest” and “macawTests” facilitate detection of duplicate         analysis (79, 80). This adaptability highlights Human2’s predictive                                                                                            reactions and dead-­end metabolites.       power, allowing researchers to tailor the model with additional                                                                                                                    All of these validation protocols are wrapped into YAML format files and located
+        constraints to enhance specificity for various applications in met­                                                                                                  in the “.github/workflows” directory of the Human-­GEM repository. This integrated
+        abolic research and precision medicine.                                workflow is automatically triggered whenever a pull request (PR) is submitted,
+          In conclusion, Human2 marks a major advancement in human    and a merge is requested. GitHub Actions displays real-­time status of each vali­
+      GEMs, pioneering the integration of LLM-powered curation and     dation task and maintains comprehensive records of all historical results. If any
+       automated validation checks to ensure continuous and efficient      validation procedure fails, it would prevent merging of the PR until all identified
+        refinement. Through collaborative community efforts and further      discrepancies are resolved.
+       LLM-driven advancements, Human-GEM will continue to evolve        Moreover, with each main branch release, the gene essentiality action is
+        alongside related ecosystems, including animal-GEMs, tissue-      triggered to compare the model’s performance between the new release and
+         specific models, and WBMs. By establishing a robust foundation     the previous one, thereby ensuring consistent model performance. The func­
+         for studying human metabolism, Human2 serves as a powerful      tion “estimateEssentialGenes” was developed for this task, using tINIT2 (83) to
+        platform for uncovering metabolic mechanisms and driving inno­     generate cell-­specific GEMs for cell lines including HCT116, HELA, GBM, RPE1,
+        vation in biomedical research.                                     and DLD1 (accessible at https://github.com/SysBioChalmers/Human-­GEM/tree/
+                                                                                            main/data/datasets). Gene essentiality predictions from these models are then
+      Materials and Methods                                     compared with experimental results to calculate accuracy. A detailed analytical                                                                                               report documenting these comparative assessments is appended to each release,
+        Curation of Human-­GEM. The curation of Human-­GEM includes four key      facilitating transparent evaluation of model improvements.
+          aspects: i) reaction formula curation, including adjusting reaction directionality
+        and correcting mismatched cofactors; ii) GPR association modification, involv­    Assembly of Organ-­Specific Models to WBMs Grouped By Age and Sex.
+         ing correcting erroneous “and/or” relationships, removing incorrectly associated     The WBMs were reconstructed by integrating organ-­specific GEMs. To accurately
+         genes, and incorporating appropriate genes for respective reactions; iii) incor­      reflect the metabolite exchange processes between organs in the human body,
+         poration of new reactions, metabolites, and genes with well-­characterized meta­    we first removed all exchange reactions present in individual organ-­specific
+          bolic functions which are previously absent from Human-­GEM; and iv) removing    GEMs. To establish physiologically relevant interorgan connections, we referred
+         wrongly annotated or duplicate reactions, metabolites, and genes. After curation,      to Thiele’s work on the construction of WBMs, which interconnects all organs
+        genes without any associated reactions and metabolites that did not participate in     through biofluid compartments (46). Our WBM reconstructions incorporated 13
+        any reactions were removed. Duplicate reactions and metabolites were identified      biofluid compartments: Diet [d], Lumen [lu], Lumen of small intestine [luSI],
+                                                                     Lumen of large intestine [luLI], Feces [fe], Blood of circulation [bc], Blood of portal45.58.187.218.      through comprehensive analysis of their functional and structural characteris­
+             tics. All modifications are evidence-­based and comprehensively documented via     vein [bp], Bile duct [bd], Cerebrospinal fluid [csf], Urine [u], Sweat [sw], Breast
+                                                                                     milk                                                                                                                    (for females                                                                                                                    only,                                                                                                                                  [mi]),                                                                                                 and Air [a]. These                                                                                                                     compartments                                                                                                                                                                                         facilitate                                                                                                                                            metab­          issues             and                      pull                        requests on                                  GitHub,                                          ensuring                                                              traceability                                                     and maintaining                                                                               theaddress                                                                                                          olite exchange                                                                                                     with                                                                                                                  related                                                                                                     compartments                                                                                                            and                                                                                                                               corresponding                                                                                                                                                    organs, thereby          quality              and                       reproducibility                                       of                                                    Detailed                                                              curation                                                               can be found                                                                                        in                                Human-­GEM.
+IP      https://github.com/SysBioChalmers/Human-GEM (37).                             establishing connectivity among all organs in the WBMs.
+from                                                                                               Physiologically relevant interconnectivities among organs are well repre­
+         LLM-­Assistance for Model Curations. We developed an automated workflow     sented. For example, gaseous metabolites such as oxygen and carbon dioxide
+2026       for model curation utilizing the OpenAI GPT-­4.0 API. The customized GPT frame­      are exchanged with the lungs through the “Air” compartment. The gastrointestinal
+3,     work was built with the preparation of text files containing literature quotes and    lumen is divided into two distinct compartments: the small intestinal lumen [luSI]
+June      manually reviewed database annotations, each linked to specific gene identi­     and the large intestinal lumen [luLI]. Dietary intake [d] enters the gastrointestinal            fiers. For gene–reaction association determination, we compiled human gene       tract and initially reaches the small intestinal lumen, where it receives metabolic
+on      function description from literature and UniProt (13). Protein-­reaction localiza­     drainage from the gallbladder (via the bile duct [bd]), pancreas, and small intes­
+          tion data were collected from the Human Protein Atlas (29), UniProt (13), and       tinal; the large intestinal lumen, on the other hand, exclusively interacts with
+        DeepLoc2 (36).                                                                 colonocytes and receives metabolic influx from the small intestinal lumen. Both
+            To ensure accurate and structured results, we designed specialized prompts     small intestinal epithelial cells (sIEC) and colonocytes can absorb metabolites45.58.187.218      informed by previous research (18, 81). These prompts were rigorously tested     from their respective luminal compartments and secrete certain metabolites back
+by     and iteratively refined using 3008 manually reviewed entries to identify the      into the lumen. In the WBM reconstruction, the “Blood of circulation” [bc] com­
+        most effective combinations that yield clear and well-­organized outputs. These     partment represents the systemic circulatory system, responsible for delivering
+          validated prompts were subsequently applied for comprehensive curation of      nutrients to all organs. The “Blood of portal vein” [bp] compartment acts as a
+       Human1. The resulting annotated text files and optimized prompts were fed     conduit for metabolites originating from the colon, small intestine, spleen, and
+          into the GPT-­4 API to generate structured responses.                               pancreas. These metabolites are first drained into the liver for further metabolism
+            To improve accessibility for researchers, we developed an online tool for the    and subsequently entry into the “Blood of circulation” [bc] (Dataset S9).
+        GPT framework. This tool integrates reference data from UniProt and Human-­GEM,        The average European dietary composition was employed as the mediumhttps://www.pnas.org      organizing it into a table with detailed gene information. A cross-­reference gene      constraints. The physiologically and stoichiometrically constrained modeling
+from      ID mapping table links genes to their UniProt identifiers. Users can input a gene     (PSCM) tool was implemented to govern the boundaries of metabolite exchange          to check its involvement in metabolic processes or enter both a gene and reaction      reactions between organs and the 13 biofluid compartments (46). Consequently,
+          to see if the gene is associated with the reaction (SI Appendix, Fig. S1).              metabolite exchange boundaries between organs vary across different groups
+                                                                              under different physiological parameters.
+        Github Action Checks for Pull Requests and Releases. To maintain the        To better represent the physiological state of each organ, we modified theDownloaded
+          structural integrity and functional reliability of Human-­GEM, we implemented     generic biomass equation from Human-­GEM. We referred to the biomass
+
+      PNAS  2026  Vol. 123  No. 15 e2516511123                                       https://doi.org/10.1073/pnas.2516511123 9 of 12
+
+
+[PDF physical page 10]
+         equations in the Harvey and Harvetta and mapped them to the Human-­GEM     experimental data and literature (63, 64). This WBM representation was defined
+         derived WBMs (46). The modifications were tailored to account for the specific     as coreWBM.
+           characteristics of different organ types. For organs without regenerative capacity,       A total of 1,882 food items were downloaded from the United States
+       we retained the standard biomass reaction components, with the exception of     Department of Agriculture database (USDA, FNDDS) (USDA). Each food contained
+         nuclear deoxynucleotides. In contrast, organs with regenerative capacity (e.g.,     data on protein, fat, and carbohydrate content in the unit of g/100 g as well as
+            liver, heart, and kidney) maintained a general biomass reaction to reflect their     energy in the unit of kcal. In order to apply these food compositions as constraints
+           ability to regenerate cells. Red blood cells required special consideration due to      to the coreWBM, we formulated the composition for protein, fat, carbohydrate,
+           their lack of a nucleus and consequent inability to transcribe and translate (84).    and others in the model. The protein category includes 22 amino acids and pep­
+          Therefore, the biomass reaction in the model of RBC lacks amino acids, nuclear      tides, the fat category includes 35 lipids, and the carbohydrate category mainly
+         deoxynucleotides, and cellular deoxynucleotides, except for adenosine triphos­     includes 12 sugars. The collected content for the three categories in each food
+         phate. Furthermore, we defined a whole-­body biomass reaction (“Whole_body_     item was used to constrain these reaction bounds. 1 g food was supplied to unify
+          objective_rxn”) as a composite of the biomass reactions from each organ-­specific     food uptake and further comparison. A pseudo WBM-­ATP production reaction,
+        model in WBM. The stoichiometric coefficients in “Whole_body_objective_rxn”     representing the sum of each organ’s ATP production, was set as the objective
+        were determined based on the respective mass fractions of each organ. These      function. To ensure physiological fidelity, percentage of BMR from the metabolism
+          tailored biomass equations allow our models to represent the metabolic objec­     consumption of a resting person (BioNumbers: 109725) (87) was assigned as
+           tives and constraints of different organ systems, enhancing the physiological      stoichiometric coefficients to the corresponding pseudometabolites in WBM-­
+         relevance of our simulations.                                             ATPM. The obtained flux for the WBM-­ATPM for those foods was collected and
+                                                                           compared with documented energy profile.
+        Evaluation and Analysis of WBMs. We employed the Jaccard index, a coef­
+           ficient that quantifies the similarity between two reaction sets, to compare     ec-­coreWBM Reconstruction and Fasting Simulation With dFBA. The prun­
+         the WBMs:                                                                 ing of the model for fasted state simulation was conducted according to the
+                                                                                                       literature, retaining the central metabolic pathway (88, 89). Specifically, reac­
+                                                                                                  ,                                 tions containing metabolites present in the reference model were preserved.                               JM (l, m) =  ||Rl ∩Rm||
+                                                                                      Following this pruning process, GECKO 3.0 was employed to impose enzymatic                                                                            ||Rl ∪Rm||                                                                                                constraints, thereby generating the ec-­coreWBM (26, 90). During fasting, due
+                  l , m denote as two models. Rl and Rm denote the set of reactions in model l and      to the absence of nutritional intake, the human body relies exclusively on liver
+        model m , respectively. JM (l, m) represent the Jaccard index between model                                                                                                                                              l     glycogen and fat. Consequently, all exchange reactions were closed (with the
+        and model m.                                                                exception of CO2, H2O, and O2), and sink reactions for liver glycogen and fat
+           The simulation of BMR was employed to evaluate the accuracy of the WBMs.     were added to ec-­coreWBM. Dynamic flux balance analysis (dFBA) was sub­
+         The PSCM toolbox facilitates the integration of different physiological character­     sequently utilized to simulate the intricate metabolite exchanges between
+            istics as constraints into the model; therefore, we collected height and weight     organs during the fasting period. The initial substrate concentrations were set
+         data from the literature along with the BMR experimental data (85, 86). These      to 100 mmol/gDCW for both liver glycogen and palmitate. The whole simula­
+         parameters were subsequently incorporated as variables to constrain the WBMs      tion lasted for ten hours, approximating the physiological state of overnight
+         together with other physiological parameters. The “Whole_body_objective_rxn”      fasting in humans. We extracted 100 temporal samples throughout the process,
+        was set to 1 to represent the maintenance for a normal person’s metabolic func­     with each sample representing the flux distribution at a specific time point.
+          tions within a day. Parsimonious flux balance analysis (pFBA) was used to obtain     These flux distributions were subsequently analyzed for metabolite exchange
+         the flux value of each reaction, and then the sum of all ATP-­consuming reaction      differentiation.
+          fluxes could represent the BMR of human body. For comparison analysis, we
+                                                                               Data, Materials, and Software Availability. To facilitate further usage, we45.58.187.218.      applied the Mifflin-­St Jeor equation to compute the conventional BMR (56). The
+         simulated BMR values were compared with experimentally measured results to     provide all code related to Human-­GEM curation in the GitHub repository: https://
+          assess the accuracy of both methods.                                         github.com/SysBioChalmers/Human-­GEM (37). All code and detailed instructionaddress           Machine learning was employed to quantify the relative importance of various      for WBM reconstruction and related analysis can be found in https://github.com/
+IP       factors. In this study, diverse physiological parameters, such as body weight, heart     LiLabTsinghua/DevelopWBM (91). Model curation files and GPT checked results
+from       rate, and hematocrit, served as input features, with the simulated BMR from the     can be found in the Datasets S1–S3. Human-­GEM and related information of each
+     WBM as the target variable. The dataset was randomly split into a training set      pull request and commits can be found in https://github.com/SysBioChalmers/
+2026      (80%) and a test set (20%). A random forest regression model with 10 estimators    Human-­GEM (37). WBM related data used in the WBM can be found in Zenodo:
+3,     was utilized, and the feature importance scores were computed using the SHapley     https://zenodo.org/records/15117362 (92). Collected data such as UniProt gene
+June      Additive exPlanations (SHAP) algorithm (58). The analysis and visualization were      function text descriptions and protein localization files are available in Zenodo:
+on       facilitated by Python 3.7.16, SHAP 0.41.0, scikit-­learn 1.0.2, pandas 1.1.3, SciPy     15117362. Tissue-­, organ-­specific models and WBMs, coreWBMs, and ec-­
+          1.7.3, NumPy 1.21.5, and Matplotlib 3.4.3 packages. To evaluate the impact of    coreWBMs can be found in Zenodo: https://zenodo.org/records/15117362 (92).
+          physiological assumptions on BMR predictions, we performed a comprehensive     Databases including UniProt database (https://www.uniprot.org/) were used in
+         parameter sensitivity analysis. We systematically perturbed two categories of     the model curation (13). The authors declare that all data supporting the findings
+        model parameters: i) the stoichiometric coefficients of biomass precursors across    and for reproducing all figures of this study are available within the paper and its45.58.187.218            all organs (n = 608), and ii) the upper/lower bounds of key biofluid exchange      SI Appendix. Source data are provided with this paper.
+by       reactions (n = 15, excluding H2O, O2, CO2, and ions). Each parameter was varied
+                                                              ACKNOWLEDGMENTS. F.L. acknowledge financial support from Shenzhen        from 0.8-­fold to 1.2-­fold of its original value in increments of 0.04 (i.e., ±20%                                                                                   Medical Research Fund (A2403013) and National Natural Science Foundation          perturbation). For each perturbation, we recomputed the BMR using pFBA and
+                                                                                                 of China General Project (22478223, 62532017). E.J.K acknowledges funding          calculated the Pearson correlation coefficient (r) between the predicted BMRs and
+                                                                                 from the Novo Nordisk Foundation (NNF20CC0035580). We also acknowledge all         the experimentally measured BMRs across the validation cohort.
+                                                                                              contributors for Human-­GEM, including: Hao Wang, Jonathan Robinson, Devlin
+       coreWBM Reconstruction and Simulation With Various Food Intake.     Moyer, Mihail Anton, Feiran Li, Jiahao Luo, Johan L. Gustafsson, Pranas Grigaitis,https://www.pnas.org      Given the complexity of the WBM and the consequent computational burden,    Anne Niknejad, Cholley Pierre-­Etienne, Eduard J. Kerkhoven, Pinar Kocabas,
+from     we extracted the core model of adult male WBM, retaining only major organs      Tânia Barata, Jorge Ferreira, Mirek Kratochvil, Rasool Saghaleyni, Justin Reimertz,
+         such as brain, heart, lungs, liver, kidneys, muscle, and skin. Moreover, the biofluid      Juliette Cooke, Sarah Cherkaoui, Avlant Nilsson, Benjamín J. Sánchez, Christoff
+        compartments and related metabolite exchange reactions with organs were also     Odendaal, Daniel Weindl, Jose L. Cadavid, Marco Pagni, Pinar Kocabas, Simonas
+         omitted except for the blood compartment. We retained the blood compartment     Marcišauskas, TunahanCakir, Xuhang Li, Manas Kohli, Sébastien Moretti, Daria
+        and refined the metabolites allowed in the blood using the HMDB (31) collected     Komkova. (Contributors are ranked by number of commits they made).Downloaded
+
+
+   10 of 12   https://doi.org/10.1073/pnas.2516511123                                                                          pnas.org
+
+
+[PDF physical page 11]
+          Author affiliations: aInstitute of Biopharmaceutical and Health Engineering, Tsinghua     Advanced Technology, Chinese Academy of Sciences, Shenzhen 518055, China; kNovo
+         Shenzhen  International Graduate  School, Tsinghua  University, Shenzhen 518055,      Nordisk Foundation Center for Biosustainability, Technical University of Denmark, Lyngby
+           China; bKey Laboratory for Industrial Biocatalysis, Ministry of Education, Institute of     DK2800, Denmark; and lSciLifeLab, Chalmers University of Technology, Gothenburg
+          Biochemical Engineering, Department of Chemical Engineering, Tsinghua University,       SE-­412 96, Sweden
+            Beijing 100084, China; cDepartment of Life Sciences, Chalmers University of Technology,
+         Gothenburg SE-­412 96, Sweden; dDepartment of Biology, Boston University, Boston, MA      Author contributions: J.N. and F.L. designed research; J.L., H.W., D.M., Z.G., J.L.R., J.G., M.A.,
+          02215; eBioinformatics Program, Boston University, Boston, MA 02215; fBioInnovation        Y.C., E.J.K., and F.L. performed research; J.L. and F.L. analyzed data; and J.L., J.N., and F.L.
+             Institute,  Copenhagen N  DK2200,  Denmark;  gBroad  Institute  of  Massachusetts      wrote the paper.
+            Institute of Technology and Harvard, Cambridge, MA 02142; hDepartment of Medical      Reviewers: V.H., Ecole Polytechnique Federale de Lausanne; and H.K., Korea Advanced
+          Biochemistry and Cell Biology, Institute of Biomedicine, Sahlgrenska Academy, University       Institute of Science and Technology.
+           of Gothenburg, Gothenburg SE-­405 30, Sweden; iELIXIR, Wellcome Genome Campus,
+           Hinxton, Cambridgeshire CB10 1SD, United Kingdom; jKey Laboratory of Quantitative     Competing interest statement: Jens Nielsen holds more than 5% shares in Elypta AB,
+           Synthetic Biology, Shenzhen  Institute of Synthetic Biology, Shenzhen  Institutes of      Melt & Marble AB, and Chrysea Inc.
+
+
+
+              1.    J. Frampton, K. G. Murphy, G. Frost, E. S. Chambers, Short-­chain fatty acids as potential regulators of        37.  H. Wang et al., Code for Human-­GEM from “Reconstruction of human metabolic models with large
+                    skeletal muscle metabolism and function. Nat. Metab. 2, 840–848 (2020).                                 language models” Github. https://github.com/SysBioChalmers/Human-GEM. Deposited 4 June
+              2.    P. Morigny, J. Boucher, P. Arner, D. Langin, Lipid and glucose metabolism in white adipocytes:                 2025.
+                 Pathways, dysfunction and therapeutics. Nat. Rev. Endocrinol. 17, 276–295 (2021).                       38.  D. C. Moyer, J. Reimertz, D. Segre, J. I. Fuxman Bass, MACAW: A method for semi-­automatic
+              3.   M. De Martino, J. C. Rathmell, L. Galluzzi, C. Vanpouille-­Box, Cancer cell metabolism and antitumour             detection of errors in genome-­scale metabolic models. Genome Biol. 26, 79 (2025).
+                immunity. Nat. Rev. Immunol. 24, 654–669 (2024).                                                   39.  C. Lieven et al., MEMOTE for standardized genome-­scale metabolic model testing. Nat. Biotechnol.
+              4.    R. J. DeBerardinis, C. B. Thompson, Cellular metabolism and disease: What do metabolic outliers              38, 272–276 (2020).
+                  teach us? Cell 148, 1132–1144 (2012).                                                             40.   L. Dwane et al., Project score database: A resource for investigating cancer cell dependencies and
+              5.    E. Brunk et al., Recon3d enables a three-­dimensional view of gene variation in human metabolism.               prioritizing therapeutic targets. Nucleic Acids Res. 49, D1365–D1372 (2021).
+                   Nat. Biotechnol. 36, 272–281 (2018).                                                               41.  C. R. Ferreira, C. D. M. van Karnebeek, J. Vockley, N. Blau, A proposed nosology of inborn errors of
+              6.    J. L. Robinson et al., An atlas of human metabolism. Sci. Signal. 13, eaaz1482 (2020).                        metabolism. Genet. Med. 21, 102–106 (2019).
+              7.    A. Mardinoglu et al., Genome-­scale metabolic modelling of hepatocytes reveals serine deficiency in       42.  K. Raman et al., FROG analysis ensures the reproducibility of genome scale metabolic models.
+                   patients with non-­alcoholic fatty liver disease. Nat. Commun. 5, 3083 (2014).                                  bioRxiv [Preprint] (2024), https://doi.org/10.1101/2024.09.24.614797 (Accessed 2 May 2025).
+              8.    E. M. Blais et al., Reconciled rat and human metabolic networks for comparative toxicogenomics and       43.   J. Lonsdale et al., The genotype-­tissue expression (GTEx) project. Nat. Genet. 45, 580–585 (2013).
+                biomarker predictions. Nat. Commun. 8, 14250 (2017).                                               44.   J. Cao et al., A human cell atlas of fetal gene expression. Science 370, eaba7721 (2020).
+              9.    J. Gustafsson et al., Generation and analysis of context-­specific genome-­scale metabolic models           45.  A. Bordbar, N. Jamshidi, B. O. Palsson, iAB-­RBC-­283: A proteomically derived knowledge-­base of
+                 derived from single-­cell RNA-­Seq data. Proc. Natl. Acad. Sci. U.S.A. 120, e2217868120 (2023).                   erythrocyte metabolism that can be used to simulate its physiological and patho-­physiological
+            10.   F. Roshanzamir, J. L. Robinson, D. Cook, M. H. Karimi-­Jafari, J. Nielsen, Metastatic triple negative                   states. BMC Syst. Biol. 5, 110 (2011).
+                  breast cancer adapts its metabolism to destination tissues while retaining key metabolic signatures.       46.   I. Thiele et al., Personalized whole-­body models integrate metabolism, physiology, and the gut
+                    Proc. Natl. Acad. Sci. U.S.A. 119, e2205456119 (2022).                                                  microbiome. Mol. Syst. Biol. 16, e8982 (2020).
+            11.  C. Foguet et al., Genetically personalised organ-­specific metabolic models in health and disease.          47.  M. Watanabe et al., Bile acids induce energy expenditure by promoting intracellular thyroid
+                   Nat. Commun. 13, 7356 (2022).                                                             hormone activation. Nature 439, 484–489 (2006).
+             12.    I. Marin de Mas, H. Herand, J. Carrasco, L. K. Nielsen, P. I. Johansson, A protocol for the automatic                48.   V. Vallon, S. C. Thomson, The tubular hypothesis of nephron filtration and diabetic kidney disease.
+                   construction of highly curated genome-­scale models of human metabolism. Bioengineering 10, 576                 Nat. Rev. Nephrol. 16, 317–336 (2020).
+                   (2023).                                                                                           49.  S. Yao et al., Implications of metabolism on multi-­systems healthy aging across the lifespan. Aging
+            13.  C. UniProt, UniProt: The universal protein knowledgebase in 2021. Nucleic Acids Res. 49,                          Cell 23, e14090 (2024).
+              D480–D489 (2021).                                                                               50.   J. M. Adams et al., Leukotriene A4 hydrolase inhibition improves age-­related cognitive decline via
+            14.   L. Xing et al., Functional synergy of a human-­specific and an ape-­specific metabolic regulator in               modulation of synaptic function. Sci. Adv. 9, eadf8764 (2023).
+             human neocortex development. Nat. Commun. 15, 3468 (2024).                                      51.  C. Qian et al., Arachidonic acid in aging: New roles for old players. J. Adv. Res. 70, 79–101 (2024).
+            15.  A. J. Thirunavukarasu et al., Large language models in medicine. Nat. Med. 29, 1930–1940 (2023).        52.   F. Sasaki, T. Yokomizo, The leukotriene receptors as therapeutic targets of inflammatory diseases. Int.
+            16.  S. Sandmann, S. Riepenhausen, L. Plagwitz, J. Varghese, Systematic analysis of ChatGPT, Google              Immunol. 31, 607–615 (2019).
+                  search and Llama 2 for clinical decision support tasks. Nat. Commun. 15, 2050 (2024).                   53.  B. Wang et al., Metabolism pathways of arachidonic acids: Mechanisms and potential therapeutic
+            17.  A. Mb et al., Augmenting large language models with chemistry tools. Nat. Mach. Intell. 6, 525–535               targets. Signal Transduct. Target. Ther. 6, 94 (2021).
+                  (2024).                                                                                          54.  M. Saare et al., Monocytes present age-­related changes in phospholipid concentration and45.58.187.218.        18.   Z. Zheng, O. Zhang, C. Borgs, J. T. Chayes, O. M. Yaghi, ChatGPT chemistry assistant for text mining               decreased energy metabolism. Aging Cell 19, e13127 (2020).
+               and the prediction of MOF synthesis. J. Am. Chem. Soc. 145, 18048–18062 (2023).                      55.  Anonymous, Human basal metabolic rate has declined over the past 30 years. Nat. Metab. 5,
+            19.  E. Benedetti et al., A multimodal atlas of tumour metabolism reveals the architecture of gene-­               544–545 (2023).address             metabolite covariation. Nat. Metab. 5, 1029–1044 (2023).                                             56.  M. D. Mifflin et al., A new predictive equation for resting energy expenditure in healthy individuals.
+            20.  S. Doran et al., Multi-­omics approaches for revealing the complexity of cardiovascular disease. Brief           Am. J. Clin. Nutr. 51, 241–247 (1990).IP
+                  Bioinform. 22, bbab061 (2021).                                                                    57.   T. Haaf, P. J. Weijs, Resting energy expenditure prediction in recreational athletes of 18–35 years:
+from        21.  H. D. Jung, Y. J. Sung, H. U. Kim, Omics and computational modeling approaches for the effective               Confirmation of Cunningham equation and an improved weight-­based alternative. PLoS One 9,                 treatment of drug-­resistant cancer cells. Front. Genet. 12, 742902 (2021).                              e108460 (2014).
+2026        22.  diabetes.M. Ben Guebila,Nat. Comput.I. Thiele,Sci.Dynamic1, 348–361flux balance(2021). analysis of whole-­body metabolism for type 1             58.  Nat.S. M.Mach.LundbergIntell.et2,al.,56–67From (2020).local explanations to global understanding with explainable AI for trees.
+3,        23.   I. Thiele, R. M. T. Fleming, Whole-­body metabolic modelling predicts isoleucine dependency of            59.  X. Shen et al., Nonlinear dynamics of multi-­omics profiles during human aging. Nat. Aging 4,
+June        24.  SARS-­CoV-­2F. Martinelli etreplication.al., Whole-­bodyComput.metabolicStruct. Biotechnol.modellingJ.reveals20, 4098–4109microbiome(2022).and genomic interactions        60.  1619–1634K. A. Lawton (2024).et al., Analysis of the adult human plasma metabolome. Pharmacogenomics 9,
+on           on reduced urine formate levels in Alzheimer’s disease. Sci. Rep. 14, 6095 (2024).                        383–397 (2008).
+            25.  H. Pontzer et al., Daily energy expenditure through the human life course. Science 373, 808–812          61.  C. Menni et al., Metabolomic markers reveal novel pathways of ageing and early development in
+                  (2021).                                                                         human populations. Int. J. Epidemiol. 42, 1111–1119 (2013).
+            26.   Y. Chen et al., Reconstruction, simulation and analysis of enzyme-­constrained metabolic models           62.   Y. Djoumbou Feunang et al., Classyfire: Automated chemical classification with a comprehensive,
+                 using GECKO Toolbox 3.0. Nat. Protoc. 19, 629–667 (2024).                                             computable taxonomy. J. Cheminform. 8, 61 (2016).
+            27.   Y. Seif, B. O. Palsson, Path to improving the life cycle and quality of genome-­scale models of               63.  C. Jang et al., Metabolite exchange between mammalian organs quantified in pigs. Cell Metab. 34,45.58.187.218            metabolism. Cell Syst. 12, 842–859 (2021).                                                   1410 (2022).
+            28.   Y. Chen, F. Li, J. Nielsen, Genome-­scale modeling of yeast metabolism: Retrospectives and                64.  S. Hui et al., Glucose feeds the TCA cycle via circulating lactate. Nature 551, 115–118 (2017).by
+                   perspectives. FEMS Yeast Res. 22, foac003 (2022).                                                    65.  U. Ruth Charrondiere et al., FAO/INFOODS food composition database for biodiversity. Food Chem.
+            29.  A. Digre, C. Lindskog, The human protein atlas-­spatial localization of the human proteome in health           140, 408–412 (2013).
+               and disease. Protein Sci. 30, 218–233 (2021).                                                        66.  D. Murashige et al., Comprehensive quantification of fuel use by the failing and nonfailing human
+            30.   T. Hart et al., High-­resolution CRISPR screens reveal fitness genes and genotype-­specific cancer                   heart. Science 370, 364–368 (2020).
+                       liabilities. Cell 163, 1515–1526 (2015).                                                             67.  M. A. Henson, T. J. Hanly, Dynamic flux balance analysis for synthetic microbial communities. IET
+            31.  D. S. Wishart et al., HMDB 5.0: The human metabolome database for 2022. Nucleic Acids Res. 50,                  Syst. Biol. 8, 214–229 (2014).
+              D622–D631 (2022).                                                                               68.   P. Puchalska, P. A. Crawford, Multi-­dimensional roles of ketone bodies in fuel metabolism, signaling,
+            32.  C. J. Norsigian et al., BiGG models 2020: Multi-­strain genome-­scale models and expansion across            and therapeutics. Cell Metab. 25, 262–284 (2017).https://www.pnas.org             the phylogenetic tree. Nucleic Acids Res. 48, D402–D406 (2020).                                       69.  S. M. D. Seaver et al., The modelSEED biochemistry database for the integration of metabolic
+            33.   P. Bansal et al., Rhea, the reaction knowledgebase in 2022. Nucleic Acids Res. 50, D693–D700 (2022).               annotations and the reconstruction, comparison and analysis of metabolic models for plants, fungi
+            34.   J. Hastings et al., ChEBI in 2016: Improved services and an expanding collection of metabolites.             and microbes. Nucleic Acids Res. 49 (D1), D575–D588 (2021).from
+                  Nucleic Acids Res. 44, D1214–D1219 (2016).                                                          70.  D. Machado, S. Andrejev, M. Tramontano, K. R. Patil, Fast automated reconstruction of genome-­scale
+            35.  S. Kim et al., PubChem in 2021: New data content and improved web interfaces. Nucleic Acids Res.              metabolic models for microbial species and communities. Nucleic Acids Res. 46, 7542–7553 (2018).
+                49, D1388–D1395 (2021).                                                                         71.  S. Magnusdottir et al., Generation of genome-­scale metabolic reconstructions for 773 members of
+            36.   V. Thumuluri, J. J. Almagro Armenteros, A. R. Johansen, H. Nielsen, O. Winther, Deeploc 2.0: Multi-­             the human gut microbiota. Nat. Biotechnol. 35, 81–89 (2017).
+                   label subcellular localization prediction using protein language models. Nucleic Acids Res. 50,            72.  H. R. Kilgore et al., Protein codes promote selective subcellular compartmentalization. Science 387,Downloaded          W228–W234 (2022).                                                                      1095–1101 (2025).
+
+
+      PNAS  2026  Vol. 123  No. 15 e2516511123                                      https://doi.org/10.1073/pnas.2516511123 11 of 12
+
+
+[PDF physical page 12]
+            73.   T. Yu et al., Enzyme function prediction using contrastive learning. Science 379, 1358–1363 (2023).        83.  R. Agren et al., Identification of anticancer drugs for hepatocellular carcinoma through personalized
+            74.   J. M. Monk et al., iML1515, a knowledgebase that computes Escherichia coli traits. Nat. Biotechnol.              genome-­scale metabolic modeling. Mol. Syst. Biol. 10, 721 (2014).
+                35, 904–908 (2017).                                                                              84.  M. C. Giarratana et al., Ex vivo generation of fully mature human red blood cells from hematopoietic
+            75.  H. Lu et al., A consensus S. cerevisiae metabolic model Yeast8 and its ecosystem for comprehensively           stem cells. Nat. Biotechnol. 23, 69–74 (2005).
+                probing cellular metabolism. Nat. Commun. 10, 3586 (2019).                                         85.  A. M. Prentice et al., High levels of energy expenditure in obese women. Br. Med. J. (Clin. Res. Ed.)
+            76.  C. Zhang et al., Yeast9: A consensus genome-­scale metabolic model for S. cerevisiae curated by the            292, 983 (1986).
+                community. Mol. Syst. Biol. 20, 1134–1150 (2024).                                                   86.   L. L. Loureiro et al., Basal metabolic rate of adolescent modern pentathlon athletes: Agreement
+            77.  A. Heinken et al., Genome-­scale metabolic reconstruction of 7, 302 human microorganisms for               between indirect calorimetry and predictive equations and the correlation with body parameters.
+                  personalized medicine. Nat. Biotechnol. 41, 1320–1331 (2023).                                         PLoS One 10, e0142859 (2015).
+            78.  A. Heinken et al., A genome-­scale metabolic reconstruction resource of 247, 092 diverse human       87.  R. Milo, P. Jorgensen, U. Moran, G. Weber, M. Springer, BioNumbers–the database of key numbers
+                microbes spanning multiple continents, age groups, and body sites. Cell Syst. 16, 101196                    in molecular and cell biology. Nucleic Acids Res. 38, D750–D753 (2010).
+                 (2025).                                                                                          88.  A. Nilsson, E. Bjornson, M. Flockhart, F. J. Larsen, J. Nielsen, Complex I is bypassed during high
+            79.  M. Masid, M. Ataman, V. Hatzimanikatis, Analysis of human metabolism by reducing the                     intensity exercise. Nat. Commun. 10, 5072 (2019).
+                complexity of the genome-­scale models using redHUMAN. Nat. Commun. 11, 2821                 89.   T. Shimazu et al., Suppression of oxidative stress by beta-­hydroxybutyrate, an endogenous histone
+                 (2020).                                                                                                   deacetylase inhibitor. Science 339, 211–214 (2013).
+            80.  G. Li et al., Bayesian genome scale modelling identifies thermal determinants of yeast metabolism.        90.   F. Li et al., Deep learning-­based kcat prediction enables improved enzyme-­constrained model
+                   Nat. Commun. 12, 190 (2021).                                                                                  reconstruction. Nature Catal. 5, 662–672 (2022).
+            81.   J. Dagdelen et al., Structured information extraction from scientific text with large language models.       91.   J. Luo, F. Li. Code for DevelopWBM from “Reconstruction of human metabolic models with large
+                   Nat. Commun. 15, 1418 (2024).                                                                      language models”. Github. https://github.com/LiLabTsinghua/DevelopWBM. Deposited 24 March 2025.
+            82.  A. Ebrahim, J. A. Lerman, B. O. Palsson, D. R. Hyduke, COBRApy: Constraints-­based reconstruction          92.   J. Luo et al., Data from “Reconstruction of human metabolic models with large language models”.
+               and analysis for Python. BMC Syst. Biol. 7, 74 (2013).                                                    Zenodo. https://zenodo.org/records/15117362. Deposited 31 March 2025.
+
+
+
+
+45.58.187.218.
+address
+IP
+from
+2026
+3,
+June
+on
+45.58.187.218
+by
+https://www.pnas.org
+from
+Downloaded
+
+
+   12 of 12   https://doi.org/10.1073/pnas.2516511123                                                                          pnas.org

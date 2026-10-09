@@ -1,0 +1,1716 @@
+
+[PDF physical page 1]
+Review
+Emerging Technologies Empowering the
+Biosynthesis of Paclitaxel
+
+Xiaonan Liu 1,*,†, Yuanyuan Zhang 1,†, Jing Li 2,† and Huifeng Jiang 3,4,*
+
+1 Cooperative Innovation Center of Industrial Fermentation (Ministry of Education & Hubei Province), Key Laboratory of
+  Fermentation Engineering (Ministry of Education), Hubei Key Laboratory of Industrial Microbiology, National “111”
+  Center for Cellular Regulation and Molecular Pharmaceutics, Hubei University of Technology, Wuhan 430068, China;
+  502510059@hbut.edu.cn (Y.Z.)
+2 College of Life Sciences, Nankai University, Tianjin 300071, China; lijing@tib.cas.cn (J.L.)
+3 Key Laboratory of Engineering Biology for Low-Carbon Manufacturing, Tianjin Institute of Industrial Biotechnology,
+  Chinese Academy of Sciences, Tianjin 300308, China
+4 College of Bioengineering, Tianjin University of Science and Technology, Tianjin 300457, China
+
+* Corresponding author. E-mail: liuxiaonan@hbut.edu.cn (X.L.); jiang_hf@tib.cas.cn (H.J.)
+
+† These authors contributed equally to this work.
+
+Received: 26 January 2026; Revised: 24 February 2026; Accepted: 30 April 2026; Available online: 18 May 2026
+
+
+ABSTRACT: Paclitaxel (Taxol) is a clinically important diterpenoid anticancer drug whose industrial
+production remains constrained by limited Taxus resources and semi-synthetic routes. Driven by the rapid
+advancement of genome mining and synthetic biology technologies, the past two years have witnessed
+substantial breakthroughs in elucidating the biosynthetic pathway of paclitaxel. The pathway constitutes an
+exceptionally complex biosynthetic network comprising approximately 20 enzymatic steps, predominantly
+catalyzed by cytochrome P450 monooxygenases, 2-oxoglutarate-dependent dioxygenases (ODDs), and
+acyltransferases. Nevertheless, microbial production of paclitaxel remains highly obstructed, largely due to
+inefficient catalytic abilities, enzyme promiscuities, and complex metabolic fluxes. This review summarizes
+recent progress in elucidating the evolutionary origins and catalytic mechanistic basis of the paclitaxel
+biosynthetic pathway, with particular emphasis on the emerging technologies and catalytic mechanism
+studies. Furthermore, current challenges and perspectives for constructing efficient artificial biosynthetic
+pathways are discussed, providing insights into the future biotechnological production of paclitaxel.
+
+Keywords: Paclitaxel; Pathway analysis; P450 enzyme; Enzyme modification; Synthetic biology
+
+
+
+1. Introduction
+
+    Paclitaxel (Taxol) is a tetracyclic diterpene compound isolated from the rare Taxus species, standing
+out as one of the most potent natural anticancer agents ever discovered. Its remarkable therapeutic efficacy
+stems from a unique mechanism of action: it stabilizes microtubules by preventing their depolymerization,
+thereby arresting mitosis and inhibiting cancer  cell proliferation  [1]. This compound has attracted
+widespread scientific interest not only for its clinical importance but also for its limited natural availability,
+complex molecular structure, and the intricate biosynthetic pathway required for its production. Recent
+research on paclitaxel biosynthesis has achieved great progress, and almost all the enzymes involved in its
+
+
+
+
+
+          © 2026 The authors. This is an open access article under the Creative Commons Attribution 4.0 International License
+                   (https://creativecommons.org/licenses/by/4.0/).
+
+
+[PDF physical page 2]
+Synth. Biol. Eng. 2026, 4(2), 10006. doi:10.70322/sbe.2026.10006                                                                    2 of 31
+
+
+pathway have been identified. However, substrate and functional promiscuity among key enzymes
+transform paclitaxel biosynthesis into a complex metabolic network, making it highly challenging to fully
+decipher  the  reaction process  [2]. Moreover, although  the  synthesis  of  taxa-4(5),11(12)-diene  in
+microorganisms can reach gram-scale yields, subsequent oxidation steps remain difficult to advance.
+Several recent review articles have summarized progress in elucidating the biosynthetic mechanism of
+paclitaxel, as well as the key challenges hindering the sustainable production of taxane compounds, and
+also proposed the state-of-the-art synthetic biology and artificial intelligence strategies to overcome these
+challenges [3–5]. This work focuses mainly on advances in the evolutionary origin, pathway identification,
+and artificial biosynthesis of paclitaxel formation. The emerging technologies, such as complex genomic
+sequencing, the mpXsn method, MALDI-IMS, dropout experiments, and the oxidases toolbox, will also be
+discussed, as well as the catalytic mechanism studies of key catalytic components.
+   The yew tree is a rare species listed as a national key protected wild plant, often praised as “Green
+Gold” for its unique medicinal, timber, and ornamental value. The sequencing of the Taxus genome,
+especially the releases of high-quality genomes for Taxus chinensis [6], Taxus wallichiana [7], and Taxus
+yunnanensis [8], has substantially accelerated research on paclitaxel biosynthesis [9]. These genomic
+resources, integrated with comprehensive transcriptomic datasets and advanced spatial metabolomics
+techniques like MALDI-IMS, have enabled unprecedented insights into the evolutionary origins and
+metabolic intricacies of taxane biosynthesis. For instance, MALDI-IMS analysis of Pseudotaxus chienii,
+combined with its genome sequencing, has provided crucial clues about the origin and evolution of this
+pathway [10]. Furthermore, innovative methodologies such as multiplexed perturbation × single nuclei
+sequencing  (mpXsn),  which  couples  single-nucleus RNA-seq  with  high-throughput  phenotypic
+perturbation, offer a powerful platform for deconstructing complex plant metabolic networks and
+identifying regulatory factors, such as the nuclear transport factor 2 (NTF2)-like protein FoTO1 [11].
+    Significant progress has been made in elucidating the paclitaxel biosynthetic pathway, with nearly all
+involved enzymes now identified. Recent research has yielded pivotal discoveries that overcome long-
+standing barriers. Key breakthroughs include the elucidation of the oxetane ring-forming mechanism at C4,
+C5, and C20 positions [12–15], the identification of the nuclear transport factor 2 (NTF2)-like protein
+FoTO1 (which complexes with TXS and T5αOH to enhance early pathway yield by 10 to 17-fold) [11],
+T9αOHs for different pathways, T7AT and different T1βOHs, deacetylases and taxane C-9-oxidase (T9ox),
+β-phenylalanine-CoA ligase (PCL), and the clarification of final steps such as C2′α hydroxylation and 3′-
+N benzoylation [16]. Concurrently, enzyme engineering has produced innovative tools, such as artificial
+oxidase toolboxes derived from TteUPO mutants, enabling site-directed oxidation of taxanes at multiple
+positions and offering unconventional strategies for creating paclitaxel analogs [17]. In addition, versatile
+2-oxoglutarate-dependent dioxygenases, such as Tm576, TcOGD1, and TcOGD2, could catalyze skeleton
+reconstructions and oxidation modifications of toxoids, which expanded the chemical space of taxane
+diterpenoids [2,18].
+    While advances in synthetic biology have made green and sustainable paclitaxel intermediates
+(particularly taxadiene), production via engineered cell factories is increasingly viable. Reconstruction of
+the downstream pathway after taxa-4(5),11(12)-diene still faces critical bottlenecks, including intrinsically
+low P450 catalytic efficiency, poor compatibility with heterologous hosts, and metabolic flux diversion due
+to enzyme promiscuity [4]. Consequently, a central research focus is the reconstruction and enhancement
+of the complete pathway in amenable heterologous hosts such as Escherichia coli, yeast, Nicotiana
+benthamiana, and cyanobacteria. Current strategies to overcome these hurdles include: (1) developing
+novel chassis systems (such as non-conventional yeasts, fungi, algae) for better compatibility with plant
+P450s; (2) employing hybrid biosynthetic-chemical approaches; (3) deploying regulatory scaffolds like
+FoTO1 to minimize off-target oxidation; (4) utilizing machine learning and synthetic microbial consortia
+for pathway optimization [5]. This review summarizes recent progress across evolutionary origin studies,
+
+
+[PDF physical page 3]
+Synth. Biol. Eng. 2026, 4(2), 10006. doi:10.70322/sbe.2026.10006                                                                    3 of 31
+
+
+pathway identification, and artificial biosynthesis strategies (Figure 1). By offering a comprehensive
+analysis of key enzymatic discoveries and cutting-edge synthetic biology approaches, it aims to enhance
+the understanding of paclitaxel biosynthesis and catalysis, thereby laying a foundation for the systematic
+development of sustainable production platforms.
+
+
+
+
+
+Figure 1. The evolution and synthetic biology research on paclitaxel biosynthesis. Single arrow represents a one-step reaction,
+three arrows represent multi-step reactions. Green arrows indicate reactions catalyzed by enzymes naturally involved in the taxol
+biosynthesis pathway, blue arrows indicate catalysis by oxidases not derived from the Taxus speicies. Red boxes highlight key
+catalytic steps.
+
+2. Advances in the Paclitaxel Biosynthetic Pathway Identification
+
+   As a starting point for understanding the paclitaxel synthesis, a systematic review of its biosynthetic
+pathway is provided below. The biosynthetic pathway of paclitaxel is generally divided into three stages.
+The first stage involves the synthesis of the key taxane core skeleton, which leads to the formation of taxa-
+4(5),11(12)-diene. The second stage involves the formation of baccatin III from taxadiene via several
+hydroxylation and  acetylation  modifications. The  third  stage comprises  the  synthesis  of  the  β-
+phenylisoserinoyl-CoA side chain and attaching this side chain to baccatin III followed by a series of
+additional modifications that ultimately result in the formation of paclitaxel (Figure 2).
+
+2.1. Biosynthesis of the Taxa-4(5),11(12)-Diene
+
+   The biosynthesis of the taxane core begins with geranylgeranyl pyrophosphate (GGPP), which is a
+universal precursor to diterpenes. GGPP  is formed through the condensation of one molecule of
+dimethylallyl pyrophosphate (DMAPP) with three molecules of isopentenyl pyrophosphate (IPP), catalyzed
+by geranylgeranyl pyrophosphate synthase (GGPPS). IPP and DMAPP are primarily synthesized through
+the 2-C-methyl-D-erythritol-4-phosphate (MEP) pathway and the mevalonate (MVA) pathway [19].
+Additionally, an isomerization reaction between DMAPP and IPP can be catalyzed by isopentenyl
+diphosphate isomerase (IDI). Subsequently, taxa-4(5),11(12)-diene synthase (TS) catalyzes the cyclization
+of GGPP to generate the taxane diterpene backbone [19,20], which comprises approximately 95% taxa-
+4(5),11(12)-diene, and taxa-4(20),11(12)-dienetaxadiene with other minor diterpene scaffolds. In plant
+cells, although the cytosolic MVA pathway can also generate IPP, both GGPPS and TS harbor intrinsic
+plastid-targeting peptides and thus preferentially utilize IPP synthesized via the MEP pathway in plastids
+[20]. Following the taxa-4(5),11(12)-diene backbone, a cascade of tailoring modifications ultimately leads
+to the formation of baccatin III.
+
+
+[PDF physical page 4]
+Synth. Biol. Eng. 2026, 4(2), 10006. doi:10.70322/sbe.2026.10006                                                                    4 of 31
+
+
+
+
+
+Figure 2. The recently discovered biosynthetic pathway of paclitaxel. TS, taxa-4(5),11(12)-diene synthase; T5αOH, taxane 5α-
+hydroxylase; TAT, taxa-4(5),11(12)-diene-5α-ol-O-acetyl transferase; T10βOH, taxane 10β-hydroxylase; T13αOH, taxane 13α-
+hydroxylase; T2αOH, taxane 2α-hydroxylase; T9αOH, taxane 9α-hydroxylase; T7βOH, taxane 7β-hydroxylase; T1βOH, taxane
+1β-hydroxylase; TBT, taxane 2α-O-benzoyltransferase; DBAT, 10-deacetyl baccatin III-10-O-acetyltransferase; BAPT, baccatin
+III-3-amino,  13-phenylpropanoyltransferase; TOT,  taxane  oxetanase; TAX19,  taxane  C13-O-acetyltransferase; PAM,
+phenylalanine aminomutase; PCL, β-phenylalanine coenzyme A ligase; CoA(A312G), a variant of a CoA ligase from Penicillium
+chrysogenum; T7AT, taxane C-7β-O-acyltransferase; T7dA/T7dA1, taxane 7β-O-deacetylase; T9dA, taxane 9α-O-deacetylase;
+T9ox, taxane C-9-oxidase; T13dA, taxane C13-O-deacetylase; T2/OGD, taxane 2′α-hydroxylase; T3′NBT, 3’-N-debenzoyl-′-
+deoxytaxol-N-benzoyltransferase. Single arrow represents a one-step reaction, while multiple arrows represent multi-step
+reactions. Dashed arrow: putative pathway; Blue dashed box: key precursors; Red dashed box: the final product taxol; Red color:
+newly added structure in each step; Blue color: putative structure.
+
+2.2. Biosynthesis of the Baccatin III
+
+    During the tailoring steps in paclitaxel biosynthesis, cytochrome P450 enzymes mediate most
+hydroxylation reactions. Several P450 enzymes have been identified that catalyze hydroxylation at the C2,
+C5, C7, C10, and C13 positions. Recent studies have reported progress in elucidating the functions of the
+C4β-C20 epoxidase, C1 hydroxylase (T1βOH), different C9 hydroxylases (T9αOHs), C9 oxygenase,
+taxane-2′α-hydroxylase (T2′αOH), 3′-N-debenzoyl-2′-deoxytaxol N-benzoyltransferase (DBTNBT), and
+so on [12,15]. After years of effort, especially the explosive innovative discoveries in the past two years,
+the catalytic components involved in the pathway from taxa-4(5),11(12)-diene to paclitaxel have been
+almost completely identified (Table 1). It has long been assumed that among all hydroxylation reactions,
+the first to occur is C5 hydroxylation, catalyzed by taxa-4(5),11(12)-diene-5α-hydroxylase T5αOH [21].
+Taxa-4(20),11(12)-diene is directly converted by T5αOH to yield taxa-4(20),11(12)-dien-5α-ol (T5α-ol)
+[22]. When taxa-4(5),11(12)-diene serves as the substrate, T5αOH converts  it into T5α-ol via C5
+hydroxylation coupled with double-bond rearrangement. Additionally, T5αOH can catalyze the formation
+of multiple mono- and di-oxidized byproducts, including OCT (5(12)-oxa-3(11)-cyclotaxane) and iso-OCT
+(5(11)-oxa-3(11)-cyclotaxane) [21]. Recently, the FoTO1 was found to be crucial for promoting the
+formation of the desired product T5α-ol during the first oxidation, resolving a long-standing bottleneck in
+
+
+[PDF physical page 5]
+Synth. Biol. Eng. 2026, 4(2), 10006. doi:10.70322/sbe.2026.10006                                                                    5 of 31
+
+
+the paclitaxel pathway reconstitution [11]. Subsequently, owing to the high catalytic promiscuity of P450
+enzymes and acyltransferases, particularly in oxetane ring formation, multiple catalytic mechanisms have
+been proposed. The turning point occurred when an α-ketoglutarate/Fe (II)-dependent dioxygenase (ODD),
+named as TB328, was identified as the catalyst for C4β-C20 epoxidation. This discovery led to the
+hypothesis that an ODD enzyme mediated reaction accelerates the taxa-4(5),11(12)-diene oxidation cascade
+[15]. Subsequently, the formation mechanism of oxetane was elucidated by different enzymes. Specifically,
+recent reports demonstrate that the P450 enzyme T5αOH can also orchestrate oxetane ring formation
+through a two-step epoxidation mechanism, fundamentally revising earlier assumptions regarding its
+catalytic limits [23]. In 2024, enzymatic activity assays performed on 58 key candidate genes in a tobacco
+host system identified a bifunctional P450 enzyme, named TOT1, that participates in the oxetane ring
+formation of paclitaxel [13]. While recent systematic reviews have chronicled these conceptual shifts [24].
+CYP725A55 [13] and TmCYP1 [14] are also the same P450 enzyme that catalyzes the oxetane ester
+formation via a cascade oxidation-concerted acyl rearrangement mechanism. These divergent results of
+oxetane ring formation in paclitaxel biosynthesis also suggest that the pathway to paclitaxel may involve a
+complex network instead of a linear network.
+    In previous studies, two alternative pathways have been proposed for the downstream reactions
+following the C5 hydroxylation of taxa-4(5),11(12)-diene: In the first proposed route, T5α-ol undergoes
+acetylation at the 5α-hydroxyl group, catalyzed by taxa-4(5),11(12)-diene-5α-ol-O-acetyltransferase (TAT),
+forming Taxa-4(20),11(12)-dien-5α-yl-acetate. This intermediate is then hydroxylated at the C10 position
+by   taxane-10β-hydroxylase   (T10βOH),   producing   Taxa-4(20),11(12)-dien-5α-acetoxy-10β-ol.
+Alternatively, the CYP725A family taxane 13α-hydroxylase (T13αOH) catalyzes the hydroxylation of T5α-
+ol at the C13 position, yielding Taxa-4(20),11(12)-diene-5α-13α-diol. Further modifications occur through
+hydroxylation at C1, C2, C7, and C9, acylation at C2, C5, and C10, and ketonization at C9, although the
+precise sequence of these steps remains unclear. It was proposed that TB328 and P450 enzyme T5αOH act
+synergistically to generate 4β-C20-epoxy-taxa-4(5),11(12)-diene-4α-ol, which is subsequently modified
+through C9 hydroxylation and oxidation. Using the same transient expression system and dropout
+experiments, taxane-1β-hydroxylase (T1βOH), taxane-9α-hydroxylase (T9αOH), and taxane-9α-oxidase
+were further identified [15]. However, the precise sequences of the downstream reactions remain
+unresolved. Subsequently, the intermediate 2-debenzoyltaxane undergoes regioselective benzoylation
+catalyzed by taxane-2α-O-benzoyltransferase (TBT) to yield 10-deacetylbaccatin III (10-DAB). This is
+followed by  the  final  modification  of  the  taxane  core,  in which  10-deacetylbaccatin  III-10-O-
+acetyltransferase (DBAT) catalyzes acetylation of the C10 hydroxyl group of 10-DAB, resulting in the
+formation of baccatin III [25]. The early steps of the paclitaxel biosynthetic pathway were reconstructed in
+a tobacco system, demonstrating that taxa-4(20),11(12)-dien-5α-ol can be sequentially converted by early
+paclitaxel pathway enzymes  either  in  the order TAT-T10βOH-DBAT-T13αOH or T13αOH-TAT-
+T10βOH-DBAT, producing  5α,10β-diacetoxy-13α-ol  as an  intermediate  for  subsequent  reactions,
+ultimately leading to the formation of the 5α,10β-diacetoxy-13-one intermediate [26]. Based on the newly
+discovered oxetane ring-forming enzyme, the research groups of Jianbin Yan and Zhihua Zhou constructed
+biosynthetic pathways for baccatin  III and 5α,10β-diacetoxy-13-one in tobacco and Saccharomyces
+cerevisiae, respectively. In addition, both teams identified the enzyme T9αOH1, which is responsible for
+hydroxylation at the C9 position of the taxane core [12,13]. Using single-nucleus transcriptomic sequencing
+and a multi-gene perturbation strategy, the group identified key catalysts for paclitaxel, including T9αOH-
+750C, the scaffold protein FoTO1, two T1βOH variants (T1βOH-184 and T1βOH-686), and T9ox. In
+contrast to previous findings, they also discovered T7AT, which catalyzes acetylation or benzoylation at
+the C-7β position, as well as T9dA and T7dA, which remove acetyl groups at the C-9 and C-7 positions,
+respectively. T7AT is particularly important as it is required for the function of TOT and facilitates the
+formation of the oxirane ring, a crucial step in the pathway [11]. In 2026, the baccatin III biosynthetic
+
+
+[PDF physical page 6]
+Synth. Biol. Eng. 2026, 4(2), 10006. doi:10.70322/sbe.2026.10006                                                                    6 of 31
+
+
+pathway was further elucidated. Through the transcriptomic analysis of T. media cell cultures, four
+previously unreported deacetylases (T7dA1, T79dA, T13dA1, and T13dA2) were identified belonging to
+the carboxylesterase family, which plays a pivotal role in the deacetylation of plant-derived natural products.
+Substrate-feeding experiments utilizing a N. benthamiana transient expression system demonstrated that
+T7dA1 exhibits higher catalytic activity than the previously reported T7dA. Furthermore, these assays
+revealed that T79dA functions as a bifunctional deacetylase capable of removing acetyl groups at the C7
+and C9 positions [27]. Most importantly, the discovery of the C13-deacetylases T13dA1 and T13dA2
+uncovered a  cryptic “C13α-O-acetylation-deacetylation module” within  the  paclitaxel  biosynthetic
+pathway. This critical finding repositioned classic taxoids, such as taxusin and baccatin VI, as bona fide
+on-pathway intermediates rather than metabolic byproducts. Although TAX19 has been characterized as a
+native taxane C13α-O-acetyltransferase in Taxus , the baccatin III biosynthetic route necessitates a hydroxyl
+group at the C13α position [28]. This structural requirement further substantiates the existence of a dynamic
+“C13α-O-acetylation-deacetylation”  process  during   biosynthesis.  Within   this  framework,  13-
+hydroxytaxusin is converted to taxusin via the action of TAX19. A subsequent catalytic cascade involving
+T2αOH, TBT, T7βOH, T7AT, TOT, and T1βOH then transforms taxusin into baccatin VI. From this point,
+baccatin VI can proceed through two distinct routes to generate baccatin III. In Pathway I, the sequence
+initiates with deacetylation at the C7 and C9 positions. In vitro steady-state kinetics confirmed the specific
+catalytic order of T13dA and T9ox, demonstrating that baccatin VI yields baccatin III through the sequential
+action of T7dA1, T9dA, T13dA, and T9ox. Conversely, Pathway  II begins with C9 ketonization
+orchestrated by T9dA and T9ox. Following this step, the intermediate undergoes deacetylation at the C7
+and C13 positions, catalyzed by T7dA1 and T13dA1 respectively, to ultimately form baccatin III [27]. In
+summary, although different research groups have drawn divergent conclusions regarding the catalytic
+sequence in the baccatin III biosynthetic pathway, recent studies on oxetane ring formation, the nuclear
+transport factor 2 (NTF2)-like protein (FoTO1), the discovery of new functional enzymes, and the
+construction of heterologous taxane biosynthetic pathways have collectively expanded our understanding
+of the functional diversity of paclitaxel P450 enzymes. Additionally, such observations offer robust proof
+that paclitaxel biosynthesis is rooted in a coordinated metabolic network rather than a traditional, strictly
+linear catalytic process.
+    Furthermore, within Taxus plants, once the cyclized taxa-4(5),11(12)-diene core is formed, it can be
+modified along multiple branching pathways through hydroxylation or acylation at other positions to
+generate diverse taxane compounds. A P450 monooxygenase, taxane-14β-hydroxylase (T14βOH), which
+functions in an alternative branch of the taxane biosynthetic pathway, was subsequently identified [29].
+Studies have shown that the expression of T14βOH is negatively correlated with paclitaxel content,
+suggesting that multiple biosynthetic routes for taxanes may exist in Taxus, forming a complex synthetic
+network. After the formation of the tricyclic diterpene core, various enzymatic modifications lead to the
+production of diverse taxane compounds. Subsequent studies have shown that, in addition to the 19
+reactions required to convert GGPP to paclitaxel, several branching pathways involving alternative
+hydroxylation and acylation reactions lead to the formation of nonproductive taxanes, which is a major
+cause of the accumulation of numerous intermediate byproducts [25].
+
+2.3. Biosynthesis, Attachment, and Modification of the β-Phenylalanyl Side Chain
+
+     Initially, phenylalanine aminomutase (PAM) catalyzes the isomerization of α-phenylalanine to β-
+phenylalanine [30]. Subsequently, β-phenylalanyl-CoA ligase (PCL) activates this side chain to form β-
+phenylalanyl-CoA [31]. In 2023, efforts to characterize side-chain attachment successfully identified the
+native β-phenylalanyl-CoA ligase sequence utilizing a tobacco transient expression system [15]. To further
+optimize this catalytic step, subsequent comparative assays in 2025 evaluated three distinct CoA ligases:
+the native TBPCCL from Taxus baccata, AAE16 from Taxus chinensis, and an engineered fungal variant,
+
+
+[PDF physical page 7]
+Synth. Biol. Eng. 2026, 4(2), 10006. doi:10.70322/sbe.2026.10006                                                                    7 of 31
+
+
+CoAL(A312G), derived from Penicillium chrysogenum [16]. These functional comparisons demonstrated
+that CoAL(A312G) possesses significantly superior catalytic activity relative to both plant-derived
+enzymes. Previous studies have demonstrated that baccatin III:3-amino-3-phenylpropanoyltransferase
+(BAPT) catalyzes the acylation of baccatin III at the C13 position using β-phenylalanyl-CoA as the acyl
+donor, generating β-phenylalanyl baccatin III [32]. This intermediate is subsequently hydroxylated at the
+C2′position of the side chain by taxane-2′α-hydroxylase (T2′αOH) to yield 3′N-debenzoyltaxol. Finally, 3′-
+N-debenzoyl-2′-deoxytaxol N-benzoyltransferase (DBTNBT) catalyzes the benzoylation of the side-chain
+C3′ nitrogen atom, producing paclitaxel [32]. In 2025, Sotirios C. Kampranis’ team revised the final two
+key steps of side-chain biosynthesis in the paclitaxel pathway, specifically C2′α-hydroxylation and 3′-N-
+benzoylation. They identified taxoid-2′-oxoglutarate-dependent dioxygenase (T2′OGD) as the enzyme
+responsible for C2′ hydroxylation and taxoid-3′-N-benzoyltransferase (T3′NBT) as the enzyme responsible
+for 3′-N-benzoylation, which was different from the previously proposed roles of T2′αOH (TB506) and
+DBTNBT. They also investigated the sequential order from baccatin III to paclitaxel. First, the C13
+hydroxyl group of baccatin III is conjugated with β-phenylalanyl-CoA by BAPT to form the intermediate
+N-debenzoyl-2′-deoxytaxol. Subsequently, T2′OGD hydroxylates the C2′ position of this intermediate,
+generating N-debenzoyltaxol. Finally, T3′NBT transfers a benzoyl group to the N3′ position of the side
+chain, yielding the final product paclitaxel. Moreover, the study revealed that the last two steps of paclitaxel
+biosynthesis do not necessarily require baccatin III as the substrate. Instead, 10-deacetylbaccatin III can
+also serve as a substrate for T2′OGD, undergoing C2′ hydroxylation and subsequent N3′ benzoylation,
+followed by DBAT-mediated acetylation to produce paclitaxel. These findings demonstrate that while the
+action of BAPT is not strictly fixed in order, the sequence of T2′OGD and T3′NBT is invariant, as N3′
+benzoylation can only occur after C2′ hydroxylation has been completed [16].
+
+                       Table 1. The identified paclitaxel biosynthetic enzymes and references.
+
+                        Name                          Abbreviation   Accession Number  References
+   1              Geranylgeranyl diphosphate synthase            GGPPS        AF081514           [33]
+   2                 Taxa-4(5),11(12)-diene synthase                TS          AY364469          [34]
+   3              Taxa-4(5),11(12)-diene-5α-hydroxylase           T5αOH        AY289209          [35]
+   4             Taxa-4(5),11(12)-diene-13α-hydroxylase          T13αOH       AY056019          [36]
+   5         Taxa-4(5),11(12)-diene-5α-ol-O-acetyl transferase        TAT         AF190130           [37]
+                                                                           AF318211/
+   6             Taxa-4(5),11(12)-diene-10β-hydroxylase           T10βOH                              [31,38]
+                                                                     AY563635
+   7              Taxa-4(5),11(12)-diene-7β-hydroxylase           T7βOH        AY307951          [38]
+   8              Taxa-4(5),11(12)-diene-2α-hydroxylase           T2αOH        AY518383          [39]
+   9               Taxane-2α-O-benzoyl transferase              TBT         AF297618           [40]
+   10          10-deacetylbaccatin III-10-O-acetyl transferase        DBAT         AF193765           [41]
+   11                  Phenylalanine aminomutase             PAM         AY582743          [30]
+   12                 β-phenylalanoyl-CoA ligase                PCL         KM593667          [31]
+                           Baccatin III:3-amino,
+   13                                             BAPT        AY082804          [31]
+                       13-phenylpropanoyltransferase
+   14                    Taxane-2′α-hydroxylase                  T2′αOH        KP178208           [32]
+   15                    N-benzoyl transferase               DBTNBT       AF466397           [42]
+   16             Taxa-4(5),11(12)-diene-14β-hydroxylase           T14βOH       AY188177          [29]
+   17                Cytochrome P450 reductase                TcCPR        AY571340          [29]
+   18                  C4β-C20 epoxidase                    TB328                                [15]
+   19                  Taxane 1β-hydroxylase                T1βOH                                [15]
+   20                  Taxane 9α-hydroxylase                T9αOH                                [15]
+   21                  Taxane 9α-dioxygenase                T9OX                                [15]
+   22                  Phenylalanine-CoA ligase                 PCL                                 [15]
+
+
+[PDF physical page 8]
+Synth. Biol. Eng. 2026, 4(2), 10006. doi:10.70322/sbe.2026.10006                                                                    8 of 31
+
+
+   23                     Taxane oxetanase                  TOT                                 [12]
+   24                  Taxane 9α-hydroxylase                T9αOH1                               [12]
+   25                  Taxane 9α-hydroxylase                CYP725A37   PP197199/PP197200      [13]
+   26                     Taxane oxetanase                  CYP725A55       PP197201           [13]
+   27                         Acyltransferase                    AT5          PP197202           [13]
+   28                  CoA ligase                    CoAL(A312G)                            [16]
+   29          Taxoid-2′-oxoglutarate-dependent dioxygenase         T2′OGD        PQ015324           [16]
+   30                 Taxoid-3′-N-benzoyltransferase               T3′NBT        PQ015327           [16]
+   31                  Taxane 9α-hydroxylase                T9αOH-750C                             [11]
+   32                  Taxane 1β-hydroxylase                 T1βOH-184                             [11]
+   33                  Taxane 1β-hydroxylase                 T1βOH-686                             [11]
+   34                Taxane 7β-O-acyltransferase               T7AT                                [11]
+   35                     DeAc898                       T9dA                                 [11]
+   36                     DeAc1023                      T7dA                                 [11]
+   37                 Taxane C7β-O-deacetylase                 T7dA1         PX848829           [27]
+   38               Taxane bifunctional deacetylase               T79dA         PX848830           [27]
+   39                 Taxane C13-O-deacetylase                 T13dA1        PX848827           [27]
+   40                 Taxane C13-O-deacetylase                 T13dA2        PX848828           [27]
+   41                   Taxoid acetyltransferase                TAX19        AY628434          [28]
+
+3. Multi-Omics Approaches Facilitating the Evolutionary Origins Illustration of Paclitaxel Biosynthesis
+
+    In  recent  years,  omics  technologies,  including  genomics,  transcriptomics,  proteomics,  and
+metabolomics, have been extensively applied to paclitaxel biosynthesis, functional gene discovery,
+transcription factor analysis, and the detection of associated metabolites. These approaches provide robust
+technical support for molecular biology studies and the metabolic pathway analysis of paclitaxel. Moreover,
+the generation of large-scale omics data and integrative multi-omics analyses has laid a solid foundation
+for investigating the biosynthesis and regulatory mechanisms of secondary metabolites in Taxus.
+
+3.1. Applications of Genomic Analysis in Paclitaxel Biosynthesis
+
+    In recent years, three Chinese research teams have successively released the genomic data of Taxus
+wallichiana var. mairei [6], Himalayan yew (Taxus wallichiana) [7], and Taxus yunnanensis [8]. These
+studies have systematically investigated the evolutionary origins of the paclitaxel biosynthetic pathway and
+its key gene clusters, providing valuable insights into the formation and regulatory mechanisms of
+paclitaxel biosynthesis. Currently, the cloned hydroxylases involved in paclitaxel biosynthesis from Taxus
+species are classified into the CYP725A subfamily [7]. Through genome analysis of Taxus mairei,
+researchers revealed the genomic distribution and regulatory patterns of the cytochrome P450 family and
+discovered that paclitaxel biosynthetic genes are clustered on chromosome 9 of Taxus. Furthermore, by
+constructing a co-regulatory gene network, they identified 17 CYP725A genes, three transferases, and 10
+transcription factors [6]. In addition, chromosome-level whole-genome sequencing of Taxus wallichiana
+(Himalayan yew) enabled the resolution of key gene clusters responsible for paclitaxel biosynthesis, leading
+to the identification of 31 candidate P450 genes. Within this cluster, the isoenzymes TS-2 and T5αOH-2,
+homologous to TS and T5αOH, were identified. Furthermore, the study demonstrated that tandem gene
+duplication is the primary driving force behind the evolution of gene families involved in paclitaxel
+biosynthesis in Taxus, providing essential genetic resources for the comprehensive elucidation of the
+paclitaxel biosynthetic pathway [7]. Genomic analysis of Taxus yunnanensis (Yunnan yew) revealed that
+the gene clusters involved in paclitaxel biosynthesis are predominantly located on chromosome 12 and that
+the hydroxylase gene families associated with paclitaxel biosynthesis have undergone significant expansion,
+thereby laying a solid foundation for understanding the formation of the paclitaxel biosynthetic pathway
+
+
+[PDF physical page 9]
+Synth. Biol. Eng. 2026, 4(2), 10006. doi:10.70322/sbe.2026.10006                                                                    9 of 31
+
+
+[8]. Relevant genomic studies will enhance our understanding of the paclitaxel biosynthetic pathway and
+its genetic basis, contributing to the resolution of key scientific questions in gymnosperm genome evolution.
+The candidate genes and transcription factors identified through these efforts provide valuable genetic
+resources and molecular targets for paclitaxel biosynthesis research, facilitating the design and application
+of heterologous paclitaxel production.
+   To investigate the conservation of the paclitaxel biosynthesis pathway within closely related Taxaceae
+species, Shen’s team generated a chromosome-level genome assembly of Pseudotaxus chienii and performed
+matrix-assisted  laser  desorption/ionization imaging mass spectrometry (MALDI-IMS)  analysis. This
+approach yielded a series of spatially resolved metabolite maps comprising 9999 data points, revealing tissue-
+specific accumulation patterns of bioactive taxanes. Comparative genomic analysis across P. chienii, Taxus
+wallichiana, and Torreya grandis further indicated that disruption of TBT and TOT1 (CYP1) enzymatic steps
+may redirect metabolic flux toward taxusin or related analogs rather than paclitaxel. Notably, no taxa-
+4(5),11(12)-diene synthase (TS) homolog was identified in T. grandis, suggesting the absence of a functional
+taxane biosynthesis pathway in this species. Collectively, this genomic study of P. chienii provides important
+insights into the evolutionary origins and diversification of taxane biosynthesis [10].
+
+3.2. Application of Transcriptome Analysis in Paclitaxel Biosynthesis
+
+    With the advancement of high-throughput sequencing technologies, a significant number of Taxus
+transcriptome datasets have been released. During 2024, a total of 1254 transcriptome datasets could be
+available  in GenBank. Transcriptome-based analyses have  identified  several candidate genes and
+transcription  factors involved  in the  paclitaxel biosynthesis pathway  [43]. Moreover, comparative
+transcriptome analyses have been employed to investigate the tissue-specific distribution and differential
+accumulation of taxanes across various Taxus species [44]. Recent mining of these publicly available
+resources has uncovered several previously uncharacterized catalytic components, including C4β-C20
+epoxidase, T9αOH, PCL [31], and T2′αOH [15]. In addition, using RNA-Seq technology, researchers have
+investigated the regulatory mechanisms of paclitaxel and other taxanes, identifying several transcription
+factors that modulate paclitaxel biosynthesis. Analyses and functional studies of transcription factor
+families, including ERF, bHLH, WRKY, MYC, and MYB, have identified regulators of paclitaxel
+biosynthetic gene expression, thereby contributing to increased paclitaxel accumulation in transgenic Taxus
+cell lines [45]. The discovery of these functional genes and transcription factors provides critical insights
+for advancing the genetic engineering of paclitaxel biosynthesis and elucidating the regulatory mechanisms
+attributing its production.
+
+3.3. Application of Multi-Omics Approaches in Paclitaxel Biosynthesis
+
+    Integrative multi-omics analyses allow the capture of dynamic regulations in Taxus plants and the
+paclitaxel biosynthetic pathway from multiple perspectives, thus facilitating the exploration of the complex
+mechanisms underlying paclitaxel biosynthesis. Combined transcriptome and metabolome analyses help
+elucidate the regulatory networks of gene expression and metabolic pathways responsible for metabolite
+synthesis in Taxus, laying a foundation for delineation of taxane biosynthesis routes. Similarly, integrating
+proteomic and metabolomic data provides deeper insights into the mechanisms underlying gene expression
+regulation. Yu et  al. systematically analyzed Taxus stem tissues using proteomic and metabolomic
+approaches. Metabolomic profiling revealed tissue-specific accumulation of metabolites in the stems, while
+proteomic analysis identified 10 key enzymes involved in paclitaxel biosynthesis. Additionally, they found
+that TmMYB3, specifically expressed in the phloem, regulates paclitaxel biosynthesis by activating the
+expression of TBT and TS within the pathway, highlighting its critical role in transcriptional regulation of
+paclitaxel production. The authors conducted a quantitative analysis of paclitaxel, 10-deacetylpaclitaxel,
+
+
+[PDF physical page 10]
+Synth. Biol. Eng. 2026, 4(2), 10006. doi:10.70322/sbe.2026.10006                                                                   10 of 31
+
+
+baccatin III, and 10-DAB in four major stem tissues using ultra-performance liquid chromatography-
+tandem  mass  spectrometry (UPLC-MS/MS). The  results  revealed  that  paclitaxel  and 10-DAB
+predominantly accumulated in the phloem, baccatin III mainly in the pith, and 3′-N-debenzoyltaxol (DAP)
+primarily in the cortex and phloem, while all four metabolites exhibited the lowest levels in the xylem [46].
+Recently, the same authors employed advanced mass spectrometry imaging techniques to generate spatial
+distribution maps of taxane compounds in young Taxus stems. Furthermore, the study revealed that
+T14βOH, T5αOH, and TS are predominantly expressed in endodermal cell populations, T10βOH and
+DBTNBT are primarily expressed in xylem parenchyma cells, and DBAT is expressed in epidermal cell
+populations. Through single-cell expression profiling, numerous cell type-specific transcription factors,
+including members of the MYB, TEM, RAV, and NAC families, were identified, and their downstream
+target genes were predicted. This work established a cell type-resolved expression atlas of young Taxus
+stems at single-cell resolution, providing a foundation for further studies on the cell-specific regulation of
+taxane biosynthesis [47]. Liang and colleagues, based on genomic and transcriptomic data from Taxus
+yunnanensis, Taxus wallichiana var. mairei, and related species, conducted gene co-expression analyses
+across multiple tissues (leaves, roots, stems, and  arils) under various treatments, including methyl
+jasmonate induction. Through this approach, they successfully identified the two key enzymes catalyzing
+the final steps of paclitaxel biosynthesis: taxoid-2′-oxoglutarate-dependent dioxygenase (T2′OGD) and
+taxoid-3′-N-benzoyltransferase (T3′NBT) [16]. Recently, a strategy called “multiplexed perturbation ×
+single nuclei” (mpXsn) was developed, in which 136 different treatments, including hormones, pathogens,
+and metabolic intermediates, were applied to Taxus tissues. Following the treatments, the tissues underwent
+single-nucleus RNA sequencing, enabling the construction of a highly accurate gene co-expression network.
+This network provided a clearer understanding of gene interactions and their roles in paclitaxel biosynthesis.
+A key strength of the mpXsn strategy is its ability to partition known paclitaxel biosynthesis genes into
+three distinct expression modules corresponding to the early, middle, and late stages of the biosynthetic
+pathway. From this, eight important new genes, including T9αOH-750C, T7AT, and T1βOH, were
+identified. In this study, mpXsn served as a powerful discovery tool, with metabolomics used to assess
+phenotypic outcomes and validate findings, while proteomics provided insights into the underlying
+mechanisms [11]. All results were interpreted within the larger genomic context. This multi-omics approach
+successfully addressed the challenges posed by the large and complex genome of Taxus, providing valuable
+insights into paclitaxel biosynthesis.
+
+4. Advances in Microbial and Plant Chassis Engineering for the Biosynthesis of Paclitaxel
+
+   As a disruptive innovation in biotechnology, synthetic biology offers novel solutions to critical
+challenges in resource sustainability, environmental protection, and related fields. The biosynthesis of plant
+natural products has emerged as a research hotspot of synthetic biology. To date, intermediate pathways of
+paclitaxel and the heterologous production of several precursors have been successfully reconstructed in
+diverse chassis organisms, including Escherichia coli, Saccharomyces cerevisiae, Yarrowia lipolytica,
+tobacco cells, and endophytic fungi (Table 2).
+
+4.1. Advances in Paclitaxel Biosynthesis Using Prokaryotic Chassis
+
+    Early studies directly overexpressed IDI, GGPPS, and TS in E. coli, achieving a taxa-4(5),11(12)-diene
+yield of approximately 0.5 mg/L [48]. Subsequent overexpression of the endogenous MEP pathway in E.
+coli further increased taxa-4(5),11(12)-diene production to 1.3 mg/L. A multivariate modular metabolic
+engineering strategy partitioned the paclitaxel biosynthetic pathway into two functional modules for
+systematic precursor enhancement: an upstream module containing four rate-limiting genes (dxs, idi, ispD,
+and ispF) for IPP production, and a downstream module containing two heterologous genes (GGPPS and
+
+
+[PDF physical page 11]
+Synth. Biol. Eng. 2026, 4(2), 10006. doi:10.70322/sbe.2026.10006                                                                   11 of 31
+
+
+TS) for taxa-4(5),11(12)-diene generation. By optimizing both the native MEP pathway and the taxa-
+4(5),11(12)-diene biosynthetic pathway, the researchers successfully overexpressed TS and T5αOH in E.
+coli, achieving an approximately 15,000-fold increase in taxa-4(5),11(12)-diene production, reaching 1 g/L-
+the highest reported yield to date. Simultaneously, taxa-4(5),11(12)-dien-5α-ol (T5α-ol) production
+increased 2400-fold, reaching 58 ± 3 mg/L [49], thereby laying the foundation for subsequent P450
+mediated oxidation to downstream metabolites. The study also demonstrated that when exogenous indole
+concentrations exceeded approximately 100 mg/L, taxa-4(5),11(12)-diene synthesis was severely inhibited,
+and further increases in indole concentration suppressed cell growth, with the inhibitory effect being highly
+strain-dependent. The biochemical mechanism underlying the interaction between indole and the isoprenoid
+pathway remains unclear; however, the results suggest that indole may act synergistically with isoprenoid-
+derived terpenoids to inhibit cell growth. Subsequently, the same research group [50] combined the GGPPS
+and TS genes with E. coli native MEP pathway to investigate the effects of different promoters and cellular
+backgrounds on taxa-4(5),11(12)-diene production. They found that JM109 (DE3) produced approximately
+2.5 times more taxa-4(5),11(12)-diene than the BL21 (DE3) strain. Metabolic engineering strategies
+incorporating the mevalonate (MVA) pathway alongside the TS gene into E. coli yielded a modest taxa-
+4(5),11(12)-diene output of only 11.3 ± 0.5 mg/L [8]. Prompted by these limitations in bacterial hosts,
+parallel studies shifted the production platform from bacteria to filamentous fungi. Initial optimizations in
+Alternaria alternata TPF6 evaluated the relative strengths of six heterologous promoters. The integration
+of these characterized promoters for the targeted overexpression of heterologous IDI, tHMGR (truncated
+3-hydroxy-3-methylglutaryl-CoA reductase), and TS ultimately established a stable fungal biosynthesis
+system, achieving a taxa-4(5),11(12)-diene titer of 61.9 ± 6.3 μg/L [19].
+    Recent engineering efforts directed toward the de novo synthesis of paclitaxel precursors established a
+heterologous MVA pathway in E. coli. The researchers first screened key enzymes in the pathway,
+including TS and cytochrome P450 reductase (CPR), and optimized both the linker between T5αOH and
+CPR fusion proteins and the fermentation conditions. Ultimately, the oxidized taxane yield reached 27
+mg/L, with T5α-ol production reaching 7 mg/L, representing a 12-fold and 23-fold increase, respectively.
+In a parallel approach, co-expression of GGPPS and TS in E. coli achieved a taxa-4(5),11(12)-diene yield
+of 93.5 mg/L in shake-flask cultures. Expansion of the microbial production platform to Bacillus subtilis
+involved overexpressing a plant-derived TS gene alongside a customized synthetic operon. This operon
+carried genes from B. subtilis’s native MEP pathway, as well as IspA (encoding geranyl-geranyl and
+farnesyl diphosphate synthase), which enabled the production of taxa-4(5),11(12)-diene in B. subtilis 168
+[51]. Furthermore, by overexpressing the crtE gene (encoding GGPPS) to enhance GGPP supply, the strain
+achieved a substantial increase in taxa-4(5),11(12)-diene production. Compared with a strain expressing
+only TS and relying on B. subtilis’s native pathway, the overexpression of MEP pathway enzymes, IspA
+and GGPPS resulted in an 83-fold increase in taxa-4(5),11(12)-diene yield. The engineered strain produced
+a total taxa-4(5),11(12)-diene yield of 17.8 mg/L, demonstrating that B. subtilis can serve as a promising
+platform for paclitaxel production. Subsequently, taxa-4(5),11(12)-diene undergoes the first oxidation step
+catalyzed by T5αOH. However, in E. coli, the absence of an internal membrane system and the lipophilic
+N-terminal region of P450 reduce its solubility, making the successful expression of P450 enzymes in E.
+coli particularly challenging. N-terminal engineering of the P450 enzyme, coupled with the systematic
+optimization of its coupling with CPR, successfully facilitated high-level T5αOH expression in E. coli and
+achieved a hydroxylated taxane yield of 570 ± 45 mg/L [52]. Heterologous introduction of the DBAT gene
+into E. coli, supplemented by the feeding of exogenous 10-DAB, further enabled the successful semi-
+synthesis of the key intermediate baccatin III.
+   Due to the absence of efficient isoprenoid biosynthetic pathways, the use of E. coli and other
+prokaryotic hosts for the heterologous production of plant metabolites presents inherent limitations.
+Additionally, prokaryotic hosts often produce target proteins in insoluble and nonfunctional forms, and the
+
+
+[PDF physical page 12]
+Synth. Biol. Eng. 2026, 4(2), 10006. doi:10.70322/sbe.2026.10006                                                                   12 of 31
+
+
+supply of NADPH, a crucial cofactor for plant cytochrome P450 enzymes, is severely limited in prokaryotic
+systems. Furthermore, prokaryotes lack the compartmentalization found in eukaryotic cells, which creates
+distinct  intracellular environments in eukaryotes, enabling the  spatial and temporal partitioning of
+intermediates during final product formation. Consequently, unicellular eukaryotes, such as yeast, with
+their membrane-bound organelles and cellular compartmentalization, have attracted considerable attention
+for heterologous production [53].
+
+4.2. Advances in Paclitaxel Biosynthesis Using Yeast Chassis
+
+    Microbial  co-culture platforms  integrating E.  coli and  S.  cerevisiae  successfully enabled the
+biosynthesis of oxygenated taxanes. In this system, E. coli was utilized for its rapid growth capacity and
+efficient taxa-4(5),11(12)-diene production, while S. cerevisiae was chosen for its abundant intracellular
+membrane structures that enable the functional expression of cytochrome P450 enzymes. However, ethanol
+produced by S. cerevisiae acts as a growth inhibitor for E. coli. To overcome this limitation, the researchers
+employed xylose as the carbon source, which can only be metabolized by E. coli. During xylose
+consumption, E. coli generates acetate, which can be utilized by S. cerevisiae without leading to ethanol
+production. Ultimately, this strategy resulted in the production of 33 mg/L of oxygenated taxanes. DeJong
+et al. successfully introduced eight genes involved in the paclitaxel biosynthetic pathway (GGPPS, TS,
+T5αOH, T10βOH, T13αOH, TAT, TBT, and DBAT) into S. cerevisiae using two plasmids. The expression
+of these genes was verified through both in vivo and in vitro experiments, and the production of GGPP and
+taxa-4(5),11(12)-diene was detected in the system. This work demonstrated the functional activity of fusion
+proteins in yeast and confirmed that the native isoprenoid precursors IPP and DMAPP are sufficient to
+initiate the terpenoid biosynthetic pathway. However, the yield of T5α-ol was very low. Engels et al.
+successfully introduced heterologous genes encoding isoprenoid  biosynthetic enzymes along with
+regulatory factors that suppress competing pathways into S. cerevisiae. When yeast co-expressed HMGR,
+the mutated regulatory protein UPC2-1, GGPPS, and TS, the production of taxa-4(5),11(12)-diene reached
+8.7 mg/L. Subsequently, Ding et al. identified the most catalytically efficient GGPPS variant by protein
+modeling and molecular docking, and co-expressed it with ERG20, tHMGR, and TS in S. cerevisiae,
+resulting in a taxa-4(5),11(12)-diene titer of 72.8 mg/L [54].
+    Integration of a tagged and multi-copy TS gene driven by the GAL1 promoter resulted in a 22-fold
+enhancement in taxa-4(5),11(12)-diene titer. Subsequent fermentation of this engineered platform produced
+57 ± 3 mg/L at 30 °C, and the yield was further elevated to 129 mg/L by reducing the cultivation temperature
+to 20 °C [55]. Further genetic modifications to strain LRS5 involved the introduction of genes encoding
+T5αOH, a homologous CPR, and the TAT gene from Taxus cuspidata, yielding the advanced strain LRS6.
+Through optimization of fermentation conditions and pH control, the researchers achieved a 2.7-fold
+increase in oxygenated taxane production, reaching 78 mg/L [56]. Subsequent efforts to maximize T5αOH
+activity at both enzymatic and whole-cell levels in S. cerevisiae revealed that the uncoupling of T5αOH
+and CPR interactions potentially facilitates the formation of oxygenated taxanes. Through the construction
+of fusion proteins to enhance T5α-ol production, they achieved a maximum oxygenated taxane yield of
+approximately 361.4 ± 52.4 mg/L using 10 mL resting cell cultures, with T5α-ol reaching 38.1 ± 8.4 mg/L
+[57]. Integration of a push-pull strategy with the endogenous MVA pathway in yeast successfully
+maximized precursor supply while minimizing competitive by-pathway metabolism. Enhancing the soluble
+expression of TS via SUMO fusion, coupled with the targeted overexpression of tHMG1, GGS1, and TS,
+ultimately yielded a taxa-4(5),11(12)-diene titer of 101.4 mg/L during fed-batch fermentation. Walls and
+colleagues addressed nutrient limitation by enhancing culture nutrition, and under optimized conditions in
+a 1 L bioreactor, they achieved a maximum taxa-4(5),11(12)-diene titer of 71 ± 8 mg/L after 95 h of
+cultivation. The main products of T5αOH, iso-OCT, OCT, and T5α-ol-accumulated to 16 ± 3, 44 ± 3, and
+42 ± 4 mg/L, respectively, while the TAT product T5α-Ac reached a maximum of 21 ± 0.3 mg/L, nearly
+
+
+[PDF physical page 13]
+Synth. Biol. Eng. 2026, 4(2), 10006. doi:10.70322/sbe.2026.10006                                                                   13 of 31
+
+
+sixfold higher than previously reported levels [56]. However, due to the poor expression and low catalytic
+activity of T5αOH in heterologous hosts, its primary products remained OCT and its isomer iso-OCT, with
+less than 10% of the taxa-4(5),11(12)-diene precursor ultimately converted to the target T5α-ol. As
+observed in E. coli, the high-level catalytic activity of P450 enzymes in yeast is kinetically dependent on
+efficient intracellular NADPH supply. Additionally, the formation of by-products and other endogenous
+metabolites in yeast interferes with the heterologous production of paclitaxel.
+    In 2024, the biosynthetic pathway for highly oxidized paclitaxel intermediates was reconstructed in S.
+cerevisiae by feeding T5α-ol. This work systematically elucidated the complete biosynthetic route from the
+C5 mono-oxygenated product of taxa-4(5),11(12)-diene to the highly oxidized 1β-dehydroxybaccatin VI,
+advancing a comprehensive understanding of paclitaxel biosynthesis. The researchers identified the
+paclitaxel 9α-hydroxylase responsible for the fourth hydroxylation step, as well as CYP725A55, which
+catalyzes oxetane ring formation via a cascade oxidation coupled with acyl rearrangement mechanism, and
+the acetyltransferase responsible for C7-OAc formation. Furthermore, the study highlighted the need to
+further clarify the complete biosynthetic pathway from 1β-dehydroxybaccatin VI to baccatin III, as well as
+the parallel biosynthetic pathways leading to paclitaxel, and emphasized the importance of confirming the
+necessity of taxane-1β-hydroxylase and taxane-9α-oxidase in pathway construction. This systematic work
+provides a solid foundation for fully elucidating paclitaxel biosynthesis and its heterologous production in
+yeast cells.
+    In 2025, the research group of Sotirios C. Kampranis employed a tobacco-based system to successfully
+identify and validate the catalytic activities of CoAL(A312G), T2′OGD, and T3′NBT [16]. Subsequently,
+they reconstructed the paclitaxel side-chain biosynthetic pathway in Saccharomyces cerevisiae. However,
+due to poor protein stability and solubility of BAPT in yeast cells, the intermediate N-debenzoyl-2′-
+deoxytaxol could not be detected. To address this limitation, the team applied Protein-Sol prediction, site-
+directed mutagenesis, and computational approaches to generate a novel BAPT variant (BAPTm).
+Introduction of BAPTm increased the yield of N-debenzoyl-2′-deoxytaxol by 27%. Furthermore, by fusing
+maltose-binding protein (MBP) at the N-terminus via a tetra-amino acid linker (IGGG), the solubility of
+BAPTm (designated MBPig3BAPTm) was further improved. Ultimately, the integration of CoAL(A312G),
+MBPig3BAPTm, T2′OGD, and T3′NBT into S. cerevisiae, together with supplementation of baccatin III and
+β-phenylalanine, enabled the successful detection of paclitaxel, achieving a final titer of 0.59 ± 0.03 μg/L.
+
+4.3. Progress in Paclitaxel Biosynthesis Using Plant-Based Chassis Systems
+
+    Plants are capable of harnessing sunlight and atmospheric CO2 to produce secondary metabolites [58].
+Leveraging the abundant endogenous IPP and DMAPP in plant cells, parts of the paclitaxel biosynthetic
+pathway have been successfully introduced into Arabidopsis thaliana [59]. Following overexpression of
+the TS gene under the constitutive CaMV 35S promoter, taxa-4(5),11(12)-diene was successfully detected
+in homozygous plants, demonstrating functional expression of the recombinant protein in A. thaliana.
+However, overexpression of the relevant genes adversely affected plant growth, including reduced
+hypocotyl length, leaf chlorosis, slowed growth, and delayed flowering. These effects were hypothesized
+to result either from the cytotoxicity of taxa-4(5),11(12)-diene or from TS expression interfering with the
+biosynthesis of other essential terpenoids, such as gibberellins or carotenoids, during development. To
+mitigate these effects, the TS promoter was replaced with a glucocorticoid-inducible promoter, which
+prevented GGPP flux from being directed into the taxa-4(5),11(12)-diene pathway during plant growth and
+development, thereby reducing the detrimental phenotypic impacts of TS expression. Nevertheless, taxa-
+4(5),11(12)-diene production still remained low.
+    Studies have shown that tobacco is also an excellent host for heterologous paclitaxel production. The
+TS and T5αOH genes were introduced into tobacco and achieved trichome-specific expression. However,
+the engineered plants did not produce the desired T5α-ol but instead accumulated the byproduct OCT [60].
+
+
+[PDF physical page 14]
+Synth. Biol. Eng. 2026, 4(2), 10006. doi:10.70322/sbe.2026.10006                                                                   14 of 31
+
+
+Implementation of a chloroplast compartmentalization strategy in N. benthamiana spatially segregated TS,
+T5αOH, and CPR. This was combined with an optimized supply of isoprenoid precursors, resulting in the
+production of taxa-4(5),11(12)-diene and T5α-ol at 56.5 µg/g and 1.3 µg/g of fresh leaf tissue, respectively
+[61]. Parallel development of transplastomic tobacco lines initially resulted in minimal taxa-4(5),11(12)-
+diene accumulation when TS was co-expressed in both chloroplasts and the cytosol. Remarkably, when TS
+was expressed with an added chloroplast transit peptide, taxa-4(5),11(12)-diene levels in chloroplasts
+increased significantly, reaching 87.8 µg/g of cell dry weight. These results highlight the importance of
+transporting intermediates into chloroplasts and their subsequent post-translational modifications for
+achieving high-level taxa-4(5),11(12)-diene production [62].
+    Integration of transcriptomics, cell biology, metabolomics, and single-enzyme knockout experiments
+identified the minimal gene set required for heterologous paclitaxel biosynthesis. By transiently expressing
+a truncated plastid-targeted diterpene synthase (nsTXS) and geranylgeranyl diphosphate synthase (nsGGPS)
+in N. benthamiana, along with the cytosolic mevalonate (MVA) pathway’s rate-limiting enzyme 3-
+hydroxy-3-methylglutaryl-CoA reductase (HMGR), they established a functional biosynthetic pathway for
+taxa-4(5),11(12)-diene. This led to the production of approximately 100 µg of taxa-4(5),11(12)-diene per
+gram of fresh leaf tissue. By incorporating previously characterized enzymes along with newly identified
+catalysts—including a C4β-C20 epoxidase, taxane 1β-hydroxylase (T1βOH), taxane 9α-hydroxylase
+(T9αOH), taxane 9α-dioxygenase, and phenylalanyl-CoA ligase (PCL)-the team successfully synthesized
+the key intermediate baccatin III and reconstituted its conversion to paclitaxel in N. benthamiana [15]. In
+April 2025, Sotirios C. Kampranis’s team identified a novel acyl-CoA ligase, CoAL(A312G), which
+functions in coupling β-phenylalanoyl-CoA, an inherently unstable intermediate, with baccatin III via
+BAPT to yield N-debenzoyl-2′-deoxytaxol. Co-expression of CoAL(A312G) with BAPT and PAM
+significantly enhanced the biosynthetic efficiency, achieving an exogenous baccatin III conversion rate
+exceeding 60%. The study also pinpointed T2′OGD and T3′NBT as key enzymes responsible for the final
+steps of paclitaxel biosynthesis. When PAM, CoAL(A312G), BAPT, T2′OGD, and T3′NBT were co-
+expressed in tobacco leaves, paclitaxel accumulation reached 1.99 ± 0.19 μg per gram of fresh leaf weight.
+Notably,  the C4β-C20  epoxidase,  an  α-ketoglutarate-dependent  dioxygenase, overcame  the  first
+biosynthetic bottleneck in paclitaxel metabolic engineering. While functional expression was not achieved
+in E. coli or S. cerevisiae, the tobacco chassis facilitated its activity, enabling baccatin III production. These
+results define a minimal pathway for biosynthesis, suggesting a metabolic network rather than a strictly
+linear sequence.
+    Notably,  the newly  identified C4β-C20  epoxidase, an  α-ketoglutarate-dependent dioxygenase,
+overcomes the first biosynthetic bottleneck in paclitaxel metabolic engineering. Cofactors or chaperone
+proteins within the tobacco chassis likely facilitated the functional expression of the C4β-C20 epoxidase,
+enabling the production of baccatin III in plant cells, whereas functional expression was not achieved in E.
+coli or yeast. Although the yields of 10-deacetylbaccatin III and baccatin III in this heterologous system are
+lower than those in the native paclitaxel-producing environment, these results define a complete, minimal
+pathway for their biosynthesis. Furthermore, the researchers observed that this pathway likely represents a
+metabolic network rather than a strictly linear sequence.
+    In January 2024, a streamlined baccatin III biosynthetic route was identified. By transiently expressing
+TOT and T9αOH-1 alongside seven other known biosynthetic genes (TXS, T5αOH, T13αOH, T2αOH,
+T7βOH, TAT, and TBT) in N. benthamiana, the researchers successfully confirmed baccatin III production.
+Their biochemical analyses showed that these core genes are co-regulated by the plant hormone jasmonate,
+with highly correlated expression patterns, indicative of tight synergistic control within the cell. Subcellular
+localization experiments demonstrated  that GGPP  is  first  converted  to  taxa-4(5),11(12)-diene  in
+chloroplasts by TXS. Taxa-4(5),11(12)-diene is then transferred to the cytosol via plastid-endoplasmic
+reticulum (ER) contact sites, where six ER-anchored oxidases (T2αOH, T5αOH, T7βOH, T9αOH, T13αOH,
+
+
+[PDF physical page 15]
+Synth. Biol. Eng. 2026, 4(2), 10006. doi:10.70322/sbe.2026.10006                                                                   15 of 31
+
+
+and TOT) collaborate with two cytosolic acyltransferases (TAT and TBT) to produce baccatin III [12].
+Systematic reconstruction of the early paclitaxel biosynthetic network recently enabled the structural
+elucidation of four novel T5αOH products. Chemical profiling reveals that a significant portion of these
+newly isolated compounds represent over-oxidized derivatives originating from the primary mono-
+oxygenated metabolites [26]. Their engineered system successfully reconstructed a six-step biosynthetic
+pathway for the production of 5α,10β-diacetoxy-taxa-4(5),11(12)-diene-13α-ol, which can be isolated.
+Additionally, the team updated the overall biosynthetic pathway for baccatin III, identifying the nuclear
+transport factor 2 (NTF2) domain-containing protein, FoTO1, as a cofactor that selectively increases taxa-
+4(5),11(12)-diene-5α-ol production to over 90%. By heterologously expressing seven newly identified
+genes (FoTO1, T9αOH-750C, T7AT, T1βOH-184, T1βOH-686, T9dA, T7dA) and nine previously known
+genes (TS, T5αOH, TAT, T10βOH, DBAT, T13αOH, T2αOH, TBT, TOT) in N. benthamiana, the team
+achieved the complete biosynthesis of baccatin III from GGPP, with yields ranging from 10 to 30 μg/g dry
+weight (DW), comparable to the natural content found in Taxus needles. This achievement fills several
+critical gaps in the paclitaxel biosynthesis pathway and lays the groundwork for the sustainable production
+of paclitaxel. Recent studies on the baccatin III biosynthetic pathway have identified taxusin and baccatin
+VI as key intermediates. The discovery of the enzyme T13dA, alongside other deacetylases, has clarified
+the metabolic network leading to baccatin III. The integration of a C13α-O-acetylation-deacetylation
+module has facilitated the de novo production of taxanes in plant hosts. By introducing the genes T13dA1,
+T79dA, and T7dA1, researchers reconstructed 18-gene and 19-gene baccatin III biosynthetic pathways in
+Nicotiana benthamiana. With the utilization of the C9-hydroxylase T9αH-750C, the engineered 19-gene
+pathway produced a baccatin III yield of 23 µg/g dry weight (DW). This yield is comparable to that of the
+previously  established 17-gene pathway. However, unlike the 17-gene route  that lacks  the C13-
+deacetylation module, the 18-gene and 19-gene pathways emulate the endogenous metabolic network of
+Taxus. The inclusion of the acetylation-deacetylation mechanism directs the metabolic flux through the
+intermediates taxusin and baccatin VI. This pathway configuration circumvents potential  catalytic
+bottlenecks associated with simplified linear routes. Consequently, these reconstructed pathways validate
+the biological function of the acetylation-deacetylation cycle and provide a functional framework for the
+future metabolic engineering of taxanes in plant chassis [27].
+    Meanwhile, significant advancements have been made in the development of transformation systems
+for Taxus species. Recently, the team led by Mercedes Bonfill reported the establishment of distinct
+transformed lines of Taxus baccata, mediated by Rhizobium rhizogenes A4. Although transgenic Taxus
+roots exhibit relatively slow growth, a dedifferentiation strategy was employed to obtain callus cultures,
+followed by the establishment of suspension cell systems. To enhance paclitaxel production, two key
+limiting genes, BAPT and DBTNBT, were overexpressed in a two-stage culture system under dual
+elicitation treatments. Compared to wild-type lines, paclitaxel content in DBTNBT-overexpressing lines
+increased more than fourfold, while BAPT-overexpressing lines exhibited a twofold increase. This marks
+the first successful transformation of Taxus seedlings via direct inoculation with two engineered R.
+rhizogenes A4 strains carrying paclitaxel biosynthetic genes. Earlier protocols utilizing the wild-type R.
+rhizogenes A4 strain successfully induced hairy root formation in Taxus through a strictly in vitro infection
+process [63]. Transcriptional analysis of the paclitaxel biosynthetic genes further revealed that GGPPS, TS,
+and DBAT were the most responsive to DBTNBT overexpression and dual elicitation, with their expression
+exhibiting a gradual and sustained increase.
+
+
+[PDF physical page 16]
+Synth. Biol. Eng. 2026, 4(2), 10006. doi:10.70322/sbe.2026.10006                                                                   16 of 31
+
+
+                             Table 2. Heterologous expression systems for paclitaxel.
+
+                                                                                      Publication
+   Synthetic Systems      Products         Yield           Research Methods                     References
+                                                                                Date
+                        Taxa-4(5),11(12)-                 Overexpression of IDI, GGPPS,
+    Escherichia coli                          1.3 mg/L                                  2001           [48]
+                             diene                             TS, and DXP
+                        Taxa-4(5),11(12)-
+    Escherichia coli                       1 g/L       Multivariate modular metabolic
+                             diene
+                                                          engineering with overexpression    2010           [64]
+                        Taxa-4(5),11(12)-
+    Escherichia coli                    58 ± 3 mg/L          of TS and T5αOH
+                           diene-5α-ol
+                        Taxa-4(5),11(12)-
+    Escherichia coli                        4.5 mg/g DW    JM109(DE3) strain, 22 °C       2012           [65]
+                             diene
+                        Taxa-4(5),11(12)-               alcA promoter, overexpression of
+  CladosporiumTPF6                    61.9 ± 6.3 μg/L                                2017           [19]
+                             diene                            IDI and tHMGR
+    Escherichia coli     Oxidized taxanes    27 mg/L      TbrTS, Taxus CPR, T5αOH-
+                        Taxa-4(5),11(12)-             GSTGS-CPR, introduction of a     2022           [66]
+    Escherichia coli                      7 mg/L
+                           diene-5α-ol                      heterologous MVA pathway
+                        Taxa-4(5),11(12)-                Fusion expression of GGPP and
+    Escherichia coli                        93.5 mg/L                                  2022           [67]
+                             diene                           TS
+                                                        N-terminal modification of P450
+    Escherichia coli     Oxidized taxanes 570 ± 45 mg/L                                2016           [52]
+                                                         enzyme
+                        Taxa-4(5),11(12)-                  Overexpression of the MEP
+    Bacillus subtilis                        17.8 mg/L                                  2019           [51]
+                             diene                         pathway, GGPPS, and TS
+                                                         Co-expression of tHMGR, the
+    Saccharomyces     Taxa-4(5),11(12)-
+                                              8.7 mg/L   mutant regulatory protein UPC2-1,   2008           [68]
+       cerevisiae             diene
+                                                  GGPPS, and TS
+    Saccharomyces     Taxa-4(5),11(12)-
+                                           72.8 mg/L     YSG50 strain, GGPPSbc       2014           [54]
+       cerevisiae             diene
+    Saccharomyces                                      Co-culture of Escherichia coli and
+                       Oxidized taxanes    33 mg/L                                  2015           [49]
+       cerevisiae                                        Saccharomyces cerevisiae
+    Saccharomyces     Taxa-4(5),11(12)-                Multi-copy TS with an MBP tag,
+                                      129 mg/L                                  2020           [55]
+       cerevisiae             diene                              20 °C
+    Saccharomyces     Taxa-4(5),11(12)-
+                                      20 mg/L
+       cerevisiae           diene-5α-ol
+                        Taxa-4(5),11(12)-
+    Saccharomyces                                          Fermentation process
+                           diene-5α-yl       3.7 mg/L                                  2020           [56]
+       cerevisiae                                             optimization, pH adjustment
+                               acetate
+    Saccharomyces
+                       Oxidized taxanes    78 mg/L
+       cerevisiae
+    Saccharomyces     Taxa-4(5),11(12)-
+                                      42 mg/L
+       cerevisiae           diene-5α-ol
+                                            2×YP medium, statistically
+                        Taxa-4(5),11(12)-                                             2022           [69]
+    Saccharomyces                                       determined screening design
+                           diene-5α-yl      22 mg/L
+       cerevisiae
+                               acetate
+    Saccharomyces     Taxa-4(5),11(12)-                   Promoter pHXT7, fusion
+                                        38.1 ± 8.4 mg/L
+       cerevisiae           diene-5α-ol                     expression of T5OH and CPR,
+                                                                                2022           [57]
+    Saccharomyces                       361.4 ± 52.4    assayed in resting cells under
+                       Oxidized taxanes
+       cerevisiae                        mg/L            neutral pH conditions
+                                                      Fusion expression of SUMO with
+                        Taxa-4(5),11(12)-
+  Yarrowia lipolytica                     101.4 mg/L     TS, with overexpression of      2023           [70]
+                             diene
+                                               tHMG1, GGS1, and TS
+    Saccharomyces     Taxa-4(5),11(12)-                   Computational metabolic
+                                      215 mg/L                                  2023           [71]
+       cerevisiae             diene                                 engineering
+
+
+[PDF physical page 17]
+Synth. Biol. Eng. 2026, 4(2), 10006. doi:10.70322/sbe.2026.10006                                                                   17 of 31
+
+
+    Saccharomyces     Taxa-4(5),11(12)-
+                                         43.65 mg/L
+       cerevisiae           diene-5α-ol
+                        Taxa-4(5),11(12)-
+    Saccharomyces
+                           diene-5α-yl      26.2 mg/L
+       cerevisiae
+                               acetate
+                             1β-                        Co-expression of 12 identified
+    Saccharomyces
+                       dehydroxybaccati          --         genes in cells with feeding of     2024           [13]
+       cerevisiae
+                          n VI                                 taxadien-5α-ol
+                        Taxa-4(5),11(12)-                     Glucocorticoid-inducible
+  Arabidopsis thaliana                  600 ng/g DW                                2004           [59]
+                             diene                              expression of TS
+                                                         Expression of TS with MeJA
+                        Taxa-4(5),11(12)-
+ Nicotiana benthamiana                 50 μg/g DW    induction and silencing of PSY     2014           [72]
+                             diene
+                                                             and PDS
+                        Taxa-4(5),11(12)- 56.6 ± 3.2 µg/g
+ Nicotiana benthamiana                                  Compartmentalization strategy
+                             diene         fresh weight
+                                                        with co-expression of DXS and     2019           [61]
+                                           1.3 ± 0.5 µg/g
+ Nicotiana benthamiana  Taxadien-5α-ol                     GGPPS
+                                              fresh weight
+ Nicotiana tabacum cv. Taxa-4(5),11(12)-                  N-terminal chloroplast transit
+                                         87.8 μg/g DW                                2021           [62]
+        Xanthi               diene                             peptide fusion of TS
+                                                           Transient co-expression of C4β-
+                                        154.87 ng/g  C20 epoxidase, T9αOH, T1βOH,
+ Nicotiana benthamiana    Baccatin III                                               2023           [15]
+                                              fresh weight   and T9OX along with nine other
+                                                     known genes
+                                                           Transient co-expression of PCL
+                                       64.29 ng/g fresh
+ Nicotiana benthamiana     Paclitaxel                   with BAPT, PAM, DBTNBT, and    2023           [15]
+                                           weight
+                                                      T2′OH
+                                                         Attenuation of T5αOH expression
+                        Taxa-4(5),11(12)-
+ Nicotiana benthamiana                                --        using the weak constitutive NOS    2024           [26]
+                           diene-5α-ol
+                                                                promoter
+                           5α,10β-
+                         Diacetoxy-taxa-                (NOS)T10βOH, DBAT and
+ Nicotiana benthamiana                 42 µg/g DW                                 2024           [26]
+                          4(20),11-diene-                    (NOS)T13αOH
+                            13α-ol
+                                                           Transient co-expression of TOT
+ Nicotiana benthamiana    Baccatin III     50 ng/g DW   and T9αOH-1 along with seven     2024           [12]
+                                                             other known biosynthetic genes
+                                                           Transient expression of 7 newly
+ Nicotiana benthamiana    Baccatin III   10–30 μg/g DW discovered genes and 9 additional    2025           [73]
+                                                              previously known genes.
+                                                            Transient co-expression of 18-
+                                                       gene/19-gene pathway including
+ Nicotiana benthamiana    Baccatin III    23 μg/g DW                                 2026           [27]
+                                                             C13-acetylation-deacetylation
+                                                           module
+
+4.4. Research Progress on Paclitaxel Biosynthesis by Taxus-Associated Endophytic Fungi
+
+    Additionally, it has been discovered that certain endophytic fungi associated with Taxus species are
+capable of producing  paclitaxel.  Initial screening and mutagenic optimization of one such  isolate
+successfully elevated its native paclitaxel titer from 125.7 μg/L to 314.07 μg/L. Combinatorial treatments
+utilizing physical and chemical mutagenesis generated alternative strains producing 448.52 μg/L paclitaxel,
+with subsequent protoplast fusion events further improving the yield to 468.62 μg/L. Wang et al. [74] were
+the first to apply the REMI method to obtain a paclitaxel-producing fungal strain (BT2) with hygromycin
+B resistance. Similarly, genomic integration of a hygromycin B phosphotransferase gene, strictly driven by
+
+
+[PDF physical page 18]
+Synth. Biol. Eng. 2026, 4(2), 10006. doi:10.70322/sbe.2026.10006                                                                   18 of 31
+
+
+the trpC promoter, achieved protoplast regeneration frequencies exceeding 6% in targeted endophytes.
+These approaches have successfully facilitated the transfer of paclitaxel biosynthetic genes into engineered
+fungi to enhance paclitaxel production. Collectively, these genetic manipulation strategies facilitated the
+preliminary transfer of selective markers and vector elements into fungal platforms. Agrobacterium-
+mediated transformation of Cladosporium cladosporioides subsequently yielded the MD2 strain, a process
+strictly reliant on optimized co-culture conditions for stable integration. Liu et al. developed a highly
+efficient Agrobacterium-mediated transformation method for the paclitaxel-producing endophytic fungus
+Ozonium sp. EFY21 and optimized several factors affecting transformation efficiency and transformant
+stability. However, none of these studies have integrated the biosynthetic genes for paclitaxel into the
+genomes of the transformed fungi. Targeted genetic editing, such as the CRISPR/Cas9 system, was used to
+disrupt sterol metabolism in filamentous fungi by knocking out both squalene synthase and cycloartenol
+synthase. This concurrent knockout successfully redirected metabolic flux, thereby enhancing paclitaxel
+accumulation [75].
+  A comparative assessment of paclitaxel yields across different endophytic fungal strains reveals
+substantial variability, with the highest reported yield of 468.62 μg/L still orders of magnitude lower than
+that required for industrial applications. Several key bottlenecks limit the commercial application of this
+approach, including: (1) strain  instability, with paclitaxel production often declining after repeated
+subculturing; (2) intrinsically low yields that remain insufficient for cost-effective production; and (3)
+challenges in fermentation scalability, as endophytic fungi typically exhibit slow growth and complex
+nutritional requirements; (4) random mutagenesis and protoplast fusion offer moderate yield improvements
+but lack predictability and sustainability. Agrobacterium-mediated transformation has not yet achieved
+stable integration of complete paclitaxel pathways. CRISPR/Cas9-based metabolic reprogramming is
+promising but remains at an early stage. Overall, current research on Taxus endophytic fungi remains
+relatively limited. Compared to E. coli, S. cerevisiae, and tobacco chassis, the genetic manipulation and
+cultivation systems for Taxus-derived endophytic fungi remain underdeveloped. With the continued
+advancement of omics-driven data mining, synthetic biology, and analytical technologies, future studies on
+endophytic fungi are expected to provide further insights into the biosynthesis of paclitaxel. However, given
+the current yield and stability constraints, endophytic fungal platforms are more likely to serve as valuable
+models for understanding paclitaxel biosynthesis rather than as immediate industrial production hosts.
+
+4.5. Engineering Cyanobacteria to Produce Paclitaxel Precursors from CO2
+
+    Algae have emerged as advanced  cellular  factories, demonstrating substantial progress in the
+production of high-value compounds such as biofuels, pharmaceuticals, and nutraceuticals. Their rapid
+growth, adaptability to diverse environments, and inherent capacity for photosynthetic carbon fixation
+position them as promising platforms for sustainable biotechnological applications. Advances in genetic
+engineering and metabolic optimization have further enabled the tailored design of algal systems for
+efficient  synthesis  of  complex  molecules,  providing  environmentally  sustainable  alternatives  to
+conventional manufacturing processes.
+    Although synthetic biology has facilitated the de novo synthesis of paclitaxel precursors in various
+microbial hosts, the complete biosynthesis of paclitaxel remains challenging due to limited oxidation
+efficiency in heterotrophic microorganisms. Ma’s team engineered Synechocystis sp. PCC 6803 with
+modular metabolic pathways comprising enzymes from the MEP pathway and the paclitaxel biosynthetic
+cascade to produce T5α-ol. The optimized strain DIGT-P560 achieved production titers of up to 17.43 mg/L
+of oxygenated taxanes and 4.32 mg/L of T5α-ol. Transcriptomic analysis of DIGT-P560 further indicated
+that establishing a flux toward oxygenated taxanes may enhance photosynthetic electron transfer efficiency
+and central metabolism in the engineered strain, thereby alleviating metabolic disturbances caused by the
+introduction of exogenous genes. This work represents the first demonstration of photosynthetic production
+
+
+[PDF physical page 19]
+Synth. Biol. Eng. 2026, 4(2), 10006. doi:10.70322/sbe.2026.10006                                                                   19 of 31
+
+
+of taxa-4(5),11(12)-diene-5α-ol from CO2 in cyanobacteria, underscoring the potential of engineered
+cyanobacteria as biosolar cell factories for high-value terpenoid production and offering new avenues for
+rational strain engineering and optimization [76].
+
+5. Advances in the Engineering and Catalytic Mechanisms of Key Enzymes Involved in Paclitaxel
+Biosynthesis
+
+    In the early stages of paclitaxel biosynthesis, although taxa-4(5),11(12)-diene synthase (TS) exhibits
+low catalytic efficiency and produces multiple byproducts [77], it is not considered the primary rate-limiting
+step in the pathway. Instead, the hydroxylation of taxa-4(5),11(12)-diene at the C5 position, catalyzed by
+taxa-4(5),11(12)-diene-5α-hydroxylase (T5αOH), has been  identified as the  critical bottleneck and
+principal rate-limiting step in paclitaxel biosynthesis. Directed evolution, a widely applied enzyme
+engineering strategy, emulates the principles of genetic mutation and natural selection, introducing iterative
+mutations and screening cycles within comparatively short timeframes. Despite notable progress, the
+engineering of T5αOH and other cytochrome P450 enzymes in the paclitaxel pathway through directed
+evolution remains highly challenging, primarily owing to limited knowledge of their catalytic mechanisms
+and the absence of efficient high-throughput screening strategies.
+    Rational and semi-rational enzyme engineering strategies, which depend on sequence, structural, and
+functional  information,  enhance  the  likelihood  of  beneficial  mutations and  significantly  reduce
+experimental workload. Amino acid substitutions within the catalytic active site can enhance enzymatic
+activity; however, achieving such improvements requires precise conformational control to sustain a
+delicate balance between thermodynamic  flexibility and structural rigidity [78]. The integration of
+computational approaches with experimental validation has proven highly valuable for elucidating catalytic
+mechanisms and guiding rational or semi-rational protein engineering, particularly in improving substrate
+recognition and catalytic efficiency of P450 enzymes. Recently, substantial breakthroughs in pathway
+design within plant hosts have provided promising solutions to the persistent challenges associated with the
+chemical catalysis by P450 enzymes in paclitaxel biosynthesis [53].
+
+5.1. Engineering of the Key Enzyme TS
+
+   TS  consists  of 862 amino  acid  residues, including an N-terminal  plastid-targeting  signal  of
+approximately 80 residues and a catalytic active site structured by three helical regions [79]. The C-terminal
+domain (S553–V862) corresponds to a class I terpene cyclase, whereas the N-terminal domain (M107–
+I135) and the “insertion” domain (S349–Q552) constitute a degenerate class II terpene cyclase [80]. Class
+I terpene cyclase employs a trinuclear metal cluster that coordinates the conserved motifs DDXXD and
+(N,D)DXX(S,T)XXXE, thereby facilitating diphosphate ionization of isoprenoid substrates to generate
+carbocation intermediates and initiate catalysis.
+    In contrast, class II terpene cyclase utilizes aspartate residues within the DXDD motif to catalyze
+protonation of isoprenoid double bonds or oxirane moieties, thereby initiating carbocation formation.
+Despite differences in protein folding and substrate activation mechanisms between the two cyclase classes,
+the structural architecture of TS suggests an evolutionary relationship in terpene biosynthesis [79]. The
+catalytic activity of TS is mediated primarily by its C-terminal domain. Initially, a cluster of three Mg2+
+ions binds GGPP and promotes diphosphate ionization. The subsequent diphosphate hydrolysis generates
+a reactive carbocation intermediate, while the enzyme’s active-site pocket shifts conformationally from an
+open to a closed state. This conformational transition enables the carbocation to undergo a cascade of
+rearrangements and cyclization reactions, ultimately yielding multiple taxa-4(5),11(12)-diene isomers [81].
+   The reaction pathway involving transient intermediates has increasingly emerged as a focal point of
+TS  research.  Kinetic and thermodynamic computational  analyses have  revealed  that  carbocation
+
+
+[PDF physical page 20]
+Synth. Biol. Eng. 2026, 4(2), 10006. doi:10.70322/sbe.2026.10006                                                                   20 of 31
+
+
+rearrangements catalyzed by TS are strongly influenced by the enzyme’s microenvironment and intrinsic
+conformational dynamics. Factors such as strong electrostatic interactions dependent on cation positioning,
+orientation, and conformational shifts, the spatial architecture of the active site, and the presence of water
+molecules in the catalytic pocket collectively modulate the reaction energy barrier, resulting in distinct
+product configurations [81]. A notable feature of TS is its active-site cavity, which is considerably larger
+than the final product, taxa-4(5),11(12)-diene. This spatial redundancy is considered a primary factor
+contributing to the enzyme’s product promiscuity. In parallel, extensive mutagenesis studies have identified
+additional structural determinants critical to catalysis in TS. Beyond the previously identified Y688 residue,
+tryptophan at position 753 plays a pivotal role in stabilizing carbocation intermediates via π–cation
+interactions. Remarkably, substitution of this residue with histidine results in a complete shift of the product
+profile, converting taxa-4(5),11(12)-diene into the alternative diterpene cembrene A [82,83].
+   TS is a key enzyme in paclitaxel biosynthesis, directing metabolic flux into the taxane pathway through
+cyclization activity. During fermentation, TS cyclizes geranylgeranyl pyrophosphate (GGPP) to yield 93.2%
+taxa-4(5),11(12)-diene, with minor byproducts of 4.7% taxa-4(20),11(12)-diene and additional diterpene
+scaffolds. Subsequently, only 10% of taxa-4(5),11(12)-diene is converted by taxa-4(5),11(12)-diene-5α-
+hydroxylase (T5αOH) into the target product, taxa-4(5),11(12)-diene-4(20),11(12)-5α-ol [22]. Evidence
+suggests that T5αOH has a higher substrate affinity for taxa-4(20),11(12)-diene than for taxa-4(5),11(12)-
+diene. Targeted mutagenesis near the TS active site revealed that substitution of tyrosine 688 with leucine
+TS (Y688L) significantly enhanced production of taxa 4(20),11(12) diene. When the TS (Y688L) variant
+was introduced into a T5αOH-expressing strain, taxa-4(5),11(12)-diene-5α-ol yield increased 2.4-fold. This
+study indicates that engineering TS to favor taxa-4(20),11(12)-diene formation can channel substrates
+directly into T5αOH-mediated P450 hydroxylation, bypassing the epoxide cleavage pathway and markedly
+increasing the proportion of the target product [22]. With the elucidation of the TS crystal structure [79],
+systematic mutagenesis of key residues has been performed. Based on structural modeling, several TS
+variants were engineered, including S713T, W753H, W753H/C830A, V584K/L/M, S587A, V714A/I,
+C803A/S, and Y841F. All variants retained catalytic activity, with S713T preserving 97.4% of wild-type
+enzymatic activity [84].
+
+5.2. Advances in the Study of the Catalytic Mechanism of Taxa-4(5),11(12)-Diene-5α-Hydroxylase (T5αOH)
+
+    Before the foundation of FoTO1, investigations into the catalytic mechanism of T5αOH have mainly
+focused on two proposed pathways: the radical-rebound mechanism and the epoxidation mechanism
+[82,83]. Yadav et al. [85] suggested that competitive proton abstraction by the ferryl-oxo species at the C3,
+C13, and C20 positions contributes to the diversity of T5αOH oxidation products. Edgar and colleagues
+[22,23] hypothesized that taxa-4(5),11(12)-diene is initially converted by T5αOH into an unstable epoxide
+intermediate, which subsequently undergoes non-specific cleavage to yield various oxidized products,
+including taxa-4(5),11(12)-diene-5α-ol, in accordance with the epoxidation mechanism. Meanwhile, the
+isomeric form taxa-4(20),11(12)-diene bypasses the epoxide cleavage step and produces the target product
+taxa-4(5),11(12)-diene-5α-ol directly via the canonical P450 radical-rebound mechanism. Barton et al.
+further demonstrated that taxa-4(5),11(12)-diene-4(5)-epoxide is acid-sensitive and undergoes multiple
+rearrangements under varying chemical conditions, particularly in the presence of iron-porphyrin, thereby
+highlighting challenges to its use as a viable intermediate [83]. Since the initial discovery of T5αOH in
+Taxus  in  1996, numerous  strategies have been  implemented,  including  N-terminal  engineering,
+optimization  of  the  electron  transfer  chain,  ribosomal  switch  regulation,  resting-cell  cultivation,
+endoplasmic reticulum remodeling, and subcellular compartmentalization [53]. In parallel, extensive
+optimization of catalytic conditions, including temperature, O2 concentration, pH, and cofactors, has also
+been performed [56,60]. However, significant breakthroughs in the molecular-level engineering of T5αOH
+are still lacking. Yadav et al. developed a homology model of T5αOH based on six P450 structures and
+
+
+[PDF physical page 21]
+Synth. Biol. Eng. 2026, 4(2), 10006. doi:10.70322/sbe.2026.10006                                                                   21 of 31
+
+
+designed 53 variants. Among these, six mutants showed enhanced performance in either conversion
+efficiency or T5α-ol selectivity. Notably, the K131R mutant increased conversion at the expense of
+selectivity, whereas the V374L mutant enhanced selectivity but reduced conversion. Building on in-depth
+analyses of the paclitaxel biosynthetic gene cluster, our research group conducted large-scale functional
+screening of candidate sequences from the CYP725A subfamily of Himalayan yew. Two homologs,
+T5αOH-1 and T5αOH-2, were identified and experimentally confirmed to catalyze C5 hydroxylation of
+taxa-4(5),11(12)-diene. Nevertheless, their catalytic performance did not exceed that of previously reported
+T5αOH [7].
+    In 2024, our research group, in collaboration with Binju Wang’s group and Zhenzhan Chang’s group,
+employed X-ray crystallography, molecular dynamics (MD) simulations, quantum mechanics/molecular
+mechanics (QM/MM) calculations, and quantum mechanics (QM) computations to elucidate the crystal
+structure of the CYP725A4-taxa-4(5),11(12)-diene complex. Through comprehensive computational
+analyses, the catalytic mechanism of CYP725A4 in the native paclitaxel biosynthesis pathway was
+elucidated [86]. The results indicate that oxidation of taxa-4(5),11(12)-diene generates a zwitterionic
+intermediate, which can proceed along two competing transformation routes. In one pathway, an epoxide
+is formed and subsequently undergoes a water-mediated rearrangement to yield the target product, taxa-
+4(5),11(12)-diene-5α-ol. In the alternative pathway, protonation of the oxygen atom in the zwitterionic
+intermediate facilitates hydrogen shifts and carbon–oxygen coupling, leading to the formation of the side
+products OCT/iso-OCT. In contrast, taxa-4(20),11(12)-diene undergoes direct C5 hydroxylation, yielding
+taxa-4(5),11(12)-diene-5α-ol without formation of the epoxide intermediate. These crystallographic and
+computational studies provide valuable insights into the catalytic mechanism of CYP725A4 and lay the
+groundwork for its further engineering to enhance performance in paclitaxel biosynthesis.
+
+5.3. Enzyme Engineering of T10βOH
+
+    In a recent study, the structural model of the N-terminally truncated enzyme t20T10βOH was predicted
+using AlphaFold2. The model features an N-terminal transmembrane domain connected to a catalytic core
+comprising 12 α-helices and antiparallel β-sheets, with the heme cofactor positioned between helices I and
+L. Building on this structure, the PROSS tool was employed to predict 45 single-point mutations with the
+potential to improve protein folding, each of which was subsequently evaluated energetically using FoldX.
+Experimental validation identified three beneficial mutations (I75F, L226K, and S345V) which enhanced
+substrate conversion by  2.1-,  1.4-, and 1.4-fold, respectively, compared to the wild-type enzyme.
+Mechanistic analysis suggested that I75F increases hydrophobicity at the substrate channel entrance to
+facilitate substrate access, L226K modulates enzyme conformation through  altered surface charge
+distribution, and S345V stabilizes the protein core via enhanced hydrophobic interactions. Further
+combination of these mutations yielded double and triple mutants, among which the triple mutant
+I75F/L226K/S345V achieved the highest substrate conversion (2.8-fold increase) and exhibited a 9.5-fold
+elevation  in cytochrome P450 T10βOH heterologous  expression. This study provides a valuable
+engineering framework for enhancing the de novo biosynthesis of T10βOH and related taxanes [87].
+
+5.4. Designing an Oxidase Toolbox for Site-Directed Oxidation of Taxanes
+
+    Although the biosynthetic pathway of paclitaxel has been progressively elucidated,  its overall
+efficiency remains constrained by the limited activity and product selectivity of the native hydroxylases
+involved. To address this limitation, the researchers focused on identifying non-native oxidases capable of
+functionalizing taxa-4(5),11(12)-diene as alternatives to cytochrome P450 enzymes. Among 29 screened
+fungal oxidases, TteUPO was selected due to its superior activity toward taxa-4(5),11(12)-diene and high
+protein expression level. Based on this candidate, an artificial enzyme toolbox was developed using
+
+
+[PDF physical page 22]
+Synth. Biol. Eng. 2026, 4(2), 10006. doi:10.70322/sbe.2026.10006                                                                   22 of 31
+
+
+engineered variants of TteUPO, enabling site-specific oxidation of taxanes at multiple positions (C-4, C-6,
+C-10, C-11, C-12, and C-13). A collection of TteUPO mutants with distinct regioselectivities toward the
+taxa-4(5),11(12)-diene skeleton was constructed and utilized for pathway engineering. Moreover, by
+integrating the taxa-4(5),11(12)-diene biosynthetic pathway and enabling heterologous expression of a
+selected TteUPO mutant in E. coli, the de novo biosynthesis of oxidized taxa-4(5),11(12)-diene derivatives
+was achieved in this engineered chassis. Together, these findings provide an innovative strategy to establish
+efficient synthetic routes toward paclitaxel and to generate structurally diverse analogs for medicinal
+evaluation, thereby establishing a versatile platform for developing  artificial synthetic pathways to
+paclitaxel and related taxanes [17].
+
+5.5. Advances in the Mechanistic Study of Oxetane Ring Formation
+
+    Recent breakthroughs have clarified the mechanism of oxetane ring formation. Unlike other candidate
+enzymes implicated in oxetane formation, TB328 is not a P450 enzyme but rather an α-ketoglutarate/Fe(II)-
+dependent dioxygenase (ODD). Through  transient expression  in N. benthamiana,  the  researchers
+demonstrated that TB328 catalyzes the conversion of taxusin into taxusin-4β,20-epoxide, thereby enabling
+the de novo biosynthesis of baccatin III in the tobacco chassis. However, attempts to express TB328 in E.
+coli or  S. cerevisiae  strains engineered for taxa-4(5),11(12)-diene production were not successful.
+Furthermore, the detailed reaction mechanism remains unresolved because the low yield of the oxidized
+product prevents reliable NMR characterization [15].
+    In 2023, the research team led by Sotirios C. Kampranis published a study entitled challenged
+prevailing hypotheses that the C5 position of taxa-4(5),11(12)-diene-5α-ol is first acetylated and then
+oxidized through multiple steps to form the oxetane ring. The researchers observed taxane compounds in
+Taxus species that contained oxetane rings without prior acetylation, which led them to propose a
+“cyclization-first, acetylation-later” mechanism [23]. In their study, candidate genes were screened through
+genomic and transcriptomic analyses, and validation was conducted using two heterologous expression
+systems (S. cerevisiae and N. benthamiana) in combination with structural characterization of the resulting
+products. They ultimately identified CYP725A4 (also known as T5αOH) as the enzyme responsible for
+oxetane ring formation. The authors discovered that CYP725A4 catalyzes oxidation at multiple positions
+on  the taxa-4(5),11(12)-diene  precursor,  potentially forming  the oxetane  ring through a two-step
+epoxidation mechanism, thereby revising the previous understanding of its oxidative products and catalytic
+mechanism. Moreover, the study demonstrated that both taxa-4(5),11(12)-diene and taxa-4(20),11(12)-
+diene serve as starting substrates for the generation of the target epoxidized intermediate, suggesting the
+presence of multiple branched biosynthetic pathways leading to paclitaxel [23].
+    In 2024, P450 enzyme TOT1 was found to play a key role in the formation of the oxetane ring. It did
+not catalyze the direct conversion of a three-membered ring intermediate into a four-membered ring [12].
+Instead, the enzyme simultaneously converts the double-bond structure into both three- and four-membered
+ring systems. Using density functional theory (DFT) calculations in combination with substrate selectivity
+assays, the study demonstrated  that both epoxide and oxetane products  arise from a carbocation
+intermediate within TOT1. However, oxetane formation was shown to be energetically and kinetically more
+favorable, providing a molecular explanation for its predominance and indicating that the epoxide is not a
+necessary intermediate in this process [12]. Almost concurrently, the catalytic mechanism of TOT1’s
+isoenzyme, CYP725A55, for the same reaction was elucidated by Zhihua Zhou’s team and Jungui Dai’s
+team. Isotope labeling experiments confirmed that the oxetane ring is likely formed through a direct
+oxidation-acyl rearrangement process, consistent with the predictions of Yan’s team [13]. These findings
+overturn three decades of conventional understanding of this structural motif and fill a critical gap in
+elucidating the molecular mechanism of ring-expansion reactions that generate oxygen-containing four-
+membered rings, a process previously observed only in plants.
+
+
+[PDF physical page 23]
+Synth. Biol. Eng. 2026, 4(2), 10006. doi:10.70322/sbe.2026.10006                                                                   23 of 31
+
+
+5.6. Engineering of DBAT in the Paclitaxel Biosynthetic Pathway
+
+    In recent years, owing to the challenges in modifying the substrate specificity and enhancing the
+catalytic  activity of T5αOH, increasing  attention has been directed toward engineering DBAT, a
+downstream enzyme in the paclitaxel biosynthetic pathway. Alanine scanning was employed to identify the
+active site of DBAT, leading to the design of a double mutant (G38R/F301V) that exhibited a sixfold
+increase in catalytic efficiency relative to the wild type. A single-point mutant (G38R) was found to exhibit
+a 2.15-fold improvement in catalytic efficiency [38,88]. Molecular docking analysis further revealed the
+critical role of His162 in DBAT catalysis, and alanine scanning indicated that substitution of four residues
+(H162, R363, G361, and I164) with alanine completely abolished enzymatic activity. Application of a semi-
+rational design strategy generated a double mutant (I43S/D390R) that not only enhanced catalytic
+efficiency but also facilitated more effective utilization of vinyl acetate, a more economical acyl donor than
+acetyl-CoA [89].
+
+5.7. Engineering of Key Enzymes for the Conversion of Paclitaxel Natural Analogues
+
+    At present, paclitaxel obtained from nursery-cultivated Taxus species remains one of the primary
+sources for clinical use. However, its natural abundance is extremely low, ranging from 0 to 0.069%, with
+the highest concentrations occurring in the bark. By contrast, the content of its natural analog, 7-β-xylosyl-
+10-deacetylpaclitaxel (XDT), is generally much higher than that of paclitaxel. Typically, removal of the
+xylosyl moiety from XDT yields 10-deacetylpaclitaxel (DT), which can subsequently be converted to
+paclitaxel through acetylation at the C10 position. Chen et al. conducted single and multiple site-directed
+mutagenesis at 11 residues of the fungal glycosidases LXYL-P1-1 and LXYL-P1-2 to identify amino acid
+positions associated with enhanced  activity, ultimately obtaining  variants with improved  catalytic
+performance. Among the 17 mutants, the E12 variant (A72T/V91S) displayed the highest β-xylosidase and
+β-glucosidase activities, exceeding those of LXYL-P1-2 by 2.8- and 3-fold, respectively [90]. During
+paclitaxel  extraction,  these analogs  are  often  discarded, leading  to resource waste and  potential
+environmental contamination. The utilization of XDT as a substrate for paclitaxel semi-synthesis holds
+substantial practical value in reducing bioconversion costs.
+    In summary, engineering of key enzymes within the paclitaxel biosynthetic pathway constitutes an
+effective strategy. Such modifications can enhance substrate utilization and selectivity and improve
+catalytic efficiency, particularly through the targeted design of critical enzymes. These advances provide a
+solid foundation for future heterologous biosynthesis and industrial-scale production of paclitaxel.
+
+5.8. Recent Study on Catalytic Mechanistic Analysis of FoTO1
+
+    Regarding recent studies on the catalytic mechanism elucidation of FoTO1, which is an NTF2-like
+superfamily protein in paclitaxel biosynthesis, two preprint articles have recently been published online.
+Jiang and Liu’s team demonstrates that FoTO1 is a dedicated epoxide isomerase that stereospecifically
+redirects a reactive epoxide intermediate toward productive T5α-ol formation [91]. Through in vitro
+reconstitution, mutagenesis, and QM/MM calculations, the authors show that a pre-organized D68/D149
+catalytic dyad electrostatically activates epoxide ring opening via an isomerization mechanism, in contrast
+to the water-mediated hydrolysis employed by canonical epoxide hydrolases such as LEH. Modular
+dissection of the C-terminal extension further reveals a functional partition between catalytic integrity and
+productive coupling with T5αOH, mediated by specific hydrophobic contacts  that enforce precise
+geometric complementarity at the binary complex interface. Together, these results demonstrate how
+electrostatic activation and enzyme association cooperate to control the  fate of a highly reactive
+intermediate in paclitaxel biosynthesis. Sattely and McClune’s group systematically elucidates the dual role
+of FoTO1 [73]. On one hand, FoTO1 functions as an epoxide hydrolase that catalyzes the selective
+
+
+[PDF physical page 24]
+Synth. Biol. Eng. 2026, 4(2), 10006. doi:10.70322/sbe.2026.10006                                                                   24 of 31
+
+
+conversion of taxadiene-4(5)-epoxide to T5α-ol. On the other hand, through protein-protein interactions
+with atypical cytochrome P450 enzymes, FoTO1 serves a non-catalytic scaffolding function that organizes
+a multi-enzyme complex to enhance pathway efficiency. The study also demonstrates that the non-catalytic
+function of FoTO1 is generalizable across multiple plant diterpenoid biosynthetic pathways, providing new
+engineering strategies for heterologous production of plant natural products. Collectively, these two
+complementary studies not only resolve the long-standing catalytic mechanism of FoTO1 but also reveal
+its unprecedented non-catalytic scaffolding role, marking a significant advance in our understanding of
+paclitaxel biosynthesis and offering new avenues for pathway engineering in heterologous hosts.
+
+6. The Emerging Technologies Development
+
+   To address the bottlenecks in paclitaxel pathway elucidation, enzyme engineering, and heterologous
+production, a suite of operationally defined emerging technologies has been deployed, with clear input
+materials, output data, and direct practical applications value.
+
+6.1. MpXsn: High-Resolution Gene Co-Expression Network for Pathway Discovery
+
+    Recent advances in multi-omics and synthetic biology have provided a suite of emerging technologies
+that can be operationally deployed to overcome specific bottlenecks in paclitaxel biosynthesis. The
+multiplexed perturbation × single-nucleus sequencing (mpXsn) method takes as input Taxus tissues treated
+with 136 distinct perturbations, including hormones, pathway intermediates, and pathogens, followed by
+single-nucleus RNA sequencing [11]. Its output is a high-resolution gene co-expression network that
+partitions paclitaxel-associated genes into early, middle, and late expression modules. This technology has
+been practically applied to discover previously missing genes, especially for the auxiliary protein FoTO1,
+directly guiding the complete analysis of the paclitaxel synthesis pathway. Thus, mpXsn represents a
+paradigm shifting discovery tool that transforms correlative transcriptomic data into causal, network guided
+pathway elucidation.
+
+6.2. MALDI-IMS: Spatial Metabolomics for Tissue-Specific Taxane Mapping
+
+   MALDI-imaging mass spectrometry (MALDI-IMS) operates on cryosections of Pseudotaxus tissues
+(such as stems, leaves, and phloem) and generates spatial metabolomic maps comprising up to 10,000 data
+points that reveal tissue-specific taxane distribution [10]. Practically, these maps identify where paclitaxel
+and its intermediates accumulate and enabled researchers to select appropriate tissue-specific promoters
+and design subcellular compartmentalization strategies in engineered plants. MALDI-IMS bridges a critical
+gap between conventional metabolomics and spatial biology by preserving tissue context, which is essential
+for understanding the compartmentalized nature of paclitaxel biosynthesis. However, current limitations
+include relatively low throughput, the need for specialized instrumentation, challenges in absolute
+quantification, and an inability to reliably distinguish isomeric compounds without tandem MS imaging.
+Nevertheless, when integrated with some other emerging technologies such as single-nucleus RNA
+sequencing (snRNA-seq) for cell-type resolution of gene expression, laser microdissection for targeted
+sampling of specific cell layers, and machine learning algorithms for automated metabolite annotation and
+spatial pattern recognition, MALDI-IMS can achieve a multi-dimensional understanding of the paclitaxel
+biosynthetic network, from spatial metabolomics to transcriptional regulation and predictive modeling.
+
+6.3. Oxidase Toolbox: Site-Directed Oxidation Bypassing P450 Bottlenecks
+
+   The oxidase toolbox based on TteUPO mutants takes taxa-4(5),11(12)-diene as substrate and through
+engineered fungal unspecific peroxygenase variants expressed in E. coli, produces site-specific oxidized
+taxanes at C4, C6, C10, C11, C12, and C13 positions [17]. This toolbox bypasses the low-activity plant
+
+
+[PDF physical page 25]
+Synth. Biol. Eng. 2026, 4(2), 10006. doi:10.70322/sbe.2026.10006                                                                   25 of 31
+
+
+P450s and enables biosynthesis of oxidized taxanes in prokaryotic chassis while also generating diverse
+taxane analogs for medicinal chemistry. This represents a paradigm shift in taxane functionalization, as it
+replaces plant derived membrane-bound P450s with a soluble and bacterial-expressed peroxidase, thereby
+overcoming long standing bottlenecks in heterologous P450 expression and electron transfer chain
+assembly. At this stage, the regioselectivity of TteUPO mutants remains less precise than that of native
+P450s, and further directed evolution is needed to achieve the stereospecific oxidations required for
+authentic paclitaxel biosynthesis.
+
+6.4. Gene Dropout Experiments
+
+   Gene dropout experiments using transient expression in N. benthamiana involve the specific deletion
+of a gene, which achieved by infiltrating tobacco leaves with Agrobacterium strains carrying candidate
+genes for combinatorial infiltration.This method realized the identification of indispensable pathway genes,
+such as C4β-C20 epoxidase, T9αOH, T1βOH, and PCL [14,15]. This approach has been practically applied
+to define the minimal gene set required for baccatin III and paclitaxel biosynthesis through systematic gene
+removal and to validate the order of pathway reactions [12]. Gene dropout experiments have been gradually
+extended to elucidate the biosynthetic pathways of various complex natural products. This dropout strategy
+is a powerful functional tool that enables accelerated determination of gene function, transforming
+correlative transcriptomic or genomic data into causal genetic evidence. When combined with modular
+pathway design and automated infiltration technologies, gene dropout screening offers an unprecedented
+capability for rapidly deconvoluting complex plant metabolic networks and accelerating the discovery of
+minimal biosynthetic routes for pharmaceutical production.
+
+7. Conclusions and Outlooks
+
+     Paclitaxel, recognized as one of the most potent natural anticancer agents discovered to date, has
+undergone a diversified developmental history in its synthesis. At present, the most widely employed
+approach remains the semi-synthetic route [82]. Commercially available paclitaxel marketed by Bristol
+Myers Squibb is synthesized via the Holton–Ojima method, employing 10-deacetylbaccatin III as the
+precursor, with yields of up to 90%. However, the supply of semi-synthetic precursors, such as 10-
+deacetylbaccatin III or baccatin III, remains dependent on extraction from the scarce yew tree (Taxus spp.),
+severely limiting large-scale production and necessitating optimization via heterologous biosynthesis.
+Endophytic fungal fermentation has been investigated as an alternative source; however, yields remain low
+and unstable, with no reports of industrial-scale implementation to date [25]. While the co-evolution of
+endophytes and Taxus species has endowed these microorganisms with a diverse array of metabolic enzyme
+genes, their inherent genetic instability renders them currently unsuitable for use as industrial chassis cells.
+Consequently, endophytes are more likely to serve as a potential genetic reservoir in the future, providing
+critical resources for the mining of novel enzymatic parts. Plant cell culture technology provides another
+sustainable method for industrial-level paclitaxel production. For example, Phyton utilizes proprietary Plant
+Cell Fermentation (PCF®) technology to directly produce natural active pharmaceutical ingredients from
+suspension cultures [92]. In recent years, large-scale genome sequencing and analysis of various Taxus
+species have been completed, and the rapid advancement of synthetic biology has established favorable
+conditions for the heterologous biosynthesis of paclitaxel. This progress has enabled a paradigm shift in
+paclitaxel  biosynthesis  research,  transitioning from  traditional gene mining  to  systematic  chassis
+reconstruction. With the recent advances in elucidating the oxetane ring formation mechanism, the nuclear
+transport factor 2 (NTF2)-like protein, FoTO1, and identifying previously unknown catalytic steps, long-
+standing critical gaps in the synthetic pathway have been bridged, thus rapidly advancing the resolution of
+the paclitaxel biosynthetic pathway and its heterologous synthesis. However, current research indicates that
+
+
+[PDF physical page 26]
+Synth. Biol. Eng. 2026, 4(2), 10006. doi:10.70322/sbe.2026.10006                                                                   26 of 31
+
+
+although the paclitaxel metabolic pathway has been elucidated,  this knowledge has not yet been
+substantially translated into efficient metabolic flux within engineered chassis. Consequently, enhancing
+heterologous metabolic flux remains the paramount bottleneck in the field. Currently, advances in microbial
+and tobacco cell platforms have further facilitated the heterologous biosynthesis of paclitaxel intermediates.
+However, these chassis cells are fundamentally constrained by a shared core bottleneck: the high functional
+promiscuity and exceedingly low catalytic efficiency of plant-derived core catalytic elements, particularly
+cytochrome P450 enzymes and acyltransferases. Consequently, this results in the diversion of metabolic
+flux and the concomitant accumulation of byproducts. Furthermore, significant discrepancies exist in the
+efficiency of membrane protein coupling and microenvironmental adaptation across different chassis
+platforms. Therefore, future research directions should focus on integrating bioinformatics with high-
+sensitivity multi-species screening systems to systematically investigate the distribution and functional
+diversity of Taxus-derived cytochrome P450 enzymes and acyltransferases. Furthermore, the functional
+characterization of currently unidentified catalytic parts will further elucidate the reaction steps and
+complete the paclitaxel biosynthetic landscape. Subsequently, employing methodologies such as multi-
+species enzyme screening, rational design, and machine learning-assisted enzyme engineering will facilitate
+the elucidation of the catalytic mechanisms and evolutionary trajectories of key P450 enzymes at the
+molecular level. By coupling these insights with rational engineering strategies to optimize enzyme activity,
+the fundamental issue of enzyme promiscuity can be resolved. To address the practical imperatives of
+industrialized production, the assembly of paclitaxel biosynthetic modules in tobacco cells or engineered
+eukaryotic microbes must be combined with the simultaneous optimization of critical factors, including
+cofactor (NADPH, O2) regeneration, coenzyme compatibility, and precursor supply. This comprehensive
+approach will alleviate the limitations restricting the heterologous biosynthesis of paclitaxel, ultimately
+enabling highly efficient heterologous production.
+    Moreover, integrating chemical synthesis and biosynthesis in a complementary manner could enable
+greener, more efficient production of paclitaxel [93]. The superiority of this strategy lies in its cross-
+disciplinary complementarity: it leverages microbial chassis for the construction of the complex taxane
+polycyclic core skeleton, followed by the application of chemical approaches to append specific side-chain
+functional groups, ultimately yielding paclitaxel. This synthetic paradigm not only effectively circumvents
+the inefficiencies inherent in downstream biocatalytic steps but also significantly mitigates the severe
+environmental impact and high energy consumption associated with traditional total synthesis. In summary,
+the multifaceted research currently surrounding paclitaxel biosynthesis has not only systematically
+reconstructed its complex and extensive metabolic network at the theoretical level and elucidated the
+evolutionary mechanisms of core catalytic elements, but has also laid the  critical groundwork for
+overcoming the catalytic bottlenecks associated with plant-derived cytochrome P450 enzymes. These
+efforts are of significant scientific importance for deepening the mechanistic understanding of paclitaxel
+biosynthesis, overcoming bottlenecks associated with key catalytic elements, and advancing the synthetic
+biology of paclitaxel and its derivatives.
+
+Statement of the Use of Generative AI and AI-Assisted Technologies in the Writing Process
+
+    During the preparation of this manuscript, the authors used DeepSeek and ChatGPT to polish specific
+sentences to better align with English writing standards. Following the use of these tools, the authors
+carefully reviewed and edited the content as necessary and assume full responsibility for the content of the
+published article.
+
+
+[PDF physical page 27]
+Synth. Biol. Eng. 2026, 4(2), 10006. doi:10.70322/sbe.2026.10006                                                                   27 of 31
+
+
+Author Contributions
+
+    X.L.: designed, wrote and revised the paper. Y.Z.: wrote the paper and collected the data. J.L.: wrote
+the paper and collected the data. H.J.: revised the manuscript.
+
+Ethics Statement
+
+    Not applicable.
+
+Informed Consent Statement
+
+    Not applicable.
+
+Data Availability Statement
+
+    Data sharing not applicable to this article as no datasets were generated or analysed during the current
+study.
+
+Funding
+
+    This work was supported by the National Natural Science Foundation of China (Grant No. 32371499),
+Natural Science Foundation of Wuhan (2025040601020158), Science and Technology Major Project of
+Guangxi (Guike AA24206048, Guike AA24206050-3, Guike JF2504850012), Hubei University of
+Technology High-Level Talent Research Startup Fund Program (4301/00960), Hubei Provincial Key R&D
+Major Projects (2025BCA006), Youth Science and Technology Talent Cultivation Special Program of
+Hubei Province (2025DJA024).
+
+Declaration of Competing Interest
+
+   The authors declare that they have no known competing financial interests or personal relationships
+that could have appeared to influence the work reported in this paper.
+
+References
+
+1.   Prota AE, Katja B, Didier Z, Field JJ, José Fernando D, Karl-Heinz A, et al. Molecular mechanism of action of microtubule-
+      stabilizing anticancer agents. Science 2013, 339, 587–590. DOI:10.1126/science.1230582
+2.   Li C, Wang Y, Yin X, Sun X, Sui S, Liu J, et al. Novel alpha-KG/Fe(II)-Dependent Dioxygenases Catalyzing C1beta-
+     Hydroxylation and Construction of 5/7/6-Skeleton of Highly Oxygenated Taxoids. Angew. Chem. Int. Ed. 2025, 137,
+    e202517041. DOI:10.1002/ange.202517041
+3.   Winegar PH, Astolfi MC, Holm SF, Hudson GA, Keasling JD. Advances in the microbial biosynthesis of therapeutic
+     terpenoids. Curr. Opin. Biotechnol. 2025, 96, 103374. DOI:10.1016/j.copbio.2025.103374
+4.   Zhu Y, Liang F, Chai P, Kampranis SC, Zhao Y. Recent Advances in the Biosynthesis and Biotechnological Production of
+     Taxol. Engineering 2025, 4, 65–75. DOI:10.1016/j.eng.2025.12.018
+5.   Tan CL, Yu X, Feng HC, Gershenzon J, Liu Y, Li SH. A synthetic biology roadmap for sustainable production of the plant-
+     originated anti-cancer drug paclitaxel. Trends Biotechnol. 2026. DOI:10.1016/j.tibtech.2025.11.013
+6.   Xiong X, Gou J, Liao Q, Li Y, Zhou Q, Bi G, et al. The Taxus genome provides insights into paclitaxel biosynthesis. Nat.
+     Plants 2021, 7, 1026–1036. DOI:10.1038/s41477-021-00963-5
+7.   Cheng J, Wang X, Liu X, Zhu X, Li Z, Chu H, et al. Chromosome-level genome of Himalayan yew provides insights into
+     the   origin  and  evolution  of   the   paclitaxel   biosynthetic  pathway.  Mol.  Plant  2021,  14,  1199–1209.
+     DOI:10.1016/j.molp.2021.04.015
+8.   Song C, Fu F, Yang L, Niu Y, Tian Z, He X, et al. Taxus yunnanensis genome offers insights into gymnosperm phylogeny
+    and taxol production. Commun. Biol. 2021, 4, 1203. DOI:10.1038/s42003-021-02697-8
+9.   Zhang Y, Scossa F, Fernie AR. The genomes of Taxus species unveil novel candidates in the biosynthesis of taxoids. Mol.
+     Plant 2021, 14, 1773–1775. DOI:10.1016/j.molp.2021.08.017
+
+
+[PDF physical page 28]
+Synth. Biol. Eng. 2026, 4(2), 10006. doi:10.70322/sbe.2026.10006                                                                   28 of 31
+
+
+10.  Wang M, Ma R, Fang Z, Zhang L, Zhang Y, Zheng M, et al. Analysis genome of Pseudotaxus chienii reveals insights into
+     the origin and evolution of taxane biosynthesis. Nat. Commun. 2025, 17, 1088. DOI:10.1038/s41467-025-67849-4
+11.  McClune CJ, Liu JC, Wick C, De La Pena R, Lange BM, Fordyce PM, et al. Discovery of FoTO1 and Taxol genes enables
+     biosynthesis of baccatin III. Nature 2025, 643, 582–592. DOI:10.1038/s41586-025-09090-z
+12.  Jiang B, Gao L, Wang H, Sun Y, Zhang X, Ke H, et al. Characterization and heterologous reconstitution of Taxus
+     biosynthetic enzymes leading to baccatin III. Science 2024, 383, 622–629. DOI:10.1126/science.adj3484
+13.  Yang C, Wang Y, Su Z, Xiong L, Wang P, Lei W, et al. Biosynthesis of the highly oxygenated tetracyclic core skeleton of
+     Taxol. Nat. Commun. 2024, 15, 2339. DOI:10.1038/s41467-024-46583-3
+14.  Li C, Yin X, Wang S, Sui S, Liu J, Sun X, et al. A Cytochrome P450 Enzyme Catalyses Oxetane Ring Formation in
+     Paclitaxel Biosynthesis. Angewandte Chem. Int. Ed. 2024, 63, e202407070. DOI:10.1002/anie.202407070
+15.  Zhang Y, Wiese L, Fang H, Alseekh S, Perez de Souza L, Scossa F, et al. Synthetic biology identifies the minimal gene set
+     required for Paclitaxel biosynthesis in a plant chassis. Mol. Plant 2023, 16, 1951–1961. DOI:10.1016/j.molp.2023.10.016
+16.  Liang F, Xie Y, Zhang C, Zhao Y, Motawia MS, Kampranis SC. Elucidation of the final steps in Taxol biosynthesis and its
+     biotechnological production. Nat. Synth. 2025, 4, 1212–1222. DOI:10.1038/s44160-025-00800-z
+17.  Lai M, Weng Y, Wei J, Lu XY, Huang Z, Li H, et al. Designing an oxidase toolbox for site-directed oxidation of taxanes.
+     Nat. Commun. 2025, 17, 841. DOI:10.1038/s41467-025-67544-4
+18.  Tang X, Zhang X, Long LP, Wu S, Fan XY, Liu J, et al. Versatile 2-Oxoglutarate-Dependent Dioxygenases Catalyze
+     Radical-Mediated Multifunctional Skeleton Reconstructions and Oxidation Modifications of Taxoids. J. Am. Chem. Soc.
+     2026, 148, 11333–11343. DOI:10.1021/jacs.6c01169
+19.  Bian G, Yuan Y, Tao H, Shi X, Zhong X, Han Y, et al. Production of taxadiene by engineering of mevalonate pathway in
+     Escherichia   coli  and  endophytic  fungus  Alternaria   alternata  TPF6.  Biotechnol.   J.  2017,  12,  1600697.
+     DOI:10.1002/biot.201600697
+20.  Williams DC, Wildung MR, Jin AQ, Dalal D, Oliver JS, Coates RM, et al. Heterologous expression and characterization
+     of a “Pseudomature” form of taxadiene synthase involved in paclitaxel (Taxol) biosynthesis and evaluation of a potential
+     intermediate and inhibitors of the multistep diterpene cyclization reaction. Arch. Biochem. Biophys. 2000, 379, 137–146.
+     DOI:10.1006/abbi.2000.1865
+21.  Edgar S, Zhou K, Qiao K, King JR, Simpson JH, Stephanopoulos G. Mechanistic Insights into Taxadiene Epoxidation by
+     Taxadiene-5alpha-Hydroxylase. ACS Chem. Biol. 2016, 11, 460–469. DOI:10.1021/acschembio.5b00767
+22.  Edgar S, Li FS, Qiao K, Weng JK, Stephanopoulos G. Engineering of Taxadiene Synthase for Improved Selectivity and
+     Yield of a Key Taxol Biosynthetic Intermediate. ACS Synth. Biol. 2017, 6, 201–205. DOI:10.1021/acssynbio.6b00206
+23.  Zhao Y, Liang F, Xie Y, Duan Y-T, Andeadelli A, Pateraki I, et al. Oxetane Ring Formation in Taxol Biosynthesis Is
+     Catalyzed by a Bifunctional Cytochrome P450 Enzyme. J. Am. Chem. Soc. 2023, 146, 801–810. DOI:10.1021/jacs.3c10864
+24.  Li C, Yin X, Dai J. The History of Studies on Oxetane Ring Formation in Paclitaxel Biosynthesis. Chembiochem 2025, 26,
+    e202400947. DOI:10.1002/cbic.202400947
+25.  Tong Y, Luo YF, Gao W. Biosynthesis of paclitaxel using synthetic biology. Phytochem. Rev. 2021, 21, 863–877.
+     DOI:10.1007/s11101-021-09766-0
+26.  Liu JCT, De La Pena R, Tocol C, Sattely ES. Reconstitution of early paclitaxel biosynthetic network. Nat. Commun. 2024,
+     15, 1419. DOI:10.1038/s41467-024-45574-8
+27.  Li C, Sun X, Chen R, Xie K, Chen D, Liu J, et al. The discovery of missing taxane C13α-O-deacetylases redelineates the
+     biosynthetic pathway of paclitaxel. bioRxiv 2026. DOI:10.64898/2026.04.28.721278
+28.  Chau M, Walker K, Long R, Croteau R. Regioselectivity of taxoid-O-acetyltransferases: Heterologous expression and
+     characterization  of a new  taxadien-5alpha-ol-O-acetyltransferase.  Arch. Biochem. Biophys. 2004,  430, 237–246.
+     DOI:10.1016/j.abb.2004.07.013
+29.  Jennewein S, Rithner CD, Williams RM, Croteau R. Taxoid metabolism: Taxoid 14beta-hydroxylase is a cytochrome P450-
+     dependent monooxygenase. Arch. Biochem. Biophys. 2003, 413, 262–270. DOI:10.1016/S0003-9861(03)00090-0
+30.  Walker KD, Klettke K, Akiyama T, Croteau R. Cloning, heterologous expression, and characterization of a phenylalanine
+    aminomutase involved in Taxol biosynthesis. J. Biol. Chem. 2004, 279, 53947–53954. DOI:10.1074/jbc.M411215200
+31.  Ramirez-Estrada K, Altabella T, Onrubia M, Moyano E, Notredame C, Osuna L, et al. Transcript profiling of jasmonate-
+      elicited Taxus cells reveals a beta-phenylalanine-CoA ligase. Plant Biotechnol. J. 2016, 14, 85–96. DOI:10.1111/pbi.12359
+32.  Walker K, Long R, Croteau R. The final acylation step in taxol biosynthesis: Cloning of the taxoid C13-side-chain N-
+     benzoyltransferase from Taxus. Proc. Natl. Acad. Sci. USA 2002, 99, 9166–9171. DOI:10.1073/pnas.082115799
+33.  Hefner J, Ketchum REB, Croteau R. Cloning and functional expression of a cDNA encoding geranylgeranyl diphosphate
+     synthase from Taxus canadensis and assessment of the role of this prenyltransferase in cells induced for taxol production.
+     Arch. Biochem. Biophys. 1998, 360, 62–74. DOI:10.1006/abbi.1998.0926
+
+
+[PDF physical page 29]
+Synth. Biol. Eng. 2026, 4(2), 10006. doi:10.70322/sbe.2026.10006                                                                   29 of 31
+
+
+34.  Wildung MR, Croteau R. A cDNA clone for taxadiene synthase, the diterpene cyclase that catalyzes the committed step of
+     taxol biosynthesis. J. Biol. Chem. 1996, 271, 9201–9204. DOI:10.1074/jbc.271.16.9201
+35.  Jennewein S, Long RM, Williams RM, Croteau R. Cytochrome P450 taxadiene 5 alpha-hydroxylase, a mechanistically
+     unusual monooxygenase catalyzing the first oxygenation step of taxol biosynthesis. Chem. Biol. 2004, 11, 379–387.
+     DOI:10.1016/j.chembiol.2004.02.022
+36.  Jennewein S, Rithner CD, Williams RM, Croteau RB. Taxol biosynthesis: Taxane 13 alpha-hydroxylase is a cytochrome
+     P450-dependent monooxygenase. Proc. Natl. Acad. Sci. USA 2001, 98, 13595–13600. DOI:10.1073/pnas.251539398
+37.  Walker K, Schoendorf A, Croteau R. Molecular cloning of a taxa-4(20),11(12)-dien-5alpha-ol-O-acetyl transferase cDNA
+    from  Taxus  and  functional  expression  in  Escherichia  coli.  Arch.  Biochem.  Biophys.  2000,  374,  371–380.
+     DOI:10.1006/abbi.1999.1609
+38.  Chau M, Jennewein S, Walker K, Croteau R. Taxol biosynthesis: Molecular cloning and of a cytochrome p450
+     characterization taxoid 7 beta-hydroxylase. Chem. Biol. 2004, 11, 663–672. DOI:10.1016/S1074-5521(04)00111-5
+39.  Chau M, Croteau R. Molecular cloning and characterization of a cytochrome P450 taxoid 2 alpha-hydroxylase involved in
+     Taxol biosynthesis. Arch. Biochem. Biophys. 2004, 427, 48–57. DOI:10.1016/j.abb.2004.04.016
+40.  Walker K, Croteau R. Taxol biosynthesis: Molecular cloning of a benzoyl-CoA. Taxane 2 alpha-O-benzoyltransferase
+   cDNA from Taxus and functional expression in Escherichia coli. Proc. Natl. Acad. Sci. USA 2000, 97, 13591–13596.
+     DOI:10.1073/pnas.250491997
+41.  Walker K, Croteau R. Molecular cloning of a 10-deacetylbaccatin III-10-O-acetyl transferase cDNA from Taxus and
+     functional expression in Escherichia coli. Proc. Natl. Acad. Sci. USA 2000, 97, 583–587. DOI:10.1073/pnas.97.2.583
+42.  Sanchez-Munoz R, Perez-Mata E, Almagro L, Cusido RM, Bonfill M, Palazon J, et al. A Novel Hydroxylation Step in the
+    Taxane Biosynthetic Pathway: A New Approach to Paclitaxel Production by Synthetic Biology. Front. Bioeng. Biotechnol.
+     2020, 8, 410. DOI:10.3389/fbioe.2020.00410
+43.  Li T, Li B, Liao C, Zhang H, Wang L, Fu T, et al. Transcriptome analysis provides insights into light condition effect on
+     paclitaxel biosynthesis in yew saplings. BMC Plant Biol. 2022, 22, 577. DOI:10.1186/s12870-022-03958-2
+44.  Mubeen S, Li ZL, Huang QM, He CT, Yang ZY. Comparative Transcriptome Analysis Revealed the Tissue-Specific
+     Accumulations of Taxanes among Three Experimental Lines of Taxus yunnanensis. J. Agric. Food Chem. 2018, 66, 10410–
+     10420. DOI:10.1021/acs.jafc.8b03502
+45.  Wang T, Chen Y, Zhuang W, Zhang F, Shu X, Wang Z, et al. Transcriptome Sequencing Reveals Regulatory Mechanisms
+     of Taxol Synthesis in Taxus wallichiana var. Mairei. Int. J. Genom. 2019, 2019, 1596895. DOI:10.1155/2019/1596895
+46.  Yu C, Luo X, Zhang C, Xu X, Huang J, Chen Y, et al. Tissue-specific study across the stem of Taxus media identifies a
+     phloem-specific TmMYB3 involved in the transcriptional regulation of paclitaxel biosynthesis. Plant J. 2020, 103, 95–110.
+     DOI:10.1111/tpj.14710
+47.  Yu C, Hou K, Zhang H, Liang X, Chen C, Wang Z, et al. Integrated mass spectrometry imaging and single-cell transcriptome
+      atlas strategies provide novel insights into taxoid biosynthesis and transport in Taxus mairei stems. Plant J. 2023, 115,
+    1243–1260. DOI:10.1111/tpj.16315
+48.  Huang Q, Roessner CA, Croteau R, Scott AI. Engineering Escherichia coli for the Synthesis of Taxadiene, a Key
+     Intermediate  in  the  Biosynthesis  of  Taxol.  Bioorganic Med. Chem.  2001,  9, 2237–2242. DOI:10.1016/S0968-
+     0896(01)00072-4
+49.  Zhou K, Qiao K, Edgar S, Stephanopoulos G. Distributing a metabolic pathway among a microbial consortium enhances
+     production of natural products. Nat. Biotechnol. 2015, 33, 377–383. DOI:10.1038/nbt.3095
+50.  Boghigian BA, Armando J, Salas D, Pfeifer BA. Computational identification of gene over-expression targets for metabolic
+     engineering of taxadiene production. Appl. Microbiol. Biotechnol. 2012, 93, 2063–2073. DOI:10.1007/s00253-011-3725-1
+51.  Abdallah II, Pramastya H, van Merkerk R, Sukrasno, Quax WJ. Metabolic Engineering of Bacillus subtilis Toward
+     Taxadiene  Biosynthesis  as  the  First Committed  Step  for  Taxol  Production.  Front.  Microbiol.  2019,  10,  218.
+     DOI:10.3389/fmicb.2019.00218
+52.  Biggs BW, Lim CG, Sagliani K, Shankar S, Stephanopoulos G, De Mey M, et al. Overcoming heterologous protein
+     interdependency to optimize P450-mediated Taxol precursor synthesis in Escherichia coli. Proc. Natl. Acad. Sci. USA 2016,
+     113, 3209–3214. DOI:10.1073/pnas.1515826113
+53.  Mutanda I, Li J, Xu F, Wang Y. Recent Advances in Metabolic Engineering, Protein Engineering, and Transcriptome-
+    Guided  Insights  Toward  Synthetic  Production  of  Taxol.  Front.  Bioeng.  Biotechnol.  2021,   9,  632269.
+     DOI:10.3389/fbioe.2021.632269
+54.  Ding MZ, Yan HF, Li LF, Zhai F, Shang LQ, Yin Z, et al. Biosynthesis of Taxadiene in Saccharomyces cerevisiae: Selection
+     of geranylgeranyl diphosphate synthase directed by a computer-aided docking strategy. PLoS ONE 2014, 9, e109348.
+     DOI:10.1371/journal.pone.0109348
+
+
+[PDF physical page 30]
+Synth. Biol. Eng. 2026, 4(2), 10006. doi:10.70322/sbe.2026.10006                                                                   30 of 31
+
+
+55.  Nowrouzi B, Li RA, Walls LE, d’Espaux L, Malci K, Liang L, et al. Enhanced production of taxadiene in Saccharomyces
+     cerevisiae. Microb. Cell Factories 2020, 19, 200. DOI:10.1186/s12934-020-01458-2
+56.  Walls LE, Malci K, Nowrouzi B, Li RA, d’Espaux L, Wong J, et al. Optimizing the biosynthesis of oxygenated and
+     acetylated Taxol precursors in Saccharomyces cerevisiae using advanced bioprocessing strategies. Biotechnol. Bioeng. 2021,
+     118, 279–293. DOI:10.1002/bit.27569
+57.  Nowrouzi B, Lungang L, Rios-Solis L. Exploring optimal Taxol(R) CYP725A4 activity in Saccharomyces cerevisiae.
+     Microb. Cell Factories 2022, 21, 197. DOI:10.1186/s12934-022-01922-1
+58.  Jiang Z, Kempinski C, Bush CJ, Nybo SE, Chappell J. Engineering Triterpene and Methylated Triterpene Production in
+     Plants Provides Biochemical and Physiological Insights into Terpene Metabolism. Plant Physiol. 2016, 170, 702–716.
+     DOI:10.1104/pp.15.01548
+59.  Besumbes O, Sauret-Gueto S, Phillips MA, Imperial S, Rodriguez-Concepcion M, Boronat A. Metabolic engineering of
+     isoprenoid biosynthesis in Arabidopsis for the production of taxadiene, the first committed precursor of Taxol. Biotechnol.
+     Bioeng. 2004, 88, 168–175. DOI:10.1002/bit.20237
+60.  Rontein D, Onillon S, Herbette G, Lesot A, Werck-Reichhart D, Sallaud C, et al. CYP725A4 from yew catalyzes complex
+      structural rearrangement of taxa-4(5),11(12)-diene into the cyclic ether 5(12)-oxa-3(11)-cyclotaxane. J. Biol. Chem. 2008,
+     283, 6067–6075. DOI:10.1074/jbc.M708950200
+61.  Li J, Mutanda I, Wang K, Yang L, Wang J, Wang Y. Chloroplastic metabolic engineering coupled with isoprenoid pool
+    enhancement  for  committed  taxanes  biosynthesis  in  Nicotiana  benthamiana.  Nat. Commun.  2019,  10,  4850.
+     DOI:10.1038/s41467-019-12879-y
+62.  Fu J, Xu W, Huang W, Wang B, Li S, Zhang J, et al. Importation of taxadiene synthase into chloroplast improves taxadiene
+     production in tobacco. Planta 2021, 253, 107. DOI:10.1007/s00425-021-03626-z
+63. He J, Plácido JPA, Pateraki I, Kampranis S, Favero BT, Lütken H. Hairy root induction of Taxus baccata L. by natural
+     transformation with Rhizobium rhizogenes. Horticulturae 2023, 9, 4. DOI:10.3390/horticulturae9010004
+64.  Ajikumar PK, Xiao WH, Tyo KE, Wang Y, Simeon F, Leonard E, et al. Isoprenoid pathway optimization for Taxol precursor
+     overproduction in Escherichia coli. Science 2010, 330, 70–74. DOI:10.1126/science.1191652
+65.  Boghigian BA, Salas D, Ajikumar PK, Stephanopoulos G, Pfeifer BA. Analysis of heterologous taxadiene production in
+    K- and B-derived Escherichia coli. Appl. Microbiol. Biotechnol. 2012, 93, 1651–1661. DOI:10.1007/s00253-011-3528-4
+66. Wu Q-Y, Huang Z-Y, Wang J-Y, Yu H-L, Xu J-H. Construction of an Escherichia coli cell factory to synthesize taxadien-
+     5α-ol, the key precursor of anti-cancer drug paclitaxel. Bioresour. Bioprocess. 2022, 9, 82. DOI:10.1186/s40643-022-
+    00569-5
+67.  Wang J-Y, Huang Z-Y, Wu Q-Y, Pan J, Li C-X, Xu J-H. Facile biosynthesis of taxadiene by a newly constructed Escherichia
+      coli strain fusing enzymes taxadiene synthase and geranylgeranyl pyrophosphate synthase. Process Biochem. 2022, 122,
+     129–136. DOI:10.1016/j.procbio.2022.09.005
+68.  Engels B, Dahm P, Jennewein S. Metabolic engineering of taxadiene biosynthesis in yeast as a first step towards Taxol
+      (Paclitaxel) production. Metab. Eng. 2008, 10, 201–206. DOI:10.1016/j.ymben.2008.03.001
+69.  Walls LE, Martinez JL, Rios-Solis L. Enhancing Saccharomyces cerevisiae Taxane Biosynthesis and Overcoming
+     Nutritional Stress-Induced Pseudohyphal Growth. Microorganisms 2022, 10, 163. DOI:10.3390/microorganisms10010163
+70. Xu M, Xie W, Luo Z, Li CX, Hua Q, Xu J. Improving solubility and copy number of taxadiene synthase to enhance the
+       titer of taxadiene in Yarrowia lipolytica. Synth. Syst. Biotechnol. 2023, 8, 331–338. DOI:10.1016/j.synbio.2023.04.002
+71.  Min L, Han JC, Zhang W, Gu CC, Zou YP, Li CC. Strategies and Lessons Learned from Total Synthesis of Taxol. Chem.
+     Rev. 2023, 123, 4934–4971. DOI:10.1021/acs.chemrev.2c00763
+72.  Hasan MM, Kim HS, Jeon JH, Kim SH, Moon B, Song JY, et al. Metabolic engineering of Nicotiana benthamiana for the
+     increased production of taxadiene. Plant Cell Rep. 2014, 33, 895–904. DOI:10.1007/s00299-014-1568-9
+73.  Wick C, Somani A, Liu JC, Karunadasa SS, Xu SL, Fordyce PM, et al. FoTO1 orchestrates Taxol biosynthesis through
+      catalytic and non-catalytic mechanisms. BioRxiv 2026. DOI:10.64898/2026.03.21.713420
+74.  Wang Y, Guo B, Miao Z, Tang K. Transformation of taxol-producing endophytic fungi by restriction enzyme-mediated
+     integration (REMI). FEMS Microbiol. Lett. 2007, 273, 253–259. DOI:10.1111/j.1574-6968.2007.00801.x
+75.  El-Sayed ASA, Abdel-Ghany SE, Ali GS. Genome editing approaches: Manipulating of lovastatin and taxol synthesis of
+     filamentous fungi by CRISPR/Cas9 system. Appl. Microbiol. Biotechnol. 2017, 101, 3953–3976. DOI:10.1007/s00253-
+     017-8263-z
+76.  Zhong J, Wang Y, Chen Z, Yalikun Y, He L, Liu T, et al. Engineering cyanobacteria as a new platform for producing taxol
+     precursors directly from carbon dioxide. Biotechnol. Biofuels Bioprod. 2024, 17, 99. DOI:10.1186/s13068-024-02555-9
+77.  Ansbacher T, Freud Y, Major DT. Slow-Starter Enzymes: Role of Active-Site Architecture in the Catalytic Control of the
+     Biosynthesis of Taxadiene by Taxadiene Synthase. Biochemistry 2018, 57, 3773–3779. DOI:10.1021/acs.biochem.8b00452
+
+
+[PDF physical page 31]
+Synth. Biol. Eng. 2026, 4(2), 10006. doi:10.70322/sbe.2026.10006                                                                   31 of 31
+
+
+78.  Liu H, Chen Q. Computational protein design for given backbone: Recent progresses in general method-related aspects.
+     Curr. Opin. Struct. Biol. 2016, 39, 89–95. DOI:10.1016/j.sbi.2016.06.013
+79.  Koksal M, Jin Y, Coates RM, Croteau R, Christianson DW. Taxadiene synthase structure and evolution of modular
+     architecture in terpene biosynthesis. Nature 2011, 469, 116–120. DOI:10.1038/nature09628
+80.  Soliman S, Tang Y. Natural and engineered production of taxadiene with taxadiene synthase. Biotechnol. Bioeng. 2015,
+     112, 229–235. DOI:10.1002/bit.25468
+81.  Van Rijn JPM, Escorcia AM, Thiel W. QM/MM study of the taxadiene synthase mechanism. J. Comput. Chem. 2019, 40,
+    1902–1910. DOI:10.1002/jcc.25846
+82.  Kanda Y, Ishihara Y, Wilde NC, Baran PS. Two-Phase Total Synthesis of Taxanes: Tactics and Strategies. J. Org. Chem.
+     2020, 85, 10293–10320. DOI:10.1021/acs.joc.0c01287
+83.  Barton NA, Marsh BJ, Lewis W, Narraidoo N, Seymour GB, Fray R, et al. Accessing low-oxidation state taxanes: Is
+     taxadiene-4(5)-epoxide on the taxol biosynthetic pathway? Chem. Sci. 2016, 7, 3102–3107. DOI:10.1039/C5SC03463A
+84.  Schrepfer P, Buettner A, Goerner C, Hertel M, van Rijn J, Wallrapp F, et al. Identification of amino acid networks governing
+      catalysis  in the closed complex of  class  I terpene synthases. Proc. Natl. Acad.  Sci. USA 2016, 113, 958–967.
+     DOI:10.1073/pnas.1519680113
+85.  Yadav VG. Unraveling the multispecificity and catalytic promiscuity of taxadiene monooxygenase. J. Mol. Catal. B Enzym.
+     2014, 110, 154–164. DOI:10.1016/j.molcatb.2014.10.004
+86.  Song X, Wang Q, Zhu X, Fang W, Liu X, Shi C, et al. Unraveling the Catalytic Mechanism of Taxadiene-5α-hydroxylase
+    from Crystallography and Computational Analyses. ACS Catal. 2024, 14, 3912–3925. DOI:10.1021/acscatal.3c05807
+87.  Zhang MF, Xie WL, Chen C, Li CX, Xu JH. Computational redesign of taxane-10β-hydroxylase for de novo biosynthesis
+     of a key paclitaxel intermediate. Appl. Microbiol. Biotechnol. 2023, 107, 7105–7117. DOI:10.1007/s00253-023-12784-x
+88.  Li BJ, Wang H, Gong T, Chen JJ, Chen TJ, Yang JL, et al. Improving 10-deacetylbaccatin III-10-β-O-acetyltransferase
+      catalytic fitness for Taxol production. Nat. Commun. 2017, 8, 15544. DOI:10.1038/ncomms15544
+89.  Lin SL, Wei T, Lin JF, Guo LQ, Wu GP, Wei JB, et al. Bio-production of Baccatin III, an Important Precursor of Paclitaxel
+    by a Cost-Effective Approach. Mol. Biotechnol. 2018, 60, 492–505. DOI:10.1007/s12033-018-0090-7
+90.  Chen JJ, Liang X, Wang F, Wen YH, Chen TJ, Liu WC, et al. Combinatorial mutation on the β-glycosidase specific to 7-β-
+     xylosyltaxanes and increasing the mutated enzyme production by engineering the recombinant yeast. Acta Pharm. Sin. B
+     2019, 9, 626–638. DOI:10.1016/j.apsb.2018.11.003
+91.  Bai J, Li J, Zhang Y, Chang H, Zhang N, Liu Y, et al. FoTO1 is an epoxide isomerase in paclitaxel biosynthesis. BioRxiv
+     2026. DOI:10.64898/2026.03.30.715439
+92.  Zhu X, Liu X, Liu T, Wang Y, Ahmed N, Li Z, et al. Synthetic biology of plant natural products: From pathway elucidation
+     to engineered biosynthesis in plant cells. Plant Commun. 2021, 2, 100229. DOI:10.1016/j.xplc.2021.100229
+93.  Li J, Liu X, Zhu X, Liu J, Zhang L, Ahmed N, et al. Biochemical synthesis of taxanes from mevalonate. Synth. Syst.
+     Biotechnol. 2024, 9, 694–700. DOI:10.1016/j.synbio.2024.05.002

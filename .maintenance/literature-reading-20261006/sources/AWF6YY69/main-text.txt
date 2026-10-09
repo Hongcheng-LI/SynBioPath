@@ -1,0 +1,1046 @@
+
+[PDF physical page 1]
+       Article                                                                                       https://doi.org/10.1038/s41467-025-61160-y
+  Merging the computational design of
+   chimeric type I polyketide synthases with
+  enzymatic pathways for chemical
+   biosynthesis
+
+
+
+        Received: 1 November 2024             Yash Chainani1,2,3,4, Jacob Diaz3,4, Margaret Guilarte-Silva1,2, Vincent Blay   3,4,
+                                    Quan Zhang    1, William Sprague    1, Keith E. J. Tyo    1,2, Linda J. Broadbelt1,2,3,4,
+       Accepted: 15 June 2025
+                                                  Aindrila Mukhopadhyay   3,4, Jay D. Keasling   3,4,5,6,7,8,
+                                           Hector Garcia Martin   3,4,9,10 & Tyler W. H. Backman   3,4
+
+
+          Check for updates1234567890():,;                 1234567890():,;
+                                             Synthetic biology offers the promise of manufacturing chemicals more sus-
+                                               tainably than petrochemistry. Yet, both the rate at which biomanufacturing
+                                        can synthesize these molecules and the net chemical accessible space are
+                                               limited by existing pathway discovery methods, which can often rely on
+                                        arduous literature searches. Here, we introduce BioPKS pipeline, an auto-
+                                     mated retrobiosynthesis tool combining multifunctional type I polyketide
+                                            synthases (PKSs) and monofunctional enzymes via two complementary tools:
+                                          RetroTide and DORAnet. Monofunctional enzymes are valuable for carefully
+                                            decorating a substrate’s carbon backbone while PKSs are unique in their ability
+                                            to iteratively catalyze carbon-carbon bond formation reactions, thereby
+                                        expanding carbon backbones in a predictable fashion. We evaluate the per-
+                                       formance of BioPKS pipeline using a previously reported set of 155 biomanu-
+                                               facturing candidates, achieving exact synthetic designs for 93 compounds and
+                                            generating chemically similar pathways for most remaining targets. Further-
+                                        more, BioPKS pipeline can propose pathways for the complex therapeutic
+                                               natural products cryptofolione and basidalin.
+
+
+
+      An increasing concern regarding climate change has led to growing   achieve sustainability in manufacturing while reducing carbon emis-
+         public and private interest in synthetic biology to enable the bioma-   sions to mitigate rising global temperatures7,8.
+        nufacturing of a wide array of commodity chemicals1–5. In 2022, the       Despite this increasing interest, the design of biosynthetic path-
+        United States’ government signed an executive order to invest 2 billion   ways to produce key commodity chemicals without known biosynth-
+         dollars into the U.S. bioeconomy to divert chemical manufacturing   esis pathways remains a  bottleneck9–11. Long and cumbersome
+       away from pollutive fossil-fuel based processes and towards envir-   literature searches can be common in piecing together known or
+        onmentally benign bioengineered ones6. Further, the overall demand   potentially promiscuous enzymatic reactions that may eventually lead
+         for renewable products has also been solidifying, driven by the need to   to a target product from simple precursors and intermediates. Such
+
+
+
+         1Department of Chemical and Biological Engineering, Northwestern University, Evanston, IL, USA. 2Center for Synthetic Biology, Evanston, IL, USA. 3Joint
+         BioEnergy Institute, Emeryville, CA, USA. 4Biological Systems and Engineering Division, Lawrence Berkeley National Laboratory, Berkeley, CA, USA. 5QB3,
+          University of California, Berkeley, CA, USA. 6Department of Chemical and Biomolecular Engineering, University of California, Berkeley, CA, USA. 7Department
+          of Bioengineering, University of California, Berkeley, CA, USA. 8Center for Biosustainability, Danish Technical University, Lynby, Denmark. 9BCAM, Basque
+         Center for Applied Mathematics, Bilbao, Spain. 10DOE Agile BioFoundry, Emeryville, CA, USA.    e-mail: tbackman@lbl.gov
+
+
+
+        Nature Communications| (2025)16:5787                                                                                                         1
+
+
+[PDF physical page 2]
+Article                                                                                     https://doi.org/10.1038/s41467-025-61160-y
+
+
+manual pathway discovery methods diminish the rate at which bio-   incorporation of such atypical acyl-CoA units into polyketide products.
+manufacturing can replace the ~3500 or so high-volume, petroleum-   In particular, the use of the highly promiscuous mammalian malonyl
+derived chemicals currently in circulation12,13.                            acetyltransferase (MAT) has further broadened the range of possible
+     In addition to this slow rate of access, the net chemical space   extender units for PKS engineering46. Alongside performing AT
+that existing methods can reach is also limited by the customarily  domain swaps, the oxidation state and functionalization of each
+exclusive use of monofunctional enzymes. Monofunctional enzymes   extender unit added to the growing carbon backbone can be tuned
+catalyze individual reactions only and, to date, comprise a majority   further by swapping or modifying the PKS reductive loop47–49, which
+of engineered pathways4,14,15. While such enzymes are valuable for the   comprises the ketoreductase (KR), dehydratase (DH), and enoylre-
+precise modiﬁcation of functional groups on a substrate’s carbon   ductase (ER) domains. Moreover, since a PKS substrate is always
+backbone, they offer few chances to increase the length of the   tethered to its synthase, the likelihood of intermediate loss can be
+backbone  itself. Consequently, relying exclusively on monofunc-   lower with PKSs than in engineered metabolic pathways wherein
+tional enzymes often restricts the achievable carbon chain length of   intermediates may be funneled into different pathways altogether
+target products to about that of the original carbon source. Meta-   while being shuttled around individual enzymes in the cell50. Such
+bolic maps of bio-based chemicals in the literature highlight that   derailments can lead to unexpected51–56, or even toxic57 byproducts.
+pathways beginning from pyruvate and other central carbon meta-   Given the predictable deterministic logic of Type I PKSs, however, one
+bolites yield C3-C8 products only16,17. Such short backbones render it   can expect the ﬁnal product to be directly correlated with the domains
+difﬁcult for synthetic biology to compete with the longer hydro-  and acyl-CoA units involved26.
+carbons (>C10) present in petrochemical feedstocks18, especially       This modular and predictable, yet tunable, nature of multi-
+when making products that are more structurally complex than lin-   functional PKSs makes them an attractive platform for biomanu-
+ear carbon chains.                                                        facturing. While PKSs have historically been challenging to engineer
+     In fact, attempting to synthesize molecules solely using mono-  and are characterized by low turnover rates33,45, ongoing research has
+functional enzymes overlooks how nature synthesizes many valuable   only further conﬁrmed their capacity for structural derivatization:
+and complex natural products: by combining multifunctional and   recently, several researchers have engineered the deoxyerythronolide
+monofunctional  enzymes  for  complementary  purposes.  Multi-   synthase (DEBS) involved in erythromycin’s biosynthesis to accept
+functional enzymes (which catalyze multiple reactions) are used by   ﬂuorinated acyl-CoA units so as to regioselectively incorporate ﬂuor-
+these natural pathways, genetically encoded in the biosynthetic gene   ine into the erythromycin scaffold58,59. This has also been achieved with
+clusters (BGCs) of several microbes, plants, and fungi, to ﬁrst construct   other PKS products as well46, which is crucial since an increasing
+elongated carbon scaffolds. Only after the construction of such scaf-  number of approved drugs today contain ﬂuorine atoms60,61. Because
+folds are monofunctional enzymes used for structural ﬁne-tuning19–22.   PKSs follow a modular deterministic logic, an engineered PKS provides
+A  particularly  interesting and  valuable  class  of  multifunctional   a straightforward path to create a large library of chemical analogs that
+enzymes are polyketide synthases (PKSs), which can catalyze the   can be explored for improved properties via domain and module
+expansion of carbon backbones23–25. PKSs are responsible for the   engineering44. We believe that combining the versatility and scaffold-
+synthesis of many medicinally relevant and structurally diverse mole-   ing ability of PKSs with the precision of monofunctional enzymes,
+cules, from macrocyclic antibiotics (e.g., erythromycin26) to long ali-   thereby mimicking the biosynthesis of natural products, can ultimately
+phatic anticancer therapeutics (e.g., gephyronic acid27,28). PKSs broadly   unlock a wider space of chemicals for biomanufacturing than would be
+fall into one of three categories: type I, II, and III23. Type II and III PKSs   accessible with either type of enzyme alone. While several in silico
+consist of discrete, unlinked enzymes operating independently29,30   retrobiosynthesis   tools   already   exist   for   monofunctional
+while type  I PKSs comprise several covalently linked enzymatic    enzymes10,11,62–74, to our knowledge, none exist for designing chimeric
+domains working together as an assembly line to synthesize large   multifunctional enzymes, and especially not for the combination of the
+polyketides from simple building blocks31. These building blocks are   two. Existing tools75,76 and databases77–79 for multifunctional enzymes
+typically acyl-coenzyme A (acyl-CoA) derivatives, such as acetyl-CoA or   are valuable in matching known natural product structures to known
+malonyl-CoA23,25.  Through  decarboxylative  Claisen  condensation   BGCs, but do not suggest unnatural PKS chimeras.
+reactions performed by their ketosynthase (KS) domain, PKSs are able        In this work, we present BioPKS pipeline, an automated retro-
+to iteratively add 2–3 carbon atoms from such acyl-CoA units onto a   biosynthesis software that seamlessly integrates the design of multi-
+previously loaded acyl-CoA substrate23,25. Over the course of several   functional chimeric type I PKSs with that of monofunctional enzymatic
+modules, each of which minimally contains a KS, an AT, and an acyl   pathways (Fig. 1). By ﬁrst generating a carbon scaffold with a PKS-
+carrier protein (ACP) domain, PKSs can extend the initial substrate   speciﬁc retrobiosynthesis algorithm (RetroTide), and then tailoring
+from just 2–6 carbon atoms to over 20 in length23,25. This unique ability   PKSs with monofunctional enzyme retrobiosynthesis (DORAnet),
+of PKSs to catalyze C-C bond formation reactions is immensely bene-   BioPKS pipeline accesses a much larger and more complex chemical
+ﬁcial for biomanufacturing and could be repurposed towards the   space than either method alone. Post-PKS steps designed with DOR-
+synthesis of chemicals, such as biofuels, for which carbon chain length   Anet also include reaction feasibility prediction and thermodynamics
+correlates positively with fuel efﬁciency32.                                   calculations80,81. BioPKS pipeline is able to construct a complete carbon
+    Beyond constructing elongated backbones, PKSs also allow for   scaffold for 15 test compounds, fully design pathways for over 60% of a
+the incorporation of diverse side chains and varying the level of   155 compound library, and produce pathways for the therapeutic
+reduction of the synthesized molecule33–38. While AT domains pri-   natural products cryptofolione82 and basidalin83. Altogether, our work
+marily function to extend the carbon chain arising from the previous   represents an in silico demonstration of combining PKSs and mono-
+module by selecting common acyl-CoA units, such as malonyl-CoA or   functional enzymes to engineer a broad range of molecules—from
+methylmalonyl-CoA, there is a large diversity of α-substituted starter   simple commodities to complex natural products.
+and extender acyl-CoA units that can be selected by AT domains38–40.
+For instance, when designing monomers, terminal alkene groups  Results
+(useful for polymerization) may be included through unsaturated units   Architecture of BioPKS pipeline
+such as allylmalonyl-CoA41,42. Meanwhile, aromatic rings, a key struc-   BioPKS pipeline is an automated retrobiosynthesis tool with two key
+tural component of many monomers and polymers, can be added via   rule-based components  (Fig.  2): RetroTide (presented here) and
+aromatic units such as cinnamoyl-CoA43. Recent advances in engi-  DORAnet (https://github.com/wsprague-nu/doranet). When a target
+neering strategies for AT domain swapping44,45 have enabled the   chemical is input, the BioPKS pipeline ﬁrst attempts to synthesize this
+
+
+
+Nature Communications| (2025)16:5787                                                                            2
+
+
+[PDF physical page 3]
+Article                                                                                     https://doi.org/10.1038/s41467-025-61160-y
+
+
+
+
+
+Fig. 1 | BioPKS pipeline reaches target molecules in silico by ﬁrst constructing    structure, RetroTide ﬁrst suggests chimeric PKS designs to synthesize the carbon
+their carbon backbone and then performing structural reﬁnements. BioPKS     backbone of this target. DORAnet then performs enzymatic post-PKS decorations
+pipeline uses both multifunctional type I polyketide synthases (PKSs) and mono-    of the PKS product to reach the target chemical. If an integrated PKS and post-PKS
+functional enzymes for chemical biosynthesis. Our platform is built upon two key   pathway design is found, the user can collect this design from BioPKS pipeline for
+rule-based components – RetroTide and DORAnet. When a user inputs a target      future experimental synthesis in the laboratory.
+
+
+
+
+
+Fig. 2 | BioPKS pipeline combinatorially designs novel, chimeric PKSs from      target can be synthesized solely with PKSs, BioPKS pipeline stops, and users can
+existing PKSs to produce intermediates structurally similar to the target        search the ClusterCAD 2.0 database for closely matched PKSs. If the target cannot
+molecule. When a target molecule is input, BioPKS pipeline ﬁrst calls upon Ret-    be synthesized by PKSs, then BioPKS pipeline calls upon DORAnet to modify the
+roTide to suggest chimeric PKS designs by combinatorially mixing domains from    top-ranked PKS product with monofunctional enzymes, whose activities are digi-
+existing PKSs, such as rapamycin synthase or 6-deoxyerythronolide B synthase        tally encoded as reaction rules. The post-PKS pathways generated can then be
+(DEBS). Here, each color represents a domain from a distinct known PKS. Retro-    ranked with thermodynamics and/or pathway feasibility analyses. If the top-ranked
+Tide’s PKS designs are output in descending order of chemical similarity as mea-   PKS product does not lead to the ﬁnal target through post-PKS modiﬁcations, then
+sured between the corresponding PKS product and the target chemical. If the        alternate PKS designs are considered.
+
+
+
+molecule and its carbon skeleton using only PKSs via RetroTide, which   provided by RetroTide (see Methods for the different similarity
+in turn explores different combinations of known PKS domains and   metrics available to users). If a target can be synthesized by PKSs alone,
+organizes them into modules. Each domain has a single reaction rule   BioPKS pipeline terminates and users can search our previously
+associated with it based on its known enzymatic function. Over the   released ClusterCAD 2.0 database84 (https://clustercad.jbei.org) for
+course of a single module, the application of reaction rules associated   natural PKS designs closely matched with the predicted chimera. This
+with each constituent domain always results in the carbon-chain   search will indicate the genetic edits, such as domain swaps, insertions,
+elongation of the product arising from the previous module as well as   and/or truncations needed to produce the chimera from the closest
+any further modiﬁcations due to the presence of either the KR, DH,  matched natural PKS and the BGCs encoding for such a PKS. Clus-
+and/or ER domains. PKS designs ranked by the chemical similarity of   terCAD 2.084 is a database of naturally-occurring type I PKSs, non-
+the corresponding PKS product in comparison to the target are then   ribosomal peptide synthetases (NRPSs), as well as PKS-NRPS hybrids,
+
+
+
+Nature Communications| (2025)16:5787                                                                        3
+
+
+[PDF physical page 4]
+Article                                                                                     https://doi.org/10.1038/s41467-025-61160-y
+
+
+annotated and searchable to guide selection of parts for PKS engi-   considered is a hyperparameter that can be tuned by users, but is set to
+neering. Crucially, ClusterCAD 2.0 supports domain architecture,   5 by default to limit computational expense. The second alternative
+chemical structure, as well as protein sequence searches such that   involves working backwards from the desired chemical target with
+users can extract the most similar natural megasynthase to their query  DORAnet to identify alternative precursors that can lead to this target
+in terms of  either domain  architecture, chemical  similarity, or   (Supplementary Fig. 1). These intermediates can then be tested with
+sequence similarity. If the desired target cannot be produced by PKSs   RetroTide to see if they can be synthesized exactly by a PKS. This
+alone, however, then enzymatic post-PKS modiﬁcations via DORAnet   alternative approach can identify PKS precursors initially rejected by
+are attempted on the PKS products that are most chemically similar to   RetroTide, due to low overall chemical similarity to the ﬁnal product.
+the target molecule.                                            These contingencies and our primary algorithm driving the BioPKS
+   DORAnet is a metabolic network expansion tool that then per-   pipeline ensure that the space of combined pathways has been ade-
+forms these post-PKS modiﬁcations by recursively expanding upon   quately explored. The default conﬁgurations for the BioPKS pipeline
+the PKS product from RetroTide using our previously published   produce results in just minutes on standard personal computers, but
+reaction rules, which encode for the potential promiscuities of   can be scaled to explore a larger chemical space on more powerful
+known enzymes85,86. Each reaction rule within DORAnet is associated  computer systems. Runtime performance statistics for DORAnet are
+with a list of enzymes that follow the same reaction pattern. When   provided in Supplementary Table 1.
+creating reaction networks with DORAnet, users can choose between
+our set of 1224 generalized reaction rules (JN1224MIN85) or our set of   Selection of starter and extender acyl-CoA derivatives by
+3604  intermediate  rules  (JN3604IMT86). Our  generalized  rules   RetroTide
+assume a high level of promiscuity across all enzymes by focusing   Acyl-CoA derivatives are the key building blocks through which PKSs
+only on the potential reaction centers within substrates that could   synthesize polyketide products (Fig. 3). All type I PKSs begin their
+directly participate in a predicted reaction85. Meanwhile, our inter-   assembly line synthesis of polyketides by ﬁrst loading an acyl-CoA or
+mediate rules assume a lower level of promiscuity by considering not   acyl-ACP derivative via their loading module. In this work, we refer to
+only such reaction centers within substrates, but also the surround-   this initial acyl-CoA unit as a starter unit, while an acyl-CoA used by a
+ing chemical context within which these reaction centers exist86.  downstream extension module is referred to as an extender unit. The
+Both of our rulesets were extracted from the publicly available   loading module of a given PKS can often contain a ketosynthase-like
+MetaCyc database87 and more information on their coverage of   (KSq) domain, which if present, loads a dicarboxylic acid wherein one
+biochemistry reported within other databases88,89 can be found in the   of the acid groups has been acylated by CoA (e.g., malonyl-CoA). If this
+Methods section “Performing post-PKS modiﬁcations on RetroTide  KSq domain is absent in the loading module, then PKSs load a mono-
+products with DORAnet”. The recursive application of reaction rules   carboxylic acid wherein the single acid group has already been CoA-
+by both RetroTide and DORAnet as well as the passing of the poly-   acylated (e.g., propionyl-CoA or acetyl-CoA).
+ketide product output by RetroTide into DORAnet is completely        In order to compile a list of starter units for RetroTide, starter
+automated by BioPKS pipeline and does not require any manual   units from canonical type I PKSs documented within the ClusterCAD
+intervention from the user.                                               2.084 database were ﬁrst considered. This list was then expanded fur-
+    Regardless of the reaction ruleset chosen by the user, depending   ther with more unusual starter units that have either previously been
+on the number of post-PKS modiﬁcation steps speciﬁed, DORAnet  shown to be type I PKS starters or extenders that could potentially be
+may enumerate far more post-PKS pathways than can practically be   converted into starters via domain or module engineering91. Certain
+manually analyzed. Thus, to elucidate the most feasible pathway   starter units from type II or type III PKSs were also included so as to
+chemistries for experimentation, our previously released DORA-  expand the chemical space of molecules that can be reached. The
+XGB90 reaction  feasibility  classiﬁer has been incorporated into   complete list of 30 starter units available within RetroTide and their
+BioPKS pipeline to rank post-PKS reactions by their feasibility. DORA-  SMILES strings are provided within Supplementary Data 1. We aimed
+XGB90 (https://github.com/tyo-nu/DORA_XGB) scores the feasibility   to include an expansive set of rare and hypothetical starters (30 total)
+of a given enzymatic reaction between 0 and 1, wherein a higher  and extenders (11 total; Supplementary Data 2) that can be pared
+score represents a more feasible reaction. DORA-XGB was trained by  down by users as appropriate, rather than limiting the chemical space
+ﬁrst dividing reported reactions from publicly available metabolic  by only including the most common PKS substrates. Note that in these
+databases into sets of thermodynamically downhill (positive) and   starter and extender chemical structures, [S] is used as a placeholder
+uphill (negative) reactions. From the set of downhill reactions,   for the substrates attachment to a CoA or ACP. Many substrates may
+additional negative reactions were synthetically generated by con-   exist in both ACP and CoA forms, and are included only once in Ret-
+sidering alternate reaction sites that an enzyme could have trans-   roTide, but the resulting designs can be interpreted as suitable for
+formed, but were  still not experimentally observed to undergo   either substrate. RetroTide also does not simulate KSq decarboxyla-
+catalysis. Consequently, DORA-XGB’s score reﬂects both the ther-   tion, so to include designs which use both carboxylated and dec-
+modynamic  feasibility of a reaction under typical physiological   arboxylated starters, both variants must be included in the starter
+conditions in the cell as well as the likelihood that a speciﬁc func-   database.
+tional group on a substrate would undergo catalysis. A lower scoring     We emphasize that users also have the option to either add to or
+DORAnet reaction then indicates either that a proposed reaction is   trim the list of starters and extenders that RetroTide has access to,
+thermodynamically uphill or that the suggested reaction site  is   depending on the experimental feasibility of working with a given
+unlikely to undergo catalysis by known enzymes, signifying the need   starter or extender in the laboratory. Constraining the list of starters
+for some form of enzyme engineering.                          and extenders can enable the BioPKS pipeline to converge to a path-
+     In the event that post-PKS modiﬁcations of the top PKS product  way design faster for a given target, but this may be accompanied by
+cannot yield the ﬁnal target molecule, BioPKS pipeline pursues two   the tradeoff of reaching a smaller chemical space. Further, RetroTide
+alternatives to further attempt to synthesize this product. Firstly,   builds chimeric PKSs using well-characterized domains with known
+alternate, lower-ranked PKS designs and their corresponding PKS   enzymatic function - namely, the KS, AT, DH, ER, KR, ACP, and TE
+products from RetroTide are considered (Fig. 2). This is because a  domains—but the speciﬁc combinations of domains within a module,
+structurally dissimilar PKS intermediate may actually prove to be more   as well as the starter or extender substrate used, may not have pre-
+amenable to the enzymatic modiﬁcations required to reach the ﬁnal   viously been observed in nature. This is intentional because it enables
+target molecule. The maximum number of alternate PKS designs   RetroTide to not only recapitulate existing PKS modules found in
+
+
+
+Nature Communications| (2025)16:5787                                                                     4
+
+
+[PDF physical page 5]
+Article                                                                                     https://doi.org/10.1038/s41467-025-61160-y
+
+
+
+
+
+Fig. 3 | RetroTide builds polyketide products in silico using a large and cus-     already been acylated by CoA (e.g., propionyl-CoA or acetyl-CoA). Meanwhile, the
+tomizable set of starter and extender acyl-CoA derivatives. PKSs use acyl-CoA    ketosynthase (KS) domains in downstream extension modules use only CoA-
+derivatives as building blocks for synthesizing complex and functionally diverse     acylated dicarboxylic acids as extension units. By considering a large and custo-
+polyketides. The loading module of PKSs can often contain a ketosynthase-like      mizable set of acyl-CoA derivatives as starter and extender units within these
+(KSq) domain, which if present, loads dicarboxylic acids wherein one of the acid     constraints, RetroTide can build polyketide products that are as structurally similar
+groups has been acylated by CoA (e.g., malonyl-CoA). If this KSq domain is absent,   to the ﬁnal target product as possible.
+however, then PKSs load monocarboxylic acids wherein the single acid group has
+
+
+
+
+
+Fig. 4 | Demonstrated biosynthesis of 4-hydroxybutyric acid and 2-pentanone    terminates. b Conversely, when 2-pentanone is input as a target structure, the top
+with BioPKS pipeline. a When 4-hydroxybutyric acid is input as a target structure   PKS design from RetroTide reaches only as far as 5-ketohexanoic acid. DORAnet
+into BioPKS pipeline, the top PKS design from RetroTide synthesizes               subsequently takes over and suggests a thermodynamically favorable decarbox-
+4-hydroxybutyric acid completely in just two modules. Hydroxymalonyl-CoA is       ylation reaction to synthesize 2-pentanone. This decarboxylation step is also pre-
+recommended as a starter unit while malonyl-CoA is recommended as an extender   dicted to be highly feasible with an enzymatic reaction feasibility score of 0.896.
+unit. Since any additional post-PKS modiﬁcations are not required, BioPKS pipeline   Source data are provided as a Source Data ﬁle.
+
+
+
+nature but to also suggest module designs that aren’t known to exist   intermediate in the downstream production of various C4 chemicals
+naturally, but may be possible to engineer. We recognize that not all of  and for which bioengineered pathways currently exist93–95.
+these suggested designs may necessarily be experimentally viable but     When 4-hydroxybutyric acid is input as a target into BioPKS
+given recent advances in PKS engineering44,45–49,92, we thought it best to   pipeline,  the  top  PKS  design  from  RetroTide  synthesizes
+explore as wide a space of polyketides as possible.                    4-hydroxybutyric acid completely (Fig. 4a). This predicted chimera
+                                                                       features one loading module and one extension module. RetroTide
+Showcasing BioPKS pipeline through the biosynthesis of two     suggests that the loading module should load hydroxymalonyl-CoA as
+simple molecules                                               a  starter  unit to account  for the  terminal hydroxyl group  in
+We report here two use-cases that exemplify, with simple molecules,   4-hydroxybutyric acid while the extension module should load
+the two complementary approaches used in BioPKS pipeline (Fig. 4).   malonyl-CoA as an extender unit to complete the C4 backbone of
+The ﬁrst involves the biosynthesis of 4-hydroxybutyric acid, a key   4-hydroxybutyric acid. Note that this may not be a naturally occurring
+
+
+
+Nature Communications| (2025)16:5787                                                                          5
+
+
+[PDF physical page 6]
+Article                                                                                     https://doi.org/10.1038/s41467-025-61160-y
+
+
+
+
+
+Fig. 5 | A structurally diverse set of 15 molecules were curated for the proto-    were included in our set and amongst the aliphatic molecules, carbon backbones
+typing of BioPKS pipeline. Fifteen molecules of varying carbon chain lengths and   with as little as 3 (acrylic acid) and as many as 19 (nonadecene) carbon atoms were
+complexity were chosen as an initial prototyping set for BioPKS pipeline to inves-   chosen to test the versatility of BioPKS pipeline in constructing scaffolds of dif-
+tigate if chimeric PKSs suggested by RetroTide would be able to construct the       ferent lengths.
+carbon backbones for each of these molecules. Both cyclic and aliphatic molecules
+
+
+
+PKS starter (please see the section “Selection of starter and extender   ketone synthases have previously demonstrated decarboxylation
+acyl-CoA derivatives by RetroTide” for our rationale in including it   activity on keto-acids97,98, 3-ketohexanoic acid may also be a useful
+anyways). The domain architecture of this extension module features a   intermediate in the synthesis of 2-pentanone.
+fully reducing DH-ER-KR loop that reduces the acetyl group in        In these two simple use cases, PKSs are shown to be valuable in
+hydroxymalonyl-CoA to produce the fully reduced C4 backbone of   synthesizing the carbon backbones of user-speciﬁed targets from
+4-hydroxybutyric acid. Since the target molecule is reached here with   simple acyl-CoA derivatives while post-PKS modiﬁcations are useful for
+the top PKS design, BioPKS pipeline terminates and does not need to   structural reﬁnements of the PKS product to reach the ﬁnal target. For
+attempt any post-PKS modiﬁcations.                           more complex targets, users may wish to allow longer post-PKS
+   When 2-pentanone is input as a target into BioPKS pipeline,   pathways, though this may sometimes be accompanied with the tra-
+however, the top-ranked PKS design only takes the user as far as   deoff of  potentially more  infeasible or thermodynamically bot-
+5-ketohexanoic acid, and needs completion through the use of DOR-   tlenecked post-PKS reactions. If post-PKS pathways spanning more
+Anet (Fig. 4b). The PKS design involves two extension modules in   than one reaction step are used, then BioPKS pipeline ranks post-PKS
+addition to the loading module, and malonyl-CoA is used throughout   pathways generated by DORAnet on the basis of each pathway’s net
+as both a starter and an extender unit. Since the ﬁnal 2-pentanone    feasibility score. This net score is in turn computed by taking the
+target has not been reached, BioPKS pipeline attempts to modify the   product of each constituent reaction’s DORA-XGB feasibility score
+5-ketohexanoic acid PKS product by calling on DORAnet. A thermo-   within a single pathway.
+dynamically downhill decarboxylation reaction is subsequently sug-
+gested for transforming 5-ketohexanoic acid into 2-pentanone. We   Testing BioPKS pipeline against a curated set of ﬁfteen struc-
+have used the open-source package eQuilibrator 3.080 to compute   turally diverse molecules
+reaction thermodynamics here, but the code for BioPKS pipeline has   In order to ascertain the general utility of PKSs in synthesizing a variety
+been modularized such  that other open-source  tools, such as   of carbon backbones and to investigate the utility of considering
+dGPredictor81, may easily be used as well. The suggested decarbox-   lower-ranked PKS designs, we prototyped BioPKS pipeline against 15
+ylation reaction also receives a high predicted feasibility score of 0.896   molecules that we curated for their structural diversity (Fig. 5 and
+by DORA-XGB90. Searching our intermediate reaction rules database   Supplementary Fig. 4). These consist of 2 cyclic (caprolactone and γ-
+for potentially promiscuous enzymes that may be able to catalyze this   butyrolactone) and 13 aliphatic (tiglic acid, acrylic acid, levulinic acid,
+reaction reveals 39 enzymes associated with the rule governing this   adipic acid, heptane, aminobutyric acid, 1,4-butanediol, butanone,
+decarboxylation. By comparing the chemical similarity of each sug-   maleic acid, muconic acid, nonadecene, sphingosine, and limonene)
+gested enzyme’s native substrate to that of 5-ketohexanoic acid, the   molecules with various functional groups. While several of these
+enzyme acetoacetate decarboxylase emerges as a promising candidate  compounds have known biosynthetic pathways, we selected them as a
+(Supplementary Fig. 2). This enzyme has also previously been shown   test to evaluate our system’s ability to both create previously unob-
+to be sufﬁciently promiscuous to decarboxylate levulinic acid to   served PKS-centric pathways and reproduce known PKS-based path-
+produce 2-butanone96. Levulinic acid shares a similar structure to   ways. For each of these 15 molecules, 5 alternate PKS designs were
+5-ketohexanoic acid with just one less carbon atom present in its   considered beyond the top-ranked PKS design. For testing, we con-
+backbone between the ketone and acid groups. Alternatively, another   strained the number of alternate PKS designs to 5 to limit the com-
+PKS design suggested by RetroTide produces 3-ketohexanoic acid. In   putational complexity of networks that may be generated with each
+this PKS design, the fully reducing DH-ER-KR loop appears in the ﬁrst   post-PKS product. This, however, is a user selectable parameter that
+extension module while the second extension module features only   can be increased to potentially improve designs, though it may also
+the KS, AT, and ACP domains (Supplementary Fig. 3). Given that methyl   increase computational demands. Further, only a single post-PKS
+
+
+
+Nature Communications| (2025)16:5787                                                                      6
+
+
+[PDF physical page 7]
+Article                                                                                     https://doi.org/10.1038/s41467-025-61160-y
+
+
+
+
+
+Fig. 6 | BioPKS pipeline successfully constructs the carbon backbones of all 15    acid, adipic acid, 1,4-butanediol, and maleic acid can be reached by a single-step
+curated molecules and synthesizes 12 molecules completely. For 3 molecules    modiﬁcation of the top-ranked PKS design’s product while butanone, heptane, and
+out of the total 15 in our curated prototyping set (i.e., tiglic acid, caprolactone, γ-   nonadecene can only be reached by starting with a PKS product that is more
+butyrolactone), BioPKS pipeline synthesizes these molecules completely with the    structurally dissimilar with respect to the target molecule than the top-ranked PKS
+top-ranked type I polyketide synthase (PKS) design and does not require any fur-    product. There exist 3 molecules out of the 15 total (limonene, aminobutyric acid,
+ther post-PKS modiﬁcations. For 9 molecules (acrylic acid, muconic acid, levulinic   and sphingosine) that cannot be synthesized at all by BioPKS pipeline within just
+acid, adipic acid, butanone, heptane, 1,4-butanediol, maleic acid, and nonadecene),   one post-PKS step even after considering ﬁve alternate PKSdesigns. Source data are
+BioPKS pipeline synthesizes these molecules completely using a single post-PKS     provided as a Source Data ﬁle.
+modiﬁcation step. Out of these 9 molecules, acrylic acid, muconic acid, levulinic
+
+
+modiﬁcation step was used for two reasons. First, to conﬁrm that   products into the ﬁnal targets (Fig. 6). Here, we calculate chemical
+chimeric PKSs designed by RetroTide can reach the desired number of   similarity by ﬁrst computing the maximum common substructure
+carbon atoms in commodity chemicals (from as little as 3 in acrylic acid  (MCS) between a given (either PKS or post-PKS) product and the target
+to as many as 19 nonadecene) from just simple acyl-CoA building   chemical and then calculating the ratio of atoms in the MCS to the total
+blocks, and without having to provide carbon atoms through mono-  number of unique atoms between both molecules, e.g., the MCS
+functional enzymes. Second, from an experimental perspective, fewer   Tanimoto similarity. Finally, for limonene, aminobutyric acid, and
+post-PKS modiﬁcation steps minimize the likelihood of intermediate   sphingosine, the BioPKS pipeline was not able to reach these targets
+loss: while the enzymatic domains of type I PKSs are covalently con-   across all 6 PKS designs considered with a single monofunctional
+nected and the growing carbon chain substrate is always tethered to a  enzyme step. PKS designs for all successful and unsuccessful syntheses
+given module’s ACP domain through the ACP’s phosphopantetheinyl   mentioned here can be found in Supplementary Figs. 5–12.
+arm25, regular monofunctional enzymes do not enjoy such physical
+proximity in the cell50,99. In fact, it is common for engineered metabolic   Validating BioPKS pipeline against a large set of valuable bio-
+pathways to become disrupted when their intermediates are siphoned  manufacturing targets
+off into other pathways valuable for primary metabolism, ultimately   In order to validate the BioPKS pipeline against a larger, unbiased
+resulting in low ﬁnal product titers50–57. If successfully engineered,   collection of realistic biomanufacturing targets, and investigate the
+chimeric PKSs are less susceptible to such derailments. Recently, the   effect on target diversity of allowing extra post-PKS steps, we turned to
+unfolded protein linkers that covalently bind the catalytic domains of   a previously published set of 209 chemicals to be potentially produced
+type I PKSs together have even been used to fuse together mono-   via biomanufacturing13. Of these 209 chemicals, we ﬁltered out C1
+functional enzymes in engineered metabolic pathways, leading to   metabolites, cofactors, charged targets, as well as any chlorinated or
+more than double the product titer in some cases100. Given such high   sulfonated species so as to yield a ﬁnal validation set of 155 molecules.
+substrate  concentrations  localized  around  individual  catalytic  The chemical diversity of these 155 molecules is shown in Supple-
+domains rather than globally dispersed around the cell, PKSs also have   mentary Fig. 13. Cofactors were removed as target molecules because
+the potential to force through reactions that may be thermo-   these would be consumed by DORAnet and C1 metabolites were also
+dynamically uphill and would otherwise remain uncatalyzed by reg-  removed because their carbon backbone is too short for a PKS. Our
+ular, monofunctional enzymes.                                        reaction rules do not work on charged ions so these were removed as
+    RetroTide was able to synthesize a carbon scaffold with at least as   well. Of these 155 targets, 94 were non-aromatics while 61 were aro-
+many carbon atoms as the ﬁnal target for all 15 targets. Interestingly,   matics. We then prompted the BioPKS pipeline to synthesize all 155
+for tiglic acid, caprolactone, and γ-butyrolactone, the top chimeric PKS   chemicals with up to 2 post-PKS modiﬁcation steps. For the 94 non-
+designs were not only able to build the carbon backbones of these   aromatic targets, we constrained the BioPKS pipeline to only using the
+products but also accomplish the structural decorations necessary to   aliphatic units of malonyl-CoA, methylmalonyl-CoA, hydroxyacetyl-
+synthesize all three targets completely (Fig. 6 and Supplementary   CoA, methoxymalonyl-CoA, and allylmalonyl-CoA as starters and
+Fig. 5). For the remaining 12 molecules, since PKSs did not synthesize   extenders, while for the 61 aromatic targets we allowed for all starters
+the ﬁnal target, a single-step post-PKS modiﬁcation reaction was used  and extenders to be used. Note that not all of these substrates are
+with DORAnet. Amongst these 12 molecules, for acrylic acid, muconic   naturally occurring in the positions used (e.g., as starters or extenders;
+acid, levulinic acid, adipic acid, 1,4-butanediol, and maleic acid, the   see the section “Selection of starter and extender acyl-CoA derivatives
+top-PKS product serves as an excellent precursor for post-PKS mod-  by RetroTide” for our rationale on including them). In attempting to
+iﬁcations and these targets can be synthesized completely in a single   synthesize these molecules, stereochemical information was not con-
+post-PKS tailoring step (Fig. 6). For butanone, heptane, and non-   sidered, and 5 alternate PKS designs beyond the top-ranked PKS design
+adecene, however, the top PKS product does not lead to the target   were considered.
+molecule after a single post-PKS modiﬁcation step. Surprisingly, in      BioPKS pipeline successfully proposed designs to synthesize 93
+these cases, a lower-ranked PKS design leading to a more structurally   molecules out of our total of 155, translating to a success rate of 60%
+dissimilar intermediate actually serves as a better launchpad for the    (Fig. 7a). Of these 93 molecules, chimeric PKS-only designs from Ret-
+post-PKS modiﬁcations required to transform the corresponding PKS   roTide could synthesize only 3 molecules exactly (Fig. 7a). Still, the
+
+
+
+Nature Communications| (2025)16:5787                                                                                 7
+
+
+[PDF physical page 8]
+Article                                                                                     https://doi.org/10.1038/s41467-025-61160-y
+
+
+
+
+
+Fig. 7 | BioPKS pipeline successfully suggests integrated biosynthetic pathways   these 62 target molecules that could not be synthesized. The box plots encom-
+to 93 biomanufacturing candidates. a When BioPKS pipeline is prompted to      passed within the violin plots here reﬂect the distribution (n = 62) of chemical
+synthesize the validation set of 155 molecules that would be potential candidates     similarity scores of the ﬁnal product that is most chemically similar to the target.
+for biomanufacturing, it achieves an overall hit-rate of 60% (i.e., 93/155). Of the 93   The white bar in each box plot reﬂects the median chemical similarity. Meanwhile,
+molecules that can be synthesized exactly, 3 are synthesized solely by PKSs while 46   the lower and upper bounds of each box plot represent the 25th and 75th per-
+more molecules can be synthesized with just one post-PKS tailoring step from the    centiles of the distribution of chemical similarities, respectively. The lower and
+PKS product. After a second post-PKS step, 44 more molecules can be synthesized,   upper whiskers represent the minimum and maximum chemical similarity,
+bringing the total number of molecules synthesized by BioPKS pipeline to 93.        respectively. Across all of these statistical metrics, the chemical similarity of the
+b Although the remaining 62 molecules out of 155 cannot be synthesized by BioPKS   ﬁnal product reached with respect to its corresponding target is observed to
+pipeline, post-PKS modiﬁcation steps are shown to improve the chemical similarity    increase with each post-PKS modiﬁcation. Source data are provided as a Source
+between the PKS product and the post-PKS product with respect to the target for   Data ﬁle.
+
+
+
+carbon scaffolds of PKS products proved to be very valuable pre-   ﬁlters to build post-PKS synthesis trees that are as deep or as shallow as
+cursors for post-PKS tailoring. Within a single generation, DORAnet   they require.
+was able to synthesize 46 more molecules completely by building off
+of RetroTide’s carbon backbones. With a second generation, DORAnet  BioPKS pipeline suggests biosynthetic pathways
+was able to synthesize 44 more molecules (Fig. 7a), thereby reaching   As a ﬁnal stress test on the robustness of our software, we prompted
+93 molecules in total. For the remaining 62 molecules that could not be   the BioPKS pipeline to suggest pathways to natural products for which
+synthesized by the BioPKS pipeline, all top-ranked PKS products still  no known pathways exist. We ﬁrst attempted this for the antifungal
+comprised at least as many carbon atoms as their corresponding ﬁnal   cryptofolione isolated from the plant Cryptocarya latifolia82. The bio-
+targets. Moreover, for these 62 molecules, post-PKS modiﬁcations   synthetic origin of cryptofolione has not been elucidated and only
+performed on the top-PKS product are still shown to improve the   total synthesis pathways relying on synthetic chemistry have thus far
+structural similarity of the post-PKS product over the PKS product  been utilized to synthesize cryptofolione101. Given  its therapeutic
+when both are compared to  their corresponding  target mole-   potential, cryptofolione represents a promising target for biomanu-
+cule (Fig. 7b).                                                          facturing with our “PKS-ﬁrst” approach presented here. When the
+   We explored the possibility of attempting more than 2 post-PKS   structure of cryptofolione is input into the BioPKS pipeline without any
+modiﬁcations on the PKS products involved in the synthesis of these   stereochemical information, RetroTide suggested a PKS design con-
+remaining 62 molecules, but ultimately decided against it. This is pri-   sisting of 6 modules that could synthesize cryptofolione exactly
+marily because the increase in chemical similarity achieved with    (Fig. 8). This predicted chimera loads an aromatic starter unit, namely
+respect to the target is only marginal between the ﬁrst and second   cinnamoyl-CoA to account for the aromatic moiety on one end of
+post-PKS reactions as opposed to that between the PKS product and   cryptofolione’s backbone. Cinnamoyl-CoA is a known type  III PKS
+the ﬁrst post-PKS modiﬁcation step. This suggests that there are    starter30, and it may be possible to engineer a Type I PKS to accept it.
+diminishing returns to increases in chemical similarity with each post-  The extension modules of this chimera then use only malonyl-CoA
+PKS step and that these 62 molecules may lie even farther outside the   units to build the remainder of cryptofolione’s backbone. A terminal
+chemical space accessible by BioPKS pipeline. Moreover, given that   thioesterase (TE) domain that catalyzes an intramolecular cyclization
+other known biological, chemical, or hybrid pathways to some of these   reaction to form the lactone ring at the other end of cryptofolione’s
+molecules mayalready exist, if two post-PKS modiﬁcation steps are not  backbone is ﬁnally used to complete cryptofolione’s proposed bio-
+sufﬁcient to synthesize these targets, then users may be able to ﬁnd a   synthesis. Although the proposed cinnamoyl-CoA loading has not
+more efﬁcient pathway that does not rely on PKSs. Nonetheless, if  been observed in a type I PKS before, since the proposed extension
+users still want to use more than two post-PKS steps, perhaps for tar-  modules here all use the commonly observed malonyl-CoA, we deci-
+gets without any known pathways, then they can easily do so with the  ded to search the ClusterCAD 2.0 database using these extension
+various pruning ﬁlters available in DORAnet. Since reaction networks  modules as queries. The goal of sending RetroTide’s suggested chi-
+grow exponentially with each generation, DORAnet enables users to  mera for cryptofolione through ClusterCAD 2.0 was to see if existing
+discard intermediate metabolites that may appear too structurally   PKSs could be found that are similar in domain architecture to the
+dissimilar to the target, have more atoms than some predetermined   suggested chimera and whose parts could therefore be used to
+maximum, or that simply fail to satisfy some other user-deﬁned cri-   assemble the chimera. Our search revealed that module 1 of the
+teria. We emphasize here that users have the ﬂexibility to easily build   simocyclinone PKS102 (MIBiG accession: BGC0001072.1) follows a KS-
+their own custom ﬁlters into DORAnet and prune pathways according  AT-DH-KR domain architecture and uses malonyl-CoA as an extender
+to their own heuristics of interest. Ultimately, users can set up these   unit. This could be used to build modules 3 and 5 for the proposed
+
+
+
+Nature Communications| (2025)16:5787                                                                       8
+
+
+[PDF physical page 9]
+Article                                                                                     https://doi.org/10.1038/s41467-025-61160-y
+
+
+
+
+
+Fig. 8 | Proposed biosynthesis of cryptofolione by BioPKS pipeline. When       and subsequently only uses malonyl-CoA as extender units. The ofﬂoading reaction
+prompted to suggest a biosynthesis route to the natural product cryptofolione, a    for the termination domain of this chimeric PKS is set to an intramolecular cycli-
+potential therapeutic whose biosynthetic origin remains unknown, BioPKS pipeline   zation reaction so that the lactone ring on the other end of cryptofolione’s carbon
+calls upon RetroTide to successfully suggest a 6-module chimeric PKS that could    backbone can be synthesized. Our PKS design lends insight into the possible bio-
+synthesize cryptofolione exactly. This chimeric PKS selects cinnamoyl-CoA as a      synthetic origins of α-pyrones such as cryptofolione. Source data are provided as a
+starter unit given the aromatic ring on one end of cryptofolione’s carbon backbone   Source Data ﬁle.
+
+
+chimeric PKS (Fig. 8). In a similar vein, module 2 of the simocyclinone   without any known biosynthetic pathways, we decided to use three
+PKS follows a KS-AT-KR domain architecture and could be used to   post-PKS modiﬁcation steps as well as our most generalized reaction
+build modules 1, 2, and 4 of the proposed PKS (Fig. 8). Since malonyl-   rules in its synthesis and were ultimately able to synthesize basidalin
+CoA is a common extension unit, modules from other PKSs, such as the   exactly. The ﬁrst suggested post-PKS reaction features a peroxidase,
+Niddamycin PKS103 (MIBiG accession: BGC0000113.1) can also be used   the second features an aminotransferase, and the third involves
+to construct the suggested chimera.                              an alcohol dehydrogenase. Interestingly, while the ﬁrst and second
+    Since the BioPKS pipeline suggests a PKS design that can syn-   post-PKS reactions by DORAnet have a high predicted feasibility
+thesize  cryptofolione  exactly, no  post-PKS  modiﬁcation  steps   score and are thermodynamically downhill, the last post-PKS reaction
+are needed. We note that in our proposed synthesis of cryptofolione,    is predicted to be very infeasible and found to be thermodynamically
+the alkene group adjacent to the acyl group prior to ofﬂoading is in   uphill. Since all reaction free energies are calculated under typical
+the trans conﬁguration while after lactonization, it changes to the   cellular conditions of 298K, ionic strength 0.25 M, pH 7.4, and pMg
+cis conﬁguration. We are uncertain if thioesterase domains that per-   3.0 for all species at 1 M concentrations (see “Methods”), users may
+form cyclizations would be able to invert double bond stereochemistry   want to perform such uphill reactions in vitrowherein these conditions
+as, to our knowledge, no such examples have yet been observed  may be tweaked a little further to improve thermodynamic favor-
+in nature. While in this work, we focused on harnessing PKSs and    ability. Several more alternate proposed pathways to basidalin have
+enzymatic reactions to obtain the desired two-dimensional target   also been provided in Supplementary Fig. 14. The ability of the BioPKS
+structure, future work will incorporate more stereochemistry correc-   pipeline to suggest pathways to such complex natural products could
+tions such that even the desired three-dimensional structure  is   also  enable  users  to  utilize  the BioPKS  pipeline  to  annotate
+produced.                                                    orphan BGCs.
+   We then prompted the BioPKS pipeline to suggest a synthesis
+for the natural product basidalin. Basidalin is a smaller but potent  Discussion
+antibiotic ﬁrst extracted in 1983 from the fungus Leucoagaricus   Here, we present a retrobiosynthesis software that harnesses both
+naucina83. Despite its early extraction, the ﬁrst total chemical synthesis   multifunctional and monofunctional enzymes to propose the de novo
+of basidalin was only achieved recently in 2016104. As is the case with   biosynthesis of a broad spectrum of chemical targets—from simple
+cryptofolione, the biosynthetic origins of basidalin have also yet to  commodity chemicals to more complex natural products for which
+be uncovered. Thus, we prompted BioPKS pipeline to synthesize   biosynthetic pathways may or may not already exist. Crucially, we have
+basidalin and the suggested PKS design was able to synthesize basi-   also put forth a valuable paradigm for the synthesis of such molecules
+dalin’s carbon backbone exactly (Fig. 9). This predicted chimera fea-   —that multifunctional enzymes, such as type I PKSs, can be exploited
+tures 3 modules in total. The loading module and ﬁrst extension   for creating the carbon scaffolds of target products while regular,
+module both utilize hydroxymalonyl-CoA as starter and extender   monofunctional enzymes within biology can subsequently be brought
+units, respectively, while the ﬁnal extension module utilizes malonyl-   in for structural reﬁnements that eventually transform such scaffolds
+CoA as an extender unit. Similar to the predicted chimera for the   into the target product exactly.
+earlier proposed biosynthesis of cryptofolione, a TE domain that cat-      Our motivation for developing this “PKS-ﬁrst” algorithm to drive
+alyzes an intramolecular cyclization reaction is used for the proposed   the BioPKS pipeline  lies in expanding biologists’ capabilities to
+biosynthesis of basidalin. Since basidalin is a high-value molecule   explore chemical space by complimenting the strengths of PKSs with
+
+
+
+
+Nature Communications| (2025)16:5787                                                                      9
+
+
+[PDF physical page 10]
+Article                                                                                     https://doi.org/10.1038/s41467-025-61160-y
+
+
+
+
+
+Fig. 9 | Proposed biosynthesis of Basidalin by BioPKS pipeline. When prompted    respectively whilethe ﬁnal extension moduleuses malonyl-CoA asanextender unit.
+to suggest a biosynthesis route to basidalin, another therapeutic natural product    Again, an intramolecular cyclization reaction is chosen for ofﬂoading, and we note
+whose biosynthetic origin also remains unknown, the BioPKS pipeline suggests a    that RetroTide is able to synthesize the γ-lactone backbone of basidalin exactly.
+chimeric PKS design and three post-PKS modiﬁcation steps to synthesize basidalin   Subsequently, three post-PKS modiﬁcation steps involving peroxygenase and
+exactly. This chimeric PKS consists of 3 modules. The loading module and ﬁrst      aminotransferase enzymes can produce the target basidalin product. Source data
+extension module both use hydroxymalonyl-CoA as starter and extender units       are provided as a Source Data ﬁle.
+
+
+
+that of monofunctional enzymes. PKSs excel at synthesizing elon-   elucidated. In doing so, the BioPKS pipeline was able to suggest
+gated carbon backbones and/or incorporating unique functional   pathways to the natural products cryptofolione (antifungal) and
+handles into target molecules from a common pool of simple, acyl-   basidalin (antibiotic) for which, to the best of our knowledge, no
+CoA building blocks. Monofunctional enzymes, by contrast, rarely  known biosynthetic pathways currently exist.
+catalyze such iterative C-C bond formation reactions but are adept at      One limitation of our tool is the lack of support for stereo-
+precise, regioselective functional group transformations. Indeed,   chemistry corrections. While the enantioselective synthesis of com-
+there are  several  reaction  chemistries, such as  glycosylations,  pounds is a key strength of PKSs105,106 and many monofunctional
+monooxygenations, and transaminations,  that PKSs are simply   enzymes107, a number of retrobiosynthesis tools in the literature can-
+unable to perform and must instead  rely on monofunctional   not reliably predict the correct stereoisomer of both existing and new-
+enzymes. Rather than attempting to manufacture chemicals using   to-nature reactions. Nonetheless, with the recent development of
+only one of these routes, we propose that a wider space of molecules   cheminformatics tools capable of both extracting and applying
+can be accessed by integrating the two.                              stereochemistry-aware reaction templates108–110, we expect our future
+   We demonstrated the effectiveness of our approach and of  work to address such corrections as well.
+BioPKS pipeline across various test-cases of increasing complexity.        Overall, while the successful engineering and construction of
+First, we showcased BioPKS pipeline’s two modes of operation by   chimeric PKSs remains an ongoing challenge, our in silico pipeline
+synthesizing 4-hydroxybutyric acid completely through PKSs, while   highlights the potential of the ﬁeld, given the diversity of products that
+2-pentanone was reached with just one post-PKS modiﬁcation step.   can be synthesized by integrating PKSs with post-PKS pathways. In
+Although metabolic pathways have already been engineered for the   addition to suggesting pathway chemistries to target molecules using
+biosynthesis of both chemicals, our proposed pathways offer a   both PKSs and monofunctional enzymes, the BioPKS pipeline also
+compelling alternative that may minimize intermediate loss, a com-   enables users to rank results through reaction thermodynamics and
+mon occurrence with classic metabolic pathways. Subsequently, we    feasibility calculations to observe if potentially promiscuous, wild-type
+further prototyped the BioPKS pipeline for the synthesis of 15 struc-  enzymes would catalyze predicted reactions or if such enzymes would
+turally diverse chemicals and proved that, for certain targets, con-  need to be mutated further. With all of these functionalities built in, the
+sidering alternate PKS designs beyond the top-ranked design can   BioPKS pipeline serves as a ﬂexible and comprehensive tool for users
+yield better intermediates for post-PKS modiﬁcations to synthesize   looking to synthesize molecules via both PKSs and monofunctional
+the ﬁnal target. After these initial tests, we turned to a published set   enzymes. We have also signiﬁcantly modularized the code for BioPKS
+of molecular candidates for biomanufacturing and proved that we   pipeline such that if users wish, other tools in the literature could be
+could synthesize 60% of them (93 out of 155) with our pipeline while   further bundled in for various post-processing analyses involving
+allowing for up to two post-PKS modiﬁcation steps. BioPKS pipeline  enzyme selection111–114, global cofactor usage in the cell115, and pre-
+can access an even larger chemical space by considering further   dicting potential enzyme cross-talk116. Moreover, with the abundance
+post-PKS steps. Longer pathways, however, will certainly be more   of  enzyme   engineering   techniques  now   available—  both
+challenging to successfully build experimentally, so we decided to   experimental117,118 and computational119–122—our designs here serve as a
+limit our analysis to two post-PKS steps so that our proposed designs   valuable starting point for the research community to continue iter-
+are of a realistic complexity. As a ﬁnal test of the BioPKS pipeline, we   ating on them. For users who may be interested, we have also provided
+prompted it to suggest combined PKS and post-PKS pathways to   several tutorials on our Github repository that show more examples of
+complex  natural therapeutics  for which BGCs have not been   using BioPKS pipeline in various scenarios.
+
+
+
+Nature Communications| (2025)16:5787                                                                              10
+
+
+[PDF physical page 11]
+Article                                                                                     https://doi.org/10.1038/s41467-025-61160-y
+
+Methods                                                       designing chimeric PKSs, these designs are returned in descending
+User-deﬁned inputs for BioPKS pipeline                          order of chemical similarity—as measured between each design’s
+Users can initialize a BioPKS pipeline object in the Python program-   corresponding product and the target product. Users can then
+ming language with the simpliﬁed molecular input linear entry system   decide between terminating the growing carbon chain on the simu-
+(SMILES) string of their target chemical (Fig. 1). Users can also specify if   lated chimeric PKS via either an intramolecular cyclization reaction,
+this target chemical should be synthesized using either only PKSs or   such as that involved in the formation of 6-deoxyerythronolide B25, or
+both PKSs and monofunctional enzymes. In order to generate PKS   a thioesterase reaction, thereby forming a terminal carboxylic acid
+designs, users can either allow for all 30 starter (Supplementary Data 1)   group. The highest-ranked PKS design from RetroTide either may or
+and 11 extender acyl-CoA (Supplementary Data 2) units available within  may not have produced the user’s target product, depending on
+the BioPKS pipeline to be used as building blocks or choose a speciﬁc   whether this product is reachable by purely PKS chemistry.
+subset of these units. BioPKS pipeline supports both an intramolecular      With the PKS designs obtained from RetroTide, users can search
+cyclization as well as a thiolysis reaction to release the bound PKS   the ClusterCAD 2.0 PKS database84 (https://clustercad.jbei.org/pks/)
+product from the designed PKS’s thioesterase (TE) domain and users   for naturally-occurring designs that match closely with the suggested
+can select from either of these ofﬂoading reactions to generate their   chimeric designs, so as to select an  initial design for biological
+PKS product. When using combined PKS and non-PKS pathways, users   engineering. We also note RetroTide is cis/trans-AT PKS agnostic
+must specify the number of post-PKS modiﬁcation steps to perform on  and since recent work has shown that trans-ATs can be engineered126,
+the PKS product.                                       we encourage users to implement RetroTide designs as  trans-
+     Currently, BioPKS pipeline does not support any stereochemistry  AT  PKSs  and/or  supplement  the   list  of  PKS  starters  and
+corrections on-the-ﬂy. This is because there are still only a few ﬁn-   extenders with additional substrates, as appropriate for a given bio-
+gerprinting methods and chemical similarity metrics that can accu-   synthesis goal.
+rately compare the three-dimensional structural similarity of two chiral
+molecules.  Further,  since  different  chemical  similarity  metrics  Performing post-PKS modiﬁcations on RetroTide products with
+emphasize different features within a molecule anyway, in this work,  DORAnet
+we prioritized obtaining the correct two-dimensional structure of the   Post-PKS modiﬁcations are performed using our DORAnet platform
+target molecule. Consequently,  all molecules presented here are   (https://github.com/wsprague-nu/doranet). DORAnet is built on the
+shown without their stereochemical conﬁgurations. With recent work   concept of our previously released metabolic network expansion
+on chiral ﬁngerprints published in the literature123, however, we expect   tool Pickaxe127. If the user-deﬁned target product was not reached by
+our future work to at least be able to implement stereochemistry   RetroTide, the PKS product is funneled as a starting molecule into
+corrections in a post-hoc fashion.                               DORAnet. DORAnet is a retrosynthesis tool designed to utilize both
+   We emphasize here that BioPKS pipeline does not currently sup-   catalytic and metabolic reaction rules for discovering and ranking
+port invoking PKSs a second time  if a target molecule cannot be   hybrid pathways. Further details about DORAnet will be published in
+reached using PKSs ﬁrst and monofunctional enzymes second. While   a separate work. In this work, DORAnet was used to generate meta-
+such an approach that relies on PKSs interchangeably would almost   bolic in-silico network expansions (MINEs) by recursively expanding
+certainly expand the net chemical space accessible, this would be too  upon a precursor metabolite using reaction rules. Users can decide
+difﬁcult to implement experimentally within the laboratory since PKSs  between two sets of reaction rules in generating MINEs. The ﬁrst set
+only accept a very limited pool of substrates. Consequently, it may not   of rules to choose from is our generalized and maximally pro-
+be biologically practical to build a scaffold with a PKS, modify it   miscuous JN1224MIN rule set,85, which predicts promiscuous reac-
+enzymatically, and then convert it into an acyl-CoA derivative for use   tions by only considering the substrate chemical moieties that can
+by a PKS.                                                                 directly undergo enzymatic reactions. The second  is our inter-
+                                                             mediate JN3604IMT rule set86, which not only considers reacting
+Computational design of chimeric type I PKSs with RetroTide    moieties in predicting reactions but also the surrounding chemical
+Chimeric type I PKS designs are created using RetroTide, the ﬁrst key   neighborhoods within which these moieties are present. Both of
+component within the BioPKS pipeline. Upon providing the simpli-   these rule sets were generated from MetaCyc and cover ~85% of all
+ﬁed molecular input linear entry system (SMILES) string of a target   chemistries encapsulated within BRENDA and KEGG. In this study,
+molecule, RetroTide ﬁrst attempts to design PKSs that can synthesize   our intermediate JN3604IMT rules were used for generating mono-
+this molecule using various modules, domain architectures, starter   functional enzymatic pathways for all molecules except basidalin.
+units, and extender units (Fig. 10). Users can customize which starter   Given  the  structural complexity  of  basidalin, our  generalized
+and extender units they would like to use in building chimeric PKSs  JN1224MIN rules were used instead to suggest pathway designs to
+from a provided list of 30 starter (Supplementary Data 1) and 11   basidalin. When performing post-PKS modiﬁcations, users must
+extender (Supplementary Data 2) units, or optionally expand the list   specify the number of post-PKS steps, i.e., the number of generations
+themselves. The complete list of starter and extender units available   for which DORAnet would be run. After these post-PKS modiﬁcations
+can be found in the attached Supplementary Data 1 and 2. RetroTide   have been performed, if the target product is reached, pathways
+builds PKS designs by recursively adding modules, thereby synthe-  between the PKS product and the ﬁnal, downstream target are
+sizing in the forward direction (Fig. 10). Within each round of adding   returned. If the target product is not reached, however, then path-
+a module, the PKS product is computed, and only the top N designs  ways to the most chemically similar non-PKS product with respect to
+leading to the most chemically similar products progress onto the   the ﬁnal target are returned. When running longer post-PKS mod-
+next recursive call. Here, N is a hyperparameter that can be set by the   iﬁcation pathways, users also have the option to choose from various
+user and has a default value of 15. The speciﬁc metric of chemical   in-built DORAnet compound ﬁlters (such as the molecular weight
+similarity used by RetroTide to compute the structural similarity   ﬁlter or the chemical similarity ﬁlter), so as to ensure that MINEs
+between the current PKS product and a target product is also an   remain computationally tractable.
+option that can be selected by the user. Users can choose between      Once post-PKS pathways have been elucidated, users can use the
+computing the (1) Atom-Atom-Path similarity124, the (2) Atom pair   speciﬁc reaction rules that were involved in generating predicted
+Tanimoto similarity125, or the (3) Tanimoto similarity using the MCS   reactions to search for UniProt identiﬁcation numbers128 of potentially
+between the current PKS product and the target product either with   promiscuous  enzymes  present  within  either  JN1224MIN85  or
+or  without  chirality.  After  RetroTide  has  completely ﬁnished   JN3604IMT86, that may be able to catalyze predicted reactions.
+
+
+
+Nature Communications| (2025)16:5787                                                                                                          11
+
+
+[PDF physical page 12]
+Article                                                                                     https://doi.org/10.1038/s41467-025-61160-y
+
+
+
+
+
+Fig. 10 | RetroTide algorithm for the design of PKSs from a target chemical      the deﬁned target, and only the N (a user selectable parameter) top scoring designs
+structure. The RetroTide algorithm has the following steps: a The user provides a   are retained. Next, steps (c) and (d) are repeated iteratively adding all possible
+desired target chemical structure. b RetroTideloads all possible PKSstarter module    single PKS modules to the end of each of the best scoring designs from the previous
+ﬁnal structures. c The cartesian product between all possible starters, and all        round, until scores stop increasing for each round and then the algorithm halts,
+possible extension modules is used to compute all possible 1 module PKS products.   providing the best scoring designs to the user. Finally, the best scoring designs are
+These extension module structures are pre-computed once and reused as Retro-     optionally “released” as lactone/lactam, or carboxylic acid products.
+Tide runs. d All structures are compared with the user deﬁned similarity metric to
+
+
+
+
+Machine-learning guided selection of post-PKS enzymatic       computed feasibility score to reﬂect both the thermodynamic fea-
+pathways                                                                         sibility of a reaction as well as the likelihood of an enzyme trans-
+Depending on the number of post-PKS modiﬁcation steps per-   forming a certain moiety at a given reaction site. After computing the
+formed, the number of post-PKS pathways found between the PKS   feasibility score for all reactions in a pathway, a net feasibility score
+product and the ﬁnal target may be too large to conceivably manu-   for the entire pathway is computed by taking the product of all
+ally analyze in order to elucidate the most feasible pathway che-   constituent reactions’ feasibility scores. Instead of using the feasi-
+mistries for experimentation. As such, our previously released    bility score, which is a continuous number between 0 and 1, users can
+enzymatic reaction feasibility classiﬁer90 (https://github.com/tyo-nu/   also opt for a binary label on whether a predicted reaction would be
+DORA_XGB) has been bundled into BioPKS pipeline to further rank   feasible or not using the built-in feasibility thresholds for the feasi-
+post-PKS pathways in terms of their predicted feasibility scores    bility classiﬁer. We note here that even though we have used our
+(Fig. 2). Feasibility scores are computed for each reaction in a path-  DORA-XGB model to rank DORAnet reactions and pathways, users
+way by considering the SMILES strings of all participating species,   are able to use other metrics as well for pathway ranking. Beyond
+i.e., substrates, products, and cofactors. Our reaction feasibility   reaction  feasibility and thermodynamics, this can even include
+model is based on the gradient boosted trees architecture and was   intermediate toxicity, or pathway length. In future work, a multi-
+trained using reported thermodynamically feasible reactions as   objective optimization involving all of these metrics using a different
+positive data and thermodynamically infeasible as well as syntheti-   search algorithm, such as A* or monte carlo tree search may help to
+cally generated infeasible reactions as negative data. This allows the  expand the accessible chemical space even further.
+
+
+
+Nature Communications| (2025)16:5787                                                                                       12
+
+
+[PDF physical page 13]
+Article                                                                                     https://doi.org/10.1038/s41467-025-61160-y
+
+
+Thermodynamic calculations of post-PKS enzymatic pathways    pipeline GitHub repository [https://github.com/JBEI/BioPKS-Pipeline/
+In order to further down-select predicted pathways, BioPKS pipeline   tree/main/notebooks].
+also enables users to calculate the Gibbs free energies of reactions as
+well as the maximum/minimum driving force (MDF) of multi-step  References
+pathways129. The open-source software eQuilibrator 3.080 was used    1.     Keasling, J. D. Manufacturing molecules through metabolic engi-
+to calculate the change in Gibbs free energy due to a reaction, ΔrG0.         neering. Science 330, 1355–1358 (2010).
+eQuilibrator  3.0  uses  the component  contribution method  for    2.    Clomburg, J. M., Crumbley, A. M. & Gonzalez, R. Industrial bio-
+ﬁrst estimating the standard Gibbs free energy change due to a        manufacturing: the future of chemical production. Science 355,
+reaction, ΔrG  , by assuming reactant concentrations of 1 M. These       aag0804 (2017).
+ΔrG ΔrG∘values are then transformed to our prespeciﬁed conditions of   3.    Choi, K. R. et al. Systems metabolic engineering strategies: inte-
+temperature 298 K, ionic strength 0.25 M, pH 7.4, and pMg 3.0 to cal-         grating systems and synthetic biology with metabolic engineer-
+culate ΔrG0 under common cellular conditions. Users can also adjust          ing. Trends Biotechnol. 37, 817–837 (2019).
+these thermodynamic parameters in their calculations as desired.   4.    Ko, Y.-S. et al. Tools and strategies of systems metabolic engi-
+In order to ensure that BioPKS pipeline is accessible to all, we did        neering for the development of microbial cell factories for che-
+not  incorporate  eQuilibrator-assets  into  our  software and  only        mical production. Chem. Soc. Rev. 49, 4615–4636 (2020).
+incorporated the general eQuilibrator API. Thus, if a pathway includes   5.    Fackler, N. et al. Stepping on the gas to a circular economy:
+a compound not present within the eQuilibrator compound database,         accelerating development of carbon-negative chemical produc-
+it cannot be decomposed into its groups and added to the database          tion from gas fermentation. Annu. Rev. Chem. Biomol. Eng. 12,
+linked below since doing so would require a ChemAxon license to cal-       439–470 (2021).
+culate the pKa values of such compounds. Consequently, the change in   6.   The White House. Executive order on advancing biotechnology and
+Gibbs free energy due to a reaction, ΔrG0 can only be computed for         biomanufacturing innovation for a sustainable, safe, and secure
+predicted DORAnet reactions in which all participating compounds are        American bioeconomy. The White House (12 September 2022).
+present in the eQuilibrator compound database, which in turn can be    7.    Boston Consulting Group (BCG). Synthetic biology is about to
+obtained as a SQLite database through Zenodo (http://zenodo.org/         disrupt your industry. BCG Global Available at: https://www.bcg.
+records/4128543).                                                             com/publications/2022/synthetic-biology-is-about-to-disrupt-
+    Provided that the change in Gibbs free energy due to a reaction,         your-industry (2022).
+ΔrG0 can be computed for all reactions along a multi-step pathway,   8.    Boston Consulting Group (BCG). Synthetic biology is getting
+users can subsequently calculate the MDF of a post-PKS pathway. This         closer to industrial scale. BCG Global Available at: https://www.
+calculation seeks a set of metabolite concentrations that minimizes the         bcg.com/capabilities/digital-technology-data/emerging-
+ΔrG0 value of the most thermodynamically uphill or bottlenecked         technologies/expert-insights/nicolas-goeldel (2024).
+reaction within a multi-step pathway.                                     9.    Lawson, C. E. et al. Machine learning for metabolic engineering: a
+                                                                              review. Metab. Eng. 63, 34–60 (2021).
+Mining of potential bio-based chemicals set                          10.   Carbonell, P., Radivojevic, T. & García Martín, H. Opportunities at
+In order to collect a larger set of chemicals upon which we could        the intersection of synthetic biology, machine learning, and
+validate BioPKS pipeline, we extracted 196 chemicals (Supplementary         automation. ACS Synth. Biol. 8, 1474–1477 (2019).
+Data 3) from a list of 209 chemicals that could hypothetically be pro-    11.   Kumar, A., Wang, L., Ng, C. Y. & Maranas, C. D. Pathway design
+duced by biomanufacturing as provided by Wu and colleagues        using de novo steps through uncharted biochemical spaces. Nat.
+through genome  scale models of Saccharomyces  cerevisiae and       Commun. 9, 184 (2018).
+Escherichia coli13. Not all 196 chemicals extracted have existing engi-    12.    Maitra, S. & Maitra, K. Chemistry of bioproducts. In Practices and
+neered metabolic pathways for their production. Of these 196 chemi-         Perspectives in Sustainable Bioenergy: A Systems Thinking
+cals, we ﬁltered out C1 metabolites, common cofactors, and any        Approach (eds. Mitra, M. & Nagchaudhuri, A.) 233–267 (Springer
+sulfonated or chlorinated species (Supplementary Data 4), leaving us          India, 2020).
+with 155 molecules in total (Supplementary Data  5). With these   13.   Wu, W., Long, M. R., Zhang, X., Reed, J. L. & Maravelias, C. T. A
+remaining targets, we queried their KEGG identiﬁers against the KEGG        framework for the identiﬁcation of promising bio-based chemi-
+database88 using their application programming interface (API) and          cals. Biotechnol. Bioeng. 115, 2328–2340 (2018).
+were able to receive SMILES strings for all 155 molecules. For these 155   14.   Yim, H. et al. Metabolic engineering of Escherichia coli for direct
+molecules, post-PKS modiﬁcations of up to two steps were used and        production of 1,4-butanediol. Nat. Chem. Biol. 7, 445–452 (2011).
+pathways were identiﬁed by comparing the SMILES strings of post-PKS    15.   Raab, A. M., Gebhardt, G., Bolotina, N., Weuster-Botz, D. & Lang, C.
+pathways exactly with that of targets.                                      Metabolic engineering of Saccharomyces cerevisiae for the bio-
+                                                                            technological production of succinic acid. Metab. Eng. 12,
+Reporting summary                                                 518–525 (2010).
+Further information on research design is available in the Nature   16.   Lee, S. Y. et al. A comprehensive metabolic map for production of
+Portfolio Reporting Summary linked to this article.                          bio-based chemicals. Nat. Catal. 2, 18–33 (2019).
+                                                                                      17.   Jang, W. D., Kim, G. B. & Lee, S. Y. An interactive metabolic map of
+Data availability                                                    bio-based chemicals. Trends Biotechnol. 40, 1308–1311 (2022).
+The retrobiosynthesis result data are available at GitHub [https://   18.   Matar, S. & Hatch, L. F. Chemistry of Petrochemical Processes
+github.com/JBEI/BioPKS-Pipeline/tree/main/data].  Source  data  are          (Elsevier, 2001).
+also provided with  this paper. Source data are provided with   19.   Sirirungruang, S., Markel, K. & Shih, P. M. Plant-based engineering
+this paper.                                                                          for production of high-valued natural products. Nat. Prod. Rep. 39,
+                                                                    1492–1509 (2022).
+Code availability                                              20.   Jensen, P. R. Natural products and the gene cluster revolution.
+BioPKS pipeline [https://github.com/JBEI/BioPKS-Pipeline], RetroTide        Trends Microbiol. 24, 968–977 (2016).
+[https://github.com/JBEI/RetroTide], and DORAnet  [https://github.    21.   Schläpfer, P. et al. Genome-wide prediction of metabolic
+com/wsprague-nu/doranet/tree/main] are  available  at GitHub.  All        enzymes, pathways, and gene clusters in plants. Plant Physiol. 173,
+notebooks used in generating ﬁgures can be found on the BioPKS       2041–2059 (2017).
+
+
+
+Nature Communications| (2025)16:5787                                                                                      13
+
+
+[PDF physical page 14]
+Article                                                                                     https://doi.org/10.1038/s41467-025-61160-y
+
+
+22.   Rokas, A., E. Mead, M., Steenwyk, L. & A. Raja, J. H. & H. Oberlies, N.   44.  Yuzawa, S., Backman, T. W. H., Keasling, J. D. & Katz, L. Synthetic
+      Biosynthetic gene clusters and the evolution of fungal chemodi-         biology of polyketide synthases. J. Ind. Microbiol. Biotechnol. 45,
+       versity. Nat. Prod. Rep. 37, 868–878 (2020).                          621–633 (2018).
+23.   Grininger, M. Enzymology of assembly line synthesis by modular   45.  Yuzawa, S. et al. Comprehensive in vitro analysis of acyltransfer-
+      polyketide synthases. Nat. Chem. Biol. 19, 401–415 (2023).              ase domain exchanges in modular polyketide synthases and its
+24.   Nivina, A., Yuet, K. P., Hsu, J. & Khosla, C. Evolution and diversity of         application for short-chain ketone production. ACS Synth. Biol. 6,
+      assembly-line polyketide synthases: focus review. Chem. Rev. 119,        139–147 (2017).
+     12524–12547 (2019).                                            46.   Buyachuihan, L., Reiners, S., Zhao, Y. & Grininger, M. The malonyl/
+25.   Khosla, C. Structures and mechanisms of polyketide synthases. J.         acetyl-transferase from murine fatty acid synthase is a pro-
+     Org. Chem. 74, 6416–6420 (2009).                                miscuous engineering tool for editing polyketide scaffolds.
+26.   Khosla, C., Tang, Y., Chen, A. Y., Schnarr, N. A. & Cane, D. E.          Commun. Chem. 7, 187 (2024).
+      Structure and mechanism of the 6-deoxyerythronolide B syn-       47.   Kellenberger, L. et al. A polylinker approach to reductive loop
+      thase. Annu. Rev. Biochem. 76, 195–221 (2007).                      swaps in modular polyketide synthases. ChemBioChem 9,
+27.   Wagner, T. D., Trauner, D., Mihoreanu, L., Koert, U. & Hertweck, C.       2740–2749 (2008).
+      α-methylation follows condensation in the gephyronic acid mod-   48.   Zargar, A. et al. Chemoinformatic-guided engineering of polyke-
+      ular polyketide synthase. Chem. Commun. 52, 8822–8825 (2016).          tide synthases. J. Am. Chem. Soc. 142, 9896–9901 (2020).
+28.   Young, J. et al. Elucidation of gephyronic acid biosynthetic path-   49.  Hagen, A. et al. Engineering a polyketide synthase for in vitro
+     way revealed unexpected SAM-dependent methylations. J. Nat.          production of adipic acid. ACS Synth. Biol. 5, 21–27 (2016).
+      Prod. 76, 2269–2276 (2013).                                    50.  Montaño López, J., Duran, L. & Avalos, J. L. Physiological limita-
+29.   Hertweck, C., Luzhetskyy, A., Rebets, Y. & Bechthold, A. Type II            tions and opportunities in microbial metabolic engineering. Nat.
+      polyketide synthases: gaining a deeper insight into enzymatic            Rev. Microbiol. 20, 35–48 (2022).
+     teamwork. Nat. Prod. Rep. 24, 162–190 (2007).                        51.   Rathnasingh, C. et al. Production of 3-hydroxypropionic acid via
+30.   Yu, D., Xu, F., Zeng, J. & Zhan, J. Type III polyketide synthases in         malonyl-CoA pathway using recombinant Escherichia coli strains.
+      natural product biosynthesis. IUBMB Life 64, 285–295 (2012).                  J. Biotechnol. 157, 633–640 (2012).
+31.   Keatinge-Clay, A. T. The structures of type I polyketide synthases.   52.    Inui, M. et al. Expression of Clostridium acetobutylicum butanol
+      Nat. Prod. Rep. 29, 1050 (2012).                                          synthetic genes in Escherichia coli. Appl. Microbiol. Biotechnol. 77,
+32.    Li, H., Cann, A. F. & Liao, J. C. Biofuels: biomolecular engineering        1305–1316 (2008).
+     fundamentals and advances. Annu. Rev. Chem. Biomol. Eng. 1,     53.   Atsumi, S. et al. Metabolic engineering of Escherichia coli for
+     19–36 (2010).                                                           1-butanol production. Metab. Eng. 10, 305–311 (2008).
+33.   Menzella, H. G. et al. Combinatorial polyketide biosynthesis by de   54.   Atsumi, S., Hanai, T. & Liao, J. C. Non-fermentative pathways for
+     novo design and rearrangement of modular polyketide synthase          synthesis of branched-chain higher alcohols as biofuels. Nature
+     genes. Nat. Biotechnol. 23, 1171–1176 (2005).                            451, 86–89 (2008).
+34.   McDaniel, R., Ebert-Khosla, S., Hopwood, D. A. & Khosla, C. Engi-   55.   Nielsen, D. R. et al. Engineering alternative butanol production
+      neering broader speciﬁcity into an antibiotic-producing polyke-          platforms in heterologous bacteria. Metab. Eng. 11, 262–273
+      tide synthase. Science 279, 199–202 (1998).                             (2009).
+35.   Zhu, X., Liu, J. & Zhang, W. De novo biosynthesis of terminal        56.   Trinh, C. T., Li, J., Blanch, H. W. & Clark, D. S. Redesigning
+      alkyne-labeled natural products. Nat. Chem. Biol. 11,                      Escherichia coli metabolism for anaerobic production of iso-
+      115–120 (2015).                                                         butanol. Appl. Environ. Microbiol. 77, 4894–4904 (2011).
+36.   Porterﬁeld, W. B., Poenateetai, N. & Zhang, W. Engineered bio-      57.   Kim, J. & Copley, S. D. Inhibitory cross-talk upon introduction of a
+      synthesis of alkyne-tagged polyketides by type I PKSs. iScience        new metabolic pathway into an existing metabolic network. Proc.
+      23, 100943 (2020).                                                            Natl. Acad. Sci. USA 109, E2856–E2864 (2012).
+37.   Musiol-Kroll, E. M. et al. Polyketide bioderivatization using the      58.   Sirirungruang, S. et al. Engineering site-selective incorporation of
+     promiscuous acyltransferase KirCII. ACS Synth. Biol. 6,                  ﬂuorine into polyketides. Nat. Chem. Biol. 18, 886–893 (2022).
+     1895–1903 (2017).                                               59.   Rittner, A. et al. Chemoenzymatic synthesis of ﬂuorinated poly-
+38.   Englund, E. et al. Expanding extender substrate selection for              ketides. Nat. Chem. 14, 1000–1006 (2022).
+      unnatural polyketide biosynthesis by acyltransferase domain       60.   Müller, K., Faeh, C. & Diederich, F. Fluorine in pharmaceuticals:
+     exchange within a modular polyketide synthase. J. Am. Chem.           looking beyond intuition. Science 317, 1881–1886 (2007).
+      Soc. 145, 8822–8832 (2023).                                          61.   O’Hagan, D. & Deng, H. Enzymatic ﬂuorination and biotechnolo-
+39.   Kalkreuter, E., CroweTipton, J. M., Lowell, A. N., Sherman, D. H. &          gical developments of the ﬂuorinase. Chem. Rev. 115, 634–649
+      Williams, G. J. Engineering the substrate speciﬁcity of a modular          (2015).
+      polyketide synthase for installation of consecutive non-natural      62.   Carbonell, P., Parutto, P., Baudier, C., Junot, C. & Faulon, J.-L.
+     extender units. J. Am. Chem. Soc. 141, 1961–1969 (2019).                 Retropath: automated pipeline for embedded metabolic circuits.
+40.   Malico, A. A., Nichols, L. & Williams, G. J. Synthetic biology           ACS Synth. Biol. 3, 565–577 (2014).
+      enabling access to designer polyketides. Curr. Opin. Chem. Biol.   63.   Delépine, B., Duigou, T., Carbonell, P. & Faulon, J.-L. RetroPath2.0:
+      58, 45–53 (2020).                                                a retrosynthesis workﬂow for metabolic engineers. Metab. Eng.
+41.   Goranovič, D. et al. Origin of the allyl group in FK506 biosynthesis.        45, 158–170 (2018).
+        J. Biol. Chem. 285, 14292–14300 (2010).                          64.   Hatzimanikatis, V. et al. Exploring the diversity of complex meta-
+42.  Mo, S. et al. Biosynthesis of the allylmalonyl-CoA extender unit for         bolic networks. Bioinformatics 21, 1603–1609 (2005).
+      the FK506 polyketide synthase proceeds through a dedicated      65.   Gricourt, G., Meyer, P., Duigou, T. & Faulon, J.-L. Artiﬁcial intelli-
+      polyketide synthase and facilitates the mutasynthesis of analo-         gence methods and models for retro-biosynthesis: a scoping
+      gues. J. Am. Chem. Soc. 133, 976–985 (2011).                            review. ACS Synth. Biol. 13, 2276–2294 (2024).
+43.   Jez, J. M., Bowman, M. E. & Noel, J. P. Expanding the biosynthetic   66.   Yu, T. et al. Machine learning-enabled retrobiosynthesis of mole-
+      repertoire of plant type III polyketide synthases by altering starter         cules. Nat. Catal. 6, 137–151 (2023).
+     molecule speciﬁcity. Proc. Natl. Acad. Sci. USA 99, 5319–5324      67.   Koch, M., Duigou, T. & Faulon, J.-L. Reinforcement learning for
+      (2002).                                                                    bioretrosynthesis. ACS Synth. Biol. 9, 157–168 (2020).
+
+
+
+Nature Communications| (2025)16:5787                                                                                   14
+
+
+[PDF physical page 15]
+Article                                                                                     https://doi.org/10.1038/s41467-025-61160-y
+
+
+68.   Carbonell, P. et al. An automated design-build-test-learn pipeline   89.  Schomburg, I. et al. The BRENDA enzyme information
+      for enhanced microbial production of ﬁne chemicals. Commun.         system–from a database to an expert system. J. Biotechnol. 261,
+       Biol. 1, 66 (2018).                                               194–206 (2017).
+69.  Zheng, S. et al. Deep learning driven biosynthetic pathways       90.   Chainani, Y., Ni, Z., Shebek, K. M., Broadbelt, L. J. & Tyo, K. E. J.
+      navigation for natural products with BioNavi-NP. Nat. Commun. 13,       DORA-XGB: an improved enzymatic reaction feasibility classiﬁer
+     3342 (2022).                                                             trained using a novel synthetic data approach. Mol. Syst. Des. Eng.
+70.   Levin, I., Liu, M., Voigt, C. & Coley, C. Merging enzymatic and             10, 129–142 (2025).
+      synthetic chemistry with computational synthesis planning. Nat.    91.   Robbins, T., Kapilivsky, J., Cane, D. E. & Khosla, C. Roles of con-
+    Commun. 13, 7747 (2022).                                           served active site residues in the ketosynthase domain of an
+71.   Finnigan, W., Hepworth, L. J., Flitsch, S. L. & Turner, N. J. Retro-         assembly line polyketide synthase. Biochemistry 55, 4476–4484
+      BioCat as a computer-aided synthesis planning tool for biocata-           (2016).
+       lytic reactions and cascades. Nat. Catal. 4, 98–104 (2021).          92.   Dan, Q. et al. A polyketide-based biosynthetic platform for
+72.   Chen, S. & Jung, Y. Deep retrosynthetic reaction prediction           diols, amino alcohols and hydroxy acids. Nat. Catal. 2025,
+     using local reactivity and global attention. JACS Au 1,                1–15 (2025).
+     1612–1620 (2021).                                              93.   Choi, S. et al. Production of 4-hydroxybutyric acid by metaboli-
+73.   Dong, J., Zhao, M., Liu, Y., Su, Y. & Zeng, X. Deep learning in ret-           cally engineered Mannheimia succiniciproducens and its conver-
+      rosynthesis planning: datasets, models and tools. Brief. Bioinform.         sion to γ-butyrolactone by acid treatment. Metab. Eng. 20,
+      23, bbab391 (2022).                                            73–83 (2013).
+74.   Upadhyay, V., Anand, M. & Maranas, C. D. novoStoic2.0: an inte-    94.   Choi, S., Kim, H. U., Kim, T. Y. & Lee, S. Y. Systematic engineering
+      grated framework for pathway synthesis, thermodynamic eva-            of TCA cycle for optimal production of a four-carbon platform
+       luation, and enzyme selection. Preprint at https://doi.org/10.1101/        chemical 4-hydroxybutyric acid in Escherichia coli. Metab. Eng.
+     2024.09.27.615368 (2024).                                           38, 264–273 (2016).
+75.   Dejong, C. A. et al. Polyketide and nonribosomal peptide retro-     95.   Hein, S., Söhling, B., Gottschalk, G. & Steinbüchel, A. Biosynthesis
+      biosynthesis and global gene cluster matching. Nat. Chem. Biol.          of poly(4-hydroxybutyric acid) by recombinant strains of Escher-
+       12, 1007–1014 (2016).                                                         ichia coli1. FEMS Microbiol. Lett. 153, 411–418 (2006).
+76.   Skinnider, M. A. et al. Comprehensive prediction of secondary      96.   Min, K. et al. Conversion of levulinic acid to 2-butanone by acet-
+      metabolite structure and biological activity from microbial gen-          oacetate decarboxylase from Clostridium acetobutylicum. Appl.
+    ome sequences. Nat. Commun. 11, 6058 (2020).                          Microbiol. Biotechnol. 97, 5627–5634 (2013).
+77.    Blin, K. et al. antiSMASH 6.0: improving cluster detection and      97.   Fadda, S., Lebert, A., Leroy-Sétrin, S. & Talon, R. Decarboxylase
+     comparison capabilities. Nucleic Acids Res. 49, W29–W35 (2021).          activity involved in methyl ketone production by Staphylococcus
+78.   Terlouw, B. R. et al. MIBiG 3.0: a community-driven effort to             carnosus 833, a strain used in sausage fermentation. FEMS
+      annotate experimentally validated biosynthetic gene clusters.             Microbiol. Lett. 210, 209–214 (2002).
+      Nucleic Acids Res. 51, D603–D610 (2023).                        98.   Park, J. et al. Synthesis of methyl ketones by metabolically engi-
+79.   Kautsar, S. A., Suarez Duran, H. G., Blin, K., Osbourn, A. & Medema,        neered Escherichia coli. J. Ind. Microbiol. Biotechnol. 39,
+     M. H. plantiSMASH: automated identiﬁcation, annotation and            1703–1712 (2012).
+      expression analysis of plant biosynthetic gene clusters. Nucleic    99.   Lee, H., DeLoache, W. C. & Dueber, J. E. Spatial organization of
+      Acids Res. 45, W55–W63 (2017).                                 enzymes for metabolic engineering. Metab. Eng. 14, 242–251
+80.   Beber, M. E. et al. eQuilibrator 3.0: a database solution for ther-           (2012).
+     modynamic constant estimation. Nucleic Acids Res. 50,           100.  Sun, X. et al. Metabolic pathway assembly using docking domains
+    D603–D609 (2022).                                             from type I cis-AT polyketide synthases. Nat. Commun. 13,
+81.   Wang, L., Upadhyay, V. & Maranas, C. D. dGPredictor: automated        5541 (2022).
+      fragmentation method for metabolic reaction free energy pre-      101.  Vaithegi, K. & Prasad, K. R. Total synthesis of (−)-cryptofolione.
+      diction and de novo pathway design. PLoS Comput. Biol. 17,             Tetrahedron 79, 131842 (2021).
+     e1009448 (2021).                                                 102.  Trefzer, A. et al. Biosynthetic gene cluster of simocyclinone, a
+82.   Zhang, Y., Yang, Y. & Zhang, Y. α-Pyrones and their derivatives from         natural multihybrid antibiotic. Antimicrob. Agents Chemother. 46,
+     two Cryptocarya species. Phytochemistry 39, 481–485 (1995).              1174–1182 (2002).
+83.   Iinuma, H. et al. Basidalin, a new antibiotic from basidiomycetes. J.   103.  Kakavas, S. J., Katz, L. & Stassi, D. Identiﬁcation and character-
+       Antibiot. 36, 448–450 (1983).                                                ization of the niddamycin polyketide synthase genes from Strep-
+84.   Tao, X. B. et al. ClusterCAD 2.0: an updated computational plat-        tomyces caelestis. J. Bacteriol. 179, 7515–7522 (1997).
+     form for chimeric type I polyketide synthase and nonribosomal     104.  Acosta, J. A., Muddala, R., Barbosa, L. C. & Boukouvalas, J. Total
+     peptide synthetase design. Nucleic Acids Res. 51, D532–D537            synthesis of the antitumor antibiotic basidalin. J. Org. Chem. 81,
+      (2023).                                                    6883–6886 (2016).
+85.   Ni, Z., Stine, A. E., Tyo, K. E. J. & Broadbelt, L. J. Curating a com-    105.  Keatinge-Clay, A. T. Stereocontrol within polyketide assembly
+      prehensive set of enzymatic reaction rules for efﬁcient novel               lines. Nat. Prod. Rep. 33, 141–149 (2016).
+      biosynthetic pathway design. Metab. Eng. 65, 79–87 (2021).        106.  Weissman, K. J. Polyketide stereocontrol: a study in chemical
+86.   Ni, Z. Data-Driven Approaches to Predict and Utilize Enzyme Pro-          biology. Beilstein J. Org. Chem. 13, 348–371 (2017).
+      miscuity for Novel Biosynthesis Design. ProQuest Dissertations      107.  Hall, M. Enzymatic strategies for asymmetric synthesis. RSC
+     and Theses (Northwestern University, 2022).                       Chem. Biol. 2, 958–989 (2021).
+87.   Caspi, R. et al. The MetaCyc database of metabolic pathways and   108.  Heid, E., Probst, D., Green, W. H. & Madsen, G. K. EnzymeMap:
+     enzymes – a 2019 update. Nucleic Acids Res. 48, D445–D453             curation, validation and data-driven prediction of enzymatic
+      (2020).                                                                    reactions. Chem. Sci. 14, 14229–14242 (2023).
+88.   Kanehisa, M., Furumichi, M., Tanabe, M., Sato, Y. & Morishima, K.   109.  Duigou, T., du Lac, M., Carbonell, P. & Faulon, J.-L. RetroRules: a
+     KEGG: new perspectives on genomes, pathways, diseases and          database of reaction rules for engineering biology. Nucleic Acids
+      drugs. Nucleic Acids Res. 45, D353–D361 (2017).                         Res. 47, D1229–D1235 (2019).
+
+
+
+
+Nature Communications| (2025)16:5787                                                                                        15
+
+
+[PDF physical page 16]
+Article                                                                                     https://doi.org/10.1038/s41467-025-61160-y
+
+
+110.  Wiest, O., Bauer, C., Helquist, P., Norrby, P. O. & Genheden, S.     authors would like to acknowledge Matthew Incha and Patrick Kinnuen
+      Finding relevant retrosynthetic disconnections for stereo-           for their reading of the manuscript and corresponding feedback. This
+      controlled reactions. J. Chem. Inf. Model. 64, 5796–5805 (2024).   research project was supported in part through the computational
+111.   Upadhyay, V., Boorla, V. S. & Maranas, C. D. Rank-ordering of      resources and staff contributions provided by the Quest High-
+     known enzymes as starting points for re-engineering novel sub-    Performance Computing Cluster at Northwestern University, which is
+      strate activity using a convolutional neural network. Metab. Eng.     jointly supported by the Ofﬁce of the Provost, the Ofﬁce of Research,
+      78, 171–182 (2023).                                       and Northwestern University Information Technology. This research also
+112.   Carbonell, P. et al. Selenzyme: enzyme selection tool for pathway   used resources of the National Energy Research Scientiﬁc Computing
+      design. Bioinformatics 34, 2153–2154 (2018).                     Center (NERSC), a Department of Energy Ofﬁce of Science User Facility
+113.   Dalkiran, A. et al. ECPred: a tool for the prediction of the enzymatic   using NERSC award ERCAP0028489.
+      functions of protein sequences based on the EC nomenclature.
+    BMC Bioinform. 19, 1–13 (2018).                      Author contributions
+114.  Yu, T. et al. Enzyme function prediction using contrastive learning.   Y.C.: Methodology and software, data curation, writing—original draft
+     Science 379, 1358–1363 (2023).                             and subsequent edits, visualization—generated the ﬁgures in this
+115.  Chowdhury, A. & Maranas, C. D. Designing overall stoichiometric   manuscript. J.D.: methodology and software, M.G.S.: methodology and
+      conversions and intervening metabolic reactions. Sci. Rep. 5,       software, V.B.: methodology and software, Q.Z.: methodology and
+     16009 (2015).                                                     software, W.S.: methodology and software, K.E.J.T.: writing—review and
+116.  Porokhin, V. et al. Analysis of metabolic network disruption in       editing, were the principal investigators who directed this project,
+     engineered microbial hosts due to enzyme promiscuity. Metab.    contributed to the data analysis and interpretation, as well as edited the
+      Eng. Commun. 12, e00170 (2021).                                manuscript. L.J.B.: conceptualization—conceptualized the approach of
+117.   Arnold, F. H. Design by directed evolution. Acc. Chem. Res. 31,      this study. Investigation. Formal analysis. Writing—review and editing,
+      125–131 (1998).                                           were the principal investigators who directed this project, contributed to
+118.  Wang, Y. et al. Directed evolution: methodologies and applica-     the data analysis and interpretation, as well as edited the manuscript.
+       tions. Chem. Rev. 121, 12384–12444 (2021).                         A.M.: conceptualization— conceptualized the approach of this study.
+119.  Dauparas, J. et al. Robust deep learning–based protein sequence   Investigation. Formal analysis. Writing— review and editing, the principal
+     design using ProteinMPNN. Science 378, 49–56 (2022).             investigators who directed this project, contributed to the data analysis
+120.  Watson, J. L. et al. De novo design of protein structure and func-   and interpretation, as well as edited the manuscript. J.D.K.: con-
+      tion with RFdiffusion. Nature 620, 1089–1100 (2023).              ceptualization—conceptualized the approach of this study. Investiga-
+121.  Nava, A. A., Roberts, J., Haushalter, R. W., Wang, Z. & Keasling, J. D.    tion. Formal analysis. Writing—review and editing, were the principal
+     Module-based polyketide synthase engineering for de novo         investigators who directed this project, contributed to the data analysis
+      polyketide biosynthesis. ACS Synth. Biol. 12, 3148–3155 (2023).    and interpretation, as well as edited the manuscript. H.G.M.: con-
+122.  Jumper, J. et al. Highly accurate protein structure prediction with   ceptualization— conceptualized the approach of this study. Investiga-
+      AlphaFold. Nature 596, 583–589 (2021).                                tion. Formal analysis. Writing— review and editing, were the principal
+123.  Orsi, M. & Reymond, J.-L. One chiral ﬁngerprint to ﬁnd them all. J.   investigators who directed this project, contributed to the data analysis
+     Cheminform. 16, 53 (2024).                                and interpretation, as well as edited the manuscript. T.W.H.B.: metho-
+124.  Gobbi, A., Giannetti, A. M., Chen, H. & Lee, M. L. Atom-atom-path   dology and software, data curation, conceptualization —conceptualized
+       similarity and sphere exclusion clustering: tools for prioritizing     the approach of this study. Investigation. Formal analysis. Writing —
+     fragment hits. J. Cheminform. 7, 1–11 (2015).                      review and editing, were the principal investigators who directed this
+125.  Carhart, R. E., Smith, D. H. & Venkataraghavan, R. Atom pairs as     project, contributed to the data analysis and interpretation, as well as
+     molecular features in structure–activity studies: deﬁnition and      edited the manuscript.
+      applications. J. Chem. Inf. Comput. Sci. 25, 64–73 (1985).
+126.  Mabesoone, M. F. et al. Evolution-guided engineering of trans-   Competing interests
+      acyltransferase polyketide synthases. Science 383,                   J.D.K. has ﬁnancial interests in Amyris, Ansa Biotechnologies, Apertor
+      1312–1317 (2024).                                            Pharma, Berkeley Yeast, Cyklos Materials, Demetrix, Lygos, Napigen,
+127.  Shebek, K. M., Strutz, J., Broadbelt, L. J. & Tyo, K. E. Pickaxe: a      ResVita Bio, and Zero Acre Farms. The other authors declare no com-
+     Python library for the prediction of novel metabolic reactions.      peting interests.
+    BMC Bioinform. 24, 106 (2023).
+128.  The UniProt Consortium et al. UniProt: the Universal Protein      Additional information
+     Knowledgebase in 2025. Nucleic Acids Res. 53, D609–D617       Supplementary information The online version contains
+      (2025).                                                     supplementary material available at
+129.  Noor, E. et al. Pathway thermodynamics highlights kinetic obstacles   https://doi.org/10.1038/s41467-025-61160-y.
+       in central metabolism. PLoS Comput. Biol. 10, e1003483 (2014).
+                                                            Correspondence and requests for materials should be addressed to
+Acknowledgements                                               Tyler W. H. Backman.
+This work was funded in part by the DOE Joint BioEnergy Institute,
+supported by the U. S. Department of Energy Ofﬁce of Science’s Bio-    Peer review information Nature Communications thanks Martin Gri-
+logical and Environmental Research (BER) program, through contract     ninger, Karthik Raman and the other anonymous reviewer(s) for their
+DE-AC02-05CH11231 between Lawrence Berkeley National Laboratory    contribution to the peer review of this work. A peer review ﬁle is avail-
+and the U.S. Department of Energy. Funding for Y.C. for this study was    able.
+partly provided by the Northwestern University Graduate School Cluster
+in Biotechnology, Systems, and Synthetic Biology, which is afﬁliated     Reprints and permissions information is available at
+with the Biotechnology training program. The funding for M.G.S. was     http://www.nature.com/reprints
+partly provided by the Northwestern University DeFeo Family Under-
+graduate Research Fellowship in Synthetic Biology and partly by the      Publisher’s note Springer Nature remains neutral with regard to jur-
+Northwestern University Summer Undergraduate Research Award. The    isdictional claims in published maps and institutional afﬁliations.
+
+
+
+Nature Communications| (2025)16:5787                                                                                    16
+
+
+[PDF physical page 17]
+Article                                                                                     https://doi.org/10.1038/s41467-025-61160-y
+
+
+Open Access This article is licensed under a Creative Commons
+Attribution-NonCommercial-NoDerivatives 4.0 International License,
+which permits any non-commercial use, sharing, distribution and
+reproduction in any medium or format, as long as you give appropriate
+credit to the original author(s) and the source, provide a link to the
+Creative Commons licence, and indicate if you modiﬁed the licensed
+material. You do not have permission under this licence toshare adapted
+material derived from this article or parts of it. The images or other third
+party material in this article are included in the article’s Creative
+Commons licence, unless indicated otherwise in a credit line to the
+material. If material is not included in the article’s Creative Commons
+licence and your intended use is not permitted by statutory regulation or
+exceeds the permitted use, you will need to obtain permission directly
+from the copyright holder. To view a copy of this licence, visit http://
+creativecommons.org/licenses/by-nc-nd/4.0/.
+
+
+© The Author(s) 2025
+
+
+
+
+
+Nature Communications| (2025)16:5787                                                                                           17

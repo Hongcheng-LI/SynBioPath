@@ -1,0 +1,1107 @@
+
+[PDF physical page 1]
+Actifensin Evolution in the Human Oral Cavity over the Past 100,000
+Years
+Rosa Herbst,○Anan Ibrahim,○Alexander Hübner, Uwe Knüpfer, Lars Regestein,
+Christoph Wiedemann, Ute A. Hellmich, Christina Warinner,* and Pierre Stallforth*
+Cite This: J. Am. Chem. Soc. 2025, 147, 48060−48071
+Read Online
+ACCESS
+Metrics & More
+Article Recommendations
+*
+sı
+Supporting Information
+ABSTRACT: Bacterially produced antimicrobial peptides
+(AMPs), or bacteriocins, play key roles in shaping microbial
+communities via interspecies competition. Unlike the more
+temporally dynamic gut microbiome, the oral microbiome exhibits
+long-term stability and is preserved into deep time in dental
+calculus, enabling evolutionary analysis across time. Here, we
+combine metagenomics, structural modeling, and experimental
+validation to investigate AMP diversity in ancient and modern
+dental biofilms from humans, Neanderthals, and nonhuman
+primates spanning 100,000 years. Using our newly developed
+platform, AMPcombi, we uncover evolutionary trajectories of
+bacteriocins and elucidate their ecological functions. Among these,
+we identify a conserved family of Actinomyces-derived defensin-like peptides, termed actifensins, present across all time periods.
+Phylogenetic, structural, and functional analyses revealed shared ancestry and adaptive diversification between ancient (paleo-) and
+modern actifensins, with evidence of positive selection and maintained antimicrobial activity. Our findings position the oral
+microbiome as a valuable reservoir for natural product discovery. In the face of rising antimicrobial resistance, evolutionary insights
+into AMP function open a door to next-generation therapeutics. AMPcombi streamlines this process, linking ancient biomolecules
+with biotechnology.
+■INTRODUCTION
+Microbial natural products constitute the basis for the majority
+of all commercially available antibiotics, as well as a large
+number of anticancer drugs, immunomodulators, and choles-
+terol-lowering drugs.1,2 Recent advances in the field of
+archaeogenetics and paleobiotechnology have enabled the
+reconstruction of biosynthetic enzymes from the past, thus
+opening the door to microbial natural product discovery
+spanning more than 100,000 years.3 Structural and functional
+diversification of these natural products requires extensive
+reprogramming of their complex biosynthetic assembly lines,
+resulting in an evolutionary rate substantially slower than that
+of peptides and proteins. In contrast, ribosomally produced
+antimicrobial peptides (AMPs) can evolve more rapidly due to
+the direct translation of changes in the DNA sequence into
+structural and functional peptide changes. AMPs are vital
+components of the defense systems in virtually all forms of life,
+displaying antimicrobial activities that range from narrow to
+broad-spectrum. In higher organisms, AMPs are integral to the
+innate immune system, acting as a first-line defense barrier
+against harmful microorganisms.4 Host and bacterially
+produced AMPs also play a major role in microbiomes,
+where they strongly influence the balance and dynamics of
+microbial communities. Bacterially produced AMPs, known as
+bacteriocins, provide a competitive advantage to the producer
+strain by eliminating competing bacteria in their ecological
+niche.5
+The human oral microbiome is a highly complex microbial
+community containing more than 500−700 prevalent
+species.6,7 Oral microbes are highly structured and spatially
+organized within different oral niches,8 and they exhibit
+remarkable stability over long periods.9 Within dental biofilms,
+oral microbial structure reflects complex interactions of
+adhesion, syntrophy, and secretion of signaling molecules
+and bacteriocins that influence bacterial colonization, persis-
+tence, and immune escape,6 rendering dental biofilms an
+excellent model for investigating the AMP evolution. More-
+over, dental biofilms naturally calcify during life, forming dental
+calculus, which is preserved after death and therefore is nearly
+ubiquitous in the archeological record. This dental calculus
+bioarchive of the oral microbiome has been shown to exhibit
+Received:
+August 18, 2025
+Revised:
+December 2, 2025
+Accepted:
+December 3, 2025
+Published: December 17, 2025
+Article
+pubs.acs.org/JACS
+© 2025 The Authors. Published by
+American Chemical Society
+48060
+https://doi.org/10.1021/jacs.5c14335
+J. Am. Chem. Soc. 2025, 147, 48060−48071
+This article is licensed under CC-BY-NC-ND 4.0
+Downloaded via 205.198.68.199 on January 4, 2026 at 08:34:22 (UTC).
+See https://pubs.acs.org/sharingguidelines for options on how to legitimately share published articles.
+
+
+
+[PDF physical page 2]
+excellent biomolecular preservation, enabling the direct study
+of human oral microbiome evolution over tens of thousands of
+years.10 These studies revealed a high degree of conservation
+within primate oral microbiota over at least 40 million years,
+with humans, great apes, and howler monkeys sharing a core
+dental biofilm microbiome of at least ten major genera.10
+Here, we present a new software tool, AMPcombi, to explore
+AMP evolutionary changes within human and Neanderthal
+dental biofilms over a period of 100,000 years, as well as within
+dental biofilms of nonhuman primates, allowing us to retrace
+the structural and functional changes of bacteriocins over key
+periods of recent human evolution. In an era of escalating
+antimicrobial resistance, an evolutionary approach to discov-
+ering AMPs holds great promise as an alternative treatment
+strategy. By understanding the evolutionary adaptations and
+functions of AMPs, we can develop novel antimicrobial
+therapies to combat resistant pathogens.
+■RESULTS
+De Novo Assembly of Oral Metagenomes from
+Human and Nonhuman Primate Dental Calculus. We
+compiled a data set of 119 published dental biofilm
+metagenomes derived from the dental calculus of present-day
+humans (n = 18), archeological humans (n = 43) and
+Neanderthals (n = 12), as well as nonhuman primates
+consisting of chimpanzees (n = 20), gorillas (n = 29), and
+howler monkeys (n = 5)3,10 (Figure 1A; Supplementary Data
+1). The Neanderthal samples date to the Middle Paleolithic
+(ca. 44−102 ka BP), while the archeological human
+populations originate from Europe and Africa and span
+multiple time periods, including the Upper Paleolithic (n =
+12, ca. 14−31 ka BP), Mesolithic (n = 7, ca. 9−10 ka BP),
+Neolithic (n = 6, ca. 4−8 ka BP), and historic (n = 18, ca.
+1850−550 BP) periods. We then de novo assembled these
+metagenomes using metaSPAdes11 for present-day human
+samples and MEGAHIT12 for nonhuman primates and
+Figure 1. Antimicrobial peptide sequence prediction from dental calculus using AMPcombi. (a) Geographical map showing the distribution of the
+dental calculus metagenomes (DCMs) used in this study indicating the species, time period, and origin they represent. (b) A graphical summary
+illustrating the workflow used to generate the input for AMPcombi, the intermediary steps and the downstream processing invoked to recover
+putative AMP classes from the DCM. (c) Bubble chart demonstrating the proportion of successfully predicted AMPs derived from the different
+DCM samples (small bubbles with sample codes) grouped by age period (large bubbles) using AMPcombi and data set specific filtering steps. The
+color code of the different age periods is shown in (a). (d) The bar plots display the number of putative AMPs recovered per one million
+nucleotides within the DCMs, while the stacked bar plot illustrates the proportion of the retained AMPs across the DCMs based on the prediction
+efficacy of each AMP prediction tool included in the workflow. The color code of the different age periods is shown in (a). Six AMP prediction
+tools were used in the workflow. HMMsearch was included as an additional sequence similarity−based method to capture known AMP motifs and
+to standardize tool performance, but is not considered a prediction tool. Logo artwork by Anan Ibrahim, used with permission.
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.5c14335
+J. Am. Chem. Soc. 2025, 147, 48060−48071
+48061
+
+
+
+[PDF physical page 3]
+archeological humans and Neanderthals, producing 3,274,184
+contigs >500 bp in length for AMP discovery using AMPcombi
+(Supplementary Figure 1, Supplementary Data 2).
+Enhanced AMP Discovery with AMPcombi. Recent
+years have seen a surge in the development of bioinformatic
+tools applying various algorithms to identify genes encoding
+antimicrobial peptides (AMP). Each tool has specific strengths
+and weaknesses, and AMP discovery is best achieved by
+combining the results of multiple tools. However, integrating
+the results of such tools is cumbersome and error-prone
+because of different output formats and the large amount of
+generated data with only minimal overlap. To overcome this
+challenge, we developed AMPcombi, a Python-based software
+tool that integrates the results of six state-of-the-art computa-
+tional tools to narrow down AMP hits in a single workflow,
+and provides a GUI interface to dynamically inspect the
+results. Applying AMPcombi to our data set of dental calculus
+metagenomes (DCMs), we identify a total of 4,628,215
+potential AMP hits. However, this large number is likely an
+overestimate resulting from AMP misassignment, which is a
+longstanding problem in the identification of AMPs.13 Cross-
+tool comparison is an essential step for reducing false positives,
+but is challenging to manually perform on large data sets.
+AMPcombi14 (Figure 1b) automates this process by
+consolidating the outputs into a streamlined, tab-separated
+table, suitable for interactive exploration via a web interface.
+Given the variability in AMP prediction accuracy of the
+different AMP prediction tools, user-adjustable parameters are
+included to allow for standardization and refinement of results,
+ensuring that predictions from large-scale metagenomic data
+sets are manageable, and to provide experimentally relevant
+hits (Figure 1, Supplementary Figures 2 and 3 and
+Supplementary Section 1).
+To further increase reliability, AMPcombi also includes an
+integrated option using HMMsearch (HMMER v.3.4),15
+which can be customized by specific Hidden Markov Models
+(HMMs). This standardization by HMMsearch is particularly
+well-suited for finding the most suitable tool for the respective
+data set (Supplementary Figure 4a). Further validation of the
+results is performed by the alignment of the amino acid
+Figure 2. Recovery of ancient and oral-derived antimicrobial peptides from dental calculus. (a) The UpSet plot displays the number of AMPs
+predicted by six AMP prediction tools and HMMsearch (a sequence similarity−based method) after removing peptides longer than 120 amino
+acids and with AMP probability scores <0.8. The numbers above each vertical bar indicate the count of unique or mutually predicted AMPs by the
+tools, while the horizontal bars indicate the total number of AMPs predicted solely by each tool in the data set. (b) Heatmap illustrating the final 78
+clusters representing different putative AMP classes recovered from DCMs using AMPcombi and the subsequent filtering steps. The AMP clusters
+are ordered by their total abundance among archeological human samples and are classified based on annotations obtained from UniRef100.19 The
+heatmap color scale represents the number of AMPs recovered per cluster in each time period, with yellow indicating few AMPs and dark blue
+indicating more than 70 AMPs, as shown in the scale bar.
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.5c14335
+J. Am. Chem. Soc. 2025, 147, 48060−48071
+48062
+
+
+
+[PDF physical page 4]
+Figure 3. Overall diversity of oral derived defensin-like peptides originating from Actinomyces. (a) The phylogenetic tree represents the diversity of
+mature defensin peptide sequences found in Actinomyces-derived contigs from the dental calculus data set, as well as in Actinomyces genomes
+retrieved from NCBI that correspond to oral-derived strains. The tree was rooted using the mature peptide sequence from micasin-A.28 Sample age
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.5c14335
+J. Am. Chem. Soc. 2025, 147, 48060−48071
+48063
+
+
+
+[PDF physical page 5]
+sequences of the putative AMPs to reference databases, such as
+InterProScan,16 and either APD,17 DRAMP18 or UniRef100.19
+Large numbers of predicted AMPs found in metagenomic data
+sets can be easily narrowed in AMPcombi to those with the
+strongest support by applying user-specified filters to the
+results table (Figure 1b).
+AMP Prediction Tool Discrepancies Across Metage-
+nomes. We applied 65 HMM models representing different
+AMP classes in HMMsearch15 to the initial 4.6 million putative
+AMP gene hits identified by AMPcombi, of which 48 were
+identified in the dental calculus metagenomes (Supplementary
+Figure 4a). Cross-validation revealed that each tool has a
+distinct prediction tendency, with NeuBI,20 Ampir21 and
+AmpGram22 out-performing all other tools using the thresh-
+olds we set for this study (Figure 2a). Among the six prediction
+tools, Neubl was the only tool to identify nearly all HMM
+models aligned by HMMsearch15 (Supplementary Figure 4a).
+Finally, each tool exhibited performance differences in
+predicting distinct AMP families and AMPs with specific
+physicochemical properties and secondary structure (Supple-
+mentary Figure 4b−g).
+AMP Curation and Refinement. After filtering predicted
+AMPs for only peptides shorter than 120 amino acids and with
+an AMP probability above 0.8 predicted by at least one tool,
+254,718 AMPs were retained. Most of these putative AMPs
+were detected solely by one tool, while those identified by
+multiple tools were mostly derived from the three high-
+performing prediction tools: NeuBI,20 Ampir21 and Amp-
+Gram22 (Figure 2a). In an additional step, 5% of these AMPs
+were eliminated by removing peptides annotated as ribosomal
+proteins by InterProScan16 (Supplementary Figure 3).
+AMPs from DCMs were further trimmed using a set of
+biologically relevant selection criteria. Given that some AMPs
+from DCMs were found on taxonomically unclassified contigs
+(Supplementary Figures 5 and 9), only AMPs found on contigs
+belonging to a genus known to include oral species
+(Supplementary Data 3) were retained (Supplementary Figure
+6). As a result, AMP-bearing contigs in the DCM were
+predominantly assigned to Actinomyces, Streptococcus, Neisseria,
+and Capnocytophaga, with each AMP prediction tool exhibiting
+varying tendencies to identify AMPs from the different
+taxonomic groups (Supplementary Figures 5 and 6). Addi-
+tionally, because predictable forms of DNA damage are known
+to accumulate over time,23 we removed archeological DCMs
+lacking these signals (Supplementary Figure 7). After these
+filtering steps, 140,069 putative AMPs remained.
+Although we observed the highest number of putative AMPs
+in samples from present-day humans (Figure 1c), when
+normalized by the total contig lengths, more AMPs were
+recovered collectively from archeological humans (Figure
+1c,d). Temporal coverage analysis shows that the most
+abundant taxa, e.g. Actinomyces and Arachnia, were found in
+similar proportions across the different time periods (Supple-
+mentary Figure 8c), whereas AMPs from Capnocytophaga,
+Rothia, and Treponema, were less prevalent in human samples
+older than 200 years.
+We next dereplicated the AMPs by clustering them
+according to amino acid sequence homology and removed
+any clusters with fewer than 10 AMPs, as well as any cluster
+without at least one archeological human. We then further
+removed clusters that lacked either a predicted signal peptide
+or validation from at least three of the seven AMP prediction
+tools (Supplementary Figure 10a). The final data set consisted
+of 78 clusters comprising 1669 putative AMPs (see Figure 1b
+and Supplementary Section 2.2 for a summary of all filtering
+steps).
+Comparative Analysis of Clustered AMP Variants. The
+1669 putative AMPs retained for analysis span the complete
+temporal range of the DCMs (Figure 2b). Approximately 50%
+originate from present-day humans, about 10% from recent
+periods (18th−20th centuries), 13% from more ancient
+periods (Paleolithic, Mesolithic, and Neolithic) and 27%
+from nonhuman primates. Of the total AMPs recovered from
+the historical samples, 50% were detected in the DCM of
+GRF001.A-D (Figure 1c), which originates from King Richard
+III of England (AD 1452−1485), and is likely due to the very
+deep sequencing of the dental calculus of this individual.24
+Only ten clusters contained AMPs derived from human
+samples spanning all time periods (Figure 2b, Supplementary
+Figure 12 and Supplementary Table 1). In contrast, 17 clusters
+contained no AMP from any older archeological periods
+(Paleolithic, Mesolithic, Neolithic), and only two clusters
+contained no AMP hits from any present-day human samples
+(Figure 2b).
+The predicted secondary structures of the AMPs indicate
+that most clusters include peptides with either exclusively
+helical or mixed helical and β-sheet structures (Supplementary
+Figure 10c). Annotation of the AMPs was possible in 53% of
+the clusters by identifying protein homologies using an HMM
+model and databases such as DRAMP,18 APD,17 and
+UniRef10019 (Figure 2b and Supplementary Figure 12), of
+which 22% were identified as bacteriocins.
+Although AMP-coding genes were mainly located on shorter
+contigs across all time periods (Supplementary Figure 8a,b),
+many clusters still contained enough longer contigs to examine
+neighboring genes. These frequently included genes related to
+peptide maturation, transport, and enzymatic modification
+(Supplementary Figure 13a,b). However, some clusters also
+produced false positives, with peptides unrelated to AMPs,
+such as conjugal transfer proteins, found alongside with
+respective associated elements (Supplementary Figure 13c).
+Evolution of Actinomyces Defensin-like Peptides
+Across the Past 100,000 Years. Due to its well-preserved
+metagenomes and conserved microbial composition, the
+distinct microbial community of dental calculus is ideally
+suited for analyzing the structure−function relationships of
+AMPs in an evolutionary context. Among the final AMPs
+cluster set we selected cluster 59324 for further functional and
+Figure 3. continued
+and type are indicated by symbols, and rings indicate isolation source (inner), host (middle), and species (outer). There is a wide distribution of
+defensin classes independent of host origin, species, time, or location. (b) SplitsTree neighbor network based on the consensus hybridization
+network of both amino acid- and nucleotide-based alignments (Supplementary Figure 18) computed using the PhyloFusion algorithm. Colors
+represent different oral-derived actifensin phylogroups across the split network. The network suggests a common evolutionary origin among the
+seven actifensin phylogroups, showing varying levels of reticulate evolution and divergence. Among the two further investigated actifensin pairs,
+which fall in Clade 1 (PAFI/MAF I) and Clade 6 (PAF/MAF II), PAF is consistently located basal to MAF.
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.5c14335
+J. Am. Chem. Soc. 2025, 147, 48060−48071
+48064
+
+
+
+[PDF physical page 6]
+Figure 4. Genetic and structural adaptation of paleo and modern oral actifensins. (a) The phylogenetic tree represents all mature peptide sequences
+from actifensins recovered from DCMs and from the dereplicated sequences found to be homologues from all oral Actinomyces genomes
+(Supplementary Figure 16). Four mature peptides, labeled as PAF/MAF I and PAF/MAF II, were selected for further structural and functional
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.5c14335
+J. Am. Chem. Soc. 2025, 147, 48060−48071
+48065
+
+
+
+[PDF physical page 7]
+evolutionary analysis. The 78 AMPs in this cluster represented
+the largest number of peptides among all identified clusters and
+were annotated as defensin-like peptides and identified across
+all archeological periods, as well as in present-day humans and
+nonhuman primates (Figure 1b and Supplementary Table 1).
+Taxonomic classification of the contigs revealed that the
+defensin-like AMPs all originate from oral-derived Actinomyces
+species (Figure 3 and Supplementary Figure 14). Actinomyces is
+a genus that has been conserved within the primate lineage for
+over 40 million years, and it is a core member of the human
+oral microbiome.10 Actinomyces play a major role in dental
+biofilm initiation, and its interactions with other oral species
+structure the formation of dental plaque.25 Because AMPs play
+key roles in shaping microbiota,26 characterizing the evolu-
+tionary history of Actinomyces AMPs is an important and
+necessary step in understanding the long-term evolution of
+human dental biofilms.
+Phylogenetic analysis with different classes of defensin-like
+AMPs confirmed that the DCM-derived peptides are mostly
+related to bacterial homologues (Supplementary Figure 15).
+These peptides, recently found in Actinomyces, have been
+named actifensins,27 a nomenclature we also adopted here. To
+distinguish between ancient and more recent actifensins, we
+refer to actifensins originating from archeological DCMs >200
+years old as paleo-actifensins (PAF), and actifensins from more
+recent DCMs as modern-actifensins (MAF). Most homologues
+of PAFs and MAFs found in public databases clustered with
+Actinomyces species of oral origin (Figure 3a and Supple-
+mentary Figure 16). Although most contigs contained only a
+single gene copy encoding a defensin-like peptide, in rare cases,
+two or more isoforms were found encoded adjacent to each
+other. All actifensins were encoded as larger precursor
+molecules with an N-terminal signal peptide, which is typically
+cleaved off during secretion at approximately three residues N-
+terminal to the first cysteine to release the mature peptide. For
+the signal peptide regions of both PAFs and MAFs, amino acid
+sequence similarities range from 55% to 100% (mean =
+77.4%). In contrast, the mature regions have a greater
+variation, ranging from 33% to 100%, and lower average
+similarity with a mean of 58.7%, excluding self-comparisons.
+Aligning the amino acid sequences of the mature peptides,
+together with 127 homologous sequences of oral cavity-
+associated Actinomyces strains, resulted in a phylogenetic tree
+with seven distinct clades (Figure 3). Across all clades,
+nonhuman primate actifensins, when present, appear to exhibit
+ancestral characteristics. However, no distinct ancestral pattern
+was observed among human PAFs across the clades. In some
+cases, such as clades 2 and 3, PAFs (including those
+represented by Neanderthals dating to 100,000 years ago)
+shared complete amino acid sequence identity with their MAF
+counterparts. Notably, only two clades (1 and 6) showed PAF
+as an ancestral lineage (Figures 3b and 4, Supplementary
+Figure 17) with clade 6 also including a nonhuman actifensin
+basal to the ancestral human PAFs (Figures 3 and 4a).
+Construction of a consensus hybridization network using
+amino acid and nucleotide alignments (Supplementary Figure
+18) showed a common evolutionary origin for the seven
+actifensin phylogroups, with varying levels of reticulation and
+divergence (Figure 3b). Regardless of whether the alignment
+was based on structural features, amino acids or nucleotide
+sequences, the resulting lineages showed minimal variation
+(Supplementary Figure 18). Although each branch in the split
+network contains a different degree of splitting, all diverging
+branches are connected at the base in a single line, suggesting a
+shared evolutionary history and the presence of a common
+ancestor for this family of proteins. The polygonal connections
+between the splits, more prominent in clade 6, indicate
+conflicting signals signifying possible “ongoing” recombination
+events, horizontal gene transfer, or purifying selection
+pressures acting on some sites on the sequences on those
+branches (Figure 3b). Indeed, analyses of different models
+indicating pervasive (constant selection pressure) and episodic
+diversifications along the mature peptide sequence of all seven
+phylogroups showed nine conserved amino acid residues
+across oral-derived actifensins (Figure 4b and Supplementary
+Figure 19). Seven of these amino acid residues under positive
+selection pressure are located within distinct α-helical or β-
+strand secondary structure elements (Figure 4b).
+Secondary Structure and Antimicrobial Activity of
+Modern and Ancient Actifensins. From the sequence-
+based predicted secondary structures29 of representative
+peptides from each clade, we found that all peptides exhibited
+a conserved secondary structure consisting of one α-helix and
+two β-strands, possibly connected via three disulfide bonds
+(Supplementary Figure 20). Most peptides showed amphi-
+pathic character with more extensive positively charged regions
+and negatively charged areas are localized in specific patches.
+While some structures are predicted to have more compact 3D
+structures, the majority exhibit extended surface conformations
+(Figure 4c,d).
+To confirm the theoretically predicted secondary structures
+of the peptides, we recombinantly expressed two pairs (I and
+II) of ancestral PAFs and their related MAFs in Escherichia coli
+as thioredoxin fusion proteins. The mature peptides were
+purified using a combination of affinity and chromatographic
+separation methods following removal of the fusion protein by
+enterokinase cleavage. Analysis of the secondary structure
+using circular dichroism spectroscopy30 revealed that all
+peptides display the expected secondary structure content
+and that the composition of α- and β-helical content derived
+Figure 4. continued
+analysis. (b) Sequence alignment illustrates sequence identity along the lineage, residues are colored to display the respective physicochemical
+properties. The bar plot at the bottom shows the frequency of each amino acid residue at every alignment position. The bar height reflects the
+distribution frequency of residues, while the color encodes selection pressure (light gray indicates no detected selection, hatching indicates
+conserved residues, and black denotes positions under positive or diversifying selection) based on pervasive and episodic selection pressure
+analyses. The estimated positions of the three main features of the secondary structureone α-helix and two β-strandsare highlighted. (c,d)
+Tertiary protein structures represent selected members from the seven actifensin phylogroups. Protein surface is shown from two perspectives, with
+the second view rotated 180° relative to the first. While (c) shows the electrostatic surface potential of the peptides, with blue regions indicating
+positive charge, red regions indicating negative charge, and white regions representing neutral areas, providing insight into potential electrostatic
+interactions, (d) displays surface hydrophobicity, where yellow regions represent hydrophobic areas and turquoise regions indicate hydrophilic
+areas, highlighting the peptides’ potential interactions with aqueous or lipid environments.
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.5c14335
+J. Am. Chem. Soc. 2025, 147, 48060−48071
+48066
+
+
+
+[PDF physical page 8]
+from experimental data is in good agreement with the
+respective theoretically predicted secondary structures (Sup-
+plementary Figure 20a). Molecular dynamic (MD) simu-
+lations31 of the peptides in water during 100 ns revealed an
+overall molecular compactness supported by consistent radius
+of gyration (Rg) values and structural stability during the
+entire simulation with almost no alterations in root-mean-
+square deviation (RMSD). Root mean square fluctuations
+(RMSF) were only observed in the loop region between the
+two antiparallel β-strands (Supplementary Figure 20b). The
+structural stability was experimentally confirmed by CD
+spectroscopy using thermal denaturation of the recombinant
+peptides; all exert high melting temperatures (Tm) of >70 °C
+in all cases and can refold after cooling (Supplementary Figure
+21).
+We tested the antimicrobial activities of the peptides against
+three Gram-positive strains, which were previously shown to
+be susceptible to actifensins,27,32 representing diverse branches
+of two bacterial phyla: Bacillota, Bacillus megaterium and
+Pediococcus acidilactici; and Actinomycetota, Lysinibacillus
+fusiformis. Based on these assays, peptides of group II were
+more potent compared to the peptides of group I. All MAFs
+exhibited lower MIC values than their ancient counterparts,
+except for MAF I, which showed a slightly higher MIC against
+P. acidilactici than its PAF counterpart. None of the peptides
+were active against Gram-negative E. coli K12 in the
+Pseudomonadota phylum (Figure 5).
+■DISCUSSION
+The dramatic increase of antimicrobial resistance over the past
+century has substantially reduced the efficacy of treatment
+options for previously curable diseases. Antimicrobial resist-
+ance is now a leading cause of mortality worldwide,33 thus
+posing a major threat to the world’s healthcare systems.34
+Addressing this urgent challenge requires innovative bio-
+prospecting strategies to discover novel antimicrobial peptides
+that are intrinsically less prone to the development of bacterial
+resistance. AMPs more effectively augment conventional
+antibiotics due to their ease of modification, e.g., alteration
+of their amino acid sequence, to circumvent resistance.
+However, they remain understudied due to outdated models
+of their evolution and activity.26
+Recently, there has been a growing interest in AMPs as
+potential therapeutic agents, not only with renewed efforts for
+novel AMPs identification35,36 and the expansion of specialized
+AMP databases,17,18 but also in the development of publicly
+available mining tools.37 Moreover, the increasing availability
+of large metagenomic data sets from previously inaccessible
+environments38,39 offers unprecedented opportunities for AMP
+discovery. However, the current lack of workflows to
+systematically compare, filter, and cross-validate results of
+different AMP tools currently limits their potential. To address
+this issue, we developed AMPcombi, a workflow that simplifies
+the comparison of outputs from different AMP prediction tools
+by implementing customizable data filtering based on peptide
+features that generate an extensive, high quality collection of
+potentially bioactive AMPs ready to be validated experimen-
+tally.
+In addition to therapeutic applications, it is now also
+possible to explore the evolutionary history of AMPs due to
+the growing availability of homologous AMP sequences from
+diverse species and environments. For instance, analysis of
+peptide sequences, such as the prepropeptides of dermaseptin
+from frogs, suggests an origin in a common ancestral species
+approximately 200 million years ago, coinciding with tectonic
+events that separated the Hylidae and Ranidae families.40
+Other studies have identified and characterized encrypted
+AMPs in Neanderthals and Denisovans defensins,41 from
+Figure 5. Functional adaptation of paleo- and modern actifensins (PAF/MAF). (a) The pruned phylogenetic tree illustrates the clades in which
+PAF/MAFI and PAF/MAFII are located (see Figure 3). In both clades, the paleo-representative is positioned basal to its modern counterpart,
+suggesting potential structural and functional divergence over an evolutionary period. (b) The secondary structures predicted for each member of
+the PAF/MAF I and PAF/MAF II groups. Superposition of the peptide structures was performed in PyMOL using the fit command. For PAF/
+MAF I, the calculated root-mean-square deviation (RMSD) was 0.941 Å, while PAF/MAF II yielded an RMSD of 1.280 Å, indicating a high level of
+structural similarity among the compared peptides. (c) The minimum inhibitory concentration (MIC) values are expressed in μM and represent
+the antimicrobial activity of each peptide against four different bacteria, revealing functional differences among the peptide variants. No
+antimicrobial activity was observed for E. coli, i.e., its MIC could not determined (n.d.).
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.5c14335
+J. Am. Chem. Soc. 2025, 147, 48060−48071
+48067
+
+
+
+[PDF physical page 9]
+extinct birds and a prehistoric mammal,42 and cathelicidins
+from extinct marsupials.43 Defensins and defensin-like peptides
+represent a very diverse AMP class that has been widely
+examined in the context of evolutionary biology. Homologues
+have been identified in a broad range of organisms across the
+eukaryotic kingdom44 and, more recently, in bacteria.27,32 In
+humans, defensins are a key part of the innate immune
+system.45 In the oral cavity, periodontal inflammation leads to
+the release of defensins and other antimicrobial compounds to
+restrict the growth of dental plaque.46 In fact, human defensins
+are among the most prevalent and abundant proteins identified
+in dental calculus proteomes.47 Some bacterial members of
+dental plaque, notably Actinomyces, are also known to produce
+defensins (actifensins), and the secretion of such defensins by
+this basal member of the dental biofilm may influence
+subsequent oral microbial colonization and biofilm growth.
+Although defensins in bacteria are most commonly found in
+actinomycetes and myxobacteria, defensins from the latter have
+previously been shown to share a common evolutionary history
+with invertebrate defensins.32 It has been proposed that
+defensins comprise two evolutionarily independent super-
+families, namely cis- and trans-defensins, with extensive
+structural and functional similarities arising through con-
+vergent evolution.44 Accordingly, MAFs and PAFs are
+classified as members of the cis-defensins superfamily.
+Using DCMs, we expand the current insights into structural
+and functional adaptations across bacterial AMPs within the
+primate lineage representing a period of approximately 40
+million years, and through ancient DNA we provide direct and
+time-resolved evidence of AMP evolution within Homo over
+the past 102,000 years. For this purpose, dental calculus offers
+a magnitude of advantages due to its preservation of microbial
+content over time, with minimal contamination from
+exogenous sources.48 Moreover, the presence of similar
+bacterial genomes in DCMs from nonhuman primates and
+present-day humans supports the existence of a core set of
+highly conserved oral microbes that are suitable for long-term
+AMP evolutionary studies.10 This is also reflected by the
+recovered AMP cluster sets in which members derived from
+DCMs of different ages and types share high sequence
+similarity (Figure 2 and Supplementary Figure 12). Most of the
+putative AMP hits in all DCM samples originate from
+Actinomyces (Supplementary Figures 8 and 9), which is a
+prominent core member of the human oral microbiome and a
+key early colonizer involved in dental biofilm initiation.
+However, in addition to its high relative abundance within
+DCMs, the large number of Actinomyces AMPs also likely
+reflects these microbes’ prolific antimicrobial capacity49 to
+produce secondary metabolites to sustain their survival in the
+oral cavity.
+Although oral actifensins appear to have a shared common
+ancestor, nucleotide-level differences show that they have
+diverged into at least seven distinct phylogroups that are
+independent of host type or sample age (Figure 3), suggesting
+evolutionary adaptation. We observe distinct differences in
+polarity and in hydrophobicity of surface properties in these
+peptides (Figure 4), and comprehensive evolutionary and
+selection pressure analyses identified distinct amino acid
+residues under positive or diversifying selection (Figure 4,
+Supplementary Figures 17 and 19). These sites are located
+near the N-termini, within the loop between the antiparallel β-
+sheets, and in the α-helix region. The latter is of particular
+interest because sites in the α-helix may significantly influence
+peptide specificity.50 In addition to variable positions within
+the peptide sequences, there are also conserved residues-most
+notably, a characteristic pattern of six cysteine residues-that
+classify these peptides as defensin-like (Figure 4). Further-
+more, a GXC motif, known as the γ-core motif, is present in all
+actifensin sequences. This motif is proposed to be an
+archetypal element of antimicrobial peptides, found in all
+disulfide-bridged antimicrobial peptides throughout the
+phylogenetic kingdoms, thereby reflecting an ancient evolu-
+tionary relationship. It is likely that specific configurations of
+these structural mosaics optimize the function of antimicrobial
+peptides against their targets in distinct environmental or
+physiological contexts.51 While the antimicrobial assays were
+conducted with strains previously shown to be highly
+susceptible to actifensins,27,32 the objective was to assess
+whether sequence divergence between ancient and modern
+peptides results in measurable functional differences, inde-
+pendent of specific ecological interactions. The observed
+diversification in actifensin surface properties and the presence
+of positively selected sites suggest adaptive fine-tuning of
+antimicrobial activity, potentially reflecting long-term inter-
+actions between Actinomyces-derived peptides and co-occurring
+members of the oral microbiome. This interpretation aligns
+with the view that the evolution of defensin-like peptides
+involves balancing conservation of core structural motifs with
+diversification of residues that influence target specificity.
+Although it is not possible to directly assess the activity of
+paleo-actifensins against ancient bacterial strains, it is possible
+that these peptides exhibited higher activity in their original
+microbial context.
+Antimicrobial peptides represent a rich and underexplored
+source of antimicrobials for translational applications. In
+addition to being attractive targets for the development of
+clinical therapeutics, AMPs play essential roles in the
+regulation of symbiotic communities and thus are of key
+interest in understanding the formation and maintenance of
+healthy host-associated microbiota. Before undertaking trans-
+lational applications, however, it has been argued that it is
+essential to understand AMP biology in natural contexts to
+maximize effectiveness and to avoid repeating mistakes that
+have led to widespread bacterial resistance.26 Recently, it has
+become possible to reconstruct oral microbiota metagenomes
+through the sequencing and de novo assembly of ancient DNA
+from dental calculus, a calcified form of dental plaque that can
+preserve biomolecules for millions of years. This enables the
+direct investigation of AMP evolution within vertebrate
+microbiota and presents a new source of potentially
+therapeutic AMPs. However, although resources for AMP
+discovery have dramatically expanded in recent years, AMP
+studies continue to be limited by the absence of a universally
+accepted framework for AMP identification and a lack of
+workflows to systematically compare, filter, and cross-validate
+results of different AMP tools.
+■CONCLUSIONS
+In conclusion, we streamline the discovery of antimicrobial
+peptides (AMPs) by developing AMPcombi, a versatile
+workflow for the identification, structural analysis, and
+functional characterization of predicted AMPs from large
+metagenomic data sets. Applying AMPcombi to ancient and
+modern dental calculus metagenomes, we demonstrate that
+integrating evolutionary insights with structure−function
+analyses, exemplified by PAFs and MAFs, offers a deeper
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.5c14335
+J. Am. Chem. Soc. 2025, 147, 48060−48071
+48068
+
+
+
+[PDF physical page 10]
+understanding of AMP evolution and paves the way for future
+efforts to optimize these molecules for clinical applications. In
+an era of rising antibiotic resistance, the integration of
+bioinformatics, evolutionary biology, and experimental vali-
+dation is essential to fully harness the therapeutic potential of
+AMPs.
+■ASSOCIATED CONTENT
+Data Availability Statement
+AMPcombi developed for this study is freely available under an
+MIT license through GitHub (https://github.com/
+Darcy220606/AMPcombi).14 The code has also been
+deposited at Zenodo
+(https://zenodo.org/records/
+14177670).52 All scripts to reproduce the complete analysis
+described in this study are available through GitHub (https://
+github.com/paleobiotechnology/AMP_defensins).53 Supple-
+mentary Data sets S1−S3 can be found under AMP_defen-
+sins/06-figures_tables in the code repository.
+*
+sı Supporting Information
+The Supporting Information is available free of charge at
+https://pubs.acs.org/doi/10.1021/jacs.5c14335.
+A detailed description of the development of the
+AMPcombi tool and the recovery of metagenomes
+from ancient and modern dental calculus samples. All
+filtering steps for AMP identification in the metage-
+nomic data set are described, along with experimental
+details of recombinant expression, and structural and
+functional analyses of PAFs and MAFs (PDF)
+Next-generation sequencing data from all samples used
+in this study have been submitted to the European
+Nucleotide Archive (ENA). The sample and sequencing
+metadata, along with their accession IDs, can be found
+in Supplementary Data 1 (XLSX)
+An overview of the assembly success and the quality of
+the metagenome-assembled genomes before and after
+filtering is provided in Supplementary Data 2 (XLSX)
+Supplementary Data 3 contains a list of oral-derived
+species, the amino acid and nucleotide sequences of the
+mature peptides of paleo- and modern-actifensins, as
+well as the accession IDs of Actinomyces genomes
+downloaded from NCBI (XLSX)
+■AUTHOR INFORMATION
+Corresponding Authors
+Christina Warinner −Department of Archaeogenetics, Max
+Planck Institute for Evolutionary Anthropology, 04103
+Leipzig, Germany; Associated Research Group of
+Archaeogenetics, Leibniz Institute for Natural Product
+Research and Infection BiologyHans Knöll Institute, 07745
+Jena, Germany; Department of Anthropology, Harvard
+University, Cambridge, Massachusetts 02138, United States;
+Department of Human Evolutionary Biology, Harvard
+University, Cambridge, Massachusetts 02138, United States;
+Cluster of Excellence Balance of the Microverse, Friedrich
+Schiller University Jena, 07743 Jena, Germany;
+orcid.org/
+0000-0002-4528-5877; Email: christina_warinner@
+eva.mpg.de
+Pierre Stallforth −Department of Paleobiotechnology, Leibniz
+Institute for Natural Product Research and Infection
+BiologyHans Knöll Institute, 07745 Jena, Germany;
+Institute of Organic Chemistry & Macromolecular Chemistry
+(IOMC), Friedrich Schiller University Jena, 07743 Jena,
+Germany; Cluster of Excellence Balance of the Microverse,
+Friedrich Schiller University Jena, 07743 Jena, Germany;
+orcid.org/0000-0001-7260-9921;
+Email: pierre.stallforth@leibniz-hki.de
+Authors
+Rosa Herbst −Department of Paleobiotechnology, Leibniz
+Institute for Natural Product Research and Infection
+BiologyHans Knöll Institute, 07745 Jena, Germany
+Anan Ibrahim −Department of Paleobiotechnology, Leibniz
+Institute for Natural Product Research and Infection
+BiologyHans Knöll Institute, 07745 Jena, Germany
+Alexander Hübner −Department of Archaeogenetics, Max
+Planck Institute for Evolutionary Anthropology, 04103
+Leipzig, Germany; Associated Research Group of
+Archaeogenetics, Leibniz Institute for Natural Product
+Research and Infection BiologyHans Knöll Institute, 07745
+Jena, Germany
+Uwe Knüpfer −Bio Pilot Plant, Leibniz Institute for Natural
+Product Research and Infection BiologyHans Knöll
+Institute, 07745 Jena, Germany
+Lars Regestein −Bio Pilot Plant, Leibniz Institute for Natural
+Product Research and Infection BiologyHans Knöll
+Institute, 07745 Jena, Germany;
+orcid.org/0000-0003-
+1258-7171
+Christoph Wiedemann −Institute of Organic Chemistry &
+Macromolecular Chemistry (IOMC), Friedrich Schiller
+University Jena, 07743 Jena, Germany;
+orcid.org/0000-
+0003-4351-8857
+Ute A. Hellmich −Institute of Organic Chemistry &
+Macromolecular Chemistry (IOMC), Friedrich Schiller
+University Jena, 07743 Jena, Germany; Cluster of Excellence
+Balance of the Microverse, Friedrich Schiller University Jena,
+07743 Jena, Germany;
+orcid.org/0000-0001-7162-285X
+Complete contact information is available at:
+https://pubs.acs.org/10.1021/jacs.5c14335
+Author Contributions
+○R.H. and A.I. contributed equally. The manuscript was
+written through contributions of all authors. All authors have
+given approval to the final version of the manuscript.
+Funding
+Werner Siemens-Stiftung(Paleobiotechnology); German Re-
+search Foundation (Deutsche Forschungsgemeinschaft) under
+Germany’s Excellence StrategyEXC 2051project ID
+390713860; German Research Foundation (Deutsche For-
+schungsgemeinschaft) the collaborative research cluster
+SFB1127/2 ChemBioSysproject ID 239748522; Euro-
+päischer Fonds für regionale Entwicklung (instrument grant).
+Notes
+The authors declare no competing financial interest.
+■ACKNOWLEDGMENTS
+We thank the following funding agencies: Werner Siemens-
+Stiftung, German Research Foundation (Deutsche Forschungs-
+gemeinschaft), Europäischer Fonds für regionale Entwicklung
+(instrument grant). We thank Hannah Mendler for assistance
+with recombinant protein purifications. During the preparation
+of this work, the authors utilized generative AI (ChatGPT by
+OpenAI) to assist with the improvement of readability and
+code development. All AI-assisted content was critically
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.5c14335
+J. Am. Chem. Soc. 2025, 147, 48060−48071
+48069
+
+
+
+[PDF physical page 11]
+reviewed, edited, and validated by the authors, who take full
+responsibility for the final content.
+■REFERENCES
+(1) Hegemann, J. D.; Birkelbach, J.; Walesch, S.; Müller, R. Current
+Developments in Antibiotic Discovery. EMBO Rep. 2023, 24 (1),
+No. e56184.
+(2) Kapoor, R.; Saini, A.; Sharma, D. Indispensable Role of Microbes
+in Anticancer Drugs and Discovery Trends. Appl. Microbiol.
+Biotechnol. 2022, 106 (13−16), 4885−4906.
+(3) Klapper, M.; Hübner, A.; Ibrahim, A.; Wasmuth, I.; Borry, M.;
+Haensch, V. G.; Zhang, S.; Al-Jammal, W. K.; Suma, H.; Fellows
+Yates, J. A.; Frangenberg, J.; Velsko, I. M.; Chowdhury, S.; Herbst, R.;
+Bratovanov, E. V.; Dahse, H.-M.; Horch, T.; Hertweck, C.; González
+Morales, M. R.; Straus, L. G.; Vilotijevic, I.; Warinner, C.; Stallforth,
+P. Natural Products from Reconstructed Bacterial Genomes of the
+Middle and Upper Paleolithic. Science 2023, 380 (6645), 619−624.
+(4) Ganz, T. The Role of Antimicrobial Peptides in Innate
+Immunity. Integr. Comp. Biol. 2003, 43 (2), 300−304.
+(5) Hassan, M.; Kjos, M.; Nes, I. f.; Diep, D. b.; Lotfipour, F. Natural
+Antimicrobial Peptides from Bacteria: Characteristics and Potential
+Applications to Fight against Antibiotic Resistance. J. Appl. Microbiol.
+2012, 113 (4), 723−736.
+(6) Baker, J. L.; Mark Welch, J. L.; Kauffman, K. M.; McLean, J. S.;
+He, X. The Oral Microbiome: Diversity, Biogeography and Human
+Health. Nat. Rev. Microbiol. 2024, 22 (2), 89−104.
+(7) Escapa, I. F.; Chen, T.; Huang, Y.; Gajare, P.; Dewhirst, F. E.;
+Lemon, K. P. New Insights into Human Nostril Microbiome from the
+Expanded Human Oral Microbiome Database (eHOMD): A
+Resource for the Microbiome of the Human Aerodigestive Tract.
+mSystems 2018, 3 (6), No. e00187.
+(8) Mark Welch, J. L.; Rossetti, B. J.; Rieken, C. W.; Dewhirst, F. E.;
+Borisy, G. G. Biogeography of a Human Oral Microbiome at the
+Micron Scale. Proc. Natl. Acad. Sci. U.S.A. 2016, 113 (6), E791−E800.
+(9) Zaura, E.; Nicu, E. A.; Krom, B. P.; Keijser, B. J. F. Acquiring and
+Maintaining a Normal Oral Microbiome: Current Perspective. Front.
+Cell. Infect. Microbiol. 2014, 4, 85.
+(10) Fellows Yates, J. A.; Velsko, I. M.; Aron, F.; Posth, C.; Hofman,
+C. A.; Austin, R. M.; Parker, C. E.; Mann, A. E.; Nägele, K.; Arthur, K.
+W.; Arthur, J. W.; Bauer, C. C.; Crevecoeur, I.; Cupillard, C.; Curtis,
+M. C.; Dalén, L.; Díaz-Zorita Bonilla, M.; Díez Fernández-Lomana, J.
+C.; Drucker, D. G.; Escribano Escrivá, E.; Francken, M.; Gibbon, V.
+E.; González Morales, M. R.; Grande Mateu, A.; Harvati, K.; Henry,
+A. G.; Humphrey, L.; Menéndez, M.; Mihailović, D.; Peresani, M.;
+Rodríguez Moroder, S.; Roksandic, M.; Rougier, H.; Sázelová, S.;
+Stock, J. T.; Straus, L. G.; Svoboda, J.; Teßmann, B.; Walker, M. J.;
+Power, R. C.; Lewis, C. M.; Sankaranarayanan, K.; Guschanski, K.;
+Wrangham, R. W.; Dewhirst, F. E.; Salazar-García, D. C.; Krause, J.;
+Herbig, A.; Warinner, C. The Evolution and Changing Ecology of the
+African Hominid Oral Microbiome. Proc. Natl. Acad. Sci. U.S.A. 2021,
+118 (20), No. e2021655118.
+(11) Nurk, S.; Meleshko, D.; Korobeynikov, A.; Pevzner, P. A.
+metaSPAdes: A New Versatile Metagenomic Assembler. Genome Res.
+2017, 27 (5), 824−834.
+(12) Li, D.; Liu, C.-M.; Luo, R.; Sadakane, K.; Lam, T.-W. M. E. G.
+A. H. I. T. MEGAHIT: an ultra-fast single-node solution for large and
+complex metagenomics assembly via succinct de Bruijn graph.
+Bioinformatics 2015, 31 (10), 1674−1676.
+(13) Sun, S. Progress in the Identification and Design of Novel
+Antimicrobial Peptides Against Pathogenic Microorganisms. Probiotics
+Antimicrob. Proteins 2025, 17 (2), 918−936.
+(14) Ibrahim, A. Darcy220606/AMPcombi, 2025. https://github.
+com/Darcy220606/AMPcombi (accessed 04 17, 2025).
+(15) Eddy, S. R. Accelerated Profile HMM Searches. PLoS Comput.
+Biol. 2011, 7 (10), No. e1002195.
+(16) Jones, P.; Binns, D.; Chang, H.-Y.; Fraser, M.; Li, W.;
+McAnulla, C.; McWilliam, H.; Maslen, J.; Mitchell, A.; Nuka, G.;
+Pesseat, S.; Quinn, A. F.; Sangrador-Vegas, A.; Scheremetjew, M.;
+Yong, S.-Y.; Lopez, R.; Hunter, S. InterProScan 5: Genome-Scale
+Protein Function Classification. Bioinformatics 2014, 30 (9), 1236−
+1240.
+(17) Wang, Z.; Wang, G. APD The Antimicrobial Peptide Database.
+Nucleic Acids Res. 2004, 32, D590−D592.
+(18) Ma, T.; Liu, Y.; Yu, B.; Sun, X.; Yao, H.; Hao, C.; Li, J.; Nawaz,
+M.; Jiang, X.; Lao, X.; Zheng, H. DRAMP 4.0: An Open-Access Data
+Repository Dedicated to the Clinical Translation of Antimicrobial
+Peptides. Nucleic Acids Res. 2025, 53 (D1), D403−D410.
+(19) Suzek, B. E.; Huang, H.; McGarvey, P.; Mazumder, R.; Wu, C.
+H. UniRef: Comprehensive and Non-Redundant UniProt Reference
+Clusters. Bioinformatics 2007, 23 (10), 1282−1288.
+(20) Hamid, M.-N.; Friedberg, I. Identifying Antimicrobial Peptides
+Using Word Embedding with Deep Recurrent Neural Networks.
+Bioinforma. Oxf. Engl. 2019, 35 (12), 2009−2016.
+(21) Fingerhut, L. C. H. W.; Miller, D. J.; Strugnell, J. M.; Daly, N.
+L.; Cooke, I. R. Ampir: An R Package for Fast Genome-Wide
+Prediction of Antimicrobial Peptides. Bioinforma. Oxf. Engl. 2021, 36
+(21), 5262−5263.
+(22) Burdukiewicz, M.; Sidorczuk, K.; Rafacz, D.; Pietluch, F.;
+Chilimoniuk, J.; Rödiger, S.; Gagat, P. Proteomic Screening for
+Prediction and Design of Antimicrobial Peptides with AmpGram. Int.
+J. Mol. Sci. 2020, 21 (12), 4310.
+(23) Borry, M.; Hübner, A.; Rohrlach, A. B.; Warinner, C.
+PyDamage: Automated Ancient Damage Identification and Estima-
+tion for Contigs in Ancient DNA de Novo Assembly. PeerJ 2021, 9,
+No. e11845.
+(24) Velsko, I. M.; Hübner, A.; Fagernäs, Z.; Yates, J. F.; Mann, A.
+E.; Hofman, C.; Ozga, A. T.; Lewis, C. M.; Speller, C.; Fiddyment, S.;
+Francken, M.; Wahl, J.; Krause, J.; Radini, A.; King, T.; Warinner, C.
+The Oral Microbiome of King Richard III of England. bioRxiv 2025,
+677585.
+(25) Dewhirst, F. E.; Chen, T.; Izard, J.; Paster, B. J.; Tanner, A. C.
+R.; Yu, W.-H.; Lakshmanan, A.; Wade, W. G. The Human Oral
+Microbiome. J. Bacteriol. 2010, 192 (19), 5002−5017.
+(26) Lazzaro, B. P.; Zasloff, M.; Rolff, J. Antimicrobial Peptides:
+Application Informed by Evolution. Science 2020, 368 (6490),
+No. eaau5480.
+(27) Sugrue, I.; O’Connor, P. M.; Hill, C.; Stanton, C.; Ross, R. P.
+Actinomyces Produces Defensin-Like Bacteriocins (Actifensins) with
+a Highly Degenerate Structure and Broad Antimicrobial Activity. J.
+Bacteriol. 2020, 202 (4), No. e00529.
+(28) Zhu, S.; Gao, B.; Harvey, P. J.; Craik, D. J. Dermatophytic
+Defensin with Antiinfective Potential. Proc. Natl. Acad. Sci. U.S.A.
+2012, 109 (22), 8495−8500.
+(29) Jumper, J.; Evans, R.; Pritzel, A.; Green, T.; Figurnov, M.;
+Ronneberger, O.; Tunyasuvunakool, K.; Bates, R.; Žídek, A.;
+Potapenko, A.; Bridgland, A.; Meyer, C.; Kohl, S. A. A.; Ballard, A.
+J.; Cowie, A.; Romera-Paredes, B.; Nikolov, S.; Jain, R.; Adler, J.;
+Back, T.; Petersen, S.; Reiman, D.; Clancy, E.; Zielinski, M.;
+Steinegger, M.; Pacholska, M.; Berghammer, T.; Bodenstein, S.;
+Silver, D.; Vinyals, O.; Senior, A. W.; Kavukcuoglu, K.; Kohli, P.;
+Hassabis, D. Highly Accurate Protein Structure Prediction with
+AlphaFold. Nature 2021, 596 (7873), 583−589.
+(30) Kelly, S. M.; Jess, T. J.; Price, N. C. How to Study Proteins by
+Circular Dichroism. Biochim. Biophys. Acta, Proteins Proteomics 2005,
+1751 (2), 119−139.
+(31) Pronk, S.; Páll, S.; Schulz, R.; Larsson, P.; Bjelkmar, P.;
+Apostolov, R.; Shirts, M. R.; Smith, J. C.; Kasson, P. M.; van der
+Spoel, D.; Hess, B.; Lindahl, E. GROMACS 4.5: A High-Throughput
+and Highly Parallel Open Source Molecular Simulation Toolkit.
+Bioinformatics 2013, 29 (7), 845−854.
+(32) Zhu, S.; Gao, B.; Umetsu, Y.; Peigneur, S.; Li, P.; Ohki, S.;
+Tytgat, J. Adaptively Evolved Human Oral Actinomyces-sourced
+Defensins Show Therapeutic Potential. EMBO Mol. Med. 2022, 14
+(2), No. e14499.
+(33) Murray, C. J. L.; Ikuta, K. S.; Sharara, F.; Swetschinski, L.;
+Robles Aguilar, G.; Gray, A.; Han, C.; Bisignano, C.; Rao, P.; Wool,
+E.; Johnson, S. C.; Browne, A. J.; Chipeta, M. G.; Fell, F.; Hackett, S.;
+Haines-Woodhouse, G.; Kashef Hamadani, B. H.; Kumaran, E. A. P.;
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.5c14335
+J. Am. Chem. Soc. 2025, 147, 48060−48071
+48070
+
+
+
+[PDF physical page 12]
+McManigal, B.; Achalapong, S.; Agarwal, R.; Akech, S.; Albertson, S.;
+Amuasi, J.; Andrews, J.; Aravkin, A.; Ashley, E.; Babin, F.-X.; Bailey,
+F.; Baker, S.; Basnyat, B.; Bekker, A.; Bender, R.; Berkley, J. A.;
+Bethou, A.; Bielicki, J.; Boonkasidecha, S.; Bukosia, J.; Carvalheiro, C.;
+Castañeda-Orjuela, C.; Chansamouth, V.; Chaurasia, S.; Chiurchiù, S.;
+Chowdhury, F.; Clotaire Donatien, R.; Cook, A. J.; Cooper, B.;
+Cressey, T. R.; Criollo-Mora, E.; Cunningham, M.; Darboe, S.; Day,
+N. P. J.; De Luca, M.; Dokova, K.; Dramowski, A.; Dunachie, S. J.;
+Duong Bich, T.; Eckmanns, T.; Eibach, D.; Emami, A.; Feasey, N.;
+Fisher-Pearson, N.; Forrest, K.; Garcia, C.; Garrett, D.; Gastmeier, P.;
+Giref, A. Z.; Greer, R. C.; Gupta, V.; Haller, S.; Haselbeck, A.; Hay, S.
+I.; Holm, M.; Hopkins, S.; Hsia, Y.; Iregbu, K. C.; Jacobs, J.; Jarovsky,
+D.; Javanmardi, F.; Jenney, A. W. J.; Khorana, M.; Khusuwan, S.;
+Kissoon, N.; Kobeissi, E.; Kostyanev, T.; Krapp, F.; Krumkamp, R.;
+Kumar, A.; Kyu, H. H.; Lim, C.; Lim, K.; Limmathurotsakul, D.;
+Loftus, M. J.; Lunn, M.; Ma, J.; Manoharan, A.; Marks, F.; May, J.;
+Mayxay, M.; Mturi, N.; Munera-Huertas, T.; Musicha, P.; Musila, L.
+A.; Mussi-Pinhata, M. M.; Naidu, R. N.; Nakamura, T.; Nanavati, R.;
+Nangia, S.; Newton, P.; Ngoun, C.; Novotney, A.; Nwakanma, D.;
+Obiero, C. W.; Ochoa, T. J.; Olivas-Martinez, A.; Olliaro, P.; Ooko,
+E.; Ortiz-Brizuela, E.; Ounchanum, P.; Pak, G. D.; Paredes, J. L.;
+Peleg, A. Y.; Perrone, C.; Phe, T.; Phommasone, K.; Plakkal, N.;
+Ponce-de-Leon, A.; Raad, M.; Ramdin, T.; Rattanavong, S.; Riddell,
+A.; Roberts, T.; Robotham, J. V.; Roca, A.; Rosenthal, V. D.; Rudd, K.
+E.; Russell, N.; Sader, H. S.; Saengchan, W.; Schnall, J.; Scott, J. A. G.;
+Seekaew, S.; Sharland, M.; Shivamallappa, M.; Sifuentes-Osornio, J.;
+Simpson, A. J.; Steenkeste, N.; Stewardson, A. J.; Stoeva, T.; Tasak,
+N.; Thaiprakong, A.; Thwaites, G.; Tigoi, C.; Turner, C.; Turner, P.;
+van DoornVelaphi, H. R. S.; Vongpradith, A.; Vongsouvath, M.; Vu,
+H.; Walsh, T.; Walson, J. L.; Waner, S.; Wangrangsimakul, T.;
+Wannapinij, P.; Wozniak, T.; Young Sharma, T. E. M. W.; Yu, K. C.;
+Zheng, P.; Sartorius, B.; Lopez, A. D.; Stergachis, A.; Moore, C.;
+Dolecek, C.; Naghavi, M.; Naghavi, M. Global Burden of Bacterial
+Antimicrobial Resistance in 2019: A Systematic Analysis. Lancet 2022,
+399 (10325), 629−655.
+(34) WHO/ECDC Report: Antimicrobial Resistance Threatens Patient
+Safety in European Region. https://www.ecdc.europa.eu/en/news-
+events/whoecdc-report-antimicrobial-resistance-threatens-patient-
+safety-european-region (accessed 2025−04−17).
+(35) Mahlapuu, M.; Håkansson, J.; Ringstad, L.; Björn, C.
+Antimicrobial Peptides: An Emerging Category of Therapeutic
+Agents. Front. Cell. Infect. Microbiol. 2016, 6, 194.
+(36) Aronica, P. G. A.; Reid, L. M.; Desai, N.; Li, J.; Fox, S. J.;
+Yadahalli, S.; Essex, J. W.; Verma, C. S. Computational Methods and
+Tools in Antimicrobial Peptide Research. J. Chem. Inf. Model. 2021,
+61 (7), 3172−3196.
+(37) Brizuela, C. A.; Liu, G.; Stokes, J. M.; de la Fuente-Nunez, C.
+AI Methods for Antimicrobial Peptides: Progress and Challenges.
+Microb. Biotechnol. 2025, 18 (1), No. e70072.
+(38) Chen, J.; Jia, Y.; Sun, Y.; Liu, K.; Zhou, C.; Liu, C.; Li, D.; Liu,
+G.; Zhang, C.; Yang, T.; Huang, L.; Zhuang, Y.; Wang, D.; Xu, D.;
+Zhong, Q.; Guo, Y.; Li, A.; Seim, I.; Jiang, L.; Wang, L.; Lee, S. M. Y.;
+Liu, Y.; Wang, D.; Zhang, G.; Liu, S.; Wei, X.; Yue, Z.; Zheng, S.;
+Shen, X.; Wang, S.; Qi, C.; Chen, J.; Ye, C.; Zhao, F.; Wang, J.; Fan,
+J.; Li, B.; Sun, J.; Jia, X.; Xia, Z.; Zhang, H.; Liu, J.; Zheng, Y.; Liu, X.;
+Wang, J.; Yang, H.; Kristiansen, K.; Xu, X.; Mock, T.; Li, S.; Zhang,
+W.; Fan, G. Global Marine Microbial Diversity and Its Potential in
+Bioprospecting. Nature 2024, 633 (8029), 371−379.
+(39) Abdill, R. J.; Graham, S. P.; Rubinetti, V.; Ahmadian, M.; Hicks,
+P.; Chetty, A.; McDonald, D.; Ferretti, P.; Gibbons, E.; Rossi, M.;
+Krishnan, A.; Albert, F. W.; Greene, C. S.; Davis, S.; Blekhman, R.
+Integration of 168,000 Samples Reveals Global Patterns of the Human
+Gut Microbiome. Cell 2025, 188 (4), 1100−1118.
+(40) Vanhoye, D.; Bruston, F.; Nicolas, P.; Amiche, M.
+Antimicrobial Peptides from Hylid and Ranin Frogs Originated
+from a 150-Million-Year-Old Ancestral Precursor with a Conserved
+Signal Peptide but a Hypermutable Antimicrobial Domain. Eur. J.
+Biochem. 2003, 270 (9), 2068−2081.
+(41) Maasch, J. R. M. A.; Torres, M. D. T.; Melo, M. C. R.; de la
+Fuente-Nunez, C. Molecular De-Extinction of Ancient Antimicrobial
+Peptides Enabled by Machine Learning. Cell Host Microbe 2023, 31
+(8), 1260−1274.
+(42) Ferreira, A. F. L.; Osiro, K. O.; de Oliveira, K. B. S.; Cardoso,
+M. H.; de Lima, L. R.; Duque, H. M.; Macedo, M. L. R.; Landon, C.;
+de la Fuente-Nunez, C.; Franco, O. L. Defensins Identified through
+Molecular De-Extinction. Cell Rep. Phys. Sci. 2024, 5 (9), 102193.
+(43) Peel, E.; Gonsalvez, A.; Hogg, C. J.; Belov, K. Marsupial
+Cathelicidins: Characterization, Antimicrobial Activity and Evolution
+in This Unique Mammalian Lineage. Front. Immunol. 2025, 16,
+1524092.
+(44) Shafee, T. M. A.; Lay, F. T.; Hulett, M. D.; Anderson, M. A.
+The Defensins Consist of Two Independent, Convergent Protein
+Superfamilies. Mol. Biol. Evol. 2016, 33 (9), 2345−2356.
+(45) Schneider, J. J.; Unholzer, A.; Schaller, M.; Schäfer-Korting, M.;
+Korting, H. C. Human Defensins. J. Mol. Med. 2005, 83 (8), 587−
+595.
+(46) Marshall, R. I. Gingival Defensins: Linking the Innate and
+Adaptive Immune Responses to Dental Plaque. Periodontology 2004,
+35, 14−20.
+(47) Warinner, C.; Rodrigues, J. F. M.; Vyas, R.; Trachsel, C.; Shved,
+N.; Grossmann, J.; Radini, A.; Hancock, Y.; Tito, R. Y.; Fiddyment, S.;
+Speller, C.; Hendy, J.; Charlton, S.; Luder, H. U.; Salazar-García, D.
+C.; Eppler, E.; Seiler, R.; Hansen, L. H.; Castruita, J. A. S.; Barkow-
+Oesterreicher, S.; Teoh, K. Y.; Kelstrup, C. D.; Olsen, J. V.; Nanni, P.;
+Kawai, T.; Willerslev, E.; von Mering, C.; Lewis, C. M.; Collins, M. J.;
+Gilbert, M. T. P.; Rühli, F.; Cappellini, E. Pathogens and Host
+Immunity in the Ancient Human Oral Cavity. Nat. Genet. 2014, 46
+(4), 336−344.
+(48) Velsko, I. M.; Fagernäs, Z.; Tromp, M.; Bedford, S.; Buckley, H.
+R.; Clark, G.; Dudgeon, J.; Flexner, J.; Galipaud, J.-C.; Kinaston, R.;
+Lewis, C. M.; Matisoo-Smith, E.; Nägele, K.; Ozga, A. T.; Posth, C.;
+Rohrlach, A. B.; Shing, R.; Simanjuntak, T.; Spriggs, M.; Tamarii, A.;
+Valentin, F.; Willie, E.; Warinner, C. Exploring the Potential of Dental
+Calculus to Shed Light on Past Human Migrations in Oceania. Nat.
+Commun. 2024, 15 (1), 10191.
+(49) Landwehr, W.; Wolf, C.; Wink, J. Actinobacteria and
+Myxobacteria-Two of the Most Important Bacterial Resources for
+Novel Antibiotics. Curr. Top. Microbiol. Immunol. 2016, 398, 273−
+302.
+(50) Semple, C. A.; Maxwell, A.; Gautier, P.; Kilanowski, F. M.;
+Eastwood, H.; Barran, P. E.; Dorin, J. R. The Complexity of Selection
+at the Major Primate β-Defensin Locus. BMC Evol. Biol. 2005, 5 (1),
+32.
+(51) Yount, N. Y.; Yeaman, M. R. Multidimensional Signatures in
+Antimicrobial Peptides. Proc. Natl. Acad. Sci. U.S.A. 2004, 101 (19),
+7363−7368.
+(52) Ibrahim, A.; Perelo, L. Darcy220606/AMPcombi: V.2.0.1, 2024.
+(53) paleobiotechnology/AMP_defensins: Contains all Necessary Files
+and Codes Required for the Analyses Done in the AMPcombi Defensin
+Paper. GitHub. https://github.com/paleobiotechnology/AMP_
+defensins (accessed 04 17, 2025).
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.5c14335
+J. Am. Chem. Soc. 2025, 147, 48060−48071
+48071

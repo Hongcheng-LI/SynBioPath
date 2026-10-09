@@ -1,0 +1,694 @@
+
+[PDF physical page 1]
+A Convolutional Neural Network-Based Approach for the Rapid
+Annotation of Molecularly Diverse Natural Products
+Raphael Reher,¶ Hyun Woo Kim,¶ Chen Zhang,¶ Huanru Henry Mao, Mingxun Wang,
+Louis-Félix Nothias, Andres Mauricio Caraballo-Rodriguez, Evgenia Glukhov, Bahar Teke, Tiago Leao,
+Kelsey L. Alexander, Brendan M. Duggan, Ezra L. Van Everbroeck, Pieter C. Dorrestein,
+Garrison W. Cottrell,* and William H. Gerwick*
+Cite This: J. Am. Chem. Soc. 2020, 142, 4114−4120
+Read Online
+ACCESS
+Metrics & More
+Article Recommendations
+*
+sı
+Supporting Information
+ABSTRACT: This report describes the ﬁrst application of the novel NMR-based machine learning tool “Small Molecule Accurate
+Recognition Technology” (SMART 2.0) for mixture analysis and subsequent accelerated discovery and characterization of new
+natural products. The concept was applied to the extract of a ﬁlamentous marine cyanobacterium known to be a proliﬁc producer of
+cytotoxic natural products. This environmental Symploca extract was roughly fractionated, and then prioritized and guided by cancer
+cell cytotoxicity, NMR-based SMART 2.0, and MS2-based molecular networking. This led to the isolation and rapid identiﬁcation of
+a new chimeric swinholide-like macrolide, symplocolide A, as well as the annotation of swinholide A, samholides A−I, and several
+new derivatives. The planar structure of symplocolide A was conﬁrmed to be a structural hybrid between swinholide A and
+luminaolide B by 1D/2D NMR and LC-MS2 analysis. A second example applies SMART 2.0 to the characterization of structurally
+novel cyclic peptides, and compares this approach to the recently appearing “atomic sort” method. This study exempliﬁes the
+revolutionary potential of combined traditional and deep learning-assisted analytical approaches to overcome longstanding
+challenges in natural products drug discovery.
+N
+atural products (NPs) of terrestrial and marine
+organisms have been a highly valuable source of leads
+for biomedical applications. About 50% of FDA approved
+drugs can trace their origin to NPs, and notably, marine NPs
+have proportionately produced a much higher success rate than
+other sources of drug leads (e.g., 19 approved marine derived
+or inspired agents are on the market today).1−3 Filamentous
+marine cyanobacteria are especially rich in structurally diverse
+and biologically active NPs,4,5 such as those showing
+diﬀerential cytotoxicity against various cancer cell lines.6,7 In
+this regard, the genus Symploca is a proliﬁc producer of
+cytotoxic NPs such as dolastatin 10,8,9 symplocamide A,10 and
+others.11−16
+Drug discovery and development is expensive ($2 billion on
+average), time-consuming (13−15 years from concept to
+market), and risky (clinical success rate of 12%).17 Informatic
+tools are therefore being developed to make the discovery of
+new leads more eﬃcient, to repurpose known agents, to target
+new metabolites on the basis of genomic analysis, to rapidly
+reveal mechanisms of action, and to optimize the pharmaceut-
+ical properties of drug leads. For example, the emerging
+research area of genome mining18 featuring bioinformatic tools
+such as AntiSMASH 5.019 and BiGSCAPE20 provide an
+orthogonal approach to NP discovery,21 although an approved
+drug discovered by this approach has not yet been marketed.
+The rapid identiﬁcation of molecular structure, either known
+or new, is a signiﬁcant challenge in NP discovery, and a variety
+of partial solutions are emerging using disparate analytical
+approaches.
+For example, liquid chromatography−tandem mass spec-
+trometry-based (LC-MS/MS) dereplication tools, such as the
+Global Natural Products Social molecular networking (GNPS;
+http://gnps.ucsd.edu), MS2LDA, and SIRIUS,22−28 represent
+paradigm shifts in NP research. These new tools are facilitating
+the targeted isolation of new NPs as well as rapidly
+dereplicating known ones. Nevertheless, unambiguous identi-
+ﬁcation of new NPs still requires isolation and characterization
+by NMR spectroscopy to comply with the minimum standards
+for novel metabolite annotation.30,31 Recent eﬀorts have
+focused on combining various NMR techniques with mass
+spectrometry and in silico databases.32,33 Previously. we
+reported a novel approach that involved training a deep
+convolutional neural network (CNN) of Siamese architecture
+with 2048 1H−13C HSQC spectra mined from the Supporting
+Information sections of the Journal of Natural Products.34 This
+trained system was used to analyze new spectra, place them
+within 10-dimensional SMART cluster space, and accelerate
+the structure elucidation of a series of cyclic lipopeptides.34,35
+Encouraged, we subsequently developed automated pipe-
+lines to produce constructed HSQC spectra from data tables as
+well as predicted HSQC spectra from published structures.
+SMART 2.0 was trained on 25 434 HSQC spectra from NPs of
+Received:
+December 22, 2019
+Published: February 11, 2020
+Communication
+pubs.acs.org/JACS
+© 2020 American Chemical Society
+4114
+https://dx.doi.org/10.1021/jacs.9b13786
+J. Am. Chem. Soc. 2020, 142, 4114−4120
+Downloaded via OCEAN UNIV OF CHINA on August 2, 2024 at 14:02:57 (UTC).
+See https://pubs.acs.org/sharingguidelines for options on how to legitimately share published articles.
+
+
+
+[PDF physical page 2]
+the JEOL database (https://www.j-resonance.com/en/
+nmrdb/). The spectra were mapped into a 180-dimensional
+embedding space using a CNN (SqueezeNet).36 We mapped
+an additional 27 642 spectra that were computed using the
+ACD Laboratories predictor to create the HSQC spectra (see
+page S6 of the Supporting Information for details) from
+randomly chosen, mainly marine NPs (e.g., NP Atlas37 and
+NPASS), into the 180-D space. The resulting 53 076 NP
+HSQC spectra cover approximately 15% of the currently
+known NPs. Further experiments demonstrated the remarkable
+robustness of the SMART analysis toward diﬀerent NMR
+solvents (Figure S1), and the value of calculated HSQC
+spectra in the SMART analysis (Figure S2).
+Here, we demonstrate this unique cheminformatic tool to
+automatically characterize a complex NP from a cyanobacterial
+extract mixture for the ﬁrst time. Resultantly, the extract was
+fractionated and the isolation of novel NPs undertaken guided
+by NMR-based SMART mixture analysis, MS2 molecular
+networking, and cytotoxicity against NCI-H460 human lung
+cancer cells in vitro. This led to the discovery of a new
+swinholide class of NP, named “symplocolide A” (compound
+1, Scheme 1, Scheme S1), as well as the annotation of several
+known compounds in this structural class.
+Tufts of a ﬁlamentous marine cyanobacterium, morpholog-
+ically identiﬁed as Symploca sp., were collected near American
+Samoa. The preserved collection was repetitively extracted (2/
+1 CH2Cl2/MeOH) and fractionated using vacuum liquid
+chromatography (VLC) to obtain nine fractions of increasing
+polarity (A−I). All fractions and the crude extract were
+screened for cytotoxicity to H-460 human lung cancer cells.38
+Besides the crude extract, only fraction H showed strong
+cytotoxicity, while fraction I was moderately active (Figures 1a
+and S3). For initial SMART 2.0 analysis of the most cytotoxic
+crude fraction H, a NUS-ASAP-HSQC39−41 was recorded in
+13 min on about 1 mg material in a 1.7 mm TCI
+MicroCryoProbe (599.10 MHz) to obtain the correlations of
+the major components of that fraction. After autopeak picking
+of the 45 most intense features, 11 out of the top 12 structures
+annotated by SMART 2.0 were macrolides including the
+known cyanobacterial metabolites swinholide A and iso-
+swinholide A (Figures 1b−d).
+Targeting these macrolides for isolation, fraction H was
+puriﬁed by C-18 solid phase extraction into subfractions H1−
+H7; these were analyzed using SMART 2.0 mixture analysis as
+well as MS2-based molecular networking. The latter revealed a
+highly abundant and distinct cluster of four nodes with the
+major m/z 1395.9 in active fraction H4 (Figure 1e). Isolation
+and structure elucidation of this compound led to the
+discovery of a new cytotoxic macrolide (Scheme 1), named
+symplocolide A (1), representing a structural chimera between
+swinholide A (4) and luminaolide B (3).43 Analysis of the MS2
+spectra of metabolites from these fractions using GNPS led to
+annotation of swinholide A (4), the glycosylated samholides
+A−I44 (5−13, Scheme 1 Figures S12−S22), as well as several
+putatively new analogues swinholides L and M, samholides J−
+M, and symplocolides B−D (Figures S23−S30).
+Similarities in the MS2 fragmentation patterns of 1 and 4
+(Figures 1f and g)29 suggested that they diﬀered in their
+carbon backbones (see blue part of the feature m/z 939.49,
+Figures 1g, S4). This hypothesis was conﬁrmed following
+isolation and unambiguous structure determination by 2D
+NMR analysis and HRMS (Figures S5−S11, Table S1). These
+analyses disclosed 1 to possess the backbone skeleton of 3 and
+the side chain structure of 4, thus constituting a chimera of
+these two macrolides.
+All known swinholide-type compounds, irrespective of origin
+(sponge, cyanobacteria, algae, nudibranch), possess a highly
+analogous monomeric carbon skeleton and identical conﬁg-
+urations at comparable chiral centers (Scheme 1); this has
+been conﬁrmed in two cases by X-ray crystallography45,46 as
+well as total synthesis.47 These swinholide-type metabolites are
+produced by highly similar trans AT polyketide synthase
+biosynthetic gene clusters.29,43 Thus, the stereochemistry of 1
+is assigned by analogy given the close similarities between the
+1H and 13C NMR chemical shifts and coupling constants of
+compound 1 with those of previously reported swinholide-like
+macrolides (Tables S2, S3, Scheme S1).42−44,48
+Recently, Duggan et al. developed an “atomic sort” method
+wherein HSQC spectra from two diﬀerent NP extracts were
+compared with a database of 1207, mostly human primary
+metabolites using Euclidian distance scores, and the method
+was able to detect novel structural features of marine NPs.49
+This approach yielded a new analogue of a known
+antiprotozoal polyketide (gracilioether L, see SMART results
+in Figure S32).50 They also demonstrated the method with
+reisolation of known antibacterial cyclic heptapeptide, cyclo-
+marin A.51−53 However, three of four “novel features” detected
+by this method in cyclomarin A were false positives in terms of
+structural novelty (e.g., regular methyl group, methylene next
+to primary alcohol and alpha-carbon methine of N-methyl-
+leucine).
+To demonstrate SMART 2.0 for mixture analysis and early
+prioritization for rare structural motifs, we used the NMR table
+from the SI in Duggan et al.49 to evaluate the HSQC data of
+the crude extract as well as pure cyclomarin A (not in the
+SMART database). Intriguingly, the top two hits for
+cyclomarin A and top 20 hits for the crude extract, consisting
+of 289 C−H correlations in the HSQC spectrum, revealed the
+closely related ilamycins C1 and C2 as candidate structures.54
+Ilamycins harbor a very similar and rare N-(1,1-dimethyl-2,3-
+epoxypropyl)-tryptophan moiety as cyclomarin A [substruc-
+ture search of NP Atlas database (https://www.npatlas.org/)
+Scheme 1. Structures of Symplocolide A (1), Luminaolide
+(2),42 Luminaolide B (3),43 Swinholide A (4), and
+Samholides A−I (5−13)44,a
+aAll compounds except 2 and 3 were detected in this study.
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Communication
+https://dx.doi.org/10.1021/jacs.9b13786
+J. Am. Chem. Soc. 2020, 142, 4114−4120
+4115
+
+
+
+[PDF physical page 3]
+returned no additional NPs with this amino acid moiety].37
+Furthermore, ilamycins contain a similar 4-hexenoic acid
+residue as cyclomarin A (Figures 2, S33). This example
+underscores that while features such as heteroatoms and
+Figure 1. (a,h) Cytotoxicity assay against NCI-H460 lung cancer cells reveals VLC fraction H (a) and subfractions H4−H6 (h), respectively, as the
+most potent at 1 and 10 μg/mL (see also Figure S3). (b) Digitized HSQC spectrum of most cytotoxic fraction H. (c) t-SNE embedding of the
+HSQC spectrum into the 180 dimensional cluster space of 53 076 nodes (reduced here to 10 000 for clarity) representing natural products trained
+on the basis of their 1H−13C-HSQC spectra. Swinholide A and its closest neighbors are highlighted (purple nodes, black rectangle). (d) SMART
+2.0 results (top 12 structures based on cosine similarity score) of fraction H suggests that it contains macrolides from the swinholide class. (e)
+Molecular networking analysis of cyanobacterial subfractions H3−H7. Highlighted cluster with putatively new m/z feature 1395.9 (H4, green
+nodes). (f) MS2 analysis of swinholide A29 and comparison to (g) the feature detected as new m/z 1395.9 (symplocolide A) show fragmentation
+patterns that reveal structural insights (same fragment highlighted in green, distinctive fragment highlighted in blue) for both compounds.
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Communication
+https://dx.doi.org/10.1021/jacs.9b13786
+J. Am. Chem. Soc. 2020, 142, 4114−4120
+4116
+
+
+
+[PDF physical page 4]
+quaternary carbons are not directly measured in the 1H−13C
+HSQC experiment, CNNs can detect these features indirectly
+via analyzing chemical shift patterns as well as the relative
+positions of correlations. Thus, CNNs can extract information
+from nonpeak areas whereas spectroscopists mainly rely on
+visible peaks for interpretation. This aspect likely explains the
+extraordinary robustness of SMART 2.0, as it very accurately
+predicts structures with chemical moieties that are not directly
+visible in the HSQC spectrum. Finally, each analysis performed
+by SMART, from NMR data acquisition to table construction
+and structure prediction, took less than 30 min (the SMART
+structure prediction takes approximately 8 s). This compares
+favorably with the time-scale of LC-MS measurements and
+annotations, and is a great improvement over the weeks to
+months typically required for the structural analysis of highly
+modiﬁed cyclic peptides such as cyclomarin A.
+In this report we introduce a highly improved user-friendly
+version of the SMART tool and demonstrate its remarkable
+ability to rapidly recognize natural product structure types.
+SMART 2.0 is now available online to the academic
+community (https://smart.ucsd.edu/classic).
+Rapid structure prediction of major constituents from crude
+extracts and fractions greatly assists with prioritization of
+structurally novel or otherwise interesting NPs for further
+study. Because knowledge of the structural class of an
+unknown NP can greatly accelerate its structure elucidation,
+this tool can overcome several of the bottlenecks currently
+present in NP research. We applied SMART 2.0 on crude
+fractions from a cyanobacterial extract that helped target the
+isolation of a new chimeric macrolide, symplocolide A, as well
+as dereplicate swinholide A and related compounds. The
+hybridic nature of symplocolide A suggests a novel
+biosynthetic pathway, an aspect that is under continuing
+study as the genetic basis for molecular diversiﬁcation in a
+compound class is of great interest.43,55 Further, we
+demonstrated here that SMART 2.0 can detect rare structural
+features from crude extracts and fractions. We envision that the
+continued development of SMART 2.0 can revolutionize
+aspects of NP drug discovery, especially when combined with
+orthogonal information derived from genome mining of the
+biosynthetic gene clusters, accurate mass and fragmentation
+data, and ﬁngerprint analyses of molecular substructures via the
+GNPS platform, MS2LDA, and Sirius.22,27,28
+■ASSOCIATED CONTENT
+*
+sı Supporting Information
+The Supporting Information is available free of charge at
+https://pubs.acs.org/doi/10.1021/jacs.9b13786.
+Experimental methods, LC-MS/MS chromatograms,
+NMR spectra, and biological data (PDF)
+Additional data (ZIP)
+■AUTHOR INFORMATION
+Corresponding Authors
+Garrison W. Cottrell −Department of Computer Science and
+Engineering, University of California, San Diego, La Jolla,
+California 92093, United States; Email: gary@ucsd.edu
+William H. Gerwick −Center for Marine Biotechnology and
+Biomedicine, Scripps Institution of Oceanography and Skaggs
+School of Pharmacy and Pharmaceutical Sciences, University of
+California, San Diego, La Jolla, California 92093, United
+States;
+orcid.org/0000-0003-1403-4458;
+Email: wgerwick@ucsd.edu
+Authors
+Raphael Reher −Center for Marine Biotechnology and
+Biomedicine, Scripps Institution of Oceanography, University of
+California, San Diego, La Jolla, California 92093, United States
+Hyun Woo Kim −Center for Marine Biotechnology and
+Biomedicine, Scripps Institution of Oceanography, University of
+California, San Diego, La Jolla, California 92093, United States
+Chen Zhang −Center for Marine Biotechnology and
+Biomedicine, Scripps Institution of Oceanography and
+Department of Computer Science and Engineering, University of
+California, San Diego, La Jolla, California 92093, United
+States;
+orcid.org/0000-0003-4805-0392
+Huanru Henry Mao −Department of Computer Science and
+Engineering, University of California, San Diego, La Jolla,
+California 92093, United States
+Mingxun Wang −Skaggs School of Pharmacy and
+Pharmaceutical Sciences, University of California, San Diego, La
+Jolla, California 92093, United States
+Louis-Félix Nothias −Skaggs School of Pharmacy and
+Pharmaceutical Sciences, University of California, San Diego, La
+Jolla, California 92093, United States
+Andres Mauricio Caraballo-Rodriguez −Skaggs School of
+Pharmacy and Pharmaceutical Sciences, University of
+California, San Diego, La Jolla, California 92093, United States
+Evgenia Glukhov −Center for Marine Biotechnology and
+Biomedicine, Scripps Institution of Oceanography, University of
+California, San Diego, La Jolla, California 92093, United States
+Bahar Teke −Center for Marine Biotechnology and Biomedicine,
+Scripps Institution of Oceanography, University of California,
+San Diego, La Jolla, California 92093, United States
+Tiago Leao −Center for Marine Biotechnology and Biomedicine,
+Scripps Institution of Oceanography, University of California,
+San Diego, La Jolla, California 92093, United States
+Kelsey L. Alexander −Center for Marine Biotechnology and
+Biomedicine, Scripps Institution of Oceanography and
+Department of Chemistry and Biochemistry, University of
+California, San Diego, La Jolla, California 92093, United States
+Brendan M. Duggan −Skaggs School of Pharmacy and
+Pharmaceutical Sciences, University of California, San Diego, La
+Jolla, California 92093, United States
+Figure 2. Comparison of the “atomic sort” method and SMART 2.0
+to detect novel/rare structural elements. (a) HSQC correlations
+suggesting structural novelty by “atomic sort” method (highlighted in
+blue). (b) Top two results of SMART 2.0 analysis querying
+cyclomarin A (experimental HSQC data from reference49) to detect
+related compounds that include rare structural moieties (highlighted
+in red, purple).
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Communication
+https://dx.doi.org/10.1021/jacs.9b13786
+J. Am. Chem. Soc. 2020, 142, 4114−4120
+4117
+
+
+
+[PDF physical page 5]
+Ezra L. Van Everbroeck −Director’s Oﬃce, Scripps Institution
+of Oceanography, University of California, San Diego, La Jolla,
+California 92093, United States
+Pieter C. Dorrestein −Skaggs School of Pharmacy and
+Pharmaceutical Sciences, University of California, San Diego, La
+Jolla, California 92093, United States;
+orcid.org/0000-
+0002-3003-1030
+Complete contact information is available at:
+https://pubs.acs.org/10.1021/jacs.9b13786
+Author Contributions
+¶R.R., H.W.K., and C.Z. contributed equally.
+Notes
+The authors declare the following competing ﬁnancial
+interest(s): Chen Zhang, Garrison W. Cottrell, and William
+H. Gerwick are the cofounders of NMR Finder LLC. Mingxun
+Wang is the founder of Ometa Laboratories LLC.
+■ACKNOWLEDGMENTS
+The authors are grateful for funding from NIH grant R01
+GM107550 to G.W.C., P.C.D., and W.H.G. and Gordon and
+Betty Moore Foundation grant GBMF7622 to G.W.C, P.C.D.,
+and W.H.G. We thank N. Moss and B. Miller for assistance
+with collection of the Symploca sp, and G. Arevalo for
+extraction and VLC fractionation. We also thank P. Landon for
+purchasing and assembling our Graphic Processing Unit
+(GPU) machine.
+■REFERENCES
+(1) Gerwick, W. H.; Moore, B. S. Lessons from the Past and
+Charting the Future of Marine Natural Products Drug Discovery and
+Chemical Biology. Chem. Biol. 2012, 19 (1), 85−98.
+(2) Newman, D. J.; Cragg, G. M. Natural Products as Sources of
+New Drugs from 1981 to 2014. J. Nat. Prod. 2016, 79 (3), 629−661.
+(3) Pereira, F. Have Marine Natural Product Drug Discovery Efforts
+Been Productive and How Can We Improve Their Efficiency? Expert
+Opin. Drug Discovery 2019, 14 (8), 717−722.
+(4) Carroll, A. R.; Copp, B. R.; Davis, R. A.; Keyzers, R. A.; Prinsep,
+M. R. Marine Natural Products. Nat. Prod. Rep. 2019, 36 (1), 122−
+173.
+(5) Vijayakumar, S.; Menakha, M. Pharmaceutical Applications of
+CyanobacteriaA Review. J. Acute Med. 2015, 5 (1), 15−23.
+(6) Khalifa, S. A. M.; Elias, N.; Farag, M. A.; Chen, L.; Saeed, A.;
+Hegazy, M. E. F.; Moustafa, M. S.; Abd El-Wahed, A.; Al-Mousawi, S.
+M.; Musharraf, S. G.; Chang, F. R.; Iwasaki, A.; Suenaga, K.; Alajlani,
+M.; Goransson, U.; El-Seedi, H. R. Marine Natural Products: A
+Source of Novel Anticancer Drugs. Mar. Drugs 2019, 17 (9), 491.
+(7) Huang, I.-S.; Zimba, P. V. Cyanobacterial Bioactive Metabo-
+litesA Review of Their Chemistry and Biology. Harmful Algae
+2019, 86, 139−209.
+(8) Luesch, H.; Moore, R. E.; Paul, V. J.; Mooberry, S. L.; Corbett,
+T. H. Isolation of Dolastatin 10 from the Marine Cyanobacterium
+Symploca Species VP642 and Total Stereochemistry and Biological
+Evaluation of Its Analogue Symplostatin 1. J. Nat. Prod. 2001, 64 (7),
+907−910.
+(9) Pettit, G. R.; Kamano, Y.; Herald, C. L.; Fujii, Y.; Kizu, H.; Boyd,
+M. R.; Boettner, F. E.; Doubek, D. L.; Schmidt, J. M.; Chapuis, J. C.;
+Michel, C. Isolation of Dolastatins 10−15 from the Marine Mollusk
+Dolabella-Auricularia. Tetrahedron 1993, 49 (41), 9151−9170.
+(10) Linington, R. G.; Edwards, D. J.; Shuman, C. F.; McPhail, K. L.;
+Matainaho, T.; Gerwick, W. H. Symplocamide A, a Potent Cytotoxin
+and Chymotrypsin Inhibitor from the Marine Cyanobacterium
+Symploca Sp. J. Nat. Prod. 2008, 71 (1), 22−27.
+(11) Harrigan, G. G.; Luesch, H.; Yoshida, W. Y.; Moore, R. E.;
+Nagle, D. G.; Paul, V. J.; Mooberry, S. L.; Corbett, T. H.; Valeriote, F.
+A. Symplostatin 1: A Dolastatin 10 Analogue from the Marine
+Cyanobacterium Symploca Hydnoides. J. Nat. Prod. 1998, 61 (9),
+1075−1077.
+(12) Salvador, L. A.; Biggs, J. S.; Paul, V. J.; Luesch, H.
+Veraguamides A−G, Cyclic Hexadepsipeptides from a Dolastatin
+16-Producing Cyanobacterium Symploca Cf. Hydnoides from Guam.
+J. Nat. Prod. 2011, 74 (5), 917−927.
+(13) Simmons, T. L.; McPhail, K. L.; Ortega-Barría, E.; Mooberry, S.
+L.; Gerwick, W. H. Belamide A, a New Antimitotic Tetrapeptide from
+a Panamanian Marine Cyanobacterium. Tetrahedron Lett. 2006, 47
+(20), 3387−3390.
+(14) Naman, C. B.; Rattan, R.; Nikoulina, S. E.; Lee, J.; Miller, B.
+W.; Moss, N. A.; Armstrong, L.; Boudreau, P. D.; Debonsi, H. M.;
+Valeriote, F. A.; Dorrestein, P. C.; Gerwick, W. H. Integrating
+Molecular Networking and Biological Assays To Target the Isolation
+of a Cytotoxic Cyclic Octapeptide, Samoamide A, from an American
+Samoan Marine Cyanobacterium. J. Nat. Prod. 2017, 80 (3), 625−
+633.
+(15) Williams, P. G.; Yoshida, W. Y.; Moore, R. E.; Paul, V. J.
+Tasipeptins A and B: New Cytotoxic Depsipeptides from the Marine
+Cyanobacterium Symploca Sp. J. Nat. Prod. 2003, 66 (5), 620−624.
+(16) Williams, P. G.; Yoshida, W. Y.; Moore, R. E.; Paul, V. J.
+Micromide and Guamamide: Cytotoxic Alkaloids from a Species of
+the Marine Cyanobacterium Symploca. J. Nat. Prod. 2004, 67 (1),
+49−53.
+(17) Pereira, F.; Aires-de-Sousa, J. Computational Methodologies in
+the Exploration of Marine Natural Product Leads. Mar. Drugs 2018,
+16 (7), 236.
+(18) Medema, M. H.; Fischbach, M. A. Computational Approaches
+to Natural Product Discovery. Nat. Chem. Biol. 2015, 11 (9), 639−
+648.
+(19) Blin, K.; Shaw, S.; Steinke, K.; Villebro, R.; Ziemert, N.; Lee, S.
+Y.; Medema, M. H.; Weber, T. antiSMASH 5.0: updates to the
+secondary metabolite genome mining pipeline. Nucleic Acids Res.
+2019, 47 (1), 81−87.
+(20) Navarro-Muñoz, J. C.; Selem-Mojica, N.; Mullowney, M. W.;
+Kautsar, S. A.; Tryon, J. H.; Parkinson, E. I.; De Los Santos, E. L. C.;
+Yeong, M.; Cruz-Morales, P.; Abubucker, S.; Roeters, A.; Lokhorst,
+W.; Fernandez-Guerra, A.; Cappelini, L. T. D.; Goering, A. W.;
+Thomson, R. J.; Metcalf, W. W.; Kelleher, N. L.; Barona-Gomez, F.;
+Medema, M. H. A Computational Framework to Explore Large-Scale
+Biosynthetic Diversity. Nat. Chem. Biol. 2020, 16, 1−9.
+(21) Kim, M. C.; Machado, H.; Jang, K. H.; Trzoss, L.; Jensen, P. R.;
+Fenical, W. Integration of Genomic Data with NMR Analysis Enables
+Assignment of the Full Stereostructure of Neaumycin B, a Potent
+Inhibitor of Glioblastoma from a Marine-Derived Micromonospora. J.
+Am. Chem. Soc. 2018, 140 (34), 10775−10784.
+(22) Wang, M.; Carver, J. J.; Phelan, V. V.; Sanchez, L. M.; Garg, N.;
+Peng, Y.; Nguyen, D. D.; Watrous, J.; Kapono, C. A.; Luzzatto-Knaan,
+T.; Porto, C.; Bouslimani, A.; Melnik, A. V.; Meehan, M. J.; Liu, W.
+T.; Criisemann, M.; Boudreau, P. D.; Esquenazi, E.; Sandoval-
+Calderon, M.; Kersten, R. D.; Pace, L. A.; Quinn, R. A.; Duncan, K.
+R.; Hsu, C. C.; Floros, D. J.; Gavilan, R. G.; Kleigrewe, K.; Northen,
+T.; Dutton, R. J.; Parrot, D.; Carlson, E. E.; Aigle, B.; Michelsen, C. F.;
+Jelsbak, L.; Sohlenkamp, C.; Pevzner, P.; Edlund, A.; McLean, J.; Piel,
+J.; Murphy, B. T.; Gerwick, L.; Liaw, C. C.; Yang, Y. L.; Humpf, H.
+U.; Maansson, M.; Keyzers, R. A.; Sims, A. C.; Johnson, A. R.;
+Sidebottom, A. M.; Sedio, B. E.; Klitgaard, A.; Larson, C. B.; Boya, C.
+A.; Torres-Mendoza, D.; Gonzalez, D. J.; Silva, D. B.; Marques, L. M.;
+Demarque, D. P.; Pociute, E.; O’Neill, E. C.; Briand, E.; Helfrich, E. J.
+N.; Granatosky, E. A.; Glukhov, E.; Ryffel, F.; Houson, H.; Mohimani,
+H.; Kharbush, J. J.; Zeng, Y.; Vorholt, J. A.; Kurita, K. L.; Charusanti,
+P.; McPhail, K. L.; Nielsen, K. F.; Vuong, L.; Elfeki, M.; Traxler, M.
+F.; Engene, N.; Koyama, N.; Vining, O. B.; Baric, R.; Silva, R. R.;
+Mascuch, S. J.; Tomasi, S.; Jenkins, S.; Macherla, V.; Hoffman, T.;
+Agarwal, V.; Williams, P. G.; Dai, J. Q.; Neupane, R.; Gurr, J.;
+Rodriguez, A. M. C.; Lamsa, A.; Zhang, C.; Dorrestein, K.; Duggan, B.
+M.; Almaliti, J.; Allard, P. M.; Phapale, P.; Nothias, L. F.; Alexandrovr,
+T.; Litaudon, M.; Wolfender, J. L.; Kyle, J. E.; Metz, T. O.; Peryea, T.;
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Communication
+https://dx.doi.org/10.1021/jacs.9b13786
+J. Am. Chem. Soc. 2020, 142, 4114−4120
+4118
+
+
+
+[PDF physical page 6]
+Nguyen, D. T.; VanLeer, D.; Shinn, P.; Jadhav, A.; Muller, R.; Waters,
+K. M.; Shi, W. Y.; Liu, X. T.; Zhang, L. X.; Knight, R.; Jensen, P. R.;
+Palsson, B. O.; Pogliano, K.; Linington, R. G.; Gutierrez, M.; Lopes,
+N. P.; Gerwick, W. H.; Moore, B. S.; Dorrestein, P. C.; Bandeira, N.
+Sharing and Community Curation of Mass Spectrometry Data with
+Global Natural Products Social Molecular Networking. Nat.
+Biotechnol. 2016, 34 (8), 828−837.
+(23) Ernst, M.; Kang, K. B.; Caraballo-Rodríguez, A. M.; Nothias, L.-
+F.; Wandy, J.; Chen, C.; Wang, M.; Rogers, S.; Medema, M. H.;
+Dorrestein, P. C.; van der Hooft, J. J. J. MolNetEnhancer: Enhanced
+Molecular Networks by Integrating Metabolome Mining and
+Annotation Tools. Metabolites 2019, 9 (7), 144.
+(24) da Silva, R. R.; Wang, M.; Nothias, L.-F.; van der Hooft, J. J. J.;
+Caraballo-Rodríguez, A. M.; Fox, E.; Balunas, M. J.; Klassen, J. L.;
+Lopes, N. P.; Dorrestein, P. C. Propagating Annotations of Molecular
+Networks Using in Silico Fragmentation. PLoS Comput. Biol. 2018, 14
+(4), No. e1006089.
+(25) Mohimani, H.; Gurevich, A.; Mikheenko, A.; Garg, N.; Nothias,
+L.-F.; Ninomiya, A.; Takada, K.; Dorrestein, P. C.; Pevzner, P. A.
+Dereplication of Peptidic Natural Products through Database Search
+of Mass Spectra. Nat. Chem. Biol. 2017, 13 (1), 30−37.
+(26) Wang, M.; Jarmusch, A. K.; Vargas, F.; Aksenov, A. A.;
+Gauglitz, J. M.; Weldon, K.; Petras, D.; da Silva, R.; Quinn, R.;
+Melnik, A. V.; van der Hooft, J. J. J.; Caraballo Rodríguez, A. M.;
+Nothias, L. F.; Aceves, C. M.; Panitchpakdi, M.; Brown, E.; Di
+Ottavio, F.; Sikora, N.; Elijah, E. O.; Labarta-Bajo, L.; Gentry, E. C.;
+Shalapour, S.; Kyle, K. E.; Puckett, S. P.; Watrous, J. D.; Carpenter, C.
+S.; Bouslimani, A.; Ernst, M.; Swafford, A. D.; Zúñiga, E. I.; Balunas,
+M. J.; Klassen, J. L.; Loomba, R.; Knight, R.; Bandeira, N.; Dorrestein,
+P. C. MASST A Web-Based Basic Mass Spectrometry Search Tool for
+Molecules to Search Public Data. Nat. Biotechnol. 2020, 38, 23.
+(27) Wandy, J.; Zhu, Y.; van der Hooft, J. J. J.; Daly, R.; Barrett, M.
+P.; Rogers, S. Ms2lda.Org: Web-Based Topic Modelling for
+Substructure Discovery in Mass Spectrometry. Bioinformatics 2018,
+34 (2), 317−318.
+(28) Dührkop, K.; Fleischauer, M.; Ludwig, M.; Aksenov, A. A.;
+Melnik, A. V.; Meusel, M.; Dorrestein, P. C.; Rousu, J.; Böcker, S.
+SIRIUS 4: A Rapid Tool for Turning Tandem Mass Spectra into
+Metabolite Structure Information. Nat. Methods 2019, 16 (4), 299−
+302.
+(29) Humisto, A.; Jokela, J.; Liu, L.; Wahlsten, M.; Wang, H.; Permi,
+P.; Machado, J. P.; Antunes, A.; Fewer, D. P.; Sivonen, K. The
+Swinholide Biosynthesis Gene Cluster from a Terrestrial Cyanobac-
+terium, Nostoc Sp. Strain UHCC 0450. Appl. Environ. Microbiol. 2018,
+DOI: 10.1128/AEM.02321-17.
+(30) Schymanski, E. L.; Jeon, J.; Gulde, R.; Fenner, K.; Ruff, M.;
+Singer, H. P.; Hollender, J. Identifying Small Molecules via High
+Resolution Mass Spectrometry: Communicating Confidence. Environ.
+Sci. Technol. 2014, 48 (4), 2097−2098.
+(31) Sumner, L. W.; Amberg, A.; Barrett, D.; Beale, M. H.; Beger, R.;
+Daykin, C. A.; Fan, T. W.-M.; Fiehn, O.; Goodacre, R.; Griffin, J. L.;
+Hankemeier, T.; Hardy, N.; Harnly, J.; Higashi, R.; Kopka, J.; Lane, A.
+N.; Lindon, J. C.; Marriott, P.; Nicholls, A. W.; Reily, M. D.; Thaden,
+J. J.; Viant, M. R. Proposed Minimum Reporting Standards for
+Chemical Analysis Chemical Analysis Working Group (CAWG)
+Metabolomics Standards Initiative (MSI). Metabolomics 2007, 3 (3),
+211−221.
+(32) Wang, C.; Zhang, B.; Timári, I.; Somogyi, Á; Li, D. W.; Adcox,
+H. E.; Gunn, J. S.; Bruschweiler-Li, L.; Brüschweiler, R. Accurate and
+Efficient Determination of Unknown Metabolites in Metabolomics by
+NMR-Based Molecular Motif Identification. Anal. Chem. 2019, 91
+(24), 15686−15693.
+(33) Wolfender, J.-L.; Nuzillard, J.-M.; van der Hooft, J. J. J.;
+Renault, J.-H.; Bertrand, S. Accelerating Metabolite Identification in
+Natural Product Research: Toward an Ideal Combination of Liquid
+Chromatography−High-Resolution Tandem Mass Spectrometry and
+NMR Profiling, in Silico Databases, and Chemometrics. Anal. Chem.
+2019, 91 (1), 704−742.
+(34) Zhang, C.; Idelbayev, Y.; Roberts, N.; Tao, Y.; Nannapaneni,
+Y.; Duggan, B. M.; Min, J.; Lin, E. C.; Gerwick, E. C.; Cottrell, G. W.;
+Gerwick, W. H. Small Molecule Accurate Recognition Technology
+(SMART) to Enhance Natural Products Research. Sci. Rep. 2017,
+DOI: 10.1038/s41598-017-13923-x.
+(35) McAlpine, J. B.; Chen, S.-N.; Kutateladze, A.; MacMillan, J. B.;
+Appendino, G.; Barison, A.; Beniddir, M. A.; Biavatti, M. W.; Bluml,
+S.; Boufridi, A.; Butler, M. S.; Capon, R. J.; Choi, Y. H.; Coppage, D.;
+Crews, P.; Crimmins, M. T.; Csete, M.; Dewapriya, P.; Egan, J. M.;
+Garson, M. J.; Genta-Jouve, G.; Gerwick, W. H.; Gross, H.; Harper,
+M. K.; Hermanto, P.; Hook, J. M.; Hunter, L.; Jeannerat, D.; Ji, N. Y.;
+Johnson, T. A.; Kingston, D. G. I.; Koshino, H.; Lee, H. W.; Lewin,
+G.; Li, J.; Linington, R. G.; Liu, M. M.; McPhail, K. L.; Molinski, T.
+F.; Moore, B. S.; Nam, J. W.; Neupane, R. P.; Niemitz, M.; Nuzillard,
+J. M.; Oberlies, N. H.; Ocampos, F. M. M.; Pan, G. H.; Quinn, R. J.;
+Reddy, D. S.; Renault, J. H.; Rivera-Chavez, J.; Robien, W.; Saunders,
+C. M.; Schmidt, T. J.; Seger, C.; Shen, B.; Steinbeck, C.; Stuppner, H.;
+Sturm, S.; Taglialatela-Scafati, O.; Tantillo, D. J.; Verpoorte, R.;
+Wang, B. G.; Williams, C. M.; Williams, P. G.; Wist, J.; Yue, J. M.;
+Zhang, C.; Xu, Z. R.; Simmler, C.; Lankin, D. C.; Bisson, J.; Pauli, G.
+F. The Value of Universally Available Raw NMR Data for
+Transparency, Reproducibility, and Integrity in Natural Product
+Research. Nat. Prod. Rep. 2019, 36 (1), 35−107.
+(36) Iandola, F. N.; Han, S.; Moskewicz, M. W.; Ashraf, K.; Dally,
+W. J.; Keutzer, K. SqueezeNet: AlexNet-Level Accuracy with 50x
+Fewer Parameters and <0.5MB Model Size. arXiv, February 24, 2016,
+1602.07360v4, ver. 4 (Accessed Dec 20, 2019).
+(37) van Santen, J. A.; Jacob, G.; Singh, A. L.; Aniebok, V.; Balunas,
+M. J.; Bunsko, D.; Neto, F. C.; Castano-Espriu, L.; Chang, C.; Clark,
+T. N.; Cleary Little, J. L.; Delgadillo, D. A.; Dorrestein, P. C.; Duncan,
+K. R.; Egan, J. M.; Galey, M. M.; Haeckl, F.P. J.; Hua, A.; Hughes, A.
+H.; Iskakova, D.; Khadilkar, A.; Lee, J.-H.; Lee, S.; LeGrow, N.; Liu,
+D. Y.; Macho, J. M.; McCaughey, C. S.; Medema, M. H.; Neupane, R.
+P.; O’Donnell, T. J.; Paula, J. S.; Sanchez, L. M.; Shaikh, A. F.;
+Soldatou, S.; Terlouw, B. R.; Tran, T. A.; Valentine, M.; van der
+Hooft, J. J. J.; Vo, D. A.; Wang, M.; Wilson, D.; Zink, K. E.; Linington,
+R. G. The Natural Products Atlas: An Open Access Knowledge Base
+for Microbial Natural Products Discovery. ACS Cent. Sci. 2019, 5
+(11), 1824−1833.
+(38) Alley, M. C.; Scudiero, D. A.; Monks, A.; Hursey, M. L.;
+Czerwinski, M. J.; Fine, D. L.; Abbott, B. J.; Mayo, J. G.; Shoemaker,
+R. H.; Boyd, M. R. Feasibility of Drug Screening with Panels of
+Human Tumor Cell Lines Using a Microculture Tetrazolium Assay.
+Cancer Res. 1988, 48 (3), 589−601. PMID: 3335022.
+(39) Delaglio, F.; Walker, G. S.; Farley, K. A.; Sharma, R.; Hoch, J.
+C.; Arbogast, L. W.; Brinson, R. G.; Marino, J. P. Non-Uniform
+Sampling for All: More NMR Spectral Quality, Less Measurement
+Time. Am. Pharm. Rev. 2017, 20 (4), 339681. PMID: 29606851.
+(40) Ndukwe, I. E.; Shchukina, A.; Kazimierczuk, K.; Butts, C. P.
+Rapid and Safe ASAP Acquisition with EXACT NMR. Chem.
+Commun. 2016, 52 (86), 12769−12772.
+(41) Schulze-Sünninghausen, D.; Becker, J.; Luy, B. Rapid
+Heteronuclear Single Quantum Correlation NMR Spectra at Natural
+Abundance. J. Am. Chem. Soc. 2014, 136 (4), 1242−1245.
+(42) Kitamura, M.; Schupp, P. J.; Nakano, Y.; Uemura, D.
+Luminaolide, a Novel Metamorphosis-Enhancing Macrodiolide for
+Scleractinian Coral Larvae from Crustose Coralline Algae. Tetrahe-
+dron Lett. 2009, 50 (47), 6606.
+(43) Ueoka, R.; Uria, A. R.; Reiter, S.; Mori, T.; Karbaum, P.; Peters,
+E. E.; Helfrich, E. J. N.; Morinaka, B. I.; Gugger, M.; Takeyama, H.;
+Matsunaga, S.; Piel, J. Metabolic and Evolutionary Origin of Actin-
+Binding Polyketides from Diverse Organisms. Nat. Chem. Biol. 2015,
+11 (9), 705−712.
+(44) Tao, Y.; Li, P.; Zhang, D.; Glukhov, E.; Gerwick, L.; Zhang, C.;
+Murray, T. F.; Gerwick, W. H. Samholides, Swinholide-Related
+Metabolites from a Marine Cyanobacterium Cf. Phormidium Sp. J.
+Org. Chem. 2018, 83 (6), 3034−3046.
+(45) Kitagawa, I.; Kobayashi, M.; Katori, T.; Yamashita, M.; Tanaka,
+J.; Doi, M.; Ishida, T. Absolute Stereostructure of Swinholide A, a
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Communication
+https://dx.doi.org/10.1021/jacs.9b13786
+J. Am. Chem. Soc. 2020, 142, 4114−4120
+4119
+
+
+
+[PDF physical page 7]
+Potent Cytotoxic Macrolide from the Okinawan Marine Sponge
+Theonella Swinhoei. J. Am. Chem. Soc. 1990, 112 (9), 3710−3712.
+(46) Ishibashi, M.; Moore, R. E.; Patterson, G. M. L.; Xu, C.; Clardy,
+J. Scytophycins, Cytotoxic and Antimycotic Agents from the
+Cyanophyte Scytonema Pseudohofmanni. J. Org. Chem. 1986, 51
+(26), 5300−5306.
+(47) Nicolaou, K. C.; Ajito, K.; Patron, A. P.; Khatuya, H.; Richter,
+P. K.; Bertinato, P. Total Synthesis of Swinholide A. J. Am. Chem. Soc.
+1996, 118 (12), 3059−3060.
+(48) Andrianasolo, E. H.; Gross, H.; Goeger, D.; Musafija-Girt, M.;
+McPhail, K.; Leal, R. M.; Mooberry, S. L.; Gerwick, W. H. Isolation of
+Swinholide A and Related Glycosylated Derivatives from Two Field
+Collections of Marine Cyanobacteria. Org. Lett. 2005, 7 (7), 1375−
+1378.
+(49) Duggan, B. M.; Cullum, R.; Fenical, W.; Amador, L. A.;
+Rodríguez, A. D.; La Clair, J. J. Searching for Small Molecules with an
+Atomic Sort. Angew. Chem., Int. Ed. 2020, 59 (3), 1144−1148.
+(50) Ueoka, R.; Nakao, Y.; Kawatsu, S.; Yaegashi, J.; Matsumoto, Y.;
+Matsunaga, S.; Furihata, K.; van Soest, R. W. M.; Fusetani, N.
+Gracilioethers A−C, Antimalarial Metabolites from the Marine
+Sponge Agelas Gracilis. J. Org. Chem. 2009, 74 (11), 4203−4207.
+(51) Renner, M. K.; Shen, Y.-C.; Cheng, X.-C.; Jensen, P. R.;
+Frankmoelle, W.; Kauffman, C. A.; Fenical, W.; Lobkovsky, E.;
+Clardy, J. Cyclomarins A−C, New Antiinflammatory Cyclic Peptides
+Produced by a Marine Bacterium (Streptomyces Sp.). J. Am. Chem.
+Soc. 1999, 121 (49), 11273−11276.
+(52) Vasudevan, D.; Rao, S. P. S.; Noble, C. G. Structural Basis of
+Mycobacterial Inhibition by Cyclomarin A. J. Biol. Chem. 2013, 288
+(43), 30883−30891.
+(53) Schmitt, E. K.; Riwanto, M.; Sambandamurthy, V.; Roggo, S.;
+Miault, C.; Zwingelstein, C.; Krastel, P.; Noble, C.; Beer, D.; Rao, S.
+P. S.; Au, M.; Niyomrattanakit, P.; Lim, V.; Zheng, J.; Jeffery, D.;
+Pethe, K.; Camacho, L. R. The Natural Product Cyclomarin Kills
+Mycobacterium Tuberculosis by Targeting the ClpC1 Subunit of the
+Caseinolytic Protease. Angew. Chem., Int. Ed. 2011, 50 (26), 5889−
+5891.
+(54) Ma, J.; Huang, H.; Xie, Y.; Liu, Z.; Zhao, J.; Zhang, C.; Jia, Y.;
+Zhang, Y.; Zhang, H.; Zhang, T. Y.; Ju, J. H. Biosynthesis of Ilamycins
+Featuring Unusual Building Blocks and Engineered Production of
+Enhanced Anti-Tuberculosis Agents. Nat. Commun. 2017, 8 (1), 1−
+10.
+(55) Gu, L.; Wang, B.; Kulkarni, A.; Geders, T. W.; Grindberg, R. V.;
+Gerwick, L.; Håkansson, K.; Wipf, P.; Smith, J. L.; Gerwick, W. H.;
+Sherman, D. H. Metamorphic Enzyme Assembly in Polyketide
+Diversification. Nature 2009, 459 (7247), 731−735.
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Communication
+https://dx.doi.org/10.1021/jacs.9b13786
+J. Am. Chem. Soc. 2020, 142, 4114−4120
+4120

@@ -1,0 +1,1198 @@
+
+[PDF physical page 1]
+bioRxiv preprint doi: https://doi.org/10.1101/2023.06.07.544016; this version posted June 8, 2023. The copyright holder for this preprint
+(which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is
+                           made available under aCC-BY-NC 4.0 International license.
+
+  Engineering  Yeast  to  Improve  Heterologous
+  Abscisic Acid Production
+
+   Maximilian Otto 1, Michael Gossing 1,2, Florian David 1, Verena Siewers 1
+
+    1 Division of Systems and Synthetic Biology, Department of Biology and Biological Engineering,
+   Chalmers University of Technology, Gothenburg, Sweden
+    2 Discovery Sciences, Biopharmaceuticals R&D, AstraZeneca, Gothenburg, Sweden
+
+
+  One-sentence summary
+
+    In this study we explored various strategies to improve heterologous abscisic acid production in
+   Saccharomyces cerevisiae and identified fine-tuning of the PAH1 gene as a promising engineering
+    strategy.
+
+
+   Abstract
+
+    Abscisic acid (ABA) is a high-value product with agricultural, medical and nutritional applications. We
+   previously constructed an ABA cell factory by expressing the ABA metabolic pathway from Botrytis
+   cinerea in the biotechnological workhorse Saccharomyces cerevisiae.
+    In this study, we aimed to improve ABA production and explored various rational engineering targets
+   mostly focusing on increasing the activity of two rate-limiting cytochrome P450 monooxygenases of
+   the ABA pathway, BcABA1 and BcABA2. We evaluated the effects of overexpression and knock-down
+   of cell membrane transporters, expression of heterologous cytochrome b5, overexpression of a rate-
+    limiting heme biosynthesis gene and overexpression or knock-out of genes involved in ER membrane
+   homeostasis. One of the genes involved in ER membrane homeostasis, PAH1, was identified as the
+   most promising engineering target. Knock-out of PAH1 improved ABA titers, but also caused a sever
+   growth defect. By replacing the PAH1 promoter with a weak minimal promoter, it was possible to
+   mediate the growth defect while still improving ABA production.
+    In this report we were able to improve the ABA cell factory and furthermore provide valuable insights
+    for future studies aiming to engineer cytochrome P450 monooxygenases.
+
+
+  Keywords
+
+   Saccharomyces cerevisiae, metabolic engineering, abscisic acid, cytochrome P450 monooxygenases,
+   endoplasmic reticulum, PAH1
+
+
+
+
+                                                                                  1
+
+
+[PDF physical page 2]
+bioRxiv preprint doi: https://doi.org/10.1101/2023.06.07.544016; this version posted June 8, 2023. The copyright holder for this preprint
+(which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is
+                           made available under aCC-BY-NC 4.0 International license.
+
+
+   Introduction                                from farnesyl-pyrophosphate (FPP) (Hirai et al.
+                                                       2014). FPP is cyclised by the enzyme BcABA3   The isoprenoid abscisic acid (ABA) has become
+                                              and  subsequently   oxidised   at   multiple   a  molecule-of-interest  for a  multitude  of
+                                                          positions by BcABA1, BcABA2 and BcABA4 to   applications in agriculture and medicine as well
+                                                form ABA (Figure 1) (Inomata et  al. 2004;   as nutrition. Its central role in plant physiology
+                                                        Siewers, Smedsgaard and  Tudzynski 2004;   has  long been known and  is   still  being
+                                                     Siewers  et  al. 2006; Takino  et  al.  2019).   investigated  (Finkelstein 2013; Chen et  al.
+                                                However, the  lack of genetic  tools  for  B.   2020). Agricultural applications of ABA range
+                                                          cinerea, as well as its hyphal morphology and   from  alleviating various  abiotic stresses to
+                                                     comparatively slow growth make the fungus a   regulating seed dormancy, germination and
+                                                        challenging cell factory host.    fruit  ripening  (Sah,  Reddy  and  Li  2016;
+                                                 Saccharomyces  cerevisiae has long been a   Vishwakarma et al. 2017; Gupta et al. 2022).
+                                                 workhorse for biotechnological applications.   ABA acts as a signalling molecule in many other
+                                                                        Its  capabilities for high-level production of   organisms besides plants (Olds, Glennon and
+                                                     sesquiterpenes or sesquiterpenoids have been   Luckhart 2018).  In recent  years, ABA was
+                                                 demonstrated  previously  for  the  biofuel   shown to have various biological activities in
+                                                    farnesene (Meadows et al. 2016) and the anti-   mammals,  making   it  a  promising  drug
+                                                          malarial drug artemisinic acid (Paddon et al.   candidate.  Pharmacological  activity  against
+                                                       2013). In a previous study, we established an S.   various  inflammatory  diseases,  pathogen-
+                                                           cerevisiae ABA cell factory by expressing the   mediated  infections,  type-2-diabetes  and
+                                         ABA  pathway  enzymes  BcABA1,  BcABA2,   metabolic syndrome (a complex condition with
+                                             BcABA3 and BcABA4 as well as the B. cinerea   various  comorbidities)  has been  reported
+                                                cytochrome P450 reductase BcCPR1 (Otto et    (Sakthivel et al. 2016; Lievens et al. 2017; Kim
+                                                                       al. 2019). We demonstrated that the two    et al. 2020). ABA was furthermore identified
+                                                cytochrome  P450  monooxygenases  (CYPs,   as a bitter receptor blocker with potential
+                                                          putatively of class II) BcABA1 and BcABA2 are   applications in nutritional products (Pydi et al.
+                                                              limiting production in the current strain (Otto   2015).
+                                                          et al. 2019).  A sustainable and inexpensive product source
+                                                 CYPs are a large superfamily of enzymes that    will be  required  to  utilise ABA  in  these
+                                                         catalyse oxidation reactions using molecular    applications. The  plant  pathogenic  fungus
+                                                 oxygen and  contain heme  as a  co-factor    Botrytis cinerea is a natural producer of ABA
+   and has been used  as a  biotechnological
+   production host (Shi et al. 2016). In B. cinerea,
+   ABA is produced via the mevalonate pathway
+
+
+
+                                                                                  2
+
+
+[PDF physical page 3]
+ bioRxiv preprint doi: https://doi.org/10.1101/2023.06.07.544016; this version posted June 8, 2023. The copyright holder for this preprint
+ (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is
+                           made available under aCC-BY-NC 4.0 International license.
+
+
+
+
+
+      BcABA3                BcABA1                  BcABA2                     BcABA4
+FPP                                                            OH                       OH
+                                          O   OH      HO           O   OH      O           O   OH
+
+                  ⍺-IE                 ⍺-IAA               DH-⍺-IAA             ABA
+
+     Figure 1: ABA pathway in Botrytis cinerea (Takino et al. 2019). The four pathway genes bcaba1, bcaba2, bcaba3 and bcaba4,
+     as well as the B. cinerea cytochrome P450 reductase encoding gene bccpr1 were expressed in yeast to enable heterologous
+    ABA production from the native precursor FPP (Otto et al. 2019). Abbreviations: FPP = farnesyl pyrophosphate, α-IE = α-
+     ionylideneethane, α-IAA = α-ionylideneacetic acid, DH-α-IE = 1ʹ,4ʹ-trans-dihydroxy-α-ionylideneacetic acid, ABA = abscisic
+     acid
+
+    (Denisov et al. 2005). They are ubiquitous in       (Arendt et al. 2017; Kim et al. 2019). However,
+    plant and microbial biosynthetic pathways and       the effect of individual target genes appears to
+   have become a major engineering target in      be  strain  or product  specific and  studies
+    biotechnology (Podust and Sherman 2012;       comparing multiple targets are rare.
+    Jiang et al. 2021). Class  II CYP enzymes, the       Besides ER membrane space, heme availability
+   most common class  in eukaryotes, require       can   limit   production   in  some   CYP-
+   cytochrome P450 reductases (CPRs) as co-       overexpressing   cell   factories   (Michener,
+   enzymes for the transfer of electrons from       Nielsen and Smolke 2012; Park and Choi 2020).
+   NADPH  (Werck-Reichhart  and  Feyereisen       Native heme biosynthesis in yeast provides an
+    2000).  It was shown that co-expression of        additional engineering target to improve CYP
+   cytochrome  b5  (CYB5)  and   its  cognate         activity.
+    reductase (CBR) can have a positive impact on     When produced in yeast, ABA is predominantly
+   CYP  activities,  most  likely  by  acting  as       found in the cell culture supernatant (Otto et
+    additional electron donors (Schenkman and          al. 2019). As a weak organic acid with a pKa of
+    Jansson 2003; Zhang, Im and Waskell 2007;       4.75 (Slovik, Baier and Hartung 1992), ABA is
+   Paddon et al. 2013). CYPs, CPRs, CYB5s and       mostly present as the conjugate base in the
+   CBRs are anchored in the ER membrane.              cytosol  of  plants,  with  the  membrane
+    Expansion of the ER membrane structure, also        permeability of the ion being much lower than
+    referred to as ER proliferation, has developed          its protonated form (Heilmann, Hartung and
+    into  a common  engineering  strategy  for      Gimmler 1980; Kaiser and Hartung 1981). In
+   membrane-associated enzymes like CYPs and        yeast, ABA is presumably being exported by an
+    their co-enzymes  (Jiang et  al. 2021).  It  is        unspecific   yeast   transporter.   Complex
+   presumed that available membrane space is        regulatory networks mediate  resistance to
+    often limiting enzyme abundance in the cell.      weak organic acids in  S. cerevisiae with a
+    Various  native  target  genes  have  been       multitude of transporters being involved in this
+    investigated that can cause ER proliferation,       process (Mira, Teixeira and Sá-Correia 2010).
+   some of which lead to multi-fold titer increases       Upregulation of native transporters have been
+
+
+                                                                                   3
+
+
+[PDF physical page 4]
+bioRxiv preprint doi: https://doi.org/10.1101/2023.06.07.544016; this version posted June 8, 2023. The copyright holder for this preprint
+(which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is
+                           made available under aCC-BY-NC 4.0 International license.
+
+
+
+   investigated as engineering targets for various     DNA polymerase (Thermo Fisher Scientific) or
+    cell  factories  with  the  goal  of  mediating      SapphireAmp (Takara Bio) were used and the
+   product-related cell stress, such as increased       manufacturer’s  instructions were  followed.
+   turgor  pressure  or  oxidative  stress  (Mira,       Primer   sequences   can  be   found   in
+    Teixeira and Sá-Correia 2010). Nonetheless,       Supplementary   Table   S1  and   specific
+   downregulation of transporters could also be a        conditions of standard PCR reactions are listed
+    valid engineering target by preventing the       Supplementary Table S2. For plasmid and PCR
+   export of pathway intermediates, increasing       product purification, GeneJet Purification Kits
+    their local concentration in the cytosol. Finding      (Thermo Fisher Scientific) were used. Sanger
+   transporters involved in the import or export     DNA sequencing was performed by Eurofins
+   of  a  given  heterologous  compound   is       Genomics.  Primers and  short  oligos were
+    challenging. An  alternative approach  is to       ordered from Eurofins Genomics or Integrated
+   overexpress or knock-out of global regulators     DNA Technologies.
+   involved in transporter expression. PDR1 and       Plasmids used in this study’s experiments are
+   YRR1  are two  such  global  transcriptional         listed  in Table  2. The Golden Gate-based
+    regulators, involved in the pleiotropic drug      MoClo  workflow   (Engler,   Kandzia  and
+   resistance    (PDR)     signalling    network       Marillonnet 2008; Lee et al. 2015; Otto et al.
+   (Kolaczkowska and Goffeau 1999; Le Crom et       2021) was followed to construct pX3-bcaba1+2
+    al. 2002). Interfering with the PDR network      and pXII2-bccyb5+cbr1. All MoClo assemblies
+   could  provide  valuable  insight  for  ABA-       are listed in Supplementary Table S3. First,
+   producing yeast strains and other cell factories       primers pairs 306/357 and 307/310 were used
+   producing weak organic acids.                       to remove a BsaI site from bcaba1 and to
+   Our    previous    proof-of-concept    study        attach MoClo type-3 compatible overhangs via
+   demonstrated the feasibility of an S. cerevisiae       PCR. The resulting PCR products were fused
+    cell factory, but ABA titres remained low. Here,       together via a 2-step PCR reaction. In the first
+  we aimed to rationally engineer the native        reaction, the PCR products were mixed in a 1:1
+   yeast metabolism to improve ABA production        ratio (≈100 ng) with PrimeStar PCR master mix
+   by focusing on CYP activity as well as unspecific       but without primers (55 °C Tann, 1:15 min telo,
+   yeast transporters.                            15 cycles). In the second reaction, 2 µL of the
+                                                                         first reaction was used as template with the
+                                                   primer pair 306/307 (55 °C Tann, 1:40 min telo,
+   Materials and Methods                                              35 cycles). The PCR product of the second
+   PCRs and plasmid construction                       reaction was purified and sequence verified.
+   For  PCR  reactions  PrimeSTAR  HS  DNA
+   Polymerase (Clontech), Phusion High-Fidelity
+
+
+                                                                                  4
+
+
+[PDF physical page 5]
+bioRxiv preprint doi: https://doi.org/10.1101/2023.06.07.544016; this version posted June 8, 2023. The copyright holder for this preprint
+(which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is
+                           made available under aCC-BY-NC 4.0 International license.
+
+
+
+   Primer pairs 308/309 were used to attach type-        for    all   yeast   media.   Detailed  media
+   3 MoClo overhangs to bcaba2.                     compositions can be found in Supplementary
+  DNA sequences lacking BsaI, BsmbI and NotI       Table S4.
+    sites    for   bccyb5   (UniProt    identifier
+   A0A384K1M2) and bccbr1 (UniProt identifier        Strain construction
+   A0A384JNH0) were codon-optimised for yeast       Yeast strains were transformed according to
+   and  provided by  Genscript  Biotech  Corp.       the protocol from Gietz and Woods (2006).
+   Primer pairs 292/293 and 294/295 were used      The  plasmids  pX3-bcaba1+2  and   pXII2-
+   to attach MoClo type-3 overhangs to bccyb5       bccyb5+cbr1  were   used   for   genomic
+   and bccbr1, respectively.                              integrations. The procedure was followed as
+   The MoClo compatible bcaba1, bcaba2, bccyb5       described in Jessop-Fabre et al. (2016), using
+   and bccbr1 fragments were inserted into the       the Cas9-encoding plasmid pCfB2312 and the
+   MoClo entry vector pYTK001 (Lee et al. 2015)       gRNA-helper    plasmids   pCfB3041   and
+   (Supp. Table S3). Subsequently, level-1 MoClo       pCfB3051.
+   plasmids were assembled for each gene. The      PAH1 and OPI1 were knocked out following the
+    level-1 plasmids were combined with the       protocol of Mans et  al. (2015), using the
+   backbones pMC-X3 and pMC-XII2 (Otto et al.       plasmid pMEL10 for gRNA expression and the
+   2021)  to  from  pX3-bcaba1+2  and  pXII2-        Yeastriction                               tool
+   bccyb5+cbr1, respectively.                              (http://yeastriction.tnw.tudelft.nl/).     The
+                                                sequence of the used gRNA fragments and
+   Microorganisms and media                           repair oligos can be found in Supplementary
+   Plasmids were amplified using NEB® 5-alpha       Table   S5.  Primers   pairs  366/367  and
+   Competent E. coli cells (New England Biolabs).       1260/1261 (Supp. Table S1 and Supp. Table S2)
+    S. cerevisiae strains are listed in Table 1 and a      were used to validate the Δpah1 and Δopi1
+   pedigree chart is shown in Figure 2. E. coli was       genotype, respectively.
+    cultivated at 37 °C in liquid Luria-Bertani (LB)       For the PAH1 promoter replacement, the gRNA
+   media or on LB agar plates with appropriate      was designed  using the  Benchling CRISPR
+    antibiotics.                                     Guide tool (Supp. Table S5) and  its coding
+   Yeast was cultivated at 30 °C in liquid yeast       sequence   inserted   into   pMEL10.   For
+    extract peptone  dextrose  (YPD) media  or        construction   of   the   linear   promoter
+   mineral media (adapted from Verduyn et al.       replacement cassettes, primers pairs 417/418,
+   1992) shaking at 220 rpm. For cultivation on       422/423, 424/425 were used. The primers
+   agar plates YPD media or synthetic defined      were designed to contain homologous regions
+   (SD) media was used. 20 g/L glucose was used        for replacing 771 base pairs upstream of the
+
+
+
+                                                                                  5
+
+
+[PDF physical page 6]
+bioRxiv preprint doi: https://doi.org/10.1101/2023.06.07.544016; this version posted June 8, 2023. The copyright holder for this preprint
+(which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is
+                           made available under aCC-BY-NC 4.0 International license.
+
+
+
+   PAH1 start codon. The resulting PCR products      4 °C) and 0.8 mL of the supernatant was
+   were  used  as   repair  fragments   in  a        transferred to a new Eppendorf tube. The
+   transformation  according  to Mans  et  al.        solvent was evaporated using a Genevac miVac
+   (2015). Primers 426/427 were used to validate       (45 min, 20 mBar, 45 °C). The  pellet was
+   the pPAH1  replacement. The  colony PCR        reconstituted in 0.8 mL methanol (>99.9%,
+   product of strain yMO36 was sequenced since        Sigma-Aldrich), centrifuged (10 min, 13.000 xg,
+   the wild-type pPAH1 band and pREV1-PAH1      4 °C) and ≈0.5 mL of the supernatant was
+   band are hard to distinguish by size.                  transferred  to an HPLC (high-performance
+                                                              liquid chromatography) vial.
+    Cultivation for OD600 and ABA analysis             The samples were analysed in an Agilent 6120
+   For the experiments displayed in Figure 3-6,        Single Quadrupole mass spectrometer (MS)
+    single colonies were picked from agar plates       with an Agilent  Infinity 1260 HPLC system
+    for precultures (1.5 mL mineral media) in 14        consisting of a binary pump, autosampler and
+  mL round-bottom cultivation tube (Greiner       thermostat column compartment. Ionization
+   Bio-One). Precultures were grown for 48 or 72      was performed using an atmospheric pressure
+   h (for slow growing Δpah1 strains) and main        electrospray   ionization   (API-ES)   source
+   cultures  (2.5  mL  mineral  media)  were        (positive mode). Compounds were separated
+   inoculated  at  OD600  0.1  in  24-deepwell      on an Agilent Poroshell 120 EC-C18 (2.7 μm,
+   microplates (square  wells, pyramid-bottom,        3.0 × 50 mm) column (maintained at 40 °C)
+   EnzyScreen). Cultures were grown for 48 h        using a water-acetonitrile gradient with 0.04%
+    (Figure 3, Figure 4) or 60 h (Figure 5, Figure 6),       formic acid  in both solvents. The gradient
+   OD600   was   measured,   cultures   were        started with 95% water and, over 5 min,
+   centrifuged  (5  min, 1500  xg) and 1 mL        gradually changed to 95% acetonitrile (>99.5%,
+   supernatant  was   transferred   to  2-mL        Sigma-Aldrich). After a 2 min hold, the gradient
+   Eppendorf tubes.                             was ramped back to 95% water over 3 min. The
+                                                sample injection volume was set to 10 µL. ABA
+                                             was quantified by selected ion monitoring (m/z   ABA extraction and quantification
+                                               =  265)  and  (S)-(+)-ABA  standard  (>98%,   ABA was extracted similar to the procedure
+                                           Cayman  Chemicals)  was  used  to   fit  a   described in Otto et al. 2019. 1 mL of ethyl
+                                                            calibration curve (2nd polynomial).   acetate (>99.9% Sigma-Aldrich) and 0.5% (v/v)
+   formic acid (>98%, Sigma-Aldrich) was added
+   to the 2-mL Eppendorf tubes containing 1 mL      Growth Profiler analysis
+   culture supernatant. The tubes were vortexed      Growth (Figure 7) was analysed using a Growth
+    for 10 s, then centrifuged (10 min, 13.000 xg,         Profiler 960 (Enzyscreen). Precultures were
+
+
+
+                                                                                  6
+
+
+[PDF physical page 7]
+bioRxiv preprint doi: https://doi.org/10.1101/2023.06.07.544016; this version posted June 8, 2023. The copyright holder for this preprint
+(which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is
+                           made available under aCC-BY-NC 4.0 International license.
+
+
+
+   prepared as described above and cultures
+   were  subsequently  grown  in  transparent
+   bottom 96-well plate (Enzyscreen) with 250 µL
+   mineral media per well. Pictures were taken
+   every 30 min.
+
+
+   Software
+   Besides the manufacturer's software for the
+   Growth Profiler (Enzyscreen) and the HPLC-MS
+    (Agilent), R Studio (RStudio Team 2022) was
+   used to analyse the data. Relevant R packages
+   include ggplot2 (Wickham 2016), tidyverse
+   (Wickham  et  al.  2019)  and  growthrates
+    (Petzoldt          2022).          Benchling
+   (www.benchling.com) was used for planning
+   and analysing DNA constructs.
+
+
+
+
+
+                                                                                  7
+
+
+[PDF physical page 8]
+bioRxiv preprint doi: https://doi.org/10.1101/2023.06.07.544016; this version posted June 8, 2023. The copyright holder for this preprint
+(which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is
+                           made available under aCC-BY-NC 4.0 International license.
+
+
+
+
+    Table 1: Strains used and constructed in this study
+
+
+      Strain name    Parent strain        Genomic modifications               Plasmid          Reference
+     CEN.PK113-       -               MATa MAL2-8 c SUC2 ura3-52              -               van  Dijken  et  al.
+    5D                                                                                       2000, provided by
+                                                                                                                P.           Kötter,
+                                                                                                         University       of
+                                                                                                           Frankfurt, Germany
+     CEN.PK113-       -               MATa MAL2-8 c SUC2 ura3-52 his3Δ      -                 provided   by   P.
+     11C                                                                                                  Kötter,   University
+                                                                                                        of        Frankfurt,
+                                                                                 Germany
+    yMG01        CEN.PK113-11C      pTEF1-YRR1 pTDH3-PDR1                    -                    this study
+    yMG02        CEN.PK113-11C       yrr1Δ pdr1Δ                                      -                    this study
+     SCIGS22a       CEN.PK113-5D         lpp1Δ::loxP dpp1Δ::loxP                      -                López et al. 2015
+                                   pERG9 Δ::loxP pHXT1
+                                           gdh1Δ::loxP pTEF1-ERG20
+                                   pPGK1-GDH2 pTEF1-tHMG1
+    SABA3         SCIGS22a           pPGK1-bcaba1 pPGK1-bcaba2              -                Otto et al. 2019
+                                       pTEF1-bcaba3 pTEF1-bcaba4
+                                         pTEF1-bccpr1
+    yMO22        SABA3             pTDH3-bcaba1 pCCW12-bcaba2           -                    this study
+    yMO23       yMO22             pHHF2-bccyb5 pTEF2-bccbr1                -                    this study
+    yMO26       yMO23            pah1Δ                                             -                    this study
+    yMO35       yMO26                     -                                 p416TEF            this study
+    yMO36       yMO23             pPAH1Δ::pREV1                                -                    this study
+    yMO38       yMO23             pPAH1Δ::pHXT1                                -                    this study
+    yMO39       yMO23             pPAH1Δ::pminCYC1                            -                    this study
+    yMO40       yMO23                     -                                pRS316+TEF1+H   this study
+                                                             EM13+ADH1
+    yMO41       yMO23                     -                              pSPGM-INO2       this study
+    yMO42       yMO23                     -                                 p416TEF            this study
+    yMO48        SABA3                      -                                 p416TEF            this study
+    yMO49       yMG01             pPGK1-bcaba1 pPGK1-bcaba2         p416TEF,           this study
+                                       pTEF1-bcaba3 pTEF1-bcaba4          p413TEF
+                                         pTEF1-bccpr1
+    yMO50       yMG02             pPGK1-bcaba1 pPGK1-bcaba2         p416TEF,           this study
+                                       pTEF1-bcaba3 pTEF1-bcaba4          p413TEF
+                                         pTEF1-bccpr1
+    yMO51       yMO23              opi1Δ                             p416TEF            this study
+
+
+
+
+
+                                                                                  8
+
+
+[PDF physical page 9]
+bioRxiv preprint doi: https://doi.org/10.1101/2023.06.07.544016; this version posted June 8, 2023. The copyright holder for this preprint
+(which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is
+                           made available under aCC-BY-NC 4.0 International license.
+
+
+
+
+    Table 2: Plasmids used in this study
+
+     Plasmid name              Use              Backbone        Expression cassette      Reference
+     p416TEF                      Episomal                -              empty                Mumberg,  Müller
+                                    expression                                             and Funk 1995
+     p413TEF                      Episomal                -              empty                Mumberg,  Müller
+                                    expression                                             and Funk 1995
+    pRS316+TEF1+HEM13+ADH1   Episomal          pRS316         pTEF1-HEM13            Ishchuk et al. 2022
+                                    expression
+    pSPGM-INO2                 Episomal         pSP-GM1        pTEF1-INO2            Chen et al. 2022
+                                    expression
+     pCfB2904-ABA1-CPR          Genomic          pCfB2904        pPGK1-bcaba1 pTEF1-    Otto et al. 2019
+                                      integration XI-3                      bccpr1
+     pCfB2909-ABA2-ABA4        Genomic          pCfB2909        pPGK1-bcaba2  pTEF1-   Otto et al. 2019
+                                      integration in XII-5                  bcaba4
+     pCfB3035-ABA3             Genomic          pCfB3035        pTEF1-bcaba3           Otto et al. 2019
+                                      integration in X-4
+     pX3-bcaba1+2               Genomic         pMC-X3         pTDH3-bcaba1            This study
+                                      integration in X-3                  pCCW12-bcaba2
+     pXII2-bccyb5+cbr1           Genomic           pMC-XII2        pHHF2-bccyb5 pTEF2-     This study
+                                      integration in XII-2                    bccbr1
+
+
+
+
+
+                                                                                  9
+
+
+[PDF physical page 10]
+bioRxiv preprint doi: https://doi.org/10.1101/2023.06.07.544016; this version posted June 8, 2023. The copyright holder for this preprint
+(which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is
+                           made available under aCC-BY-NC 4.0 International license.
+
+
+
+
+                           CEN.PK113-5D                          CEN.PK113-11C
+                               MATa MAL2-8c SUC2 ura3-52                        MATa MAL2-8c SUC2 ura3-52 Δhis3
+                                            sesquiterpenoid platform strain
+                                                                                                  Ox. PDR1 Ox. YRR1       Δpdr1 Δyrr1
+                    Figure 4  SCIGS22a
+                                        lpp1Δ dpp1Δ gdh1Δ                    yMG01        yMG02                                      pTEF1-ERG20
+                                                                                         pTEF1-YRR1             Δyrr1                                   pPGK1-GDH2
+                                    pTEF1-tHMG1                                    pTDH3-PDR1           Δpdr1
+                                     pERG9Δ::pHXT1
+                                                                             ABA pathway         ABA pathway
+                                  ABA pathway                Figure 3
+                                                         plasmid ctr.
+                         SABA3               yMO48     yMO49        yMO50
+                                     pPGK1-bcaba1                       plasmid:           pPGK1-bcaba1         pPGK1-bcaba1
+                                     pPGK1-bcaba2                     p416TEF (empty)    pPGK1-bcaba2         pPGK1-bcaba2
+                                       pTEF1-bcaba3                                        pTEF1-bcaba3          pTEF1-bcaba3
+                                       pTEF1-bcaba4                                        pTEF1-bcaba4          pTEF1-bcaba4
+                                         pTEF1-bccpr1                                           pTEF1-bccpr1           pTEF1-bccpr1
+                                               additional copies bcaba1/2                               plasmids:                plasmids:
+                                                                                        p416TEF (empty),       p416TEF (empty),
+                      yMO22                                          p413TEF (empty)        p413TEF (empty)
+                                     pTDH3-bcaba1
+                                    pCCW12-bcaba2
+ Figure 6                                              Figure 5
+                                             addition of bccyb5 & bccbr1
+     PAH1 promoter replacement
+                      yMO23                                                                      plasmid ctr.      Ox INO2      Ox HEM13           Δopi1
+                                      pHHF2-bccyb5
+yMO36  yMO38  yMO39     pTEF2-bccbr1         yMO42     yMO41   yMO40      yMO51
+pPAH1Δ::     pPAH1::     pPAH1::                                     plasmid:          plasmid:       plasmid: pRS316     Δopi1
+pREV1      pHXT1      pminCYC1      Δpah1                   p416TEF (empty)  pSPGM-INO2  +TEF1+HEM13+ADH1 plasmid:
+                                                       plasmid ctr.                                                   p416TEF (empty)
+                      yMO26          yMO35
+                                    Δpah1                       plasmid:
+                                                               p416TEF (empty)
+
+
+    Figure 2: Strain pedigree tree of parent strains and strains constructed in this study. Grey boxes indicate strains that were
+   compared in Figures 3-6. For more detailed strain information see Table 1 in Materials and Methods section. Ox =
+    overexpression
+
+                                                       using  strong,  constitutive  promoters,  or
+   Results and Discussion                                                knocked out. Altered transporter activity in the
+    Effect of transporter overexpression or knock-        resulting strains was confirmed by evaluating
+  down on ABA production                          the response to the antifugal fluconazole. As
+   Overexpression  or  knock-down  of  native       expected, while overexpression of PDR1 and
+   transporters  could be  beneficial  for ABA      YRR1  resulted   in  increased  fluconazole
+   production,  either  by  alleviating  product-        resistance, their deletion resulted in increased
+   related cell stress, as was shown for the anti-        fluconazole sensitivity (Supp. Fig. S1). The role
+   malaria drug precursor artemisinic acid (Ro et        of Pdr1 in the cellular response of yeast to
+    al. 2008), or by preventing the export of        fluconazole has been  described  previously
+   pathway intermediates.                             (Souid et al. 2006).
+   To  test  the two  hypothesis, two  global      The B. cinerea genes bcaba1, bcaba2, bcaba3,
+   regulators involved in transporter expression,      bcaba4 and bccpr1 were integrated in the
+   Yrr1 and Pdr1, were  either overexpressed         strains’ genomes to allow ABA production (see
+
+
+                                                                                  10
+
+
+[PDF physical page 11]
+   bioRxiv preprint doi: https://doi.org/10.1101/2023.06.07.544016; this version posted June 8, 2023. The copyright holder for this preprint
+  (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is
+                             made available under aCC-BY-NC 4.0 International license.
+
+
+
+
+
+                                          supernatant                                                pellet
+
+               *                                                                       ***                        *              1.5                                     *                    *                      ***
+
+                        4                        0.4
+    10.0                                                                 2                                                                                                                                                                                                      [ug/g]                        0.06
+                        3                        0.3                                               1.0      7.5
+                                                                                                                          0.04                                                 [mg/L]OD600  5.0                 2                                                    ABA/OD600 0.2                                                    ABA/MZ233 1                                                                                                                                     ABA/MZ233                         ABA                                                                                                                                              ABA/BM 0.5
+                                                                                                                          0.02                                                                                  ratio 0.1                             ratio                                                                             ratio      2.5                 1                          yMO48    yMO49    yMO50                             yMO48      yMO49      yMO50                                  yMO48     yMO49     yMO50                             yMO48       yMO49       yMO50       ratio                 yMO48     yMO49     yMO50                                  yMO48     yMO49     yMO50
+
+      0.0                 0                        0.0                  0                        0.0                    0.00
+        Wt Ox KO         Wt  Ox KO          Wt Ox KO         Wt  Ox KO          Wt Ox KO           Wt Ox KO
+
+       Figure 3: Effect of native transporter overexpression or knockdown in ABA-producing strains. Genes encoding the
+       transcription factors Pdr1 and Yrr1 were either overexpressed (yMO49) or knocked out (yMO50) and compared to a control
+       strain with wild-type PDR1 and YRR1 expression (yMO48). OD600 (beige), ABA titer (green), ABA titer normalized to OD600 or
+      biomass (blue), and ion count ratio of ABA to MZ233 (orange) are shown after 48 h of cultivation in mineral media (24-
+      deepwell microplates). Supernatant and cell pellet were analysed separately. Grey circles show the individual data points
+      used to calculate the mean and standard deviation. Only traces of ABA (<0.05 mg/L) and MZ233 were detected for yMO49.
+       Significance (Student’s t-test, two-sided)  is displayed as “*” and “***’’, indicating p<0.05 and p<0.001 respectively.
+       Abbreviations: Wt = wild-type, Ox = overexpression, KO = knockout
+
+     Figure 2 for strain pedigree tree). Auxotrophic      compared to the control, yMO48, and the
+      strains  require  the  transport  of  essential       double-knock-out  strain, yMO50 (Figure  3).
+     metabolites from the media into the cell and        Surprisingly, only traces of ABA and MZ233
+     auxotrophies were shown to greatly affect the      were detected in the supernatant and pellet of
+       cell’s transcriptome (Alam et  al. 2016). To      yMO49. About 50% less ABA was detected in
+     prevent related effects, the analysed strains       the supernatant for yMO50 compared to the
+      carried  plasmids  with  auxotrophic marker        control, however the amount of ABA in the cell
+     genes, making them prototrophic. Figure 3        pellet   remained   the   same.   For   the
+    shows the measured OD600, ABA titer, ratio of       supernatant,  the  control  strain showed a
+    ABA to OD600, and ratio of ABA to a compound         significantly  higher  ratio  of  ABA/MZ233
+     with the mass-to-charge (m/z) value 233.15,      compared to yMO50, though the difference
+     referred to as MZ233. MZ233 was  earlier      was only 1.2-fold. In contrast, the ABA/MZ233
+     detected in the supernatant of ABA-producing        ratio was 1.7-fold higher for yMO50 in the cell
+      strains and is assumed to be an intermediate         pellet. This indicates that, when normalized to
+     or side-product in the ABA pathway (Otto et al.       ABA, the double-knock-out  strain  contains
+     2019).   For   assessing   the   activity   of      more MZ233  in the supernatant and  less
+      transporters, ABA and MZ233 were quantified      MZ233 in the cell pellet.
+     separately in the supernatant and cell pellet.         Neither overexpression of PDR1 and YRR1, nor
+      Small, but significant differences were visible       the    double-knockout   improved   ABA
+      in the measured OD600 at 48 h, with yMO49,       production.  In  the  overexpression  strain
+     overexpressing PDR1 and YRR1, growing better      yMO49, ABA intermediates, likely upstream of
+
+
+
+                                                                                   11
+
+
+[PDF physical page 12]
+bioRxiv preprint doi: https://doi.org/10.1101/2023.06.07.544016; this version posted June 8, 2023. The copyright holder for this preprint
+(which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is
+                           made available under aCC-BY-NC 4.0 International license.
+
+
+
+   MZ233, might be exported rapidly, thereby       Taken together, the results suggest that ABA
+   removing   substrates  from  the  product        transport is not a promising engineering target
+   pathway and resulting in only traces being       to increasing ABA titers in the current strains.
+   detectable. However, no additional peaks for
+   supposed intermediates were visible in the      Genomic integration of additional bcaba1 and
+   HPLC-MS chromatogram of the supernatant      bcaba2 copies and expression of cytochrome
+   when comparing yMO49 to yMO48 (Supp. Fig.      b5
+    2) and high-resolution MS analysis would be        In our previous study, we showed that the CYPs
+   necessary to confirm  this  hypothesis. The      BcABA1 and BcABA2 limit ABA production and
+   increase in OD600 for yMO49 indicates that the        that plasmid-based expression of additional
+    strain  experiences   less  weak-acid-related      gene copies increased the ABA titer more than
+    stress (Ro et al. 2008; Mira, Teixeira and Sá-        4-fold (Otto et al. 2019). Genomic integration
+   Correia 2010). The reasons for reduced overall        of expression cassettes is mostly preferred to
+   ABA titers in yMO50 compared to the wild-       episomal  expression   for  biotechnological
+   type   control  are   unclear.  Nonetheless,        applications, since it results in less cell-to-cell
+   assuming   that  MZ233    is  a  pathway         variability and higher genetic stability (Zhang,
+   intermediate, more MZ233 appears to be      Moo-Young and Chisti 1996; Lee et al. 2015).
+   converted  to ABA  in yMO50. The  results        Therefore, additional copies of bcaba1 and
+    indicate  that one or  multiple PDR1/YRR1-      bcaba2 were integrated into the genome of
+   regulated transporters facilitate the transport      SABA3  resulting  in the  strain yMO22 (see
+   of ABA pathway intermediates  if not of the        Figure 2 for strain pedigree tree). Bcaba1 and
+   product  itself. Pdr1 and  Yrr1  control the      bcaba2 were  expressed  using  the  strong
+   expression  of  several  ABC  transporters       promoters pTDH3 and pCCW12, respectively.
+   involved in the multidrug response in yeast,        Studies demonstrated that heterologous CYB5
+   such as YOR1, SNQ2, PDR5, PDR10 and PDR15       expression can be beneficial for CYP activity
+   (reviewed  in  Buechel  and  Pinkett  2020).       (Paddon et al. 2013; Ignea et al. 2017). We
+   Modulating the activity of other transcription        investigated the effect of expressing the B.
+    factors  and/or  transporters  might  further        cinerea cytochrome b5, encoded by bccyb5,
+   impact ABA production. However, a recent      and  cognate  cytochrome  b5  reductase,
+   study investigated the effect of expressing      encoded  by  bccbr1.  The  strain  yMO23
+   Arabidopsis thaliana ABA transporters in an        (originating  from  yMO22)   contains  an
+   ABA-producing  Yarrowia   lipolytica   strain,       expression cassette with pHHF2-bccyb5 and
+   aiming to reduce cellular stress, but ABA titers       pTEF2-bccbr1 integrated in the genome.
+   remained unchanged (Arnesen et al. 2022).
+
+
+
+                                                                                  12
+
+
+[PDF physical page 13]
+bioRxiv preprint doi: https://doi.org/10.1101/2023.06.07.544016; this version posted June 8, 2023. The copyright holder for this preprint
+(which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is
+                           made available under aCC-BY-NC 4.0 International license.
+
+
+
+
+
+                                                **
+                                             *
+                                                    *                                                          1.5
+                                                                                                                                                  600                         10                              10
+
+
+                                                                                                          1.0                                                                                                                               [mg/L]                                                                                                                                                                                                           ABA/OD                                      OD600
+                          5                               ABA  5                                                                                                                                                                         ratio
+                                                                                                                                       SCIGS22a          SABA3          yMO22          yMO23                                                             SCIGS22a          SABA3          yMO22          yMO23         0.5                SCIGS22a          SABA3          yMO22          yMO23
+
+                          0                               0                                   0.0
+
+     bcaba1-4, bccpr1        X   X   X             X   X   X             X   X   X
+     +bcaba1 +bcaba2            X   X                 X   X                 X   X
+     +bccyb5 +bccbr1                X                    X                    X
+
+
+    Figure 4: Effects of expressing additional copies of bcaba1 and bcaba2, as well as expressing the B. cinerea CYB5 (bccyb5)
+    and its cognate CBR (bccbr1). “X” indicates presence of the genetic modification in the strain. OD600 (beige), ABA titer in the
+    supernatant (green) and ABA titer normalized to OD600 (blue) are shown after 48 h of cultivation in mineral media (24-
+    deepwell microplates). Grey circles show the individual data points used to calculate the mean and standard deviation. No
+   ABA was detected for strain SCIGS22a. When not apparent, significance (Student’s t-test, two-sided) is displayed as “*” and
+     “**’’, indicating p<0.05 and p<0.01 respectively.
+
+   As was expected, the additional copies of       However, introducing a third copy of bcaba1
+   bcaba1 and bcaba2 resulted in an increase in      and bcaba2 will likely further decrease viability
+   ABA production, which was  visible  in the      and potentially lead to lower genetic stability.
+   absolute titer and titer normalised to OD600     We concluded that modulating the native
+    (Figure   4).  The  2.6-fold  increase  when       yeast metabolism would be a more sustainable
+   comparing SABA3 and yMO22 was lower than       engineering strategy to improve CYP activity.
+   the  4.1-fold  increase  that was  previously
+   observed in the plasmid-carrying strain (Otto      ER proliferation and heme metabolism
+    et al. 2019). This was anticipated since plasmid      ER proliferation  is a promising engineering
+   gene expression levels are often higher when        strategy since it was successfully applied for
+   compared to genomic integrations (Fang et al.       production of other isoprenoids and does not
+   2011; Lee et  al. 2015),  likely due to  cells        require engineering of the heterologous CYP
+   carrying on average more than one copy of          itself (Arendt et al. 2017; Kim et al. 2019).
+   centromeric plasmids (Singh and Anthony Weil       Three of the most common native target genes
+   2002). Expression of bccyb5 and bccbr1 in        for ER proliferation are PAH1, INO2 and OPI1.
+  yMO23 did not increase ABA titers. Comparing      PAH1 encodes phosphatidate phosphatase, a
+   SABA3 and yMO22, a small but significant        highly  regulated  enzyme   catalysing  the
+   decrease in OD600 was observable after 48 h of       conversion     of     phosphatidates     to
+    cultivation (Figure 4). Our results indicate that        diacylgylcerols, a key reaction for balancing
+   CYP  activity was   still  limiting ABA  titers.        levels of membrane phospholipids (PL) and
+
+
+
+                                                                                  13
+
+
+[PDF physical page 14]
+ bioRxiv preprint doi: https://doi.org/10.1101/2023.06.07.544016; this version posted June 8, 2023. The copyright holder for this preprint
+ (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is
+                           made available under aCC-BY-NC 4.0 International license.
+
+
+
+
+
+    8                                        8
+                                                                                                   2.25
+    6                                                                                        [mg/L] 6                                              1.50OD600 4                                        4                                                                                                                       ABA/OD600
+                                                 ABA
+                                                                                                                                                                     ratio 0.75
+    2            yMO42             yMO35             yMO51             yMO41             yMO40         2            yMO42             yMO35             yMO51             yMO41             yMO40                                             yMO42            yMO35            yMO51            yMO41            yMO40
+
+    0                                        0                                              0.00
+             Δpah1  Δopi1   Ox    Ox                 Δpah1  Δopi1   Ox    Ox                   Δpah1 Δopi1  Ox   Ox
+                          INO2 HEM13                            INO2 HEM13                             INO2 HEM13
+
+     Figure 5: Effects of Δpah1, Δopi1, INO2 overexpression and HEM13 overexpression. Genetic modifications additional to
+    yMO42 (yMO23 carrying an empty plasmid) are displayed below the bars and include knockout of PAH1 (yMO35) or OPI1
+    (yMO51), and episomal overexpression of INO2 (yMO41) or HEM13 (yMO40). OD600 (beige), ABA titer in the supernatant
+     (green) and ABA titer normalized to OD600 (blue) are shown after 60 h of cultivation in mineral media (24-deepwell
+     microplates). Grey circles show the individual data points used to calculate the mean and standard deviation. Ox =
+     overexpression
+
+     triacylglyceride (TAG) storage lipids (Han, Wu       overexpression (strains yMO41 and yMO40
+   and Carman 2006; Pascual and Carman 2013).        respectively) (see Figure 2) for strain pedigree
+    Ino2  and  Opi1  are  transcription  factors         tree). Even though the addition of bccyb5 and
+    regulating various lipid metabolism genes. The       bccbr1 in yMO23 did not result in higher ABA
+    Ino2/Ino4 complex activates genes involved in         titers (Figure 4), we decided to use the strain
+    PL  biosynthesis, whereas  Opi1  acts  as  a        for further experiments, since bccyb5 activity
+    repressor when interacting with Ino2 (Henry,       could also be affected by ER expansion and
+    Kohlwein and Carman 2012). Knockout  of       increased heme supply. INO2 and HEM13 were
+   PAH1  or  OPI1  and  overexpression   (or       overexpressed using centromeric plasmids and
+    deregulation)  of INO2  resulted  in  similar       the other strains analysed in this experiment
+    phenotypes with an enlarged ER (Schuck et al.      were transformed with empty plasmids to
+    2009; Arendt et al. 2017; Kim et al. 2019).           render them prototrophic.
+   Heme is an essential co-factor for CYPs, CPRs        Figure 5 shows the OD600, ABA titer and ABA
+   and CYBs. Overexpression of CYPs and their co-         titer normalized to OD600  for  strains with
+   enzymes could lead to heme depletion and       engineered  PL  metabolism  and  HEM13
+     limit ABA production. A recent study showed       overexpression. With the exception of the
+    that       overexpression       of      the      Δpah1 strain yMO35, OD600 and ABA titers
+    coproporphyrinogen  III oxidase gene HEM13      were  comparable  for   all  strains. yMO35
+    increases native heme production 3-fold in        exhibited a severe growth defect with ≈70%
+    CEN.PK.113-11C (Ishchuk et al. 2022).               lower OD600 after 60 h compared to the control
+   We investigated the effects of a PAH1 or OPI1        strain yMO42. Absolute ABA titers for yMO35
+    knockout   (strains  yMO35  and  yMO51      were decreased by ≈35%; however, the ABA
+    respectively)   and   INO2    or   HEM13         titer relative to OD600 was increased 2.2-fold.
+
+
+                                                                                  14
+
+
+[PDF physical page 15]
+  bioRxiv preprint doi: https://doi.org/10.1101/2023.06.07.544016; this version posted June 8, 2023. The copyright holder for this preprint
+ (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is
+                            made available under aCC-BY-NC 4.0 International license.
+
+
+
+    The results indicate that heme supply did not       appear  to  be  strain-  or  product-specific,
+     limit CYP activity and that Δpah1-mediated ER        potentially  depending  on  other  genetic
+    expansion was beneficial for ABA production.        modifications  or  being   specific  to  the
+    However, the beneficial effects of the PAH1       heterologous CYP.
+    knockout come  with  impaired  growth,  a      The ABA-producing strains of this study are
+    phenotype that has been observed before       based on the sesquiterpenoid platform strain
+    (Han, Wu and Carman 2006; Zhang et al. 2021).       SCIGS22a, in which the genes DPP1 and LPP1
+    Even though modification of the three target      were     deleted     to     prevent     the
+    genes PAH1, OPI1 and INO2 all resulted in ER       dephosphorylation of farnesyl-pyrophosphate
+    expansion in previous studies, they did not all       to farnesol (Faulkner et al. 1999; Scalcinati et
+     affect  CYP  activity  in  the  ABA-producing          al. 2012b; López et al. 2015). Like PAH1, DPP1
+     strains. A previous study compared the effects      and    LPP1    encode     phosphatidate
+     of Δpah1, Δopi1 and overexpression of INO2       phosphatases. Dpp1 and Lpp1 only have minor
+     for the production of isoflavonoids (Liu et al.        effects on PL and TAG levels (Carman 2019),
+     2021). Flavonoid  titers were improved by       but their deletion potentially played a role in
+     either knocking out OPI1 or by overexpressing        influencing the growth and ABA titer of the
+    INO2. No beneficial effects were observed for      Δpah1 strain yMO35.
+    Δpah1, and in this study severe growth defects
+    were only seen for a Δpah1/Δopi1 double-       Exchanging of the native PAH1 promoter to
+    knock-out strain and a strain with Δopi1 and       mediate growth deficiency
+    simultaneous INO2 overexpression (Liu et al.      The deletion of PAH1 in yMO35 led to a severe
+     2021). The beneficial effects of ER proliferation       growth defect, making the strain unsuitable for
+
+
+                                                                                      *                                                     **                                             20                                                                                         **
+    6
+                                             15                                       4
+
+    4                                                                                                   [mg/L] 10OD600                                                                                                                                                                                                                                                                   ABA/OD600
+                                                                                      2                                                 ABA    2                                              5                                                                       ratio
+                        yMO23             yMO26             yMO36             yMO38             yMO39                                         yMO23             yMO26             yMO36             yMO38             yMO39                                      yMO23             yMO26             yMO36             yMO38             yMO39
+
+    0                                         0                                       0
+       PAH1  Δpah1 pREV1-PAH1 pHXT1-PAH1                  PAH1  Δpah1 pREV1-PAH1 pHXT1-PAH1                 PAH1  Δpah1 pREV1-PAH1 pHXT1-PAH1    Wt                        PAH1       Wt                        PAH1       Wt                        PAH1                                           pminCYC1-                                                  pminCYC1-                                                 pminCYC1-
+
+
+     Figure 6: Effects of PAH1 promoter replacement. The PAH1 promoter was exchanged for pREV1 (yMO36), pHXT1 (yMO38)
+     or pminCYC1 (yMO39) and the effect compared to the parent strain with wild-type pPAH1 (yMO23) or a Δpah1 strain
+     (yMO26). OD600 (beige), ABA titer in the supernatant (green) and ABA titer normalized to OD600 (blue) are shown after 60 h
+      of cultivation in mineral media (24-deepwell microplates). Grey circles show the individual data points used to calculate the
+    mean and standard deviation. When not apparent, significance (Student’s t-test, two-sided) is displayed as “*” and “**’’,
+      indicating p<0.05 and p<0.01 respectively. Wt = wild-type
+
+
+                                                                                   15
+
+
+[PDF physical page 16]
+bioRxiv preprint doi: https://doi.org/10.1101/2023.06.07.544016; this version posted June 8, 2023. The copyright holder for this preprint
+(which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is
+                           made available under aCC-BY-NC 4.0 International license.
+
+
+
+
+
+    Figure 7: Effect of PAH1 modifications on cell growth. Growth profiles and maximum growth rate μmax are shown for the
+   background strain SCIGS22a (no B. cinerea genes, beige), the wild-type PAH1 control yMO23 (green), the Δpah1 strain yMO26
+    (blue) and yMO39 carrying the pminCYC1-PAH1 modification (orange). Lines in the growth profiles show the mean OD600 of
+    three replicates and ribbons visualize their standard deviation. Grey circles show the individual data points used to calculate
+    the mean and standard deviation of μmax. Cells were grown in mineral media (96-well microplates). Wt = wild-type
+
+   further engineering or future biotechnological       growth and production phase (Scalcinati et al.
+   uses. However, encouraged by the improved       2012a, 2012b). Figure 6 shows the OD600,
+    relative ABA titer of yMO35 (Figure 5), we       absolute and relative ABA titers of strains with
+   investigated   if  a gene knock-down  could       replaced pPAH1 and control strains with wild-
+   mediate the growth defect and  still benefit       type pPAH1 (strain yMO23) and Δpah1 (strain
+   ABA production. Expression levels of the PAH1      yMO26). The strains with wild-type PAH1 and
+   promoter  during  growth  in  glucose  are       promoter replacement showed no significant
+   comparable to the REV1 promoter and are <1%        difference in OD600. The strain carrying the
+   of the commonly used strong TEF1 promoter      pminCYC1-PAH1    modification,   yMO39,
+   (unpublished data).                             produced 15.8 mg/L ABA, ≈1.3-fold the titer
+   The native PAH1 promoter was exchanged for       produced  by  the  wild-type PAH1  control
+   three different promoters to investigate their      yMO23. The ABA titer normalized to OD600 for
+    effects on growth and ABA production. We     yMO39 was also ≈1.3-fold higher than the titer
+   chose the constitutively weak promoter pREV1        of yMO23, but remained 40% smaller than for
+    (strain yMO36), the  glucose-concentration-       the Δpah1 strain yMO26 (Figure 6).
+   dependent promoter pHXT1 (strain yMO38)        In addition, we compared the growth profile
+   and a  synthetic minimal promoter named      and maximum  growth  rate  μmax  of  the
+   pminCYC1 (strain yMO39) (Ottoz, Rudolf and       background strain SCIGS22a, wild-type PAH1
+    Stelling 2014). pHXT1  is repressed  in low        strain yMO23, the Δpah1 strain yMO26 and the
+   glucose  conditions  and   is  used  in  the      pminCYC1-PAH1 strain yMO39 (Figure 7). The
+   background strain SCIGS22a to regulate ERG9       growth profiles and μmax of yMO23 and yMO39
+   expression with the goal of separating  cell      were similar, both had a lower μmax and slightly
+
+
+                                                                                  16
+
+
+[PDF physical page 17]
+bioRxiv preprint doi: https://doi.org/10.1101/2023.06.07.544016; this version posted June 8, 2023. The copyright holder for this preprint
+(which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is
+                           made available under aCC-BY-NC 4.0 International license.
+
+
+
+   lower final OD600 than the background strain.       OPI1 and INO2, do not universally benefit ABA
+  Among the analysed strains, the Δpah1 strain       production (Figure 5). Only Δpah1 lead to an
+  yMO26 had the most severe growth defect in        increase in ABA titer when normalized to OD600
+   terms of μmax and final OD600. Interestingly,       but  caused  a  severe  growth  defect.  By
+  yMO26  did  not  show  bi-phasic  growth.       exchanging  pPAH1  to  a  weak  synthetic
+   Deletion of PAH1 has been reported to cause       promoter,  pminCYC1,   it  was  possible  to
+    respiratory  deficiencies  (Irie  et  al.  1993),       mediate the growth defect and still improve
+    potentially explaining the growth defect.          ABA titers significantly (Figure 6, Figure 7).
+    In conclusion, by exchanging pPAH1 for the       While  overexpression  of PAH1 had been
+   weak minimal promoter pminCYC1, we were         utilized in TAG cell factories (Hung, Kanehara
+   able to avoid the growth defect observed in      and Nakamura 2016), to the best of our
+   the Δpah1 strain yMO26, while still improving       knowledge, a PAH1 knockdown had not been
+   ABA titers. The relative ABA titer per OD600 was        investigated before.
+   higher for yMO26 than for yMO39, indicating       Taking the results of the current and previous
+   that  ABA  production  might  be  further       study (Otto et  al. 2019) into account, we
+   improved by fine-tuning ER proliferation.           presume that CYP  activity  is  still a major
+                                                      bottleneck for ABA production. CYP activity
+   Conclusion                                   might be further improved in the current strain
+   Improving CYP activity by protein engineering       by fine-tuning PAH1 expression levels. More
+     is challenging and requires in-depth knowledge      weak promoters could be tested, or inducible
+   about the  protein and/or high-throughput       promoters could be used  to  titrate gene
+   screening  capabilities.  In  this  study, we        expression,   allowing   for   a   systematic
+   explored ways to improve heterologous CYP        investigation of phenotypical effects. Native
+    activity  by  modifying  the  native  yeast      PAH1 expression  varies depending on the
+   metabolism   instead   of   the   enzymes       growth phase  (Pascual,  Soto-Cardalda and
+   themselves.                                 Carman  2013)  and  testing  growth-phase
+   ER proliferation has proven to be a valuable         specific promoters,  like pHXT1, in different
+   approach for CYP-expressing cell factories that        cultivation    conditions,    e.g.    fed-batch
+   does not require engineering of the enzymes         cultivation, would provide valuable insight for
+   themselves (Jiang et al. 2021). It led to multi-        biotechnological     applications.    Another
+    fold increased titers in some cases (Arendt et       engineering strategy would be combining the
+    al. 2017; Kim et al. 2019). In this study, we      PAH1 knockdown with INO2 overexpression or
+   showed that the three commonly used target       OPI1 deletion.
+   genes for expanding the ER architecture, PAH1,
+
+
+
+                                                                                  17
+
+
+[PDF physical page 18]
+bioRxiv preprint doi: https://doi.org/10.1101/2023.06.07.544016; this version posted June 8, 2023. The copyright holder for this preprint
+(which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is
+                           made available under aCC-BY-NC 4.0 International license.
+
+
+
+    In a recent study, Y. lipolytica was used as a      pPAH1 replacement could be a promising
+   heterologous  production  host   for  ABA       engineering strategy in a Y. lipolytica ABA cell
+   (Arnesen  et  al.  2022). Complex media or        factory.
+   mineral media containing 80 g/L glucose was      Few biotechnological studies have investigated
+   used, making the titers not comparable to this       the various target genes for ER proliferation
+   study. Similar to the Δpah1 phenotype in S.       comprehensively. This report provides useful
+    cerevisiae, deletion of PAH1 in Y. lipolytica       data for future studies and is a step towards a
+    results in massive ER expansion (Guerfal et al.      more   systematic   understanding   of  ER
+   2013). We assume that PAH1 deletion or        proliferation for improving CYP activity.
+
+
+  Acknowledgments
+
+  We would like to thank the Chalmers Mass Spectrometry Infrastructure (CMSI) for their help and
+    technical support with the HPLC–MS analysis.
+
+
+  References
+
+   Alam MT, Zelezniak A, Mülleder M et al. The metabolic background is a global player in Saccharomyces
+         gene expression epistasis. Nature Microbiology 2016;1:1–10.
+
+   Arendt P, Miettinen K, Pollier J et al. An endoplasmic reticulum-engineered yeast platform for
+          overproduction of triterpenoids. Metabolic Engineering 2017;40:165–75.
+
+   Arnesen JA, Jacobsen IH, Dyekjær JD et al. Production of abscisic acid in the oleaginous yeast Yarrowia
+             lipolytica. FEMS Yeast Research 2022;22:foac015.
+
+   Carman GM. Discoveries of the phosphatidate phosphatase genes in yeast published in the Journal of
+            Biological Chemistry. Journal of Biological Chemistry 2019;294:1681–9.
+
+   Chen K, Li G-J, Bressan RA et al. Abscisic acid dynamics, signaling, and functions in plants. Journal of
+            Integrative Plant Biology 2020;62:25–54.
+
+   Chen X, Li X, Ji B et al. Suppressors of amyloid-β toxicity improve recombinant protein production in
+           yeast by reducing oxidative stress and tuning cellular metabolism. Metabolic Engineering
+          2022;72:311–24.
+
+   Denisov IG, Makris TM, Sligar SG et al. Structure and Chemistry of Cytochrome P450. Chemical Reviews
+          2005;105:2253–78.
+
+   van Dijken JP, Bauer J, Brambilla L et al. An interlaboratory comparison of physiological and genetic
+           properties of four Saccharomyces cerevisiae strains. Enzyme and Microbial Technology
+          2000;26:706–14.
+
+
+
+
+
+                                                                                  18
+
+
+[PDF physical page 19]
+bioRxiv preprint doi: https://doi.org/10.1101/2023.06.07.544016; this version posted June 8, 2023. The copyright holder for this preprint
+(which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is
+                           made available under aCC-BY-NC 4.0 International license.
+
+
+
+   Engler C, Kandzia R, Marillonnet S. A One Pot, One Step, Precision Cloning Method with High
+          Throughput Capability. PLOS ONE 2008;3:e3647.
+
+   Fang F, Salmon K, Shen MWY et al. A vector set for systematic metabolic engineering in Saccharomyces
+            cerevisiae. Yeast 2011;28:123–36.
+
+   Faulkner A, Chen X, Rush J et al. The LPP1 and DPP1 Gene Products Account for Most of the Isoprenoid
+          Phosphate Phosphatase  Activities  in Saccharomyces  cerevisiae.  Journal  of  Biological
+          Chemistry 1999;274:14831–7.
+
+   Gietz RD, Woods RA. Yeast Transformation by the LiAc/SS Carrier DNA/PEG Method. In: Xiao W (ed.).
+           Yeast Protocol. Totowa, NJ: Humana Press, 2006, 107–20.
+
+   Guerfal M, Claes K, Knittelfelder O et al. Enhanced membrane protein expression by engineering
+           increased intracellular membrane production. Microbial Cell Factories 2013;12:122–122.
+
+   Gupta K, Wani SH, Razzaq A et al. Abscisic Acid: Role in Fruit Development and Ripening. Frontiers in
+           Plant Science 2022;13.
+
+   Han G-S, Wu W-I, Carman GM. The Saccharomyces cerevisiae Lipin Homolog Is a Mg2+-dependent
+          Phosphatidate Phosphatase Enzyme. Journal of Biological Chemistry 2006;281:9210–8.
+
+   Heilmann B, Hartung W, Gimmler H. The Distribution of Abscisic Acid between Chloroplasts and
+          Cytoplasm of Leaf Cells and the Permeability of the Chloroplast Envelope for Abscisic Acid.
+             Zeitschrift für Pflanzenphysiologie 1980;97:67–78.
+
+   Henry SA, Kohlwein SD, Carman GM. Metabolism and Regulation of Glycerolipids in the Yeast
+          Saccharomyces cerevisiae. Genetics 2012;190:317–49.
+
+    Hirai N, Yoshida R, Todoroki Y et al. Biosynthesis of Abscisic Acid by the Non-mevalonate Pathway in
+            Plants, and by the Mevalonate Pathway in Fungi. Bioscience, Biotechnology and Biochemistry
+          2014;64:1448–58.
+
+   Hung C-H, Kanehara K, Nakamura Y. In vivo Reconstitution of Algal Triacylglycerol Production in
+          Saccharomyces cerevisiae. Frontiers in Microbiology 2016;7:70.
+
+   Ignea C, Athanasakoglou A, Andreadelli A et al. Overcoming the plasticity of plant specialized
+          metabolism for selective diterpene production in yeast. Scientific Reports 2017;7:8855.
+
+   Inomata M, Hirai N, Yoshida R et al. The biosynthetic pathway to abscisic acid via ionylideneethane in
+          the fungus Botrytis cinerea. Phytochemistry 2004;65:2667–78.
+
+    Irie K, Takase M, Araki H et al. A gene, SMP2, involved in plasmid maintenance and respiration in
+          Saccharomyces cerevisiae encodes a highly charged protein. Molecular and General Genetics
+          1993;236:283–8.
+
+   Ishchuk OP, Domenzain I, Sánchez BJ et al. Genome-scale modeling drives 70-fold improvement of
+             intracellular heme production in Saccharomyces cerevisiae. Proceedings of the National
+         Academy of Sciences 2022;119:e2108245119.
+
+   Jessop-Fabre MM, Jakočiūnas T, Stovicek V et al. EasyClone-MarkerFree: A vector toolkit for marker-
+            less integration of genes into Saccharomyces cerevisiae via CRISPR-Cas9. Biotechnology
+           Journal 2016;11:1110–7.
+
+
+                                                                                  19
+
+
+[PDF physical page 20]
+bioRxiv preprint doi: https://doi.org/10.1101/2023.06.07.544016; this version posted June 8, 2023. The copyright holder for this preprint
+(which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is
+                           made available under aCC-BY-NC 4.0 International license.
+
+
+
+    Jiang L, Huang L, Cai  J et al. Functional expression of eukaryotic cytochrome P450s in yeast.
+           Biotechnology and Bioengineering 2021;118:1050–65.
+
+   Kaiser WM, Hartung W. Uptake and Release of Abscisic Acid by Isolated Photoautotrophic Mesophyll
+             Cells, Depending on pH Gradients. Plant Physiology 1981;68:202–6.
+
+   Kim J-E, Jang I-S, Son S-H et al. Tailoring the Saccharomyces cerevisiae endoplasmic reticulum for
+           functional assembly of terpene synthesis pathway. Metabolic Engineering 2019;56:50–9.
+
+   Kim SW, Goossens A, Libert C et al. Phytohormones: Multifunctional nutraceuticals against metabolic
+         syndrome and comorbid diseases. Biochemical pharmacology 2020:113866.
+
+   Kolaczkowska A, Goffeau A. Regulation of pleiotropic drug resistance in yeast. Drug Resistance
+          Updates: Reviews and Commentaries  in  Antimicrobial and  Anticancer Chemotherapy
+          1999;2:403–14.
+
+   Le Crom S, Devaux F, Marc P et al. New Insights into the Pleiotropic Drug Resistance Network from
+         Genome-Wide  Characterization  of the YRR1  Transcription  Factor  Regulation System.
+          Molecular and Cellular Biology 2002;22:2642–9.
+
+   Lee ME, DeLoache WC, Cervantes B et al. A Highly Characterized Yeast Toolkit for Modular, Multipart
+          Assembly. ACS Synthetic Biology 2015;4:975–86.
+
+   Lievens L, Pollier J, Goossens A et al. Abscisic Acid as Pathogen Effector and Immune Regulator.
+            Frontiers in Plant Science 2017;8
+
+    Liu Q, Liu Y, Li G et al. De novo biosynthesis of bioactive isoflavonoids by engineered yeast cell
+            factories. Nature Communications 2021;12:6085.
+
+   López J, Essus K, Kim I et al. Production of β-ionone by combined expression of carotenogenic and
+           plant CCD1 genes in Saccharomyces cerevisiae. Microbial Cell Factories 2015;14:84.
+
+   Mans R, Rossum HM van, Wijsman M et  al. CRISPR/Cas9: a molecular Swiss army knife for
+          simultaneous introduction of multiple genetic modifications in Saccharomyces cerevisiae.
+        FEMS Yeast Research 2015;15:fov004.
+
+   Meadows AL, Hawkins KM, Tsegaye Y et al. Rewriting yeast central carbon metabolism for industrial
+           isoprenoid production. Nature 2016;537:694.
+
+   Michener JK, Nielsen J, Smolke CD. Identification and treatment of heme depletion attributed to
+           overexpression of a lineage of evolved P450 monooxygenases. Proceedings of the National
+         Academy of Sciences 2012;109:19504–9.
+
+   Mira NP, Teixeira MC, Sá-Correia I. Adaptive Response and Tolerance to Weak Acids in Saccharomyces
+            cerevisiae: A Genome-Wide View. OMICS 2010;14:525–40.
+
+  Mumberg D, Müller R, Funk M. Yeast vectors for the controlled expression of heterologous proteins
+            in different genetic backgrounds. Gene 1995;156:119–22.
+
+   Olds CL, Glennon E, Luckhart S. Abscisic acid: new perspectives on an ancient universal stress signaling
+           molecule. Microbes and Infection 2018
+
+
+
+
+                                                                                  20
+
+
+[PDF physical page 21]
+bioRxiv preprint doi: https://doi.org/10.1101/2023.06.07.544016; this version posted June 8, 2023. The copyright holder for this preprint
+(which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is
+                           made available under aCC-BY-NC 4.0 International license.
+
+
+
+   Otto M, Skrekas C, Gossing M et al. Expansion of the Yeast Modular Cloning Toolkit for CRISPR-Based
+            Applications, Genomic Integrations and Combinatorial  Libraries. ACS Synthetic Biology
+          2021;10:3461–74.
+
+   Otto M, Teixeira PG, Vizcaino MI et  al. Integration of a multi-step heterologous pathway in
+          Saccharomyces cerevisiae for the production of abscisic acid. Microbial  Cell Factories
+           2019;18:205.
+
+   Ottoz DSM, Rudolf F, Stelling  J. Inducible, tightly regulated and growth condition-independent
+            transcription factor in Saccharomyces cerevisiae. Nucleic Acids Research 2014;42:e130–e130.
+
+   Paddon CJ, Westfall PJ, Pitera DJ et al. High-level semi-synthetic production of the potent antimalarial
+            artemisinin. Nature 2013;496:528–32.
+
+   Park HA, Choi K-Y. α, ω-Oxyfunctionalization of C12 alkanes via whole-cell biocatalysis of CYP153A
+         from Marinobacter aquaeolei and a new CYP from Nocardia farcinica IFM10152. Biochemical
+           Engineering Journal 2020;156:107524.
+
+   Pascual F, Carman GM. Phosphatidate Phosphatase, a Key Regulator of Lipid Homeostasis. Biochimica
+            et Biophysica Acta 2013;1831:514–22.
+
+   Pascual F, Soto-Cardalda A, Carman GM. PAH1-encoded Phosphatidate Phosphatase Plays a Role in
+          the Growth Phase- and Inositol-mediated Regulation of Lipid Synthesis in Saccharomyces
+            cerevisiae. Journal of Biological Chemistry 2013;288:35781–92.
+
+   Petzoldt T. R package growthrates. 2022.
+
+   Podust LM, Sherman DH. Diversity of P450 enzymes in the biosynthesis of natural products. Nat Prod
+         Rep 2012;29:1251–66.
+
+   Pydi SP, Jaggupilli A, Nelson KM et al. Abscisic Acid Acts as a Blocker of the Bitter Taste G Protein-
+          Coupled Receptor T2R4. Biochemistry 2015;54:2622–31.
+
+   Ro D-K, Ouellet M, Paradise EM et al. Induction of multiple pleiotropic drug resistance genes in yeast
+          engineered to produce an increased level of anti-malarial drug precursor, artemisinic acid.
+       BMC Biotechnology 2008;8:83.
+
+   RStudio Team. RStudio: Integrated Development for R. 2022.
+
+    Finkelstein, R. Abscisic Acid Synthesis and Response. The Arabidopsis Book 2013;2013
+
+   Sah SK, Reddy KR, Li J. Abscisic Acid and Abiotic Stress Tolerance in Crop Plants. Frontiers in Plant
+           Science 2016;7.
+
+    Sakthivel P, Sharma N, Klahn P et al. Abscisic Acid: A Phytohormone and Mammalian Cytokine as Novel
+         Pharmacon with Potential  for Future Development  into  Clinical  Applications. Current
+           Medicinal Chemistry 2016;23:1549–70.
+
+    Scalcinati G, Knuf C, Partow S et al. Dynamic control of gene expression in Saccharomyces cerevisiae
+          engineered for the production of plant sesquitepene α-santalene in a fed-batch mode.
+          Metabolic Engineering 2012a;14:91–103.
+
+
+
+
+                                                                                  21
+
+
+[PDF physical page 22]
+bioRxiv preprint doi: https://doi.org/10.1101/2023.06.07.544016; this version posted June 8, 2023. The copyright holder for this preprint
+(which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is
+                           made available under aCC-BY-NC 4.0 International license.
+
+
+
+    Scalcinati G, Partow S, Siewers V et al. Combined metabolic engineering of precursor and co-factor
+           supply to increase α-santalene production by Saccharomyces cerevisiae. Microbial Cell
+            Factories 2012b;11:1–16.
+
+   Schenkman  JB, Jansson  I. The many roles of cytochrome b5. Pharmacology & Therapeutics
+          2003;97:139–52.
+
+   Schuck S, Prinz WA, Thorn KS et al. Membrane expansion alleviates endoplasmic reticulum stress
+          independently of the unfolded protein response. The Journal of Cell Biology 2009;187:525–
+           36.
+
+    Shi T-Q, Peng H, Zeng S-Y et al. Microbial production of plant hormones: Opportunities and challenges.
+          Bioengineered 2016:1–5.
+
+   Siewers V, Smedsgaard J, Tudzynski P. The P450 Monooxygenase BcABA1 Is Essential for Abscisic Acid
+           Biosynthesis in Botrytis cinerea. Applied and Environmental Microbiology 2004;70
+
+   Siewers V, Kokkelink L, Smedsgaard J et al. Identification of an Abscisic Acid Gene Cluster in the Grey
+         Mold Botrytis cinerea. Applied and Environmental Microbiology 2006;72:4619–26.
+
+   Singh MV, Anthony Weil P. A method for plasmid purification directly from yeast. Analytical
+           Biochemistry 2002;307:13–7.
+
+    Slovik S, Baier M, Hartung W. Compartmental distribution and redistribution of abscisic acid in intact
+            leaves : I. Mathematical formulation. Planta 1992;187:14–25.
+
+   Souid A-K, Gao C, Wang L et al. ELM1 Is Required for Multidrug Resistance in Saccharomyces cerevisiae.
+           Genetics 2006;173:1919–37.
+
+   Takino J, Kozaki T, Ozaki T et al. Elucidation of biosynthetic pathway of a plant hormone abscisic acid
+            in phytopathogenic fungi. Bioscience, Biotechnology, and Biochemistry 2019;83:1642–9.
+
+   Verduyn C, Postma E, Scheffers WA et al. Effect of benzoic acid on metabolic fluxes in yeasts: A
+           continuous-culture study on the regulation of respiration and alcoholic fermentation. Yeast
+          1992;8:501–17.
+
+   Vishwakarma K, Upadhyay N, Kumar N et al. Abscisic Acid Signaling and Abiotic Stress Tolerance in
+            Plants: A Review on Current Knowledge and Future Prospects. Frontiers in Plant Science
+           2017;8.
+
+   Werck-Reichhart  D,  Feyereisen  R.  Cytochromes  P450:  a  success  story. Genome  Biology
+           2000;1:reviews3003.1.
+
+   Wickham H. Ggplot2: Elegant Graphics for Data Analysis. 2nd ed. Cham, Switzerland: Springer
+            International Publishing, 2016.
+
+   Wickham H, Averick M, Bryan J et al. Welcome to the tidyverse. Journal of Open Source Software
+           2019;4:1686.
+
+   Zhang H, Im S-C, Waskell L. Cytochrome b5 Increases the Rate of Product Formation by Cytochrome
+         P450 2B4 and Competes with Cytochrome P450 Reductase for a Binding Site on Cytochrome
+         P450 2B4. Journal of Biological Chemistry 2007;282:29766–76.
+
+
+
+                                                                                  22
+
+
+[PDF physical page 23]
+bioRxiv preprint doi: https://doi.org/10.1101/2023.06.07.544016; this version posted June 8, 2023. The copyright holder for this preprint
+(which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is
+                           made available under aCC-BY-NC 4.0 International license.
+
+
+
+   Zhang X, Liu X, Meng Y et al. Combinatorial engineering of Saccharomyces cerevisiae for improving
+          limonene production. Biochemical Engineering Journal 2021;176:108155.
+
+   Zhang  Z, Moo-Young M,  Chisti  Y. Plasmid  stability in recombinant Saccharomyces cerevisiae.
+           Biotechnology Advances 1996;14:401–35.
+
+
+  Contributions
+
+  MO, FD and VS conceived this project. MO, MG, FD and VS designed the research. MG performed and
+   analysed the fluconazole experiment. MO performed and analysed the other experiments. MO, MG,
+   FD and VS prepared the manuscript.
+
+
+  Funding
+
+   This study was funded by the Swedish Research Council (Vetenskapsrådet) and the Novo Nordisk
+   Fonden.
+
+
+
+
+
+                                                                                  23

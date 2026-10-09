@@ -1,0 +1,890 @@
+
+[PDF physical page 1]
+       Article                                                                                      https://doi.org/10.1038/s41467-025-61599-z
+   Harnessing protein language model for
+   structure-based discovery of highly efﬁcient
+  and robust PET hydrolases
+
+
+
+        Received: 5 December 2024            Banghao Wu    1,2,3,6, Bozitao Zhong    1,2,6, Lirong Zheng   2,5    , Runye Huang1,2,3,
+                                             Shifeng Jiang1, Mingchen Li   2,4, Liang Hong   1,2,3,4  & Pan Tan   1,2,4
+       Accepted: 26 June 2025
+
+
+                                                   Plastic waste, particularly polyethylene terephthalate (PET), presents sig-
+          Check for updates                    niﬁcant environmental challenges, driving extensive research into enzymatic
+                                            biodegradation. However, existing PET hydrolases (PETases) are limited by1234567890():,;                 1234567890():,;                                     narrow sequence diversity and suboptimal performance. This study intro-
+                                        duces VenusMine, a protein discovery pipeline that integrates protein lan-
+                                       guage models (PLMs) with a representation tree to identify PETases based on
+                                                 structural similarity using sequence information. Using the crystal structure of
+                                            IsPETase as a template, VenusMine identiﬁes and clusters target proteins.
+                                          Candidates are further screened using PLM-based assessments of solubility
+                                      and thermostability, leading to the selection of 34 proteins for biochemical
+                                                  validation. Results reveal that 14 candidates exhibit PET degradation activity
+                                             across 30–60 °C. Notably, a PET hydrolase from Kibdelosporangium ban-
+                                             guiense (KbPETase) demonstrates a melting temperature (Tm) 32 °C higher
+                                          than IsPETase and exhibits the highest PET degradation activity within 30 –
+                                       65 °C among wild-type PETases. KbPETase also surpasses FastPETase and LCC
+                                                 in catalytic efﬁciency. X-ray crystallography and molecular dynamics simula-
+                                               tions show that KbPETase possesses a conserved catalytic domain and
+                                       enhanced intramolecular interactions, underpinning its improved function-
+                                                        ality and thermostability. This work demonstrates a novel deep learning
+                                        approach for discovering natural PETases with enhanced properties.
+
+
+
+
+         Plastic waste poses serious risks to human health and the envir-   accumulation in landﬁlls and natural ecosystems has become a
+       onment, contributing to pollution, toxic chemical exposure, and   signiﬁcant environmental  issue1,2,5. Traditional mechanical and
+       ecosystem disruption1–3. Recycling plastic is therefore essential to   chemical recycling methods for PET are limited in both efﬁciency
+        mitigate these negative impacts, conserve natural resources, and  and environmental sustainability6–8. As a result, developing bio-
+       reduce environmental contamination. Polyethylene terephthalate   logical solutions for PET degradation, particularly through the use
+         (PET), one of the most widely used plastics, has already been   of hydrolase enzymes to product high-quality recycled PET (rPET),
+        extensively utilized in packaging, textiles, and various consumer   has obtained signiﬁcant attention from both scientiﬁc research
+        products4.  Due  to   its  durability  and  extensive  use,  PET  and industry9–18.
+
+
+
+         1School of Life Sciences and Biotechnology, Shanghai Jiao Tong University, Shanghai, China. 2Shanghai National Center for Applied Mathematics (SJTU
+         Center) & Institute of Natural Sciences, Shanghai Jiao Tong University, Shanghai, China. 3Zhang Jiang Institute for Advanced Study, Shanghai Jiao Tong
+          University, Shanghai, China. 4Shanghai Artiﬁcial Intelligence Laboratory, Shanghai, China. 5Present address: Department of Cell and Developmental Biology &
+         Michigan Neuroscience Institute, University of Michigan Medical School, Ann Arbor, Michigan, USA. 6These authors contributed equally: Banghao Wu, Bozitao
+        Zhong.    e-mail: lrzheng@umich.edu; hongl3liang@sjtu.edu.cn; tpan1039@gmail.com
+
+
+
+        Nature Communications| (2025)16:6211                                                                                                         1
+
+
+[PDF physical page 2]
+Article                                                                                    https://doi.org/10.1038/s41467-025-61599-z
+
+
+    Multiple enzymes capable of degrading PET have been bio-   potential PETases that share a similar structure to our query protein,
+chemically and structurally identiﬁed and characterized19–23. The most   IsPETase (Fig. 1b). This approach resulted in a vast repertoire of
+effective PET-degrading enzymes to date are derived from culturable   33,247,501 candidates and kept 436,488 after 50% sequence identity
+microorganisms isolated from environmental microbial communities,   clustering, which could cover almost all potential PETases that share a
+such as the widely used Ideonella sakaiensis PET hydrolase (IsPETase)12.   similar structure to our query protein, IsPETase (Fig. 1b).
+However, approximately 99% of microbial species in nature are      The second stage of the pipeline clusters candidate proteins to
+unculturable, making metagenomic data a crucial resource for dis-   identify those most likely to exhibit optimal functionality and desired
+covering new enzymes24. Successes in this ﬁeld include the identiﬁca-   characteristics. Here, we utilized the sequence embeddings from the
+tion of leaf and branch compost cutinase (LCC)19, PHL-7 (PES-H1)22,25,   protein language model ProstT546 to represent the proteins. To reduce
+PE-H26, Bacterium HR29 (BhrPETase)21, and Thermobiﬁda fusca cuti-   computational cost, we used representative sequences from 50%
+nases (TfCut1 and TfCut2)20. Recently, a thermophilic PET-degrading   identity sequence clusters to calculate embeddings for subsequent
+enzyme, MG8, was discovered from human saliva metagenomic data23.   analysis. ProstT5 has learned a mapping from protein sequences to
+Despite these advancements, the performance of these wild-type (WT)   structures, effectively representing the proteins in the structure space.
+PETases remains insufﬁcient for industrial PET enzymatic hydrolysis.   This means that proteins with closer embeddings in Euclidean space
+Industrial-scale PET biodegradation requires high-temperature condi-   are more likely to share similar structures. Subsequently, agglom-
+tions to achieve high yields of rPET27,28, as temperatures approaching   erative clustering was applied to the protein embeddings to group the
+PET’s glass transition release molecular energy, facilitating PETase-   candidate enzymes and build a representation tree (Fig. 1c, d). To
+catalyzed hydrolysis18,29–34. However, WT PETases are limited by low   elucidate the functions and characteristics of each cluster, a list of well-
+catalytic activity and thermostability10,31,35. Therefore, discovering new   studied enzymes with annotations are clustered together for com-
+WT PETase with high catalytic activity and thermostability are crucial   parison. The agglomerative clusters enabled us to pinpoint the most
+for advancing PETase engineering for the PET biodegradation industry.   promising clade for PET degradation activity, which contains more
+    The discovery of functional proteins is crucial for advancing both  conﬁrmed PETase, while others contained enzymes from different EC
+biotechnology and the  life  sciences36. Sequence-based screening  numbers (Fig. 1d).
+remains the most widely used approach for enzyme discovery36,37,       For further screening, we selected two clusters (cluster 1 and 3), as
+leading to the identiﬁcation of enzymes such as LCC19 and MG823.   these clusters contained all reported high-activity wild-type PETases
+Although sequence-based methods-such as identifying conserved    (e.g., IsPETase, LCC, TFH). A full list of known PETases within these
+residues, sequence similarities, or hidden Markov models (HMMs)-are   clusters is provided in Supplementary Data 2. These clusters under-
+effective, proteins with similar functions may still go undetected when   went multi-tiered screening: (1) A ﬁne-tuned ESM247,48 model predicted
+rely solely on sequence information38. Conversely, because the three-   Tm, with sequences demonstrating Tm larger than that of IsPETase
+dimensional (3D) structure of a protein largely dictates its function,   retained; (2) ProtSolM49 eliminated candidates with low solubility
+structure-based discovery offers a more robust approach, yielding a   predictions; (3) ESMfold-predicted structures were aligned with IsPE-
+more diverse repertoire for enzyme mining39,40. While structural data   Tase (PDB:5XFY) using TM-align, excluding proteins with TM-score
+in public databases remains  limited41,42, deep learning methods,   below 0.5 or sequences exhibiting catalytic triad mismatches. Finally,
+including AlphaFold43, have shown great promise in accurately pre-   the 34 top-ranked candidates by predicted Tm were ﬁnally selected for
+dicting protein 3D structures, enabling the large-scale exploration and   experimental validation, balancing computational predictions with
+classiﬁcation of proteins with structure queries.                          practical experimental throughput constraints (Supplementary Fig. 1).
+     In this study, we develop VenusMine, a structure-based enzyme   This hierarchical approach ensured systematic identiﬁcation of ther-
+discovery pipeline integrating sequence/structure retrieval tools and   mostable, soluble candidates while preserving structural ﬁdelity to
+protein language models to identify thermostable PETases. Through   functional PETase architectures.
+systematic screening of 34 selected candidates using VenusMine, we
+identify 14 active PETases, including 8 with a melting temperature   Characterizations of putative PET hydrolases
+10 °C higher than IsPETase and 3 demonstrating signiﬁcantly enhanced  We analyzed the sequences of 34 candidates to identify signal peptides
+catalytic activity. Notably, PETase from Kibdelosporangium banguiense   using SignalP, followed by truncation to enhance expression efﬁciency
+(KbPETase) exhibits exceptional properties, with a Tm 32 °C higher   (Supplementary Figs. 2–3)50,51. After codon optimization (Supplemen-
+than IsPETase and catalytic activity at 50 °C that outperforms IsPETase   tary Data 1), the modiﬁed sequences were cloned into the pET28a (+)
+and LCC under their optimal reaction conditions. KbPETase also dis-   vector and expressed in E. coli BL21(DE3) with an N-terminal His-tag for
+plays enhanced catalytic efﬁciency (kcat/KM) compared to FastPETase   puriﬁcation. Among the candidates, 26 were successfully expressed
+and LCC. Overall, we establish a structure-based enzyme mining  and puriﬁed. The high expression success rate can also be attributed to
+approach combined with protein language models, which is both   the effective pre-screening capabilities of the PLM in the initial selec-
+reliable and sensitive for identifying and screening candidate PETase,   tion process. The p-nitrophenyl butyrate (pNPB) molecule contains an
+thereby accelerating the discovery of high-performance enzymes.       ester bond, and PETase similarly catalyzes the cleavage of ester bonds
+                                                                            in PET (Supplementary Fig. 4). Therefore, we employed pNPB as a
+Results                                                            substrate to rapidly assess ester bond hydrolysis activity by measuring
+VenusMine: A structure-base enzyme discovery pipeline          the absorbance of the reaction product, a method widely utilized in
+Our structure-based enzyme discovery pipeline for PETase consists of   PETase  discovery  and  related  research12,18,19,33,52,53(Supplementary
+two primary stages (Fig. 1a). First, we aimed to compile a compre-   Figs. 4 and 5). After incubating proteins with substrates at 37 °C, 14
+hensive collection of potential PETases sharing structural similarity   of  the  26  expressible  proteins  exhibited  ester  bond-cleaving
+with known enzymes. Starting with IsPETase as the query structure   activity (Fig. 2a).
+(PDB: 5XFY44), we utilized the structure search tool FoldSeek45 to      To evaluate PET degradation performance50, we used commer-
+perform structure similarity searches (see details in Methods). Given    cially available amorphous PET ﬁlm (AF-PET, Goodfellow Cambridge
+that structure databases are still limited (e.g., AFDB and ESMAtlas), we   Ltd, Cat. No. ES301445) as the substrate, which is widely used for
+used the identiﬁed proteins as queries to conduct an extensive   assessing PET degradation activity13,54. The aromatic reaction products
+sequence search through the NCBI NR sequence database using   mono(2-hydroxyethyl) terephthalate (MHET) and terephthalic acid
+MMseqs2 (see details in Methods). This approach resulted in a vast   (TPA) were quantiﬁed using ultra-high-performance liquid chromato-
+repertoire of 33,247,501 candidates, which could cover almost all   graphy (UPLC)13. For comparative analysis, we used IsPETase, the
+
+
+
+Nature Communications| (2025)16:6211                                                                            2
+
+
+[PDF physical page 3]
+Article                                                                                    https://doi.org/10.1038/s41467-025-61599-z
+
+
+    a
+
+
+
+
+
+       Query protein     Structure-based search        Sequence-based search   Language model embeddings   Build representation tree
+
+
+    b                             d
+
+
+
+
+
+    c
+
+
+
+
+
+Fig. 1 | In silico structure-based PETase discovery pipeline and clustering        identiﬁed using FoldSeek, and orange points correspond to proteins discovered
+results. a The pipeline for PETase discovery combines structure retrieval with      through sequence-based searches. c The UMAP visualization of the PETase candi-
+FoldSeek, sequence retrieval with MMSeqs2, protein embeddings computation via   dates colored by representation tree clusters. d The representation tree con-
+ProstT5, and representation tree construction to identify functional and robust      structed using embeddings from ProstT5. Green bars represent proteins with
+PETase. b The UMAP visualization of the PETase candidates identiﬁed by ProstT5.    previously validated PETase activity, blue bars present enzymes with the correct EC
+Green points indicate proteins with previously validated PET hydrolytic activity or   number, while red bars indicate enzymes not annotated with the correct EC
+annotated with corrected EC number 3.1.1.101, while red points represent those not   number. Two clusters are selected for further screening: the ﬁrst cluster (dark red)
+annotated with the corresponding EC number. Pink points represent proteins      and the third cluster (orange), arranged in a counterclockwise direction.
+
+
+reference protein in our structural searches, as a control baseline.       Notably, APET-14 showed the highest catalytic activity at 50 °C,
+Since the optimal  catalytic temperatures of the enzymes were   with a 97-fold increase compared to IsPETase at 30 °C (Fig. 2c). and
+unknown, we tested the activity of the 14 candidates across a range of   demonstrated excellent thermostability, with a Tm increase of 32.4 °C
+30−60 °C. All proteins exhibited activity within this range, with 11 of   over IsPETase, as validated by nanoDSC (Supplementary Fig. 7). These
+the 14 displaying degradation activity comparable to IsPETase (Fig. 2c).   results indicate that APET-14 (GenBank: WP_209642273.1, PETase from
+Given  that Tm  is an  indicator  of PETase  thermostability and   Kibdelosporangium banguiense55, hereafter KbPETase) combines high
+performance11, we used differential scanning ﬂuorimetry (DSF) to   enzymatic activity and thermostability, traits essential for efﬁcient PET
+determine the Tm of the proteins. The results showed thatthe Tm of the   degradation, and was thus selected for further evaluation. In addition,
+14 proteins ranged from 36.4 °C to 80.1 °C (Fig. 2b), with eight candi-   the sequence similarity between KbPETase and other known PETases
+dates demonstrating superior thermostability compared to the IsPE-   ranges from 30% to 50%, highlighting the capability of VenusMine to
+Tase,  indicating  the  VenusMine’s  effectiveness  in  identifying   identify functional PETase in regions of low sequence similarity (Sup-
+thermostable and functional PETases. We also observed that the three   plementary Fig. 8).
+aforementioned properties exhibited low correlations (Supplemen-
+tary Fig. 6), highlighting the complexity of PETase activity and sug-   Identiﬁcation of KbPETase exhibiting high PET hydrolytic
+gesting that multiple factors likely contribute to overall degradation   activity and thermostability
+performance. However, the PLM was able to capture relevant features,  We compared the activity of KbPETase to that of other characterized
+enabling high-positive screening of candidate PETases.              PET degrading enzymes, such as IsPETase12 (mesophilic), PE-H26
+
+
+
+Nature Communications| (2025)16:6211                                                                         3
+
+
+[PDF physical page 4]
+Article                                                                                    https://doi.org/10.1038/s41467-025-61599-z
+
+  a                                  b
+
+                                                                                       100
+          APET-32
+          APET-29
+          APET-28                                                                     80
+          APET-27
+          APET-26
+          APET-25                                                                     60
+          APET-24
+          APET-23                                                                                                                                                          Tm(°c)
+          APET-20                                                                     40
+          APET-19
+          APET-17
+          APET-15                                                                     20
+
+          APET-14
+          APET-5
+          IsPETase                                                                     0
+                0        10        20       30        40        50
+                          Enzyme Activity(μmol·nmol-¹·min-¹)                                                                                               IsPETaseAPET-5APET-14APET-15APET-17APET-19APET-20APET-23APET-24APET-25APET-26APET-27APET-28APET-29APET-32
+  c
+        3700
+
+                                                                                                                                     30 °c
+
+                                                                                                                                     40 °c
+
+        3000                                                                                                                        50 °c
+
+                                                                                                                                     55 °c
+
+                                                                                                                                     60 °c
+
+        2300
+
+
+
+
+        1600
+
+
+
+
+         900                                    MHET+TPA(μM)
+
+         180
+
+
+         150
+
+
+         120
+
+
+            90
+
+
+            60
+
+
+            30
+
+
+            0
+              IsPETase   APET-5  APET-14  APET-15  APET-17  APET-19 APET-20  APET-23 APET-24  APET-25  APET-26  APET-27  APET-28  APET-29  APET-32
+
+Fig. 2 | Experimental validation and biochemical characterization of candi-       in triplicate; data are presented as mean values ± SD. c Comparison of the degra-
+dates. a Enzyme activity of 14 proteins showing effective ester bond hydrolysis, as   dation activity of candidate proteins on PET ﬁlms. The reaction was conducted in
+measured using p-nitrophenyl butyrate (pNPB) as a substrate at 37 °C. Reactions    50 mM Glycine-NaOH (pH 9.0) at various temperatures (30, 40, 50, 55, and 60 °C)
+were performed in triplicate; data are presented as mean values ± SD. b The Tm of    for 72 h. Reactions were performed in triplicate; data are presented as mean
+the 14 proteins exhibiting ester bond cleavage activity. Reactions were performed   values ± SD.
+
+
+(mesophilic),   BTA-256   (mesophilic),   Cut_19053   (thermophilic),   thermostability, we analyzed the Tm of KbPETase and other enzymes,
+Thc_Cut157 (thermophilic), TFH58 (thermophilic), and LCC19 (thermo-   ﬁnding that its enhanced activity likely correlates with its superior
+philic), across a temperature range of 30−65 °C (Fig. 3a). Note that   thermostability (Fig. 3b). Time-dependent PET degradation further
+Cut190, IsPETase, LCC, and PE-H are used as superior starting tem-   revealed the stability of KbPETase, with continuous activity enhance-
+plates for directed evolution in industry18.                       ment over time, unlike IsPETase, which plateaued after 24 h at 30 °C
+   Compared to IsPETase, which exhibits the highest catalytic activ-   (Supplementary Fig. 9). Compared to LCC, a highly active thermophilic
+ity at room temperature moderate temperatures with its optimal cat-   PETase19, KbPETase exhibits 5.7-fold higher activity under the same
+alytic activity at 30 °C12, KbPETase demonstrates a 97-fold higher   reaction conditions at 50 °C, and even outperformed LCC by 1.47-fold
+catalytic activity at its optimal temperature of 50 °C. (Fig. 3a). To assess   at its optimal temperature of 65 °C (Fig. 3a) (Fig. 3a), despite the fact
+
+
+
+Nature Communications| (2025)16:6211                                                                     4
+
+
+[PDF physical page 5]
+Article                                                                                    https://doi.org/10.1038/s41467-025-61599-z
+
+              a  3700
+                                 30 °c  㻌40 °c      㻌50 °c    60 °c    65 °c
+                         3400
+                                                                   㻌
+
+                         3100
+
+
+                         2800
+
+
+                         2500
+
+
+                         2200
+
+
+                         1900                                                                                                                                    MHET+TPA(μM)
+                         1600
+
+                          990
+
+                          690
+
+                          390
+
+                           90
+                           80
+                           60
+                           40
+                           20
+                            0
+                                 IsPETase     PE-H       BTA-2     Cut_190     Thc_Cut1     TFH       LCC     KbPETase
+              b
+                      90
+
+
+                      80
+
+
+                      70
+
+
+                      60
+
+           㻌 50
+
+                         㻌㻌
+                                                      Tm(°c)
+                      40
+
+
+                      30
+
+
+                      20
+
+
+                      10
+
+
+                       0
+                           IsPETase   PE-H     BTA-2   Cut_190   Thc_Cut1  TFH    LCC    KbPETase
+               c
+                                                d
+                       1500                                         120
+                           KbPETase                                      Proportion of TPA    Proportion of MHET
+                              FastPETase
+                         LCC                                  100
+                       1200
+
+                                                                    80
+                        900                                                                                                                                                                                                                                                                                                                                                                                      product(%)
+                                                                           of 60
+
+                        600
+
+                                                                    40                                                                                                                                                                                                V(μmol·min-¹·mg-¹)                        300                                                                                                                                                                                                                                Percentage
+                                                                    20
+
+                          0
+                             0             0.6                 㻌 1.2             1.8   0
+                                         S0(mM)㻌                           KbPETase  FastPETase   LCC
+
+Fig. 3 | Activity and thermostability measurements of discovered PETases.      enzymatic kinetics curves of KbPETase, LCC and FastPETase using pNPB as the
+a PET ﬁlm degradation activity of the previously characterized PETases compared    substrate. Reactions were performed in triplicate; data are presented as mean
+to KbPETase. The reaction was conducted in 50 mM Glycine-NaOH (pH 9.0) at       values ± SD. d The depolymerization percentages of PET by KbPETase and FastPE-
+various temperatures (30, 40, 50, 55, 60 and 65 °C) for 72 h. Reactions were per-    Tase at 50 °C, as well as by LCC at 65 °C, were determined through UPLC analysis of
+formed in triplicate; data are presented as mean values ± SD. b Comparison of the   the released products. Reactions were conducted in triplicate, and the results are
+Tm of KbPETase with other reported WT PETases using DSF. Reactions were per-    presented as mean values ± SD.
+formed in triplicate; data are presented as mean values ± SD. c Comparison of the
+
+
+
+Nature Communications| (2025)16:6211                                                                           5
+
+
+[PDF physical page 6]
+Article                                                                                    https://doi.org/10.1038/s41467-025-61599-z
+
+
+that higher temperatures closer to PET glass transition temperature   for this difference, we also determined the Michaelis-Menten kinetic
+can facilitate faster degradation7,18,27,32. This superiority persisted when   constants of both enzymes using pNPB as a substrate33. KbPETase
+LCC was tested in its optimal 100 mM potassium phosphate buffer (pH   demonstrates a 1.87-fold higher catalytic efﬁciency compared to Fas-
+8.0) at 65 °C, with KbPETase at 50 °C maintaining 1.15-fold higher   tPETase, along with superior substrate afﬁnity (Fig. 3c and Table 1).
+activity (Supplementary Fig. 10). In addition, the degradation products   Besides, KbPETase produced TPA at a concentration that is 2.2-fold
+of KbPETase exhibited a slightly higher proportion of TPA (Fig. 3d), a   higher than that of FastPETase (Fig. 3d). However, when compared to
+critical factor for PET recycling27,59. However, when we tested the   the engineered variant LCCICCG, KbPETase exhibited comparable activity
+Michaelis-Menten constants33, we found that while the Km values were   at 50 °C, achieving approximately half of the optimal catalytic activity of
+similar, KbPETase exhibited a 1.5-fold higher kcat and a 1.3-fold higher   LCCICCG (Supplementary Fig. 12)16. These results suggest that KbPETase
+catalytic efﬁciency (kcat/KM) compared to LCC (Fig. 3c and Table 1).   could serve as a more promising template for enzyme engineering
+These ﬁndings indicate that KbPETase combines the moderate-  compared to other WT enzymes, such as IsPETase and LCC, which
+temperature catalytic efﬁciency typical of mesophilic enzymes with   exhibit extreme mesophilic or thermophilic traits.
+the elevated activity characteristic of thermophilic counterparts.
+   We also compared the performance of KbPETase with FastPETase,  Sequence and structure analysis of KbPETase
+the most active mutant derived from IsPETase, known for its optimal  To provide structural insights into the enhanced PET-degrading
+catalytic performance also at 50 °C54.KbPETase exhibits a Tm that is 8 °C   activity of KbPETase, we determined its structure using X-ray crystal-
+higher than that of FastPETase. Evaluation of PET degradation activity   lography at a resolution of 1.75 Å (PDB: 9IW9). Overall, the structure of
+across a temperature gradient revealed that KbPETase demonstrated   KbPETase exhibits a high degree of conservation compared to IsPETase
+1.71-fold higher activity than FastPETase at their shared optimal tem-   (PDB: 5XH3) (Fig. 4a). The catalytic triad (S128-H206-D176) and sub-
+perature (Supplementary Fig. 11). To investigate the underlying reasons   strate pocket of KbPETase are also conserved relative to those of
+                                                                    IsPETase (S131-H208-D177) (Fig. 4b and c). This conservation suggests
+Table 1 | Kinetic parameters of KbPETase, LCC and FastPETase   that VenusMine not only retains the overall structure scaffold but also
+derived from the Michaelis‒Menten experiments                preserves the active site, ensuring the enzymatic activity necessary for
+                                                         PET degradation.
+             Km (mM)             kcat (S−1)              kcat/ Km (mM−1·S−1)
+                                                     A phylogenetic tree was constructed to include APET candidates
+ KbPETase         1.04 ± 0.201      0.270 ± 0.021       0.263 ± 0.031
+                                                                    alongside known PETases (Fig. 4d). The discovered enzymes are
+ FastPETase         1.57 ± 0.416       0.215 ± 0.029        0.141 ± 0.02        broadly distributed throughout the tree. One major clade contains
+ LCC             1.053± 0.289       0.186 ± 0.021      0.208 ± 0.017       most known PETases, including IsPETase, LCC, Cut190, and Thc_cut1,
+
+
+
+   a                b                    c                 g
+
+
+                                                      179I                                                156W      58Y            178V    155W      58F
+
+                                                    132M                             129M
+                                          177D                              176D
+                                                         57G                             57G
+                                               208H   131S                       206H    128S
+
+
+                                             130W                           127W
+
+
+
+
+   d                                 e
+                                                    Known
+
+
+
+
+                                                                                   57   58    127    128    129    155    176    178    206
+
+
+       IsPETase
+                                                                f
+                                                     APET
+                                                                                                KbPETase
+                                                                                                CaPETase
+
+
+                                                                                                            IsPETase
+
+                                                                                   57   58    127    128    129    155    176    178    206                                                        CaPETase                                                        KbPETase
+
+
+
+
+Fig. 4 | Structure and sequence characteristics of APET enzymes and known     otherwise in blue. (e, f) Sequence logo plots for the pocket residues. The height of
+PETases. a Crystal structure of KbPETase (green, PDB: 9IW9) and IsPETase (blue,    each letter indicates the conservation score for each site, indexed by the residue
+PDB: 5XH3). The substrate structure (yellow) is derived from the IsPETase structure   position in KbPETase, with catalytic traid marked in red. g Structure-based align-
+and structurally aligned with the KbPETase pocket. Pocket structure of (b) IsPETase   ment of pocket residues from APET (green) and known PETases (orange). Residues
+and (c) KbPETase. d Phylogenetic tree of the 34 candidate proteins selected for      are annotated by their biochemical properties, with hierarchical clustering pre-
+experimental validation (blue and green) alongside previously reported PETases     sented on the right. Residue indices correspond to their positions in KbPETase.
+(orange). The APET candidates with conﬁrmed activity are marked with green,
+
+
+
+Nature Communications| (2025)16:6211                                                                      6
+
+
+[PDF physical page 7]
+Article                                                                                    https://doi.org/10.1038/s41467-025-61599-z
+
+
+from which KbPETase also originates. Furthermore, several new clades      Root mean square ﬂuctuation (RMSF) proﬁles further highlighted
+emerged, populated by APET candidates positioned closer to the root    critical differences in local ﬂexibility (Fig. 5d–f). While LCC and IsPE-
+of the phylogenetic tree. This arrangement suggests that VenusMine   Tase exhibited pronounced dynamics in loop regions proximal to their
+may effectively identify ancestral enzymes based on conserved struc-   catalytic pockets (highlighted as yellow sticks), KbPETase demon-
+tural features.                                                          strated restricted ﬂexibility in these functionally critical regions, with
+   To further investigate the substrate pocket, structure alignment   elevated ﬂuctuations conﬁned to peripheral N-terminal loops. This
+was performed using TM-align. Compared with reported PETases, the   dichotomy suggests that KbPETase achieves a balance between
+newly discovered APETs exhibit greater diversity in pocket residues   global stability and local ﬂexibility, potentially optimizing both sub-
+while retaining a conserved catalytic triad (Fig. 4e–g). Notably, resi-   strate accessibility and catalytic efﬁciency across a broad tempera-
+dues at positions 58, 129, and 155 show higher variability than those of   ture range.
+known PETases (Fig. 4e, f). Hierarchical clustering based on pocket        Analysis of non-covalent interactions revealed hierarchical trends
+residues revealed that APETs are distributed across all major types of   in intramolecular stabilization (Fig. 5g–i). LCC, the most thermostable
+known PETases.                                               enzyme, maintained the highest global counts of salt bridges and
+                                                            hydrogen bonds, followed by KbPETase and IsPETase. This gradient
+Molecular dynamics analysis of KbPETase                         mirrors their experimental Tm, underscoring the role of cumulative
+To elucidate the molecular basis of KbPETase’s enhanced thermo-   non-bonded interactions in conferring thermostability. To further
+stability, we performed comparative all-atom molecular dynamics   identify the critical hydrogen bonds in the catalytic pocket of the three
+(MD) simulations with LCC and IsPETase, representing thermophilic   proteins, we calculated the lifetime of every individual hydrogen bond
+and mesophilic PET hydrolases, respectively. Analysis of the radius of   within active sites (Details can be found in the section of Method).
+gyration (Rg) distributions (Fig. 5a–c) revealed that KbPETase pre-   Notably, hydrogen bond lifetimes within the catalytic pocket—a metric
+dominantly adopts conformations with signiﬁcantly reduced Rg values   reﬂecting bond  persistence—showed KbPETase  surpassing both
+compared to LCC and IsPETase. This structural compactness correlates   counterparts, with the N175-D205 interaction exhibiting the longest
+with its experimental thermostability, suggesting that reduced con-   lifetime (τ = 5.00 ± 0.21 ns, Supplementary Fig. 13). Such prolonged
+formational entropy minimizes thermal unfolding propensity-a hall-   hydrogen bonding may stabilize the catalytic triad geometry, facil-
+mark of enzymes adapted to ﬂuctuating environmental conditions.      itating substrate orientation and transition-state stabilization.
+
+   a                          b                            c
+
+
+
+
+
+  d                             e                                               f
+
+
+
+
+
+  g                          h                                                        i
+
+
+
+
+
+               KbPETase        IsPETase                 KbPETase        IsPETase                 KbPETase        IsPETase
+
+Fig. 5 | Molecular dynamics simulation analyses of KbPETase, IsPETase,          high RMSF. Residues in catalytic pockets are presented with sticks. g–i non-
+and LCC. a–c The distribution of Rg for KbPETase (a), LCC (b) and IsPETase (c).     covalent interactions, including numbers of (g) global hydrogen bonds, (h) cata-
+d–f Residue-wise root mean square ﬂuctuation (RMSF) mapped onto structures,      lytic pocket hydrogen bonds, and (i) global salt bridges. Data are presented asmean
+with green (KbPETase), red (LCC) and blue (IsPETase) for low RMSF and yellow for   values ± SD.
+
+
+
+Nature Communications| (2025)16:6211                                                                                  7
+
+
+[PDF physical page 8]
+Article                                                                                    https://doi.org/10.1038/s41467-025-61599-z
+
+
+    These ﬁndings collectively delineate the biophysical signature of   the sequence search through the NCBI’s NR database. This step is using
+KbPETase: a compact scaffold resistant to entropic unfolding, paired  MMseqs2 easy-search method with 2 rounds of iterations and sets
+with dynamic yet stable active site interactions. This dual strategy—   max-seq to 2500, resulting in 33,247,501 sequences. After obtaining
+global rigidity tempered by localized ﬂexibility—may explain its unique   this vast repertoire, MMseqs2 easy-cluster method with 50% sequence
+functional proﬁle, balancing thermostability with catalytic efﬁciency.   identity is used to saving the cost for the following ProstT5 embed-
+By circumventing the traditional trade-off between thermal resilience   dings computation step. Resulting 436,488 representative proteins
+and ambient-temperature activity observed in extremophilic enzymes,   derived from 50% sequence identity clusters. Code for this part is
+KbPETase emerges as a versatile candidate for PET depolymerization   available at steps 3 and 4 in https://github.com/ai4protein/VenusMine.
+processes requiring operational adaptability.
+                                                      Benchmarking protein language models for protein discovery
+Discussion                                    We systematically evaluated various computational approaches to
+The increasing environmental impact of plastic waste, particularly PET,   assess their effectiveness in identifying and classifying proteins within
+underscores the urgent need for innovative and effective biodegrada-  enzyme commission (EC) groups, in order to ﬁnd the optimal and most
+tion  strategies5,8,11,28. Consequently, the search for promising PET-   efﬁcient method to discover novel enzymes. Utilizing a curated dataset
+degrading enzymes has been widely pursued, leading to the successful   of 265,488 protein sequences from the reviewed UniProt database
+characterization of several proteins to date12,18–21,23. However, current   (SwissProt), we focused on proteins up to 1000 amino acids in length
+enzyme discovery methods predominantly rely on sequence-based  and EC numbers with no less than 50 annotated enzymes. Our
+analysis and are constrained by the high costs of experimental bio-   benchmarking compared traditional methods, including BLASTp and
+chemical or biophysical protein structure characterization, as well as the  MMseqs2 for sequence similarity and FoldSeek with AlphaFold pre-
+limited accuracy of traditional computational folding simulations60,61.   dictions for structural alignment against protein language models such
+This reliance limits PETase discovery to a narrow sequence landscape50.   as ESM-2 650 M, ESM-1b, and ProstT5. For each EC number, 10 starting
+    Here, we present VenusMine, a structure-guided pipeline inte-   points were randomly selected from the candidate pool, while other
+grating FoldSeek-based structural searches, ProstT5-driven clustering,  enzymes with annotated EC number as positive examples, enzymes
+and deep learning-aided thermostability/solubility predictions. This   without target EC number serve as negative examples. By calculating
+methodology expands enzyme mining beyond sequence homology,   E-value for BLASTp, MMseqs2 and FoldSeek, and representation dis-
+enabling the discovery of KbPETase. KbPETase demonstrates remark-   tances for protein language models, we are able to analyze the area
+able catalytic performance, exhibiting superior activity at 50 °C, which   under the ROC curve (AUROC) and area under precision-recall curve
+establishes it as a highly practical candidate for industrial PET recy-   (AUPR) scores for 745 EC groups. This comprehensive evaluation
+cling. Structural and molecular dynamics analyses reveal a conserved   provided insights into the strengths and limitations of each approach,
+catalytic architecture and strengthened intramolecular interactions,   highlighting the potential of protein language models in enhancing
+underpinning its enhanced thermostability and functional resilience.   protein discovery and classiﬁcation tasks. Results showed that both
+In contrast to engineered variants like FastPETase, KbPETase’s wild-   the structure-based methods FoldSeek and ProstT5 performed better
+type origin and unoptimized catalytic efﬁciency present a promising   than BLASTp methods, and ProstT5 is the only unsupervised deep-
+starting point for directed evolution, offering substantial potential for   learning method that performed better than BLASTp (Supplementary
+further reﬁnement and application.                                         Figs. 14–17). As a result, we select the structure-aware language model
+    VenusMine not only expands the repertoire of known PETases but   ProstT5 for our further studies.
+also establishes a robust framework for future enzyme discovery. With
+advancements in deep learning and protein language models, it may   Clustering and representation tree built by structure-aware
+soon be possible to predict protein structures, and even complexes,   protein language model
+more accurately, enabling the preliminary selection of candidate pro-  We use the protein sequence-to-structure language model ProstT5 to
+teins through modeling. This approach not only aids in identifying   calculate the embeddings of the protein candidates’ sequences. Since
+exceptional enzyme molecules akin to “hidden gems” within databases   ProstT5 is a bi-directional translation model between protein sequence
+but also enhances the accuracy and precision of the screening process.  and structure, the “AA2fold” mode of ProstT5 model is used to get a
+The emergence of KbPETase provides an improved template for the  more structure-informed representation based on input sequences.
+engineering of high-performance enzymes, expanding the molecular   Based on the representation of multiple sequences, we used agglom-
+library and offering new tools for the bioconversion and recycling of PET.   erative clustering to build a dendrogram for the sequences. The dis-
+                                                                   tances between representations are calculated as the Euclidean
+Methods                                                             distance, and the agglomerative clustering method is using ward
+Structure search                                                  algorithm from scipy.cluster.hierarchy package. The code of this part
+In the structural search step, we utilized the default setting of the    is  available  at  steps 5 and 6  in  https://github.com/ai4protein/
+FoldSeek server website (https://search.foldseek.com/search). The   VenusMine.
+structure of IsPETase (PDB: 5XFY) is selected as the only query protein
+for the FoldSeek search. Target structure database include AlphaFold   Protein expression and solubility prediction
+databases (UniProt50 v4, SwissProt v4, Proteome v4), MGnify-ESM30   Within the 2 selected  cluster  in representation  tree, there are
+(v1), PDB100, and GMGCL 2204.The core structure is deﬁned by a  6763 sequences advanced to the next screening step. We used a ﬁne-
+manual structure check of IsPETase, ranging from residue 51 to 234,   tuned version of the ESM247 to predict the melting temperature (Tm) of
+covering the reported catalytic triad and the scaffold of the PET   the candidates using datasets from the literature48. In addition, we
+hydrolase. Any searched protein align range not covering this region  employed ProtSolM to predict protein solubility49. Only candidates
+was excluded from the following steps. This structure search step   with predicted Tm and solubility values exceeding those of the query
+identiﬁed 4235 structural similar protein sequences. The Code of this   sequence were retained, narrowing the pool to 223 sequences.
+part is available at step 2 in https://github.com/ai4protein/VenusMine.
+                                                              Protein structure prediction and selection for APET
+Sequence search                                                For further reﬁnement, the structures of the 223 sequences were
+In the sequence search step, the sequences found in the structure   predicted using AlphaFold262, and any sequence with a pLDDT score
+search from different databases were merged and used as queries for   below 75 was discarded. Structural alignment was then performed to
+
+
+
+Nature Communications| (2025)16:6211                                                                       8
+
+
+[PDF physical page 9]
+Article                                                                                    https://doi.org/10.1038/s41467-025-61599-z
+
+
+ensure that the candidate proteins possessed the catalytic active site  Enzymatic activity screening using p-Nitrophenyl Butyrate
+necessary for PET hydrolase activity. Finally, the candidates were  (pNPB) as substrate
+ranked by their predicted Tm values, and the top 34 sequences were   Screening for activity on 4-Nitrophenol butyrate (pNPB). All reac-
+selected for wet-lab validation.                                       tions were conducted in 96-well plates with a total reaction volume
+                                                                   of 100 μL. The ﬁnal concentration of pNPB was 0.8 mM, and the
+Plasmid construction                                    enzyme concentration was 100 µg/mL. Each reaction mixture
+The genes encoding APET1-34 were synthesized and optimized for   contained 10 μL of pNPB solution (dissolved in anhydrous etha-
+expression (Supplementary Data 1) in Escherichia coli by Sangon Bio-   nol), 80 μL of 10 mM potassium phosphate buffer (pH 8.0), and
+tech (Shanghai, China). Signal peptides for APET1-34 were predicted   10 μL of enzyme solution, which were incubated at 37 °C for
+using SignalP and subsequently removed from the synthetic DNA   10 min. The reaction was terminated by adding 100 μL of anhy-
+sequences. The synthesized genes for APET1-34 were then cloned into   drous ethanol to quench the enzymatic activity. Each experiment
+the NdeI and NotI sites of the pET-28a (+) expression vector, which  was performed in triplicate. The concentration of p-nitrophenol
+features an N-terminal His-tag for protein puriﬁcation. Detailed  was measured at 410 nm using an MD SpectraMax iD5 microplate
+nucleotide sequences of APET1-34 are provided  in Supplemen-   reader (Molecular Devices, U.S.A.). The speciﬁc activity was cal-
+tary Data 1.                                                       culated by determining the product quantity using a standard
+                                                              curve and then combining it with the enzyme concentration and
+Protein expression and puriﬁcation                               reaction time. (Supplementary Fig. 4). All experiments were con-
+The  expression  plasmid was transformed  into  Escherichia  coli  ducted in triplicate to ensure reproducibility.
+BL21(DE3) competent cells. A 30 mL seed culture was grown at 37 °C in       For Kinetics analysis, enzymatic reactions involving 4-nitrophenyl
+LB medium containing 50 µg/mL kanamycin, and then transferred to a   butyrate (pNPB) were conducted in 96-well plates with a total reaction
+500 mL shaker ﬂask containing the same antibiotic concentration. The  volume of 100 μL. The ﬁnal pNPB concentrations ranged from 0.2 to
+cultures were incubated at 37 °C until the OD600 reached 1.0, at which   1.8 mM, while the enzyme concentration was maintained at 0.5 µg/mL.
+point protein expression was induced by the addition of isopropyl-β-D-   Each reaction mixture contained 10 μL of pNPB solution (dissolved in
+thiogalactopyranoside (IPTG) to a ﬁnal concentration of 0.8 mM.   anhydrous ethanol), 80 μL of 10 mM potassium phosphate buffer (pH
+Induction was followed by incubation at 16 °C for 16–20 h. Cells were   8.0), and 10 μL of enzyme preparation, which was incubated at 50 °C
+harvested by centrifugation at 3345 × g for 30 min, and the resulting   for 3 min. The methods for reaction termination and detection were
+pellets were collected for subsequent puriﬁcation. The cell pellets were   identical to those described in the preceding enzymatic activity
+resuspended in lysis buffer (25 mM Tris-HCl, 500 mM NaCl, pH 7.4) and   screening section. One unit of enzyme activity was deﬁned as the
+disrupted by ultrasonication (Scientz, China). The lysates were then  amount of enzyme required to convert 1 μmol of pNPB per minute.
+centrifuged at 17418 × g for 30 minutes at 4 °C, and the supernatants   Kinetic parameters were determined by nonlinear regression analysis
+were loaded onto Ni-NTA columns (Smart Lifesciences, China, Ni NTA   of the Michaelis-Menten equation using GraphPad Prism software
+Beads 6FF: SA005500) pre-equilibrated with lysis buffer (25 mM Tris-   (version 8.0), with initial velocity data obtained from triplicate mea-
+HCl, 500 mM NaCl, pH 7.4). Following sample loading and subsequent   surements at varying substrate concentrations.
+washing steps, bound proteins were eluted using an elution buffer
+(25 mM Tris-HCl, 500 mM NaCl, 250 mM imidazole, pH 7.4). The pro-  PET depolymerization assay using amorphous PET ﬁlm as
+tein was concentrated and buffer-exchanged using Amicon Ultra cen-   substrate
+trifugal ﬁlters (Millipore, 10 kDa MWCO) through repeated cycles of   In the PET degradation activity assays of 26 candidate proteins and the
+dilution with lysis buffer (25 mM Tris-HCl, 500 mM NaCl, pH 7.4) and   comparative analysis of KbPETase with other wild-type enzymes, the
+centrifugation at 3345 × g for 25 min intervals at 4 °C for ultraﬁltration.   following conditions were employed: amorphous PET ﬁlm (Good-
+Finally, the fractions containing the puriﬁed protein were ﬂash-frozen   fellow, England) was cut into circular discs with a diameter of 6 mm for
+at −20 °C in storage buffer (25 mM Tris-HCl, pH 7.4, 500 mM NaCl, 10%   each reaction. The discs were incubated in 2900 µL of glycine-NaOH
+glycerol).                                                             buffer (pH 9.0, 50 mM) containing 100 µL of enzyme solution (stock
+                                                                   concentration 0.5 mg/mL) at 30, 40, 50, 55, 60 and 65 °C for 72 h. The
+Differential Scanning Fluorimetry (DSF)                            reaction was terminated by heating the mixture at 90 °C for 10 min.
+The Tm values were determined using the Differential Scanning   Each sample was diluted to fall within the linear detection range for
+Fluorimetry (DSF) method with the Protein Thermal Shift Dye Kit   terephthalic acid (TPA) and mono(2-hydroxyethyl) terephthalate
+(Thermo Fisher, U.S.A). To prepare the reaction mixture, 1.0 μL of   (MHET). After ﬁltration through a 0.22 µm ﬁlter, the assay solution was
+SYPRO Orange Dye (SUPELCO, U.S.A) was diluted in 49 μL of lysis   analyzed by UPLC. All experiments were performed in triplicate. For
+buffer (25 mM Tris-HCl, 500 mM NaCl, pH 7.4). Next, 1 μL of the   the comparison of activity with LCC, LCCICCG, and FastPETase, the
+diluted dye was combined with 19 μL of protein solution at a con-   reaction buffers for all three enzymes were replaced with 100 mM
+centration of 0.1 mg/mL. DSF experiments were conducted using   potassium phosphate buffer, pH 8.0, while other conditions remained
+the LightCycler 480 Instrument  II (ROChe, U.S.A). The reaction   consistent with those described above.
+mixture was ﬁrst equilibrated at 25 °C, then gradually heated to
+99 °C at a rate of 0.05 °C/s, with a 2 min hold at the ﬁnal tempera-  UPLC analysis
+ture. Data processing was performed using the Protein Thermal  UPLC analysis was conducted using a Waters ACQUITY Arc system
+Shift software.                                                     (Waters, U.S.A.) equipped with an autosampler and a UV detector
+                                                                       set to 260 nm. The separation was performed on a Kinetex XB-C18
+Nano differential scanning calorimetry (nanoDSC)              100 Å, 5 µm, 50 × 2.1 mm LC column (Phenomenex, U.S.A.) using a
+Nano DSC measurements were performed by using Nano DSC instru-   stepped, isocratic solvent gradient. Mobile phase A consisted of
+ments (TA, U.S.A.). The concentration of PETases was 0.5 mg/ml in a   water with 0.1% formic acid, and mobile phase B was acetonitrile,
+buffer containing 25 mM Tris–HCl (pH = 7.5) and 500 mM NaCl. All the   with a ﬁxed ﬂow rate of 1.0 mL/min. Samples were injected at either
+experiments were carried out at temperatures ranging from 10 to   1 µL. Following injection, the mobile phase was maintained at 13%
+110 ◦C with a heating rate of 1 ◦C/min and under a pressure of 3 atm. The   buffer B for 52 s to separate mono(2-hydroxyethyl) terephthalate
+melting curves of PETases were subtracted from the buffer scans.     (MHET) and terephthalic acid (TPA), then ramped up to 95% buffer B
+
+
+
+
+Nature Communications| (2025)16:6211                                                                      9
+
+
+[PDF physical page 10]
+Article                                                                                    https://doi.org/10.1038/s41467-025-61599-z
+
+
+for 33 seconds to separate larger reaction products and con-         First, the autocorrelation function of each hydrogen bond was
+taminants. The buffer was then returned to 13% for column re-   calculated by:
+equilibration, with a total run time of 1.8 min. Peaks were identiﬁed                                                                          D             E
+by comparison to chemical standards prepared from commercial                                            hi, jðt0Þ  hi, jðt0 + tÞ
+TPA and in-house synthesized MHET, and the peak areas were                     Cx tð Þ =    D      E
+integrated using software. Under these conditions, TPA eluted                                                   hi, jðt0Þ2
+around 1.0 min, MHET around 2.3 min, and small amounts of bis(2-
+hydroxyethyl) terephthalate (BHET) and longer oligomers eluted       Here, hi,j(t0) is a binary indicator (0 or 1) for hydrogen bond for-
+between 2.7 and 3.2 min. The concentrations of TPA and MHET were   mation between donor i and acceptor j at time t0, and the angle brackets
+determined by constructing standard curves.                      denote time averaging over all trajectory frames. Subsequently, the
+                                                                             lifetime (τ) of each hydrogen bond was derived by integrating the
+Crystallization and structure determination of KbPETase          autocorrelation function over the total simulation time T:
+Crystals of KbPETase, grown using hanging drop vapor diffusion by
+                                                                                    Z Tmixing equal volumes of protein and a buffer solution containing
+                                                                                                        τx =    CxðtÞdt
+1.26 M Sodium phosphate monobasic monohydrate,0.14 M Potassium                                    0
+phosphate dibasic at a temperature 291 K. Crystals were rapidly soaked
+in the reservoir solution supplemented with 20% glycerol as cryo-       Here, dt represents the trajectory sampling interval (10 ps). Larger
+protectant, mounted on loops, and ﬂash-cooled at 100 K in a nitrogen   τ values correspond to more stable hydrogen bonds, reﬂecting their
+gas cryo-stream. Crystals Diffraction data was collected from a single   persistence across the simulation.
+crystal at Shanghai Synchrotron Radiation  Facility (SSRF) BL18U
+beamline, China, with a wavelength of 1.75 Å at 100 K. The diffraction  Reporting summary
+data were processed and scaled with HKL-3000. Relevant statistics   Further information on research design is available in the Nature
+were summarized in Supplementary Table 1.                             Portfolio Reporting Summary linked to this article.
+    The structure was solved by the molecular replacement method
+with a starting model predicted by AlphaFold II. The Initial model was  Data availability
+build using PHENIX.autobuild. Manual adjustment of the model was  The reﬁned model of KbPETase generated in this study has been
+carried out using the program COOT, and the models were reﬁned by   deposited in the Protein Data Bank with PDB code 9IW9. All data that
+PHENIX.reﬁnement and Refmac5. Stereochemical quality of the   support the ﬁndings of this study are presented within the article and
+structures was checked by using PROCHECK. All of the residues    its supplementary ﬁles. For further inquiries or requests for additional
+locate in the favored and allowed region and none in the disallowed   information, please contact the corresponding authors. The raw data
+region. Reﬁnement resulted in a model with excellent reﬁnement   for the ﬁgures generated in this study are provided in the Source Data
+statistics and geometry (Supplementary Table 1). The structure of   ﬁle. The detailed data of all of the PETases discovered can be found in
+KbPETase was deposited  in the Protein Data Bank, with PDB   the supplementary data. Source data are provided in this paper.
+code 9IW9.
+                                         Code availability
+Molecular dynamics simulations                             The code of the PETase discovery pipeline can be found in https://
+The structures of proteins were obtained from the PDB database.   github.com/ai4protein/VenusMine. They can also be accessed via
+For KbPETase, we utilized the crystal structure resolved in this  Zenodo in https://doi.org/10.5281/zenodo.15680583.
+study, while PDB(8CMV) was used for the simulation of LCC and
+PDB (6EQG) for IsPETase. All of the three PDB are apo structure,  References
+without substrate. Protein and a large number of water molecules    1.   Jambeck, J. R. et al. Plastic waste inputs from land into the ocean.
+were ﬁlled in a cubic box. Chlorine counter ions were added to keep       Science 347, 768–771 (2015).
+the system neutral in charge. The CHARMM27 force ﬁeld was used   2.   Borrelle, S. B. et al. Predicted growth in plastic waste exceeds
+for the complex and the CHARMM-modiﬁed TIP3P model was cho-        efforts to mitigate plastic pollution. Science 369, 1515–1518 (2020).
+sen for water63–65. The simulations were carried out at 310 K. After   3.  MacLeod, M., Arp, H. P. H., Tekman, M. B. & Jahnke, A. The global
+the 4000-step energy minimization procedure, the systems were        threat from plastic pollution. Science 373, 61–65 (2021).
+heated and equilibrated for 100 ps in the NVT ensemble and 500 ps   4.   Geyer, R., Jambeck, J. R. & Law, K. L. Production, use, and fate of all
+in the NPT ensemble. For each protein, 500 ns production simula-        plastics ever made. Sci. Adv. 3, e1700782 (2017).
+tions were conducted with a trajectory saving frequency of 10 ps.   5.   Eriksen, M. et al. Plastic pollution in the world’s Oceans: More than 5
+The ﬁnal 300 ns (30,000 frames) were extracted for subsequent          trillion plastic piecesweighing over 250,000 Tons Aﬂoat at Sea.
+analysis. The integration step was set to 2 fs, and only the covalent      PLOS ONE 9, e111913 (2014).
+bonds with hydrogen atoms were constrained by the LINCS algo-   6.   Rahimi, A. & García, J. M. Chemical recycling of waste plastics for
+rithm. Lennard-Jones interactions were truncated at 12 Å with a      new materials production. Nat. Rev. Chem. 1, 0046 (2017).
+force-switching function from 10 to 12 Å. The electrostatic interac-    7.    Ellis, L. D. et al. Chemical and biological catalysis for plastics
+tions were calculated using the particle mesh Ewald method with a        recycling and upcycling. Nat. Catal. 4, 539–556 (2021).
+cutoff of 12 Å on an approximately 1 Å grid with a fourth-order   8.  Hopewell, J., Dvorak, R. & Kosior, E. Plastics recycling: challenges
+spline. The temperature and pressure of the system were controlled      and opportunities. Philos. Trans. R. Soc. Lond. B Biol. Sci. 364,
+by the velocity rescaling thermostat and the Parrinello-Rahman       2115–2126 (2009).
+algorithm, respectively. All MD simulations were performed using   9.  Webb, H. K., Arnott, J., Crawford, R. J. & Ivanova, E. P. Plastic
+the GROMACS 2025.1 software package.                                 degradation and its environmental implications with special refer-
+                                                                ence to poly(ethylene terephthalate). Polymers 5, 1–18 (2013).
+Lifetime of hydrogen bonds                                            10.  Wei, R. et al. Possibilities and limitations of biotechnological plastic
+To systematically evaluate the stability of hydrogen bonds within the       degradation and recycling. Nat. Catal. 3, 867–871 (2020).
+catalytic sites of the three proteins, we computed the lifetime (τ) of    11.  Taniguchi, I. et al. Biodegradation of PET: Current status and
+each identiﬁed hydrogen bond using the following methodology:            application aspects. ACS Catal. 9, 4089–4105 (2019).
+
+
+
+Nature Communications| (2025)16:6211                                                                               10
+
+
+[PDF physical page 11]
+Article                                                                                    https://doi.org/10.1038/s41467-025-61599-z
+
+
+12.  Yoshida, S. et al. A bacterium that degrades and assimilates poly(-   33.  Cui, Y. et al. Computational redesign of a hydrolase for nearly
+    ethylene terephthalate). Science 351, 1196–1199 (2016).                complete PET depolymerization at industrially relevant high-solids
+13.  Bell, E. L. et al. Directed evolution of an efﬁcient and thermostable        loading. Nat. Commun. 15, 1417 (2024).
+    PET depolymerase. Nat. Catal. 5, 673–681 (2022).                   34. Jäckering, A. et al. From bulk to binding: Decoding the entry of PET
+14.  Danso, D. et al. New insights into thefunction and gobal distribution        into hydrolase binding pockets. JACS Au 4, 4000–4012 (2024).
+     of polyethylene terephthalate (PET)-degrading bacteria and          35.  Austin, H. P. et al. Characterization and engineering of a plastic-
+    enzymes in marine and terrestrial metagenomes. Appl. Environ.         degrading aromatic polyesterase. Proc. Natl. Acad. Sci. USA 115,
+     Microbiol. 84, e02773–02717 (2018).                              E4350–E4357 (2018).
+15.  Tiso, T. et al. Towards bio-upcycling of polyethylene terephthalate.   36.  Buller, R. et al. From nature to industry: Harnessing enzymes for
+    Metab. Eng. 66, 167–178 (2021).                                             biocatalysis. Science 382, eadh8615 (2023).
+16.  Tournier, V. et al. An engineered PET depolymerase to break down   37.  Shariﬁ, F. & Ye, Y. Identiﬁcation and classiﬁcation of reverse tran-
+    and recycle plastic bottles. Nature 580, 216–219 (2020).                  scriptases in bacterial genomes and metagenomes. Nucleic Acids
+17.  Kawai, F., Kawabata, T. & Oda, M. Current state and perspectives         Res. 50, e29 (2022).
+     related to the polyethylene terephthalate hydrolases available for    38. Makarova, K. S. et al. Evolutionary classiﬁcation of CRISPR-Cas
+     biorecycling. ACS Sustain. Chem. Eng. 8, 8894–8908 (2020).            systems: a burst of class 2 and derived variants. Nat. Rev. Microbiol.
+18.  Tournier, V. et al. Enzymes’ power for plastics degradation. Chem.        18, 67–83 (2020).
+    Rev. 123, 5612–5701 (2023).                                       39. Berntsson, R. P., Smits, S. H., Schmitt, L., Slotboom, D. J. & Poolman,
+19.  Sulaiman, S. et al. Isolation of a novel cutinase homolog with              B. A structural classiﬁcation of substrate-binding proteins. FEBS
+    polyethylene terephthalate-degrading activity from leaf-branch             Lett. 584, 2606–2617 (2010).
+    compost by using a metagenomic approach. Appl. Environ. Micro-   40. Chandonia, J. M. et al. SCOPe: improvements to the structural
+     biol. 78, 1556–1562 (2012).                                                classiﬁcation of proteins - extended database to facilitate variant
+20. Then, J. et al. Ca2+ and Mg2+ binding site engineering increases the        interpretation and machine learning. Nucleic Acids Res. 50,
+    degradation of polyethylene terephthalate ﬁlms by polyester          D553–d559 (2022).
+    hydrolases from Thermobiﬁda fusca. Biotechnol. J. 10,                41.  Protein Data Bank: the single global archive for 3D macromolecular
+    592–598 (2015).                                                         structure data. Nucleic Acids Res. 47, D520–d528 (2019).
+21.  Xi, X. et al. Secretory expression in Bacillus subtilis and biochemical   42. Richardson, L. et al. MGnify: the microbiome sequence data ana-
+     characterization of a highly thermostable polyethylene ter-                  lysis resource in 2023. Nucleic Acids Res. 51, D753–D759 (2022).
+    ephthalate hydrolase from bacterium HR29. Enzym. Microb. Tech-   43.  Varadi, M. et al. AlphaFold protein structure database: Massively
+     nol. 143, 109715 (2021).                                           expanding the structural coverage of protein-sequence space with
+22. Sonnendecker, C. et al. Low carbon footprint recycling of post-          high-accuracy models. Nucleic Acids Res. 50, D439–d444 (2022).
+    consumer PET plastic with a metagenomic polyester hydrolase.     44. Han, X. et al. Structural insight into catalytic mechanism of PET
+   ChemSusChem 15, e202101062 (2022).                                  hydrolase. Nat. Commun. 8, 2106 (2017).
+23. Eiamthong, B. et al. Discovery and genetic code expansion of a      45. van Kempen, M. et al. Fast and accurate protein structure search
+    polyethylene terephthalate (PET) hydrolase from the human saliva        with Foldseek. Nat. Biotechnol. 42, 243–246 (2023).
+    metagenome for the degradation and bio-functionalization of PET.   46. Heinzinger, M. et al. Bilingual language model for protein sequence
+    Angew. Chem. Int. Ed. 61, e202203061 (2022).                      and structure. NAR Genomics and Bioinformatics 6, lqae150 (2024).
+24. Bodor, A. et al. Challenges of unculturable bacteria: environmental   47.  Lin, Z. et al. Evolutionary-scale prediction of atomic-level protein
+     perspectives. Rev. Environ. Sci. Bio/Technol. 19, 1–22 (2020).              structure with a language model. Science 379, 1123–1130 (2023).
+25.  Pfaff, L. et al. Multiple substrate binding mode-guided engineering   48.  Li, G. et al. Learning deep representations of enzyme thermal
+     of a thermophilic PET hydrolase. ACS Catal. 12, 9790–9800 (2022).        adaptation. Protein Sci. 31, e4480 (2022).
+26.  Bollinger, A. et al. A novel polyester hydrolase from the marine      49. Tan, Y., Zheng, J., Hong, L. & Zhou, B. in 2024 IEEE International
+    bacterium Pseudomonas aestusnigri – structural and functional         Conference on Bioinformatics and Biomedicine (BIBM)
+     insights. Front. Microbiol. 11, https://doi.org/10.3389/fmicb.2020.       223–232 (2024).
+    00114 (2020).                                                  50. Erickson, E. et al. Sourcing thermotolerant poly(ethylene ter-
+27.  Arnal, G. et al. Assessment of four engineered PET degrading            ephthalate) hydrolase scaffolds from natural diversity. Nat. Com-
+    enzymes considering large-scale industrial applications. ACS Catal.      mun. 13, 7850 (2022).
+     13, 13156–13166 (2023).                                                   51.  Almagro Armenteros, J. J. et al. SignalP 5.0 improves signal peptide
+28.  Haider, T. P., Völker, C., Kramm, J., Landfester, K. & Wurm, F. R.           predictions using deep neural networks. Nat. Biotechnol. 37,
+     Plastics of the future? The impact of biodegradable polymers on the      420–423 (2019).
+    environment and on society. Angew. Chem. Int. Ed. 58,              52. Furukawa, M., Kawakami, N., Tomizawa, A. & Miyamoto, K. Efﬁcient
+    50–62 (2019).                                                       degradation of poly(ethylene terephthalate) with thermobiﬁda
+29. Castro-Rodríguez, J. A., Rodríguez-Sotres, R. & Farrés, A. Determi-        fusca cutinase exhibiting improved catalytic activity generated
+    nants for an efﬁcient enzymatic catalysis in poly(Ethylene Ter-           using mutagenesis and additive-based approaches. Sci. Rep. 9,
+     ephthalate) degradation. Catalysts 13, 591 (2023).                    16038 (2019).
+30. Bååth, J. A., Borch, K., Jensen, K., Brask, J. & Westh, P. Comparative   53. Kawai, F. et al. A novel Ca²⁺-activated, thermostabilized poly-
+    biochemistry of four polyester (PET) hydrolases. ChemBioChem 22,        esterase capable of hydrolyzing polyethylene terephthalate from
+    1627–1637 (2021).                                              Saccharomonospora viridis AHK190. Appl. Microbiol. Biotechnol.
+31.  Kushwaha, A., Goswami, L., Singhvi, M. & Kim, B. S. Biodegradation       98, 10053–10064 (2014).
+     of poly(ethylene terephthalate): Mechanistic insights, advances,     54.  Lu, H. et al. Machine learning-aided engineering of hydrolases for
+    and future innovative strategies. Chem. Eng. J. 457, 141230 (2023).      PET depolymerization. Nature 604, 662–667 (2022).
+32. Thomsen, T. B., Hunt, C. J. & Meyer, A. S. Inﬂuence of substrate      55.  Pascual, J. et al. Description of Kibdelosporangium banguiense sp.
+     crystallinity and glass transition temperature on enzymatic degra-         nov., a novel actinomycete isolated from soil of the forest of Pama,
+    dation of polyethylene terephthalate (PET). N. Biotechnol. 69,          on the plateau of Bangui, Central African Republic. Antonie Van.
+    28–35 (2022).                                                 Leeuwenhoek 109, 685–695 (2016).
+
+
+
+
+Nature Communications| (2025)16:6211                                                                                                           11
+
+
+[PDF physical page 12]
+Article                                                                                    https://doi.org/10.1038/s41467-025-61599-z
+
+56.  Dresler, K., van den Heuvel, J., Müller, R.-J. & Deckwer, W.-D. Pro-   Author contributions
+    duction of a recombinant polyester-cleaving hydrolase from Ther-    L.Z., P.T., and L.H. conceptualized and supervised this research project.
+    mobiﬁda fusca in Escherichia coli. Bioprocess Biosyst. Eng. 29,       B.Z. and P.T. developed the methodology and designed the pipeline. B.Z.,
+    169–183 (2006).                                                                    S.J., and M.L. implemented the method and conducted the in-silico
+57.  Herrero Acero, E. et al. Enzymatic surface hydrolysis of PET: Effect   screening of PETase. B.W. and R.H. conducted the wet-lab experiments.
+     of structural diversity on kinetic properties of cutinases from ther-    L.Z. and P.T. conducted MD simulations. B.W., L.Z., P.T., B.Z., and L.H.
+    mobiﬁda. Macromolecules 44, 4632–4640 (2011).                 wrote the manuscript. All authors reviewed and accepted the manuscript.
+58.  Müller, R.-J., Schrader, H., Profe, J., Dresler, K. & Deckwer, W.-D.
+    Enzymatic degradation of poly(ethylene terephthalate): Rapid     Competing interests
+     hydrolysis using a hydrolase from T. fusca. Macromol. Rapid Com-  A patent application CN202410267798.X relating to the PETase dis-
+    mun. 26, 1400–1405 (2005).                                   covered in this study has been ﬁled in the name of Shanghai Jiao Tong
+59. Singh, A. et al. Techno-economic, life-cycle, and socioeconomic     University, pending. B.W. B.Z. P.T., and L.H. are the inventors of this
+    impact analysis of enzymatic recycling of poly(ethylene ter-          patent. The other authors declare no competing interests.
+     ephthalate). Joule 5, 2479–2503 (2021).
+60. Senior, A. W. et al. Improved protein structure prediction using    Additional information
+     potentials from deep learning. Nature 577, 706–710 (2020).        Supplementary information The online version contains
+61.  Cramer, P. AlphaFold2 and the future of structural biology. Nat.     supplementary material available at
+     Struct. Mol. Biol. 28, 704–705 (2021).                               https://doi.org/10.1038/s41467-025-61599-z.
+62. Jumper, J. et al. Highly accurate protein structure prediction with
+    AlphaFold. Nature 596, 583–589 (2021).                        Correspondence and requests for materials should be addressed to
+63. Zheng, L. et al. Decoupling of the onset of anharmonicity between a   Lirong Zheng, Liang Hong or Pan Tan.
+     protein and its surface water around 200 K. Elife 13, https://doi.org/
+    10.7554/elife.95665 (2024).                                   Peer review information Nature Communications thanks the anon-
+64. Zheng, L. et al. Universal dynamical onset in water at distinct      ymous reviewer(s) for their contribution to the peer review of this work. A
+     material interfaces. Chem. Sci. 13, 4341–4351 (2022).               peer review ﬁle is available.
+65. Zheng, L.-R. & Hong, L. Combining neutron scattering, deuteration
+    technique, and molecular dynamics simulations to study dynamics   Reprints and permissions information is available at
+     of protein and its surface water molecules. Chin. J. Polym. Sci. 37,   http://www.nature.com/reprints
+    1083–1091 (2019).
+                                                                       Publisher’s note Springer Nature remains neutral with regard to jur-
+Acknowledgements                                                  isdictional claims in published maps and institutional afﬁliations.
+This work was supported by Shanghai Municipal Science and Tech-
+nology Major Project, the National Key Research and Development    Open Access This article is licensed under a Creative Commons
+Program of China (2024YFA0917603), the Computational Biology Key   Attribution 4.0 International License, which permits use, sharing,
+Program of Shanghai Science and Technology Commission             adaptation, distribution and reproduction in any medium or format, as
+(23JS1400600), Shanghai Municipal Education Commission           long as you give appropriate credit to the original author(s) and the
+(2024AIZD015), Shanghai Jiao Tong University Scientiﬁc and Techno-    source, provide a link to the Creative Commons licence, and indicate if
+logical Innovation Funds (21X010200843), and Science and Technol-   changes were made. The images or other third party material in this
+ogy Innovation Key R&D Program of Chongqing (CSTB2022TIAD-         article are included in the article’s Creative Commons licence, unless
+STX0017, CSTB2024TIAD-STX0032), the Student Innovation Center at   indicated otherwise in a credit line to the material. If material is not
+Shanghai Jiao Tong University, and Shanghai Artiﬁcial Intelligence      included in the article’s Creative Commons licence and your intended
+Laboratory. We would like to thank Teacher Jing Wang from Instru-     use is not permitted by statutory regulation or exceeds the permitted
+mental Analysis Center of Shanghai Jiao Tong University for assistance   use, you will need to obtain permission directly from the copyright
+with PET hydrolysis performance tests via UPLC. Part of the computa-   holder. To view a copy of this licence, visit http://creativecommons.org/
+tions in this paper were run on the Siyuan-1 cluster supported by the    licenses/by/4.0/.
+Center for High Performance Computing at Shanghai Jiao Tong
+University.                                  © The Author(s) 2025
+
+
+
+
+
+Nature Communications| (2025)16:6211                                                                                       12

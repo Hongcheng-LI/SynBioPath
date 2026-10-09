@@ -1,0 +1,645 @@
+
+[PDF physical page 1]
+                            RESEARCH           BIOCHEMISTRY                                    ARTICLE | 
+
+   An integrated AI knowledge graph framework of bacterial
+   enzymology and metabolism
+       Norman R. Spencera,1      , Mathusan Gunabalasingama,1      , Keshav Diala      , Xiaxia Dia      , Tonya Malcolma      , and Nathan A. Magarveya,2
+
+         Edited by Chaitan Khosla, Stanford University, Stanford, CA; received December 5, 2024; accepted February 27, 2025
+
+      The study of bacterial metabolism holds immense significance for improving human
+       health and advancing agricultural practices. The prospective applications of genom-     Significance
+         ically encoded bacterial metabolism present a compelling opportunity, particularly
+        in the light of the rapid expansion of genomic sequencing data. Current metabolic        Bacteria dominate the ecosphere
+        inference tools face challenges in scaling with large datasets, leading to increased       through their varied metabolic
+       computational demands, and often exhibit limited inter-­relatability and interopera-       pathways. Genomic data now
+         bility. Here, we introduce the Integrated Biosynthetic Inference Suite (IBIS), which       serve as a common start point for
+       employs deep learning models and a knowledge graph to facilitate rapid, scalable       studying bacterial metabolism, yet
+        bacterial metabolic inference. This system leverages a series of Transformer based       current capacity to predict and210.27.113.117.
+      models to generate high quality, meaningful embeddings for individual enzymes,                                                                                 compare metabolism is limited by
+       biosynthetic domains, and metabolic pathways. These embedded representations                                                                                                            existing techniques andaddress     enable rapid, large-­scale comparisons of metabolic proteins and pathways, surpassingIP                                                                                                technology. Here, we present an       the capabilities of conventional methodologies. The examination of evolutionary
+from    and functionally conserved metabolites across diverse bacterial species is facilitated        integrative AI system and
+      by integrating the predictive capabilities of IBIS into a graph database enriched      knowledge graph for bacterial
+2025    with comprehensive metadata. The consideration of both primary and specialized       metabolism, enabling an accurate
+16,    metabolism, combined with an embedding logic for enzyme discovery, uniquely      and comprehensive embedding
+        positions IBIS to identify potential novel metabolic pathways. With the expan-        of both primary and specialized
+       sion of genomic data necessitating transformative approaches to advance molecular       metabolism. We demonstrateSeptember    metabolism research, IBIS delivers an AI-­driven holistic investigation of bacterial     how state-of-the-art AI
+on    metabolism.                                                                                 architectures enhance enzyme
+                                                                                                      contextualization within numeric          bacterial metabolism | artificial intelligence | knowledge graph | Graphormer | Transformer
+                                                                                                  space, accelerating the processing
+                                                                                and comparison of genomic data,
+       Through their diverse metabolic pathways, bacteria are harnessed to produce industrialUNIVERSITY                                                                                                   revealing encoded metabolic       enzymes, medicines, and agrochemicals that support modern life (1–3). Recent studies
+                                                                                                        functions. These advancements       shed light on the pivotal role their metabolism plays in mediating key aspects of human
+        physiology, from intestinal inflammation to neurological development (4–6). The expo-       surpass traditional bioinformaticFOREST        nential growth of genomic sequencing data demands tools to systematically catalog bac-        tools, opening opportunities for
+AND      terial metabolism in a scalable and inference-driven manner. Effectively arranged, this       data-driven discoveries in
+        catalog may be leveraged to identify metabolisms of industrial, medical, or agricultural       microbiology and biotechnology.
+        relevance. Existing methodologies to predict metabolism lack scalability when applied to
+         large datasets and fail to effectively interrelate output data.
+         Current metabolic prediction tools often rely on databases of profile Hidden Markov      Author  affiliations: aDepartment of Biochemistry and
+       Models (pHMMs) like PFAM to identify protein motifs and predict function (7). Each      Biomedical  Sciences, Michael  G. DeGroote  InstituteAGRICULTURE                                                                                                                                           for Infectious Disease Research, McMaster University,
+    pHMM characterizes a single protein pattern, requiring thousands of pHMMs to com-      Hamilton, ON L8S 4L8, Canada
+         pletely annotate a genome, resulting in high computational overhead. Existing bioinfor-
+       matic tools rely on these rate-limiting pHMM annotations to identify and compare
+        specialized metabolic pathways from genomic data ( 8–11). pHMMs identify conserved      Author contributions:  N.R.S., M.G.,  K.D., and N.A.M.
+                                                                                                                          designed                                                                                                                                                research;                                                                                                                                                                               N.R.S.,                                                                                                                                                                  M.G., and K.D.                                                                                                                                                         performedNORTHWEST     proteins through local sequence homology but may overlook distant relatives due to genetic                                                                                                                                      research;                                                                                                                                                         N.R.S. and                                                                                                                                           M.G. contributed                                                                                                                                 new                                                                                                                                                                               reagents/
+by      drift. By neglecting higher-order relationships and relying on existing annotation libraries,       analytic tools; N.R.S., M.G., K.D., X.D., T.M., and N.A.M.
+    HMMs are limited in their ability to detect novel enzymes. Deep learning models for      analyzed data;  N.R.S., M.G.,  X.D., and T.M. curated
+       sequence representation overcome these limitations, enabling more comprehensive, seman-      datasets; and N.R.S., M.G., and N.A.M. wrote the paper.
+          tically rich, and scalable modeling of bacterial metabolism.                                      The authors declare no competing interest.
+         The Transformer architecture has revolutionized deep learning, excelling at extracting      This article is a PNAS Direct Submission.
+       and summarizing contextual information (12, 13). Transformers leverage an attention      Copyrightarticle is distributed© 2025 theunderAuthor(s).CreativePublishedCommonsby Attribution-­PNAS. This
+      mechanism to dynamically evaluate and prioritize the relationships among all elements      NonCommercial-­NoDerivatives License 4.0 (CC BY-­NC-­ND).https://www.pnas.org        in an input sequence, enabling the model to learn dependencies and uncover intricate       1N.R.S. and M.G. contributed equally to this work.
+                                                                                                                              2To whom correspondence may be addressed. Email:from     patterns in the data (12, 13). In protein analysis, Transformers apply this mechanism to
+        analyze amino acid sequences, identifying functional motifs and encoding them into     magarv@mcmaster.ca.
+       numerical representations known as embeddings (14). The resulting embeddings group      Thishttps://www.pnas.org/lookup/suppl/doi:10.1073/pnas.​article contains supporting information online at
+        proteins with similar structural or functional properties within a Euclidean space, effec-      2425048122/-­/DCSupplemental.Downloaded      tively  capturing  their  biochemical and  biophysical  characteristics.  Consequently,      Published April 7, 2025.
+
+
+      PNAS  2025  Vol. 122  No. 15 e2425048122                                       https://doi.org/10.1073/pnas.2425048122 1 of 11
+
+
+[PDF physical page 2]
+       Transformers form the foundation of state-of-the-art structure    data must be harmonized to uncover insights into metabolic path-
+        prediction methods, such as ESM2 and AlphaFold2 (14–16).      ways and their genomic encodings.
+         Graphormers are a specialized class of deep learning models       Metabolic knowledge is siloed across various databases, hindering
+        that combine the strengths of Transformers and graph neural net-    cross-domain insights between primary and specialized pathways,
+       works (GNNs) to process and learn from graph-structured data     highlighting the need for data unification within knowledge graphs
+          (17, 18). GNNs encode structural and positional information,     to enhance their utility. Databases such as KEGG, BRENDA,
+        including edge weights, distances, and connectivity, which is sub-    MetaCyc, and MetaMDB catalog essential proteins involved in
+        sequently leveraged by Transformers to capture global contextual    primary metabolism (PM) (26–29). Ongoing efforts curate enzy-
+        patterns across the entire graph (17). Graphs intrinsically capture    matic reactions and gene sequences from primary literature into
+         relationships between entities, making them effective for modeling     databases to document specialized metabolism (SM) (30, 31). These
+       complex interconnections in datasets like social networks, molec-     specialized-metabolic genes are proximally encoded within biosyn-
+        ular structures, and metabolic pathways. In this work, we employ     thetic gene clusters (BGCs) and act in a concerted fashion to pro-
+       Graphormers to represent genomes as graphs and embed protein    duce a specialized metabolite as an end product. A knowledge graph
+        functionality in the context of other proximally encoded proteins     integrating various branches of metabolism eliminates an artificial
+          (e.g., operons).                                              dichotomy and highlights the interrelationships between metabolic
+        Embedding biochemical data into lower-dimensional spaces    pathways. This approach offers a means to unify metabolic processes
+        using deep-learning models (e.g., Transformers and Graphormers)    and identify enzymes that are inadequately characterized by current
+        allows for the preservation of meaningful patterns, such as func-    metabolic frameworks.
+        tional or structural similarities, while making computations more       Here, we present a knowledge graph designed for the compre-210.27.113.117.         efficient. GPU-accelerated density-based clustering and vector     hensive analysis of bacterial metabolism. Conceptually, this knowl-
+address     databasesembeddings,facilitateenablingrapidthe constructionand  scalableofcomparisonsfoundational betweendatasets    edgeformedgraphbothiswithinrepresentedand betweenas densethesedatalayerslayers,throughwith connectionsthe applica-
+IP      for comparative studies in the post-next-generation sequencing     tion of Transformer models (Fig. 1). Unlike existing tools that con-
+from      era (19–21).                                                           centrate on specific metabolic branches, the Integrated Biosynthetic         Knowledge graphs offer an effective framework for modeling     Inference Suite (IBIS) provides a more holistic perspective by ena-
+2025      relationships uncovered by comparative genomic studies (e.g.,     bling rapid and scalable enzymatic annotation of bacterial genomes
+16,     gene–protein, protein–protein, protein–function, etc.), enabling    with embedded representations, facilitating the identification and
+         efficient information retrieval, pattern discovery, and advanced    comparison of primary and specialized metabolic pathways. At its
+        reasoning. Other  fields  use knowledge  graphs  to  generate     core, IBIS employs Transformers to produce high-quality embed-
+       context-dependent predictions including molecule–disease rela-    dings for individual enzymes and entire metabolic pathways, facil-September        tionships, drug–target interactions, and gene–disease associations     itating large-scale comparisons that traditional methods cannot
+on      (22–25). Unlike traditional tabular databases, knowledge graphs     achieve. By contextualizing these computational results within a
+        enable seamless integration of data from diverse sources, including    comprehensive knowledge graph, IBIS facilitates an in-depth explo-
+       incomplete or partial datasets, without being constrained by a     ration of inferred metabolic landscapes, providing insights into the
+         rigid schema. This flexibility makes knowledge graphs particularly     relationships between conserved metabolic processes, microbialUNIVERSITY     valuable for metabolic research, where heterogeneous and dynamic     evolution, and environmental adaptation. This work represents an
+
+
+                                                                                                                                                             Identification of
+                                                                                            Comprehensive                                                                                                                                         Profiling                                                                                                            Gene CassettesFOREST                                           Bacteria                                                                                                                of Primary Metabolism                                                                                                                            Corresponding                                                                                                                                                             to
+AND       Microbes                                                                               from Genomic Data      Specialized Metabolism
+
+
+
+
+                                                                                                                                                                          Prediction of Enzyme
+                                                                                                                                                         Classes from Protein
+                                                                                                                                                 SequencesAGRICULTURE      Genomic                                    EC 1.14.11.4            Data
+
+                             ECE C 2.8.3                                                                                                                                      Identification of
+                      ECECC 2.8.3.16                       ECECE  11.14.11                                                                                Biosynthetic Domains
+                                           ECECECECEC 11.14.11.4.144.11                                                                                                         in Multi-Modular
+                                                                                                                                                                            ProteinsNORTHWEST                                   PKS          NRPSNRPSN
+by                                    KSKSKSKSKSS ATATAAAAT KRKKR TT      C A T                            AI-EnhancedAI-EnhaAI  nhanceded                                                                                     KnowledKnowledgeowledge GGraph Inference
+                                                                                                                                                     Rapid Comparative
+                                                                                                      1.1. Identifying Conserved Metabolism               MetabolismAnalysisatofScale                                          GeneGeneGGen  clusterclu ter                                         Across Taxonomy
+                              TTreTree     MossMoMoMoMoosososssss                                                      2. Predicting Metabolic Function
+                        HostHoost                   HeHeerbaceouserbac      plant                                     from Associated Niches
+                                    PlantsPlaP  nts                Aquatic plant
+                                                                                                      3. Revealing Novel Metabolismhttps://www.pnas.org         Niche     InvertebInvertebt bratesbratbb ratest        ShrubSh            Peat moss
+from           Fig. 1.   The IBIS is a collection of Transformer and Graphormer models designed to fully annotate bacterial metabolism. This suite classifies enzymes (e.g., via
+        EC numbers), biosynthetic domains (e.g., Ketosynthase, Acyltransferase), and primary and specialized metabolic pathways. Furthermore, IBIS represents BGCs
+         with meaningful embedded representations that reflect the chemical characteristics of encoded metabolites, thereby facilitating rapid, large-­scale comparisons
+         across millions of BGCs. Inferences derived from bacterial genomes are integrated into the IBIS knowledge graph, which contextualizes these predictions by
+          associating them with taxonomic and ecological niche information. Combining the IBIS suite with a comprehensive knowledge graph enables AI-­enhancedDownloaded      inference of the metabolic potential of bacteria.
+
+
+   2 of 11   https://doi.org/10.1073/pnas.2425048122                                                                           pnas.org
+
+
+[PDF physical page 3]
+       advancement in comparative genomics facilitated by applying the     trained to predict a wide range of protein labels associated with
+        transformative potential of natural language processing, vector     bacterial metabolic processes (Fig. 2A). These labels include a general
+        comparisons, and GPU-accelerated computation to biochemical    nonenzyme category, the complete ontological hierarchy defined
+        languages. As the knowledge graph continues to expand alongside    by Enzyme Commission (EC) numbers, enzyme classes involved
+        the growing availability of genomic data, IBIS will uncover the     in specialized metabolic pathways curated from the literature and
+         intricate metabolic capabilities of bacteria with unprecedented scale    ribosomally synthesized and posttranslationally modified peptides
+       and detail.                                                          (RiPPs). During each training step, proteins are sampled from each
+                                                                                    dataset, processed through the same Transformer model to generate
+      Results                                                          protein embeddings, and subsequently passed to individual neural
+                                                                     networks to predict the corresponding label (SI Appendix, Fig. S1).
+        Parallel Multi-­Task Training of Transformers for Understanding    This parallel multi-­task training enables the development of a
+        Bacterial Enzymology. As an  initial step toward  establishing     unified model capable of generating embeddings with sufficient
+        a unified framework for predicting  bacterial metabolism, we     resolution to accurately assign protein annotations by comparison
+        introduce IBIS-­Enzyme, a Transformer-­based model specifically    with a  reference database  of embeddings using approximate
+
+
+     A                            B210.27.113.117.
+address
+IP
+from
+2025
+16,
+September
+on
+UNIVERSITY                                                                                                         SM
+     C                                    D                                      Protein Biosyn.
+                                                                                                      EC1   EC2   EC3  EC4  Family Domains F1
+                                                                                                                                                             Score
+                                                                                                                                 IBIS  0.98    0.98   0.97   0.95   0.91   0.89   0.98FOREST
+
+                                                                                         CLEAN  0.95    0.93   0.92   0.84   N/A   N/AAND
+                                                                                                DeepEC  0.70    0.63   0.58   0.26   N/A   N/A
+
+                                                                                               DeepEC
+                                                                                                               Transformer  0.65    0.60   0.55   0.24   N/A   N/A                                                                                                                                                                                   0.24AGRICULTURE                                            E
+NORTHWEST
+by
+https://www.pnas.org
+           Fig. 2.   Biosynthetic enzyme and domain identification with Transformers. (A) IBIS-­Enzyme maps each protein sequence to an embedded space, with proximity
+from       reflecting enzyme function similarity. It also predicts biosynthetic domain regions, which are further embedded by IBIS-­Domain to capture domain subtypes and
+         substrate affinity. (B) The embedded space of protein sequences with EC classes not observed by IBIS-­Enzyme during training, projected into two-­dimensional
+        space with UMAP. (C) Comparing IBIS-­Enzyme annotation coverage for SM against PFAM, antiSMASH, and PRISM. A two-­tailed t test is conducted to compare
+         annotation distributions. ** means P-­value between 1e-­3 and 1e-­10 and *** means P-­value under 1e-­10. (D) Comparing IBIS-­Enzyme classification with ANN
+         to predictions from CLEAN, DeepEC, and DeepECTransformer. In addition to EC number prediction, IBIS annotates curated protein families from SM (Protein
+          Family), and identifies biosynthetic domains in protein megasynthases from nonribosomal peptide and polyketide biosynthesis (Biosyn. Domains). (E) AnnotationDownloaded
+        speed of IBIS-­Enzyme ANN, DIAMOND, and hmmscan against the PFAM library.
+
+      PNAS  2025  Vol. 122  No. 15 e2425048122                                       https://doi.org/10.1073/pnas.2425048122 3 of 11
+
+
+[PDF physical page 4]
+         k-­nearest neighbors (ANN)  classification. ANN  classification    annotation pipelines, such as PRISM and antiSMASH (Fig. 2C
+         retrieves the top n similar data points from a reference database for    and Dataset S6; see SI Appendix) (8, 9). The broader coverage
+        a given query embedding and assigns the final annotation based on     results from the extensive reference databases leveraged by ANN
+         majority-­vote consensus. Provided the model captures generalized     classification enabled by IBIS-Enzyme embeddings, in contrast
+        patterns relevant to enzyme classification (see section “IBIS-­Enzyme     to the more limited pHMM libraries utilized by these tools.
+       Embeddings Facilitate the Identification of Previously Uncharacterized
+        Enzymes”), researchers can update ANN reference databases with    Predicting Functional Annotations for Biosynthetic Domains.
+        proteins from newly identified enzyme classes. These embeddings   We trained an additional Transformer model, IBIS-­Domain,
+         are immediately available for ANN retrieval in future queries,     to generate embeddings for predicted domain regions from
+        streamlining the incorporation of new enzyme classes.               IBIS-­Enzyme, capturing properties such as substrate specificity
+        Beyond predicting single-function enzyme classes, the training    and functional subtypes (Methods and Datasets S7 and S8).
+         tasks also encompass the delineation of domain regions within    IBIS-­Domain predicts substrate  specificity for nonribosomal
+       multi-enzyme proteins involved in SM, such as polyketide syn-    peptides and polyketides with greater fidelity than existing tools
+        thases and nonribosomal peptide synthases. During training,     (Dataset S9). During the initial training phase, the model is tasked
+       IBIS-Enzyme annotates individual protein residues with labels    with predicting both substrate identity and a range of chemical
+       corresponding to biosynthetic domains commonly found in these     properties, including the number of hydrogen bond donors and
+       megasynthases (e.g., ketosynthase, acyltransferase). The ability to     acceptors, aromatic rings, NO bonds, NHOH bonds, logP, and
+        define enzyme systems with residue-level granularity is a distinc-     total polar surface area. These properties were specifically chosen
+         tive  feature  of IBIS-Enzyme,  differentiating  it from  other     to guide the model in classifying proteins that recruit chemically210.27.113.117.       Transformer-based models for enzyme function prediction, such     similar  substrates  (e.g.,  polar, hydrophobic)  into analogous
+address      as DeepECTransformer and CLEAN.                        embeddedDomain are spaces.more reflectiveSubstrateof substratepredictionschemicalproducedpropertiesby  IBIS-­than
+IP    Comprehensive Annotation of Enzymes for Predicting Bacterial     existing tools, which increases the likelihood of biochemically
+       Metabolism. After training, IBIS-­Enzyme encodes raw protein     plausible substitutions in the case of misclassification (e.g., serinefrom        sequences into embeddings and uses ANN  classification to     for threonine; Dataset S9). These biosynthetic domains contribute
+2025     predict EC numbers and protein families associated with SM. EC    to important structural elements of the final metabolite (37).
+16,    numbers provide a standardized numerical classification system    Improved substrate predictions may improve molecular structure
+        that categorizes enzymes according to the chemical reactions     prediction as well as BGC comparison relative to existing tools.
+        they catalyze, offering a hierarchical framework for describing
+      enzyme functions. For example, EC 1.1.1.1 represents alcohol    Embedding Lookups Outpace Conventional Protein AnnotationSeptember       dehydrogenase, where EC 1 denotes oxidoreductases, EC 1.1    Methods. Integrating protein embeddings from IBIS-­Enzyme
+on      specifies the oxidation of alcohols, EC 1.1.1 identifies enzymes    with ANN classification yields a more scalable annotation system
+        acting on alcohols with NAD+ or NADP+ as acceptors, and    compared to existing approaches. ANN-­based classification achieves
+     EC 1.1.1.1 refers to the specific enzyme alcohol dehydrogenase.    a 5.7-­fold speed increase relative to DIAMOND and a 19.9-­fold
+      The training dataset consists of high-­quality, curated protein    speed increase with respect to hmmscan annotation with theUNIVERSITY     annotations from SwissProt and the Protein Data Bank (RCSB.   PFAM library when annotating 100,000 sequences (SI Appendix,
+         org), supplemented with proteins from TrEMBL to support     Fig. S2E) (7, 38, 39). Alignment-­independent analysis afforded
+      enzyme classes with limited examples (32, 33). Additionally,    by vector comparison methods like ANN is key to the improvedFOREST     the dataset includes nonenzyme proteins from SwissProt as a     scalability of IBIS. ANN methods fundamentally rely on the
+AND     negative control. During inference, the model  first  classifies    computationally efficient calculation of distances between vectors        a query protein as either a nonenzyme or as belonging to one     in Euclidean space (40). Certain vector databases, such as Qdrant,
+        of the primary EC classes (F1-­score = 0.91, Dataset S1). If the     utilize vector quantization to further enhance the speed of vector
+        protein  is identified as an enzyme, IBIS-­Enzyme computes a    lookups (21, 41). We anticipate vector database lookups will scale
+        protein embedding and applies ANN classification to predict EC    more effectively than alignment-­based methods (e.g., DIAMOND)
+         classifications down to the fourth digit. IBIS-­Enzyme demonstrates    and HMM-­based methods (e.g., hmmscan with PFAM) as theAGRICULTURE     superior accuracy compared to existing models such as DeepEC,    number of sequences exceeds the range tested in Fig. 2E.
+       DeepECTransformer, and CLEAN (Fig. 2D and Datasets S2 and
+        S3, F1 score = 0.95) (34–36).                                     IBIS-­Enzyme  Embeddings  Facilitate  the  Identification  of
+        Enzymes and other biosynthetically relevant proteins involved    Previously Uncharacterized Enzymes. The  ability  of  IBIS-­
+        in SM are often underrepresented in the EC classification system,   Enzyme to characterize novel biosynthetic enzymes relies onNORTHWEST         as many of these classes lack analogs in PM. Annotation of pro-      its generalizability, defined as the extent to which it accurately
+by      teins derived from known BGCs reveals that 41.1% of proteins      classifies enzymes outside its training dataset. IBIS-­Enzyme is
+        relevant to SM cannot be assigned to the existing EC hierarchy     tested on 1,434 EC numbers excluded from the training dataset
+         at the fourth digit with 100% fidelity (Dataset S4), a limitation     to evaluate its generalizability. Protein sequences corresponding
+       not addressed by tools such as DeepECTransformer and CLEAN     to these enzyme classes are embedded using IBIS-­Enzyme and
+          (35, 36). To overcome this challenge, the training dataset included     visualized as a two-­dimensional UMAP projection in Fig. 2B
+       1,100 classes of important biosynthetic proteins manually curated     (42). In this projection, enzyme embeddings corresponding tohttps://www.pnas.org    from characterized BGCs in literature. Establishing a separate     similar EC numbers are positioned near one another in Euclidean
+        reference database of these protein families enables ANN-based     space, indicating that data clustering techniques can be usedfrom         classification independent of EC annotation efforts, achieving an     to identify enzyme families outside of the training  dataset.
+         overall F1-score of 0.91 (Dataset S4). Furthermore, IBIS-Enzyme    Furthermore, the generalizability of these embeddings allows
+       can delineate functional regions in multidomain enzymes, achiev-     for seamless integration of newly identified enzyme families into
+        ing an F1-score of 0.89 (Dataset S5). The annotation capacity of     reference databases for ANN classification without necessitatingDownloaded       IBIS-Enzyme significantly exceeds that of widely utilized SM    model retraining, a feat which cannot be achieved with existing
+
+   4 of 11   https://doi.org/10.1073/pnas.2425048122                                                                           pnas.org
+
+
+[PDF physical page 5]
+         classification-­based approaches (34, 35). A formal evaluation of    with an F1-score of 0.929 at the family level (Dataset S11). The
+       IBIS-­Enzyme embedding distances grouping functionally related     correlation between these metabolism-oriented feature vectors and
+        proteins from this omitted dataset yields an AUC of 0.942. This    taxonomy is further illustrated through density-based clustering,
+         “zero-­shot” performance serves as a vital indicator of model    which demonstrates that the primary metabolic inferences derived
+         generalizability and suggests IBIS-­Enzyme may identify novel    from IBIS are sufficient to group taxonomically related bacteria
+       enzymes not represented in the current EC ontology. With such     (SI Appendix, Fig. S2). The purpose of these feature vectors is not
+         capacities, exploration of untapped metabolic pathways may be     to replace traditional phylogenetic techniques, such as 16S rRNA
+        achieved without the need for additional training.                  sequencing. Rather, this analysis demonstrates that IBIS-PM pro-
+                                                                               vides  detailed  metabolic   features  capable  of  supporting
+       Defining PM from Genomic Data through IBIS-­Derived Enzyme    metabolism-based groupings that align with established taxonomic
+       Annotations. The extensive enzyme annotation capabilities of     classifications. Some groupings may vary depending on the degree
+       IBIS-­Enzyme are sufficient to predict bacterial PM from genomic     of metabolic diversification, as organisms with high taxonomic
+        data. In this context, we introduce IBIS-­PM, a rule-­based system     similarity can exhibit markedly divergent metabolic profiles, poten-
+        designed to infer 3,966 primary metabolic pathways sourced from      tially driven by pathway recruitment. In the future, these feature
+        databases such as KEGG, MetaMDB, BRENDA, and MetaCyc     vectors can help uncover subtle metabolic distinctions among
+         (Fig. 3A) (26–29). We systematically organize these pathways into     related organisms and investigate the functional significance of these
+       an ontology comprising 26 major classes and 129 subclasses. PM,    metabolic differences in the relation to the environment.
+        in contrast to specialized, features enzymes dispersed throughout
+        the genome, often with multiple redundant copies. As such,    Defining SM from Genomic Data Independent  of pHMM210.27.113.117.        defining primary pathways depends on accurately predicting    Annotations. Identification of BGCs requires the recognition of
+address     associatedachieved withEC numbersANN andlabelingKEGGof orthologyIBIS-­Enzyme(KO) annotations,embeddings    contextualby the spatialpatternsorganizationwithin ofthesethe associatedcollectionsgenes.of enzymes,CurrentguidedBGC
+IP     (Datasets S2 and S10). IBIS-­PM produces a score reflecting the     identification tools use pHMM-­libraries to annotate genes and
+from     percentage of required enzymes observed for each investigated    apply curated rules to define the spatial arrangements typical       pathway, accommodating flexible annotations. This approach     of SM (8, 9). These pHMM libraries are biased toward well-­
+2025       is readily amenable to the integration of additional pathways as     characterized biosynthetic pathways, highlighting the need for
+16,     metabolic knowledge in the field expands.                     more flexible, generalizable computational approaches to detect
+          Considering that closely related organisms frequently exhibit    novel metabolisms. Here, we introduce IBIS-­SM, an approach
+         similar metabolic capacities, we evaluate whether our PM predic-     to identify BGCs that operates independently of pHMM-­based
+        tions offer adequate coverage to propose metabolism-based group-     annotations, utilizing the generalizable annotation capabilities ofSeptember        ings consistent with established taxonomies. Pathway predictions    IBIS-­Enzyme embeddings.
+on      are generated for 52,584 genomic assemblies encompassing a wide      IBIS-SM is a Graphormer trained to assign genes to specialized
+        range of taxonomic groups and scores reflecting the percentage of    metabolic pathways which represent genomes as graphs, where
+         requisite proteins for each primary pathway are aggregated into a    nodes represent genes embedded with IBIS-Enzyme and edges
+         feature vector. Using the feature vectors from this approach, ANN    weighted by the nucleotide distance are added between proximallyUNIVERSITY      classification accurately predicts the taxonomic origin of a genome,    encoded genes (Fig. 3A and SI Appendix, Fig. S3). The training
+FOREST                  Primary                   Specialized     A                                                                                                                     Deep                                          B                     Cluster                                                                                                                                                                                  Anti               Metabolism Calling         Metabolism Calling                                                                                                                                                                         IBIS                                                                                                 BGC PRISM SMASH                                                                                                                                            FinderAND
+                                                                                                                                              Alkaloid  0.70  0.73  0.66  0.51  0.95
+                      Acids                                                    Nonribosomal Peptides
+                Amino          Sugars                                          Polyketides                               Terpene  0.82  0.88  0.51  0.55  0.95
+                                                                                  Aminoglycosides                           LipidsMetabolisms                                                                                Ripp  0.84  0.88  0.78  0.60  0.98AGRICULTURE                                                                                                                                                                                   Specialized
+                                                                                                                         Saccharide  0.79  0.88  0.55  0.53  0.94  Metabolism                                                                    Metabolisms                             MiBIG          ANN                   Classes                                                  Chemotype                                                   Classification
+                                                                                                                           AUC               Annotation       Enzyme                       SpecializedChemotype N/A   PKS    PKS PKS  N/A              NRPS  0.83  0.90  0.72  0.57  0.87
+                                                         Node Type BGC   BGC    BGC BGC BGCNORTHWEST                                                                                                                                Polyketide  0.85  0.92  0.77  0.59  0.91                                 Space                               n1      n2       n3   n4   n5
+by                         EnzymeEmbedding                  Output                                                    Other  0.66  0.75  0.61  0.54  0.91
+                                                        Input            Inter-ORFdistance   IBIS-Enzyme                                                                                        embeddings
+                                 Successive Genome                         n1      n2       n3   n4   n5       BGC Boundary Calling  0.72  0.65  0.68  0.61  0.74                            Window Analysis
+                Genome
+                                                                                                  AUC                                             EnzymeEmbedding                                                                0.6   0.7   0.8   0.9https://www.pnas.org                               Rotating slices                                     of genome              Space
+from
+           Fig. 3.   Defining primary and SM with IBIS. (A; Left) ANN annotation of IBIS-­Enzyme embeddings labels proteins with KO labels and EC numbers. IBIS-­PM defines PM
+         with curated rules based on KO and EC numbers. (A; Right) IBIS-­SM, a Graphormer model, defines SM from protein-­graph representations of successive genome
+           slices, capturing protein functions with IBIS-­Enzyme embeddings and spatial organization between proximal ORFs through normalized nucleotide distances.
+          IBIS-­SM predicts BGC membership and assigns plausible chemotypes to each ORF, aggregating predictions to define final BGC boundaries. (B) Comparing IBIS-­SM
+        performance with the receiver-­operator characteristic curve (AUC) against existing rule-­based (PRISM, antiSMASH) and machine learning (DeepBGC, ClusterFinder)Downloaded        methods. We assess chemotype predictions on bacterial MiBIG BGCs and determine cluster boundaries using a manually curated dataset.
+
+      PNAS  2025  Vol. 122  No. 15 e2425048122                                       https://doi.org/10.1073/pnas.2425048122 5 of 11
+
+
+[PDF physical page 6]
+        dataset consists of genomic windows related to SM, curated from    chemically similar BGCs from dissimilar BGCs with F1 scores of
+       109,719 diverse bacterial genomes (Methods). The model is eval-    0.989, 0.969, and 0.803 for increasingly similar Tanimoto bins
+       uated on its ability to accurately identify the biosynthetic class of    (Dataset S15). IBIS-BGC demonstrates a significantly better
+        a BGC and delineate the start and stop of the BGC, including all    Pearson correlation between BGC similarity and Tanimoto molec-
+        proteins involved in biosynthesis. Our model demonstrates strong     ular similarity compared to BiGSLiCE, with a Z-statistic of
+       performance in classifying BGCs across 36 classes, achieving an    −128.2 and a P﻿-value approaching 0 (SI Appendix, Fig. S4B﻿).
+        average AUC of 0.93 (Dataset S12). In contrast, other machine    GPU-accelerated dimensionality reduction and density-based
+        learning-based cluster callers like DeepBGC and ClusterFinder     clustering rapidly intercompares 1,918,941 BGCs in less than 1
+         offer less resolution, as they only support a narrow set of biosyn-     h, producing 219,587 BGC families (GCFs) from 121,056 bac-
+         thetic classes specified in the MIBiG database: polyketide, nonri-      terial genomes (19, 20, 42). Fig. 4C catalogs the distribution of
+       bosomal peptide, alkaloid, terpene, and RiPP (43, 44). To enable     these GCFs  in  a two-dimensional UMAP  projection  (42 )
+         direct comparison with these tools, we train a variant of the model     (SI Appendix).
+      on the MIBiG biosynthetic classes, which demonstrates better
+     BGC chemotyping performance than these tools (Fig. 3B and    Experimental Validation of BGC Characterization with Vector
+         ﻿Dataset S13 ). Additionally, IBIS-SM  is evaluated for  cluster    Databases. A common task in genome mining is to determine
+       boundary accuracy on a ground-truth dataset of fifteen genomes    whether BGCs from a query genome correspond to previously
+       with manually annotated BGCs introduced by Cimermancic et al.     characterized BGCs with established BGC–metabolite associations.
+          (43). IBIS-SM provides superior BGC boundary calling compared    This is traditionally accomplished using multi-­gene alignment-­
+        to these tools (Dataset S14). Although the training dataset is based    based algorithms, such as ClusterBlast from AntiSMASH, which210.27.113.117.      on BGC boundaries predicted by PRISM and antiSMASH,     are inherently limited in scalability as genomic datasets increase.
+address    IBIS-SMalgorithmsdemonstratesfail to detectthe(SIabilityAppendix,to identifyFig. S4BGCs). PRISMthat theseand    Forbetweeninstance,all queryClusterBlastproteins andperformsreferenceDIAMONDproteins, requiringalignments1.1
+IP    AntiSMASH delineate BGC boundaries based on rules con-     billion protein alignments (33,173 × 33,173) to compare 1,910
+        strained by the annotations identified by their respective pHMM   known BGCs. In contrast, IBIS-­BGC embeddings summarize thefrom          libraries. However, these annotations offer considerably less cov-     entire protein content of a BGC, eliminating the need for pairwise
+2025     erage of BGCs compared to those provided by IBIS annotations     protein comparisons. Additionally, IBIS embeddings leverage the
+16,       (Fig. 2C). In contrast, IBIS-SM utilizes embeddings derived from    Euclidean space they occupy and use vector databases to return
+          all proteins within a BGC region, which the Graphormer uses to    only the top-­n results, thus bypassing the need for exhaustive
+       uncover BGC-defining patterns that  are not  discernible by     pairwise comparisons. This advantage becomes increasingly crucial
+        these tools.                                                              as genomic sequence data grow, mitigating the quadratic scalingSeptember                                                                                   issue inherent in pairwise comparisons, as demonstrated by the
+on     Creating Contextualized Vector Representations of BGCs Using    compute time differences in Fig. 2E. ClusterBlast frequently
+      Graphormer for Scalable Comparative Analysis. Comparing     returns numerous significant hits per BGC due to its protein-­
+     BGCS at scale reveals biosynthetic novelty encoded in bacteria     centric querying strategy. For example, when considering the
+        to prioritize the discovery of new bioactive molecules, particularly    erythromycin BGC shown in SI Appendix, Fig. S6, ClusterBlastUNIVERSITY      as genomic datasets increase. BiG-­SCAPE and BiG-­SLiCE are two     identifies fifty significant hits to structurally diverse polyketide
+       approaches to BGC comparison based on annotations derived   BGCs (Dataset S16), highlighting the method’s relative insensitivity
+       from a predefined pHMM library (10, 11). BiG-­SCAPE relies     to structurally important differences in protein arrangement. InFOREST    on similarity indices such as the Jaccard index, which becomes     contrast, IBIS-­BGC embeddings are specifically turned to consider
+AND     limited by quadratically scaling pairwise combinations, rendering     the chemistry of encoded metabolites, enabling agreement between           it impractical for datasets that exceed millions of data points (10,   BGC distances and molecular distances (Fig. 4B).
+        11). BiG-­SLiCE addresses this limitation by organizing protein      The IBIS-BGC embeddings from 109,719 genomes are run
+        annotations into vector representations and employing nonlinear     against a vector database harboring known BGCs with established
+        data clustering techniques such as k-­means and BIRCH (10).    BGC–metabolite relationships (Dataset S17 and SI Appendix). We
+       BiG-­SLiCE vectors only consider proteins and domains explicitly     identify a total of 45,035 occurrences of known BGCs across 31,300AGRICULTURE     represented in the pHMM library, overlooking understudied    genomes. To further validate our approach, we isolated and struc-
+       enzymes and limiting their applicability to comparing novel     turally characterized two known compounds, along with a series of
+       metabolic pathways. As the pHMM library grows with new     novel derivatives, from bacteria identified in this analysis. Specifically,
+        biosynthetic knowledge, it will increase the dimensionality of the   we identified the known compound O-methylamicoumacin B,
+       BiG-­SLiCE vectors, raising the computational overhead of these    along with two derivatives, lipoamicoumacin E and diamicoumacinNORTHWEST        clustering approaches, and reducing the feasibility of this method    A, from Photorhabdus luminescens ATCC 29999 (SI Appendix,
+by     in the future. Here, we present improved fixed-­length vector     Fig. S7). We also isolated xenoamicin A and its novel analogs,
+        representations of BGCs, derived independently of pHMMs.    xenoamicin  I-K, from Xenorhabdus  szentirmaii DSM 16338
+       These vectors contextualize multiple streams of biosynthesis-­    (SI Appendix, Fig. S8). P. luminescens and X. szentirmaii BGCs reveal
+        relevant information, including the biosynthetic class, protein     the top hits to be amicoumacin and xenoamicin, demonstrating
+       complement, and the domain arrangements of a BGC.             agreement with our approach (Datasets S18 and S19). Moreover,
+        IBIS-BGC is a Graphormer trained to embed BGCs through   we select ten genomes predicted to contain known metabolic path-https://www.pnas.org     graphical inputs integrating the biosynthetic classes identified by    ways matching PKS, NRPS, and other classes. We then screen the
+       IBIS-SM, IBIS-Enzyme embeddings of observed proteins, and     extracts from these bacteria using mass spectrometry to identifyfrom      IBIS-Domain embeddings encapsulating biosynthetic domains    corresponding metabolites and corroborate the IBIS-BGC predic-
+        in those proteins (Fig. 4A and SI Appendix, Fig. S5). IBIS-BGC     tions (SI Appendix, Figs. S6 and S9–S17). The ability to compare
+       embeddings are optimized through pairwise  classification of   BGCs at scale using embeddings is essential to accommodate the
+      MIBiG BGCs according to the Tanimoto molecular similarity of     rapid growth of genomic datasets. This analysis highlights the prac-Downloaded         their encoded metabolites (45). The model accurately distinguishes      tical utility of identifying known BGCs within genomic data,
+
+   6 of 11   https://doi.org/10.1073/pnas.2425048122                                                                           pnas.org
+
+
+[PDF physical page 7]
+                          Embedding Biosynthetic Gene Clusters     A                        C
+              Contrastive Training:                                                                                                                                                                    N O O NHO   O           O           O
+                                                                                                                                                                                                                                                                    NH                                                                                                                                                                                                                                                                              O
+                                                                                                                                                                                                                                                NH                                                                                                                                                                                                                                                                          NH     NH                                                                                                                                                                                                                                                                                       NH     NH                                                                                                                           Chemotype
+                                                                                                                                                                                                                                                    O                                                                                                                                                                                                                                                                O                         Negative                Positive                                                                                                                                                                                                                                                               NH                                                                                                                                                                                                                                                  O                                                                                                                                                                                                                                                                                                   N
+                                                                                                                                                                                                                                                  NH                                                                      Output                                                  O                                                                                                                                                                                                                                      O O O                                                                                                                                                                                                                                                                                  O             Ornibactin
+                                                                                                                                                                                                                                                             NH
+                                                                                                                                                                                                                                                       NH                                                                                                Xenoamicin            BGC2
+                       Positive                            Landscape
+                                BGC         BGC1       BGC3
+                     Negative
+                                                                                                    Tauramide                                  Erythromycin             Genomes                          BGCs
+                                                           Individual
+
+
+                             Extract
+                  BGC                         Data                          Space                                            Enzyme                                Tunicamycin                                             Embedding
+                                                  Space                                                                          Caerulomycin                                             Domain                                                                                                   Anthraquinone                                             Embedding
+                                                                                                                                                        Size                                                                                                                                                                                                                                                                 O   O210.27.113.117.    B
+                                                                                                                                                                                                                                                                                         OH   NH2  O                                                                                                                                                                                                                                                                       OAmicoumacinHN
+                                                                                                                                                                                                                                                                                                    OH
+                                                                                                                                                                                                                                                                             O   OH
+address                                                                                                                                                                   Bacillomycin
+IP
+from
+2025
+16,
+September       Fig. 4.   Large-­scale BGC embedding and comparison with IBIS-­BGC. (A) BGCs are visualized as interconnected data layers, comprising protein embeddings,
+        domain embeddings, and chemotype assignments from IBIS-­Enzyme, IBIS-­Domain, and IBIS-­SM, respectively. IBIS-­BGC embeds this information into numericalon         representations, optimizing embedding distances to correlate with the chemical similarity of encoded metabolites. (B) Heat maps depicting correlation between
+        Tanimoto molecular similarity and BGC distance similarity using IBIS-­BGC-­Embeddings and BIG-­SliCE pHMM feature vectors. Scores for Pearson’s linear correlation
+          coefficient are shown above the plots. (C) A Two-­dimensional UMAP projection of the BGC landscape, representing BGC families from 121,056 bacterial genomes.
+          IBIS identifies GCFs containing members associated with known BGCs (i.e., BGCs with established links to isolated metabolites). The production of the corresponding
+         molecules was metabolically validated. The chemical structures illustrated in this figure represent examples of this validation. Novel derivatives of Xenoamicin
+        and Aminocoumacin were successfully isolated and structurally characterized using NMR, further supporting the BGC–BGC relationships predicted by IBIS.UNIVERSITY
+
+       supported by the discovery of novel derivatives for potential drug     genus-exclusive GCFs (9.3% of 3,709 total) identified in this anal-FOREST     development and structure–activity relationship studies.                  ysis. With the incorporated metadata, IBIS-KG demonstrates
+AND     Examining Bacterial Biosynthetic Diversity Using the IBIS Knowledge     potentialorganisms.to highlight GCFs enriched in unique environments or
+       Graph. Over 50% of characterized bacterial BGCs in the MIBiG
+        database are derived from four bacterial families: Streptomycetaceae    Examining Biofunctional Roles of Niche-­Associated BGCs Using
+        (41.8%), Pseudomonadaceae (4.9%), Pseudonocardiaceae (4.0%), and    the IBIS Knowledge Graph. Metabolites enriched in a specific
+        Micromonosporaceae (3.7%) (31). Investigating bacteria outside this     ecological niche are likely to exhibit bioactivities pertinent toAGRICULTURE      restricted phylogenetic space may lead to an increase in metabolic     that environment, shaped by evolutionary selective pressures. By
+          diversity, as different environmental pressures may yield structurally     utilizing IBIS-­KG, we exploit these niche associations to derive
+         diverse metabolites with novel mechanisms. Here, we demonstrate     insights into the functional roles of encoded metabolites, thereby
+      how IBIS-­KG identifies underexplored bacteria with potential for     facilitating a more targeted approach to discovery. Isolation site
+        novel biosynthetic capabilities.                                    information from the Bacterial Diversity database (BacDive)NORTHWEST          This analysis examines microbial genera without BGC–molecule      is integrated into the IBIS Knowledge Graph, allowing for an
+by      pairs documented in the literature (31). For each genus, the number    assessment of the relative niche-­enrichment within a GCF. Of
+        of unique BGC families (GCFs) is divided by the number of pub-    the 36,108 GCFs considered in this analysis, 1,656 (4.6%) have
+          licly available genomic sequences in our dataset to account for     significant associations with at least one niche (corrected P <
+        sequencing frequency disparities (SI Appendix, Fig. S18). These     0.05; Dataset S20). Niche enrichment is additionally observed in
+         results reveal diverse specialized-metabolite encoding bacteria from    43 GCFs containing MIBiG-­characterized BGCs. For example, a
+        various ecological niches, notably rhizobacteria associated with the    rhabdopeptide encoding GCF was significantly associated with thehttps://www.pnas.org     plant microbiome (e.g., Bradyrhizobium, Ensifer, Mesorhizobium,    Nematoda isolation site (P = 1.10 × 10−7) (50, 51). This association
+       and Methylobacterium) (46, 47). Many of these bacteria exhibit      is rationalized by the antiparasitic role of rhabdopeptides asfrom         beneficial traits for plants, such as phytopathogen suppression,     virulence  factors produced by  the nematode  (Steinernema
+       drought tolerance, phytohormone modulation, and nitrogen fixa-     carpocapsae) endosymbiotic Xenorhabdus  species during the
+        tion  (48, 49). These four  taxa  collectively account  for 345     later stages of insect infection (SI Appendix, Fig. S19) (51, 52).Downloaded
+
+
+      PNAS  2025  Vol. 122  No. 15 e2425048122                                       https://doi.org/10.1073/pnas.2425048122 7 of 11
+
+
+[PDF physical page 8]
+     A second example is the association of the thaxtomin GCF with     catalyzing the conversion of dihydroxyphenylalanine into sti-
+        the wound isolation site (P = 0.035), further contextualized by    zolobinic acid and stizolobic acid ( 63 ). Based on these data, we
+         near-­significant associations with herbaceous plant (P = 0.073)    hypothesize that this operon may be functionally relevant to
+       and rhizome (P = 0.084) isolation sites (53). This association arises    root-dwelling bacteria. This example demonstrates how knowl-
+       from thaxtomin, a cellulose biosynthesis inhibitor produced by    edge graphs can facilitate hypothesis generation, particularly in
+       phytopathogenic Streptomyces species, which induces necrotic    the context of metabolic pathway exploration. While the present
+         lesions in plant tissue (SI Appendix, Fig. S20) (54–56). SI Appendix,    study does not aim to experimentally validate these findings, it
+         Fig. S21 summarizes the abundance of significant niche-­GCF    provides a framework for metabolic hypothesis generation that
+        relationships identified in this study. This study serves primarily as   may provide direction for future research and experimental
+        a proof of concept, encompassing only 4,400 genomes annotated     validation.
+       with niche data, which represents a small subset of the over 500,000
+         bacterial genomes available in the NCBI GenBank database (57).   Discussion
+       Data summarization and labeling techniques offered by large
+       language models may enable the rapid and automatic association    IBIS-KG provides a comprehensive integration of bacterial metab-
+        of metadata, such as ecological niche, with genome assemblies,     olism, classifying enzymes and aligning their role in primary and
+        thereby  facilitating  a  broader  analysis  of genome–metadata     specialized metabolic pathways. Central  to  this system  are
+         relationships. Relevant metadata provides critical context for IBIS    Transformer-based deep learning models (IBIS-Enzyme, IBIS-
+        to synthesize new predictions across a variety of application spaces,    Domain, IBIS-SM, IBIS-BGC) and rule-based systems (IBIS-PM)
+        increasing the inferential power of the IBIS suite.                   designed to annotate and encode enzymes, biosynthetic domains,210.27.113.117.                                                         BGCs, and metabolic pathways (overview shown in SI Appendix,
+address     DelineatingIBIS KnowledgeUncharacterizedGraph: A ProspectiveMetabolicAnalysis.PathwaysIBIS-­KGUsingoffersthe     Fig.rapidS24comparisons). Embeddedat scale,representationscreating anfrominterconnectedthese modelsnetworkenable
+IP     comprehensive annotations of bacterial enzymology, PM, and SM.     of data that serves as the foundation for the knowledge graph.
+         Large-­scale assignment and comparison of metabolic pathways with     Embedded representations of biochemistry have value to shapefrom        IBIS-­KG rapidly identifies enzymes that do not conform to established    comparative genomics. IBIS-Enzyme embeddings reflect gener-
+2025     metabolism (SI Appendix). From our analysis, 6 to 8% of the observed     alizable patterns in enzymology, facilitating large-scale protein
+16,     enzymes within Streptomyces or Bacillus, are not associated with known    comparison and the definition of primary and SM with allied
+        metabolism. For  less well-­studied bacteria, such as Parvimonas,     tooling, IBIS-PM, and IBIS-SM. These embeddings excel at
+         Jonquetella, Peptoniphilus, and Atopobium which are prominent in     identifying enzyme families outside of traditional EC classifica-
+        the human urinary tract, this percentage of unassigned enzymes rises     tions, such as those unique to SM. ANN-based classification withSeptember        to 20 to 25% (SI Appendix, Fig. S22) (58–60). Advancements in     vector databases leverages this embedded enzyme space to anno-
+on      culturing and high-­resolution sequencing provide new insight into     tate protein function with high fidelity faster than pHMM anno-
+        these underappreciated organisms that have recently been linked to     tation or Diamond  ( Fig. 2E ). IBIS-SM  uses IBIS-Enzyme
+         urological health (59, 60). Our graph ontology links these unassigned    embeddings to identify SM without relying on expert rules or
+        metabolisms to bacterial metadata, including taxonomy and ecological  pHMM annotations, outperforming existing rule-based andUNIVERSITY      niches, providing a contextualized framework to study these unique    machine-learning approaches ( Fig. 3B ). An ongoing challenge
+       enzymes. Understanding the role of enzymes from uncharacterized     in deep learning approaches is a limited capacity to explain the
+       metabolism has significant implications for elucidating bacterial    importance  of  individual  features  to model  performance.FOREST      functionality, particularly in contexts where these enzyme patterns    IBIS-BGC integrates predictions and embeddings from IBIS-SM,
+         are enriched within specific taxonomic groups and ecological niches.    IBIS-Enzyme, and IBIS-Domain to construct BGC embeddings,AND       One possible future application of this contextualized knowl-     offering a significantly improved representation of metabolic
+       edge graph is to screen for potentially uncharacterized metabolic     similarities compared to  existing methods  ( Fig. 4B ). These
+       pathways. To perform this screen, we examine genomes for    embeddings enable efficient annotation of metabolic pathways
+        regions enriched in colocalized, unassigned enzymes. The knowl-     identified from genomic data through the use of reference vector
+       edge graph reveals 107,262 putative operons containing unchar-     databases, providing a more scalable alternative to traditionalAGRICULTURE     acterized enzymes, organized into 17,356 groups. SI Appendix,    multi-gene BLAST approaches. Moreover, GPU-accelerated data
+        Fig. S23 outlines the organisms with the greatest diversity of     clustering using BGC embeddings facilitates the comparison of
+       unassigned metabolism in this analysis. Importantly, statistical     nearly two million BGCs in less than an hour. We experimentally
+        associations between these pathways and the ecological niche of     validate the BGC relationships identified by IBIS via metabolite
+        the producing organism, revealed by our knowledge graph, may    detection with mass spectrometry, followed by the isolation andNORTHWEST       guide inferences into the functional relevance of these pathways.     structural characterization of novel  derivatives using NMR
+by     For instance, we identify an operon commonly associated with     (SI Appendix ).
+        root nodules (P = 0.00267), containing four uncharacterized       Existing bacterial metabolism databases lack the inter-relatability
+       enzymes alongside nine enzymes with established EC numbers.    required to perform large-scale analyses. The interconnected net-
+       The characterized enzymes in this putative operon have homologs    work of related metabolic pathways within the IBIS knowledge
+        in plants and are implicated in plant development (Dataset S21 ).    graph functions as a powerful engine for hypothesis generation,
+       The first characterized enzyme, squalene epoxidase (1.14.14.17),     particularly when supplemented with  diverse  data  streams.https://www.pnas.org       is linked to plant defects resulting from mutations, notably    IBIS-KG combines IBIS predictions with metadata on bacterial
+       including diminished elongation of roots and hypocotyls ( 61 ).    taxonomy and ecology to uncover bacterial SM conserved withinfrom        Plant homologs of the second characterized enzyme, starch syn-    an ecological niche, supported by literature precedents. These
+        thase (2.4.1.21), are involved in glucan biosynthesis in mung    works reveal the potential to conduct preliminary surveys and may
+       bean seedlings ( 62 ). Last, stizolobate synthase (1.13.11.29) is     define unique enzymes and metabolic pathways that are correlative
+        typically present in the etiolated seeds of Stizolobium hassjoo ,     to lifestyle or ecological niche.Downloaded
+
+
+   8 of 11   https://doi.org/10.1073/pnas.2425048122                                                                           pnas.org
+
+
+[PDF physical page 9]
+         The annotation capabilities of IBIS represent only one aspect      classification heads were added, one for biosynthesis-­associated genes and one
+        of the solution for translating genomic data into molecular out-      for ribosomally synthesized and posttranslationally modified peptides (RiPPs).
+        puts. While IBIS excels in defining a wide range of EC classes, we     Furthermore, two token classification heads were utilized to annotate individual
+        recognize that certain EC numbers lack the substrate specificity      protein residues with their corresponding biosynthetic domain labels and RiPP
+        required for direct application in molecular prediction. To address     propeptide designations. Domain sequences were extracted from the complete
+         this limitation, we have expanded the annotation scope to include      protein sequences based on predictions of domain residues by IBIS-­Enzyme and
+      more specific enzymes associated with specialized metabolites     subsequently processed by IBIS-­Domain. IBIS-­Domain primarily focused on pre-
+                                                                                               dicting substrate specificity, enzymatic inactivation, and subtypes of biosynthetic        (Dataset S4). We have also integrated biosynthetic domains from
+                                                                            domains (SI Appendix). To facilitate these tasks, we implemented heads for triplet     NRPS and PKS pathways into the IBIS framework, enhancing its                                                                              margin training, as outlined by Balntas et al., to optimize the model’s learning        accuracy in predicting substrate specificity compared to existing                                                                                from the limited dataset of biosynthetic protein domains (67). For additional
+         tools (Dataset S9). As new metabolic knowledge emerges, contex-                                                                                                   details on the implementation, see the release package.
+        tualizing such information within knowledge graphs may offer a
+          facile means of integrating these data to better define relationships    Approximate Nearest-­Neighbors (ANN) Classification. All approximate K
+       between genes and molecules.                                                nearest-­neighbors calculations were performed using reference embedding data-
+                                                                                    bases implemented using Qdrant (21). In practice, we label our embeddings by
+     Methods                                                                         retrieving the top-­k most similar embeddings and their labels from a vector data-
+                                                                                         base, where each retrieved embedding must pass a statistically derived distance
+       Graphormer Architecture. The Graphormer model implemented in this      cutoff. Embedding distance cutoffs were determined from the inflection point of
+        work combines a Graph Attention Network (GAT) for local node attention with     the Receiver-­Operator Characteristic Curve, using the validation split to optimize210.27.113.117.      a Transformer block for global attention, inspired by GraphGPS (SI Appendix,      true positive rate and minimize false positive rate. Final metrics were evaluated on
+           Fig. S25) (17, 64). We extended this framework to handle heterogeneous graphs      test data split. ANN is used to assign EC numbers (Dataset S2), biosynthetic genes
+         with multiple node and edge types. Separate encoders were used for each node      (Dataset S4), and KO numbers (Dataset S10) for IBIS-­Enzyme, as well as domainaddress          type, with nodes represented as numeric features or labels encoded via multilayer     subtype (Dataset S7) and substrate specificity (Dataset S8) for IBIS-­Domain.IP         perceptrons (MLPs) or embedding lookup tables (nn.Embedding from PyTorch),
+from       respectively (65). These encoders standardized the output dimension for each      IBIS-­PM. 52,584 genome assemblies were annotated with their full metabolic
+        node type, creating a unified node feature matrix. In homogeneous graphs, edges    complement using our primary metabolic ruleset. These rules were curated from
+2025     were represented by numeric features such as nucleotide distances, while in     KEGG, BRENDA, MetaCyc, and MetaMDB and linked to pathways with correspond-
+16,      heterogeneous graphs each edge was assigned a label specifying connections     ing EC and KEGG Ortholog (KO) numbers (26–29). Metabolic annotation was
+        between node types and encoded with embedding lookup tables. The numer-     performed using ANN against a Qdrant database of KO/EC reference embed-
+            ical representation of the edge type was concatenated with edge features and      dings. Each of the 3,966 primary pathways was assigned a completeness score
+         passed through an MLP to generate the final edge feature matrix. The connectivity      for each genome based on their KO/EC annotations. KEGG maps reaction stepsSeptember        between nodes was represented by an adjacency matrix. The node feature matrix,      to orthologous proteins across organisms, as reflected in the publicly available
+on     edge feature matrix, and adjacency matrix were provided as inputs to the GAT,     Boolean criteria for each KEGG module (26). We implement these Boolean rules
+         representing the structure of the graph. The GAT and Transformer blocks were      in Python to programmatically infer the associated KEGG modules. For pathways
+           initialized with 4 attention layers, each containing 4 attention heads. The GAT     outside KEGG, we considered the pathway present in the genome if the ratio of
+         generated an updated node feature matrix, incorporating local edge features     observed to expected EC annotations was at least 70%.UNIVERSITY     and connectivity with message passing and attention steps (64). This updated                                                                                              IBIS-­SM Training. We annotated 109,719 genomes using AntiSMASH and PRISM          representation was passed to a Transformer block to be updated by global mul-                                                                                                to identify regions of specialized metabolic significance, with PRISM chemotypes         tiheaded attention (12). Final model embeddings capture node content, local                                                                           and boundaries prioritized in instances of discrepancies (8, 9). These regions wereFOREST       connectivity, and global context. In heterogeneous graphs, a [CLS] node with     then processed using IBIS-­Enzyme. Proteins located within predicted BGC bound-         a placeholder label acted as a proxy for the graph representation, feeding its
+AND     updated representation into downstream MLPs for classification and contrastive      aries were labeled as “core” and assigned the corresponding chemotype, while                                                                                       those within a ±10,000 nucleotide buffer were labeled as “peripheral” to assist in
+          learning. The model weights were fine-­tuned using a cross-­entropy loss function.                                                                                         defining BGC boundaries. In this approach, all IBIS-­Enzyme embeddings within          For additional details on the implementation, see the release package.                                                                                                       this range were considered for BGC calling, leveraging the broader annotation
+        Multidataset Multi-­Task Training. We created a custom training framework     coverage provided by IBIS-­Enzyme compared to the pHMM-­based annotations
+          that allowed Transformers or Graphormers to simultaneously capture different     from PRISM and AntiSMASH (Fig. 2C). Genomes were represented as graphs of
+                                                                                                         protein embeddings, with edges connecting proteins within 10,000AGRICULTURE       task-­specific features, improving overall representation quality of embeddings.     IBIS-­Enzyme
+      We passed one input from each dataset into the model for encoding with a batch     nucleotides of each other. Edges were weighted according to the normalized
+          multiplier for each step. The output embedding (formally, the last hidden state)     nucleotide distance between the open reading frames (ORFs) encoding these
+        was passed into individual MLPs, each designed for a specific classification task,      proteins (SI Appendix, Fig. S3). The genome was sliced into graphs using a sliding
+        and the losses from each head were summed. All datasets were divided into    window approach, each containing 200 ORFs with a 75-­ORF overlap betweenNORTHWEST      approximately 80:10:10 ratios for training, validation, and testing. Stratified data-     adjacent slices. Graphs with at least one BGC annotation were subdivided into
+by       set splitting was employed to ensure that the distributions of classes remained     two datasets: “partial” windows (<50 ORFs) and “full” windows (50 to 200 ORFs).
+         approximately equal across these subsets. Additionally, each label was assigned     The model was trained to predict BGC boundaries and chemotypes with multi-
+         a class weight that was inversely proportional to its frequency in the dataset,     dataset multi-­task training. Hyperparameter tuning for this model is described
+         thereby addressing class imbalance during the training process.                     in Dataset S22 and SI Appendix. A separate iteration of this model was trained to
+                                                                                               predict MIBiG chemotypes, trained on the BGCs from MIBiG 3.0 (SI Appendix).
+         IBIS-­Enzyme and IBIS-­Domain Training. IBIS-­Enzyme and IBIS-­Domain are
+         Transformer models trained to embed complete proteins and protein domains,     IBIS-­BGC Training. 1,891 bacterial BGCs from the MIBiG 3.0 repository werehttps://www.pnas.org       respectively. The weights of these models were initialized using the UniRef100     considered (31). The BGCs were reidentified using IBIS-­SM from the nucleotide
+from      pretrained ProtBERT protein language model sourced from the Hugging Face      fasta files hosted by MIBiG (31). A Tanimoto similarity score was assigned to pair-       Hub (14, 66). To predict functional characteristics of proteins, several classification     wise combinations of MIBiG BGCs based on the similarity of their BGC-­derived
+        heads were appended to the outputs of these Transformer models. IBIS-­Enzyme     molecules, using ECFP4 molecular fingerprints calculated with Rdkit (45, 68). Five
+        employed a total of six sequence classification heads, four of which were desig-    MLP classification heads were trained to classify BGC pairs into Tanimoto score
+         nated to predict one level of the EC number ontology. The first EC classification     bins spanning the range of zero to one in increments of 0.1, 0.2, 0.3, 0.4, andDownloaded     head also determined whether a sequence was an enzyme or not. Two additional     0.5 respectively. BGCs were represented as heterogeneous graphs with nodes
+
+
+      PNAS  2025  Vol. 122  No. 15 e2425048122                                       https://doi.org/10.1073/pnas.2425048122 9 of 11
+
+
+[PDF physical page 10]
+         representing proteins, domains, and chemotypes (SI Appendix, Fig. S5). Protein     “unassigned” for this analysis. Enzymes within 20,000 nucleotides of each other
+        nodes were represented by the IBIS-­Enzyme embeddings. Domains were rep-     were considered proximal. Windows with at least two unassigned enzymes and
+         resented with two node types: domain labels from IBIS-­Enzyme and domain    no SM enzymes were classified as putative operons. IBIS-­BGC embeddings of
+        embeddings generated by IBIS-­Domain. Two chemotype nodes per BGC were also     708,731 putative operons were grouped into families containing similar enzyme
+         used, representing the high-­resolution IBIS-­SM chemotype, and more general      distributions with GPU-­accelerated UMAP and HDBSCAN (19, 20, 42). Putative
+        MIBiG chemotypes, respectively. The MLP classification heads received the square     operons were only retained if they occurred in at least two strains and were sta-
+          difference of the embedded BGC representations for each pair to classify them       tistically enriched in an individual genus (Benjamini–Hochberg corrected hyper-
+          into Tanimoto bins. To prevent overfitting, pairs were grouped by similarity, and a     geometric P-­value <0.05) (72). This analysis yielded 107,262 operons forming
+        random subset from each group was selected during each epoch. 15% of the labels     17,356 families of potential unstudied metabolisms.
+        and embeddings in each graph were randomly masked or corrupted with Gaussian
+                                                                        Neo4J Knowledge Base Configuration. An instance of Neo4J version 5.13.0          noise, promoting generalization by forcing the model to identify diverse patterns.
+                                                                                                                      is hosted on an Ubuntu Linux version 20.04 server with dual Intel Xeon 5600         Hyperparameter tuning for this model is described in Dataset S23 and SI Appendix.
+                                                                                 2.93 GHz CPUs and 144 GiB of DDR3 memory.
+        Metabolic Profiling of Bacterial Genome Datasets. The IBIS platform was
+                                                                               Server Hardware. Dual Intel Gold 5218 2.30 GHz CPUs, 8× NVIDIA Quadro         run on 48,103 genome assemblies to identify both primary and SM. Pyrodigal,
+                                                                              RTX 5000 (16GiB VRAM each), 250 GiB DDR4 memory. Ubuntu Linux 20.04. All         a version of Prodigal with Python bindings, is used for all ORF-­Calling (69, 70).
+                                                                           model training, validation, testing, and GPU-­accelerated inference was performed      We expanded the dataset by processing biosynthetic regions from an additional
+                                                                        on this server. Hyperparameter tuning was performed on a second server with        75,125 genome assemblies, defined by PRISM or antiSMASH with a 10,000
+                                                          2× AMD EPYC 9354 3.25 to 3.80 GHz, 8× NVIDIA RTX A5000, 768 GiB DDR5         nucleotide buffer. These biosynthetic regions were annotated with IBIS-­SM. A                                                                          memory, Ubuntu Linux 22.04.           total of 2,795,622 BGCs were predicted and embedded with IBIS-­SM. Of these,210.27.113.117.     1,891 were MIBiG BGCs (31). BGC embeddings were reduced to 20 dimensions                                                                              Data, Materials, and Software Availability. A publicly available release
+         using a GPU-­accelerated implementation of UMAP, with cluster chemotypes     version of the code, which includes inference pipelines and training scripts,
+         guiding the semisupervised dimensionality reduction when available (20, 42).address                                                                                                               is accessible through the GitHub repository (https://github.com/magarvey-
+IP      GPU-­accelerated hierarchical density-­based clustering grouped UMAP-­reduced      lab/ibis-­publication) (73). The supplementary datasets, training datasets, and       BGC embeddings with a minimum group size of 2, resulting in the identification
+from       of 219,587 BGC families (19, 20).                                                       final model checkpoints are hosted in an accompanying Zenodo repository                                                                                    (https://doi.org/10.5281/zenodo.14246983) (74). The IBIS knowledge graph
+2025      BGC-­Niche Association Analysis. IBIS-­KG identified 36,108 GCFs containing     generated in this study exceeds two terabytes in size and, therefore, cannot
+        132,158 BGCs from strains with BacDive isolation site data. IBIS-­KG was paired    be shared in its entirety as a public repository. However, the necessary tools16,
+         with a hypergeometric test to identify niche-­enriched GCFs, with the following      for generating the knowledge graph are included in the accompanying code.
+         parameters defined: 1) the sample consisted of all isolation sites within a GCF, 2)      Additionally, a website will be made publicly accessible for data exploration.
+         the number of sample successes represented the frequency of the evaluated isola-     The corresponding link will be updated in the GitHub repository upon itsSeptember       tion site in the GCF, 3) the population included all isolation sites across BGCs, and       official release. The datasets used in this work were compiled from public
+on      4) the population successes reflected the frequency of the evaluated isolation site     resources including KEGG, BRENDA, MetaCyc, MetAMBD, MIBiG, UniProt, and
+          in the overall population. The hypergeometric distribution was calculated using     NCBI. These resources are appropriately cited in the main text and SI Appendix.
+         the Scipy implementation (71). Probability values for each unique isolation site–      Refs. 26–29, 31, 32, and 57.
+       GCF relationship were subsequently corrected using the Benjamini–Hochberg
+                                                             ACKNOWLEDGMENTS. N.R.S. and M.G are supported by a Natural Sciences         multiple test correction with a false discovery rate of 5% (72).UNIVERSITY                                                                      and Engineering Research Council of Canada (NSERC) Canadian Graduate
+        Novel Metabolism Identification Analysis. This analysis considered 48,103     Student Scholarships. We also gratefully acknowledge the support of NSERC,
+       genomes fully annotated by the IBIS platform. Proteins labeled as enzymes     the Canadian Institutes for Health Research and the Bill and Melinda GatesFOREST     by IBIS-­Enzyme without IBIS-­PM or IBIS-­SM annotations were considered     Foundation.
+AND
+              1.    A. A. Koutinas et al., Valorization of industrial waste and by-­product streams via fermentation for the       16.   Z. Yang, X. Zeng, Y. Zhao, R. Chen, AlphaFold2 and its applications in the fields of biology and
+                 production of chemicals and biopolymers. Chem. Soc. Rev. 43, 2587–2627 (2014).                           medicine. Signal Transduct. Target. Ther. 8, 115 (2023).
+              2.   D. J. Newman, G. M. Cragg, Natural products as sources of new drugs over the nearly four decades         17.  C. Ying et al., Do transformers really perform bad for graph representation? arXiv [Preprint] (2021).
+                from 01/1981 to 09/2019. J. Nat. Prod. 83, 770–803 (2020).                                                  http://arxiv.org/abs/2106.05234 (Accessed 2 May 2023).
+              3.     T. C. Sparks, D. R. Hahn, N. V. Garizi, Natural products, their derivatives, mimics and synthetic               18.   Y. Shi et al., Benchmarking graphormer on large-­scale molecular modeling datasets. arXiv [Preprint]
+                  equivalents: Role in agrochemical discovery. Pest Manag. Sci. 73, 700–715 (2017).                             (2023). http://arxiv.org/abs/2203.04810 (Accessed 27 September 2023).AGRICULTURE         4.   D. Parada Venegas et al., Short chain fatty acids (SCFAs)-­mediated gut epithelial and immune             19.   L. McInnes, J. Healy, S. Astels, hdbscan: Hierarchical density based clustering. J. Open Source Softw.
+                  regulation and its relevance for inflammatory bowel diseases. Front. Immunol. 10, 277 (2019).                  2, 205 (2017).
+              5.   H. Ahmed et al., Microbiota-­derived metabolites as drivers of gut–brain communication. Gut              20.  S. Raschka, J. Patterson, C. Nolet, Machine learning in python: Main developments and technology
+                 Microbes 14, 2102878 (2022).                                                                             trends in data science, machine learning, and artificial intelligence. Information 11, 193 (2020).
+              6.    E. A. Mayer, K. Nance, S. Chen, The gut–brain axis. Annu. Rev. Med. 73, 439–453 (2021).                  21.  Qdrant Team, Qdrant–Vector database. https://qdrant.tech/. Accessed 9 May 2024.
+              7.    J. Mistry et al., Pfam: The protein families database in 2021. Nucleic Acids Res. 49, D412–D419            22.  D. S. Himmelstein et al., Systematic integration of biomedical knowledge prioritizes drugs forNORTHWEST             (2021).                                                                                                 repurposing. Elife 6, e26726 (2017).
+              8.   M. A. Skinnider, N. J. Merwin, C. W. Johnston, N. A. Magarvey, PRISM 3: Expanded prediction of            23.  S. K. Mohamed, A. Nounu, V. Nováček, Biological applications of knowledge graph embedding
+by                   natural product chemical structures from microbial genomes. Nucleic Acids Res. 45, W49–W54                models. Brief. Bioinform. 22, 1679–1693 (2021).
+                  (2017).                                                                                          24.  S. Nunes, R. T. Sousa, C. Pesquita, Multi-­domain knowledge graph embeddings for gene-­disease
+              9.    K. Blin et al., antiSMASH 6.0: Improving cluster detection and comparison capabilities. Nucleic Acids             association prediction. J. Biomed. Semant. 14, 11 (2023).
+                  Res. 49, W29–W35 (2021).                                                                        25.   J. Hu et al., DGLinker: Flexible knowledge-­graph prediction of disease–gene associations. Nucleic
+            10.  S. A. Kautsar, J. J. J. van der Hooft, D. de Ridder, M. H. Medema, BiG-­SLiCE: A highly scalable tool                 Acids Res. 49, W153–W161 (2021).
+              maps the diversity of 1.2 million biosynthetic gene clusters. Gigascience 10, giaa154 (2021).             26.  M. Kanehisa, Y. Sato, M. Kawashima, M. Furumichi, M. Tanabe, KEGG as a reference resource for
+            11.   J. C. Navarro-­Muñoz et al., A computational framework to explore large-­scale biosynthetic diversity.           gene and protein annotation. Nucleic Acids Res. 44, D457–D462 (2016).
+                   Nat. Chem. Biol. 16, 60–68 (2019).                                                                 27.  A. Chang et al., BRENDA, the ELIXIR core data resource in 2021: New developments and updates.
+            12.  A. Vaswani et al., Attention is all you need. arXiv [Preprint] (2017). http://arxiv.org/abs/1706.03762              Nucleic Acids Res. 49, D498–D508 (2021).https://www.pnas.org
+                  (Accessed 11 November 2024).                                                                     28.  R. Caspi et al., The MetaCyc database of metabolic pathways and enzymes–A 2019 update. Nucleic
+from        13.   J. Devlin, M.-­W. Chang, K. Lee, K. Toutanova, BERT: Pre-­training of deep bidirectional transformers               Acids Res. 48, D445–D453 (2020).                     for language understanding. arXiv [Preprint] (2019). http://arxiv.org/abs/1810.04805 (Accessed 11        29.  C. Starke, A. Wegner, MetAMDB: Metabolic atom mapping database. Metabolites 12, 122
+              November 2024).                                                                                     (2022).
+            14.  A. Elnaggar et al., ProtTrans: Toward understanding the language of life through self-­supervised           30.  K. Palaniappan et al., IMG-­ABC vol 5.0: An update to the IMG/Atlas of biosynthetic gene clusters
+                   learning. IEEE Trans. Pattern Anal. Mach. Intell. 44, 7112–7127 (2022).                                     knowledgebase. Nucleic Acids Res. 48, D422–D430 (2020).
+            15.   Z. Lin et al., Evolutionary-­scale prediction of atomic-­level protein structure with a language model.         31.  B. R. Terlouw et al., MIBiG 3.0: A community-­driven effort to annotate experimentally validatedDownloaded             Science 379, 1123–1130 (2023).                                                                              biosynthetic gene clusters. Nucleic Acids Res. 51, D603–D610 (2022).
+
+
+   10 of 11   https://doi.org/10.1073/pnas.2425048122                                                                          pnas.org
+
+
+[PDF physical page 11]
+            32.  The UniProt Consortium, UniProt: The universal protein knowledgebase in 2025. Nucleic Acids Res.        55.   Y. Li, J. Liu, G. Díaz-­Cruz, Z. Cheng, D. R. D. Bignell, Virulence mechanisms of plant-­pathogenic
+                53, D609–D617 (2025).                                                                               Streptomyces species: An updated review. Microbiology 165, 1025–1040 (2019).
+            33.  H. M. Berman et al., The protein data bank. Nucleic Acids Res. 28, 235–242 (2000).                       56.  C. H. Lawrence, M. C. Clark, R. R. King, Induction of common scab symptoms in aseptically cultured
+            34.   J. Y. Ryu, H. U. Kim, S. Y. Lee, Deep learning enables high-­quality and high-­throughput prediction of             potato tubers by the vivotoxin, thaxtomin. Phytopathology 80, 606–608 (1990).
+              enzyme commission numbers. Proc. Natl. Acad. Sci. U.S.A. 116, 13996–14001 (2019).                    57.  NCBI Resource Coordinators, Database resources of the national center for biotechnology
+            35.  G. B. Kim et al., Functional annotation of enzyme-­encoding genes using deep learning with                     information. Nucleic Acids Res. 46, D8–D13 (2018).
+                  transformer layers. Nat. Commun. 14, 7370 (2023).                                                  58.  M. C. Legaria et al., Urinary tract infections caused by anaerobic bacteria. Utility of anaerobic urine
+            36.   T. Yu et al., Enzyme function prediction using contrastive learning. Science 379, 1358–1363                    culture. Anaerobe 78, 102636 (2022).
+                 (2023).                                                                                          59.   I. M. Aragón et al., The urinary tract microbiome in health and disease. Eur. Urol. Focus 4, 128–138
+            37.  C. Khosla, R. S. Gokhale, J. R. Jacobsen, D. E. Cane, Tolerance and specificity of polyketide synthases.             (2018).
+                Annu. Rev. Biochem. 68, 219–253 (1999).                                                           60.  A. J. Sabat et al., Targeted next-­generation sequencing of the 16S–23S rRNA region for culture-­
+            38.  B. Buchfink, K. Reuter, H.-­G. Drost, Sensitive protein alignments at tree-­of-­life scale using                    independent bacterial identification -­increased discrimination of closely related species. Sci. Rep.
+              DIAMOND. Nat. Methods 18, 366–368 (2021).                                                                 7, 3434 (2017).
+            39.  S. R. Eddy, Accelerated profile HMM searches. PLoS Comput. Biol. 7, e1002195 (2011).                   61.   J. M. Rasbery et al., Arabidopsis thaliana squalene epoxidase 1 is essential for root and seed
+            40.   Y. A. Malkov, D. A. Yashunin, Efficient and robust approximate nearest neighbor search using                   development. J. Biol. Chem. 282, 17002–17013 (2007).
+                    hierarchical navigable small world graphs. IEEE Trans. Pattern Anal. Mach. Intell. 42, 824–836              62.   J. Chambers, A. D. Elbein, Biosynthesis of glucans in mung bean seedlings: Formation of β-­(1 →
+                  (2020).                                                                                                           4)-­glucans from GDP-­glucose and β-­(1 → 3)-­glucans from UDP-­glucose. Arch. Biochem. Biophys.
+            41.  R. Guo et al., Accelerating large-­scale inference with anisotropic vector quantization. arXiv [Preprint]           138, 620–631 (1970).
+                  (2020). http://arxiv.org/abs/1908.10396 (Accessed 21 June 2024).                                     63.  K. Saito, A. Komamine, Biosynthesis of stizolobinic acid and stizolobic acid in Higher Plants. Eur. J.
+            42.   L. McInnes, J. Healy, J. Melville, UMAP: Uniform manifold approximation and projection for                   Biochem. 68, 237–243 (1976).
+                dimension reduction. arXiv [Preprint] (2020). http://arxiv.org/abs/1802.03426 (Accessed 11              64.   P. Veličković et al., Graph attention networks. arXiv [Preprint] (2018). http://arxiv.org/
+              November 2024).                                                                              abs/1710.10903 (Accessed 20 April 2023).
+            43.   P. Cimermancic et al., Insights into secondary metabolism from a global analysis of prokaryotic            65.   J. Ansel et al., “PyTorch 2: Faster machine learning through dynamic python bytecode
+                   biosynthetic gene clusters. Cell 158, 412–421 (2014).                                                        transformation and graph compilation” in Proceedings of the 29th ACM International Conference on
+            44.  G. D. Hannigan et al., A deep learning genome-­mining strategy for biosynthetic gene cluster                      Architectural Support for Programming Languages and Operating Systems, Volume 2, ASPLOS ‘24
+                   prediction. Nucleic Acids Res. 47, e110 (2019).                                                                  (Association for Computing Machinery, 2024), pp. 929–947.210.27.113.117.        45.  D. Bajusz, A. Rácz, K. Héberger, Why is Tanimoto index an appropriate choice for fingerprint-­based         66.   T. Wolf et al., HuggingFace’s transformers: State-­of-­the-­art natural language processing. arXiv
+                    similarity calculations? J. Cheminformatics 7, 20 (2015).                                                            [Preprint] (2020). http://arxiv.org/abs/1910.03771 (Accessed 11 November 2024).
+            46.  S. Compant, A. Samad, H. Faist, A. Sessitsch, A review on the plant microbiome: Ecology, functions,         67.   V. Balntas, E. Riba, D. Ponsa, K. Mikolajczyk, “Learning local feature descriptors with triplets and
+               and emerging trends in microbial application. J. Adv. Res. 19, 29–37 (2019).                                  shallow convolutional neural networks” in Proceedings of the British Machine Vision Conferenceaddress
+            47.  D. Bulgarelli, K. Schlaeppi, S. Spaepen, E. V. L. van Themaat, P. Schulze-­Lefert, Structure and                   2016, R. Wilson, E. Hancock, W. Smith, Eds. (British Machine Vision Association, 2016), pp.
+IP              functions of the bacterial microbiota of plants. Annu. Rev. Plant Biol. 64, 807–838 (2013).                     119.1–119.11.
+from        48.  M.1619Legein(2020).et al., Modes of action of microbial biocontrol in the phyllosphere. Front. Microbiol. 11,          68.  G.ZENODO.3732262.Landrum et al., rdkit/rdkit:Deposited2020_03_129 March 2020.(Q1 2020) release (2020). https://doi.org/10.5281/
+2025        49.  G.promotingSantoyo,bacterialG. Moreno-­Hagelsieb,endophytes. Microbiol.M. del CarmenRes. 183,Orozco-­Mosqueda,92–99 (2016).    B. R. Glick, Plant growth-­            69.  M.predictionLarralde,inPyrodigal:prokaryotes.PythonJ. OpenbindingsSourceandSoftw.interface7, 4296to Prodigal,(2022). an efficient method for gene
+16,        50.  X. Cai et al., Biosynthesis of the antibiotic nematophin and its elongated derivatives in                    70.  D. Hyatt et al., Prodigal: Prokaryotic gene recognition and translation initiation site identification.                entomopathogenic bacteria. Org. Lett. 19, 806–809 (2017).                                    BMC Bioinformatics 11, 119 (2010).
+            51.  D. Reimer et al., Rhabdopeptides as insect-­specific virulence factors from entomopathogenic              71.   P. Virtanen et al., SciPy 1.0: Fundamental algorithms for scientific computing in Python. Nat.
+                    bacteria. ChemBioChem 14, 1991–1997 (2013).                                                    Methods 17, 261–272 (2020).
+            52.  X. Cai et al., Entomopathogenic bacteria use multiple mechanisms for bioactive peptide library            72.   Y. Benjamini, Y. Hochberg, Controlling the false discovery rate: A practical and powerful approach toSeptember             design. Nat. Chem. 9, 379–386 (2017).                                                                     multiple testing. J. R. Stat. Soc. Ser. B Methodol. 57, 289–300 (1995).
+on        53.  S. M. Barry et al., Cytochrome P450-­catalysed L-­tryptophan nitration in thaxtomin phytotoxin             73.  N. Spencer, M. Gunabalasingam, IBIS-­Publication. Github. https://github.com/magarveylab/ibis-­
+                   biosynthesis. Nat. Chem. Biol. 8, 814 (2012).                                                                    publication. Deposited 24 March 2025.
+            54.  W.-­R. Scheible et al., An Arabidopsis mutant resistant to Thaxtomin A, a cellulose synthesis inhibitor        74.  N. Spencer et al., An integrated AI knowledge graph framework of bacterial enzymology and
+                from Streptomyces species. Plant Cell 15, 1781–1794 (2003).                                             metabolism. Zenodo. https://doi.org/10.5281/zenodo.14246983. Deposited 27 January 2025.
+UNIVERSITY
+FOREST
+AND
+AGRICULTURE
+NORTHWEST
+by
+https://www.pnas.org
+from
+Downloaded
+
+
+      PNAS  2025  Vol. 122  No. 15 e2425048122                                      https://doi.org/10.1073/pnas.2425048122 11 of 11

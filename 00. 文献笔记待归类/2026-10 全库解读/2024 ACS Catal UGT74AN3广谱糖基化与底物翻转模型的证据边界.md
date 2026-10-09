@@ -1,0 +1,175 @@
+---
+type: literature-reading
+zotero_key: UZJ6VLEJ
+doi: "10.1021/acscatal.3c05309"
+paper_type: research
+classification_status: pending
+reading_status: main-text-and-figures-read
+review_status: codex-source-checked
+human_full_paper_review: false
+source_attachment: P3RBWNVR
+source_sha256: d7b0c4e5e505dfb8d7742cdb14d1e4c8b9c389eb6ba161bc6baaa95b93d27b47
+created: 2026-10-08
+---
+
+> 原文来源：[Zotero 条目](zotero://select/library/items/UZJ6VLEJ)；[DOI](https://doi.org/10.1021/acscatal.3c05309)；由当前 Codex 读取原始主文并核对图表，尚未经人工逐项复核。 来源限制：All14mainphysicalpagesreadandvisualQA correctedJan52024version containsFigure4N;publishedfirstDec212023notZoterodate；Englishnaturalproductglycosylationnotusersugarimmuneexcludedcategory;main6figures+abstractgraphic no maintables/schemes；SIcomplete92substrates14negativecontrolsNMRHMBCCOSY spectra/TableS1–S7andcrystalstatsnotread;noindependentallproductassignments；78/92acceptednot78pureOlinkages or78x6fullytestedmatrix;48above80reportednotpeakheightestimate；Figure1starNMR andtrianglestandardidentitynotPsignificance;50structurecharacterizednotequalallNMR；Methods4.13conversionHPLCproductarea/(product+substratearea) notresponsecorrectedmolarconversion orisolatedyield；Methodsalltriplicate n3 independence/errorSDSE/exacttestPnotreported;noinventedbarspercent；Text35flavonoids1–35vsFigure1through34/steroid35 countoverlap retained；DonorlistGDPXylvsUDPXylmethodsfigure unresolvednoninterchangeable;300dpifigureManactuallyGDPManconsistentmethods；Figure3C/Dtextswapped relativeactualCUDPXyl/DUDPGalcaption;modelsdonorsnotfullsugarcrystal；UDPbinary1.86 andtruncated11–474fullactivityclaimSIunread;truefullsugardonormodelsnotcrystal；SugarpreferenceT145V8substrate71.6to93.2 contextnotintrinsicallsubstraterate;glcdrop/regiochange retained；Figure4KMfigure19.4±2.7/29.2±5.3/78.4±9.9µMvsroundedtextmMconsistent;KMnotKD;nativesubstratehypothesisonly；Figure4A–E4Dimage39vsbody/caption40;4OcaptionF139vsstructureF193 retained；Pocket1176Å3 widths12.4depth17.9experimentalstructuralgeometrynotproofuniversalrecognition;gatekineticsinferrednotdirectrate；H25/D123functionalimportance andSN2likelikelynotdirectcapturedtransitionstate；NoTris sameposeauthorSIcontrol claimnotallcrystalconditionsruledout；MD1000ns3systems plus200nssugardonor differentanalyses;Nacmanuallyadjusted/docked;noindependentreplicate/convergenceverified；MMGBSA200frames400–500ns notmeasuredKD;RMSDnotfullsamplingproof;4.8Åpose notcompletedchemistry；MetaMDstateI-10.6V-2.1difference+8.5versusauthorbarrier-8.5;stateenergychange notvalidatedTSbarrier;allbiasreweightconvergenceunread；Figure6Babcaptionorderreversedtoaxes;Figure6C36/36avsbody35 preservednotinventobject；UDPGlcfree=noexternallyfedUDPGlcnotabsentsystem/noUDP;donorpoolcyclingcountnotquantified；Economicdesignnotmatchedcost/fullscale/isolationyield;noimprovedglycosidepharmacologyproved。
+
+# 文献基本信息
+
+**文章题目**：Substrate Promiscuity, Crystal Structure, and Application of a Plant UDP-Glycosyltransferase UGT74AN3；中文题目：植物 UDP-Glycosyltransferase UGT74AN3 的底物兼容性、晶体结构及应用。
+
+作者：Wei Huang、Xinlei Zhang、Junhao Li、Jiaxiang Lv、Yanhui Wang、Yue He、Jun Song、Hans Ågren、Renwang Jiang、Zixin Deng、Feng Long。通讯作者为 Feng Long。主要单位包括 Wuhan University、Fourth Military Medical University、Uppsala University、Jinan University。期刊：ACS Catalysis，2024，14，475–488；DOI：10.1021/acscatal.3c05309。首发日期为 2023 年 12 月 21 日；末页说明首发版缺 Figure 4N，修正版于 2024 年 1 月 5 日重新发布。本次本地 PDF 包含 Figure 4N，按修正版阅读，而不将 Zotero 日期与首发日期混为一谈。
+
+论文属于植物糖基转移酶的底物谱、生化与结构机制研究，涉及一般天然产物糖基化。已读英文主文全部 14 页，正文共有 6 幅 Figure 和 1 幅摘要图，没有正文 Table/Scheme；Figure 内的反应示意作为相应子图处理。SI 中的底物明细、NMR、补充色谱、晶体统计及完整计算资料未提供，均保留未读边界。
+
+来源：Zotero key UZJ6VLEJ，附件 P3RBWNVR。物理页码对应本地 PDF；维护目录保存 PDF SHA-256、全部原文裁图与核查记录。新增笔记统一待归类，全部文献解读完成后再分类。
+
+
+![Graphical Abstract 原文第 1 页](https://synbiopath.online/UZJ6VLEJ-Graphical-Abstract-p1-complete-5177fc3db7043329.png)
+
+*Graphical Abstract：原文摘要图：完整受体供体数量、结合口袋与右侧糖苷结构（原文 PDF 截图）。*
+
+
+摘要图将 78 个受体、6 种糖供体与宽口袋连接起来，概括作者对酶兼容性的解释。它不表示任意受体与任意供体的全部组合均有高转化率，也没有展示药效、毒性或临床有效性实验。
+
+# 研究背景
+
+天然产物的糖基化能产生新的结构与理化性质，但多数植物 UGT 的受体或供体范围有限，难以对不同骨架统一使用。作者此前已研究来自 Catharanthus roseus 的 UGT74AN3 对部分甾体及酚类的作用，本研究扩展底物库并追问其结构基础。因此，本文不是首次鉴定这个基因，也不能把引言中的一般药物开发潜力当成本研究已证明的药效改善。
+
+核心知识缺口是广谱 UGT 如何兼容多种骨架，同时让可反应官能团接近糖供体与催化残基。已有许多 apo 或 UDP 二元结构，但缺少多种受体的三元复合物。一个宽口袋可能解释“能进入”，却未必解释“以何种取向反应”，尤其当晶体中反应羟基离催化 His 很远时，静态结构与真实催化过程就需要进一步连接。
+
+另一个应用问题是 UDP-Glc 的投入。作者希望以 sucrose synthase 的供体再生反应连接糖基转移，从而降低外加活化糖的需求。这是反应系统层面的设计，经济性还应与产物分离、酶成本及糖消耗一起判断，不能只凭“采用廉价蔗糖”就认定工业过程最优。
+
+# 研究思路
+
+作者以 92 个结构多样的天然/非天然化合物筛查受体范围，再以代表性受体比较多种供体。产物鉴定分层进行：LC-MS 初筛，部分产物纯化后用 NMR 与 HMBC，部分与标准品比对，另一些由 MS/MS 支持。该安排使“检测到转化”“确定糖苷键位置”和“确定完整结构”具有不同证据强度。
+
+结构阶段获得 UDP 二元及多个 UDP/受体三元复合物，分别分析糖供体识别、口袋几何与入口构象。作者结合突变功能评价，提出供体偏好和 gatekeeper 的结构解释；对非近攻击的甾体结合姿态，使用 MD、MM/GBSA 与 MetaMD 探索口袋内移动/翻转。最后以 AtSuSy 耦合 UGT74AN3 验证供体循环的应用可行性。
+
+# 研究方法
+
+实验以纯化重组 UGT74AN3 为主要对象。结晶用去除前 10 个 N 端残基的 UGT74AN3<sub>11–474</sub>，正文引用 SI 表明其活性与全长相同，本次未独立检查该比较。二元结构绑定的是 UDP，UDP-Glc、UDP-Xyl、UDP-Gal 的完整供体模式主要由模型建立，不能把供体 docking 图写成已解析的完整糖供体晶体。
+
+HPLC/LC-MS 用于底物谱和相对转化评价，纯化产物另用 HR-ESI-MS 与 NMR。Methods 4.13 将 conversion 定义为产物峰面积除以产物及剩余底物的总峰面积；主文未给出所有化合物响应因子的校正。因此，这一数值首先是作者定义的色谱面积比例，不能直接等同于经独立校准的摩尔得率或分离收率。正文称实验均做 triplicate，但未明确各图重复独立性和误差线为 SD 还是 SE，也未报告具体检验及精确 P 值。
+
+动力学采用饱和 UDP-Glc 下改变受体浓度，并称按 Lineweaver–Burk 求 K<sub>m</sub>。其值包含催化步骤影响，不能简单改称独立结合 K<sub>d</sub>；正文也没有为每一种糖供体给出完整 k<sub>cat</sub>/K<sub>m</sub> 对比。方法段缓冲液写 pH 7.8，而后称反应在 pH 8.0，保留为条件口径差异。
+
+计算使用 Desmond/OPLS4 的 1 μs 轨迹；MM/GBSA 对 400–500 ns 区间的 200 个快照取平均。MetaMD 以底物两个 O 原子到 H25 的距离作为 collective variables，引入偏置采样。其构象自由能图不同于化学成键反应的活化自由能；当前未独立重复计算，也没有读取收敛分析及全部坐标。
+
+# 实验设计及结果分析
+
+### (一) 大底物库支持广泛糖基化，结构鉴定层级与区域选择性必须分别判断
+
+为判断 UGT74AN3 是否只适合已有受体，作者以纯化酶筛查 92 个化合物，报告 78 个出现糖基化产物，约占 85%，其中 48 个报告 conversion 高于 80%。Figure 1A 用颜色表示不同糖苷类型，Figure 1B 提供对应 1–78 的结构。图中的星号用于标示经 NMR 鉴定的产物，三角用于标准品比对，**这些星号不是统计显著性标记**。
+
+
+![Figure 1 原文第 2 页](https://synbiopath.online/UZJ6VLEJ-Figure-1-p2-complete-a3aa3b71103b30f1.png)
+
+*Figure 1：原文 Figure 1：完整 78 底物柱形图、全部结构编号、鉴定符号与图注（原文 PDF 截图）。*
+
+
+受体覆盖 flavonoids、steroids、phenols、coumarins、terpenoids、anthraquinones 等，但“兼容”不等于每类都有同样高的效率。图中不同编号的产物组成和色谱转化差异很大，不能用总接受率替代底物特异的催化能力。正文把 flavonoids 写为“35 个，1–35”，而图中 35 已属于 steroid，黄酮结构编号实际到 34；这一计数重叠保留为原文问题，不重复制造同一底物属于两类的清单。作者跨论文比较其他 UGT 接受率时，各受体库不同，不能据此建立普适酶优劣排序或直接沿用“已知最广”措辞。
+
+结构证据也不是 78 个产物都同等完整。作者报告 7 个 di-O 与 27 个 mono-O 产物用 NMR 鉴定，5 个结构经标准品比较，部分单官能团受体由 MS/MS 支持，合计报告 50 个产品结构表征。主文给出端基 H 的 J = 7.2–8.1 Hz，支持所分析 β 糖苷构型，但各 HMBC 相关与完整谱图在未读 SI，不能说本次已独立复核所有位置和立体化学。
+
+对于黄酮，正文依据时间过程提出部分底物先 7-O 糖基化，再发生 4′-O 糖基化，且还存在较弱的 3-O/3′-O 产物。这些结果显示广谱与区域偏好可并存，却不是绝对单一区域选择性。对于 anthraquinones 65、66，作者将产物报告为 3-O、6-O 糖苷；当前可把它们列为与蒽醌衍生化相关的候选证据，但相应逐谱连接确证仍待读取 SI，不能据受体相似性预测未测试蒽醌的唯一位点。
+
+S-glycosylation 的 56a 由主文报告的 m/z 193.0312 脱糖碎片及 NMR 支持，作者指认为 4-methylcoumarin 7-S-β-D-glucoside。单看脱糖碎片不能唯一证明 S 键位置；完整结构依赖作者的补充谱图。N-glycosylation 涉及 55 和 72–78 共 8 个芳香胺例子，因此应把 78 的总数表述为广泛糖基化受体，而不能将全部都重复称作 O-glycosylation 实证。
+
+### (二) 供体兼容性受受体影响，识别模型支持偏好而非全组合等效
+
+Figure 2A 展示 NDP-sugar 结构，2B 展示 kaempferol（8）、formononetin（23）、35 和 arctiin（70），2C 比较供体–受体配对的 conversion。对 23、35、70，作者报告 UDP-Glc 为 61.0–92.0%，其他可用供体多为 0.7–10.3%；对 8，UDP-Glc 为 95.0%，UDP-GlcNAc 与 UDP-Xyl 分别达到 38.9% 和 71.6%。这直接说明供体表现随受体背景变化，不能把“6 种供体”解释为 78×6 个组合都获得高效验证。
+
+
+![Figure 2 原文第 4 页](https://synbiopath.online/UZJ6VLEJ-Figure-2-p4-complete-f5c07375bd6f2f26.png)
+
+*Figure 2：原文 Figure 2：全部糖供体和四受体结构、完整配对数据与图注（原文 PDF 截图）。*
+
+
+原文供体身份存在笔误风险：正文名单出现 GDP-Xyl，但图与后续方法、结果使用 UDP-Xyl。由于这些名称涉及核苷部分，不能视为可随意互换的同义词。本笔记按明确的 UDP-Xyl 功能结果讨论木糖供体，保留名单差异；不根据未读 SI 生成一个“完全核实的六供体清单”。Figure 2 的 Man 标签放大核对后为 GDP-Man，与方法一致，不计作额外冲突。
+
+Figure 3A 显示 GT-B 两域结构、连接 loop 与结合 cleft；UDP 二元晶体作者报告为 1.86 Å。3B、3C、3D 分别是 UDP-Glc、UDP-Xyl、UDP-Gal 的识别模型。正文对 3C/3D 的叙述有互换，但图面标签与图注明确，故按图面解读。作者据氢键与糖上羟基/羟甲基的差别解释偏好，属于晶体约束下的 docking 机制模型。
+
+
+![Figure 3 原文第 5 页](https://synbiopath.online/UZJ6VLEJ-Figure-3-p5-complete-e90ca88a1d5b0051.png)
+
+*Figure 3：原文 Figure 3：完整 A–I 结构、供体模型、功能、色谱、MD 和全部图注（原文 PDF 截图）。*
+
+
+3E 的突变功能数据支持多处供体侧残基对反应的重要性，但相对 conversion 不等同于初速比或 k<sub>cat</sub>。3F、3G 对黄酮 8 的 HPLC 显示供体及产物分配改变，作者报告木糖供体 conversion 从 71.6% 到 93.2%；供体偏好变化伴随葡萄糖供体利用下降和区域选择性变化，不能只用单一终点指标称为“全面提高”。3H 为模拟 RMSD，3I 为供体与口袋作用模型，两者为结果提供解释，并非直接拍摄到了真实氢键动力学。本节支持供体识别具有可变性，不能推出所有受体均具有同一改变幅度。
+
+### (三) 宽口袋和不同相互作用支撑兼容性，较低 K<sub>m</sub> 尚不足以确认天然底物
+
+作者尝试对多个高 conversion 受体获取晶体，仅成功得到四种甾体与一种酚类的三元结构。Figure 4A–E 展示相应 omit 电子密度，4F 展示饱和糖供体下的受体动力学。图中 K<sub>m</sub>（35、38、42）分别为 19.4±2.7、29.2±5.3、78.4±9.9 μM；正文用 mM 报告的是约 0.019±0.003、0.029±0.005、0.078±0.010，精度不同但基本一致。不能因为 42 的 K<sub>m</sub> 更高，就忽略其速度曲线或把 K<sub>m</sub> 直接解释成结合常数。
+
+
+![Figure 4 原文第 6 页](https://synbiopath.online/UZJ6VLEJ-Figure-4-p6-complete-77f673f7c755a2d7.png)
+
+*Figure 4：原文 Figure 4：修正版完整 A–S，包含此前首发缺失的 N 子图、动力学、门控与长图注（原文 PDF 截图）。*
+
+
+Figure 4G–I 给出口袋表面、剖面与残基组成，作者估计最宽处约 12.4 Å、深约 17.9 Å、体积约 1176 Å<sup>3</sup>。J–M 展示疏水性受体的定位，N 展示较多羟基的酚类 42 与亲水残基的作用；这说明大空间与混合性质的相互作用可兼容不同受体。当前 PDF 的 4N 已存在，不能沿用首发缺图状态。4D 图内编号写 39 而图注与正文为 40，4O 图注把 F193 写成 F139，原图原文差异保留，不默默改变编号。
+
+4O 比较二元和三元结构，4P/Q 展示入口较窄与较开的状态，作者提出 E85、F193 可能是 gatekeepers。4R/S 以两受体分别评价相关突变，支持口袋侧链改变影响催化表现，但“控制进入/离开”的具体动态过程仍是解释。蛋白稳定性、产物释放及反应取向也可改变终点 conversion，不能将终点突变表型写成已经测得开门速率。关于 H25/D123 的失活表型，支持这对残基对该反应的重要性；SN2-like 的详细成键过程没有由本文直接捕获。
+
+作者根据较低 K<sub>m</sub>、良好晶体结合推测甾体可能是天然底物。这是候选生理功能假说，而不是 Catharanthus roseus 中原生代谢功能证明。本研究缺少植物体内受体共存、表达定位、遗传缺失与回补等证据；结晶成功还受稳定结合姿态和实验条件影响，不能把失败的其他晶体筛选解释为那些受体绝不会结合。
+
+### (四) 非近攻击晶体姿态引出翻转模型，MetaMD 构象能差不是负的化学活化能
+
+Figure 5A 展示甾体在晶体中反应羟基远离 H25 的位置，标示约 11.5–11.8 Å。作者另报告去除 Tris 后仍获得相同姿态，提供排除缓冲组分强迫姿态的针对性控制；当前完整控制结构与统计在 SI，不能扩展为所有结晶环境因素均已排除。
+
+
+![Figure 5 原文第 7 页](https://synbiopath.online/UZJ6VLEJ-Figure-5-p7-complete-3920b59f60bbf37e.png)
+
+*Figure 5：原文 Figure 5：完整 A–J 晶体取向、三轨迹、全部 MM/GBSA、能量面和五亚稳态、长图注（原文 PDF 截图）。*
+
+
+5B/C 是 UDP 与完整 UDP-Glc 模型中的 RMSD，5D 跟踪反应相关距离。作者称完整供体体系在约 385.4 ns 观察到 4.8 Å 的较近姿态，而不含糖基的 UDP 模型更稳定保持远距离。5E/F/G 给出原姿态、人工/对接的 near-attack 姿态及完整供体体系的 MM/GBSA，5H 叠合显示移动和翻转。该结果支持真实供体可能影响受体构象，但 4.8 Å 不等于化学反应已完成；RMSD 平稳也不能独立证明采样充分。各体系的底物与供体模型不同，能量近似值不应当成实测 K<sub>d</sub> 或全途径速率。
+
+5I 为两个 CV 上的偏置采样能量面，5J 选出五个亚稳态，模型中受体逐步移向 H25，状态 V 的距离约 2.9 Å。正文把全部构象变化的 energy barrier 写成 −8.5 kcal/mol，但图中 I 为 −10.6、V 为 −2.1 kcal/mol，按同一零点相减，V−I 是 **+8.5 kcal/mol**。这是状态能差的算术核查，不能据这两个亚稳态就重新确认真实过渡态能垒，更不能传播“负活化能意味着自发完成反应”的结论。未读收敛与偏置重加权资料，也未检查多独立轨迹，故保留翻转机制为计算支持的可能路径。
+
+### (五) 耦合供体再生验证反应可行性，经济优势仍需要独立量化
+
+Figure 6A 将 UGT 的供体消耗与 AtSuSy 从 sucrose/UDP 再生 UDP-Glc 连接，释放的 UDP 得以循环，反应也形成 fructose。这里“UDP-Glc-free”指不直接投加该活化糖，不是体系没有 UDP-Glc，更不是不需要任何核苷酸。作者用 formononetin 的 conversion 作为优化指标，而不是直接测得所有供体池的周转次数。
+
+
+![Figure 6 原文第 9 页](https://synbiopath.online/UZJ6VLEJ-Figure-6-p9-complete-62ef23714a29cede.png)
+
+*Figure 6：原文 Figure 6：完整循环示意、四优化曲线、五色谱及全部图注（原文 PDF 截图）。*
+
+
+6B 的四张曲线分别按图面横轴考察 UGT74AN3、AtSuSy、sucrose、UDP：存在上升后趋平或下降的情况，说明投入增加未必继续改善。图注把 a/b 的酶名顺序与横轴写反，本笔记以图面横轴区别这些曲线，不静默交换截图。序贯优化是在已经改变的反应背景中进行，不能把每次提高视为独立可乘的效应。
+
+6C 的五条 HPLC 显示多类型受体出现相应糖基化产物，是该循环反应可行性的功能证据；正文说甾体 35，但该曲线标为 36/36a，保留对象编号差异，不生成未经确认的独立底物结果。当前图中没有匹配条件的完整成本核算、外加 UDP-Glc 的定量节省率、循环寿命或放大分离收率，因此“economical”主要是系统设计与底物成本来源的推断。产物形成不等于药效增强，本文也没有对新糖苷开展与原受体匹配的完整药理评价。
+
+# 总体结论
+
+UGT74AN3 在作者测试的受体库中表现出广泛糖基化兼容性，并具有随受体变化的糖供体偏好。UDP 二元及多受体三元结构揭示了宽口袋、不同性质的结合相互作用和入口侧链构象，为底物谱提供结构约束；功能评价表明这些区域能够影响供体利用及产物分配。
+
+**论文的主要贡献是将广谱受体转化、结构约束和动态翻转假说联系起来**，从而提醒静态结合姿态未必代表催化近攻击构象。作者还验证了与 AtSuSy 耦合的供体再生反应可产生多类型糖苷。底物谱与反应可行性有实验支持，gatekeeper 动态、翻转全过程和天然生理底物归属仍主要属于作者提出的解释。
+
+# 论文评价
+
+### 优点与创新
+
+多受体结构及不同官能团的糖基化比单一受体功能更能支持兼容性研究；将 UDP 结合结构与完整供体模拟区别处理，并加入去 Tris 的控制，针对了异常姿态的替代解释。局限是 SI 未读导致结构确证与统计只能按作者报告保留；面积转化率与真实得率不同，跨酶接受率比较也受底物库影响。供体再生的可行性明确，经济性与新糖苷药效尚未形成完整定量证据。
+
+### 未来研究方向
+
+优先用匹配的生化与构象证据确认实际供体是否确实驱动口袋内翻转，并检验不同结合姿态对区域选择性的影响。另一个方向是对代表性非甾体产物补齐响应因子、结构确证与分离收率，区分峰面积优势和实际可得产品。针对蒽醌，可先核对本文已有谱图及位点证据，再判断它是否适合作为特定衍生化任务的候选酶。
+
+# 关键问题及回答
+
+**Q1：78/92 的接受率能否证明 UGT74AN3 比所有其他 UGT 更适合任意天然产物？**
+
+**A**：不能。它直接说明在该库和作者的检测口径下有较广泛受体兼容性；不同骨架的 conversion、单糖/多糖产物分配及鉴定深度仍不同。其他论文的受体库、检测阈值与反应条件不匹配，跨库百分比不能建立普适排名。对于一个新化合物，还必须分别判断能否转化、产物是哪一个、能否获得可用收率及是否满足需要的区域选择性。
+
+**Q2：晶体中的反应羟基远离 H25，是否意味着酶采用一种完全不同的成键机制？**
+
+**A**：不是必要结论。晶体结合的是 UDP，可能更偏向稳定的非近攻击姿态；模拟完整供体后，模型出现受体移动与翻转，为既有催化框架提供动态解释。H25/D123 的功能重要性也没有因远距离结构而消失。但模拟不是时间分辨的实验观察，构象能差不是化学反应能垒，因此目前应保留“可能通过翻转达到可反应姿态”，而不是宣称本文已经证明一个全新成键机制。
+
+**Q3：供体再生体系是否已经证明新糖苷更便宜且更有药用价值？**
+
+**A**：本文证明了多受体耦合反应的产物形成，并支持降低直接活化糖投入需求的设计逻辑；没有完成所有成本、酶寿命、产品分离和放大指标的匹配核算。药用价值也需要独立评价，因为糖基化可能同时改变溶解性、靶标相互作用和体内暴露，变化方向不能由“生成糖苷”本身推出。因此，本文提供候选分子与催化工具的研究基础，不能代替经济性或药理结论。
+
+> 分类状态：待全部文献笔记完成后统一分类归档。

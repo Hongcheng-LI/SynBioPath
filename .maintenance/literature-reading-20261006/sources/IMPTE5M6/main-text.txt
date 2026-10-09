@@ -1,0 +1,1049 @@
+
+[PDF physical page 1]
+             bioRxiv preprint doi: https://doi.org/10.1101/2021.04.29.441555; this version posted April 30, 2021. The copyright holder for this preprint
+             (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is
+                                   made available under aCC-BY-NC-ND 4.0 International license.
+ 1   Genome sequence of Pseudopithomyces chartarum, causal agent of facial eczema (pithomycotoxicosis) in
+
+ 2   ruminants, and identification of the putative sporidesmin toxin gene cluster
+
+
+ 3    Jaspreet Singh Sidhu1, Vinod Suresh2,3, Abdul Baten1,8, Ann M. McCartney4, Gavin Lear5, Jan M. Sprosen6,
+
+ 4   Mark H. Oliver7 Natasha T. Forester1, Paul H. Maclean1, Nikola Palevich1, Ruy Jauregui1, Christine R.
+
+ 5   Voisey1*
+
+
+ 6     1. AgResearch Limited, Grasslands Research Centre, Palmerston North, New Zealand
+
+ 7     2. Department of Engineering Science, University of Auckland, Auckland, New Zealand
+
+ 8     3. Auckland Bioengineering Institute, University of Auckland, Auckland, New Zealand
+
+ 9     4. Manaaki Whenua – Landcare Research, Auckland, New Zealand
+
+10     5. School of Biological Sciences, University of Auckland, Auckland, New Zealand
+
+11     6. AgResearch Limited, Ruakura Research Centre, Hamilton, New Zealand
+
+12     7. Liggins Institute, University of Auckland, New Zealand
+
+13     8. Institute of Precision Medicine & Bioinformatics, Sydney Local Health District, Royal Prince Alfred Hospital, Camperdown, NSW
+
+14    2050, Australia
+
+
+15    *Author for Correspondence: Christine Voisey, Forage Science, AgResearch, Grasslands Research Centre, Palmerston North, 4442,
+
+16   New Zealand, Tel: +64 6 3518080, Email: christine.voisey@agresearch.co.nz.
+
+
+
+
+
+                                                                                           1
+
+
+[PDF physical page 2]
+             bioRxiv preprint doi: https://doi.org/10.1101/2021.04.29.441555; this version posted April 30, 2021. The copyright holder for this preprint
+             (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is
+                                   made available under aCC-BY-NC-ND 4.0 International license.
+17   Highlights
+18   •  The whole genome of Pseudopithomyces chartarum has been sequenced and assembled.
+
+
+19   •  The genome is 39.13 Mb, 99% complete, and contains 11,711 protein coding genes.
+
+
+20   • A putative sporidesmin A toxin (cause of facial eczema) gene cluster is described.
+
+
+21   •  The genomes of Pse. chartarum and the Leptosphaerulina chartarum teleomorph differ.
+
+
+22   •  Comparative genomics is required to further resolve the Pseudopithomyces clade.
+
+
+
+23   Abstract
+24    Facial eczema (FE) in grazing ruminants is a debilitating liver syndrome induced by ingestion of sporidesmin,
+
+25   a toxin belonging to the epipolythiodioxopiperazine class of compounds. Sporidesmin is produced in spores
+
+26    of the fungus Pseudopithomyces chartarum, a microbe which colonises leaf litter in pastures. New Zealand
+
+27   has a high occurrence of FE in comparison to other countries as animals are fed predominantly on ryegrass, a
+
+28    species that supports high levels of Pse. chartarum spores. The climate is also particularly conducive for Pse.
+
+29   chartarum growth. Here, we present the genome of Pse. chartarum and identify the putative sporidesmin gene
+
+30    cluster. The Pse. chartarum genome was sequenced using single molecule real-time sequencing (PacBio) and
+
+31   gene models identified. Loci containing genes with homology to the aspirochlorine, sirodesmin PL and
+
+32    gliotoxin  cluster  genes  of  Aspergillus  oryzae,  Leptosphaeria maculans and  Aspergillus  fumigatus,
+
+33    respectively, were identified by tBLASTn. We identified and annotated an epipolythiodioxopiperazine cluster
+
+34    at a single locus with all the functionality required to synthesise sporidesmin.
+
+
+35  Keywords
+36    Epipolythiodioxopiperazine;   non-ribosomal    peptide    synthetase;    flavin-dependent    halogenase;
+
+37   Pseudopithomyces chartarum; mycotoxin; animal health
+
+
+
+
+
+                                                                                           2
+
+
+[PDF physical page 3]
+             bioRxiv preprint doi: https://doi.org/10.1101/2021.04.29.441555; this version posted April 30, 2021. The copyright holder for this preprint
+             (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is
+                                   made available under aCC-BY-NC-ND 4.0 International license.
+38   1. Introduction
+39   Pithomycotoxicosis (also known as facial eczema [FE]) is a serious liver syndrome in ruminants grazing
+
+40    ryegrass pastures containing spores of the dothideomycete fungus Pseudopithomyces chartarum sensu lato
+
+41    (Berk. & M.A. Curtis) Jun F. Li, Ariyaw. & K.D. Hyde, formerly Pithomyces chartarum (Berk. & M.A.
+
+42    Curtis) [1-3]. The spores contain sporidesmin (Fig. 1), an epipolythiodioxopiperazine (ETP) toxin, which
+
+43   causes liver toxicity when ingested by ruminants. Sporidesmin is a collective term encompassing nine related
+
+44   compounds (A-H and J), with sporidesmin A the most toxic and constituting 90% of the sporidesmins
+
+45   produced in culture [4]. Sporidesmin levels are not always correlated with spore production and can vary
+
+46   according to culture conditions [11]. Autooxidation of sporidesmin A in the liver induces severe local free
+
+47    radical-induced damage and accumulation of photoreactive chlorophyll degradation byproducts which induce
+
+48   FE. Cholestatic liver damage resulting from consumption of spore-contaminated feed results in impaired
+
+49    reproductive indices and animal productivity [12] well before facial lesions are seen at near end-state
+
+50   pathology [3].
+
+
+51    Pse. chartarum has been reported as both an endophyte and plant pathogen in many regions of the world [6-
+
+52    9]; it is also a saprophyte on decaying leaf litter, including pasture grasses such as perennial ryegrass (Lolium
+
+53   perenne L.) [2, 10]. Non-toxigenic strains are common and their proportion varies widely between and within
+
+54    countries [9]. In countries with a high proportion of toxigenic strains, and a temperate climate, the FE burden
+
+55   on grass-fed animals is high and is estimated to reduce production losses in affected countries significantly
+
+56    (e.g. >NZD100M per annum in New Zealand) [5]. Current FE control methods such as fungicide application
+
+57    to pastures [13], and very high animal dosing with zinc [14] have some efficacy but disrupt copper and
+
+58   molybdenum regulation in ruminants [15] and have adverse consequences for soils and waterways [2].
+
+
+59   ETPs are a class of secondary metabolites, made only by fungi, that are characterised by the presence of a
+
+60    sulphur-bridged dioxopiperazine ring synthesised from two amino acids by a non-ribosomal peptide
+
+61    synthetase (NRPS). ETP toxicity is attributed to the generation of reactive oxygen species (ROS) through
+
+62   redox cycling and cross-linking to proteins through their cysteine residues which causes cellular damage [3,
+
+
+                                                                                           3
+
+
+[PDF physical page 4]
+             bioRxiv preprint doi: https://doi.org/10.1101/2021.04.29.441555; this version posted April 30, 2021. The copyright holder for this preprint
+             (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is
+                                   made available under aCC-BY-NC-ND 4.0 International license.
+63    16]. Putative ETP gene clusters have been found in many ascomycete taxa [17] and include well-characterised
+
+64   examples such as the sirodesmin (sir) [18], gliotoxin (gli) [19], and aspirochlorine (acl) [20] clusters of L.
+
+65   maculans, A. fumigatus, and A. oryzae respectively. Similar to sporidesmin, aspirochlorine is halogenated and
+
+66    the acl cluster contains a flavin-dependent halogenase (aclH) which chlorinates the molecule at the last step
+
+67    of its synthesis [20].
+
+
+68   Here we report the first genome sequence of a sporidesmin-producing strain of Pse. chartarum, originally
+
+69    isolated from ryegrass-based pasture in the North Island of New Zealand. ETP genes from the functionally
+
+70    characterised ETP clusters producing aspirochlorine, sirodesmin PL and gliotoxin were used to probe the
+
+71   assembled genome for potential ETP clusters. We have identified and described a single locus with all the
+
+72   genes required to synthesise a chlorinated ETP such as sporidesmin.
+
+
+73   2. Results and Discussion
+74   2.1. Genomic features of Pse. chartarum 91/35/29
+75   Alignment of the ribosomal long subunit (LSU) gene from Pse. chartarum 91/35/29 with the LSU of other
+
+76   members of the Didymosphaeriaceae (Pleosporales) [21] places Pse. chartarum 91/35/29 in the same clade
+
+77    as Pse. chartarum C459 (an isolate from fruit), as well as L. chartarum (the teleomorph of Pse. chartarum),
+
+78   an isolate from Nicotiana tabacum (Fig. S1). The genome of Pse. chartarum 91/35/29, assembled exclusively
+
+79   from 20 kb (SMRT [Sequel]) PacBio reads, has an estimated nuclear genome size of 39.13 Mbp and a
+
+80   mitochondrial genome of 101.5 Kbp, with an overall G + C content of 50.16% (Table 1). The resolved genome
+
+81    consists of 22 scaffolds (N50 = 2.3 Mbp) with high coverage, approximately 140-fold. The Pse. chartarum
+
+82   genome is similar in size to the median assembly size (36.5) Mbp) of 101 Dothideomycetes genomes published
+
+83    recently through the 1000 Fungal Genomes Project, although genome size in the Dothideomycetes can vary
+
+84   widely (between 16.95 Mbp and 177.60 Mbp) [22].
+
+
+85   The nearest sequenced genome is from a proposed Pse. chartarum teleomorph, L chartarum, sequenced on
+
+86    the Illumina HiSeq platform [6]. As expected, L. chartarum has a similar genome size to Pse. chartarum (37.9
+
+87   Mbp; Table 1), however the G + C content of L. chartarum was substantially higher than Pse. chartarum
+
+                                                                                           4
+
+
+[PDF physical page 5]
+               bioRxiv preprint doi: https://doi.org/10.1101/2021.04.29.441555; this version posted April 30, 2021. The copyright holder for this preprint
+               (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is
+                                     made available under aCC-BY-NC-ND 4.0 International license.
+ 88   (59.4% versus 50.19%). Pse. chartarum strains have been isolated from a range of monocotyledonous and
+
+ 89   dicotyledonous species [23-25] and have also occasionally been recovered from human clinical specimens
+
+ 90    [26]. They have variously been recorded as having saprophytic, endophytic or pathogenic lifestyles [24].
+
+ 91   Comparative genomics is therefore required to resolve the taxonomy of this group as, to our knowledge, the
+
+ 92    Pse. chartarum and L. chartarum isolates are the only representatives with a sequenced genome [23-26].
+
+
+ 93   Ab initio gene prediction resulted in 11,711 annotated protein coding regions (PCGs) in Pse. chartarum, which
+
+ 94    is consistent for a fungal genome of this size [27] and similar to the average gene prediction (12,720) from the
+
+ 95   101 Dothideomycetes genomes referred to above [22]. The number of PCGs for L. chartarum was predicted
+
+ 96    to be 15,091, further supporting the likelihood that these fungi are genetically quite distinct. Benchmarking
+
+ 97   Universal Single-Copy Orthologs (BUSCO) pipelines revealed  that Pse. chartarum 91/35/29 genome
+
+ 98   assembly and annotation was 99.0% complete when searched against the fungal reference database (Table 1).
+
+
+ 99   2.2. Genomic insight into the putative sporidesmin gene cluster
+100  A key aim of sequencing Pse. chartarum 91/35/29 was to identify the putative sporidesmin gene cluster. The
+
+101     first step was to align the aspirochlorine (acl), sirodesmin (sir) and gliotoxin (gli) cluster genes against the
+
+102    Pse. chartarum genome to identify loci containing putative homologs of ETP genes (Tables S1A, B and C).
+
+103   The three comparisons revealed a single Pse. chartarum genomic locus that contained all the genes required
+
+104    to make a chlorinated ETP. The cluster is approximately 43.3 kb in length and contains 21 genes (spd1 -
+
+105   spd21) (Table S2). Next, the corresponding protein sequences were extracted, their predicted domain
+
+106    architecture determined by Interpro and Pfam, and BLASTP used  to find  related sequences  in the
+
+107   Uniprot/Swissprot database. Twelve of the inferred proteins in the cluster had highest homology to enzymes
+
+108   involved in aspirochlorine (AclH, AclG, AclQ, AclK, AclN, AclD, AclI, AclA and AclM), sirodesmin PL
+
+109    (SirJ and SirB) and gliotoxin (GliP) synthesis, although amino acid identity was generally low (29.6.% -
+
+110   60.3%; Table S2). Spd proteins with the same domain architecture as acl, sir or gli cluster proteins were
+
+111   deemed to be likely orthologues or functional equivalents.
+
+
+
+
+                                                                                            5
+
+
+[PDF physical page 6]
+               bioRxiv preprint doi: https://doi.org/10.1101/2021.04.29.441555; this version posted April 30, 2021. The copyright holder for this preprint
+               (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is
+                                     made available under aCC-BY-NC-ND 4.0 International license.
+112   The sporidesmin cluster (Fig. 2) contains a bimodular NRPS (Spd17; similar to AclP, SirP and GliP) predicted
+
+113    to condense two amino acids to form the sporidesmin core, plus a putative cytochrome P450 (Spd3; a likely
+
+114   orthologue of GliC), a glutathione-S-transferase (Spd5; a likely orthologue of AclG, SirG and GliG), a gamma-
+
+115   glutamyl cyclotransferase (Spd9; a likely orthologue of AclK and GliK), a dipeptidase (Spd2, a likely
+
+116   orthologue of AclJ, SirJ and GliJ), an amino transferase (Spd16; a likely orthologue of AclI, SirI and GliI) and
+
+117   a thioredoxin reductase (Spd13; a likely orthologue of AclT, SirT and GliT ), which collectively synthesise
+
+118    the sulphur bridge in ETPs [28-31]. Sporidesmin has a chlorine residue (Fig. 1A), and the presence of a
+
+119    putative flavin dependent halogenase (Spd 4), a likely orthologue of AclH which chlorinates aspirochlorine
+
+120    [20], strengthens the evidence that the cluster contains the genes for sporidesmin synthesis. Spd15 belongs to
+
+121    the acyl-CoA-acyltransferase superfamily (IPR016181), and a gene with this putative function is also in the
+
+122   sirodesmin (SirH) cluster, although the proteins are not conserved in amino acid identity or domain
+
+123    architecture. Similar to biosynthetic gene clusters (BGCs) in general, the putative sporidesmin cluster encodes
+
+124    several tailoring enzymes including methyl transferases (Spd1, Spd7, Spd11 and Spd21) and further
+
+125   cytochrome P450 monooxygenases (Spd8 and Spd10). Spd12 is a hypothetical protein with no known
+
+126    functional domains but has highest amino acid identity (60.3%) with the aspirochlorine biosynthesis protein
+
+127   AclN, a protein of the hydroxylase/desaturase family. The transporter-encoding genes in the Spd cluster
+
+128    include an ATP Binding Cassette-transporter (Spd6, a likely orthologue of AclQ and SirA, but not present in
+
+129    the gliotoxin cluster) and two Major Facilitator Superfamily (MFS) efflux transporters (Spd14 and Spd18),
+
+130   one of which (Spd18) has a similar domain architecture to AclA and GliA of A. oryzae and A. fumigatus
+
+131    respectively. Spd20 contains a cysteine-rich DNA binding motif and may regulate gene transcription. There
+
+132    are two hypothetical proteins in the cluster, Spd12 and Spd19, both with low scores to described proteins, and
+
+133   with no identified functional domains.
+
+
+134   3. Conclusions
+135  We sequenced the genome of a sporidesmin-producing Pse. chartarum strain. Interrogation of the sequence
+
+136   with homologues of the acl, sir and gli genes points to this cluster being the only candidate with the
+
+137    functionality to synthesise sporidesmin. Functional characterisation of pathway genes is required to confirm
+
+                                                                                            6
+
+
+[PDF physical page 7]
+               bioRxiv preprint doi: https://doi.org/10.1101/2021.04.29.441555; this version posted April 30, 2021. The copyright holder for this preprint
+               (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is
+                                     made available under aCC-BY-NC-ND 4.0 International license.
+138    that this cluster is responsible for sporidesmin synthesis. This discovery will be invaluable for determining the
+
+139    order of the chemical modifications through which sporidesmins A-J & I are synthesised, and may suggest
+
+140    strategies to disrupt accumulation of the most toxic analogue, sporidesmin A. Detailed sequence analysis is
+
+141    required to resolve the evolutionary relationships between Pse. chartarum isolates in the pasture environment,
+
+142   and knowledge of the gene cluster sequence will assist in determining why some Pse. chartarum strains do
+
+143    not synthesise sporidesmin, and permit the tracking of sporidesmin-producing strains in the environment.
+
+
+144   4. Materials and methods
+145   4.1. Pse. chartarum strain and storage conditions
+146   The Pse. chartarum strain (91/35/29) sequenced in this study (kindly supplied by John Kerby, AgResearch
+
+147    Ltd., Ruakura Research Centre, Hamilton, New Zealand (NZ)) was isolated from field-grown ryegrass tissues
+
+148    at the Ruakura Research Centre. To grow the strain for long-term storage, a colony was incubated on potato
+
+149    dextrose agar (Difco™ Becton, Dickinson and Co. USA) in the dark at 22°C for 3 weeks. A 1 cm square block
+
+150    of mycelium was cut from the culture near the leading edge and mechanically macerated in an OMNI Bead
+
+151   Ruptor Elite (Onelab, Auckland, NZ) for 30 s at 4 m/s using a 0.5 cm ceramic bead (MP Biomedicals,
+
+152   Auckland, NZ). The macerate (1 mL) was inoculated onto approximately 30 wheat grains in a Petri dish, pre-
+
+153    sterilised according to the method of S. Card [32] and incubated in the dark for 3 weeks at 22oC. Four infected
+
+154    grains (per tube) were stored in cryopreservation tubes containing 500 µL of 30% (v/v) glycerol at -80oC.
+
+
+155   4.2. Extraction and quantification of sporidesmin A in Pse. chartarum spores
+156   Spores from three technical replicates of Pse. chartarum strain 91/35/29, grown on sterile wheat grains as
+
+157    described above, were harvested at 3 and 4 weeks post inoculation to ensure at least one harvest had
+
+158   accumulated spores and sporidesmin A. Sporidesmin was extracted by mixing approximately 50 mg of
+
+159    infected grain in 1 ml of 0.05% (v/v) Tween 20 for 15 min at room temperature on a mini Labroller rotator
+
+160   (Labnet International Inc, NJ, USA). The extract was allowed to settle at room temperature for 5 min, 50 µl
+
+161    of the cleared supernatant was diluted 10 fold in 0.05% (v/v) Tween 20, and sporidesmin A quantified using
+
+162   a direct competitive Enzyme Linked Immunosorbent Assay (ELISA) as described previously [33]. The ELISA
+
+163   has a working range of 0.2 - 12.4 ng sporidesmin per ml.
+
+                                                                                            7
+
+
+[PDF physical page 8]
+               bioRxiv preprint doi: https://doi.org/10.1101/2021.04.29.441555; this version posted April 30, 2021. The copyright holder for this preprint
+               (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is
+                                     made available under aCC-BY-NC-ND 4.0 International license.
+164   4.3. Pse. chartarum visualisation
+165    Pse. chartarum spores were cultured on wheat grains for three weeks as already described. A 5 mm segment
+
+166    of an infected grain was embedded in 5% (w/v) water agarose (Difco™ Becton, Dickinson and Co. USA) and
+
+167   30 µm sections cut into phosphate-buffered saline (pH 7.4) using a vibratome (Leica VT1000S Vibratome,
+
+168    Wetzlar, Germany). The sections were examined using bright field microscopy on a BX53 microscope fitted
+
+169   with a UPlanfl N 20x/0.5 objective and coupled to a SC180 camera with cellSens standard software (v 2.3)
+
+170   (Olympus, Tokyo, Japan).
+
+
+171   4.4. Preparation of genomic DNA
+172    Pse. chartarum mycelia were grown in four 250 mL flasks containing 50 mL each of potato dextrose broth
+
+173   (DifcoTM Becton, Dickinson and Co., NJ, USA) for 5 days at 22°C under a 8 hr light, 16 hr dark cycle. High
+
+174   molecular weight genomic DNA was extracted from the mycelia using the Quick-DNATM Fungal/Bacterial
+
+175   MidiPrep  kit (Zymo Research Corp., CA, USA) according to the manufacturer’s instructions. DNA
+
+176    concentration was quantified using both the Nanodrop ND-1000 spectrophotometer (Thermo Fisher Scientific,
+
+177  MA, USA) and the Qubit fluorometer BR assay (Thermo Fisher Scientific, MA, USA), following the
+
+178   manufacturer’s guidelines.
+
+
+179   4.5. Genome sequencing and assembly
+180   The Pse. chartarum genome was sequenced by Macrogen (Seoul, South Korea) on the RSII platform using
+
+181    single molecule real time (SMRT) long read sequencing technology from Pacific Biosciences (PacBio, CA,
+
+182   USA). The sequencing chemistry included the 20Kb SMRTbell template and the polymerase binding kit P6
+
+183   Version 2. The instrument produced 450K reads with an average length of 12 Kb, and a total count of 5.550
+
+184    billion nucleotides. A primary assembly was produced from PacBio RSII reads using CANU Version 1.5 [34]
+
+185   assuming a genome of 35 Mb and with standard parameters. For the purposes of identifying the sporidesmin
+
+186   gene cluster, the completeness of the genome assembly and annotation was estimated by quantifying the
+
+187   expected gene content using the Benchmarking Universal Single-Copy Orthologs (BUSCO) software tool
+
+188   Version 3.0.2 with the “fungi_odb9” database as the reference [35]. To assess bacterial contamination in the
+
+189    Pse. chartarum genome, the PacBio reads were aligned to proteins using the “blastx” function of Diamond
+
+                                                                                            8
+
+
+[PDF physical page 9]
+               bioRxiv preprint doi: https://doi.org/10.1101/2021.04.29.441555; this version posted April 30, 2021. The copyright holder for this preprint
+               (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is
+                                     made available under aCC-BY-NC-ND 4.0 International license.
+190   Version 0.9.14.115 [36], with tabular output but otherwise default settings. The PacBio reads with non-fungal
+
+191    protein alignments were aligned to the genome using Minimap2 Version 2.17-r941 [37], to check genome
+
+192    positioning and coverage. The reads with non-fungal protein alignments all aligned to several shorter (< 10
+
+193   kb) contigs of the genome and these were removed from the final assembly. It was inferred that there was zero
+
+194    detectable bacterial contamination from the analysis.
+
+
+195   4.6. Genome annotation and bioinformatics
+196   The genome was annotated using the evidence-based MAKER genome annotation pipeline (Version 2.31.10)
+
+197    [38]. The putative sporidesmin gene cluster was identified using tBLASTn from the BLAST+ suite Version
+
+198    2.7.1 [41] with a cut-off filter of 1e-10. Proteins from the aspirochlorine, sirodesmin and gliotoxin clusters of
+
+199   A. oryzae, L. maculans and A. fumigatus respectively were used as query sequences as the ETP gene clusters
+
+200    in these species have been functionally characterised [18-20]. The proteins for aspirochlorine and gliotoxin
+
+201    synthesis were obtained from the MIBiG 2.0 database [42], and sirodesmin proteins were obtained from the
+
+202   NCBI protein database. Protein accession numbers are given in Supplementary Tables S2. The domain
+
+203    architecture of inferred proteins from the putative sporidesmin gene cluster was predicted by InterPro Version
+
+204   7 at http://www.ebi.ac.uk/interpro/ [43] or Pfam Version 32 [44].
+
+
+205   4.7. Nucleotide sequence accession number
+206   The whole genome sequence of Pse. chartarum strain 91/35/29 has been deposited at NCBI's Sequence Read
+
+207   Archive (SRA) and GenBank under Bioproject number PRJNA596299. The SRA accession number of draft
+
+208   genome of Pse. chartarum strain 91/35/29 is PRJNA596299. The putative sporidesmin cluster has been
+
+209   submitted to Genbank under the accession MT353658.
+
+
+210   Declaration of Competing Interest
+211   Authors declare that there are no conflicts of interest.
+
+
+
+
+
+                                                                                            9
+
+
+[PDF physical page 10]
+               bioRxiv preprint doi: https://doi.org/10.1101/2021.04.29.441555; this version posted April 30, 2021. The copyright holder for this preprint
+               (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is
+                                     made available under aCC-BY-NC-ND 4.0 International license.
+212  Acknowledgements
+213   This work was supported by the New Zealand Ministry for Business, Innovation and Employment Strategic
+
+214   Science  Investment  Fund,  through  the  AgResearch  Curiosity Fund  [50001];  Genomics  Aotearoa
+
+215   [UOOX1702] and the University of Auckland’s Agritech Strategic Research Initiatives Fund [9841/3708503].
+
+
+
+
+
+                                                                                           10
+
+
+[PDF physical page 11]
+               bioRxiv preprint doi: https://doi.org/10.1101/2021.04.29.441555; this version posted April 30, 2021. The copyright holder for this preprint
+               (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is
+                                     made available under aCC-BY-NC-ND 4.0 International license.
+216   Table Legends
+217   Table 1. Comparison statistics for the Pse. chartarum 91/35/29 and L. chartarum genomes.
+
+
+218   Table S1A. E-values from tBLASTn comparisons of aspirochlorine cluster genes against the Pse. chartarum
+
+219   genome (cut-off is e-10).
+
+
+220   Table S1B. E-values from tBLASTn comparisons of sirodesmin cluster genes against the Pse. chartarum
+
+221   genome (cut-off is e-10).
+
+
+222   Table S1C. E-values from tBLASTn comparisons of gliotoxin cluster genes against the Pse. chartarum
+
+223   genome (cut-off is e-10).
+
+
+224   Table S2: BLASTp comparisons of sporidesmin toxin cluster genes against the UniprotKB database.
+
+
+225   Table S3. NCBI accession numbers of LSU sequences and sequenced genomes used in the construction of
+
+226    the phylogenetic tree.
+
+
+227   Figure Legends
+228    Fig. 1. Schematic diagrams of sporidesmin A and other ETP toxins, and Pse. chartarum 91/35/29 spore
+
+229   development. (A) Structures of sporidesmin A (Pse. chartarum), aspirochlorine (A. oryzae), sirodesmin PL
+
+230    (L. maculans) and gliotoxin (A. fumigatus) showing the characteristic ETP disulphide bridge and the
+
+231    chlorinated moiety (sporidesmin A and aspirochlorine only). (B) Bright field micrograph of a transverse
+
+232    section through a wheat grain (g) infected with Pse. chartarum. Mycelia (m) after 3 weeks of growth at 22oC
+
+233    are shown. Immature spores (is) are small and pale and lack obvious septa, and mature spores (ms) have
+
+234    heavily melanised longitudinal and transverse septa. The section is 30 µm thick and the scale bar is 20 µm.
+
+
+235    Fig. 2. Cluster size and gene order of the putative sporidesmin (spd), aspirochlorine (acl), sirodesmin (sir) and
+
+236    gliotoxin (gli) BGCs. Clusters were left-justified, and features were drawn to scale (see black bar above). The
+
+237    colour and orientation of arrows indicates proposed gene function and orientation respectively. Functionally
+
+
+
+                                                                                           11
+
+
+[PDF physical page 12]
+               bioRxiv preprint doi: https://doi.org/10.1101/2021.04.29.441555; this version posted April 30, 2021. The copyright holder for this preprint
+               (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is
+                                     made available under aCC-BY-NC-ND 4.0 International license.
+238    characterised genes involved in gliotoxin disulphide bridge synthesis (asterisk) and addition of the chlorine
+
+239    residues (square) of aspirochlorine are marked.
+
+
+240    Fig. S1. Phylogram of the nucleic acid alignment of the ribosomal LSUs from species of the Pleosporales.
+
+241   The phylogenetic tree was created based on individual LSU sequences from the complete genomes of the
+
+242    Pleosporales listed and recovered from the Genbank (NCBI) database (as of July 2020). The red box highlights
+
+243    the Pseudopithomyces clade. A bootstrap of 1,000 replicates was used to establish the percentage support for
+
+244   each branch of the phylogenetic tree [47]. The evolutionary distances were computed using the Maximum
+
+245   Composite Likelihood method [48] and the scale bar shows the number of base substitutions per site. An
+
+246    asterisk denotes the strains with a complete genome sequence. The sporidesmin-producing Pse. chartarum
+
+247    strain 91/35/29 sequenced in this study is denoted by two asterisks. The LSU sequences without asterisks were
+
+248    originally aligned as previously described [1], except for P. chartarum (C459). The sequences from each gene
+
+249    set was aligned using MAFFT v 7.450 [49], by itself and trimmed to keep the core of the alignment, and these
+
+250   were then concatenated into a single fragment for each organism. The accession numbers for individual LSU
+
+251    genes, and the whole genomes from which the others were retrieved, are listed in Supplementary Table S3.
+
+
+
+
+
+                                                                                           12
+
+
+[PDF physical page 13]
+               bioRxiv preprint doi: https://doi.org/10.1101/2021.04.29.441555; this version posted April 30, 2021. The copyright holder for this preprint
+               (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is
+                                     made available under aCC-BY-NC-ND 4.0 International license.
+252   References
+253    [1] H.A. Ariyawansa, K.D. Hyde, S.C. Jayasiri, B. Buyck, K.W.T. Chethana, D.Q. Dai, et al.
+
+254       Fungal diversity notes 111-252-taxonomic and phylogenetic contributions to fungal taxa
+
+255       Fungal Diversity, 75 (2015) 27-274.
+
+256    [2] M.E. Di Menna, B.L. Smith, C.O. Miles
+
+257     A history of facial eczema (pithomycotoxicosis) research
+
+258     New Zealand Journal of Agricultural Research, 52 (2009) 345-376.
+
+259    [3] T.W. Jordan
+
+260      The cellular and molecular toxicity of sporidesmin
+
+261     New Zealand Veterinary Journal, (2020) 1-11.
+
+262    [4] T.R. Welch, R.M. Williams
+
+263       Epidithiodioxopiperazines. occurrence, synthesis and biogenesis
+
+264        Natural product reports, 31 (2014) 1376-1404.
+
+265    [5] M.L. Pollock, H. Wishart, J.P. Holland, F.E. Malone, A. Waterhouse
+
+266        Photosensitisation of livestock grazing Narthecium ossifragum: Current knowledge and future
+267        directions
+
+268      The Veterinary Journal, 206 (2015) 275-283.
+
+269    [6] X.-L. Yuan, M. Cao, G.-M. Shen, H.-B. Zhang, Y.-M. Du, Z.-F. Zhang, et al.
+
+270       Characterization of Nuclear and Mitochondrial Genomes of Two Tobacco Endophytic Fungi
+271       Leptosphaerulina chartarum and Curvularia  trifolii and Their Contributions to Phylogenetic
+272       Implications in the Pleosporales
+
+273        International Journal of Molecular Sciences, 21 (2020) 2461.
+
+274    [7] C. Eken, C.C. Jochum, G.Y. Yuen
+
+275        First Report of Leaf Spot of Smooth Bromegrass Caused by Pithomyces chartarum in Nebraska
+
+276        Plant Disease, 90 (2006) 108-108.
+
+277    [8] M.O. Ahonsi, B.O. Agindotan, D.W. Williams, R. Arundale, M.E. Gray, T.B. Voigt, C.A. Bradley
+
+278        First Report of Pithomyces chartarum Causing a Leaf Blight of Miscanthus × giganteus in
+279      Kentucky
+
+280        Plant Disease, 94 (2010) 480-480.
+
+281    [9] R.G. Collin, E. Odriozola, N.R. Towers
+
+282       Sporidesmin production by Pithomyces chartarum isolates from Australia, Brazil, New Zealand and
+283      Uruguay
+
+284       Mycological Research, 102 (1998) 163-166.
+
+285    [10] R.G. Keogh
+
+                                                                                           13
+
+
+[PDF physical page 14]
+               bioRxiv preprint doi: https://doi.org/10.1101/2021.04.29.441555; this version posted April 30, 2021. The copyright holder for this preprint
+               (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is
+                                     made available under aCC-BY-NC-ND 4.0 International license.
+286       Pithomyces chartarum spore distribution and sheep grazing patterns in relation to urine-patch and
+287        inter-excreta sites within ryegrass-dominant pastures
+
+288     New Zealand Journal of Agricultural Research, 16 (1973) 353-355.
+
+289    [11] M. Di Menna, J. Campbell, P.H. Mortimer
+
+290       Sporidesmin Production and Sporulation in Pithomyces chartarum
+
+291       Microbiology, 61 (1970) 87-96.
+
+292    [12] M. Oliver, J. Harding
+
+293        Effect of sporidesmin-induced liver damage in ewes before mating on growth of the foetus and
+294       placenta
+
+295      World Mycotoxin Journal, 2 (2009) 323-330.
+
+296    [13] E.G.R. Wallace
+
+297     A comparison of the control of Pithomyces chartarum with three fungicides applied at both the pre-
+298      and post-danger levels of spores in pasture
+
+299     New Zealand Journal of Experimental Agriculture, 4 (1976) 243-247.
+
+300    [14] E.L. Cuttance, M.A. Stevenson, R.A. Laven, W.A. Mason
+
+301        Facial eczema management protocols used on dairy farms in the North Island of New Zealand and
+302        associated concentrations of zinc in serum
+
+303     New Zealand Veterinary Journal, 64 (2016) 343-350.
+
+304    [15] C. Dawson, R.A. Laven
+
+305       Failure of zinc supplementation to prevent severe facial eczema in cattle fed excess copper
+
+306     New Zealand Veterinary Journal, 55 (2007) 353-355.
+
+307    [16] R. Munday
+
+308       Studies on the mechanism of toxicity of the mycotoxin, sporidesmin. I. Generation of superoxide
+309        radical by sporidesmin
+
+310       Chemico-Biological Interactions, 41 (1982) 361-374.
+
+311    [17] N.J. Patron, R.F. Waller, A.J. Cozijnsen, D.C. Straney, D.M. Gardiner, W.C. Nierman, B.J. Howlett
+
+312       Origin and  distribution  of  epipolythiodioxopiperazine (ETP) gene  clusters  in  filamentous
+313       ascomycetes
+
+314    BMC Evolutionary Biology, 7 (2007) 174.
+
+315    [18] D.M. Gardiner, A.J. Cozijnsen, L.M. Wilson, M.S.C. Pedras, B.J. Howlett
+
+316      The sirodesmin biosynthetic gene cluster of the plant pathogenic fungus Leptosphaeria maculans
+
+317       Molecular Microbiology, 53 (2004) 1307-1318.
+
+318    [19] D.M. Gardiner, B.J. Howlett
+
+319       Bioinformatic and expression analysis of the putative gliotoxin biosynthetic gene cluster of
+320       Aspergillus fumigatus
+                                                                                           14
+
+
+[PDF physical page 15]
+               bioRxiv preprint doi: https://doi.org/10.1101/2021.04.29.441555; this version posted April 30, 2021. The copyright holder for this preprint
+               (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is
+                                     made available under aCC-BY-NC-ND 4.0 International license.
+321     FEMS Microbiology Letters, 248 (2005) 241-248.
+
+322    [20] P. Chankhamjon, D. Boettger-Schmidt, K. Scherlach, B. Urbansky, G. Lackner, D. Kalb, et al.
+
+323       Biosynthesis of the Halogenated Mycotoxin Aspirochlorine in Koji Mold Involves a Cryptic Amino
+324       Acid Conversion
+
+325       Angewandte Chemie International Edition, 53 (2014) 13409-13413.
+
+326    [21] H.A. Ariyawansa, K. Tanaka, K.M. Thambugala, R. Phookamsak, Q. Tian, E. Camporesi, et al.
+
+327     A molecular phylogenetic reappraisal of the Didymosphaeriaceae (= Montagnulaceae)
+
+328       Fungal Diversity, 68 (2014) 69-104.
+
+329    [22] S. Haridas, R. Albert, M. Binder, J. Bloem, K. LaButti, A. Salamov, et al.
+
+330       101 Dothideomycetes genomes: A test case for predicting lifestyles and emergence of pathogens
+
+331        Studies in Mycology 96 (2020) 141-153.
+
+332    [23] A. Perelló, M. Aulicino, S.A. Stenglein, R. Labuda, M.V. Moreno
+
+333       Pseudopithomyces chartarum  associated with wheat seeds  in Argentina,  pathogenicity and
+334       evaluation of toxigenic ability
+
+335       European Journal of Plant Pathology, 148 (2017) 491-496.
+
+336    [24] J. Wearn
+
+337       Pithomyces chartarum: - a fungus on the up?
+
+338        Field Mycology, 10 (2009) 36-37.
+
+339    [25] C. Eken, C.C. Jochum, G.Y. Yuen
+
+340        First Report of Leaf Spot of Smooth Bromegrass Caused by Pithomyces chartarum in Nebraska
+
+341        Plant Disease, 90 (2006) 108-108.
+
+342    [26] K.C. da Cunha, D.A. Sutton, J. Gené, J. Cano, J. Capilla, H. Madrid, et al.
+
+343       Pithomyces species (Montagnulaceae) from  clinical specimens: identification and antifungal
+344        susceptibility profiles
+
+345       Medical Mycology, 52 (2014) 748-757.
+
+346    [27] T.K. Mohanta, H. Bae
+
+347      The diversity of fungal genome
+
+348        Biological Procedures Online, 17 (2015) 8.
+
+349    [28] D.H. Scharf, P. Chankhamjon, K. Scherlach, T. Heinekamp, K. Willing, A.A. Brakhage, C. Hertweck
+
+350       Epidithiodiketopiperazine  Biosynthesis: A  Four-Enzyme  Cascade  Converts  Glutathione
+351       Conjugates into Transannular Disulfide Bridges
+
+352       Angewandte Chemie International Edition, 52 (2013) 11092-11095.
+
+353    [29] D.H. Scharf, N. Remme, A. Habel, P. Chankhamjon, K. Scherlach, T. Heinekamp, et al.
+
+
+                                                                                           15
+
+
+[PDF physical page 16]
+               bioRxiv preprint doi: https://doi.org/10.1101/2021.04.29.441555; this version posted April 30, 2021. The copyright holder for this preprint
+               (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is
+                                     made available under aCC-BY-NC-ND 4.0 International license.
+354     A Dedicated Glutathione S-Transferase Mediates Carbon-Sulfur Bond Formation in Gliotoxin
+355       Biosynthesis
+
+356        Journal of the American Chemical Society, 133 (2011) 12322-12325.
+
+357    [30] D.H. Scharf, P. Chankhamjon, K. Scherlach, T. Heinekamp, M. Roth, A.A. Brakhage, C. Hertweck
+
+358        Epidithiol Formation by an Unprecedented Twin Carbon-Sulfur Lyase in the Gliotoxin Pathway
+
+359       Angewandte Chemie International Edition, 51 (2012) 10064-10068.
+
+360    [31] C. Davis, S. Carberry, M. Schrettl, I. Singh, John C. Stephens, Sarah M. Barry, et al.
+
+361      The Role of Glutathione S-Transferase GliG in Gliotoxin Biosynthesis in Aspergillus fumigatus
+
+362       Chemistry & Biology, 18 (2011) 542-552.
+
+363    [32] S.D. Card
+
+364        Biological control of Borytis cinerea in lettuce and strawberry crops
+
+365          in, Lincoln University, Canterbury, New Zealand, 2005, pp. 199.
+
+366    [33] R. Collin, E. Schneider, L. Briggs, N. Towers
+
+367      Development of immunodiagnostic field tests for the detection of the mycotoxin, sporidesmin a
+
+368      Food and Agricultural Immunology, 10 (1998) 91-104.
+
+369    [34] S. Koren, B.P. Walenz, K. Berlin, J.R. Miller, N.H. Bergman, A.M. Phillippy
+
+370      Canu: scalable and accurate long-read assembly via adaptive k-mer weighting and repeat
+371       separation
+
+372      Genome Research, 27 (2017) 722-736.
+
+373    [35] F.A. Simão, R.M. Waterhouse, P. Ioannidis, E.V. Kriventseva, E.M. Zdobnov
+
+374     BUSCO: assessing genome assembly and annotation completeness with single-copy orthologs
+
+375        Bioinformatics, 31 (2015) 3210-3212.
+
+376    [36] B. Buchfink, C. Xie, D.H. Huson
+
+377       Fast and sensitive protein alignment using DIAMOND
+
+378       Nature Methods, 12 (2015) 59-60.
+
+379    [37] H. Li
+
+380      Minimap2: pairwise alignment for nucleotide sequences
+
+381        Bioinformatics, 34 (2018) 3094-3100.
+
+382    [38] C. Holt, M. Yandell
+
+383     MAKER2: an annotation pipeline and genome-database management tool for second-generation
+384      genome projects
+
+385    BMC Bioinformatics, 12 (2011) 491.
+
+386    [39] I. Korf
+
+387      Gene finding in novel genomes
+                                                                                           16
+
+
+[PDF physical page 17]
+               bioRxiv preprint doi: https://doi.org/10.1101/2021.04.29.441555; this version posted April 30, 2021. The copyright holder for this preprint
+               (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is
+                                     made available under aCC-BY-NC-ND 4.0 International license.
+388    BMC Bioinformatics, 5 (2004) 59.
+
+389    [40] M. Stanke, R. Steinkamp, S. Waack, B. Morgenstern
+
+390     AUGUSTUS: a web server for gene finding in eukaryotes
+
+391       Nucleic Acids Research, 32 (2004) W309-W312.
+
+392    [41] C. Camacho, G. Coulouris, V. Avagyan, N. Ma, J. Papadopoulos, K. Bealer, T.L. Madden
+
+393     BLAST+: architecture and applications
+
+394    BMC bioinformatics, 10 (2009) 421-421.
+
+395    [42] S.A. Kautsar, K. Blin, S. Shaw, J.C. Navarro-Muñoz, B.R. Terlouw, J.J.J. van der Hooft, J.A. van Santen,
+396         et al.
+
+397     MIBiG 2.0: a repository for biosynthetic gene clusters of known function
+
+398       Nucleic Acids Research, 48 (2019) D454-D458.
+
+399    [43] A.L. Mitchell, T.K. Attwood, P.C. Babbitt, M. Blum, P. Bork, A. Bridge, et al.
+
+400       InterPro in 2019: improving coverage, classification and access to protein sequence annotations
+
+401       Nucleic Acids Research, 47 (2018) D351-D360.
+
+402    [44] S. El-Gebali, J. Mistry, A. Bateman, S.R. Eddy, A. Luciani, S.C. Potter, et al.
+
+403      The Pfam protein families database in 2019
+
+404       Nucleic Acids Research, 47 (2018) D427-D432.
+
+405    [45] S. Kumar, G. Stecher, M. Li, C. Knyaz, K. Tamura
+
+406      MEGA X: molecular evolutionary genetics analysis across computing platforms
+
+407          Molecular biology and evolution, 35 (2018) 1547-1549.
+
+408    [46] P.H. Sneath, R.R. Sokal
+
+409       Numerical taxonomy
+
+410        Nature, 193 (1962) 855-860.
+
+411    [47] J. Felsenstein
+
+412       Confidence limits on phylogenies: an approach using the bootstrap
+
+413        Evolution, (1985) 783-791.
+
+414    [48] K. Tamura, M. Nei, S. Kumar
+
+415       Prospects for inferring very large phylogenies by using the neighbor-joining method
+
+416       Proceedings of the National Academy of Sciences, 101 (2004) 11030-11035.
+
+417    [49] K. Katoh, D.M. Standley
+
+418     MAFFT multiple sequence alignment software version 7: improvements in performance and
+419        usability
+
+420       Molecular biology and evolution, 30 (2013) 772-780.
+
+                                                                                           17
+
+
+[PDF physical page 18]
+               bioRxiv preprint doi: https://doi.org/10.1101/2021.04.29.441555; this version posted April 30, 2021. The copyright holder for this preprint
+               (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is
+                                     made available under aCC-BY-NC-ND 4.0 International license.
+421   Table 1. Comparison statistics for the Pse. chartarum and L. chartarum genomes.
+
+
+        Feature                       Pse. chartarum     L. chartarum
+      Genome project information
+        Status                         High-quality draft  Draft
+         Isolation source              Ryegrass         Tobacco
+       BioSample ID              SUB6703657     N/A
+        BioProject ID               PRJNA596299     PRJNA400396
+       Assembly method         CANU           SPAdes
+      Genome coverage           140×           N/A
+       Sequencing technology        PacBio             Illumina
+        Scaffold statistics
+       Assembled genome size (Mb)  39.1              37.9
+        Scaffold count              22               18,713
+        Longest scaffold (Mb)          3.6                1.4
+        Scaffold N50 (Mb)             2.3                0.3
+      Number of N50 contigs       7               35
+        Scaffold N90 (bp)              1.5                0.1
+      Number of N90 contigs       16              333
+       Assembly base composition
+      DNA G+C content (%)         50.2              59.4
+      DNA A+T content (%)          49.9              40.6
+      DNA N (%)                   0.00              0.01
+      Gene model and genome assembly completeness
+        Protein coding genes         11,711           15,091
+       BUSCO: C:P:M (%)*            99:0.0:1.0          98.9:0.3:0.8
+       Reference                     This report          [6]
+422   *C, P, and M refer to fully represented, partially represented, and missing BUSCO genes [35]. N/A, used
+423   where data is not available.
+
+
+
+
+
+                                                                                           18
+
+
+[PDF physical page 19]
+424
+
+425    Fig. 1. (a) Schematic diagrams of sporidesmin A and other ETP toxins, and (b) Pse. chartarum spore development.
+
+
+
+
+                                                                                                                                    19
+
+
+[PDF physical page 20]
+426
+
+427    Fig. 2. Cluster size and gene order of the putative sporidesmin (spd), aspirochlorine (acl), sirodesmin (sir) and gliotoxin (gli) BGCs.
+
+                                                                                                                                    20
+
+
+[PDF physical page 21]
+               bioRxiv preprint doi: https://doi.org/10.1101/2021.04.29.441555; this version posted April 30, 2021. The copyright holder for this preprint
+               (which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is
+                                     made available under aCC-BY-NC-ND 4.0 International license.
+
+
+
+
+
+428
+429    Fig. S1. Phylogram of the nucleic acid alignment of the ribosomal LSUs from species of the Pleosporales.
+                                                                                           21

@@ -1,0 +1,401 @@
+
+[PDF physical page 1]
+Bioinformatics, 2023, 39, i40–i46
+https://doi.org/10.1093/bioinformatics/btad235
+ISMB/ECCB 2023
+
+
+
+AdenPredictor: accurate prediction of the adenylation
+domain specificity of nonribosomal peptide biosynthetic
+gene clusters in microbial genomes
+Mihir Mongia1,‡, Romel Baral1,‡, Abhinav Adduri1, Donghui Yan1, Yudong Liu1, Yuying Bian1,
+Paul Kim1,2,3, Bahar Behsaz1, Hosein Mohimani1,*1Computational Biology, School of Computer Science, Carnegie Mellon, Pittsburgh, PA 15213, United States                                                                                                                                                                                               Downloaded
+2Institute for Protein Design, University of Washington, Seattle, WA 8195, United States
+3Molecular Engineering Ph.D. Program, University of Washington, Seattle, WA 98195, United States                                                                                           from
+*Corresponding author. Computational Biology, School of Computer Science, Carnegie Mellon, 5000 Forbes Ave., Pittsburgh, PA 15213, United States.
+E-mail: hoseinm@andrew.cmu.edu
+‡¼ equal contribution.
+
+Abstract
+Summary
+Microbial natural products represent a major source of bioactive compounds for drug discovery. Among these molecules, nonribosomal peptides
+(NRPs) represent a diverse class that include antibiotics, immunosuppressants, anticancer agents, toxins, siderophores, pigments, and cyto-
+statics. The discovery of novel NRPs remains a laborious process because many NRPs consist of nonstandard amino acids that are assembled
+by nonribosomal peptide synthetases (NRPSs). Adenylation domains (A-domains) in NRPSs are responsible for selection and activation of mono-
+mers appearing in NRPs. During the past decade, several support vector machine-based algorithms have been developed for predicting the spe-
+ciﬁcity of the monomers present in NRPs. These algorithms utilize physiochemical features of the amino acids present in the A-domains of
+NRPSs. In this article, we benchmarked the performance of various machine learning algorithms and features for predicting speciﬁcities of
+NRPSs and we showed that the extra trees model paired with one-hot encoding features outperforms the existing approaches. Moreover, we
+show that unsupervised clustering of 453 560 A-domains reveals many clusters that correspond to potentially novel amino acids. While it is chal-
+lenging to predict the chemical structure of these amino acids, we developed novel techniques to predict their various properties, including polar-
+ity, hydrophobicity, charge, and presence of aromatic rings, carboxyl, and hydroxyl groups.
+
+
+1 Introduction                                       methods by using an expanded set of physiochemical features
+                                                     and semi-supervised clustering. In SANDPUMA, Chevrette
+Nonribosomal peptides (NRPs) are a class of natural products
+                                                                           et al. (2017) improved the prediction accuracy by introducing
+with diverse applications in medicine and agriculture (Miller
+                                                      an ensemble-based algorithm.  In  this  article, we present
+and Gulick 2016). NRPs are synthesized by nonribosomal
+                                                             AdenPedictor, a machine learning toolkit that provides sub-
+peptide synthetase (NRPS), which are modular assembly lines
+                                                                        strate binding predictions and unsupervised clustering for A-
+at minimum  consisting  of an  adenylation domains  (A-
+                                                          domains. By utilizing the extra trees machine learning model
+domains), peptidyl carrier domains (PCP-domains), and con-
+                                                              (Geurts et al. 2006), AdenPredictor improves prediction accu-densation domains (C-domains) (Martınez-Nu´~nez and Lo´pez                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  https://academic.oup.com/bioinformatics/article/39/Supplement_1/i40/7210450                                                              racy over the state of the art by 8% points. Moreover, by ap-
+2016). Usually, each NRPS module is responsible for the re-                                                                         by                                                                plying unsupervised learning methods on a collection A-
+cruitment of a single amino acid into the backbone of an                                                          domains, AdenPredictor identifies A-domains corresponding                                                                                                                                                                                                                                                                                                                                                guestNRP, which is specified by the A-domain. The first 3D struc-                                                                 to previously unreported amino acids.                                                                                                                                      onture of an A-domain, responsible for incorporating phenylala-                                                                   In the context of substrate binding predictions, our results                                                                                                                                      31nine in Gramacidine S, became available in 1997 (Conti et al.                                                  show that while the existing methods are accurate in case of
+1997). Based on this structure, Stachelhaus et al. (1999) con-    A-domains that are very similar to domains with known sub-structed an NRP code (in contrast to genetic code) for predict-     strates (present in the original training data), their accuracy                            October
+ing incorporated monomers based on  eight amino  acids    drops significantly in case of novel A-domains (domains that
+present in the binding pockets of A-domains. Later, Rausch    are distinct from any domain in the training data). In fact, this                2025
+et al. (2005) expanded the binding pocket to 34 amino acids,      is a common shortcoming of machine learning methods with
+called A-domain signatures and extracted physiochemical     string or graph inputs (Wu et al. 2018). To alleviate this prob-
+properties of the amino acids as features. They then applied a    lem, we applied various machine learning techniques (e.g. lo-
+new algorithm using support vector machines to predict the     gistic regression, decision trees, random forests, probabilistic
+incorporated monomers of A-domains based on their amino     learning and graph neural networks) across different features.
+acid sequences. Li et al. (2009) designed a webserver for pre-    These features include amino acids in the binding pocket,
+diction of the structure of NRPs and polyketides from micro-     their physiochemical properties, and their 3D properties pre-
+bial genome sequences. Ro¨ttig et al. (2011) improved these     dicted by RaptorX (Ka¨llberg et  al. 2012) and Alphafold2
+
+
+VC The Author(s) 2023. Published by Oxford University Press.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution License (https://creativecommons.org/licenses/by/4.0/), which
+permits unrestricted reuse, distribution, and reproduction in any medium, provided the original work is properly cited.
+
+
+[PDF physical page 2]
+AdenPredictor                                                                                                                       i41
+
+
+(Jumper et al. 2021). Our results show that tree-based ma-    Supplementary Table S1 for further details). OHE features
+chine learning models outperform the existing approaches    are binary vectors of length 20 where a single entry is zero or
+(Ro¨ttig et al. 2011, Chevrette et al. 2017) in overall accuracy    one. Each amino acid maps to a unique binary  vector.
+by 8%. In case of A-domains that are significantly different    RaptorX and Alphafold2 are deep learning systems that given
+from training data, tree-based methods improve state of the    a protein/A-domain sequence, will predict properties of each
+art methods by  30%. Our results show that in contrast to    amino acid in the sequence. RaptorX and Alphafold2 struc-
+the previous reports, using physiochemical features does not     tural features are locations of each amino acid in 3D space
+improve the performance of machine learning algorithms in    and RaptorX property features include 15 structural and
+comparison to more basic amino acid features.                  chemical  properties  of amino  acids,  including secondary
+ We further conducted an exhaustive analysis of publicly                                                                   structure type, disordered state, and solvent accessibility pre-
+available A-domains. We extracted 453 560 A-domains from                                                                  dicted by a DeepCNF neural network (Wang et al. 2016b).
+689 227 microbial genomes available at National Center for                                                             Unsupervised clustering is conducted using RaptorX prop-
+Biotechnology Information GenBank repository and clustered                                                                     erty features and supervised learning is conducted with all
+them using unsupervised learning techniques. Information vi-                                                           encoding schemes mentioned above.sualization of the  results shows that many classes of A-                                                                                                                                                                                                                                                                                                                                                                        Downloaded
+domains have unknown substrate specificity: 19 out of the 50                                                         2.3 Machine learning classifiers                                                              from
+largest clusters do not contain any known A-domains. We hy-
+                                       We applied several machine learning classifiers including lo-pothesize that these domains are likely to represent novel
+                                                                              gistic regression, support vector machine (SVM), k-nearestamino acids with novel chemistry and bioactivities, making
+                                                               neighbor, multilayer perceptron, random forest, decision tree,them potential leads for drug discovery.
+                                                                 Bernoulli Naive Bayes, Gaussian Naive Bayes, extremely ran-
+                                                       domized trees, and graph neural networks (You et al. 2020)
+2 Data and methods                                and compared the accuracy of these models to the accuracy of
+2.1 Datasets                                            NRPSPredictor2 (Ro¨ttig et al. 2011), the most widely used
+Supervised learning methods are trained on a dataset consist-    and cited tool for A-domain substrate prediction. In order to
+ing of 658 sequences of 34 amino acids and corresponding     get consistent estimates of the test set accuracy, we shuffled
+substrate labels. This dataset is generated by first taking 1546    the data and applied the machine learning classifiers 20 times.
+labeled A-domains reported by Chevrette et al. (2017) and    In each shuffle, the data are split randomly into training and
+then aligning them to NRPS A-domain AMP-binding (PFAM     test sets in 80:20 ratio. We averaged the test accuracy over 20
+ID PF00501.21) with HMMER3 (Eddy et al. 2009) (a profile     shuffles. Details of machine learning model parameters are de-
+hidden Markov model). The average length of A-domains is     scribed in the Supplementary Section S1.
+401 amino acids. Then as prescribed by Rausch et al. (2005),
+for each A-domain 34 residues thought to be part of the A-do-    2.4 Machine learning metrics and generalization
+main binding pocket are selected (see Supplementary Section                                                                 In many learning tasks, it is common to see that the prediction
+S5 for further details) and then concatenated together to                                                            accuracy drops for test data that are more distinct from train-
+make the A-domain’s signature. The resulting 1546 signatures
+                                                                ing data (Wu et al. 2018). To evaluate the generalizability of
+are not all distinct, and thus are deduplicated to 658 data-
+                                                        machine learning classifiers, we split the test data points into
+points. Supplementary Fig. S3 shows the frequency of various
+                                                                 buckets. For every given positive number k, we define Bk tosignatures. Supplementary Section S6 details number of data-
+                                                         be the bucket containing  test data points with minimum
+points belonging to each label.
+                                              Hamming distance k from any training data point. Thus,
+  Unsupervised  clustering  is  conducted on 453 560  A-                                                             buckets with higher k represent the test sets containing data                                                                                                                                                                                                                                                              https://academic.oup.com/bioinformatics/article/39/Supplement_1/i40/7210450domains extracted by running antiSMASH (Blin et al. 2019)
+                                                                 points that are more distinct from the training set. Moreover,       byon 689 227 microbial genomes from the National Center for
+                                                                               as the                                                                                   portion                                                                                               of                                                                                                  the                                                                                                                         test data                                                                                                                    for                                                                                                 which                                                                                                                          the                                                      Bkþ is definedBiotechnology Information GenBank repository. As in the
+                                                minimum                                                     Hamming                                                                                       distance                                                                                              to                                                                                  any                                                                                                          training                                                                                                      data                                                                                                                point                                                                                                                                                                 is                                                                                                                                   at                 guestcase of A-domains used for supervised learning, each domain
+is mapped to a length-34 signature.                                   least  k. Various methods  are benchmarked on  different       on
+                                                                 buckets.                                                           31
+2.2 Encoding schemes
+A-domain signatures are mapped to various feature vectors as    2.5 Removing bias with weight balancing                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  October
+preprocessing step before supervised and unsupervised learn-    In order to remove bias induced by the imbalanced dataset,
+ing. Amino acids in the signatures are mapped to either physi-   we apply weight balancing. For each machine learning model,              2025
+ochemical features (Rausch et al. 2005, Ro¨ttig et al. 2011),    the loss function has the form
+one-hot  encoding  (OHE)  features,  RaptorX  structural
+(Ka¨llberg et al. 2012), RaptorX property features (Wang et al.         XT2016a), or Alphafold2  structural  features (Jumper  et  al.                    min    LðfðxtÞ; ytÞ;                   (1)
+2021). The final feature vector of a A-domain is a concatena-                                 t¼1
+tion of the mappings of each amino acid present in the
+signature.                                               where t is the index of each training point, yt represents the
+  Physiochemical features (used in NPRSPredictor2) consist     true label of each training point, xt represents the features of
+of 12 AA index (Kawashima et al. 2007) descriptors and 3 z-    each training point,  f  is the classification function, and L
+scale descriptors (Wold et al. 1987) that represent hydropho-     refers to a loss function that is low when fðxtÞ is similar to yt
+bicity, size, and electronic properties. The 12 AA index fea-    and high otherwise. In weight balancing, the loss function is
+tures are chosen as prescribed by Rausch et al. (2005) (see    modified to be
+
+
+[PDF physical page 3]
+i42                                                                                              Mongia et al.
+
+       XT  LðfðxtÞ; ytÞ                               test data points with minimum Hamming distance k from any
+                min                         ;                   (2)
+                                     bt                                training data point. Moreover, Bkþ is defined as the portion
+                            t¼1                                     of the test data for which the minimum Hamming distance to
+                                                       any training data point is at least k. Buckets with higher k rep-where bt is the number of training points with label yt. This
+                                                                   resent test sets containing data points that are more distinctway we can avoid bias toward frequent residues. Each label
+                                                      from the training set. Various methods are benchmarked oncontributes the same amount to the loss function that we aim
+                                                                       different buckets (Fig. 1a).to minimize.
+                                                  Our results show that the extra tree method achieves 69%
+2.6 Unsupervised clustering and visualization of          overall accuracy, in comparison to 61% overall accuracy for
+unlabeled data                                        NRPSpredictor2—the state of the art model for A-domain
+                                                                  substrate prediction. In case of B21þ bucket (novel A-domainsUnlabeled A-domains are mapped to feature vectors consist-
+                                                           with less similarity to known A-domains), extra tree achievesing of RaptorX property features of amino acids present in
+each A-domain’s signature (see Sections 2.1 and 2.2 entitled   15% accuracy in comparison to 0% for NRPSpredictor2Datasets and Encoding Schemes  respectively  for  further     (Ro¨ttig et al. 2011). Supplementary Fig. S1 shows the com-                                         Downloaded
+details). The resulting feature vectors are clustered using K-    parison of various methods based on physiochemical and
+means clustering where the parameter K ¼ 200 [decided via    RaptorX features. Supplementary Table S2 shows the fraction                from
+the elbow method (Bholowalia and Kumar 2014)] and dis-    of test data belonging to different buckets.
+tance metric is euclidean. Clusters are visualized using t-dis-
+tributed  stochastic neighbor embedding (t-SNE) (van der
+Maaten and Hinton 2008).
+                                                         3.2 Benchmarking different encoding schemes
+2.7 Property prediction of novel amino acids             Figure 1 shows a comparison of accuracy of extra tree method
+Classification algorithms that represent the substrate predic-    using OHE, physiochemical (used for NRPSPredictor2), and
+tion as a output vector with each position in the vector corre-    RaptorX features. Our results show that, in contrast to previ-
+sponding to the probability that a given amino acid is the    ous reports (Ro¨ttig et al. 2011), physiochemical features alone
+substrate for the A-domain, will be unable to make predic-    do not provide advantages in accuracy. Extra tree models
+tions for novel substrates. In order to account for these novel    with OHE features are competitive or better than extra tree
+substrates, we have also explored various learning techniques    models with physiochemical features. Supplementary Fig. S2
+to predict chemical properties of the final amino acid mono-    shows a comparison of various encoding techniques with ex-
+mer, including polarity, hydrophobicity, charge, and the pres-     tra tree classifier.
+ence of aromatic ring, carboxyl, or hydroxyl groups. Such
+methods would allow for researchers to narrow down the
+identity of the amino acid.
+                                                         3.3 Removing bias
+                                                                Currently, a significant portion (10.9%) of training data is
+3 Results                                            from phenylalanine residues. This results in a bias toward pre-
+3.1 Benchmarking accuracy and generalization            dicting phenylalanine (Fig. 2 and supplementary Fig. S5a, c, e,
+ability of different learning techniques                 and g). To alleviate this issue, we applied weight balancing.
+Figure 1 shows a comparison of accuracy of various machine    Weight balancing improves the accuracy of prediction for
+learning models using OHE features. In order to evaluate the    some classifiers. Table 1 shows the change in test accuracy us-generalization ability of these models, we additionally show    ing physiochemical encoding style or OHE style when weight                                                                                                                                                                                                                                                                                                                https://academic.oup.com/bioinformatics/article/39/Supplement_1/i40/7210450
+each model’s accuracy for various test datasets differing in the    balancing  is  applied  to  four  classifiers.  Figure 2  and        by
+                                                                                        Fig.                                                                               S5b, d,degree       of           dissimilarity                    with                           the                                training                                        data.                                        For every                                                     given    Supplementary
+                                                                                                 h, and f show confusion matrix af-                    guest                                 to be the                                       bucket                                                containingpositive       number                  k, we                       define                                                                          ter application of                                                                           weight                                                                                        balancing.                         Bk
+                                                                                                                                      on
+       (a)                                                                  (b)                                                                   31
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      October
+                                                                                                                                                                                                                                                                             2025
+
+
+
+
+
+Figure 1. (a) The accuracy of logistic regression, Random forest, Extra tree, NRPSpredictor2 (Ro¨ttig et al. 2011), and graph neural network (You et al.
+2020) classiﬁers using one-hot encoding scheme. Extra tree is 8% more accurate than NRPSPredictor2 on the whole test dataset. (b) The accuracy of
+extra tree classiﬁer using different encoding schemes.
+
+
+[PDF physical page 4]
+AdenPredictor                                                                                                                       i43
+
+
+        (a)                                                                  (b)
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         Downloaded
+                                                                                                                                                                                                                                                                          from
+Figure 2. Confusion matrix obtained by using logistic regression paired with one-hot encoding features (a) before and (b) after applying weight balancing.
+
+
+Table 1. Accuracy of different classiﬁers using physiochemical (Ro¨ttig        presence of carboxyl and hydroxyl groups, and the number of
+et al. 2011) and one-hot encoding (OHE) before and after applying weight     atoms in the side chain. Our results show that the extra tree
+balancing.                                              method  achieves  high  accuracy  in  all  these  predictions.
+Classifier           Before weight balancing   After weight balancing     Currently, NRPSpredictor2 can only predict hydrophobicity.
+                                                           Table 3 compares the F1 scores of hydrophobicity classifica-
+                   Physiochemical  OHE   Physiochemical OHE     tion for three different types of substrates: hydrophobic, hy-
+                                                                  drophilic aliphatic, and hydrophilic aromatic amino acids.
+Logistic regression      0.588       0.692      0.594      0.685
+Random forest         0.612       0.527      0.667      0.634   We observed that almost all classifiers produced similarly ac-
+Decision tree           0.615       0.614      0.608      0.603     curate   results   for   hydrophilic   substrates,   whereas
+Extra treea             0.688       0.693      0.691      0.699    NRPSPredictor2 is around 6% and 18% less accurate in case
+SVM                 0.609       0.637      0.611      0.637     of   hydrophobic   aliphatic  and   aromatic   substrates,
+                                                                       respectively.  aMethod with the highest accuracy (Extra tree) is shown in bold.
+
+3.4 Unsupervised clustering of A-domains from       4 Discussion
+microbial genomes                                          Currently, hundreds of thousands of NRP Biosynethetic Gene
+A total of 453 560 A-domains were identified by mining     Clusters (BGCs) have been identified from microbial genomes.
+                                                      However, the molecular structure of the NRPs encoded by the689 227  microbial genomes from NCBI GenBank  using
+                                                               majority of these BGCs have not yet been determined. DuringantiSMASH (Blin et al. 2019). After mapping the length-34
+                                                                 the past two decades, various machine learning approachesamino acid signature of these A-domains to RaptorX features,
+                                                         have been developed to predict the amino acids present in theK-means clustering was conducted using euclidean distance
+                                                            molecular products of these BGCs based on the amino acid se-
+and K ¼ 200 [decided via the elbow method (Bholowalia and
+                                                         quence of their A-domains. These methods use physiochemi-Kumar 2014)]. Figure 3a shows a 2D embedding of all the A-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                https://academic.oup.com/bioinformatics/article/39/Supplement_1/i40/7210450
+                                                                      cal properties of the amino acids in the binding pockets of A-
+domains using the t-SNE method. All A-domains belonging to                                                                        by
+                                                       domains to predict substrate specificity. However, it remains
+the same cluster are given the same color. Figure 3b shows the
+                                                               unclear whether these features improve the accuracy of classi-labeled and unlabeled A-domains. Supplementary Fig. S4a                                                                                                                                                                                    guest
+                                                                         fication. In this study, we show that these features alone do
+shows that A-domains are not separable based on cultivabil-                                                                        on
+                                                            not provide any advantages in specificity prediction accuracy
+ity, and Supplementary Fig. S4b shows that A-domains are                                                                        31                                                     and simpler features that encode the identity of amino acids
+not separable based on their phylum.                                                                    resulted in similar or better performance. Furthermore, for
+  Among the largest 50 clusters, 19 clusters do not contain                                                         both amino acid physicochemical and amino acid identity fea-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  OctoberA-domains with known labels. Several of these clusters are                                                                        tures, NRPSPredictor2  is not the most performant model.
+readily observable in Fig. 3. Clusters in the upper middle of                                                             This is because on the task of substrate specificity prediction,              2025
+Fig. 3a do not have labeled A-domains in Fig. 3b. These clus-    the extra trees and logistic regression model perform better
+ters with unlabeled A-domains likely represent novel amino    than SVMs, the machine learning model that NRPSPredictor2
+acids.                                                                               is based on.
+                                         We further observe that the accuracy of existing methods
+3.5 Predicting substrate properties                                                       dropped for test A-domains that are further away (in terms of
+In case of novel substrate specificities (e.g. novel amino acids),   Hamming distance) from the training A-domains. The current
+classification techniques are unable to provide information    evaluation metrics that measure the overall accuracy based on
+about the specificity. In these cases, instead of the identity of    the training A-domains are unable to capture such deficien-
+the suspects, their properties can be predicted. Table 2 shows     cies. Therefore, we presented a new evaluation metric to mea-
+the accuracy of various machine learning techniques in pre-    sure robustness of various machine learning techniques for
+dicting different physiochemical properties of the substrate,    the test data that is dissimilar to the training data. We showed
+including  hydrophobicity,  polarity,  charge,  aromaticity,   random forest and extra trees have the highest robustness in
+
+
+[PDF physical page 5]
+i44                                                                                              Mongia et al.
+
+
+      (a)
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               Downloaded
+                                                                                                                                                                                                                                                                             from
+
+
+
+
+       (b)
+
+
+
+
+
+Figure 3. (a) t-SNE visualization of 50 largest clusters constructed by applying k-means on RaptorX encoding of A-domains. All A-domains belonging to a
+speciﬁc cluster are given the same color. (b) t-SNE visualization of all labeled (in color) and unlabeled (gray) A-domains. Labeled A-domains are color-coded
+by substrates. Several colored regions in (a) are completely grey in (b). Thus the clusters represented by these colored regions do not have any A-domainsfor which substrate speciﬁcity is known and likely represent novel amino acids.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               https://academic.oup.com/bioinformatics/article/39/Supplement_1/i40/7210450
+                                                                                                                                      by
+Table 2. Accuracy of different classiﬁers in predicting categorical amino acid attributes using one-hot encoding features.a                                                                                        guest
+Accuracy                                  Polarity        Charge         Aromaticity        Carboxyl        Hydroxyl         Side chain                                                                                                                                      on
+Logistic regression                       0.86           0.88             0.85              0.92             0.92             0.84          31
+k-Nearest neighbor                       0.87           0.89             0.84              0.92             0.90             0.84
+Multilayer perceptron                    0.84           0.88             0.85              0.93             0.93             0.83Ridge cross-validation                    0.86           0.87             0.87              0.93             0.93             0.85                                     October
+Ridge                                   0.85           0.87             0.84              0.91              0.9              0.82
+Extra tree                               0.86           0.89             0.84              0.93             0.93             0.85                     2025
+
+  a The attributes from left to right are substrate polarity, substrate charge, substrate aromaticity, whether substrate contains a carboxyl group, whether
+substrate contains a hydroxyl group, and whether the substrate side chain contains more than four atoms.
+
+
+
+comparison to the other methods, and further this robustness    accuracy of adenylation domain specificity prediction, we can
+can be enhanced for test data points far away from the train-    determine which  specific monomer each domain  recruits.
+ing data by integrating physiochemical and Alphafold2 fea-    This enables us to generate hypothetical backbones and deter-
+tures with amino acid identity features. NRPs are complex    mine the final molecular structure more precisely. We believe
+molecules synthesized by multiple enzymes in NRPSs. The in-     that our work will serve as a valuable tool for researchers to
+tricate assembly process of NRPS makes it challenging to pre-    gain a better understanding of the NRP synthesis mechanism,
+dict the final peptide product. However, by enhancing the    leading to the discovery of novel NRP molecules.
+
+
+[PDF physical page 6]
+AdenPredictor                                                                                                                       i45
+
+
+Table 3. F1 scores of different classiﬁers in predicting hydrophobic characteristics.a
+
+Accuracy                                Hydrophilic                   Hydrophobic aliphatic                   Hydrophobic aromatic
+
+Logistic regression                           0.68                               0.86                                    0.78
+k-Nearest neighbor                          0.72                               0.85                                    0.78
+Multilayer perceptron                        0.67                               0.84                                    0.78
+Ridge cross-validation                       0.71                               0.87                                    0.79
+Ridge                                      0.69                               0.85                                    0.77
+Extra tree                                  0.70                               0.87                                    0.79
+NRPSPredictor2                             0.69                                 0.8                                     0.60
+
+   a  Classiﬁers are using one-hot encoding features.
+
+
+  The unsupervised learning framework in the AdenPredictor   Referencestoolkit identifies 19 clusters of A-domains that could poten-                                                                                                                                                                                                                                                                                                                                                                        Downloaded                                                                   Behsaz B, Bode E, Gurevich A et al. Integrating genomics and metabolo-
+tially correspond to amino acids not previously implicated in
+                                                                        mics for scalable non-ribosomal peptide discovery. Nat CommunNRPS assembly. These A-domains belong to cultivable bacte-                                                                                                                                                from                                                                      2021;12:3225.
+ria, making them a gold mine for future discovery of NRPs     Bholowalia P, Kumar A. EBK-Means: a clustering technique based
+with novel modes of action. The potential to discover novel       on elbow method and k-means in WSN. Int J Comput Appl 2014;
+mechanisms of action makes metabolites produced by these        105:17–24.
+bacteria promising antibiotic candidates. AdenPredictor fur-     Blin K, Shaw S, Steinke K et al. antiSMASH 5.0: updates to the second-
+ther predicts various properties of their substrates including        ary metabolite genome mining pipeline. Nucleic Acids Res 2019;47:
+hydrophobicity, polarity, charge, aromaticity, presence of car-       W81–7.
+                                                                        Chevrette MG, Aicheler F, Kohlbacher O et al. SANDPUMA: ensemble
+boxyl and hydroxyl groups, and the number of atoms in the
+                                                                                predictions of nonribosomal peptide chemistry reveal biosynthetic
+side chain.
+                                                                                     diversity across Actinobacteria. Bioinformatics 2017;33:3202–10.
+  AdenPredictor’s extra trees machine learning model signifi-                                                                    Conti E, Stachelhaus T, Marahiel MA et al. Structural basis for the acti-
+cantly improves the prediction accuracy of the specificity of        vation of phenylalanine in the non-ribosomal biosynthesis of grami-
+adenylation domains in NRPs. Integration of AdenPredictor         cidin S. EMBO J 1997;16:4174–83.
+with mass spectrometry search techniques,  e.g. NRPquest    Eddy S.R. A new generation of homology search tools based on proba-
+(Mohimani et al. 2014) and NRPminer (Behsaz et al. 2021)           bilistic   inference.   In:  Genome  Informatics  2009:  Genome
+can accelerate the automated discovery of novel NRPs.                Informatics Series 2009;23:205–211.
+                                                                     Geurts P, Ernst D, Wehenkel L. Extremely randomized trees. Mach
+                                                                   Learn 2006;63:3–42.
+Acknowledgments                                       Jumper J, Evans R, Pritzel A et al. Highly accurate protein structure pre-
+                                                                                 diction with alphafold. Nature 2021;596:583–9.
+The authors thank the anonymous reviewers for their valu-
+                                                                                 Ka¨llberg M, Wang H, Wang  S  et  al.  Template-based  protein
+able suggestions.                                                              structure modeling using the raptorx web server. Nat Protoc 2012;7:
+                                                                   1511–22.
+                                                           Kawashima S, Pokarowski P, Pokarowska M et al. Aaindex: amino acid
+Supplementary data
+                                                                        index database, progress report 2008. Nucleic Acids Res 2007;36:
+Supplementary data are available at Bioinformatics online.          D202–5.
+                                                                           Li MHT, Ung PMU, Zajkowski J et al. Automated genome mining for                                                                              natural products. BMC Bioinformatics 2009;10:185.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            https://academic.oup.com/bioinformatics/article/39/Supplement_1/i40/7210450
+Conflict of Interest                                     Martınez-Nu´~nez MA, Lo´pez V. Nonribosomal peptides synthetases and       by
+B.B. and H.M. are co-founders and have equity interests from          their applications in industry. Sustain Chem Process 2016;4:13–20.                                                                        doi:10.1186/s40508-016-0057-6.                                                                                          guestChemia.ai, LLC. The remaining authors declare no competing
+                                                                           Miller BR, Gulick AM. Structural biology of non-ribosomal peptide syn-       oninterests.
+                                                                                     thetases. Methods Mol Biol 2016;1401:3–29.                                                                                                                                     31
+                                                          Mohimani H, Liu W-T, Kersten RD et al. NRPquest: coupling mass
+Funding                                                               spectrometry and genome mining for nonribosomal peptide discov-
+                                                                                      ery. J Nat Prod 2014;77:1902–9.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  October
+This work was supported  in  part by awards from  the    Rausch C, Weber T, Kohlbacher O et al. Speciﬁcity prediction of adeny-
+National  Science  Foundation  [DBI  2117640]  and  U.S.         lation domains in nonribosomal peptide synthetases (NRPs) using                                                                                                                                                                                                                                                                          2025
+Department of Energy [DE SC0021340].                                 transductive support vector machines (TSVMs). Nucleic Acids Res
+                                                                     2005;33:5799–808.
+                                                                                     Ro¨ttig M, Medema MH, Blin K et al. A web server for predicting NRPS
+Data availability                                                    adenylation domain speciﬁcity. Nucleic Acids Res 2011;39:W362–7.
+                                                                        Stachelhaus T, Mootz H, Marahiel M. The speciﬁcity-conferring code of
+The results present in this study are available from https://
+                                                                           adenylation domains in nonribosomal peptide synthetases. Chem
+github.com/mmongiacmu/AdenPredictor. Data for supervised
+                                                                              Biol 1999;6:493–505.
+learning and unsupervised is available at https://github.com/                                                               van der Maaten L, Hinton G. Visualizing data using t-SNE. J Mach
+mmongiacmu/AdenPredictor/tree/ma-in/supervised_preprocess       Learn Res 2008;9:2579–605.
+ing and https://github.com/mmongiacmu/AdenPredictor/tree/    Wang S, Li W, Liu S et al. Raptorx-property: a web server for protein
+main/unsupervised_preprocessing, respectively.                           structure property prediction. Nucleic Acids Res 2016a;44:W430–5.
+
+
+[PDF physical page 7]
+i46                                                                                              Mongia et al.
+
+
+Wang S, Peng J, Ma J et al. Protein secondary structure prediction using   Wu Z, Ramsundar B, Feinberg EN, Gomes J, Geniesse C, Pappu AS,
+   deep convolutional neural ﬁelds. Sci Rep 2016b;6:1–11.                  Leswing K, Pande V. MoleculeNet: a benchmark for molecular ma-
+Wold S, Eriksson L, Hellberg S et al. Principal property values for six        chine learning. Chem Sci 2018:513–30.
+   non-natural amino acids and their application to a structure–activity rela-    You J, Ying Z, Leskovec J. Design space for graph neural networks. Adv
+    tionship for oxytocin peptide analogues. Can J Chem 1987;65:1814–20.       Neur Inf Process Sys 2020;33:17009–21.
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               Downloaded
+                                                                                                                                                                                                                                                                             from
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           https://academic.oup.com/bioinformatics/article/39/Supplement_1/i40/7210450
+                                                                                                                                      by
+                                                                                                                                                                                                                                                                                                                                                guest
+                                                                                                                                      on
+                                                                                                                                      31
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      October
+                                                                                                                                                                                                                                                                             2025

@@ -1,0 +1,722 @@
+
+[PDF physical page 1]
+Applied Microbiology and Biotechnology    (2024) 108:427
+https://doi.org/10.1007/s00253-024-13259-3
+
+ APPLIED GENETICS AND MOLECULAR BIOTECHNOLOGY
+
+
+Construction of an expression platform for fungal secondary
+metabolite biosynthesis in Penicillium crustosum
+
+Jenny Zhou1 · Xiaoling Chen1 · Shu‑Ming Li1 
+
+
+Received: 17 May 2024 / Revised: 8 July 2024 / Accepted: 16 July 2024
+© The Author(s) 2024
+
+Abstract 
+Filamentous fungi are prolific producers of bioactive natural products and play a vital role in drug discovery. Yet, their
+potential cannot be fully exploited since many biosynthetic genes are silent or cryptic under laboratory culture conditions.
+Several strategies have been applied to activate these genes, with heterologous expression as one of the most promising
+approaches. However, successful expression and identification of new products are often hindered by host-dependent factors,
+such as low gene targeting efficiencies, a high metabolite background, or a lack of selection markers. To overcome these
+challenges, we have constructed a Penicillium crustosum expression host in a pyrG deficient strain by combining the split-
+marker strategy and CRISPR-Cas9 technology. Deletion of ligD and pcribo improved gene targeting efficiencies and enabled
+the use of an additional selection marker in P. crustosum. Furthermore, we reduced the secondary metabolite background
+by inactivation of two highly expressed gene clusters and abolished the formation of the reactive ortho-quinone methide.
+Finally, we replaced the P. crustosum pigment gene pcr4401 with the commonly used Aspergillus nidulans wA expression
+site for convenient use of constructs originally designed for A. nidulans in our P. crustosum host strain. As proof of concept,
+we successfully expressed a single polyketide synthase gene and an entire gene cluster at the P. crustosum wA locus. Result-
+ing transformants were easily detected by their albino phenotype. With this study, we provide a highly efficient platform for
+heterologous expression of fungal genes.
+Key points
+• Construction of a highly efficient Penicillium crustosum heterologous expression host
+• Reduction of secondary metabolite background by genetic dereplication strategy
+• Integration of wA site to provide an alternative host besides Aspergillus nidulans
+
+Keywords  Penicillium crustosum · Fungal host · Heterologous expression · Genetic dereplication · Secondary metabolite
+biosynthesis · Natural products
+
+Introduction                                         breakthrough in drug research and enabled the treatment
+                                                            of life-threatening infections (Abdel-Razek et al. 2020).
+Natural products, due to their chemical diversity and broad   Other examples for bioactive compounds derived from
+spectrum of pharmacological effects, have been proven    fungi are the antifungal drug griseofulvin, produced
+to be one of the most promising sources for the develop-   by Penicillium griseofulvum, the immunosuppressant
+ment of new drugs (Atanasov et al. 2021). A well-known   mycophenolic acid, isolated from Penicillium brevicom-
+example is the discovery of the antibiotic penicillin from   pactum, and the cholesterol-lowering agent lovastatin,
+Penicillium rubens in 1929, which represented a major   produced by Aspergillus terreus (Oxford et al. 1939;
+                                                  Freedman et al. 2020; Itoh et al. 2018). However, studies
+                                                show that only < 10% of biosynthetic gene clusters (BGCs)
+* Shu‑Ming Li                                           responsible for the formation of natural products are
+    shuming.li@staff.uni-marburg.de                            expressed under usual laboratory conditions, demonstrat-
+1                                                         ing the great potential of discovering new bioactive com-     Institut Für Pharmazeutische Biologie Und Biotechnologie,
+    Fachbereich Pharmazie, Philipps-Universität Marburg,           pounds by activation of the large number of silent BGCs
+    Robert‑Koch‑Straße 4, 35037 Marburg, Germany              (Oikawa 2020). Strategies to activate these cryptic gene
+
+
+                                                                                                                                      Vol.:(0123456789)
+
+
+[PDF physical page 2]
+ 427     Page 2 of 13                                                     Applied Microbiology and Biotechnology    (2024) 108:427
+
+clusters include overexpression or deletion of pathway-    for substrates like acetyl-CoA and malonyl-CoA, therefore
+specific regulators, promoter exchange, or the one strain    limiting the activity of the introduced pathways (Itoh et al.
+many compounds (OSMAC) approach by systematic vari-    2018; Chen et al. 2020). To overcome these challenges and
+ation of the culture conditions (Xu et al. 2022; Cheng et al.    to eliminate host-dependent product formation, suitable
+2021). Nevertheless, these strategies are often hindered by    expression hosts were developed by so-called ‘genetic derep-
+a slow growth of the native producer, demanding culture     lication’ strategies, in which major known SM biosynthetic
+conditions or a lack of genetic tools available for these    gene clusters were inactivated by deletion of genes or whole
+strains (Alberti et al. 2017).                       BGCs (Chiang et al. 2016). The most prominent example is
+  A common approach to overcome these difficulties is to    the A. nidulans strain LO8030, in which deletion of eight
+express a single gene or entire cluster in a host organism.    highly expressed SM gene clusters significantly reduced
+For this purpose, several model fungi have been developed    the SM background (Chiang et al. 2016). Other examples
+by expanding the genetic manipulation tools and enhanc-    include Aspergillus oryzae and the fungicolous fungus Cal-
+ing gene targeting efficiency, e.g. by deletion of ku70, ku80    carisporium arbuscula (Dao et al. 2021; Cheng et al. 2021).
+and ligD homologues (Zhou and Li 2021; Bugeja et al.       Penicillium crustosum is a fast-growing, ubiquitously
+2012; Xu et al. 2014). As a part of the repair mechanism    occurring filamentous fungus. It can grow on a variety of
+for double-strand breaks, the Ku70/80 dimer and LigD    foods, including fruits, corn, meat and cheese, and is there-
+activate the non-homologous end joining recombination    fore regarded as a major contributor to food spoilage (Pitt
+(NHEJ) pathway, which leads to ectopic DNA integration    2002). To date, a large number of SMs have been isolated
+events (Bugeja et al. 2012). Another approach to enable    from different P. crustosum strains, including alkaloids, pol-
+precise genetic manipulation is the CRISPR-Cas9 technol-    yenes and diketopiperazines (Liu et al. 2018; Su et al. 2014).
+ogy (Pohl et al. 2016). In this process, the Cas9 endonu-   From a biotechnological point of view, P. crustosum strains
+clease is directed to a specific DNA target by guideRNA   were proven to be prolific producers of lipases, tannases,
+(gRNA), consisting of CRISPR-RNA (crRNA) and trans-    cellulases and xylanases, which are widely used as biocata-
+activating CRISPR-RNA (tracrRNA). The crRNA con-     lysts for various industrial applications (Espinoza-Abundis
+tains a 20-nucleotide spacer sequence, which defines the     et al. 2023; Bittencourt et al. 2020; Batra and Saxena 2005;
+DNA target, flanked by a short protospacer adjacent motif    Hasnaoui et al. 2022). The P. crustosum strain PRB-2 used
+(PAM), and a scaffold region. In contrast, the tracrRNA    in this study was first isolated from deep-sea sludge in Prydz
+is required for the recognition and binding of Cas9 to the   Bay (Wu et al. 2012). The predominant products identified in
+crRNA (Woodcraft et al. 2023). Provided with gRNA,   PRB-2 were reported to be terrestric acid, clavatol, hydroxy-
+Cas9 can recognise genomic sequences complementary    clavatol and their derivatives peniphenones and penilactones
+to the spacer and introduce site-specific cuts in the tar-    (Fan et al. 2019).
+get DNA (Tong et al. 2019). The resulting double-strand     One of the major advantages of using P. crustosum as
+break facilitates targeted genome editing events, such as    a heterologous host is the rapid and efficient sporulation,
+insertion, deletion, or mutation of genes. CRISPR-Cas9-   which facilitates genetic manipulation and downstream
+based gene manipulation has recently been implemented    applications. A comparison of eight different Aspergillus
+for several fungal species including Aspergillus nidulans    and Penicillium species revealed that P. crustosum was the
+(Caesar et al. 2020), Penicillium polonicum (Valente et al.     fastest to sporulate and yielded the highest number of spores
+2021), Penicillium verruculosum (Kislitsin et al. 2023),    per colony (Leggieri et al. 2018). Another study focused
+Penicillium rubens (Gil-Durán et al. 2023) and Penicillium   on the adaptation of P. crustosum to various stress fac-
+chrysogenum (Pohl et al. 2016).                                tors (Kalinina et al. 2017). The results demonstrated that
+   Despite being easily genetically manipulated, identifi-    P. crustosum was able to retain growth and SM production
+cation of novel secondary metabolites (SMs) of cryptic or    throughout numerous changes in environmental and nutri-
+silent genes after heterologous expression in a host organism    tional factors, such as media composition, temperature,
+can be challenging if the host itself owns a large number   pH and light exposure. Given that heterologous hosts are
+of active biosynthetic genes. First, interpretation of gene or    required to adapt to different laboratory growth conditions,
+gene cluster function becomes more difficult as the products     this work further emphasises the suitability of constructing
+can be further modified by host enzymes or by coupling with     P. crustosum as an expression platform for SM biosynthesis.
+reactive intermediates (Xiang et al. 2020; Liao et al. 2020).     Finally, the functionality of P. crustosum PRB-2 as heterolo-
+In addition, compounds that only appear as minor products    gous host was confirmed by successful expression of genes
+in the cultures of the heterologous expression transformants   from Penicillium camemberti, Penicillium brevicompactum
+can be hardly detected if the host has a high SM background.    and Aspergillus ruber (Kindinger et al. 2019).
+Furthermore, high expression of endogenous biosynthetic      In a previous study, the recyclable marker pyrG
+pathways in the host organism can result in competition    has already been deleted in PRB-2 to facilitate genetic
+
+
+[PDF physical page 3]
+Applied Microbiology and Biotechnology    (2024) 108:427                                                        Page 3 of 13    427
+
+manipulation. Furthermore, the gene locus pcr4401, coding    of the Marine Medicinal Bioresource Center (MMBC),
+for a polyketide synthase (PKS) involved in spore pigment   Ocean University of China, Qingdao, the People’s Repub-
+formation, was demonstrated to be a suitable integration site     lic of China. PRB-2 is also available as strain MFCSCS
+for heterologous gene expression (Kindinger et al. 2019).     200 in the culture collection of the Key Laboratory of
+   In the present study, we have optimised P. crustosum   Marine Drugs, Ocean University of China, Qingdao, the
+PRB-2 in various aspects, including gene targeting effi-    People’s Republic of China (Zhou and Li 2021).
+ciency, reduction of secondary metabolite background and
+choice of selectable markers, to offer a valuable alternative   Genome sequencing and sequence analysis
+to the existing heterologous expression systems. For this
+purpose, we have combined the split-marker-based pyrG   Genome sequencing and sequence analysis were carried
+recycling strategy (Zhou and Li 2021) with CRISPR-Cas9    out as described previously (Fan et al. 2019). The Whole
+to enable multiple rounds of highly efficient genetic manipu-   Genome Shotgun project of P. crustosum PRB-2 including
+lation followed by convenient selection marker recycling.    the reported sequences has been deposited at DDBJ/ENA/
+With this approach, we have successfully deleted numerous   GenBank under the accession JBCAMJ000000000. The ver-
+genes, including ligD, the riboflavin synthase gene pcribo    sion described in this paper is version JBCAMJ010000000.
+and backbone genes of the two dominant biosynthetic path-   The sequence of the A. nidulans wA gene was reported previ-
+ways in PRB-2. In addition, we replaced the spore pigment    ously (Watanabe et al. 1999).
+gene pcr4401 with the wA integration site from the com-
+monly used A. nidulans LO8030 host. This provides an    Isolation of genomic DNA, PCR amplification
+alternative platform for the expression of constructs that do   and cloning
+not lead to sufficient product formation in LO8030. To the
+best of our knowledge, there is no report on the replacement    Plasmids and primers used and generated in this work are
+of a pigment-based integration site to allow the use of the     listed in Supplemental Tables S2 and S3.
+same constructs in different fungal hosts prior to this study.       Isolation of genomic DNA, PCR amplification and clon-
+As proof of concept, constructs designed for LO8030 were    ing were performed according to protocols described previ-
+successfully used to express a PKS gene and an entire BGC    ously (Fan et al. 2019).
+in the constructed strain. With this study, we provide a new
+P. crustosum platform for heterologous expression of fungal   Construction of deletion plasmids
+genes, especially those for SM production.
+                                                      For gene deletion in this study, two split-marker plasmids
+                                                   were constructed according to previous protocols (Zhou
+Materials and methods
+
+Strains, media and culture conditions                          Table 1   Penicillium crustosum  strains used and generated in  this
+                                                                      study
+P. crustosum strains used and generated in this work are     Strain                 Genotype
+listed in Table 1. A. nidulans strains used in this work are
+                                                       PRB-2                Wild type (Wu et al. 2012)listed in Supplemental Table S1.
+                                                     FK15               ΔpyrG in PRB-2 (Kindinger et al. 2019)  Saccharomyces cerevisiae and Escherichia coli strains
+                                                            JZ03                 ΔligD (pcr2372)::pyrG in FK15used for plasmid cloning and DNA propagation were
+                                                            JZ04               ΔpyrG in JZ03grown and selected as reported previously (Nies and Li
+                                                            JZ05                 ΔtraA (pcr11009)::pyrG in JZ042021). Fungal strains were cultivated on GMM agar plates
+                                                            JZ06               ΔpyrG in JZ05(1.0% glucose, 50 mL/L salt solution, 1 mL/L trace ele-
+                                                            JZ32                 ΔclaF (pcr3094)::pyrG in JZ06ment solution and 1.6% agar) at 25 °C (P. crustosum) or
+                                                            JZ35               ΔpyrG in JZ3237 °C (A. nidulans) for sporulation and in PDB medium
+                                                            JZ37                 Δpcr4401::wA:pyrG in JZ35(24 g/L potato dextrose broth) or rice medium (20 g royal
+                                                            JZ38               ΔpyrG in JZ37tiger rice, 30 ml water) at 25 °C for secondary metabolite
+                                                            JZ39                  ΔwA::gpdA(p):pyrG in JZ38production. Appropriate supplementation with 0.5 g/L
+                                                            JZ40                  ΔwA::gpdA(p):orsA:pyrG in JZ38uridine, 0.5 g/L uracil, 5 mg/L riboflavin and/or 0.5 mg/L
+                                                            JZ51                  Δpcribo (pcr11223)::pyrG in JZ38pyridoxine was added as required.
+                                                            JZ52               ΔpyrG in JZ51   P. crustosum strains PRB-2 and JZ52 were depos-
+                                                            JZ54                  ΔwA::gpdA(p):anuA–anuK:afriboB in JZ52ited as strains MMBC-MIR-00001206 and MMBC-
+                                                            JZ56                  ΔwA::gpdA(p):afriboB in JZ52MIR-00008263, respectively, in the culture collection
+
+
+[PDF physical page 4]
+ 427     Page 4 of 13                                                     Applied Microbiology and Biotechnology    (2024) 108:427
+
+and Li 2021). The first plasmid contains the approximately    sequence and 4-bps overlapping sequence to the BsmBI
+1.5 kb upstream flanking sequence of the target gene and    restriction site of the pJZ65 vector (Arévalo et al. 2024;
+two-thirds of the pyrG marker (1145 bp) from the 5′-end.   Zheng et al. 2014; Molina-Risco et al. 2021) and synthesised
+In addition, an approximately 0.3 kb fragment of the down-   by Seqlab GmbH (Göttingen, Germany). Then, 1 µL of both
+stream flanking sequence was cloned between the upstream    sense and antisense nucleotides (10 µM) was annealed after
+sequence and the pyrG marker to enable subsequent marker    adding 48 µL annealing buffer in a thermocycler, first at
+recycling based on homologous recombination. The second   95 °C for 5 min, and then reduced to 25 °C at a rate of 1 °C/
+split-marker plasmid consists of two-thirds (1140 bp) of the   min according to protocols described previously (Zheng
+pyrG marker from the 3′-end and the approximately 1.5 kb     et al. 2014). The annealed gRNA spacers were then cloned
+downstream DNA sequence of the target gene. All fragments    into the BsmBI-linearised vector pJZ65 via ligation using
+were amplified via PCR and assembled via homologous    the T4 DNA Ligase system from Promega GmbH (Walldorf,
+recombination in S. cerevisiae.                          Germany) and amplified in E. coli. A schematic illustration
+                                                             of a Cas9 and gRNA expression plasmid used in this work
+Construction of plasmids for replacement of pcr4401     is given in Supplemental Fig. S1.
+by the wA gene and its flanking regions
+                                                   Genetic manipulation in P. crustosum strains
+For heterologous expression of wA and its flanking regions
+at the P. crustosum pcr4401 locus with subsequent pyrG    Transformation of P. crustosum strains was performed by
+marker recycling, the expression cassette was constructed    polyethylene glycol (PEG)-mediated protoplast transfor-
+using two split-marker plasmids. The first consists of    mation as described previously (Zhou and Li 2021; Janzen
+approximately 1.5 kb of the pcr4401 upstream sequence,     et al. 2023). Protoplast formation for the deletion of ligD
+1 kb of the wA upstream sequence, one part of the wA gene    and traA was conducted using an enzyme mixture consisting
+(3581 bp) and two-thirds of the pyrG sequence at the 5′-end    of 10 mL osmotic buffer (1.2 M MgSO4 in 10 mM sodium
+(1145 bp) with overlapping regions to the SmaI cloning site    phosphate, pH 5.8), 50 mg lysing enzyme from Trichoderma
+of the pESC-URA vector. The second split-marker plasmid    harzianum (Sigma-Aldrich, St. Louis, USA) and 20 mg yata-
+carries two-thirds of the pyrG gene at the 3′-end (1140 bp),    lase from Corynebacterium sp. OZ-21 (OZEKI Co., Ltd.,
+the other part of the wA gene (3412 bp including approxi-   Hyogo, Japan). For the deletion of claF and pcribo and the
+mately 300 bp overlap to the first half) with its 1 kb down-    expression of wA, orsA and anuA–K, due to the unavail-
+stream sequence and approximately 1.5 kb of the pcr4401     ability of the aforementioned lysing enzymes, we used an
+downstream sequence, and cloned into the SmaI site of   enzyme mixture consisting of 100 μL cellulase TXL, 20 μL
+pESC-URA via homologous recombination.                   chitinase, 5 μL protease (all from ASA Spezial Enzyme
+                                           GmbH, Wolfenbüttel, Germany), 25 mg lysing enzyme from
+Construction of the P. crustosum 5S rRNA                 Aspergillus sp. (Sigma-Aldrich, St. Louis, USA) and 20 mg
+promoter‑driven gRNA expression vector                 yatalase in 10 mL osmotic medium. Germlings were incu-
+                                                           bated in the enzyme mixtures at 30 °C, 100 rpm for 2.5 h for
+For construction of the vector to express Cas9 and gRNA,     cell wall degradation. Protoplasts were collected by overlay-
+the 5S rRNA promoter sequence was amplified from    ing with trapping buffer (0.6 M sorbitol in 0.1 M Tris-HCI,
+genomic DNA of P. crustosum PRB-2 and inserted into the   pH 7.0) and centrifuging at 5000 rpm for 15 min. Finally, the
+KpnI and BamHI restriction sites of the pCas9-tRp-gRNA    protoplasts were resuspended in STC buffer (1.2 M sorbi-
+(Liang et al. 2018) vector via homologous recombination.       tol, 10 mM ­CaCl2 and 10 mM Tris-HCI, pH 7.5) to a final
+                                                            concentration of approximately 1 × ­108 protoplasts/mL and
+Selection of protospacers and construction             transformed according to previous protocols (Zhou and Li
+of the gRNA expression cassettes                        2021).
+                                                          For CRISPR-Cas9 mediated gene editing, the transforma-
+gRNA spacer sequences are listed in Supplemental Table    tion system contained 100 µL protoplast suspension, 5 µg of
+S4. gRNA spacer design and off-target predictions were    the Cas9-gRNA expression construct and 4 µg of each split-
+performed using CHOPCHOP (Labun et al. 2019) and    marker deletion/expression cassette (amplified via PCR and
+EuPaGDT (Peng and Tarleton 2015). Off-target searches    purified using ethanol precipitation) and was treated follow-
+were conducted using the Local BLAST tool from BioEdit    ing a previous protocol (Gao et al. 2017) with adjustments
+Sequence Alignment Editor (Hall 1999) and the genomic    for P. crustosum. Solution S3 was modified by using 60%
+sequence of P. crustosum PRB-2 as reference. gRNA spacers   PEG 4000 and 50 mM Tris–HCl. In addition, the transfor-
+were designed as 27-bps sense and antisense oligonucleo-    mation system was mixed with 8 mL SMM top medium at
+tides including the 20-bps spacer sequence, the 3-bps PAM   55 °C before being poured onto plates containing 15 mL
+
+
+[PDF physical page 5]
+Applied Microbiology and Biotechnology    (2024) 108:427                                                        Page 5 of 13    427
+
+SMM bottom medium, both media supplemented as required    of P. crustosum ΔpyrG strain FK15 (Kindinger et al. 2019)
+for selection (Zhou and Li 2021). After cultivation at 25 °C    with the linearised constructs pJZ03 and pJZ05 for the dele-
+for 5–7 days, transformants were obtained.                     tion of ligD resulted in ΔligD::pyrG strain JZ03 (Table 1).
+                                                         Transformants were selected on medium without uracil and
+Verification of transformants, cultivation and LC–MS    uridine and identified via PCR using primers either binding
+analysis of secondary metabolites                         outside of the deletion construct or in the pyrG marker gene,
+                                                                 resulting in approximately 2.5 kb fragments for the deletion
+PCR verification of transformants, cultivation for second-    mutants and no PCR product in the wild-type strain (Supple-
+ary metabolite production and LC–MS analysis of second-    mental Fig. S5). Subsequently, selection of JZ03 on medium
+ary metabolites were conducted as described previously    containing 5-fluoroorotic acid (5-FOA), uracil and uridine
+(Zhou and Li 2021). Cultures in PDB and/or rice medium    led to deletion of the pyrG marker based on recombination
+were extracted with ethyl acetate after 7, 10 and 14 days for    of the short homologous sequences flanking the marker gene
+detection of secondary metabolites. All cultivation experi-    (Fig. 1), resulting in 26 colonies for the ΔligDΔpyrG strain
+ments for the quantification of compound production were    JZ04. Eight mutants were further subjected to verification
+performed with three individual transformants.                via PCR. All transformants were confirmed by amplification
+                                                             of the entire gene locus either with or without the pyrG gene
+                                                     and by proving the absence of pyrG (Supplemental Fig. S5).
+Results                                      As proof of concept, P. crustosum FK15 (ΔpyrG), JZ02
+                                                   (Δku70ΔpyrG)(Zhou and Li 2021) and JZ04 (ΔligDΔpyrG)
+Identification of ligD homologue in P. crustosum        were transformed with pFK24. In a previous study, pFK24
+and construction of ΔligD mutant for improved gene   was used for the expression of a PKS gene at the pcr4401
+targeting                                                       locus, which allows for transformant detection based on their
+                                                       phenotype (Kindinger et al. 2019). Gene targeting efficien-
+First, we aimed to enhance the gene targeting efficiency in P.    cies for three independent transformations were calculated
+crustosum by inactivation of the NHEJ pathway via deletion    to be 12.3%, 36.4% and 42.0% for FK15, JZ02 and JZ04,
+of the gene coding for LigD (DNA ligase IV). In fungi, the    respectively.
+NHEJ repair mechanism is initiated by a complex network of
+enzymes, including the DNA ligase IV and a DNA-depend-   Generation of ΔtraA::pyrG and ΔtraAΔpyrG mutant
+ent protein kinase, which includes the Ku70/80 subunits. In    strains JZ05 and JZ06 for reduction of the secondary
+a previous study, a Δku70 mutant was constructed with the   metabolite background
+objective of enhancing the gene targeting efficiencies in P.
+crustosum (Zhou and Li 2021). However, several studies    Previous studies have shown that P. crustosum predomi-
+have indicated the presence of genomic defects and reduced    nantly produces terrestric acid (1) (Fig. 2) (Fan et al. 2019).
+growth rates in other Δku70 Penicillium strains (Bugeja    Hence, for generation of a strain with a reduced SM back-
+et al. 2012; Snoek et al. 2009). Given that these defects were    ground, the gene traA (pcr11009) was chosen for deletion.
+not reported for ΔligD strains, we proceeded to construct
+a P. crustosum expression host with a ΔligD background.
+To identify a LigD homologue in P. crustosum, PoligD
+(ARQ16397) (Qin et al. 2017) from Penicillium oxalicum
+was used as a query for BLAST sequence alignment (http://​
+blast.​ncbi.​nlm.​nih.​gov). This led to the identification of
+Pcr2372 from P. crustosum PRB-2, consisting of 999 amino
+acid residues, with a sequence identity of 73.3%. BLAST
+analysis showed that Pcr2372 shares 91.2%, 77.6% and
+77.5% identities with the putative Lig4 homologues from
+Penicillium digitatum, Penicillium canariense and Penicil-
+lium brasilianum, respectively (Supplemental Figs. S2–S4).
+Pcr2372 was therefore designated as LigD. The constructs
+for the deletion of ligD were designed using the split-marker
+strategy as described previously with pyrG as selection
+marker (Fig. 1) (Zhou and Li 2021). Based on bidirectional                                                                                           Fig. 1   Split-marker strategy for the deletion of ligD with subsequent
+selection, pyrG can be easily recycled and used for multiple     selection marker recycling (5F: upstream flanking region, 3F: down-
+rounds of gene manipulation experiments. Transformation    stream flanking region)
+
+
+[PDF physical page 6]
+ 427     Page 6 of 13                                                     Applied Microbiology and Biotechnology    (2024) 108:427
+
+traA codes for a PKS-NRPS hybrid enzyme, which has   The deletion plasmids pJZ23 and pJZ34 were constructed
+previously been proven to catalyse the formation of (5S)-    according to the aforementioned split-marker strategy
+carboxylcrustic acid, which is subsequently converted to 1   (Zhou and Li 2021) and used for the deletion of claF in the
+by tailoring reactions (Fan et al. 2020). As a result, deletion   ΔtraAΔpyrG strain JZ06. However, changes in the enzyme
+of traA should abolish the production of 1. The deletion    mixture used for PEG-mediated protoplast transformation
+plasmids pJZ06 and pJZ07 were prepared according to the    led to a decrease in the quality and quantity of fungal proto-
+strategy described previously (Zhou and Li 2021). Trans-     plasts. Consequently, CRISPR-Cas9-assisted transformation
+formation of P. crustosum JZ04 with the linearised deletion   was tested to enhance transformation efficiencies.
+constructs generated ΔtraA::pyrG strain JZ05 after selec-       Since the CRISPR-Cas9-mediated gene editing tool has not
+tion based on uracil/uridine auxotrophy. Subsequently, pyrG    yet been implemented for P. crustosum, a suitable promoter
+marker recycling was achieved by selection on 5-FOA con-     for the expression of gRNA needed to be identified first. As
+taining medium as described above, yielding ΔtraAΔpyrG    reported for P. oxalicum and Trichoderma reesei, the 5S rRNA
+strain JZ06. Transformants were confirmed via PCR (Sup-    promoter enabled gRNA expression in both strains (Wang et al.
+plemental Fig. S6). To verify the loss of terrestric acid pro-    2021). In addition, it was reported that for T. reesei, employ-
+duction, JZ05 was cultivated in PDB medium for 14 days   ment of the endogenous 5S rRNA promoter instead of heter-
+and SMs were extracted with ethyl acetate. LC–MS analysis    ologous promoters proved to be more efficient for gene editing.
+of the extracts revealed that the production of terrestric acid   To identify the P. crustosum 5S rRNA promoter, the known
+was abolished in JZ05 (Fig. 2).                         5S rRNA sequences deposited in the 5SRNAdb (Szymanski
+                                                                       et al. 2016) for P. chrysogenum and P. griseofulvum were
+Generation of ΔclaF::pyrG and ΔclaFΔpyrG              used as queries to search for a homologue in the P. crustosum
+mutant strains JZ32 and JZ35 for prevention          genome using online BLAST approaches. Sequence com-
+of ortho‑quinone formation                               parison revealed that the genome of P. crustosum contains a
+                                                 5S rRNA promoter sequence with 100% identity on the nucleic
+As expected, abolishment of 1 led to the detection of clavatol    acid level to the sequences of the related Penicillium strains
+(2) and hydroxyclavatol (3) in ΔtraA strain JZ05 as major    mentioned above (Supplemental Fig. S7). Therefore, the
+products, as reported previously (Fig. 2) (Fan et al. 2019).   5S rRNA promoter was amplified from P. crustosum PRB-2
+Moreover, 3 was proven to spontaneously convert to the    and inserted into the pCas9-tRp-gRNA (Liang et al. 2018) vec-
+ortho-quinone methide (4), which acts as a highly reactive     tor, resulting in the gRNA expression vector pJZ65. The gRNA
+coupling reagent for a broad variety of natural products    spacer for targeting claF was predicted using CHOPCHOP
+(Liao et al. 2020; Wu et al. 2022; Fan et al. 2019; Doyon    (Labun et al. 2019) and EuPaGDT (Peng and Tarleton 2015)
+et al. 2019). Production of 3 and 4 could therefore hinder    and cloned into the linearised pJZ65 vector, yielding pJZ66
+the identification of novel SMs after gene expression in P.    (Supplemental Fig. S1). CRISPR-Cas9-assisted transforma-
+crustosum. Hence, claF (pcr3094), coding for a nonreducing    tion of P. crustosum JZ06 with pJZ66 and the PCR-amplified
+PKS in the biosynthesis of 2–4 was chosen for gene deletion.    deletion cassettes from pJZ23 and pJZ34 finally resulted in
+
+Fig. 2   LC–MS results of
+EtOAc extracts from P. crus-
+tosum PRB-2 (wild type),
+JZ05 (ΔligDΔtraA) and JZ32
+(ΔligDΔtraAΔclaF) after 14
+days of cultivation in PDB
+medium. Absorptions at UV
+254 nm are displayed. [M + ­H]+
+ions of 1 and 2 were detected
+at m/z 211.1013 and 181.0860,
+respectively. The [M + ­Na]+
+ion for 3 was detected at m/z
+219.0644
+
+
+[PDF physical page 7]
+Applied Microbiology and Biotechnology    (2024) 108:427                                                        Page 7 of 13    427
+
+ΔclaF::pyrG strain JZ32. Cultivation in PDB medium for 14    resulted in two transformants for the wA expression strain
+days, followed by extraction with ethyl acetate and LC–MS    JZ37, which exhibited a white phenotype due to interruption
+analysis, revealed the abolishment of 2 and 3 (Fig. 2). Subse-    of the wA gene by the pyrG sequence (Figs. 3 and 4).
+quently, the pyrG selection marker was removed in JZ32 as       After counterselection on 5-FOA medium, the intact wA
+described above to yield ΔclaFΔpyrG strain JZ35. All trans-    gene was restored and yielded 22 colonies with green spore
+formants were verified via PCR (Supplemental Fig. S8).        pigmentation. Six transformants were further subjected to
+                                                          genotyping and PCR analysis, confirming the presence of the
+Replacement of the P. crustosum pcr4401 pigment        full wA gene without the pyrG sequence in wAΔpyrG strain
+gene by the A. nidulans wA expression site             JZ38 (Supplemental Fig. S9). Compared to JZ35, which har-
+                                                        bours the native P. crustosum pcr4401 pigment gene and
+The objective of this study is the development of a valuable    produces dark green conidia, the conidia in JZ38 appear
+alternative to the currently available heterologous expression   more pale green in colour and resemble those reported for
+systems. One of the most frequently used expression hosts is    A. nidulans strains (Fig. 4) (Kindinger et al. 2019).
+the genetic dereplication strain A. nidulans LO8030 (Chiang
+et al. 2016). In particular, the A. nidulans wA pigment locus   Generation of Δpcribo::pyrG and ΔpcriboΔpyrG
+represents a common integration site for heterologous expres-   mutant strains JZ51 and JZ52 to enable the use
+sion, as it allows the selection of transformants based on their    of riboflavin‑based selection markers
+albino phenotype. To establish P. crustosum as an alternative
+expression host besides A. nidulans LO8030, the A. nidulans    For expanding the repertoire of selectable markers, we
+wA integration site was chosen for replacement of the P. crus-    aimed to generate a P. crustosum strain with a riboflavin aux-
+tosum pigment gene pcr4401. A previous study demonstrated    otrophic background. This provides the possibility to employ
+that the protein Pcr4401, sharing 67% sequence identity with    the commonly used A. fumigatus afriboB (Zhang et al. 2017)
+the gene product of wA, was responsible for the formation    gene as a third selectable marker in addition to pyrG and the
+of the melanin precursor YWA1 (Kindinger et al. 2019). By    hygromycin B resistance gene (Kindinger et al. 2019). For
+replacing pcr4401 with the wA pigment gene and its flanking     this purpose, the A. nidulans riboB gene, coding for the GTP
+regions, constructs designed for heterologous expression at the    cyclohydrolase II in the biosynthesis of riboflavin, was used
+A. nidulans wA locus can also be used for P. crustosum. For this    to identify a homologue in P. crustosum (Chiang et al. 2013).
+purpose, the wA gene including its 1 kb flanking regions was   BLASTx search with the translated nucleotide sequence of
+amplified by PCR from genomic DNA of A. nidulans LO8030    riboB (AN0670.2) led to the identification of Pcr11223 from
+in two parts and cloned into the two split-marker expression    P. crustosum PRB-2, consisting of 376 amino acid residues,
+plasmids pJZ38 and pJZ39, including two-thirds of pyrG and    with a sequence identity of 69.5% (Supplemental Fig. S10).
+the 0.3 kb repetitive sequence for subsequent selection marker    Pcr11223 was therefore designated as Pcribo. Gene deletion
+recycling (Fig. 3). In addition, the Cas9 and gRNA expression    with the aforementioned split marker strategy (Zhou and Li
+plasmid pJZ85 was constructed as mentioned before, with the    2021), using PCR amplified deletion cassettes from pJZ96
+gRNA spacer designed to target the pcr4401 gene.             and pJZ97 in combination with the Cas9 and gRNA con-
+   Transformation of P. crustosum JZ35 with pJZ85 and the    taining plasmid pJZ98, resulted in 18 colonies. Six of them
+PCR-amplified expression cassettes from pJZ38 and pJZ39    were further genotyped. Subsequent PCR analysis confirmed
+
+
+Fig. 3   Split-marker strategy
+for integration of the wA gene
+including its flanking regions
+in the P. crustosum pcr4401
+locus with subsequent selec-
+tion marker recycling. The red
+hatched area indicates homolo-
+gous regions within the wA gene
+
+
+[PDF physical page 8]
+ 427     Page 8 of 13                                                     Applied Microbiology and Biotechnology    (2024) 108:427
+
+                                                           vector pYH-wA-pyrG resulted in a total of 61 colonies.
+                                                        Six of the 32 albino mutants were additionally genotyped
+                                                    and confirmed via PCR, yielding control strain JZ39 (Sup-
+                                                         plemental Fig. S12). After cultivation of three independent
+                                                            transformants on rice medium for 14 days, the P. crustosum
+                                                     orsA expression strain JZ40 produced diorcinolic acid (5)
+                                                        with a [M + ­H]+ ion at m/z 319.0894, which is consistent
+                                                       with the results of orsA expression in A. nidulans PX26
+                                                     (Xiang and Li 2022), whereas 5 could not be detected in
+                                                  empty vector control strain JZ39 (Fig. 5). The yield of 5
+                                                     produced by JZ40 was estimated to be 1.38 ± 0.06 g per
+                                                      kilogram of rice, which is higher than 0.72 ± 0.01 g per
+                                                      kilogram of rice culture produced by the corresponding
+                                                         A. nidulans strain PX26.
+
+                                                   Expression of constructs designed for A. nidulans
+                                                       at P. crustosum wA site using afriboB as a selection
+                                              marker
+
+                                              To prove that the P. crustosum host strain is not only able
+                                                                to express individual genes but also entire BGCs, and to
+                                                       confirm that pcribo can be replaced with the commonly
+Fig. 4   Phenotypes of P. crustosum  strains grown on GMM with    used afriboB selection marker, the afriboB-based expres-
+appropriate supplementation for 7 days at 25 °C. Replacement of    sion plasmid pBK21, harbouring the genes anuA–anuKpcr4401 and interruption of the wA pigment gene by pyrG led to the                                                  from the known annullatin cluster (anu) (Xiang et al.white phenotype in JZ37. Subsequent pyrG marker recycling restored
+the wA gene and resulted in pale green conidia in JZ38. Heterolo-    2022), was chosen for integration at the P. crustosum wA
+gous gene expression in the wA locus led to an albino phenotype as     site. Transformation of Δpcribo strain JZ52 with the lin-
+observed for strains JZ39, JZ40, JZ54 and JZ56                      earised expression construct pBK21 resulted in 79 albino
+                                                          mutants. Six transformants were further subjected to geno-
+the absence of pcribo in four of the transformants, thereby    typing and PCR analysis, thereby confirming the anuA–K
+verifying the Δpcribo::pyrG strain JZ51 (Supplemental    expression strain JZ54 (Supplemental Fig. S13). As a
+Fig. S11). Subsequent marker recycling yielded 34 colo-    control, the empty vector pJN017 (Kindinger et al. 2019)
+nies that were able to grow on media containing 5-FOA. Six   was used for transformation to generate control strain
+transformants were genotyped and, by confirmation of the    JZ56. As expected, transformants showed a white pheno-
+absence of pyrG via PCR, resulted in ΔpcriboΔpyrG strain    type due to replacement of the P. crustosum wA pigment
+JZ52 (Supplemental Fig. S11). Successful deletion of pcribo    gene (Fig. 4). After confirmation via PCR (Supplemental
+was additionally proven by monitoring the growth only in    Fig. S13), three independent transformants of both strains
+the presence of riboflavin.                               were cultivated in PDB medium for 10 days. LC–MS anal-
+                                                                ysis of the culture extracts revealed the presence of annul-
+Expression of constructs designed for A. nidulans at      latin F (6) with a [M + ­Na]+ ion at m/z 315.1565 as the
+P. crustosum wA site using pyrG as selection marker     predominant metabolite in JZ54, which was not detected
+                                                               in the isogenic control strain JZ56 (Fig. 6). In parallel,
+To prove the functionality of gene expression at the P. crus-    the A. nidulans anuA–K expression strain BK08 was cul-
+tosum wA integration site, we selected the plasmid pPX26    tivated and extracted under the same conditions. Com-
+(Xiang and Li 2022), which was previously used to express    parison of the P. crustosum and A. nidulans expression
+the PKS gene orsA in A. nidulans LO8030 under the con-    strains showed that the product yield of 6 in P. crustosum
+trol of the gpdA promoter, for expression at the wA locus   JZ54 at 0.26 ± 0.01 g per litre culture was comparable to
+of P. crustosum JZ38. After selection, 66 of 90 colonies    0.24 ± 0.02 g in BK08. In addition to the main metabolite
+showed a white phenotype due to replacement of the pig-    6, its acetylated product annullatin G (7) was detected as a
+ment gene wA by the orsA expression cassette (Fig. 4).   minor product in the cultures. In a previous report, it was
+Six of the albino transformants were further confirmed    speculated that the formation of 7 is catalysed by a host
+via PCR, resulting in orsA expression strain JZ40 (Sup-   enzyme from A. nidulans (Xiang et al. 2022). Detailed
+plemental Fig. S12). In parallel, expression of the empty    analysis of the LC–MS chromatograms revealed that, with
+
+
+[PDF physical page 9]
+Applied Microbiology and Biotechnology    (2024) 108:427                                                        Page 9 of 13    427
+
+
+
+
+
+Fig. 5   LC–MS results of EtOAc extracts from P. crustosum JZ39
+(empty vector), JZ40 (orsA) and A. nidulans PX26 (orsA) after 14
+days of cultivation in rice medium. Absorptions at UV 254 nm are
+displayed in black. Extracted ion chromatograms of 5 are illustrated      Fig. 6   LC–MS results of EtOAc extracts from P. crustosum JZ56in green                                                                (empty vector), JZ54 (anu cluster) and A. nidulans BK08 (anu clus-
+                                                                                      ter) after 10 days of cultivation in PDB medium. Absorptions at
+                                          UV 314 nm are displayed in black. Extracted ion chromatograms of 6
+                                                              and 7 are illustrated in blue and red, respectively
+similar product yields of 6, the conversion to 7 was three-
+fold higher in the A. nidulans strain BK08 than in JZ54
+(Fig. 6).                                                  provide a genetically stable host for downstream applica-
+                                                                    tions. Subsequently, the biosynthetic pathways of the pre-
+                                                      dominant metabolites terrestric acid and (hydroxy-)clavatol
+Discussion                                         were inactivated to lower the endogenous SM background.
+                                                 The resulting ΔtraAΔclaF mutant displayed a significantly
+Heterologous expression of genes and BGCs in a geneti-    reduced SM profile compared to the wild-type strain PRB-
+cally well-studied host organism is regarded as a promising    2. In particular, the formation of the highly reactive inter-
+approach to unlock the vast microbial biosynthetic poten-    mediate ortho-quinone methide was eliminated in P. crus-
+tial. In order to ensure the successful expression of genes    tosum. Previous studies have shown that ortho-quinone
+originating from different species, it is essential to provide    methide acts as a coupling agent for various natural product
+a diverse array of host organisms. In this study, we have    classes, including coumarins, flavonoids, cyclic dipeptides
+expanded the repertoire of fungal heterologous expression   and indole derivatives (Wu et al. 2022; Liao et al. 2020).
+systems by constructing a P. crustosum host strain, which    Although ortho-quinone methides are regarded as valuable
+can be used as an alternative to the commonly used model    reagents in synthetic chemical approaches to enhance the
+fungi A. nidulans (Chiang et al. 2016) and A. oryzae (Dao    structural diversity of natural products (Singh et al. 2014),
+et al. 2021).                                                 the presence in a host organism is rather undesirable as it
+   First, the DNA repair gene ligD was deleted to facili-    impedes the identification and structural elucidation of het-
+tate subsequent genetic manipulation in P. crustosum.    erologous products. Consequently, a clean SM background
+Although a highly efficient P. crustosum Δku70 strain had    not only prevents unspecific conversions but also facilitates
+already been constructed prior to this study (Zhou and Li    the detection and purification of novel molecules after het-
+2021), reports of telomere defects, reduced growth rates    erologous gene expression, especially of minor products in
+or increased sensitivity to UV exposure upon loss of ku70    the culture extracts. Moreover, the inactivation of highly
+(Bugeja et al. 2012; Snoek et al. 2009; Meyer et al. 2007)    active biosynthetic pathways allows for the reallocation of
+have led to our decision to generate a ΔligD strain to    cellular resources and precursors towards the biosynthesis
+
+
+[PDF physical page 10]
+ 427     Page 10 of 13                                                    Applied Microbiology and Biotechnology    (2024) 108:427
+
+of heterologous compounds, thereby increasing the produc-    expression also in P. crustosum, which is consistent with
+tion yields (Pohl et al. 2020).                              previous reports on the interchangeability of promoters
+   In order to provide an additional expression strain for con-   and other genomic elements among different fungal spe-
+structs designed for the A. nidulans LO8030 model host, the    cies (Mózsik et al. 2021; Rantasalo et al. 2018; Hernanz-
+commonly used wA expression site, consisting of the naph-    Koers et al. 2018). The use of A. nidulans constructs in our
+thopyrone synthase gene wA and its flanking regions, was    P. crustosum JZ52 host can prove beneficial in cases where
+integrated at the P. crustosum pcr4401 locus. The resulting    products are further modified by endogenous enzymes from
+transformants exhibited a slight change in colouration and    A. nidulans, as observed in a previous study (Xiang et al.
+appeared pale green, indicating that wA can complement the    2020), or if homologous genes are present, thus hindering
+function of pcr4401 regarding spore pigment biosynthesis.    successful gene expression and the identification of new
+In a previous study, the pcr4401 gene locus was found to be    natural products. In addition, our data suggest that for the
+a suitable expression site for heterologous genes (Kindinger    production of annullatin F, modification by endogenous host
+et al. 2019). Similar to the wA integration site, transformants   enzymes was reduced in P. crustosum JZ52 when compared
+are easily detected by their white phenotype. To enable the    to the commonly used A. nidulans LO8030. Although sev-
+use of constructs originally designed for A. nidulans also    eral well-established heterologous host systems are already
+for P. crustosum, the wA gene including its flanking regions,    available, these findings demonstrate the necessity and
+which are required for homologous recombination-based    advantages of providing additional, alternative expression
+gene expression, were integrated in lieu of pcr4401. By    platforms.
+employing this strategy, the convenience of phenotype-based       In conclusion, we have constructed P. crustosum JZ52 as
+transformant identification remains unimpaired.              a promising expression system for fungal genes, especially
+  To further enhance the convenience of using P. crustosum    those for SM production. Inactivation of the two predomi-
+as a heterologous expression host, the pcribo gene coding    nant biosynthetic pathways resulted in a clean secondary
+for the GTP cyclohydrolase II in the biosynthesis of ribo-    metabolite profile in JZ52. To provide a valuable alterna-
+flavin was deleted to provide an additional selection marker    tive to the A. nidulans LO8030 host, the A. nidulans wA
+besides pyrG and the hygromycin phosphotransferase gene     site was used to replace the P. crustosum pcr4401 pigment
+(hph) in P. crustosum JZ52. Although the hph selection    gene. Integration of the wA site allows for the use of con-
+marker has been successfully used for genetic manipulation    structs originally designed for A. nidulans also in P. crusto-
+of P. crustosum (Fan et al. 2019), its high toxicity represents   sum and facilitates the detection of transformants based on
+a significant constraint in its broader application. In order     their albino phenotype. To the best of our knowledge, the
+to provide an alternative to the engineered A. nidulans host    integration of a pigment-based expression site to enable the
+strain LO8030, which is auxotrophic for riboflavin, pyridox-    use of the same constructs in different fungal hosts was not
+ine and uracil/uridine, the endogenous biosynthetic pathway    reported prior to this study.
+of riboflavin was also inactivated in our P. crustosum uracil/
+                                                              Supplementary Information  The online version contains supplemen-uridine auxotrophic mutant. In conjunction with the pyrG                                                                            tary material available at https://​doi.​org/​10.​1007/​s00253-​024-​13259-3.
+marker recycling protocol established in a previous study
+(Zhou and Li 2021), our P. crustosum expression platform    Acknowledgements  The authors thank Lena Ludwig-Radtke and Anne
+can be employed to conduct multiple genetic manipulation    Schraub for LC-MS analyses.
+experiments in a single strain. A recent report described    Author contribution  SML conceived the project and all authors
+the construction of an updated A. nidulans host strain, des-     designed the experiments. JZ performed the genetic manipulation work
+ignated LO11098, in which seven selection markers were    and cultivation of transformants. XC contributed to cultivation and
+incorporated (Lin et al. 2023). These findings highlight the     extraction. JZ and XC analysed the data. JZ prepared the manuscript
+                                                               and SML revised it. All authors have given approval to the final versionpotential for further optimization of our P. crustosum expres-                                                                        of the manuscript.
+sion host.
+  The suitability of P. crustosum JZ52 as a host organism    Funding  Open Access funding enabled and organized by Pro-
+was demonstrated by the successful expression of a PKS     jekt DEAL. This project was financially funded in part by the DFG
+                                                              (Li844/11–1 and INST 160/620–1) and the Marburg Universitygene and an entire BGC at the P. crustosum wA integra-                                                                 Research Academy. Xiaoling Chen is a scholarship recipient from the
+tion site using two pyrG and afriboB-based constructs ini-    China Scholarship Council (202206170029).
+tially designed for A. nidulans. As expected, the obtained
+transformants exhibited an albino phenotype, thus prov-    Data availability  The authors declare that the data supporting the find-
+                                                                        ings of this study are available within the paper and its Supplementarying the functionality of the wA expression site. Moreover,                                                                     Information files. Should any raw data files be needed in another for-
+the A. nidulans gpdA promoter was shown to drive gene     mat, they are available from the corresponding author upon reasonable
+                                                                            request.
+
+
+[PDF physical page 11]
+Applied Microbiology and Biotechnology    (2024) 108:427                                                       Page 11 of 13    427
+
+Declarations                                               Chiang YM, Oakley CE, Ahuja M, Entwistle R, Schultz A, Chang
+                                                                  SL, Sung CT, Wang CC, Oakley BR (2013) An efficient system
+Conflict of interest  The authors declare no competing interests.                 for heterologous expression of secondary metabolite genes in
+                                                                           Aspergillus nidulans. J Am Chem Soc 135:7720–7731. https://​
+Human and animal rights  This work does not contain any studies with           doi.​org/​10.​1021/​ja401​945a
+human participants or animals performed by any of the authors.         Chiang YM, Ahuja M, Oakley CE, Entwistle R, Asokan A, Zutz C,
+                                                       Wang CC, Oakley BR (2016) Development of genetic dereplica-
+Open Access  This article is licensed under a Creative Commons Attri-          tion strains in Aspergillus nidulans results in the discovery of
+bution 4.0 International License, which permits use, sharing, adapta-         aspercryptin. Angew Chem Int Ed 55:1662–1665. https://​doi.​
+tion, distribution and reproduction in any medium or format, as long          org/​10.​1002/​anie.​20150​7097
+as you give appropriate credit to the original author(s) and the source,    Dao TT, de Mattos-Shipley KMJ, Prosser IM, Williams K, Zacha-
+provide a link to the Creative Commons licence, and indicate if changes         rova MK, Lazarus CM, Willis CL, Bailey AM (2021) Clean-
+were made. The images or other third party material in this article are         ing the cellular factory–deletion of McrA in Aspergillus oryzae
+included in the article’s Creative Commons licence, unless indicated      NSAR1 and the generation of a novel kojic acid deficient strain
+otherwise in a credit line to the material. If material is not included in          for cleaner heterologous production of secondary metabolites.
+the article’s Creative Commons licence and your intended use is not         Front Fungal Biol 2:632542. https://​doi.​org/​10.​3389/​ffunb.​2021.​
+permitted by statutory regulation or exceeds the permitted use, you will        632542
+need to obtain permission directly from the copyright holder. To view a    Doyon TJ, Perkins JC, Baker Dockrey SA, Romero EO, Skinner KC,
+copy of this licence, visit http://creativecommons.org/licenses/by/4.0/.       Zimmerman PM, Narayan ARH (2019) Chemoenzymatic o-qui-
+                                                                none methide formation. J Am Chem Soc 141:20269–20277.
+                                                                                            https://​doi.​org/​10.​1021/​jacs.​9b104​74
+                                                                 Espinoza-Abundis C, Soltero-Sánchez C, Romero-Borbón E, Córdova
+                                                                                      J (2023) Cellulase and xylanase production by a newly isolated
+                                                                              Penicillium crustosum strain under solid-state fermentation, using
+                                                                       water hyacinth biomass as support, substrate, and inducer. Fer-
+References                                                        mentation 9:660. https://​doi.​org/​10.​3390/​ferme​ntati​on907​0660
+                                                             Fan J, Liao G, Kindinger F, Ludwig-Radtke L, Yin W-B, Li S-M (2019)
+Abdel-Razek AS, El-Naggar ME, Allam A, Morsy OM, Othman SI         Peniphenone and penilactone formation in Penicillium crustosum
+    (2020) Microbial natural products in drug discovery. Processes          via 1,4-Michael additions of ortho-quinone methide from hydrox-
+     8:470. https://​doi.​org/​10.​3390/​pr804​0470                                  yclavatol to γ-butyrolactones from crustosic acid. J Am Chem Soc
+Alberti F, Foster GD, Bailey AM (2017) Natural products from fila-        141:4225–4229. https://​doi.​org/​10.​1021/​jacs.​9b001​10
+    mentous fungi and production by heterologous expression. Appl    Fan J, Liao G, Ludwig-Radtke L, Yin W-B, Li S-M (2020) Formation
+    Microbiol Biotechnol 101:493–500. https://​doi.​org/​10.​1007/​         of terrestric acid in Penicillium crustosum requires redox-assisted
+     s00253-​016-​8034-2                                                 decarboxylation and stereoisomerization. Org Lett 22:88–92.
+Atanasov AG, Zotchev SB, Dirsch VM, Supuran CT (2021) Natu-            https://​doi.​org/​10.​1021/​acs.​orgle​tt.​9b040​02
+     ral products in drug discovery: advances and opportunities.    Freedman R, Yu R, Sarkis AW, Hedstrom L (2020) A structural deter-
+    Nat Rev Drug Discov 20:200–216. https://​doi.​org/​10.​1038/​        minant of mycophenolic acid resistance in eukaryotic inosine
+     s41573-​020-​00114-z                                            5’-monophosphate dehydrogenases. Protein Sci 29:686–694.
+Batra A, Saxena RK (2005) Potential tannase producers from the gen-            https://​doi.​org/​10.​1002/​pro.​3766
+     era Aspergillus and Penicillium. Process Biochem 40:1553–1557.    Gao L, Li Z, Xia C, Qu Y, Liu M, Yang P, Yu L, Song X (2017) Com-
+      https://​doi.​org/​10.​1016/j.​procb​io.​2004.​03.​003                           bining manipulation of transcription factors and overexpression of
+Bittencourt JWF, Arfelli VC, Lunkes JC, Torre CLD, Silva JLC,          the target genes to enhance lignocellulolytic enzyme production
+    Maller A, Simão RdCG, Kadowaki MK (2020) Biochemical          in Penicillium oxalicum. Biotechnol Biofuels 10:100. https://​doi.​
+     characteristics of Penicillium crustosum FP 11 xylanase II and          org/​10.​1186/​s13068-​017-​0783-3
+    an assessment of the properties of xylanases produced by the    Gil-Durán C, Palma D, Marcano Y, Palacios J-L, Martínez C, Rojas-
+    genus Penicillium. Annu Res Rev Biol 35:64–75. https://​doi.​       Aedo JF, Levicán G, Vaca I, Chávez R (2023) CRISPR/Cas9-
+     org/​10.​9734/​arrb/​2020/​v35i7​30248                                 mediated disruption of the pcz1 gene and its impact on growth,
+Bugeja HE, Boyce KJ, Weerasinghe H, Beard S, Jeziorowski A, Pas-         development, and penicillin production in Penicillium rubens. J.
+     richa S, Payne M, Schreider L, Andrianopoulos A (2012) Tools        Fungi (Basel) 9. https://​doi.​org/​10.​3390/​jof91​01010
+     for high efficiency genetic manipulation of the human pathogen     Hall TA (1999) BioEdit: a user-friendly biological sequence alignment
+     Penicillium marneffei. Fungal Genet Biol 49:772–778. https://​          editor and analysis program for Windows 95/98/NT. Nucl Acids
+      doi.​org/​10.​1016/j.​fgb.​2012.​08.​003                           Symp Ser 41:95–98
+Caesar LK, Kelleher NL, Keller NP (2020) In the fungus where it    Hasnaoui I, Dab A, Mechri S, Abouloifa H, Saalaoui E, Jaouadi B,
+    happens: history and future propelling Aspergillus nidulans as         Noiriel A, Asehraou A, Abousalham A (2022) Purification,
+     the archetype of natural products research. Fungal Genet Biol         biochemical and kinetic characterization of a novel alkaline
+    144:103477. https://​doi.​org/​10.​1016/j.​fgb.​2020.​103477                 sn-1,3-regioselective triacylglycerol lipase from Penicillium-
+Chen C, Liu J, Duan C, Pan Y, Liu G (2020) Improvement of the         crustosum Thom strain P22 isolated from Moroccan olive mill
+    CRISPR-Cas9 mediated gene disruption and large DNA frag-          wastewater. Int J Mol Sci 23:11920. https://​doi.​org/​10.​3390/​ijms2​
+    ment deletion based on a chimeric promoter in Acremonium         31911​920
+    chrysogenum. Fungal Genet Biol 134:103279. https://​doi.​org/​    Hernanz-Koers M, Gandía M, Garrigues S, Manzanares P, Yenush L,
+     10.​1016/j.​fgb.​2019.​103279                                       Orzaez D, Marcos JF (2018) FungalBraid: a GoldenBraid-based
+Cheng J-T, Yu J-H, Sun C-F, Cao F, Ying Y-M, Zhan Z-J, Li W-J,        modular cloning platform for the assembly and exchange of DNA
+    Chen X-A, Zhao Q-W, Li Y-Q, Gan L-S, Mao X-M (2021) A         elements tailored to fungal synthetic biology. Fungal Genet Biol
+     cell factory of a fungicolous fungus Calcarisporium arbuscula         116:51–61. https://​doi.​org/​10.​1016/j.​fgb.​2018.​04.​010
+     for efficient production of natural products. ACS Synth Biol     Itoh H, Miura A, Matsui M, Arazoe T, Nishida K, Kumagai T, Arita
+    10:698–706. https://​doi.​org/​10.​1021/​acssy​nbio.​0c003​71            M, Tamano K, Machida M, Shibata T (2018) Knockout of the
+
+
+[PDF physical page 12]
+ 427     Page 12 of 13                                                    Applied Microbiology and Biotechnology    (2024) 108:427
+
+   SREBP system increases production of the polyketide FR901512    Oxford AE, Raistrick H, Simonart P (1939) Studies in the biochemistry
+     in filamentous fungal sp. No. 14919 and lovastatin in Aspergillus          of micro-organisms: griseofulvin, C(17)H(17)O(6)Cl, a metabolic
+     terreus ATCC20542. Appl Microbiol Biotechnol 102:1393–1405.         product of Penicillium griseo-fulvum Dierckx. Biochem J 33:240–
+     https://​doi.​org/​10.​1007/​s00253-​017-​8685-7                            248. https://​doi.​org/​10.​1042/​bj033​0240
+Janzen DJ, Wang H, Li S-M (2023) A flavin-dependent oxygenase    Peng D, Tarleton R (2015) EuPaGDT: a web tool tailored to design
+     catalyzes hydroxylation and simultaneous pyrrolidine ring for-       CRISPR guide RNAs for eukaryotic pathogens. Microb Genom
+    mation in protubonine biosynthesis in Aspergillus ustus. J Nat         1:e000033. https://​doi.​org/​10.​1099/​mgen.0.​000033
+    Prod 86:1779–1785. https://​doi.​org/​10.​1021/​acs.​jnatp​rod.​3c002​74     Pitt JI (2002) Biology and ecology of toxigenic Penicillium spe-
+Kalinina SA, Jagels A, Cramer B, Geisen R, Humpf H-U (2017) Influ-           cies. Adv Exp Med Biol 504:29–41. https://​doi.​org/​10.​1007/​
+    ence of environmental factors on the production of penitrems A-F         978-1-​4615-​0629-4_4
+    by Penicillium crustosum. Toxins 9:210. https://​doi.​org/​10.​3390/​    Pohl C, Kiel JA, Driessen AJ, Bovenberg RA, Nygard Y (2016)
+     toxin​s9070​210                                             CRISPR/Cas9 based genome editing of Penicillium chrysoge-
+Kindinger F, Nies J, Becker A, Zhu T, Li S-M (2019) Genomic locus of        num. ACS Synth Biol 5:754–764. https://​doi.​org/​10.​1021/​acssy​
+     a Penicillium crustosum pigment as an integration site for second-          nbio.​6b000​82
+     ary metabolite gene expression. ACS Chem Biol 14:1227–1234.    Pohl C, Polli F, Schütze T, Viggiano A, Mózsik L, Jung S, de
+      https://​doi.​org/​10.​1021/​acsch​embio.​9b001​64                  VM, Bovenberg RAL, Meyer V, Driessen AJM, (2020) A
+Kislitsin VY, Chulkin AM, Zorov IN, Sinelnikov IG, Sinitsyn AP,         Penicillium rubens platform strain for secondary metabo-
+    Rozhkova AM (2023) The function of the XlnR transcription           lite production. Sci Rep 10:7630. https://​doi.​org/​10.​1038/​
+     factor in the filamentous fungus Penicillium verruculosum. Appl         s41598-​020-​64893-6
+    Biochem Microbiol 59:1140–1149. https://​doi.​org/​10.​1134/​S0003​   Qin X, Li R, Luo X, Lin Y, Feng JX (2017) Deletion of ligD signifi-
+     68382​30900​53                                                           cantly improves gene targeting frequency in the lignocellulolytic
+Labun K, Montague TG, Krause M, Torres Cleuren YN, Tjeldnes H,         filamentous fungus Penicillium oxalicum. Fungal Biol 121:615–
+    Valen E (2019) CHOPCHOP v3: expanding the CRISPR web         623. https://​doi.​org/​10.​1016/j.​funbio.​2017.​04.​005
+    toolbox beyond genome editing. Nucleic Acids Res 47:W171–     Rantasalo A, Landowski CP, Kuivanen J, Korppoo A, Reuter L, Koivis-
+    W174. https://​doi.​org/​10.​1093/​nar/​gkz365                               toinen O, Valkonen M, Penttilä M, Jäntti J, Mojzita D (2018) A
+Leggieri MC, Decontardi S, Battilani P (2018) Modelling the sporula-          universal gene expression system for fungi. Nucleic Acids Res
+     tion of some fungi associated with cheese, at different tempera-         46:e111. https://​doi.​org/​10.​1093/​nar/​gky558
+     ture and water activity regimes. Int J Food Microbiol 278:52–60.    Singh MS, Nagaraju A, Anand N, Chowdhury S (2014) ortho-Quinone
+      https://​doi.​org/​10.​1016/j.​ijfoo​dmicro.​2018.​04.​023                     methide (o-QM): a highly reactive, ephemeral and versatile inter-
+Liang Y, Han Y, Wang C, Jiang C, Xu J-R (2018) Targeted deletion of         mediate in organic synthesis. RSC Adv 4:55924–55959. https://​
+     the USTA and UvSLT2 genes efficiently in Ustilaginoidea virens          doi.​org/​10.​1039/​C4RA1​1444B
+     with the CRISPR-Cas9 system. Front Plant Sci 9:699. https://​doi.​   Snoek ISI, van der Krogt ZA, Touw H, Kerkman R, Pronk JT, Boven-
+     org/​10.​3389/​fpls.​2018.​00699                                          berg RAL, van den Berg MA, Daran JM (2009) Construction of an
+Liao G, Fan J, Ludwig-Radtke L, Backhaus K, Li S-M (2020) Increas-         hdfA Penicillium chrysogenum strain impaired in non-homologous
+     ing structural diversity of natural products by Michael addition         end-joining and analysis of its potential for functional analysis
+     with ortho-quinone methide as the acceptor. J Org Chem 85:1298–           studies. Fungal Genet Biol 46:418–426. https://​doi.​org/​10.​1016/j.​
+    1307. https://​doi.​org/​10.​1021/​acs.​joc.​9b029​71                               fgb.​2009.​02.​008
+Lin S-Y, Oakley CE, Jenkinson CB, Chiang Y-M, Lee C-K, Jones    Su S-S, Song A-H, Chen G, Wang H-F, Li Z-Q, Pei Y-H (2014) Two
+    CG, Seidler PM, Nelson HM, Todd RB, Wang CCC, Oakley BR       new indole-diterpenoids from the fungus Penicillium crustosum
+    (2023) A heterologous expression platform in Aspergillus nidu-        YN-HT-15. J Asian Nat Prod Res 16:285–289. https://​doi.​org/​10.​
+     lans for the elucidation of cryptic secondary metabolism bio-          1080/​10286​020.​2013.​877450
+     synthetic gene clusters: discovery of the Aspergillus fumigatus    Szymanski M, Zielezinski A, Barciszewski J, Erdmann VA, Karlowski
+     sartorypyrone biosynthetic pathway. Chem Sci 14:11022–11032.    WM (2016) 5SRNAdb: an information resource for 5S riboso-
+     https://​doi.​org/​10.​1039/​D3SC0​2226A                             mal RNAs. Nucleic Acids Res 44:D180–D183. https://​doi.​org/​
+Liu C-C, Zhang Z-Z, Feng Y-Y, Gu Q-Q, Li D-H, Zhu T-J (2018)           10.​1093/​nar/​gkv10​81
+    Secondary metabolites from Antarctic marine-derived fungus    Tong Y, Weber T, Lee SY (2019) CRISPR/Cas-based genome engi-
+     Penicillium crustosum HDN153086. Nat Prod Res 33:414–419.         neering in natural product discovery. Nat Prod Rep 36:1262–1280.
+      https://​doi.​org/​10.​1080/​14786​419.​2018.​14550​45                             https://​doi.​org/​10.​1039/​c8np0​0089a
+Meyer V, Arentshorst M, El-Ghezal A, Drews A-C, Kooistra R, van den     Valente S, Piombo E, Schroeckh V, Meloni GR, Heinekamp T, Bra-
+    Hondel CAMJJ, Ram AFJ (2007) Highly efficient gene targeting        khage AA, Spadaro D (2021) CRISPR-Cas9-based discovery of
+     in the Aspergillus niger kusA mutant. J Biotechnol 128:770–775.          the verrucosidin biosynthesis gene cluster in Penicillium poloni-
+      https://​doi.​org/​10.​1016/j.​jbiot​ec.​2006.​12.​021                         cum. Front Microbiol 12:660871. https://​doi.​org/​10.​3389/​fmicb.​
+Mózsik L, Pohl C, Meyer V, Bovenberg RAL, Nygård Y, Driessen         2021.​660871
+   AJM (2021) Modular synthetic biology toolkit for filamentous   Wang Q, Zhao Q, Liu Q, He X, Zhong Y, Qin Y, Gao L, Liu G, Qu
+     fungi. ACS Synth Biol 10:2850–2861. https://​doi.​org/​10.​1021/​     Y (2021) CRISPR/Cas9-mediated genome editing in Penicillium
+     acssy​nbio.​1c002​60                                                 oxalicum and Trichoderma reesei using 5S rRNA promoter-driven
+Nies J, Li S-M (2021) Prenylation and dehydrogenation of a C2-         guide RNAs. Biotechnol Lett 43:495–502. https://​doi.​org/​10.​
+     reversely prenylated diketopiperazine as a branching point in the          1007/​s10529-​020-​03024-7
+     biosynthesis of echinulin family alkaloids in Aspergillus ruber.    Watanabe A, Fujii I, Sankawa U, Mayorga ME, Timberlake WE, Ebi-
+   ACS Chem Biol 16:185–192. https://​doi.​org/​10.​1021/​acsch​embio.​        zuka Y (1999) Re-identification of Aspergillus nidulans wA gene
+     0c008​74                                                                    to code for a polyketide synthase of naphthopyrone. Tetrahedron
+Oikawa H (2020) Reconstitution of biosynthetic machinery of fungal          Lett 40:91–94. https://​doi.​org/​10.​1016/​S0040-​4039(98)​80027-0
+     natural products in heterologous hosts. Biosci Biotechnol Biochem    Woodcraft C, Chooi Y-H, Roux I (2023) The expanding CRISPR tool-
+    84:433–444. https://​doi.​org/​10.​1080/​09168​451.​2019.​16909​76           box for natural product discovery and engineering in filamentous
+
+
+[PDF physical page 13]
+Applied Microbiology and Biotechnology    (2024) 108:427                                                       Page 13 of 13    427
+
+     fungi. Nat Prod Rep 40:158–173. https://​doi.​org/​10.​1039/​D2NP0​   Xu Y, Du X, Yu X, Jiang Q, Zheng K, Xu J, Wang P (2022) Recent
+    0055E                                                             advances in the heterologous expression of biosynthetic gene clus-
+Wu G, Ma H, Zhu T, Li J, Gu Q, Li D (2012) Penilactones A and B,           ters for marine natural products. Mar Drugs 20:341. https://​doi.​
+    two novel polyketides from Antarctic deep-sea derived fungus          org/​10.​3390/​md200​60341
+     Penicillium crustosum PRB-2. Tetrahedron 68:9745–9749. https://​   Zhang P, Wang X, Fan A, Zheng Y, Liu X, Wang S, Zou H, Oakley BR,
+      doi.​org/​10.​1016/j.​tet.​2012.​09.​038                                       Keller NP, Yin WB (2017) A cryptic pigment biosynthetic path-
+Wu G, Qian X, Huang Y, Liu Y, Zhou L, Wang W, Li J, Zhu T, Gu        way uncovered by heterologous expression is essential for conidial
+    Q, Li D (2022) Nonenzymatic self-assembly access to diverse         development in Pestalotiopsis fici. Mol Microbiol 105:469–483.
+    ortho-quinone methide-based pseudonatural products. Org Lett           https://​doi.​org/​10.​1111/​mmi.​13711
+    24:5235–5239. https://​doi.​org/​10.​1021/​acs.​orgle​tt.​2c022​68        Zheng Q, Cai X, Tan MH, Schaffert S, Arnold CP, Gong X, Chen C-Z,
+Xiang P, Li S-M (2022) Formation of 3-orsellinoxypropanoic acid in       Huang S (2014) Precise gene deletion and replacement using the
+     Penicillum crustosum is catalyzed by a bifunctional nonreduc-        CRISPR/Cas9 system in human cells. Biotechniques 57:115–124.
+     ing polyketide synthase. Org Lett 24:462–466. https://​doi.​org/​10.​          https://​doi.​org/​10.​2144/​00011​4196
+      1021/​acs.​orgle​tt.​1c041​89                                  Zhou J, Li S-M (2021) Conversion of viridicatic acid to crustosic acid
+Xiang P, Ludwig-Radtke L, Yin W-B, Li S-M (2020) Isocoumarin        by cytochrome P450 enzyme-catalysed hydroxylation and spon-
+     formation by heterologous gene expression and modification by         taneous cyclisation. Appl Microbiol Biotechnol 105:9181–9189.
+     host enzymes. Org Biomol Chem 18:4946–4948. https://​doi.​org/​          https://​doi.​org/​10.​1007/​s00253-​021-​11674-4
+     10.​1039/​d0ob0​0989j
+Xiang P, Kemmerich B, Yang L, Li S-M (2022) Biosynthesis of annul-     Publisher's Note  Springer Nature remains  neutral with regard  to
+      latin D in Penicillium roqueforti implies oxidative lactonization     jurisdictional claims in published maps and institutional affiliations.
+    between two hydroxyl groups catalyzed by a BBE-like enzyme.
+    Org Lett 24:6072–6077. https://​doi.​org/​10.​1021/​acs.​orgle​tt.​2c024​38
+Xu Q, Zhu C, Wang M, Sun X, Li H (2014) Improvement of a gene tar-
+     geting system for genetic manipulation in Penicillium digitatum.
+     J Zhejiang Univ Sci B 15:116–124. https://​doi.​org/​10.​1631/​jzus.​
+    B1300​213

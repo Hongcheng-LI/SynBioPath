@@ -1,0 +1,1149 @@
+
+[PDF physical page 1]
+Plant Communications                                                                                                                                                                                  llll
+Review article
+
+The biosynthesis and diversity of taxanes: From
+pathway elucidation to engineering and synthetic
+biology
+
+Jingcheng Shi1,2,5, Caibin Zhang2,3,5, Rui Deng2,3,5, Alisdair R. Fernie4, Moxian Chen1,*
+and Youjun Zhang2,3,*
+1State Key Laboratory of Green Pesticide, Key Laboratory of Green Pesticide and Agricultural Bioengineering, Ministry of Education, Centre for R&D of Fine
+Chemicals of Guizhou University, Guiyang 550025, China
+2State Key Laboratory of Seed Innovation, Institute of Genetics and Developmental Biology, Chinese Academy of Sciences, Beijing 100101, China
+3College of Advanced Agricultural Sciences, University of Chinese Academy of Sciences, Beijing, China
+4Max Planck Institute of Molecular Plant Physiology, Am Mu¨ hlenberg 1, 14476 Potsdam-Golm, Germany
+
+5These authors contributed equally to this article.
+
+*Correspondence: Moxian Chen (cmx2009920734@gmail.com), Youjun Zhang (yjzhang@genetics.ac.cn)
+
+https://doi.org/10.1016/j.xplc.2025.101460
+
+
+ABSTRACT
+
+Taxanes are diterpenoid natural products found in yew trees (Taxus spp.) and include three anticancer
+agents: paclitaxel, docetaxel, and cabazitaxel. Despite nearly 500 reported taxane compounds, only the
+biosynthetic pathway of the type I taxane skeleton leading to paclitaxel is close to being fully elucidated.
+Traditional extraction of these compounds is unsustainable, and chemical synthesis is commercially nonvi-
+able. With emerging drug resistance and limited compound diversity, there is a critical need to expand the
+taxane library and develop sustainable production methods. Here, we propose strategies to elucidate the
+biosynthetic pathways of various taxane skeletons by identifying and engineering key enzymes such as di-
+terpene synthases, cytochrome P450s (CYP450s), acetyltransferases, and BAHD acyltransferases (BEAT,
+AHCT, HCBT, and DAT). We examine the roles of metabolon-forming enzyme complexes in optimizing
+metabolic flux and highlight the use of plant chassis such as Nicotiana benthamiana or microbial chassis
+such as Escherichia coli and Saccharomyces cerevisiae for sustainable taxane biosynthesis. Techniques
+such as compartmentalization and CRISPRi-dCas9-based gene circuits are discussed as means to
+enhance production  efficiency. Additionally,  artificial  intelligence (AI)-guided directed evolution of
+CYP450s is proposed as a strategy to engineer enzymes with desired properties, facilitating the production
+of novel and new-to-nature taxane derivatives. The integration of these approaches would support the
+development of a comprehensive taxane library, which could accelerate the discovery of new therapeutic
+agents.
+
+Key words: taxanes, anticancer agents, diterpenoids, biosynthesis, synthetic biology, AI tools
+
+Shi J., Zhang C., Deng R., Fernie A.R., Chen M., and Zhang Y. (2025). The biosynthesis and diversity of taxanes:
+From pathway elucidation to engineering and synthetic biology. Plant Comm. 6, 101460.
+
+
+INTRODUCTION                                       2010) (Supplemental Table 2). These three compounds share
+                                                                 the classical 6/8/6 taxane skeleton (Figure 1); the latter two are
+Taxanes are a class of diterpenoid natural products first identified    paclitaxel derivatives. Paclitaxel, the first taxane used in clinical
+in 1971 as the main bioactive constituents in yew trees (genus      trials, possesses broad-spectrum antitumor effects (Rowinsky
+Taxus; Wani et al., 1971). Eleven known precursor skeletons of   and Donehower, 1995). Notably, paclitaxel exerts its effects by
+taxanes have been  identified,  leading  to  nearly 500  well-    binding to the β-tubulin subunit  in microtubules, leading to
+characterized compounds (Lange and Conner, 2021). Taxanes    abnormal  stabilization  of  microtubules  that  causes  their
+have attracted substantial attention since the commercialization    dysfunction and promotes cell death during mitosis (Xiao et al.,
+of three prominent members of this family: paclitaxel (Taxol,    2006). Intriguingly, paclitaxel’s antiproliferative properties have
+1993), docetaxel (Taxotere, 1995), and cabazitaxel (Jevtana,   been repurposed for vascular diseases, particularly peripheral
+
+
+                      Plant Communications 6, 101460, October 13 2025 © 2025 The Authors. Published by Elsevier Inc. on behalf of     1
+     CAS Center for Excellence in Molecular Plant Sciences, Chinese Academy of Sciences, and Chinese Society for Plant Biology.
+                 This is an open access article under the CC BY-NC-ND license (http://creativecommons.org/licenses/by-nc-nd/4.0/).
+
+
+[PDF physical page 2]
+Plant Communications                                    The biosynthesis and diversity of taxanes
+
+
+
+
+
+Figure 1. The diversity and biosynthesis of taxanes.
+The central circle illustrates the MEP and MVA pathways, which catalyze the formation of GGPP. The upper section represents the MEP pathway,
+synthesizing GGPP from pyruvate, whereas the lower section depicts the MVA pathway, synthesizing GGPP from acetyl-CoA. The first ring displays the
+11 known taxane skeletons, from types I to XI. The second ring shows potential intermediates involved in the synthesis of representative compounds. The
+third (outermost) ring presents representative compounds derived from the corresponding skeletons. In the color bar, blue indicates taxane skeletons
+with known and well-defined metabolic pathways, such as the biosynthesis of paclitaxel; white indicates unknown taxane biosynthetic pathways.
+
+
+artery disease (PAD) and in-stent restenosis. When delivered    Although the sales of Taxol and its derivatives have exceeded $50
+locally via drug-coated balloons (DCBs) or stents, paclitaxel in-     billion, market demand continues to grow. Historically, the acqui-
+hibits neointimal hyperplasia by targeting smooth muscle cell     sition of paclitaxel heavily relied on extraction from yew tree tis-
+(SMC) migration and proliferation—a mechanism distinct from    sues. This method is clearly unsustainable and environmentally
+its microtubule-stabilizing action in cancer (Dake et al., 2016).    unfriendly due to the low yield of paclitaxel, which ranges from
+Paclitaxel’s unique mode of action in killing tumor cells sets it   0.001% to 0.05%, even in the most productive species, Taxus
+apart from other antitumor compounds such as guanosine     brevifolia (Malik et al., 2011). Subsequently, considerable effort
+triphosphate,  colchicine,  vinblastine,  and  podophyllotoxin,    has been devoted to the chemical semi-synthesis of paclitaxel
+rendering  it singular among known antitumor agents (Burkhart    using the intermediate baccatin  III as a starting material. This
+et al., 1994; Scribano et al., 2021). Moreover, the existing dual-   compound is abundant in the twigs and needles of Taxus species
+scenario applications of paclitaxel fully demonstrate the thera-    (Fu et  al., 2009). This method  is currently the mainstream
+peutic potential of taxane-derived drugs (Supplemental Table 2).    approach  for paclitaxel production, but  it  will inevitably be
+
+2     Plant Communications 6, 101460, October 13 2025
+
+
+[PDF physical page 3]
+The biosynthesis and diversity of taxanes                                     Plant Communications
+
+unable  to meet  increasing market demand  in  the  future.    importance. However, even   if  ideal  lead compounds  are
+Concurrently, substantial breakthroughs have been made in the     identified through virtual screening, the large-scale production
+total chemical synthesis  of  paclitaxel. Since the  first  total    of target taxanes for clinical testing remains challenging; apart
+synthesis was reported in 1994, more than 60 research groups    from paclitaxel, the biosynthetic pathways of other taxanes are
+have addressed this challenge over the past 30 years, leading      still unclear, making it difficult to advance them into later clinical
+to the development of 11 entirely distinct synthetic routes (Min     trials.
+et al., 2023). Whereas the total chemical synthesis of paclitaxel
+has enhanced  researchers’  understanding  of  its  chemical    Here, we aim to underline the structural diversity of taxanes and
+properties,  these  synthetic  routes  remain  unsuitable  for    propose a new perspective toward their biosynthesis, including
+commercial production. The primary reason is the excessive    strategies for elucidating biosynthetic pathways, enriching tool-
+length of these routes, even for the shortest and most efficient     kits for regulating heterologous expression, understanding the
+synthesis currently available (Hu et al., 2021).                        interaction mechanisms of metabolons, and reprogramming
+                                                                  modification enzymes under  artificial  intelligence (AI)–based
+In addition to the aforementioned chemical synthesis methods,    guidance. By establishing a taxane library through biosynthesis,
+biosynthesis represents another highly promising approach for    coupled with AI screening technologies, we believe promising
+the production of taxanes. With recent advances in omics tech-    taxanes could be rapidly synthesized for functional validation,
+nologies, abundant yew genomic resources have become avail-    thus shortening the development cycle of taxane-derived drugs.
+able for the development in the post-genomic era (Guo et al.,    Furthermore, a well-designed plant chassis could be utilized to
+2022). Accordingly, the genomic data of three different Taxus    manufacture any taxane compound designed, which  is an
+species were reported by independent research groups (Cheng    exciting prospect. In the near future, we have ample reason to
+et al., 2021; Song et al., 2021; Xiong et al., 2021), providing a    believe that the value of other taxane alternatives to paclitaxel
+wealth  of resources  for  future  exploration  of the dynamic     will be increasingly recognized and validated by researchers.
+biosynthetic network of paclitaxel and the post-modification en-
+zymes involved in taxane biosynthesis. Shortly thereafter, the
+biosynthetic pathway of paclitaxel was separately elucidated by    Diversity of taxanes
+Fernie’s group (Zhang et  al., 2023b), Yan’s lab (Jiang et  al.,   The toxicity of yew trees has been widely recognized for thou-
+2024a), and Sattely’s lab (McClune et al., 2024). It remains the    sands of years, but it was not until the early 1960s that the initial
+only pathway among taxane biosynthetic routes (Figure 1) for     structural elucidations of taxane diterpenes and pseudoalkaloid
+which  minimal gene  sets have been  identified  for  Taxol    diterpenoids were reported (Langley et  al., 1962). The term
+biosynthesis—even if the reaction order and exact nature of the     ‘‘taxane’’ refers to a broad and diverse class of metabolites
+pathway  intermediates  remain  unclear.  Nevertheless, we      initially isolated from species within the genus Taxus (yews).
+believe  these approaches  hold  the  greatest  potential  for    With  the  successful  commercialization  of  representative
+achieving large-scale paclitaxel production via the redesign of    taxanes, such as  paclitaxel and  its  derivatives  for cancer
+plant cell factories in the future.                                    treatment,  the  potential  value  of  taxane compounds has
+                                                                   gradually received widespread attention.
+With the increasing clinical use of paclitaxel and its derivative
+drugs, tumor cells have developed a multidrug-resistant pheno-   By 2018, based on new fingerprint profiling, Taxus species world-
+type toward these agents, although the underlying mechanisms    wide had been reclassified into 15 distinct species—10 of which
+remain unclear (Yang and Horwitz, 2017). The  initiation  of    are distributed in China (Liu et al., 2018). Nearly 500 structurally
+research to discover new taxane compounds with improved    confirmed taxane compounds have been isolated from various
+water solubility and tumor-targeted delivery remains an urgent    Taxus species. Here, we illustrate the remaining unidentified
+priority  ( Skubnı´k et al., 2021). From another perspective, over    metabolic pathways  of  taxane  precursor  skeletons,  along
+the past century, humanity has continuously battled various    with  representative  taxane compounds and  their  potential
+infectious  diseases—from  the  1918   flu  to  the  human    intermediates (Figure 1; Supplemental Table 1). By 2021, 11
+immunodeficiency virus epidemic in the 1980s, and from early    diterpene  skeletons had been  identified as  precursors  of
+21st-century outbreaks of severe acute respiratory syndrome    taxanes based on the arrangement of their fused ring systems.
+and Middle East respiratory syndrome to the recent coronavirus   Among these, the biosynthetic pathway that uses the 6/8/6
+disease 2019 pandemic. Despite the immense damage these    skeleton with a linear tricyclic ring system as a precursor for the
+diseases have inflicted on lives and economies worldwide, they    synthesis of paclitaxel is the only pathway that has been almost
+have also driven substantial advances in the pharmaceutical     fully elucidated (highlighted in light blue in Figure 1).
+industry, to which plant-derived natural products have made an
+indelible contribution (Guo et al., 2022). In response to sudden    According to the existing nuclear magnetic resonance database
+outbreaks of epidemic diseases, extensive screening of lead     for taxanes (http://langelabtools.wsu.edu/nmr), there are 353 de-
+compounds  is  essential  to  design  novel  drug  scaffolds.     rivatives of the type I taxane skeleton and 126 derivatives of the
+However, the limited scale and diversity of screening libraries    type II taxane skeleton, whereas only one derivative has been re-
+have  long  represented  bottlenecks  in  the drug  discovery    ported for the type XI taxane skeleton. These reports indicate an
+process  (Sadybekov  and  Katritch,  2023),  even  with  the    imbalance and insufficiency in the exploration of derivatives from
+availability  of  affordable  high-throughput  screening  (HTS)     different taxane skeletons. There are two possible reasons for this
+methods (Blay et al., 2020; Frey et al., 2024). Given the diversity    discrepancy. First, the type I taxane skeleton may serve as a pre-
+and plasticity of taxanes, expansion of the taxane compound    cursor for the synthesis of paclitaxel, leading to a higher abun-
+library  for  lead compound  screening  holds  considerable   dance of derivatives in Taxus species relative to other taxane
+
+                                                                                 Plant Communications 6, 101460, October 13 2025    3
+
+
+[PDF physical page 4]
+Plant Communications                                    The biosynthesis and diversity of taxanes
+
+skeletons, which has likely attracted more research interest. Sec-       it is feasible to construct an artificial taxane library comprising mil-
+ond, many taxane compounds may be unstable intermediates or     lions  of compounds—far exceeding the number  of taxanes
+present in low abundance in Taxus, making their isolation and    currently isolated from Taxus species. This library considerably en-
+identification  challenging.  As  previously  mentioned,  the    hances the potential for medicinal chemists to discover promising
+increasing incidence of drug resistance associated with pacli-    lead compounds, which may help overcome clinical resistance is-
+taxel and its derivatives in clinical settings highlights the urgent    sues associated with paclitaxel and its derivatives. Undoubtedly,
+need to expand the taxane compound library for subsequent    the successful construction of a comprehensive taxane library
+drug development and optimization. This is a considerable chal-     will be an exciting and highly impactful future development.
+lenge that must be prioritized (Galletti et al., 2007). Given the
+current  situation,  traditional  methods  of  tissue  extraction
+followed  by NMR  structural  identification  are  becoming    Biosynthesis of taxane skeletons
+increasingly challenging and inefficient for enriching the taxane   The precursor scaffold—fundamental to the structural diversity of
+compound library. However, with the foundation established by    terpenoid natural products—plays a decisive role in determining
+complete genome sequencing of three Taxus species, it is only     their physical and biological properties (Leach et al., 2010). For
+a matter of time before the genomic data of the remaining 12    taxanes, there are as many as 11 different precursor scaffolds
+species are obtained, enabling comprehensive annotation of    (taxane skeletons), which serve as the foundation for generating
+the Taxus pangenome. As a result, analysis of omics data to   a diverse library of taxane compounds. In contrast to the type I
+identify additional genes related to the biosynthesis of taxane    6/8/6 taxane skeleton (also referred to as ‘‘classical taxanes’’),
+skeletons and their intermediates  will be a key strategy for    type V–IX taxane skeletons are known as cyclotaxanes (also
+expanding this compound library.                                   called ‘‘complex taxanes’’). Cyclotaxanes are derived from the
+                                                               type I 6/8/6 taxane skeleton by incorporating four cross-ring car-
+Based on the existing compound library, from a stereochemical    bon–carbon bonds in various combinations, specifically between
+perspective, structural diversity is inherently linked to the exis-   C3–C11, C14–C20, C4–C12, and C12–C20 (as indicated on the
+tence of stereoisomers. The stereochemical properties of pacli-    corresponding skeletons in Figure 1). The presence of these
+taxel influence its binding interactions with biological targets,    cross-ring carbon–carbon bonds adds additional strain to the
+thereby affecting its efficacy. For instance, the S-isomer of pacli-    classical type I taxane skeleton, thereby imparting rigidity (i.e.,
+taxel exhibits stronger anticancer activity than the R-isomer    reducing conformational freedom); it also creates up to five new
+(Sarkar et  al., 2022). From the standpoint of natural-product    stereocenters at positions C3, C4, C11, C12, and C14 (Pan
+drug chemistry, the diversity of natural products is not solely    et al., 2024). Among all taxane skeletons, the type IX taxane
+dependent on the number of precursor scaffolds but is also    skeleton, which features three cross-ring carbon–carbon bonds,
+closely related to the types of modifications that occur on these     is considered the most complex taxane skeleton identified thus
+precursor skeletons. Accordingly, we conducted a statistical     far. The compound canataxpropellane, derived from the type IX
+analysis of common modifications in taxanes (Figure 2C) to    taxane skeleton and isolated from Taxus canadensis, serves as
+facilitate the future enumeration of potential compounds in the   a key representative of complex taxane compounds (Figure 1;
+taxane compound library.                                     Supplemental Table 1). Additionally, type II–IV taxane skeletons
+                                                                 are  identified  as  ‘‘abeotaxanes’’;  type X  and  XI  taxane
+Using the type I 6/8/6 taxane skeleton as an example, the enzyme    skeletons are  referred  to as  ‘‘bicyclic  taxanes.’’ These 11
+taxadiene synthase (TXS) catalyzes the formation of taxadiene    skeletons constitute the current precursor compound library of
+(taxa-4(20),11(12)-diene). We attempted to estimate the theoretical    taxane compounds. Compared with the classical type I taxane
+number of compounds that could be generated from taxadiene af-    skeleton, the biological activities and synthetic pathways of
+ter conventional modifications. The taxadiene skeleton contains    taxane compounds derived from the remaining skeletons are
+three chiral carbons and seven potential substitution sites, six      still underexplored.
+of  which  can  form new  chiral  centers upon  substitution
+(Figure  2B).  There  are seven  different  types  of  candidate    Throughout the history of natural-product synthesis, total chem-
+substituents (Figure 2B), though not  all potential substitution     ical synthesis has often preceded chemoenzymatic and de novo
+sites undergo modification. Computational analysis estimates    biosynthetic methods; this pattern is also applicable to the syn-
+that the maximum possible number of derived taxanes exceeds    thesis of taxanes. From the first total chemical synthesis of pacli-
+hundreds  of  thousands. However,  given  that 35  precursor    taxel (Nicolaou et al., 1994) to its synthesis in the model plant
+derivatives of the 6/8/6 taxane skeleton are currently known, the    Nicotiana benthamiana  in 2023 (Zhang et  al., 2023b), there
+total number  of  derivatives could  potentially reach  into the    has been a substantial gap of approximately 30 years. In the
+millions. Furthermore, with up to 11 taxane scaffolds available,     field  of  total chemical  synthesis  of complex  taxanes,  the
+the scalability of the taxane compound library could exceed tens    research group  led by  Tanja Gaich has made  extensive
+of  millions. As shown  in  Figure  2C, we  summarized   all    contributions. In 2020, they achieved the first total synthesis of
+modification types catalyzed by cytochrome P450 enzymes    canataxpropellane, representing successful total synthesis of
+(CYP450s)   (light  green  region)  and BAHD  (benzylalcohol    the complex type IX taxane skeleton and  its representative
+acetyltransferase, anthocyanin O-hydroxycinnamoyltransferase,    derivative  through  organic  chemistry  strategies  (Schneider
+hydroxycinnamoyl-CoA:shikimate hydroxycinnamoyl transferase,    et al., 2020). In 2024, their latest work comprised the successful
+and  deacetylvindoline  4-O-acetyltransferase)  protein  family     total synthesis of the complex type V,  VII, and IX taxane
+enzymes (light yellow region) within taxane biosynthesis. These    skeletons, along with  their representative derivatives. These
+enzyme-catalyzed reactions should be regarded as modular build-    achievements constitute milestones in taxane synthesis (Pan
+ing blocks. By engineering the stereoselectivity of these enzymes,    et al., 2024). Their innovative design enabled total synthesis of
+
+4     Plant Communications 6, 101460, October 13 2025
+
+
+[PDF physical page 5]
+The biosynthesis and diversity of taxanes                                     Plant Communications
+
+       A
+
+
+
+
+
+       B
+
+
+
+
+
+       C
+
+
+
+
+
+Figure 2. Different modules used to construct the taxane library.
+(A) The TXS open conformation, complexed with three clustered Mg2+ ions and the ligand GGPP, is shown in green. The TXS closed conformation,
+complexed with Mg2+ ions and the ligand GGPP and predicted by AlphaFold 3, is shown in sky blue. Three loops functioning as lids are colored salmon
+(D80–S93), lemon (S569–R580), and magenta (Y835–E846), respectively.
+(B) Left: the structure of taxadiene, with orange-labeled carbon atoms representing the intrinsic chiral centers of the skeleton and blue-labeled carbon
+atoms indicating new chiral centers formed after substitution. Center: seven distinct reported modifications of taxadiene; light green indicates regions
+catalyzed by CYP450s, and light yellow indicates regions catalyzed by the BAHD protein family. Right: a comparison of the actual number of taxadiene-
+derived compounds with the theoretical number of compounds generated by various combinations of modification types.
+(C) A comprehensive collection of modification types currently observed in taxane compounds. Modifications catalyzed by CYP450s are shown in light
+green, whereas those catalyzed by the BAHD protein family are shown in light yellow.
+
+
+
+
+
+                                                                                 Plant Communications 6, 101460, October 13 2025    5
+
+
+[PDF physical page 6]
+Plant Communications                                    The biosynthesis and diversity of taxanes
+
+the most complex taxane skeletons and established a solid    strong discovery potential, then performing a comprehensive
+foundation for exploring biosynthetic pathways and elucidating    analysis of its genome or transcriptome to extract relevant infor-
+synthetic mechanisms for taxane skeletons.                       mation. In the second scenario, existing enzymes with well-
+                                                                defined functions serve as probes to identify enzymes with similar
+Considering the limitations of chemical synthesis, environmen-    or novel catalytic activities (Figure 3A).
+tally friendly biosynthesis using microorganisms or plants as pri-
+mary cell factories has a natural advantage in reducing the     In the process of discovering microbial diterpene cyclases, Liu’s
+destruction of precious natural yew resources. Moreover, genet-    group observed that gene clusters for diterpene synthases often
+ically well-defined and programmable microbial or plant chassis    contain conserved genes for geranylgeranyl diphosphate syn-
+can optimize metabolic pathways to achieve production effi-    thases (GGPPS). Using GGPPS genes as probes, they conduct-
+ciencies for taxane skeletons and their derivatives that far exceed   ed mining analyses of genomic data from Hericium erinaceum
+those of chemical synthesis. Successful biosynthesis of these   and Corynebacterium striatum, leading to the identification and
+precursors will provide robust support for constructing the exten-    characterization of a ubiquinone prenyltransferase A (UbiA)-like
+sive taxane compound  library discussed above. Using the   membrane-bound diterpene cyclase, EriG (ent-kaurene oxidase
+biosynthesis of several paclitaxel intermediates with the type  I    from Erigeron breviscapus). Subsequently, they used EriG as a
+taxane skeleton as an example, researchers have achieved het-    probe  in public databases to  identify a potential diterpene
+erologous expression of taxadiene in Saccharomyces cerevisiae    cyclase gene, StlTC (taxane hydroxylase or CYP450 enzyme)
+(184.2 mg/L) (Zhang et al., 2023a), Yarrowia lipolytica (101.4 mg/    from Saprospira grandis, which can catalyze the formation of a
+L) (Xu et al., 2023), and Bacillus subtilis (390 mg/L) (He et al.,    novel diterpene skeleton (Yang et al., 2017). There are several
+2024), as well as expression of taxadien-5α-ol in Escherichia    cases where known diterpene cyclases with well-defined func-
+coli (7 mg/L) (Wu et al., 2022) and cyanobacteria (4.32 mg/L)    tions have been used as probes to identify new enzymes in public
+(Zhong et al., 2024). For the same reaction volume, the yield of    databases (Li et al., 2023b, 2023c; Mao et al., 2023). In addition to
+taxane  intermediates  through  controllable  biosynthesis   is    the use of amino acid sequences as probes, strategies that utilize
+several hundred times greater than that of chemical synthesis.    protein domain searches have achieved considerable success in
+Additionally, the growth media used for microbial fermentation     identifying  ribosomally  synthesized  and  post-translationally
+are readily available and inexpensive, highlighting the immense    modified peptides (RiPPs) with isoprenoid modifications. This
+potential of taxane biosynthesis for industrial-scale production.    approach led to the first identification of cyclized C20 and C25
+                                                                   prenylations  attached  to  RiPPs  (Hubrich  et   al.,  2024).
+The diversity of precursor scaffolds in terpenoid natural products    Additionally, sequence similarity network (SSN) analysis has
+often depends on terpene synthases (also known as terpene cy-    yielded  promising  results  in  identifying  hybrid  terpenoid
+clases; Vattekkatte et al., 2018). In the biosynthesis of taxane    saccharides (Yuan et al., 2023; Tang and Zou, 2024). Although
+skeletons, only one TXS has been identified to date; it catalyzes    AI-based methods demonstrate substantial advantages in accel-
+the conversion of geranylgeranyl diphosphate (GGPP, C20) to    erating  the  discovery   of  unknown  terpene  synthases
+form the type  I taxane skeleton (Lin et al., 1996; Wildung and    (Samusevich et al., 2024), this approach is currently unsuitable
+Croteau, 1996). Whereas type   II terpene cyclases use the     for identifying diterpene cyclases from Taxus due to the lack of
+conserved DXDD motif (D = aspartic acid, X = any amino acid)     sufficient datasets.
+to protonate the substrate, TXS—similar to most members of
+the type  I cyclase family—utilizes three clusters of metal ions
+along with  highly conserved motifs (DDXXD, (N/D)DXX(S/T)    Elucidation of the taxane biosynthetic pathway
+XXXE, and NSE/DTE; N = asparagine, S = serine, T = threonine,    Building on the successful synthesis of various types of taxane
+E = glutamic acid) to remove the diphosphate group from    skeletons, elucidation of the various sets of modifying enzymes
+GGPP (ionization), forming a carbocation to initiate the next    that act on each taxane skeleton is crucial for efforts to synthesize
+step of catalysis. Based on crystal structure data, TXS exhibits   a diverse library of taxane compounds. For example, regarding
+a modular structure with three α-helical domains, which is com-    the biosynthesis of the paclitaxel intermediate baccatin  III, we
+mon in diterpene cyclases (Ko¨ ksal et al., 2011). In the absence    previously mentioned that there are currently two pathways. Fer-
+of substrate, the substrate-binding pocket of TXS exhibits an    nie’s lab achieved synthesis from GGPP to baccatin III using 13
+open conformation (Figure 2A). However, upon binding to the    genes: TXS, two types of oxidases, three BAHD-like enzymes,
+three clusters of magnesium ions and the diphosphate group,   and seven CYP450s (Zhang et al., 2023b). In contrast, Yan’s
+the conformation of the substrate pocket shifts from open to    lab completed the synthesis with only eight genes: two BAHD-
+closed (Figure 2A) (Christianson, 2006). This transition protects     like enzymes and  six CYP450s  (Jiang  et  al., 2024a). This
+the carbocation from premature quenching.                         difference suggests  that  the  biosynthesis  of taxanes  is a
+                                                        dynamic  synthetic  network  rather  than a  linear  pathway,
+With a comprehensive understanding of the existing TXS, we are    although it is important to note that the baccatin III yield of the
+now more focused on how to utilize TXS as a probe to discover    13-gene pathway was over 100-fold greater than that of the
+new diterpene cyclases from Taxus species that can catalyze    eight-gene pathway (Fernie, 2024).
+the formation of the remaining—or even unknown—types of tax-
+ane skeletons. Here, we summarize methods used to discover    Taxanes with strong biological activity often involve longer syn-
+other terpene cyclases, with the goal of providing insights     thetic pathways. Combined with their inherent instability and
+for subsequent identification of new enzymes. There are two sce-    the difficulty of detecting most taxane intermediates, substantial
+narios in the process of discovering diterpene cyclases. The first    challenges are involved in identifying the corresponding sets of
+involves identifying a species (plant or microorganism) with   enzymes responsible for modifications of each taxane skeleton.
+
+6     Plant Communications 6, 101460, October 13 2025
+
+
+[PDF physical page 7]
+The biosynthesis and diversity of taxanes                                     Plant Communications
+
+  A
+
+
+
+
+
+  B
+
+
+
+
+
+  C
+
+
+
+
+
+Figure 3. Synthetic biology strategies supporting taxane biosynthesis.
+(A) Gene identification in the taxane biosynthetic pathway. This process includes sequential steps such as omics data mining, phylogenetic analysis,
+metabolic network analysis, and the assembly of heterologous biosynthetic pathways.
+(B) Regulatory strategies for taxane biosynthesis. On the left side of the dashed line is the compartmentalization strategy. The first row depicts organelles,
+including the endoplasmic reticulum and Golgi apparatus; the second row shows the chloroplast and mitochondrion. The right side of the dashed line
+presents synthetic biology regulatory toolkits based on the CRISPRi-dCas9 reversible gene circuit platform. This includes CRISPRi-dCas9-based NOR
+gate circuits and combinations of promoters and enhancers of varying strengths.
+(C) Metabolon engineering strategies for taxane biosynthesis. During substrate channeling, enzymes A, B, and C enable rapid transfer of substrates and
+intermediates, ensuring efficient synthesis of the target product E. In the absence of substrate channeling, enzyme A may compete with enzyme D for
+substrate I, leading to the formation of the non-target byproduct F. This byproduct may introduce toxic interference in the pathway, considerably im-
+pairing the efficiency and yield of the desired product.
+
+
+
+                                                                                 Plant Communications 6, 101460, October 13 2025    7
+
+
+[PDF physical page 8]
+Plant Communications                                    The biosynthesis and diversity of taxanes
+
+The most commonly identified taxane skeleton–modifying en-   ond and third parts, it is crucial to localize relevant enzyme sets to
+zymes belong  to two major  families: CYP450 and BAHD    specific subcellular compartments, such as the cytosol or the
+(Figure  2C). Among the  four classes  of taxanes,  classical   membrane of the endoplasmic reticulum. By breaking down the
+taxanes  currently  have  the  highest number  of  identified    biosynthetic pathway into distinct segments, researchers can uti-
+compounds and modifying enzyme types, whereas complex     lize gene-mining strategies to identify missing catalytic enzymes
+taxanes  have  the  fewest.  The BAHD  protein  family   is      (i.e., ‘‘black boxes’’) or enhance the substrate selectivity of exist-
+responsible for more than 30 different types of modifications on    ing  enzymes  through  directed  evolution.  Ultimately,  this
+the  type    I  taxane  skeleton,  whereas  three  types  of    approach will enable the linkage of upstream and downstream
+modifications  have  been  identified   for  complex  taxane     catalytic steps, leading to the complete elucidation of the taxane
+skeletons (Lange and Conner, 2021).                               biosynthetic pathway.
+
+
+In the broader field of phytochemistry, CYP450s—members of     AI, particularly deep learning, has emerged as a transformative
+the  heme-dependent  superfamily—participate  in numerous    force in studies of biosynthetic pathways, achieving remarkable
+oxidation reactions of plant-derived natural products (Zhang    progress in the synthesis and discovery of natural products.
+and Wang, 2022). During taxane biosynthesis, they are involved    Figure 4A  illustrates a  deep-learning-based framework  for
+in various modifications, including hydroxylation, carbonylation,    natural  product   prediction   that   integrates  data  from
+epoxidation, and formation of the oxetane ring (Figure 2C).    biosynthetic  pathway  databases  (e.g., KEGG,  Reactome,
+Oxetane ring modifications have only been detected in classical    MetaCyc), uses SMILES to represent molecular structures, uti-
+taxanes and abeotaxanes; this unique modification is crucial for     lizes graph neural networks to extract molecular topological fea-
+the biological activity of taxanes. According to reports from    tures, and combines Transformer encoders to further learn mo-
+Fernie’s  lab, a newly  identified C4β–C20 epoxidase, which    lecular sequences and contextual information. This framework
+belongs to the α-ketoglutarate/Fe(II)-dependent dioxygenase    enables the prediction of natural product structures, annotates
+family (2OGD), can co-catalyze the synthesis of the oxetane    key functional groups, and provides guidance to optimize natural
+ring on the type I taxane skeleton in conjunction with T5αH. More-    product synthesis. Biosynthetic pathways are essential for un-
+over, two 2OGDs have been identified as T1βOH enzymes exhib-    derstanding the formation of natural products within biological
+iting T9αOH activity (McClune et al., 2024). With an additional two    systems. However, their complexity and incomplete elucidation
+deacetylases, a large amount of baccatin III was biosynthesized    often hinder their application in drug discovery, metabolic engi-
+using the 19-gene set. In contrast, Yan’s lab achieved the    neering, and synthetic biology. Traditional methods for the anal-
+synthesis of the oxetane ring using a newly identified CYP450    ysis of biosynthetic pathways primarily rely on manual annota-
+enzyme, taxane oxetanase 1 (TOT1). Furthermore, CYP725A4 is     tion,   experimental    validation,   and   knowledge-driven
+able to complete the synthesis of the oxetane ring through    computational approaches. These methods are time-consuming
+consecutive catalysis, highlighting the substrate catalytic promis-   and labor-intensive; they struggle to manage the broad chemical
+cuity of CYP450s (Zhao et al., 2024).                                  diversity and complex networks involved  in natural product
+                                                                    biosynthesis. To  address  these  challenges,  AI-based  ap-
+Among the enzyme sets responsible for taxane skeleton modi-    proaches have gradually become powerful tools for automating
+fications, the BAHD protein family is essential for generating   pathway prediction, optimizing synthesis, and discovering novel
+taxane diversity. According to our data, acylation modifications    bioactive compounds. In recent years, the potential of AI in
+commonly include conventional groups such as  (O)-acetyl,    biosynthetic pathway research has been widely demonstrated.
+(O)-benzoyl, O-β-D-glucopyranosyl, and O-cinnamoyl. Addi-    For example, NPClassifier utilizes deep-learning techniques to
+tionally, acylation with cinnamoyl derivatives and alkanoyl acids    automate the structural classification of natural products, linking
+(where 3 ≤n ≤10, with n representing the number of carbon    molecular structures to their biosynthetic pathways and providing
+atoms) represents the second most common category of modi-   an efficient tool for studies of natural product biosynthesis (Kim
+fication (Figure 2C). Once a comprehensive understanding of    et  al.,  2021).  In  the  field  of  metabolic pathway  design,
+taxane skeleton modifications made by key enzyme sets  is   MooSeeker, a multi-objective optimization-based tool, integrates
+achieved,  it  is only a matter of time  until researchers can    various biological parameters (e.g., pathway length, energy effi-
+select  appropriate  probe  sequences  to  identify unknown    ciency, and product yield) to optimize metabolic networks, offer-
+modifying enzymes.                                                ing comprehensive design solutions for metabolic engineering
+                                                          (Cao  et   al.,  2023).  Deep-learning-focused  research  has
+Elucidation of the taxane biosynthetic pathway critically depends    propelled  further  development  in  this  field.  For  instance,
+on detecting stable intermediates. Here, we prioritize the struc-    BioNavi-NP combines molecular Transformer neural networks
+tural dissection of taxanes. Unlike the process of chemical lysis    with planning algorithms to predict biosynthetic pathways with
+in organic synthesis, we are not concerned with the stereoiso-    exceptionally high accuracy, achieving over 90% recognition of
+meric properties of taxanes but rather use this approach to   known pathways in tested compounds (Zheng et al., 2022). More-
+monitor the progress of their biosynthesis. This process can be    over, by using a retrieval-enhanced dual-view retrosynthesis
+divided into three main parts. First, confirmation of the taxane    model, READRetro has made substantial advances in predicting
+skeleton, which primarily involves identifying novel taxane diter-    pathways for complex plant secondary metabolites. Its general-
+pene synthases. Second, biosynthesis of key taxane intermedi-     ization and pathway exploration capabilities have been validated
+ates, which focuses on identifying enzyme sets that act on the    (Kim et  al., 2024). These studies demonstrate the immense
+precursor skeleton. Third, synthesis of the final taxane com-    potential   of   AI   in   biosynthetic  pathway   applications
+pound, which depends on identifying the enzyme sets respon-    (Supplemental Table  3), accelerating pathway  analysis and
+sible for the modification of metabolic intermediates. For the sec-    providing new solutions for metabolic engineering and natural
+
+8     Plant Communications 6, 101460, October 13 2025
+
+
+[PDF physical page 9]
+The biosynthesis and diversity of taxanes                                     Plant Communications
+
+      A
+
+
+
+
+
+      B
+
+
+
+
+
+Figure 4. Deep learning integrates natural product prediction and protein evolution to accelerate molecular design.
+(A) A deep-learning-based framework for natural product prediction. The process involves obtaining biosynthetic pathway and molecular structure data
+from databases (e.g., KEGG, Reactome, MetaCyc); using SMILES to represent molecular structures; utilizing graph neural networks to extract molecular
+topological features; combining these features with Transformer encoders to learn molecular sequences and contextual information; and finally, pre-
+dicting possible molecular structures of natural products, annotating key functional groups (in red) and pathway information, and guiding the synthesis
+and optimization of natural products.
+(B) AI-based directed evolution of proteins. A variant library is generated through gene diversification; variants are amplified, expressed, and screened;
+and mutation data are integrated with artificial intelligence models to predict protein performance and function. The AI model uses the relationship
+between screening results and sequence information to guide the next round of mutation design, enabling rapid, directional optimization of protein
+performance and accelerating the process of protein engineering.
+
+
+product synthesis. Such methods are  likely to advance the    chassis  (Dahmani  et   al.,  2023).  Metabolons  enable  rapid
+identification  of taxane biosynthetic pathways  into a more    substrate catalysis by forming transient protein complexes that
+efficient and possibly automated era.                               include a substrate channel, wherein the product of one enzyme
+                                                                                      is  directly  transferred from  its  active  site  to serve as  the
+                                                                  substrate  for  the  active  site  of  a  subsequent  enzyme.
+Dynamic synthesis network of taxanes guided by            Furthermore,  they  regulate  metabolic  flux  via  binding and
+metabolons within enzyme-enzyme complexes               dissociation   of  components,   strongly   influencing   global
+Metabolons are recognized as dynamic enzyme-enzyme assem-    metabolism (Zhang and Fernie, 2021). As highlighted  in our
+blies that can form during the synthesis of secondary metabolites,    previous review, mere physical interactions between enzymes
+either through endogenous or heterologous expression in plant    are insufficient to establish the existence of metabolons. Rather,
+
+                                                                                 Plant Communications 6, 101460, October 13 2025    9
+
+
+[PDF physical page 10]
+Plant Communications                                    The biosynthesis and diversity of taxanes
+
+functional channeling experiments—such as direct measurements     inhibited via rapid glucosylation catalyzed by the soluble uridine
+of substrate channeling—are essential for validation. In paclitaxel    diphosphate-glucosyltransferase UGT85B1  (Ho¨sel and Schiel,
+biosynthesis, it is crucial to experimentally confirm the potential    1984). Arrangement of the biosynthetic pathway in a metabolon
+dynamic  assembly  and  substrate  channeling  of  relevant   can enhance the conversion of unstable and highly reactive
+enzymes.  Numerous  methods  are  currently  available  to    intermediates  into  the  end  product.  Additionally,  dhurrin
+determine  the  components  and  functions  of  metabolons,    biosynthesis  intermediates  are  labile  and  highly  cytotoxic
+including isotope dilution to track substrate flow; fluorescence    (Winkel, 2004). Therefore, researchers have hypothesized that a
+resonance  energy  transfer and  bioluminescence  resonance    metabolon  is formed  in sorghum seedlings to support rapid
+energy transfer to observe transient enzyme interactions; and    synthesis of dhurrin and to isolate intermediates from other
+co-immunoprecipitation and mass spectrometry to capture and     cellular components (Dastmalchi and Facchini, 2016; Laursen
+analyze enzyme complexes (Zhang and Fernie, 2021). Effective    et al., 2016). Consistent with this hypothesis, in vitro experiments
+combination of these techniques can facilitate the identification    have revealed that the dhurrin biosynthetic pathway is highly
+and validation of metabolons involved in paclitaxel biosynthesis.    channeled (Nielsen et al., 2008; Møller, 2010; Jensen et al., 2011).
+The dynamic assembly and disassembly of metabolons can
+rapidly regulate metabolic flux within pathways, particularly at   The complex and highly branched phenylpropanoid pathway
+branch points. A comprehensive understanding of metabolons    has  been  suggested   to  operate   within  metabolons.
+allows  optimization  of metabolic  flux by  regulating enzyme    This arrangement enables efficient channeling of intermediates
+expression levels across the synthetic pathway via selection of   between  various  enzymes,  reducing  the   risk  of  toxic
+appropriate expression elements  in  toolkits and the use  of   compound accumulation within the cell. Phenylpropanoid me-
+compartmentalization strategies to alleviate stress on the host’s    tabolons may serve as a mechanism for sequestering toxic me-
+metabolic network. Furthermore, this understanding can reveal    tabolites and protecting them from competing metabolic path-
+regulatory  factors involved  in the heterologous synthesis  of   ways (Ralston and Yu, 2006). Similarly, complex metabolic
+paclitaxel. When  integrated  with  precise  gene  regulation    pathways, such as the tricarboxylic acid (TCA) cycle, consist
+technologies, this approach could ultimately enhance paclitaxel    of numerous enzymatic steps  that  require  effective mass
+production efficiency. The presence of a metabolon enables    transfer of intermediates between active sites. The formation
+spatial  clustering  of  enzymes  that  catalyze  consecutive    of  metabolons  within  the TCA  cycle,  as  well  as  the
+reactions, thereby  facilitating  rapid and  efficient  transfer  of    interactions between  malate dehydrogenase (mMDH) and
+metabolic intermediates while reducing intermediate loss and     citrate synthase  (CS), has received considerable research
+the formation of toxic byproducts (Møller, 2010). For example, in    attention. Direct evidence of metabolon formation has been
+dhurrin biosynthesis, highly unstable and cytotoxic intermediates    observed between recombinantly produced mMDH and CS
+are  rapidly  converted  through  metabolic  channeling;  the    (Bulutoglu et al., 2016).
+metabolon  structure  effectively protects  cells from  potential
+toxic damage.                                                                                    It has been reported that metabolons may also form within the
+                                                                        paclitaxel  synthesis  pathway.  5(12)-Oxa-3(11)-cyclotaxane
+As shown in Figure 3C, the presence of a metabolon ensures    (OCT) and 5(11)-Oxa-3(11)-cyclotaxane (iso-OCT) may serve as
+that  metabolic  intermediates  are  rapidly  and  accurately    intermediates in downstream pathways in Taxus species; they
+transferred  between  enzymes,  minimizing  loss  of  these    are potentially more toxic than T5α-ol and thus are degraded by
+intermediates to nonproductive pathways and reducing the    the plant’s underground metabolism. This hypothesis is sup-
+potential  formation  of  toxic  byproducts.  In  biochemical    ported by findings that only a small amount of OCT was detected
+pathways,  metabolic  intermediates  can  sometimes  be     in Taxus plant cell cultures (Edgar et al., 2016). It is conceivable
+unstable or reactive, posing a risk of cellular damage  if they    that these oxygenated taxanes are the primary products of
+are not rapidly converted to the next product in the pathway.   CYP725A4, whereas other diterpenoids may result from oxida-
+By  physically  locating enzymes  that  catalyze consecutive     tion processes, although in lower quantities and with higher en-
+reactions  in  close  proximity, a  functional metabolon can    ergy barriers relative to epoxidation (Jaladanki et  al., 2020).
+ensure that these intermediates are efficiently channeled into   Some  of  these oxygenated compounds may be  transient
+productive pathways, minimizing their exposure to potentially    metabolites  that degrade  into more  stable forms, are not
+damaging conditions (Møller, 2010).                             metabolized during the resting stage, or are produced as late-
+                                                              stage  products  due  to  increased  nicotinamide  adenine
+For example, dhurrin biosynthesis is a metabolic pathway that ex-    dinucleotide phosphate and cofactor availability or structural
+hibits such a protective mechanism. Aldoximes are important in    rearrangements (Nowicki, 2000).
+dhurrin  biosynthesis;  they  also  serve  as  precursors  for
+glucosinolate biosynthesis (Jørgensen et al., 2005). These highly    Metabolons play critical roles in both detoxification and meta-
+reactive molecules can  inhibit enzymes and have  potential    bolic regulation, allowing cells to rapidly adapt to environmental
+cytotoxic effects (Sakurada et al., 2009). Cyanogenic glycosides   changes by modifying  their composition and  activity.  This
+release  cyanide—a  harmful  compound—during  enzymatic    enables efficient regulation of metabolic flux in response to
+breakdown, serving as a herbivore defense mechanism (Ohlen    fluctuations in nutrient availability, oxygen levels, and other envi-
+et al., 2017). Metabolic channeling between closely associated    ronmental signals. Given the recent development of a CRISPR-
+active sites is observed in this case to prevent the cell from   based strategy to create  artificial metabolons (Mitkas et  al.,
+exposure to its own toxic intermediates. Cyanohydrin undergoes    2022; Zhang and  Fernie, 2022),   it  is conceivable  that the
+decomposition  to  form  p-hydroxybenzaldehyde  and  toxic    advantages conferred by metabolons can be integrated into
+hydrogen  cyanide.  In  living systems,  this decomposition  is    contemporary metabolic engineering workflows.
+
+10    Plant Communications 6, 101460, October 13 2025
+
+
+[PDF physical page 11]
+The biosynthesis and diversity of taxanes                                     Plant Communications
+
+Creation of synthetic toolkits for taxane production           rate-limiting steps. These include enzymatic acetylation for inter-
+                                                           mediate protection, compartmentalization of the endoplasmic re-
+Synthetic biology operates on the design-build-test-learn frame-    ticulum, and overexpression of taxadiene synthase along with
+work, an interdisciplinary field integrating biology, engineering,    P450-reductase fusion proteins. Enzyme grouping strategies
+computer science, and related disciplines. Its goal is to enable    such as protein scaffolding, organelle targeting, and enzyme
+programmable control over foundational biological entities—    fusion have demonstrated improved taxane production. Scaf-
+including microorganisms, plants, and plant suspension cells,    folding reduces taxadiene leakage, and fusion enzymes increase
+and mammalian cells—to produce high-value products such as    oxidized product levels by threefold. Additionally, dynamic regu-
+active natural compounds, functional proteins, antibodies, and     lation and synthetic microbial consortia can further optimize the
+vaccines (Liu and Stewart, 2015; Mortimer, 2018). Over the past    metabolic burden. Future  efforts should integrate metabolic
+few decades, important advancements have been made  in    modeling with protein engineering to achieve scalable production
+using microorganisms to synthesize complex natural products.    (Mutanda et al., 2021; Guo et al., 2024; Yin et al., 2025). Therefore,
+Achievements include the de novo synthesis of artemisinic acid   enzyme set grouping and intermediate  stabilization  will be
+(Paddon et al., 2013), cannabinoids (Luo et al., 2019), tropane    essential to ultimately obtain the desired taxane products. A
+alkaloids (Srinivasan and Smolke, 2020), vinblastine (Zhang    secondary goal is optimization of the metabolic pathway. In
+et  al., 2022), and QS21 (saponin adjuvant derived from the     particular, it is important to identify which enzymes are limiting
+Quillaja saponaria  tree)  (Liu  et  al., 2024)  in  S.  cerevisiae.    under production conditions; this information helps to eliminate
+Nonetheless, there are limitations in expressing plant-derived    bottlenecks and enhance  the  yield  of  target  metabolites.
+enzyme sets via microbial chassis for the production of complex    Metabolic flux analysis in plants is considered a key strategy for
+natural products. For instance, many enzymes fail to fold into the    the rapid identification of such metabolic bottlenecks (Shih and
+correct conformation or tend to form inclusion bodies in E. coli    Morgan, 2020; Koley et al., 2024). Although this strategy has
+(Sabate et  al., 2010). Additionally, the correct expression of    not yet been used to optimize the taxane metabolic pathway,
+CYP450s in E. coli or yeast often requires redesigning protein   we  believe   it  could  substantially  improve  taxane  yields.
+localization  or  folding  pathways.  Therefore,  the de  novo    Furthermore, a rich library of regulatory elements is crucial for
+synthesis of taxanes in microbial chassis remains challenging    metabolic engineering. A library of synthetic promoters with
+because the catalytic  activity of CYP450s  is imperative  for    varying strengths has been established (Jores et al., 2021) and
+functional taxane biosynthesis.                               can be used to regulate gene expression levels within the
+                                                             taxane synthesis network. This library provides a foundation for
+Plants, as powerful and reliable chassis in the field of synthetic    overcoming metabolic bottlenecks. New synthetic enhancer
+biology, are increasingly recognized for their ability to synthesize   sequences have also been  identified  that can elevate the
+complex natural products. Unlike microorganisms that rely on    expression levels of heterologous genes in the tobacco chassis
+carbon sources from growth media, plant chassis utilize natural    (Jores  et   al.,  2020).  Despite  these  advances,  the  high
+carbon  fixation through photosynthesis to absorb CO2  (Lin    compatibility  required  between  enhancers  and  promoters
+et  al.,  2023b).  This  strategy  positions them  as  a more    presents  a  challenge  in  designing  expression  constructs.
+sustainable and environmentally  friendly platform  for  future    However,  insulator-like sequences have been  reported  to
+advancements   in  synthetic  biology   (Liu  et   al.,  2023).    regulate the interactions between enhancers and promoters,
+Furthermore,  plant chassis possess a  rich endomembrane    enabling target genes to be expressed at high levels and with
+system and organelles that provide a favorable environment for    greater stability (Park et al., 2021).
+expressing enzyme sets involved in taxane synthesis. These
+characteristics make them an ideal model system for studying    Compartmentalization is a key strategy used by plants to accu-
+taxane biosynthesis. To date, mainstream plant chassis include    mulate  high  levels  of  potentially  toxic  metabolites  without
+tobacco leaves, rice endosperm, tobacco  fruits, suspension    affecting  their  viability  (Molina-Hidalgo  et  al.,  2021).  In N.
+cell cultures of various species, and hairy roots (Lin et  al.,    benthamiana,  the  combination  of  chloroplastic  metabolic
+2023c). Although Taxus cell cultures have made considerable    engineering with strategies to expand the precursor GGPP pool
+advancements  in  paclitaxel  bioproduction  (Brzycki Newton     facilitated an increase in taxadiene yield. In that study, one
+et   al.,  2023),  tobacco  heterologous  expression  systems   phenomenon sparked  our  interest:  the  wild-type enzymes
+demonstrate superior potential for elucidating cryptic taxane    derived from Taxus species, when heterologously expressed in
+biosynthetic  pathways.  N.  benthamiana  has   attracted    N. benthamiana, were distributed across various organelles,
+considerable attention due to its large biomass, short growth    preventing  complete  synthesis  of  taxanes.  Researchers
+cycle, and ease of genetic manipulation, gradually becoming   compared the effects of cytoplasmic accumulation and chloro-
+the primary chassis for taxane biosynthesis. In the following    plast compartmentalization on taxane synthesis. The results
+section, we propose a modular strategy for taxane production   showed that the compartmentalization strategy increased yield
+based on the tobacco chassis (Figure 3B).                     by approximately 20-fold  (Li et  al., 2019), emphasizing the
+                                                            importance  of compartmentalization  in taxane biosynthesis.
+Given the complex enzyme set involved in taxane biosynthesis, a    Moreover,  the  chloroplastic  metabolic  engineering  strategy
+primary goal is ensuring that all enzymes achieve correct folding     utilized in that study involved a relatively small set of enzymes,
+and expression. The detection of enzyme activity relies on identi-   and its applicability to multi-enzyme catalysis for taxane synthe-
+fying intermediates through mass spectrometry. However, as     sis requires exploration. It is still unclear whether other organ-
+previously mentioned, most taxane intermediates are unstable.     elles, including the endoplasmic reticulum, Golgi apparatus,
+Recent advances in taxane biosynthesis have made extensive   and mitochondria, can contribute to the accumulation of taxane
+progress in stabilizing metabolic intermediates and optimizing    intermediates. However, relevant localization signal sequences
+
+                                                                                 Plant Communications 6, 101460, October 13 2025   11
+
+
+[PDF physical page 12]
+Plant Communications                                    The biosynthesis and diversity of taxanes
+
+have been elucidated, providing a solid foundation for future    However,  the  effectiveness  of  substrate  channeling   is
+research on compartmentalization strategies in other organelles    dependent on specific conditions (DeLisa and Conrado, 2009;
+and the targeted transport of taxane intermediates.                 Keasling, 2012). As the development of natural or synthetic
+                                                                             cellular compartments continues to grow in synthetic biology,
+An effective strategy to improve taxane biosynthesis involves the    the incorporation of transport metabolons into organelles to
+integration of plant cell culture systems with metabolon engineer-    regulate the movement of intermediates across  intracellular
+ing to refine the spatial and functional organization of pathway en-   membranes represents a promising avenue for future research
+zymes. Through synthetic scaffolding and protein complex engi-    (Oreb, 2020).
+neering, metabolic flux can be enhanced by promoting substrate
+channeling, increasing enzyme colocalization, and reducing non-       It has recently become possible to construct an artificial com-
+specific interactions. This approach is grounded in mechanistic    plex between an endogenous sugar transporter and a heterolo-
+insights  into the taxane  biosynthetic network (Perez-Matas   gous xylose isomerase in S. cerevisiae (Thomik et al., 2017).
+et al., 2023), particularly the roles of key intermediates such as    Direct  channeling  of  xylose  via  the  transporter–enzyme
+baccatin III and 10-deacetylbaccatin III, which serve as immedi-   complex accelerated xylose consumption and  substantially
+ate  precursors  to  paclitaxel  and  docetaxel  (Thornburg    reduced  the  production  of  xylitol  as  an  undesired  side
+et al., 2017).                                                  product while increasing ethanol production. This underlying
+                                                                        principle could likely be implemented in other biotechnological
+Metabolon engineering achieves this refinement by targeting the    applications.
+organization of these enzymes within the cell. Techniques such
+as protein engineering, synthetic biology, and metabolic engi-     Efforts have been made to create enzyme cascades as metabo-
+neering are utilized to create or modify metabolons that favor tax-    lon biomimics, but there is limited understanding of enzyme–
+ane production. For instance, scaffold proteins may be intro-   enzyme interactions in natural metabolons due to their dissocia-
+duced  to  serve as  organizational  hubs,  bringing  together     tion during isolation. Protein engineering and computer modeling
+enzymes  that  catalyze  sequential  reactions  in  the  taxane    have been used to propose a symmetric model for the mMDH-
+pathway. Alternatively, they may enhance affinity between en-    CS-aconitase complex in the Krebs cycle metabolon (Wu and
+zymes, ensuring efficient intermediate transfer and minimizing    Minteer, 2015). Within this model, a continuous surface region
+off-target reactions.                                                  of  positive  potential  was   illustrated  through  numerical
+                                                                      simulation, enabling efficient substrate channeling within the
+The isotope dilution technique is commonly used as a reliable    complex.
+method to demonstrate substrate channeling. In this method,
+an isotopically labeled  initial substrate  is introduced  into a   One  notable  challenge  in  metabolon  engineering  is  the
+series of reactions; isotope accumulation in the final product    complexity and redundancy of metabolic pathways. The taxane
+is measured after the addition of a large amount of unlabeled    biosynthetic pathway, in particular, is known for its intricate reg-
+intermediate. If the intermediate is channeled, isotope accumula-    ulatory mechanisms and the presence of alternative metabolic
+tion in the final product will not be affected by the unlabeled    routes. Thus, a comprehensive understanding of the pathway’s
+intermediate  because  the enzyme  exclusively  utilizes  the    architecture and regulation is crucial for successful engineering
+labeled  intermediate  channeled  through  the  metabolon     efforts.
+(Achnine  et  al.,  2004).  Isotope  dilution  experiments have
+successfully demonstrated  substrate  channeling  in  various    Given that the aforementioned strategies involve regulating taxane
+enzyme complexes of the TCA cycle, both in vitro and in plant    biosynthesis within a single temporal or spatial dimension, the uti-
+mitochondria (Sumegi  et  al., 1991;  Williams  et  al.,  2011).     lization of a CRISPRi-dCas9-based reversible gene circuit plat-
+However, this method has not yet been utilized to investigate    form in plants offers another powerful approach for precise spatio-
+oxaloacetic acid channeling within the MDH-CS metabolon    temporal control of the synthetic network. This approach further
+(Omini et al., 2024).                                           reduces the toxic impact of metabolic products on the tobacco
+                                                                    chassis. The use of this system to construct gene circuits offers
+In research on dhurrin, a styrene–maleic acid copolymer was    several potential advantages. First, it allows dynamic and revers-
+used to isolate the intact metabolon via affinity chromatography     ible regulation. Second,  it enables easy scalability by adding
+(Lee et al., 2016). This approach avoids the use of detergents,   more single-guide RNA units to build hierarchical logic gates, as
+which disrupt complexes, and fusion tags, which can interfere    well as the ability to simultaneously target multiple endogenous
+with protein folding. It has the potential to enable researchers     sites without requiring modified or added recognition elements
+to  isolate  all molecular components of metabolons and to     in promoters. Moreover, a toolkit of engineered repressible pro-
+characterize membrane platforms hosting metabolic machinery.    moters of different strengths has shown promising results in the
+Further investigations using similar strategies can be conducted    application of this gene circuit platform (Khan et al., 2024). Once
+on various non-metabolic components that co-precipitate or   a NOT OR (i.e., NOR) logic gate is established, adjustment of its
+co-localize with metabolic enzymes (Møller, 2010; Dastmalchi    parameters will be sufficient for constructing complex multilayer
+et al., 2016).                                                            logic circuits. We believe that the establishment of multilayer
+                                                           Boolean logic gate circuits will enable precise spatiotemporal
+The concept of substrate channeling is highly intuitive and has    control over the  catalytic synthesis  of taxanes by complex
+been widely accepted by the metabolic engineering community   enzyme sets. Coupled with the synthetic  toolkits mentioned
+as a means to address metabolic bottlenecks through the con-    above, we are therefore optimistic about the future large-scale
+struction of artificial protein complexes (Dueber et al., 2009).    production of taxanes in plant chassis.
+
+12    Plant Communications 6, 101460, October 13 2025
+
+
+[PDF physical page 13]
+The biosynthesis and diversity of taxanes                                     Plant Communications
+
+AI-guided CYP450 engineering to synthesize ‘‘new’’        CYP450s  that  are   difficult  to  identify  within  the  taxane
+taxanes                                                            biosynthetic pathway. In previous studies regarding the directed
+                                                                     evolution of CYP450s, high-throughput screening methods were
+Directed evolution is the primary method for optimizing and    successfully  utilized to enhance enzyme  activity (Ruff et  al.,
+developing protein variants in the laboratory. Through an iterative    2012) and  alter  the  stereoselectivity  of  carbene  reactions
+process of mutation and screening, it has become a key technol-    (Brandenberg et  al., 2019). These methods often require the
+ogy  in protein engineering (Wang et  al., 2021). Despite  its    careful design of chromogenic groups in the products, enabling
+considerable  success,  directed  evolution  faces  a  major    rapid identification of improved mutants through flow cytometry–
+challenge: the limitation of the protein fitness landscape, which   based sorting or spectrophotometric detection. When directed
+arises from  resource consumption and  time  costs  in  the    evolution of CYP450s is conducted for selective hydroxylation
+experimental  screening  process—especially when  handling    of   natural   products,   factors  such  as   regioselectivity,
+large-scale variant libraries—where screening efficiency is often     diastereoselectivity, and activity must be considered (O’Reilly
+low (Li et al., 2023a). Figure 4B illustrates an AI-based directed    et   al.,  2011).  In  the  synthesis  of  natural  products  such
+evolution framework  in which a variant  library  is generated    as steroids (Acevedo-Rocha et al., 2018), nigelladine A (Loskot
+through gene diversification, amplified, expressed, and screened    et al., 2017), artemisinin (Zhang et al., 2012), and parthenolide
+to identify promising protein candidates. Mutation data are then    (Kolev  et   al.,  2014),  directed  evolution  strategies  have
+integrated with AI models (Supplemental Table 3) to predict   been  successfully  implemented  to  optimize  the  substrate
+protein performance and guide the next round of mutation     stereoselectivity of CYP450s, although the achievement of site-
+design,  thereby  accelerating  the  optimization  of  protein    specific and  highly  selective  catalysis remains  challenging.
+functionality. With the development of AI technologies, deep   Some researchers have demonstrated that AI tools can enhance
+learning and language models have gradually become effective    the activity of P450 enzymes (Jang et al., 2022; Wang et al.,
+tools for enhancing the efficiency of directed evolution. Through    2024). In the elucidation of most natural product biosynthetic
+deep learning, AI can learn the relationship between protein    pathways,  identification  of  the  missing  P450  enzyme   is
+sequences and functions, predict the fitness of mutants, and     particularly important due to its functional diversity. At present,
+generate the most promising candidate variants, thus enabling    the application of AI models to alter P450 stereoselectivity and
+efficient  screening  across  a  broader  fitness  landscape   expand  their  catalytic  substrate scope remains  difficult  for
+(Ramı´rez-Palacios and  Marrink,  2023).  Additionally,  protein    several reasons.  First, AI models  still exhibit deficiencies  in
+language models (such as the evolutionary scale modeling     interpretability and reliability with regard to enzymatic catalysis,
+[ESM] series) learn representations from large-scale, unlabeled    given that they cannot  fully comprehend catalytic chirality or
+protein  sequences,  enabling  them  to  uncover  potential     stereoselectivity (Zhou and Huang, 2024); they often  fail to
+functions and  structural  features  of  proteins  (Rives  et  al.,    correctly interpret the input task. Second, CYP450s involved in
+2021a). This allows effective prediction of the fitness of unseen    natural product catalysis are often difficult to purify and test at
+mutants, leading to improved screening efficiency (Rives et al.,    scale in vitro, resulting in delayed experimental data feedback.
+2021b; Lin et al., 2023a). Complementing these features, multi-    Although the aforementioned high-throughput methods have miti-
+sequence  alignment  techniques combined  with  AI  further    gated this issue, their applicability is not universal. Moreover, the
+improve the accuracy of mutation effect predictions by learning    lack of high-quality data severely compromises the training effi-
+evolutionary information from protein families (Biswas et  al.,    cacy of large-scale models. In the future, efforts should also be
+2021). Beyond sequence and evolutionary information, protein    focused on leveraging empirical data accumulated from traditional
+three-dimensional  structures  provide  important  clues  for    directed evolution to train appropriate models capable of disen-
+function prediction. With breakthroughs  in protein structure    tangling CYP450 catalytic promiscuity. We believe that AI-based
+prediction technologies such as AlphaFold 3 (Abramson et al.,    directed evolution strategies will lay the foundation for the com-
+2024), the application of structural information has become a    plete biosynthesis of taxanes.
+key  direction  in  deep  learning  models.  SESNet,  which
+combines protein sequence and structural information while
+incorporating attention mechanisms,  effectively predicts the   Perspective
+fitness of protein mutants. This model utilizes local evolutionary    Taxanes, a prominent class of diterpenoid natural products, have
+context  from  homologous  sequences,  global  evolutionary    revolutionized cancer therapy since the commercialization of
+information, and the  protein  structure microenvironment  to    paclitaxel (Taxol) in 1993. Derived primarily from yew trees (genus
+precisely  capture  the  effects  of  mutations  on  function,    Taxus), taxanes exhibit potent antitumor activity by stabilizing mi-
+outperforming existing models (Li et al., 2023a). Recently, the    crotubules, leading to disrupted mitosis and the onset of cell
+EVOLVEpro method—combining protein language models with    death. Despite their clinical success and a cumulative market
+a few-shot learning framework—has rapidly improved protein ac-    value exceeding $50 billion, the sustainable production of tax-
+tivity  with  minimal  experimental  data,  demonstrating  the    anes remains a substantial challenge.  Traditional extraction
+immense potential of AI in protein engineering (Jiang et  al.,   methods from yew tree tissues are environmentally unsustainable
+2024b).  These  AI-driven  innovations  greatly  enhance  the   and  yield  paclitaxel  in  minimal amounts  (0.001%–0.05%),
+screening  efficiency  and  accuracy  of  directed  evolution,    requiring the exploration of alternative production strategies.
+providing more powerful tools for the field of protein engineering.
+                                                          Chemical semi-synthesis using baccatin III—an abundant inter-
+Here, we emphasize the modification of CYP450s’ stereoselectiv-    mediate  from  Taxus  species—has  been  the  mainstream
+ity through AI-based directed evolution strategies (Supplemental    approach. However, this method  is insufficient to meet the
+Table  3),  thereby supplementing  the  catalytic  reactions  of    increasing global demand for taxanes. Total chemical synthesis,
+
+                                                                                 Plant Communications 6, 101460, October 13 2025   13
+
+
+[PDF physical page 14]
+Plant Communications                                    The biosynthesis and diversity of taxanes
+
+although valuable for advancing our understanding of taxane    gent need for innovative production strategies. Biosynthesis,
+chemistry, is hindered by lengthy and inefficient routes unsuitable    supported by comprehensive genomic data and advanced meta-
+for commercial-scale production. Consequently, biosynthesis    bolic engineering techniques, likely offers a sustainable and effi-
+has emerged as a highly promising alternative, leveraging ad-    cient pathway to meet this global demand.
+vances in omics technologies and genomic resources from Taxus
+species to unravel the intricate biosynthetic pathways of taxanes.   The structural diversity of taxanes, coupled with the potential for
+                                                                 extensive modification through enzyme engineering, positions
+Recent breakthroughs in elucidating the paclitaxel biosynthetic   them as versatile candidates for next-generation anticancer ther-
+pathway  by  multiple  research  groups  highlight  important    apies. The integration of AI into this landscape accelerates dis-
+milestones.  These  comprehensive  pathways,  involving  a    covery and optimization processes, enabling rapid generation
+dynamic network of enzymes—including CYP450s and BAHD    of novel taxane derivatives with tailored properties. Metabolon
+acyltransferases—provide a foundation for metabolic engineer-    engineering and compartmentalization strategies are likely to
+ing efforts aimed at enhancing taxane production. The integration     further enhance the efficiency and stability of taxane biosyn-
+of AI, particularly deep learning, into synthetic biology offers     thesis,  resolving challenges created by unstable and  toxic
+transformative potential. AI-driven tools can accelerate the dis-    intermediates.
+covery and  optimization  of  biosynthetic pathways,  predict
+enzyme functions, and design  efficient metabolic networks,   As research progresses, the establishment  of robust plant
+thus overcoming traditional limitations in pathway elucidation    chassis and synthetic toolkits will be instrumental in realizing
+and enzyme engineering.                                         the full potential of taxanes. Collaboration between computa-
+                                                                            tional tools and experimental biology will streamline biosynthetic
+The structural diversity of taxanes—with over 21 000 reported   pathway elucidation and pave the way for large-scale, sustain-
+chemical structures and 11 precursor skeletons—underscores    able production of high-value taxane compounds. This holistic
+the vast potential for discovering novel taxane derivatives with    approach promises to overcome current production bottlenecks,
+improved pharmacological properties. Engineering plant cell fac-    ensuring that taxanes continue to play a crucial role in cancer
+tories, such as N. benthamiana, equipped with optimized biosyn-    therapy and beyond.
+thetic pathways and synthetic toolkits, holds robust promise for
+large-scale, sustainable production of diverse taxanes. Compart-     In summary, the future of taxane synthesis lies in the seamless
+mentalization and metabolon  engineering  strategies  further    integration of synthetic biology and  artificial intelligence. By
+enhance the efficiency and stability of taxane biosynthesis by    leveraging these technologies, we can unlock the vast potential
+ensuring precise enzyme interactions and minimizing the forma-    of taxanes, drive advancements  in medical treatments, and
+tion of toxic intermediates.                                          establish sustainable production frameworks. The continued
+                                                                   exploration and engineering of taxane biosynthetic pathways
+Moreover, the application of AI in enzyme evolution—particularly     will undoubtedly lead to substantial breakthroughs, enhancing
+in modifying the stereoselectivity of CYP450s—addresses critical    the therapeutic arsenal against cancer and contributing to the
+challenges in taxane synthesis. Machine learning models can    broader field of natural product–based drug discovery.
+predict the effects of mutations on enzyme activity and selec-
+tivity, streamlining the directed evolution process and enabling   FUNDING
+the generation of highly selective enzyme variants. This synergy   We thank the National Natural Science Foundation of China (grant no.
+between AI and synthetic biology will expedite the production    32470416), the Guizhou Provincial Basic Research Program (Natural Sci-
+of existing taxanes while facilitating the creation of novel com-    ence)-ZK[2023]-099, and the Central Government Guides Local Science
+pounds  with  enhanced  therapeutic  efficacy and  reduced    and  Technology  Development  Fund  Projects  (Qiankehezhongyindi
+resistance.                                                                (2024) 007) for supporting this work.
+
+In the broader context of natural product drug discovery, there is  ACKNOWLEDGMENTS
+a need to expand the taxane compound library through biosyn-    The authors declare no conflict of interest.
+thesis and AI-driven screening. The ability to rapidly synthesize
+and validate promising taxanes can considerably shorten drug  AUTHOR CONTRIBUTIONS
+development cycles, addressing urgent clinical issues such as     J.S., C.Z, and R.D. wrote the manuscript, designed and generated the fig-
+multidrug-resistant cancers and emerging infectious diseases.     ures, and managed the references; A.R.F., M.C., and Y.Z. revised the
+As our understanding of taxane biosynthesis deepens, the inte-    manuscript and approved the article.
+gration of advanced biotechnological tools will be essential for
+harnessing the full potential of taxanes, ensuring their continued   SUPPLEMENTAL INFORMATION
+impact on medicine and biotechnology.                            Supplemental information is available at Plant Communications Online.
+
+                                                                      Received: January 22, 2025
+Concluding remarks                                               Revised: March 7, 2025
+                                                                    Accepted: July 16, 2025
+The synthesis and biosynthesis of taxanes represent an intersec-     Published: July 21, 2025
+tion of natural product chemistry, synthetic biology, and artificial
+intelligence. While traditional extraction and chemical synthesis   REFERENCES
+methods have laid the groundwork for taxane-based therapies,    Abramson, J., Adler, J., Dunger, J., Evans, R., Green, T., Pritzel, A.,
+their limitations in scalability and sustainability underscore an ur-      Ronneberger, O., Willmore, L., Ballard, A.J., Bambrick, J., et al.
+
+14    Plant Communications 6, 101460, October 13 2025
+
+
+[PDF physical page 15]
+The biosynthesis and diversity of taxanes                                     Plant Communications
+
+   (2024). Accurate structure prediction of biomolecular interactions with       Epoxidation  by  Taxadiene-5α-Hydroxylase.  ACS  Chem.   Biol.
+   AlphaFold 3. Nature 630:493–500.                                       11:460–469.
+
+Acevedo-Rocha, C.G., Gamble, C.G., Lonsdale, R., Li, A., Nett, N.,     Fernie, A.R. (2024). Post-genomic illumination of paclitaxel biosynthesis.
+   Hoebenreich, S., Lingnau, J.B., Wirtz, C., Fares, C., Hinrichs, H.,       Nat. Plants 10:1875–1885. Advance Access published 2024.
+   et al. (2018). P450-Catalyzed Regio- and Diastereoselective Steroid                                                                         Frey, M., Bathe, U., Meink, L., Balcke, G.U., Schmidt, J., Frolov, A.,
+   Hydroxylation:  Efficient Directed Evolution Enabled by  Mutability                                                                     Soboleva, A., Hassanin, A., Davari, M.D., Frank, O., et al. (2024).
+   Landscaping. ACS Catal. 8:3395–3410.                                                                           Combinatorial biosynthesis in yeast leads to over 200 diterpenoids.
+Achnine, L., Blancaflor, E.B., Rasmussen, S., and Dixon, R.A. (2004).       Metab. Eng. 82:193–200.
+   Colocalization of l-Phenylalanine Ammonia-Lyase and Cinnamate 4-                                                                      Fu, Y., Li, S., Zu, Y., Yang, G., Yang, Z., Luo, M., Jiang, S., Wink, M., and
+   Hydroxylase   for   Metabolic   Channeling   in   Phenylpropanoid                                                                                  Efferth, T. (2009). Medicinal Chemistry of Paclitaxel and its Analogues.
+   Biosynthesis. Plant Cell 16:3098–3109.                                                                                 Curr. Med. Chem. 16:3966–3985.
+Biswas, S., Khimulya, G., Alley, E.C., Esvelt, K.M., and Church, G.M.                                                                                    Galletti, E., Magnani, M., Renzulli, M.L., and Botta, M. (2007). Paclitaxel
+   (2021). Low-N protein engineering with data-efficient deep learning.                                                            And Docetaxel Resistance: Molecular Mechanisms and Development
+   Nat. Methods 18:389–396.                                                                                   of New Generation Taxanes. ChemMedChem 2:920–942.
+Blay, V., Tolani, B., Ho, S.P., and Arkin, M.R. (2020). High-Throughput                                                             Guo, L., Yao, H., Chen, W., Wang, X., Ye, P., Xu, Z., Zhang, S., and Wu,
+   Screening: today’s biochemical and cell-based approaches. Drug                                                                      H. (2022). Natural products of medicinal plants: biosynthesis and
+   Discov. Today 25:1807–1821.                                                                            bioengineering in post-genomic era. Hortic. Res. 9:uhac223.
+Brandenberg,  O.F., Chen,  K., and Arnold, F.H.  (2019). Directed                                                             Guo, Q., Yang, Y.-X., Li, D.-X., Ji, X.-J., Wu, N., Wang, Y.-T., Ye, C., and
+   Evolution of a Cytochrome P450 Carbene Transferase for Selective                                                                                 Shi, T.-Q. (2024). Advances in multi-enzyme co-localization strategies
+   Functionalization  of  Cyclic  Compounds.  J.  Am.  Chem.  Soc.                                                                                          for  the  construction  of  microbial  cell  factory.  Biotechnol. Adv.
+   141:8989–8995.                                                                        77:108453.
+Brzycki Newton, C., Young, E.M., and Roberts, S.C. (2023). Targeted    He, S., Bekhof, A.-S.M.W., Popova, E.Z., van Merkerk, R., and Quax,
+   control  of  supporting pathways  in  paclitaxel  biosynthesis  with                                                                     W.J.  (2024). Improved taxadiene production by optimizing DXS
+  CRISPR-guided methylation. Front. Bioeng. Biotechnol. 11:1272811.                                                                          expression and fusing short-chain prenyltransferases. N. Biotech.
+Bulutoglu, B., Garcia, K.E., Wu, F., Minteer, S.D., and Banta, S. (2016).       83:66–73.
+   Direct Evidence for Metabolon Formation and Substrate Channeling in     Ho¨sel, W., and Schiel, O. (1984). Biosynthesis of cyanogenic glucosides:
+  Recombinant TCA Cycle Enzymes. ACS Chem. Biol. 11:2847–2853.          In vitro analysis of the glucosylation step. Arch. Biochem. Biophys.
+Burkhart, C.A., Berman, J.W., Swindell, C.S., and Horwitz, S.B. (1994).       229:177–186.
+   Relationship between the Structure of Taxol and Other Taxanes on    Hu,  Y.-J., Gu, C.-C., Wang, X.-F., Min,  L., and  Li, C.-C. (2021).
+   Induction of. Cancer Res. 54:5779–5782.                               Asymmetric Total Synthesis of Taxol. J. Am. Chem. Soc. 143:17862–
+Cao, Y., Zhang, T., Zhao, X., Jia, X., and Li, B. (2023). MooSeeker: A       17870, Advance Access published October. https://doi.org/10.1021/
+   Metabolic  Pathway  Design  Tool  Based  on   Multi-Objective       jacs.1c09637.
+   Optimization  Algorithm. IEEE ACM  Trans. Comput.  Biol.  Bioinf    Hubrich, F., Kandy, S.K., Chepkirui, C., Padhi, C., Mordhorst, S.,
+   20:3609–3622.                                             Moosmann, P., Zhu, T., Gugger, M., Chekan, J.R., and Piel, J.
+Cheng, J., Wang, X., Liu, X., Zhu, X., Li, Z., Chu, H., Wang, Q., Lou, Q.,        (2024). Ribosomal peptides  with  polycyclic  isoprenoid  moieties.
+   Cai,  B., Yang,  Y., et  al.  (2021). Chromosome-level genome  of     Chem 10:3224–3242, published September 2024. https://doi.org/10.
+   Himalayan yew provides insights into the origin and evolution of the       1016/j.chempr.2024.07.026.
+   paclitaxel biosynthetic pathway. Mol. Plant 14:1199–1209.               Jaladanki, C.K., Gahlawat, A., Rathod, G., Sandhu, H., Jahan, K., and
+Christianson, D.W. (2006). Structural Biology and Chemistry of the      Bharatam, P.V. (2020). Mechanistic studies on the drug metabolism
+   Terpenoid Cyclases. Chem. Rev. 106:3412–3442.                      and toxicity originating from cytochromes P450. Drug Metab. Rev.
+                                                                        52:366–394.
+Dahmani, I., Qin, K., Zhang, Y., and Fernie, A.R. (2023). The formation
+  and function of plant metabolons. Plant J. 114:1080–1092.             Jang, W.D., Kim, G.B., Kim, Y., and Lee, S.Y. (2022). Applications of
+                                                                                                        artificial intelligence to enzyme and pathway design for metabolic
+Dake, M.D., Ansel, G.M., Jaff, M.R., Ohki, T., Saxon, R.R., Smouse, H.
+                                                                               engineering. Curr. Opin. Biotechnol. 73:101–107.
+   B., Machan, L.S., Snyder, S.A., O’Leary, E.E., Ragheb, A.O., et al.
+   (2016). Durable Clinical Effectiveness With Paclitaxel-Eluting Stents    Jensen, K., Osmani, S.A., Hamann, T., Naur, P., and Møller, B.L. (2011).
+   in the Femoropopliteal Artery. Circulation 133:1472–1483.               Homology modeling of the three membrane proteins of the dhurrin
+                                                                       metabolon:  Catalytic  sites, membrane  surface  association and
+Dastmalchi, M., and Facchini, P.J. (2016). Plant metabolons assembled
+                                                                                protein–protein interactions. Phytochemistry 72:2113–2123.
+  on demand. Science 354:829–830.
+                                                                        Jiang, B., Gao, L., Wang, H., Sun, Y., Zhang, X., Ke, H., Liu, S., Ma, P.,
+Dastmalchi, M., Bernards, M.A., and Dhaubhadel, S. (2016). Twin
+                                                                             Liao, Q., Wang, Y., et al. (2024a). Characterization and heterologous
+   anchors  of  the soybean  isoflavonoid  metabolon:  evidence  for
+                                                                                  reconstitution of Taxus biosynthetic enzymes leading to baccatin III.
+   tethering of the complex to the endoplasmic reticulum by IFS and
+                                                                      Science 383:622–629.
+  C4H. Plant J. 85:689–706.
+                                                                        Jiang,  K., Yan,  Z., Di Bernardo, M.,  Sgrizzi,  S.R.,  Villiger,  L.,
+DeLisa, M.P., and Conrado, R.J. (2009). Synthetic metabolic pipelines.
+                                                                   Kayabolen,  A.,  Kim,  B.J., Carscadden,  J.K.,  Hiraizumi,  M.,
+   Nat. Biotechnol. 27:728–729.
+                                                                    Nishimasu, H., et al. (2025). Rapid in silico directed evolution by a
+Dueber, J.E., Wu, G.C., Malmirchegini, G.R., Moon, T.S., Petzold, C.J.,        protein language model with EVOLVEpro. Science 387:eadr6006.
+   Ullal, A.V., Prather, K.L.J., and Keasling, J.D. (2009). Synthetic        https://doi.org/10.1126/science.adr6006.
+   protein scaffolds provide modular control over metabolic flux. Nat.
+                                                                      Jores, T., Tonnies, J., Dorrity, M.W., Cuperus, J.T., Fields, S., and
+   Biotechnol. 27:753–759.
+                                                                       Queitsch, C. (2020). Identification of Plant Enhancers and Their
+Edgar,  S., Zhou,  K., Qiao,  K., King,  J.R., Simpson,  J.H., and       Constituent Elements by STARR-seq  in Tobacco Leaves[OPEN].
+  Stephanopoulos, G. (2016). Mechanistic Insights  into Taxadiene        Plant Cell 32:2120–2131.
+
+                                                                                 Plant Communications 6, 101460, October 13 2025   15
+
+
+[PDF physical page 16]
+Plant Communications                                    The biosynthesis and diversity of taxanes
+
+Jores, T., Tonnies, J., Wrightsman, T., Buckler, E.S., Cuperus, J.T.,      Li, Z., Zhang, L., Xu, K., Jiang, Y., Du, J., Zhang, X., Meng, L.-H., Wu,
+   Fields, S., and Queitsch, C. (2021). Synthetic promoter designs        Q., Du, L., Li, X., et al. (2023b). Molecular insights into the catalytic
+   enabled by a comprehensive analysis of plant core promoters. Nat.       promiscuity of a bacterial diterpene synthase. Nat. Commun. 14:4001.
+   Plants 7:842–855.
+                                                                                           Li, C., Wang, S., Yin, X., Guo, A., Xie, K., Chen, D., Sui, S., Han, Y., Liu,
+Jørgensen, K., Rasmussen, A.V., Morant, M., Nielsen, A.H., Bjarnholt,         J., Chen, R., and Dai, J. (2023c). Functional Characterization and
+   N., Zagrobelny, M., Bak, S., and Møller, B.L. (2005). Metabolon        Cyclization Mechanism  of a Diterpene Synthase  Catalyzing  the
+   formation and metabolic channeling  in the biosynthesis of plant       Skeleton  Formation  of  Cephalotane-Type  Diterpenoids. Angew.
+   natural products. Curr. Opin. Plant Biol. 8:280–291.                    Chem. Int. Ed. 62:e202306020.
+
+Keasling, J.D. (2012). Synthetic biology and the development of tools for     Lin, X., Hezari, M., Koepp, A.E., Floss, H.G., and Croteau, R. (1996).
+   metabolic engineering. Metab. Eng. 14:189–195.                      Mechanism  of  Taxadiene  Synthase, a  Diterpene  Cyclase  That
+                                                                          Catalyzes  the  First Step  of Taxol Biosynthesis  in  Pacific Yew.
+Khan, M.A., Herring, G., Zhu, J.Y., Oliva, M., Fourie, E., Johnston, B.,
+                                                                          Biochemistry 35:2968–2977.
+  Zhang,  Z., Potter,  J., Pineda,  L., Pflueger,  J.,  et  al.  (2025).
+   CRISPRi-based circuits to control gene expression in plants. Nat.     Lin, Z., Akin, H., Rao, R., Hie, B., Zhu, Z., Lu, W., Smetanin, N., Verkuil,
+   Biotechnol. 43:416–430, Advance Access published May 20, 2024.        R.,  Kabeli,  O., Shmueli,  Y.,  et  al.  (2023a).  Evolutionary-scale
+   https://doi.org/10.1038/s41587-024-02236-w.                               prediction of atomic-level protein structure with a language model.
+                                                                      Science 379:1123–1130.
+Kim, H.W., Wang, M., Leber, C.A., Nothias, L.-F., Reher, R., Kang, K.
+   B., van der Hooft, J.J.J., Dorrestein, P.C., Gerwick, W.H., and     Lin, X., An, T., Fu, D., Duan, S., Jin, H.-L., and Wang, H.-B. (2023b).
+   Cottrell, G.W. (2021). NPClassifier: A Deep Neural Network-Based       Optimization of central carbon metabolism by Warburg effect of
+   Structural Classification Tool  for Natural Products.  J. Nat. Prod.      human cancer cell improves triterpenes biosynthesis in yeast. Adv.
+   84:2795–2807.                                                            Biotech. 1:4.
+
+Kim, T., Lee, S., Kwak, Y., Choi, M.-S., Park, J., Hwang, S.J., and Kim,     Lin, J., Yin, X., Zeng, Y., Hong, X., Zhang, S., Cui, B., Zhu, Q., Liang, Z.,
+   S.-G. (2024). READRetro: natural product biosynthesis predicting       Xue, Z., and Yang, D. (2023c). Progress and prospect: Biosynthesis of
+   with  retrieval-augmented  dual-view  retrosynthesis. New  Phytol.        plant natural products based on plant chassis. Biotechnol. Adv.
+   243:2512–2527.                                                       69:108266.
+
+Ko¨ ksal, M., Jin, Y., Coates, R.M., Croteau, R., and Christianson, D.W.     Liu, W., and Stewart, C.N. (2015). Plant synthetic biology. Trends Plant
+   (2011). Taxadiene synthase  structure and  evolution  of modular        Sci. 20:309–317.
+   architecture in terpene biosynthesis. Nature 469:116–120.
+                                                                                Liu, J., Milne, R.I., Mo¨ller, M., Zhu, G., Ye, L., Luo, Y., Yang, J.,
+Kolev, J.N., O’Dwyer, K.M., Jordan, C.T., and Fasan, R. (2014).      Wambulwa, M.C., Wang, C., Li, D., and Gao, L. (2018). Integrating
+   Discovery  of  Potent  Parthenolide-Based  Antileukemic  Agents      a comprehensive DNA barcode reference library with a global map of
+   Enabled by Late-Stage P450-Mediated C—H Functionalization. ACS      yews   ( Taxus  L.)  for  forensic  identification.  Molecular Ecology
+  Chem. Biol. 9:164–173.                                             Resources 18:1115–1131.
+
+Koley, S., Jyoti, P., Lingwan, M., and Allen, D.K. (2024). Isotopically     Liu, X., Zhang, P., Zhao, Q., and Huang, A.C. (2023). Making small
+   nonstationary metabolic flux analysis of plants: recent progress and       molecules   in  plants:  A  chassis   for  synthetic  biology-based
+   future opportunities. New Phytol. 242:1911–1918.                          production of plant natural products. JIPB 65:417–443.
+
+Lange, B.M., and Conner, C.F. (2021). Taxanes and taxoids of the genus     Liu, Y., Zhao, X., Gan, F., Chen, X., Deng, K., Crowe, S.A., Hudson, G.
+   Taxus  –  A  comprehensive  inventory  of  chemical   diversity.        A., Belcher, M.S., Schmidt, M.,  Astolfi, M.C.T., et  al.  (2024).
+   Phytochemistry 190:112829.                                        Complete  biosynthesis  of QS-21  in  engineered  yeast.  Nature
+                                                                       629:937–944.
+Langley, B.W., Lythgoe, B., Scales, B., Scrowston, R.M., Trippett, S.,
+  and Wray, D. (1962). Taxine. Part II. Glycol cleavage fragments from O-    Loskot, S.A., Romney, D.K., Arnold, F.H., and Stoltz, B.M. (2017).
+   cinnamoyltaxicin-I. J. Chem. Soc. 2972–2984. https://doi.org/10.1039/        Enantioselective Total Synthesis of Nigelladine A via Late-Stage C–H
+   jr9620002972.                                                           Oxidation Enabled by an Engineered P450 Enzyme. J. Am. Chem.
+                                                                      Soc. 139:10196–10199.
+Laursen, T., Borch, J., Knudsen, C., Bavishi, K., Torta, F., Martens, H.
+    J., Silvestro, D., Hatzakis, N.S., Wenk, M.R., Dafforn, T.R., et al.    Luo, X., Reiter, M.A., d’Espaux, L., Wong, J., Denby, C.M., Lechner, A.,
+   (2016). Characterization  of a dynamic metabolon producing the      Zhang, Y., Grzybowski, A.T., Harth,  S., Lin, W., et  al. (2019).
+   defense compound dhurrin in sorghum. Science 354:890–893.            Complete  biosynthesis   of  cannabinoids  and   their  unnatural
+                                                                      analogues in yeast. Nature 567:123–126.
+Leach, A.R., Gillet, V.J., Lewis, R.A., and Taylor, R. (2010). Three-
+   Dimensional Pharmacophore Methods in Drug Discovery. J. Med.    Malik, S., Cusido´ , R.M., Mirjalili, M.H., Moyano, E., Palazo´ n, J., and
+  Chem. 53:539–558.                                                              Bonfill, M. (2011). Production of the anticancer drug taxol in Taxus
+                                                                     baccata suspension cultures: A review. Process Biochem. 46:23–34.
+Lee, S.C., Knowles, T.J., Postis, V.L.G., Jamshad, M., Parslow, R.A.,
+   Lin, Y., Goldman, A., Sridhar, P., Overduin, M., Muench, S.P.,    Mao, Y., Wang, G., Li, J., Feng, Z., Ren, Y., Sun, Y., and Wang, Y. (2023).
+   et al. (2016). A method for detergent-free isolation of membrane       Discovery of Class  I Diterpene Cyclases Producing a Tetracyclic
+   proteins in their local lipid environment. Nat. Protoc. 11:1149–1162.       Cephalotene Skeleton in Plum Yews. ACS Catal. 13:8600–8612.
+  Advance Access published 2016.
+                                                             McClune, C.J., Liu, J.C.-T., Wick, C., De La Pen˜ a, R., Lange, B.M.,
+Li, J., Mutanda, I., Wang, K., Yang, L., Wang, J., and Wang, Y. (2019).       Fordyce, P.M., and Sattely, E.S. (2024). Multiplexed perturbation of
+   Chloroplastic metabolic engineering coupled with isoprenoid pool      yew reveals cryptic proteins that enable a  total biosynthesis  of
+  enhancement  for  committed  taxanes  biosynthesis  in  Nicotiana       baccatin III and Taxol precursors. Preprint at bioRxiv. https://doi.org/
+   benthamiana. Nat. Commun. 10:4850.                                   10.1101/2024.11.06.622305.
+
+Li, M., Kang, L., Xiong, Y., Wang, Y.G., Fan, G., Tan, P., and Hong, L.    Min, L., Han, J.-C., Zhang, W., Gu, C.-C., Zou, Y.-P., and Li, C.-C.
+   (2023a). SESNet: sequence-structure feature-integrated deep learning        (2023). Strategies and Lessons Learned from Total Synthesis of
+  method for data-efficient protein engineering. J. Cheminf. 15:12.              Taxol. Chem. Rev. 123:4934–4971.
+
+16    Plant Communications 6, 101460, October 13 2025
+
+
+[PDF physical page 17]
+The biosynthesis and diversity of taxanes                                     Plant Communications
+
+Mitkas, A.A., Valverde, M., and Chen, W. (2022). Dynamic modulation of    Rives, A., Meier, J., Sercu, T., Goyal, S., Lin, Z., Liu, J., Guo, D., Ott, M.,
+  enzyme  activity by synthetic CRISPR–Cas6 endonucleases. Nat.        Zitnick, C.L., Ma, J., and Fergus, R. (2021b). Biological structure and
+  Chem. Biol. 18:492–500.                                                    function emerge from scaling unsupervised learning to 250 million
+                                                                                protein sequences. Proc. Natl. Acad. Sci. USA 118:e2016239118.
+Molina-Hidalgo, F.J., Vazquez-Vilar, M., D’Andrea, L., Demurtas, O.C.,
+   Fraser, P., Giuliano, G., Bock, R., Orza´ ez, D., and Goossens, A.    Rowinsky, E.K., and Donehower, R.C. (1995). Paclitaxel (Taxol). N. Engl.
+   (2021). Engineering Metabolism in Nicotiana Species: A Promising         J. Med. 332:1004–1014. Advance Access published 1995.
+   Future. Trends Biotechnol. 39:901–913.
+                                                                            Ruff, A.J., Dennig, A., Wirtz, G., Blanusa, M., and Schwaneberg, U.
+Møller, B.L. (2010). Dynamic Metabolons. Science 330:1328–1329.              (2012). Flow Cytometer-Based High-Throughput Screening System
+Mortimer, J.C. (2019). Plant synthetic biology could drive a revolution in         for Accelerated Directed Evolution of P450 Monooxygenases. ACS
+   biofuels and medicine. Exp. Biol. Med. 244:323–331. https://doi.org/        Catal. 2:2724–2728.
+   10.1177/1535370218793890.                                       Sabate, R., de Groot, N.S., and Ventura, S. (2010). Protein folding and
+Mutanda, I., Li, J., Xu, F., and Wang, Y. (2021). Recent Advances in       aggregation in bacteria. Cell. Mol. Life Sci. 67:2695–2715.
+   Metabolic  Engineering,  Protein  Engineering, and  Transcriptome-                                                              Sadybekov, A.V., and Katritch, V. (2023). Computational approaches
+  Guided  Insights Toward  Synthetic  Production  of  Taxol.  Front.                                                                               streamlining drug discovery. Nature 616:673–685.
+   Bioeng. Biotechnol. 9:632269, published February 5, 2021. https://
+   doi.org/10.3389/fbioe.2021.632269.                                Sakurada, K., Ikegaya, H., Ohta, H., Fukushima, H., Akutsu, T., and
+                                                               Watanabe, K. (2009). Effects of oximes on mitochondrial oxidase
+Nicolaou, K.C., Yang, Z., Liu, J.J., Ueno, H., Nantermet, P.G., Guy, R.
+                                                                                              activity. Toxicol. Lett. 189:110–114.
+   K., Claiborne, C.F., Renaud, J., Couladouros, E.A., Paulvannan, K.,
+   et al. (1994). Total synthesis of taxol. Nature 367:630–634.             Samusevich, R., Hebra, T., Bushuiev, R., Bushuiev, A., Calounova´ , T.,
+                                                       Smrckova´ , H., Chatpatanasiri, R., Kulha´ nek,  J., Perkovi c, M.,
+Nielsen, K.A., Tattersall, D.B., Jones, P.R., and Møller, B.L. (2008).
+                                                                       Engst, M., et  al.  (2024). Highly accurate discovery  of terpene
+   Metabolon  formation   in  dhurrin  biosynthesis.  Phytochemistry
+                                                                        synthases powered by machine learning reveals functional terpene
+   69:88–98.
+                                                                                    cyclization in Archaea. Preprint at bioRxiv. https://doi.org/10.1101/
+Nowicki,  J. (2000). Claisen, Cope and Related Rearrangements  in       2024.01.29.577750.
+   the Synthesis  of Flavour and Fragrance Compounds. Molecules
+                                                                       Sarkar,  K., Torregrossa-Allen,  S.E., Elzey,  B.D., Narayanan,  S.,
+   5:1033–1050.
+                                                                     Langer,  M.P., Durm,  G.A., and Won,  Y.-Y.  (2022).  Effect  of
+Ohlen, M.,  Herfurth,  A.-M., and Wittstock, U.  (2017). Herbivore        Paclitaxel Stereochemistry on X-ray-Triggered Release of Paclitaxel
+   Adaptations to Plant Cyanide Defenses. IntechOpen.                     from  CaWO4/Paclitaxel-Coloaded PEG-PLA  Nanoparticles.  Mol.
+Omini, J., Dele-Osibanjo, T., Kim, H., Zhang, J., and Obata, T. (2024). Is       Pharm. 19:2776–2794.
+   the TCA cycle malate dehydrogenase-citrate synthase metabolon an    Schneider, F., Samarin, K., Zanella, S., and Gaich, T. (2020). Total
+   illusion? Essays Biochem. 68:99–106.                                      synthesis  of  the complex  taxane  diterpene  canataxpropellane.
+Oreb,  M.  (2020).  Construction  of   artificial  membrane  transport       Science 367:676–681.
+   metabolons – an emerging strategy in metabolic engineering. FEMS                                                                    Scribano, C.M., Wan, J., Esbona, K., Tucker, J.B., Lasek, A., Zhou, A.
+   Microbiol. Lett. 367:fnaa027.                                                                                         S., Zasadil, L.M., Molini, R., Fitzgerald, J., Lager, A.M., et al. (2021).
+O’Reilly,  E.,  Ko¨ hler,  V.,  Flitsch,  S.L., and  Turner,  N.J.  (2011).      Chromosomal instability sensitizes patient breast tumors to multipolar
+  Cytochromes P450 as useful biocatalysts: addressing the limitations.        divisions induced by paclitaxel. Sci. Transl. Med. 13:eabd4811.
+  Chem. Commun. 47:2490–2501.
+                                                                         Shih,  M.-L., and Morgan,  J.A.  (2020). Metabolic  flux  analysis  of
+Paddon, C.J., Westfall, P.J., Pitera, D.J., Benjamin, K., Fisher, K.,       secondary metabolism in plants. Metab. Eng. Commun. 10:e00123.
+  McPhee, D., Leavell, M.D., Tai, A., Main, A., Eng, D., et al. (2013).
+                                                                           Skubnı´k, J., Pavlı´ckova´ , V., Ruml, T., and Rimpelova´ , S. (2021). Current
+   High-level  semi-synthetic  production  of  the  potent  antimalarial
+                                                                           Perspectives on Taxanes: Focus on Their Bioactivity, Delivery and
+   artemisinin. Nature 496:528–532.
+                                                                     Combination Therapy. Plants 10:569.
+Pan, L., Schneider, F., Ottenbruch, M., Wiechert, R., List, T., Schoch,
+                                                               Song, C., Fu, F., Yang, L., Niu, Y., Tian, Z., He, X., Yang, X., Chen, J.,
+   P., Mertes, B., and Gaich, T. (2024). A general strategy for the
+                                                                    Sun, W., Wan, T., et al. (2021). Taxus yunnanensis genome offers
+   synthesis of taxane diterpenes. Nature 632:543–549.
+                                                                                    insights into gymnosperm phylogeny and taxol production. Commun.
+Park, J.Y., Kovar, L., LaFayette, P.R., Wallace, J.G., and Parrott, W.A.         Biol. 4:1203–1208.
+   (2021). Plant-derived insulator-like sequences for control of transgene
+                                                                         Srinivasan, P., and Smolke, C.D. (2020). Biosynthesis of medicinal   expression. Preprint at bioRxiv. https://doi.org/10.1101/2021.11.04.
+                                                                         tropane alkaloids in yeast. Nature 585:614–619.   467280.
+Perez-Matas, E., Hidalgo-Martinez, D., Escrich, A., Alcalde, M.A.,    Sumegi, B., Sherry, A.D., Malloy, C.R., Evans, C., and Srere, P.A.
+  Moyano,  E.,  Bonfill,  M.,  and  Palazon,  J.  (2023).  Genetic        (1991).  Is there  tight channelling  in the  tricarboxylic acid cycle
+   approaches in improving biotechnological production of taxanes: An       metabolon? Biochem. Soc. Trans. 19:1002–1005.
+   update. Front. Plant Sci. 14:1100228.                               Tang, Y.-J., and Zou, Y. (2024). Cyclo-farnesyl Diphosphate-Dependent
+Ralston, L., and Yu, O. (2006). Metabolons involving plant cytochrome        Prenylation in Fungi. Org. Lett. 26:8366–8370. https://doi.org/10.1021/
+   P450s. Phytochem. Rev. 5:459–472.                                        acs.orglett.4c03154.
+
+Ramı´rez-Palacios, C., and Marrink, S.J. (2023). Super High-Throughput    Thomik, T., Wittig, I., Choe, J.Y., Boles, E., and Oreb, M. (2017). An
+   Screening of Enzyme Variants by Spectral Graph Convolutional Neural          artificial transport metabolon facilitates improved substrate utilization
+   Networks. J. Chem. Theor. Comput. 19:4668–4677.                              in yeast. Nat. Chem. Biol. 13:1158–1163.
+
+Rives, A., Meier, J., Sercu, T., Goyal, S., Lin, Z., Liu, J., Guo, D., Ott, M.,    Thornburg, C.K., Walter, T., and Walker, K.D. (2017). Biocatalysis of a
+   Zitnick, C.L., Ma, J., and Fergus, R. (2021a). Biological structure and        Paclitaxel Analogue: Conversion of Baccatin III to N-Debenzoyl-N-(2-
+   function emerge from scaling unsupervised learning to 250 million        furoyl)paclitaxel and Characterization of an Amino Phenylpropanoyl
+   protein sequences. Proc. Natl. Acad. Sci. USA 118:e2016239118.        CoA Transferase. Biochemistry 56:5920–5930.
+
+                                                                                 Plant Communications 6, 101460, October 13 2025   17
+
+
+[PDF physical page 18]
+Plant Communications                                    The biosynthesis and diversity of taxanes
+
+Vattekkatte,  A., Garms,  S., Brandt, W., and Boland, W.  (2018).     Yin, J.-Y., Lai, M., Yu, X.-Y., Su, D.-D., Xiong, X.-Y., and Li, Y.-L. (2025).
+  Enhanced structural diversity  in terpenoid biosynthesis: enzymes,      Comprehensive strategies for paclitaxel production: insights from plant
+   substrates and cofactors. Org. Biomol. Chem. 16:348–362.                     cell culture, endophytic microorganisms, and synthetic biology. Hortic.
+                                                                       Res. 12:uhae346.
+Wang, Y., Xue, P., Cao, M., Yu, T., Lane, S.T., and Zhao, H. (2021).
+   Directed Evolution: Methodologies and Applications. Chem. Rev.    Yuan, G.-Y., Zhang, J.-M., Xu, Q.-D., Zhang, H.-R., Hu, C., and Zou, Y.
+   121:12384–12444.                                                             (2023). Biosynthesis of Cosmosporasides Reveals the Assembly Line
+                                                                                          for Fungal Hybrid Terpenoid Saccharides. Angew Chem.  Int. Ed.
+Wang, Q., Liu, X., Zhang, H., Chu, H., Shi, C., Zhang, L., Bai, J., Liu, P.,
+                                                                                Engl. 62:e202308887.
+    Li, J., Zhu, X., et al. (2024). Cytochrome P450 Enzyme Design by
+   Constraining the Catalytic Pocket in a Diffusion Model. Research    Zhang,  Y., and Fernie, A.R.  (2021). Metabolons, enzyme–enzyme
+   7:0413. https://doi.org/10.34133/research.0413.                          assemblies that mediate substrate channeling, and their roles in plant
+                                                                        metabolism. Plant Commun. 2:100081.
+Wani, M.C., Taylor, H.L., Wall, M.E., Coggon, P., and McPhail, A.T.
+   (1971). Plant antitumor agents. VI. Isolation and structure of taxol, a    Zhang, Y., and Fernie, A.R. (2022). Dynamically regulating metabolic
+   novel antileukemic and antitumor agent from Taxus brevifolia. J. Am.        fluxes with synthetic metabolons. Trends Biotechnol. 40:1019–1020.
+  Chem. Soc. 93:2325–2327.                                      Zhang,  L., and Wang, Q.  (2022).  Harnessing P450 Enzyme  for
+Wildung, M.R., and Croteau, R. (1996). A cDNA Clone for Taxadiene       Biotechnology and Synthetic Biology. Chembiochem 23:e202100439.
+   Synthase, the Diterpene Cyclase That Catalyzes the Committed Step    Zhang, K., Shafer, B.M., Demars, M.D., 2nd, Stern, H.A., and Fasan, R.
+   of Taxol Biosynthesis. J. Biol. Chem. 271:9201–9204.                         (2012). Controlled Oxidation of Remote sp3 C–H Bonds in Artemisinin
+Williams, T.C.R., Sweetlove, L.J., and Ratcliffe, R.G. (2011). Capturing        via P450 Catalysts with Fine-Tuned Regio- and Stereoselectivity. J.
+   Metabolite Channeling in Metabolic Flux Phenotypes. Plant Physiol.      Am. Chem. Soc. 134:18695–18704.
+   157:981–984.                                                 Zhang, J., Hansen, L.G., Gudich, O., Viehrig, K., Lassen, L.M.M.,
+                                                                             Schru¨ bbers, L., Adhikari, K.B., Rubaszka, P., Carrasquer-Alvarez,Winkel, B.S.J. (2004). Metabolic channeling in plants. Annu. Rev. Plant
+                                                                                         E., Chen, L., et al. (2022). A microbial supply chain for production of   Biol. 55:85–107.
+                                                                             the anti-cancer drug vinblastine. Nature 609:341–347.
+Wu, F., and Minteer, S. (2015). Krebs Cycle Metabolon: Structural
+                                                               Zhang, C., Chen, W., Dong, T., Wang, Y., Yao, M., Xiao, W., and Li, B.   Evidence of Substrate Channeling Revealed by Cross-Linking and
+                                                                                 (2023a).  Elimination  of enzymes  catalysis  compartmentalization  Mass Spectrometry. Angew Chem. Int. Ed. Engl. 54:1851–1854.
+                                                                      enhancing taxadiene production in Saccharomyces cerevisiae. Front.
+Wu, Q.-Y., Huang, Z.-Y., Wang, J.-Y., Yu, H.-L., and Xu, J.-H. (2022).       Bioeng. Biotechnol. 11:1141272.
+   Construction  of an  Escherichia  coli  cell  factory  to  synthesize
+                                                               Zhang, Y., Wiese, L., Fang, H., Alseekh, S., Perez de Souza, L.,
+   taxadien-5α-ol, the key precursor of anti-cancer drug  paclitaxel.
+                                                                   Scossa, F., Molloy, J., Christmann, M., and Fernie, A.R. (2023b).
+   Bioresour. Bioprocess. 9:82.
+                                                                             Synthetic  biology  identifies  the  minimal gene  set  required  for
+Xiao,  H.,  Verdier-Pinard,  P., Fernandez-Fuentes,  N.,  Burd,  B.,        paclitaxel biosynthesis in a plant chassis. Mol. Plant 16:1951–1961.
+   Angeletti, R., Fiser, A., Horwitz, S.B., and Orr, G.A. (2006). Insights
+                                                                Zhao, Y., Liang, F., Xie, Y., Duan, Y.-T., Andeadelli, A., Pateraki, I.,
+   into the mechanism of microtubule stabilization by Taxol. Proc. Natl.
+                                                                       Makris, A.M., Pomorski, T.G., Staerk, D., and Kampranis, S.C.
+   Acad. Sci. USA 103:10166–10173.
+                                                                                   (2024). Oxetane Ring Formation in Taxol Biosynthesis Is Catalyzed
+Xiong, X., Gou, J., Liao, Q., Li, Y., Zhou, Q., Bi, G., Li, C., Du, R., Wang,      by a Bifunctional Cytochrome P450 Enzyme. J. Am. Chem. Soc.
+   X., Sun, T., et al. (2021). The Taxus genome provides insights into       146:801–810.
+   paclitaxel biosynthesis. Nat. Plants 7:1026–1036.
+                                                               Zheng, S., Zeng, T., Li, C., Chen, B., Coley, C.W., Yang, Y., and Wu, R.
+Xu, M., Xie, W., Luo, Z., Li, C.-X., Hua, Q., and Xu, J. (2023). Improving        (2022). Deep learning driven biosynthetic pathways navigation for
+    solubility and copy number of taxadiene synthase to enhance the titer        natural products with BioNavi-NP. Nat. Commun. 13:3342.
+   of taxadiene in Yarrowia lipolytica. Synth. Syst. Biotechnol. 8:331–338.
+                                                              Zhong, J., Wang, Y., Chen, Z., Yalikun, Y., He, L., Liu, T., and Ma, G.
+Yang, C.P.H., and Horwitz, S.B. (2017). Taxol®: The First Microtubule        (2024). Engineering cyanobacteria as a new platform for producing
+   Stabilizing Agent. Indian J. Manag. Sci. 18:1733.                              taxol  precursors   directly  from  carbon   dioxide.   Biotechnol.
+                                                                                Biofuels 17:99.Yang, Y.L., Zhang, S., Ma, K., Xu, Y., Tao, Q., Chen, Y., Chen, J., Guo,
+   S., Ren, J., Wang, W., et al. (2017). Discovery and Characterization of    Zhou, J., and Huang, M. (2024). Navigating the landscape of enzyme
+   a New Family of Diterpene Cyclases in Bacteria and Fungi. Angew       design: from molecular simulations to machine learning. Chem. Soc.
+  Chem. Int. Ed. Engl. 56:4749–4752.                                     Rev. 53:8202–8239.
+
+
+
+
+
+18    Plant Communications 6, 101460, October 13 2025

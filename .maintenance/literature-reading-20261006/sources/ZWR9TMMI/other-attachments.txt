@@ -1,0 +1,1822 @@
+[Attachment B2BKLGM3; PDF page 1]
+Supporting Information Appendix
+
+
+SI Materials and Methods
+
+Cercospora and Colletotrichum spp. genome sequencing
+
+Genomic DNA of C. beticola strain 09-40 was isolated using the CTAB method from mycelia scraped from
+
+the surface of V8 juice agar Petri plates (1). Library preparation of three genomic libraries with increasing
+
+insert size (500 bp, 5 Kbp and 10 Kbp) and subsequent paired-end (PE) and mate-pair (MP) genome
+
+sequencing was performed by BGI Americas Corporation (BGI) using the Illumina platform. A total of
+
+~11,100,000 high-quality filtered sequence reads with an average length of 100 bp were generated for
+
+the 500 bp PE library, ~23,500,000 reads of 50 bp length were derived from the 5 Kbp MP library, and a
+
+total of ~16,800,000 reads of 90 bp length were obtained from the 10 Kbp MP library. Total sequence
+
+output was ~3.8 Gbp, corresponding to an estimated 100-fold coverage. In the first stage of the genome
+
+assembly, SOAPdenovo (version 2.223) was used with the following command: “SOAPdenovo-63mer all
+
+—s config.txt —K 51 —R —o soapfinal.fa —p 8 —L 200” to assemble contigs and scaffolds incorporating
+
+all three libraries as input. The libraries were ranked according to insert size, using the smallest insert
+
+library as ranked first. Only the smallest insert library was used for all stages of the assembly with option
+
+“asm_flags=3”, the other two libraries were only used for scaffold assembly with option “asm_flags=2”.
+
+
+    For the second stage of the genome assembly, optical mapping was used to scaffold sequence reads.
+
+Optical maps were generated on the Argus System by BGI and sequences were placed using MapSolver
+
+(version 3.2.2; Opgen). BioNano Genomics optical maps (genome maps) were generated on the Irys
+
+System  (version  9; BioNano Genomics)  at the Nucleomics Core  facility (Vlaams  Instituut voor
+
+Biotechnologie), and sequences were placed using the IrysView software. Recommendations by the
+
+software packages were followed  for  scaffold placement. The  resulting alignment maps were
+
+subsequently compared visually, and accordingly an AGP-like (A Golden Path) file was constructed
+
+
+
+
+www.pnas.org/cgi/doi/10.1073/pnas. 1712798115
+
+[Attachment B2BKLGM3; PDF page 2]
+manually, applying a majority-consensus ruling wherever necessary that details the placement (position
+
+and orientation) of all sequences (Supplementary File 1). Using the custom Perl script parse_agp-
+
+like_to_fasta.pl, the AGP-like file was used to construct 12 supercontigs (possibly chromosomes) ranging
+
+in   size   from   ~227  Kbp   to   ~6.2  Mbp.  We   then   applied   Pilon   (version   1.7;
+
+http://www.broadinstitute.org/software/pilon) for automated assembly improvement. To this end, the
+
+sequencing reads from all three libraries (MP libraries were reverse complemented prior to mapping)
+
+were aligned to the genome assembly using Bowtie (2) (version 2.1.0) implementing default parameters
+
+for end-to-end mapping (i.e. “—end-to-end, --sensitive”, with the exception of insert length, that was
+
+adjusted accordingly for each library). Pilon was run subsequently with default parameters, incorporating
+
+the mapped PE library as “frags” and the mapped MP libraries as “jumps.”
+
+
+     Repetitive   sequences   were    identified   by   RepeatMasker    (version    open-4.0.3;
+
+http://www.repeatmasker.com)  using  two  distinct   libraries:  1)  the  RepBase  repeat  library
+
+(http://www.girinst.org/server/RepBase/index.php, obtained on October 23, 2013) and 2) a C. beticola
+
+specific    repeat     library    constructed    using    the    RepeatModeler    (version     1.0.7;
+
+http://www.repeatmasker.org/RepeatModeler.html). A total of 45 repeat families were found by
+
+RepeatModeler, of which 13 could be classified.
+
+
+    Cercospora berteroae strain CBS 538.71 was obtained from Centraal Bureau voor Schimmelcultures
+
+(CBS) and cultivated on Petri plates containing potato dextrose agar (PDA; Difco). High-quality DNA was
+
+extracted using the CTAB method (3). Library preparation (500 bp) and subsequent paired-end (PE)
+
+genome sequencing was performed by BGI via the Illumina platform. A total of 31 million high-quality
+
+filtered sequence reads with an average length of 100 bp were generated. A draft genome assembly was
+
+constructed using SOAPdenovo (version 2.04), applying default parameters and K-mer length 51. Protein-
+
+coding gene models were predicted ab initio using the previously established training parameters in
+
+Augustus (version 3.2.1).
+
+[Attachment B2BKLGM3; PDF page 3]
+    Colletotrichum fioriniae strains HC89 and HC91 were isolated previously from infected apples and
+
+cultivated on Petri plates containing potato dextrose agar (PDA; Difco). High-quality DNA was extracted
+
+using the CTAB method (3). Library preparation (500 bp) and subsequent paired-end (PE) genome
+
+sequencing was performed by BGI via the Illumina platform. Draft genome assemblies were constructed
+
+using SOAPdenovo (version 2.04), applying default parameters and K-mer length 51. Protein-coding gene
+
+models were predicted using the Neurospora crassa training parameters incorporated in Augustus
+
+(version 3.2.1).
+
+
+Transcriptome sequencing
+
+To aid in gene prediction and discover gene expression patterns under specific conditions, three RNA
+
+samples were prepared for RNA sequencing; one from in vitro cultured C. beticola tissue and two from C.
+
+beticola infected sugar beet seedlings at four and seven days post inoculation (DPI). Total RNA was
+
+extracted from flash-frozen fungal and/or plant material using a Qiagen total RNA extraction kit as
+
+described (4). Library preparation and sequencing were performed at BGI, which resulted in the
+
+generation of ~12,800,000, 44,500,000 and 44,800,000 PE reads of length 90 bp and fragment size of 200
+
+bp for the in vitro, the 4DPI in planta and the 7 DPI in planta libraries respectively.
+
+
+     Genome-guided Trinity assembly (5) of sequencing reads was subsequently performed as described
+
+by the software manual, with minimal intron length of 20 bp and the GSNAP aligner. Transcript assemblies
+
+were subsequently generated using PASA2 (version r20140417). We applied another transcript assembly
+
+approach simultaneously by mapping the RNA-Seq reads to the reference genome using Tophat (version
+
+2.0.8b; http://ccb.jhu.edu/software/tophat/index.shtml), converting these to raw transcript assemblies
+
+using Cufflinks (version 2.1.1; http://cufflinks.cbcb.umd.edu/) and final selection of the best assemblies
+
+using TransDecoder (version 2014-07-04; http://transdecoder.sourceforge.net/).
+
+
+Gene prediction and curation
+
+[Attachment B2BKLGM3; PDF page 4]
+EvidenceModeler (6) was used to predict protein-coding genes by integrating protein-coding evidence
+
+from multiple sources according to specified weights. First, Augustus (7) parameters (version 2.5.5) were
+
+trained locally with the autoAug.pl script included in the Augustus software package, using the assembled
+
+Trinity transcripts sequences as training input as well as hints in the final gene prediction step. Secondly,
+
+GeneMarkES (8) (version 2.3c) was used in self training modus, optimizing coding parameters for the full
+
+genome sequence. Protein similarity was detected by the alignment of proteins from the related fungal
+
+species Z. tritici, P. nodorum, L. maculans, C. heterostrophus and C. zeae-maydis against the genome
+
+sequence using the Analysis and Annotation Tool (AAT) package (9) (version r03052011). Protein
+
+sequences from these related fungi were derived from the MycoCosm platform at the Joint Genome
+
+Institute (JGI; http://genome.jgi-psf.org/programs/fungi/index.jsf). For integration of the various protein-
+
+coding sources with the EvidenceModeler, we ranked all sources according to their expected accuracy and
+
+importance. From high to low the ranking was: genome-aligned Trinity transcripts (with PASA), Cufflinks-
+
+derived TransDecoder transcripts, trained Augustus ab initio predictions, aligned protein sequences and
+
+self-trained GeneMarkES ab  initio  predictions.  These  initial  EvidenceModeler  transcripts were
+
+substantially further improved by manual curation on the WebApollo (10) (version 2013-05-16) platform.
+
+Approximately 10,500 gene models were visually analyzed and updated according to the available
+
+evidence as needed. The updates included adjustments to splice sites (e.g. alternative donor or acceptor
+
+sites), exon usage, five prime and three prime UTRs (untranslated regions) and the addition of alternative
+
+transcripts where supported by RNA-Seq evidence. A majority-consensus ruling was used for the updates,
+
+considering all evidence tracks. For transfer of the final gene predictions to newer versions of the
+
+assembly,  the  map2assembly  algorithm  from  Maker  was  used  routinely  (version  2.28;
+
+http://www.yandell-lab.org/software/maker.html).
+
+
+      To investigate the predicted gene models in more detail, we calculated a number of statistics
+
+based on the gene structures. For this purpose, all gene models were stored in GFF3 format according to
+
+[Attachment B2BKLGM3; PDF page 5]
+the specifications at The Sequence Ontology Project (http://www.sequenceontology.org/gff3.shtml). The
+
+gff3_gene_prediction_file_validator.pl Perl script, part of the EvidenceModeler package was routinely
+
+used for verification of GFF3 file format. GFF3 gene statistics, e.g. the mean/median gene length, the
+
+number of exons, CDSs or UTRs, were calculated using the custom Perl script, GFF3stats.pl.
+
+
+Protein function characterization
+
+For functional characterization of the predicted protein sequences, hardware-accelerated BLASTp on a
+
+DeCypher machine (TimeLogic; Carlsbad, USA) was used to identify homologous proteins in the non-
+
+redundant   (nr)   protein  database   obtained   at   the   NCBI.   InterProScan   (version   5.44;
+
+http://www.ebi.ac.uk/Tools/pfa/iprscan5/) was used to identify conserved protein domains. The results
+
+of both analyses were imported into Blast2GO (11) and used to generate single, uniquely functional
+
+annotations for each protein as well as a list of all associated gene ontology (GO) terms.
+
+
+Secondary metabolite cluster identification, characterization and visualization
+
+Putative SM clusters were identified in the genome sequence of C. beticola and that of related fungi using
+
+antiSMASH2   (12)   (version   2.1.0;   https://bitbucket.org/antismash/antismash2/).  To  generate
+
+antiSMASH2-required EMBL formatted genome files, the GFF3 gene features files in combination with the
+
+respective genome sequences were converted to the EMBL sequence format using the custom Perl script
+
+GFF3_2_EMBL.pl. Subsequently, antiSMASH2 was run with default parameters, allowing  for the
+
+identification of PKS, NRPS SM, Hybrid PKS-NRPS, terpene cyclase (TC), siderophore and lantipeptide SM
+
+clusters. SM clusters that showed similarity to a mixture of these clusters or only a minimal set of
+
+homologous protein domains were depicted as “other.” In addition, DMAT, for dimethylallyl tryptophan
+
+synthase clusters were identified by screening the InterProScan results for Pfam domain PF11991.
+
+
+Secondary metabolite phylogenetic analyses
+
+For phylogenetic analyses of the type I polyketide enzymes we used Mafft (version 7.187), applying global
+
+alignment (--globalpair) and a 1000 cycles of iterative refinement (--maxiterate 1000), to align full-length
+
+[Attachment B2BKLGM3; PDF page 6]
+sequences as well as selected domains of all PKS enzymes that were identified by antiSMASH2 in the
+
+genome sequences of the six Dothideomycetes: C. beticola, D. septosporum, Z. tritici, L. maculans, P.
+
+tritici-repentis and P. nodorum, and one Eurotiomycete: Aspergillus nidulans. In addition, previously
+
+characterized polyketide synthases (Supplementary Table 3) were included for reference. Prior to
+
+phylogenetic tree reconstruction, the alignments were trimmed with TrimAl (13) (version 1.2). Maximum
+
+likelihood phylogenetic trees were determined with RAxML (version 8.1.3), applying rapid bootstrapping
+
+(-# 100) and automated protein model selection (-m PROTGAMMAAUTO). Final trees were prepared
+
+online using EvolView (14). Species tree topologies were built with CVtree (15) webserver by uploading
+
+the predicted proteomes of 48 published Ascomycete fungi (Table S4).
+
+
+       For phylogenetic tree reconciliation analyses of the protein and species trees, the protein trees
+
+were pre-processed with treefixDTL (16) (version 1.1.10) to minimize errors introduced during tree
+
+reconstruction. TreefixDTL is able to correct phylogenetic trees in the presence of horizontal gene
+
+transfer. Reconciliation analyses as well as rooting were conducted in NOTUNG (17) according to the
+
+instructions (version 2.8 beta).
+
+
+Secondary metabolite cluster alignment visualization
+
+For comparative analyses of the secondary metabolite clusters, we used the R-package genoPlotR (18)
+
+(version 0.8.2; http://genoplotr.r-forge.r-project.org/). To this end, individual clusters were extracted
+
+from the genome sequence using the Perl script get_seq_by_id.pl, using the start or stop positions of the
+
+flanking genes in the cluster as extremities. The resulting sequences were then aligned using the bl2seq
+
+(BLAST two sequences) algorithm, part of the BLAST toolkit (version 2.2.26). Also, transcripts locations
+
+(CDS  start  and  stop  coordinates  specifically)  were  extracted  from  the  GFF3   files  using
+
+gff3CDS_2_genoplot.pl, and adjusted according to the start and end coordinates of the extracted cluster
+
+sequence, by means of the Unix command line tool Awk. We then used custom R code (example in
+
+genoPlotR.R) to parse these input files and generate cluster alignment figures.
+
+[Attachment B2BKLGM3; PDF page 7]
+Genome-wide gene cluster microsynteny and protein identity analysis
+
+Genome-wide  gene-by-gene  cluster  analyses  were  performed  using  the  custom  Perl  script
+
+calClusterSimilarity.pl, and plotted using ggplot2 in R using synteny.R. As input, this pipeline takes the
+
+typical output of an orthoMCL analysis, reformatted by analyseOrthoMCL.pl. In short, it requires each
+
+proteinId to have an associated clusterId. Furthermore, it requires properly formatted GFF3 files for each
+
+genome that are used to associate location of protein-coding genes and their flanks. Finally, the number
+
+of flanking genes to be used can be chosen freely, but must be set ODD. For the analyses presented in
+
+Figure 4, a cluster size of 30 was set. Genome-wide protein-by-protein best-BLASTp percent identities
+
+were derived from the similarities table prepared during orthoMCL analyses and subsequently plotted in
+
+R using pairwise_pident_boxplots.R.
+
+
+All custom Perl and R scripts are deposited as part of auxiliary data on figshare with permanent doi here:
+
+https://doi.org/10.6084/m9.figshare.4056522.v1,   and   are   also   hosted  on   GitHub   here:
+
+https://github.com/rdejonge/genomics.
+
+
+Gene expression analysis
+
+To investigate the expression of cercosporin cluster genes, C. beticola was grown in a 250 mL Erlenmeyer
+
+flask containing 100 mL potato dextrose broth (PDB; Difco) either in the light or dark, to promote and
+
+repress cercosporin production, respectively. Total RNA was isolated using TRIzol (ThermoFisher)
+
+following the manufacturer’s instructions followed by an on-column Dnase treatment (Qiagen). Total RNA
+
+was used for cDNA synthesis using an oligo-(dT) primer and the SuperScript II reverse transcriptase kit
+
+(Invitrogen) following manufacturer’s instructions. The resulting cDNA was used as a template for
+
+quantitative polymerase chain reaction (qPCR). Selected genes were queried for expression using the
+
+Power SYBR Green PCR Master Mix (Applied Biosytems) using a PTC-2000 thermal cycler (MJ Research)
+
+outfitted with a Chromo4 Real-Time PCR Detector (Bio-Rad) and MJ Opticon Monitor analysis software
+
+version 3.1 (Bio-Rad). Primers for gene expression analysis are listed in Table S10.
+
+[Attachment B2BKLGM3; PDF page 8]
+      To investigate the expression of Co. fioriniae CTB1 in planta, apples were inoculated with Co.
+
+fioriniae as described (19) or mycelia were collected from in vitro cultures (non- and TSA-induced). Total
+
+RNA was isolated from infected apples as described by Gapper et al (20) except the RETROscript Reverse
+
+Transcription kit (Invitrogen, USA) was used for cDNA synthesis. Total RNA was isolated from in vitro
+
+cultures as described above. qPCR parameters were as described above. Gene expression was quantified
+
+using procedure described by Pfaffl (21) using primers listed in Table S10.
+
+
+Transformation and disruption of target genes
+
+Split-marker PCR constructs for targeted gene replacement were prepared as described (1) using genomic
+
+DNA of 10-73-4 and 09-40 wild-type C. beticola and pDAN as PCR templates.  Selected mutants were
+
+complemented using pFBT005, which encodes resistance to nourseothricin and allowed us to clone our
+
+gene of interest between the ToxA promoter and TrpC terminator using PacI and NotI (Promega)
+
+restriction sites. Primers for split-marker and complementation constructs are listed in Table S9.
+
+
+      A 5 mm plug was taken from the actively growing zone of C. beticola on PDA. Liquid cultures were
+
+initiated by grinding the plug with 500 µL Fries medium (1), which was subsequently transferred to a 125
+
+mL flask containing 50 mL Fries medium . Flasks were wrapped in aluminum foil and shaken at 150 rpm
+
+at 21 °C for four days. Cultures were then transferred to a sterile blender cup, ground for 10 s, and
+
+transferred to a 500 mL flask containing 200 mL Fries medium. Cultures were grown as described above
+
+for an additional 24 h after which mycelium was harvested with two layers of Miracloth (Calbiochem)
+
+using a Büchner funnel. The mycelium was rinsed with mycelium wash solution (0.7M KCl, 10mM CaCl2 ·
+
+2H2O), broken into small pieces with a sterile spatula, transferred to a deep Petri dish containing 40 mL of
+
+osmoticum (20 g L-1 lysing enzymes from T. harzianum (Sigma-Aldrich) and 12.5 g L-1 Driselase (Sigma-
+
+Aldrich), and incubated at 30 °C for 6 to 14 h while shaking at 50 rpm. Protoplasts were harvested by
+
+filtering the osmoticum solution through two layers of Miracloth and collected by centrifugation (2000 x
+
+g for 5 min). After a washing step with 15 mL STC (1 M Sorbitol, 10 mM Tris-HCl pH 7.5, 10 mM CaCl2),
+
+[Attachment B2BKLGM3; PDF page 9]
+protoplasts were adjusted to 108 mL-1 with STC:PEG (4:1) and divided into 200-µL aliquots. Subsequently,
+
+PEG-based transformation was performed essentially as described (1) using 70 µg of each construct or 70
+
+μg of complementation plasmid linearized with ApaI (Promega) per 200 µL protoplast aliquot.
+
+
+Cercosporin production
+
+To screen for the ability to produce cercosporin, 10 mm plugs were transferred from the growing edge of
+
+C. beticola 10-73-4 wild-type, mutant and complemented mutant colonies to 100 mm x 15 mm Petri plates
+
+(Falcon; Oxnard, USA) that contained 10 mL PDA. After an incubation period of 6 days at 21 °C with a
+
+natural light-dark cycle, five 10 mm (dia) plugs of PDA containing C. beticola mycelium were collected and
+
+extracted with ethyl acetate for 18 h in the dark at 4 °C. The extracts were filtered and dried under a
+
+stream of nitrogen (30 °C). The dried extracts were re-dissolved in 25% acetonitrile in 1% aqueous acetic
+
+acid and fractionated by reverse-phase HPLC on a Waters 600 HPLC system fitted with a Waters radial pak
+
+column (8 mm x 120 mm, 8 μm). Injections were 200 μL. Solvent A was 1% (v/v) aqueous acetic acid and
+
+solvent B was acetonitrile. Starting conditions were 25% A 75% B, hold for 1 min, a linear gradient to 100%
+
+B in 19 min, hold for 5 min, and return to initial conditions in 5 min. Where needed, extracts were also
+
+subjected to thin-layer chromatography (TLC) on Silica HF Plates pre-coated with calcium phosphate and
+
+reactivated as described Balis and Payne (22). Plates were developed in hexane: 2-propanol (8:2, v/v) and
+
+visualized by UV fluorescence (302 nm) using a transilluminator (Alpha Innotech Corp; CA). For cercosporin
+
+isolation, multiple mycelial mats were collected and extracted two times with ethyl acetate (4 °C, dark).
+
+After filtration, the extracts were partitioned against an equal volume of reagent-grade water, residual
+
+water was removed by passage through anhydrous sodium sulfate, and the extracts were dried under a
+
+stream of nitrogen (30 °C).  Cercosporin was purified by TLC as described above and quantified by
+
+spectrophotometry using published extinction coefficients (23).
+
+Pre-cercosporin isolation and characterization
+
+[Attachment B2BKLGM3; PDF page 10]
+Mycelial plugs of C. beticola ΔCTB9 were placed on top of eight “thin” potato dextrose agar (PDA, Difco)
+
+plates (3.0 mL PDA per 50 mm Petri plate).  Cultures were incubated at 22 °C for one week under
+
+continuous light. Three separate methods were attempted to prepare crude secondary metabolite
+
+extractions. 1) PDA and mycelia were extracted with ethyl acetate for 4 min. The resulting supernatant
+
+was collected and frozen for further analysis. 2) PDA and mycelia were placed into a GenElute Maxiprep
+
+binding column (Sigma Aldrich) and centrifuged at 3500 x g for 10 min. The flow through was collected
+
+and frozen for further analysis. 3) PDA and mycelia were placed into a GenElute Maxiprep binding column
+
+along with 15 mL ethyl acetate. After a 30 s incubation, the column was centrifuged at 2400 x g for 10
+
+min. The flow through was collected and frozen for further analysis. To obtain sufficient pre-cercosporin
+
+for isolation and 1H-NMR analysis, primary extracts from all three methods were combined (less than 1
+
+mg of cercosporin was obtained from eight 50 mm plates).
+
+
+      The combined extracts were re-suspended with water and acidified with conc. HCl.  Pre-
+
+cercosporin was extracted quickly from this aqueous solution by partitioning thrice with ethyl acetate in
+
+dark, wrapping the glassware with aluminum foil. The combined ethyl acetate fractions were washed
+
+with brine, dried over anhydrous sodium sulfate and evaporated under vacuum at 30 °C. The reddish-
+
+brown residue was resuspended in methanol and filtered through 0.2 μm PTFE filters. The methanol
+
+extracts were initially analyzed by reverse phase HPLC on an Agilent model 1200 fitted with a Kinetex XB-
+
+C18 column (4.6 mm x 75 mm, 2.6 μm, Phenomenex). Injections of 1 μl were run at 1.25 mL/min on a
+
+linear gradient of 5% solvent C/95% solvent D to 95% solvent C/5% solvent D over 10.8 min, where solvent
+
+C was acetonitrile + 0.1% formic acid and solvent D was 0.1% formic acid.  Chromatograms were
+
+monitored at 436, 280, and 210 nm, and UV-vis spectra were recorded over a range of 210-800 nm. High-
+
+resolution mass data were obtained from a Waters Acquity/Xevo-G2 UPLC-ESI-MS in positive ion mode.
+
+
+      To isolate sufficient pre-cercosporin for 1H-NMR analysis, the filtered methanol extract prepared
+
+above was purified by reverse-phase HPLC on an Agilent model 1100 fitted with a Kinetex XB-C18 semi-
+
+[Attachment B2BKLGM3; PDF page 11]
+prep column (10 mm x 250 mm, 5 μm, Phenomenex). The crude extract (10 mg/mL in methanol) was
+
+injected (generally 500 μL) and run at 4 mL/min using the following method: 20% solvent C/80% solvent
+
+D for 3 min, 20-70% solvent C over 17 min, 70-95% solvent D over 5 min, where solvent C and D were as
+
+above. Chromatograms were recorded at 436, 280, and 210 nm. The metabolite of interest was collected
+
+from multiple injections, combined, and lyophilized to dryness. The purified pre-cercosporin was analyzed
+
+by UPLC-ESI-MS as described above and 1H-NMR.
+
+
+      To   isolate   sufficient  pre-cercosporin   for   13C NMR   analysis,  mycelial  plugs  of C.
+
+beticola ΔCTB9 were placed on top of 320 “thin” PDA plates (3.0 mL PDA per 60 mm Petri plate) amended
+
+with 2 mM 1-13C-sodium acetate (Sigma-Aldrich) and 2 mM 2-13C-sodium acetate (Cambridge Isotope
+
+Laboratory; Tewksbury, MA). Cultures were incubated at 22 °C for one week. The following extraction
+
+procedures were carried out quickly under low light: PDA was collected from Petri plates and extracted
+
+with ethyl acetate. The ethyl acetate/mycelium mixture was transferred to a sterile blender cup, ground
+
+for 10 s, and placed into a GenElute Maxiprep binding column (Sigma Aldrich) and centrifuged at 3500 x g
+
+for 1 min. The flow through was collected and frozen until further analysis. The combined extracts were
+
+re-suspended with water and pre-cercosporin was extracted quickly from this aqueous solution by
+
+partitioning thrice with ethyl acetate in the dark, wrapping the glassware with aluminum foil. The
+
+combined ethyl acetate fractions were washed with brine, dried over anhydrous sodium sulfate and
+
+evaporated under vacuum at 30 °C. The reddish-brown residue was resuspended in methanol and filtered
+
+through 0.2 μm PTFE filters. The filtered methanol extract was purified by reverse-phase HPLC on a
+
+CombiFlash EZ prep model fitted with a Luna C18 prep HPLC column (50 mm x 250 mm, 10 μm). The crude
+
+extract (22.5 mg/mL in methanol) was injected all at once and run at 155 mL/min using the following
+
+method: 20% solvent C/80% solvent D for 2 min, 20-70% solvent C over 18 min, where solvent C was
+
+acetonitrile + 0.1% formic acid and solvent D was water + 0.1% formic acid.  Chromatograms were
+
+[Attachment B2BKLGM3; PDF page 12]
+recorded at 400 and 280 nm. The metabolite of interest was collected from single injection and lyophilized
+
+to dryness.
+
+
+4,6,9-trihydroxy-1,12-bis(2-hydroxypropyl)-2,7,11-trimethoxyperylene-3,10-dione (pre-cercosporin)
+
+
+1H NMR (400 MHz, CDCl3, δ), (Data obtained at 5 °C on a Bruker AVANCE spectrometer, Fig. S9A): 15.24
+
+(s, 1H), 14.93 (s, 1H), 9.25 (s, 1H), 6.92 (s, 1H), 6.87 (s, 1H), 4.28 (s, 3H), 4.19, (s, 3H), 4.18 (s, 3H), 3.57 –
+
+3.51 (m, 2H), 3.42 – 3.36 (sym 5-line overlapping signal, 2H), 2.86 – 2.74 (m, 2H), 0.64 (d, J = 6.1 Hz, 3H),
+
+0.60 (d, J = 6.1 Hz, 3H). 13C NMR (125MHz, CDCl3, δ), (Data obtained at 9 °C on a Bruker AVANCE II
+
+spectrometer with TCI Cryoprobe, Fig. S9B and S9C): 181.47, 181.24, 169.58, 169.17, 162.99, 161.21,
+
+152.92, 152.53, 136.03, 134.32, 131.19, 129.18, 128.97, 127.84, 113.23, 112.46, 107.61, 106.75, 105.94,
+
+101.53, 68.22, 68.20, 61.43, 57.95, 42.14, 41.88, 23.58, 23.35. UPLC-ESI-HRMS: calculated for C29H29O10
+
+[M+H+]: 537.1761, found [M+H+]: 537.1762.
+
+
+Quantification of cercosporin recovery from apple
+
+
+A standard curve for quantification of cercosporin by HPLC was prepared using cercosporin isolated from
+
+WT C. beticola. Crude cercosporin extraction was as described above. The crude extract was resuspended
+
+in methanol and further purified using a Sephadex LH20 column. Injections of 800 μL were applied to the
+
+column and developed using methanol as the mobile phase. Fractions were collected and analyzed by
+
+HPLC on an Agilent 1200 as described above for pre-cercosporin. Fractions containing pure cercosporin,
+
+as determined by absorbance at 210 nm, were pooled and evaporated to dryness.
+
+
+      The purified cercosporin was resuspended in methanol to a final concentration of 5 mM. For the
+
+standard curve, this stock solution was further diluted in methanol to 1, 10, 25, 50, and 100 μM. These
+
+standard solutions were prepared in triplicate and 10 μL of each was injected on to an Agilent 1200
+
+equipped with an autosampler, and analyzed as before. 280 nm chromatograms were integrated using
+
+ChemStation (Agilent), and the integrated peak area was plotted against concentration in Prism
+
+[Attachment B2BKLGM3; PDF page 13]
+(GraphPad). The data was fit using linear regression, constraining the line to go through 0,0, to yield the
+
+standard curve (Fig. S11).
+
+
+      To assess the efficiency of cercosporin extraction from apple, 50 μL of 250 μM cercosporin
+
+(isolated as described above) in methanol was injected into organic Gala apples at 5 spots, 2 cm below
+
+the skin. Apples were incubated at room temperature for 1 h, 1.5 d, and 3 d. At each time point, the
+
+apples were cut up and flash frozen in liquid nitrogen. The frozen apples were then ground under liquid
+
+nitrogen, lyophilized to dryness, and re-ground. The ground apples were resuspended in acidified water
+
+(pH < 1) and extracted thrice with ethyl acetate. These extracts were pooled, washed with brine, and
+
+evaporated to dryness. The samples were then resuspended in 500 μL methanol for analysis by HPLC on
+
+an Agilent 1200, as described above for pre-cercosporin. Cercosporin recovery was quantified based on
+
+integrated peak area of the HPLC chromatogram at 280 nm, using the standard curve developed above
+
+(Fig. S12).
+
+
+Extraction of Colletotrichum higginsianum infected Arabidopsis leaves
+
+
+Arabidopsis thaliana was inoculated as described by O’Connell (24). Several methods were attempted to
+
+extract cercosporin from infected leaves.   First, the leaves were ground under liquid nitrogen and
+
+lyophilized twice prior to soaking in water acidified with HCl (pH <1). After 10 min, solids were removed
+
+by gravity filtration and the filtrate was extracted thrice with ethyl acetate. The extractions were pooled,
+
+washed with brine, and evaporated to dryness. The crude extract was resuspended in 500 μL methanol
+
+and analyzed by HPLC and UPLC-ESI-MS as described above.  Second, the leaves were ground and
+
+lyophilized as described above, and resuspended in methanol.  The mixture was stirred at room
+
+temperature for 1 h.   All solids were removed by vacuum filtration, and the resulting filtrate was
+
+evaporated to dryness. This crude extract was then analyzed for the presence of cercosporin by HPLC and
+
+UPLC-ESI-MS as before. For the final method, the leaves were ground, lyophilized, and a crude methanol
+
+[Attachment B2BKLGM3; PDF page 14]
+extract was prepared as described above. The crude extract was resuspended in water basified with
+
+sodium hydroxide (pH > 12), and extracted thrice with dichloromethane. The dichloromethane fractions
+
+were discarded, and the aqueous fraction was acidified with HCl to pH <1 and extracted thrice with ethyl
+
+acetate. The ethyl acetate fractions were pooled, washed with brine, and evaporated to dryness. The
+
+extracted metabolites were resuspended in 500 μL methanol and analyzed by HPLC and UPLC-ESI-MS as
+
+before.
+
+[Attachment B2BKLGM3; PDF page 15]
+SI Figures
+
+
+
+
+
+Figure S1: Synteny of the C. beticola and C. nicotianae cercosporin biosynthetic clusters. The cercosporin biosynthetic cluster in C. beticola (top)
+and flanking genes are fully syntenic with that in C. nicotianae (bottom). The displayed identifiers are transcript IDs and the corresponding
+sequences can be retrieved from ORCAE. CTB1 until CTB8 are named according to Chen et al. (25) and the region encoding these genes in C.
+nicotianae is indicated by the bottom dashed line. CTB orthologs are colored relative to the C. beticola CTB cluster genes to illustrate gene
+conservation.
+
+[Attachment B2BKLGM3; PDF page 16]
+Figure S2: Phylogenetic analysis of C. beticola polyketide synthase enzymes. (a) Maximum likelihood phylogenetic tree of all predicted
+polyketide synthase (PKS) from the selected species set (C. beticola (CBET3), D. septosporum (DOTSE_V1), Z. tritici (MGRAM_V3), L. maculans
+(LEPMU_V1), P. tritici-repentis (PTRT) and P. nodorum (STANO_V1)) as well as several additional PKSs derived from Collemare et al. (26) (see
+Table S9 for full set), constructed by maximum-likelihood analysis of aligned full-length β-ketoacyl synthase domains. The domain architecture
+for each protein as determined by Pfam domain scanning is shown aligned to each protein accession and the legend shown at the top. PKSs with
+a starter unit (SAT) domain encompassing the canonical active-site motif GxCxG are marked by filled blue stars, whereas those without the
+
+[Attachment B2BKLGM3; PDF page 17]
+canonical active-site motif are marked by unfilled blue stars. The full version of the panel A PKS tree is part of the supplementary material
+published on figshare under doi: 10.6084/m9.figshare.4056522. (b) The magnified section from (a) encompassing seven of eight C. beticola non-
+reducing (NR)-PKSs (excludes more distantly related CBET3_04827-RA) and several well-known NR-PKSs with established molecular function. SAT
+= starter-unit:ACP transacylase, KS = β-ketoacyl synthase, AT = ACP transacylase, PT = product template, ACP = acyl carrier protein; TE/CYC =
+thioesterase, DH = dehydratase, MT = methyl transferase, ADH = alcohol dehydrogenase, ADH_zinc = alcohol zinc dehydrogenase, KR =
+ketoreductase, Condensation = condensation domain, HxxPF-repeat = HxxPF-repeated domain, AMP = AMP-binding enzyme, NAD = NAD-binding
+region. PKSs with a SAT domain encompassing the canonical active-site motif GxCxG are marked by filled blue stars, whereas those without are
+marked by unfilled blue stars. The final tree was prepared in EvolView (14). (c) Structures of characterized secondary metabolite compounds
+associated with the various subclades in (b).
+
+[Attachment B2BKLGM3; PDF page 18]
+Figure S3A: CTB1 (CBET3_00833)
+
+[Attachment B2BKLGM3; PDF page 19]
+Figure S3B: CTB2 (CBET3_00832)
+
+[Attachment B2BKLGM3; PDF page 20]
+Figure S3C: CTB3 (CBET3_00834)
+
+[Attachment B2BKLGM3; PDF page 21]
+Figure S3D: CTB4 (CBET3_00831)
+
+[Attachment B2BKLGM3; PDF page 22]
+Figure S3E: CTB5 (CBET3_00835)
+
+[Attachment B2BKLGM3; PDF page 23]
+Figure S2F: CTB6 (CBET3_00830)
+
+[Attachment B2BKLGM3; PDF page 24]
+Figure S3G: CTB7 (CBET3_00836)
+
+[Attachment B2BKLGM3; PDF page 25]
+Figure S3H: CTB8 (CBET3_00837)
+
+[Attachment B2BKLGM3; PDF page 26]
+Figure S3I (CBET3_00840)
+
+[Attachment B2BKLGM3; PDF page 27]
+Figure S3J: CFP (CBET3_00841)
+
+[Attachment B2BKLGM3; PDF page 28]
+Figure S3K: CTB9 (CBET3_00842)
+
+[Attachment B2BKLGM3; PDF page 29]
+Figure S3L:CTB10 (CBET3_00843)
+
+[Attachment B2BKLGM3; PDF page 30]
+Figure S3M: CTB11 (CBET3_00844)
+
+[Attachment B2BKLGM3; PDF page 31]
+Figure S3N: CTB12 (CBET3_00845)
+
+
+
+Figure S3: Phylogenetic analyses of CTB1-CTB12 homologs. Selected sub trees of maximum likelihood trees of CTB1-CTB12 orthologs (2A-2N) in
+C. beticola and 45 published genome sequences. The subtree with orthologous sequences were selected from the full phylogenetic tree which
+were constructed from a full-length multiple sequence alignment of CTB1-CTB12 proteins and determined by maximum likelihood using RAxML.
+The full phylogenetic trees for CTB1 – CTB12 are available as supplementary material on figshare under DOI: 10.6084/m9.figshare.4056522. For
+each CTB protein, the associated subtree protein alignment, after degapping (i.e. removing all gap-only positions), is shown adjacent to the tree.
+
+[Attachment B2BKLGM3; PDF page 32]
+Figures are prepared in iTOL (27). Amino acids are colored per the clustalx scheme, and the residue conservation graph is shown below the
+alignment ranging from 0 till 100%. Bootstrap support, determined by RAxML, ranging from 50 – 100 are indicated at the corresponding nodes.
+Species abbreviations are cbet (C. beticola), cber (C. berteroae), ccan (C. canescens), colf (C. fioriniae), colh (C. higginsianum), cglo (C.
+gloeosporioides), colg (C. graminicola), colo (C. orbiculare), mgri (M. oryzae), claf (C. fulvum), stan (P. nodorum), dots (D. septosporum), and sepm
+(Septoria musiva). A full list of species and the corresponding abbreviation can be found in Table S3.
+
+[Attachment B2BKLGM3; PDF page 33]
+
+
+[Attachment B2BKLGM3; PDF page 34]
+Figure S4: Phylogeny of Cercospora spp. and related Ascomycete fungi. Cladogram showing the phylogenetic relationship of Cercospora spp. and
+45 other sequenced fungi. The unscaled tree was constructed using CVTree (15).
+
+[Attachment B2BKLGM3; PDF page 35]
+
+
+[Attachment B2BKLGM3; PDF page 36]
+Figure S5A: CTB1 (CBET3_00833) protein tree reconciliation. Total reconciliation score 44.0 (4 duplications, 3 transfers and 20 losses).
+
+
+
+
+
+Figure S5B: CTB2 (CBET3_00832) protein tree reconciliation. Total reconciliation score 38.5 (3 duplications, 3 transfers and 16 losses).
+
+[Attachment B2BKLGM3; PDF page 37]
+Figure S5C: CTB3 (CBET3_00834) protein tree reconciliation. Total reconciliation score 34.5 (1 duplication, 4 transfers and 9 losses).
+
+
+
+
+
+Figure S5D: CTB4 (CBET3_00831) protein tree reconciliation. Total reconciliation score 19.0 (0 duplications, 2 transfers and 7 losses).
+
+[Attachment B2BKLGM3; PDF page 38]
+Figure S5E: CTB5 (CBET3_00835) protein tree reconciliation. Total reconciliation score 26.0 (2 duplications, 2 transfers and 11 losses).
+
+
+
+
+
+Figure S5F: CTB6 (CBET3_00830) protein tree reconciliation. Only observed in Cercospora spp., no reconciliation output.
+
+[Attachment B2BKLGM3; PDF page 39]
+Figure S5G: CTB7 (CBET3_00836) protein tree reconciliation. Total reconciliation score 11.0 (2 duplications, 0 transfers and 8 losses).
+
+[Attachment B2BKLGM3; PDF page 40]
+Figure S5H: CTB8 (CBET3_00837) protein tree reconciliation. Total reconciliation score 38.5 (3 duplications, 3 transfers and 16 losses).
+
+[Attachment B2BKLGM3; PDF page 41]
+Figure S5I: CFP (CBET3_00841) protein tree reconciliation. Total reconciliation score 20.5 (1 duplication, 2 transfers and 7 losses).
+
+
+
+
+
+Figure S5J: CTB9 (CBET3_00842) protein tree reconciliation. Total reconciliation score 22.0 (0 duplications, 3 transfers and 4 losses).
+
+[Attachment B2BKLGM3; PDF page 42]
+Figure S5K: CTB10 (CBET3_00843) protein tree reconciliation. Total reconciliation score 27.0 (2 duplications, 2 transfers and 12 losses).
+
+[Attachment B2BKLGM3; PDF page 43]
+Figure S5L: CTB11 (CBET3_00844) protein tree reconciliation. Total reconciliation score 28.5 (3 duplication, 1 transfer and 18 losses).
+
+[Attachment B2BKLGM3; PDF page 44]
+Figure S5M: CTB12 (CBET3_00845) protein tree reconciliation. Total reconciliation score 31.5 (1 duplication, 3 transfers and 12 losses).
+
+
+
+Figure S5: Tree reconciliations of CTB1 – CTB12. The protein trees, generated using RAxML (Fig. S3) were midpoint rooted and subsequently
+reconciled in Notung with the species tree (Fig. S4) to infer the number of duplications, losses and transfers. Duplication nodes are marked with
+red squares, losses are in grey and transfers are highlighted by yellow arrows. Total reconciliation score is determined by summing all event costs
+according to the following event costs/weights: duplications (D): 1.5, transfers (T): 6.0, losses (L): 1.0 (ratio D:T:L is 1:4:0.67). A full list of species
+and the corresponding abbreviation can be found in Table S3.
+
+[Attachment B2BKLGM3; PDF page 45]
+Figure S6: CTB protein sequence identity segregates from the genome-wide average. The genome-wide, protein-by-protein sequence identity
+between C. beticola and the 48 selected genomes (including C. beticola itself) is shown. Each boxplot represents the distribution of sequence
+identities for one genome-wide protein-by-protein comparison, based on best BLASTp match. The red dots represent the sequence identity
+between best BLASTp matches to CTB proteins. CTB protein similarities are within the highest quartile or above for P. nodorum (stan),
+Colletotrichum spp. (colo, colg, cglo, colg, and colh) and M. oryzae (mgri). A full list of species and the corresponding abbreviations can be found
+in Table S3.
+
+[Attachment B2BKLGM3; PDF page 46]
+Figure S7: CTB orthologs pairwise identities in tree format. Pairwise identities of C. beticola CTB proteins and orthologs, identified by phylogenetic
+analysis of each specific protein family. Percentage identity is only shown for orthologs.
+
+[Attachment B2BKLGM3; PDF page 47]
+                                                                                                      1.2A  WT         Δ            Δ       Complement B                                             WT
+                                                                                                      1.0
+                                                                                     (V)0.8
+   842
+                                                                                                      0.6
+
+                                                                                                      0.4                                                                                                                                                                                                                                 Response
+
+                                                                                                      0.2
+
+  844                                                                                               0.0
+                                                                                                      1.2
+                                                            Δ842 + 842
+                                                                                                      1.0
+                                                                                     (V)0.8
+  845                                                                                               0.6                                                                                                                                                                                                                                  Response
+                                                                                                      0.2
+
+                                                   Cercosporin    0.0C                                                                                            1.2
+     WT       Δ842       Δ844      Δ845    standard        Δ844 + 844
+                                                                                                     1.0
+                                                                                    (V)
+                                                                                                     0.8
+
+                                                                                                     0.6
+
+                                                                                                     0.4                                                                                                                                                                                                                                 Response
+
+                                                                                                     0.2
+
+                                                                                                     0.0
+                                                                                                      1.2
+                                                            Δ845 + 845
+                                                                                                      1.0
+                                                                                     (V)0.8
+
+                                                                                                      0.6
+
+                                                                                                      0.4                                                                                                                                                                                                                                 Response
+
+                                                                                                      0.2
+
+                                                                                                      0.0
+                                                                                          0         5         10        15        20
+
+                                                                          Retention Time (min)
+
+
+Figure S8: Analysis of cercosporin production in CTB mutants of C. beticola. Site-directed knock-out mutants in genes CBET3_00842 (CbCTB9),
+CBET3_00844 (CbCTB11), and CBET3_00845 (CbCTB12) and their associated complements were assayed for cercosporin production (a) visually
+
+[Attachment B2BKLGM3; PDF page 48]
+by growth on Petri plates containing thin PDA where the red pigment around cultures is indicative of cercosporin, (b) comparing HPLC retention
+times recorded at 280 nm from extracts of C. beticola and C. beticola mutants, and (c) TLC. Cercosporin extracted from C. beticola strain 10-73-4
+(WT) were used as controls in HPLC and TLC assays. Complemented mutants in HPLC assays are indicated as Δ842+842, Δ844+844, and
+Δ845+845. UPLC ESI-MS analyses of all mutants is shown in Figure 5A.
+
+[Attachment B2BKLGM3; PDF page 49]
+Figure S9a. 1H-NMR spectrum of pre-cercosporin (2) in CDCl3 (400 MHz).
+
+[Attachment B2BKLGM3; PDF page 50]
+Figure S9b. 13C-NMR spectrum of pre-cercosporin (2) in CDCl3 (125 MHz).
+
+[Attachment B2BKLGM3; PDF page 51]
+                                                                                                    δC        δH (J in Hz)     Atom #
+                                                                                                     23.35a     0.60, d (6.1)a    1
+                                                                                                     23.58a     0.64, d (6.1)a      1’
+                                                                                                    41.88b    2.86 – 2.74, mb  3
+                                                                                                    42.14b    3.57 – 3.51, mb   3’
+                                                                                                57.95     4.28, s         15
+                                                                                                61.43     4.18, s; 4.19, s    14, 14’
+                                                                                                      68.20c    3.42 – 3.36, m   2
+                                                                                                      68.22c    3.42 – 3.36, m    2’
+                                                                                                 101.53d   6.92, sc         9
+                                                                                                  105.94e                 11
+                                                                                                  106.75e                     11’
+                                                                                                 107.61d   6.87, sc            9’
+                                                                                                      112.46f                 7
+                                                                                                      113.23f                       7’
+                                                                                                  127.84g                 4
+                                                                                                  128.97g                       4’
+                                                                                                 129.18h                 5
+                                                                                                 131.19h                       5’
+                                                                                                        134.32i                 6
+                                                                                                        136.03i                       6’
+                                                                                                        152.53j                 13
+                                                                                                        152.92j                     13’
+                                                                                                   161.21k                 8
+                                                                                                   162.99k                       8’
+                                                                                                        169.17l                 10
+                                                                                                        169.58l                     10’
+                                                                                            181.24m                 12
+                                                                                            181.47m                    12’
+                                                                                                                       9.25, s       OH (C8’)
+                                                                                                                  14.93, sd      OH (C10)
+                                                                                                                  15.24, sd      OH (C10’)
+Figure S9c. HSQC-NMR spectrum of pre-cercosporin (2) in CDCl3 (600 MHz).                 a-m Assignments within a column are interchangeable
+
+[Attachment B2BKLGM3; PDF page 52]
+
+
+[Attachment B2BKLGM3; PDF page 53]
+Figure S10:  Phylogenetic analyses of Co. higginsianum CTB1 orthologs encoded by 13 Colletotrichum genomes. Maximum likelihood
+phylogenetic tree of Co. higginsianum CTB1 orthologs encoded by 13 Colletotrichum genomes, including Co. higginsianum itself, and all predicted
+non-reducing polyketide synthases from C. beticola (SI Appendix, Fig. S2). The highlighted clade confirms CTB1 orthologs in 10/13 analyzed
+Colletotrichum species.
+
+[Attachment B2BKLGM3; PDF page 54]
+
+
+[Attachment B2BKLGM3; PDF page 55]
+Figure S11. Synteny, rearrangement and species-specific erosion of the conserved CTB biosynthetic cluster in Colletotrichum. For all species, the
+
+displayed identifiers are gene IDs and the corresponding sequences can be retrieved from GenBank or Ensemble Fungi. CTB orthologs, labelled
+
+accordingly at the top, are colored relative to the C. beticola CTB cluster genes, see Figures 1 and 3; except for CH063_00309, CH063_00310,
+
+CH063_00311 and CH063_02502 which are unique for the Colletotrichum CTB cluster. Raw data for this plot was produced by MultiGeneBlast (28)
+
+using the C. higginsianum CTB cluster (see Figure 3) as query; and listed are the best records per genome, that were ordered by cumulative blast
+
+score. The species phylogeny was prepared by calculating pair-wise Mash (29) distances with k equals 9 and the amino acid alphabet using all the
+
+predicted protein sequences for each genome as input.
+
+[Attachment B2BKLGM3; PDF page 56]
+Figure S12: Cercosporin standard curve. Individual data points from three replicates are shown. Data was plotted and linear regression
+calculated in Prism (GraphPad).
+
+[Attachment B2BKLGM3; PDF page 57]
+Figure S13. Recovery of cercosporin from apple tissue. An HPLC-based standard curve (Figure S12) was used to calculate the amount of
+cercosporin extracted from apples which had been infiltrated with the toxin after the indicated time period. Amount isolated is shown as a
+percentage of total cercosporin added to the apple. Individual data points from three replicates are shown.
+
+[Attachment B2BKLGM3; PDF page 58]
+Figure S14. Symptomology of apple fruit infiltrated with (a) buffer control (50 µl), (b) 250 µM cercosporin (50 µl), or inoculated with (c)
+Colletotrichum fioriniae at five days post infiltration/inoculation. Although the amount of cercosporin produced in planta is dependent on
+many factors including Cercospora spp., inoculum concentration, and host plant, the cercosporin concentration in (b) may be higher than
+physiologically relevant.
+
+[Attachment B2BKLGM3; PDF page 59]
+Figure S15. Co. fioriniae CTB1 expression. Expression of Co. fioriniae CTB1 was interrogated in in vitro-grown samples (control), trichostatin A-
+(TSA-) induced Co. fioriniae in vitro samples, and in apples infected with Co. fioriniae collected 14 days post inoculation (DPI) using qRT-PCR. One
+primer from each primer pair was designed to span an intron. Negative control samples in which no reverse transcriptase was added to the
+cDNA synthesis reaction yielded no detectable Ct values, confirming that gDNA did not contribute to expression levels in cDNA preparations. All
+qRT-PCR amplicons were sequenced and verified to be derived from cDNA.
+
+[Attachment B2BKLGM3; PDF page 60]
+SI Tables
+
+Table S1: Cercospora beticola genome statistics and comparison to other related fungi.
+
+ Species*                               Cbe        Cbr        Ccn       Dse         Zst      Lma         Ptr       Pno        Ani
+ Assembly statistics
+ Total assembly length (Mbp)                   37.1        37.4        34.0        30.2        39.7        44.9        37.8        37.2        30.5
+
+ Total length of gaps (Mbp)                      3.2         0.3         0.0         0.1         0.0         1.1         0.6         0.2         0.7
+
+ No. of scaffolds/contigs                    248       28,905      6,126       20        21        41        47        108        8
+
+ NG50 scaffolds (No.)                        4        111       422        5         6         10         6         13         4
+
+ LG50 scaffolds (Mbp)                         4.17       0.096      0.023       2.60        2.67        1.77        1.99        1.05        3.76
+
+ NG95 scaffolds (No.)                       10       11,497      2,320       12        18        25        20        43         8
+
+ GC content (%)
+
+   Overall (excl. gaps)                          52.2        51.5        52.6        53.1        52.1        45.2        51.0        50.4        50.4
+
+   Coding (CDS)                               53.8        53.9        54.3        54.6        55.6        54.1        53.6        54.6        53.4
+
+ Repeat content (Mbp)                        0.51     ND***    ND***       1.08        6.98       15.93       0.80        2.88        1.07
+ Protein-coding genes
+
+   Protein-coding genes (No.)                 12,281     11,972     11,556     12,580     10,951     12,469     12,169     12,380     10,680
+  Mean gene length (bp)                     1,885      1,584      1,556      1,896      1,602      1,446      1,616      1,468      1,736
+   Percentage coding                          68.4        51.1        52.9        79.3        44.2        41.2        52.9        49.1        62.2
+  Mean gene density (No. genes/100 Kbp)      36.3        32.3        34.0        41.8        27.6        28.5        32.7        33.4        35.8
+  Mean CDS length (bp)                      1,469      1,473      1,450      1,223      1,310      1,258      1,349      1,271      1,456
+   Exons**
+
+    No. of exons                            28,100     28,046     26,848     28,937     28,611     35,201     32,716     32,994     34,743
+    Exons/gene                                 2.3         2.3         2.3         2.3         2.6         2.8         2.7         2.7         3.3
+   Mean exon length (bp)                  780       629       624       773       532       446       530       495       477
+   Introns**
+
+     Introns (No. introns)                     15,819     16,074     15,292     16,356     17,660     22,732     20,547     20,614     24,062
+    Introns/gene                                1.3         1.3         1.3         1.3         1.6         1.8         1.7         1.7         2.3
+   Mean intron length (bp)                  73        83        80        91        133       103       114        90        82
+*Genomes are Cercospora beticola (Cbe), Cercospora berteroae (Cbr), Cercospora canescens (Ccn), Dothistroma septosporum (Dse),
+Zymoseptoria tritici (Zst), Leptosphaeria maculans (Lma), Pyrenophora tritici-repentis (Ptr), Parastagonospora nodorum (Pno), and Aspergillus
+nidulans (Ani).
+
+[Attachment B2BKLGM3; PDF page 61]
+**Only considering the longest transcript (if alternatives exist).
+*** Not determined (ND).
+
+[Attachment B2BKLGM3; PDF page 62]
+Table S2: Number of secondary metabolism biosynthesis clusters in Cercospora beticola and other related fungi.
+
+                         NRPS   T1PKS   T3PKS    Hybrid∞   Terpene*    DMAT†      Siderophore    LanD‡      Other$          Total
+ Cercospora beticola            23     15       0        3          7          1            2           0          12         63
+ Dothistroma septosporum        5      3       0        1          4          1            0           0          10         24
+ Zymoseptoria tritici             8      10       1        1          4          0            1           0          7         32
+ Leptosphaeria maculans         4      9       1        2          6          1            0           0          7         30
+ Pyrenophora tritici-repentis      13     15       1        1          5          0            0           1          7         43
+ Parastagonospora nodorum      8      15       1        2          6          2            0           0          6         40
+ Aspergillus nidulans            10     23       0        2         13          7            0           0          11         66
+∞Hybrid refers to gene clusters incorporating both NRPS and PKS key enzymes
+*Terpene cyclases and hybrids (-NRPS and -PKS).
+†Number of proteins that contain the PFAM domain PF11991.
+‡Lantipeptide biosynthesis clusters
+$Category refers to candidate NRPS clusters that lack key domains (antiSMASH: Blin et al. 2013)
+
+[Attachment B2BKLGM3; PDF page 63]
+Table S3: Fungal proteomes used in this study.
+
+
+             Species Name
+ No.                                Alternative name              Strain                   Source                       Reference                   ShortID
+            (common)
+
+ 1       Alternaria brassicicola                           ATCC 96836                     JGI               http://alternaria.vbi.vt.edu/index.html       abra
+
+ 2         Aspergillus clavatus                             NRRL 1                 JGI (original FGI)               Fedorova et al. 2008                  apcl
+
+ 3          Aspergillus flavus                             NRRL 3357               JGI (original FGI)               Arnaud et al. 2012                    apfl
+
+ 4        Aspergillus fumigatus                                 Af293                 JGI (original FGI)               Fedorova et al. 2008                apfu
+
+ 5         Aspergillus nidulans                              FGSC A4                JGI (original FGI)               Galagan et al. 2005              apnd
+
+ 6          Aspergillus niger                              ATCC 1015                      JGI                          Pel et al. 2007                   apni
+
+ 7          Aspergillus oryzae                             RIB40 / ATCC 42149          JGI (original FGI)              Machida et al. 2005               apor
+
+ 8         Aspergillus terreus                               NIH 2624                JGI (original FGI)               Arnaud et al. 2012                 apte
+
+ 9           Botrytis cinerea                                   B05.10                 JGI (original FGI)             Amselem et al. 2011                botc
+
+ 10      Cercospora berteroae                               CBS538.71                  This study                         This study                     cber
+
+ 11       Cercospora beticola                                   09-40                    This study                         This study                     cbet
+
+ 12      Cercospora canescens                             MTCC-I0835         BioProject PRJNA183604          BioProject PRJNA183604             ccan
+
+ 13     Chaetomium globosum                             CBS 148                     FGI                 Cuomo et al. 2015                chag
+
+ 14      Cladosporium fulvum                            CBS 131901                     JGI                    de Wit et al. 2012                      claf
+
+ 15       Coccidioides immitis                                 RS                   JGI (original FGI)               Sharpton et al. 2009                  coci
+              Cochliobolus
+ 16                                                     C5                          JGI                   Condon et al. 2013                coch
+             heterostrophus
+                                      Colletotrichum
+ 17     Colletotrichum fioriniae                                   PJ7              BioProject PRJNA233987             Baroncelli et al. 2014                   colf
+                              acutatum Sensu Lato
+             Colletotrichum
+ 18                              Glomerella cingulata         Nara GC5             Ensemble Fungi               Gan et al. 2013                    cglo
+             gloeosporioides
+             Colletotrichum
+ 19                                                   M1.001                JGI (original FGI)                O'Connell et al. 2012                 colg
+              graminicola
+             Colletotrichum
+ 20                                                     IMI349063               JGI (original FGI)                O'Connell et al. 2012                 colh
+             higginsianum
+             Colletotrichum
+ 21                                                MAFF240422           Ensemble Fungi               Gan et al. 2013                   colo
+                orbiculare
+             Colletotrichum
+ 22                                                   TX430BB           BioProject PRJNA246670             Baroncelli et al. 2014                  cols
+                sublineola
+             Dothistroma
+ 23                              Mycosphaerella pini          NZE10                        JGI                    de Wit et al. 2012                 dots
+            septosporum
+ 24       Fusarium fujikuroi                                IMI58289                      JGI                 Wiemann et al. 2013                   fusf
+
+[Attachment B2BKLGM3; PDF page 64]
+25     Fusarium graminearum                                PH-1                  JGI (original FGI)             Cuomo et al. 2007                  fusg
+       Fusarium oxysporum f.
+26                                                      4287                  JGI (original FGI)            Ma et al. 2010                   fuso
+              sp. lycopersici
+27     Fusarium verticillioides                               7600                  JGI (original FGI)            Ma et al. 2010                    fusv
+            Leptosphaeria
+28                                                               v23.1.3                 JGI (original FGI)                Rouxel et al. 2011               lepm
+             maculans
+29     Magnaporthe oryzae    Magnaporthe grisae           70-15                 JGI (original FGI)               Dean et al. 2005                 mgri
+
+30      Magnaporthe poae                            ATCC 64411              JGI (original FGI)                       FGI                  mpoa
+                                 Pseudocercospora
+31     Mycosphaerella fijiensis                             CIRAD86                       JGI                Ohm et al. 2012                     mfij
+                                                    fijiensis
+           Mycosphaerella
+32                              Zymoseptoria tritici           IPO323                       JGI                  Goodwin et al. 2011              mgra
+             graminicola
+33      Nectria haematococca      Fusarium solani            MPVI                        JGI                   Coleman et al. 2009              nhae
+
+34       Neosartorya fischeri                            NRRL 181                      JGI                    Fedorova et al. 2008                    nfis
+
+35       Neurospora crassa                             OR74A                 JGI (original FGI)               Galagan et al. 2003                 ncra
+
+36      Podospora anserina                           DSM980                JGI (original FGI)               Espagne et al. 2008               pans
+        Pyrenophora teres f.
+37                                                               0-1               Ensemble Fungi                Ellwood et al. 2010                  pter
+                 teres
+         Pyrenophora tritici-
+38                                                           Pt-1C-BFP               JGI (original FGI)              Manning et al. 2013                  pytr
+                repentis
+           Rhystidhysteron
+39                                                   CBS 306.38                     JGI                Ohm et al. 2012                    rhyr
+              rufulum
+40      Sclerotinia sclerotiorum                               1980                  JGI (original FGI)             Amselem et al. 2011                  scsc
+                                  Mycosphaerella
+41         Septoria musiva                               SO2202                       JGI                Ohm et al. 2012              sepm
+                                 populorum
+                                  Mycosphaerella
+42       Septoria populicola                               p0202b                       JGI          Ohm et al. 2012; Dhillon et al. 2015        sepp
+                                        populicola
+         Parastagonospora        Phaeosphaeria
+43                                                    SN15                  JGI (original FGI)          Oliver et al. 2012; Syme et al. 2013          stan
+            nodorum             nodorum
+44     Trichoderma atroviride                             IMI202040                      JGI                      Kubicek et al. 2011                    trat
+
+45       Trichoderma reesei                          QM6a                        JGI                     Martinez et al. 2008                  trav
+
+46       Trichoderma virens                                 Gv29-8                       JGI                      Kubicek et al. 2011                       trvi
+
+47        Verticillium alfalfae                            VaMS102               JGI (original FGI)              Klosterman et al. 2011            vaam
+
+48        Verticillium dahliae                                VdLS17                 JGI (original FGI)              Klosterman et al. 2011             vadh
+
+[Attachment B2BKLGM3; PDF page 65]
+Table S4: Pairwise identity between CTB1-CTB12 homologs of multiple species*.
+         CTB1                       1       2       3       4       5       6       7       8       9       10       11       12       13       14       15       16       17       18
+    1     scsc|SS1G_05681.1              ID      0.314     0.32     0.322     0.305     0.296     0.079     0.293     0.314     0.292     0.118     0.184     0.306     0.312     0.307     0.302     0.314     0.312
+    2    ccan|CCAN2_10369.t1          0.314      ID      0.717     0.712     0.418     0.431     0.099     0.359     0.424     0.396     0.15     0.215     0.409     0.419     0.414     0.428     0.441     0.442
+    3    cbet|CBET3_10910-RA          0.32     0.717      ID      0.864     0.417     0.427      0.1      0.356     0.424     0.398     0.153     0.21     0.419     0.429     0.42     0.428     0.445     0.446
+    4    cber|CBER1_09856-RA         0.322     0.712     0.864      ID      0.419     0.437     0.096     0.363     0.429     0.404     0.157     0.209     0.423     0.428     0.421     0.433     0.451     0.451
+    5    stan|Stano2_2390             0.305     0.418     0.417     0.419      ID      0.433     0.068     0.444     0.43     0.385     0.179     0.255     0.417     0.424     0.411     0.486     0.47     0.468
+    6     claf|Clafu1_196875            0.296     0.431     0.427     0.437     0.433      ID      0.107     0.445     0.534     0.473     0.189     0.23     0.507     0.515      0.5      0.542     0.548     0.548
+    7     colh|Colhi1_8554              0.079     0.099      0.1      0.096     0.068     0.107      ID      0.058     0.186     0.145      0       0.041     0.144     0.15     0.144     0.099     0.112     0.113
+    8     colh|Colhi1_9380              0.293     0.359     0.356     0.363     0.444     0.445     0.058      ID      0.695     0.51     0.295     0.334     0.513     0.54     0.518     0.476     0.456     0.457
+    9     colf|ColfiPJ7_gi615442870      0.314     0.424     0.424     0.429     0.43     0.534     0.186     0.695      ID      0.644     0.25     0.271     0.638     0.684     0.648     0.524     0.532     0.536
+    10    colo|Color1_ENH84744         0.292     0.396     0.398     0.404     0.385     0.473     0.145     0.51     0.644      ID      0.299     0.244     0.553     0.575     0.553     0.472     0.473     0.474
+    11    colh|Colhi1_10470             0.118     0.15     0.153     0.157     0.179     0.189      0       0.295     0.25     0.299      ID      0.144     0.215     0.218     0.209     0.208      0.2      0.202
+    12   mgri|MGG_00428              0.184     0.215     0.21     0.209     0.255     0.23     0.041     0.334     0.271     0.244     0.144      ID      0.282     0.287     0.274     0.249     0.241     0.239
+    13    colo|Color1_ENH81662         0.306     0.409     0.419     0.423     0.417     0.507     0.144     0.513     0.638     0.553     0.215     0.282      ID      0.842     0.786     0.499     0.514     0.513
+    14    cglo|ColglGC5_ELA29812       0.312     0.419     0.429     0.428     0.424     0.515     0.15      0.54     0.684     0.575     0.218     0.287     0.842      ID      0.883     0.513     0.528     0.526
+    15    colg|Colgr1_7584              0.307     0.414     0.42     0.421     0.411      0.5      0.144     0.518     0.648     0.553     0.209     0.274     0.786     0.883      ID      0.491     0.508     0.508
+    16    ccan|CCAN2_11561.t1          0.302     0.428     0.428     0.433     0.486     0.542     0.099     0.476     0.524     0.472     0.208     0.249     0.499     0.513     0.491      ID      0.828     0.828
+    17    cbet|CBET3_00833-RA          0.314     0.441     0.445     0.451     0.47     0.548     0.112     0.456     0.532     0.473      0.2      0.241     0.514     0.528     0.508     0.828      ID      0.959
+    18    cber|CBER1_00905-RA         0.312     0.442     0.446     0.451     0.468     0.548     0.113     0.457     0.536     0.474     0.202     0.239     0.513     0.526     0.508     0.828     0.959      ID
+
+
+         CTB2                       1       2       3       4       5       6       7       8       9       10       11       12       13       14       15       16
+    1    cbet|CBET3_10911-RA           ID       0.79     0.414     0.244     0.254     0.24     0.254     0.211     0.258     0.256     0.23     0.226     0.245     0.257     0.257     0.255
+    2    cber|CBER1_09857-RA          0.79       ID      0.342     0.202     0.212     0.194     0.202     0.21     0.209     0.21     0.194     0.179     0.193     0.205     0.205     0.203
+    3    ccan|CCAN2_10371.t1          0.414     0.342      ID      0.491     0.527     0.498     0.519     0.428     0.527     0.53     0.479     0.465     0.461     0.504     0.508     0.506
+    4    stan|Stano2_2386             0.244     0.202     0.491      ID      0.516     0.508     0.514     0.403     0.495     0.495     0.467     0.457     0.466     0.506     0.516     0.512
+    5     colf|ColfiPJ7_gi615442863      0.254     0.212     0.527     0.516      ID      0.776     0.692     0.559     0.722     0.708     0.554     0.606     0.587     0.643     0.643     0.637
+    6     colh|Colhi1_4002              0.24     0.194     0.498     0.508     0.776      ID      0.646     0.532     0.65     0.656     0.515     0.552     0.554     0.575     0.574     0.576
+    7    colo|Color1_ENH81660         0.254     0.202     0.519     0.514     0.692     0.646      ID      0.651     0.836     0.789     0.651     0.662     0.578     0.632     0.641     0.636
+    8     cols|Colsu01_gi640927341      0.211     0.21     0.428     0.403     0.559     0.532     0.651      ID      0.681     0.656     0.505     0.514     0.469     0.511     0.511     0.513
+    9    cglo|ColglGC5_ELA29810       0.258     0.209     0.527     0.495     0.722     0.65     0.836     0.681      ID      0.891     0.637     0.658     0.577     0.632     0.637     0.634
+    10    colg|Colgr1_7582              0.256     0.21      0.53     0.495     0.708     0.656     0.789     0.656     0.891      ID      0.624     0.635     0.577     0.617     0.622     0.624
+    11   mgri|MGG_02287              0.23     0.194     0.479     0.467     0.554     0.515     0.651     0.505     0.637     0.624      ID      0.554     0.501     0.538     0.539     0.541
+    12   mgri|MGG_11582              0.226     0.179     0.465     0.457     0.606     0.552     0.662     0.514     0.658     0.635     0.554      ID      0.476     0.536     0.533     0.531
+    13    claf|Clafu1_196873            0.245     0.193     0.461     0.466     0.587     0.554     0.578     0.469     0.577     0.577     0.501     0.476      ID      0.645     0.656     0.652
+    14    ccan|CCAN2_11562.t1          0.257     0.205     0.504     0.506     0.643     0.575     0.632     0.511     0.632     0.617     0.538     0.536     0.645      ID      0.912     0.914
+    15    cbet|CBET3_00832-RA          0.257     0.205     0.508     0.516     0.643     0.574     0.641     0.511     0.637     0.622     0.539     0.533     0.656     0.912      ID      0.974
+    16    cber|CBER1_00906-RA         0.255     0.203     0.506     0.512     0.637     0.576     0.636     0.513     0.634     0.624     0.541     0.531     0.652     0.914     0.974      ID
+
+[Attachment B2BKLGM3; PDF page 66]
+     CTB3                       1       2       3       4       5       6       7       8       9       10       11       12       13
+1    ccan|CCAN2_10370.t1           ID      0.263     0.222     0.245     0.253     0.29     0.247      0.2      0.266     0.262     0.266     0.269     0.264
+2    stan|Stano2_2388             0.263      ID      0.387     0.448     0.437     0.415     0.259     0.349     0.44     0.407     0.444     0.443     0.447
+3    mgri|MGG_00427              0.222     0.387      ID      0.577     0.578     0.521     0.284     0.411     0.519     0.442     0.461     0.455     0.452
+4    colo|Color1_ENH81661         0.245     0.448     0.577      ID      0.803     0.714     0.352     0.516     0.672     0.548     0.534     0.537     0.536
+5     colg|Colgr1_7583              0.253     0.437     0.578     0.803      ID       0.79     0.335     0.526     0.686     0.545     0.533     0.537     0.534
+6    cglo|ColglGC5_ELA29811        0.29     0.415     0.521     0.714     0.79       ID      0.303     0.538     0.634     0.484     0.484     0.488     0.482
+7     colh|Colhi1_5868              0.247     0.259     0.284     0.352     0.335     0.303      ID      0.271     0.37       0.3      0.302     0.296     0.295
+8     colh|Colhi1_8770                0.2      0.349     0.411     0.516     0.526     0.538     0.271      ID      0.688     0.461     0.43     0.439     0.43
+9     colf|ColfiPJ7_gi615442866      0.266     0.44     0.519     0.672     0.686     0.634     0.37     0.688      ID      0.573     0.55      0.55     0.543
+10    claf|Clafu1_196874            0.262     0.407     0.442     0.548     0.545     0.484      0.3      0.461     0.573      ID       0.53     0.534     0.533
+11    ccan|CCAN2_11560.t1          0.266     0.444     0.461     0.534     0.533     0.484     0.302     0.43      0.55      0.53       ID      0.898     0.897
+12    cbet|CBET3_00834-RA          0.269     0.443     0.455     0.537     0.537     0.488     0.296     0.439     0.55     0.534     0.898      ID      0.957
+13    cber|CBER1_00904-RA         0.264     0.447     0.452     0.536     0.534     0.482     0.295     0.43     0.543     0.533     0.897     0.957      ID
+
+
+     CTB4                       1       2       3       4       5       6       7       8       9       10
+1    stan|Stano2_11691             ID      0.568     0.54     0.573     0.579     0.507     0.461     0.535     0.533     0.535
+2     colh|Colhi1_7262              0.568      ID      0.813     0.785     0.797     0.638     0.488     0.587     0.585     0.585
+3     colf|ColfiPJ7_gi615442885      0.54     0.813      ID      0.729     0.737     0.707     0.527     0.538     0.536     0.534
+4    cglo|ColglGC5_ELA29817       0.573     0.785     0.729      ID      0.915     0.672     0.475     0.564     0.56      0.56
+5    colo|Color1_ENH81667         0.579     0.797     0.737     0.915      ID      0.678     0.485     0.564     0.564     0.564
+6    mgri|MGG_00416              0.507     0.638     0.707     0.672     0.678      ID      0.518     0.484     0.482     0.48
+7     claf|Clafu1_196872            0.461     0.488     0.527     0.475     0.485     0.518      ID      0.516     0.524     0.516
+8    ccan|CCAN2_11563.t1          0.535     0.587     0.538     0.564     0.564     0.484     0.516      ID      0.917     0.927
+9    cbet|CBET3_00831-RA          0.533     0.585     0.536     0.56     0.564     0.482     0.524     0.917      ID      0.984
+10    cber|CBER1_00907-RA         0.535     0.585     0.534     0.56     0.564     0.48     0.516     0.927     0.984      ID
+
+
+     CTB5                       1       2       3       4       5       6       7       8       9       10       11       12       13
+1    cbet|CBET3_10914-RA           ID      0.885     0.774     0.449     0.411     0.425     0.438     0.444     0.414     0.429     0.445     0.446     0.443
+2    cber|CBER1_09860-RA         0.885      ID      0.785     0.436     0.408     0.436     0.437     0.442     0.416     0.435     0.443     0.444     0.441
+3    ccan|CCAN2_10374.t1          0.774     0.785      ID      0.451     0.402     0.425     0.429     0.441     0.403     0.411     0.439     0.434     0.431
+4     colf|ColfiPJ7_gi615442873      0.449     0.436     0.451      ID      0.739     0.617     0.712     0.682     0.655     0.549     0.598     0.602      0.6
+5     colh|Colhi1_9379              0.411     0.408     0.402     0.739      ID      0.555     0.632     0.638     0.689     0.496     0.534     0.537     0.534
+6    mgri|MGG_00420              0.425     0.436     0.425     0.617     0.555      ID        0.7      0.68     0.648     0.486     0.542     0.544     0.549
+7    cglo|ColglGC5_ELA29813       0.438     0.437     0.429     0.712     0.632      0.7       ID      0.864     0.823     0.543     0.591     0.582     0.585
+8    colo|Color1_ENH81663         0.444     0.442     0.441     0.682     0.638     0.68     0.864      ID      0.784     0.53     0.569     0.566     0.569
+9     colg|Colgr1_7585              0.414     0.416     0.403     0.655     0.689     0.648     0.823     0.784      ID      0.489     0.533     0.538     0.541
+10    claf|Clafu1_196877            0.429     0.435     0.411     0.549     0.496     0.486     0.543     0.53     0.489      ID      0.608     0.616     0.612
+11    ccan|CCAN2_11559.t1          0.445     0.443     0.439     0.598     0.534     0.542     0.591     0.569     0.533     0.608      ID      0.903     0.911
+12    cbet|CBET3_00835-RA          0.446     0.444     0.434     0.602     0.537     0.544     0.582     0.566     0.538     0.616     0.903      ID      0.964
+13    cber|CBER1_00903-RA         0.443     0.441     0.431      0.6      0.534     0.549     0.585     0.569     0.541     0.612     0.911     0.964      ID
+
+
+     CTB6                       1       2       3
+1    ccan|CCAN2_11564.t1           ID      0.868     0.885
+2    cbet|CBET3_00830-RA          0.868      ID      0.963
+3    cber|CBER1_00908-RA         0.885     0.963      ID
+
+[Attachment B2BKLGM3; PDF page 67]
+     CTB7                       1       2       3       4       5       6       7       8       9       10       11
+1    sepm|Sepmu1_20295           ID      0.682     0.682     0.679     0.353     0.438     0.384     0.261     0.385     0.38     0.385
+2    ccan|CCAN2_1986.t1           0.682      ID      0.862     0.869     0.334     0.451     0.386     0.288     0.402     0.401     0.401
+3    cber|CBER1_09769-RA         0.682     0.862      ID      0.943     0.341     0.454     0.39     0.279      0.4      0.394     0.401
+4    cbet|CBET3_09576-RA          0.679     0.869     0.943      ID      0.341     0.454     0.395     0.284     0.405     0.399     0.399
+5    mgra|Mycgr1_86679           0.353     0.334     0.341     0.341      ID      0.379     0.361     0.232     0.378     0.363     0.361
+6    mfij|Mycfi1_44616             0.438     0.451     0.454     0.454     0.379      ID      0.481     0.336     0.473     0.485     0.488
+7     claf|Clafu1_192533            0.384     0.386     0.39     0.395     0.361     0.481      ID      0.495     0.62     0.606     0.606
+8    dots|Dotse1_62752            0.261     0.288     0.279     0.284     0.232     0.336     0.495      ID      0.392     0.392     0.385
+9    ccan|CCAN2_11558.t1          0.385     0.402      0.4      0.405     0.378     0.473     0.62     0.392      ID      0.867     0.855
+10    cbet|CBET3_00836-RA          0.38     0.401     0.394     0.399     0.363     0.485     0.606     0.392     0.867      ID      0.964
+11    cber|CBER1_00902-RA         0.385     0.401     0.401     0.399     0.361     0.488     0.606     0.385     0.855     0.964      ID
+
+
+     CTB8                       1       2       3       4       5       6       7       8       9       10       11       12       13       14       15       16       17
+1    ccan|CCAN2_1075.t1            ID      0.674     0.657     0.172     0.144     0.152     0.119     0.137     0.111     0.144     0.145     0.122     0.121     0.173     0.032     0.168     0.154
+2    cbet|CBET3_00839-RA          0.674      ID       0.86     0.177     0.15     0.153     0.108     0.139     0.108     0.145     0.14     0.131     0.117     0.151     0.025     0.171     0.151
+3    cber|CBER1_00900-RA         0.657     0.86       ID      0.165     0.156     0.165     0.121     0.147     0.121     0.157     0.134     0.134     0.127     0.168     0.032     0.159     0.154
+4    ccan|CCAN2_1076.t1           0.172     0.177     0.165      ID      0.481     0.151     0.12     0.132     0.109     0.147     0.138     0.142     0.133     0.129     0.022     0.152     0.125
+5    cbet|CBET3_00838-RA          0.144     0.15     0.156     0.481      ID      0.201     0.178     0.197     0.147     0.171     0.134     0.142     0.188     0.145     0.081     0.14     0.182
+6    stan|Stano2_2385             0.152     0.153     0.165     0.151     0.201      ID        0.2       0.2      0.13     0.166     0.135     0.157     0.219     0.192     0.112     0.151     0.228
+7    mgri|MGG_00417              0.119     0.108     0.121     0.12     0.178      0.2       ID      0.361     0.258     0.293     0.234     0.218     0.304     0.152     0.074     0.134     0.192
+8    colo|Color1_ENH81659         0.137     0.139     0.147     0.132     0.197      0.2      0.361      ID      0.562     0.597     0.407     0.307     0.437     0.149     0.09     0.147     0.209
+9    cglo|ColglGC5_ELA29809       0.111     0.108     0.121     0.109     0.147     0.13     0.258     0.562      ID      0.698     0.407     0.29     0.302     0.137     0.05     0.127     0.139
+10    colg|Colgr1_7581              0.144     0.145     0.157     0.147     0.171     0.166     0.293     0.597     0.698      ID      0.467     0.338     0.352     0.171     0.045     0.172     0.175
+11    cols|Colsu01_gi640914729      0.145     0.14     0.134     0.138     0.134     0.135     0.234     0.407     0.407     0.467      ID      0.261     0.262     0.158     0.021     0.16     0.137
+12    colh|Colhi1_4003              0.122     0.131     0.134     0.142     0.142     0.157     0.218     0.307     0.29     0.338     0.261      ID      0.552     0.165     0.034     0.163     0.153
+13    colf|ColfiPJ7_gi615442859      0.121     0.117     0.127     0.133     0.188     0.219     0.304     0.437     0.302     0.352     0.262     0.552      ID      0.148     0.093     0.167     0.23
+14    claf|Clafu1_196880            0.173     0.151     0.168     0.129     0.145     0.192     0.152     0.149     0.137     0.171     0.158     0.165     0.148      ID      0.028     0.172     0.158
+15    ccan|CCAN2_11557.t1          0.032     0.025     0.032     0.022     0.081     0.112     0.074     0.09      0.05     0.045     0.021     0.034     0.093     0.028      ID      0.089     0.286
+16    cber|CBER1_00901-RA         0.168     0.171     0.159     0.152     0.14     0.151     0.134     0.147     0.127     0.172     0.16     0.163     0.167     0.172     0.089      ID      0.722
+17    cbet|CBET3_00837-RA          0.154     0.151     0.154     0.125     0.182     0.228     0.192     0.209     0.139     0.175     0.137     0.153     0.23     0.158     0.286     0.722      ID
+
+
+     CFP                        1       2       3       4       5       6       7       8       9       10       11
+1     claf|Clafu1_188962             ID      0.735     0.399     0.392     0.403     0.394     0.386     0.376     0.403     0.395     0.398
+2    dots|Dotse1_59249            0.735      ID      0.414     0.406     0.408     0.397     0.392     0.398     0.405     0.399     0.394
+3     colf|ColfiPJ7_gi615442905      0.399     0.414      ID      0.855     0.676     0.712     0.689     0.558     0.48     0.474     0.469
+4     colh|Colhi1_7256              0.392     0.406     0.855      ID      0.648     0.677     0.67      0.54     0.468     0.464     0.462
+5     colg|Colgr1_7579              0.403     0.408     0.676     0.648      ID      0.887     0.845     0.587     0.452     0.437     0.435
+6    cglo|ColglGC5_ELA29823       0.394     0.397     0.712     0.677     0.887      ID      0.911     0.598     0.459     0.449     0.449
+7    colo|Color1_ENH81673         0.386     0.392     0.689     0.67     0.845     0.911      ID      0.593     0.445     0.432     0.43
+8    mgri|MGG_00419              0.376     0.398     0.558     0.54     0.587     0.598     0.593      ID        0.4      0.382     0.387
+9    ccan|CCAN2_1073.t1           0.403     0.405     0.48     0.468     0.452     0.459     0.445      0.4       ID      0.861     0.853
+10    cbet|CBET3_00841-RA          0.395     0.399     0.474     0.464     0.437     0.449     0.432     0.382     0.861      ID      0.943
+11    cber|CBER1_10482-RA         0.398     0.394     0.469     0.462     0.435     0.449     0.43     0.387     0.853     0.943      ID
+
+[Attachment B2BKLGM3; PDF page 68]
+     CTB9                       1       2       3       4       5       6       7       8       9       10
+1     claf|Clafu1_196871             ID       0.23     0.226     0.227     0.115     0.234     0.237     0.253     0.25      0.25
+2    colo|Color1_ENH81668         0.23       ID      0.932     0.949     0.456     0.824     0.841     0.447     0.45     0.447
+3     colg|Colgr1_7574              0.226     0.932      ID      0.946     0.437     0.807     0.836     0.452     0.457     0.455
+4    cglo|ColglGC5_ELA29818       0.227     0.949     0.946      ID      0.447     0.827     0.852     0.453     0.459     0.456
+5    mgri|MGG_00425              0.115     0.456     0.437     0.447      ID      0.452     0.447     0.307     0.318     0.318
+6     colh|Colhi1_7261              0.234     0.824     0.807     0.827     0.452      ID      0.945     0.458     0.461     0.456
+7     colf|ColfiPJ7_gi615442889      0.237     0.841     0.836     0.852     0.447     0.945      ID      0.461     0.464     0.458
+8    ccan|CCAN2_1072.t1           0.253     0.447     0.452     0.453     0.307     0.458     0.461      ID      0.892     0.883
+9    cbet|CBET3_00842-RA          0.25      0.45     0.457     0.459     0.318     0.461     0.464     0.892      ID      0.981
+10    cber|CBER1_10481-RA          0.25     0.447     0.455     0.456     0.318     0.456     0.458     0.883     0.981      ID
+
+
+     CTB10                      1       2       3       4       5       6       7       8       9       10
+1    colo|Color1_ENH81669          ID      0.622     0.681     0.373     0.838     0.794     0.378     0.446     0.462     0.462
+2     colh|Colhi1_7260              0.622      ID      0.706     0.382     0.643     0.622     0.321     0.419     0.44      0.44
+3     colf|ColfiPJ7_gi615442892      0.681     0.706      ID      0.413     0.735     0.705     0.326     0.477     0.484     0.484
+4     claf|Clafu1_196878            0.373     0.382     0.413      ID      0.409     0.392     0.216     0.281     0.298     0.298
+5    cglo|ColglGC5_ELA29819       0.838     0.643     0.735     0.409      ID      0.911     0.394     0.463     0.477     0.477
+6     colg|Colgr1_7575              0.794     0.622     0.705     0.392     0.911      ID      0.374     0.463     0.477     0.477
+7    mgri|MGG_11581              0.378     0.321     0.326     0.216     0.394     0.374      ID      0.239     0.247     0.247
+8    ccan|CCAN2_1071.t1           0.446     0.419     0.477     0.281     0.463     0.463     0.239      ID      0.939     0.931
+9    cbet|CBET3_00843-RA          0.462     0.44     0.484     0.298     0.477     0.477     0.247     0.939      ID      0.977
+10    cber|CBER1_10480-RA         0.462     0.44     0.484     0.298     0.477     0.477     0.247     0.931     0.977      ID
+
+
+     CTB11                       1       2       3       4       5       6       7       8       9       10       11       12       13       14
+1    ccan|CCAN2_10375.t1           ID      0.712     0.718     0.282     0.209     0.223     0.21     0.253     0.195     0.203     0.192     0.196     0.236     0.23
+2    cber|CBER1_09861-RA         0.712      ID      0.871     0.274     0.224     0.226     0.195     0.236     0.195     0.196     0.172     0.189     0.226     0.221
+3    cbet|CBET3_10915-RA          0.718     0.871      ID      0.274     0.224     0.226     0.198     0.228     0.193     0.196     0.185     0.176     0.224     0.213
+4    stan|Stano2_2391             0.282     0.274     0.274      ID      0.295     0.269     0.248     0.283     0.244     0.256     0.244     0.255     0.305     0.302
+5     colf|ColfiPJ7_gi615442882      0.209     0.224     0.224     0.295      ID       0.59     0.374     0.363     0.413     0.405     0.256     0.297     0.342     0.342
+6     colh|Colhi1_7263              0.223     0.226     0.226     0.269     0.59       ID      0.362     0.347      0.4      0.38     0.222     0.258     0.311     0.323
+7     colf|ColfiPJ7_gi615464524      0.21     0.195     0.198     0.248     0.374     0.362      ID      0.379     0.361     0.356     0.232     0.246     0.31     0.318
+8     colg|Colgr1_7588              0.253     0.236     0.228     0.283     0.363     0.347     0.379      ID      0.612     0.617     0.224     0.281     0.272     0.276
+9    cglo|ColglGC5_ELA29816       0.195     0.195     0.193     0.244     0.413      0.4      0.361     0.612      ID      0.757     0.22     0.274     0.268     0.277
+10    colo|Color1_ENH81666         0.203     0.196     0.196     0.256     0.405     0.38     0.356     0.617     0.757      ID      0.235     0.284     0.274     0.271
+11    claf|Clafu1_196869            0.192     0.172     0.185     0.244     0.256     0.222     0.232     0.224     0.22     0.235      ID        0.3      0.349     0.355
+12    ccan|CCAN2_1070.t1           0.196     0.189     0.176     0.255     0.297     0.258     0.246     0.281     0.274     0.284      0.3       ID      0.666     0.666
+13    cbet|CBET3_00844-RA          0.236     0.226     0.224     0.305     0.342     0.311     0.31     0.272     0.268     0.274     0.349     0.666      ID      0.914
+14    cber|CBER1_10479-RA          0.23     0.221     0.213     0.302     0.342     0.323     0.318     0.276     0.277     0.271     0.355     0.666     0.914      ID
+
+[Attachment B2BKLGM3; PDF page 69]
+         CTB12                       1       2       3       4       5       6       7       8       9       10       11       12       13       14
+    1    ccan|CCAN2_10376.t1           ID       0.81     0.788     0.463     0.439     0.448     0.438     0.448     0.447     0.224     0.441     0.426     0.434     0.432
+    2    cber|CBER1_09862-RA          0.81       ID      0.903     0.46     0.443     0.447     0.446     0.457     0.458     0.217     0.456     0.433     0.441     0.439
+    3    cbet|CBET3_10916-RA          0.788     0.903      ID      0.458     0.435     0.444     0.446     0.454     0.457     0.207     0.453     0.43     0.434     0.433
+    4    stan|Stano2_2392             0.463     0.46     0.458      ID      0.503     0.518     0.503     0.505     0.518     0.224     0.498     0.485     0.478     0.479
+    5     colh|Colhi1_9377              0.439     0.443     0.435     0.503      ID      0.831     0.703     0.704     0.707     0.311      0.5      0.503     0.513     0.514
+    6     colf|ColfiPJ7_gi615442879      0.448     0.447     0.444     0.518     0.831      ID      0.711     0.72     0.731     0.314     0.528     0.522     0.536     0.533
+    7    colo|Color1_ENH81665         0.438     0.446     0.446     0.503     0.703     0.711      ID      0.845     0.864     0.331     0.518     0.524     0.52      0.52
+    8     colg|Colgr1_7587              0.448     0.457     0.454     0.505     0.704     0.72     0.845      ID      0.897     0.32     0.522     0.518     0.517     0.518
+    9    cglo|ColglGC5_ELA29815       0.447     0.458     0.457     0.518     0.707     0.731     0.864     0.897      ID      0.335     0.528     0.523     0.525     0.523
+    10   mgri|MGG_00423              0.224     0.217     0.207     0.224     0.311     0.314     0.331     0.32     0.335      ID      0.235     0.234     0.236     0.23
+    11    claf|Clafu1_196870            0.441     0.456     0.453     0.498      0.5      0.528     0.518     0.522     0.528     0.235      ID      0.552     0.551     0.552
+    12    ccan|CCAN2_1069.t1           0.426     0.433     0.43     0.485     0.503     0.522     0.524     0.518     0.523     0.234     0.552      ID      0.886     0.896
+    13    cbet|CBET3_00845-RA          0.434     0.441     0.434     0.478     0.513     0.536     0.52     0.517     0.525     0.236     0.551     0.886      ID      0.948
+    14    cber|CBER1_10478-RA         0.432     0.439     0.433     0.479     0.514     0.533     0.52     0.518     0.523     0.23     0.552     0.896     0.948      ID
+
+*The short species codes preceding the protein IDs are identical to those depicted in Table S3.
+
+[Attachment B2BKLGM3; PDF page 70]
+Table S5: Comparing gene tree-species phylogeny reconciliation analyses
+
+                  Reconciliation scores*      Confirmed Transfers SetA        Confirmed Transfers SetB        Confirmed Transfers SetC
+ CTB Protein   SetA**  SetB**  SetC**      T1***         T2***          T1***         T2***         T1***         T2***
+ CTB1          44     48.5     54.5        1             1             1             0             1             0
+ CTB2           38.5     45.5     47         1             1             1             0             0             0
+ CTB3           34.5     44     46.5        1             1             1             0             0             0
+ CTB4          19     25     25         1             1             1             1             0             0
+ CTB5          26     29     29         1             1             0             0             0             0
+ CTB6           0       0      0          0             0             0             0             0             0
+ CTB7          11     11     11         0             0             0             0             0             0
+ CTB8           38.5     45     48.5        1             0             1             0             0             0
+ CFP            20.5     20.5     27         1             1             1             0             0             0
+ CTB9          22     30     32.5        1             1             1             0             0             0
+ CTB10         27     31     37         1             0             0             0             0             0
+ CTB11          28.5     28.5     35         1             0             1             0             0             0
+ CTB12          31.5     39.5     40         1             1             1             0             0             0
+*Higher reconciliation scores are considered less parsimonious.
+**SetA costs/weights: duplications: 1.5, transfers: 6.0, losses: 1.0 (ratio D:T:L : 1:4:0.67). SetB costs as following: duplications: 1.5, transfers: 9.0, losses: 1.0
+(ratio D:T:L : 1:6:0.67). SetC costs: duplications: 1.5, transfers: 15.0, losses: 1.0 (ratio D:T:L : 1:10:0.67).
+*** T1 refers to the horizontal transfer between Cercospora/Cladosporium ancestor and the Glomerellales. T2 refers to the horizontal transfer between the
+Glomerellales and Magnaporthe oryzae.
+
+[Attachment B2BKLGM3; PDF page 71]
+Table S6: Comparative topology test results for Dothideomycete- or Sordariomycete-constrained topologies
+
+                                Monophyletic      Monophyletic
+                              Dothideomycetes    Sordariomycetes
+ CTB           C. beticola           AU*            AU*
+ protein ID    protein ID              (p-value)             (p-value)
+ CTB6       CBET3_00830          3.00E-44            2.00E-09
+ CTB4       CBET3_00831          5.00E-37            2.00E-04
+ CTB2       CBET3_00832          3.00E-35            3.00E-68
+ CTB1       CBET3_00833          1.00E-08            4.00E-04
+ CTB3       CBET3_00834          4.00E-06            2.00E-05
+ CTB5       CBET3_00835          7.00E-45            3.00E-05
+ CTB7       CBET3_00836          1.00E-05            3.00E-80
+ CTB8       CBET3_00837          2.00E-06            7.00E-07
+ CFP        CBET3_00841          4.00E-50            1.00E-10
+ CTB9       CBET3_00842          9.00E-56            3.00E-06
+ CTB10      CBET3_00843          1.00E-34            6.00E-51
+ CTB11      CBET3_00844           0.001             2.00E-157
+ CTB12      CBET3_00845          3.00E-42            4.00E-04
+*The difference in likelihood scores between constrained and non-constrained trees was evaluated by the Approximately Unbiased (AU) test to
+determine if the best topology represents a significantly better explanation of the data compared to the constraint topology. In all cases, the null
+hypothesis that the best topology is not statistically significantly better than the constrained topology is rejected.
+
+[Attachment B2BKLGM3; PDF page 72]
+Table S7: CTB cluster and flanking gene description and relative transcript abundance under cercosporin-inducing growth conditions.
+
+                                            CDS                                                                                            FC ratio
+  C. beticola                                          Amino                                          Subcellular
+              Gene    Genomic Location         length              Predicted function                                  Interpro Domains                     (dark to
+ Gene ID                                                          acids                                              localization*
+                                                         (bp)                                                                                                                               light)
+                                                                   Microsomal signal peptidase 25 kda
+ CBET3_00828            Chr1:2250591-2251627     672      223                             TM (2)     IPR009582                               1.3
+                                                                          subunit
+ CBET3_00829            Chr1:2251755-2252870     786      261    DUF850 domain-containing protein    TM (3)     IPR008568; IPR002809                   1.0
+
+ CBET3_00830   CTB6     Chr1:2253404-2254513    1074     357    NADPH-dependent oxidoreductase       Inside     IPR001509; IPR016040                   5.8
+                                                                 Major Facilitator Superfamily (MFS)
+ CBET3_00831   CTB4     Chr1:2255060-2256755    1539     512                            TM (12)     IPR011701; IPR016196; IPR020846       12.7
+                                                                         Transporter
+ CBET3_00832   CTB2     Chr1:2257252-2258693    1389     462     O-methyltransferase                      Inside     IPR001077; IPR011991             NA
+                                                                                                                     IPR001031; IPR001227; IPR009081;
+                                                                                                                     IPR014030; IPR014031; IPR014043;
+ CBET3_00833   CTB1     Chr1:2259245-2266283    6615     2204     Polyketide synthase                       Inside     IPR016035; IPR016038; IPR016039;      47.8
+                                                                                                                     IPR018201; IPR020801; IPR020802;
+                                                                                                                     IPR020806; IPR020841
+                                                                         O-methyltransferase / FAD-                        IPR001077; IPR002938; IPR003042;
+ CBET3_00834   CTB3     Chr1:2266958-2269866    2616     871                                                Inside                                            13.0
+                                                                 dependent monooxygenase                      IPR011991
+                                                                    Oxygen, FAD/FMN-dependent                     IPR006094; IPR016166; IPR016167;
+ CBET3_00835   CTB5     Chr1:2270302-2271941    1584     527                                                Inside                                          177.5
+                                                                        oxidoreductase                                 IPR016169
+                                                              FAD/FMN-dependent
+ CBET3_00836   CTB7     Chr1:2272445-2274194    1260     419                                                Inside     IPR002938; IPR003042                   9.0
+                                                                        oxidoreductase
+ CBET3_00837   CTB8     Chr1:2275576-2276820    1194     397     Zinc finger transcription factor            Inside     IPR001138; IPR002409; IPR013700       10.0
+
+ CBET3_00838   ORF11    Chr1:2277314-2278312     999      332     Truncated transcription factor            Inside     IPR001138; IPR002409                  11.3
+
+ CBET3_00839   ORF12    Chr1:2281328-2282265     906      301     Truncated transcription factor            Inside                                               2.3
+                                                                                                                     IPR001106; IPR005922; IPR008948;
+ CBET3_00840            Chr1:2284800-2287322    2124     707     Phenylalanine ammonia-lyase             Inside                                          112.5
+                                                                                                                     IPR022313; IPR024083
+                                                                 Major Facilitator Superfamily (MFS)
+ CBET3_00841   CFP      Chr1:2287911-2289886    1824     607                            TM (12)     IPR011701; IPR016196; IPR020846       83.8
+                                                                            transporter
+                                                                        alpha-ketoglutarate-dependent
+ CBET3_00842   CTB9     Chr1:2290261-2291287     975      324                                                Inside                                         1459.9
+                                                                      dioxygenase
+ CBET3_00843   CTB10    Chr1:2291840-2292765     399      132     Dehydratase                              Inside     IPR009799; IPR011008                  16.2
+                                                                                                  TM/Outside
+ CBET3_00844   CTB11    Chr1:2292823-2294000    1125     374     Beta-ig-h3 fasciclin                              IPR000782                               4.5
+                                                                                                                                      (1)
+                                                                                                                     IPR001117; IPR002355; IPR008972;
+ CBET3_00845   CTB12    Chr1:2294299-2296209    1911     636     Laccase / multi-copper oxidase          Outside                                              2.4
+                                                                                                                     IPR011706; IPR011707
+                                                        U1 zinc finger domain-containing
+ CBET3_00846            Chr1:2296295-2297194     900      299                                                Inside     IPR000690; IPR003604; IPR013085        0.9
+                                                                           protein
+
+[Attachment B2BKLGM3; PDF page 73]
+                                                                                                                     IPR000009; IPR001680; IPR015943;
+ CBET3_00847            Chr1:2297434-2300205    1437     478     Protein phosphatase pp2a                Inside                                            78.2
+                                                                                                                     IPR017986; IPR018067; IPR019775
+                                                    DNA (cytosine-5)-methyltransferase
+ CBET3_00848            Chr1:2300653-2302047     567      188                             TM (1)                                               1.2
+                                                              3b isoform 1
+*Subcellular localization determined by computational prediction using the Phobius webserver (30). Transmembrane localized proteins are
+depicted by “TM”, intracellular proteins as “Inside”, extracellular proteins as “Outside” and membrane bound, extracellular proteins, i.e. CTB11,
+are depicted as TM/Outside. The number of TMs is indicated between brackets.
+
+[Attachment B2BKLGM3; PDF page 74]
+Table S8: CTB orthologs found in annotated Colletotrichum genomes that are available at Ensemble Fungi#,$
+
+
+
+  CTB C.                    Ensemble
+               CTB ref                                                                   Gene trees (Ensemble Fungi)  higginsianum               Fungi Ref.                    Cochl     Cofio     Coglo     Cogra     Cohig     Coinc     Conym     Coorb     Coorc     Cosal     Cosim     Cosub     Cotof
+
+
+
+                                                                                                                 http://fungi.ensembl.org/Colletotrichum_higginsia
+  CH063_00308   CFP       CCF39163        0   1   1   1   1   0   1   1   0   1   1   0   0
+                                                                                            num/Gene/Compara_Tree?g=CH063_00308
+
+                                                                                                                 http://fungi.ensembl.org/Colletotrichum_higginsia
+  CH063_00309     -         CCF39164        0   1   1   1   1   1   1   1   0   1   1   0   0
+                                                                                            num/Gene/Compara_Tree?g=CH063_00309
+
+                                                                                                                 http://fungi.ensembl.org/Colletotrichum_higginsia
+  CH063_00310     -         CCF39165        0   1   1   1   1   1   1   1   1   1   1   0   0
+                                                                                            num/Gene/Compara_Tree?g=CH063_00310
+
+                                                                                                                 http://fungi.ensembl.org/Colletotrichum_higginsia
+  CH063_00311     -         CCF39166        0   1   1   1   1   1   1   1   0   1   1   0   0
+                                                                                            num/Gene/Compara_Tree?g=CH063_00311
+
+                                                                                                                 http://fungi.ensembl.org/Colletotrichum_higginsia
+  CH063_00312   CTB10     CCF39167        0   1   1   1   1   0   1   1   0   1   1   0   0
+                                                                                            num/Gene/Compara_Tree?g=CH063_00312
+
+                                                                                                                 http://fungi.ensembl.org/Colletotrichum_higginsia
+  CH063_00313   CTB9      CCF39168        0   1   1   1   1   1   1   1   0   1   1   0   0
+                                                                                            num/Gene/Compara_Tree?g=CH063_00313
+
+                                                                                                                 http://fungi.ensembl.org/Colletotrichum_higginsia
+  CH063_00314   CTB4      CCF39169        0   1   1   0   1   0   1   1   0   1   1   0   0
+                                                                                            num/Gene/Compara_Tree?g=CH063_00314
+
+                                                                                                                 http://fungi.ensembl.org/Colletotrichum_higginsia
+  CH063_00315   CTB11     CCF39170        0   1   1   1   1   0   1   1   0   1   1   0   0
+                                                                                            num/Gene/Compara_Tree?g=CH063_00315
+
+                                                                                                                 http://fungi.ensembl.org/Colletotrichum_higginsia
+  CH063_02500   CTB12     CCF41082        0   1   1   1   1   0   1   1   0   1   1   0   0
+                                                                                            num/Gene/Compara_Tree?g=CH063_02500
+
+                                                                                                                 http://fungi.ensembl.org/Colletotrichum_higginsia
+  CH063_02502     -         CCF41083        0   1   1   1   1   0   1   1   0   1   1   0   0
+                                                                                            num/Gene/Compara_Tree?g=CH063_02502
+
+                                                                                                                 http://fungi.ensembl.org/Colletotrichum_higginsia
+  CH063_02504   CTB5      CCF41084        0   1   1   1   1   0   1   1   0   1   1   0   0
+                                                                                            num/Gene/Compara_Tree?g=CH063_02504
+
+                                          3   3   2   5   3   2   2   4       3   2             http://fungi.ensembl.org/Colletotrichum_higginsia
+  CH063_02506   CTB1      CCF41085                                        2           3   1
+                                          *   *   *   *   *   *   *   *       *   *           num/Gene/Compara_Tree?g=CH063_02506
+
+                                                                                                                 http://fungi.ensembl.org/Colletotrichum_higginsia
+  CH063_11016   CTB3      CCF40455        1   1   1   1   1   1   1   1   1   1   1   0   0
+                                                                                            num/Gene/Compara_Tree?g=CH063_11016
+
+                                                                                                                 http://fungi.ensembl.org/Colletotrichum_higginsia
+  CH063_07427   CTB2      CCF35700        1   1   1   1   1   1   1   1   0   1   1   1   0
+                                                                                            num/Gene/Compara_Tree?g=CH063_07427
+
+                                                                                                                 http://fungi.ensembl.org/Colletotrichum_higginsia
+  CH063_07428   CTB8      CCF35701        0   1   1   1   1   1   1   1   0   1   1   1   0
+                                                                                            num/Gene/Compara_Tree?g=CH063_07428
+# Species abbreviations are: Cochl (Co. chlorophyti), Cofio (Co. fioriniae), Coglo (Co. gloeosporioides), Cogra (Co. graminicola), Cohig (Co.
+higginsianum), Coinc (Co. incanum), Conym (Co. nymphaeae), Coorb (Co. orbiculare), Coorc (Co. orchidophilum), Cosal (Co. salicis), Cosim (Co.
+simmondsii), Cosub (Co. sublineola) and Cotof (Co. tofieldiae).
+$ CH063_00309, CH063_00310, CH063_00311 and CH063_02502 are not found in the Cercospora CTB cluster.
+*CTB1 ortholog confirmed by phylogenetic analysis (SI Appendix, Fig. S10)
+
+[Attachment B2BKLGM3; PDF page 75]
+Table S9: Polyketide synthase (PKS) accession codes used in this study
+ Protein name                     Species                           ProteinId*        Study Id               Alternative Id
+ AltbrDep5                          Alternaria brassicicola            ACZ57548.1
+ AltsoPksN                          Alternaria solani                 BAD83684.1
+ Aspcla023380                      Aspergillus clavatus              XP_001269050.1
+ AspclaCssA                         Aspergillus clavatus              XP_001270543.1
+ AspflCpaA                          Aspergillus flavus                 BAI43678.1
+ AspflPksA                           Aspergillus flavus                AAS90093.1
+ AspfuAlb1                          Aspergillus fumigatus             AAC39471.1
+ AspfuEncA                          Aspergillus fumigatus             XP_746435.1
+ AspfuPsoA                          Aspergillus fumigatus             ABS87601.1
+ AspniStcA                          Aspergillus nidulans              Q12397.1**       ASPNI_V1_3885T0
+ AspniYwa1                         Aspergillus nidulans              CAA46695.2      ASPNI_V1_1846T0
+ AspniAlbA                          Aspergillus niger                 EHA28527.1
+ AsporCpaA                         Aspergillus oryzae                BAK26562.1
+ AsppaPksL1                         Aspergillus parasiticus            Q12053.1**
+ Aspte00325                        Aspergillus terreus               EAU38971.1
+ AspteAcas                          Aspergillus terreus               XP_001217072.1
+ AspteLDKS                          Aspergillus terreus               AAD34559.1
+ AspteLNKS                          Aspergillus terreus               Q9Y8A5.1**
+ AspweAomsas                      Aspergillus westerdijkiae          AAS98200.1
+ BeabaTenS                      Beauveria bassiana               CAL69597.1
+ BotciBcBOA6                        Botrytis cinerea                  CAP58786.1
+ BotciBcBOA9                        Botrytis cinerea                  CBX87032.1
+ Bysni6Msas                     Byssochlamys nivea              AAK48943.1
+ CnCTB1                         Cercospora nicotianae            AAT69682.1                              CerniCtb1
+ Chagl15110                   Chaetomium globosum           XP_001221381.1
+ HPS1                           Cladosporium fulvum             192259***        Clafu1_192259
+ PKS1                           Cladosporium fulvum             191425***        Clafu1_191425
+ PKS2                           Cladosporium fulvum             186350***        Clafu1_186350
+ PKS3                           Cladosporium fulvum             188474***        Clafu1_188474
+ PKS4                           Cladosporium fulvum             188483***        Clafu1_188483
+
+[Attachment B2BKLGM3; PDF page 76]
+PKS5                           Cladosporium fulvum             184292***        Clafu1_184292
+PKS6                           Cladosporium fulvum             184395***        Clafu1_184395
+PKS7                           Cladosporium fulvum             196875***        Clafu1_196875
+PKS8                           Cladosporium fulvum             196070***        Clafu1_196070
+PKS9                           Cladosporium fulvum             188153***        Clafu1_188153
+PKSA                           Cladosporium fulvum             194256***        Clafu1_194256
+Cocim06629                       Coccidioides immitis              XP_001242733.1
+CochePks1                        Cochliobolus heterostrophus       AAB08104.3
+CochePks2                        Cochliobolus heterostrophus       ABB76806.1
+ColfiPJ7_gi615442870             Colletotrichum fioriniae           XP_007592254
+ColglGC5_ELA29812               Colletotrichum gloeosporioides     L2FTZ2                             CGGC5_9796
+Colgr1_7584                      Colletotrichum graminicola        7584***                            GLRG_08620
+Colhi1_10470****                 Colletotrichum higginsianum       10470***
+Colhi1_CH063_02506****         Colletotrichum higginsianum       H1VLI2**                            CH063_02506
+CollaPks1                         Colletotrichum lagenaria          BAA18956.1
+Color1_ENH81662                 Colletotrichum orbiculare         N4VD65**                           Cob_09306
+Color1_ENH84744                 Colletotrichum orbiculare         N4VBL7**                           Cob_07065
+DotsePksA                      Dothistroma septosporum         EME39092.1      DOTSE_V1_48387T0
+ElsfaPks1                           Elsinoë fawcettii                 ABU63483.1       EfPKS1
+FusheEqiS                      Fusarium heterosporum          AGO86662.1
+Fusox9586                      Fusarium oxysporum             EGU88865.1
+FusoxFum1                     Fusarium oxysporum             ACB12550.1
+GibfuBik1                          Gibberella fujikuroi               CAB92399.1
+GibmoFusS                        Gibberella moniliformis           AAT28740.1
+GibmoPks1                        Gibberella moniliformis           AAR92208.1
+GibzeFsl1                          Gibberella zeae                  XP_390640.1
+GibzePks12                        Gibberella zeae                 AAU10633.1
+GibzePks13                        Gibberella zeae                  ABB90282.1
+GibzePks4                         Gibberella zeae                  ABB90283.1
+GlaloPks1                        Glarea lozoyensis                AAN59953.1
+HypsuHpm3                   Hypomyces subiculosus           ACD39762.1
+HypsuHpm8                   Hypomyces subiculosus           ACD39767.1
+
+[Attachment B2BKLGM3; PDF page 77]
+ MagorAce1                    Magnaporthe oryzae             CAG28797.1
+ MagorAlb1                    Magnaporthe oryzae             XP_003715434.1
+ MagorSyn2                    Magnaporthe oryzae             CAG28798.1
+ MagorSyn6                    Magnaporthe oryzae             CAG29113.1
+ MGG_00428****               Magnaporthe oryzae            G4NCB1**
+ MetroNgs1                     Metarhizium robertsii             ACS68554.1
+ MonpiMkA                    Monascus pilosus                ABA02239.1
+ MonpiMkB                    Monascus pilosus                ABA02240.1
+ MonpuPksCT                  Monascus purpureus             BAD44749.1
+ NechaPKSN                       Nectria haematococca            AAS48892.1
+ NodspPks1                      Nodulisporium sp. ATCC74245      AAD38786.1
+ PenbrMpaC                         Penicillium brevicompactum       ADY00130.1
+ PenciMlcA                          Penicillium citrinum              BAC20564.1
+ PenciMlcB                          Penicillium citrinum              BAC20566.1
+ PenexCheA                         Penicillium expansum            CAO91861.1
+ PengrMsas                          Penicillium griseofulvum           P22367.1**
+ PodanPks1                     Podospora anserina              XP_001910795.1
+ SS1G_05681.1                       Sclerotinia sclerotiorum           A7EK35**
+ SormaPks                         Sordaria macrospora            CAM35471.1
+ Stano2_2390.2****              Stagonospora nodorum           EAT83782.2       Stano2_2390.2       SNOG08614
+ Uncre03815                     Uncinocarpus reesii               EEP78969.1
+ WandePks1                      Wangiella dermatidis            AAD31436.3
+*NCBI protein database Id
+
+**Uniprot protein database Id
+
+***Protein ID from the Doe Joint Genome-Institute resource (http://www.jgi.doe.gov)
+
+****Updated gene model (this study)
+
+[Attachment B2BKLGM3; PDF page 78]
+Table S10: Primers used in this study1
+
+ Primer           Specificity/role                Sequence (5’ to 3’)
+ MDB-1267     CBET3_00840 qPCR F         GCCAATGCATCACGGCTTAG
+ MDB-1268     CBET3_00840 qPCR R          CCAAGCTCATGCATCGCTTC
+ MDB-1269     CBET3_00841 qPCR F          CTGGGATCCCTGGCATGTTT
+ MDB-1270     CBET3_00841 qPCR R         GACAGCGAAGACCACAAGGA
+ MDB-1271     CBET3_00842 qPCR F          TCTGCGATGCTCGATCAGTC
+ MDB-1272     CBET3_00842 qPCR R         GGAGTCTTGGGAGGAGCAAC
+ MDB-1273     CBET3_00843 qPCR F         GTCACCAAGAAGCCAGACCA
+ MDB-1274     CBET3_00843 qPCR R          ACATTCTCTTCTGGCTGGCC
+ MDB-1275     CBET3_00844 qPCR F         TGGTGGATCGAGTCGAGTCT
+ MDB-1276     CBET3_00844 qPCR R         CCGTGACTGGTAAGCCTTGT
+ MDB-1277     CBET3_00845 qPCR F         AGAGAAGGCCAGACACGTTG
+ MDB-1278     CBET3_00845 qPCR R         ACAAACGACACCATCTCGCT
+ MDB-1279     CBET3_00846 qPCR F         GAAGAAGGAGGTCACGGGTG
+ MDB-1280     CBET3_00846 qPCR R          CTTCACTCCGGCCTTGTCAT
+ MDB-1281     CBET3_00847 qPCR F          ACGACGGCCGATACATTCTC
+ MDB-1282     CBET3_00847 qPCR R          TGACATTCTTGGCGTCTCCC
+ MDB-1283     CBET3_00848 qPCR F          AAAGCCCTGTTACCAGTCCG
+ MDB-1284     CBET3_00848 qPCR R          TACCGTCTCTCATCCTGCCA
+ MDB-277        Split-marker M13F (HYG-F)     GACGTTGTAAAACGACGGCCAGTG
+ MDB-258        Split-marker: HY (NLC37) (HY-R)  GGATGCCTCCGCTCGAAGTA
+ MDB-259        Split-marker: YG (NLC38) (YG-F)  CGTTGCAAGACCTGCCTGAA
+ MDB-278        Split-marker M13R (HYG-R)     CACAGGAAACAGCTATGACCATGA
+ MDB-1145     HY-R2 (split marker)          GGCAGGTAGATGACGACCAT
+ MDB-1293     CBET3_00841-00845 1F        ACGCAGACCCAATAGATCGA
+ MDB-1294     CBET3_00841-00845 2R        CACTGGCCGTCGTTTTACAACGTCTTGCCATTGTCAGTGTGTGG
+ MDB-1295     CBET3_00841-00845 3F        TCATGGTCATAGCTGTTTCCTGTGGAGATGGTGTCGTTTGTGCC
+ MDB-1296     CBET3_00841-00845 4R        CACCGGCATATTCAGCCTTG
+ MDB-1412     CBET3_00841-00845 5F        CGTTCCTGGAATCACCAGAT
+
+[Attachment B2BKLGM3; PDF page 79]
+MDB-1454     CBET3_00840 1F             TCGCATCCACAATCCGTTTC
+MDB-1455     CBET3_00840 2R             CACTGGCCGTCGTTTTACAACGTCTGGGTCACTGCGAGTCATAA
+MDB-1456     CBET3_00840 3F             TCATGGTCATAGCTGTTTCCTGTGACGCAGACCCAATAGATCGA
+MDB-1457     CBET3_00840 4R             TGAACAACGATCTCCCTGCT
+MDB-1458     CBET3_00840 5F             ATTTGAGAAACGCGAGCCTG
+MDB-1459     CBET3_00841 1F             TGCGCTCATTGGATAGGAGT
+MDB-1460     CBET3_00841 2R             CACTGGCCGTCGTTTTACAACGTCGGCCAGCCGGAGATATACTT
+MDB-1461     CBET3_00841 3F             TCATGGTCATAGCTGTTTCCTGTGATTGGTATCGGCGTCAGTCT
+MDB-1462     CBET3_00841 4R             ACATCTCACACTGCTTTGCC
+MDB-1463     CBET3_00841 5F             GAGGACAGATGTTGCGCTTC
+MDB-1464     CBET3_00842 1F             GTACACGACCCCTACTCAGC
+MDB-1465     CBET3_00842 2R             CACTGGCCGTCGTTTTACAACGTCAGAATGCCCCAGACATGACA
+MDB-1466     CBET3_00842 3F             TCATGGTCATAGCTGTTTCCTGTGCATCTCAGCAACTTCGCCAA
+MDB-1467     CBET3_00842 4R             GTTCTCCCATGCAAGTCAGG
+MDB-1468     CBET3_00842 5F             TGGAGCTGTCGATGATCTCC
+MDB-1469     CBET3_00843 1F             TTTACGAGCTAGCCTTCGGT
+MDB-1470     CBET3_00843 2R             CACTGGCCGTCGTTTTACAACGTCCAGAAGCACAACGATGCTCA
+MDB-1471     CBET3_00843 3F             TCATGGTCATAGCTGTTTCCTGTGATGGGAGCATTGACCTTGGA
+MDB-1472     CBET3_00843 4R             GCGCCGGTATCCTGTTAGAT
+MDB-1473     CBET3_00843 5F             CCTGACTTGCATGGGAGAAC
+MDB-1289     CBET3_00844 1F             ATACCGGCGCTTCGATTCT
+MDB-1290     CBET3_00844 2R            CACTGGCCGTCGTTTTACAACGTCCGTGGAAAGAGAGGCGAGAT
+MDB-1291     CBET3_00844 3F             TCATGGTCATAGCTGTTTCCTGTGGATACAGCACTCGATTCGGC
+MDB-1292     CBET3_00844 4R             CATCAACCTTACGACCGCTG
+MDB-1385     CBET3_00844 6R             AGTCTCTTTGATGGCGTGGA
+MDB-1474     CBET3_00845 1F             TACTGCTCTTGGTCTCAGGC
+MDB-1475     CBET3_00845 2R             CACTGGCCGTCGTTTTACAACGTCCCTCGTCATCTGGTGCAATG
+MDB-1476     CBET3_00845 3F             TCATGGTCATAGCTGTTTCCTGTGGAGATGGTGTCGTTTGTGCC
+MDB-1477     CBET3_00845 4R             CACCGGCATATTCAGCCTTG
+MDB-1478     CBET3_00845 5F             AGTTGCCTTTGAAGTCAGCG
+MDB-1479     CBET3_00846 1F             CTTAAAGACCACTGCAGGCG
+
+[Attachment B2BKLGM3; PDF page 80]
+ MDB-1480     CBET3_00846 2R             CACTGGCCGTCGTTTTACAACGTCTTGCGGAGATTCTGGCAGA
+ MDB-1481     CBET3_00846 3F             TCATGGTCATAGCTGTTTCCTGTGGCTCGTATCAACCTCATGCG
+ MDB-1482     CBET3_00846 4R             AACTTTCCTTGAGCTTGCGG
+ MDB-1483     CBET3_00846 5F             CGAGTGTAGCTTGAGACTGC
+ MDB-1484     CBET3_841 complementation F  TTAATTAAATGGCAAGCCCAGCGCGATC
+ MDB-1494     CBET3_841 complementation R  GCGGCCGCTCACACTGCTTTGCCCGCGAT
+ MDB-1450     CBET3_842 complementation F  TTAATTAAATGACAAGTACTATCACGAC
+ MDB-1451     CBET3_842 complementation R  GCGGCCGCCTACTCAGCCTCCTGATCTT
+ MDB-1486     CBET3_843 complementation F  TTAATTAAATGGGATCCATCGGAGAGCCAA
+ MDB-1487     CBET3_843 complementation R  GCGGCCGCCTAGAAAGTGAACTCCTCAAT
+ MDB-1448     CBET3_844 complementation F  TTAATTAAATGCATTTTCCAGCGCTCGC
+ MDB-1449     CBET3_844 complementation R  GCGGCCGCCTACACCTTCTCATAATTGC
+ MDB-1488     CBET3_845 complementation F  TTAATTAAATGTGGTCTGTTCGACTCTAC
+ MDB-1489     CBET3_845 complementation R  GCGGCCGCTCACGACAAAGCAGGCGGCT
+ MDB-1497     CBET3_841 intern 1 F         GTGCTTCTCATTCTGGGCAG
+ MDB-1498     CBET3_841 intern 2 F         TACGATCTGACAGTGCCGAA
+ MDB-1499     CBET3_841 intern 3 F         ATCGGGCAAAGTGTACTCCA
+ MDB-1500     CBET3_844 intern 1 F         GTCGTGGAAGCAGACATTCC
+ MDB-1501     CBET3_845 intern 1 F         CATTGCACCAGATGACGAGG
+ MDB-1502     CBET3_845 intern 2 F         TGTAGATGGGCAGTACGTGT
+ MDB-1503     CBET3_845 intern 3 F         CGTAACAGCAGGTCCATTCG
+ MDB-1849      Co. fioriniae TEF F           AGAAGTTCGAGAAGGAGGCT
+ MDB-1850      Co. fioriniae TEF R            ACGGTGACATAGTACTTGGGA
+ MDB-1845      Co. fioriniae CTB1 F           CCATTCGCAAAGACTCCCAG
+ MDB-1846      Co. fioriniae CTB1 R           GTTCTTGAGTTACGGCGTAGG
+1 F indicates forward primers, R indicates reverse primers. Overlapping sequences in splitmarker primers for targeted gene replacement are
+underlined. Forward and reverse primers with a PacI and NotI restriction enzyme site respectively for generating over expression constructs are
+indicated in italics.
+
+[Attachment B2BKLGM3; PDF page 81]
+SI References
+
+1.      Bolton MD, et al. (2016) RNA-sequencing of Cercospora beticola DMI-sensitive and -resistant isolates after treatment with tetraconazole
+         identifies common and contrasting pathway induction. Fungal Genet Biol 92:1-13.
+2.     Langmead B & Salzberg SL (2012) Fast gapped-read alignment with Bowtie 2. Nat Meth 9(4):357-359.
+3.      Stewart C & Via LE (1993) A rapid CTAB DNA isolation technique useful for RAPD fingerprinting and other PCR applications.
+       BioTechniques 14(5):748-749.
+4.      Bolton MD, et al. (2012) Evaluation of the potential for sexual reproduction in field populations of Cercospora beticola from USA. Fungal
+         Biol 116(4):511-521.
+5.     Grabherr MG, et al. (2011) Full-length transcriptome assembly from RNA-Seq data without a reference genome. Nat Biotechnol
+        29(7):644-652.
+6.     Haas B, et al. (2008) Automated eukaryotic gene structure annotation using EvidenceModeler and the program to assemble spliced
+        alignments. Genome Biol 9(1):R7.
+7.     Stanke M, Diekhans M, Baertsch R, & Haussler D (2008) Using native and syntenically mapped cDNA alignments to improve de novo gene
+         finding. Bioinformatics 24(5):637-644.
+8.     Borodovsky M & Lomsadze A (2002) Eukaryotic gene prediction using GeneMark.hmm-E and GeneMark-ES. Current Protocols in
+        Bioinformatics, (John Wiley & Sons, Inc.).
+9.     Huang X, Adams MD, Zhou H, & Kerlavage AR (1997) A tool for analyzing and annotating genomic sequences. Genomics 46(1):37-45.
+10.    Lee E, et al. (2013) Web Apollo: a web-based genomic annotation editing platform. Genome Biol 14:R93.
+11.    Conesa A & Götz S (2008) Blast2GO: a comprehensive suite for functional analysis in plant genomics. Int J Plant Genomics 2008:12.
+12.     Blin K, et al. (2013) antiSMASH 2.0—a versatile platform for genome mining of secondary metabolite producers. Nucleic Acids Res
+      41(W1):W204-W212.
+13.     Capella-Gutiérrez S, Silla-Martínez JM, & Gabaldón T (2009) trimAl: a tool for automated alignment trimming in large-scale phylogenetic
+        analyses. Bioinformatics 25(15):1972-1973.
+14.    Zhang H, Gao S, Lercher MJ, Hu S, & Chen W-H (2012) EvolView, an online tool for visualizing, annotating and managing phylogenetic
+        trees. Nucleic Acids Res 40(W1):W569-W572.
+15.    Qi J, Luo H, & Hao B (2004) CVTree: a phylogenetic tree reconstruction tool based on whole genomes. Nucleic Acids Res 32(suppl
+       2):W45-W47.
+16.     Bansal MS, Wu Y-C, Alm EJ, & Kellis M (2014) Improved gene tree error correction in the presence of horizontal gene transfer.
+        Bioinformatics 31:1211-1218.
+17.     Stolzer M, et al. (2012) Inferring duplications, losses, transfers and incomplete lineage sorting with nonbinary species trees.
+        Bioinformatics 28(18):i409-i415.
+18.    Guy L, Roat Kultima J, & Andersson SGE (2010) genoPlotR: comparative gene and genome visualization in R. Bioinformatics 26(18):2334-
+       2335.
+
+[Attachment B2BKLGM3; PDF page 82]
+19.    Kou LP, Gaskins V, Luo YG, & Jurick WM (2013) First Report of Colletotrichum fioriniae Causing Postharvest Decay on ‘Nittany’ Apple
+         Fruit in the United States. Plant Dis 98(7):993-993.
+20.    Gapper NE, Rudell DR, Giovannoni JJ, & Watkins CB (2013) Biomarker development for external CO2 injury prediction in apples through
+        exploration of both transcriptome and DNA methylation changes. AoB PLANTS 5:plt021-plt021.
+21.      Pfaffl MW (2001) A new mathematical model for relative quantification in real-time RT-PCR. Nucleic Acids Res 29(9):2002-2007.
+22.     Balis C & Payne MG (1971) Triglycerides and cercosporin from Cercospora beticola: fungal growth and cercosporin production.
+       Phytopathol 61:1477-1484.
+23.     Milat M-L & Blein J-P (1995) Cercospora beticola toxins III. Purification, thin-layer and high performance liquid chromatographic
+        analyses. J Chromatogr A 699(1–2):277-283.
+24.     O'Connell RJ, et al. (2012) Lifestyle transitions in plant pathogenic Colletotrichum fungi deciphered by genome and transcriptome
+        analyses. Nat Genet 44(9):1060-1065.
+25.    Chen HQ, Lee MH, Daub ME, & Chung KR (2007) Molecular analysis of the cercosporin biosynthetic gene cluster in Cercospora
+        nicotianae. Mol Microbiol 64(3):755-770.
+26.    Collemare J, et al. (2014) Secondary metabolism and biotrophic lifestyle in the tomato pathogen Cladosporium fulvum. PLoS ONE
+        9(1):e85877.
+27.     Letunic I & Bork P (2016) Interactive tree of life (iTOL) v3: an online tool for the display and annotation of phylogenetic and other trees.
+        Nucleic Acids Res 44(W1):W242-W245.
+28.   Medema MH, Takano E, & Breitling R (2013) Detecting sequence homology at the gene cluster level with MultiGeneBlast. Mol Biol Evol
+       30(5):1218-1223.
+29.    Ondov BD, et al. (2016) Mash: fast genome and metagenome distance estimation using MinHash. Genome Biol 17(1):132.
+30.     Käll L, Krogh A, & Sonnhammer ELL (2007) Advantages of combined transmembrane topology and signal peptide prediction—the
+       Phobius web server. Nucleic Acids Res 35(suppl_2):W429-W432.

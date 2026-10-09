@@ -1,0 +1,6 @@
+from pathlib import Path
+p=Path(__file__).parent/'prepare-wk-codex.py'
+s=p.read_text(encoding='utf-8').replace('WKPAY6CE','N3NBXMFA').replace('b=[48,108,386,385]','b=[60,65,568,395]').replace('紫杉醇生物合成与可持续生产的合成生物学进展短评','红豆杉基因组与紫杉烷生物合成候选基因的证据解读').replace('Trends Biotechnol','Mol Plant').replace('3pages title3authorsTIB426674676DOIverifiedSpotlight','3pages title3authorsMolPlant1417731775DOIverifiedSpotlight')
+start=s.index('gaps=');end=s.index('\ndraft=',start)
+s=s[:start]+"gaps=['3mainpagesread3originalsviewedSpotlight2021notprimarygenomepaper;tenrefsmetadataonlyoriginalgenomesnotdownloaded','Figure1ABoriginaltracksromanunexplaineddonotassignGC;cellularzonesnotdirectlocalization','10.9Gbwallichiana10.23Gbmairei12chromosomes40000prediction;80repeats52LTRmairei77wallichiana secondarysource','WGDcontroversialvssegmentaltandemduplication largegenomenotproof;2000specificrelativecomparison','Chr10wallichianaChr9mairei separatecoordinates;TS2higheractivitynoinventfoldyield;unknownCYPnotfunctionalproof','2021missingstepshistoricalnotcurrent;T2primealphaOCR T20 correctedfromimage;T10graphalphavscaptionbetaunresolved','Blackcharacterizedredunknownyellowputative nofullrouteproof;coexpressionnotcausality;databasescoordsassemblynotverified','HorizonPlantaSYSTMaxPlanckfundingnoCOI;modelintegrationnoteextensionnotauthorvalidated']"+s[end:]
+exec(compile(s,str(p),'exec'))

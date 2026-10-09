@@ -1,0 +1,716 @@
+
+[PDF physical page 1]
+Zhong et al.                                                    Biotechnology for Biofuels
+Biotechnology for Biofuels and Bioproducts     (2024) 17:99
+https://doi.org/10.1186/s13068-024-02555-9                                     and Bioproducts
+
+ RESEARCH                                          Open Access
+Engineering cyanobacteria as a new
+platform for producing taxol precursors directly
+from carbon dioxide
+Jialing Zhong1†, Yushu Wang1†, Zhuoyang Chen1, Yaliqin Yalikun1, Lin He1, Tiangang Liu2 and Gang Ma1* 
+
+
+
+ Abstract 
+  Taxol serves as an efficient natural anticancer agent with extensive applications in the treatment of diverse malignan-
+  cies. Although advances in synthetic biology have enabled the de novo synthesis of taxol precursors in various micro-
+  bial chassis, the total biosynthesis of taxol remains challengable owing to the restricted oxidation efficiency in het-
+  erotrophic microbes. Here, we engineered Synechocystis sp. PCC 6803 with modular metabolic pathways consisting
+  of the methylerythritol phosphate pathway enzymes and taxol biosynthetic enzymes for production of taxadiene-
+  5α-ol (T5α-ol), the key oxygenated intermediate of taxol. The best strain DIGT-P560 produced up to 17.43 mg/L
+  of oxygenated taxanes and 4.32 mg/L of T5α-ol. Moreover, transcriptomic analysis of DIGT-P560 revealed that estab-
+  lishing a oxygenated taxane flux may enhance photosynthetic electron transfer efficiency and central metabolism
+  in the engineered strain to ameliorate the metabolic disturbances triggered by the incorporation of exogenous
+  genes. This is the first demonstration of photosynthetic production of taxadiene-5α-ol from ­CO2 in cyanobacteria,
+  highlighting the broad prospects of engineered cyanobacteria as bio-solar cell factories for valuable terpenoids pro-
+ duction and expanding the ideas for further rational engineering and optimization.
+ Keywords  Taxol, Cyanobacteria, Cytochrome P450, Taxadiene-5α-ol, Transcriptomics
+
+Introduction                                         production predominantly  involves three methodolo-
+Paclitaxel (Taxol)  is a highly potent natural antineo-    gies: botanical extraction, chemical/semi-chemical syn-
+plastic agent that exhibits remarkable efficacy against    thesis, and biosynthesis. Taxol was initially derived from
+breast, ovarian, and pulmonary malignancies. It impedes   the bark of Taxus brevifolia [2]. Subsequently, research-
+the proliferation of neoplastic cells by arresting the cell    ers developed structural analogs with more extensive
+cycle at the G2/M phase (the cell phase before mitosis)   taxane frameworks from needles and employed chemi-
+by stabilizing microtubule formation [1]. Presently, taxol    cally modified approaches for large-scale production [3].
+                                                        Nonetheless, the current processes of plant extraction
+                                                 and semi-chemical synthesis depend heavily on natural
+†Jialing Zhong and Yushu Wang Wang have contributed equally to this work.     resources and the cultivation industry. The utilization of
+*Correspondence:                                                 ecologically sustainable and green biosynthetic strategiesGang    Ma                                                has the potential to comprehensively resolve the supply–magang@sjtu.edu.cn
+1 Bio‑X Institutes, Key Laboratory for the Genetics of Developmental        demand incongruity of such bioactive agents. Further-
+and Neuropsychiatric Disorders (Ministry of Education), Shanghai Jiao         more, it has substantial strategic significance for researchTong      University,               No. 800 Dongchuan Rd., Shanghai 200240, People’s         on natural-product production.Republic         of China
+2 School of Life Sciences and Biotechnology, Shanghai Jiao Tong            Numerous structural and regulatory genes involved in
+University, Shanghai, People’s Republic of China                          taxol biosynthesis have been identified [4]. The initial step
+
+
+                          © The Author(s) 2024. Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which
+                                           permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the
+                                                  original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or
+                                           other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line
+                                            to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory
+                                              regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this
+                                                  licence, visit http://​creat​iveco​mmons.​org/​licen​ses/​by/4.​0/. The Creative Commons Public Domain Dedication waiver (http://​creat​iveco​
+                                                  mmons.​org/​publi​cdoma​in/​zero/1.​0/) applies to the data made available in this article, unless otherwise stated in a credit line to the data.
+
+
+[PDF physical page 2]
+Zhong et al. Biotechnology for Biofuels and Bioproducts     (2024) 17:99                                                   Page 2 of 15
+
+
+
+in taxol biosynthesis is catalyzed by taxadiene synthase   two electrons from NADPH or NADH to promote the
+(TASY), which involves cyclization of the common diter-    catalytic reactions [14], the presence of photosynthetic
+penoid precursor geranylgeranyl pyrophosphate (GGPP)   electron transport chain in cyanobacteria ensures the
+to yield taxadiene and iso-taxadiene. Subsequently, the   regeneration of reducing power, thereby directly support
+tricyclic structure of taxadiene undergoes oxidation and   the high activity of P450s. Most importantly, the success-
+acylation at various sites through a series of cytochrome    ful integration of eukaryotic P450s into the photosyn-
+P450 oxidases (referred to hereafter as P450s) and acetyl-    thetic thylakoid membranes has recasted cyanobacteria
+transferases. Taxadiene-5α-ol (referred to hereafter as   as promising hosts for P450s expression [17–19]. Given
+T5α-ol), the primary oxygenated taxane, is catalyzed by    all that, cyanobacteria are competent candidates for the
+taxadiene-5α-hydroxylase (CYP725A4,  referred  to  as    direct conversion of ­CO2 into valuable secondary metab-
+T5αH hereafter), which introduces a hydroxyl group at    olites such as terpenoids [20–22].
+the C5 position of taxadiene and transfers the double     In this study, as a proof of concept, multiple endeav-
+bond from C4(5) to C4(20) [5]. Meanwhile, a cytochrome   ors were undertaken to achieve the efficient biosynthesis
+P450 reductase (CPR) is required to donate two NADPH-    of various taxol precursors in the cyanobacterial model
+derived electrons for the catalytic reaction [6].               strain Synechocystis sp. PCC 6803, hereafter referred to
+  With  the  rapid advancement  of  synthetic  biology,   as Syn6803. The taxadiene biosynthetic pathway was
+metabolic engineering  strategies, protein engineering,    initially established in Syn6803 by introducing heter-
+and multigroup techniques have found extensive appli-   ologous GGPPS and TASY. By optimizing the upstream
+cations in taxol biosynthesis research. To date, specific   modules and increasing the biomass, the yield of taxa-
+taxol precursors have been de novo synthesized in vari-   diene augmented approximately 11-fold. Subsequently,
+ous microorganisms, including Escherichia coli [7–9] and   codon-optimized T5αH and its reductase partner CPR
+Sacharomyces cerevisiae [10–12]. The highest reported   were integrated into the taxadiene-producing chassis
+yield of taxadiene in E. coli has reached to 1 g/L through   with modular modifications implemented to enhance the
+a multivariate modular metabolic engineering strategy,    efficiency of downstream oxygenated taxanes synthesis,
+although only 58 mg/L of T5α-ol was produced [7]. By   including T5α-ol. Complemented by transcriptomic anal-
+balancing P450 module expression, engineering CPR    ysis, our aim was to elucidate the effects of introducing a
+interactions and modifying the N-terminus, Biggs et al.   heterologous taxol synthesis pathway on the intracellular
+have increased the yield of total oxygenated taxanes to   energy and material metabolism of cyanobacterial chas-
+570 mg/L in E. coli [8]. Another ambitious endeavor was    sis. Together, we sought to provide insights for estab-
+made to introduce eight taxol biosynthetic genes simul-    lishing a more efficient photosynthetic platform for the
+taneously into S. cerevisiae for the biosynthesis of Bac-    direct conversion of ­CO2 into specialty compounds such
+catin III; however, only trace amounts of T5α-ol were   as taxol and other terpenoids.
+detected [10]. Coupled with advanced biological process
+strategies, the engineered S. cerevisiae yields 34 mg/L of   Materials and methods
+T5α-ol and 11 mg/L of taxadien-5α-yl-acetate [12], which    Strain and cultivation conditions
+represents the highest titers in yeast cell factories. How-    All strains developed in this study were derived from Syn-
+ever, it is still challenging to assemble the complex taxol    echocystis sp. PCC 6803 wild type (hereafter described
+biosynthesis pathway in E. coli because of the absence of   as WT). For flask shaking cultivation, the strains were
+internal membranes, which are essential for P450s inte-   grown at 30 °C in BG-11 medium [23] under continuous
+gration [13, 14], and the inefficient regeneration of nicoti-   illumination of 25 µmol ­m−2 ­s−1, with shaking at 130 rpm
+namide adenine dinucleotide phosphate (NADPH) might    for normal growth in a photoincubator shaker (ZQZY-
+jeopardize the high activity of P450s in microbial chassis   AGS8, Zhichu, China). Genetically engineered strains
+such as E. coli and yeast [14].                           were cultivated in BG11 medium containing the appro-
+ As prokaryotic and photoautotrophic microorganisms,    priate antibiotics (20 μg ­mL−1 spectinomycin, 20 μg ­mL−1
+cyanobacteria are considered as non-food-based feed-   chloramphenicol and 50 μg ­mL−1 kanamycin). The initial
+stock resources that can convert solar energy and carbon   inoculation concentration of the strains was ­OD730 = 0.2.
+dioxide for the synthesis of various carbon-based com-   Cell density was assessed by measuring the optiamal
+pounds [15]. Since cyanobacteria naturally synthesize   density at 730 nm using a Cary 60 UV spectrophotom-
+numerous photosynthetic pigments such as carotenoids    eter (Agilent, Germany). All strains were stored in BG-11
+and chlorophylls [16], their native GGPP pools are sup-  medium with 25% glycerol at − 80 °C.
+posed to be ample for stable supply of diterpene precu-     For high density cultivation, the HDC 6.10B Starter
+sor, making them well suited for terpenoids production.   Kit (CellDEG, Germany) was used to cultivate Syn6803
+On the other hand, P450s generally need to receive    cells according to the manufacturer’s instructions. The
+
+
+[PDF physical page 3]
+Zhong et al. Biotechnology for Biofuels and Bioproducts     (2024) 17:99                                                   Page 3 of 15
+
+
+
+exact composition  of  the  nutrient-enriched media,   Pigments extraction and measurement
+referred to as CD medium, is available in protocols.   After 72 h cultivation, 1 mL of cells from HDC cultivator
+io     (dx.doi.org/https://​doi.​org/​10.​17504/​proto​cols.​io.​  were centrifuged (15,000×g, 7 min, 4 °C) and then resus-
+2bxga​pn)  [24]. For taxanes production  tests, HDC   pended in 1 mL of pre-cooled methanol. After shaking
+cultures were shaken at 200 rpm under continuous   and mixing, the cell mixtures stand at 4 °C for 30 min,
+illumination of 100 µmol ­m−2 ­s−1 at 30 °C for the first   then were centrifuged (15,000g, 10 min, 4 °C), the organic
+two days. Afterwards, the light intensity was increased   phase containing chlorophyll a and phycocyanin was ali-
+to 200 µmol ­m−2 ­s−1. Simultaneously, 1 mL overlay of   quoted to a 96-well plate. The OD value was detected at
+dodecane (D221104, Sigma, USA) was added to 9 mL    different wavelengths measured with Synergy2 Micro-
+of cell cultures, and 1 mL of CD medium containing    plate Reader (BioTeK, USA), including 625 nm, 678 nm,
+appropriate antibiotics was supplemented every 4 days   720 nm, and 750 nm. The following formulae were used
+to compensate the water evaporation.                       for quantifications [25]:
+                                                        For chlorophyll content: 14.94 ­(OD678–OD750)–0.616
+                                                         ­(OD720–OD750).
+Plasmids construction                                     For phycocyanin content: 0.138445 ­(OD625–OD750)–
+The host for plasmid construction was E. coli DH5α   0.0354 ­(OD678–OD750).
+strain. All vectors, strains and primers used in this      All values were corrected using the optical density of
+study are listed in Supplementary Tables S1 and S2.   the medium or methanol before calculation, and three
+pBluescript  II KS( +) purchased from Beijing qualit-    replicates of the test were performed for each sample.
+yard biotechnology Co., Ltd. was used as a backbone.
+The target genes except for T5αH and CPR were ampli-   Taxanes extraction and measurement
+fied with standard PCR reactions using KOD-Plus-Neo                                                The productions of taxadiene and oxygenated taxanes
+high-fidelity DNA  polymerase  (KOD-401,  Toyobo,                                                   were monitored by gas chromatography/mass spectrom-
+Japan). The resulting fragments were assembled using                                                             etry (GC/MS), using β-caryophyllene (75541, Sigma,Hieff  ­Clone™  Plus  Muiti One  Step  Cloning  Kit                                            USA) as an internal standard. The dodecane phase from
+(10912ES10, Yeasen, China) or via standard T4 DNA                                                                different cell cultures was collected on the 10th day of
+ligation reaction (15224025, Thermo Fisher Scientific,                                                                 cultivation. After centrifugation at 12,000 rpm at room
+USA) according to the manufacturer’s instructions. All                                                         temperature, the supernatant was diluted ten times in
+primers and genes were commercially synthesized by                                                   hexane containing 2.5 µg/mL β-Caryophyllene. Internal
+Suzhou Genewiz Inc. All plasmids constructed were                                                        standards were prepared by diluting with hexane to con-
+verified by sanger sequencing (Genewiz Inc., China)                                                            centrations between 0.625 and 50 μg/mL.
+and subsequently used for natural transformation.                                     GC–MS analysis was conducted by using an Agilent
+                                                       Technologies 7890B GC System equipped with an Agi-
+                                                               lent 5977B mass-selective detector, a DB-5 ms capillary
+Chromosomal integration                            column (30 m × 250 μm × 0.25 μm, Agilent) was used
+For transformation of constructed vectors, 2 mL of    for separation. Injections were made in pulsed splitless
+fresh WT cells with an optical density ­(OD730) rang-  mode with an inlet temperature of 260 °C and pressure
+ing from 0.4 to 0.6 were harvested by centrifugation    of 7.7758 psi. The GC method was following the method
+at 2000g for 5 min and washed twice with ­ddH2O. The   described by Biggs et al.[8]. The MS data were collected
+resulting cell pellet was resuspended in 400 μL fresh    in the range of 45–550 m/z for each sample. Helium was
+BG-11 medium. Subsequently, 5 μg plasmid was added   used as the carrier gas at a flow rate of 1.0111 mL/min.
+to the cell mixture and incubated at 30 ℃ under con-   The titer of taxanes were counted based on the peak area
+stant light at an intensity of 25 µmol ­m−2 ­s−1 for 6–8 h.    in comparison with the standard. GC-MS profiles depict-
+200 μL of the  cells was  initially spread onto blank   ing taxadiene and the four major oxygenated taxanes
+BG-11 agar plates for overnight incubation, then was   can be found in the Supplementary Figs. S1–S3.
+transferred to the BG-11 agar plates supplemented with
+appropriate  antibiotics (10 μg ­mL−1 spectinomycin,                                                    RNA‑sequencing (RNA‑Seq)10 μg·mL−1 chloramphenicol and 20 μg ­mL−1 kanamy-                                          Two engineered Syn6803  strains (DIGT, DIGT-P560)cin). After about 2 weeks, single clones appeared on the                                                   were grown up to the middle exponential phase and thenagars were screened by PCR verification to get positive                                                             collected by centrifugation. For each sample, three bio-clones. Several rounds of streaking were performed                                                                 logical replicates were conducted to ensure reproduc-with increasing antibiotic concentrations to achieve                                                                               ibility. Total RNA from 5 mL of HDC culture had beencomplete segregation.
+
+
+[PDF physical page 4]
+Zhong et al. Biotechnology for Biofuels and Bioproducts     (2024) 17:99                                                   Page 4 of 15
+
+
+
+isolated using RNA isolater Total RNA Extraction Rea-   groups was performed using DESeq2 software, with the
+gent (R401-01, Vazyme, China) following the modified   absolute value of ­log2FC ≥ 1 and p ≤ 0.05 to define DEGs.
+method described by Schwarzkopf et  al. [26]. Library   To gain full-scale insights into gene function, TopGO
+construction and high-throughput sequencing were con-   software was  utilized  for Gene Ontology  functional
+ducted by Shanghai Xu Ran Genomics Biotechnology Co.    analysis, which involved functional annotation and cat-
+according to standard protocols. After sequencing, the   egorization of the entire gene set and the target gene
+raw data underwent initial processing, which involved    set. In addition, pathway functional annotation and cat-
+the removal of adaptors, unknown bases, and low-quality   egorization of these genes were performed using KEGG
+reads. Subsequently, the filtered data were mapped to the   functions.
+Synechocystis reference genome in the NCBI Database
+(https://​www.​ncbi.​nlm.​nih.​gov/​datas​ets/​genome/​GCF_​   Results
+00000​9725.1/).                                            Introducing upstream pathway of taxol biosynthesis
+  For gene expression analysis, raw sequence counts of    into Synechocystis chassis for taxadiene production
+known genes were quantified using the StringTie soft-   In cyanobacteria, geranylgeranyl diphosphate (GGPP),
+ware. The expression levels of known genes were calcu-   a diterpene backbone comprising 20 carbon atoms, is
+lated using FPKM (Fragments Per Kilobase of transcript   originating from the condensation of three isopente-
+per  million fragments mapped)  metrics.  Differential   nyl pyrophosphate (IPP) molecules and one dimeth-
+gene expression (DEG) analysis between different sample    ylallyl  pyrophosphate  (DMAPP)  molecule  via  the
+
+
+
+
+
+  Fig. 1  Engineered biosynthetic pathway in Synechocystis sp. PCC 6803. In our model cyanobacteria, the taxol heterologous synthesis pathway
+  starts from the isoprenoid universal precursors IPP and DMAPP (provided by the native MEP pathway) to generate GGPP, then taxadiene and small
+ amounts of its isomer iso-taxadiene. Under the catalysis of P450 oxidase (T5αH) and its cognate reductase (CPR), taxadiene is oxidized into a series
+  of oxygenated taxanes (as shown in orange square), of which the specific product T5α-ol will undergo multiple rounds of stereospecific oxidations,
+  acylations, and benzoylation to form Taxol (as shown in black dashed square). Genes highlighted in red represent heterologous genes that have
+ been overexpressed through genome integration. G3P: glyceraldehyde-3 phosphate, DXP: deoxyxylulose 5-phosphate, MEP: methylerythritol
+  4-phosphate, HMBPP: (E)-4-Hydroxy-3-methyl-but-2-enyl pyrophosphate, IPP: isopentenyl diphosphate, DMAPP: dimethylallyl diphosphate, DXS:
+  1-deoxyxylulose-5-phosphate synthase, IspA: farnesyl phosphate synthase, GGPPS: geranylgeranyl diphosphate synthase, TASY: taxadiene synthase,
+  T5αH: taxadiene-5α-hydroxylase, CPR: cytochrome P450 reductase
+
+
+[PDF physical page 5]
+Zhong et al. Biotechnology for Biofuels and Bioproducts     (2024) 17:99                                                   Page 5 of 15
+
+
+
+methyl-D-erythritol 4-phosphate (MEP) pathway (Fig. 1).   biocompatible organic solvent that mitigates cellular tox-
+This pathway  is prevalent in bacteria, cyanobacteria,    icity [33]. This two-phase culture system is commonly
+green microalgae, and plant plastids [27]. As GGPP syn-   employed  to recover  secreted hydrophobic products
+thase (GGPPS) is recognized as the rate-limiting enzyme   from cells [34, 35]. According to the taxadiene profil-
+for GGPP production [28, 29], our initial step involved   ing results, Strain TAXA-GT produced approximately
+co-expression of heterologous GGPPS and TASY in the   0.24 mg/L of taxadiene after 7-day cultivation in shake
+Syn6803 wild-type strain to divert the metabolic flux    flasks, while no trace of taxadiene was detected in the
+from the MEP pathway toward taxol synthesis. The ggpps  WT strain (Fig. 2B, Supplementary Fig. S1).
+and tasy genes were cloned from plasmid pGB259 (Sup-    While the introduction of the mevalonate (MVA) path-
+plementary Table S1) and co-overexpressed as an operon   way is often preferred over engineering the native MEP
+under the strong promoter Pcpc560 [30] and integrated   pathway in E. coli to enhance terpenoid production [34],
+into the psbA2 locus (slr1311) of Syn6803 genome [31,   the latter is more suitable for manipulation to benifit ter-
+32] through homologous recombination, creating the   penoid biosynthesis in cyanobacteria. This is due to the
+foundational engineered  Strain TAXA-GT  (Fig.  2A).    relatively  larger  pools  of  glyceraldehyde-3-phosphate
+To circumvent the solubility challenge of diterpenes in   (GAP) and pyruvate compared to acetyl-CoA in cyano-
+microbial cell cultures, engineered Syn6803 cells were   bacteria  [36].  1-deoxyxylulose-5-phosphate  synthase
+cultivated in liquid medium overlaid with dodecane, a   (DXS) is generally considered as the key rate-limiting
+
+
+
+
+
+  Fig. 2  Metabolic engineering of Synechocystis sp. PCC 6803 for photosynthetic taxadiene production from ­CO2. A Schematic diagrams
+  of the construction of Syn6803 strains that produce taxadiene. The heterologous genes dxs and ispA derived from E. coli were introduced to a neutral
+  site slr3031, while ggpps and tasy with truncation of plastid transport peptides were introduced to another site slr1311. B Taxadiene titers of Strains
+  TAXA-GT and DIGT in shake flasks. C Biomass measured as absorbance at 730 nm of WT and engineered strains. All data are the mean ± standard
+  deviation (SD) from triplicated shake flasks
+
+
+[PDF physical page 6]
+Zhong et al. Biotechnology for Biofuels and Bioproducts     (2024) 17:99                                                   Page 6 of 15
+
+
+
+enzyme of the MEP pathway in various hosts [37, 38],   2.94 mg/L for the DIGT strain were discovered in HDC
+while farnesyl phosphate synthase (IspA)  is responsi-   media (Fig. 3B), which were increased by 5 times and
+ble for catalyzing the condensation of IPP and DMAPP   two times, respectively, compared with shake flask cul-
+to generate the terpenoid backbone molecule farnesyl    ture. Cell density ­(OD730) and photosynthetic pigments
+diphosphate (FPP), plays a pivotal role in directing pre-   content were recorded daily over a 10-day period in
+cursors toward the terpenoid synthesis pathway [21, 39]   three independent cultivation runs. As Fig. 3C shown,
+(Fig. 1). Therefore, the dxs and ispA genes cloned from E.   the growth curve exhibited a similar trend to that of
+coli were inserted between slr2030 and slr2031 (refered   shake  flask  culture,  with  growth  gradually  slowing
+to as slr3031) [40] of Strain TAXA-GT to generate Strain  down after 10-day cultivation. The difference was that
+DIGT (Fig. 2A). After 7-day cultivation, Strain DIGT   the growth rates of the engineered strains were close
+accumulated up to 0.96 mg/L of taxadiene (Fig. 2B),   to that of WT before the sixth day, but then gradually
+which was four times the yield of Strain TAXA-GT. This   lagged behind. Normally, the photosynthetic activity of
+result demonstrated that co-overexpression of DXS and   cyanobacteria can be measured sideways by the content
+IspA was beneficial for taxadiene biosynthesis by increas-    of photosynthetic pigment. There was a distinct differ-
+ing the metabolic flux through the MEP pathway.          ence in the chlorophyll a content between the WT and
+ To assess whether the introduction of heterologous   the engineered strain, especially for Strain DIGT which
+genes hindered cell growth, the cell densities of the WT,   was almost half that of the WT (Fig. 3D). Phycocyanin
+TAXA-GT, and DIGT strains were monitored for 12 d    is an important photosynthetic accessory pigment that
+under normal conditions. The growth pattern of engi-    transfers absorbed light energy from phycobilisomes to
+neered strains exhibited a slghtly sluggish phenotype   the  chlorophyll-based  photosynthetic  apparatus  [42].
+compared with WT (Fig. 2C). Given that alleviation of   The phycocyanin content in WT strain showed a steady
+cytotoxicity caused by engineering the MEP pathway by   upward trend with culture time, while that of the engi-
+overexpression of terpene synthase has been observed   neered strains fluctuated greatly and suddenly dropped
+in both E. coli [34] and cyanobacteria [21], the growth    after the 8th day (Fig. 3E), indicating that the photosyn-
+defect of the taxadiene-producing strains suggests that    thetic efficiency of taxadiene producing strains may be
+maintenance of the metabolic flux balance between the   disrupted in the later phase. Despite this, compared to
+MEP and terpenoid pathway is critical to preserve the   shake flask, the growth rate of the engineered strains
+robustness of the microbial host.                        under HDC condition was not  significantly  different
+                                                 from that of the WT, suggesting that high light may be
+Promoting the titer of taxadiene by high density              able to compensate to a certain extent for the adverse
+cultivation                                                       effects of insufficient photosynthetic pigments on photo-
+High-density cultivation (HDC) represents an efficient    synthesis. Given that the elevated biomass concentration
+cultivation system designed specifically for cyanobacteria    will improve the efficiency of in situ extraction of terpe-
+[24, 41]. By leveraging membrane-mediated ­CO2 supply   nes, the HDC strategy was applied in subsequent experi-
+technology, optimized nutrient-enriched CD medium,   ments to introduce the downstream oxidation pathway of
+and intense illumination, HDC enables rapid and sustain-   taxadiene.
+able biomass accumulation. We harnessed this system
+to enhance biomass production and unlock its potential   Combinatorial optimization of downstream pathway
+for generating ample taxol precursors in our engineered   to produce oxygenated taxanes in Synechocysis
+Syn6803 strains.                          A pivotal step in engineering microbes for taxol pro-
+  Strains WT, TAXA-GT, and DIGT were cultured in   duction  is the establishment of cytochrome P450s-
+nutrient-rich CD medium within the HDC 6.10B device   based oxidation within the cellular environment. In
+(CellDEG, Fig. 3A). In this setup, a concentrated ­KHCO3/   previous studies conducted using E.  coli chassis  [7,
+K₂CO₃ buffer (the molar ratio of ­KHCO3 and K₂CO₃ was    8],  considering  the  absence  of  compartmentaliza-
+9:1) in the container base continuously delivered 90 mbar   tion structures such as the endoplasmic reticulum in
+of ­CO2-partial pressure, where the gas diffused through   prokaryotes, the N-terminal domains of T5αH and
+the hydrophobic membranes into turbulent cell suspen-  CPR were engineered to ensure their proper function
+sions. To maintain a homogenous culture, 9 mL of each   in cytoplasm. In this context, we introduced the intact
+culture was supplemented with 10% [v/v] dodecane over-   coding sequences of T5αH and CPR (Supplementary
+lay and agitated at 200 rpm under constant illumination   Table S3) directly into the taxadiene-producing strain
+with increasing light intensities.                   DIGT by employing codon optimization to enhance
+  By  in  situ extration and GC–MS  analysis,  taxadi-   the expression efficiency of these heterologous proteins
+ene titers of 1.48 mg/L for the TAXA-GT strain and    (Fig. 4A). The chromosomal loci slr0168 [43] was used
+
+
+[PDF physical page 7]
+Zhong et al. Biotechnology for Biofuels and Bioproducts     (2024) 17:99                                                   Page 7 of 15
+
+
+
+
+
+  Fig. 3  Growth characteristics and taxadiene production in High Density Cultivation (HDC) cultures. A Schematic representation of the HDC
+  6.10B system (CellDEG). B Taxadiene titers of Strains TAXA-GT and DIGT in HDC cultures. C Biomass measured as absorbance at 730 nm of WT
+ and engineered strains. D and E Levels of chlorophyll a and phycocyanin contents from engineered cyanobacteria. All data are the mean ± standard
+  deviation (SD) from triplicated HDC vessels
+
+
+as the neutral site for expressing the target genes. It is   in Syn6803 [45]. Accordingly, we recruited RBSv4 and
+well known that gene expression can be fine-tuned at   RBSv33 into our P450 expression module to investi-
+the transcriptional level through promoter optimiza-   gate whether T5αH or CPR plays a more critical role
+tion or at the translational level by modifying ribosome-   in taxane oxygenation under the genetic background of
+binding sites (RBSs). To facilitate genetic manipulation   Syn6803. Strains DIGT-TC, DIGT-mT and DIGT-mC
+of Syn6803, a previous study established an RBS library   harbored different combinations of RBSs under the reg-
+consisting of 12 modified RBSs [44]. Notably, RBSv33   ulation of a chimeric promoter PpsbA* [44], while the
+with a disrupted AT-rich region exhibited the highest   expression of P450 module in Strain DIGT-P560 was
+expression level of the reporter gene, reaching 254%   under the control of Pcpc560 (Fig. 4A). In addition, in
+that of RBSv4, a relative strong RBS that was used to   the purpose of steering the metabolic flux toward tax-
+regulate the expression of ethylene forming enzyme   ane downstream pathway, T5αH was physically linked
+
+
+[PDF physical page 8]
+Zhong et al. Biotechnology for Biofuels and Bioproducts     (2024) 17:99                                                   Page 8 of 15
+
+
+
+
+
+  Fig. 4  Combinatorial optimization of T5αH and CPR expression to produce oxygenated taxanes in Syn6803. A Schematic diagrams
+  of the construction of Syn6803 strains that produce oxygenated taxanes. The heterologous genes t5αh and cpr were codon-optimized
+ and introduced together to the neutral site slr0168 of taxadiene-producing strain DIGT. Five different plasmids were constructed with different
+  combination of promoters, RBSs and linker to regulate the expression levels between t5αh and cpr. B The distribution of oxygenated taxanes
+  produced in downstream strains. T5α-ol: Taxadiene-5α-ol. C Total oxygenated taxanes production in downstream strains. D Growth rate of DIGT
+ and all downstream strains under high density cultivation, ­OD730 values were measured daily. E and F Levels of chlorophyll a and phycocyanin
+  contents from engineered cyanobacteria. All data are the mean ± standard deviation (SD) from the triplicated culture, and ∗ in C represents
+  statistical significance as indicated by Student’s t-test. ∗p-value of < 0.05; ∗∗ p-value of < 0.01; ∗∗∗p-value of < 0.001; ∗∗∗∗ p-value of < 0.0001
+
+
+[PDF physical page 9]
+Zhong et al. Biotechnology for Biofuels and Bioproducts     (2024) 17:99                                                   Page 9 of 15
+
+
+
+to its native CPR via a short flexible linker to create a   by manipulating the taxadiene downstream pathway
+chimera, resulting in Strain DIGT-TLC (Fig. 4A).           via T5αH/CPR modular modification, we successfully
+  The product distributions of  all downstream strains   developed an optimally engineered strain, DIGT-P560,
+were determined by GC–MS analysis of the dodecane   which produced 17.43 mg/L of oxygenated taxanes and
+extracts. As shown in Supplementary Figs. S1 and S2,   4.32 mg/L of T5α-ol. While the rate of biomass and
+multiple taxane products were identified, including tax-   taxane accumulation may not currently rival that of het-
+adiene and four major monohydroxylated compounds   erotrophic microorganisms, efficient expression of the
+(parent ion at 288 m/z). Through comparison with gas   heterologous P450 enzyme led to a relatively high pro-
+chromatographs and mass spectra found in the literature   portion of T5α-ol in our recombinant strains. This char-
+[11], the peaks at 21.095, 21.378, 21.805, and 22.082 min    acteristic underscores the advantages of cyanobacterial
+were identified as iso-OCT, Diterpenoid 1, OCT, and   chassis for further in vivo modification of the paclitaxel
+T5α-ol, respectively (Supplementary Fig. S3). OCT and   biosynthetic pathway when compared to other microbial
+iso-OCT are considered as the major products in most    hosts.
+T5αH-expressing hosts, such as E.  coli,  S. cerevisiae,
+and Yarrowia lipolytica [9, 46]. However, Diterpenoid 1,   Transcriptomic analysis for exploring the comprehensive
+an isomer of T5α-ol, was emerging as the predominant    effects of heterologous P450 expression
+oxygenated product in all downstream Syn6803 strains   on a whole‑genome dimension of Synechocystis
+(Fig. 4B), which was consistent with a recent work con-   To elucidate the potential mechanisms of unnatural dit-
+ducted in S. cerevisiae [11]. This result highlighted the   erponoid biosynthesis in cyanobacteria, a comprehensive
+significant influence of host organisms and cultivation   whole-genome transcriptomic analysis was conducted
+conditions on the selectivity of T5αH. Simultaneously,   to assess gene expression changes in DIGT and DIGT-
+T5α-ol was the second most abundant compound in   P560 strains. Strains for RNA-seq were collected during
+all downstream  strains, accounting for approximately   the exponential growth phase. The Pearson Correlation
+20–27% of the total products (Supplementary Table S4).     Coefficient heat map shows the differences between sam-
+  Considering the  overall productivity  of oxygenated    ples within each group, allowing us to visually evaluate
+taxanes, Strain DIGT-P560, featuring the “super strong”   the similarities between biological replicates in the same
+Pcpc560 promoter, produced the highest titer of total   group, as well as the differences between samples in dif-
+oxygenated taxanes as 17.43 mg/L (Fig. 4C). Conversely,    ferent groups. As shown in Fig. 5A, there were significant
+Strain DIGT-TC harboring the regulatory module of    differences between samples from DIGT and DIGT-P560
+relatively low strength exhibited the lowest  yield  of   groups. The samples within the DIGT group were highly
+6.98 mg/L. It is noteworthy that a substantial amount of    similar, while there were certain differences between the
+taxadiene was left over in the organic extracts of DIGT-   three replicates within the DIGT-P560 group. In com-
+TC, DIGT-mC, and DIGT-TLC (Supplementary  Figs.   parison to the DIGT group, 1367 differentially expressed
+S1, S2), suggesting the inefficiency of P450-mediated   genes (DEGs) with Log2 of fold change (FC) ≥ 1 or ≤ -1
+oxygenation toward taxadiene in those strains. In addi-   and p ≤ 0.05 were found in DIGT-P560 (Fig. 5B). With
+tion, Strain DIGT-mT, which might possess relatively   assignment to KEGG orthology database, apart from
+higher T5αH expression than CPR resulted from the   hypothetical and other functional genes, the rest DEGs
+regulation of RBSv33 on T5αH, had produced more oxy-   were mainly categorized into 11 enriched pathways,
+genated products than Strain DIGT-mC that exhibited   including energy metabolism, metabolism of cofactors
+higher CPR expression (11.49 mg/L vs 8.71 mg/L). Taken   and vitamins, translation, amino acid metabolism, et al.
+together, it is plausible that a higher T5αH expression    (Fig. 5C). As expression of the majority of genes related
+level could have advantageous effect on taxadiene oxy-   to translation was significantly downregulated (Supple-
+genation in Syn6803.                                 mentary Data Set S1), the decreased levels of ribosomal
+ Compared with the basal Strain DIGT, the growth rates   proteins could potentially lead to disruption of ribosome
+of some downstream strains transformed with T5αH/   assembly, which in turn may further diminish the transla-
+CPR were slightly lower (Fig. 4D), indicating that the   tion efficiency of mature mRNAs in DIGT-P560 strains.
+expression of heterologous P450 enzyme may increase   Therefore, there were more downregulated genes than
+the metabolic burden of the cells. Interestingly, in terms   upregulated genes in DIGT-P560 (732 vs 635).
+of the synthesis of photosynthetic pigments, most down-     For DIGT-P560, energy metabolism pathway had the
+stream strains performed better than the upstream strain    largest number of DEGs, the expression of 80 related
+DIGT (Fig. 4E, F). It seems that the introduction of P450   genes was significantly changed, of which nearly two-
+enzyme improved the photosynthetic efficiency of the    thirds were downregulated (Fig. 5C). The down-regulated
+engineered strains to a certain extent. In conclusion,   genes were mainly concentrated in the photosynthesis,
+
+
+[PDF physical page 10]
+Zhong et al. Biotechnology for Biofuels and Bioproducts     (2024) 17:99                                                  Page 10 of 15
+
+
+
+
+
+  Fig. 5  Differentially expressed genes (DEGs) analysis in downstream Strain DIGT-P560 relative to upstream Strain DIGT. A Pearson correlation heat
+ map of all samples. B Volcano plots of differentially expressed genes in DIGT and DIGT-P560. Grey plot: Not DEGs; Blue plot: Up-regulated DEGs;
+  Purple plot: Down-regulated DEGs. C DEGs number of up-regulated and down-regulated genes in annotated KEGG metabolic pathways. Light
+ brown column: Up-regulated DEGs; Navy blue column: Down-regulated DEGs
+
+
+antenna proteins, and oxidative phosphorylation path-    ­(log2FC = 6.00), where nifJ is an oxidoreductase required
+ways (Fig. 6, Supplementary Data Set S1). This may be    for the transfer of electrons from pyruvate to flavodoxin,
+related to the fact that heterologous P450 enzymes were   and ppsA is responsible for catalyzing the phosphoryla-
+located on the thylakoid membrane, thereby affecting   tion reaction of pyruvate [47]. The substantial up-regu-
+the expression of other photosystem proteins and F-type    lation of these two genes suggested that the intracellular
+ATP synthase on the membrane. Meanwhile, the expres-   pyruvate content of DIGT-P560 could be higher than
+sion levels of genes related to biological processes such   DIGT.
+as nitrogen metabolism and sulfur metabolism showed     In cyanobacteria, carbohydrate metabolism typically
+an upward trend (Supplementary Data Set S1). It is note-   includes central metabolic pathways, including glyco-
+worthy that the most significantly up-regulated genes in    lysis, the pentose phosphate pathway, the Calvin–Ben-
+energy metabolism were nifJ ­(log2FC = 4.86) and ppsA   son–Bassham (CBB) cycle, the Entner–Doudoroff (ED)
+
+
+[PDF physical page 11]
+Zhong et al. Biotechnology for Biofuels and Bioproducts     (2024) 17:99                                                  Page 11 of 15
+
+
+
+
+
+  Fig. 6  Comparative transcriptomic analysis of Strain DIGT-P560 and DIGT. Transcript abundance changes of the unigene involved in the TCA
+  cycle (yellow panel), Glycolysis (navy blue panel), Gluconeogenesis (light blue panel), ED pathway (flesh panel), CBB cycle (green panel)
+ and the photosynthetic chain (bottom panel). Up-regulated and down-regulated genes were labeled in red and green. TCA: tricarboxylic acid; ED:
+  Entner-Doudoroff; CBB: Calvin–Benson–Bassham
+
+
+pathway, and the tricarboxylic acid (TCA) cycle [47].  TCA cycle to compensate the NADPH consumed by
+For Strain DIGT-P560, there were 44 DEGs belong-   P450s, thereby maintaining the overall energy balance.
+ing to carbohydrate metabolism, half of which were   In addition, the enhanced flux through the TCA cycle
+up-regulated  (Fig. 5C) and mainly concentrated  in  may lead to the increased synthesis of other essential
+the TCA cycle, pentose phosphate pathway and pyru-   compounds, such as amino acids and fatty acids, as
+vate metabolism (Supplementary Data Set  S1). The   evidenced by the higher number of upregulated genes
+TCA cycle, which is responsible for providing build-   related to amino acid and lipid metabolism in DIGT-
+ing blocks for growth, typically maintains a low flux   P560 (Fig. 5C, Supplementary Data Set S1). Notably,
+rate under photoautotrophic conditions [48]. However,    lipids serve multiple crucial functions in cyanobacteria,
+in DIGT-P560,  five related genes were  significantly   including energy storage and structural support for cell
+upregulated, including gltA, 2-OGDC, SSADH, sdhA,   membranes and thylakoid membranes [49]. In response
+and citH (Fig.  6, Supplementary Data Set S1), sug-   to the challenges posed by the introduction of mem-
+gesting the metabolic flux might be redirected to the   brane-anchored proteins T5αH and CPR, DIGT-P560
+
+
+[PDF physical page 12]
+Zhong et al. Biotechnology for Biofuels and Bioproducts     (2024) 17:99                                                  Page 12 of 15
+
+
+
+may enhance its lipid synthesis capacity to maintain    plastids [52]. Truncating and modifying the N-termi-
+the normal function of thylakoids and provide a lipid-   nal regions of T5αH have been found to promote the
+rich environment conducive to full activity of the P450   production of more active and soluble proteins in E.
+enzyme [6].                                                           coli, addressing the challenges posed by the absence of
+ When exploring the expression level of genes in sig-   internal membranes [7, 8]. In this study, the success-
+nal transduction and membrane transport pathways,    ful expression of intact T5αH and its reductase partner
+most genes were  significantly upregulated  in DIGT-  CPR clearly demonstrates the adaptability of the cyano-
+P560 (Fig. 5C). Specifically, 22 out of 29 genes encoding   bacterial chassis for the expression of N-terminally
+two-component system proteins and 17 out of 26 genes   anchored cytochrome P450s, which will greatly facili-
+encoding  ATP-binding  cassette  (ABC)  transporters    tate further reconstruction of the complex taxol meta-
+showed upregulation (Supplementary Data Set S1). The   bolic pathways in cyanobacterial cell factories.
+two-component system is recognized for its tight regu-     In addition, it has been hypothesized that maintain-
+lation of ABC transporters, which play crucial roles in   ing a balance between P450 and CPR is crucial for effi-
+nutrient transport and cytoplasmic pH regulation [50,   cient catalysis of taxane substrates. Previous reports
+51]. Both systems have the capacity to sense biotic and   have shown that physically fusing P450/CPR does not
+abiotic stresses as well as substrates such as peptides,   provide advantages for protein expression or product
+amino acids, sugars, and antibiotics. Therefore, the acti-   synthesis [8], whereas the ratio of P450 to CPR in plant
+vation of such genes in DIGT-P560 suggested that there   membranes  is approximately 15:1 [53]. The oxygen-
+were increased transmembrane material transport activi-   ated taxane profiles observed in our engineered strains
+ties aimed at alleviating cellular stress in the taxane-pro-   were consistent with these findings. Strain DIGT-TLC
+ducing strains. In addition, the expression levels of most   exhibited  the  lowest oxygenated taxane  productiv-
+genes related to DNA replication and repair, protein fold-    ity owing to the unsatisfied activity of the T5αH-CPR
+ing, sorting, and degradation were significantly higher in   fusion protein. The concentration of total oxygenated
+DIGT-P560 than in DIGT (Fig. 5C, Supplementary Data   taxanes, from highest to lowest, was observed in DIGT-
+Set S1). This implied that cells under greater stress would   P560, DIGT-mT, DIGT-mC, DIGT-TC, and DIGT-TLC,
+have increased demands for restoration through pro-   while the proportion of T5α-ol from highest to low-
+cesses such as DNA repair, homologous recombination,    est was observed in DIGT-TLC, DIGT-mT, DIGT-mC,
+and RNA degradation.                               DIGT-P560, and DIGT-TC. These results indicate that
+                                                     manipulating the expression pattern of the T5αH/CPR
+Discussion                                         combination at the translational or transcriptional level
+                                                   can significantly influence the productivity and distri-As one  of  the most  widely  administered  antican-
+                                                      bution of downstream oxygenated products.cer agents, the economical biosynthesis of taxol has
+                                                 The activity of cytochrome P450s in the taxol path-remained a  significant challenge  for decades. While
+                                              way appears to be limited in prokaryotic hosts, as thecertain achievements have been made through heter-
+                                                     production of taxadiene oxides significantly decreasesologous expression of complex biosynthetic pathways in
+                                            when T5αH is introduced [7]. Although the delicatefast-growing microbial hosts, such as E. coli, B. subtilis,
+                                                P450 module optimizations contribute to the effectiveand S. cerevisiae, there has been no research on taxol
+                                                enhancement of oxygenated taxanes in engineered E.biosynthesis by cyanobacteria despite their advantages
+                                                                         coli, the titer of downstream products can not surpassof low culture cost, rapid growth, and ability to uti-                                                              their substrate, taxadiene  [8]. Notably, in our studylize ­CO2 as a carbon source. Therefore, we conducted a                                                     with Syn6803, even if the basal strain DIGT producedseries of attempts in cyanobacteria model strain Synecho-                                                       only 3 mg/L  of taxadiene, the downstream  strainscystis sp. PCC 6803 to explore a new platform for taxol                                                    transformed with the T5αH/CPR module producedbiosynthesis.                                              up to 17 mg/L of oxygenated taxanes,  significantly  The final conversion of taxadiene to taxol requires                                                        surpassing the substrate concentration. The transcrip-effective hydroxylation at eight specific sites: C1, C2,
+                                                   tomic analysis toward DIGT and DIGT-P560 indicatedC4, C5, C7, C9, C10, and C13. The initial step involved
+                                                                 that, majority of downregulated DEGs were categorizedintroducing a hydroxyl group at the C5 position of
+                                                           into energy metabolism and translation, suggesting thattaxadiene and relocating the double bond from C4(5)
+                                                        the introduction of heterologous P450s could interfereto C4(20) through the action of T5αH to yield T5α-ol
+                                                     with the photosystems and normal biological process[5]. This reaction is considered as the rate-limiting step
+                                                            of Syn6803. However, at the same time, certain genesin the entire oxygenation process. The native T5αH of
+                                                  were significantly upreglulated in DIGT-P560, particu-T. cuspidata possesses a putative N-terminal sequence
+                                                                    larly those related to the TCA cycle (Supplementaryof 137 residues that is cleaved during maturation in
+
+
+[PDF physical page 13]
+Zhong et al. Biotechnology for Biofuels and Bioproducts     (2024) 17:99                                                  Page 13 of 15
+
+
+
+Data Set S1). Activation of such pathways may ben-   valuable oxygenated taxanes can be achieved through
+efit the production of glyceraldehyde-3-P and pyruvate   extensive research in the near future. For example, induc-
+[47], providing more substrates for the MEP pathway    ible promoters may be more suitable for heterologous
+to increase the GGPP pool for more efficient diterpene   cytochrome P450s enzymes to mitigate the metabolic
+synthesis.                                            burdens on the photosystems in cyanobacteria. Although
+  Although the photosystems of our engineered Syn6803   the total biosynthesis of taxol in microbial cell factories
+strains were impaired owing to a significant reduction in   remains a significant challenge, our work lays a solid
+the expression of related genes, the differences in growth   foundation for the direct transformation of ­CO2 into
+rates between the wild-type and recombinant strains    taxol precursors in cyanobacteria in vivo. We hope that
+were relatively minor. How did these recombinant strains    this will promote the widespread application of biosyn-
+survive with their compromised photosystems? Phyllo-    thesis of various complex and valuable natural products
+quinone is a prenylated naphthoquinone that plays a cru-    in photosynthetic microorganisms.
+cial role as an electron carrier in photosystem I and an
+electron acceptor for the formation of protein disulfide   Supplementary Information
+bonds [54]. Cyanobacterial strains lacking genes involved    The online version contains supplementary material available at https://​doi.​
+in phylloquinone biosynthesis, such as menA, menB,     org/​10.​1186/​s13068-​024-​02555-9.
+menD, and menE, have been shown to have slower pho-      Supplemantary Material 1.
+toautotrophic growth rates than the wild type [55, 56].
+Plastoquinone (PQ), another important quinol, is located      Supplementary Material 2.
+on the thylakoid membrane and forms a PQ pool with
+the reduced plastoquinone ­(PQH2) within the  thyla-    AcknowledgementsThe authors thank Dr. Guangkai Bian for providing the plasmid pGB259.
+koids. In cyanobacteria, PQ primarily mediates electron
+transfer between photosystem  II and cytochrome b6f    Author contributions
+complex [57]. Our RNA-seq results revealed that genes      Y.S.W.,and Z.Y.C.andperformedG.M. conceivedthe experiments.and designedJ.L.Z.,theY.S.W.,experiments.Z.Y.C., andJ.L.Z.,G.M.Y.S.W.,analyzed
+related to phylloquinone (menB, menC, menE) and plas-    the data. Y.S.W., Y.Y., L.H., T.G.L., and G.M. contributed reagents/materials/
+toquinone biosynthesis (ubiC) were significantly upregu-     analysis tools. J.L.Z., Y.S.W. and G.M. wrote the paper. All authors reviewed the
+lated in DIGT-P560 (Supplementary Data Set S1). This    manuscript.
+discrepancy indicated a potential enhancement in the    Funding
+electron transport rate through the linear and cyclic pho-     This study was funded by National Natural Science Foundation of China,
+tosynthetic electron transport chains. Meanwhile, sev-    31901022,2019YFA0904603,NationalNaturalKey ResearchScienceandFoundationDevelopmentof Shanghai,ProgramChina,of China,
+eral NAD biosynthetic genes were upregulated, such as    21ZR1431700.
+pntA/pntB encoding pyridine nucleotide transhydroge-
+nase (Supplementary Data Set S1), which catalyses elec-    DataNo dataavailabilitysets were generated or analysed during the current study.
+tron transfer between ­NAD+ and ­NADP+ and regulates
+the ­NAD+/NADP+ ratio [58], thereby could provide suf-                                                            Declarations
+ficient reducing power for light-powered P450 activity.
+Intriguingly, previous studies have illustrated that P450s    Competing interests
+can serve as artificial electron sinks for excess electrons    The authors declare no competing interests.
+derived from photosynthesis and can increase the maxi-
+mum rate of photosynthetic electron flow in cyanobac-    Received: 17 January 2024 Accepted: 10 July 2024
+teria [13, 17, 59, 60]. It has been proved that cellular ATP
+and NADPH concentrations are directly proportional to
+P450 acitivity [13]. Our transcriptomic data may provide
+evidence of a potential mechanism for how the heterolo-    References
+gous P450 electron sink influences photosynthetic elec-      1.   Schiffby taxol.PB,Nature.Fant J, Horwitz1979;277(5698):665–7.SB. Promotion of microtubule assembly in vitro
+tron transport and energy metabolism in cyanobacteria.        2.  Wani MC, Taylor HL, Wall ME, Coggon P, McPhail AT. Plant antitumor
+                                                                                      agents. VI. The isolation and structure of taxol, a novel antileukemic and
+                                                                               antitumor agent from Taxus brevifolia. J Am Chem Soc. 1971;93(9):2325–7.
+Conclusion                                                                                3.   Frense D. Taxanes: perspectives for biotechnological production. Appl
+In summary, our integrated approach led to the suc-      4.   MicrobiolWang T, Li Biotechnol.L, Zhuang W,2007;73(6):1233–40.Zhang F, Shu X, Wang N, Wang Z. Recent research
+cessful construction of a taxane-producing platform in         progress in taxol biosynthetic pathway and acylation reactions mediated
+photoautotrophic cyanobacteria. Given the flexibility of        by taxus acyltransferases. Molecules. 2021;26(10):2855.
+the metabolic network in this chassis, it is reasonable to      5.  Jenneweindiene 5alpha-hydroxylase,S, Long RM, Williamsa mechanisticallyRM, CroteauunusualR. Cytochromemonooxygenasep450 taxa-
+expect that further improvements in the productivity of
+
+
+[PDF physical page 14]
+Zhong et al. Biotechnology for Biofuels and Bioproducts     (2024) 17:99                                                  Page 14 of 15
+
+
+
+
+
+     catalyzing the first oxygenation step of taxol biosynthesis. Chem Biol.          26.  Schwarzkopf M, Yoo YC, Huckelhoven R, Park YM, Proels RK. Cyanobacte-
+     2004;11(3):379–87.                                                                                       rial phytochrome2 regulates the heterotrophic metabolism and has
+6.  Munro AW, Girvan HM, Mason AE, Dunford AJ, McLean KJ. What makes a          a function in the heat and high-light stress response. Plant Physiol.
+    P450 tick? Trends Biochem Sci. 2013;38(3):140–50.                                2014;164(4):2157–66.
+7.   Ajikumar PK, Xiao WH, Tyo KE, Wang Y, Simeon F, Leonard E, Mucha O,          27.  Lichtenthaler HK. Non-mevalonate isoprenoid biosynthesis: enzymes,
+    Phon TH, Pfeifer B, Stephanopoulos G. Isoprenoid pathway optimiza-            genes and inhibitors. Biochem Soc Trans. 2000;28(6):785–9.
+     tion for Taxol precursor overproduction in Escherichia coli. Science.             28.  Jiang M, Stephanopoulos G, Pfeifer BA. Toward biosynthetic design
+     2010;330(6000):70–4.                                                and implementation of Escherichia coli-derived paclitaxel and other
+8.   Biggs BW, Lim CG, Sagliani K, Shankar S, Stephanopoulos G, De Mey M,            heterologous polyisoprene compounds. Appl Environ Microbiol.
+     Ajikumar PK. Overcoming heterologous protein interdependency to              2012;78(8):2497–504.
+     optimize P450-mediated Taxol precursor synthesis in Escherichia coli. Proc      29.  Bai C, Capell T, Berman J, Medina V, Sandmann G, Christou P, Zhu C. Bot-
+     Natl Acad Sci USA. 2016;113(12):3209–14.                                         tlenecks in carotenoid biosynthesis and accumulation in rice endosperm
+9.   Sagwan-Barkdoll L, Anterola AM. Taxadiene-5-ol is a minor product of              are influenced by the precursor-product balance. Plant Biotechnol J.
+    CYP725A4 when expressed in Escherichia coli. Biotechnol Appl Bioc.               2016;14(1):195–205.
+     2018;65(3):294–305.                                                             30. Zhou J, Zhang H, Meng H, Zhu Y, Bao G, Zhang Y, Li Y, Ma Y. Discovery of
+10. Dejong JM, Liu Y, Bollon AP, Long RM, Jennewein S, Williams D, Croteau           a super-strong promoter enables efficient production of heterologous
+     RB. Genetic engineering of taxol biosynthetic genes in Saccharomyces             proteins in cyanobacteria. Sci Rep. 2014;4:4500.
+     cerevisiae. Biotechnol Bioeng. 2006;93(2):212–24.                               31. Kuchmina E, Wallner T, Kryazhov S, Zinchenko VV, Wilde A. An expression
+11.  Walls LE, Malci K, Nowrouzi B, Li RA, d’Espaux L, Wong J, Dennis JA,               system for regulated protein production in Synechocystis sp. PCC 6803
+    Semiao AJC, Wallace S, Martinez JL, et al. Optimizing the biosynthe-            and its application for construction of a conditional knockout of the fer-
+      sis of oxygenated and acetylated Taxol precursors in Saccharomyces               rochelatase enzyme. J Biotechnol. 2012;162(1):75–80.
+     cerevisiae using advanced bioprocessing strategies. Biotechnol Bioeng.         32.  Bentley FK, Zurbriggen A, Melis A. Heterologous expression of the
+     2021;118(1):279–93.                                                       mevalonic acid pathway in cyanobacteria enhances endogenous carbon
+12.  Walls LE, Martinez JL, Del Rio Chanona EA, Rios-Solis L. Definitive screen-            partitioning to isoprene. Mol Plant. 2014;7(1):71–86.
+     ing accelerates Taxol biosynthetic pathway optimization and scale up in       33.  Davies FK, Work VH, Beliaev AS, Posewitz MC. Engineering limonene and
+    Saccharomyces cerevisiae cell factories. Biotechnol J. 2022;17(1): e2100414.         bisabolene production in wild type and a glycogen-deficient mutant of
+13.  Berepiki A, Gittins JR, Moore CM, Bibby TS. Rational engineering of                Synechococcus sp. PCC 7002. Front Bioeng Biotechnol. 2014;2:21.
+     photosynthetic electron flux enhances light-powered cytochrome P450       34.  Martin VJ, Pitera DJ, Withers ST, Newman JD, Keasling JD. Engineering a
+      activity. Synth Biol. 2018;3(1): yay009.                                       mevalonate pathway in Escherichia coli for production of terpenoids. Nat
+14.  Lassen LM, Nielsen AZ, Ziersen B, Gnanasekaran T, Moller BL, Jensen PE.            Biotechnol. 2003;21(7):796–802.
+     Redirecting photosynthetic electron flow into light-driven synthesis of         35.  Peralta-Yahya PP, Ouellet M, Chan R, Mukhopadhyay A, Keasling JD, Lee
+     alternative products including high-value bioactive natural compounds.            TS. Identification and microbial production of a terpene-based advanced
+    ACS Synth Biol. 2014;3(1):1–12.                                                         biofuel. Nat Commun. 2011;2:483.
+15.  Parmar A, Singh NK, Pandey A, Gnansounou E, Madamwar D. Cyanobac-       36. Gao X, Gao F, Liu D, Zhang H, Nie X, Yang C. Engineering the methyleryth-
+      teria and microalgae: a positive prospect for biofuels. Bioresour Technol.               ritol phosphate pathway in cyanobacteria for photosynthetic isoprene
+     2011;102(22):10163–72.                                                     production from ­CO2. Energy Environ Sci. 2016;4:12.
+16.  Ruiz-Sola MA, Coman D, Beck G, Barja MV, Colinas M, Graf A, Welsch            37. Yuan LZ, Rouviere PE, Larossa RA, Suh W. Chromosomal promoter
+      R, Rutimann P, Buhlmann P, Bigler L, et al. Arabidopsis GERANYLGERA-            replacement of the isoprenoid pathway for enhancing carotenoid pro-
+    NYL DIPHOSPHATE SYNTHASE 11 is a hub isozyme required for the               duction in E. coli. Metab Eng. 2006;8(1):79–90.
+    production of most photosynthesis-related isoprenoids. New Phytol.           38. Kudoh K, Kawano Y, Hotta S, Sekine M, Watanabe T, Ihara M. Prerequisite
+     2016;209(1):252–64.                                                                      for highly efficient isoprenoid production by cyanobacteria discovered
+17.  Berepiki A, Hitchcock A, Moore CM, Bibby TS. Tapping the unused poten-         through the over-expression of 1-deoxy-d-xylulose 5-phosphate syn-
+       tial of photosynthesis with a heterologous electron sink. ACS Synth Biol.           thase and carbon allocation analysis. J Biosci Bioeng. 2014;118(1):20–8.
+     2016;5(12):1369–75.                                                             39. Wang C, Zhou J, Jang HJ, Yoon SH, Kim JY, Lee SG, Choi ES, Kim SW. Engi-
+18.  Jensen K, Jensen PE, Moller BL. Light-driven cytochrome p450 hydroxyla-         neered heterologous FPP synthases-mediated Z, E-FPP synthesis in E. coli.
+      tions. ACS Chem Biol. 2011;6(6):533–9.                                   Metab Eng. 2013;18:53–9.
+19.  Nielsen AZ, Mellor SB, Vavitsas K, Wlodarczyk AJ, Gnanasekaran T, de            40. Sun T, Li S, Song X, Pei G, Diao J, Cui J, Shi M, Chen L, Zhang W. Re-
+     Perestrello Ramos HJM, King BC, Bakowski K, Jensen PE. Extending the              direction of carbon flux to key precursor malonyl-CoA via artificial small
+     biosynthetic repertoires of cyanobacteria and chloroplasts. Plant J.             RNAs in photosynthetic Synechocystis sp. PCC 6803. Biotechnol Biofuels.
+     2016;87(1):87–102.                                                                2018;11:26.
+20.  Vickers CE, Bongers M, Liu Q, Delatte T, Bouwmeester H. Metabolic engi-       41. Guljamow A, Kreische M, Ishida K, Liaimer A, Altermark B, Bahr L, Her-
+     neering of volatile isoprenoids in plants and microbes. Plant Cell Environ.         tweck C, Ehwald R, Dittmann E. High-density cultivation of terrestrial
+     2014;37(8):1753–75.                                                       nostoc strains leads to reprogramming of secondary metabolome. Appl
+21.  Choi SY, Lee HJ, Choi J, Kim J, Sim SJ, Um Y, Kim Y, Lee TS, Keasling JD, Woo         Environ Microbiol. 2017;83(23): e01510.
+    HM. Photosynthetic conversion of CO2 to farnesyl diphosphate-derived       42.  Rockwell NC, Martin SS, Lagarias JC. Elucidating the origins of phyco-
+    phytochemicals (amorpha-4,11-diene and squalene) by engineered               cyanobilin biosynthesis and phycobiliproteins. Proc Natl Acad Sci USA.
+     cyanobacteria. Biotechnol Biofuels. 2016;9:202.                                    2023;120(17): e2300770120.
+22.  Diao J, Song X, Zhang L, Cui J, Chen L, Zhang W. Tailoring cyanobacteria        43.  Kunert A, Hagemann M, Erdmann N. Construction of promoter probe
+     as a new platform for highly efficient synthesis of astaxanthin. Metab Eng.          vectors for Synechocystis sp. PCC 6803 using the light-emitting reporter
+     2020;61:275–87.                                                           systems Gfp and LuxAB. J Microbiol Methods. 2000;41(3):185–94.
+23.  Rosmarie Rippka JD, John BW, Herdman M, Stanier RY. Generic assign-         44. Wang B, Eckert C, Maness PC, Yu J. A genetic toolbox for modulating the
+    ments, strain histories and properties of pure cultures of cyanobacteria.           expression of heterologous genes in the cyanobacterium Synechocystis
+     Microbiology. 1979;111(1):61.                                                            sp. PCC 6803. ACS Synth Biol. 2018;7(1):276–86.
+24.  Dienst D, Wichmann J, Mantovani O, Rodrigues JS, Lindberg P. High den-       45.  Xiong W, Morgan JA, Ungerer J, Wang B, Maness PC, Yu JP. The plasticity of
+      sity cultivation for efficient sesquiterpenoid biosynthesis in Synechocystis          cyanobacterial metabolism supports direct CO2 conversion to ethylene.
+      sp. PCC 6803. Sci Rep. 2020;10(1):5932.                                      Nat Plants. 2015;1(5):5053.
+25. Khan RI, Wang Y, Afrin S, Wang B, Liu Y, Zhang X, Chen L, Zhang W, He          46.  Edgar S, Zhou K, Qiao K, King JR, Simpson JH, Stephanopoulos G.
+      L, Ma G. Transcriptional regulator PrqR plays a negative role in glucose            Mechanistic insights into taxadiene epoxidation by taxadiene-5alpha-
+    metabolism and oxidative stress acclimation in Synechocystis sp. PCC               hydroxylase. ACS Chem Biol. 2016;11(2):460–9.
+     6803. Sci Rep. 2016;6:32507.
+
+
+[PDF physical page 15]
+Zhong et al. Biotechnology for Biofuels and Bioproducts     (2024) 17:99                                                  Page 15 of 15
+
+
+
+
+
+47.  Mills LA, McCormick AJ, Lea-Smith DJ. Current knowledge and recent
+    advances in understanding metabolism of the model cyanobacterium
+     Synechocystis sp. PCC 6803. Biosci Rep. 2020;40(4): BSR20193325.
+48. Wan N, DeLorenzo DM, He L, You L, Immethun CM, Wang G, Baidoo
+     EEK, Hollinshead W, Keasling JD, Moon TS, et al. Cyanobacterial carbon
+    metabolism: fluxome plasticity and oxygen dependence. Biotechnol
+     Bioeng. 2017;114(7):1593–602.
+49.  Tasaka Y, Gombos Z, Nishiyama Y, Mohanty P, Ohba T, Ohki K, Murata N.
+     Targeted mutagenesis of acyl-lipid desaturases in Synechocystis: evidence
+      for the important roles of polyunsaturated membrane lipids in growth,
+     respiration and photosynthesis. EMBO J. 1996;15(23):6416–25.
+50. Uchiyama J, Itagaki A, Ishikawa H, Tanaka Y, Kohga H, Nakahara A, Imaida
+     A, Tahara H, Ohta H. Characterization of ABC transporter genes, sll1180,
+     sll1181, and slr1270, involved in acid stress tolerance of Synechocystis sp.
+    PCC 6803. Photosynth Res. 2019;139(1–3):325–35.
+51.  Kurdrid P, Yutthanasirikul R, Saree S, Senachak J, Saelee M, Hongsthong
+     A. Hik28-dependent and Hik28-independent ABC transporters were
+     revealed by proteome-wide analysis of DeltaHik28 under combined
+      stress. BMC Mol Cell Biol. 2022;23(1):27.
+52.  Kitaoka N, Wu Y, Xu M, Peters RJ. Optimization of recombinant expression
+     enables discovery of novel cytochrome P450 activity in rice diterpenoid
+     biosynthesis. Appl Microbiol Biotechnol. 2015;99(18):7549–58.
+53.  Jensen K, Moller BL. Plant NADPH-cytochrome P450 oxidoreductases.
+     Phytochemistry. 2010;71(2–3):132–41.
+54.  Basset GJ, Latimer S, Fatihi A, Soubeyrand E, Block A. Phylloquinone (Vita-
+    min K1): occurrence, biosynthesis and functions. Mini Rev Med Chem.
+     2017;17(12):1028–38.
+55. Wade Johnson T, Naithani S, Stewart C Jr, Zybailov B, Daniel Jones A, Gol-
+    beck JH, Chitnis PR. The menD and menE homologs code for 2-succinyl-
+     6-hydroxyl-2,4-cyclohexadiene-1-carboxylate synthase and o-succinylb-
+     enzoic acid-CoA synthase in the phylloquinone biosynthetic pathway of
+     Synechocystis sp. PCC 6803. Biochim Biophys Acta. 2003;1557(1–3):67–76.
+56. Johnson TW, Shen G, Zybailov B, Kolling D, Reategui R, Beauparlant S,
+      Vassiliev IR, Bryant DA, Jones AD, Golbeck JH, et al. Recruitment of a
+     foreign quinone into the A(1) site of photosystem I: I. Genetic and physi-
+     ological characterization of phylloquinone biosynthetic pathway mutants
+     in Synechocystis sp. pcc 6803. J Biol Chem. 2000;275(12):8523–30.
+57.  Lea-Smith DJ, Bombelli P, Vasudevan R, Howe CJ. Photosynthetic, respira-
+     tory and extracellular electron transport pathways in cyanobacteria.
+    Biochim Biophys Acta. 2016;1857(3):247–55.
+58.  Kamarainen J, Huokko T, Kreula S, Jones PR, Aro EM, Kallio P. Pyridine
+     nucleotide transhydrogenase PntAB is essential for optimal growth and
+     photosynthetic integrity under low-light mixotrophic conditions in
+     Synechocystis sp. PCC 6803. New Phytol. 2017;214(1):194–204.
+59.  Torrado A, Connabeer HM, Rottig A, Pratt N, Baylay AJ, Terry MJ, Moore
+    CM, Bibby TS. Directing cyanobacterial photosynthesis in a cytochrome
+    c oxidase mutant using a heterologous electron sink. Plant Physiol.
+     2022;189(4):2554–66.
+60.  Santos-Merino M, Torrado A, Davis GA, Rottig A, Bibby TS, Kramer DM,
+    Ducat DC. Improved photosynthetic capacity and photosystem I oxida-
+     tion via heterologous metabolism engineering in cyanobacteria. Proc
+     Natl Acad Sci USA. 2021;118(11): e2021523118.
+
+Publisher’s Note
+Springer Nature remains neutral with regard to jurisdictional claims in pub-
+lished maps and institutional affiliations.

@@ -1,0 +1,960 @@
+
+[PDF physical page 1]
+P450-Mediated Dual Cyclization Mechanisms for Pyrroloindoline
+Unit Formation in Bispyrrolidinoindoline Diketopiperazine Alkaloid
+Biosynthesis
+Yeqing Du,# Guangzheng Wei,*,# Tai-Ping Zhou,# Yuhan Dai, Wenya Tian, Mancheng Tang,
+Zixin Deng, Binju Wang,* and Xudong Qu*
+Cite This: J. Am. Chem. Soc. 2025, 147, 45199−45209
+Read Online
+ACCESS
+Metrics & More
+Article Recommendations
+*
+sı
+Supporting Information
+ABSTRACT: Bispyrrolidinoindoline-diketopiperazines (BPI-DKP) alkaloids, characterized by
+a complex 3a,3a′-bispyrrolidino[2,3-b]indoline scaffold, constitute a large class of synthetically
+challenging bioactive pyrroloindoline natural products. Their biosynthesis, mediated by P450
+enzymes, involves oxidative dimerization of diketopiperazines (DKPs), yet the underlying
+mechanistic and stereochemical details have remained unclear. Here, we elucidate the
+molecular mechanism of TtpB1, a P450 dimerase that stereoselectively couples two DKP units
+to form C2-symmetric BPI scaffolds through an unexpected cascade. Contrary to the prevailing
+double-radical coupling hypothesis, integrated structural, biochemical, and computational
+studies reveal a stepwise process: (i) Compound I-mediated generation of a nitrogen-centered
+DKP radical, triggering cyclization to a C3-radical pyrroloindoline intermediate; (ii) radical
+addition to the C3′ position of a second DKP; and (iii) single-electron transfer (SET)-driven
+cyclization to construct the second pyrroloindoline unit. This dual N-centered radical- and
+SET-driven cyclization showcases unprecedented versatility in natural product dimer
+biosynthesis. Molecular dynamics and QM/MM calculations further demonstrate how substrate conformational dynamics enforce
+stereochemical fidelity, yielding the C2-symmetric BPI-DKP core with vicinal quaternary stereocenters. These findings provide the
+first structure-guided mechanistic elucidation of BPI-DKP synthase, laying the groundwork for rational enzyme engineering and
+biomimetic synthesis of these pharmacologically important alkaloids.
+■INTRODUCTION
+Bispyrrolidino[2,3-b]indoline (BPI) alkaloids, a pharmacolog-
+ically significant class of pyrroloindoline natural products, are
+widely distributed in bacteria, fungi, and plants. They have
+attracted extensive pharmacological interest due to their
+notable biological activities, including cytotoxic, antimicrobial,
+and antitumor effects.1−8 Structurally, these compounds
+feature a sterically congested 3a,3a′-bispyrrolidino[2,3-b]-
+indoline core, formed via C3a-C3a′ head-to-head dimerization
+of cyclotryptamine units (Figures 1a and S1). The BPI-
+diketopiperazine (DKP) subclass is structurally distinguished
+by two tryptophan-containing DKP-derived moieties and
+predominantly contains an intriguing C2- symmetric BPI core
+(e.g., tetratryptomycin A (1),9 (−)-ditryptophenaline,10
+(−)-dibrevianamide F,11 and (+)-win 6482112 (Figure 1a).1
+This framework poses significant synthetic challenges due to its
+vicinal all-carbon quaternary stereocenters, driving the
+development of innovative synthetic strategies.1,13−17
+Emerging biosynthetic research reveals nature′s efficient
+strategies for assembling complex BPI scaffolds with precise
+regio- and stereochemical control. Notably, among diverse BPI
+alkaloids, only BPI-DKPs have been confirmed to be
+biosynthesized via P450-catalyzed oxidative DKP dimerization,
+with only a few of such enzymes characterized to date.9,11,18−20
+Fungal P450 enzymes, notably DtpC and its homologues,
+represent the first characterized systems for C3−C3′ coupling
+and pyrroloindoline formation in (−)-ditryptophenaline
+(Figure 1a) biosynthesis.11 However, the inherent mem-
+brane-bound nature of these fungal proteins has impeded
+detailed mechanistic studies. The recent discovery of TtpB1,9
+the first bacterial P450 mediating regio- and stereospecific
+cyclo-L-tryptophanyl-L-tryptophanyl DKP (cWW, 2) dimeriza-
+tion to 1 (Figure 1b), expands both the enzymatic repertoire
+for BPI biosynthesis and opportunities for mechanistic
+investigations. Furthermore, additional bacterial asymmetric
+DKP dimerases, including NzeB (synonym NasF5053),21−23
+NascB,24 NasbB (synonym NasB),22,25 and AspB (synonym
+NasS1868),22,25 catalyze the formation of various asymmetric
+dimers structurally related to BPI alkaloids, including
+pyrroloindoline-containing DKP dimers such as naseseazines
+Received:
+August 25, 2025
+Revised:
+November 25, 2025
+Accepted:
+November 26, 2025
+Published: December 1, 2025
+Article
+pubs.acs.org/JACS
+© 2025 American Chemical Society
+45199
+https://doi.org/10.1021/jacs.5c14741
+J. Am. Chem. Soc. 2025, 147, 45199−45209
+Downloaded via OCEAN UNIV OF CHINA on December 28, 2025 at 09:18:51 (UTC).
+See https://pubs.acs.org/sharingguidelines for options on how to legitimately share published articles.
+
+
+
+[PDF physical page 2]
+and other dimers (Figure S2). Despite these advances, the
+precise molecular mechanisms governing the formation of the
+intriguing BPI scaffold remain poorly understood.
+The prevailing model of BPI-DKP biosynthesis proposes
+that the process proceeds through the coupling of two
+pyrroloindoline C3-radicals via a P450-catalyzed diradical
+mechanism (Figure 1b).9,18,20 The formation of the first
+pyrroloindoline may initiate through alternative hydrogen
+abstraction pathwayseither at the indole N−H or the DKP
+N−H position. The second pyrroloindoline radical intermedi-
+ate is thought to form similarly, possibly via Compound II,
+followed by radical coupling to complete the assembly of the
+BPI scaffold. Although chemical synthesis can be achieved
+through diradical coupling,14,15,17 fundamental gaps remain in
+understanding the enzymatic process: (i) how the two
+pyrroloindoline units are formed, and (ii) what governs the
+stereochemistry at the adjacent quaternary centers. Addressing
+these unresolved issues is critical for understanding the
+mechanism of BPI formation and the catalytic principles of
+P450 dimerases.
+In this study, we present the first molecular insights into
+BPI-forming P450 catalysis. Our findings reveal an unprece-
+dented radical-initiated cascade for BPI scaffold assembly,
+challenging the prevailing diradical coupling model. Through
+structural, biochemical, and computational analyses, we
+identify key active-site residues and delineate a multistep
+pathway in which dynamic substrate conformations guide the
+stereoselective formation of the BPI scaffold. Remarkably, a
+single P450 enzyme employs two distinct cyclization modes to
+generate both pyrroloindoline moieties. These findings
+redefine the catalytic principles of P450 dimerases and
+significantly expand our understanding of the enzymatic
+strategies for assembling complex dimeric natural products.
+Figure 1. BPI alkaloids and their proposed biosynthetic pathway. (a) Structural diversity of the three main type BPI alkaloids: BPI diketopiperazine
+(BPI-DKP), BPI epipolythiodiketopiperazine (BPI-ETP) and chimonanthine-type BPI alkaloids (BPI core highlighted in color), and representative
+BPI-DKP alkaloids. (b) Simplified mechanistic proposal for P450-catalyzed DKP dimerization during BPI core assembly*.
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.5c14741
+J. Am. Chem. Soc. 2025, 147, 45199−45209
+45200
+
+
+
+[PDF physical page 3]
+■RESULTS
+Functional Characterization of TtpB1. In the course of
+our independent investigation into diketopiperazine (DKP)
+dimerases derived from bacterial genomes,24 we also function-
+ally characterized the TtpB1 gene cluster.9 Heterologous
+expression of the cyclodipeptide synthase (CDPS) TtpA1 in
+Escherichia coli BL21 (DE3) confirmed that it mediated the
+production of cWW (2) (Figure S3). Subsequent feeding
+experiments involving 2 inMycobacterium smegmatis MC2 155
+strain26 expressing TtpB1 led to the isolation and NMR-based
+structural determination of the enzymatic product 1 (Figure
+S4), thereby confirming the functional activity of TtpB1.
+For biochemical characterization, recombinant TtpB1 was
+purified (Figure S5), and its activity was successfully
+reconstituted in vitro using a spinach-derived redox system
+consisting of ferredoxin, ferredoxin reductase (Fd/FdR), and
+NADPH (Figure 2a). The enzyme’s kinetic parameters were
+determined to be Km = 0.178 ± 0.05 mM and kcat = 0.308 ±
+0.33 min−1 (Figure S6), which are similar to the values
+reported by Li et al.9 To assess substrate specificity, we tested
+an additional 23 tryptophan-containing DKPs, including four
+halogenated cWW analogs (Figure S7). TtpB1 exhibited
+activity exclusively toward four halogenated cWW derivatives
+(5-F-cWW; 7-F-cWW; 5,5′-F-cWW; 6,6′-Cl-cWW), distin-
+guishing them from other tested DKPs (Figure S7). Structural
+analysis confirmed that the dimerization product of 6,6′-Cl-
+cWW (3), compound 4, maintains the same BPI framework as
+the native product 1 (Figure 2a). These findings suggest that
+TtpB1 has a strict preference for the cWW core structure but
+can accommodate specific halogen modifications.
+TtpB1 Utilizes Cpd I as a Putative Oxidant. Recent
+studies suggested that certain P450 enzymes involved in the
+formation of asymmetric DKP dimers, such as AspB (NasS1868)
+and NzeB (NasF5053) (Figure S2), may utilize ferric-superoxide
+as their primary oxidizing species.27 This represents a
+departure from the conventional P450 catalytic mechanism
+that employs Compound I (Cpd I) as the primary oxidant.28,29
+Interestingly, these enzymes lack the conserved acidic residue
+(Asp/Glu) in the distal pocket of the I-helix (Figure 2b),
+which is essential for proton transfer to the ferric peroxo
+intermediate during the canonical formation of Cpd I in
+canonical P450 catalysis (Figures 2c and S8).30−33 However, it
+remains unclear whether this alternative mechanism applies to
+other DKP P450 dimerases.
+A comparative sequence analysis revealed that, unlike
+asymmetric DKP dimerases of AspB, NzeB (NasF5053) and
+NascB, the TtpB1 retains the conserved P450 “acid-alcohol
+pair” motif, with glutamate at position 241 and serine at
+position 242 (E241 and S242) (Figure 2b). Site-directed
+mutagenesis of S242 to alanine, or E241 to alanine or
+asparagine resulted in a significant decrease in catalytic activity
+(Figure 2d), confirming the importance of this motif for
+Figure 2. Function analysis of TtpB1. (a) Substrate specificity screening of TtpB1. (b) Sequence alignment of the I-helix of TtpB1, AspB
+(NasS1868), other DKP dimerases, and well-characterized CYPs (P450cam). “Acid-alcohol pair” (highlighted in black frame). (c) Architectural
+features of I-helix proton delivery residues. An Asp/Glu facilitates initial protonation of the peroxo-anion distal oxygen, while a Thr/Ser assists the
+second protonation, enabling O−O bond cleavage and H2O release to form Cpd I. (d) Relative activities of the enzyme reactions of TtpB1, and it is
+Ser242, Glu241 mutants with 2 in the NADPH-based system. Error bars indicate standard deviation from three independent replicates system. (e)
+Initial velocities of 1 formation by TtpB1 in H2O (blue) and D2O (Green) in NADPH based system. Error bars indicate standard deviation from
+three independent replicates system. (f) Biochemical assay of TtpB1 using H2O2 as oxygen surrogate with substrate 2.
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.5c14741
+J. Am. Chem. Soc. 2025, 147, 45199−45209
+45201
+
+
+
+[PDF physical page 4]
+proton transfer. Additionally, steady-state kinetic solvent
+isotope effect (KSIE) assays conducted in D2O yielded a
+normal KSIE value of 1.66 (Figure 2e), consistent with proton
+transfer being rate-limiting in the classical Cpd I-mediated
+catalysis.34 To further rule out the involvement of a ferric-
+superoxide mechanism, hydrogen peroxide (H2O2) was used as
+an oxygen surrogate, bypassing the ferric-superoxide inter-
+mediate and directly generating Cpd I (Figure S8).35−37 The
+clear detection of product 1, albeit at a low yield (Figure 2f),
+supports the conclusion that TtpB1 follows the classical Cpd I
+intermediate pathway, rather than relying on a superoxide
+species as its reactive oxidant.
+Asymmetric Substrate-Binding Modes in the TtpB1-
+Substrate Complex. To investigate the molecular basis of
+substrate recognition and catalysis by TtpB1, we conducted
+crystallographic analyses of its complex with the native cWW
+(2) substrate. Despite extensive efforts, only a monoliganded
+complex was obtained at 2.50 Å resolution (PDB ID: 9W5T)
+(Figure 3a), which did not fully capture the authentic
+bisubstrate-binding conformation. This limitation was ad-
+dressed by using halogenated cWW analogs, with compound
+3 enabling successful cocrystallization at 2.48 Å resolution
+(PDB ID: 9W0A) (Figure 3b). The resulting structure
+revealed a well-defined dual-substrate complex, with both
+substrate molecules clearly resolved in the electron density
+maps (Figure 3b,c). A comparative structural analysis between
+the TtpB1-2 (one substrate) and TtpB1-3 (two substrates)
+complexes showed nearly identical substrate-binding con-
+formations (Figure S9, RMSD: 0.327 Å), suggesting that
+halogenation at the C6 does not significantly alter the native
+binding mode of cWW (2).
+Contrary to the initial hypothesis that both substrates would
+adopt identical conformations to form symmetric pyrroloindo-
+line units, the structural data revealed distinct binding modes
+for the two 3 molecules within the TtpB1-substrate complex.
+Specifically, the TtpB1-3 complex displayed asymmetric
+binding of the two molecules of compound 3: Sub1 adopts a
+U-shaped conformation, interacting with residues G87, A237,
+L175, and W189 (Figure 3d), a conformation likely critical for
+the cyclization step. In contrast, Sub2 assumes an extended
+conformation stabilized by hydrophobic interactions with
+residues including P11, F80, G177, G287, G288, P290, and
+I390 (Figure 3d). This asymmetric binding model suggests
+that the two pyrroloindoline units are unlikely formed via the
+speculated C3-diradical coupling pathway.
+Furthermore, TtpB1 shares approximately 40% sequence
+identity with the asymmetric DKP dimerases NzeB (NasF5053)
+and AspB (NasS1868),21,22 which maintain a similar substrate-
+binding geometry (Figure S10). Both of these asymmetric
+DKP dimerases exhibit dual functionality, allowing precise
+control over radical coupling reactions while preserving strict
+stereospecificity. This structural conservation suggests that
+TtpB1 may employ a similar radical cascade mechanism to
+construct at least one pyrroloindoline unit, with the ability to
+control radical coupling and stereospecific catalysis to form the
+C3−C3′ connection.
+Figure 3. Structural analysis of TtpB1, 2Fo−Fc electron density maps (blue color mesh, contoured at 1.8 σ) of 3. (a) Crystal structure of TtpB1 in
+complex with one 2 (yellow) molecule. (b) Crystal structure of TtpB1 in complex with two 3 molecules. (c) 2Fo−Fc electron density maps (blue
+color mesh, contoured at 1.8 σ) of 3 in the active site of TtpB1 (Sub2-L, Sub1-U; L and U indicate extended and U-shaped, respectively). (d)
+Crystal structure of TtpB1 in complex with two 3 molecules and its active sites. (e) Mutational analysis of key amino acids identified by molecular
+dynamics (MD) simulations, relative activities of the enzyme reactions of TtpB1 and its Ala237, Phe80, Trp189, Leu175 mutants with 2 in
+NADPH-based. N.D.: Not detected. Error bars indicate standard deviation from three independent replicates.
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.5c14741
+J. Am. Chem. Soc. 2025, 147, 45199−45209
+45202
+
+
+
+[PDF physical page 5]
+Cpd I Species Initiates DKP N12−H Abstraction for
+the First Pyrroloindoline Formation. To elucidate the
+mechanism underlying the TtpB1-catalyzed dimerization
+reaction, a combination of molecular dynamics (MD)
+simulations and quantum mechanics/molecular mechanics
+(QM/MM) calculations was performed under the Cpd I
+state. Initially, 200 ns MD simulations were carried out (Figure
+S11) to characterize the binding modes of the two substrates.
+Consistent with prior investigations of other DKP dimerases,
+two predominant binding conformations of Sub1 were
+identified during the MD simulations (Figure S12). In
+conformation a (Conf-a), the DKP N12−H forms a hydrogen
+bond with Cpd I (Figure S12a). Additionally, in Conf-a, Sub1
+engages in hydrogen-bonding interactions with residues
+Ala237 and Phe80, as well as hydrophobic contacts with
+Leu175 and Trp189. Site-directed mutagenesis of A237G,
+F80A, L175A, W189F, and W189A, along with combinatorial
+double mutants, resulted in a substantial reduction in catalytic
+activity (Figure 3e), indicating the critical role of these residues
+in stabilizing Sub1 in the Conf-a conformation. Notably, the
+W189F variant retained relatively high catalytic efficiency,
+suggesting that optimal substrate stabilization necessitates a
+balance between steric effects and aromatic π−π interactions.
+In an alternative conformation b (Conf-b), Sub1 adopts a
+configuration wherein its indole N1−H forms a hydrogen
+bond with the Cpd I species, resembling the conformation
+observed in the crystal structure (Figure S12b). Given that
+both binding modes were sampled during the MD simulations,
+both were incorporated into subsequent mechanistic analyses.
+Recent structural and computational studies of related
+asymmetric DKP dimerases, like NzeB (NasF5053), NascB and
+PtmB, have suggested that the Cpd I species preferentially
+targets the DKP N12−H position rather than the indole N1−
+H to initiate the hydrogen atom abstraction (HAA) in
+asymmetric DKP dimerases.36,38,39 To evaluate whether this
+mechanistic preference extends to BPI-DKP formation, we first
+explored the feasibility of an N1-initiated pathway, wherein
+Cpd I abstracts the hydrogen from the indole N1−H bond to
+generate a pyrroloindoline intermediate.
+Our QM/MM study suggests that HAA from the indole
+N1−H group by Cpd I proceeds with a modest energy barrier
+of 12.5 kcal/mol (Figure S13), yielding the intermediate Int1c,
+which is 1.8 kcal/mol higher in energy relative to the reactant
+complex (RCc). Population analysis reveals that the radical
+generated in Int1c is delocalized over the indole ring of Sub1,
+with significant spin population localized at C3 (−0.46) and
+N1 (−0.24). Emerging from the Int1c intermediate, four
+potential reaction pathways were explored (Figure S14);
+however, all were found to be inaccessible kinetically for
+further cyclization (Figure S15). Additionally, the N1-initiated
+pathway requires multiple proton transfers (Figure 1b), yet no
+suitable proton-shuttling residues are positioned near Sub1 to
+facilitate these steps (Figure 3d). Even assuming indole
+nitrogen (N1•) protonation, precedent from asymmetric
+DKP dimerases indicates that the resulting protonated indole
+radical remains inert toward both cyclization and intermo-
+lecular coupling.21,39 Consequently, HAA from the substrate
+indole N1−H group leads to a dead-end intermediate (Int1c)
+incapable of further transformation, consistent with prior
+theoretical studies toward asymmetric DKP dimerases.21,39
+Concurrently, building upon previously proposed catalytic
+mechanisms observed in asymmetric DKP dimerases,36,38,39 we
+Figure 4. QM/MM-calculated energy profile (in kcal/mol) and structures for Cpd I-mediated H-abstraction from diketopiperazine N12−H to
+form intermolecular C3−C3′ bond. The spin population of the key atoms is also given. The key distances are given in Å. For clarity, only relevant
+hydrogen atoms were shown.
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.5c14741
+J. Am. Chem. Soc. 2025, 147, 45199−45209
+45203
+
+
+
+[PDF physical page 6]
+considered HAA from the DKP N12−H bond by Cpd I as the
+more plausible initiation pathway. We therefore investigated
+this process through combined computational and exper-
+imental approaches. Figure 4 presents the QM/MM-calculated
+relative energy profile and the corresponding intermediate
+structures derived from Conf-a. The analysis reveals that HAA
+from the N12−H bond encounters an energy barrier of 18.5
+kcal/mol, resulting in the formation of the Cpd II intermediate
+and the N12-centered radical species within Int1a. Structural
+analysis shows Sub1′s U-shaped conformation directs Re-face
+attack to form a 2R-pyrroloindoline intermediate, contrasting
+with TtpB1′s native 2S product. To explain this discrepancy,
+we first examined the nucleophilic attack of N12 on the C2
+position of the indole C2C3 double bond from Int1a via the
+Re-face approach, yielding a pyrroloindoline radical inter-
+mediate. The computed activation barrier for this step (Int1a
+→TS2a) is 23.0 kcal/mol relative to the reactant complex
+(RCa). The intramolecular N12−C2 bond formation inter-
+Figure 5. Mechanistic analysis of substrate conformational dynamics and reaction pathway. (a) QM/MM-calculated energy profile (in kcal/mol)
+and structures for the following reactions from Int1a. The spin population of the key atoms is also given. The key distances are given in Å. For
+clarity, only relevant hydrogen atoms were shown. (b) Relative enzymatic activities of TtpB1 and Glu315 mutants (proposed proton acceptors)
+with substrate 2 in NADPH-dependent reactions. N.D.: Not detected. Error bars indicate standard deviation from three independent replicates.
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.5c14741
+J. Am. Chem. Soc. 2025, 147, 45199−45209
+45204
+
+
+
+[PDF physical page 7]
+mediate, Int2a, is calculated to be 5.5 kcal/mol higher in energy
+than Int1a. These data indicate that while 2R-product
+formation is kinetically viable, generation of the native 2S
+configuration requires Int1a conformational rearrangement.
+Subsequent catalytic steps appear to impose stereochemical
+constraints that selectively disfavor 2R-intermediate progres-
+sion, ultimately driving 2S-product formation.
+Intermolecular C3−C3′ Bond Formation Occurs
+before the Second Pyrroloindoline Cyclization. Regard-
+ing subsequent catalysis, prior studies widely proposed that
+independent cyclization of Sub2 by Cpd II could generate a
+second pyrroloindoline radical intermediate.9,18,20 To test this
+hypothesis, we first evaluated the Cpd II-mediated HAA from
+DKP-NH within Int2a. However, the calculated energy barriers
+derived from the scanned energy profile exceed 37.4 kcal/mol,
+indicating that this pathway is highly unfavorable kinetically
+(Figure S16a). The extended conformation of Sub2 positions
+both N1−H′ and N12−H′ ≥8.0 Å from the heme center
+(Figure S16b), making direct cyclization at these sites
+improbable. Notably, the shorter distance (5.0 Å) between
+C3 and C3′ suggests their bond formation occurs prior to
+cyclization, challenging the proposed two independent
+cyclization mechanism.
+Beginning with intermediate Int2a, the intermolecular C3−
+C3′ coupling between the pyrroloindoline radical and Sub2
+was investigated. As illustrated in Figures 4 and S17, this
+process (Int2a →TS3a) encounters a substantial energy barrier
+of 33.7 kcal/mol relative to RCa, indicating that direct
+intramolecular N12−C2 coupling within Int1a is unlikely to
+facilitate the dimerization reaction.
+Inspired by previous studies on asymmetric DKP dimerases
+and other DKP-related P450 enzymes,22,39−41 we assumed the
+DKP radical (Int1a) may undergo the conformational change
+to facilitate the subsequent dimerization. To explore this
+possibility, the rotation of the dihedral angle C2−C3−C10−
+C11 was examined using enhanced umbrella sampling. As
+depicted in Figure S18a, such a rotation process encounters an
+energy barrier of 8.9 kcal/mol, resulting in an alternative
+conformation that is 6.2 kcal/mol higher in energy than the
+initial state. In this new conformation, the Sub1 radical is
+stabilized through hydrogen bonding interactions with
+surrounding residues, including Ala237 and Phe80 (Figure
+S18b). Additionally, the dihedral angle increases to 61.0°,
+facilitating N12-mediated radical addition to the C2 position
+(indole Si-face), ultimately generating the S-configured
+pyrroloindoline radical intermediate. To further assess the
+stability of the Sub1 radical in this “Si” conformation, fully
+relaxed MD simulations were conducted over 200 ns,
+demonstrating system stability with a backbone atom root-
+mean-square deviation (RMSD) below 1.5 Å (Figure S19a).
+Figure 5a illustrates the QM/MM-calculated relative energy
+profile for the dimerization reaction initiated from the “Si”
+conformation (Int1b) of the Sub1 radical. In the Int1b
+intermediate, the spin density is primarily localized on the
+N12 atom (−0.75). From this state, the N12 atom attacks the
+Si-face of the C2C3 double bond, overcoming an energy
+barrier of 21.5 kcal/mol to yield Int2b. This step is exothermic,
+with an energy release of 8.4 kcal/mol (Int1b →Int2b). The
+C2 atom retains the S stereochemistry in Int2b, consistent with
+the stereochemical configuration observed in the final product
+at this position. Within the newly formed Int2b intermediate,
+the C3 site exhibits the highest spin density (−0.62), which
+facilitates the subsequent intermolecular C3−C3′ bond
+formation. However, the direct formation of the C3−C3′
+bond from Int2b is highly unfavorable kinetically, requiring an
+exceptionally high activation barrier exceeding 77.0 kcal/mol
+(Figure S20), primarily due to steric constraints arising from
+the extended C3−C3′ distance of 8.58 Å.
+To address this, additional MD simulations (Figure S21a)
+were performed to relax the active site conformation of Int2b,
+resulting in a new intermediate, Int2b′. In Int2b′, the
+pyrroloindoline radical intermediate engages in π−π stacking
+interactions with the indole ring of Sub2, reducing the C3−C3′
+bond distance to 4.02 Å (Figure S21b). Starting from Int2b′,
+QM/MM calculations show that the C3−C3′ coupling
+proceeds with a significantly lower energy barrier of 20.6
+kcal/mol (Int2b′ →TS3b). This step is endothermic by 5.3
+kcal/mol (Int2b′ →Int3b). Our findings suggest that the 2S-
+pyrroloindoline intermediate (Int2b′) is competent for
+subsequent coupling, unlike its 2R-configured counterpart
+(Int2a, Figure 4). Both thermodynamic and kinetic analyses
+reveal a strong preference for Int2b′ in facilitating the C3−C3′
+coupling step. MD simulations further demonstrate that after
+Sub1 forms the initial pyrroloindoline radical intermediate
+(Int2b), Sub2 adopts a conformation prohibitive to independ-
+ent cyclization. Notably, the O1 atom of Cpd II maintains
+average distances of 7.72 Å (from N1′−H) and 10.24 Å (from
+N12′−H), while the C3−C3′ distance remains significantly
+shorter (4.30 Å) (Figure S21). Together, these structural and
+energetic insights unequivocally support C3−C3′ radical
+addition as the dominant pathway for DKP−DKP linkage
+formation after initial cyclization, being both thermodynami-
+cally favorable and kinetically accessible.
+SET-Triggered Cyclization for the Second Pyrroloin-
+doline Formation. Thereafter, we found that Int3b can
+undergo a spontaneous electron transfer, during which the
+electron shifts from the substrate radical to the Fe(IV)−OH
+moiety, affording the substrate cation and Fe(III)−OH species
+within Int4b. This process is thermodynamically favorable, with
+an exothermicity of 9.2 kcal/mol (Int3b→Int4b). To evaluate
+alternative pathways, we examined an OH-rebound mechanism
+for hemiaminal formation but found it energetically unfavor-
+able (>30.7 kcal/mol barrier) due to the excessive O1−C2′
+distance (6.60 Å) in Int3b (Figure S22). These results
+collectively support the electron transfer pathway. In Int3b,
+the spin population on Fe and C2 is 1.71 and −0.50,
+respectively (Figure 5a). In Int4b, the spin population on Fe
+and C2 changes to 1.00 and 0.00 (Table S1), respectively.
+These support the electron transfer from the substrate radical
+to the iron center (Figures S23 and S24).
+Starting from Int4b, we assume that the substrate cation may
+lose the proton from the NH+ group. Thus, MD simulations
+were conducted on Int4b to identify possible proton receptor
+near the indole N1′−H′ cation group (Figure S25a). Notably,
+these MD simulations reveal that the indole N1′−H moiety of
+Sub2 can form a proton channel with a water molecule and
+Glu315 (Figure S25), suggesting that Glu315 can act as a base
+to mediate the deprotonation process. Starting from the MD-
+derived structure Int4b′ (Figure 5a), QM/MM calculations
+indicate that the water-assisted proton transfer from N1′−H is
+favorable both kinetically and thermodynamically. This process
+involves an activation barrier of 10.9 kcal/mol (Int4b′ →TS4b)
+and an exothermicity of 5.6 kcal/mol (Int4b′ →Int5b). Indeed,
+site-directed mutagenesis of the putative general base Glu315
+to alanine or glutamine nearly abolishes catalytic activity
+(Figure 5b), underscoring the critical role of Glu315 in proton
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.5c14741
+J. Am. Chem. Soc. 2025, 147, 45199−45209
+45205
+
+
+
+[PDF physical page 8]
+transfer. To further evaluate potential alternative pathways, we
+examined whether Glu315 could abstract a proton from the
+DKP NH group during nucleophilic attack on CNH+.
+However, energy profile scans revealed an insurmountable
+barrier (>79.4 kcal/mol), ruling out this mechanism (Figure
+S26a). Similarly, proton abstraction via Fe(III)−OH was also
+energetically prohibitive, with a barrier exceeding 50.3 kcal/
+mol (Figure S26b). Collectively, these findings confirm that
+neither pathway is viable, reinforcing Glu315 as the exclusive
+proton acceptor in this catalytic step.
+The final cyclization step of Int5b can be facilitated by the
+general acid−base catalyst from pH buffer via a nonenzymatic
+pathway, leading to the final product 1 with correct
+stereoselectivity (Figure S27). We also evaluated the
+subsequent cyclization starting directly from Int4b. However,
+the process exhibits a barrier exceeding 35.0 kcal/mol,
+rendering this pathway kinetically prohibitive (Figure S28).
+pH-dependent kinetic assays, performed to detect potential
+intermediates, revealed none observable but indicated optimal
+reactivity under near-neutral conditions (pH ∼7.0, Figure
+S29). Notably, this cyclization strategy aligns well with
+established synthetic approach for C3-substituted pyrroloindo-
+lines,42,43 thereby reinforcing the validity of our computational
+model.
+■DISCUSSION
+Inspection of Figures 4 and 5a reveals that the intermolecular
+C3−C3′ bond formation from the “Si” conformation (Int2b →
+TS3b, Figures 5a and S30) is significantly more favorable than
+that from the “Re” conformation (Int2a →TS3a, Figure 4).
+This preference is primarily attributed to the substantially
+lower energy of Int2b (7.9 kcal/mol) relative to Int2a (15.6
+kcal/mol). In Int2a, the dihedral angle C3−C10−C11−C16 is
+measured at −119.3°, resulting in considerable ring strain
+within the newly formed five-membered ring. Conversely, Int2b
+exhibits a dihedral angle of −168.6°, which effectively alleviates
+ring strain. Consequently, rotation around the C2−C3−C4−
+C11 dihedral angle not only reduces the activation barrier for
+the intermolecular C3−C3′ bond coupling between the
+pyrroloindoline radical intermediate and Sub2 but also dictates
+the stereoselectivity of the dimerization reaction.
+Our computational study indicates that the TtpB1-catalyzed
+dimerization is initiated by HAA from the diketopiperazine
+N12−H atom of Sub1, corroborating previous findings.36,38,39
+Notably, N12−H abstraction by Cpd I proves essential for
+initial cyclization, mirroring mechanisms in asymmetric DKP
+dimerases.38,39 Substrate conformational dynamics emerge as
+critical for coupling efficiency, evidenced by thiotryptophan-
+derived DKPs that disrupt the requisite hydrogen-bonding
+network for N12-proximal alignment (Figures S31 and S32).
+The intramolecular N12−C2 bond formation constitutes the
+rate-limiting step (transition from Int1b to Int2b), with an
+Scheme 1. Proposed Catalytic Mechanism for TtpB1-Catalyzed BPI-DKP Formation Based on Current Study Findings
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.5c14741
+J. Am. Chem. Soc. 2025, 147, 45199−45209
+45206
+
+
+
+[PDF physical page 9]
+overall activation barrier of 21.5 kcal/mol, which aligns closely
+with the experimentally derived value of 20.6 kcal/mol based
+on the kinetic parameter (kcat = 0.308 min−1). Furthermore,
+structural and biochemical analyses suggest that Phe80 and
+Leu175 play critical roles in stabilizing the reactive
+conformation of Sub1, while Glu315 functions as a proton
+acceptor to facilitate the rate-limiting proton transfer step. Site-
+directed mutagenesis of these residues (Phe80Ala, Leu175Ala,
+and Glu315Ala) significantly impaired catalytic activity
+(Figures 3e and 5b), providing experimental support for the
+proposed mechanism.
+Based on our integrated structural and computational
+analyses, Scheme 1 summarizes the molecular mechanism by
+which P450 TtpB1 catalyzes the formation of the C2-
+symmetric BPI skeleton. The transformation proceeds through
+a sequential radical cascade. Initially, an N12-radical-mediated
+cyclization by Cpd I forms the first pyrroloindoline radical
+intermediate. This is followed by a C3−C3′ radical addition
+and SET-driven cyclization, leading to the formation of the
+second pyrroloindoline moiety. TtpB1 catalyzes BPI-DKP
+formation through an unprecedent P450-mediated cyclization-
+coupling-cyclization cascade, challenging the prevailing hy-
+pothesis of diradical-mediated coupling between two in-
+dependently cyclized intermediates. This reaction exemplifies
+rare P450-catalyzed N-centered radical chemistry in indole
+alkaloid biosynthesis.44 Unlike typical P450 mechanisms
+involving indole N−H abstraction followed by radical
+coupling, TtpB1 employs direct N12-radical-initiated addition
+for C−C bond formation. This unconventional reactivity not
+only drives DKP dimerization but also expands the scope of
+P450-mediated indole alkaloid biosynthesis.44,45 These mech-
+anistic insights could enable the development of novel cascade
+strategies for constructing BPI-DKP frameworks.
+TtpB1 represents the first structurally characterized BPI
+synthase, and our study provides the first structure-guided
+mechanistic insight into BPI-DKP synthase. Notably, while
+P450 enzymes have been confirmed to play a role in BPI-DKP
+biosynthesis among the diverse BPI alkaloids, biosynthetic
+logic and gene cluster analyses strongly suggest that P450s are
+likely involved in the assembly of other BPI frameworks.46−48
+Our computational analyses further indicate that the TtpB1
+catalytic mechanism is likely conserved in P450-mediated BPI-
+DKP biosynthesis. Stereochemical diversification of the core
+scaffold may result from P450-dependent conformational
+control of the DKP substrate.
+Furthermore, comparative structural and mechanistic
+analyses of other asymmetric DKP dimerasesincluding
+NzeB (NasF5053),21−23 NasbB (NasB),22,25,39 and AspB
+(NasS1868)22,25,38underscore the distinctive regioselectivity
+exhibited by TtpB1 in DKP dimerization. While TtpB1 shares
+substrate binding conformations and catalytic mechanisms for
+the formation of the first pyrroloindoline unit with these
+asymmetric DKP dimerases, the primary divergence lies in the
+C3−C3′ regioselectivity of the C3-pyrroloindoline radical
+addition. This regioselective difference critically influences the
+subsequent SET-triggered cyclization of the second pyrroloin-
+doline unit. Phylogenetic analyses further corroborate evolu-
+tionary relationships between BPI-DKP synthases and
+asymmetric dimerases (Figure S33). Collectively, these
+findings elucidate the fundamental mechanistic principles
+underlying TtpB1-catalyzed assembly of symmetric BPI-DKP
+scaffolds. Beyond establishing a comprehensive reaction
+blueprint for this transformation, our work provides broader
+insights into biosynthetic strategies employed in both
+symmetric and asymmetric DKP dimer alkaloid formation.
+■CONCLUSION
+In summary, this study elucidates the molecular mechanism of
+TtpB1-catalyzed BPI-DKP formation, revealing an unprece-
+dented biosynthetic cascade that challenges prevailing
+hypotheses in BPI-DKP scaffold biosynthesis. Through
+structural, biochemical and computational analyses, we have
+(i) clarified the previously debated catalytic mechanism,
+demonstrating how the TtpB1 processes identical pyrroloindo-
+line units via distinct cyclization pathways; (ii) identified a
+HAA-initiated radical cascade sequence (N12−H →N12• →
+C2−N12 cyclization →C3−C3′ coupling →C2′−N12′
+cyclization) characterized by precise spatiotemporal regulation;
+and (iii) elucidated the role of TtpB1-mediated substrate
+repositioning into a Si-face attack conformation, which resolves
+both kinetic and stereochemical constraints. These findings
+unveil the long-standing mystery of how the symmetrical
+pyrroloindoline moiety in BPI-DKP alkaloids is assembled
+through TtpB1-catalyzed biosynthesis, deepen the mechanistic
+understanding of BPI-DKP skeleton formation and DKP
+dimerization, and provide a structural framework for the
+rational engineering of BPI-DKP synthases. This could enable
+the production of structurally diverse BPI-DKP scaffolds with
+potential pharmaceutical applications.
+■ASSOCIATED CONTENT
+Data Availability Statement
+The structure of substrate complexes TtpB1-2 and TtpB1-3
+have been deposited in the Protein Data Bank under ID
+numbers:9W0A and 9W5T, respectively.
+*
+sı Supporting Information
+The Supporting Information is available free of charge at
+https://pubs.acs.org/doi/10.1021/jacs.5c14741.
+Full experimental and computational details, NMR
+spectra, tables, and figures (PDF)
+■AUTHOR INFORMATION
+Corresponding Authors
+Guangzheng Wei −State Key Laboratory of Microbial
+Metabolism and School of Life Sciences and Biotechnology,
+Shanghai Jiao Tong University, Shanghai 200240, China;
+Zhangjiang Institute for Advanced Study, Shanghai Jiao Tong
+University, Shanghai 201203, China; Email: gzhwei@
+sjtu.edu.cn
+Binju Wang −State Key Laboratory of Physical Chemistry of
+Solid Surfaces and Fujian Provincial Key Laboratory of
+Theoretical and Computational Chemistry, College of
+Chemistry and Chemical Engineering, Xiamen University,
+Xiamen 361005, China;
+orcid.org/0000-0002-3353-
+9411; Email: wangbinju2018@xmu.edu.cn
+Xudong Qu −State Key Laboratory of Microbial Metabolism
+and School of Life Sciences and Biotechnology, Shanghai Jiao
+Tong University, Shanghai 200240, China; Zhangjiang
+Institute for Advanced Study, Shanghai Jiao Tong University,
+Shanghai 201203, China;
+orcid.org/0000-0002-3301-
+8536; Email: quxd19@sjtu.edu.cn
+Authors
+Yeqing Du −State Key Laboratory of Microbial Metabolism
+and School of Life Sciences and Biotechnology, Shanghai Jiao
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.5c14741
+J. Am. Chem. Soc. 2025, 147, 45199−45209
+45207
+
+
+
+[PDF physical page 10]
+Tong University, Shanghai 200240, China; Zhangjiang
+Institute for Advanced Study, Shanghai Jiao Tong University,
+Shanghai 201203, China
+Tai-Ping Zhou −State Key Laboratory of Physical Chemistry
+of Solid Surfaces and Fujian Provincial Key Laboratory of
+Theoretical and Computational Chemistry, College of
+Chemistry and Chemical Engineering, Xiamen University,
+Xiamen 361005, China
+Yuhan Dai −State Key Laboratory of Microbial Metabolism
+and School of Life Sciences and Biotechnology, Shanghai Jiao
+Tong University, Shanghai 200240, China; Zhangjiang
+Institute for Advanced Study, Shanghai Jiao Tong University,
+Shanghai 201203, China
+Wenya Tian −State Key Laboratory of Microbial Metabolism
+and School of Life Sciences and Biotechnology, Shanghai Jiao
+Tong University, Shanghai 200240, China; Zhangjiang
+Institute for Advanced Study, Shanghai Jiao Tong University,
+Shanghai 201203, China
+Mancheng Tang −State Key Laboratory of Microbial
+Metabolism and School of Life Sciences and Biotechnology,
+Shanghai Jiao Tong University, Shanghai 200240, China;
+Zhangjiang Institute for Advanced Study, Shanghai Jiao Tong
+University, Shanghai 201203, China;
+orcid.org/0000-
+0001-9418-3239
+Zixin Deng −State Key Laboratory of Microbial Metabolism
+and School of Life Sciences and Biotechnology, Shanghai Jiao
+Tong University, Shanghai 200240, China
+Complete contact information is available at:
+https://pubs.acs.org/10.1021/jacs.5c14741
+Author Contributions
+#Y.D., G.W., and T.-P.Z. contributed equally to this work.
+Notes
+The authors declare no competing financial interest.
+■ACKNOWLEDGMENTS
+This work was supported by the National Natural Science
+Foundation of China (82404485 to Y.D., 22307076 to G.W.,
+22277075 and 32425033 to X.Q.), China Postdoctoral Science
+Foundation (2024M761990 to Y.D.), Yunnan Provincial
+Science and Technology Talent and Platform Program
+(202505AF350066 to X.Q.), and National Key R&D Program
+of China (2025YFA0921000 to X.Q.). We thank Prof.
+Chengpeng Fan from Wuhan University for his assistance
+during the process of analyzing the crystal structure. We also
+thank the staff of beamline BL10U2 of Shanghai Synchrotron
+Radiation Facility (SSRF) for access and help with the X-ray
+data collection.
+■REFERENCES
+(1) Ma, Z.; Zhou, A.; Xia, C. Strategies for total synthesis of
+bispyrrolidinoindoline alkaloids. Nat. Prod. Rep 2022, 39, 1015−1044.
+(2) Crich, D.; Banerjee, A. Chemistry of the hexahydropyrrolo[2,3-
+b]indoles: configuration, conformation, reactivity, and applications in
+synthesis. Acc. Chem. Res 2007, 40, 151−161.
+(3) Sun, C.; Tian, W.; Lin, Z.; Qu, X. Biosynthesis of pyrroloindo-
+line-containing natural products. Nat. Prod. Rep 2022, 39, 1721−
+1765.
+(4) Ruiz-Sanchis, P.; Savina, S. A.; Albericio, F.; Álvarez, M.
+Structure, bioactivity and synthesis of natural products with
+hexahydropyrrolo[2,3-b]indole. Chem. - Eur. J. 2011, 17, 1388−1408.
+(5) Pierre, H. C.; Amrine, C. S. M.; Doyle, M. G.; Salvi, A.; Raja, H.
+A.; Chekan, J. R.; Huntsman, A. C.; Fuchs, J. R.; Liu, K.; Burdette, J.
+E.; Pearce, C. J.; Oberlies, N. H. Verticillins: fungal epipolythiodiox-
+opiperazine alkaloids with chemotherapeutic potential. Nat. Prod. Rep
+2024, 41, 1327−1345.
+(6) Martínez, C.; García-Domínguez, P.; Álvarez, R.; de Lera, A. R.
+Bispyrrolidinoindoline epi(poly)thiodioxopiperazines (BPI-ETPs)
+and simplified mimetics: structural characterization, bioactivities,
+and total synthesis. Molecules 2022, 27, 7585.
+(7) Huber, E. M. Epipolythiodioxopiperazine-based natural prod-
+ucts: building blocks, biosynthesis and biological activities. Chem-
+BioChem 2022, 23, No. e202200341.
+(8) Li, C.; Ma, J.; Guo, L.; Xu, C.; Zhong, Z.; Li, P.; Tang, Y.; Wang,
+W.; Li, D.; Ye, T.; Guo, Z.; Chen, Y. Selective synthesis of
+cyclopeptides with a 2-oxindole or 3a-hydroxy-hexahydropyrrolo-[2,3-
+b]indole structure by cytochrome P450 enzymes. J. Am. Chem. Soc
+2025, 147, 3304−3314.
+(9) Liu, J.; Xie, X.; Li, S.-M. Increasing cytochrome P450 enzyme
+diversity by identification of two distinct cyclodipeptide dimerases.
+Chem. Commun 2020, 56, 11042−11045.
+(10) Springer, J. P.; Buchi, G.; Kobbe, B.; Demain, A. L.; Clardy, J.
+The structure of ditryptophenaline - a new metabolite of aspergillus
+flavus. Tetrahedron Lett 1977, 18, 2403−2406.
+(11) Saruwatari, T.; Yagishita, F.; Mino, T.; Noguchi, H.; Hotta, K.;
+Watanabe, K. Cytochrome P450 as dimerization catalyst in
+diketopiperazine alkaloid biosynthesis. ChemBioChem 2014, 15,
+656−659.
+(12) Barrow, C. J.; Cai, P.; Snyder, J. K.; Sedlock, D. M.; Sun, H. H.;
+Cooper, R. WIN 64821, a new competitive antagonist to substance P,
+isolated from an Aspergillus species: structure determination and
+solution conformation. J. Org. Chem 1993, 58, 6016−6021.
+(13) Movassaghi, M.; Ahmad, O. K.; Lathrop, S. P. Directed
+heterodimerization: stereocontrolled assembly via solvent-caged
+unsymmetrical diazene fragmentation. J. Am. Chem. Soc 2011, 133,
+13002−13005.
+(14) Kim, J.; Movassaghi, M. General approach to epipolythiodike-
+topiperazine alkaloids: total synthesis of (+)-chaetocins A and C and
+(+)-12,12′-dideoxychetracin A. J. Am. Chem. Soc 2010, 132, 14376−
+14378.
+(15) Kim, J.; Ashenhurst, J. A.; Movassaghi, M. Total synthesis of
+(+)-11,11’-dideoxyverticillin A. Science 2009, 324, 238−241.
+(16) Peterson, E. A.; Overman, L. E. Contiguous stereogenic
+quaternary carbons: A daunting challenge in natural products
+synthesis. Proc. Natl. Acad. Sci. U.S.A 2004, 101, 11943−11948.
+(17) Movassaghi, M.; Schmidt, M. A.; Ashenhurst, J. A. Concise
+total synthesis of (+)-WIN 64821 and (−)-ditryptophenaline. Angew.
+Chem., Int. Ed 2008, 47, 1485−1487.
+(18) Sato, M.; Ogata, Y.; Kodani, T.; Watanabe, K. Understanding
+the scope of cytochrome P450-catalyzed radical dimerization of
+diketopiperazines. Biochemistry 2025, 64, 490−497.
+(19) Malit, J. J. L.; Liu, W.; Cheng, A.; Saha, S.; Liu, L.-L.; Qian, P.-
+Y. Global genome mining reveals a cytochrome P450-catalyzed
+cyclization of crownlike cyclodipeptides with neuroprotective activity.
+Org. Lett 2021, 23, 6601−6605.
+(20) Ma, C.; Wang, W.; Zhang, K.; Zhang, F.; Chang, Y.; Sun, C.;
+Che, Q.; Zhu, T.; Zhang, G.; Li, D. Exploring the diverse landscape of
+fungal cytochrome P450-catalyzed regio- and stereoselective dimeri-
+zation of diketopiperazines. Adv. Sci 2024, 11, 2310018.
+(21) Shende, V. V.; Khatri, Y.; Newmister, S. A.; Sanders, J. N.;
+Lindovska, P.; Yu, F.; Doyon, T. J.; Kim, J.; Houk, K. N.; Movassaghi,
+M.; Sherman, D. H. Structure and function of NzeB, a versatile C−C
+and C−N bond-forming diketopiperazine dimerase. J. Am. Chem. Soc
+2020, 142, 17413−17424.
+(22) Sun, C.; Luo, Z.; Zhang, W.; Tian, W.; Peng, H.; Lin, Z.; Deng,
+Z.; Kobe, B.; Jia, X.; Qu, X. Molecular basis of regio- and stereo-
+specificity in biosynthesis of bacterial heterodimeric diketopiper-
+azines. Nat. Commun 2020, 11, 6251.
+(23) Sun, C.; Ma, B.-D.; Li, G.; Tian, W.; Yang, L.; Peng, H.; Lin, Z.;
+Deng, Z.; Kong, X.-D.; Qu, X. Engineering the substrate specificity of
+a P450 dimerase enables the collective biosynthesis of heterodimeric
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.5c14741
+J. Am. Chem. Soc. 2025, 147, 45199−45209
+45208
+
+
+
+[PDF physical page 11]
+tryptophan-containing diketopiperazines. Angew. Chem., Int. Ed 2023,
+62, No. e202304994.
+(24) Tian, W.; Sun, C.; Zheng, M.; Harmer, J. R.; Yu, M.; Zhang, Y.;
+Peng, H.; Zhu, D.; Deng, Z.; Chen, S.-L.; et al. Efficient biosynthesis
+of heterodimeric C3-aryl pyrroloindoline alkaloids. Nat. Commun
+2018, 9, 4428.
+(25) Yu, H.; Li, S.-M. Two cytochrome P450 enzymes from
+Streptomyces sp. NRRL S-1868 catalyze distinct dimerization of
+tryptophan-containing cyclodipeptides. Org. Lett 2019, 21, 7094−
+7098.
+(26) Sun, C.; Peng, H.; Zhang, W.; Zheng, M.; Tian, W.; Zhang, Y.;
+Liu, H.; Lin, Z.; Deng, Z.; Qu, X. Production of heterodimeric
+diketopiperazines employing a Mycobacterium-based whole-cell
+biocatalysis system. J. Org. Chem 2021, 86, 11189−11197.
+(27) Gering, H. E.; Li, X.; Tang, H.; Swartz, P. D.; Chang, W.-C.;
+Makris, T. M. A Ferric-superoxide intermediate initiates P450-
+catalyzed cyclic dipeptide dimerization. J. Am. Chem. Soc 2023, 145,
+19256−19264.
+(28) Qiao, Y.; Zhang, X.; Xu, Q.; Abe, I.; Li, A. Applications of
+cytochrome P450 monooxygenases in the biosynthesis of active
+pharmaceutical ingredients. Green Synth. Catal, 2025.
+(29) Guengerich, F. P. Mechanisms of cytochrome P450-catalyzed
+oxidations. ACS Catal 2018, 8, 10964−10976.
+(30) Huang, X.; Groves, J. T. Oxygen activation and radical
+transformations in heme proteins and metalloporphyrins. Chem. Rev
+2018, 118, 2491−2553.
+(31) Gerber, N. C.; Sligar, S. G. A role for Asp-251 in cytochrome P-
+450cam oxygen activation. J. Biol. Chem 1994, 269, 4260−4266.
+(32) Vidakovic, M.; Sligar, S. G.; Li, H.; Poulos, T. L. Understanding
+the role of the essential Asp251 in cytochrome P450cam using site-
+directed mutagenesis, crystallography, and kinetic solvent isotope
+effect. Biochemistry 1998, 37, 9211−9219.
+(33) Coleman, T.; Stok, J. E.; Podgorski, M. N.; Bruning, J. B.; De
+Voss, J. J.; Bell, S. G. Structural insights into the role of the acid-
+alcohol pair of residues required for dioxygen activation in
+cytochrome P450 enzymes. J. Biol. Inorg. Chem 2020, 25, 583−596.
+(34) Aikens, J.; Sligar, S. G. Kinetic solvent isotope effects during
+oxygen activation by cytochrome P450cam. J. Am. Chem. Soc 1994,
+116, 1143−1144.
+(35) Fan, S.; Cong, Z. Emerging strategies for modifying cytochrome
+P450 monooxygenases into peroxizymes. Acc. Chem. Res 2024, 57,
+613−624.
+(36) Wei, G.; Duan, B.; Zhou, T.-P.; Tian, W.; Sun, C.; Lin, Z.;
+Deng, Z.; Wang, B.; Zhang, Z.; Qu, X. A nucleobase-driven P450
+peroxidase system enables regio- and stereo-specific formation of C−
+C and C−N bonds. Proc. Natl. Acad. Sci. U.S.A 2024, 121,
+No. e2412890121.
+(37) Deng, D.; Jiang, Z.; Kang, L.; Liao, L.; Zhang, X.; Qiao, Y.;
+Zhou, Y.; Yang, L.; Wang, B.; Li, A. An efficient catalytic route in
+haem peroxygenases mediated by O2/small-molecule reductant pairs
+for sustainable applications. Nat. Catal 2025, 8, 20−32.
+(38) Shende, V. V.; Harris, N. R.; Sanders, J. N.; Newmister, S. A.;
+Khatri, Y.; Movassaghi, M.; Houk, K. N.; Sherman, D. H. Molecular
+dynamics simulations guide chimeragenesis and engineered control of
+chemoselectivity in diketopiperazine dimerases. Angew. Chem., Int. Ed
+2023, 62, No. e202210254.
+(39) Zhou, T.-P.; Feng, J.; Wang, Y.; Li, S.; Wang, B. Substrate
+conformational switch enables the stereoselective dimerization in
+P450 NascB: insights from molecular dynamics simulations and
+quantum mechanical/molecular mechanical calculations. JACS Au
+2024, 4, 1591−1604.
+(40) Wang, Z.; Diao, W.; Wu, P.; Li, J.; Fu, Y.; Guo, Z.; Cao, Z.;
+Shaik, S.; Wang, B. How the conformational movement of the
+substrate drives the regioselective C−N bond formation in P450
+TleB: insights from molecular dynamics simulations and quantum
+mechanical/molecular mechanical calculations. J. Am. Chem. Soc
+2023, 145, 7252−7267.
+(41) Alkhalaf, L. M.; Barry, S. M.; Rea, D.; Gallo, A.; Griffiths, D.;
+Lewandowski, J. R.; Fulop, V.; Challis, G. L. Binding of distinct
+substrate conformations enables hydroxylation of remote sites in
+thaxtomin D by cytochrome P450 TxtC. J. Am. Chem. Soc 2019, 141,
+216−222.
+(42) Zhu, S.; MacMillan, D. W. C. Enantioselective copper-catalyzed
+construction of aryl pyrroloindolines via an arylation−cyclization
+cascade. J. Am. Chem. Soc 2012, 134, 10815−10818.
+(43) Repka, L. M.; Ni, J.; Reisman, S. E. Enantioselective synthesis
+of pyrroloindolines by a formal [3 + 2] cycloaddition reaction. J. Am.
+Chem. Soc 2010, 132, 14418−14420.
+(44) Ushimaru, R.; Abe, I. Nitrogen-centered radicals driving
+unusual enzyme reactions in biosynthetic pathways. Chem. Soc. Rev
+2025, 54, 6385−6411.
+(45) Louka, S.; Barry, S. M.; Heyes, D. J.; Mubarak, M. Q. E.; Ali, H.
+S.; Alkhalaf, L. M.; Munro, A. W.; Scrutton, N. S.; Challis, G. L.; de
+Visser, S. P. Catalytic mechanism of aromatic nitration by cytochrome
+P450 TxtE: Involvement of a ferric-peroxynitrite intermediate. J. Am.
+Chem. Soc 2020, 142, 15764−15779.
+(46) Guo, Y.; Liu, J.-Z.; Limwachiranon, J.; Xu, F.; Han, Y.; Xu, L.;
+Xiong, Z.; Zhang, N.; Ding, G.; Scharf, D. H. Reconstitution of the
+early stage of chetomin biosynthesis in Aspergillus fumigatus leads to
+the production of epipolythiodioxopiperazines. Org. Lett 2024, 26,
+4469−4474.
+(47) Wang, Y.; Hu, P.; Pan, Y.; Zhu, Y.; Liu, X.; Che, Y.; Liu, G.
+Identification and characterization of the verticillin biosynthetic gene
+cluster in Clonostachys rogersoniana. Fungal Genet. Biol 2017, 103, 25−
+33.
+(48) Gerken, T.; Walsh, C. T. Cloning and sequencing of the
+chaetocin biosynthetic gene cluster. ChemBioChem 2013, 14, 2256−
+2258.
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.5c14741
+J. Am. Chem. Soc. 2025, 147, 45199−45209
+45209

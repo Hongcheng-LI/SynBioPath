@@ -23,7 +23,7 @@ foreach ($framework in @('生物合成','酶工程','细胞工厂')) {
     $expected = @($plan.files | Where-Object framework -eq $framework).Count
     $counts[$framework] = $expected
     $actual = @(Get-ChildItem -LiteralPath (Join-Path $repoRoot $framework) -Filter '*.md' -File -Recurse | Where-Object {
-        $_.Name -notin @('00. 类别导航.md','00. 来源导航.md') -and $_.Directory.Name -match '^\d\d\.'
+        $_.Name -notin @('00. 类别导航.md','00. 来源导航.md','00. 研究专题导航.md') -and $_.Directory.Name -match '^\d\d\.'
     }).Count
     if ($expected -ne $actual) { $failures += ('Physical note count mismatch: ' + $framework) }
 }
@@ -61,6 +61,11 @@ foreach ($file in $markdown) {
         $target = $match.Groups[1].Value.TrimEnd([char]92).Split('#')[0]
         if (-not $target) { continue }
         $exists = (Test-Path -LiteralPath (Join-Path $repoRoot $target)) -or (Test-Path -LiteralPath (Join-Path $repoRoot ($target + '.md')))
+        # Obsidian supports links relative to the page as well as vault-root paths.
+        if (-not $exists) {
+            $pageRelativeTarget = Join-Path $file.DirectoryName $target
+            $exists = (Test-Path -LiteralPath $pageRelativeTarget) -or (Test-Path -LiteralPath ($pageRelativeTarget + '.md'))
+        }
         if (-not $exists) { $exists = @($markdown | Where-Object { $_.BaseName -eq $target -or $_.Name -eq $target }).Count -gt 0 }
         if (-not $exists) {
             $item = [pscustomobject]@{File=$relative; Target=$target}

@@ -1,0 +1,139 @@
+---
+type: literature-reading
+zotero_key: RZNZCQRY
+doi: "10.1039/d2ra01112c"
+paper_type: research
+classification_status: pending
+reading_status: main-text-and-figures-read
+review_status: codex-source-checked
+human_full_paper_review: false
+source_attachment: TAC3TY9B
+source_sha256: 6da8857533703dc05abb6540c49871aa5666a25b7d50354361c7e5430071be14
+created: 2026-10-08
+---
+
+> 原文来源：[Zotero 条目](zotero://select/library/items/RZNZCQRY)；[DOI](https://doi.org/10.1039/d2ra01112c)；由当前 Codex 读取原始主文并核对图表，尚未经人工逐项复核。 来源限制：All8mainpages read; ESI rawGC/calibration andcitedsources/suppliercurrent specs notread；Automaticidentitytitleflagfalse actualPDFtitleDOIauthorsverified; automaticFig.candidateinventoryempty manuallyall4figuresincluded；Extractedtextmu→m fontissue; actualPDFpatchoulol ug/L notmg/L;500uL not500mL etc；Method500uLto4.5mLtotal10percent versusFigure1caption5percent unresolved；Generalbiologicaln3technicaln2 andFigure2/4n5 separatelyreported no poolingtechnicalreplicates；Figure2t/P thresholds authors;noexactP CI/rawtests verified; multiplepointt notreportedadjustment；FCphaseaccumulationnotcelltotalbiosynthesis; nofullmassbalance extractionkinetics/partitioncoefficients；Figure4area*1000notug/L orrates; no crossproductcalibration orgroupstat significance inferred；Figure1dFv/FmmaximumPSIIefficiency notdirectlinearelectronflow; dodecanelysisexplicitlyuntested；Figure3>99patch95–98others authorsSI2claimnotindependentlyquantified;2hdata notshownmethod16h；Transferrecoverynotwholepureproductyield; recyclemulticycles purity/cost/lifecycle/scale nottested；Density/materialstructuresreportedfromliterature notallnewmeasurements; UVM4parentcalledwildtype notnaturalstrain；ModelC reinhardtii4engineeredstrains notallmicrobes orcompletepaclitaxelproduction。
+
+# 文献基本信息
+
+**标题：** Biocompatible fluorocarbon liquid underlays for in situ extraction of isoprenoids from microbial cultures（生物相容性氟碳下层液相用于微生物培养中的异戊二烯类原位萃取）。研究性论文，RSC Advances，2022，12，16632–16639；DOI：[10.1039/d2ra01112c](https://doi.org/10.1039/d2ra01112c)。Zotero key：RZNZCQRY，主 PDF 附件：TAC3TY9B。第一作者及通讯作者 Sebastian Overmans，另一作者 Kyle J. Lauersen，单位为沙特阿拉伯 KAUST 的 Bioengineering Program/BESE。
+
+本次读取 8 页主文、全部图版与方法，核对实际 PDF 中的单位及统计标注。无本地 ESI，未读取补充色谱和液液回收效率图，也未独立核查材料供应商当前规格、原始数据或被引构建论文。此前机器识别未匹配标题且漏检 Fig. 图号，但原始首页标题、作者、DOI、页码与目标论文一致，因此按主文身份处理。
+
+# 研究背景
+
+疏水萜类在微生物培养中常用第二液相捕获。传统低密度烷烃形成上层 overlay，适合小规模取样，却可能受界面乳化、溶剂背景和放大操作影响。本文关注的技术问题是：高密度氟碳液体能否形成下层 underlay，既接收产物又容许模型微藻继续生长，并让所捕获的产物方便地转入另一个溶剂。
+
+这是一项培养与分离过程研究，不是新建完整紫杉醇途径。四种异源产物为 patchoulol、taxadiene、casbene 和 13R(+) manoyl oxide，其中 taxadiene 不能等同于 paclitaxel。作者使用此前已经构建的 Chlamydomonas reinhardtii 生产株；本文没有对相关生物合成基因进行新的系统功能鉴定。
+
+需要先分清两个量：细胞实际合成的总产物与进入某萃取相并被测到的产物。第二相浓度受合成、释放、分配、吸附、挥发、降解以及分析响应共同影响。若没有全体系物料衡算，第二相峰面积增加不能直接解释为代谢通量提高；本文最有力的证据主要针对培养相容性与回收过程。
+
+# 研究思路
+
+作者先比较 dodecane 上层与 FC-3283 下层，观察 patchoulol 是否进入液相，同时用细胞计数与叶绿素荧光评价培养状态。接着检查其他三种萜类生产株及亲本对照；再比较摇动与静置，探索细胞沉降至液液界面时的回收表现。随后把捕获相与乙醇接触，评估产物转移的可行性。
+
+最后对 FC-40、FC-770、FC-3283 与 dodecane 做跨产物比较，试图说明溶剂选择可随目标化学性质变化。这个设计可以支持某些条件下的可行性和相对表现，尚不能证明商业放大优越性。本文没有规模化反应器对照、长期溶剂循环、完整环境影响或经济性数据；后续应用价值应与已实际测试的尺度分开。
+
+# 研究方法
+
+模型为 C. reinhardtii 的四种既有工程株及亲本 UVM4。文中把 UVM4 叫 wild type，实际在本研究中应理解为所用工程体系的亲本对照，不把它自动等同未经选育的自然分离株。材料分类中 FC-40 与 FC-3283 为全氟胺类液体，FC-770 为全氟醚；FCs 是本文对几类商业液体的统称，不能将全部材料写成同一单一化合物。
+
+生长用流式细胞计数，方法描述生物学三重复、每份样品技术二重复。PSII 最大光化学效率采用暗适应叶绿素荧光，Fv/Fm=(Fm−F0)/Fm。这个比值衡量最大光化学效率，不是直接测得的线性电子流速率，也不能单独证明无膜损伤或无长期毒性。
+
+产物采用 GC-MS-FID；patchoulol 用质谱库及纯品标准支持身份，并分别在 dodecane 与 FC-3283 中做标准曲线，范围为 1–200 μM。dodecane 样品另用 α-humulene 内标，而不是所有液体都采用相同内标体系。方法称 GC 重复测定和人工色谱质量检查，本次无原始校准数据，不能评估每种基质的回收率与误差。
+
+本 PDF 的提取文本会把 μ 写成 m，因此部分 μL、μM 和 μg/L 会被错误显示为 mL、mM、mg/L。本笔记以原始页面核对为准：Figure 2 的 patchoulol 滴度为 **μg/L culture**，不是 mg/L，若直接复制文本会造成千倍量级错误。
+
+# 实验设计及结果分析
+
+### 1. 下层液相是否能够捕获产物并容许生长？
+
+
+![Figure 1 原文第 4 页](https://synbiopath.online/RZNZCQRY-Figure-1-p4-complete-62b85672c34fc8c9.png)
+
+*Figure 1：原文 Fig. 1：GC-FID 空白与产物、两相照片、细胞计数、Fv/Fm 及不同产物株色谱；完整 a–e 及图注（原文 PDF 截图）。*
+
+
+Figure 1a 包含 dodecane/FC-3283 空白及对应产物样品，FC-3283 的背景峰较少且出现 patchoulol 峰，说明它可作为分析和捕获相。dodecane 在使用前已经过固相处理，仍在该批材料中有较多背景；这只能说明本文材料和方法的比较，不代表所有来源烷烃都有同样背景，更不说明任意氟碳材料永远不含杂质。
+
+Figure 1b 的照片直接展示上层与下层位置。1c/d 的细胞数量增加、Fv/Fm 保持在约 0.7 附近，支持所测期间可培养。图注 n=3，主文没有对这两种液体所有时间点给出完整显著性、效应量与区间；不能从曲线相近宣称统计等效，也不能把 FC-3283 的点值略高写成已证明改善光合作用。
+
+第二相比例存在原文差异：方法写加入 500 μL 第二相至 4.5 mL 培养物，相当于总体系体积的 10%；Figure 1 图注却写 5% v/v。本文未解释不同实验是否使用不同配比，引用条件时应保留差异，不擅自统一为 5% 或 10%。
+
+Figure 1e 展示亲本、patchoulol、taxadiene、casbene、manoyl oxide 株的色谱，各生产株出现特有峰而亲本没有相同产物图谱，是跨产物捕获的支持。峰身份部分依赖既有株及被引研究，本次不将所有特有峰都赋为单一主产物；taxadiene 相关副峰更不能凭这一图确定完整异构体谱。
+
+### 2. 静置界面培养：能形成细胞层，但回收量更低
+
+
+![Figure 2 原文第 5 页](https://synbiopath.online/RZNZCQRY-Figure-2-p5-complete-e55a0a23c7af7f28.png)
+
+*Figure 2：原文 Fig. 2：摇动/静置照片与 patchoulol 滴度；μg/L culture，mean±SD，n=5，P 阈值完整（原文 PDF 截图）。*
+
+
+Figure 2a 显示静置细胞在培养液–FC-3283 界面聚集。2b 比较摇动与静置，图注为均值±SD、n=5。第 4 天摇动为 263±14，静置为 177±25 μg/L culture，原文 t(8)=6.56、P<0.001。第 8 天分别为 759±73 与 202±5 μg/L culture，t(8)=17.05、P<0.0001。原文只提供阈值 P，本次不编造精确值或置信区间。
+
+由均值直接计算，第 4 天两组差 86 μg/L、摇动/静置约 1.49；第 8 天差 557 μg/L、约 3.76。这些是基于印刷均值的描述性计算，不是原始样本重分析。作者说约四倍与第 8 天点值相容，但不能表述成每个时间点都四倍。
+
+方法的一般两相培养写三重复，而这张图明确写 n=5，本笔记分别记录，不将技术重复加入生物学 n。按多个时间点分别做 Student t 检验，主文未说明多重比较校正。t(8) 与每组五份的形式相容，但原始观测、分布和方差检验未取得，本次不声称重新验证检验前提。
+
+静置的低回收量可能与混合、营养/气体传递、接触面积、细胞分布或真实合成量有关。作者偏向界面接触受限解释，本文没有同时测胞内、培养上清和萃取相，不能唯一归因于萃取效率。图支持“可以形成界面培养形态”，不支持“静置提高生产”。对其他成膜生物的设想也未在本文测试。
+
+照片中的绿色界面层是细胞聚集的形态证据，而非已经建立成熟生物膜的证明。没有胞外基质、黏附稳定性或生物膜功能测量时，笔记应使用“细胞层”或“界面聚集”，不把作者提出的未来生物膜应用直接写成本文已验证结果。同样，两组照片不能替代细胞干重或总活细胞量的定量，回收滴度也尚未按生物量归一化。
+
+### 3. 从 FC-3283 到乙醇：转移可行性与总回收率的边界
+
+
+![Figure 3 原文第 5 页](https://synbiopath.online/RZNZCQRY-Figure-3-p5-complete-f02a77e77b69e289.png)
+
+*Figure 3：原文 Fig. 3：FC-3283/乙醇两相及转移前后 GC-FID 色谱，完整图注（原文 PDF 截图）。*
+
+
+Figure 3a 显示乙醇上层与 FC-3283 下层分离。3b 完整列出 FC 空白、带 patchoulol 的 FC、乙醇空白、萃取后的乙醇和剩余 FC。约 20.4 min 的产物峰从 FC 转入乙醇，残余 FC 峰很小，是明确的转移方向证据。要定量转移比例仍需相体积、不同基质校准与质量守恒，不能仅凭两条色谱峰视觉高低求百分比。
+
+正文报告 patchoulol 转入乙醇效率 >99%，其他萜类为 95–98%，定量证据位于未读 ESI Fig.2。本笔记将它们保留为作者报告，不称已独立核实，不给其他三个产物分别分配范围端点。“两小时可完成”被标为 data not shown，而方法描述使用更长接触时间；本次不能把两小时当作本图实验已经证实的条件。
+
+即便相间转移效率高，也不是从培养物到最终纯品的总工艺收率。前面未被 FC 捕获的产物、分离损失及最终乙醇中的其他组分都不在这一比例内。Figure 3 不证明获得高纯产品、制剂合格或完整溶剂再利用；FC 再生可作为后续方向，但本文未给多轮循环后的稳定性能。
+
+### 4. 四种液体跨产物比较：峰面积不等于绝对产量
+
+
+![Figure 4 原文第 6 页](https://synbiopath.online/RZNZCQRY-Figure-4-p6-complete-c88db13cb1b2937f.png)
+
+*Figure 4：原文 Fig. 4：全部液体结构、密度、温度物性及四种产物 GC-FID 峰面积，mean±SD，n=5，完整图注（原文 PDF 截图）。*
+
+
+Figure 4 同时包含材料结构、物性及四种萜类的 GC-FID 峰面积。图内 density 依次 FC-40 1.855、FC-770 1.793、FC-3283 1.820、dodecane 0.746 g/mL，解释 FCs 下沉的方向；结构取自文献，主文未说明所有物性为本研究实测，不能当作任意温度下的精确规格。
+
+下面的数值按图为峰面积×10³、均值±SD、n=5，并非 μg/L。按 FC-40/FC-770/FC-3283/dodecane 顺序：patchoulol 为 401±19/435±100/242±32/721±30；taxadiene 为 467±72/455±64/372±18/541±6；casbene 为 751±128/1015±51/850±159/1548±77；manoyl oxide 为 5821±2487/8596±309/6628±812/6729±232。
+
+前三类的 dodecane 点值最高；manoyl oxide 则 FC-770 最高，约为 dodecane 点值的 1.28 倍。主文未为整张图提供对应组间检验，不能宣称该 28% 差别有统计学显著性。FC-40 在 manoyl oxide 的 SD 较大，也提醒不能只按均值选择液体。
+
+同一种目标在同类条件下的峰面积可以提供相对比较线索；不同产物之间不能把 FID 面积直接换算成合成量比，因为响应、浓度范围和分配可能不同。这里的单时点终点也不等于萃取“速率”，没有时间序列或分配动力学时应避免以速率描述该表。
+
+### 5. 机理解释与放大应用仍需要哪些证据？
+
+作者提出 dodecane 可能更易使细胞裂解，从而导致更高捕获量，同时承认没有调查该机制。本文没有膜完整性、释放标志物或胞内外质量分布，不能把这个解释写成事实。FC-3283 下层液体也未均匀铺展，而呈较大液滴形态，界面面积本身就与 overlay 不同，化学性质和几何条件存在混杂。
+
+正文用 higher linear electron flow 描述 Figure 1d，但该图标的是 Fv/Fm，方法也定义为 PSII 最大光化学效率。本笔记按实际测量解释；该指标可以提示光系统状态，却没有直接测得电子流速率。另一处把 FC-3283 写为 overlay，而本文主要对象是 underlay，也不沿用为层位结论。
+
+作者讨论更易处理、更清洁及放大潜力，其依据主要是物性、较低背景与实验室相分离表现。没有工厂尺度能耗、价格、排放和全生命周期评价，因此不能直接称整个过程更绿色或更经济。生物相容性同样限于本文宿主、液体批次、比例与时间，不能外推到全部微生物及所有代谢物。
+
+# 总体结论
+
+在既有工程微藻中，FC 液体能作为下层捕获相，FC-3283 与细胞生长及 PSII 指标在所测条件下相容，并允许产物转移至乙醇。液体选择对不同产物表现不同，静置界面培养可行但 patchoulol 回收量低于摇动。本文不能直接证明合成通量提升、最佳普遍萃取液体、完整工艺收率或放大经济性。
+
+# 论文评价
+
+优点是同时检查产物、空白、亲本、生长与光系统指标，并把上层/下层、静置/摇动和跨产物比较连接起来。Figure 2 明确提供 n、SD、t 与 P 阈值，便于保留实际统计边界。
+
+主要限制是部分比例与重复说明不一致、ESI 定量未读、峰面积与浓度容易混淆，以及捕获量没有全体系质量衡算。后续阅读应优先核查 ESI 的基质校准与分配量，明确不同实验的第二相比；再考虑能区分“合成改变”与“释放/分配改变”的数据。不能以一个更大的色谱峰替代更高细胞工厂产量的证明。
+
+# 关键问题及回答
+
+**问题 1：FC-770 的 manoyl oxide 峰更大是否证明细胞生产更高？** 不证明。本文测的是第二相 GC-FID 面积，可能同时受分配、释放与合成影响，且未给该比较的显著性和全体系衡算。
+
+**问题 2：>99% 是否指从培养液得到纯 patchoulol 的总收率？** 不是。它是作者报告的 FC 到乙醇转移效率，证据在未读 ESI；不能覆盖前段捕获与后段纯化损失。
+
+**问题 3：这篇对紫杉醇课题最直接的价值是什么？** 提供 taxadiene 等疏水前体回收与过程设计的对照案例。它不处理完整紫杉醇途径，其理论启发是把生产、释放、捕获和回收分开计量，并用原始 PDF 核对 μg/L 与峰面积单位。
+
+> 分类状态：待全部文献笔记完成后统一分类归档。

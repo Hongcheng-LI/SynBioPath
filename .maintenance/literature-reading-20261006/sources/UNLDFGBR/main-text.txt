@@ -1,0 +1,942 @@
+
+[PDF physical page 1]
+Mechanistic Characterization of Diterpene Synthase Pairs for
+Tricyclic Diterpenes from Cyanobacteria
+Jiayi Yu, Taro Shiraishi, Kizerbo A. Taizoumbe, Yusaku Karasuno, Ayako Yoshida, Makoto Nishiyama,
+Jeroen S. Dickschat,* and Tomohisa Kuzuyama*
+Cite This: J. Am. Chem. Soc. 2025, 147, 11896−11905
+Read Online
+ACCESS
+Metrics & More
+Article Recommendations
+*
+sı
+Supporting Information
+ABSTRACT: In recent years, genome mining in cyanobacteria has
+revealed abundant gene clusters related to natural product biosynthesis.
+However, only a few terpene synthases (TSs) have been identified from
+this bacterial phylum. Pfam profiles, such as PF03936 and PF19086,
+which are frequently used for TS retrieval, are built from plant,
+bacterial, and fungal TSs. Herein, we constructed a new hidden Markov
+model (HMM) specific to bacterial TSs on the basis of 110 bacterial
+TSs experimentally validated in recent years. Using this model, we
+identified a pair of diterpene synthases, Cpt11 (class II TS) and Cts11
+(class I TS), in the cyanobacterium Scytonema tolypothrichoides. In vitro
+experiments demonstrated that Cpt11 catalyzes the formation of syn-
+copalyl diphosphate from geranylgeranyl diphosphate and that Cts11
+subsequently converts syn-copalyl diphosphate into a rare 6,6,7-tricyclic
+diterpene alcohol. Its biosynthesis was established through isotope
+labeling experiments, which revealed a unique sequence of a 1,6-proton shift and ring expansion to a seven-membered ring. We
+solved the crystal structure of Cts11 at a resolution of 1.76 Å. Additionally, via site-directed mutagenesis experiments, we identified
+two amino acid residues whose exchanges affected the formation of the original diterpene alcohol, leading to the formation of two
+new compounds: a 6,6,7-tricyclic diterpene hydrocarbon and another 6,6,6-tricyclic diterpene alcohol. A BLAST search revealed
+several sequences that shared over 70% identity with Cts11 from cyanobacteria that could produce diverse diterpenes. This study
+demonstrates the potential for cyanobacteria to produce unprecedented terpenoids and lays the foundation for studying the
+physiological activities of terpenoids in cyanobacteria.
+■INTRODUCTION
+Terpenes are the largest group of natural products, constituting
+over 80,000 compounds that are isolated mainly from plants
+and fungi.1 The structural diversity of terpenoid skeletons is
+due mainly to the diversity of terpene synthases (TSs) involved
+in their formation. TSs are distinguished by two classes, classes
+I and II, depending on the chemical strategy used for initial
+carbocation formation. Class I TSs generate an allyl
+carbocation by dissociating diphosphate from the correspond-
+ing isoprenoid diphosphate. On the other hand, class II TSs
+generate a carbocation via protonation of a terminal olefin or
+epoxide.2
+Cyanobacteria are well-known producers of natural prod-
+ucts, many of which display bioactivities with potential
+pharmaceutical applications, such as the peptides patellamides
+and the macrolides cryptophycins.3 Cyanobacteria have also
+been found to produce terpenoids (Figure 1). Some marine
+cyanobacteria can produce isoprene,4 and the volatile
+methylated monoterpene 2-methylisoborneol and the trisnor
+sesquiterpene geosmin have also been found in cyanobac-
+teria.5,6 In addition, several bioactive diterpenoids have been
+identified in cyanobacteria. For example, the potent anti-
+inflammatory meroterpenoid, tolypodiol, was first discovered
+in 1996 from the terrestrial cyanobacterium Tolypothrix
+nodosa.7 A novel extracellular meroterpenoid metabolite,
+noscomin, with an uncommon diterpenoid skeleton, was
+isolated from the strain Nostoc commune and exhibits
+antibacterial activity.8 Two abietane diterpenoids isolated
+from Microcoleous lacustris also showed some antibacterial
+properties.9 Recently, the cembrene-type diterpenoids kagim-
+minols A and B were isolated from the marine cyanobacterium
+Okeania sp. that showed selective growth-inhibitory activity
+against the causative agent of human African trypanosomia-
+sis.10 However, little is known about the TSs responsible for
+the biosynthesis of these terpenoids. Indeed, only a few TSs
+Received:
+November 26, 2024
+Revised:
+March 19, 2025
+Accepted:
+March 20, 2025
+Published: March 27, 2025
+Article
+pubs.acs.org/JACS
+© 2025 American Chemical Society
+11896
+https://doi.org/10.1021/jacs.4c16710
+J. Am. Chem. Soc. 2025, 147, 11896−11905
+Downloaded via OCEAN UNIV OF CHINA on June 12, 2025 at 08:48:27 (UTC).
+See https://pubs.acs.org/sharingguidelines for options on how to legitimately share published articles.
+
+
+
+[PDF physical page 2]
+have been reported,11,12 besides those responsible for the
+biosynthesis of carotenes, geosmin, and 2-methylisobor-
+neol.5,6,13 Although the genome mining of cyanobacteria
+reveals the presence of abundant gene clusters associated
+with natural product biosynthesis,14 the types and numbers of
+TSs identified in cyanobacteria remain limited.
+In the context of these facts, we constructed a bacterial TS
+hidden Markov model (HMM) profile based on experimen-
+tally validated TS sequences to mine as-yet unidentified
+terpene synthase candidates. Using this new model, we
+identified a pair of diterpene synthases (DTSs), Cpt11 and
+Cts11, in the genome of the cyanobacterium Scytonema
+tolypothrichoides VB-61278. In vitro experiments demonstrated
+that Cpt11 catalyzes the cyclization of geranylgeranyl
+diphosphate (GGPP, 1) to form syn-copalyl diphosphate
+(syn-CPP, 2) and that Cts11 subsequently catalyzes the
+cyclization of 2 to form the new diterpene alcohol
+tolypothrichol (3) with a rare 6−6−7 tricyclic skeleton.
+Isotope labeling experiments in conjunction with DFT
+calculations established the reaction mechanism of the
+cyclization catalyzed by Cts11. In addition, we solved the
+crystal structure of the class I TS Cts11 with a high resolution
+of 1.76 Å, thereby identifying key residues in the active site by
+modeling and structure-based site-directed mutagenesis experi-
+ments.
+A BLAST search of Cts11 in the NCBI database revealed a
+series of cyanobacterial homologues with significant identity.
+Subsequent in vitro experiments demonstrated that these
+homologues utilize syn-CPP or ent-CPP to produce diterpene
+products other than compound 3. The present study highlights
+the potential of cyanobacteria in the synthesis of structurally
+diverse terpenoids.
+■RESULTS AND DISCUSSION
+Genome Mining Reveals Two Diterpenoid Biosyn-
+thesis-Related Gene Clusters. Owing to the low sequence
+similarity among bacterial class I TSs, retrieving new TSs via
+sequence alignment is challenging. However, highly conserved
+metal-binding motifs (DDXXD and NSE/DTE) have been
+found in essentially all known bacterial TSs. As an alternative
+to sequence alignment methods, a search method based on an
+HMM, such as the Pfam searcher, has been used as a
+preliminary approach for retrieving TSs.15 The frequently used
+Pfam profiles associated with TSs include PF03936 (terpene
+synthase family, metal binding domain), PF19086 (terpene
+synthase family 2, C-terminal metal binding) and PF01397
+(terpene synthase, N-terminal domain).16,17 Among them,
+PF03936 and PF01397 were built from plant TSs, whereas
+PF19086 was built from bacterial and fungal TSs (http://pfam.
+xfam.org/). Considering that a model constructed only from
+bacterial TS sequences as the training set might be more
+effective for retrieving bacterial TSs, we decided to construct a
+new Pfam profile for bacteria.
+First, we collected 110 experimentally validated bacterial
+TSs for building the Pfam model via HMMER 3.3.2 (Figure
+S1A). Compared to the Pfam model PF03936 based on plant-
+derived TSs and PF19086 based on bacterial and fungal TSs,
+the conserved metal-binding domain, including the aspartate-
+rich motif and NSE motif, was more clearly captured in the
+new model. In addition to these two motifs, the RY motif, a
+highly conserved motif that is important for the binding of the
+substrate and the Mg2+ cofactor, was also identified (Figure
+S1B). Then, to identify the TS candidates from the
+cyanobacterial genome resource, 3,213,600 cyanobacterial
+protein sequences were downloaded from the NCBI database
+as the local database. At the same time, PF03936 and PF19086
+were also used to search the same cyanobacterial protein
+database. The results showed that the E value for the new
+model was 10−266, while the E values for PF19086 and
+PF03936 were 10−108 and 10−9, respectively (Figure S1C).
+Upon searching with the new model, 166 sequences were
+retrieved, 143 of which had E values smaller than the inclusion
+threshold (10−3). In comparison, PF19086 and PF03936
+retrieved 180 and 173 sequences, respectively, with 141 and 56
+sequences having E values smaller than the inclusion threshold
+(10−3). Thus, the new model did not show a significant
+difference in the number of retrieved sequences compared to
+the other two models. Additionally, the new model yielded a
+lower E value than PF19086 and PF03936, but this was
+unsurprising given that the bacterial sequences collected to
+construct our search model were used as a training set to
+detect bacterial sequences from genomic data.
+After removing duplicate sequences and those lacking the
+conserved metal-binding motif, a total of 44 sequences were
+ultimately selected as candidate sequences. The resulting 44
+candidate sequences were subjected to a phylogenetic analysis
+alongside experimentally validated TS sequences, leading to
+the exclusion of sequences showing greater than 30% similarity
+to known sequences according to multiple alignments (Figure
+S2). Finally, four sequences, cts10 (accession number
+MBP0009865.1),
+cts11
+(KAB8331910.1),
+cts13
+(NEO84417.1), and cts14 (MBE7383687.1), were selected
+for further analysis. Among these four TS candidates, cts11 was
+accompanied
+upstream
+by
+a
+gene
+named
+cpt11
+(KAB8331911.1), which has been annotated to encode a
+Figure 1. Terpenoids isolated from cyanobacteria to date.
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.4c16710
+J. Am. Chem. Soc. 2025, 147, 11896−11905
+11897
+
+
+
+[PDF physical page 3]
+class II DTS (Figure 2A). Therefore, we hypothesized that
+Cpt11 and Cts11 may sequentially catalyze the cyclization of
+GGPP.
+Functional Characterization of the DTSs Cpt11 and
+Cts11. To confirm this hypothesis, we performed heterologous
+expression of codon-optimized cpt11 and cts11 genes in E. coli
+BL21 (DE3) and conducted in vitro reactions using GGPP as a
+substrate. To enable tracing of the Cpt11 product, the sample
+was treated with calf intestinal phosphatase (CIP) to generate
+the corresponding alcohol. When GGPP was incubated with
+Cpt11 followed by CIP treatment, the alcohol 2’ was detected
+besides geranylgeraniol (GGOH, 1’) formed from remaining
+starting material, and when GGPP was incubated with both
+Cpt11 and Cts11, compound 3 was detected (Figure 2B). No
+conversion was observed upon incubation of GGPP with
+Cts11 and CIP dephosphorylation. Both compounds 2’ and 3
+were isolated and structurally characterized via NMR spec-
+troscopy (Figures 2C, and S26−S34, Tables S6 and S7). A
+comparison of the NMR data to literature data18 identified 2’
+as (+)-syn-copalol ([α]D
+25 = +17°, c 0.03, CH2Cl2; lit. [α]D
+24 =
++17.7°, c 2.39, CHCl3).18 Thus, cpt11 encodes a syn-CPP
+synthase (syn-CPPS). Extensive 1D and 2D NMR analyses
+were used to determine the structure of 3, for which we suggest
+the name tolypothrichol, as a novel diterpene alcohol with a
+6,6,7-tricyclic ring system (Figures 2C, S10, and S28−S34,
+Tables S6 and S7).
+Given the structures of 2 and 3, we proposed a cyclization
+pathway from 1 to 3 (Scheme 1). The cyclization reaction
+from 1 to 2 catalyzed by Cpt11 follows the generally accepted
+mechanism, starting with a protonation of the C14 = C15
+double bond, followed by two cyclization steps and
+deprotonation to 2. The second cyclization mediated by
+Cts11 may start with the ionization of syn-CPP (2) to A.
+Carbocation A is cyclized by the attack of C19 on the Re-face
+of C3 to yield carbocation B.19 Subsequently, a rare 1,6-proton
+shift from C8 to C1 leads to the generation of carbocation C
+that undergoes a ring expansion to D. A final quenching with
+water through attack at C3 yields 3.
+Isotopic Labeling Experiments for the Cyclization
+Reaction. To gain insight into the cyclization mechanism, we
+performed a series of isotopic labeling experiments (Table S4).
+The 1,6-proton shift from B to C was confirmed with the
+conversion of (1-13C,8-2H)GGPP obtained from GPP,
+(1-13C)IPP,20 and (E)- or (Z)-(4-13C,4-2H)IPP21 in con-
+junction with GGPP synthase (GGPPS) from Streptomyces
+cyaneofuscatus20 (Figure S18). 13C NMR analysis revealed a
+triplet for C1 (13C−2H spin coupling) in the experiment with
+(Z)-(4-13C,4-2H)IPP, but not with (E)-(4-13C,4-2H)IPP,
+revealing specific migration of the proton derived from 4-HZ
+of IPP (Δδ = −0.5 ppm,1JC,D = 19.2 Hz, Scheme 1, Figure
+3A). Such a long-range 1,6-proton shift is rare in the
+biosynthesis of terpenoids, but has been experimentally
+validated before in the biosynthesis of cleistantha-8,12-diene
+that is formed from CPP by HvKSL4 from Hordeum vulgare.22
+The sequential conversion of (2-13C)GGPP20
+and
+(19-13C)GGPP (enzymatically prepared with GGPPS from
+(15-13C)FPP23 and IPP) into 3 by Cpt11 and Cts11 further
+confirmed the origin of C2 and C19 in compound 3 (Figure
+3B). Labeling experiments using (16-13C)GGPP or
+(17-13C)GGPP (likewise prepared from (12-13C)FPP23 and
+(9-13C)GPP,24 respectively) were used to determine the
+relative positions of C16 and C17 of 3 (Figure S19). The
+incubation of (14-13C)GGPP (obtained from (10-13C)FPP23)
+in a deuterium oxide buffer revealed that protonation of GGPP
+at the Si face of C14 initiates the cyclization by Cpt11 (Figure
+S20). DFT calculations for the Cts11-catalyzed reaction
+cascade revealed an overall exergonic process via low activation
+barriers. The highest reaction barrier was found for the 1,6-
+proton shift starting from B (+12.1 kcal/mol), and the
+calculations demonstrated that the secondary cation C is
+indeed not an intermediate, but instead D is directly formed
+from B (Figures S24 and S25).
+To date, class II DTSs have been reported in both plants and
+bacteria. For example, ent-CPP synthase (ent-CPPS) is
+involved in synthesizing the intermediate toward gibberellins,
+an important class of plant hormones, whereas syn-CPP
+synthase (syn-CPPS) is involved in the biosynthesis of the
+intermediate toward the phytoalexin momilactone.25 In
+bacteria, only a few class II DTSs have been functionally
+characterized, and their products represent three types of
+skeletons: the labdane, the clerodane, and the halimane
+skeleton.26 Enzymes that form the labdane skeleton are the
+most common and include ent-CPPSs, such as Orf2 and
+PtmT2, and (+)-CPP synthases, such as RmnB and CldB.27−29
+Clerodane synthases include Cyc1 and Haur_2145, which
+produce terpentedienyl diphosphate and (+)-kolavenyl diphos-
+phate, respectively.30,31 Rv3377c from Mycobacterium tuber-
+culosis is the only enzyme that forms the halimane skeleton,
+producing tuberculosinyl diphosphate.32 Thus, Cpt11 is the
+first syn-CPPS identified in bacteria, and Cpt11 and Cts11 are
+the first pair of cyanobacterial DTSs with catalytic activity
+detected. To evaluate the pair of DTSs, the amino acid
+sequences of Cpt11-Cts11 and other class I and class II TSs
+were aligned and subjected to phylogenetic analysis (Figure
+S5; see the figure legend for more information).
+The structural diversity of the cyclized products formed by
+class II DTS and the cyclization patterns by class I DTS further
+generate structural diversity in these diterpenoid biosynthetic
+Figure 2. A) Biosynthetic gene cluster for 3 and conserved metal-
+binding domains. B) GC−MS analysis of the products obtained from
+GGPP with Cpt11 and Cts11 (eventually followed by CIP treatment).
+C) Structures of compounds 1−3.
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.4c16710
+J. Am. Chem. Soc. 2025, 147, 11896−11905
+11898
+
+
+
+[PDF physical page 4]
+pathways. A combination of class I and class II DTSs produces
+a variety of diterpenoid compounds. Accordingly, we tested the
+reactivity of Cts11 with ent-CPP, another stereoisomer of syn-
+CPP. However, GC−MS analysis revealed that Cts11 hardly
+accepts ent-CPP as a substrate, which demonstrates that the
+substrate specificity of Cts11 is specific to syn-CPP, indicating
+that compound 3 is the sole product (Figure S17).
+Crystal Structure and Catalytic Mechanism of Cts11.
+To gain further insights into the mechanism of the unique
+reaction cascade catalyzed by Cts11, the enzyme was
+crystallized for an X-ray structure analysis (Figure S6),
+providing the crystal structure of the apo form with a
+resolution of 1.76 Å (PDB ID: 9KGB). The overall structure
+revealed a monomeric state in the crystal that reflects the
+observation of monomers also in solution (Figure S6). Cts11
+exhibits the typical α-helical fold of class I TSs, comprising 11
+core α-helices (A to K) and five short α-helices (α1 to α5)
+(Figure 4A). The highly conserved DDxxD and NSE motifs of
+class I TSs are located on helices C and H, respectively.
+To examine the catalytic mechanism of Cts11, the amino
+acid residues around the active site were further analyzed.
+Given the high structural similarity with the previously
+reported class I TS Sat1646, the position of magnesium ions
+inside the active site was inferred from their position in the
+crystal structure of Sat1646 (Figure S7).33 Three magnesium
+ions are present in the active site of Cts11, including two Mg2+
+binding to D93 and D94 from the 93DDITE97 motif, as well as
+Mg2+ binding to N264, D265, S268, R271, and E272 from the
+264NDIRSFERE272 motif (Figure S8). By comparing the
+residues around the active sites of Sat1646, we inferred that
+the active site pocket of Cts11 is composed of F90, Y339,
+V220, M63, M67, T70, I260, and M331. The substrate syn-
+CPP was then docked into the active site of Cts11 by docking
+simulation (Figure 4B), and the position of the substrate
+matched well with the predicted active site. The diphosphate
+moiety of syn-CPP is coordinated by the three Mg2+ ions
+(Figure S9). Furthermore, previous studies have established
+that bacterial class I TSs can utilize an induced-fit mechanism
+for substrate binding and ionization, involving the ″effector
+triad″ which includes the pyrophosphate sensor, the linker, and
+the effector residues located at the G1/2 helix-break motif.34
+Consistently, we identified the pyrophosphate sensor R261, the
+linker S214, and the effector residue I215 in Cts11 (Figure S9).
+However, a distinction is that its sensor residue R261 is located
+Scheme 1. Mechanisms of the Cyclization of GGPP to 3 by Cpt11-Cts11 and the Generation of 4, 5, 6, and 7 by Cts11 Enzyme
+Variants
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.4c16710
+J. Am. Chem. Soc. 2025, 147, 11896−11905
+11899
+
+
+
+[PDF physical page 5]
+in helix H rather than helix G. This is similar to the situation in
+Sat1646 in which the diphosphate sensor R220 is located on
+helix H, along with the linker N182 and effector residues Y183
+located on the G1/2 helix-break motif.33 Two aromatic amino
+acid residues, F90 and Y339, are located within 5 Å of the
+substrate syn-CPP (Figure 4B). We hypothesized that these
+residues may stabilize carbocationic intermediates during
+cyclization. Other nonaromatic amino acid residues may create
+the hydrophobic environment necessary for binding the
+hydrophobic moiety of the substrate CPP.35 To evaluate the
+function of the aforementioned residues, we generated a series
+of Cts11 variants, including F90A, Y339A, M63A, M67A, and
+M331A.
+According to the results of a GC−MS analysis, the F90A
+variant lost the ability to form 3, but produced compound 4
+instead (Figure 5A). The M63A variant showed a reduced
+production of 3 with a shift to the main product 5. Compound
+isolation and NMR-based structure elucidation revealed the
+structure of syn-pimara-1,7(8)-diene33 for 4 (Figures S10, S35
+and S36, Tables S6 and S7), while 5 was identified as syn-
+isopimara-1,7(8)-diene33 with a different configuration at C3
+(Figures S10, S37 and S38, Tables S6 and S7). The formation
+of compound 5 is understandable by deprotonation of
+intermediate B, whereas 4 requires a stereochemical change
+in the cyclization of A with Si face attack at C3, resulting in the
+direct precursor E (Scheme 1). This configurational inversion
+suggests that F90 is essential for maintaining the spatial
+arrangement of the methyl and vinyl groups at C3 and fixes the
+attack of C19 on the Re face of C3 to yield B, promoting the
+1,6-proton shift from C8 to C1 during the biosynthesis of 3.
+The M63A exchange enlarges the active site pocket and allows
+the vinyl chain with the C1 = C2 double bond to be more
+flexible. This flexibility results in C1 being able to either accept
+or not accept the proton from C8. This may explain why the
+M63A variant simultaneously produces both compounds 3 and
+5. The Y339A variant did not catalyze the formation of any
+diterpene, indicating that an aromatic residue may be crucial
+for initial carbocation stabilization. M67A and M331A had
+little effect on the reaction, with the production of 3 being
+similar to that by the native enzyme, suggesting that M67 and
+M331 have little involvement in catalysis.
+Control of an Active Site Water in the Formation of
+the Diterpene Alcohol 3. To date, six protein structures of
+class I TSs involved in diterpene biosynthesis utilizing
+precyclized diphosphate intermediates have been reported,
+including Rv3378c (3WQL),36 Sat1646 (7E4O),33 Stt4548
+(7E4M),33 LrdC (6OH6),37 BjKS (4W4R),38 and AgAS (3S9
+V) (Figure S11).39 For the following analysis, the plant enzyme
+AgAS and Rv3378c that has a unique function acting as a
+prenyltransferase in the biosynthesis of 1-tuberculosinyladeno-
+sine40 were excluded. For Cts11 and the other four
+characterized enzymes a good alignment of almost all active
+site residues was observed, only for Y339 of Cts11 and the
+corresponding residues in the other four enzymes large
+conformational differences were found (Figure S12A). In
+Cts11, Y339 forms hydrogen bridges with T70 and the main
+chain carbonyl group of G66 (Figures 4B and S12B) slightly
+turning Y339 away from the active site, which may enlarge the
+space in the active site for water entry. This unique structural
+feature of Cts11 coincides with the fact that only Cts11, but
+none of the other enzymes for which a crystal structure has
+been reported, forms a diterpene alcohol as the main product.
+In agreement with this hypothesis, disruption of the
+hydrogen bridge in the Y339F variant resulted in the enhanced
+production of the hydrocarbons syn-isopimara-1,7(8)-diene
+(5) and a new compound (6), coinciding with a reduced
+formation of 3 (Figure S13). NMR-based structure elucidation
+revealed that compound 6 shares the same 6,6,7-tricyclic
+skeleton as compound 3, with the difference that the hydroxyl
+group at C3 is replaced by a double bond (Figures S10, S39−
+S45, Tables S6 and S7). The formation of 6 can be explained
+by the direct deprotonation of C3 in intermediate D rather
+than quenching by water (Scheme 1). This finding is
+explainable because the introduced F339 can turn toward the
+Figure 3. Results of the isotopic labeling experiments for the 1,6-
+proton shift and ring expansion in the biosynthesis of 3. A) The 1,6-
+proton shift from B to C. (i) Formation of labeled 3 from
+enzymatically
+prepared
+(R)-
+(blue
+H
+=
+2H)
+or
+(S)-
+(1-13C,8-2H)GGPP (red H = 2H) with Cpt11 and Cts11 (Figure
+S18). In the step from B to C, the deuterium introduced from (Z)-
+(4-13C,4-2H)IPP (blue H = 2H) is shifted to the 13C-labeled carbon.
+(ii) 13C NMR spectrum showing the region for C1 of unlabeled 3.
+(iii) The 13C NMR spectrum for C1 of labeled 3 shows an upfield
+shifted triplet resulting from 13C−2H spin coupling and provides
+evidence for the proposed 1,6-proton shift. B) Ring expansion from C
+to D. (i) Formation of labeled 3 from (2-13C)GGPP and
+(19-13C)GGPP with Cpt11 and Cts11. (ii)
+13C NMR spectrum
+showing the signal for C19 of labeled 3. (iii) 13C NMR spectrum
+showing the signal for C2 of labeled 3. The observed signals are in
+agreement with the proposed ring expansion from a six-membered
+ring to a seven-membered ring.
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.4c16710
+J. Am. Chem. Soc. 2025, 147, 11896−11905
+11900
+
+
+
+[PDF physical page 6]
+active site, which may have a slightly disturbing effect on an
+active site water observed in the Cts11 structure that is ideally
+located in a position relative to the docked substrate syn-CPP
+to explain the formation of 3 (Figure S12B). On the contrary,
+disruption of the hydrogen bridge in the T70A variant did not
+lead to any changes, likely because Y339 may stay in its place
+because of the remaining hydrogen bond to the main chain
+carbonyl group of G66 (Figure S13). The product profile of
+the double mutant Y339F-T70A is essentially the same as that
+of Y339F (Figure S13).
+Interestingly, the G66A variant produced new compounds 7
+and 8 while retaining the partial ability to produce compounds
+3 and 5 (Figure S13). NMR analysis identified compound 7 as
+a novel diterpene alcohol with a hydroxyl group at C3, the
+same carbon that is also hydroxylated in compound 3, but
+differs in possessing a 6,6,6-tricyclic structure (Figures S10,
+S46−S52, Tables S6 and S7). Analogues of compound 7 have
+been chemically synthesized using abietic acid as a starting
+material,41 but compound 7 has not been isolated from natural
+sources. Similar to compound 3, we propose that the formation
+of compound 7 involves a 1,6-proton transfer leading to
+intermediate C. However, instead of the six-membered to
+seven-membered ring expansion observed in 3, compound 7
+undergoes a 1,2-methyl shift to form intermediate F. A final
+quenching with water through an attack at C3 yields 7
+(Scheme 1). This could be because, before the water
+quenching step, the G66A mutation causes a slight shift in
+the position of the substrate during the reaction. However, the
+presence of Y339 still ensures the possibility of water
+quenching. In contrast, the double mutant G66A-Y339F
+affects enzyme activity, almost eliminating the production of
+diterpene alcohols 3 and 7, resulting in only a small number of
+compounds 5 and 6 (Figure S13). Due to its low yield,
+compound 8 was not successfully isolated.
+Genome Mining and Functional Characterization of
+Homologues of Cts11. To gain a deeper understanding of
+the catalytic function and evolutionary origins of Cts11, we
+conducted a BLAST search using cts11 as the query in the
+NCBI database. Among the results, all sequences with
+similarities exceeding 70% were from cyanobacteria (Table
+S5). Similar to cts11 and cpt11, the corresponding class II
+DTSs are also present in the flanking regions of these genes in
+the genome (Figure S14). To examine their catalytic activity,
+we selected five sequences (cts11h1 to cts11h5) that were
+codon optimized for the expression in E. coli, resulting in
+soluble proteins in all five cases (Figure S3). In vitro reactions
+were conducted in combination with a syn-CPPS (Cpt11 from
+this study) or an ent-CPPS (Orf2 from a terpentecin-producing
+bacterium)28 to provide the potential substrates of the type I
+DTSs. As a result, several diterpenoid products a - i
+(uncharacterized compounds) different from 3 were detected
+Figure 4. Crystal structure of Cts11, substrate modeling of Cts11 with syn-CPP and substrate modeling of Cts11h5 with ent-CPP. A) The structure
+of Cts11. The conserved metal binding motifs of Cts11 (93DDITE97 and 264NDIRSFERE272) are shown as cyan and orange sticks, respectively. B)
+Modeling of syn-CPP (yellow sticks) into the active site of Cts11-Mg2+. C) Modeling of ent-CPP (gray sticks) into the active site of Cts11h5-Mg2+.
+The positions of the three Mg2+ in sections B) and C) are based on the crystal structure of Sat1646 (7E4N).33
+Figure 5. GC−MS analysis of the diterpene products of wild-type and
+mutant Cts11 (A) and Cts11h5 (B).
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.4c16710
+J. Am. Chem. Soc. 2025, 147, 11896−11905
+11901
+
+
+
+[PDF physical page 7]
+(Figures S16). Notably, Cts11h5 specifically accepts ent-CPP,
+but not syn-CPP, and produces the new compound 8-epi-
+abieta-3(4),5-diene (9), as identified by NMR analysis
+(Figures S10 and S53−S59, Tables S6 and S7), the C8 epimer
+of known abieta-3(4),5-diene,42 whose biosynthetic pathway
+has not yet been reported.
+The proposed biosynthetic route for the Cts11h5-catalyzed
+cyclization to 9 (Scheme 2) starts with the ionization of ent-
+CPP to form carbocation G. After 3,19-cyclization on the Si
+face of C3 to give H, a 1,2-hydride shift from C6 to C7 leads to
+I. A subsequent 1,5-proton shift may result in J that is,
+however, likely a highly transient species, in analogy to the
+findings for C (Scheme 1) made by the above-described DFT
+calculations. A terminal 1,2-methyl shift and deprotonation
+from C4 result in the formation of 9. This proposed cyclization
+mechanism was tested through isotopic labeling experiments
+(Table S4). The 1,2-hydride shift from H to I was investigated
+by the conversion of (7-13C,6-2H)GGPP obtained from
+(3-13C,2-2H)FPP43 and IPP with GGPPS, resulting in the
+expected upfield shifted triplet for C7 in the
+13C NMR
+spectrum (Δδ = −0.53 ppm,1JC,D = 18.8 Hz, Figure S21). The
+1,5-proton shift from I to J was investigated via (1-13C)IPP20
+and (R)- or (S)-(1-2H)FPP44 in conjunction with GGPPS, ent-
+CPPS, and Cts11h5. 13C NMR analysis revealed a triplet for
+C1 in the experiment with (R)-(1-2H)FPP (Δδ = −0.31
+ppm,1JC,D = 19.5 Hz, Figure S22), but not with (S)-(1-2H)FPP,
+demonstrating specific migration of the 1-pro-R hydrogen of
+FPP. Finally, the transformation of (1-13C)GGPP45 and
+(20-13C)GGPP20 allowed to distinguish between the geminal
+Me groups in the iPr group of 9 and confirmed the proposed
+1,2-methyl shift from J to K (Figure S23).
+To further examine the catalytic mechanism of Cts11h5, the
+amino acid residues around the active site were analyzed. By
+comparing the residues around the active sites of Cts11, we
+inferred the active site pocket of Cts11h5. The substrate ent-
+CPP was subsequently docked into the active site of an
+AlphaFold2 model of Cts11h5 via docking simulation, and the
+position of the substrate matched well with the predicted active
+site (Figure 4C). Within 5 Å of the substrate ent-CPP, there
+are three aromatic amino acids, F87, Y338, and Y343. We
+generated a series of alanine variants and conducted in vitro
+reactions. GC−MS analysis revealed that the F87A variant
+formed only traces of 6, in addition to three other compounds
+(10 −12, Figure 5B). Their structures were identified through
+NMR analysis (Figures S10 and S60−S65, Tables S6 and S7).
+The compounds ent-pimara-8,15-diene (10), a known
+synthetic compound not previously isolated from natural
+resources,46ent-pimara-8(14),15-diene (11),47 and ent-pimara-
+7,15-diene (12), also only known as a synthetic compound,46
+shares the tricyclic skeleton with 9, but the positions of the
+double bonds differ. All three compounds with the inverted
+stereochemistry at C3 require again a different cyclization
+Scheme 2. Mechanisms for the Cyclization of GGPP to 9 by Orf2-Cts11h5 and the Generation of Compounds 10, 11, and 12
+by Cts11h5 Enzyme Variants
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.4c16710
+J. Am. Chem. Soc. 2025, 147, 11896−11905
+11902
+
+
+
+[PDF physical page 8]
+mode from G to L with Re face attack at C3, demonstrating
+that the position of F87 in Cts11h5 that is equal to F90 in
+Cts11 functions as a configurational switch for C3 in the F-to-
+A exchange of residues in both enzymes. Additionally, the
+Y338A and Y343A variants did not produce any diterpenes,
+suggesting that the naturally present aromatic residues may be
+crucial for carbocation stabilization.
+In addition, the strict substrate specificity of Cts11 and
+Cts11h5 is also very intriguing. These two enzymes exhibit a
+different substrate selectivity for syn-CPP and ent-CPP,
+respectively, although the amino acid sequences of the two
+proteins are very similar with 78% amino acid identity (Figures
+S15 and S17). Further investigations are needed to identify key
+amino acid residues that are responsible for this highly
+intriguing phenomenon.
+■CONCLUSION
+Using a newly constructed bacterial Pfam model, we identified
+a pair of diterpene synthases, Cpt11 and Cts11, from the
+cyanobacterium Scytonema tolypothrichoides. This pair of
+diterpene synthases converts GGPP first into the intermediate
+syn-CPP and then into the rare 6,6,7-tricyclic diterpene 3,
+identifying the first bacterial syn-CPP synthase and a unique
+type I DTS. The detailed elucidation of the biosynthetic
+pathway for 3 through isotopic labeling experiments and DFT
+calculations deepens our understanding the formation of the
+seven-membered ring. Interestingly, oxidized derivatives of ent-
+3 produced through ent-CPP are known from the plant
+Siegesbeckia pubescens48 that will likely be formed via the
+enantiomeric series of cationic intermediates as described here
+for 3. So far, a very different biosynthetic proposal lacking
+experimental or computational evidence was available for these
+plant-derived materials.48 The crystal structure of Cts11 gave
+insights into active site residues. Disruption of a hydrogen
+bonding network between Y339 and the main chain carbonyl
+oxygen of G66 that is unique to Cts11 among the so far
+crystallized labdane-related type I DTSs showed a major
+influence on diterpene alcohol formation. The structural
+information gained here will be a basis for further engineering
+of diterpene synthases that can produce more diverse,
+unnatural diterpenes. Various diterpenes produced by
+diterpene synthase homologues in different cyanobacteria
+species also demonstrate the potential of cyanobacteria to
+create a valuable class of terpenoids.
+■ASSOCIATED CONTENT
+*
+sı Supporting Information
+The Supporting Information is available free of charge at
+https://pubs.acs.org/doi/10.1021/jacs.4c16710.
+Detailed experimental procedures, NMR spectra, protein
+sequences (PDF)
+■AUTHOR INFORMATION
+Corresponding Authors
+Jeroen S. Dickschat −Kekulé-Institute for Organic Chemistry
+and Biochemistry, University of Bonn, Bonn 53121,
+Germany;
+orcid.org/0000-0002-0102-0631;
+Email: dickschat@uniR-bonn.de
+Tomohisa Kuzuyama −Graduate School of Agricultural and
+Life Sciences and Collaborative Research Institute for
+Innovative Microbiology, The University of Tokyo, Bunkyo-
+ku, Tokyo 113-8657, Japan;
+orcid.org/0000-0002-7221-
+5858; Email: utkuz@g.ecc.u-tokyo.ac.jp
+Authors
+Jiayi Yu −Graduate School of Agricultural and Life Sciences,
+The University of Tokyo, Bunkyo-ku, Tokyo 113-8657, Japan
+Taro Shiraishi −Graduate School of Agricultural and Life
+Sciences and Collaborative Research Institute for Innovative
+Microbiology, The University of Tokyo, Bunkyo-ku, Tokyo
+113-8657, Japan;
+orcid.org/0000-0002-6540-8029
+Kizerbo A. Taizoumbe −Kekulé-Institute for Organic
+Chemistry and Biochemistry, University of Bonn, Bonn
+53121, Germany
+Yusaku Karasuno −Graduate School of Agricultural and Life
+Sciences, The University of Tokyo, Bunkyo-ku, Tokyo 113-
+8657, Japan
+Ayako Yoshida −Graduate School of Agricultural and Life
+Sciences and Collaborative Research Institute for Innovative
+Microbiology, The University of Tokyo, Bunkyo-ku, Tokyo
+113-8657, Japan
+Makoto Nishiyama −Graduate School of Agricultural and
+Life Sciences and Collaborative Research Institute for
+Innovative Microbiology, The University of Tokyo, Bunkyo-
+ku, Tokyo 113-8657, Japan;
+orcid.org/0000-0001-8143-
+8052
+Complete contact information is available at:
+https://pubs.acs.org/10.1021/jacs.4c16710
+Author Contributions
+The manuscript was written through contributions of all
+authors. All authors have given approval to the final version of
+the manuscript.
+Funding
+This work was supported by grants from JSPS KAKENHI
+(22H05120) to T.K. and from the German Research
+Foundation (DFG, project number 513548540).
+Notes
+The authors declare no competing financial interest.
+■ACKNOWLEDGMENTS
+We are grateful to the staff of the Photon Factory for their
+assistance with data collection, which was approved by the
+Photon Factory Program Advisory Committee (Proposal No.
+2023G632).
+■ABBREVIATIONS
+TS, Terpene synthase; HMM, Hidden Markov Model; DTS,
+Diterpene synthase; CPP, Copalyl diphosphate
+■REFERENCES
+(1) Rudolf, J. D.; Alsup, T. A.; Xu, B.; Li, Z. Bacterial Terpenome.
+Nat. Prod. Rep. 2021, 38 (5), 905−980.
+(2) Christianson, D. W. Structural Biology and Chemistry of the
+Terpenoid Cyclases. Chem. Rev. 2006, 106 (8), 3412−3442.
+(3) D’Agostino, P. M. Highlights of Biosynthetic Enzymes and
+Natural Products from Symbiotic Cyanobacteria. Nat. Prod. Rep.
+2023, 40 (11), 1701−1717.
+(4) Shaw, S. L.; Chisholm, S. W.; Prinn, R. G. Isoprene Production
+by Prochlorococcus, a Marine Cyanobacterium, and Other Phyto-
+plankton. Marine Chemistry 2003, 80 (4), 227−245.
+(5) Giglio, S.; Chou, W. K. W.; Ikeda, H.; Cane, D. E.; Monis, P. T.
+Biosynthesis of 2-Methylisoborneol in Cyanobacteria. Environ. Sci.
+Technol. 2011, 45 (3), 992−998.
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.4c16710
+J. Am. Chem. Soc. 2025, 147, 11896−11905
+11903
+
+
+
+[PDF physical page 9]
+(6) Giglio, S.; Jiang, J.; Saint, C. P.; Cane, D. E.; Monis, P. T.
+Isolation and Characterization of the Gene Associated with Geosmin
+Production in Cyanobacteria. Environ. Sci. Technol. 2008, 42 (21),
+8027−8032.
+(7) Prinsep, M. R.; Thomson, R. A.; West, M. L.; Wylie, B. L.
+Tolypodiol, an Antiinflammatory Diterpenoid from the Cyanobacte-
+rium Tolypothrix Nodosa. J. Nat. Prod. 1996, 59 (8), 786−788.
+(8) Jaki, B.; Orjala, J.; Sticher, O. A Novel Extracellular Diterpenoid
+with Antibacterial Activity from the Cyanobacterium Nostoc
+Commune. J. Nat. Prod. 1999, 62 (3), 502−503.
+(9) Pérez Gutiérrez, R. M.; Martínez Flores, A.; Vargas Solís, R.;
+Carmona Jimenez, J. Two New Antibacterial Norabietane Diterpe-
+noids from Cyanobacteria. Microcoleous Lacustris. J. Nat. Med. 2008,
+62 (3), 328−331.
+(10) Ebihara, A.; Taguchi, R.; Jeelani, G.; Nozaki, T.; Suenaga, K.;
+Iwasaki, A. Kagimminols A and B, Cembrene-Type Diterpenes from
+an Okeania Sp. Marine Cyanobacterium. J. Nat. Prod. 2024, 87 (4),
+1116−1123.
+(11) Agger, S. A.; Lopez-Gallego, F.; Hoye, T. R.; Schmidt-Dannert,
+C. Identification of sesquiterpene synthases from Nostoc punctiforme
+PCC 73102 and Nostoc sp. strain PCC 7120. J. Bacteriol. 2008, 190
+(18), 6084−6096.
+(12) Moosmann, P.; Ecker, F.; Leopold-Messer, S.; Cahn, J. K. B.;
+Dieterich, C. L.; Groll, M.; Piel, J. A monodomain class II terpene
+cyclase assembles complex isoprenoid scaffolds. Nat. Chem. 2020, 12
+(10), 968−972.
+(13) Sugiyama, K.; Takaichi, S. Carotenogenesis in cyanobacteria:
+CruA/CruP-type and CrtL-type lycopene cyclases. J. Gen. Appl.
+Microbiol. 2020, 66 (2), 53−58.
+(14) Micallef, M. L.; D’Agostino, P. M.; Sharma, D.; Viswanathan,
+R.; Moffitt, M. C. Genome Mining for Natural Product Biosynthetic
+Gene Clusters in the Subsection V Cyanobacteria. BMC Genomics
+2015, 16 (1), 669.
+(15) Mistry, J.; Chuguransky, S.; Williams, L.; Qureshi, M.; Salazar,
+G. A.; Sonnhammer, E. L. L.; Tosatto, S. C. E.; Paladin, L.; Raj, S.;
+Richardson, L. J.; Finn, R. D.; Bateman, A. Pfam: The Protein
+Families Database in 2021. Nucleic Acids Res. 2021, 49 (D1), D412−
+D419.
+(16) Hage, H.; Couillaud, J.; Salamov, A.; Loussouarn-Yvon, M.;
+Durbesson, F.; Ormeño, E.; Grisel, S.; Duquesne, K.; Vincentelli, R.;
+Grigoriev, I.; Iacazio, G.; Rosso, M.-N. An HMM Approach Expands
+the Landscape of Sesquiterpene Cyclases across the Kingdom Fungi.
+Microbial Genomics 2023, 9 (4), No. 000990.
+(17) Yamada, Y.; Kuzuyama, T.; Komatsu, M.; Shin-ya, K.; Omura,
+S.; Cane, D. E.; Ikeda, H. Terpene Synthases Are Widely Distributed
+in Bacteria. Proc. Natl. Acad. Sci. U. S. A. 2015, 112 (3), 857−862.
+(18) Yee, N. K. N.; Coates, R. M. Total Synthesis of (+)-9,10-Syn-
+and (+)-9,10-Anti-Copalol via Epoxy Trienylsilane Cyclizations. J.
+Org. Chem. 1992, 57 (17), 4598−4608.
+(19) Toyomasu, T.; Sassa, T. 1.17 - Diterpenes. In Comprehensive
+Natural Products II: Chemistry and Biology; Liu, H.-W.; Mander, L.,
+Eds.; Elsevier: Oxford, 2010; pp 643−672. .
+(20) Rabe, P.; Rinkel, J.; Dolja, E.; Schmitz, T.; Nubbemeyer, B.;
+Luu, T. H.; Dickschat, J. S. Mechanistic Investigations of Two
+Bacterial Diterpene Cyclases: Spiroviolene Synthase and Tsukuba-
+diene Synthase. Angew. Chem., Int. Ed. 2017, 56 (10), 2776−2779.
+(21) Lauterbach, L.; Rinkel, J.; Dickschat, J. S. Two Bacterial
+Diterpene Synthases from Allokutzneria albata for Bonnadiene and for
+Phomopsene and Allokutznerene. Angew. Chem., Int. Ed. 2018, 57
+(27), 8280−8283.
+(22) Liang, J.; Merrill, A. T.; Laconsay, C. J.; Hou, A.; Pu, Q.;
+Dickschat, J. S.; Tantillo, D. J.; Wang, Q.; Peters, R. J. Deceptive
+complexity in formation of cleistantha-8,12-diene. Org. Lett. 2022, 24
+(14), 2646−2649.
+(23) Rabe, P.; Barra, L.; Rinkel, J.; Riclea, R.; Citron, C. A.;
+Klapschinski, T. A.; Janusko, A.; Dickschat, J. S. Conformational
+Analysis, Thermal Rearrangement and EI-MS-Fragmentation Mech-
+anism of (1(10)E,4E,6S,7R)-Germacradien-6-ol by
+13C-Labeling
+Experiments. Angew. Chem., Int. Ed. 2015, 54, 13448−13451.
+(24) Bian, G.; Rinkel, J.; Wang, Z.; Lauterbach, L.; Hou, A.; Yuan,
+Y.; Deng, Z.; Liu, T.; Dickschat, J. S. A Clade II-D Fungal Chimeric
+Diterpene Synthase from Colletotrichum gloeosporioides Making
+Dolasta-1(15),8-diene. Angew. Chem., Int. Ed. 2018, 57 (48),
+15887−15890.
+(25) Otomo, K.; Kenmoku, H.; Oikawa, H.; König, W. A.; Toshima,
+H.; Mitsuhashi, W.; Yamane, H.; Sassa, T.; Toyomasu, T. Biological
+Functions of Ent- and Syn-Copalyl Diphosphate Synthases in Rice:
+Key Enzymes for the Branch Point of Gibberellin and Phytoalexin
+Biosynthesis. Plant Journal 2004, 39 (6), 886−893.
+(26) Stowell, E. A.; Ehrenberger, M. A.; Lin, Y.-L.; Chang, C.-Y.;
+Rudolf, J. D. Structure-Guided Product Determination of the Bacterial
+Type II Diterpene Synthase Tpn2. Commun. Chem. 2022, 5 (1), 1−8.
+(27) Kawasaki, T.; Kuzuyama, T.; Kuwamori, Y.; Matsuura, N.; Itoh,
+N.; Furihata, K.; Seto, H.; Dairi, T. Presence of Copalyl Diphosphate
+Synthase Gene in an Actinomycete Possessing the Mevalonate
+Pathway. J. Antibiot. 2004, 57 (11), 739−747.
+(28) Rudolf, J. D.; Dong, L.-B.; Cao, H.; Hatzos-Skintges, C.;
+Osipiuk, J.; Endres, M.; Chang, C.-Y.; Ma, M.; Babnigg, G.;
+Joachimiak, A.; Phillips, G. N. Jr.; Shen, B. Structure of the Ent-
+Copalyl Diphosphate Synthase PtmT2 from Streptomyces Platensis
+CB00739, a Bacterial Type II Diterpene Synthase. J. Am. Chem. Soc.
+2016, 138 (34), 10905−10915.
+(29) Ikeda, H.; Shin-ya, K.; Nagamitsu, T.; Tomoda, H. Biosynthesis
+of Mercapturic Acid Derivative of the Labdane-Type Diterpene,
+Cyslabdan That Potentiates Imipenem Activity against Methicillin-
+Resistant Staphylococcus Aureus: Cyslabdan Is Generated by
+Mycothiol-Mediated Xenobiotic Detoxification. Journal of Industrial
+Microbiology and Biotechnology 2016, 43 (2−3), 325−342.
+(30) Hamano, Y.; Kuzuyama, T.; Itoh, N.; Furihata, K.; Seto, H.;
+Dairi, T. Functional Analysis of Eubacterial Diterpene Cyclases
+Responsible for Biosynthesis of a Diterpene Antibiotic. Terpentecin.
+Journal of Biological Chemistry 2002, 277 (40), 37098−37104.
+(31) Nakano, C.; Oshima, M.; Kurashima, N.; Hoshino, T.
+Identification of a New Diterpene Biosynthetic Gene Cluster That
+Produces O-Methylkolavelool in Herpetosiphon Aurantiacus. Chem-
+BioChem. 2015, 16 (5), 772−781.
+(32) Nakano, C.; Ootsuka, T.; Takayama, K.; Mitsui, T.; Sato, T.;
+Hoshino, T. Characterization of the Rv3378c Gene Product, a New
+Diterpene Synthase for Producing Tuberculosinol and (13R, S)-
+Isotuberculosinol (Nosyberkol), from the Mycobacterium Tuber-
+culosis H37Rv Genome. Biosci., Biotechnol., Biochem. 2011, 75 (1),
+75−81.
+(33) Xing, B.; Yu, J.; Chi, C.; Ma, X.; Xu, Q.; Li, A.; Ge, Y.; Wang,
+Z.; Liu, T.; Jia, H.; Yin, F.; Guo, J.; Huang, L.; Yang, D.; Ma, M.
+Functional Characterization and Structural Bases of Two Class I
+Diterpene Synthases in Pimarane-Type Diterpene Biosynthesis.
+Commun. Chem. 2021, 4 (1), 1−11.
+(34) Baer, P.; Rabe, P.; Fischer, K.; Citron, C. A.; Klapschinski, T.
+A.; Groll, M.; Dickschat, J. S. Induced-Fit Mechanism in Class I
+Terpene Cyclases. Angew. Chem., Int. Ed. 2014, 53 (29), 7652−7656.
+(35) Li, Z.; Zhang, L.; Xu, K.; Jiang, Y.; Du, J.; Zhang, X.; Meng, L.-
+H.; Wu, Q.; Du, L.; Li, X.; Hu, Y.; Xie, Z.; Jiang, X.; Tang, Y.-J.; Wu,
+R.; Guo, R.-T.; Li, S. Molecular Insights into the Catalytic
+Promiscuity of a Bacterial Diterpene Synthase. Nat. Commun. 2023,
+14 (1), 4001.
+(36) Chan, H.-C.; Feng, X.; Ko, T.-P.; Huang, C.-H.; Hu, Y.; Zheng,
+Y.; Bogue, S.; Nakano, C.; Hoshino, T.; Zhang, L.; Lv, P.; Liu, W.;
+Crick, D. C.; Liang, P.-H.; Wang, A. H.-J.; Oldfield, E.; Guo, R.-T.
+Structure and Inhibition of Tuberculosinol Synthase and Decaprenyl
+Diphosphate Synthase from Mycobacterium Tuberculosis. J. Am.
+Chem. Soc. 2014, 136 (7), 2892−2896.
+(37) Centeno-Leija, S.; Tapia-Cabrera, S.; Guzmán-Trampe, S.;
+Esquivel, B.; Esturau-Escofet, N.; Tierrafría, V. H.; Rodríguez-Sanoja,
+R.; Zárate-Romero, A.; Stojanoff, V.; Rudiño-Piñera, E.; Sánchez, S.;
+Serrano-Posada, H. The Structure of (E)-Biformene Synthase
+Provides Insights into the Biosynthesis of Bacterial Bicyclic
+Labdane-Related Diterpenoids. J. Struct. Biol. 2019, 207 (1), 29−39.
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.4c16710
+J. Am. Chem. Soc. 2025, 147, 11896−11905
+11904
+
+
+
+[PDF physical page 10]
+(38) Liu, W.; Feng, X.; Zheng, Y.; Huang, C.-H.; Nakano, C.;
+Hoshino, T.; Bogue, S.; Ko, T.-P.; Chen, C.-C.; Cui, Y.; Li, J.; Wang,
+I.; Hsu, S.-T. D.; Oldfield, E.; Guo, R.-T. Structure, Function and
+Inhibition of Ent-Kaurene Synthase from Bradyrhizobium Japonicum.
+Sci. Rep 2014, 4 (1), 6214.
+(39) Zhou, K.; Gao, Y.; Hoy, J. A.; Mann, F. M.; Honzatko, R. B.;
+Peters, R. J. Insights into Diterpene Cyclization from Structure of
+Bifunctional Abietadiene Synthase from Abies Grandis*. J. Biol. Chem.
+2012, 287 (9), 6840−6850.
+(40) Layre, E.; Lee, H. J.; Young, D. C.; Jezek Martinot, A.; Buter, J.;
+Minnaard, A. J.; Annand, J. W.; Fortune, S. M.; Snider, B. B.;
+Matsunaga, I.; Rubin, E. J.; Alber, T.; Moody, D. B. Molecular
+Profiling of Mycobacterium Tuberculosis Identifies Tuberculosinyl
+Nucleoside Products of the Virulence-Associated Enzyme Rv3378c.
+Proc. Natl. Acad. Sci. U. S. A. 2014, 111 (8), 2978−2983.
+(41) Presser, A.; Haslinger, E.; Weis, R.; Hüfner, A. Synthetic
+Transformations of Abietic Acid IV [1]. B- and C-Ring Oxidation.
+Monatshefte fuer. Chemie 1998, 129 (8), 921−930.
+(42) Sakurai, A.; Okamoto, Y.; Kokubo, S.; Chiba, A. Abietane-type
+Diterpenoids from of Vitex rotundifolia L. fil; Hamagou kajitsu yori
+tanri sareta 2shu no sinki abietan gata jiterupen no kozo. Nippon
+Kagaku Kaishi 1999, 3, 207−211.
+(43) Klapschinski, T. A.; Rabe, P.; Dickschat, J. S. Pristinol, a
+Sesquiterpene Alcohol with Unprecedented Skeleton from Strepto-
+myces pristinaespiralis. Angew. Chem., Int. Ed. 2016, 55 (34), 10141−
+10144.
+(44) Rabe, P.; Rinkel, J.; Nubbemeyer, B.; Köllner, T. G.; Chen, F.;
+Dickschat, J. S. Terpene Cyclases from Social Amoebae. Angew.
+Chem., Int. Ed. 2016, 55 (49), 15420−15423.
+(45) Quan, Z.; Dickschat, J. S. On the mechanism of ophiobolin F
+synthase and the absolute configuration of its product by isotopic
+labelling experiments. Org. Biomol. Chem. 2020, 18 (31), 6072−6076.
+(46) Coates, R. M.; Kang, H.-Y. Synthesis and Evaluation of
+Cyclobutylcarbinyl Derivatives as Potential Intermediates in Diter-
+pene Biosynthesis. J. Org. Chem. 1987, 52, 2065−2074.
+(47) Shibata, S.; Mihashi, S.; Tanaka, O. The occurrence of
+(−)pimarane-type diterpene in Aralia cordata Thunb. Tetrahedron
+Lett. 1967, 8, 5241−5243.
+(48) Wang, J.; Duan, H.; Wang, Y.; Pan, B.; Gao, C.; Gai, C.; Wu,
+Q.; Fu, H. ent-Strobane and ent-Pimarane Diterpenoids from
+Siegesbeckia pubescens. J. Nat. Prod. 2017, 80 (1), 19−29.
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.4c16710
+J. Am. Chem. Soc. 2025, 147, 11896−11905
+11905

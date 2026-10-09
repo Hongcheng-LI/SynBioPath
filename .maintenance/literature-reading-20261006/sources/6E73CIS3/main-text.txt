@@ -1,0 +1,799 @@
+
+[PDF physical page 1]
+NRPStransformer, an Accurate Adenylation Domain Specificity
+Prediction Algorithm for Genome Mining of Nonribosomal Peptides
+Zhihan Zhang,∇Yuyang Zhou,∇Shengling Xie, Run-Zhou Liu, Zilei Huang,
+Pachaiyappan Saravana Kumar, Guozhong Feng, Fajie Yuan,* and Lihan Zhang*
+Cite This: https://doi.org/10.1021/jacs.5c08076
+Read Online
+ACCESS
+Metrics & More
+Article Recommendations
+*
+sı
+Supporting Information
+ABSTRACT: Nonribosomal peptides serve as pivotal sources for drug discovery. Accurate prediction of the substrate specificity of
+adenylation domains in nonribosomal peptide synthetases is crucial for genome mining of nonribosomal peptides, yet current
+prediction methods fall short in accuracy. In this work, we analyzed 4,100 adenylation domains from documented nonribosomal
+peptide synthetases and found that the flavodoxin-like subdomain universally governs substrate specificity in all bacterial adenylation
+domains and that its phylogenetic analysis can correlate the sequences of adenylation domains and their substrate specificity.
+Leveraging the sequences within the flavodoxin-like subdomain, we developed a substrate specificity prediction algorithm using a
+protein language model, achieving 92% overall prediction accuracy for 43 frequently observed amino acids, significantly improving
+the prediction reliability. The efficacy of our prediction tool was validated through targeted genome mining, which led to the
+discovery of novel antimicrobial peptides. Our work lays a foundation to understand the sequence-to-function relationship of the
+bacterial adenylation domain and will facilitate the exploitation of nonribosomal peptides. NRPStransformer is available at http://
+www.nrpstransformer.cn.
+1. INTRODUCTION
+The rapid emergence and spread of antimicrobial resistance
+pose a significant threat to global public health, making the
+discovery of new antimicrobial compounds an urgent prior-
+ity.1−3 The discovery and development of antibiotics have been
+largely driven by natural products, and nonribosomal peptides
+(NRPs) constitute a pivotal source for clinical antibiotics
+exemplified by penicillin, vancomycin, and colistin, a last-resort
+treatment against multidrug-resistant bacterial infections.4
+Recent discoveries of teixobactin5 and clovibactin6 with a
+unique mode of action further highlight the privileged
+molecular property of nonribosomal peptides.
+Genome mining is a powerful approach for the targeted
+discovery of natural products, which aims to discover natural
+products based on the analysis of their biosynthetic gene
+clusters.7−11 The discoveries of teixobactin and clovibactin
+both benefitted from genomic analysis of nonribosomal
+peptide synthases (NRPSs) that are responsible for NRP
+biosynthesis.12,13 As NRPSs consist of multiple domains and
+have large protein size, they are easily identifiable in genome
+sequences; metagenomic and pangenomic analyses have
+revealed the widespread distribution of NRPSs among most
+phyla of microbes in soil, ocean, and even the human
+microbiome, leading to the continuous discovery of new
+NRPs with potent antibiotic activity.14−19
+The structure of an NRP is primarily controlled by NRPS’s
+adenylation (A) domain that selectively activates an amino
+acid as a substrate for peptide formation.13,20,21 Thus,
+prediction of the substrate specificity of A domains is of
+critical importance in connecting the biosynthetic genes to the
+peptide product structures. A pioneering work by Stachelhaus
+Received:
+May 13, 2025
+Revised:
+August 15, 2025
+Accepted:
+August 18, 2025
+Article
+pubs.acs.org/JACS
+© XXXX American Chemical Society
+A
+https://doi.org/10.1021/jacs.5c08076
+J. Am. Chem. Soc. XXXX, XXX, XXX−XXX
+Downloaded via OCEAN UNIV OF CHINA on August 26, 2025 at 06:01:53 (UTC).
+See https://pubs.acs.org/sharingguidelines for options on how to legitimately share published articles.
+
+
+
+[PDF physical page 2]
+et al. reported that the 10 amino acid residues forming the
+substrate binding pocket of an A domain, known as the
+Stachelhaus code, are indicative of its substrate specificity.22
+The Stachelhaus code has been widely applied for the substrate
+prediction of A domains and has facilitated the development of
+machine learning-based prediction tools such as NRPSpre-
+dictor2, which expanded the Stachelhaus code to 32 amino
+acid residues within 5 Å of the substrate binding pocket.23
+Such bioinformatic predictions have even enabled bioinfor-
+matics-guided chemical synthesis for the rapid discovery of
+bioactive (pseudo)natural peptide antibiotics.24,25 Neverthe-
+less, the accuracy and applicable range of the Stachelhaus code
+have not been systematically assessed, and the existing tools for
+A domain substrate prediction also have limitations in their
+accuracy and predictable amino acid classes.26,27
+Here, we report a large-scale bioinformatic analysis of 4,100
+NRPS A domains and the development of an artificial
+intelligence-based A domain substrate predictor, NRPStrans-
+former. NRPStransformer achieves a significantly improved
+overall accuracy of 93% for 43 frequently observed amino
+acids, including a dozen of nonproteinogenic amino acids. We
+also demonstrate the discovery of novel bioactive peptides by
+targeted genome mining based on the NRPStransformer
+prediction. Our results uncover the global landscape of
+NRPSs’ A domains and accelerate the exploitation of natural
+bioactive peptides.
+2. RESULTS
+2.1. Comprehensive Characterization of NRPS A
+Domains. Although current A domain prediction tools have
+been widely applied to NRPS genome mining, they are trained
+by a limited data set and may contain sampling biases and
+overfitting issues.23,26,27 To better understand the sequence-to-
+substrate relationship of A domains, we first curated bacterial
+NRPSs whose product peptides are documented from the
+MIBiG database and by manual literature search (as of May
+2024).28 The curated data set includes a total of 756 NRPS-
+containing gene clusters and 4,100 A domains from most of
+the major bacterial phyla (Figure 1, Supporting Information set
+S1), which brings a 77% increase compared to the previous
+largest data set.29 We annotated the substrate information on
+each A domain based on the product peptide structure or
+biochemical characterization results. For those A domains
+whose product peptides have variable amino acid residues, we
+annotated the most representative amino acid by considering
+the major peptide product structure. If no major product could
+be determined, the phylogenetic distribution of the A domain
+was considered to guide the annotation, thus giving one-to-one
+labeling of the A domain sequences and its substrate amino
+acids.
+A characteristic feature of nonribosomal peptides is the
+incorporation of nonproteinogenic amino acids. They can be
+introduced either by the A domain itself or by modification
+after loading of a proteinogenic amino acid. For these A
+domains whose product corresponds to a nonproteinogenic
+amino acid, we annotated their substrate based on the final
+product structure, except if they are biochemically charac-
+terized or a reasonable assumption can be made based on
+bioinformatic analysis (see later results), resulting in a total of
+181 amino acid substrates (Supporting Information set S1).
+With the curated A domain data set in hand, we first
+analyzed the amino acid substrates they accept and their
+taxonomic origin. The most abundant amino acid used by A
+domains was Leu (353), followed by Thr (352), Val (332),
+and Ser (325), whereas His (24) and Met (7) were the least
+used proteinogenic amino acids in NRPs (Figure 1). Some
+nonproteinogenic amino acids were distributed in specific
+phyla, as seen in hydroxyphenylglycine (Hpg) and piperazic
+acid (Piz) in Actinomycetota, homoserine (Hse) in Pseudo-
+monadota, and homotyrosine (Hty) in Cyanobacteriota,
+suggesting their recent emergence in these phyla (Figure 1b).
+Next, we conducted a sequence logo analysis for each amino
+acid substrate. The result showed that each substrate class has
+distinct conserved residues (Figures 2a and S1), and because
+each substrate class contains A domains from various
+taxonomic origins, these distinctive conservation patterns
+strongly indicate their relevance with substrate specificity.
+These substrate specificity-conferring residues are mainly
+distributed in the flavodoxin-like subdomain region30 between
+the A3 and A6 motifs31,32 of an A domain. Notably, the
+analysis revealed that the specificity-conferring residues are not
+restricted to the residues near the substrate binding pocket. For
+example, Cys-accepting A domains share a conserved
+WxSIPYG motif at the loop region between the A5 and A6
+motifs (Figure 2a), indicating that the substrate binding pocket
+may not be the only factor to determine the substrate
+specificity. In addition, the sequence logo analyses did not
+reveal any substrate-specific conserved residues far from the
+Figure 1. A domain distribution and substrates they accept based on characterized NRP structures. (a) The 4,100 A domains sorted by taxonomic
+origin. (b) The A domains sorted by each substrate. Proteinogenic amino acids and selected nonproteinogenic amino acids are listed with their
+taxonomic origin. Nomenclature and structures of nonproteinogenic amino acids are provided in Table S1.
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.5c08076
+J. Am. Chem. Soc. XXXX, XXX, XXX−XXX
+B
+
+
+
+[PDF physical page 3]
+flavodoxin-like subdomain (Figure S1), suggesting that the
+flavodoxin-like subdomain alone is the key to determine
+substrate specificity.
+2.2. Phylogenetic Analysis of NRPS A Domains. To
+further study the sequence-to-substrate correlation of A
+domains, we constructed a phylogenetic tree using the
+sequence region between the A3 and A6 motifs that covers
+the entire flavodoxin-like subdomain. The phylogenetic tree of
+the 4,100 A domains formed clear substrate-specific clades for
+amino acids such as Ser, Cys, Ala, Gly, Thr, and Pro and clades
+with similar molecular properties such as hydrogen bond
+forming, basic, and hydrophobic clades (Figures 2b and S2−
+S3). Overall, the tree showed a strong correlation between the
+phylogenetic clades and the substrate type an A domain
+accepts. Within a clade, A domains that accept the same
+substrate tend to form subclades according to the taxonomic
+classification of their host strains. The mixed clades such as the
+hydrophobic clade are also indicative of the inherent
+promiscuity of some A domains accepting multiple amino
+acids. We note that fungal A domains (Supporting Information
+set S2) do not follow this substrate-depending cladogram
+(Figure S3), suggesting that their substrate specificity may not
+be clearly learned by the sequence analysis of the flavodoxin
+subdomain.
+The phylogenetic tree can reveal the hidden biosynthetic
+mechanism of nonproteinogenic amino acids. For example, we
+Figure 2. Sequence-to-substrate correlation of NRPS A domains. (a) Sequence logo analyses of all 4,100 A domains and threonine- or cysteine-
+accepting A domains. The A3 to A6 motif area covering the flavodoxin-like subdomain is shown, with substrate-specific conserved residues labeled
+by diamonds. See Figure S1 for full-length A domain analysis. (b) Phylogenetic analysis of the flavodoxin-like subdomain, colored by substrates
+they accept in the background and by taxonomic origin on the outer strips. See Figure S2 for bootstrap information and Figure S3 for clearer
+substrate distribution.
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.5c08076
+J. Am. Chem. Soc. XXXX, XXX, XXX−XXX
+C
+
+
+
+[PDF physical page 4]
+found that 3-hydroxyl-Leu incorporating A domains formed
+the same clade with a Thr-accepting A domain (Figure S3),
+suggesting that they commonly recognize the β-hydroxyl
+group, which indicates that the hydroxylation of Leu is prior to
+NRPS loading. In contrast, we did not observe separated clades
+for Asp/Asn and β-hydroxy Asp/Asn, which is in agreement
+with the reported mechanism of online hydroxylation after
+NRPS loading.33 Among Asp/Glu-accepting A domains, the
+canonical α-carboxylic acid-activating A domains and the
+uncanonical side chain γ/δ-carboxylic acid-activating A
+domains (Asp-γ/Glu-δ) formed separate clades (Figure S3),
+suggesting that the phylogenetic analysis can distinguish
+different peptide connectivities of an NRP.
+The phylogenetic tree also illustrates the potential evolu-
+tionary history of the A domains. The clear substrate-
+dependent cladogram indicates that different amino acid-
+accepting A domains emerged at an early point in the evolution
+of NRPS prior to taxonomic diversification.34 Generally, it can
+be inferred that there were a few key ancestral A domains that
+served as templates for each substrate class. For example, the
+Asp/Asn clade locates adjacent to the parental clade of large
+hydrogen-bond-forming amino acids, suggesting that the Asp/
+Asn-accepting A domains evolved from a promiscuous
+ancestor that accepts large polar amino acids. From the Asp/
+Asn clade, an actinobacterial Asp/Glu clade further branches
+out (Figure 2b), suggesting that the actinobacterial Glu-
+accepting A domains emerged at a later point from Asp/Asn-
+accepting A domains by cavity-enlarging mutations. Non-
+proteinogenic amino acid-accepting A domains may have
+evolved later, as seen for the (di)hydroxyphenyl-glycine (Dpg/
+Hpg) clade branched out in the middle of the Val/Ile clade,
+which was specifically distributed in Actinomycetota. However,
+we also note that random point mutation is another driving
+force for the functional diversification of A domains. The most
+prominent example is A domains accepting Ala and Leu, which
+are mixed in many other clades (Figure S3), presumably due to
+the structural generality of Ala and Leu for partially resembling
+other amino acid structures. Detailed analysis of such
+Figure 3. Evaluation of NRPStransformer prediction accuracy. (a) Data set for NRPStransformer development. (b) Benchmarking of
+NRPStransformer and other methods against the 763 test data comprising the 43 amino acids. Stachelhaus code and Retrained NRPSpredictor2
+used the 3043 training data for algorithm development. PARAS and DeepAden were directly evaluated by running their program to see whether the
+outputs matched the test data labels or not. NRPStransformer-Clade prediction was evaluated by the same data set but using the 17 clades as the
+data labels. (c) Confusion matrix of NRPStransformer with recall (accuracy) and support (sample) numbers. (d) Violin plot showing each test
+sequence and its prediction score of NRPStransformer. (e) Real-world accuracy comparison using the recently published NRPS data. The data set
+has not been used to train any of the algorithms and includes rare nonproteinogenic amino acids without any filtering.
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.5c08076
+J. Am. Chem. Soc. XXXX, XXX, XXX−XXX
+D
+
+
+
+[PDF physical page 5]
+sequentially similar but functionally different A domains may
+reveal the substrate recognition mechanism and guide precise
+active site engineering of A domains.
+Altogether, our bioinformatic analyses suggest that the
+flavodoxin-like subdomain has a critical influence on the
+substrate specificity of an A domain. It is notable that previous
+phylogenetic analyses of A domains using the full-length
+sequence did not lead to reliable substrate prediction.26
+Indeed, the A domain regions outside the A3 to A6 motif tend
+to have high sequence similarity with other A domains from
+the same gene cluster, regardless of its substrate specificity.35
+Such sequence homogenization, caused by concerted evolu-
+tion,36 can override the original evolutionary information and
+result in the difficulty for substrate prediction by the full-length
+A domain. Even using the A3 to A6 motif region for
+phylogenetic analysis, earlier research found it to emphasize
+a genus-specific cladogram;34 however, the substrate-depend-
+ent trend was indeed observable in their result of 138 A
+domain sequences. Our result, leveraging a substantially larger
+data set, reveals these substrate-dependent cladograms with
+greater clarity.
+2.3. NRPStransformer Enables Accurate Substrate
+Prediction of A Domains. The observation of substrate-
+dependent clades of A domains further prompted us to develop
+a prediction tool for the A domain substrates by using
+flavodoxin-like subdomain sequences. To this end, we sought
+to apply a protein language model to develop an NRPS A
+domain substrate prediction tool, NRPStransformer (Figure
+3a). First, we prepared the characterized A domains as the
+training data set. We selected the top 43 amino acid substrates
+that have 9 and more A domains in our data set for substrate
+prediction (Table S1). A domains accepting minor substrates
+and stand-alone A domains that located as outliers in the
+phylogenetic tree were removed, resulting in 3,806 charac-
+terized A domains for algorithm development (Supporting
+Information set S3).
+We designed a classification layer with the 43 amino acid
+output heads based on Evolutionary Scale Modeling-2 (ESM-
+2), a transformer-based language model pretrained on large-
+scale protein data sets.37 Next, the model was trained and fine-
+tuned using the data set separated into training and validation
+data with a 8:2 ratio by 5-fold cross-validation (Supporting
+Information Method). The validation results for the five-folds
+showed a consistent prediction accuracy of more than 91%,
+with the highest of 92.9% accuracy, indicating stable
+performance of our prediction model (Figure 3b). Among
+different substrates, NRPStransformer showed 82% (Gln) to
+100% (Thr, etc.) accuracy as shown in the confusion matrix
+(Figure 3c). Overall, amino acids with relatively low prediction
+score also showed a mixed cladogram in the phylogenetic
+analysis (e.g., Leu and Trp), suggesting that our AI-based
+model can extract biologically meaningful information from the
+input sequences.
+Hinted by the phylogenetic analysis result, we also designed
+the phylogenetic cladogram prediction mode based on the
+same ESM-2 model.37 After training and fine-tuning using the
+same data set but with a classification layer with the 17
+phylogenetic clades, the algorithm achieved 99% prediction
+accuracy.
+We then benchmarked NRPStransformer with NRPSpre-
+dictor2, the current standard prediction algorithm based on
+support vector machine (SVM) classification.23 Since
+NRPSpredictor2 was trained with 550 A domains back in
+2011, we also retrained NRPSpredictor2 using our 43 amino
+acid substrate data set of 3,043 training sequences from the last
+fold of the cross-validation data set and used the remaining 743
+validation A domain sequences for benchmarking. The result
+showed that while original NRPSpredictor2 gave 59% correct
+prediction, retrained NRPSpredictor2 significantly improved
+its prediction accuracy to reach 87% correctness, slightly below
+the 92% accuracy of NRPStransformer (Figure 3b).
+Interestingly, when we used the Stachelhaus code for
+prediction, i.e., comparing the 10-residue code of a test A
+domain from the 763 validation A domains against the 3,043
+reference data set and outputting the most frequent substrate
+from the best match A domains, this simple 10 amino acid
+comparison method still gave 89% prediction accuracy. We
+note that the Stachelhaus code prediction worked well for
+those test samples which found highly identical codes from the
+reference data set but performed worse than AI-based
+prediction for those without a similar code in reference.
+These results indicate that the sufficient coverage of the A
+domain training data set and the quality of their substrate
+labels affect the prediction accuracy most profoundly, and the
+use of a protein language model can further improve the
+accuracy over simple key residue comparison and traditional
+machine learning models, particularly for those with lower
+sequence similarity to references.
+Several limitations should be noted. First, the NRPStrans-
+former outputs the top three hits based on the prediction
+score, but a high prediction score does not always guarantee its
+correctness (Figure 3d). Second, NRPStransformer (and other
+sequence-based prediction tools in general) cannot accurately
+predict A domains that have an altered substrate specificity
+caused by point mutations. Therefore, it should not be used to
+evaluate enzyme engineering outcomes based on a small
+number of mutations.
+Lastly, we compared the prediction accuracy of NRPStrans-
+former with recently developed algorithms PARAS38 and
+DeepAden39 reported as preprints. Using the test data set of
+763 sequences, NRPStransformer outperformed the other
+algorithms by a margin of 4−6% (Figure 3b). To avoid training
+and data set preparation biases, we also collected 155 recently
+published A domain sequences (May 2024−June 2025,
+including NRPSs characterized in this work, Supporting
+Information set S4) to test real-world accuracy of these
+tools. NRPStransformer showed a decreased but highest 82.6%
+accuracy (Figure 3e), despite the data set containing other
+than the 43 predictable amino acids. Notably, DeepAden
+integrates contrastive learning of sequence and substrate
+structure information on A domains, showing comparable
+accuracy to our NRPStransformer but with less training data
+set. However, the PARASECT algorithm that integrates
+substrate structure information on top of the sequence-based
+PARAS algorithm did not show significant improvement,38
+highlighting the need for better utilization of substrate
+structure information to enhance A domain prediction.
+2.4. Structure-Guided Precise Genome Mining of
+Nonribosomal Peptides. To demonstrate the application of
+the NRPStransformer, we performed structure-oriented
+genome mining for the targeted discovery of specific
+nonribosomal peptides. Polycationic peptides are a promising
+class of antibiotics, including colistin and polymyxins, which
+are regarded as last-resort antibiotics. By screening NRPSs rich
+in cationic residues (Lys, Orn, and Arg), we identified an
+NRPS that potentially encodes a novel polycationic peptide
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.5c08076
+J. Am. Chem. Soc. XXXX, XXX, XXX−XXX
+E
+
+
+
+[PDF physical page 6]
+Figure 4. Characterization of NRPs guided by NRPStransformer prediction. Asterisks indicate compounds characterized by mass spectrometry in
+this study, with red and blue indicating novel and reported compounds, respectively. (a) Discovery of peptides from A. muelleri LMG 22569.
+Muelleripeptin A was identified as a major product from fermentation extract by HPLC analysis at UV = 190 nm. (b) Discovery of peptides from C.
+rhizoryzae JP2−74. Sch 20561 and its derivatives were discovered by the extracted ion chromatogram (EIC) using the mass of decarboxylated
+threonine. (c) Discovery of peptides from S. cattleya NRRL8057. Cattleyapeptins were discovered as major products by HPLC analysis (Figure S5),
+and three compounds were observed by EIC of its characteristic 4-methoxytryptophan-derived mass fragment.
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.5c08076
+J. Am. Chem. Soc. XXXX, XXX, XXX−XXX
+F
+
+
+
+[PDF physical page 7]
+from Aquimarina muelleri LMG22569. Metabolomics screening
+revealed the production of a novel lipopeptide, muelleripeptin
+A (1), with 11/13 correct amino acid predictions by the
+NRPStransformer. The structure of 1 was elucidated by
+tandem mass spectrometry (MS/MS) and nuclear magnetic
+resonance (NMR) analyses, and the stereochemistry of amino
+acids was assigned based on chiral chromatography after
+hydrolysis (Figures S4 and S12, Table S3). Two unnatural
+amino acids, β−OH-Val and γ−OH-Orn may be biosynthe-
+sized by Mue18, a histone methyllysine hydroxylase homo-
+logue, on assembly line or after off-loading (Figure S7).
+Interestingly, 1 demonstrated not only potent antibacterial
+activity against diverse pathogenic bacteria but also antifungal
+activity against fluconazole-resistant Candida albicans at 1−6
+μM (Table S2).
+We next sought to obtain difficult-to-access NRPs by
+genome mining. Cyanobacterial glycolipopeptides such as
+hassallidin and balticidin are potent antimicrobial peptides, but
+cultivation of their producer strain requires light and long
+duration (∼30 days).40,41 By searching NRPSs with three
+consecutive Thr, a common feature for these cyanopeptides,
+we found a similar NRPS in Chromobacterium rhizoryzae JP2−
+74. Metabolomics screening of its five day culture extract
+revealed the production of the peptide Sch 20561 (2), Sch
+20562 (3),42,43 its novel derivative Sch 20563 (4), and its
+analogs (5−7) whose biosynthetic gene cluster has not been
+identified before, with 7/8 correct amino acid predictions
+(Figures 4b, S10, and S13−S18, Tables S4−S5). Notably, the
+predicted Trp in module 9 was replaced by His in 2 and 3, but
+we indeed isolated Trp-containing 4 as expected. Additionally,
+by extracting the mass fragment of the decarboxylated
+threonine, we detected a series of their derivatives whose
+structures can be deduced based on MS/MS analyses (Figure
+4b, Figures S13−S18). The glycosyltransferase Sch25 presum-
+ably catalyzes the glycosylation on the threonine side chain
+(Figure S8). These examples demonstrate that accurate A
+domain prediction by the NRPStransformer enables precise
+structure-guided genome mining of NRPs.
+Lastly, we applied NRPStransformer for genome mining of
+our in-house strains. An uncharacterized NRPS was identified
+in Streptomyces cattleya NRRL 8057, a well-studied strain for
+the production of various natural products.44−47 To obtain the
+NRPS product in a higher amount, we performed coculture
+with Tsukamurella pulmonis.48 The LC−MS analysis revealed a
+series of peptide products, cattleyapeptin A (8) and its
+derivatives (9−13), bearing an unusual dehydrogenated
+cyclohexenylalanine (CHA)49 as a building block (Figures 4c
+and S19−S24, Table S6). The biosynthesis of CHA is likely
+catalyzed by chorismite-modifying enzymes Cat34, Cat15,
+Cat14, and others, and the β-OH-Asn and 4-OMe-Trp are
+estimated to be biosynthesized by oxygenases and methyl-
+transferases in the cat cluster (Figure S9). The first A domain
+was predicted as Glu but with a low score of 0.35. Based on the
+product structure and because of the lack of an epimerization
+domain, this A domain should accept a D-Asp produced by
+aspartate racemase. The cyclohexene-containing amino acid in
+module 3 was wrongly predicted as Leu by NRPStransformer
+with a confidence score of 1.0. However, the NRPStransformer
+cannot predict rare amino acids other than the 43 trained ones,
+and more reference data are required for it to adjust to these
+rare amino acids. Nonetheless, all of these wrong predictions
+were “close” answers (i.e., Tyr vs Phe, Ala vs Gly in 1; Trp vs
+His in 2; Glu vs Asp, Leu vs 3,4-dehydro-CHA in 8), and our
+genome mining results overall illustrate reliable prediction of
+amino acid substrates by the NRPStransformer.
+3. CONCLUSION
+In summary, we reveal a global sequence-to-substrate relation-
+ship of A domains and provide the NRPStransformer, a highly
+accurate substrate prediction algorithm for NRPS A domains.
+Our result illustrates that a phylogenetic cladogram of the
+flavodoxin-like subdomain of A domains has a strong
+correlation with the substrate amino acid structure and
+indicates potential evolutionary paths for A domains with
+different substrate specificity. The NRPStransformer achieves
+remarkable accuracy, covering various major nonproteinogenic
+amino acids. We hope this work will deepen our understanding
+of the substrate specificity of A domains and accelerate further
+exploitation of bacterial NRPSs.
+■ASSOCIATED CONTENT
+*
+sı Supporting Information
+The Supporting Information is available free of charge at
+https://pubs.acs.org/doi/10.1021/jacs.5c08076.
+Detailed description of materials and methods, com-
+pound characterizations, NMR spectra, MS data,
+antibacterial assays, and bioinformatics (PDF)
+Data set S1-4 containing 4,100 bacterial A domains
+analyzed in this work, 330 fungal A domains, 3,806 A
+domains used to develop NRPStransformer, and 155 A
+domains for benchmarking (XLSX)
+NRPStransformer is available at http://www.nrpstrans-
+former.cn and the source codes are available at https://
+github.com/westlake-repl/NRPSTransformer.
+■AUTHOR INFORMATION
+Corresponding Authors
+Fajie Yuan −School of Engineering, Westlake University,
+Hangzhou 310030, China; Email: yuanfajie@
+westlake.edu.cn
+Lihan Zhang −Zhejiang Key Laboratory of Precise Synthesis
+of Functional Molecules, Department of Chemistry, School of
+Science and Research Center for Industries of the Future,
+Westlake University, Hangzhou, Zhejiang Province 310030,
+China; Institute of Natural Sciences, Westlake Institute for
+Advanced Study, Hangzhou, Zhejiang Province 310024,
+China;
+orcid.org/0000-0003-4364-6242;
+Email: zhanglihan@westlake.edu.cn
+Authors
+Zhihan Zhang −Department of Chemistry, Zhejiang
+University, Hangzhou 310058 Zhejiang Province, China;
+Zhejiang Key Laboratory of Precise Synthesis of Functional
+Molecules, Department of Chemistry, School of Science and
+Research Center for Industries of the Future, Westlake
+University, Hangzhou, Zhejiang Province 310030, China;
+State Key Laboratory of Rice Biology and Breeding, China
+National Rice Research Institute, Hangzhou 310006, China
+Yuyang Zhou −College of Computer Science and Technology,
+Zhejiang University, Hangzhou, Zhejiang Province 310027,
+China; School of Engineering, Westlake University,
+Hangzhou 310030, China; State Key Laboratory of Rice
+Biology and Breeding, China National Rice Research
+Institute, Hangzhou 310006, China
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.5c08076
+J. Am. Chem. Soc. XXXX, XXX, XXX−XXX
+G
+
+
+
+[PDF physical page 8]
+Shengling Xie −Zhejiang Key Laboratory of Precise Synthesis
+of Functional Molecules, Department of Chemistry, School of
+Science and Research Center for Industries of the Future,
+Westlake University, Hangzhou, Zhejiang Province 310030,
+China;
+orcid.org/0000-0001-5316-9393
+Run-Zhou Liu −Zhejiang Key Laboratory of Precise Synthesis
+of Functional Molecules, Department of Chemistry, School of
+Science and Research Center for Industries of the Future,
+Westlake University, Hangzhou, Zhejiang Province 310030,
+China;
+orcid.org/0000-0001-8421-3166
+Zilei Huang −Zhejiang Key Laboratory of Precise Synthesis of
+Functional Molecules, Department of Chemistry, School of
+Science and Research Center for Industries of the Future,
+Westlake University, Hangzhou, Zhejiang Province 310030,
+China
+Pachaiyappan Saravana Kumar −Zhejiang Key Laboratory of
+Precise Synthesis of Functional Molecules, Department of
+Chemistry, School of Science and Research Center for
+Industries of the Future, Westlake University, Hangzhou,
+Zhejiang Province 310030, China; Institute of Natural
+Sciences, Westlake Institute for Advanced Study, Hangzhou,
+Zhejiang Province 310024, China
+Guozhong Feng −State Key Laboratory of Rice Biology and
+Breeding, China National Rice Research Institute, Hangzhou
+310006, China
+Complete contact information is available at:
+https://pubs.acs.org/10.1021/jacs.5c08076
+Author Contributions
+∇Z.Z. and Y.Z. contributed equally to this work.
+Funding
+This work was supported by the “Pioneer” and “Leading
+Goose” R&D Program of Zhejiang (2023SDXHDX0007), the
+National Natural Science Foundation of China General
+Program (22177092) to L.Z., and the Zhejiang Key Laboratory
+Construction Project.
+Notes
+The authors declare no competing financial interest.
+■ACKNOWLEDGMENTS
+We thank Dr. Chi Zhang and Jiangnan Xia for data curation
+and initial data analysis. We thank the Instrumentation and
+Service Center for Molecular Sciences at Westlake University
+for the assistance in MS and NMR analyses.
+■REFERENCES
+(1) Brown, E. D.; Wright, G. D. Antibacterial drug discovery in the
+resistance era. Nature 2016, 529, 336−343.
+(2) Atanasov, A. G.; Zotchev, S. B.; Dirsch, V. M.; Orhan, I. E.;
+Banach, M.; Rollinger, J. M.; Barreca, D.; Weckwerth, W.; Bauer, R.;
+Bayer, E. A.; et al. Natural products in drug discovery: advances and
+opportunities. Nat. Rev. Drug Discovery 2021, 20, 200−216.
+(3) Miethke, M.; Pieroni, M.; Weber, T.; Brönstrup, M.; Hammann,
+P.; Halby, L.; Arimondo, P. B.; Glaser, P.; Aigle, B.; Bode, H. B.; et al.
+Towards the sustainable discovery and development of new
+antibiotics. Nat. Rev. Chem. 2021, 5, 726−749.
+(4) Liu, Y.; Ding, S.; Shen, J.; Zhu, K. Nonribosomal antibacterial
+peptides that target multidrug-resistant bacteria. Nat. Prod. Rev. 2019,
+36, 573−592.
+(5) Shukla, R.; Lavore, F.; Maity, S.; Derks, M. G. N.; Jones, C. R.;
+Vermeulen, B. J. A.; Melcrova, A.; Morris, M. A.; Becker, L. M.; Wang,
+X.; et al. Teixobactin kills bacteria by a two-pronged attack on the cell
+envelope. Nature 2022, 608, 390−396.
+(6) Shukla, R.; Peoples, A. J.; Ludwig, K. C.; Maity, S.; Derks, M. G.
+N.; De Benedetti, S.; Krueger, A. M.; Vermeulen, B. J. A.; Harbig, T.;
+Lavore, F.; et al. An antibiotic from an uncultured bacterium binds to
+an immutable target. Cell 2023, 186, 4059−4073.
+(7) Walsh, C. T.; Fischbach, M. A. Natural products version 2.0:
+connecting genes to molecules. J. Am. Chem. Soc. 2010, 132, 2469−
+2493.
+(8) Lautru, S.; Deeth, R. J.; Bailey, L. M.; Challis, G. L. Discovery of
+a new peptide natural product by Streptomyces coelicolor genome
+mining. Nat. Chem. Biol. 2005, 1, 265−269.
+(9) Cimermancic, P.; Medema, M. H.; Claesen, J.; Kurita, K.;
+Wieland Brown, L. C. W.; Mavrommatis, K.; Pati, A.; Godfrey, P. A.;
+Koehrsen, M.; Clardy, J.; et al. Insights into secondary metabolism
+from a global analysis of prokaryotic biosynthetic gene clusters. Cell
+2014, 158, 412−421.
+(10) Kalkreuter, E.; Pan, G.; Cepeda, A. J.; Shen, B. Targeting
+Bacterial Genomes for Natural Product Discovery. Trends Pharmacol.
+Sci. 2020, 41, 13−26.
+(11) Medema, M. H.; de Rond, T.; Moore, B. S. Mining genomes to
+illuminate the specialized chemistry of life. Nat. Rev. Genet. 2021, 22,
+553−571.
+(12) Fischbach, M. A.; Walsh, C. T. Assembly-Line Enzymology for
+Polyketide and Nonribosomal Peptide Antibiotics: Logic, Machinery,
+and Mechanisms. Chem. Rev. 2006, 106, 3468−3496.
+(13) Sussmuth, R. D.; Mainz, A. Nonribosomal Peptide Synthesis-
+Principles and Prospects. Angew. Chem., Int. Ed. 2017, 56, 3770−
+3821.
+(14) Hover, B. M.; Kim, S. H.; Katz, M.; Charlop-Powers, Z.; Owen,
+J. G.; Ternei, M. A.; Maniko, J.; Estrela, A. B.; Molina, H.; Park, S.;
+et al. Culture-independent discovery of the malacidins as calcium-
+dependent antibiotics with activity against multidrug-resistant Gram-
+positive pathogens. Nat. Microbiol. 2018, 3, 415−422.
+(15) Paoli, L.; Ruscheweyh, H. J.; Forneris, C. C.; Hubrich, F.;
+Kautsar, S.; Bhushan, A.; Lotti, A.; Clayssen, Q.; Salazar, G.; Milanese,
+A.; et al. Biosynthetic potential of the global ocean microbiome.
+Nature 2022, 607, 111−118.
+(16) Padhi, C.; Field, C. M.; Forneris, C. C.; Olszewski, D.; Fraley,
+A. E.; Sandu, I.; Scott, T. A.; Farnung, J.; Ruscheweyh, H. J.; Narayan
+Panda, A.; et al. Metagenomic study of lake microbial mats reveals
+protease-inhibiting antiviral peptides from a core microbiome
+member. Proc. Natl. Acad. Sci. U.S.A. 2024, 121, No. e2409026121.
+(17) Donia, M. S.; Fischbach, M. A. Small molecules from the
+human microbiota. Science 2015, 349, 1254766.
+(18) Milshteyn, A.; Colosimo, D. A.; Brady, S. F. Accessing Bioactive
+Natural Products from the Human Microbiome. Cell Host Microbe
+2018, 23, 725−736.
+(19) Stevenson, L. J.; Owen, J. G.; Ackerley, D. F. Metagenome
+Driven Discovery of Nonribosomal Peptides. ACS Chem. Biol. 2019,
+14, 2115−2126.
+(20) Miyanaga, A.; Kudo, F.; Eguchi, T. Recent advances in the
+structural analysis of adenylation domains in natural product
+biosynthesis. Curr. Opin. Chem. Biol. 2022, 71, 102212.
+(21) Heard, S. C.; Winter, J. M. Structural, biochemical and
+bioinformatic analyses of nonribosomal peptide synthetase adenyla-
+tion domains. Nat. Prod. Rep. 2024, 41, 1180−1205.
+(22) Stachelhaus, T.; Mootz, H. D.; Marahiel, M. A. The specificity-
+conferring code of adenylation domains in nonribosomal peptide
+synthetases. Chem. Biol. 1999, 6, 493−505.
+(23) Rottig, M.; Medema, M. H.; Blin, K.; Weber, T.; Rausch, C.;
+Kohlbacher, O. NRPSpredictor2–a web server for predicting NRPS
+adenylation domain specificity. Nucleic Acids Res. 2011, 39, W362−
+W367.
+(24) Chu, J.; Vila-Farres, X.; Inoyama, D.; Ternei, M.; Cohen, L. J.;
+Gordon, E. A.; Reddy, B. V.; Charlop-Powers, Z.; Zebroski, H. A.;
+Gallardo-Macias, R.; et al. Discovery of MRSA active antibiotics using
+primary sequence from the human microbiome. Nat. Chem. Biol.
+2016, 12, 1004−1006.
+(25) Vila-Farres, X.; Chu, J.; Inoyama, D.; Ternei, M. A.; Lemetre,
+C.; Cohen, L. J.; Cho, W.; Reddy, B. V.; Zebroski, H. A.; Freundlich,
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.5c08076
+J. Am. Chem. Soc. XXXX, XXX, XXX−XXX
+H
+
+
+
+[PDF physical page 9]
+J. S.; et al. Antimicrobials inspired by nonribosomal peptide
+synthetase gene clusters. J. Am. Chem. Soc. 2017, 139, 1404−1407.
+(26) Chevrette, M. G.; Aicheler, F.; Kohlbacher, O.; Currie, C. R.;
+Medema, M. H. SANDPUMA: ensemble predictions of nonribosomal
+peptide chemistry reveal biosynthetic diversity across Actinobacteria.
+Bioinformatics 2017, 33, 3202−3210.
+(27) Mongia, M.; Baral, R.; Adduri, A.; Yan, D.; Liu, Y.; Bian, Y.;
+Kim, P.; Behsaz, B.; Mohimani, H. AdenPredictor: accurate prediction
+of the adenylation domain specificity of nonribosomal peptide
+biosynthetic gene clusters in microbial genomes. Bioinformatics
+2023, 39, i40−i46.
+(28) Terlouw, B. R.; Blin, K.; Navarro-Muñoz, J. C.; Avalon, N. E.;
+Chevrette, M. G.; Egbert, S.; Lee, S.; Meijer, D.; Recchia, M. J. J.;
+Reitz, Z. L.; et al. MIBiG 3.0: A Community-Driven Effort to
+Annotate Experimentally Validated Biosynthetic Gene Clusters.
+Nucleic Acids Res. 2023, 51, D603−D610.
+(29) Blin, K.; Shaw, S.; Augustijn, H. E.; Reitz, Z. L.; Biermann, F.;
+Alanjary, M.; Fetter, A.; Terlouw, B. R.; Metcalf, W. W.; Helfrich, E. J.
+N.; et al. antiSMASH 7.0: new and improved predictions for
+detection, regulation, chemical structures and visualisation. Nucleic
+Acids Res. 2023, 51, W46−W50.
+(30) Kries, H.; Niquille, D. L.; Hilvert, D. A. subdomain swap
+strategy for reengineering nonribosomal peptides. Chem. Biol. 2015,
+22, 640−648.
+(31) Marahiel, M. A.; Stachelhaus, T.; Mootz, H. D. Modular
+Peptide Synthetases Involved in Nonribosomal Peptide Synthesis.
+Chem. Rev. 1997, 97, 2651−2674.
+(32) He, R.; Zhang, J.; Shao, Y.; Gu, S.; Song, C.; Qian, L.; Yin, W.
+B.; Li, Z. Knowledge-guided data mining on the standardized
+architecture of NRPS: Subtypes, novel motifs, and sequence
+entanglements. PLoS Comput. Biol. 2023, 19, No. e1011100.
+(33) Singh, G. M.; Fortin, P. D.; Koglin, A.; Walsh, C. T. β-
+Hydroxylation of the Aspartyl Residue in the Phytotoxin Syringomy-
+cin E: Characterization of Two Candidate Hydroxylases AspH and
+SyrP in Pseudomonas syringae. Biochemistry 2008, 47, 11310−11320.
+(34) Challis, G. L.; Ravel, J.; Townsend, C. A. Predictive, structure-
+based model of amino acid recognition by nonribosomal peptide
+synthetase adenylation domains. Chem. Biol. 2000, 7, 211−224.
+(35) Konz, D.; Doekel, S.; Marahiel, M. A. Molecular and
+Biochemical Characterization of the Protein Template Controlling
+Biosynthesis of the Lipopeptide Lichenysin. J. Bacteriol. 1999, 181,
+133−140.
+(36) Medema, M. H.; Cimermancic, P.; Sali, A.; Takano, E.;
+Fischbach, M. A. A. Systematic Computational Analysis of
+Biosynthetic Gene Cluster Evolution: Lessons for Engineering
+Biosynthesis. PLoS Comput. Biol. 2014, 10, No. e1004016.
+(37) Lin, Z.; Akin, H.; Rao, R.; Hie, B.; Zhu, Z.; Lu, W.; Smetanin,
+N.; Verkuil, R.; Kabeli, O.; Shmueli, Y.; et al. Evolutionary-scale
+prediction of atomic-level protein structure with a language model.
+Science 2023, 379, 1123−1130.
+(38) Terlow, B. R.; Huang, C.; Meijer, R.; Cediel-Becerra, J. D. D.;
+Rothe, M. L.; Jenner, M.; Zhou, S.; Zhang, Y.; Fage, C. D.;
+Tsunematsu, Y.; et al. PARAS: high-accuracy machine-learning of
+substrate specificities in nonribosomal peptide synthetases. bioRxiv
+2025, 631717.
+(39) Huang, J.; Ge, L.; Wu, Y.; Gao, Q.; Li, P.; Wu, J.; Zhang, H.;
+Qin, Z. DeepAden: an explainable machine learning for substrate
+specificity prediction in nonribosomal peptide synthetases. bioRxiv
+2025, 655435.
+(40) Neuhof, T.; Schmieder, P.; Preussel, K.; Dieckmann, R.; Pham,
+H.; Bartl, F.; von Döhren, H. Hassallidin A, a Glycosylated
+Lipopeptide with Antifungal Activity from the Cyanobacterium
+Hassallia sp. J. Nat. Prod. 2005, 68, 695−700.
+(41) Bui, T. H.; Wray, V.; Nimtz, M.; Fossen, T.; Preisitsch, M.;
+Schroder, G.; Wende, K.; Heiden, S. E.; Mundt, S.; Balticidins, A.-D.
+antifungal hassallidin-like lipopeptides from the Baltic Sea cyano-
+bacterium Anabaena cylindrica Bio33. J. Nat. Prod. 2014, 77, 1287−
+1296.
+(42) Afonso, A.; Hon, F.; Brambilla, R.; Puar, M. S. Structure
+elucidation of Sch 20561, a cyclic dehydropeptide lactone–a major
+component of W-10 antifungal antibiotic. J. Antibiot. 1999, 52, 398−
+406.
+(43) Afonso, A.; Hon, F.; Brambilla, R. Structure elucidation of Sch
+20562, a glucosidic cyclic dehydropeptide lactone–the major
+component of W-10 antifungal antibiotic. J. Antibiot. 1999, 52,
+383−397.
+(44) Sanada, M.; Miyano, T.; Iwadare, S.; Williamson, J. M.; Arison,
+B. H.; Smith, J. L.; Douglas, A. W.; Liesch, J. M.; Inamine, E.
+Biosynthesis of fluorothreonine and fluoroacetic acid by the
+thienamycin producer. Streptomyces cattleya. J. Antibiot. 1986, 39,
+259−265.
+(45) Khaoua, S.; Lebrihi, A.; Germain, P.; Lefebvre, G. Cephamycin
+C biosynthesis in Streptomyces cattleya: nitrogen source regulation.
+Appl. Microbiol. Biotechnol. 1991, 35, 253−257.
+(46) Rinkel, J.; Steiner, S. T.; Dickschat, J. S. Diterpene Biosynthesis
+in Actinomycetes: Studies on Cattleyene Synthase and Phomopsene
+Synthase. Angew. Chem., Int. Ed. 2019, 58, 9230−9233.
+(47) Liu, R.-Z.; Zhang, Z.; Li, M.; Zhang, L. A metabologenomics
+strategy for rapid discovery of polyketides derived from modular
+polyketide synthases. Chem. Sci. 2025, 16, 1696−1706.
+(48) Onaka, H.; Mori, Y.; Igarashi, Y.; Furumai, T. Mycolic Acid-
+Containing Bacteria Induce Natural-Product Biosynthesis in Strepto-
+myces Species. Appl. Environ. Microbiol. 2011, 77, 400−406.
+(49) Hagar, M.; Morgan, K. D.; Stumpf, S. D.; Tsingos, M.;
+Banuelos, C. A.; Sadar, M. D.; Blodgett, J. A. V.; Andersen, R. J.;
+Ryan, K. S. Piperazate-Guided Isolation of Caveamides A and B,
+Cyclohexenylalanine-Containing Nonribosomal Peptides from a Cave
+Actinomycete. Org. Lett. 2024, 26, 4127−4131.
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.5c08076
+J. Am. Chem. Soc. XXXX, XXX, XXX−XXX
+I

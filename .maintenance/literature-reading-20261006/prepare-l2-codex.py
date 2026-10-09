@@ -1,0 +1,16 @@
+import json,re,fitz,hashlib
+import worker as w
+d=w.ROOT/'sources'/'L2RHDDE8';rec=json.loads((d/'prepared.json').read_text(encoding='utf-8'))
+spec=[('Figure 1',1,[30,512,536,738],'complete','原文 Fig. 1：全部结构、三种 R 侧链、图注及完整药物名词脚注'),('Figure 2',2,[30,584,536,741],'complete','原文 Fig. 2：全部环化结构、氢迁移、首次羟化及图注'),('Figure 3',3,[30,661,536,742],'complete','原文 Fig. 3：完整 proposed oxetane 机制与图注'),('Figure 4',4,[30,280,536,431],'complete','原文 Fig. 4：完整推测羟化序列、所有结构和图注')]
+gaps=['1997historicalnarrativereview notcurrentpathway/industryclinicalguidance','DOI10.1055/s-2006-957684 Zoteroonly notprintedPDFnotpublisherverified','AllfivePDFpagesreadallfourfiguresinspected; citedoriginalstudiesnotindividuallyread rawdatastatisticsnotreviewed','No systematicsearch/inclusionfloworquantitativemeta-analysis','Taxanesourcefungalproductionandcommercialfeasibilityarehistoricalcitedclaims notcurrentconfirmation','Tracer30percentversus10–15percent differ designsnotenzymeyieldcomparison','MgKm0.16mM metalparameter notGGPPsubstrateKm','Native79kDa versus862aa98kDaprecursor includeslongtargetingsequence notprecisecleavageconfirmed','Cyclizationsteporganversuscellculture controlcontextdiffersnotuniversalrate-limit','Fig2 transientcation/verticillene mechanisticmodelnotallintermediatescaptured','FirstoxygenationP450type biochemnotCYPsequencecloning;epoxidevsdirectinsertion unresolved','AcetylCoAversusbenzoylCoAcosubstrate distinctfromacetylatedversusbenzoylatedsubstrateoxidation','Fig3possibleoxetaneformationnotproven;Fig4 abundancebasedproposedoxygenationsequence','Laterdioltrioltetraol/pentaolmonoacetate tentativelyHPLCMSnotexacthydroxyregiostereochemistry','Undetectednotuniversallyabsent;nostatsdetectionlimitsinreview','Modernstructuralcomputationaltools areinterpreterideasnot1997authorAIclaims']
+doc=fitz.open(rec['main_pdf']);figs=[]
+for l in ['Figure 1','Figure 2','Figure 3','Figure 4']:
+    parts=[x for x in spec if x[0]==l]
+    figs.append({'label':l,'caption':'原文完整 '+l,'panels':[],'pages':[{'page':p,'bbox':[b[0]/doc[p-1].rect.width,b[1]/doc[p-1].rect.height,b[2]/doc[p-1].rect.width,b[3]/doc[p-1].rect.height],'dpi':300} for _,p,b,_,_ in parts]})
+draft={'identity_matches':True,'identity_reason':'PDFtitleauthors1997PlantaMedica63291–295matching; DOI metadataonlynotprinted','paper_type':'review','title_zh':'紫杉醇早期通路认识与1997年证据边界','filename_title':'紫杉醇早期通路认识与1997年证据边界','journal_short':'Planta Med','category':None,'related_categories':[],'classification_reason':'全部文献解读完成后统一分类','source_gaps':gaps,'figures':figs,'report':(d/'codex-report.md').read_text(encoding='utf-8')}
+w.normalize_format(draft);w.validate_structure(draft);w.write_json(d/'codex-draft.json',{'draft':draft,'method':'Current Codex direct source reading'})
+images=[]
+for l,p,b,part,c in spec:
+    out=d/('L2RHDDE8-'+l.replace(' ','-')+'-p'+str(p)+'-'+part+'.png');doc[p-1].get_pixmap(matrix=fitz.Matrix(300/72,300/72),clip=fitz.Rect(b),alpha=False).save(out);sha=hashlib.sha256(out.read_bytes()).hexdigest();target=out.with_name(out.stem+'-'+sha[:16]+'.png');out.replace(target);images.append({'label':l,'caption':c,'page':p,'file':str(target),'bbox':b,'panels':[],'sha256':sha})
+doc.close();w.write_json(d/'codex-crops.json',images)
+print(json.dumps({'chinese_characters':len(re.findall(r'[\u4e00-\u9fff]',draft['report'])),'images':images},ensure_ascii=False))

@@ -1,0 +1,1189 @@
+
+[PDF physical page 1]
+       Article                                                                                   https://doi.org/10.1038/s41467-025-58280-w
+   Large-scale biosynthetic analysis of human
+  microbiomes reveals diverse protective
+  ribosomal peptides
+
+
+
+        Received: 5 November 2024                Jian Zhang    1,3, Dengwei Zhang1,3, Yi Xu   2, Junliang Zhang1, Runze Liu1,
+                                            Ying Gao1, Yuqi Shi1, Peiyan Cai    1, Zheng Zhong    1, Beibei He    1, Xuechen Li    1,
+       Accepted: 14 March 2025                                                      2                            1                                      Hongwei Zhou2, Muxuan Chen    & Yong-Xin Li
+
+
+          Check for updates                 The human microbiome produces diverse metabolites that inﬂuence host
+                                                health, yet the chemical landscape of ribosomally synthesized and post-
+                                                  translationally modiﬁed peptides (RiPPs)—a versatile class of bioactive com-1234567890():,;                 1234567890():,;
+                                       pounds—remains underexplored. Here, we conduct a large-scale biosynthetic
+                                                 analysis of 306,481 microbial genomes from human-associated microbiomes,
+                                          uncovering a broad array of yet-to-be-discovered RiPPs. These RiPPs are dis-
+                                              tributed across various body sites but show a speciﬁc enrichment in the gut
+                                      and oral microbiome. Big data omics analysis reveals that numerous RiPP
+                                                 families are inversely related to various diseases, suggesting their potential
+                                              protective effects on health. For a proof of principle study, we apply the
+                                              synthetic-bioinformatic natural product (syn-BNP) approach to RiPPs and
+                                            chemically synthesize nine autoinducing peptides (AIPs) for in vitro and
+                                        ex vivo assay. Our ﬁndings reveal that ﬁve AIPs effectively inhibit the bioﬁlm
+                                          formation of disease-associated pathogens. Furthermore, when ex vivo testing
+                                          gut microbiota from mice with inﬂammatory bowel disease, we observe that
+                                     two AIPs can regulate the microbial community and reduce harmful species.
+                                        These ﬁndings highlight the vast potential of human microbial RiPPs in reg-
+                                                ulating microbial communities and maintaining human health, emphasizing
+                                                  their potential for therapeutic development.
+
+
+
+
+      Humans and their symbiotic microbes form a complex and diversi-   have particularly attracted increasing attention because of their
+       ﬁed holobiont. Perturbation of the human microbiota, known as   diverse structures9, various biological functions, and manifold roles
+         dysbiosis, has been implicated  in the pathogenesis of various   in physiology and ecology10,11.
+          diseases1,2, which is largely attributed to the chemical interactions       RiPPs are a class of diverse and widespread natural products
+       mediated by metabolites de novo biosynthesized or transformed by   produced by a multitude of producers, including bacteria, fungi, and
+        the colonized microbiota3–6. As a result, extensive efforts have been   plants10. They often exhibit diverse  activities12, allowing them to
+      made to decipher bioactive molecules secreted by the human   mediate the communications between microbes or between microbes
+         microbiota7,8, revealing a rather diverse array of metabolites such as  and human hosts. Antibacterial RiPPs can enable commensal produ-
+        polyketides (PKs), non-ribosomal peptides (NRPs), and ribosomally   cers to combat pre-existing or foreign pathogens13. For example, lac-
+        synthesized and post-translationally modiﬁed peptides (RiPPs). RiPPs    tocilin, a thiopeptide from vaginal Lactobacillus gasseri, demonstrates
+
+
+
+         1Department of Chemistry, The University of Hong Kong, Pokfulam Road, Hong Kong, China. 2Microbiome Medicine Center, Department of Laboratory
+         Medicine, Zhujiang Hospital, Southern Medical University, Guangzhou 510280, China. 3These authors contributed equally: Jian Zhang, Dengwei Zhang.
+             e-mail: muxuanchen@126.com; yxpli@hku.hk
+
+
+
+        Nature Communications| (2025)16:3054                                                                                                        1
+
+
+[PDF physical page 2]
+Article                                                                                 https://doi.org/10.1038/s41467-025-58280-w
+
+
+potent antibacterial effects against vaginal pathogens such as Cor-   capable of modifying the gut microbial community and reducing
+ynebacterium aurimucosum14. Nisin-like lantibiotics identiﬁed in gut   pathogenic species from IBD-affected mice. These ﬁndings offer
+microbiome against both pathogens and human gut commensals   valuable insights into the chemical diversity of RiPPs and their pro-
+could shed light on the future development of therapeutics15. Addi-   tective roles in human health, sparking growing interest in the ther-
+tionally, immunomodulatory RiPPs16–19 can interact with the human   apeutic potential of RiPPs released by our microbiota.
+immune system, exempliﬁed by tonsillar microbiome-derived Sali-
+varicins, which can block the binding of IL-6 and IL-21 to their receptors  Results
+to disrupt the immune response16. Beyond impacting the microbial  Mining human microbiomes reveals the untapped biosynthetic
+community or host directly, RiPPs can also act as signaling molecules   potential of RiPPs
+to regulate human microbiome responses, as evidenced by auto-   Current genome mining for RiPPs can be approached through two
+inducing peptides (AIPs) from the skin microbiome, which maintain  main methods: tailoring enzymes-oriented approach (e.g., antiSMASH
+skin barrier homeostasis by disrupting the agr system of the Staphy-   6.026) and precursors-centric approach (e.g., DeepRiPP24 and TrRiPP25).
+lococcus aureus pathogen20. These observations underscore the  The enzymes-oriented approach is reliable in identifying known RiPPs
+diverse chemical nature of RiPPs and their varied protective roles to   but may miss out on discovering uncharacterized ones. On the other
+human health. Nonetheless, our current understanding in this area is   hand, the precursors-centric approach is better suited for identifying
+primarily limited to sporadic reports, highlighting the urgent impera-   uncharacterized   RiPPs,   especially  from   highly  fragmented
+tive for a more comprehensive investigation.                       metagenome-assembled genomes but may have a  slightly lower
+    While over 40 subclasses of RiPPs are differentiated by their   accuracy rate. To comprehensively explore the biosynthetic potential
+unique structures, their biosynthesis follows a standard three-step   of RiPPs in the human microbiomes, we combined both types of tools
+process controlled by biosynthetic gene clusters (BGCs)9,21. The bio-   to analyze a dataset consisting of 306481 reference microbial genomes
+synthesis process includes expressing a precursor peptide, installing  from diverse human body sites36–38, including the gut, oral cavity, skin,
+various  structural  features  to  the core peptide through  post-   airways, vagina, and nasal cavity (Fig. 1, Supplementary Fig. 1). Results
+translational modiﬁcations (PTM), and ﬁnalizing with leader cleavage  showed that most genomes (78.3% identiﬁed by antiSMASH and 95.3%
+and export to produce active RiPP products. The conserved biosyn-   identiﬁed by DeepRiPP and TrRiPP) could encode RiPPs.
+thetic logic allows the development of computational approaches for      The analysis of antiSMASH detected 410,487 RiPP BGCs in 239,927
+RiPP discovery, rendering diverse tools poised for RiPP identiﬁcation   genomes, accounting for 74.5% of the predicted secondary metabolite
+from the human microbiome22,23. These tools typically are established  BGCs (Fig. 1b, Supplementary Fig. 1, Supplementary Data 1). The other
+on precursor-centric genome mining strategies (e.g., DeepRiPP24 and  two precursor-centric tools identiﬁed 1,777,091 RiPP precursors in
+TrRiPP25) or primarily targeting the PTM enzymes (e.g., antiSMASH26   292,041 genomes, with 359,815 precursors overlapping between the
+and DeepBGC27). Leveraging various bioinformatics tools, researchers  two tools (Fig. 1c, Supplementary Fig. 2, Supplementary Data 2).
+are now focusing on understanding the biosynthetic potential of RiPPs  Through examining the adjacent genes of RiPP precursors identiﬁed
+within the complex microbiota. Some studies have concentrated on  by precursor-centric approaches, we found that the genomic contexts
+the biosynthetic potential of speciﬁc strains, as illustrated by the dis-   of 32.6% of precursors contained genes associated with known RiPP
+covery of bioactive RiPPs like Ruminococcin C28 and Streptosactin29   biosynthesis (Fig. 1c, Supplementary Fig. 3, Supplementary Tables 1-2),
+from human commensal bacteria Ruminococcus gnavus and Strepto-   while the genomic contexts  of 58.4% of precursors contained
+coccus spp., respectively. Others have centered on in silico investiga-   uncharacterized RiPP biosynthetic enzymes collected in decRiPPter39
+tion of RiPP from a limited number of reference genomes14,30–32.    (Fig. 1c). These ﬁndings indicated that the precursor-centric approach
+However, our understanding of the biosynthetic landscape of RiPPs   offered a higher level of uncharacterized biosynthetic potential. The
+from human microbiomes  is  still limited, hindered by a lack of   analysis also showed that antiSMASH-deﬁned RiPP BGCs were more
+explored reference genomes and imperfect prediction tools. As such, a   abundant in 25 phyla, expanding to 29 phyla with the precursor-centric
+more thorough examination of RiPPs  is needed to improve our   approaches (Fig. 1d, Supplementary Fig. 1). Notably, the most abun-
+understanding of  their biosynthesis, laying the groundwork  for   dant phyla in the human gut40, Bacteroidota and Firmicutes, harbored
+understanding the crucial biological role of RiPPs within the complex   the most abundant RiPPs. This widely distributed RiPPs across diverse
+microbiota.                                            human microbiomes underscores human microbes’ robust RiPP bio-
+    The exponential increase in human microbial genome data pro-   synthetic potential.
+vides an opportunity for systematically exploring RiPPs biosynthesis in
+the human microbiome and their potential role in human health. In this  Broad diversity and novelty of RiPP precursor peptides in the
+study, using precursor-centric and PTM-centric approaches, we sys-  human microbiome
+tematically examined the RiPP biosynthetic potential of 306,481 gen-   Given the tremendous potential of RiPP biosynthesis in the human
+omes of the human microbiota to identify 12,076 yet-to-be-discovered   microbiome, we next sought to examine their chemical diversity and
+RiPP families (the clusters of RiPP precursors with a threshold of 50%   novelty. To balance the accuracy and novelty of genome mining in
+identity), largely expanding the chemical landscape of RiPPs. For a   our analysis, we only retained 423,831 RiPP precursors conﬁrmed by
+proof of principle study, we have found 30 RiPP families, through   at least two mining strategies for downstream analysis, which could
+comparative meta-omic analyses, that are negatively associated with   effectively reduce the number of false positives while preserving
+multiple diseases such as inﬂammatory bowel disease (IBD) and col-   uncharacterized RiPPs. The 423,831 RiPP precursors were found
+orectal cancer (CRC). While synthetic-bioinformatic natural product   either located within RiPP BGC regions41 identiﬁed by antiSMASH
+(syn-BNP) strategies have historically focused on NRPs due to their   (62.4%) or by both precursors-centric approaches (37.6%) (Fig. 2a,
+modular biosynthetic logic and compatibility with bioinformatic pre-   Supplementary Data 3), with rSAM-modiﬁed RiPPs being the most
+diction tools33–35, we sought to expand this framework to RiPPs. Spe-   abundant (Fig. 2b). Furthermore, we also examined whether these
+ciﬁcally, we targeted autoinducing peptides (AIPs), considering their   orphan precursors are associated with other antiSMASH-deﬁned
+biological  signiﬁcance,  synthetic  feasibility, and  well-established   RiPP BGCs within the same genome. We found 109,581 out of 159,475
+enzymology. Experimental validation of biosynthesis-guided chemi-   precursors co-exist with other RiPP BGCs within the genome, with
+cally synthesized AIPs demonstrated their potential to counter bioﬁlm   3473 pairs being situated in the same contig (Supplementary Data 3).
+formation of disease-related pathogens. Using an ex vivo culture to   This suggests that those orphan precursors might be the precursors
+simulate the gut microbiota’s response to AIPs, we identiﬁed two AIPs   of other far-distant BGCs. These RiPPs were strongly enriched in 21
+
+
+
+Nature Communications| (2025)16:3054                                                                           2
+
+
+[PDF physical page 3]
+Article                                                                                 https://doi.org/10.1038/s41467-025-58280-w
+
+   a                       b
+
+                                                      RiPPs      Terpene      PKS/NRPS Hybrids    Saccharides
+           Human body-wide                  NRPS      PKS_other    PKS_I                Others
+                 microbiome
+
+                             BGCs
+
+
+               306,481 human
+            microbiome genomes              0%           25 %        50%        75%        100%
+
+
+                                                                                                100%    0%                             c                               80%                                                                                                    20%       RiPP                                                                                  20.25%)60%                        40%(579787,                                                                                                                                                            related                 RiPPs                                          DeepRiPP_TrRiPP                                                                                  (359815,40%                                   60%32.63%)              biosynthetic potential
+                                                                         20%                                              80%
+                                                            0%                                                                 100%
+                                                                                              100%                                                  0%
+     Tailoring enzymes    Precursor-centric                      80%                                                                                20%
+         -oriented     (DeepRiPP & TrRiPP)
+      (antiSMASH)                                                                                                                 60%                                                                                                            40%                                                                                                                                                                                                                             10.67%)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      (1038575, enzyme Other                                                                                                                                                                                          TrRiPP                                                                                                                                                                                                                                                            (189554,   40%                                                                                                               60%     58.44%) related biosynthetic
+                                                                                           20%                                                                                  80%
+                                                              0%                                                                               100%
+        (78.3%, 239927)    (95.3%, 292041)                                                                  0%                                                                                        100%
+            Genomes encoding RiPP BGC / precursor                       80%                                               20%
+              Genomes were unable to detect RiPPs                               (1227722, 60%  40%                         60%  40%Others8.93%)
+                                                                                                    80%                                                                                 DeepRiPP        20%  0%      100%                                                                                                                                      (158729,                                                                                        69.08%)
+
+                                                                                Genomic neighborhood
+
+                                                                                                                                                                          //                              //
+
+   d                                                                                                  Precursor
+
+
+      BGC      0.42 0.01 0.00 0.14 0.00 0.60 0.00  0.29 0.06 0.37 0.00 0.77 0.55 0.54 0.04 0.94 1.04  0.88 1.03 1.19 1.17  1.00 1.00 1.00 0.37 3.00 1.74 2.25 2.03
+        (per genome)
+
+       Precursor   2   3   1   4   4   0   2   5   3   5   1   4   4   2   2   4   7   3   3   3   4   2   2   2   2   5   6   7   4
+        (per genome)
+
+                                                     B
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      Firmicutes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     Firmicutes                                                                                                                                                                                                                                                                                                                                                                                                    Firmicutes                         Myxococcota        Chloroflexota GFirmicutes         Patescibacteria          Bdellovibrionota      Firmicutes A                                                                                                                          Eremiobacterota         Elusimicrobiota         Planctomycetota                               Fibrobacterota         Halobacteriota       Deinococcota          Desulfobacterota I         Fusobacteriota       Chlamydiota         Proteobacteria        Cyanobacteria                                                  Spirochaetota       Bacteroidota       Synergistota          Actinobacteriota C                                                                                                                                                                                                                            Verrucomicrobiota                                                                                                                 Desulfobacterota                                                                                                                 Thermoplasmatota          Campylobacterota                                                                                                                                                    Methanobacteriota
+
+Fig. 1 | Comprehensive survey of RiPPs in the human microbiome. a The        approaches (DeepRiPP_TrRiPP).The right panel of the ﬁgure illustrates the genomic
+workﬂow of identifying RiPP BGCs and RiPP precursors from 30,6481 human-       context associated with the identiﬁed precursors. This includes: (1) RiPP related:
+associated microbial genomes collected from wide body sites. Tailoring enzymes-   Genes in the genomic context that are associated with known RiPP biosynthesis.
+oriented tool (e.g., antiSMASH) and precursors-centric tools (e.g., DeepRiPP and      (2) Other biosynthetic enzyme related: Precursors that co-occur with potentially
+TrRiPP) are adopted for predicting RiPP BGCs and RiPP precursors, respectively.     uncharacterized RiPP biosynthetic enzyme(s) from a broader PTM enzyme dataset
+The pie charts show the percentage of genomes that encode RiPPs. b BGCs iden-    collected by decRiPPter39. (3) Others: Precursors located in the biosynthetic gene
+tiﬁed by antiSMASH are grouped into eight BGC classes, including RiPPs (410,487,    cluster (BGC) region of other secondary metabolite BGC classes or under other
+74.5%), Terpene (14,753, 2.7%), PKS/NRPS Hybrids (4067, 0.7%), Saccharides (17,      conditions. d The top section of the bar chart represents the counts of BGCs per
+0.003%), NRPS (47,281, 8.6%), PKS_others (5210,0.9%), PKS_I (1506,0.3%), and      genome in each phylum, while the bottom section represents the counts of RiPP
+Others (67,328, 12.2%). c Genomic context of identiﬁed RiPP precursors by Dee-     precursors per genome in each phylum. Taxonomic classiﬁcation was determined
+pRiPP and TrRiPP. The left panel of the ﬁgure displays the scales representing the   based on annotations from the Genome Taxonomy Database (GTDB). Phyla with
+proportion of precursors identiﬁed by either DeepRiPP or TrRiPP, or both           higher RiPP biosynthetic potential are highlighted in red.
+
+
+
+
+Nature Communications| (2025)16:3054                                                                        3
+
+
+[PDF physical page 4]
+Article                                                                                 https://doi.org/10.1038/s41467-025-58280-w
+
+         a                             b
+                                                              rSAM modified RiPP                      161710
+
+                                                                                 Autoinducing peptide                106947
+
+                                         37.6%                                                                                          Lanthipeptide           65730
+                    DeepRiPP                  TrRiPP
+                                         62.4%                                                                            DeepRiPP
+                                                                     Precursor                               Lasso peptide          52545     75           DeepRiPP_TrRiPP
+                                                                                                                                             TrRiPP
+                                                                                                                                     //                              //                               )
+                                                     RiPP BGC (antiSMASH)                                    Other      24030         103
+                                                                                                                      50
+                                                                                                                  (x
+                                                                                                Bacterial head-to-tail     8293
+                                                                                                          cyclized
+                                                                                                                      25
+                       TrRiPP_DeepRiPP_antiSMASH    DeepRiPP_antiSMASH                Graspetide    2408                       TrRiPP_antiSMASH              TrRiPP_DeepRiPP                                                                                                                                                                                                                     Frequency
+                                                                                          Thiopeptide    1124             0
+
+                                                                                                                        15   45   75   105  135
+                                                                                   Cyanobactin    1044                     Length (aa)
+              0%      25%      50%      75%      100%
+         c                              d
+
+                  Human microbiome                                                                             Other
+                     MIBiG                                                                             Thiopeptide               Autoinducing peptide
+               15                                                                      0.2
+
+                                                                                                     rSAM modified RiPP
+
+               10
+
+                                                                                             0.0                                                                                                                                     MDS2           Cyanobactin                                 Lasso peptide
+                5                                  UMAP2
+                                                                                                                                        Lanthipeptide
+                                                                                      −0.2    Graspetide                0
+
+
+                                                                                                                                                    Bacterial head-to-tail cyclized
+                    -5
+                                                                                                     −0.4            −0.2             0.0              0.2
+                                                                       MDS1
+
+                 -10
+
+                                                                                                                1000  2000  3000  4000   5000               0.50 0.55 0.60 0.65 0.70
+                          -5     0      5     10     15     20     25                     No. of nonredundant              Intra-class chemical diversity
+                           UMAP1                                     RiPP precursor sequences             (Tanimoto coefficient)
+         e                                                          f
+                                               MIBiG
+                                     AgrD                                                        (292)         Autoinducingpeptide                                           yes                  RiPP                                              (799)                                                                                   RiPP                                                              0          0    (1854)                                  domain                                                                                                      Bacterial                                rSAM-modified                                                                                       800                                           0                           RiPP                                                                                                                                                   the                                                                                                                                                   type of                                     (1429)                                                                                      precursors                                                                                                           head-to-tail                                                                                                           Unchara-                                                 800                                                                                                  1600 0(249)cyclized                       34567                                                                                                                               genomic                                                              0                                                                                  are                                                                            homologs of                  12                                                                                                                               cterized                                     00
+                                        000                                                                                     reported RiPP                                          neighborhood
+                                                                                                            800                                  000
+                                                                                         no
+                                                                                          Unchara-                                          8800                                                                                             1600(3300)Lanthipeptide                                                                                                               Others
+                                                                                                           cterized
+                                           8000                                                                                                                        2400
+                                                                                                              genomic                                                                                           no.                                                                                                         of family,                                                                                            RiPP                                                                                                                                                                                                              3200                                                                                                                                                                                   final type                                                  7200                                                                                                                 neighbourhood                                                                                               proportion                                                                                                             precursor                                                                       00 (59)                                                                                                                                                                                                                                                                                                                                            Cyanobactin
+                 6400                                                                                (2522, 20.88%)        RiPP            RiPP       Classic RiPP
+                                                                                                                                                                                                                   800
+                                                  5600                                                                                                                                                                                                                                 (2522) peptide Lasso      (4829, 39.99%)         Novel            RiPP                                                                                                                                                                                                          1600
+
+                                           4800                                                                                                                                                                   2400                 (67, 0.55%)           RiPP        Uncharacterized   Uncharacterized
+                                                                00                                                                RiPP
+                                         4000                                                                                     (41)                                                                                                                                                                      Graspetide           (2801, 23.19%)   Uncharacterized    Uncharacterized
+                 RiPP      3200                                                                      800
+                                                2400                                                                                                                1600                          (42, 0.35%)           RiPP             Others                                                                            RiPP                                                                                                    2400    rSAM-modified                             Uncharacterized(9445)               1600                                                                                                                                                     Others                                                                                                    (3115)
+                                                              800      0         800    0 0                                                                                                    (1815, 15.02%)   Uncharacterized         Others                                                                           Thiopeptide(97)                                                             Other
+                                                                 (839)
+
+
+
+phyla, 1014 genera, and 3369 species. At the genus level, which is an      To evaluate RiPP sequence diversity, we calculated the Extended-
+appropriate taxonomic rank for assessing secondary metabolite   connectivity ﬁngerprints (ECFPs)43 of each RiPP precursor, a topolo-
+biosynthetic diversity42, we found that RiPP biosynthetic potential   gical ﬁngerprint  for molecular  characterization  utilized  in two-
+considerably varied from 1 to 33 RiPP precursors per genome, with   dimensional chemical space. Comparing them with experimentally
+Elizabethkingia (n = 33), Chryseobacterium (n = 18) and Tissierella   validated RiPP precursors in the MIBiG database (3.0)6, we observed a
+(n = 15) having the highest number of RiPP precursors (Supplemen-   notably expanded chemical space (Fig. 2c, Supplementary Data 4),
+tary Fig. 4, Supplementary Information).                             suggesting that human microbiome-derived RiPPs could signiﬁcantly
+
+
+
+Nature Communications| (2025)16:3054                                                                    4
+
+
+[PDF physical page 5]
+Article                                                                                 https://doi.org/10.1038/s41467-025-58280-w
+
+
+Fig. 2 | RiPP precursor peptides present a hypervariable chemical diversity and    similarity, and distance between dots represents similarity among different RiPP
+novelty. a RiPP precursors retained for downstream analysis. Upper: Two circles in    classes. e, f Classify the novelty of RiPP families based on their precursor and
+different colors represent the RiPP precursor peptides identiﬁed by DeepRiPP and   genomic neighborhood (Supplementary Information). e The chord diagram illus-
+TrRiPP. The red-circled area highlights the precursors that were retained for          trates the novelty of identiﬁed precursor families (left panel) for nine different RiPP
+downstream analysis. Bottom: The stacked barplot illustrates the proportion of      classes (right panel). The novelty of RiPP precursor families into “MIBiG” (homo-
+RiPP precursors retained for analysis. b The outer barplot displays the count of     logous to characterized precursors in MIBiG), families with RiPP-associated
+precursor sequences for nine RiPP classes, while the inner stacked barplot repre-    domains (1, Graspetide (3 families), 2, Lanthipeptide (31 families), 3, Lassopeptide
+sents the distribution of precursor length. c Uniform Manifold Approximation and   (26 families), 4, Thiopeptide (5 families), 5, RiPP-like (25 families), 6, LAP (19
+Projection (UMAP) plot showing the chemical space of RiPP precursors obtained     families), and 7, other known RiPPs (2 families)), and “Uncharacterized RiPP”
+from the human microbiome (black dots) and experimentally validated RiPP pre-     families. Numbers in brackets indicate the count per category. f RiPP families are
+cursors deposited in the MIBiG 3.0 database (red dots). d Multi-Dimensional Scal-    classiﬁed as Classic RiPP (known precursor homology and deﬁned genomic
+ing (MDS) plot displays the chemical diversity of predicted mature precursors      neighborhood), Uncharacterized RiPP (no known precursor homology or novel
+within and between RiPP classes. Dot size signiﬁes the count of unique precursor   genomic neighborhood), and Others (remaining families).
+sequences per class, color indicates median Tanimoto coefﬁcient reﬂecting class
+
+
+
+enlarge the chemical diversity within the RiPP superfamily. Next, we   considerably from 100 families in anterior nares to 2791 families in the
+explored the chemical diversity of nine RiPP classes based on the core   stool (Fig. 3a, Supplementary Data 5). Accumulation curves showed a
+precursor sequences predicted by the cleavage prediction module of   steep increase, indicating that more RiPP precursor families could be
+DeepRiPP24 (Fig. 2d, Supplementary Data 4). Pairwise Tanimoto coef-   identiﬁed in each body site with larger sample sizes (Supplementary
+ﬁcient was used to measure the similarity between precursors. Nota-   Fig. 7a). Compared to the sporadic presence in the skin and vagina,
+bly, autoinducing peptides exhibited the highest median Tanimoto   RiPP precursor families exhibited higher diversity, prevalence, and
+coefﬁcient, suggesting that their sequences were comparatively con-   abundance in the oral and gut (Fig. 3a and Supplementary Fig. 7b).
+served within the class. In contrast, bacterial head-to-tail cyclized  Among these detected families, 73.2% (2530/3457) were niche-speciﬁc,
+precursors had the lowest Tanimoto coefﬁcient, indicating high intra-   while 0.9% (31/3457) were present across six body sites in at least one
+class sequence diversity. Moreover, we found that different RiPP   sample (Supplementary Fig. 7c). This could be largely attributed to the
+classes were far apart, indicating their sequence uniqueness. Overall,   fact that the producers of niche-speciﬁc RiPPs were habitat-speciﬁc
+RiPP precursor peptides in the human microbiome exhibit a remark-    (Fig. 3b). Furthermore, two-dimensional visualization demonstrated
+ably diverse chemical landscape characterized by both intra-class and   distinct patterns of RiPP precursor families among different body sites,
+inter-class variations.                                                    indicating their niche-speciﬁcity (Fig. 3c). Activity prediction showed
+   To further assess the novelty of RiPPs in the human microbiome, we   that most RiPPs (70.7%, 8533/12,076) were antibacterial (Fig. 3d),
+examined their precursor sequences and tailoring enzymes, which can   possibly enabling their producers for niche adaption.
+dictate the chemical structure of mature RiPP products (Fig. 2e, f and      To further conﬁrm whether RiPPs are potentially active in the
+Supplementary Figs. 5-6, Supplementary Information). When evaluating  human microbiome, we looked into their transcription in 281 pairs of
+the chemical novelty of RiPPs based on their precursors, we clustered  metagenomic and metatranscriptomic data45 (Supplementary Data 6).
+423,831 RiPP precursors into 12,076 families with a threshold of 50%  Among 8272 (68.50%, 8272/12,076) RiPP precursor families detected in
+identity (Fig. 2e, Supplementary Data 5). Through querying these families  metagenome samples, 3419 (28.31%, 3419/12,076) were found to be
+against known RiPP precursors deposited in the MIBiG database, we   actively transcribed in metatranscriptome data. Furthermore, a sig-
+surprisingly found that only 292 (2.41%) families were homologous (e-   niﬁcant proportion of them in each class (ranging from 54.5% of
+value < 0.05 and coverage ≥90%). For the remaining families, we used   thiopeptide to 91.7% of graspetide) were predicted to exhibit bioac-
+RPS-BLAST to search protein domains against the Conserved Domains    tivity (Fig. 3e). These ﬁndings necessitate investigating the potential
+Database (CDD), detecting 2339 families (19.37%) containing well-deﬁned   role of bioactive RiPPs in human health.
+RiPP precursor domains, such as AgrD domain and rSAM-modiﬁed RiPP
+domain (Supplementary Information). Notably, most families (9445,   Differentially transcribed RiPP families are associated with
+78.21%) remained uncharacterized or exhibited signiﬁcant distinctions   multi-diseases
+from known RiPPs (Fig. 2e). We examined the adjacent genomic context   Inspired by numerous functional RiPPs from human microbiota linked
+of RiPP precursor families when evaluating the novelty based on tailoring   to mediate microbe-microbe interactions or microbe-host interactions,
+enzymes. We found that the genomic contexts of 60.9% RiPP precursor  we aimed to explore the potential impact of RiPPs on human health. For
+families harbored classical RiPP biosynthetic-related genes, while the   a proof of principle study, we conducted comparative metatran-
+genomic contexts of 23.8% RiPP precursor families contained unchar-   scriptome analyses to identify underlying bioactive RiPPs associated
+acterized RiPP biosynthetic-related enzymes deﬁned by DeepBGC27   with multiple diseases, including type 1 diabetes mellitus (T1D), obesity
+(Fig. 2f). Considering both aspects, 63.7% of RiPP precursor families have   (OB), liver cirrhosis with hepatitis C infection (LC), colorectal cancer
+the potential to produce uncharacterized RiPP products (Fig. 2f). This   (CRC), Parkinson’s disease (PD), and inﬂammatory bowel disease (IBD,
+ﬁnding suggests the possibility of uncharacterized enzymology and   encompassing Crohn’s disease (CD) and ulcerative colitis (UC)) (Sup-
+chemistry in these RiPPs families.                                    plementary Data 6). The metatranscriptomic analysis showed signiﬁcant
+                                                                          differences in RiPP diversity between the health and disease groups
+RiPPs are niche-speciﬁc and actively transcribed in the healthy   (Supplementary Fig. 8). Speciﬁcally, the healthy groups had a lower
+human microbiome                                                       diversity than patients with OB. Permutational multivariate analysis of
+We then attempted to assess RiPP distribution in the human micro-   variance (PERMANOVA) based on Bray-Curtis dissimilarity showed a
+biome by examining their proﬁle in healthy human microbiomes. We   signiﬁcant difference (p < 0.05) in the overall composition of transcribed
+analyzed 748 metagenomic samples from the Human Microbiome   RiPP precursor families between health and disease in CRC and IBD case-
+Project (HMP)44, covering six human body sites: gut, buccal mucosa   control cohorts. In total, we identiﬁed 195 precursor families depleted
+(oral), supragingival plaque (oral), tongue dorsum (oral), anterior   while 146 enriched in disease groups within these disease case-control
+nares (skin), and posterior fornix (vaginal) (Supplementary Data 6).   cohorts  (Fig. 4a, Supplementary Data  7). Remarkably, 23 families
+Metagenomic analysis revealed 28.63% (3457/12,076) of RiPP pre-   exhibited depletion across multiple disease groups, while 7 families were
+cursor  families  were  detected  in  healthy  individuals,  varying   enriched in multiple disease groups (Fig. 4b, Supplementary Fig. 9).
+
+
+
+Nature Communications| (2025)16:3054                                                                          5
+
+
+[PDF physical page 6]
+Article                                                                                 https://doi.org/10.1038/s41467-025-58280-w
+
+         a
+
+                                Stool      Supragingival plaque  Buccal mucosa   Tongue dorsum     Anterior nares      Posterior fornix
+
+                   100
+                        (%)  75  1,924/2,791          663/881            329/424            397/541             84/100              345/498
+                             (79)                  (35)                  (26)                  (63)                    (1)                      (1)
+                    50
+
+                    25                                                                               Prevalence
+                     0
+
+                          0  5  10 15      0  5  10 15      0  5  10 15      0  5  10 15      0  5  10 15      0  5  10 15
+
+                                                 Average abundance (log2−transformed)                    bioactive       unknown
+        b                                     c
+
+
+
+                                                                            20
+
+
+
+                                                                  species       10                        site                  genus
+                                                                            specific
+                    specific                    specific
+                                                               (46.0%)
+                 (73.2%)                (65.7%)
+                                                                                                                                                                                        tSNE2 0
+
+
+                                                                          −10
+
+                                           cross                   cross                                                                 Posterior fornix
+                                                                                                                                                            Stool                                                                  species                                      genus                   cross                                                                                                                                                          Supragingival                                                                                                                                                           plaque                                                                          −20                                                               (54.0%)
+                        site                  (34.3%)                                                                                                                                              Buccal mucosa
+                 (26.8%)                                                                                                        Tongue dorsum
+                                                                                                                                                                  Anterior nares
+
+                                                                             −30    −20    −10     0      10     20     30
+
+                                                                                          tSNE1
+        d                                       e
+
+                                                                                                                        2,273
+                                       antibacterial                                                                                  Lanthipeptide
+                                        (8,533 70.66%)                                      835
+                                                                                                                    1,958          rSAM
+                                                                      100%0%                                                                                                                                             modified                                             100%0% 20%  40%  60%  80%                                      80%                             20% (35                                                                                            948                        RiPP                    cytotoxic0.12%)60%                                                                            40%multiple
+                                                                                                                  1,791                (14 40%                                   0.29%)60%
+                                                                                                                             Lasso peptide
+                                20%                                                         80%                     589
+                         0%                                                                            100%
+                                                                                   0%                              1,329                      Autoinducing                                       100%
+                                   80%                                                                                     20%                  614                                  peptide                                                                                                                                                                              (3,472                                      0.18%) 60%                                                                                                          40%                 599
+                                                                                                                                       Other
+                                                                                    290                                      inhibitor                 40%                                              60%                                                                                                                                                                   unknown                     (22
+                                                                                   185                                              Bacterial                                         20%                                                                                                            80% 28.75%)
+                           0%                                                                                                                 100%           84                                                    head-to-tail
+                                                                                                                                                               cyclized
+                                                                                                                   Present                                                                                 67
+                                      100%                                                   0%            22                Transcribed                  Thiopeptide
+                                80%                                                         20%                                             bioactive
+                                 60%                                               40%                43                  unknown
+
+                                      20%                                                                       80%  Others15.38%)                      (2,522   40%                                      60%                   25                                         Cyanobactin                                                                                 27                                    0%100%80%  60%  40%  20% 0%100%                       Classic                                                                  (1,857                                                             Graspetide
+                                 Uncharacterized                         12                          20.88%)
+                                          (7,697 63.74%)
+                                                                       RiPP precursor families in healthy gut microbiome
+
+
+
+
+
+Some families (e.g., BF_63 and BF_94) signiﬁcantly differentiated CD   roles of differentially transcribed RiPPs (e.g., exacerbate disease patho-
+patients from healthy individuals in a random forest classiﬁcation model   genesis or promote human health16,46).
+based on the abundance of transcribed precursor families (Supple-
+mentary Fig. 10), suggesting their important roles in maintaining human  Autoinducing peptides negatively associated with diseases
+health. Although the causal relationship and speciﬁc mechanisms   exhibit anti-pathogenic bioﬁlm and anti-inﬂammatory activity
+remain to be determined, these RiPPs may be contributors to host   Although many differentially expressed uncharacterized RiPPs were
+health, and future experimental studies warrant establishing the exact   discovered in our analysis of healthy/disease states (Fig. 4), their
+
+
+
+Nature Communications| (2025)16:3054                                                                     6
+
+
+[PDF physical page 7]
+Article                                                                                 https://doi.org/10.1038/s41467-025-58280-w
+
+
+Fig. 3 | Identiﬁed RiPP families are present and transcribed in the healthy        of RiPP families within each body site indicates conservation. Each dot on the plot
+human microbiome. a The data represents RiPP precursor families’ prevalence     represents one metagenome sample. d Predicted activity of RiPP families. The scale
+and average abundance across six human body sites. Each dot signiﬁes a family,     represents the proportion of each predicted activity (upper) or uncharacterized
+with bioactive ones in red and unknown ones in black. Blue numbers denote the    RiPP families (bottom). The number in brackets indicates the count and percentage
+count of bioactive and total families per site. Dark grey number in the brackets      of the RiPP family relative to all families. The term “multiple” indicates multi-
+indicates the number of RiPPs that are present in at least 50% of individuals at each    functional RiPPs. Different colors are used to highlight the connections between
+body site. b The Sankey diagram illustrates the distribution of RiPP families in the   RiPP types and their predicted activities. e Presence and transcription of all RiPP
+healthy human microbiome, categorizing them as either niche-speciﬁc (present in    classes in 281 paired metagenomic and metatranscriptomic data from fecal samples
+one site) or cross-niche (present in more than one site), and further differentiating   of healthy individuals. The pie charts present the percentage of transcribed RiPP
+them as genus/species-speciﬁc or genus/species-cross. c The t-SNE plot showcases    families in each class that predicted bioactivity (red) or unknown (grey).
+the distinct proﬁles of RiPP precursor families in different body sites. The clustering
+
+
+
+structural complexity and incompletely comprehensively mapped   Peptostreptococcus stomati. We further explored their immunomodu-
+enzymology hindered biosynthetic pathway reconstruction, mature   latory effects in vitro in lipopolysaccharide (LPS)-induced mouse
+peptide isolation, and functional characterization. Considering the  macrophage RAW264.7 cells. Using an enzyme-linked immunosorbent
+comparative conciseness and predictability of the AIP products, we   assay  (ELISA), we observed  that  BF_94_et_L1 could  signiﬁcantly
+next sought to experimentally validate the potential functions of six   decrease two pro-inﬂammatory cytokines, tumor necrosis factor-α
+AIP families (BF_63, BF_94, BF_280, BF_398, BF_488, and BF_598), which   (TNF-α) and interleukins 6 (IL-6), at a physiologically relevant low
+were enriched in the healthy microbiome (Fig. 4b, Supplementary   concentration of 0.1 μg/mL (Fig. 4f, Supplementary Data 10). Collec-
+Figs. 11-16, Supplementary Table 3). The AIP biosynthesis involves the    tively, their multiple functions implied that human microbiome-
+removal of a C-terminal follower and modiﬁcations, which are   derived AIPs potentially provide a multifaceted protective role in
+achieved by the AgrB enzyme. The resulting intermediate then  human health.
+undergoes a second cleavage in the N-terminus, ultimately producing
+mature AIP with variable lengths of the exotail47. Although we intended   AIPs affect the composition of IBD mouse fecal-derived ex vivo
+to carry out heterologous expression of six AIPs, this proved unsuc-   microbial community
+cessful. This might be because the protease involved in the second   Efforts to investigate the role of AIPs in disease contexts would greatly
+cleavage of AIPs’ biosynthetic pathway is still not fully understood, and   beneﬁt from studying a system that mimics disease-derived microbial
+the native producers of these six AIPs are unavailable. We, therefore,   communities. We, thus, adopted an IBD mouse fecal-derived ex vivo
+alternatively attempted to chemically synthesize the candidate mature   microbial community to model how the gut microbiota responds to
+chemicals of AIPs. Here, we extended syn-BNP strategies33–35, which   AIPs (Fig. 5a, Supplementary Data 11). We selected two functional AIPs
+historically focused on NRPs, to RiPPs. Speciﬁcally, we employed a     (i.e., BF_280_c and BF_398_c) for assay, given their potent inhibition
+combination of structural prediction and conservation analysis of RiPP   against bioﬁlm formation, which is a major virulence factor in IBD50,51.
+precursor to deduce the matured structure of AIPs (Fig. 4c). To do so,   Antibiotic vancomycin was used as a positive control due to its clinical
+we initially established this approach on a well-studied AIP-I from   use in IBD treatment52. After incubating fecal-derived microbiota with
+Staphylococcus aureus (Supplementary Information). Speciﬁcally, we   AIPs or vancomycin for 48 hours, we found, except for vancomycin
+utilized AlphaFold-Multimer to predict the interaction between pre-   (10 μg/mL), no marked difference in major taxa when compared with
+cursor peptide and AgrB protein and found that the modiﬁcation core   the blank group (Fig. 5b, Supplementary Fig. 39, Supplementary Data 11).
+region precisely docks into the catalytic pocket. In the core region,   Nevertheless, despite their lack of antibacterial activity in our tests, both
+thiolactone or lactone will be installed between Cysteine or Serine and  two AIPs (10 μg/mL) signiﬁcantly reduced the microbial diversity, as
+another amino acid containing a hydrophobic side chain by AgrB.   reﬂected by the Shannon diversity index  (Fig. 5c, Supplementary
+Additionally, we can deduce the exocyclic tail region of the ﬁnal AIPs,   Data 11). Beta diversity analysis utilizing principal coordinate analysis
+as the proteolysis step recognizes and occurs at conserved residues.   based on Bray-Curtis distances revealed distinct clustering between
+AIPs containing thiolactone, without the exocyclic region, may rear-   blank and treatment, with notable differences observed in groups of
+range to form homodetic cyclopeptides (cAIPs)48,49. Therefore, we   AIPs (10 μg/mL) and vancomycin (1 μg/mL and 10 μg/mL) (Fig. 5d, Sup-
+could infer the structure of mature AIPs by combining the prediction   plementary Fig. 40, Supplementary Data 11). These results indicated that
+of core region, modiﬁed residues, and exocyclic tail. The accuracy and   BF_280_c and BF_398_c could affect the overall microbial community,
+reliability of this approach were further validated by another two   possibly by (1) manipulating the production of other metabolites such as
+reported AIPs (Supplementary Fig. 17).                                        antibiotics53, which could inhibit the growth of pathogens and recon-
+    According to the biosynthetic logics of AIPs, we deduced the   stitution of the protective gut microbiota; (2) regulating (stimulating or
+potential mature chemicals of six AIP families (Fig. 4b, Supplementary   inhibiting) the quorum sensing pathway54,55, thus affecting the commu-
+Fig. 18) and chemically synthesized 9 AIP chemicals, including 3 var-   nication between microbes.
+iants. These were conﬁrmed through high-resolution MS/MS and NMR       Using MaAsLin256 (microbiome multivariable associations with
+(Fig. 4d, Supplementary Figs. 19-36, Supplementary Information).   linear models), we found variable number of signiﬁcantly differentially
+After observing that none of them exhibited signiﬁcant antibacterial   abundant species (FDR‐adjusted p value < 0.05) in groups of vanco-
+activity against a panel of 17 human pathogens (Supplementary   mycin (1 μg/mL and 10 μg/mL), BF_280_c (10 μg/mL), and BF_398_c
+Data 8), even at concentrations of 100 or 50 μg/mL, we proceeded to   (0.1 μg/mL and 10 μg/mL) when compared with blank group (Supple-
+evaluate their inhibitory activities against the bioﬁlm formation of   mentary Fig. 41, Supplementary Data 11). At the same concentration of
+these pathogens (Supplementary Figs. 37-38). We observed that the 5   10 μg/mL, vancomycin affected more species (n = 73) than the other
+AIPs  (BF_94_et_free, BF_280_t, BF_280_c, BF_398_c, and BF_598_c)  two AIPs (n = 16 and 40). Nevertheless, most differentially abundant
+demonstrated signiﬁcant inhibition against at least one pathogenic   species were affected in a similar pattern by vancomycin or AIPs at
+bioﬁlm (Fig. 4e, Supplementary Fig. 38, Supplementary Data 9), 4 of   10 μg/mL concentration (Supplementary  Fig. 41c, Supplementary
+which showed extended-spectrum activities against pathogenic bio-   Data 11), some of which are closely associated with IBD. As depicted in
+ﬁlm across different species. For example, BF_398_c and BF_94_et_free   Fig. 5e, they inhibited the growth of pathobiont species from genera
+from Lachnospira genus, showed relatively potent anti-bioﬁlm activ-   Paramuribaculum57     (Paramuribaculum      intestinale),    and
+ities  to  Staphylococcus  aureus,   Listeria  monocytogenes,  and   Oscillospiraceae58,59 (Oscillospiraceae bacterium), which are known to
+
+
+
+Nature Communications| (2025)16:3054                                                                                 7
+
+
+[PDF physical page 8]
+Article                                                                                 https://doi.org/10.1038/s41467-025-58280-w
+
+    a                                b                                                        BF_94*                 104                  Enriched in
+                                                                                                                BF_96
+                                             health                                       BF_54                      BF_279
+                                         disease                                       BF_1811                     BF_598*                                                                              BF_280*
+                        62                                                 BF_1459    BF_4892                    BF_635
+                                                                                                                 BF_972                                                                                       BF_6701     BF_398*                                                                            BF_3128                                                                                                          BF_545                                                                                                                  BF_1270
+                                                                                            BF_63*                BF_4093
+                                                                BF_30 BF_488*   BF_375    BF_2275   BF_638                              22    21
+                                          17
+
+                                      CRC
+
+                                            T1D
+            CRC T1D  CD  UC   LC
+                                       CD
+
+                              5                  UC                                    8
+                                             LC
+
+
+                 31                                                 Class of RiPP family
+
+                                                                             ▪Autoinducing peptide     ▪Lanthipeptide     ▪Other
+                                         50                         ▪rSAM-modified RiPP     ▪Lasso peptide
+
+                        59
+
+    c
+                                                      Precursor                   MNTLFNLFFDFITGILKNIGNIAAMNNTLFNLFFDFITGILKNIGNIAA
+                                                                  YSTCDFIMDEVEVPYSTCDFIMDEVEVPY
+                                                                                               KELTQLHEKELTQLHE
+                                        AlphaFold                                 modification
+                                           multimer                                core region                          O
+                                                                                (1)                                                                                    S    M
+                                                                                                                                                                                                                                                                                                                                                                         I
+
+                                                                                                                                   Y  S   T  C  D   F                                                  AgrB                                      (2)   C/S   X
+                                                                                                                                                              (X: amino acid with
+                                                                                                                               hydrophobic side chain)
+
+                  AgrB-AIP precursor
+                              pairs         Conservation         80
+                                           precursor                 0                        10                        20                        30                        40
+                                                                                (3)
+
+                                                                                                 f
+    d        O              O             O             O             O               O
+                                                    L                                                                   L                                                                                  L                                                                                       O   M               O   M                                  S    L                                                   HN                                                                    HN                                                                                                                             100000                                                                     L      HN                                                      F                                                                                             Y                                       F                     Y                                                                                                                                                                                         I
+
+                                                                                                                              80000           H2N   S  F  F    H2N  C  V G    HS   C  V G   HS   C W G   HS   C  A G   H2N  A  S  F  F
+          BF_94_et_free    BF_280_t     BF_280_c    BF_398_c     BF_598_c     BF_94_et_L1         60000                                                                                                                                                                                                                                                                                                                                                                                                                 (pg/mL)
+    e                                                                                                                                                                                                                 TNFα  4000020000
+                                                         AIPs (μg/mL)
+                                                       (lowest concentration for significantly inhibit biofilm formation)                     0
+               Pathogen
+                                  BF_94_et
+                                             BF_280_t   BF_280_c    BF_398_c   BF_598_c
+                                        _free                                                                             4000
+
+             Staphylococcus aureus
+                                  25           1.56         1.56          1.56        25                     3000          ATCC 43300
+
+                Listeria monocytogenes                                  50         >100       25           25          50                                                     (pg/mL)   2000
+          ATCC 19115
+                                                                                                                                                                                                                                     IL-6             Peptostreptococcus                                                                                                                               1000                                  25         >50        >50         25          >50              stomatis DSM17678
+
+             Streptococcus gallolyticus                                                                                         0
+             subsp.                      Gallolyticus         12.5       > 50       > 50         > 50        25
+                                                                                                        LPS (1μg/mL)    -     +     +     +     +        DSM 16831
+            Candida albicans         100        >100       >100        >100        25                 BF_et_94_L1    -          -      1     0.1        -
+          ATCC 10231
+                                                                                                              Dexamethasome     -          -          -          -     25
+
+
+
+be enriched in patients with IBD. Another species, Heminiphilus   microbial composition and reduce potential pathogens in IBD, justi-
+faecis60,61, which could produce IBD pathogenic factors, was also found   fying their possibly protective effects on human health.
+to be reduced. Additionally, both AIPs decreased the abundance of
+pathobiont species from the Prevotella genus62,63 (Prevotella sp MGM1),  Discussion
+which are linked to increased susceptibility to mucosal inﬂammation in   Extensive studies have highlighted the profound functional impact of
+IBD. These ﬁndings implied that AIPs could modulate the fecal   the host-microbiome interaction on human health, as well as the
+
+
+
+
+Nature Communications| (2025)16:3054                                                                       8
+
+
+[PDF physical page 9]
+Article                                                                                 https://doi.org/10.1038/s41467-025-58280-w
+
+
+Fig. 4 | Differentially transcribed RiPP families in multi-disease case-control     anti-inﬂammatory activity in this study. Here, the compound name consists of the
+cohorts. a The bar plot displays the number of RiPP precursor families that are      family name and a speciﬁc sufﬁx denoting its characteristics. For example, “et_L1”
+signiﬁcantly enriched in the healthy group (top) or the disease group (bottom).      indicates that the AIP has an exotail with a length of 1 amino acid, “et_free” signiﬁes
+Statistical signiﬁcance was determined using criteria of |log2 fold change | ≥1 and    an AIP without an exotail, “c” denotes cyclopeptides, and “t” represents exotail-free
+adjusted p values ≤0.05. b The intersection of differentially transcribed RiPP pre-    AIPs with a thiolactone group. e, f n = 3 biological samples for each experiment, 2
+cursor families that are enriched in healthy groups compared to multiple disease    independent experiments. Signiﬁcance was determined using one-way ANOVA test.
+groups. The top bar plot and connecting lines represent the differential RiPP pre-   e Anti-bioﬁlm activity of AIPs against pathogenic bioﬁlm by pathogens. n = 3 bio-
+cursor families identiﬁed in the corresponding disease case-control cohorts. Pre-     logically independent samples. f Anti-inﬂammatory activity of BF_94_et_L1 in
+cursor families are highlighted in different colors based on their RiPP            RAW264.7 cell lines. Bars represent mean ± standard error. For all p values, p < 0.05
+classes.*Families chosen to tested bioactivity in this study. c The workﬂow for     mean signiﬁcant difference compared with the control group. Exact adjusted p-
+predicting the mature AIP uses the reported AIP-I from Staphylococcus aureus as an   values from left to right are: <1e−15, 1.248e−5, 1.866e−5, and 2.706e−12 in TNFα
+illustrative example (Method). d Chemically synthesized AIPs with antibioﬁlm or     (upper) and <1e−15, 0.0089, 0.0006, and 6.055e−7 in IL-6 (lower).
+
+
+etiology and progression of various diseases64. These research ﬁndings   the human microbiome, represent innovative antimicrobial tactics and
+underscore the crucial role that human microbiota plays in health   therapeutic interventions that are yet to be fully explored.
+maintenance by producing a wide variety of unique metabolites65.        In microbe-microbe interactions, quorum-sensing  is used for
+These metabolites possess various biological activities and mediate   social coordination, often via peptide-mediated mechanisms in Gram-
+interactions between microbes or between microbes and the host. Yet,   positive bacteria. RiPPs, particularly AIPs, can act as signaling mole-
+a signiﬁcant knowledge gap persists in understanding microbial ribo-   cules, regulate their production, and respond to quorum-sensing
+somal peptides’ diversity, abundance, prevalence, and role in main-    signals10. Our study identiﬁed six AIP families enriched in healthy
+taining  microbial and human  homeostasis.  In  this  study, we   microbiomes, most exhibiting signiﬁcant antibioﬁlm activity against
+investigated the biosynthetic potential of RiPPs within the human-   IBD- or CRC-related pathogens. Polymicrobial bioﬁlms, particularly in
+associated microbiota, demonstrating  their remarkable chemical   IBD and CRC71, complicate treatment as antimicrobials need to
+diversity, novelty, and potential bioactivity. However, it is important to   target all bioﬁlm pathogens. The combination of AIPs with antibiotics,
+recognize that the scope of RiPP discovery is constrained by the   speciﬁcally AIP-I, has shown potential in enhancing bioﬁlm infection
+availability of microbial genome datasets, predominantly from the gut   treatment72,73, as it can trigger MRSA bioﬁlm dispersal and increase the
+microbiome, particularly bacteria. Concurrently, while  utilizing a   susceptibility of detached cells to antibiotics. Our study revealed ﬁve
+combination of deep learning-based and rule-based methods can help   AIPs with anti-pathogenic bioﬁlm activity and found that two anti-
+strike a balance between precision and novelty in studying RiPP bio-   bioﬁlm AIPs could adjust the gut microbial community in an ex vivo
+synthesis, this strategy may result in a somewhat constrained depic-   assay and hereby reduced pathogenic species linked to IBD, suggest-
+tion of the entire RiPP family from the human microbiome, as part of   ing an alternative treatment option. These AIPs may assist in microbial
+actual RiPPs may be excluded from the analysis. Nonetheless, our   communication through quorum-sensing or indirectly inﬂuencing the
+study thoroughly uncovers the proﬁle of RiPP biosynthesis in the   microbiome  by  controlling  the  production  of   antibacterial
+human microbiome and compiles an atlas of RiPPs for future research   metabolites53. Considering their increased prevalence in healthy indi-
+on innovative antimicrobial strategies and therapeutic interventions   viduals compared to patients with IBD or CRC, our ﬁndings suggest
+targeting microbiome66,67.                                              that they could provide protective roles by inhibiting the growth or
+    The ecological dynamics of the human microbiome are greatly   bioﬁlm formation of pathogens74. While exploring AIPs’ impact on
+shaped by specialized microbial metabolites that play protective roles   harmful bioﬁlms and microbiome homeostasis could open up new
+and can potentially impact human health. Recent analyses of the   therapeutic avenues, their exact mechanisms remain to be under-
+human microbiome have revealed hidden potential for antibiotics,   stood, and their bioactivity needs to be conﬁrmed in vivo animal
+with RiPPs being the most commonly predicted compounds across   models.
+various microbial environments within the body13. Concurrently,      Our study provides a comprehensive analysis of the biosynthetic
+peptides with potentially harmful effects were also identiﬁed, includ-   landscape of RiPPs in the largely unexplored human microbiome,
+ing a lasso peptide from the oral bacterium Rothia aeria and a   using (meta)genome mining and extensive omics analysis. In a proof of
+potentially toxic lantibiotic from translocating Streptococcus68,69. Our   principle study, we linked RiPP proﬁles with various human diseases
+study observed that RiPPs are enriched in the human gut and oral  and pinpointed several RiPP candidates that may potentially impact
+microbiome, most of which are niche-speciﬁc bioactive molecules and  human health. However, several important caveats should be con-
+actively transcribed in healthy human gut microbiomes. In our analysis   sidered when interpreting the biological signiﬁcance of these differ-
+of activity predictions, over 70% of RiPPs were predicted to be anti-   entially expressed RiPPs between healthy and diseased states. For
+bacterial, which should be interpreted with caution. DeepBGC was   example, the observed differences in RiPP diversity between health/
+trained primarily on antimicrobial RiPPs from MIBiG, inevitably leading   disease states could potentially be explained by underlying variations
+to a potential bias towards antibacterial prediction. Additionally, the   in microbial species composition. We also need to acknowledge that
+RiPPs analyzed in this study might fall outside the algorithm’s applic-   observed associations could be due to co-occurrence with other
+ability domain. Recent research has revealed that common RiPP clas-   functional genes within the same species, rather than direct effects of
+ses possess more diverse functions16–20 than previously recognized,   the RiPPs themselves. To establish causality and biological relevance,
+including roles in microbial communications that are not included in   future studies should systematically investigate the interplay between
+DeepBGC’s training data. Therefore, the functions of RiPPs might be   RiPP diversity, microbial community dynamics, and disease progres-
+more diverse than our predictions suggest. RiPPs with protective roles   sion using both observational and mechanistic approaches.
+can  mediate  microbe-microbe  interaction   (e.g.,   antibacterial      The success of our approach in elucidating and optimizing AIP
+activities13, quorum-sensing or quorum-quenching20), or microbiome-   analogues underscores the transformative potential of combining
+host    interaction     (e.g.,   immunomodulatory     activities16–19,   computational tools like AlphaFold with biosynthetic pathway enzy-
+and cytotoxicity70). These interactions could inﬂuence the balance of   mology. While traditional RiPP discovery pipelines often stall when the
+the human-microbe holobiont and potentially substantially impact   heterologous expression fails, our methodology demonstrates that
+human health. We believe that these protective RiPPs, sourced from   structural prediction and chemical synthesis can circumvent these
+
+
+
+
+Nature Communications| (2025)16:3054                                                                     9
+
+
+[PDF physical page 10]
+Article                                                                                 https://doi.org/10.1038/s41467-025-58280-w
+
+   a
+
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                               HS                                                                                                                                                                                                                                                                                                                                                                                                                                                                  HNC  VO GL F            HS   HNC  VO GL F            HS   HNC  VO GL F
+
+
+
+          Mouse feces from 10                    Resuspension in          Anaerobically incubating            Shotgun metagenomic
+           C57BL/6N IL-10−/− mice            mGAM medium            fecal microbiota with AIPs           sequencing
+                                                                                                  for 48 hours
+   b
+
+              Blank         Vancomycin               BF_280_c                BF_398_c
+                              0.1       1        10        0.1       1        10        0.1       1        10     Genus
+         100
+             (%)                                                                                                                                                    ProteusEscherichia         GGB14001GGB1661           Others
+
+                                                                                                                                                                  Phocaeicola           Butyricimonas
+          75
+                                                                                                                                                                       Bacteroides          Paramuribaculum
+
+                                                                                                                                                               Enterococcus           Alistipes                                       abundance                                                                                                                                                         Heminiphilus         Muribaculum
+          50
+                                                                                                                                                                                                  Ligilactobacillus      Duncaniella
+
+                                                                                                                                                                      Parabacteroides      Parasutterella                                   Relative                                                                                                                                                         Muribaculaceae_unclassified
+          25
+                                                                                                                                                                                Bacteroidales_unclassified
+
+                                                                                                                                                                          Bacteroidaceae_unclassified
+           0                                                                                                                                                              Oscillospiraceae_unclassified
+
+   c                                d               Blank     Vancomycin       BF_280_c        BF_398_c
+                          ns                                              ns    ns                 *     ns                  0.10                                              Concentration                                ns
+            2.0                                                          ***                         **                                                             (μg/mL)
+                     index                                    ***                       %                                                        0.1                                                                                        0.05                                          1
+                                       diversity 1.5                                                                                                                                                                            22.43 0.00                                          10
+            1.0                                                                                                                                         Blank                                                                                                                                                                                                              PCo2:
+                                                                                                                               Vancomycin
+                                                                                    −0.05                                         BF_280_c                              Shannon 0.5
+                                                                                                                        BF_398_c
+
+            0.0                                                                      −0.10
+                          0.1   1    10     0.1   1    10     0.1   1    10                                                                                            −0.1        0.0        0.1        0.2
+                                         Concentration (μg/mL)                                         PCo1: 65.73 %
+   e
+
+              Paramuribaculum intestinale       Oscillospiraceae bacterium          Heminiphilus faecis                Prevotella sp MGM1
+            (%) 0.25                ***        ***         **       0.6                **         *          *                        ***        **         **                    ns        *          *
+                                                                                                 4
+                                                                                                                                                             0.12
+               0.20
+
+                                                                   0.4                                       3
+               0.15                                                                                                                                          0.11                                     abundance
+               0.10                                               0.2                                       2                                             0.10
+
+               0.05                                                                                1                                             0.09                                 Relative                                                    0.0
+                    Blank Vancomycin  BF_280_c  BF_398_c            Blank Vancomycin  BF_280_c  BF_398_c          Blank Vancomycin  BF_280_c  BF_398_c             Blank Vancomycin  BF_280_c  BF_398_c
+
+Fig. 5 | AIPs regulate IBD mouse fecal-derived ex vitro microbial community.    function “geom_mark_ellipse”, representing the distinct clustering of groups.
+a Graphical depiction of the ex vivo experimental setup. b Relative abundance of   e Relative abundance of four representative taxa. All box plots include center lines
+microbial genera after 48 h of treatment with vancomycin, BF_280_c, and BF_398_c   representing the median, box limits representing upper and lower quartiles,
+at concentrations of 0.1, 1, and 10 μg/mL. DMSO was used as a blank control. Only   whiskers representing the 1.5x interquartile range, and points representing outliers.
+20 abundant species are displayed. c Bar plots show the alpha diversity of the      The exact p values are as follows (order as vancomycin, BF_280_c, BF_398_c):
+microbial community at the species level, as represented by the Shannon diversity   Paramuribaculum intestinale, 0.41e−3, 0.036, 0.039; Oscillospiraceae bacterium,
+index. Data (n = 3) are mean ± standard deviation. Signiﬁcances between treatment   0.0020, 0.021, 0.013; Heminiphilus faecis, 0.35e−3, 0.0044, 0.0076; Prevotella sp
+groups and blank group were indicated by using two-sided Welch’s t-test. The exact   MGM1, 0.55, 0.036, 0.027. MaAsLin2, a tool relying on general linear models to ﬁnd
+p values are as follows (order as 0.1, 1, 10 μg/mL): vancomycin, 0.082, 0.054, 0.85e    multivariable association, was used to compare the species between vancomycin/
+−3; BF_280_c, 0.13, 0.067, 0.25e-3; BF_398_c, 0.010, 0.23, 0.76e-2. Three biological   AIP and the control group. The Benjamini-Hochberg (“BH”) method was adopted to
+replicates (n = 3) were included for each group. d Principal coordinate analysis       adjust p values for multiple comparisons. Three biological replicates (n = 3) were
+(PCoA) of microbial community based on the Bray-Curtis dissimilarity at the spe-    included for each group. *p < 0.05; **p < 0.01; ***p < 0.001; ns, not signiﬁcant.
+cies level. The enclosing ellipses are estimated using the Khachiyan algorithm by R
+
+
+
+
+
+Nature Communications| (2025)16:3054                                                                              10
+
+
+[PDF physical page 11]
+Article                                                                                 https://doi.org/10.1038/s41467-025-58280-w
+
+
+limitations. However, these strategies may need reconsidering when   paired with a broader dataset of biosynthetic enzyme domains, which
+applied to complex RiPP classes. For instance, lanthipeptide bio-   were used in the decRiPPter39 pipeline for exploring uncharacterized
+synthesis often involves multiple enzymes with unclear recognition   biosynthetic enzyme candidates for RiPP.
+rules, making structure determination difﬁcult without heterologous
+expression. Lassopeptides’ complex structures require precise mod-  Chemical space comparison of RiPP precursor peptides
+eling of peptide folding, which is a substantial challenge for prediction  Known RiPP precursor peptides were collected from The Minimum
+accuracy. These limitations reveal a persistent challenge in RiPP   Information about a Biosynthetic Gene cluster database (MIBiG 3.0)78.
+bioinformatics: the development of enzyme-aware predictive tools   Extended-connectivity ﬁngerprints (ECFPs) are used to predict and
+that holistically incorporate precursor peptide sequences and the   gain insight into RiPPs precursors’ chemical diversity43. Then ECFP6
+biochemical context of modifying enzymes—including their substrate   ﬁngerprints for each unique RiPP precursor were compared with each
+speciﬁcities, catalytic mechanisms, and reaction dynamics. Our ana-   other to generate Tanimoto coefﬁcient matrices79 and visualize the
+lysis of differentially expressed RiPPs in healthy and disease states   chemical space by uniform manifold approximation and projection
+(Fig. 4) revealed numerous uncharacterized candidates, including   (UMAP). Speciﬁcally, The ECFP6 chemical ﬁngerprints of the domain
+putative lanthipeptides and rSAM-modiﬁed peptides. While their   representatives were calculated using The Chemistry Development
+experimental characterization fell outside this study’s scope, these    Kit80. Subsequently, we generated a Jaccard distance matrix based on
+candidates still warrant further investigation. Advances in predictive   the chemical ﬁngerprints and performed dimension reduction using
+tools (e.g., AlphaFold 3’s improvement in handling of multimeric   densMAP81 with n_neighbors= 15, implemented in the UMAP Python
+complexes) and growing  structural databases  (e.g., RiPP-PRISM,   package. Furthermore, we calculated the pairwise Tanimoto coefﬁ-
+RODEO) will enhance our ability to model complex RiPPs.               cient of each precursor using NumPy and scikit-learn. The average
+    Despite certain limitations, our study offers valuable insights into   Tanimoto coefﬁcient was obtained by averaging all of these coefﬁ-
+the diversity and potential functions of RiPPs in the human micro-   cients. Next, core precursor sequences predicted by the cleavage
+biome. We also identiﬁed protective RiPPs that can combat pathogenic   predictions module of DeepRiPP were used to explore the chemical
+bioﬁlms and possess the ability to maintain the balance of microbial   diversity of nine RiPP classes. Pairwise Tanimoto coefﬁcient was fur-
+communities, thus offering alternative antimicrobial tactics or ther-   ther adopted for measuring the similarity between precursors. The
+apeutic interventions that target the microbiome.                     precursor with the highest median within-class Tanimoto coefﬁcients
+                                                          was chosen as representative structures to generate Tanimoto coefﬁ-
+Methods                                                             cient matrices for intra-classes and further calculate the diversity for
+Biosynthetic gene cluster analysis and RiPP precursor               intra-classes. Tanimoto score ranges from 0 to 1. The higher Tanimoto
+identiﬁcation from human microbiome reference genomes       score means higher chemical similarity between two precursors or two
+We retrieved reference genomes of body-wide human microbes from   subclasses.
+two available datasets: 289,232 genomes from Uniﬁed Human Gas-
+trointestinal Genome dataset (UHGG, v2.037,38), and 17,249 genomes   Novelty examination of RiPP precursor families
+from CIBIO36 (Supplementary Data  12). To normalize taxonomic  To trade off the novelty and accuracy, 423831 RiPP precursors that
+annotations for all the genomes, we re-annotated all of them using   were either within RiPP BGCs region41 identiﬁed by enzymes-oriented
+GTDB-Tk75 (v2.0.0) against GTDB (rev207 version). All genomes were   approach or identiﬁed by both two precursors-centric approaches
+analyzed by antiSMASH 6.026 for BGC detection using default para-   were retained for further analyses. These precursor peptides were
+meters. To identify the RiPP precursor peptide, allopen reading frames   grouped by MMseqs2 (13.45111)82 with the following parameters: easy-
+(ORFs) in each genome were annotated by prodigal-short76. Subse-   cluster clusterRes tmp --min-seq-id 0.5 --single-step-clustering --clus-
+quently, small ORFs ( ≤150 amino acids) containing a start and stop   ter-mode 2 --cov-mode 2 -c 0.95. The precursors within a family are
+codon and ribosome-binding site motifs were subjected to TrRiPP25  more likely to share a similar function83. Each RiPP precursor family
+and DeepRiPP24 for RiPP precursor identiﬁcation with default para-  was classiﬁed based on precursor homology and genomic context
+meters. Notably, DeepRiPP can identify RiPP products even when the   (Supplementary Information). The novelty of RiPP families was further
+precursor genes are distant from the tailoring enzymes, while TrRiPP   classiﬁed into three types: (1) “classic RiPP families”, which are identi-
+can detect RiPPs from highly fragmented metagenomes. Combining  ﬁed by having precursors that exhibit similarity to known RiPP pre-
+these tools can effectively identify more potential RiPP precursor   cursors and are located in a genomic context associated with typical
+peptides in metagenome-assembled genomes, which are predominant   RiPP biosynthetic gene clusters. (2) “Uncharacterized RiPP families”,
+in our collection.                                              which consist of uncharacterized precursors and/or genomic neigh-
+                                                            borhoods containing uncharacterized biosynthetic genes. (3) “Others”.
+Analysis of genomic context of predicted RiPP precursor
+peptides                                                           Bioactivity prediction of RiPP families
+For all identiﬁed RiPP precursors, we ﬁrst checked whether they were  We utilized the DeepBGC (https://github.com/Merck/deepbgc)27 tool
+within the region of antiSMASH-deﬁned BGCs. For those precursors   to identify the potential bioactivity of RiPP precursors. This approach
+outside antiSMASH-deﬁned BGC region, we deﬁned 10 genes of the   allowed us to assess and classify the potential bioactivity of RiPPs
+precursor upstream and downstream as genomic neighborhoods. We   based on the predicted functional genes within their genomic neigh-
+used two methods to examine the characteristics of these genomic   borhoods. Our approach involved collecting gene regions within 10
+neighborhoods associated with RiPP. First, we analyzed the protein   genes upstream and downstream of RiPP precursor genes, which we
+domain of precursors and their 10 ﬂanking genes downstream and   referred to as genomic neighborhoods. We then utilized DeepBGC to
+upstream by a domain-based approach: RPS-BLAST. A domain was   predict the potential function of each RiPP. This tool could account for
+signiﬁcantly assigned with a default CDD e-value threshold (0.01), and   the four most common compound activity classes: antibacterial,
+the protein aligns to at least 80% of the PSSM’s length. The assigned   cytotoxic, inhibitor, and antifungal. Precursors exhibiting multiple
+domain belonging to a dataset of known RiPP precursor domains and   predicted activities were labeled as “multiple”, while the activity of
+RiPP-related biosynthetic enzyme domains was noted as RiPP-related   each RiPP family was determined by considering the activities of over
+domains (Supplementary Tables 1 and 2). This database was collected  50% of the precursors within the family. It is important to acknowledge
+and expanded based on the hmm-rule-parser of antiSMASH and pre-   that the training set’s bias toward antimicrobial RiPPs from MIBiG may
+vious studies9,21,26,77. For the remaining precursor, the domains were   limit the prediction accuracy of DeepBGC when analyzing RiPPs from
+
+
+
+Nature Communications| (2025)16:3054                                                                                                         11
+
+
+[PDF physical page 12]
+Article                                                                                 https://doi.org/10.1038/s41467-025-58280-w
+
+
+the human microbiome, as these peptides likely possess a broader   sequences available in public databases. Thus, we ﬁrst collected non-
+range  of  uncharacterized  biological  functions16–20  besides  anti-   redundant precursor sequences from our study. Additionally, we
+microbial activity.                                                  included similar sequences ( > 50% similarity) obtained from NCBI as
+                                                                        additional sources of AIPs found in nature. Next, Logo sequences for
+Analysis of metagenomic and metatranscriptomic data          each clustered short peptide family were generated by makelogo.py,
+The metagenomic and metatranscriptomic samples were downloaded   which  is available at https://github.com/yxllab-hku/cluser_to_logo/
+from sequence read archive (SRA) of the NCBI (Supplementary Data 6).   blob/main/makelogo.py.  With  the  bioinformatic  prediction, we
+Raw metagenome and metatranscriptome sequencing reads were  deduced the potential mature chemicals of six AIP families and che-
+quality ﬁltered using bbduk.sh with the following parameters: qtrim=rl   mically synthesized 9 potential AIPs (Supplementary Information).
+ktrim=r  mink=11  trimq=10  minlen=40. The  resulting  metatran-
+scriptomic reads were subjected to bbmap.sh for removing reads  Antibioﬁlm assay
+derived from ribosomal RNAs. To remove the human host con-   Bioﬁlm formation was assessed using the crystal violet method. The
+tamination, the high-quality metagenomic and metatranscriptomic   strains listed in Supplementary Data 8 were employed as the tested
+sequencing reads were further searched against the human reference   strains. To initiate the experiment, the inocula from overnight cultures
+genome (GRCh38.p13) from NCBI, and unmapped reads were mapped   were diluted at a ratio of 1:100 using the corresponding culture med-
+to microbe reference genomes using BWA (0.7.17-r1188)84 with default   ium. To perform dose-response assays, the chosen peptide was pre-
+parameters. The reads mapped to RiPP precursor gene were counted   pared as a stock solution and serially diluted in DMSO. Following this,
+by featurecounts85 with the following parameters: -f -t CDS -M -O -g   1 μL of each concentration was carefully dispensed into the corre-
+transcript_id -F GTF -s 0 -p --fracOverlap 0.25 -Q 10 -primary. In meta-   sponding wells. Subsequently, 99 μL of the bacterial culture, diluted
+transcriptomic datasets, the count ﬁle with the absolute abundance for   accordingly, was added to the respective wells. Additionally, vehicle
+each family was imported, and differential gene abundance between   controls consisting of 1 μL of DMSO were included to establish the
+healthy and diseased subjects was normalized and analyzed by   baseline bioﬁlm formation of the strains. The microtiter plate was then
+implementing DESeq2 pipeline in R. Of note, the abundance of each   incubated under appropriate conditions. Following the incubation
+family was calculated by the sum of the abundances of all genes in the   period, the bioﬁlm was gently washed with PBS to remove any unat-
+family. Additionally, MetaPhlAn 4 (version 4.1.1)86 was used to compute   tached cells and then allowed to air dry. Next, 100 μL of a 0.1% crystal
+the relative abundance of microbial species. In addition, accumulation   violet solution was added to each well to stain the bioﬁlm. The plate
+curves, alpha-diversity, beta diversity and PERMANOVA were per-  was further incubated at room temperature for 15 minutes to ensure
+formed using the R package vegan. Beta diversity was performed to   proper staining. After the incubation, each well was washed three
+quantify the relative abundance differences in the overall composition   times with water to completely remove the dye. The plate was then
+of RiPP precursor families between the disease and the control groups.   inverted and allowed to air-dry at ambient temperature throughout
+PERMANOVA was performed to show the encoding and expression   the night. To quantify the bioﬁlm formation, 100 μL of a 30% acetic
+proﬁle differences of RiPP precursor families between disease and   acid solution was added to each well to dissolve the crystal violet.
+control groups.Speciﬁcally, families with a prevalence ≥5%in a cohort   Following an additional incubation period of 10-15 minutes at room
+were subjected to further analysis (Beta diversity, differential analysis,   temperature, the absorbance was measured at 550 nm. Three repli-
+and classiﬁer) for investigating potential causality in human disease. In   cated wells were used for each group to ensure accuracy and
+metagenomic datasets, we calculated the signiﬁcance of prevalence   reproducibility.
+using a two-sided Fisher’s exact test, p < 0.05. BiG-SCAPE (version
+1.1.5)87 was used to visualize the genomic context of differential RiPP  Anti-inﬂammatory activity by ELISA experiment
+precursors families. Besides, only 50 members with formative genomic  The RAW264.7 cells were seeded at a density of 15 × 104 cells/well in 24-
+context (larger gene sizes) in RiPP families with larger members ( ≥50   well plates and cultured at 37 °C and 5% CO2 overnight. Cells were
+genes) were chosen for analysis. Each representation biosynthetic   treated with AIPs  (1 μg/mL and 0.1 μg/mL) or 25 μg/mL of Dex-
+gene cluster was chosen to show the conserved domain and products   amethasone for 3 hours and then stimulated with 1 μg lipopoly-
+in each family. Multiple sequence alignment of all precursor families   saccharides (LPS) for 24 hours. The secretion of TNFα and IL6 was
+was conducted using MAFFT (v7.508)88, followed by Jalview (version:   measured according to the ELISA kit (Elabscience). ELISA methods
+2.11.4.1) for visualization.                                       were applied according to the manufacturer’s instructions without any
+                                                                modiﬁcations by using mouse IL-6 (Interleukin 6) ELISA Kit (E-EL-
+Chemical synthesis of AIPs                                  M0044), mouse TNF-α (tumor necrosis factor alpha) ELISA Kit (E-EL-
+To begin, we initiated the calculation and analysis of the precursor-   M3063). Optical densities were read on a plate reader set at 450 nm a
+AgrB complex (Supplementary Table 3). The calculation was per-   microplate reader (BioTerk, Winooski, VT, USA). The concentration of
+formed using the  following command:  colabfold_batch --amber   each parameter in the samples was calculated from the standard curve,
+--templates  --num-recycle  3  --use-gpu-relax  --model-type  alpha-   multiplied by the dilution factorand was expressed as mean ± standard
+fold2_multimer_v3 input_path output_path. The resulting structures   error of the mean (SEM).
+were visualized using PyMol (version 2.5.3). During our analysis of the
+reported AIP precursor and paired AgrB, we observed that the binding  Ex vivo screening study
+of the Precursor-AgrB complex can be partially buried. In other words,   Mice. Mouse studies were performed in accordance with all relevant
+the core peptide of the precursor should be fully accommodated   ethical regulations and were approved by the Ethics Committee of the
+within the catalytic pocket of AgrB. Based on this observation, we   Animal Experimental Center of ZhuJiang Hospital, Southern Medical
+manually examined the predicted complexes. Speciﬁcally, we focused   University (LAEC-2022-059). IL-10-deﬁcient (IL-10−/−) male mice with
+on two aspects:1. We inspected whether the conserved C-terminal core   C57BL/6 N background were purchased from Cyagen Biosciences
+region is captured and effectively buried within the catalytic pocket of   (Guangzhou, China). All the mice were housed in speciﬁc pathogen
+AgrB. By conducting this analysis, we aimed to gain insights into the   free (SPF) conditions with a 12 hours light/dark cycle, and were pro-
+interaction between the precursor and AgrB, shedding light on the   vided sterilized water and food ad libitum (temperature 23 ± 2°C,
+potential core peptide of AIP precursors. Next, we aimed to compre-   humidity 45 ± 5%). IL-10-deﬁcient mice were used to model sponta-
+hensively assess the conservation patterns of precursor sequences   neous chronic colitis, which closely mimics human inﬂammatory
+within each AIP family, incorporating both our study data and relevant   bowel disease (IBD)89.
+
+
+
+Nature Communications| (2025)16:3054                                                                                       12
+
+
+[PDF physical page 13]
+Article                                                                                 https://doi.org/10.1038/s41467-025-58280-w
+
+
+Feces collection. Fecal samples were collected from 10 IL-10-deﬁcient   metagenomics/mgnify_genomes/human-gut/v2.0/), and 17249 gen-
+C57BL/6N male mice (16 weeks old), with an average of 7-8 droppings  omes from CIBIO. The genomes used in this study are provided in
+per mouse. The collected pellets were combined and resuspended in   Supplementary Data 12. Source data are provided with this paper.
+65 mL of a rich medium mGAM. Following resuspension, the tubes
+were gently centrifuged at 112 g for 2 minutes, and the supernatants  Code availability
+were then retained for further assay.                             Codes related to the analyses in this study are available at https://
+   Two selected AIPs were pre-dissolved in DMSO to ﬁnal con-   github.com/ZHANGJianArya/RiPPs_human-microbiome. The  source
+centrations of 0.1 g/mL, 1 g/mL, and 10 g/mL. Subsequently, 1 µL of AIPs   code used in the paper has also been assigned a citable DOI through
+with varying concentrations and 49 µL of fecal supernatant were  Zenodo (https://doi.org/10.5281/zenodo.14866373)93.
+inoculated into 950 µL of mGAM media, resulting in a ﬁnal volume of
+1 mL. The mixtures were then anaerobically incubated at 37 °C for  References
+48 hours. Following the incubation period, the bacterial growth media    1.   Gilbert, J. A. et al. Current understanding of the humanmicrobiome.
+were centrifuged at 16,099 g for 10 minutes. The supernatants were        Nat. Med 24, 392–400 (2018).
+carefully removed, and the resulting pellets were washed twice with    2.   Fan, Y. & Pedersen, O. Gut microbiota in human metabolic health
+1 mL of PBS before being collected for DNA extraction. The pelleted      and disease. Nat. Rev. Microbiol 19, 55–71 (2021).
+samples were extracted using the QIAamp® DNA Micro Kit (Qiagen)   3.  Wang, L., Ravichandran, V., Yin, Y., Yin, J. & Zhang, Y. Natural Pro-
+according to the manufacturer’s instructions. Finally, all DNA samples       ducts from Mammalian Gut Microbiota. Trends Biotechnol. 37,
+were prepared for shotgun metagenomics sequencing.                  492–504 (2019).
+                                                                            4.   Rebuffat, S. Ribosomally synthesized peptides, foreground players
+Metagenomic sequencing.  All DNA samples were submitted to         in microbial interactions: recent developments and unanswered
+Novogene for shotgun metagenomics sequencing using a 150 bp        questions. Nat. Prod. Rep. 39, 273–310 (2022).
+paired-end protocol. Initially, 1 µg of DNA per sample was fragmented   5.   Wilson, M. R., Zha, L. & Balskus, E. P. Natural product discovery from
+via sonication to achieve a size of 350 bp. Subsequently, the frag-       the human microbiome. J. Biol. Chem. 292, 8546–8552 (2017).
+mented DNA underwent end-polishing, A-tailing, and ligation with a   6.   Silpe, J. E. & Balskus, E. P. Deciphering Human Microbiota-Host
+full-length adaptor for library construction. The constructed libraries       Chemical Interactions. ACS Cent. Sci. 7, 20–29 (2021).
+were assessed for quality and quantity using Qubit and real-time PCR    7.   Zhang, Y., Li, P., Ma, Y., Wang, J. & Chen, Y. Artiﬁcial intelligence
+for quantiﬁcation, as well as a bioanalyzer for size distribution analysis.        accelerates the mining of bioactive small molecules from human
+The quantiﬁed libraries were then pooled and sequenced on the Illu-       microbiome. Clin. Transl. Med 12, e1011 (2022).
+mina NovaSeq X Plus platform, generating approximately 10.7 Gb of   8.   Cully, M. Microbiome therapeutics go small molecule. Nat. Rev.
+data per sample.                                                   Drug Discov. 18, 569–572 (2019).
+                                                                            9.  Montalban-Lopez, M. et al. New developments in RiPP discovery,
+Metagenomic analysis. Raw reads from metagenomic sequencing were      enzymology and engineering. Nat. Prod. Rep. 38, 130–239 (2021).
+processed using Fastp v0.21.1 for quality control, with parameter of   10.  Li, Y. & Rebuffat, S. The manifold roles of microbial ribosomal
+“--detect_adapter_for_pe  -l 50  -5 3 -3  3”. High-quality metagenomic       peptide-based natural products in physiology and ecology. J. Biol.
+sequencing reads were further subjected to KneadData (https://github.      Chem. 295, 34–54 (2020).
+com/biobakery/kneaddata) for detecting and removing reads belonging    11.  Sugrue, I., Ross, R. P. & Hill, C. Bacteriocin diversity, function, dis-
+to the human genome, though searching against the mouse reference       covery and application as antimicrobials. Nat. Rev. Microbiol. 22,
+genome (GRCm39) from GENCODE90. MetaPhlAn (version 4.1.1)86 was       556–571 (2024).
+used to generate taxonomic proﬁles of metagenomes.                       12.  Zhong, G., Wang, Z. J., Yan, F., Zhang, Y. & Huo, L. Recent Advances
+    Alpha diversity, as measured by Shannon diversity, and beta         in Discovery, Bioengineering, and Bioactivity-Evaluation of Riboso-
+diversity, evaluated through Bray-Curtis dissimilarity, were computed       mally Synthesized and Post-translationally Modiﬁed Peptides. ACS
+for species-level taxonomic proﬁles utilizing the Vegan package in R91.        Bio Med Chem. Au 3, 1–31 (2023).
+Differential abundance analysis between groups was conducted using   13.  Mousa, W. K., Athar, B., Merwin, N. J. & Magarvey, N. A. Antibiotics
+MaAsLin2 (version 1.12.0)56 (microbiome multivariable associations      and specialized metabolites from the human microbiota. Nat. Prod.
+with linear models). Species with a false discovery rate (FDR)-adjusted       Rep. 34, 1302–1331 (2017).
+p-value of less than 0.05 were deemed signiﬁcantly different between   14.  Donia, M. S. et al. A systematic analysis of biosynthetic gene clus-
+the two groups.                                                                 ters in the human microbiome reveals a common family of anti-
+                                                                                       biotics. Cell 158, 1402–1414 (2014).
+Reporting summary                                                         15.  Zhang, Z. J. et al. Activity of Gut-Derived Nisin-like Lantibiotics
+Further information on research design is available in the Nature        against Human Gut Pathogens and Commensals. ACS Chem. Biol.
+Portfolio Reporting Summary linked to this article.                            19, 357–369 (2024).
+                                                                                16.   Li, J. et al. Tonsillar Microbiome-Derived Lantibiotics Induce Struc-
+Data availability                                                             tural Changes of IL-6 and IL-21 Receptors and Modulate Host
+Raw read sequences of the shotgun metagenomic sequences were       Immunity. Adv. Sci. (Weinh.) 9, e2202706 (2022).
+deposited at Sequence Read Archive (SRA, NCBI) under accession of    17.  Wang, S. et al. Enhancement of Macrophage Function by the Anti-
+PRJNA1166984. The BGC and RiPP precursors identiﬁed in this study        microbial Peptide Sublancin Protects Mice from Methicillin-
+are available in Supplementary dataset 1-3, which have been deposited        Resistant Staphylococcus aureus. J. Immunol. Res 2019, 3979352
+in Zenodo (https://doi.org/10.5281/zenodo.14994355)92. Other data        (2019).
+supporting the ﬁndings of this study are available in supplementary   18.   Li, J., Chen, J., Yang, G. & Tao, L. Sublancin protects against
+information, supplementary datasets, and source data ﬁles. The raw        methicillin-resistant Staphylococcus aureus infection by the com-
+data for omics data analysis were collected from NCBI datasets       bined modulation of innate immune response and microbiota.
+through the accession numbers provided in Supplementary Data 6.       Peptides 141, 170533 (2021).
+Reference genomes of body-wide human microbes from two available   19.  Barbour, A. et al. Discovery of phosphorylated lantibiotics with
+datasets: 289232 genomes from Uniﬁed Human Gastrointestinal Gen-      proimmune activity that regulate the oral microbiome. Proc. Natl
+ome  dataset  (UHGG,  v2.0,  https://ftp.ebi.ac.uk/pub/databases/       Acad. Sci. USA 120, e2219392120 (2023).
+
+
+
+Nature Communications| (2025)16:3054                                                                                      13
+
+
+[PDF physical page 14]
+Article                                                                                 https://doi.org/10.1038/s41467-025-58280-w
+
+
+20. Williams, M. R. et al. Quorum sensing between bacterial species on   40. Human Microbiome Project, C. Structure, function and diversity of
+    the skin protects against epidermal injury in atopic dermatitis. Sci.       the healthy human microbiome. Nature 486, 207–214 (2012).
+     Transl. Med. 11, eaat8329 (2019).                                        41.  Blin, K. et al. antiSMASH 5.0: updates to the secondary metabolite
+21.  Arnison, P. G. et al. Ribosomally synthesized and post-              genome mining pipeline. Nucleic Acids Res 47, W81–W87 (2019).
+     translationally modiﬁed peptide natural products: overview and     42.  Gavriilidou, A. et al. Compendium of specialized metabolite bio-
+    recommendations for a universal nomenclature. Nat. Prod. Rep. 30,        synthetic diversity encoded in bacterial genomes. Nat. Microbiol 7,
+    108–160 (2013).                                                 726–735 (2022).
+22. Mullowney, M. W. et al. Artiﬁcial intelligence for natural product     43. Rogers, D. & Hahn, M. Extended-connectivity ﬁngerprints. J. Chem.
+    drug discovery. Nat. Rev. Drug Discov. 22, 895–916 (2023).                    Inf. Model 50, 742–754 (2010).
+23. Zhong, Z., He, B., Li, J. & Li, Y. X. Challenges and advances in gen-   44. Human Microbiome Project, C. A framework for human microbiome
+   ome mining of ribosomally synthesized and post-translationally           research. Nature 486, 215–221 (2012).
+    modiﬁed peptides (RiPPs). Synth. Syst. Biotechnol. 5, 155–172        45.  Abu-Ali, G. S. et al. Metatranscriptome of human faecal microbial
+     (2020).                                                         communities in a cohort of adult men. Nat. Microbiol 3, 356–366
+24. Merwin, N. J. et al. DeepRiPP integrates multiomics data to auto-          (2018).
+    mate discovery of novel ribosomally synthesized natural products.   46. Duan, Y. et al. Bacteriophage targeting of gut bacterium attenuates
+     Proc. Natl Acad. Sci. USA 117, 371–380 (2020).                            alcoholic liver disease. Nature 575, 505–511 (2019).
+25. Gao, Y., Zhong, Z., Zhang, D., Zhang, J. & Li, Y. X. Exploring the roles   47. Zhao, A. et al. Reconstitution of the S. aureus agr quorum sensing
+     of ribosomal peptides in prokaryote-phage interactions through         pathway reveals a direct role for the integral membrane protease
+    deep learning-enabled metagenome mining. Microbiome 12,          MroQ in pheromone biosynthesis. Proc. Natl Acad. Sci. USA 119,
+    94 (2024).                                                       e2202661119 (2022).
+26.  Blin, K. et al. antiSMASH 6.0: improving cluster detection and       48. Gless, B. H. et al. Rearrangement of Thiodepsipeptides by S -> N
+    comparison capabilities. Nucleic Acids Res 49, W29–W35 (2021).         Acyl Shift Delivers Homodetic Autoinducing Peptides. J. Am. Chem.
+27.  Hannigan, G. D. et al. A deep learning genome-mining strategy for       Soc. 143, 10514–10518 (2021).
+     biosynthetic gene cluster prediction. Nucleic Acids Res 47,          49. Molloy, E. M. et al. Enzyme-Primed Native Chemical Ligation Pro-
+    e110 (2019).                                                   duces Autoinducing Cyclopeptides in Clostridia. Angew. Chem. Int
+28.  Balty, C. et al. Ruminococcin C, an anti-clostridial sactipeptide           Ed. Engl. 60, 10670–10679 (2021).
+    produced by a prominent member of the human microbiota        50. Tytgat, H. L. P., Nobrega, F. L., van der Oost, J. & de Vos, W. M. Bowel
+    Ruminococcus gnavus. J. Biol. Chem. 294, 14512–14525 (2019).          Bioﬁlms: Tipping Points between a Healthy and Compromised Gut?
+29.  Bushin, L. B., Covington, B. C., Rued, B. E., Federle, M. J. & Seyed-        Trends Microbiol 27, 17–25 (2019).
+    sayamdost, M. R. Discovery and Biosynthesis of Streptosactin, a      51.  Baumgartner, M. et al. Mucosal Bioﬁlms Are an Endoscopic Feature
+    Sactipeptide with an Alternative Topology Encoded by Commensal        of Irritable Bowel Syndrome and Ulcerative Colitis. Gastro-
+     Bacteria in the Human Microbiome. J. Am. Chem. Soc. 142,              enterology 161, 1245–1256 e1220 (2021).
+    16265–16275 (2020).                                                52.  Ricciuto, A. et al. Oral vancomycin is associated with improved
+30.  Lin, X. et al. The genomic landscape of reference genomes of cul-       inﬂammatory bowel disease clinical outcomes in primary scleros-
+     tivated human gut bacteria. Nat. Commun. 14, 1663 (2023).              ing cholangitis-associated inﬂammatory bowel disease (PSC-IBD): A
+31.  Aleti, G. et al. Identiﬁcation of the Bacterial Biosynthetic Gene          matched analysis from the Paediatric PSC Consortium. Aliment
+     Clusters of the Oral Microbiome Illuminates the Unexplored Social       Pharm. Ther. 59, 1236–1247 (2024).
+    Language of Bacteria during Health and Disease. mBio 10, e00321-   53. Duerkop, B. A. et al. Quorum-sensing control of antibiotic synthesis
+    19 (2019).                                                                       in Burkholderia thailandensis. J. Bacteriol. 191, 3909–3918 (2009).
+32. Zhang, D. et al. A systematically biosynthetic investigation of lactic   54. Wu, L. & Luo, Y. Bacterial Quorum-Sensing Systems and Their Role
+    acid bacteria reveals diverse antagonistic bacteriocins that poten-         in Intestinal Bacteria-Host Crosstalk. Front Microbiol 12, 611413
+      tially shape the human microbiome. Microbiome 11, 91 (2023).             (2021).
+33. Chu, J. et al. Synthetic-Bioinformatic Natural Product Antibiotics     55. Piewngam, P. et al. Pathogen elimination by probiotic Bacillus via
+    with Diverse Modes of Action. J. Am. Chem. Soc. 142, 14158–14168        signalling interference. Nature 562, 532–537 (2018).
+     (2020).                                                          56.  Mallick, H. et al. Multivariable association discovery in population-
+34. Chu, J., Vila-Farres, X. & Brady, S. F. Bioactive Synthetic-                 scale meta-omics studies. PLoS Comput Biol. 17, e1009442
+     Bioinformatic Natural Product Cyclic Peptides Inspired by Non-            (2021).
+    ribosomal Peptide Synthetase Gene Clusters from the Human        57.  Feng, P. et al. Crocetin Prolongs Recovery Period of DSS-Induced
+    Microbiome. J. Am. Chem. Soc. 141, 15737–15741 (2019).                    Colitis via Altering Intestinal Microbiome and Increasing Intestinal
+35. Nelson, S. & Parkinson, E. I. Synthetic-bioinformatic natural               Permeability. Int. J. Mol. Sci. 23, 3832 (2022).
+     product-inspired peptides. Nat. Prod. Rep. 42, 50–66 (2025).        58. Huang, P. et al. Effects of hydroxychloroquine on the mucosal
+36.  Pasolli, E. et al. Extensive Unexplored Human Microbiome Diversity        barrier and gut microbiota during healing of mice colitis. Am. J.
+    Revealed by Over 150000 Genomes from Metagenomes Spanning        Transl. Res 16, 4144–4153 (2024).
+    Age, Geography, and Lifestyle. Cell 176, 649–662 e620 (2019).      59. Yang, J. Y., Chen, S. Y., Wu, Y. H., Liao, Y. L. & Yen, G. C. Ameliorative
+37.  Almeida, A. et al. A uniﬁed catalog of 204938 reference genomes        effect of buckwheat polysaccharides on colitis via regulation of the
+    from the human gut microbiome. Nat. Biotechnol. 39, 105–114           gut microbiota. Int J. Biol. Macromol. 227, 872–883 (2023).
+     (2021).                                                       60. Sanidad, K. Z. et al. Gut bacteria-derived serotonin promotes
+38. Gurbich, T. A. et al. MGnify Genomes: A Resource for Biome-          immune tolerance in early life. Sci. Immunol. 9, eadj4775 (2024).
+    speciﬁc Microbial Genome Catalogues. J. Mol. Biol. 435,              61.  Di Giovangiulio, M. et al. The Neuromodulation of the Intestinal
+    168016 (2023).                                           Immune System and Its Relevance in Inﬂammatory Bowel Disease.
+39. Kloosterman, A. M. et al. Expansion of RiPP biosynthetic space            Front Immunol. 6, 590 (2015).
+    through integration of pan-genomics and machine learning          62. Lo Presti, A. et al. Phylogenetic analysis of Prevotella copri from
+    uncovers a novel class of lanthipeptides. PLoS Biol. 18,                    fecal and mucosal microbiota of IBS and IBD patients. Therap Adv
+    e3001026 (2020).                                                      Gastroenterol 16, 17562848221136328 (2023).
+
+
+
+
+Nature Communications| (2025)16:3054                                                                                   14
+
+
+[PDF physical page 15]
+Article                                                                                 https://doi.org/10.1038/s41467-025-58280-w
+
+
+63.  Iljazovic, A. et al. Perturbation of the gut microbiome by Prevotella   84. Vasimuddin, M., Misra, S., Li, H. & Aluru, S. In 2019 IEEE International
+    spp. enhances host susceptibility to mucosal inﬂammation. Muco-         Parallel and Distributed Processing Symposium (IPDPS) 314-
+     sal Immunol. 14, 113–124 (2021).                                 324 (2019).
+64. Ogunrinola, G. A., Oyewale, J. O., Oshamika, O. O. & Olasehinde, G.   85.  Liao, Y., Smyth, G. K. & Shi, W. featureCounts: an efﬁcient general
+        I. The Human Microbiome and Its Impacts on Health. Int J. Microbiol       purpose program for assigning sequence reads to genomic fea-
+    2020, 8045646 (2020).                                                     tures. Bioinformatics 30, 923–930 (2014).
+65. Donia, M. S. & Fischbach, M. A. HUMAN MICROBIOTA. Small        86. Blanco-Miguez, A. et al. Extending and improving metagenomic
+    molecules from the human microbiota. Science 349, 1254766          taxonomic proﬁling with uncharacterized species using MetaPhlAn
+     (2015).                                                                      4. Nat. Biotechnol. 41, 1633–1644 (2023).
+66. Garber, K. Drugging the gut microbiome. Nat. Biotechnol. 33,        87. Navarro-Munoz, J. C. et al. A computational framework to explore
+    228–231 (2015).                                                           large-scale biosynthetic diversity. Nat. Chem. Biol. 16, 60–68
+67. Sharma, S., Hegde, P., Panda, S., Orimoloye, M. O. & Aldrich, C. C.        (2020).
+    Drugging the microbiome: targeting small microbiome molecules.   88. Katoh, K. & Standley, D. M. MAFFT multiple sequence alignment
+     Curr. Opin. Microbiol 71, 102234 (2023).                                software version 7: improvements in performance and usability.
+68. King, A. M. et al. Systematic mining of the human microbiome           Mol. Biol. Evol. 30, 772–780 (2013).
+     identiﬁes antimicrobial peptides with diverse activity spectra. Nat.   89. Kuhn, R., Lohler, J., Rennick, D., Rajewsky, K. & Muller, W.
+     Microbiol. 8, 2420–2434 (2023).                                          Interleukin-10-deﬁcient mice develop chronic enterocolitis. Cell 75,
+69.  Jia, B., Kim, K. H., Ruan, W., Kim, H. M. & Jeon, C. O. Lantibiotic-         263–274 (1993).
+    encoding Streptococcus in the human microbiome are underlying   90. Frankish, A. et al. GENCODE: reference annotation for the human and
+     risk factors for liver diseases. J. Infect. 84, e70–e72 (2022).            mouse genomes in 2023. Nucleic Acids Res 51, D942–D949 (2023).
+70. Rahman, I. R., Sanchez, A., Tang, W. & van der Donk, W. A. Structure-   91.  Oksanen, J. Vegan: community ecology package. http://vegan.r-
+     Activity Relationships of the Enterococcal Cytolysin. ACS Infect. Dis.        forge.r-project.org/ (2010).
+     7, 2445–2454 (2021).                                              92. Zhang, J. Large-scale biosynthetic analysis of human microbiomes
+71.  Muniz Pedrogo, D. A., Sears, C. L. & Melia, J. M. P. Colorectal Cancer        reveals diverse protective ribosomal peptides [Data set]. Zenodo
+     in Inﬂammatory Bowel Disease: A Review of the Role of Gut              https://doi.org/10.5281/zenodo.14994355 (2025).
+    Microbiota and Bacterial Bioﬁlms in Disease Pathogenesis. J. Crohns   93. Zhang, J. & Zhang, D. W. Large-scale biosynthetic analysis of human
+     Colitis 18, 1713–1725 (2024).                                       microbiomes reveals diverse protective ribosomal peptides.
+72.  Lauderdale, K. J., Malone, C. L., Boles, B. R., Morcuende, J. &           Zenodo https://doi.org/10.5281/zenodo.14866373 (2025).
+     Horswill, A. R. Bioﬁlm dispersal of community-associated methi-
+     cillin-resistant Staphylococcus aureus on orthopedic implant     Acknowledgements
+     material. J. Orthop. Res 28, 55–61 (2010).                            This work is partially funded by Hong Kong Research Grants Council
+73.  Koo, H., Allan, R. N., Howlin, R. P., Stoodley, P. & Hall-Stoodley, L.    Collaborative Research Fund (C7014-24G) and General Research Fund
+    Targeting microbial bioﬁlms: current and prospective therapeutic    (27107320, 17115322, and 17102123) to Y.X.L. The authors would like to
+     strategies. Nat. Rev. Microbiol 15, 740–755 (2017).                  thank Zhiman Song and Cunlei Cai for their help in MS and NMR analysis.
+74. Sturme, M. H. et al. Cell to cell communication by autoinducing    The authors also thank Vecteezy.com for distributing free vector art at
+    peptides in gram-positive bacteria. Antonie Van. Leeuwenhoek 81,   https://www.vecteezy.com, which is partially adopted and modiﬁed
+    233–243 (2002).                                                          in Fig. 5a.
+75.  Chaumeil, P. A., Mussig, A. J., Hugenholtz, P. & Parks, D. H. GTDB-Tk
+     v2: memory friendly classiﬁcation with the genome taxonomy     Author contributions
+    database. Bioinformatics 38, 5315–5316 (2022).                      Conceptualization: Y.X. L., J.Z., D.W.Z.; Bioinformatics analysis: J.Z.,
+76.  Santos-Aberturas, J. et al. Uncovering the unexplored diversity of    D.W.Z., Y.G., Z.Z., B.B.H.; Experimental validation: J.Z., Y.X., J.L.Z., R.Z.L.,
+    thioamidated ribosomal peptides in Actinobacteria using the RiP-     Y.G., Y.Q.S., P.Y.C.: Visualization: J.Z., D.W.Z.; Writing—original draft: J.Z.;
+    PER genome mining tool. Nucleic Acids Res 47, 4624–4637         Writing—review and editing: Y.X.L., D.W.Z., J.Z., X.C.L., and H.W.Z.;
+     (2019).                                                                 Investigation: Y.X.L. and D.W.Z.; Supervision: M.X.C., Y.X.L.
+77.  Benjdia, A. & Berteau, O. Radical SAM Enzymes and Ribosomally-
+    Synthesized and Post-translationally Modiﬁed Peptides: A Growing  Competing interests
+    Importance in the Microbiomes. Front Chem. 9, 678068 (2021).     The authors declare no competing interests.
+78.  Terlouw, B. R. et al. MIBiG 3.0: a community-driven effort to anno-
+     tate experimentally validated biosynthetic gene clusters. Nucleic   Additional information
+    Acids Res 51, D603–D610 (2023).                              Supplementary information The online version contains
+79.  Bajusz, D., Racz, A. & Heberger, K. Why is Tanimoto index an        supplementary material available at
+    appropriate choice for ﬁngerprint-based similarity calculations? J.    https://doi.org/10.1038/s41467-025-58280-w.
+    Cheminform 7, 20 (2015).
+80. Willighagen, E. L. et al. The Chemistry Development Kit (CDK) v2.0:   Correspondence and requests for materials should be addressed to
+    atom typing, depiction, molecular formulas, and substructure      Muxuan Chen or Yong-Xin Li.
+     searching. J. Cheminform 9, 33 (2017).
+81.  Narayan, A., Berger, B. & Cho, H. Assessing single-cell tran-         Peer review information Nature Communications thanks Marnix
+    scriptomic variability through density-preserving data visualization.  Medema, and the other, anonymous, reviewers for their contribution to
+     Nat. Biotechnol. 39, 765–774 (2021).                               the peer review of this work. A peer review ﬁle is available.
+82.  Steinegger, M. & Soding, J. MMseqs2 enables sensitive protein
+    sequence searching for the analysis of massive data sets. Nat.       Reprints and permissions information is available at
+     Biotechnol. 35, 1026–1028 (2017).                                  http://www.nature.com/reprints
+83. Sangar, V., Blankenberg, D. J., Altman, N. & Lesk, A. M. Quantitative
+    sequence-function relationships in proteins based on gene ontol-    Publisher’s note Springer Nature remains neutral with regard to jur-
+    ogy. BMC Bioinformatics 8, 294 (2007).                                 isdictional claims in published maps and institutional afﬁliations.
+
+
+
+Nature Communications| (2025)16:3054                                                                                       15
+
+
+[PDF physical page 16]
+Article                                                                                 https://doi.org/10.1038/s41467-025-58280-w
+
+
+Open Access This article is licensed under a Creative Commons
+Attribution-NonCommercial-NoDerivatives 4.0 International License,
+which permits any non-commercial use, sharing, distribution and
+reproduction in any medium or format, as long as you give appropriate
+credit to the original author(s) and the source, provide a link to the
+Creative Commons licence, and indicate if you modiﬁed the licensed
+material. You do not have permission under this licence toshare adapted
+material derived from this article or parts of it. The images or other third
+party material in this article are included in the article’s Creative
+Commons licence, unless indicated otherwise in a credit line to the
+material. If material is not included in the article’s Creative Commons
+licence and your intended use is not permitted by statutory regulation or
+exceeds the permitted use, you will need to obtain permission directly
+from the copyright holder. To view a copy of this licence, visit http://
+creativecommons.org/licenses/by-nc-nd/4.0/.
+
+
+© The Author(s) 2025
+
+
+
+
+
+Nature Communications| (2025)16:3054                                                                                    16

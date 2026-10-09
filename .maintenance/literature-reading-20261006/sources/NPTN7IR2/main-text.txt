@@ -1,0 +1,1210 @@
+
+[PDF physical page 1]
+Diverse Combinatorial Biosynthesis Strategies for C−H
+Functionalization of Anthracyclinones
+Rongbin Wang,⊥Benjamin Nji Wandi,⊥Nora Schwartz,⊥Jacob Hecht,⊥Larissa Ponomareva,
+Kendall Paige, Alexis West, Kathryn Desanti, Jennifer Nguyen, Jarmo Niemi, Jon S. Thorson,
+Khaled A. Shaaban,* Mikko Metsä-Ketelä,* and S. Eric Nybo*
+Cite This: ACS Synth. Biol. 2024, 13, 1523−1536
+Read Online
+ACCESS
+Metrics & More
+Article Recommendations
+*
+sı
+Supporting Information
+ABSTRACT: Streptomyces spp. are “nature’s antibiotic factories” that
+produce valuable bioactive metabolites, such as the cytotoxic
+anthracycline polyketides. While the anthracyclines have hundreds of
+natural and chemically synthesized analogues, much of the chemical
+diversity stems from enzymatic modifications to the saccharide chains
+and, to a lesser extent, from alterations to the core scaffold. Previous
+work has resulted in the generation of a BioBricks synthetic biology
+toolbox in Streptomyces coelicolor M1152ΔmatAB that could produce
+aklavinone, 9-epi-aklavinone, auramycinone, and nogalamycinone. In
+this work, we extended the platform to generate oxidatively modified
+analogues via two crucial strategies. (i) We swapped the ketoreductase
+and first-ring cyclase enzymes for the aromatase cyclase from the
+mithramycin biosynthetic pathway in our polyketide synthase (PKS)
+cassettes to generate 2-hydroxylated analogues. (ii) Next, we engineered several multioxygenase cassettes to catalyze 11-
+hydroxylation, 1-hydroxylation, 10-hydroxylation, 10-decarboxylation, and 4-hydroxyl regioisomerization. We also developed
+improved plasmid vectors and S. coelicolor M1152ΔmatAB expression hosts to produce anthracyclinones. This work sets the stage for
+the combinatorial biosynthesis of bespoke anthracyclines using recombinant Streptomyces spp. hosts.
+KEYWORDS: BioBricks, synthetic biology, natural product biosynthesis, anthracyclinones, Streptomyces coelicolor, oxygenase, anticancer
+■INTRODUCTION
+Anthracyclines are glycosylated aromatic polyketides produced
+by various soil bacteria in the actinomycete family.
+Doxorubicin and aclarubicin are utilized as anticancer agents
+for treating various human cancers, making them some of the
+broadest spectrum antineoplastic agents used in the clinic.1
+Anthracyclines inhibit the proliferation of cancer cells through
+two distinctive mechanisms: histone eviction and inhibition of
+topoisomerase II, leading to the scission of DNA strands.1,2
+However, anthracyclines have limitations that diminish their
+clinical utility. Cancer cells can develop drug resistance to the
+anthracyclines, for example, by overexpressing the p-
+glycoprotein ATP binding cassette.3 Additionally, the long-
+term use of anthracyclines is associated with cardiotoxicity.4
+These observations have motivated the systematic biosynthetic
+modification of anthracyclines to achieve new analogues with
+advantageous properties over currently used medications,
+including increased potency, decreased drug resistance, and
+reduced cardiotoxicity.5
+Anthracyclines are biosynthesized by polyketide synthase
+(PKS) complexes, which are composed of a minimal PKS
+(minPKS) consisting of a ketoacyl synthase (KSα), chain
+length factor (CLF or KSβ), and acyl carrier protein (ACP)
+that catalyzes the Claisen condensation of one molecule of
+acetyl-CoA or propionyl-CoA to nine molecules of malonyl-
+CoA (Figure 1A). The resulting poly β-keto thioester
+decaketide undergoes controlled folding by 9-ketoreductase
+(9-KR), aromatase (ARO), second-/third-ring cyclase (2/3-
+CYC), and oxygenase (OXY) enzymes to generate the first
+stable intermediates aklanonic acid and nogalonic acid. Further
+reactions by methyltransferase (MET), fourth-ring cyclase (4-
+CYC), and ketoreductase (7-KR) enzymes furnish the core
+tetracyclic aromatic carbon skeletons (Figure 1A).3 Previously,
+we developed a BioBricks platform for the improved
+biosynthesis of anthracyclinones.6 We developed vectors to
+produce four anthracyclinone scaffolds: aklavinone (1), 9-epi-
+aklavinone (2), auramycinone (3), and nogalamycinone (4)
+(Figure 1A). In addition, endogenous activity from the host
+Received:
+January 22, 2024
+Revised:
+April 11, 2024
+Accepted:
+April 16, 2024
+Published: April 25, 2024
+Research Article
+pubs.acs.org/synthbio
+© 2024 The Authors. Published by
+American Chemical Society
+1523
+https://doi.org/10.1021/acssynbio.4c00043
+ACS Synth. Biol. 2024, 13, 1523−1536
+This article is licensed under CC-BY 4.0
+Downloaded via OCEAN UNIV OF CHINA on August 12, 2024 at 07:20:05 (UTC).
+See https://pubs.acs.org/sharingguidelines for options on how to legitimately share published articles.
+
+
+
+[PDF physical page 2]
+Figure 1. Metabolic engineering strategies for C−H functionalization of anthracyclinones. Biosynthesis of (A) the four anthracyclinone aglycones
+1−4, (B) degradation products 5−8 through the action of endogenous enzymatic activities of the host strain S. coelicolor and (C) 2-hydroxylated
+target compounds 9−14 accessible via PKS cassette engineering utilizing steffimycin B biosynthetic logic. Depiction of the diversity of post-PKS
+tailoring steps on (D) doxorubicin, (E) rhodomycin, (F) komodoquinone, and (G) kosinostatin pathways.
+ACS Synthetic Biology
+pubs.acs.org/synthbio
+Research Article
+https://doi.org/10.1021/acssynbio.4c00043
+ACS Synth. Biol. 2024, 13, 1523−1536
+1524
+
+
+
+[PDF physical page 3]
+strain Streptomyces coelicolor M1152ΔmatAB led to the
+production of 7-deoxygenated versions of these compounds,
+including 7-deoxy-aklavinone (5), 7-deoxy-9-epi-aklavinone
+(6), 7-deoxy-auramycinone (7), and 7-deoxy-nogalamycinone
+(8) (Figure 1B).
+Anthracycline biosynthetic gene clusters harbor extensive
+gene sets to modify the core anthracyclinone structures further.
+Particularly, gene products catalyzing redox chemistry for C−
+H functionalization, which is an important component in the
+chemodiversification of anthracyclines, are abundant. The
+daunorubicin pathway harbors the FAD-dependent 11-
+monooxygenase DnrF (Figure 1C).7−9 RdmE also catalyzes
+the same reaction on the rhodomycin pathway, containing the
+15-methylesterase RdmC and the methyltransferase-like RdmB
+for C-10 hydroxylation (Figure 1D).7,9,10 The komodoquinone
+pathway includes enzymes for 10-decarboxylation by the C-15
+esterase EamC and the methyltransferase-like EamK (Figure
+1E).11,12 Finally, the kosinostatin biosynthetic gene cluster
+encodes the short-chain aldol reductase KstA16 and the
+cyclase-like KstA15 that jointly catalyze C-1 hydroxylation
+(Figure 1F).13 The reaction cascade is further extended to 4-
+hydroxyl regioisomerization by the NmrA-like short-chain
+dehydrogenase/reductase enzymes KstA11 and KstA10
+(Figure 1F).13
+In this work, we were interested in combinatorial biosyn-
+thesis and C−H functionalization of anthracyclinones using
+two distinct approaches. The first strategy included reprogram-
+ming the PKS cassettes to afford 2-hydroxylated analogues,
+similar to steffimycin biosynthesis.14 This could plausibly be
+achieved by excluding the KR gene and exchanging ARO/CYC
+genes with those residing on aureolic acid biosynthetic
+pathways (Figure 1C).14−16 The second strategy included
+diverse post-PKS tailoring genes from the kosinostatin,13
+rhodomycin,9,10 doxorubicin,8 and komodoquinone B path-
+ways.11 One significant goal of these studies was to
+systematically evaluate the substrate promiscuity of post-PKS
+tailoring enzymes toward alternative substrates 1−4.
+The metabolic engineering presented here resulted in the
+generation of 26 anthracyclinones, including nine novel
+analogues with regiospecific C−H oxygenation. Chemical
+characterization and bioactivity profiling revealed the im-
+portance of 1-, 10-, and 11-hydroxylation in the cytotoxicity of
+the anthracyclinones. Installing ketone, aldehyde, and alcohol
+functional groups provides chemical handles for group-transfer
+enzymes, such as methyltransferases, aminotransferases, and
+glycosyltransferases.12 This opens the door for rational
+metabolic engineering to generate diverse glycosylated
+anthracycline analogues in the future.
+■RESULTS AND DISCUSSION
+Development of Improved Strains and Vectors. The
+yields of 1−4 from the previous PKS cassettes ranged between
+1 and 5 mg/L. We applied four distinct strategies to improve
+production (Figure 2A,B).17 First, we incorporated stronger
+synthetic sp41, sp42, and sp44 promoters (Table S1)18,19
+together with ribozyme-based insulator parts (e.g., sp41-vtmoJ,
+Figure 2. Four metabolic engineering strategies to increase the yields of anthracyclinones. (A) SBOL diagram of redesigned PKS cassettes.
+Constructs encoded the simultaneous expression of eight to ten genes (depending on the anthracyclinone) under the expression of strong sp41,
+sp42, and sp44 promoters. Constructs were insulated from external genomic promoter expression by incorporating tt-sbi-A and fd-term
+transcriptional terminators. Promoters were fused to ribozyme-insulator parts to stabilize the expression of the three operons within the construct.
+(B) Overexpression of ssgA, scbr2, and accA2BE for anthracyclinone enhancement. SsgA triggers sporulation and cell division, which works with the
+ΔmatAB mutation to enhance biomass accumulation. Scbr2 is a pseudo-γ-butyrolactone response regulator that regulates glycolytic flux. AccA2BE
+enhances the supply of malonyl-CoA for anthracyclinone biosynthesis. (C) Production titers of 9-epi-aklavinone in strains expressing pEN10002
+and/or coexpressing pEAKV2 with scbr2, accA2BE, and/or ssgA. (D) Production titers of nogalamycinone in strains expressing pEN10004 and/or
+coexpressing pNOG2 with scbr2, accA2BE, and/or ssgA.
+ACS Synthetic Biology
+pubs.acs.org/synthbio
+Research Article
+https://doi.org/10.1021/acssynbio.4c00043
+ACS Synth. Biol. 2024, 13, 1523−1536
+1525
+
+
+
+[PDF physical page 4]
+sp42-ltsvJ, and sp44-riboJ) to eliminate interference between
+the promoters and ribosome initiation sites (Figure 2A).6,20
+Ribozyme-based insulators function by cleaving the 5′
+untranslated region (5′-UTR) of the mRNA to form a hairpin
+loop to stabilize the transcript. Furthermore, the cassettes were
+bracketed with transcriptional terminators (e.g., fd phage and
+ttsbi-A terminators)21,22 The new PKS cassettes were cloned
+into the pOSV802 vector, allowing single-copy chromosomal
+expression in Streptomyces (Table S1).23 Two vectors, pEAKV2
+encoding the production of 9-epi-aklavinone and pNOG2
+encoding the output of nogalamycinone, were expressed in S.
+coelicolor M1152ΔmatAB (Table S2). The improved strains
+were fermented in E1 liquid media and produced 4 mg/L of 2
+and 12 mg/L of 4, which represented 1- and 6-fold
+improvement over the previous vectors pEN10002 and
+pEN10004, respectively (p < 0.001) (Figure 2C,D). The
+enhanced transcriptional stability of the constructs appeared to
+contribute to improved translation of the PKS machinery and
+metabolic flux to the target molecules.
+Second, we increased substrate availability via acetyl-CoA
+carboxylase (e.g., accA2BE) overexpression (Figure 2B),
+previously employed with tetracenomycin engineering to
+achieve 3-fold yield enhancement.24,25 The acetyl-CoA
+carboxylase converts acetyl-CoA to malonyl-CoA, an essential
+precursor for the biosynthesis of polyketides.26 Integration of
+the pOSV808-accA2BE expression cassette into the S. coelicolor
+lines resulted in a 2-fold improvement in 2 (4.4 to 9.2 mg/L, p
+< 0.0001) and 4 (12.1 to 23 mg/L, p < 0.0001) (Figure 2C,D).
+Third, we sought to increase yields by overexpressing ssgA
+from Streptomyces griseus (Figure 2B), which has been shown
+to suppress sporulation and enhance the fragmented growth of
+mycelia, thus resulting in faster growth kinetics and increased
+production of biomass and cell products.27,28 The over-
+expression of ssgA using the pENSV3 expression vector
+resulted in a nearly 3-fold increase in 2 (4.4 to 11.2 mg/L, p
+< 0.0001) and 4 (12.1 to 31.0 mg/L, p < 0.0001) production
+titers (Figure 2C,D). This result demonstrated that ssgA could
+improve anthracyclinone production titers.
+Fourth, we overexpressed a pseudo-γ butyrolactone (GBL)
+receptor scbr2 in S. coelicolor M1152ΔmatAB::cos16F4iE
+(Figure 2B). Scbr2 does not bind γ-butyrolactones but has
+been shown to interact with numerous endogenous and
+exogenous natural products.29,30 The regulatory effects of
+Scbr2 are mediated by promoting glycolysis via upregulation of
+glyceraldehyde-3-phosphate dehydrogenase (gap1) and pyr-
+uvate kinase (pyk2), which we reasoned could be important for
+carbon flow and growth kinetics.31 The scbr2 gene has been
+deleted in S. coelicolor M1152 as part of the cpk cluster,32 which
+has led to increased oxidative metabolism and oxidative stress
+(i.e., flux through the tricarboxylic acid cycle) based on a
+genome-scale metabolic model.33 To test this hypothesis, we
+overexpressed scbr2 in S. coelicolor, which resulted in a 3-fold
+Figure 3. Engineering of aromatase/cyclase enzymes to biosynthesize 2-hydroxylated anthracyclinones. (A−F) HPLC-UV/vis chromatograms of
+different strains monitored at 430 nm engineered with two plasmids producing metabolites indicated with the numbered compound. (A) S.
+coelicolor M1152::acc::A2C1 (2-hydroxy-aklanonic acid, 9); (B) S. coelicolor M1152::acc::S2C1 (2-hydroxy-nogalonic acid, 10); (C) S. coelicolor
+M1152::acc::A2C1::A6 (2-hydroxy-aklavinone, 11); (D) S. coelicolor M1152::acc::A2C1::S6 (2-hydroxy-9-epi-aklavinone, 12); (E) S. coelicolor
+M1152::acc::S2C1::A6 (2-hydroxy-auramycinone, 13); (F) S. coelicolor M1152::acc::S2C1::S6 (2-hydroxy-nogalamycinone, 14). (G) Production
+titers of 2-hydroxylated anthracyclinones from strains engineered with two plasmids. (H) The production titers of strains engineered with and
+without expression of the C-12 oxygenase (snoaB). (I) The 1H,13C-HMBC, 1H,1H−COSY, and 1H,1H-NOESY two-dimensional NMR correlations
+for compounds 11, 12, 13, and 13b.
+ACS Synthetic Biology
+pubs.acs.org/synthbio
+Research Article
+https://doi.org/10.1021/acssynbio.4c00043
+ACS Synth. Biol. 2024, 13, 1523−1536
+1526
+
+
+
+[PDF physical page 5]
+improvement in 2 (4.4 to 13.0 mg/L, p < 0.0001) and 4 (12.1
+to 30.0 mg/L, p < 0.0001) titers (Figure 2C,D). This result
+demonstrated that overexpression of scbr2 may have balanced
+glycolytic flux and relieved oxidative stress for improved
+product formation, but the exact mechanism requires further
+study.
+Metabolic Engineering of PKS Cassettes for 2-
+Hydroxylated Anthracyclinones. We sought to develop a
+means for producing 2-hydroxylated analogues of 1−4 by
+reprogramming the PKS cassettes.6 The polyketide-derived 2-
+hydroxyl group is removed during anthracycline biosynthesis
+by KR enzymes (Figure 1A) and, consistently, pathways
+lacking these redox enzymes have resulted in the production of
+2-hydroxy-aklavinone34 and 2-hydroxy-nogalonic acid.15,35
+Here, we reasoned that coexpression of anthracycline minPKS
+genes aknBCDE2F or snoa123 together with ARO and 2/3-
+CYC genes from nonreducing pathways,36 such as mtmQY
+involved in mithramycin biosynthesis, would result in the
+production of 2-hydroxy-aklanonic acid (9) or 2-hydroxy-
+nogalonic acid (10), respectively (Figure 1C). Cloning and
+transformation of gene cassettes pA2C1 (aknBCDE2F +
+mtmQY) and pS2C1 (snoa123 + mtmQY) resulted in the
+production of 9 and 10, respectively (Figures 3A,B and S1−
+S2).
+To extend the pathway, we cloned additional cassettes
+encoding MET, 4-CYC, and 7-KR (e.g., aknGHU) and pTG1-
+S6 (e.g., snoaCLF) to the host strain, which resulted in the 2-
+hydroxy-aklavinone (11), 2-hydroxy-9-epi-aklavinone (12), 2-
+hydroxy-auramycinone (13), and 2-hydroxy-nogalamycinone
+(14) based on high-performance liquid chromatography-mass
+spectrometry (HPLC-MS) (Figures 1C and 3C−F and Table
+S3). Although product yields were reasonable (3−10 mg/L)
+(Figure 3G), we hypothesized that additional coexpression of
+an OXY gene could enhance the folding and shaping of the
+unnatural 2-hydroxylated polyketides. Indeed, the coexpression
+of snoaB on a separate multicopy expression vector
+(pUWL201PW) under the control of the ermE*p resulted in
+a 50% increase in production of 11 and 13 (Figure 3H). Based
+on these findings, we refactored our constructs to generate
+improved versions of pHAKV2, pHEAKV2, pHAURA2, and
+pHNOG2 (e.g., encoding the production of 11, 12, 13, and
+14, respectively, Table S1). pHAKV2, pHEAKV2, and
+pHAURA2 were used in subsequent scale-up fermentation
+experiments (see the Methods Section).
+To confirm the structures of 11, 12, and 13, the
+fermentations were scaled up in 5 L of E1 media, the
+metabolites were extracted and purified using various
+chromatographic techniques, and structurally characterized
+based on high-resolution electrospray ionization-MS (HRESI-
+MS) and NMR spectroscopy. The chemical characterization
+revealed that the early pathway intermediate SEK15 (13b) was
+accumulated as a side product in the scale-up fermentation of
+pHAURA2. In addition, three new 2-hydroxy-anthracyclinones
+(11−13) were isolated, based on one-dimensional (1D) (1H
+and 13C NMR) and two-dimensional (2D) (COSY, HSQC,
+HMBC, TOCSY, and NOESY) NMR spectroscopic measure-
+Figure 4. Enzymatic assays and metabolic engineering of 11-hydroxylated anthracyclinones. (A) DnrF catalyzes 11-hydroxylation of 1−4 to afford
+15−18. (B) HPLC-UV/vis traces at 490 nm of enzymatic reactions of 1−4 incubated with purified DnrF and no-enzyme controls. (C) HPLC-UV/
+vis traces at 490 nm of S. coelicolor lines engineered with expression constructs encoding 1−4 and dnrF or control lines producing only 1−4.
+ACS Synthetic Biology
+pubs.acs.org/synthbio
+Research Article
+https://doi.org/10.1021/acssynbio.4c00043
+ACS Synth. Biol. 2024, 13, 1523−1536
+1527
+
+
+
+[PDF physical page 6]
+ments (Tables S4−S5 and Figures 3I and S3−S46). The
+molecular formulas of 11−13 were established as C22H20O9,
+C22H20O9, and C21H18O9 based on (+)-HRESIMS, with Δm/z
+= 16 higher than those of aklavinone (1), 9-epi-aklavinone (2),
+and auramycinone (3), respectively, indicative of the presence
+of an extra oxygen atom in 11−13 (Figures S4, S17, and S27).
+Comparison of the NMR data (1H and 13C NMR) of the new
+compounds 11-13 with previously reported compounds 1-3
+revealed that the main differences were observed in the
+aromatic ring A, where the trisubstituted aromatic rings in
+compounds 1-3 were converted to tetra-substituted aromatic
+rings in compounds 11-13 (with two m-coupled protons, H-1/
+H-3; Tables S4 and S5). The position of the hydroxy groups in
+compounds 11-13 was established to be at 2-position based on
+the observed HMBC correlations from H-1 to C-12/C-4a/
+CH-3; 2-OH to CH-1/C-2/CH-3 and H-3 to CH-1/C-4a
+(Figure 3I). All of the remaining 2D-NMR (1H, 1H−COSY,
+HMBC, TOCSY, and NOESY) correlations fully agree with
+structures 11−13 (Figure 3I and Supporting Information). As
+new natural products and are closely related to 1−3,
+compounds 11-13 were designated as 2-hydroxy-aklavinone
+(11), 2-hydroxy-9-epi-aklavinone (12), and 2-hydroxy-auramy-
+cinone (2-hydroxy-9-epi-nogalamycinone; 2-hydroxy-9-epi-no-
+galavinone; 13), respectively. The structure of 14 is suggested
+to be 2-hydroxy-nogalamycinone.
+Anthracyclinone 11-Hydroxylation by DnrF. To probe
+the substrate promiscuity of post-PKS tailoring enzymes for 1−
+4, we carried out parallel investigations with purified enzymes
+and gene expression studies. We first cloned the dnrF gene37
+from the doxorubicin pathway into the pBAD/His B vector for
+expression in Escherichia coli TOP10. After the production and
+purification of recombinant 11-hydroxylase DnrF, we assayed
+the conversion of 1−4 to the 11-hydroxylated species 15, 16,
+17, and 18 (Figures 1D and 4A). The incubation of 1 and 3
+resulted in quantitative conversion to 15 and 17, whereas 2
+and 4 were converted to 16 and 18 with poor efficiency <5%
+(Figures 4B and S47−S75).
+For the in vivo expression experiments, dnrF was fused to the
+strong gapdhpEL promoter, cloned into expression vector
+pENSV3, and transformed into cell lines producing 1−4.
+Analysis of culture extracts demonstrated that 1 was converted
+with >90% efficiency to 15 and maggiemycin, which is a shunt
+product derived from 11-hydroxylation of aklaviketone.38
+Compound 3 was also converted in >90% efficiency to 17,
+previously isolated from fermentations of Streptomyces
+coeruleorubidis ATCC 31276.39 However, similarly to the in
+Figure 5. Enzymatic assays and metabolic engineering of 10-hydroxylated and 10-decarboxylated anthracyclinones. (A) EamC and EamK catalyze
+10-decarboxylation of 1 −4 to afford 19−22. EamC and RdmB catalyze 10-hydroxylation of 1 and 3 to produce 23 and 24. (B) HPLC-UV/vis
+traces at 430 nm of enzymatic reaction of 1−4 incubated with purified EamC + RdmB, EamC + EamK, and no-enzyme controls. (C) HPLC-UV/
+vis traces at 430 nm of S. coelicolor lines engineered with expression constructs encoding 1−4 and either eamC + eamK or eamC + rdmB.
+ACS Synthetic Biology
+pubs.acs.org/synthbio
+Research Article
+https://doi.org/10.1021/acssynbio.4c00043
+ACS Synth. Biol. 2024, 13, 1523−1536
+1528
+
+
+
+[PDF physical page 7]
+vitro analyses, 2 and 4 were converted to 16 and 18 with poor
+5−10% efficiency (Figures 4C and S47−S75), respectively.
+These results demonstrated that DnrF is more selective toward
+9(R)-configured than 9(S)-configured anthracyclines.
+Anthracyclinone 10-Hydroxylation by RdmB and 10-
+Decarboxylation EamK. Both anthracycline 10-hydroxyla-
+tion and 10-decarboxylation by the SAM-dependent hydrox-
+ylase RdmB and decarboxylase EamK, respectively, require
+initial 15-methylesterase activity (Figures 1E,F and 5A). Since
+the rhodomycin enzymes have a preference for glycosylated
+substrates,11,40 which is in contrast to the komodoquinone
+enzymes that convert aglycone substrates,11 we utilized the 15-
+methylesterase EamC in all experiments. Our in vitro (Figure
+5B) and in vivo (Figure 5C) data were highly convergent and
+demonstrated that 1−4 were quantitatively converted by
+EamC and EamK to 10-decarboxylated products 19−22
+(Figures S76−S91). In contrast, only 1 and 3 were converted
+to 10-hydroxylated species 23 and 24, respectively (Figures
+5B,C and S92−S97), which demonstrates that RdmB exhibits
+preference toward 9(R)-configured metabolites both in vitro
+and in vivo.
+Anthracyclinone 10- and 11-Hydroxylation by RdmE,
+RdmC, and RdmB. We next sought to incorporate the
+tailoring steps for concomitant 10 and 11-hydroxylation by the
+entire RdmE, RdmC, and RdmB reaction cascade (Figures 1E
+and 6A). We incubated 1−4 with purified DnrF, EamC, and
+RdmB, which resulted in the conversion of substrates 1 and 3
+to 25 and 26 (Figures 6B and S98−S104). Similarly, 1 and 3
+were converted to 25 and 26 in Streptomyces strains
+coexpressing the appropriate PKS cassettes and a cassette
+expressing rdmE, rdmC, and rdmB (Figures 6C and S98−
+S104). Both in vitro and in vivo, the substrates 2 and 4
+underwent 10-decarboxylation toward 20 and 22 as the
+primary metabolic route and were not processed by the
+hydroxylating enzymes. The production titers of 25 and 26
+from the engineered strains in SG-TES media were 30.3 ± 10
+and 9.3 ± 4 mg/L, respectively (Figure S105). Altogether, this
+indicates robust production of the β-rhodomycinone analogues
+25 and 26 in the engineered microorganisms.
+Anthracyclinone 1-Hydroxylation by KstA15 and
+KstA16. We next utilized the two-component monooxygenase
+system, KstA15 and KstA16, from the kosinostatin pathway for
+Figure 6. Enzymatic assays and metabolic engineering of 10-hydroxylated and 11-hydroxylated anthracyclinones. (A) RdmE, EamC/RdmC, and
+RdmB catalyze 11-hydroxylation and 10-hydroxylation of 1 and 4 to generate 25 and 26, respectively. (B) HPLC-UV/vis traces at 490 nm of
+enzymatic reaction of 1 and 3 incubated with purified DnrF, EamC, RdmB, and no-enzyme controls. (C) HPLC-UV/vis traces at 490 nm of S.
+coelicolor lines engineered with expression constructs encoding 1 and 3 and rdmE + rdmC + rdmB and control lines producing 1 and 3.
+ACS Synthetic Biology
+pubs.acs.org/synthbio
+Research Article
+https://doi.org/10.1021/acssynbio.4c00043
+ACS Synth. Biol. 2024, 13, 1523−1536
+1529
+
+
+
+[PDF physical page 8]
+1-hydroxylation (Figures 1F and 7A).13 KstA15 is a polyketide
+cyclase-like enzyme,41 while KstA16 belongs to short-chain
+alcohol dehydrogenases.42 The enzyme assays with substrates
+1−4 resulted in the quantitative conversion to 1-hydroxylated
+Figure 7. Enzymatic assays and metabolic engineering of 1-hydroxylated and 4-regioisomerized anthracyclinones. (A) KstA15 and KstA16 catalyze
+1-hydroxylation of 1−4 yielding 27−30, KstA10 and KstA11 carry out asymmetric reduction and dearomatization, followed by a region-specific
+reduction and dehydration yielding 31−34. (B) HPLC-UV/vis traces of enzymatic reaction of 1−4 incubated with purified KstA15 and KstA16
+and no-enzyme controls. (C) HPLC-UV/vis traces of S. coelicolor lines engineered with expression constructs encoding 1−4 and kstA15 and kstA16
+and control lines producing 1−4. (D) HPLC-UV/vis traces of enzymatic reaction of 1−4 incubated with purified KstA15, KstA16, KstA11, and
+KstA10 and no-enzyme controls. (E) HPLC-UV/vis traces of S. coelicolor lines engineered with expression constructs encoding 1−4 and kstA15,
+kstA16, kstA10, and kstA11 and control lines producing 1−4.
+ACS Synthetic Biology
+pubs.acs.org/synthbio
+Research Article
+https://doi.org/10.1021/acssynbio.4c00043
+ACS Synth. Biol. 2024, 13, 1523−1536
+1530
+
+
+
+[PDF physical page 9]
+anthracyclinones 27−30 (Figures 7B and S106−S120).
+Analogously, the heterologous expression of a cassette
+encoding kstA15 and kstA16 resulted in the production of 1-
+hydroxylated species 27−30 (Figures 7C and S106−S120).
+The compounds 27, 29, and 30 have been generated in
+previous studies,41−43 but the anthracyclinone 28 has not been
+reported in the literature. The 1-hydroxylation mechanism is a
+necessary modification for 1-O-glycosylation of anthracyclines,
+such as that occurs with the nogalamycin family of
+compounds.44
+Anthracyclinone 4-Regioisomerization by KstA15,
+KstA16, KstA11, and KstA10. KstA15 and KstA16 are part
+of a four-enzyme cascade to generate a hydroxy regioiso-
+merized anthracyclinone. Following the successful 1-hydrox-
+ylation by KstA15 and KstA16, we reconstituted the entire 4-
+regioisomerization pathway by incorporating KstA11 and
+KstA10 (Figures 1F and 7A).13 The in vitro assays with the
+four enzymes converted 1−4 to iso-anthracyclinones 31−34
+(Figures 7D and S121−S132). Several putative intermediates
+were detected in the enzymatic reactions, including the
+dearomatized 1,4-diketone species (indicated with #) (Figure
+7D). Similarly, coexpression of the four kst genes in
+appropriate S. coelicolor strains producing 1−4 led to
+accumulation of 31−34 (Figures 7E and S121−S132) in
+yields ranging from 8 to 30 mg/L (Figure S133). Within the
+ESI-MS single ion monitoring traces, the parental substrates,
+unknown intermediates (marked *), and products 31−34 were
+detected with the expected mass ions (Table S3). These results
+indicate that the kosinostatin enzymes are remarkably flexible
+toward 9(R) and 9(S)-configured anthracyclinones. Previously,
+31 has been isolated from strains engineered for isoanthracy-
+cline production45 and 33 is the native substrate of the
+kosinostatin pathway,13 but compounds 32 and 34 have not
+been reported to date.
+■HUMAN CANCER CELL VIABILITY ASSAYS
+To investigate the potential anticancer activity of the
+anthracyclinone extracts, the crude extracts were normalized
+to 40 μg/mL concentration and were tested in a panel of
+human cancer cells: A549 (nonsmall cell lung), PC3
+(prostate), TC32 (Ewing sarcoma), and HCT116 (colorectal)
+human cancer cell lines (Table 1 and Figure S134). As
+previously reported, the anthracyclinone aglycones 3 and 4 are
+inactive at IC50 values >30 μM in A549, PC3, MKL1, and
+MCC26 cancer cell lines, though 1 is slightly more active in
+PC3 cells at 7 μM IC50 and A549 cells at 17 μM, respectively.6
+Most of the extracts were inactive against these cancer cell
+lines; however, extracts from five engineered lines containing
+compounds 15, 17, 18, 22, 25, 26, and 30 exhibited
+substantive cytotoxic activity in the cell lines tested (<20%
+cell viability T/C) (Figures S134). Compounds 11, 12, and 13
+were inactive at concentrations of 3 μM (Figure S135), which
+indicated that 2-hydroxylation does not enhance the
+cytotoxicity of these aglycones.
+Anthracyclines are considered to require the glycoside
+moiety for binding to DNA and inhibition of DNA
+topoisomerases.5 Therefore, the significant cytotoxicity against
+the human cancer cell lines in selected extracts can be
+considered to be surprising (Table 1). The data provides
+guidance regarding the rational engineering of anthracyclines
+toward 11-hydroxylated, 10,11-dihydroxylated, or 1-hydroxy-
+lated nogalamycinone derivatives. Indeed, anthracyclines with
+C-1 or C-11 hydroxyl groups were shown to have increased
+potency in L1210 leukemia cells,46 while 11-hydroxylation of
+aclacinomycins resulted in markedly improved cytotoxicity in
+the NCI 60-cell line assay.47 Rhodomycin A, which is a 10,11-
+dihydroxylated anthracycline, was recently identified as an
+efficient antagonist for knocking down Src-associated onco-
+genes.48
+Table 1. Cytotoxic Activities of the Generated Strain Extracts in PC3, TC32, A549, and HCT116 Cell Linesb,c
+aThe samples were culture extracts from the strains producing the numbered compound and contain other impurities. Actinomycin D and H2O2
+were used as positive controls at 20 μM and 1 mM concentration, respectively (0% viable cells, n = 3. SE = standard error). bThe cell viability of
+each line was determined as the percentage of cell viability relative to untreated controls. c% Viability values were obtained after 72 h incubation.
+ACS Synthetic Biology
+pubs.acs.org/synthbio
+Research Article
+https://doi.org/10.1021/acssynbio.4c00043
+ACS Synth. Biol. 2024, 13, 1523−1536
+1531
+
+
+
+[PDF physical page 10]
+■CONCLUSIONS
+Anthracyclines have been a cornerstone of anticancer chemo-
+therapy for several decades. Despite the success of these
+molecules, severe side effects have made the continued
+exploration of the chemical space around anthracyclines
+necessary for discovering improved congeners. For example,
+developing the semisynthetic idarubicin (4-demethoxy daunor-
+ubicin) for acute myeloid leukemia has demonstrated the
+importance of C−H functionalization of anthracyclines.49
+However, the regiospecific modification of the polyaromatic
+anthracycline core has remained challenging using organic
+synthesis. This is in contrast to the biosynthesis of
+anthracyclines in Streptomyces bacteria, where several enzy-
+matic systems have evolved for C−H functionalization in the
+various natural metabolic pathways.
+We have used our BioBricks metabolic engineering platform
+to systematically probe 1-, 2-, 10-, and 11-hydroxylations, 10-
+decarboxylation, and 4-hydroxyl regioisomerization. For the
+first time, we analyzed the functionality of 10 tailoring genes
+with the four possible anthracyclinone core structures 1−4
+comparatively. The results demonstrate that the in vivo activity
+remained consistently high in 10-decarboxylation, 1-hydrox-
+ylation, and 4-hydroxyl regioisomerization (Figure 8). In
+contrast, 10-hydroxylation and 11-hydroxylation were depend-
+ent on the 9R-stereochemistry but were tolerant toward both
+methyl and ethyl side chains at the same location. The dual 10-
+and 11-hydroxylations proved the most challenging, which may
+be because the 10-hydroxylase RdmB generally prefers
+glycosylated substrates (Figure 8).
+Our work demonstrates that tailoring steps in anthracycline
+biosynthesis are well suited for combinatorial biosynthesis for
+increasing the chemical diversity of natural products. We
+utilized genetic material from five distinct pathways and their
+use in combination with the four aglycone possibilities led to
+the generation of nine novel anthracyclinones (11, 12, 13, 14,
+16, 18, 24, 26, 28). It is noteworthy that even though all of the
+tailoring enzymes have been extensively studied in the past,
+including by structural analysis at atomic resolution, it was not
+possible to predict a priori which gene combinations resulted
+in new functional metabolic pathways. Therefore, the ability to
+use multiplasmid expression systems in a robust heterologous
+host in combination with an expanding modular BioBricks
+library is essential to allow high-throughput combinatorial
+work to compensate for the limitations of an unpredictable
+design space. In addition, the highly concurrent in vitro and in
+vivo data indicate that combinatorial enzymatic synthesis may
+be an efficient preliminary tool to guide metabolic engineering
+projects. Notably, the human cancer cell line viability assays
+(Table 1) provide further direction for the rational engineering
+of anthracyclines based on the 15, 17, 25, and 26 scaffolds.
+These strains will serve as valuable chassis for combinatorial
+biosynthesis of TDP-deoxysugar pathways to develop “new to
+nature” anthracyclines, which could be developed into potent
+antitumoral metabolites.
+■METHODS
+Bacterial Strains and Growth Conditions. E. coli
+TOP10 and E. coli ET12567 were grown in LB broth or LB
+agar at 37 °C as previously described.50 E. coli TOP10 was
+used for plasmid propagation, subcloning, and enzyme
+expression. Enzymes were cloned into pBAD/His B vector
+(Invitrogen) and enzymes were expressed using the arabinose-
+inducible promoter.51 E. coli ET12567/pUZ8002 was used as
+the conjugation donor host for mobilizing expression vectors
+into S. coelicolor as previously described.52 When appropriate,
+ampicillin (100 μg mL−1), kanamycin (25 μg mL−1),
+apramycin (25 μg mL−1), viomycin (25 μg mL−1),
+spectinomycin (100 μg mL−1), hygromycin (50 μg mL−1),
+and nalidixic acid (30 μg mL−1) were supplemented to media
+to select for recombinant microorganisms.
+S. coelicolor derivative strains were routinely maintained on
+Soya-Mannitol Flour (SFM) agar supplemented with 10 mM
+MgCl2 and International Streptomyces Project medium #4
+(ISP4) (BD Difco) at 30 °C as described previously.52 For
+liquid culturing, S. coelicolor derivative strains were grown in
+TSB media (3 mL) to ferment the seed culture and then grown
+in a modified 50 mL SG-TES liquid medium (soytone 10 g,
+glucose 20 g, yeast extract 5 g, TES free acid 5.73 g, CoCl2 1
+mg, per liter) or 50 mL E1 medium for production for four to
+5 days.53 All media and reagents were purchased from Thermo
+Fisher Scientific.
+Molecular Biology Procedures. Routine genetic cloning
+and plasmid manipulation were carried out in E. coli DH10B
+cells (New England Biolabs). E. coli ET12567/pUZ8002 was
+used as the host for intergeneric conjugation with S. coelicolor
+as previously described.52 E. coli chemically competent cells
+were prepared using the Mix and Go! E. coli Transformation
+Kit (Zymo Research). E. coli was transformed with plasmid
+DNA via chemically competent heat-shock transformation as
+described previously. Plasmid DNA was isolated via the Wizard
+Plus SV Minipreps DNA Purification System by following the
+manufacturer’s protocols (Promega). All molecular biology
+reagents and enzymes used for plasmid construction were
+purchased from New England Biolabs. The conjugation donor
+host E. coli ET12567/pUZ8002 was transformed with
+constructs for mobilization into S. coelicolor strains, as
+previously described. For each transformation, 9−12 inde-
+pendent exconjugants were plated to DNA plates supple-
+mented with antibiotics and grown for 4−5 days until the
+formation of vegetative mycelium.
+Preparation of In Vitro Samples and In Vivo Samples
+for HPLC-MS Analysis. The in vitro samples’ conditions for
+protein expression, purification, and enzyme assays are
+described in the Supporting Information (Supporting Methods
+1, 2, and 3). All reactions were checked by UHPLC (Shimadzu
+Nexera LC-40 system with a diode array detector set to 430
+Figure 8. Heat map of the in vivo activity of the tailoring gene
+constructs utilized in this study when coexpressed with anthracycli-
+none scaffolds 1−4.
+ACS Synthetic Biology
+pubs.acs.org/synthbio
+Research Article
+https://doi.org/10.1021/acssynbio.4c00043
+ACS Synth. Biol. 2024, 13, 1523−1536
+1532
+
+
+
+[PDF physical page 11]
+and 490 nm wavelengths) using a Phenomenex Kinetex
+Phenyl-Hexyl column (2.6 μm, 100 Å, 4.6 mm × 100 mm).
+Method: Solvent A: 15% CH3CN/0.1% FA; solvent B:
+CH3CN; flow rate: 0.5 mL/min; 0−2 min, 0% B; 2−20 min,
+0−40% B; 20−24 min, 100% B; 24−29 min, 0% B.
+For each in vivo experiment, four to six biological replicates
+were grown in 50 mL of SG-TES liquid media in baffled
+Erlenmeyer flasks as previously described.6,24,25 The shake flask
+fermentations were grown in an orbital shaker for 5 days at 30
+°C at 200 rpm. The entire cultures were extracted with 3
+volumes of 0.1% formic acid in ethyl acetate and the extracts
+were dried down in vacuo. The extracts were resuspended in 4
+mL of methanol, filtered in a 0.5 μm nylon syringe filter, and
+10 μL was analyzed via HPLC-MS.
+The analysis of anthracyclinones was carried out on an
+Agilent 1260 Infinity II LC/MSD iQ single quadrupole
+instrument. In brief, 10 μL of the sample was injected via an
+autosampler onto the sample loop, separated on a Poroshell
+120 Phenyl-Hexyl Column (ID 2.7 μm, 4.6 mm × 100 mm),
+and analyzed in gradients of solvent A (0.1% formic acid in
+water) and solvent B (0.1% formic acid in acetonitrile). The
+HPLC program used a constant flow rate of 0.5 mL per minute
+and the following gradient steps: 0 min, 95% solvent A and 5%
+solvent B; 0−10 min, 95% solvent A and 5% solvent B to 5%
+solvent A and 95% solvent B; 10−13 min, held at 5% solvent A
+and 95% solvent B; 13.1 min, reequilibrate to 95% solvent A
+and 5% solvent B; 13.1−15.1 min, 95% solvent A and 5%
+solvent B. The diode array detector (DAD) was set to monitor
+UV/vis absorbance at 430 and 490 nm. The ESI-MS was set to
+scan from 200 m/z−500 m/z fragments in positive and
+negative ionization modes.
+The yields were determined by comparing them to
+authenticated external standard curves of 1 and 4 analyzed
+via HPLC-MS. The conversion percentages were determined
+by measuring the area under the curve of the anthracyclinone
+metabolites at 430 and 490 nm wavelengths.
+General Experimental Procedures. Ultraviolet−visible
+(UV−vis) spectra were taken directly from analytical HPLC
+runs and show relative intensities. The NMR spectra were
+recorded on a Bruker Avance NEO 400 MHz (Bruker BioSpin
+Corporation, Billerica, MA) (1H, 400.13 MHz; 13C, 100.25
+MHz), Varian 500 MHz (Agilent, Santa Clara, CA) (1H, 500
+MHz; 13C, 125.7 MHz), and/or Bruker Avance NEO 600
+MHz NMR (1H, 600.37 MHz;
+13C, 150.96 MHz)
+spectrometer, equipped with triple-channel TCI 5 mm
+cryoprobe (all spectra were processed using Bruker Topspin
+4.1.4 version, and 2D spectra were apodized with QSINE or
+SINE window functions and zero-filled to (2048 × 1024
+points)). All of the spectra were analyzed and plotted using
+Mnova [where δ-values were referenced to respective solvent
+signals CD3OD, δH 3.31 ppm, δC 49.15 ppm; DMSO-d6, δH
+2.50 ppm, δC 39.51 ppm]. High-resolution electrospray
+ionization (HRESI) mass spectra were recorded on the AB
+SCIEX Triple TOF 5600 system (AB Sciex, Framingham,
+MA). HPLC-UV/MS analyses were accomplished with an
+Agilent InfinityLab LC/MSD mass spectrometer (MS Model
+G6125B; Agilent Technologies, Santa Clara, CA) equipped
+with an Agilent 1260 Infinity II Series Quaternary LC system
+and a Phenomenex NX-C18 column (250 mm × 4.6 mm, 5
+μm; Phenomenex, Torrance, CA) [Method A: solvent A:
+H2O/0.1% formic acid, solvent B: CH3CN; flow rate: 0.5 mL
+min−1; 0−30 min, 5−100% B (linear gradient); 30−35 min,
+100% B; 35−36 min, 100%−5% B; 36−40 min, 5% B]. HPLC-
+UV analyses were carried out in an Agilent 1260 system
+equipped with a photodiode array detector (PDA) and a
+Phenomenex C18 column (250 mm × 4.6 mm, 5 μm;
+Phenomenex, Torrance, CA) [Method B: solvent A: H2O/
+0.1% TFA, solvent B: CH3CN; flow rate: 1.0 mL min−1; 0−30
+min, 5−100% B; 30−35 min, 100% B; 35−36 min, 100−5% B;
+36−40 min, 5% B]. Semi-preparative HPLC were carried out in
+a Agilent 1260 Infinity II (Prep HPLC) system equipped with
+a Diode Array Detector (DAD) and a Gemini 5 μm C18 110 Å,
+LC column 250 mm × 10 mm (Phenomenex, Torrance, CA)
+[Method C: solvent A: H2O/0.025% TFA; solvent B:
+CH3CN; flow rate: 5.0 mL min−1; 0−3 min, 25% B; 3−10
+min, 25−75% B; 10−16 min, 75−100% B; 16−18 min, 100%
+B; 18−19 min, 100−25% B; 19−20 min, 25% B]; [Method D:
+solvent A: H2O/0.025% TFA; solvent B: CH3CN; flow rate:
+5.0 mL min−1; 0−3 min, 25% B; 3−17 min, 25−100% B; 17−
+18 min, 100% B; 18−19 min, 100−25% B; 19−20 min, 25%
+B]; [Method E: solvent A: H2O/0.025% TFA; solvent B:
+CH3CN; flow rate: 5.0 mL min−1; 0−3 min, 25% B; 3−17 min,
+25−100% B; 17−22 min, 100% B; 22−23 min, 100−25% B;
+23−27 min, 25% B]. All solvents used were of ACS grade and
+purchased from Pharmco-AAPER (Brookfield, CT). Size
+exclusion chromatography was performed on Sephadex LH-
+20 (25−100 μm; GE Healthcare, Piscataway, NJ). A549, PC3,
+and HCT116 cells were obtained from ATCC (Manassas,
+VA). All other reagents used were of reagent grade and
+purchased from Sigma-Aldrich (Saint Louis, MO), unless
+otherwise noted.
+Purification of Compounds 11−13 and 13b. The
+reddish-brown oily crude extract (3.82 g) produced by Strain
+1 [S. coelicolor M1152ΔmatAB::pSET154BB-kasOp*-snoa123-
+kasOp*-mtmQY-sp44-aknGHU] was dissolved in MeOH (10
+mL) followed by Sephadex LH-20 (MeOH; 2.5 cm × 50 cm)
+mentored by TLC to afford six fractions. LC-MS analysis
+indicates that target metabolite 13 was mainly detected in
+fractions F3 and F4. Semi-prep-HPLC purification (Method
+C) of F3 and F4 afforded compound 13 (2-hydroxy-
+auramycinone; 24.4 mg) in pure form as red solid, and
+compound 13b (SEK15; 8.5 mg) in pure form as pale-yellow
+solid.
+The reddish-brown oily crude extract (3.20 g) produced by
+Strain 2 [S. coelicolorM1152ΔmatAB::pHEAKV2] was frac-
+tionated using silica gel column (DCM/0−50% MeOH; 2.5
+cm × 30 cm) to afford six fractions F1 (DCM; 0.5 L), F2
+(DCM/2% MeOH; 0.5 L), F3 (DCM/4% MeOH; 0.5 L), F4
+(DCM/10% MeOH; 0.5 L), F5 (DCM/20% MeOH; 0.5 L),
+and F6 (DCM/50% MeOH; 0.5 L), followed by LC-MS
+analysis. The target compound was detected in F3 and F4.
+Fractions F3−F4 were combined followed by semi-prep-HPLC
+purification (Method D) to afford compound 12 (2-hydroxy-
+9-epi-aklavinone; 4.2 mg) in pure form as red solid.
+In the same manner, the crude extract (2.22 g, reddish-
+brown oily) produced by Strain 3 [S. coelicolor M1152Δma-
+tAB::pSET-A2M1A6] was fractionated using silica gel column
+(DCM/0−50% MeOH; 2.0 cm × 25 cm) to yielded six
+fractions F1 (DCM; 0.5 L), F2 (DCM/2% MeOH; 0.5 L), F3
+(DCM/4% MeOH; 0.5 L), F4 (DCM/10% MeOH; 0.5 L), F5
+(DCM/20% MeOH; 0.5 L), and F6 (DCM/50% MeOH; 0.5
+L). LC-MS analysis of the obtained fractions indicates that the
+target compound was detected in fractions F2−4, however,
+with low yield. Fractions F2−4 have been combined, dissolved
+in MeOH (2 mL) followed by Sephadex LH-20 (1 cm × 40
+cm; MeOH) and semi-prep-HPLC purification (Method E) to
+ACS Synthetic Biology
+pubs.acs.org/synthbio
+Research Article
+https://doi.org/10.1021/acssynbio.4c00043
+ACS Synth. Biol. 2024, 13, 1523−1536
+1533
+
+
+
+[PDF physical page 12]
+give compound 11 (2-hydroxy-aklavinone; 1.56 mg) in pure
+form as red solid.
+Statistical Analyses. The statistical significance of the
+impact of genetic manipulations and combinatorially assessed
+variables on production was assessed via post hoc analysis.
+One-way ANOVA, two-way ANOVA, and Student’s t test
+analyses were performed using GraphPad Prism version 10.2.1
+for Mac OS X, GraphPad Software, San Diego, CA, www.
+graphpad.com.
+Cancer Cell Line Viability Assay. Mammalian cell line
+cytotoxicity [A549 (nonsmall cell lung) and PC3 (prostate),
+TC32 (Ewing sarcoma), and HCT116 (colorectal) human
+cancer cell lines] assays were accomplished in triplicate
+following our previously reported protocols.24,54−57 Actino-
+mycin D (A549 and PC3) was used as positive controls.
+Physicochemical Properties of Compounds 11−13. 2-
+Hydroxy-aklavinone (11). C22H20O9 (428); red solid; HPLC-
+Rt = 24.72 min (Supporting Information, Figures S9−S21);
+UV/vis λmax 228, 250 (sh), 268, 290 (sh), 445 nm; 1H NMR
+(DMSO-d6, 600 MHz) and 13C NMR (DMSO-d6, 150 MHz),
+see Tables S1 and S2; (−)-ESI-MS: m/z 427 [M −H]−;
+(+)-ESI-MS: m/z 411 [(M-H2O) + H]+, 393 [(M-H2O) +
+H]+; (+)-HRESI-MS: m/z 393.0942 [(M-2H2O) + H]+ (calcd
+for C22H17O7, 393.0969), 879.1973 [2M + Na]+ (calcd for
+C44H40O18Na, 879.2106).
+2-Hydroxy-9-epi-aklavinone (12). C22H20O9 (428); red
+solid; HPLC-Rt = 22.47 min (Supporting Information, Figures
+S22−S31); UV/vis λmax 228, 268, 290 (sh), 445 nm; 1H NMR
+(DMSO-d6, 600 MHz) and 13C NMR (DMSO-d6, 150 MHz),
+see Tables S1 and S2; (−)-ESI-MS: m/z 427 [M −H]−;
+(+)-ESI-MS: m/z 393 [(M-2H2O) + H]+, 879 [2M + Na]+;
+(+)-HRESI-MS: m/z 393.0958 [(M-2H2O) + H]+ (calcd for
+C22H17O7, 393.0969), 451.0986 [M + Na]+ (calcd for
+C22H20O9Na, 451.0999), 879.2020 [2M + Na]+ (calcd for
+C44H40O18Na, 879.2106).
+2-Hydroxy-auramycinone (2-Hydroxy-9-epi-nogalamyci-
+none; 2-Hydroxy-9-epi-nogalavinone; 13). C21H18O9 (414);
+red solid; HPLC-Rt = 30.39 min (Supporting Information,
+Figures S32−S40); UV/vis λmax 228, 258, 270, 290, 430 nm;
+1H NMR (DMSO-d6, 600 MHz) and 13C NMR (DMSO-d6,
+150 MHz), see Tables S1 and S2; (−)-ESI-MS: m/z 413 [M −
+H]−; (+)-ESI-MS: m/z 397 [(M-H2O) + H]+, 379 [(M-
+2H2O) + H]+, 851 [2M + Na]+; (+)-HRESI-MS: m/z
+379.0806 [(M-2H2O) + H]+ (calcd for C21H15O7,
+379.0812), 851.1746 [2M + Na]+ (calcd for C42H36O18Na,
+851.1793).
+SEK15 (13b). C20H16O8 (384); pale-yellow solid; HPLC-Rt
+= 26.81 min (Supporting Information, Figures S42−S51);
+UV/vis λmax 210, 290, 320 (sh) nm; 1H NMR (CD3OD, 600
+MHz) and 13C NMR (CD3OD, 150 MHz), see Tables S1 and
+S2; (−)-ESI-MS: m/z 383 [M −H]−, 767 [2M −H]−;
+(+)-ESI-MS: m/z 385 [M + H]+; (+)-HRESI-MS: m/z
+385.0893 [M + H]+ (calcd for C20H17O8, 385.0918),
+407.0679 [M + Na]+ (calcd for C20H16O8Na, 407.0737),
+769.1791 [2M + H]+ (calcd for C40H32O16Na, 767.1763).
+■ASSOCIATED CONTENT
+*
+sı Supporting Information
+The Supporting Information is available free of charge at
+https://pubs.acs.org/doi/10.1021/acssynbio.4c00043.
+Plasmid and strain information; chemical schemas;
+NMR data for compounds 11−13 and SEK15; HPLC
+chromatograph traces of the in vitro and in vivo
+comparisons; mass spectra; high-resolution mass spectra,
+and mammalian cell cytotoxicity data (PDF)
+■AUTHOR INFORMATION
+Corresponding Authors
+Khaled A. Shaaban −Center for Pharmaceutical Research and
+Innovation and Department of Pharmaceutical Sciences,
+College of Pharmacy, University of Kentucky, Lexington,
+Kentucky 40536, United States;
+orcid.org/0000-0001-
+7638-4942; Email: Khaled_shaaban@uky.edu
+Mikko Metsä-Ketelä −Department of Life Technologies,
+University of Turku, FIN-20014 Turku, Finland;
+orcid.org/0000-0003-3176-2908; Email: mianme@utu.fi
+S. Eric Nybo −Department of Pharmaceutical Sciences,
+College of Pharmacy, Ferris State University, Big Rapids,
+Michigan 49307, United States;
+orcid.org/0000-0001-
+7884-7787; Email: EricNybo@Ferris.edu
+Authors
+Rongbin Wang −Department of Life Technologies, University
+of Turku, FIN-20014 Turku, Finland
+Benjamin Nji Wandi −Department of Life Technologies,
+University of Turku, FIN-20014 Turku, Finland;
+orcid.org/0000-0003-1071-3111
+Nora Schwartz −Department of Pharmaceutical Sciences,
+College of Pharmacy, Ferris State University, Big Rapids,
+Michigan 49307, United States
+Jacob Hecht −Department of Pharmaceutical Sciences,
+College of Pharmacy, Ferris State University, Big Rapids,
+Michigan 49307, United States
+Larissa Ponomareva −Center for Pharmaceutical Research
+and Innovation and Department of Pharmaceutical Sciences,
+College of Pharmacy, University of Kentucky, Lexington,
+Kentucky 40536, United States
+Kendall Paige −Department of Pharmaceutical Sciences,
+College of Pharmacy, Ferris State University, Big Rapids,
+Michigan 49307, United States
+Alexis West −Department of Pharmaceutical Sciences, College
+of Pharmacy, Ferris State University, Big Rapids, Michigan
+49307, United States
+Kathryn Desanti −Department of Pharmaceutical Sciences,
+College of Pharmacy, Ferris State University, Big Rapids,
+Michigan 49307, United States
+Jennifer Nguyen −Department of Pharmaceutical Sciences,
+College of Pharmacy, Ferris State University, Big Rapids,
+Michigan 49307, United States;
+orcid.org/0000-0002-
+4557-1638
+Jarmo Niemi −Department of Life Technologies, University of
+Turku, FIN-20014 Turku, Finland;
+orcid.org/0000-
+0002-7447-8379
+Jon S. Thorson −Center for Pharmaceutical Research and
+Innovation and Department of Pharmaceutical Sciences,
+College of Pharmacy, University of Kentucky, Lexington,
+Kentucky 40536, United States;
+orcid.org/0000-0002-
+7148-0721
+Complete contact information is available at:
+https://pubs.acs.org/10.1021/acssynbio.4c00043
+Author Contributions
+⊥R.W., B.N.W., N.S., and J.H. contributed equally to this work.
+M.M.-K, K.A.S., and S.E.N. conceived and designed the study.
+ACS Synthetic Biology
+pubs.acs.org/synthbio
+Research Article
+https://doi.org/10.1021/acssynbio.4c00043
+ACS Synth. Biol. 2024, 13, 1523−1536
+1534
+
+
+
+[PDF physical page 13]
+R.W. and B.N.W. performed cloning, protein expression, and
+enzymatic assays. N.S., J.H., A.W., K.P., J.N., and K.S.
+performed molecular biology, actinomycete transformation,
+metabolic engineering, and chemical profiling of extracts from
+engineered Streptomyces lines. S.E.N., J.H., and N.S. scaled up
+fermentations and isolated compounds. K.A.S. purified and
+performed NMR spectroscopic analyses and HRESI mass
+spectrometric studies. L.P. carried out cancer cell line viability
+assays and curated data. M.M.-K., K.A.S., S.E.N., L.P., and
+J.S.T. wrote, edited, and revised the manuscript.
+Notes
+The authors declare no competing financial interest.
+■ACKNOWLEDGMENTS
+Research reported in this publication was supported by the
+National Science Foundation under grant nos. ENG-2015951
+and ENG-2321976 (S.E.N.), by the National Cancer Institute
+of the National Institutes of Health under Award No.
+R15CA252830 (S.E.N.), by National Institutes of Health
+grant R37 AI052218 (J.S.T.), the Center of Biomedical
+Research Excellence (COBRE) for Translational Chemical
+Biology (CTCB, NIH P20 GM130456), the National Institute
+of Food and Agriculture (USDA-NIFA-CBGP, Grant No.
+2023-38821-39584), the University of Kentucky College of
+Pharmacy, the University of Kentucky Markey Cancer Center,
+and the National Center for Advancing Translational Sciences
+(UL1TR000117 and UL1TR001998). This work was
+supported by the Research Council of Finland (grants
+340013 and 354998 to M.M.-K.) The authors also thank the
+College of Pharmacy PharmNMR Center for analytical
+support. NMR data was acquired on a Bruker AVANCE
+NEO 400 MHz NMR spectrometer funded or a Bruker
+AVANCE NEO 600 MHz high-performance digital NMR
+spectrometer [supported, in part, by NIH grants P20
+GM130456 (J.S.T.) and S10 OD28690].
+■REFERENCES
+(1) Minotti, G.; Menna, P.; Salvatorelli, E.; Cairo, G.; Gianni, L.
+Anthracyclines: Molecular Advances and Pharmacologic Develop-
+ments in Antitumor Activity and Cardiotoxicity. Pharmacol. Rev.
+2004, 56 (2), 185−229.
+(2) Pang, B.; Qiao, X.; Janssen, L.; Velds, A.; Groothuis, T.;
+Kerkhoven, R.; Nieuwland, M.; Ovaa, H.; Rottenberg, S.; van
+Tellingen, O.; Janssen, J.; Huijgens, P.; Zwart, W.; Neefjes, J. Drug-
+Induced Histone Eviction from Open Chromatin Contributes to the
+Chemotherapeutic Effects of Doxorubicin. Nat. Commun. 2013, 4 (1),
+No. 1908.
+(3) Hulst, M. B.; Grocholski, T.; Neefjes, J. J. C.; van Wezel, G. P.;
+Metsä-Ketelä, M. Anthracyclines: Biosynthesis, Engineering and
+Clinical Applications. Nat. Prod. Rep. 2022, 39, 814−841,
+DOI: 10.1039/D1NP00059D.
+(4) Bayles, C. E.; Hale, D. E.; Konieczny, A.; Anderson, V. D.;
+Richardson, C. R.; Brown, Kv.; Nguyen, J. T.; Hecht, J.; Schwartz, N.;
+Kharel, M. K.; Amissah, F.; Dowling, T. C.; Nybo, S. E. Upcycling the
+Anthracyclines: New Mechanisms of Action, Toxicology, and
+Pharmacology. Toxicol. Appl. Pharmacol. 2023, 459, No. 116362.
+(5) Brown, K. V.; Wandi, B. N.; Metsä-Ketelä, M.; Nybo, S. Pathway
+Engineering of Anthracyclines: Blazing Trails in Natural Product
+Glycodiversification. J. Org. Chem. 2020, 85 (19), 12012−12023.
+(6) Wang, R.; Nguyen, J.; Hecht, J.; Schwartz, N.; Brown, K. V.;
+Ponomareva, L. V.; Niemczura, M.; Dissel, D.; Van; Wezel, G. P.;
+Van; Thorson, J. S.; Metsä-Ketelä, M.; Shaaban, K. A.; Nybo, S. E. A
+BioBricks Metabolic Engineering Platform for the Biosynthesis of
+Anthracyclinones in Streptomyces Coelicolor. ACS Synth. Biol. 2022,
+11, 4193−4209, DOI: 10.1021/acssynbio.2c00498.
+(7) Niemi, J.; Mantsala, P. Nucleotide Sequences and Expression of
+Genes from Streptomyces Purpurascens That Cause the Production
+of New Anthracyclines in Streptomyces Galilaeus. J. Bacteriol. 1995,
+177 (10), 2942−2945.
+(8) Filippini, S.; Solinas, M. M.; Breme, U.; Schluter, M. B.;
+Gabellini, D.; Biamonti, G.; Colombo, A. L.; Garofano, L.
+Streptomyces Peucetius Daunorubicin Biosynthesis Gene, DnrF:
+Sequence and Heterologous Expression. Microbiology 1995, 141 (4),
+1007−1016.
+(9) Niemi, J.; Wang, Y.; Airas, K.; Ylihonko, K.; Hakala, J.; Mäntsälä,
+P. Characterization of Aklavinone-11-Hydroxylase from Streptomyces
+Purpurascens. Biochim. Biophys. Acta, Protein Struct. Mol. Enzymol.
+1999, 1430 (1), 57−64.
+(10) Wang, Y.; Niemi, J.; Mäntsälä, P. Modification of Aklavinone
+and Aclacinomycins in Vitro and in Vivo by Rhodomycin Biosynthesis
+Gene Products. FEMS Microbiol. Lett. 2002, 208 (1), 117−122.
+(11) Grocholski, T.; Yamada, K.; Sinkkonen, J.; Tirkkonen, H.;
+Niemi, J.; Metsä-Ketelä, M. Evolutionary Trajectories for the
+Functional Diversification of Anthracycline Methyltransferases. ACS
+Chem. Biol. 2019, 14 (5), 850−856.
+(12) Dinis, P.; Tirkkonen, H.; Wandi, B. N.; Siitonen, V.; Niemi, J.;
+Grocholski, T.; Metsä-Ketelä, M. Evolution-Inspired Engineering of
+Anthracycline Methyltransferases. PNAS Nexus 2023, 2 (2),
+No. pgad009, DOI: 10.1093/pnasnexus/pgad009.
+(13) Zhang, Z.; Gong, Y.-K.; Zhou, Q.; Hu, Y.; Ma, H.-M.; Chen, Y.-
+S.; Igarashi, Y.; Pan, L.; Tang, G.-L. Hydroxyl Regioisomerization of
+Anthracycline Catalyzed by a Four-Enzyme Cascade. Proc. Natl. Acad.
+Sci. U.S.A. 2017, 114 (7), 1554−1559.
+(14) Gullón, S.; Olano, C.; Abdelfattah, M. S.; Braña, A. F.; Rohr, J.;
+Méndez, C.; Salas, J. A. Isolation, characterization, and heterologous
+expression of the biosynthesis gene cluster for the antitumor
+anthracycline steffimycin. Appl. Environ. Microbiol. 2006, 72 (6),
+4172−4183.
+(15) Zabala, D.; Song, L.; Dashti, Y.; Challis, G. L.; Salas, J. A.;
+Méndez, C. Heterologous Reconstitution of the Biosynthesis Pathway
+for 4-Demethyl-Premithramycinone, the Aglycon of Antitumor
+Polyketide Mithramycin. Microb. Cell Fact. 2020, 19 (1), No. 111.
+(16) Wang, G.; Chen, J.; Zhu, H.; Rohr, J. One-Pot Enzymatic Total
+Synthesis of Presteffimycinone, an Early Intermediate of the
+Anthracycline Antibiotic Steffimycin Biosynthesis. Org. Lett. 2017,
+19 (3), 540−543.
+(17) Metsä-Ketelä, M. Evolution Inspired Engineering of Antibiotic
+Biosynthesis Enzymes. Org. Biomol. Chem. 2017, 15, 4036−4041.
+(18) Bai, C.; Zhang, Y.; Zhao, X.; Hu, Y.; Xiang, S.; Miao, J.; Lou,
+C.; Zhang, L. Exploiting a Precise Design of Universal Synthetic
+Modular Regulatory Elements to Unlock the Microbial Natural
+Products in Streptomyces. Proc. Natl. Acad. Sci. U.S.A. 2015, 112 (39),
+12181−12186, DOI: 10.1073/pnas.1511027112.
+(19) Wang, W.; Li, X.; Wang, J.; Xiang, S.; Feng, X.; Yang, K. An
+Engineered Strong Promoter for Streptomycetes. Appl. Environ.
+Microbiol. 2013, 79 (14), 4484−4492.
+(20) Lou, C.; Stanton, B.; Chen, Y. J.; Munsky, B.; Voigt, C. A.
+Ribozyme-Based Insulator Parts Buffer Synthetic Circuits from
+Genetic Context. Nat. Biotechnol. 2012, 30 (11), 1137−1142.
+(21) Otsuka, J.; Kunisawa, T. Characteristic Base Sequence Patterns
+of Promoter and Terminator Sites in ΦX174 and Fd Phage DNAs. J.
+Theor. Biol. 1982, 97 (3), 415−436.
+(22) Huff, J.; Czyz, A.; Landick, R.; Niederweis, M. Taking Phage
+Integration to the next Level as a Genetic Tool for Mycobacteria.
+Gene 2010, 468 (1−2), 8−19.
+(23) Aubry, C.; Pernodet, J. L.; Lautru, S. Modular and Integrative
+Vectors for Synthetic Biology Applications in Streptomyces Spp. Appl.
+Environ. Microbiol. 2019, 85 (16), No. e00485-19, DOI: 10.1128/
+AEM.00485-19.
+(24) Tirkkonen, H.; Brown, K. V.; Niemczura, M.; Faudemer, Z.;
+Brown, C.; Ponomareva, L. V.; Helmy, Y. A.; Thorson, J. S.; Nybo, S.
+E.; Metsä-Ketelä, M.; Shaaban, K. A. Engineering BioBricks for
+Deoxysugar Biosynthesis and Generation of New Tetracenomycins.
+ACS Synthetic Biology
+pubs.acs.org/synthbio
+Research Article
+https://doi.org/10.1021/acssynbio.4c00043
+ACS Synth. Biol. 2024, 13, 1523−1536
+1535
+
+
+
+[PDF physical page 14]
+ACS Omega 2023, 8, 21237−21253, DOI: 10.1021/acsome-
+ga.3c02460.
+(25) Nguyen, J. T.; Riebschleger, K. K.; Brown, K. V.; Gorgijevska,
+N. M.; Nybo, S. E. A BioBricks Toolbox for Metabolic Engineering of
+the Tetracenomycin Pathway. Biotechnol. J. 2022, 17, No. 2100371.
+(26) Ryu, Y. G.; Butler, M. J.; Chater, K. F.; Lee, K. J. Engineering of
+Primary Carbohydrate Metabolism for Increased Production of
+Actinorhodin in Streptomyces Codicolor. Appl. Environ. Microbiol.
+2006, 72 (11), 7132−7139.
+(27) van Wezel, G. P.; Krabben, P.; Traag, B. A.; Keijser, B. J. F.;
+Kerste, R.; Vijgenboom, E.; Heijnen, J. J.; Kraal, B. Unlocking
+Streptomyces Spp. for Use as Sustainable Industrial Production
+Platforms by Morphological Engineering. Appl. Environ. Microbiol.
+2006, 72 (8), 5283−5288.
+(28) Sevillano, L.; Vijgenboom, E.; van Wezel, G. P.; Díaz, M.;
+Santamaría, R. I. New Approaches to Achieve High Level Enzyme
+Production in Streptomyces Lividans. Microb. Cell Fact. 2016, 15 (1),
+No. 28.
+(29) Xu, G.; Wang, J.; Wang, L.; Tian, X.; Yang, H.; Fan, K.; Yang,
+K.; Tan, H. Pseudo” γ-Butyrolactone Receptors Respond to Antibiotic
+Signals to Coordinate Antibiotic Biosynthesis. J. Biol. Chem. 2010, 285
+(35), 27440−27448.
+(30) Wang, W.; Ji, J.; Li, X.; Wang, J.; Li, S.; Pan, G.; Fan, K.; Yang,
+K. Angucyclines as Signals Modulate the Behaviors of Streptomyces
+Coelicolor. Proc. Natl. Acad. Sci. U.S.A. 2014, 111 (15), 5688−5693.
+(31) Li, X.; Wang, J.; Li, S.; Ji, J.; Wang, W.; Yang, K. ScbR-and
+ScbR2-Mediated Signal Transduction Networks Coordinate Complex
+Physiological Responses in Streptomyces Coelicolor. Sci. Rep. 2015, 5
+(1), No. 14831.
+(32) Gomez-Escribano, J. P.; Bibb, M. J. Engineering Streptomyces
+Coelicolor for Heterologous Expression of Secondary Metabolite
+Gene Clusters. Microb. Biotechnol. 2011, 4 (2), 207−215.
+(33) Kumelj, T. S.; Sulheim, S.; Wentzel, A.; Almaas, E. Predicting
+Strain Engineering Strategies Using IKS1317: A Genome-Scale
+Metabolic Model of Streptomyces Coelicolor. Biotechnol. J. 2019,
+14, No. 1800180, DOI: 10.1002/biot.201800180.
+(34) Tsukamoto, N.; Fujii, I.; Ebizuka, Y.; Sankawa, U. Nucleotide
+Sequence of the AknA Region of the Aklavinone Biosynthetic Gene
+Cluster of Streptomyces Galilaeus. J. Bacteriol. 1994, 176 (8), 2473−
+2475.
+(35) Gullón, S.; Olano, C.; Abdelfattah, M. S.; Braña, A. F.; Rohr, J.;
+Méndez, C.; Salas, J. A. Isolation, Characterization, and Heterologous
+Expression of the Biosynthesis Gene Cluster for the Antitumor
+Anthracycline Steffimycin. Appl. Environ. Microbiol. 2006, 72 (6),
+4172−4183.
+(36) Caldara-Festin, G.; Jackson, D. R.; Barajas, J. F.; Valentic, T. R.;
+Patel, A. B.; Aguilar, S.; Nguyen, M.; Vo, M.; Khanna, A.; Sasaki, E.;
+Liu, H.; Tsai, S.-C. Structural and Functional Analysis of Two Di-
+Domain Aromatase/Cyclases from Type II Polyketide Synthases.
+Proc. Natl. Acad. Sci. U.S.A. 2015, 112 (50), E6844−E6851.
+(37) Yang, D.; Jang, W. D.; Lee, S. Y. Production of Carminic Acid
+by Metabolically Engineered Escherichia Coli. J. Am. Chem. Soc. 2021,
+143 (14), 5364−5377.
+(38) Connors, N. C.; Bartel, P. L.; Strohl, W. R. Biosynthesis of
+Anthracydines: Enzymic Conversion of Aklanonic Acid to Aklavinone
+and -Rhodomycinone by Anthracycline-Producing Streptomycetes. J.
+Gen. Microbiol. 1990, 136 (9), 1887−1894.
+(39) Hoshino, T.; Fujiwara, A. Microbial Conversion of Anthracy-
+cline Antibiotics. II. Characterization of the Microbial Conversion
+Products of Auramycinone by Streptomyces Coeruleorubidus ATCC
+31276. J. Antibiot. 1983, 36 (11), 1463−1467.
+(40) Grocholski, T.; Dinis, P.; Niiranen, L.; Niemi, J.; Metsä-Ketelä,
+M. Divergent Evolution of an Atypical S-Adenosyl-L-Methionine-
+Dependent Monooxygenase Involved in Anthracycline Biosynthesis.
+Proc. Natl. Acad. Sci. U.S.A. 2015, 112 (32), 9866−9871.
+(41) Beinker, P.; Lohkamp, B.; Peltonen, T.; Niemi, J.; Mäntsälä, P.;
+Schneider, G. Crystal Structures of SnoaL2 and AclR: Two Putative
+Hydroxylases in the Biosynthesis of Aromatic Polyketide Antibiotics.
+J. Mol. Biol. 2006, 359 (3), 728−740.
+(42) Siitonen, V.; Blauenburg, B.; Kallio, P.; Mäntsälä, P.; Metsä-
+Ketelä, M. Discovery of a Two-Component Monooxygenase SnoaW/
+SnoaL2 Involved in Nogalamycin Biosynthesis. Chem. Biol. 2012, 19
+(5), 638−646.
+(43) Fujiwara, A.; Tazoe, M.; Hoshino, T.; Sekine, Y.; Masuda, S.;
+Nomura, S. New Anthracycline Antibiotics, 1-Hydroxyauramycins
+and 1-Hydroxysulfurmycins. J. Antibiot. 1981, 34 (7), 912−915.
+(44) Siitonen, V.; Claesson, M.; Patrikainen, P.; Aromaa, M.;
+Mäntsälä, P.; Schneider, G.; Metsä-Ketelä, M. Identification of Late-
+Stage Glycosylation Steps in the Biosynthetic Pathway of the
+Anthracycline Nogalamycin. ChemBioChem 2012, 13 (1), 120−128.
+(45) Hu, Y.; Zhang, Z.; Yin, Y.; Tang, G.-L. Directed Biosynthesis of
+Iso-Aclacinomycins with Improved Anticancer Activity. Org. Lett.
+2020, 22, 150−154.
+(46) Matsuzawa, Y.; Oki, T.; Toshikazu, O.; Takeuchi, T. Structure-
+Activity Relationships of Anthracyclines Relative to Cytotoxicity and
+Effects on Macromolecular Synthesis in L1210 Leukemia Cells. J.
+Antibiot. 1981, 34 (12), 1596−1607.
+(47) Kim, H. S.; Hong, Y. S.; Kim, Y. H.; Yoo, O. J.; Lee, J. J. New
+Anthracycline Metabolites Produced by the Aklavinone 11-Hydrox-
+ylase Gene in Streptomyces Galilaeus ATCC 31133. J. Antibiot. 1996,
+49 (4), 355−360.
+(48) Lai, Y. H.; Chen, M. H.; Lin, S. Y.; Lin, S. Y.; Wong, Y. H.; Yu,
+S. L.; Chen, H. W.; Yang, C. H.; Chang, G. C.; Chen, J. J.
+Rhodomycin A, a Novel Src-Targeted Compound, Can Suppress
+Lung Cancer Cell Progression via Modulating Src-Related Pathways.
+Oncotarget 2015, 6 (28), 26252−26265.
+(49) Mao, Y.-y.; Cai, H.-c.; Shen, K.-n.; Chang, L.; Zhang, L.; Zhang,
+Y.; Feng, J.; Wang, W.; Yang, C.; Zhu, T.-n.; Duan, M.-h.; Zhou, D.-
+b.; Cao, X.-x.; Li, J. Benefit of High-Dose Idarubicin as Induction
+Therapy in Acute Myeloid Leukemia: A Prospective Phase 2 Study.
+Ann. Hematol. 2022, 101 (4), 831−836.
+(50) Sambrook, J.; Russell, D. W. Molecular Cloning: A Laboratory
+Manual; Cold Spring Harbor Laboratory Press: Cold Spring Harbor,
+NY, 2001; p 999.
+(51) Kallio, P.; Sultana, A.; Niemi, J.; Mäntsälä, P.; Schneider, G.
+Crystal Structure of the Polyketide Cyclase AknH with Bound
+Substrate and Product Analogue: Implications for Catalytic
+Mechanism and Product Stereoselectivity. J. Mol. Biol. 2006, 357
+(1), 210−220.
+(52) Kieser, T.; Bibb, M. J.; Buttner, M. J.; Chater, K. F.; Hopwood,
+D. A. Practical Streptomyces Genetics; John Innes Centre Ltd., 2000; p
+529.
+(53) Ylihonko, K.; Hakala, J.; Niemi, J.; Lundell, J.; Mantsala, P.
+Isolation and Characterization of Aclacinomycin A-Non-Producing
+Streptomyces Galilaeus (ATCC 31615) Mutants. Microbiology 1994,
+140 (6), 1359−1365.
+(54) Shaaban, K. A.; Wang, X.; Elshahawi, S. I.; Ponomareva, L. V.;
+Sunkara, M.; Copley, G. C.; Hower, J. C.; Morris, A. J.; Kharel, M. K.;
+Thorson, J. S.; Herbimycins, D.-F. Ansamycin Analogues from
+Streptomyce s Sp. RM-7−15. J. Nat. Prod. 2013, 76 (9), 1619−1626.
+(55) Wang, X.; Shaaban, K. A.; Elshahawi, S. I.; Ponomareva, L. V.;
+Sunkara, M.; Zhang, Y.; Copley, G. C.; Hower, J. C.; Morris, A. J.;
+Kharel, M. K.; Thorson, J. S. Frenolicins C−G, Pyranonaphthoqui-
+nones from Streptomyces sp. RM-4-15. J. Nat. Prod. 2013, 76, 1441−
+1447, DOI: 10.1021/np400231r.
+(56) Savi, D. C.; Shaaban, K. A.; Wilke, F. M.; Gos, R.; Ponomareva,
+L. V.; Thorson, J. S.; Glienke, C.; Rohr, J. Phaeophleospora Vochysiae
+Savi & Glienke Sp. Nov. Isolated from Vochysia Divergens Found in
+the Pantanal, Brazil, Produces Bioactive Secondary Metabolites. Sci.
+Rep. 2018, 8, No. 3122, DOI: 10.1038/s41598-018-21400-2.
+(57) Shaaban, K. A.; Elshahawi, S. I.; Wang, X.; Horn, J.; Kharel, M.
+K.; Leggas, M.; Thorson, J. S. Cytotoxic Indolocarbazoles from
+Actinomadura Melliaura ATCC 39691. J. Nat. Prod. 2015, 78 (7),
+1723−1729.
+ACS Synthetic Biology
+pubs.acs.org/synthbio
+Research Article
+https://doi.org/10.1021/acssynbio.4c00043
+ACS Synth. Biol. 2024, 13, 1523−1536
+1536

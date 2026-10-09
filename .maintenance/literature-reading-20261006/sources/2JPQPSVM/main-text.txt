@@ -1,0 +1,1165 @@
+
+[PDF physical page 1]
+                                        Articles
+                                                                                            https://doi.org/10.1038/s41589-021-00949-6
+
+An isotopic labeling approach linking natural
+products with biosynthetic gene clusters
+
+Catherine S. McCaughey      1, Jeffrey A. van Santen      1, Justin J. J. van der Hooft     2,
+Marnix H. Medema      2 and Roger G. Linington     1 ✉
+
+Major advances in genome sequencing and large-scale biosynthetic gene cluster (BGC) analysis have prompted an age of natu-
+ ral product discovery driven by genome mining. Still, connecting molecules to their cognate BGCs is a substantial bottleneck
+for this approach. We have developed a mass-spectrometry-based parallel stable isotope labeling platform, termed IsoAnalyst,
+which assists in associating metabolite stable isotope labeling patterns with BGC structure prediction to connect natural prod-
+ucts to their corresponding BGCs. Here we show that IsoAnalyst can quickly associate both known metabolites and unknown
+analytes with BGCs to elucidate the complex chemical phenotypes of these biosynthetic systems. We validate this approach
+for a range of compound classes, using both the type strain Saccharopolyspora erythraea and an environmentally isolated
+Micromonospora sp. We further demonstrate the utility of this tool with the discovery of lobosamide D, a new and structurally
+unique member of the family of lobosamide macrolactams.
+
+
+      enome sequencing has fundamentally changed the para-    Many of the current approaches used for integrating metabolo-
+      digm of natural product research and discovery. With   mic and genomic datasets are based on tandem mass spectrometry
+       advancing technology and decreasing costs, the accessibility  (MS/MS) fragmentation spectra15. While these approaches haveGof high-quality genome information has increased exponentially1–3.   been successful in identifying new chemistry and streamlining
+Over the past decade, this accumulation of genome sequence data   workflows24–26, there are caveats to relying too heavily on MS/MS
+has inspired the development and refinement of computational   fragmentation spectra. The complex chemical phenotype produced
+ tools for identifying BGCs4, predicting structural elements of the   by a BGC can include a dozen or more compounds, and small struc-
+compounds they produce5,6, prioritizing novel BGCs or a combi-   tural changes present between analogs may result in unexpected
+nation thereof3,7,8. With recent developments in the accessibility of   differences in fragmentation patterns. A number of tools address
+these tools, BGC databases such as MIBiG9 and IMG-ABC10 will    this issue by presaging MS/MS fragmentation interpretation with
+continue to grow in both size and value to the scientific commu-   de novo prediction of structural motifs from interpretation of BGC
+ nity as annotations and experimental validation of chemical struc-    modules24,27,28. The recently released tool NRPminer28, extends this
+tures are updated. Community efforts such as the Natural Products   approach to accommodate post-assembly modifications, greatly
+ Atlas11 and LOTUS12 databases also enhance our understanding of   increasing the coverage and accuracy of this strategy. However,
+the ‘specialized metabolome’ by providing curated records linking  NRPminer currently only accommodates nonribosomal peptide
+structures to the taxonomy of their producing organisms.             synthetase BGCs. A generalizable analytical method for charac-
+    Bacterial genome analysis  is rapidly changing from an effort   terizing and grouping these structural variants on the basis of a
+directed towards a handful of strains, to one focused on thousands of  common biosynthetic origin would therefore provide a powerful
+sequences. Large-scale comparisons of BGC families have proven to   orthogonal approach for biochemical interpretations of complex
+be powerful tools in leveraging these large datasets for natural prod-   metabolic phenotypes.
+uct discovery2,4,13–15. Advances in these computational tools for under-       Historically, isotope labeling has been used to determine the bio-
+standing BGCs have long been promoted as a mechanism to eliminate   synthetic origins of individual compounds through targeted labeled
+the most common complications of traditional natural product dis-   feedstock addition and compound isolation29–31. However these
+covery and  facilitate automated, high-throughput  workflows1,2,16.   approaches are not appropriate for system-wide studies because of
+Although bioinformatics approaches are moving rapidly towards a   the need to isolate and acquire NMR spectra or specific activities
+global scale for BGC analysis, efforts to efficiently identify associated   for each individual compound of interest. Stable isotope labeling
+chemistry remain technically challenging and time-consuming17.       has also been used extensively in studies related to primary metab-
+   Another major bottleneck in genome mining is that many organ-   olism and metabolic flux analysis, for which several open-source
+isms suffer from low or no expression of the BGCs of interest under   mass spectrometry (MS) data processing packages have been
+laboratory conditions18. Host engineering to optimize heterologous   developed32, including X13CMS33 and mzMatch-ISO34. However,
+expression19 and various other strategies20,21 have addressed this   although these platforms are capable of annotating metabolites
+challenge with some successes, but most approaches still face limita-   with stable isotope label incorporation, they do not directly deter-
+tions in detecting and identifying cognate products1. Consequently,   mine the maximum degree of labeling for each metabolite in the
+new BGCs are typically identified at a higher rate than their asso-   sample or do not align compounds between experiments using a
+ciated chemistry because the field lacks tools to quickly establish   variety of different stable isotope labels, limiting their utility for
+connections between BGCs and the metabolites they produce17,22,23.   connecting molecules to BGCs.
+
+
+1Department of Chemistry, Simon Fraser University, Burnaby, British Columbia, Canada. 2Bioinformatics Group, Wageningen University, Wageningen,
+ the Netherlands. ✉e-mail: rliningt@sfu.ca
+
+Nature Chemical Biology | VOL 18 | March 2022 | 295–304 | www.nature.com/naturechemicalbiology                                               295
+
+
+[PDF physical page 2]
+                                               NATurE CHEMIcAl BIoloGyArticles
+
+ a                                        b                                  c
+      O                     O                        Combined
+                       S                                     unlabeled control
+        OH                    OH
+
+                                NH2
+    [1-13C]acetate          [Methyl-13C]methionine
+
+
+                   O       O                                                                     Val    Leu    Tyr    Val    Pro   Me  BGC 1      O
+                                                                  SIL precursors
+                 HO           OH
+        OH
+                               NH2                                                                                 Mmal  Mmal  Mmal  Mmal  Mmal  Me    Glu  BGC 2
+  [1-13C]propionate               [1-15N]glutamate                       *
+                                              *
+
+                                                                                                        Lys   Mmal  Mmal   Mal   Mmal   Mal  BGC 3
+
+
+  Unlabeled precursor
+         controls                                                                                             Mal    Mal    Mal    Mal    Mal  BGC 4
+                                              *                                                     *
+
+
+
+                                                                                                                i
+                                             *                              *              *
+       Parallel SIL                                          *                      *
+       precursors                                                                                                                                                                                                                                            ***                                                                                                                                                                                                                                                                                            ***
+                                             **                                                     *
+
+
+Fig. 1 | Overview of the IsoAnalyst workflow. a, SIL is performed on parallel fermentations using the SIL feedstocks [1-13C] acetate (30 mM), [1-13C]
+propionate (30 mM), [methyl-13C] methionine (5 mM) and [1-15N] glutamate (10 mM) and the corresponding unlabeled feedstocks at the same
+concentrations. Electrospray ionization quadrupole time-of-flight mass spectrometric (ESI-qTOF-MS) analysis is performed on each culture. b, MS data
+are processed by IsoAnalyst to determine the degree of isotope labeling under each culture condition by comparing labeled and unlabeled MS datasets.
+Labeled analytes are indicated by colored asterisks in each chromatogram. c, The genome of the organism is evaluated for the presence of BGCs using
+antiSMASH, and the substrates of each biosynthetic module are predicted using both automatic predictions in antiSMASH and manual review of related
+MIBiG entries and literature. Labeling patterns from UPLC–MS analysis are aligned across all conditions and substrate predictions from BGC analysis are
+compared to relate molecules to genes.
+
+
+   To address these challenges, we have developed a new analytical   Results
+platform, termed IsoAnalyst. This platform employs parallel stable   Parallel stable isotope labeling in microtiter plates. IsoAnalyst was
+isotope labeling (SIL) to categorize specialized metabolites in liq-   developed to permit flexibility in terms of SIL precursor selection. To
+uid fermentations based on biosynthetic precursor incorporation,   demonstrate the scope of IsoAnalyst across a broad cross-section of
+and connects these molecules to candidate BGCs using annotated   biosynthetic classes, we selected four ‘generalist’ precursors for this
+genome sequence data. Parallel fermentation of the test organism   study: [1-13C]acetate, [1-13C]propionate, [methyl-13C]methionine
+is performed in the presence of either an isotopically labeled pre-   and [1-15N]glutamate. [1-13C]Acetate can be incorporated directly
+cursor or a control culture containing the corresponding unlabeled   into polyketide products via malonyl-coenzyme A (malonyl-CoA),
+precursor for a panel of SIL tracers (Fig. 1a; 24-well plates, one con-   but can also be incorporated into other biosynthetic monomers such
+dition per column, four replicates per condition). Following workup   as amino acids through primary metabolism recycling35 (Extended
+and ultra-performance liquid chromatography mass spectrometry   Data Fig. 1). This makes [1-13C]acetate a valuable feedstock for label-
+(UPLC–MS) analysis of all samples, the IsoAnalyst pipeline identi-   ing a wide cross-section of natural product classes but it also com-
+fies unique MS features present in each condition, and compares   plicates data interpretation, as we discuss below. [1-13C]Propionate
+mass isotopologue distributions between unlabeled and labeled    is predominantly used for identifying polyketide pathways, due to
+conditions to determine the degree of labeling by each precursor    its conversion to methylmalonyl-CoA, a common building block in
+(Fig. 1b). Experimental precursor incorporation patterns are then   type I and type II polyketide biosynthesis. [Methyl-13C]methionine
+manually compared against the theoretical precursor incorporation   was selected in order to label compounds methylated by S-adenosyl
+rates derived from BGC annotations (Fig. 1c) to yield candidate   methionine (SAM). Finally, [1-15N]glutamate was selected to consti-
+BGC(s) responsible for the production of each labeled metabolite.   tutively label all products containing nitrogen atoms.
+This approach streamlines the categorization of analytes by their     To reduce costs and improve throughput, we developed a fermen-
+biosynthetic origin and reduces MS metabolic profiles to quickly   tation protocol using a minimal media in 24-well microtiter plates
+delineate the complex phenotypes of BGCs. The IsoAnalyst pack-   (Methods). To ensure robust and consistent labeling, we performed
+age is freely available under an open access MIT software license   preliminary experiments to determine both the ideal concentration
+(https://github.com/liningtonlab/isoanalyst) and accepts data in   for each SIL feedstock condition (Supplementary Fig. 1; Methods)
+a simple format compatible with most major mass spectrometry   and the optimal timing for feedstock addition (Supplementary Fig. 2;
+instrument vendors.                                            Methods). Four replicate wells are inoculated for each SIL precursor
+
+296                                             Nature Chemical Biology | VOL 18 | March 2022 | 295–304 | www.nature.com/naturechemicalbiology
+
+
+[PDF physical page 3]
+NATurE CHEMIcAl BIoloGy                                              Articles
+
+condition and a matching unlabeled control condition containing   the unlabeled condition and sequential isotopologue pairs in the
+the same precursor molecule with a natural isotopic abundance   labeled condition. Finally, we assume that for every position where
+(Fig. 1a). All of these parallel experiments are inoculated on the   this ratio is significantly greater than the M1:M0 ratio of the unla-
+same day with the addition of appropriate precursors and cultured   beled feature, at least that many positions are enriched in that SIL
+for five days prior to extraction, UPLC–MS analysis, MS data analy-   condition (Fig. 2d and Methods). This analysis, therefore, does not
+sis and precursor incorporation calculation (Methods).               define the precise number of biosynthetic precursors in the struc-
+                                                                             ture, but rather the minimum number of detectable incorporation
+Erythromycin A SIL incorporation predicts BGC origin. We per-   events for each SIL feedstock in a given MS feature. A compari-
+formed the parallel SIL experiment described above with the erythro-   son of the results from the BGC substrate analysis and IsoAnalyst
+mycin A producer Saccharopolyspora erythraea NRRL 23338 to first   results for the [M+H]+ ion of erythromycin A (1) revealed that the
+demonstrate how IsoAnalyst connects MS isotope patterns with sub-   observed labeling matched the predicted labeling in every SIL con-
+strates inferred from BGC data under ideal circumstances in which   dition except [1-13C]acetate, which exhibited a lower degree of label-
+all substrates can be correctly deduced (Fig. 2). The biosynthesis of   ing due to the indirect incorporation into of methylmalonyl-CoA
+erythromycin A (1) has been studied extensively as a model system   into the core polyketide building blocks that cannot be precisely
+for modular polyketide synthases36. The macrolide core is formed by   predicted (Fig. 2e).
+the condensation of one propionyl-CoA and six methylmalonyl-CoA      In total, four features were detected for 1, corresponding to dif-
+units followed by glycosylation with the saccharides desosamine   ferent fragments of the same compound (Fig. 2f,g). The dehydrated
+and mycarose37 (Fig. 2a,b). [1-13C]Propionate is directly converted   fragment ion m/z 716.4565 had labeling patterns that matched the
+to the substrates propionyl-CoA and methylmalonyl-CoA, however  [M+H]+ ion, whereas smaller fragments showed decreased label-
+the latter may also be labeled by [1-13C]acetate through conversion   ing from [methyl-13C]methionine due to the loss of the mycarose
+to the tricarboxylic acid (TCA) cycle intermediate succinyl-CoA   sugar subunit (Fig. 2f). IsoAnalyst, therefore, not only accurately
+(Extended Data Fig. 1). The indirect labeling of methylmalonyl-CoA   detects SIL incorporation in MS features across multiple conditions,
+by [1-13C]acetate is included in the BGC labeling prediction because   but can also group adducts and fragments that derive from the same
+we cannot differentiate analytically between direct and indirect SIL   compound, simplifying the interpretation of labeling data for com-
+incorporation (Fig. 2a). Desosamine contains a tertiary dimethyl-   plex samples.
+amino group that is expected to be labeled by a single position in the
+[1-15N]glutamate condition, and two positions in the [methyl-13C]   Predicted SIL incorporation in products of S. erythraea BGCs.
+methionine condition. The mycarose unit has a single methylation   To apply the IsoAnalyst workflow to the full metabolome of S. ery-
+position and is later methylated by an O-methyltransferase following   thraea, we first performed BGC mining on the full S. erythraea
+attachment to the macrolide core (Fig. 2a). Initial observation of the  NRRL 2338 genome using antiSMASH v.5.2.0–8ecc354 (Methods).
+MS data for erythromycin A showed appreciable labeling in all of the  The antiSMASH output offers substrate predictions for a broad
+expected conditions (Fig. 2b). However, a reliable method to iden-   cross-section of biosynthetic classes using a suite of prediction algo-
+tify the largest isotopologue peak with detectable SIL incorporation   rithms including SANDPUMA38, NRPSPredictor239 and RODEO40.
+was needed to directly compare these MS results with the predicted   Using these predictions in combination with literature references
+labeling pattern.                                            from the MIBiG database9, we obtained detailed substrate predic-
+  To systematically determine the extent of labeling in every fea-   tions for all annotatable BGCs in the genome (Supplementary Table
+ture detected in the MS metabolomics data, we developed a novel    6; Methods). Each column of this table contains predicted substrate
+algorithm to determine the statistical confidence of SIL incorpora-   counts for a single gene cluster from a list of commonly encoun-
+tion in MS features. This algorithm requires two input file types: a   tered biosynthetic substrates predicted to be labeled by one or more
+deisotoped feature list for each unlabeled precursor condition, and   SIL precursors. A detailed step-by-step protocol for deriving pre-
+a centroided scan-by-scan MS peak list for each individual culture   dicted substrates from antiSMASH-discovered BGCs can be found
+condition (labeled and unlabeled). The deisotoped feature list con-   in Supplementary Note 2.
+tains averaged m/z and retention time pairs for all features observed     To relate substrate counts to isotopic labeling patterns, it is nec-
+in at least three replicates. These features are used as ‘anchor   essary to know the degree of labeling of each biosynthetic substrate
+points’ to extract the relevant isotopologue data for each peak from   by each SIL precursor. A substrate labeling table (Supplementary
+the scan-by-scan peak lists which are in turn used to determine   Table 1) was generated by considering the metabolic fate of each
+the degree of isotopic labeling in each condition (Extended Data   precursor in this organism. Of the SIL feedstocks used in this study,
+Fig. 2a and Methods).                                                 [1-13C]acetate is the most promiscuous due to its incorporation in
+   IsoAnalyst determines the degree of isotopic labeling for each   the TCA cycle (Extended Data Fig. 1). Indirect incorporation of
+analyte by comparing the relative intensities of the first isotopo-   [1-13C]acetate into amino acids and other TCA-derived substrates
+logue peak (one 13C; M1) and the monoisotopic mass (all 12C; M0)    is significant but variable under different metabolic conditions and
+in the unlabeled dataset with sequential pairs of peaks (for example,   therefore requires careful interpretation. By contrast, [1-13C]propio-
+M1 versus M0, M2 versus M1, and so on) in the labeled dataset   nate and [methyl-13C]methionine are expected to label only specific
+(Fig. 2c,d). To compare isotopologue ratios between unlabeled   substrates. Finally, the [1-15N] glutamate SIL condition is intention-
+and labeled peaks we first plot the intensity of the M1 versus M0    ally designed to be promiscuous and labels all amino acids and
+peaks for each scan in the chromatographic peak and then derive   other subunits derived from amino acids (Supplementary Table 1).
+the slope from the linear regression for these data (Extended Data     To predict the labeling patterns for each BGC, we integrated data
+Fig. 3). We next derive the slope value from analogous plots for   from the curated antiSMASH output (Supplementary Table 6) and
+each isotopologue pair in the labeled condition, continuing across   the substrate labeling table (Supplementary Table 1) to create a table
+the isotopologue distribution (Fig. 2c). This analysis is performed   of predicted precursor labeling for all BGCs in the genome (Table
+independently for all replicates of each labeling condition, giving    1). Not all of the BGCs in the S. erythraea genome are as amenable
+four slope values per isotopologue pair. Starting with M1 and M0   to SIL incorporation in our experiment as erythromycin, which has
+we ask the question, ‘does this isotopologue ratio differ significantly   SIL incorporation in all four conditions. Some well-characterized
+from the M1 to M0 ratio of the same chemical species having a  BGC classes, such as terpenes, do not have sufficient SIL incorpora-
+natural isotopic distribution?’. We answer this question by perform-   tion across the conditions used in this experiment, whereas prod-
+ing Welch’s two-tailed t tests between the M1 versus M0 peaks in   ucts of BGCs with partial predictions may be labeled under these
+
+Nature Chemical Biology | VOL 18 | March 2022 | 295–304 | www.nature.com/naturechemicalbiology                                                297
+
+
+[PDF physical page 4]
+                                               NATurE CHEMIcAl BIoloGyArticles
+
+                                       b              O                         c
+                                                                                                                          3.0 × 105
+                                                             OH                            2.0 × 105
+                                                HO     OH                                    1.0 × 105                                                                       N                                                  Intensity
+                                                    O       HOO   O                        0
+                                                                                                              734  735  736  737  738  739  740  741
+     a                                             O       O    O                        M0  M1  M2  M3  M4  M5  M6
+          eryCVI  eryAI    eryAII eryAIII         eryCI                                                                   3.0 × 105                        O
+                                                                            1    O      OH
+                                                  100                                                          2.0 × 105                          OH                                                                                             Unlabeled                         Intensity  1.0 × 105
+                                                                                                            0                eryBV          eryCIII    eryBIII eryG          Percentage  0
+                                            733734735736737738739740741742743744745                 734  735  736  737  738  739  740  741
+                                                  100                           O                                      m/z
+                O                             50
+                                                                         OH    d                      CoA        1                                                 Percentage  0
+                                            733734735736737738739740741742743744745          3.0 × 105          eryAI    1× propionyl-CoA
+           eryAII                                      100                           O
+           eryAIII                                       50                              OH              O   O          6    Direct              Percentage  0                                                          2.0 × 105
+                                                                                                               M1                                                                                                                                                                                                                                                                                           :                                                                                                                  M0                                            733734735736737738739740741742743744                                                                           745            HO        CoA      6    Indirect                                                                                                               M2                                                                                                                                                                                                                                                                                           :                                                                                                                  M1                                                                                                                                                                                                                                                                                                                                                                                                                                       intensity                                                                     O
+                                                  100                                                                                                               M3                                                                                                                                                                                                                                                                                           :                                                                                                                  M2                                                                         S                                                                         OH      Ion              6× methylmalonyl-CoA                     50                                                                                                               M4                                                                                                                                                                                                                                                                                           :                                                                                                                  M3                                                                                                                          1.0 × 105                                                                                    NH2                                                                                                                                                                                                                                       Percentage  0                                                                    M5 : M4
+                                            733734735736737738739740741742743744745                                    M6 : M5
+
+                                                                                                               M1 : M0          eryCI    HO     N                        100                     O     O                 0                                 Unlabeled
+         eryCVI                                                                         OH       0            HO   O         1   2                             HO                                                                                                                                 105                                                                                                                                          105                                                                                                                                                  105                                                                                                                        105           eryCIII                                                                                    NH2                                                        ×                                                           ×                                                               ×                                                    ×
+                                                    0                                                       1.0     2.0     3.0     4.0                 1× desosamine                                                                                                   Percentage                                            733734735736737738739740741742743744745                                   Ion intensity
+                                                                   Observed mass (m/z)                                          eryG
+                                           O-methyl      e                                                                          M1 : M0  M1 : M0  M2 : M1  M3 : M2  M4 : M3  M5 : M4  M6 : M5
+            OH   OH               transferase                                                                                    Mean
+                                                                                                                                                                                                 slope           eryBIII                                                7                  7                                                    0.356      2.07      1.03      0.664     0.446     0.323     0.268
+                                                                                                                                  RSD (%)       2.81      2.25      3.71     1.68      4.06      7.57      4.65        eryBV    O      OH   1 +  1               6
+                                                                4           4       4                                P-value                1.6 × 10–4  6.5 × 10–4  2.2 × 10–6  5.0 × 10–3   0.135    6.9 × 10–4
+                  1× mycarose
+                                                                   1                  1                                  t-statistic                –62.7     –29.9     –37.8     –7.76      2.18      10.15
+
+                                               A  P M G      A  P  M  G
+                                                               Expected            Observed
+
+       f                                                                g                  [M+H]+                         Fragment ions            750
+                                                                                                      2.5 × 105                             734.4694
+                                              7                    7                                                         5.0 × 103            576.3752
+                             716.4565                                                                       734.4694                                                                                                      2.0 × 105            700                            4     4                                                                4     4                                                                                                                                           4.0 × 103            558.3641                                                    1                                                                         1
+                                    A  P M G        A P M G             1.5 × 105
+                                                                                                                                           3.0 × 103
+                                                                     716.4565         m/z 650                               734.4694                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     Intensity                      716.4565                                                                                                                                                                                                                                                                                                                                                              Intensity                                                [M+H]+              [M+H-H2O]+                                                                                                      1.0 × 105
+                                                                                                                                           2.0 × 103
+
+            600                               7                    7
+                                                                                                     0.5 × 105                            1.0 × 103
+                             576.3752        4                    4
+                             558.3641              2  1                 2  1                  0
+            550
+                                    A P M G         A P M G                     2.50     2.55     2.60                2.50   2.55   2.60
+                    2.50    2.55    2.60         576.3752              558.3641                          Retention time                       Retention time
+                        Retention time           [M+H-myc]+          [M+H-myc-H2O]+
+
+Fig. 2 | Overview of IsoAnalyst results for erythromycin A (1). a, Diagram of the erythromycin BGC, the biosynthetic substrates predicted by antiSMASH
+and their expected labeling. The mycarose subunit is methylated once prior to attachment to the polyketide core, and further methylated by a tailoring
+enzyme once attached to the core. Indirect labeling of methylmalonyl-CoA occurs by transformation of [1-13C]acetate through the TCA cycle (Extended
+Data Fig. 1). b, Structure of erythromycin A (1) showing the expected positions of SIL incorporation and MS of 1 under the four SIL conditions. c, Centroided
+scan data for mass isotopologues of 1 from one unlabeled control replicate and one [1-13C]acetate labeled replicate plotted as m/z versus intensity.
+d, Centroided scan-by-scan data from c plotted as ion intensity of neighboring isotopologues in each scan (that is, M1:M0, M2:M1 and so on). Only the
+M1:M0 isotopologue ratio is plotted for the unlabeled sample replicate, while all neighboring isotopologue pairs are shown for the [1-13C]acetate sample
+replicate. The table below shows the two-tailed Welch’s t test results comparing the slope of each isotopologue ratio in the [1-13C]acetate condition to
+the M1:M0 isotopologue ratio of the unlabeled sample. The ratio of M4:M3 is the last isotopologue ratio with a significant P value (<0.05) and a negative
+test statistic, indicating four significantly labeled positions of 1 in the [1-13C]acetate condition. The slope values for each isotopologue neighbor pair from
+each replicate form the basis for the t tests. e, Isotopologue ratio analysis is repeated for the same feature in all four conditions and compared with the
+expected labeling determined by BGC analysis. f, Four mass features representing adducts and fragments of 1, and the SIL incorporation detected for each.
+g, Extracted ion chromatograms of the four features indicated in (f).
+
+
+298                                             Nature Chemical Biology | VOL 18 | March 2022 | 295–304 | www.nature.com/naturechemicalbiology
+
+
+[PDF physical page 5]
+NATurE CHEMIcAl BIoloGy                                              Articles
+
+                                                                  incorporation in two or more feedstock conditions. This file is then Table 1 | Biosynthetic gene cluster labeling prediction                                                             manually interrogated to filter features based on chromatographic for S. erythraea                                                           peak shape and signal intensity. Features were eliminated if either
+ Cluster                Type           A    P  M   G      of these factors interfered with the accuracy of the SIL detection.
+ 25a                       Lanthipeptide      29             47     IsoAnalyst identified 98 features in the S. erythraea extracts with
+                                                               SIL incorporation in two or more conditions. Sixty of these features
+ 22                        Lanthipeptide                       1+                                                                  derived from six compounds with very similar SIL incorporation
+ 28                       Lanthipeptide                       1+     patterns, including erythromycin A (1) (features represented by dia-
+ 31                       Thiopeptide                         monds in Fig. 3).
+                                                                         All of the erythromycin BGC products identified had related 12a                  NRPS            4              6
+                                                                       labeling patterns in the [1-13C]acetate and [1-13C]propionate condi-
+ 15ba                NRPS            9              7      tions due to the shared polyketide core (Fig. 3b,c). Complete labeling
+ 24aa                NRPS              3            9+    by [1-13C]propionate was detected in all six compounds, while there
+ 2b                  NRPS             2              2     was slight variation in the detection of [1-13C]acetate incorporation.
+                                                      By contrast, labeling in [methyl-13C]methionine and [1-15N]gluta- 6b                  NRPS             2            2+                                                         mate varied between the six products, suggesting different degrees
+ 15a                 NRPS                             1+     of decoration of the polyketide core (Fig. 3b,c). Erythronolide B (2)
+ 17                  NRPS                             1+    was not labeled by either [methyl-13C]methionine or [1-15N]gluta-
+ 11a                   PKS–NRPS hybrid    6    3              1     mate, consistent with the proposed structure containing only the
+                                                                  core macrocycle. 3-O-α-Mycarosylerythronolide B (MEB) (3) con- 13a                   PKS–NRPS hybrid    2    2              1                                                                   tained a single labeled position in [methyl-13C]methionine, consis-
+ 4a                     Type I PKS         7    7    4      1      tent with the addition of the mycarose sugar, which contains a single
+ 23a                    Type I PKS         9    5                     site of SAM methylation. The additional methylation position in
+ 10b                     Type I PKS               1       1                 the mycarose moiety of 1 is derived from tailoring enzyme activity
+                                                          which occurs after the mycarose sugar is attached to the polyketide
+ 24bb                   Type I PKS               1                      1                                                                  core (Fig. 3b). The identities of 1, 2 and 3 were confirmed by UPLC–
+ 9b                     Type I PKS        2+             MS coinjection with commercial standards and NMR analysis
+ 32b                    Type I PKS         1+   1+              where applicable (Supplementary Figs. 3–13). The final three steps
+                                                                     in the erythromycin pathway are performed in a variable order by 33b                    Type I PKS         1+                                                                          tailoring enzymes37, resulting in the four related products, erythro-
+ 1b                    PKS               1+         1+         mycin A (1), B (4), C (5) and D (6) (Fig. 3c). We putatively iden-
+ 5b                     Type III PKS         5                           tified 4, 5 and 6 on the basis of the detected m/z values and SIL
+ 27b                     Other/type III PKS   1+              1           incorporation patterns indicating glycosylation with desosamine,
+                                                        and O-methylation of the mycarose sugar moiety (Fig. 3c). 26b                    Other PKS         1+                     1                                                                         Six features with significant labeling in both [1-13C]acetate and
+ 35b                     Other PKS/FAS              4           [1-15N]glutamate, but no incorporation of either [1-13C]propionate
+ 3                      Other PKS/FAS     1+                     or [methyl-13C]methionine, were also detected by IsoAnalyst (fea-
+ 14                     Other PKS/FAS                               tures represented by circles in Fig. 3a). BGC 15b is the only BGC
+                                                                        that has predicted labeling which matches the labeling of this com- 8,16, 18,19, 20,21, 24c,36   Terpene
+                                                     pound (Table 1 and Fig. 3a). BGC 15b was identified by antiSMASH
+ 29b                     Terpene                                 1       1      as the siderophore erythrochelin BGC (Supplementary Table 6),
+ 30                      Terpene/NRPS-like                  1+     suggesting the presence of the siderophore erythrochelin (7), previ-
+ 15c                       Beta-lactone                                ously isolated from S. erythraea41.
+                                                                        [1-13C]Acetate incorporation into 7 was predicted to occur 7b                         Indole                    1                      1                                                                a maximum of nine times, with six of these incorporation events
+ 34                     Other                                    1          occurring via labeling of the ornithine carbon skeleton (Fig. 3a and
+ aBGCs meet two selection criteria, as indicated in the text. bBGCs meet one selection criteria, as     Extended Data Fig. 4). A more detailed interrogation of the SIL
+ indicated in the text. FAS, fatty acid synthase.                                     data confirmed the identity of compound 7 through a combination
+                                                                       of fragment m/z values, which matched those previously reported
+                                                                         for erythrochelin41, and the SIL patterns for the fragments, which
+                                                            confirmed [1-13C]acetate labeling of the ornithine-derived sub-
+conditions but cannot be reliably associated without additional   units (Extended Data Figs. 4 and 5). Together, these results demon-
+genetic analysis. We use two criteria to determine the likelihood of   strated that, under these culture conditions, we were able to detect
+identifying the product of a BGC with the SIL precursors used in   two main compound families from S. erythraea: the erythromycins
+this study. First, the predicted product of a BGC should be labeled   and erythrochelin. Interpretation of the SIL data led to the correct
+in two or more conditions, because it is not possible to differentiate   prediction of the biosynthetic gene clusters for these compounds
+products of related BGCs on the basis of labeling in a single condi-   in each case. Both of these predictions match the biosynthetic ori-
+tion. Second, the product must be labeled three or more times in   gins that have been previously established37,41, thus validating the
+at least one of the conditions, because minor SIL incorporation is   IsoAnalyst approach.
+likely to occur in off-target compounds involved in primary metab-
+olism. In Table 1 and Supplementary Table 2, BGCs that meet both   Application of IsoAnalyst to an environmental Micromonospora
+criteria or only one of the criteria are indicated.                        sp. We  next  applied  the  IsoAnalyst  platform  to  a  fully
+                                                            sequenced Micromonospora sp. isolate from our marine-derived
+SIL in S. erythraea reveals compounds from two distinct BGCs.   Actinobacterial strain library42. We analyzed the full genome of
+The summary of SIL incorporation results from IsoAnalyst is ini-   this strain using antiSMASH and manually curated substrate pre-
+tially generated by filtering for features that have detectable SIL   dictions (Supplementary Table 7) as described above to produce
+
+Nature Chemical Biology | VOL 18 | March 2022 | 295–304 | www.nature.com/naturechemicalbiology                                              299
+
+
+[PDF physical page 6]
+                                               NATurE CHEMIcAl BIoloGyArticles
+
+
+ a                                                                       b
+            604.2950 [M+H]+
+                              O   NH      O                                 O
+         8                                H                                                             O    OH
+                                         N
+                                               N       O
+                         6                                                                                    OH                  R1 =  O      OH                                    O       OH
+                                       HO               NH                   R3     OH                         R2 = OH
+                                N   O              HN                                                                                                                                    R3 = H                            HO                                                                          O         R2
+                                                     7          O
+                                                                        O          R1                  529.3380 [M+H-H2O]+
+        A   P   M   G                             O   N
+                                                          OH
+                                                                                                                                7
+
+    1,200
+                                                                                                                           5
+
+
+    1,000                                                                                                                             1
+                             BGC 15b
+
+                                                                                                      A   P  M   G                             BGC 4
+     800
+
+                                                                                                                              R1 = OH
+ m/z                                                                                                                          2  R2 = OH     600
+                                                                                                                              R3 = H
+
+                                                                                                                                  367.2590 [M+H-2H2O]+     400
+
+                                                                                                                               7
+
+     200
+
+                                                                                                                          4
+
+
+                           1.5                    2.0                    2.5                    3.0                    3.5
+                                                                 Retention time                                              A   P   M   G
+
+             5                              1                              6                             4
+ c        720.4519 [M+H]+                 734.4694 [M+H]+                  704.4583 [M+H]+                  718.4733 [M+H]+
+
+
+           7                              7                             7                             7
+
+
+      4                              4         4                                                4          4
+                3                                                 3          3
+                      1                             1                             1                             1
+                                                    1
+     A   P   M   G           A   P  M  G           A   P   M   G           A   P   M   G
+
+
+         O    OH                O    O                O    OH                 O    O
+     R1 =                           R1 =                     R 1 =                       R1 =
+          O      OH             O      OH             O      OH               O      OH
+
+
+                N                      N                        N                        N
+         HO                    HO                      HO                      HO
+     R2 =   O   O                R2 =  O   O             R 2 =   O   O              R2 =   O   O
+
+     R3 = OH                       R3 = OH                       R3 = H                     R3 = H
+
+Fig. 3 | SIL incorporation and structures for selected labeled ions detected in the S. erythraea metabolome. Label incorporation from feedstocks [1-13C]
+acetate (A), [1-13C]propionate (P), [methyl-13C]methionine (M) and [1-15N]glutamate (G) are shown. Ions depicted as circles correspond to adducts and
+fragments of erythrochelin (7). Ions depicted as diamonds correspond to adducts and fragments of different intermediate compounds in the erythromycin
+biosynthetic pathway. a, SIL incorporation and expected labeled positions in the structure of 7. b, SIL incorporation and expected labeled positions of the
+erythromycin biosynthetic precursors, erythronilide B (2) and MEB (3). c, SIL incorporation in erythromycin A (1), erythromycin B (4), erythromycin C (5)
+and erythromycin D (6).
+
+the predicted BGC labeling table (Supplementary Table 2). Parallel     These 100 features could be grouped into two major com-
+SIL culture, followed by MS analysis and data processing with the  pound classes based on their isotope labeling patterns (Fig. 4), both
+IsoAnalyst pipeline identified 246 MS features that were labeled in   of which could be confidently linked to their respective BGCs.
+two or more SIL conditions. These were further filtered to 100 MS  The first class possessed significant labeling by both [1-13C]propio-
+features based on chromatographic peak shape and signal intensity,   nate (1–2 positions) and [1-15N]glutamate (5–6 positions) (Fig. 4a).
+as discussed above.                                       The only BGC in Supplementary Table 2 containing two or
+
+300                                             Nature Chemical Biology | VOL 18 | March 2022 | 295–304 | www.nature.com/naturechemicalbiology
+
+
+[PDF physical page 7]
+NATurE CHEMIcAl BIoloGy                                              Articles
+
+ a                                                                          b
+       O               O                   O
+                                                          O
+                                                                                    OH  OH              O
+          N                       N             O        N                                                           N          H                                               H
+ O                    OH                                 NH2       N                HO                                                  NH
+    N                                   OH                   HN   O             HO     R
+     OH                 O                        H                                                HO          H                                            N          N                                                     N
+                     N
+           O       OH                    O                                           16 R = OH                    15 R = H                                                  O
+                 8                                            9                                       466.2955                     450.2999
+            561.3607 [M+H]+                                  601.3562 [M+H]+                              [M+H-H2O]+                  [M+H-H2O]+
+
+                         6                                                                      8                          8
+
+                                                                      5
+          4
+                                                       3
+                                                                                                     3                          3
+               1                                            1                                                   1                          1
+
+        A   P  M   G                        A   P   M   G                    A   P   M   G         A   P   M   G
+
+
+                        800
+
+
+
+                        700
+
+
+
+                        600
+
+
+
+                        500
+
+
+
+                        400
+
+
+
+                        300
+                                                                                   BGC 6
+
+                                                                                   BGC 30c
+                        200
+
+
+                                              1.5              2.0              2.5              3.0              3.5              4.0              4.5
+                                                                                     Retention time
+                               c     575.3752 [M+H]+                                d     500.3015 [M+H]+
+
+
+                                                                                              8
+                                                   5
+
+
+                                                        New compounds
+                                                                                                    3
+                                    2    2                                                                                                              1
+
+                              A   P  M   G                                   A   P   M   G
+
+
+Fig. 4 | SIL incorporation and structures for selected labeled ions detected in the Micromonospora sp. metabolome. Label incorporation from feedstocks
+[1-13C]acetate (A), [1-13C]propionate (P), [methyl-13C]methionine (M) and [1-15N]glutamate (G) are shown. a, SIL incorporation in ions corresponding
+to desferrioxamine compounds (represented as gray circles). Open yellow circles on structures represent ambiguous labeling positions, where [1-13C]
+propionate may be incorporated into either position, but not both, due to the symmetry of succinate which can be interchanged with succinyl-CoA.
+b, SIL incorporation in ions corresponding to lobosamide compounds (represented as gray diamonds). c, SIL incorporation detected for an MS feature
+corresponding to the [M+H]+ ion of an unknown desferrioxamine compound. d, SIL incorporation detected for an MS feature corresponding to the
+[M+H]+ ion of an unknown lobosamide compound.
+
+
+more [1-13C]propionate labels and six or more [1-15N]glutamate   consistently associated with iron adducts and related fragment
+labels is BGC 6. This hypothesis was supported by alignment with   ions, suggesting a family of related siderophores. BGC 6 was pre-
+the other two SIL precursors, with significant labeling with [1-13C]   dicted to produce a siderophore by antiSMASH, and had 100%
+acetate (2–4 positions) but no observed labeling with [methyl-13C]   match with the BGC responsible for producing desferrioxamines
+methionine  (Fig.  4a). This group of labeled MS features was  B (8) and E (9)43.
+
+Nature Chemical Biology | VOL 18 | March 2022 | 295–304 | www.nature.com/naturechemicalbiology                                                  301
+
+
+[PDF physical page 8]
+                                               NATurE CHEMIcAl BIoloGyArticles
+
+ a                                                                               b
+                                                                                    [M+H-H2O]+                                                                                                                                                                                          DMSO-d6                        450.2999                                                                                              COSY                                                                          8
+                                                                                                                                                                                            –2.50
+                                                                                           HMBC
+
+                                                                                           15
+                                                                            HO                                                                              3
+                                                                                      1
+
+                                                                          HO
+                                                             A  P  M  G                 OH             O
+  8.0  7.5  7.0  6.5  6.0  5.5  5.0  4.5  4.0  3.5  3.0  2.5  2.0  1.5  1.0  0.5  0                              OH           N
+                                    δ (ppm)
+                                                                             466.2955 [M+H-H2O]+                     HO
+                                                                                                                                                                                         DMSO-d6                         8
+                                                                                                                                                                                          –2.50
+
+                                                                                           16
+                                                                              3       1           c
+                                                                                               ROESY
+                                                             A  P  M  G                            26
+                                                                            HO
+  8.0  7.5  7.0  6.5  6.0  5.5  5.0  4.5  4.0  3.5  3.0  2.5  2.0  1.5  1.0  0.5  0                                                8      6                                                                                                                                           5
+                                    δ (ppm)                                                                          HO    10                       2
+                                                                                                                                                                                          DMSO-d6                          500.3015 [M+H]+                    12   OHOH   19      21      O                                                                                                                                    18  28  22   N
+                                                                                                                                                                                           –2.50                         7                                                   27 23    25                                                                                                                                                       29
+                                                                                        HO
+                                                                                            17               14        16
+                                                                              3
+                                                                                      1
+
+                                                             A  P  M  G
+  8.0  7.5  7.0  6.5  6.0  5.5  5.0  4.5  4.0  3.5  3.0  2.5  2.0  1.5  1.0  0.5  0
+                                    δ (ppm)
+ d       O   O
+                                        OH  OH              O                   OH  OH              O
+                          × 8
+       HO        SCoA
+                                                             NH                                      NH
+         O   O                                                                   OH
+                                   HO                                       HO
+                          × 3
+       HO         CoA
+
+                                                            Lobosamide C (15)                                             Lobosamide A (16)
+           NH2  O
+                          × 1
+                  SACP
+
+
+
+     HO                                   OH    OH                                 OH  OH              O
+                        H
+  HO          OH             O                                      O                                         NH
+                                              OH                                                                                     OH
+          OH      H   N               HO                                                                 N             HO
+
+               HO                                                                                O
+                                                            HO
+            Lobosamide D (17)
+
+Fig. 5 | Comparison of lobosamide structures and biosynthesis. a, Comparison of the 1H NMR spectra and SIL incorporation in of lobosamides C (15), A
+(16) and D (17). b, Key correlation spectroscopy (COSY) and heteronuclear multiple bond correlation (HMBC) signals for 17. c, Key rotating frame nuclear
+Overhauser enhancement spectroscopy (ROESY) correlations for 17. d, Biosynthetic scheme for post-PKS tailoring reactions transforming 15 to 17. DMSO,
+dimethylsulfoxide.
+
+
+   Enrichment of SIL in compound 8 was detected for all six nitro-   Desferrioxamine E (9) and D2 (10) are cyclized derivatives of the
+gens derived from lysine in the [1-15N]glutamate condition, four of   ferrioxamine scaffold44, and microferrioxamines A (11), B (12) and
+the six expected subunits in the [1-13C]acetate condition and one  C (13) are linear aliphatic siderophores containing acyl chains of
+of the two expected subunits in the [1-13C]propionate condition   varying lengths45 (Extended Data Fig. 7).
+(Fig. 4a). Labeling by [methyl-13C]methionine was not detected in      In addition, we observed one molecule with a diagnostic ferriox-
+8 or any related compounds. Six known desferrioxamine deriva-   amine labeling pattern and iron adduct that had no match in exist-
+tives (8–13) were identified based on MS spectra, database match-   ing natural products databases (Fig. 4c). This unidentified molecule
+ing and the manual interpretation of SIL patterns. The identities   possessed an [M+H]+ adduct at m/z 575.3752 corresponding to the
+of all compounds were confirmed by coinjection with authentic   molecular formula C26H50N6O8 suggesting an analog of 8 containing
+standards (Extended Data Fig. 6 and Supplementary Figs. 14–19).   an additional CH2 subunit. This putative desferrioxamine derivative
+
+302                                             Nature Chemical Biology | VOL 18 | March 2022 | 295–304 | www.nature.com/naturechemicalbiology
+
+
+[PDF physical page 9]
+NATurE CHEMIcAl BIoloGy                                              Articles
+
+(14) showed related labeling to 8, with a nearly identical labeling    (Fig. 5d) is analogous to the production of dracolactams A and B
+pattern in the [1-15N]glutamate condition, but decreased label-   from a common macrolactam precursor46 and the production of
+ing by [1-13C]acetate, and increased labeling by [1-13C]propionate   mirilactams C–E from the macrocyclic precursor mirilactam A47.
+(Extended Data Fig. 8a). Detailed examination of the fragmentation  The discovery of lobosamide D and determination of the labeling
+data revealed that the terminal acetate subunit in 8 was replaced   patterns for lobosamides A and C both lend additional evidence
+by a propionate unit in 14 (Extended Data Fig. 8). Together, these   to support the connection between this compound class and BGC
+results show that this strain can produce a large suite of desfer-   30a. Importantly, therefore, IsoAnalyst is able to identify bioge-
+rioxamine derivatives, and that these ions can be easily grouped   netic relationships between molecules even for those that appear
+together by relating SIL patterns detected using the IsoAnalyst plat-  more distantly related based on spectral features, highlighting a key
+form. In total, we identified seven compounds produced by the des-   advantage of this new platform for identifying novel chemical vari-
+ferrioxamine BGC, including the unusual desferrioxamine analog   ants within the complex molecular phenotypes of BGCs.
+microferrioxamine E (14).
+                                                         Discussion
+Discovery of lobosamide D using IsoAnalyst. The second major   Connecting metabolites to their cognate BGCs has long been a chal-
+class of labeled molecules in this dataset had closely related label-   lenge for the field of natural products science. It is difficult or impos-
+ing patterns in the [1-13C]acetate, [1-13C]propionate and [1-15N]    sible to predict the precise structure(s) produced by most BGCs,
+glutamate conditions (Fig. 4b). Comparison of these labeling pat-   which is further complicated by the fact that most BGCs produce a
+terns (8×  [1-13C]acetate, 3× [1-13C]propionate, 1× [1-15N]glu-   series of related molecules. Similarly, it can be challenging to deter-
+tamate) to the annotated BGC list identified two BGCs with an   mine which peaks in untargeted MS metabolomics experiments
+appropriate combination of biosynthetic modules: clusters 30a and   derive from specialized metabolism, and which of these peaks are
+30c (Supplementary Table 2). Both BGCs include a single [1-15N]   biosynthetically related. Using generalist precursors that are incor-
+glutamate incorporation, with BGCs 30a and 30c incorporating   porated into a wide range of BGC substrates, the IsoAnalyst plat-
+five and three [1-13C]propionate units, respectively. Based on these   form makes it straightforward to highlight major components in
+data alone, the molecules could derive from either BGC 30a or 30c.   the chromatogram that derive from specialized metabolism. For
+However, strong and consistent incorporation of a minimum of   example, in the analysis of the Micromonospora sp. we observed
+eight acetate units in the molecules of this class thus prioritizes BGC   1,444 MS peaks with intensities greater than 1 × 104, of which just
+30c as the cluster responsible for the production of this compound   246 had detectable labeling in at least two conditions. Among these,
+family. This prediction is further strengthened by the observation   51 had labeling patterns consistent with the lobosamide BGC.
+that the predicted direct incorporation for BGC 30c (8× [1-13C]   Relationships between SIL patterns therefore allow users to group
+acetate, 3× [1-13C]propionate, 1× [1-15N]glutamate) exactly matches   metabolites into compound families and to identify adducts and
+the observed SIL patterns in the compound family (Supplementary   in-source fragments from the same molecule, further simplifying
+Table 2 and Fig. 4b).                                               the description of the specialized metabolome.
+  BGC 30c has previously been associated with the production      IsoAnalyst prioritizes discovery on the basis of biosynthetic relat-
+of the lobosamide family of natural products42. All the major com-   edness rather than MS/MS profiling or bioactivities, both of which
+pounds in this labeled group displayed diagnostic m/z features   can provide complementary information but may also vary substan-
+and distinctive [M+H-H2O]+ in-source fragments consistent with    tially across families of biosynthetically related compounds48,49. For
+the lobosamide family. The presence of lobosamide C (15) was   example, the lobosamide family shares distinctive in-source dehy-
+confirmed by high-performance liquid chromatography (HPLC)   dration adducts, but these signals are not effective for structural
+purification and NMR comparison (Supplementary Figs. 20–22),   characterization by MS/MS due to limited additional fragmenta-
+whereas lobosamide A (16) was identified in the extracts by   tion. Lobosamide D was quickly and definitively associated with
+UPLC–MS comparison with an authentic standard (Supplementary   other lobosamide compounds on the basis of SIL incorporation,
+Fig. 23). Known lobosamide structures only accounted for 6 of the   whereas chemical characterization data such as MS fragmentation
+53 MS features with related SIL patterns. Most of the remaining fea-   and NMR provided only ambiguous evidence for the association of
+tures were produced in low titer and had mass differences related    this family of compounds. This illustrates how IsoAnalyst is a pow-
+to the degree of unsaturation and varying oxidations of the known   erful approach for characterizing complex chemical phenotypes and
+lobosamide scaffold, which suggested a suite of lobosamide analogs.   discovering novel chemical variants produced by both known and
+  We isolated a representative molecule from this class with an  unknown BGCs.
+[M+H]+ MS feature at 500.3012 and a calculated molecular for-    A number of challenges remain that preclude the universal
+mula of C29H41NO6. Surprisingly, the 1H NMR spectrum bore low   detection of all specialized metabolites in a given culture. The abil-
+similarity to the 1H spectra for the known lobosamides (Fig. 5a),    ity to detect and map compounds to BGCs is governed by both
+although the new compound did share the distinctive in-source  BGC annotation and precursor selection. The BGC substrate analy-
+dehydration adducts (Extended Data Fig. 9). No additional struc-   ses of the organisms used in this study indicate that non-ribosomal
+turally informative MS/MS fragmentation was observed for any of   peptide-synthetase (NRPS) and polyketide-synthase (PKS) BGCs
+the lobosamides, limiting the utility of MS/MS spectral matching   are most well suited to discovery using this approach. There are
+for compound family assignment. Using a combination of 1D and   several reasons for this bias. BGC identification and annotation
+2D NMR experiments (Supplementary Figs. 25–35), we determined   tends to be most reliable for these two well-studied biosynthetic
+the planar structure of this new metabolite (Methods, Fig. 5b,c) as a    classes. Future improvements in BGC informatics, particularly in
+5–5–6 fused ring system variant of 16 which we named lobosamide   the area of substrate prediction for less well-studied BGC classes,
+D (17). The full absolute configuration of this new molecule was    will increase the coverage of the IsoAnalyst method. Likewise, SIL
+determined using a combination of extensive one-dimensional   precursor selection has an important impact on BGC class cover-
+selective and two-dimensional rotating from nuclear Overhauser   age. For example, terpenes will only have robust SIL incorporation
+spectroscopy experiments, coupled with configurational assign-   with [1-13C]acetate if the organism possesses the mevalonate path-
+ments based on sequence data for selected keto-reductase domains42   way. Inclusion of 13C-labeled isopentenyl pyrophosphate (IPP) as an
+(Supplementary Figs. 31–35).                                        additional SIL precursor would substantially improve coverage of
+  The proposed biosynthesis of this new member of the lobosamide  compounds in this class. Similarly, chorismate-derived precursors
+family  via epoxidation followed by intramolecular  cyclization   are also common, and 13C-labeled chorismate or shikimate could
+
+Nature Chemical Biology | VOL 18 | March 2022 | 295–304 | www.nature.com/naturechemicalbiology                                              303
+
+
+[PDF physical page 10]
+                                               NATurE CHEMIcAl BIoloGyArticles
+
+help to prioritize specific BGC products containing these substrates.    23. Soldatou, S., Eldjarn, G. H., Huerta-Uribe, A., Rogers, S. & Duncan, K. R.
+Additional SIL precursors could be included to provide labeling for       Linking biosynthetic and chemical space to accelerate microbial secondary                                                                                      metabolite discovery. FEMS Microbiol. Lett. 366, fnz142 (2019).
+specific biosynthetic classes. Future advancements in BGC annota-    24. Ernst, M. et al. MolNetEnhancer: enhanced molecular networks by integrating
+tion and SIL precursor availability offer the potential for large-scale      metabolome mining and annotation tools. Metabolites 9, 144 (2019).
+assessment of the biosynthetic capacity of bacterial strain libraries.    25. Mohimani, H. et al. Dereplication of peptidic natural products through
+In summary, IsoAnalyst provides a novel and flexible approach to       database search of mass spectra. Nat. Chem. Biol. 13, 30–37 (2017).
+quickly define the overall specialized metabolome of a given bacte-    26. Duncan, K. R. et al. Molecular networking and pattern-based genome mining                                                                               improves discovery of biosynthetic gene clusters and their products from
+rial culture on the basis of biosynthetic relatedness, meeting a grow-        Salinispora species. Chem. Biol. 22, 460–471 (2015).
+ing need prompted by large-scale genome mining.                         27. Mohimani, H. et al. NRPquest: coupling mass spectrometry and genome
+                                                                           mining for nonribosomal peptide discovery. J. Nat. Prod. 77, 1902–1909
+Online content                                                                     (2014).
+Any methods,  additional  references, Nature Research  report-    28. Behsaz, B. et al. Integrating genomics and metabolomics for scalable                                                                               non-ribosomal peptide discovery. Nat. Commun. 12, 3225 (2021).
+ing summaries, source data, extended data, supplementary infor-    29. Rittenberg, D. & Bloch, K. The utilization of acetic acid for the synthesis of
+mation, acknowledgements, peer review information; details of         fatty acids. J. Biol. Chem. 160, 417–424 (1945).
+author contributions and competing interests; and statements of    30. Bloch, K. & Rittenberg, D. On the utilization of acetic acid for cholesterol
+data and code availability are available at https://doi.org/10.1038/       formation. J. Biol. Chem. 145, 625–636 (1942).
+s41589-021-00949-6.                                                              31. Kaneda, T., Butte, J. C., Taubman, S. B. & Corcoran, J. W. Actinomycete                                                                                                    antibiotics. III. The biogenesis of erythronolide, the C-21 branched chain
+                                                                                        lactone in erythromycin. J. Biol. Chem. 237, 322–328 (1962).
+Received: 22 April 2021; Accepted: 29 October 2021;                      32. Chokkathukalam, A., Kim, D.-H., Barrett, M. P., Breitling, R. & Creek, D. J.
+Published online: 30 December 2021                                               Stable isotope-labeling studies in metabolomics: new insights into structure
+                                                                         and dynamics of metabolic networks. Bioanalysis 6, 511–524 (2014).
+References                                                                        33. Huang, X. et al. X13CMS: global tracking of isotopic labels in untargeted
+ 1.  Kalkreuter, E., Pan, G., Cepeda, A. J. & Shen, B. Targeting bacterial genomes        metabolomics. Anal. Chem. 86, 1632–1639 (2014).
+    for natural product discovery. Trends Pharmacol. Sci. 41, 13–26 (2020).           34. Chokkathukalam, A. et al. MzMatch-ISO: an R tool for the annotation and
+ 2. Medema, M. H. & Fischbach, M. A. Computational approaches to natural             relative quantification of isotope-labelled mass spectrometry data.
+    product discovery. Nat. Chem. Biol. 11, 639–648 (2015).                              Bioinformatics 29, 281–283 (2013).
+ 3.  Skinnider, M. A. et al. Comprehensive prediction of secondary metabolite        35. Tang, J. K. H., You, L., Blankenship, R. E. & Tang, Y. J. Recent advances in
+    structure and biological activity from microbial genome sequences. Nat.           mapping environmental microbial metabolisms through 13C isotopic
+   Commun. 11, 6058 (2020).                                                               fingerprints. J. R. Soc. Interface 9, 2767–2780 (2012).
+ 4.  Cimermancic, P. et al. Insights into secondary metabolism from a global          36. Khosla, C., Tang, Y., Chen, A. Y., Schnarr, N. A. & Cane, D. E. Structure and
+    analysis of prokaryotic biosynthetic gene clusters. Cell 158, 412–421 (2014).        mechanism of the 6-deoxyerythronolide B synthase. Annu. Rev. Biochem. 76,
+5.  Helfrich, E. J. N. et al. Automated structure prediction of trans-acyltransferase      195–221 (2007).
+    polyketide synthase products. Nat. Chem. Biol. 15, 813–821 (2019).               37. Zhang, H., Wang, Y., Wu, J., Skalina, K. & Pfeifer, B. A. Complete
+6.  Del Carratore, F. et al. Computational identification of co-evolving multi-gene        biosynthesis of erythromycin A and designed analogs using E. coli as a
+   modules in microbial biosynthetic gene clusters. Commun. Biol. 2, 83 (2019).        heterologous host. Chem. Biol. 17, 1232–1240 (2010).
+7.  Blin, K. et al. AntiSMASH 5.0: updates to the secondary metabolite genome      38. Chevrette, M. G., Aicheler, F., Kohlbacher, O., Currie, C. R. & Medema, M.
+   mining pipeline. Nucleic Acids Res. 47, W81–W87 (2019).                       H. SANDPUMA: ensemble predictions of nonribosomal peptide chemistry
+8.  Séelem-Mojica, N., Aguilar, C., Gutiéerrez-García, K., Martínez-Guerrero, C.         reveal biosynthetic diversity across Actinobacteria. Bioinformatics 33,
+    E. & Barona-Gómez, F. EvoMining reveals the origin and fate of natural           3202–3210 (2017).
+    product biosynthetic enzymes. Microb. Genom. 5, e000260 (2019).                39. Röttig, M. et al. NRPSpredictor2 – a web server for predicting NRPS
+9.  Kautsar, S. A. et al. MIBiG 2.0: a repository for biosynthetic gene clusters of         adenylation domain specificity. Nucleic Acids Res. 39, W362–W367 (2011).
+   known function. Nucleic Acids Res. 48, D454–D458 (2020).                       40. Tietz, J. I. et al. A new genome-mining tool redefines the lasso peptide
+10. Palaniappan, K. et al. IMG-ABC v.5.0: an update to the IMG/Atlas of                biosynthetic landscape. Nat. Chem. Biol. 13, 470–478 (2017).
+    Biosynthetic Gene Clusters Knowledgebase. Nucleic Acids Res. 48,                 41. Robbel, L., Knappe, T. A., Linne, U., Xie, X. & Marahiel, M. A. Erythrochelin
+   D422–D430 (2020).                                                    – a hydroxamate-type siderophore predicted from the genome of
+11. Van Santen, J. A. et al. The Natural Products Atlas: an open access knowledge        Saccharopolyspora   erythraea. FEBS J. 277, 663–676 (2009).
+    base for microbial natural products discovery. ACS Cent. Sci. 5, 1824–1833       42. Schulze, C. J. et al. Genome-directed lead discovery: biosynthesis, structure
+    (2019).                                                                                  elucidation, and biological evaluation of two families of polyene
+12. Rutz, A. et al. The LOTUS Initiative for Open Natural Products Research:           macrolactams against Trypanosoma brucei. ACS Chem. Biol. 10, 2373–2381
+   Knowledge Management through Wikidata. Preprint at bioRxiv https://doi.           (2015).
+    org/10.1101/2021.02.28.433265 (2021).                                             43. Barona-Gómez, F., Wong, U., Giannakopulos, A. E., Derrick, P. J. & Challis,
+13. Navarro-Muñoz, J. C. et al. A computational framework to explore large-scale       G. L. Identification of a cluster of genes that directs desferrioxamine
+    biosynthetic diversity. Nat. Chem. Biol. 16, 60–68 (2020).                             biosynthesis in Streptomyces coelicolor M145. J. Am. Chem. Soc. 126,
+14. Kautsar, S. A., Blin, K., Shaw, S., Weber, T. & Medema, M. H. BiG-FAM: the        16282–16283 (2004).
+    biosynthetic gene cluster families database. Nucleic Acids Res. 49, D490–D497     44. Lee, H.-S. et al. Cyclic peptides of the nocardamine class from a
+    (2021).                                                                        marine-derived bacterium of the genus Streptomyces. J. Nat. Prod. 68,
+15. Van Der Hooft, J. J. J. et al. Linking genomics and metabolomics to chart           623–625 (2005).
+    specialized metabolic diversity. Chem. Soc. Rev. 49, 3297–3314 (2020).            45. Schulze, C. J. et al. ‘Function-first’ lead discovery: mode of action profiling of
+16. Kloosterman, A. M. et al. Expansion of RiPP biosynthetic space through             natural product libraries using image-based screening. Chem. Biol. 20,
+    integration of pan-genomics and machine learning uncovers a novel class of        285–295 (2013).
+     lantibiotics. PLoS Biol. 18, e3001026 (2020).                                       46. Hoshino, S. et al. Mycolic acid containing bacterium stimulates tandem
+17. Jensen, P. R. Natural products and the gene cluster revolution. Trends                 cyclization of polyene macrolactam in a lake sediment derived rare
+    Microbiol. 24, 968–977 (2016).                                                     actinomycete. Org. Lett. 19, 4992–4995 (2017).
+18. Ziemert, N., Alanjary, M. & Weber, T. The evolution of genome mining in        47. Hoshino, S. et al. Mirilactams C-E, novel polycyclic macrolactams isolated
+    microbes – a review. Nat. Prod. Rep. 33, 988–1005 (2016).                       from combined-culture of Actinosynnema mirum NBRC 14064 and mycolic
+19. Zhang, M. M., Wang, Y., Ang, E. L. & Zhao, H. Engineering microbial hosts         acid-containing bacterium. Chem. Pharm. Bull. 66, 660–667 (2018).
+    for production of bacterial natural products. Nat. Prod. Rep. 33, 963–987         48. Mosey, R. A. & Floreancig, P. E. Isolation, biological activity, synthesis, and
+    (2016).                                                                        medicinal chemistry of the pederin/mycalamide family of natural products.
+20. Xu, F. et al. A genetics-free method for high-throughput discovery of cryptic         Nat. Prod. Rep. 29, 980–995 (2012).
+    microbial metabolites. Nat. Chem. Biol. 15, 161–168 (2019).                       49. Karas, J. A. et al. Structure–activity relationships of daptomycin lipopeptides.
+21. Zhang, M. M. et al. CRISPR–Cas9 strategy for activation of silent                               J. Med. Chem. 63, 13266–13290 (2020).
+    Streptomyces biosynthetic gene clusters. Nat. Chem. Biol. 13, 607–609 (2017).
+22. Kenshole, E., Herisse, M., Michael, M. & Pidot, S. J. Natural product              Publisher’s note Springer Nature remains neutral with regard to jurisdictional claims in
+    discovery through microbial genome mining. Curr. Opin. Chem. Biol. 60,         published maps and institutional affiliations.
+   47–54 (2021).                                          © The Author(s), under exclusive licence to Springer Nature America, Inc. 2021
+
+304                                             Nature Chemical Biology | VOL 18 | March 2022 | 295–304 | www.nature.com/naturechemicalbiology
+
+
+[PDF physical page 11]
+NATurE CHEMIcAl BIoloGy                                              Articles
+
+Methods                                                                      concentrations of each SIL: 100, 10, 1 and 0.1 mM [1-13C]acetate; 100, 10, 1 and
+General methods. Stable isotopically labeled compounds were purchased from       0.1 mM [1-13C]propionate; 16.5, 10, 1 and 0.1 mM [methyl-13C]methionine; and
+Cambridge Isotope Laboratories, Inc. The corresponding unlabeled compounds        20, 10 and 2 mM [1-15N]glutamate. In all conditions, the total concentration of
+were purchased from ThermoFisher Scientific. All solvents used for UPLC and        glutamate is 20 mM, because glutamate is the only nitrogen source in the minimal
+HPLC were Optima grade, and water used for chromatography was purified by a      media. For the [1-15N]glutamate labeling condition, we tested three ratios of [1-
+Milli-Q water purification system. High-resolution MS for pure compounds and       15N]glutamate and unlabeled glutamate, so that the total available nitrogen was
+metabolomics experiments were performed on a Waters Synapt G2Si qTOF system.    the same in every condition. Unlabeled controls were performed as four replicates
+NMR spectra were acquired on a Bruker AVANCE III 600 MHz spectrometer,         with matching concentrations of unlabeled acetate, propionate, methionine and
+with a 5 mm TCI cryoprobe, and referenced to residual solvent proton and carbon     glutamate, respectively. Erythromycin A (1) was used as a test case to determine
+signals. UV spectra were obtained on an Agilent Cary 300 spectrophotometer.         the optimal concentrations of each SIL precursor (Supplementary Fig. 1).
+Optical rotations were measured on a Perkin Elmer 341 polarimeter.                  To determine the optimal time point for SIL addition, we performed an
+                                                                            experiment using S. erythraea as described above, in which we added the SIL
+Bacterial strains. Saccharopolyspora erythraea ATCC 11635 (NRRL 2338) was         precursors 30 mM [1-13C]acetate, 30 mM [1-13C]propionate, 5 mM [methyl-13C]
+purchased from the American Type Culture Collection. Micromonospora sp.          methionine and 10 mM [1-15N]glutamate, and unlabeled control precursors
+RL09-050-HVF-A was isolated and sequenced as described in Schulze et al.42. In        at identical concentrations, to different bacterial cultures at 0, 24, 48 and 96 h
+short, Micromonospora sp. RL09-050-HVF-A was grown in GNZ medium and         following inoculation. All cultures were extracted and analyzed after 5 days.
+pellets were collected from a 50 ml culture by centrifugation. DNA was extracted      Erythromycin A (1) was used as a test case to determine the optimal timing for the
+using the Zymo Research ZR Fungal/Bacterial DNA MiniPrep Kit and the Qiagen     addition of each SIL precursor (Supplementary Fig. 2). It is important to note that
+Genomic Tip 100/G DNA Extraction Kit. DNA was then sequenced at the Institute      all experiments in this study used the same minimal medium. For experiments
+of Genome Science sequencing facility (IGS, University of Maryland, Baltimore,       using different organisms or base media, precursor concentration and timing of
+USA) using a Pacific Bioscience Sequencing machine and a 10 kb insert library.        addition should be optimized as described above.
+The genome was assembled using the PacBio Hierarchical Genome Assembly
+Process (HGAP v.07_2014). The Micromonospora sp. RL09-050-HVF-A genome    MS data acquisition. Following fermentation, biological samples were diluted
+was uploaded to NCBI under the accession number JAGKQP000000000 and the      with an equal volume of methanol and the supernatants were subjected to
+BioProject ID PRJNA718589.                                                  chromatographic separation and MS analysis. Chromatography was performed on
+                                                                               a Waters I-Class Acquity UPLC system (Acquity HSS T3 1.8 µm, 2.1 × 100 mm)
+Parallel well plate fermentation and SIL incorporation. A minimal growth          using a linear gradient (solvent A: H2O + 0.01% formic acid; solvent B: acetonitrile
+medium was used for all SIL fermentation experiments (10 g starch, 3.4 g sodium    + 0.01% formic acid) of 5–98% B over 5.8 min, a hold at 98% B for 0.3 min
+glutamate, 0.4 g KH2PO4, 1.2 g K2HPO4, 1.0 g MgSO4·7H2O, 2.0 g NaCl, 1.0 g           followed by a 1.8-min re-equilibration at 5% B. All mass spectra were acquired
+CaCO3, 0.01 g FeSO4·7H2O, 1.5 mg CuSO4·5H2O, 3.0 mg ZnSO4·7H2O, 1.5 mg          using a Waters Synapt G2Si qTOF running MassLynx v.4.1 SCN941. MS data were
+CoSO4·7H2O, 1.5 mg MnSO4·H2O and 1.0 mg NaMoO4·2H2O per liter of water).       acquired in data-independent acquisition mode. The MS detector range was set to
+This medium was used for all SIL precursor conditions, except for the [1-15N]         50–1500 m/z in positive mode, with a capillary voltage of 3.5 kV, and a desolvation
+glutamate and the corresponding unlabeled glutamate control. For these conditions    temperature of 200 °C. IsoAnalyst currently only analyzes MS1 spectra. MS2 spectra
+the same minimal medium was prepared with 50% of the standard amount of       may be acquired simultaneously in a data-independent acquisition experiment
+unlabeled sodium glutamate (1.7 g l−1 instead of 3.4 g l−1), and the remaining           or a data-dependent acquisition experiment to assist in further interpretation
+50% was replaced with either [1-15N]glutamate or unlabeled glutamate by sterile        of the labeling patterns, however IsoAnalyst does not process MS2 spectra for
+filtration at the time of inoculation. The SIL feedstock compounds [99% 1-13C]        SIL detection. IsoAnalyst calculates isotopologue ratios using a scan-by-scan
+acetate, [99% 1-13C]propionate, [99% methyl-13C]methionine and [98% 1-15N]        comparison of centroided isotopologue peaks, and therefore requires a relatively
+glutamate, and an unlabeled version of each compound were prepared as stock        high scan rate across the chromatographic peak shape for reliable results. We
+solutions in Milli-Q water and sterilized by filtration (0.2 µm filter). Bacterial         used a 0.2-s scan rate with alternating MS1 and MS2 scans, resulting in an overall
+inoculum was prepared by first streaking a frozen stock on a GNZ agar plate (10 g    MS1 scan rate of 0.4 s. We recommend the use of a similar MS1 scan rate for data
+glucose, 20 g starch, 5 g N-Z-amine, 5 g yeast extract, 1 g CaCO3 and 14 g agar         processed in IsoAnalyst to ensure adequate MS1 coverage across chromatographic
+per liter of water) for Micromonospora sp. and ISP agar plate (3 g yeast extract,        peaks for each analyte. In particular, it is important that the number of
+5 g acid hydrolyzed casein and 14 g of agar per liter of water) for S. erythraea.          data-dependent acquisition scans per MS1 scan be kept low (suggested maximum
+Single colonies were selected to inoculate a 7-ml liquid culture of either GNZ or          is three) to prevent large delays between MS1 scans that can negatively impact data
+ISP media. Once turbid growth was observed in rich media, 50 µl of this culture       coverage for small peaks in the chromatogram.
+was used to inoculate a 7-ml culture of the same minimal media to be used in the
+SIL experiment. After 24 h of growth, this culture was used for the inoculation        Standard peak processing to generate input files for IsoAnalyst. The two
+of the microtiter plates. The same culture was used as inoculum for all replicate        types of MS data files that are required as input for IsoAnalyst are centroided
+wells of every feedstock condition in a given experiment. The 24-well microtiter       scan-by-scan MS peak lists for all samples and deisotoped m/z and retention time
+plates and sandwich covers used for microscale bacterial cultures were purchased      aligned feature lists for the unlabeled control samples only (Extended Data Fig.
+from Enzyscreen B.V. and the protocol for microtiter well plate fermentations was      2a). IsoAnalyst accepts .mzML files for centroided peak lists and .csv files for
+adapted from Duetz et al.50.                                                       deisotoped feature lists. The file importer is configured to accept feature lists from
+   The 24-well microtiter plates were cleaned and sterilized according to Duetz       the popular open-source MS processing platform MZmine 2 by default. Feature
+et al.50, and 2 ml of minimal media was added to each well. The first and last               lists from other processing software must be reformatted to match this column
+columns in each 24-well plate were left with sterile media and the inner 16 wells        layout. Scan-by-scan mzML files can be generated by converting original raw mass
+were inoculated with 80 µl of bacterial inoculum. Following inoculation, either        spectrometer files to .mzML using the open-source tool MSConvert. Details about
+an SIL compound or the corresponding unlabeled compound was added to each      both file formats and example files are available in the README.md file in the
+well by sterile filtration. Four replicate wells were prepared and inoculated for        GitHub repository. The first step of the IsoAnalyst workflow aligns the unlabeled
+each condition, including unlabeled controls. Unlabeled control cultures were         control sample feature lists by mass and retention time to generate a ground truth
+included for each feedstock condition to account for metabolic changes that may         list of all features detected across the unlabeled conditions. Alternatively, users may
+occur as a result of adding the precursor compound. The SIL feedstock compounds    perform feature alignment by other methods and submit a ground truth feature list
+were tested at various concentrations as indicated in the following sections. Stock      in the second step of IsoAnalyst, with the centroided .mzML files for all samples
+solution concentrations were adjusted according to the final desired concentration    (Extended Data Fig. 2a).
+of each SIL or unlabeled precursor in the culture so that a minimal volume of           The aligned feature lists are used to determine the monoisotopic mass (M0)
+20–100 µl of stock solution was added to each well. The replicate cultures were       and retention time range for every feature in the downstream processing steps. It is
+fermented and analyzed separately and therefore account for technical variation in     important, therefore, that settings used for feature detection include a deisotoping
+both the fermentation experiment as well as the analytical variation in the MS data.    step to ensure that all features included are identified only by the M0 mass to
+    Microtiter plates containing SIL supplemented bacterial cultures were shaken at    prevent redundancy. More information about file input requirements can be found
+200 r.p.m. and maintained at 23.0 °C for 5 days. On the fifth day the cultures were     on GitHub (www.github.com/liningtonlab/isoanalyst).
+extracted by adding 2 ml of Optima methanol to each well. The contents of each
+well were then transferred to Eppendorf tubes, sonicated for 5 min, and centrifuged    Interrogation of SIL experimental data for complete isotopologue information.
+for 1 min at 16,000g. Methanol/water extracts were injected directly onto the          Because isotope distribution patterns vary significantly between analytes, we found
+UPLC–ESI-qTOF MS system, or diluted to maintain the most intense signals in the    that existing MS analysis software could not correctly identify the M0 peak of
+chromatogram in an optimal range for both sensitivity and mass accuracy.             extensively labeled features in the SIL conditions. Instead, we used the M0 of each
+                                                   MS feature from the ground truth list as an anchor point to interrogate the labeled
+Optimization of concentration and timing of SIL addition. To determine       MS data for relevant isotopologue distribution patterns. This was accomplished
+the optimal concentration for each of our SIL precursors, we performed an            using a custom data processing script that interrogated the scan-by-scan
+experiment using S. erythraea as described above with replicates of the following      centroided MS data from each experimental condition for the presence of each
+
+
+Nature Chemical Biology | www.nature.com/naturechemicalbiology
+
+
+[PDF physical page 12]
+                                               NATurE CHEMIcAl BIoloGyArticles
+
+isotopologue peak (M0, M1, M2 and so on) for every feature in the ground truth       are overall very low in these measurements, relatively small differences can still
+ list (Extended Data Fig. 2b). Because the m/z value for the M0 of each feature is       be statistically detected, such as in the M4:M3 and M6:M5 ratios (Supplementary
+provided in the ground truth list, this approach can identify all isotopologues that     Table 4). Therefore, even in situations in which a feature is only observed in three
+are present in the labeled dataset, regardless of whether the M0 for that feature is        replicates, the analysis has power to support the determination of maximum
+present in the SIL sample data as it scans for computed m/z values. Isotopologue       labeled isotopologue values.
+data are interrogated this way for both unlabeled and labeled control samples.             IsoAnalyst evaluates every MS feature in the ground truth list in each labeling
+    For identifying isotopologues in the unlabeled datasets, and in the SIL              condition to determine both whether the feature is isotopically enriched in that
+conditions containing only 13C enrichment, the mass difference of 1.00335 m/z          condition, and how many positions can confidently be assigned as labeled. These
+ is used. The resolving power of the system used for this study is not sufficient to        data create a profile for each MS feature indicating the extent of labeling in each
+differentiate between the natural occurrence of 13C and the enrichment of 15N,          SIL precursor tested (Fig. 2e). The final step is to combine the labeling information
+therefore in the [1-15N]glutamate condition, the mass isotopomer peaks M1, M2        into a summary file with every feature from the ground truth list and the number
+and so on represent a mixture of isotopologues containing either 15N, 13C or some       of SIL precursors detected in each condition (Extended Data Fig. 2b).
+combination of both. Throughout this text we refer to all isotopically enriched
+peaks as ‘isotopologues,’ however we use the mass difference between 14N and          Biosynthetic gene cluster substrate annotation. The genomes of S. erythraea
+15N (0.99704 m/z) to compute the theoretical isotopologue peaks in the [1-15N]      NRRL 2338 and the Micromonospora sp. isolate were first mined for BGCs using
+glutamate condition. The contribution of naturally occurring 13C to the isotopologue   antiSMASH-DB (entry generated with antiSMASH 5.2) and antiSMASH web
+distribution in the SIL samples is accounted for in the next step, where isotopologue     server v.6.0.0, respectively, resulting in the discovery of 36 BGCs for S. erythraea
+ratios are compared directly between labeled and unlabeled conditions.              and 26 BGCs for the Micromonospora strain. Predicted BGCs were used to list
+                                                                                   the type and number of substrates needed to biosynthesize the product. In some
+Determination of SIL incorporation into MS features. To determine if an MS         cases, such as for NRPS, our analysis provided input for the predicted substrate
+feature is isotopically enriched by a given precursor, the IsoAnalyst algorithm           specificity of each BGC domain detected, which helped to list the various
+ first determines the intensity ratio for the M1 (first isotopologue) versus M0          expected amino acids used as a substrate. Likewise, the PKS domain architecture
+(monoisotopic mass) peaks for that feature in the unlabeled control condition         information was used to assess the number of expected acetate, malonate,
+by plotting the intensity values for M1 and M0 in each scan (Extended Data Fig.      methoxymalonate and methylmalonate substrate building blocks incorporated
+3). Because these isotopologue intensity values are compared for a single analyte       into the polyketide. In some cases, the output from this analysis was further
+in a sample, the plot of the M1 intensity to M0 intensity is linear with the slope         investigated by looking at the closest associated MIBiG entry for each BGC to
+representing the M1:M0 ratio of that compound. The linear regression statistics        find more information on the expected substrates and other chemical moieties
+were computed using the linear regression function in the scipy.stats package in         likely to be incorporated based on the similarity of enzyme-coding genes to those
+Python. Any given isotopologue ratio requires a minimum of five scans in order for   found in experimentally characterized pathways. Literature information and the
+the linear slope, or isotopologue ratio, to be calculated as a default but this can be      uniqueness of the enzymatic domains present were taken into consideration in
+modified to require more or fewer scans.                                            generating the substrate predictions for every BGC in each genome, shown in
+    Because of the natural abundance of 13C, the M1:M0 ratio of a compound in       Supplementary Tables 1 and 2. These tables include computationally predicted
+the unlabeled condition can be calculated based on the molecular formula and         substrates where possible, and expert knowledge on biochemical pathways where
+vice versa. Molecular formula prediction for untargeted MS metabolomics data       needed and possible based on known enzyme functions, for example in the case of
+to assist in compound identification is common; however, it is computationally        methylations by SAMs (Supplementary Note 2).
+time-consuming to predict molecular formulae for thousands of features, when
+many of them will not have detectable SIL precursor incorporation. We opted         Large-scale fermentation, extraction and fractionation of S. erythraea and
+to look directly at the natural M1:M0 ratio for each feature in the unlabeled          Micromonospora sp. S. erythraea and Micromonospora sp. were each grown in
+condition, rather than predicting the molecular formula for every analyte to             2.8-l Fernbach flasks containing 20.0 g of Amberlite XAD-16 adsorbent resin,
+determine the expected M1:M0 relationship. Because all SIL precursors used in        a stainless-steel spring, and 1 l of the minimal media as described above for use
+this method are singly labeled, incorporation of any SIL precursor will increase        in the SIL experiments. All large-scale fermentations were done without the
+the M1:M0 intensity ratio for that condition. The M1:M0 ratio of each feature in       supplementation of SIL precursors. Cultures were shaken at 200 r.p.m. for 6 days,
+the SIL data is then compared with the natural M1:M0 ratio for the same feature        at which time the cultures were filtered by vacuum filtration on Whatman glass
+in the unlabeled samples using a two-tailed Welch’s t test, with a P value cut-off of      microfiber filters. The cells and resin were collected and extracted with 250 ml of 1:1
+0.05 (Fig. 2c,d). Although we perform a two-tailed t test in this analysis, we only       methanol/dichloromethane. The organic extract was collected by vacuum filtration
+determine an isotopologue peak to be enriched in an SIL precursor if the M1:M0     and dried by rotary evaporation. The crude organic extract was initially separated
+ratio is significantly greater than the natural M1:M0 ratio. This is effectively a          into seven fractions by stepwise methanol/water elution (10, 20, 40, 60, 80 and
+one-tailed t test (P value cut-off of 0.025), where we use a combination of the         100 v/v) and an additional ethyl acetate wash step on a RediSep Rf C18 cartridge
+two-tailed P value (< 0.05) and the test statistic (< 0) to decide if a isotopologue       (Teledyne Isco) using a Teledyne Isco CombiFlash Rf flash chromatography system.
+ is enriched with an SIL precursor (Fig. 2d). If the initial t test is insignificant, the
+MS feature is determined to have no isotopic enrichment; if, however, the initial t      Isolation of compounds 2 and 3. Purification of compounds 2 and 3 was
+test is significant, the MS feature is annotated as isotopically enriched in that SIL      performed on a Waters Autopurification system with a SQ Detector 2 quadrupole
+precursor condition. When a feature is assigned as isotopically enriched with a     MS detector. Both compounds were purified from the 60% methanol extract
+given precursor, IsoAnalyst iteratively compares the intensity ratios for subsequent     fraction. For all HPLC purification of 2 and 3 solvent A was water with 0.02%
+isotopologue pairs (for example, M2:M1, M3:M2 and so on) until the isotopologue    formic acid and solvent B was acetonitrile with 0.02% formic acid. The 60%
+ratio is no longer statistically distinguishable from the natural M1:M0 ratio. At        methanol prefraction was separated by HPLC (Waters Atlantis T3 prep OBO
+this point, isotopic enrichment can no longer be confidently assigned beyond that    column 5 μm, 19 × 250 mm) using an elution gradient of 45–83% B over 21 min,
+position (Fig. 2d). This analysis therefore assigns a minimum degree of isotopic         at a flow rate of 20 ml min−1. Erythronolide B (2) was collected at 6.5 min by mass
+labeling for a given precursor. A brief discussion summarizing why this statistical      detection for the ion m/z 425.4 and 3 was collected at 9.5 min by mass detection
+approach was used over other available analytical platforms for analyzing SIL MS       for the ion m/z 529.4. MEB (3) was further purified using an isocratic separation
+metabolomics data can be found in Supplementary Note 1.                             of 42% B, with MEB eluting from the column at 11.8 min. In total, 2.5 mg of 2 and
+   We use four replicates for the unlabeled control and four replicates for each SIL    4.5 mg of 3 were isolated and analyzed by NMR for comparison with authentic
+tracer condition in this experiment. However, in the statistical analysis, we require     standards (Supplementary Figs. 3–12).
+a minimum of only three replicates for each isotopologue ratio in the Welch’s t test
+to accommodate situations in which a given feature is not detected in one of the       Isolation of compounds 15 and 17. Purification of 15 and 17 was carried out using
+replicates, or is not detected in at least five scans for the linear regression analysis.     an Agilent 1200 series HPLC system. Lobosamide C (15) (0.7 mg) was isolated
+Supplementary Table 4 shows the power analysis for the data table shown in Fig.      from the 100% methanol prefraction by HPLC (Phenomenex Kinetix XB-C18
+2d using the TestIndPower function from the statsmodels library in Python. This     5 μm, 250 mm × 4.6 mm) using an isocratic separation (45% methanol + 0.02%
+analysis is performed on data from just three replicates (owing to a technical          formic acid, 45% H2O + 0.02% formic acid, and 10% isopropyl alcohol with 0.02%
+problem with data acquisition for the fourth replicate for the labeled version of this    formic acid) with a flow rate of 1.2 ml min−1 for 20 min. Lobosamide C (15) was
+sample) and was selected to evaluate the method with minimal replicates in the        eluted from the column at 34.4 min and was collected by UV detection at 300 nm.
+experimental condition.                                                    Lobosamide D (17) (0.4 mg) was isolated from the 40% methanol prefraction by
+    All of the isotopologue ratios that have statistically significant P values in       HPLC (Phenomenex Kinetix XB-C18 5 μm, 250 mm × 4.6 mm) using an isocratic
+Supplementary Table 4 also have power values of 1.0 in this analysis. The only         separation (23% acetonitrile + 0.02% formic acid and 77% H2O + 0.02% formic
+isotopologue ratio that was not significant (M5:M4, P = 0.14) had a power value       acid) with a flow rate of 1.2 ml min−1 for 20 min. Lobosamide D (17) was eluted
+of 0.52 indicating that these groups cannot be differentiated by a sample size of       from the column at 15.0 min and was collected by UV detection at 280 nm.
+N = 3. Very small differences that are within the standard deviation of the mean
+values being compared are not detectable using this sample size, such as the         Lobosamide D (17) chemical characterization. [α]D = −166.7 (c 0.042, MeOH);
+M5:M4 ratio (Supplementary Table 4). However, because the standard deviations    UV (MeOH), λmax = 275 nm, logƐ = 3.45; HRMS (m/z): [M+H]+ calculated for
+
+
+                                                                         Nature Chemical Biology | www.nature.com/naturechemicalbiology
+
+
+[PDF physical page 13]
+NATurE CHEMIcAl BIoloGy                                              Articles
+C29H41NO6, 500.3007; found, 500.3012 (see Supplementary Table 3 for NMR shifts).  Acknowledgements
+SMILES: C[C@H]1C[C@@H](O)[C@]2([H])[C@@]3([H])[C@]4(C)/C=C(C)/     We thank E. Ye for assistance with NMR experiments, J. Shoults for fabricating 24-well
+C=C/C=C\[C@H](O)C[C@H](O)[C@@H](O)[C@H](O)[C@@H](C)/C=C/           plate holders, K. Kurita for discussion about label incorporation rates, and T. Clark for
+[C@@H]4C=C[C@]3([H])C(N12)=O.                                                providing desferrioxamine compound standards. Funding was provided by the Natural
+                                                                                         Sciences and Engineering Research Council of Canada (NSERC) Discovery program
+Reporting Summary. Further information on research design is available in the        (R.G.L.), the National Institutes of Health (AT008718 to R.G.L.) and the Netherlands
+Nature Research Reporting Summary linked to this article.                             eScience Center (NLeSC) Accelerating Scientific Discoveries Grant (ASDI.2017.030 to
+                                                                                                                   J.J.J.v.d.H. and M.H.M.).
+Data availability
+Whole genome sequence (WGS) data for Micromonospora sp. RL09-050-HVF-A     Author contributionswas uploaded to NCBI GenBank under the accession number JAGKQP000000000
+                                                                                   C.S.M. and R.G.L. designed the study. C.S.M. performed all microbial cultures, isotopicand the BioProject ID PRJNA718589. The version described in this paper is version
+                                                                                               labeling and mass spectrometric analyses. C.S.M. and J.A.v.S. wrote the code and codeJAGKQP010000000. WGS data for Saccharopolyspora erythraea are available in
+                                                                                  documentation. J.J.J.v.d.H. and M.H.M. identified the BGCs from the genome sequencesNCBI with the accession code NC_009142. The processed mass spectrometry data,
+                                                                           and determined the predicted labeling for each BGC. C.S.M. isolated and identified allantiSMASH output for Micromonospora sp. RL09-050-HVF-A, and IsoAnalyst
+                                                                            compounds. C.S.M. and R.G.L. wrote the manuscript with assistance from all authors.output files that support the findings of this study have been deposited in Zenodo
+                                                                                             All authors approved the final version of the manuscript.[10.5281/zenodo.4711483]. The MIBiG database used in this study is available at
+https://mibig.secondarymetabolites.org/. Raw mass spectrometry data have been
+deposited to MassIVE under the accession numbers MSV000087824 (S. erythraea)    Competing interests
+and MSV00008723 (Micromonospora sp.). The structure of lobosamide D has been         J.A.v.S. is a consultant for Unnatural Products Inc. M.H.M. is a member of
+deposited to the Natural Products Atlas (www.npatlas.org). The NMR data for            the Scientific Advisory Board of Hexagon Bio and co-founder of Design
+lobosamide D have been deposited to the Natural Products Magnetic Resonance         Pharmaceuticals.
+Database (NP-MRD; www.np-mrd.org) under accession number NP0044012. MS/
+MS spectra for lobosamides C and D have been deposited to the Global Natural
+Products Social molecular networking database (GNPS; https://gnps.ucsd.edu) under   Additional information
+accession numbers CCMSLIB00006685341 and CCMSLIB00006709936, respectively.    Extended data is available for this paper at https://doi.org/10.1038/s41589-021-00949-6.
+                                                                            Supplementary information The online version contains supplementary material
+Code availability                                                                       available at https://doi.org/10.1038/s41589-021-00949-6.
+The IsoAnalyst package is freely available via GitHub under an open access MIT                                                                            Correspondence and requests for materials should be addressedsoftware license (https://github.com/liningtonlab/isoanalyst).                                                                                            to Roger G. Linington.
+References                                                                  Peer review information Nature Chemical Biology thanks Camila Crnkovic, Hosein
+50. Duetz, W. A. et al. Methods for intense aeration, growth, storage, and          Mohimani and the other, anonymous, reviewer(s) for their contribution to the peer
+    replication of bacterial strains in microtiter plates. Appl. Environ. Microbiol.       review of this work.
+    66, 2641–2646 (2000).                                                          Reprints and permissions information is available at www.nature.com/reprints.
+
+
+
+
+
+Nature Chemical Biology | www.nature.com/naturechemicalbiology
+
+
+[PDF physical page 14]
+                                               NATurE CHEMIcAl BIoloGyArticles
+
+
+
+
+
+Extended Data Fig. 1 | TCA cycle labeling by [1-13C]acetate. Red filled circles represent 13C derived from [1-13C]acetate following its direct transformation
+to acetyl-CoA. When a 13C labeled succinyl-CoA is converted to succinate, the position of the 13C label becomes ambiguous due to the symmetry of
+succinate, represented by open red circles, indicating that either position has an equal chance of being labeled. Labeled oxaloacetate re-enters the TCA
+cycle resulting in up to two 13C incorporation events in citrate, isocitrate, and a-ketoglutarate. Groups of amino acids that are derived from TCA cycle
+biosynthetic precursors are indicated. The interconversion of succinate and succinyl-CoA leads to the indirect incorporation of 13C into the C1 position of
+methylmalonyl-CoA as indicated by an open red circle while the direct labeling of the C4 position of methylmalonyl-CoA is lost to decarboxylation during
+the PKS condensation of methylmalonyl-CoA units.
+
+
+
+
+
+                                                                         Nature Chemical Biology | www.nature.com/naturechemicalbiology
+
+
+[PDF physical page 15]
+NATurE CHEMIcAl BIoloGy                                              Articles
+
+
+
+
+
+Extended Data Fig. 2 | IsoAnalyst MS data processing workflow. (a) Required data pre-processing steps to generate input files for IsoAnalyst. Files
+(indicated as parallelograms) highlighted with a light gray box are required input files generated by third party tools that can perform the processes shown
+in dashed rectangles. We recommend MSconvert and MZmine for these processes however other programs may be used as long as the.csv input meets
+the requirements described in the software documentation available in the GitHub repository. The ground truth feature list of features aligned across
+samples is highlighted in a dark gray box and may be generated by the ‘Prep’ step of the IsoAnalyst program (highlighted in green) or by third party tools
+(for example, MZmine). (b) IsoAnalyst performs the following steps: all isotopologue peak information for every feature is first scraped from the.mzML
+data files in the ‘Scrape’ step (highlighted in blue). In the ‘Analyze’ step (highlighted in orange), the isotopologue ratios are compared for every feature in
+each SIL condition to determine the extent of labeling. Finally, a summary file is generated containing all of the SIL incorporation profiles for every feature
+that contains labeling in two or more conditions.
+
+
+
+
+
+Nature Chemical Biology | www.nature.com/naturechemicalbiology
+
+
+[PDF physical page 16]
+                                               NATurE CHEMIcAl BIoloGyArticles
+
+
+
+
+
+Extended Data Fig. 3 | MS Data centroiding and isotopologue ratio plotting. (a) Diagram of LC-MS data acquisition showing mass spectra collected at
+regular time intervals across a chromatographic peak. Each orange line represents a single mass spectrum, or scan, containing m/z vs. intensity values
+across the instrument’s range. Data are first centroided, or peak picked, to give a single data point corresponding to the intensity of every m/z value in a
+scan. (b) All centroided scan data for a given feature plotted together as single points. (c) All centroided scan data for the first two isotopologue peaks, M1
+and M0, plotted by matching scans. The slope of the linear trend line in (c) is the isotopologue ratio used in the analysis step of the IsoAnalyst workflow.
+
+
+
+
+
+                                                                         Nature Chemical Biology | www.nature.com/naturechemicalbiology
+
+
+[PDF physical page 17]
+NATurE CHEMIcAl BIoloGy                                              Articles
+
+
+
+
+
+Extended Data Fig. 4 | SIL incorporation for erythrochelin (7). (a) Substrates used in the biosynthesis of 7, and both the expected and observed labeling
+of 7. (b) Structures and mass spectra for the iron adduct (m/z 657.2064) and the protonated adduct (m/z 604.2950) of 7 in the [1-13C]acetate and [1-
+15N]glutamate conditions. [1-13C]Propionate and [methyl-13C] methionine conditions are not shown as 7 was not produced under the [1-13C] propionate
+condition and no SIL incorporation occurred under the [methyl-13C]methionine condition.
+
+
+
+
+
+Nature Chemical Biology | www.nature.com/naturechemicalbiology
+
+
+[PDF physical page 18]
+                                               NATurE CHEMIcAl BIoloGyArticles
+
+
+
+
+
+Extended Data Fig. 5 | SIL incorporation in fragments of 7. Mass spectra of fragments m/z 390.1990 (a), m/z 303.1666 (b), m/z 173.0932 (c) and m/z
+131.0827 (d) under [1-13C]acetate and [1-15N]glutamate conditions indicate that the detected SIL incorporation is within the expected labeling maximums
+for the biosynthetic subunits derived from ornithine and acetyl-CoA.
+
+
+
+
+
+                                                                         Nature Chemical Biology | www.nature.com/naturechemicalbiology
+
+
+[PDF physical page 19]
+NATurE CHEMIcAl BIoloGy                                              Articles
+
+
+
+
+
+Extended Data Fig. 6 | IsoAnalyst profiles for desferrioxamine analogues. (a) Diagram showing all labeled MS features detected in the metabolome of
+Micromonospora sp. Circles represent features with IsoAnalyst profiles resembling the desferrioxamines. Diamonds represent features with IsoAnalyst
+profiles resembling the lobosamides. (b) Structures and IsoAnalyst profiles for desferrioxamine compounds indicated by filled gray circles in (a).
+
+
+
+
+
+Nature Chemical Biology | www.nature.com/naturechemicalbiology
+
+
+[PDF physical page 20]
+                                               NATurE CHEMIcAl BIoloGyArticles
+
+
+
+
+
+Extended Data Fig. 7 | IsoAnalyst profiles of microferrioxamines and their fragments. Each box contained the expected and observed SIL incorporation
+for various ions associated with compounds 11, 12, and 13. Due to the substrate flexibility of the acyl transferase DesC39, the exact number of
+acetate-derived subunits cannot be accurately predicted.
+
+
+
+
+
+                                                                         Nature Chemical Biology | www.nature.com/naturechemicalbiology
+
+
+[PDF physical page 21]
+NATurE CHEMIcAl BIoloGy                                              Articles
+
+
+
+
+
+Extended Data Fig. 8 | IsoAnalyst profiles of desferrioxamines and their fragments. (a) Structures with observed fragmentation indicated and mass
+spectra for [M + H]+ ions of 8 and 14. Expected (Exp.) and observed (Obs.) labeling for 8 and 14 in each condition is indicated in boxes. (b) Mass spectra
+of observed b-ion and y-ion fragments for 8 and 14. Expected and observed labeling for fragments indicated in boxes.
+
+
+
+
+
+Nature Chemical Biology | www.nature.com/naturechemicalbiology
+
+
+[PDF physical page 22]
+                                               NATurE CHEMIcAl BIoloGyArticles
+
+
+
+
+
+Extended Data Fig. 9 | Lobosamide MS adducts. Adducts and in-source fragment ions corresponding to compounds 15, 16, and 17, which had SIL
+incorporation detected by IsoAnalyst.
+
+
+
+
+
+                                                                         Nature Chemical Biology | www.nature.com/naturechemicalbiology
+
+
+[PDF physical page 23]
+
+
+
+[PDF physical page 24]

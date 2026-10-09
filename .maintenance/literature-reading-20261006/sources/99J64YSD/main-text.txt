@@ -1,0 +1,565 @@
+
+[PDF physical page 1]
+    Natural Product
+    Reports
+
+     VIEWPOINT                                                         ViewView JournalArticle| ViewOnlineIssue
+
+                  Empowering natural product science with AI:
+                      leveraging multimodal data and knowledge        Licence.      Cite this: Nat. Prod. Rep., 2025, 42, 654AM.                    graphs†
+
+                                                               a                       b                        c9:03:25 Unported                             David Meijer,    Mehdi A. Beniddir,    Connor W. Coley,    Yassine M. Mejri,bd
+   3.0                          Meltem ¨Oztürk,   d Justin J. J. van der Hooft,   *a Marnix H. Medema   *a
+                               and Adam Skiredj   *b6/11/2026
+on                                                  Artiﬁcial intelligence (AI) is accelerating how we conduct science, from folding proteins with AlphaFold and           Attribution
+                                         summarizing literature ﬁndings with large language models, to annotating genomes and prioritizing newly
+                                          generated molecules for screening using specialized software. However, the application of AI to emulate
+
+                                  human cognition in natural product research and its subsequent impact has so far been limited. One       CommonsDownloaded
+                                          reason  for  this  limited impact  is  that  available  natural product data  is multimodal, unbalanced,
+
+                                             unstandardized, and  scattered  across many  data  repositories.  This makes  natural product  data2024.        Creative
+ a                                       challenging to use with existing deep learning architectures that consume fairly standardized, often non-
+                                                      relational, data. It also prevents models from learning overarching patterns in natural product science. InAugust     under                                                      this Viewpoint, we address this challenge and support ongoing initiatives aimed at democratizing natural16           Received 16th February 2024
+on                                       product data by collating our collective knowledge into a knowledge graph. By doing so, we believe
+          DOI: 10.1039/d4np00008k
+                                             there will be an opportunity to use such a knowledge graph to develop AI models that can truly mimic        licensed
+  is       rsc.li/npr                             natural product scientists' decision-making.Published
+       article
+                                                                        as highly fragmented. Numerous datasets exhibit biases that areArticle. This    1.  Setting the stage for AI-enabled
+                                                                      recognized but are not adequately described. For example, the
+                                                                              genetic, proteinogenic, or chemical space that the datasetAccess     natural product science
+                                                                              covers. Furthermore,  datasets oen contain samples with
+Open       Natural product research is a diverse subject matter generating   varying  levels  of annotation,  features, and metadata. The        and  leveraging an abundance  of diﬀerent  types  of  data.
+                                                                                 diversity of data in the eld of natural product science poses
+        Genomic, proteomic, metabolomic,  spectroscopic,  or  (bio)
+                                                                        challenges in gathering and standardizing information. There
+         chemical data may each illuminate the same biochemical
+                                                                                           is a need for improved strategies to harness existing data
+           entities from diﬀerent perspectives and have the power to
+                                                                        resources into a unied data repository that connects and
+         inform each other. For example, genomics can reveal the
+                                                                      supports cross-referencing among all natural-product-related
+          genetic basis of natural product production in organisms, while
+                                                                      data modalities. Such a consolidated resource can then be
+         metabolomics can shed light on the metabolites produced.
+                                                                used for training AI models capable of emulating the decision-
+          Spectroscopic data can provide insights into the structural
+                                                            making of natural product scientists.
+          characteristics of these molecules, and biochemical data can
+                                                 We would like to make a clear distinction between AI and
+          elucidate the enzymatic pathways involved. These comple-
+                                                             machine learning (ML), as these terms are oen used inter-
+         mentary perspectives enable a more comprehensive under-
+                                                                       changeably. Articial Intelligence (AI) encompasses a broad
+         standing of natural product structures and functions. However,
+                                                                 spectrum of disciplines wherein algorithms are simulated to
+         the natural product science data landscape can be characterized
+                                                                             exhibit certain aspects of human intelligence. It encompasses
+                                                                         various sub-domains, including ML, where the performance of
+             aBioinformatics Group, Wageningen University & Research, Droevendaalsesteeg 1,   algorithms is enhanced through example-based learning, and
+           6708 PB, Wageningen, the Netherlands. E-mail: justin.vanderhoo@wur.nl; marnix.  knowledge representation and reasoning, where outcomes stem
+          medema@wur.nl                                            from knowledge modeling. The fundamental diﬀerence is that
+             bEquipe “Chimie des Substances Naturelles”, Universit´e Paris-Saclay, CNRS, BioCIS,   AI is considered the overarching eld that involves creating
+           17 Avenue des Sciences, 91400 Orsay, France. E-mail: skiredjadam.hub@gmail.com
+                                                                    systems capable of performing tasks that  typically require
+             cMassachusetts Institute of Technology, Department of Chemical Engineering, USA
+                                                     human intelligence, while ML is considered a subset of AI
+               dUniversit´e Paris Dauphine, PSL Research University, CNRS, Lamsade, 75016 Paris,
+            France                                                       focused specically on algorithms that improve automatically
+           † In memory of Dr Othman Skiredj                                 through experience. ML techniques have the merit of yielding
+
+
+        654  | Nat. Prod. Rep., 2025, 42, 654–662                                                 This journal is © The Royal Society of Chemistry 2025
+
+
+[PDF physical page 2]
+                                                                                                                                        View Article Online
+
+        Viewpoint                                                                            Natural Product Reports
+
+
+          very good results when using large quantities of data. However,  metabolomics or metagenomics). A graph structure consists of
+              it can be diﬃcult to provide itemized explanations of their  nodes (vertices) and edges. Nodes represent entities, while
+           results.                                                    edges represent the connections between them. In an undi-
+            In recent years, we have witnessed a wide array of applica-   rected  graph,  edges  indicate  bidirectional  relationships,
+          tions  for machine learning models capable of forecasting  whereas in a directed graph (digraph), edges indicate one-way
+         molecular properties, assigning functions, or generating novel   relationships. Graphs can be weighted, with edges having
+          structures, aiming to distill the essence of the training data in   associated  costs, or unweighted. A graph models pairwise
+         order to predict new instances within the same data domain.1   relations between entities. Heterogeneous graphs (i.e., a graph
+        Beyond these, AI technologies  like unsupervised methods,   that has nodes and edges with diﬀerent properties) naturally
+          representation learning, natural language processing, and text  accommodate multimodal and interconnected datasets. This        Licence.    mining have been instrumental in encoding and displaying   stands in sharp contrast to oen used non-relational tabularAM.
+          natural product chemical space. For instance, natural language   data, where each sample (i.e., row) expects a value for every
+         processing (NLP) techniques have enabled the extraction of   feature (i.e., column), which makes it diﬃcult to combine non-9:03:25 Unported
+         chemical information from  vast  datasets,  aiding  in drug   relational tabular data sets containing non overlapping sets of
+   3.0
+          discovery.2 Additionally, AI-driven computational approaches   features. Furthermore, dependencies and other types of rela-
+         have signicantly streamlined drug discovery by predicting   tionships can easily be encoded in a graph by linking nodes6/11/2026
+         molecular properties and designing new molecules.3 Moreover,   with (weighted) undirected and  directed edges, and evenon           Attribution
+          AI has facilitated the synthesis planning of complex natural   hyperedges. These are edges connecting multiple nodes at the
+          products, creating synthetic pathways for intricate molecules.4  same time.
+        The use of machine learning in natural product drug discovery    A comprehensive graph structure, incorporating all available       CommonsDownloaded      has also been pivotal in identifying bioactive compounds and   data in natural product science, is the ideal framework for
+2024.       understanding  their  structural  patterns  for drug  design.5   facilitating  large-scale causal inference within the natural        Creative    Notably computer-aided synthesis planning (CASP) has been   product science eld. These comprehensive graph structures
+ a    applied to complex natural products and their mimetics.6        are also known as knowledge graphs. A knowledge graph isAugust     under       However, the challenge lies in creating models capable of   a structured representation of knowledge that captures infor-16
+          recognizing and eﬀectively harnessing fundamental patterns  mation in a machine-readable format.8 A knowledge graphon
+         within the wide array of data modalities found in the natural   consists of a graph or network of interconnected data points,        licensed
+  is    product domain. We contend that grasping these fundamental  where each data point represents a piece of information orPublished       patterns constitutes causal inference, a concept distinct from   a concept, and the relationships between them are explicitly
+       article     prediction.7 Causal inference involves uncovering the under-  dened. Knowledge graphs organize and store data in a format
+          lying cause-and-eﬀect relationships, while prediction centers on   that  facilitates  information  retrieval,  data  analysis,  andArticle. This
+          forecasting future outcomes based on existing data. Such causal   reasoning. Unlike non-relational, tabular data, primarily used
+          inference  regards combining many  diﬀerent  relationships   for predicting new samples or features based on existingAccess
+         between diﬀerent data modalities as a way for researchers and   examples, a knowledge graph has the potential to be used for
+Open        scientists to be able to anticipate new natural product chem-   anticipating new  nodes  and  edges.  Essentially,  a  well-
+            istry. For example, in the simplest sense, we can look at plants   constructed knowledge graph could serve as a foundation for
+        and anticipate that if they are green, they contain chlorophyll.   AI models to learn and emulate the reasoning abilities of
+        Such natural product anticipation would be possible at a far   natural product chemists and researchers. Such AI models
+        more complex level as long as we can connect the dots between   could not only ll in gaps in metabolic pathways but also
+         the diﬀerent types of data we already have. Natural product   explore uncharted territory by deducing complete metabolic
+          anticipation extends beyond predicting chemical structures and  pathways from phenotypic data, much like a natural product
+          involves anticipating every aspect of natural product science.   scientist  could. The foundational concepts  for knowledge
+         For example, anticipating the occurrence of a natural product   graphs have been laid out by Tim Berners-Lee in the 1990s but
+        from genomic or collection data without directly leveraging   are not widely adopted yet in the eld of natural product
+         metabolomics data, or anticipating the bioactivity of a natural   science.9
+         product  from  the  microbial  communities  its  producing        It should be noted that graph data is typically also organized
+         organism lives in.                                               in a tabular format, where separate tables represent diﬀerent
+          To illustrate the potential of a natural product knowledge  node entities and their relationships. Additional tables link
+         graph, we could nd associations between tandem mass spec-   instances of these entities through their relationships. The
+         trometry fragmentation patterns and metabolic building blocks  main distinction between tables representing a graph and
+          of known or predicted natural products retrieved by retro-   datasets comprising a single table is that the latter emphasizes
+          biosynthesis prediction. This information can be linked to  independent entities and a uniform data structure, without
+          natural product biosynthetic pathways predicted from (meta)   relationships between the entities.
+         genome-identied biosynthetic gene clusters. These relation-     Knowledge graphs are already being successfully applied in
+         ships could be visualized in a graph structure, which could be   biomedical research. Text-mining solutions have enabled inte-
+         used to estimate the natural product chemistry of a microbiome   grative biology by extracting and integrating information from
+        sample by having only access to one of those data types (either   large datasets,10 and frameworks like BioBLP (BERT for Link
+
+
+           This journal is © The Royal Society of Chemistry 2025                                                  Nat. Prod. Rep., 2025, 42, 654–662  | 655
+
+
+[PDF physical page 3]
+                                                                                                                                        View Article Online
+
+         Natural Product Reports                                                                      Viewpoint
+
+
+
+
+        Licence.AM.
+9:03:25 Unported
+6/11/2026 3.0
+on           Attribution
+       CommonsDownloaded
+2024.        Creative
+
+ a
+August     under16
+on
+        licensed
+  isPublished
+       article
+Article. This
+Access
+Open
+
+
+
+
+
+             Fig. 1  Overview of the construction, applications, and future perspectives of a natural product science knowledge graph. (a) The prototypical steps
+             in a natural product science workﬂow that generates diﬀerent data modalities. (b) Every aspect of natural product science data is used to construct
+          a natural product science knowledge graph. This includes not only the data modalities we generate, but also the relationships between the data
+            types, changes to the data over time, and our objective and subjective descriptions of the data. (c) A natural product science knowledge graph should
+            integrate diﬀerent datasets (e.g., a metabolomics dataset or a chemical structure database) through creating and annotating relationship edges
+         between the data entities. Deorphanization will play a big part in this eﬀort, as many data types have little explicitly described relationships with other
+           data types. Over time, the knowledge graph will evolve as more and more entities are added and more and more connections between entities are
+
+
+
+        656  | Nat. Prod. Rep., 2025, 42, 654–662                                                 This journal is © The Royal Society of Chemistry 2025
+
+
+[PDF physical page 4]
+                                                                                                                                        View Article Online
+
+        Viewpoint                                                                            Natural Product Reports
+
+
+          Prediction) have demonstrated the potential of multimodal   versions of linked resources or excluding entities added or
+         biomedical knowledge graphs in predicting complex interac-  changed aer a certain time point, we can preserve the integrity
+           tions.11 Additionally, the FORUM framework exemplies the  and reproducibility of scientic studies using the natural
+        power of integrating public databases and scientic literature to   product science knowledge graph.
+           extract meaningful associations and to support hypothesis     This pivotal step would require an ongoing community
+         generation in metabolomics.12                                         initiative, working together to make this aspiration a reality.
+             Recently, Gaudry  et  al. showed with the Experimental  Good examples of community initiatives that can be learned
+         Natural Products Knowledge Graph (ENPKG) how unpublished  from are the ongoing Earth Metabolome Initiative (https://
+        and unstructured data can be converted to public and con-   www.earthmetabolome.org/)  and  the Human  Microbiome
+         nected data.13 The ENPKG pioneers how semantic web tech-   Project (https://hmpdacc.org/).        Licence.    nologies can enrich and organize large metabolomics datasetsAM.
+          to discover new bioactive compounds.                   2.  Unlocking the value of data            Inspired by these seminal works, and to achieve the vision of9:03:25 Unported        an AI capable of reasoning through the discernment of over-  diversity in natural product science
+   3.0
+         arching patterns, we believe that the wider natural product
+                                                                Multimodal models incorporate and process multiple modes of
+          science  eld should move  towards  establishing  a  single6/11/2026                                                                    input or information, such as text, images, audio, video, or
+         fundamental dynamic data structure: a natural product scienceon           Attribution                                                                  other types of data – and aim to leverage the complementary
+        knowledge graph (Fig. 1). This data structure would include
+                                                                      nature of diﬀerent modalities to enhance the understanding of
+          natural product chemical structures, metabolomics (e.g., mass
+                                                                             data.
+           spectra), genomic data (e.g., biosynthetic gene clusters (BGCs)),       Commons                                                         To be able to do this, so-called paired data is required. ForDownloaded       assay data  (e.g., read-outs from  bioactivity  assays),  expert
+          descriptions (e.g., experimental design and comments on data2024.                                                                  example, if we would like to enrich a dataset of medical images                                                                     with patient blood values, we need associated patient blood        Creative     quality), and more.
+ a                                                                    values for every set of medical images.  If you do not have
+            In our view, creating a knowledge graph as a federatedAugust                                                                       associated blood values for a particular set of images, you will     under    resource  is  ideal. We would  like to urge natural product
+16                                                                                   likely exclude that set of images from the training set for your
+          researchers to expand on the example set by the LOTUS initia-
+on                                                               model. In natural product science, such paired data sets are
+             tive.14 The LOTUS initiative, which consolidates over 750 000        licensed                                                                           rarely created and almost never encompass the full diversity of
+  is    referenced structure-organism pairs into Wikidata, a free and
+                                                                      data that could be generated or use well-curated reusable termsPublished      open knowledge base,  serves as an exemplary model  for
+                                                                                                             (i.e.,  ontologies  or  controlled  vocabularies)  to make  the       article    enhancing data accessibility and interoperability. Individually
+                                                                     connections between datasets and/or data points. As a result,
+        managed knowledge graphs can then make use  of  thisArticle. This                                                             any combined dataset of global natural product diversity will
+          centralized resource, like ENPKG does. This approach enables
+                                                                      always be sparse, lacking specic types of data for various
+         comprehensive data access and analysis without the need toAccess                                                                     subsets of the samples. Excluding samples due to a lack of
+          centralize all the data in one location.
+                                                                        necessary associated data types and annotations or compro-Open         Data should not need to be “complete” in any way to be
+                                                                  mising the quality of various subsets of your data is oen not
+         included in such a centralized resource. We would like to
+                                                                   a feasible option. Certain types of natural product data, such as
+         encourage the incorporation of orphan data, which includes but
+                                                               metagenomics or RNAseq data, can be resource-intensive (e.g.,
+            is not limited to compounds without BGCs or mass spectra, as
+                                                                          in terms of cost, time, and computation) to generate. When
+          well as mined metabolic gene clusters without associated
+                                                                        incorporating these data in their workows, scientists typically
+        compounds. This approach highlights opportunities for further
+                                                                  cannot aﬀord to have to choose between subsets of data with
+          research, inviting scientists to conduct follow-up studies on
+                                                                      diﬀerent annotation levels, especially considering the limited
+         data with few links. Wikidata should grow organically based on
+                                                                                    availability of such data to begin with. Foremost, we could help
+         the community's inputs and needs, but to ensure reproduc-
+                                                                         mitigate this challenge by making sure that researchers and
+             ibility, it is crucial to track changes and versioning of these
+                                                                                 scientists have access  to  all  available  data,  regardless  of
+          resources. This will allow experiments to remain reproducible
+                                                                     completeness. Diﬀerent types of data in the knowledge graph
+         even as Wikidata, or individually managed knowledge graphs,
+                                                                                      (Fig. 1bi), with their own unique identiers, can be used to infer
+           evolve. By maintaining the ability to revert to specic older
+                                                                   missing entity properties of incomplete samples, and help to
+
+
+
+         made. (d) At any stage of construction, the constructed knowledge graph can be used for inference, either by using the graph directly, or through
+            ﬁrst extracting datasets for downstream tasks. The knowledge graph can be used for entity resolution in order to dereplicate and denoise data. (e) In
+           time, we will be able to use the knowledge graph for advanced tasks that will empower natural product science. The knowledge graph could be
+           leveraged by AI in order for scientists to have “a conversation” with the knowledge contained in the graph. For example, for hypothesis creation. As
+          the graph grows, it will contain the necessary information for models to learn causal inference and, for example, anticipate expected molecular
+          scaﬀolds in previously unseen plants or other organisms based on metadata alone. Additionally, the knowledge graph could be used to map
+          underexplored regions in our datasets and spot biases, as well as it could help us to deﬁne the terms to describe our data better. SVG images used
+         and remixed from the SVG repo (https://www.svgrepo.com/) and Bio Icons (https://bioicons.com/).
+
+
+
+           This journal is © The Royal Society of Chemistry 2025                                                  Nat. Prod. Rep., 2025, 42, 654–662  | 657
+
+
+[PDF physical page 5]
+                                                                                                                                        View Article Online
+
+         Natural Product Reports                                                                      Viewpoint
+
+
+         weight samples based on their metadata richness. The general   infer lower condence for underrepresented concepts identied
+          idea is that many incomplete datasets together, and perhaps  through entity resolution (Fig. 1d entity resolution). Entity
+         a few being low-quality as well, will paint a fuller picture of the   resolution is the process of identifying and linking distinct data
+          natural product data space (Fig. 1bii). For instance, you may   entries that correspond to the same underlying entity (e.g., an
+         wish  to  predict  protein  targets  or  bioactivities  for  your  organism or a compound), despite  variations in naming,
+        compounds, but these labels are not readily available for your   structure, or representation.
+            full set of compounds. In this case, a graph containing obser-    A knowledge graph encompassing  all  natural  product
+          vations and experimental data like cytological proles and   science related data would be invaluable for the wider natural
+           bioactivity assay results can help to impute missing labels.      product science eld and beyond (Fig. 1c and d). Not only could
+           There is a disparity in cost and quality associated with  we extract multimodal datasets from such a graph for super-        Licence.    diﬀerent data types to consider, which are both hard to assess   vised learning problem formulations that benet from non-AM.
+           for diﬀerent types given the specialist background required to  graph structured data (Fig. 1d extraction), but we could also
+        do so. Some types of data are cheap to generate but are of lower   learn directly on graph-structured data for tasks such as link or9:03:25 Unported
+          quality or provide lower information value, while other data  node prediction, e.g., identifying potential biomarkers (Fig. 1d
+   3.0
+          provides more valuable information while being more expen-   generation).
+           sive to generate and diﬃcult to come by. This relates to, for     Although there is plenty of well-supported natural product6/11/2026
+         example, the diﬀerence between genome assemblies from long-   data  (i.e., reliable due to strong experimental evidence sup-on           Attribution
+         read or short-read sequences or the type of calculations done to   porting it), data integration (Fig. 1c deorphanization, integra-
+         generate a molecular conformer. Although the output data is in   tion,  and  annotation)  across  diﬀerent  modalities   is,
+         the same format,  like an assembled genome or a  three-   unfortunately, still uncommon in natural product science. As       CommonsDownloaded      dimensional shape of a molecule, its value is diﬀerent, espe-   a community, if we collectively commit to establishing a unied
+2024.         cially for more expensive data, the quality matters. If you have   data infrastructure in the form of a knowledge graph for natural        Creative    only a few examples of functional bioactivities associated with   product science data, we can gradually evolve the graph to
+ a    BGCs, it will be highly important to ensure they are correct for   reect our shared knowledge in the eld (Fig. 1c and d knowl-August     under    them to be of any use. It is challenging for experts in one natural  edge graph evolution).  It  is important for our data to be16
+         product science subeld but laypeople in another to appraise   consistent, reliable, and accessible. Therefore, using a central-on
+          datasets that overarch the subelds. This makes such datasets   ized storage and management system like Wikidata is bene-        licensed
+  is     inherently unFAIR even when available in open repositories.15   cial. With decentralized content creation and maintenance,Published     We must have metadata like quality assessments available to   Wikidata promotes a dynamic and comprehensive natural
+       article    ensure data can be understood holistically throughout the   product knowledge graph. We  call upon the creators and
+          natural product science eld. Although  it is nice that some   maintainers of popular natural product data resources forArticle. This
+          datasets oﬀer multiple annotation or review levels, it should be   chemical structures (e.g., NPAtlas at https://www.npatlas.org/
+         apparent from the metadata what the rationale was to give  and COCONUT at https://coconut.naturalproducts.net/) andAccess
+         a sample a particular annotation value or review level. In this   their mass  spectra  (e.g., GNPS  at  https://gnps.ucsd.edu/),
+Open        light, annotations from newer publications do not necessarily  metabolomics    (e.g.,   MetaCyc   at   https://metacyc.org/),
+          take precedence over older annotations, and having access to  genomics           (e.g.,      MIBiG         at         https://
+         versioned annotations  is important  (Fig.  1biii). For non-   mibig.secondarymetabolites.org/  and  KEGG   at   https://
+           relational tabular data, you might lter out samples that are   www.kegg.jp/), and  bioactivity  assay  data  (e.g., ChEBI  at
+          of poorer quality. However, in a knowledge graph, it is possible   https://www.ebi.ac.uk/chebi/) to follow the example set by the
+          to weight associations by metadata content.16 So, apart from  LOTUS initiative and cross-link their data, through common
+         including incomplete  data, a knowledge graph makes  it   ontologies and identiers, and to update and expand their
+          possible to include data of various subjective qualities and take   contributions to Wikidata.
+         the corresponding predictive value of the data into account
+           (Fig. 1biv). This information could potentially be leveraged to
+                                                                             2.1  Leveraging natural product data for natural product          assess the quality of a prediction.
+                                                                           anticipation with AI          A natural product science knowledge graph constructed
+        from aforementioned data (Fig. 1c) could help us understand  We dene an AI breakthrough in natural product science as
+          nature's diversity and preferences better. For example, life on   a  model's  ability  to  perform  human-level  inference and
+         Earth is almost exclusively made of le-handed amino acids.   extrapolation across diﬀerent data types. For example, such an
+        What are other, maybe more hidden, patterns there to discover?   AI could infer chemical structures from mass spectrometry data
+       One of the issues with data collection in general is the reporting   similarly to a chemist or predict the types of metabolites ex-
+          of negative results. Researchers are motivated to publish posi-   pected in specic microbial communities similarly to a micro-
+           tive eﬀects, like novel compounds with an exciting mechanism   biologist. An AI breakthrough in natural product science would
+          of action against a harmful bacterium, but not so much that  come suﬃciently closer through the availability of a knowledge
+         a compound  is not  bioactive  against a  particular  target.  graph that integrates diﬀerent types of data. The knowledge
+         However, for ML models, this data is precious. With a knowl-  graph could act as a resource for training multimodal models
+         edge graph we could dene what is not explicitly stated and   that can holistically capture diverse dimensions of natural
+
+
+        658  | Nat. Prod. Rep., 2025, 42, 654–662                                                  This journal is © The Royal Society of Chemistry 2025
+
+
+[PDF physical page 6]
+                                                                                                                                        View Article Online
+
+        Viewpoint                                                                            Natural Product Reports
+
+
+         product science. To achieve this, the necessary steps should be   with unseen scaﬀolds. While recently created knowledge graphs
+         taken to promote such data sharing and linking practices   are a valuable foundation,12,13 data integration eﬀorts across the
+           entirely across the wider natural product community. Moreover,   natural product science eld must be broadened to unlock the
+         the current  utilization of AI models primarily focuses on   full potential for natural product anticipation with AI.
+          learning tasks on previously acquired  data, neglecting  its     Another approach that can be benecial for natural products
+          potential to aid in hypothesis creation and experimental design   is multi-criteria decision aiding. In this approach, the modeling
+           at the outset  (e.g., through understanding existing analyses   of the problem is not data driven but expert-driven. Even if the
+            better).17 Therefore, below we highlight the opportunities and   data continues to play a determining role on the results, the
+          challenges of using a knowledge graph for natural product   preferences and experience of the experts guide the process.
+          anticipation, along the steps of a prototypical natural product  The methods aim to provide results in the presence of con-        Licence.    workow (Fig. 1a).                                               icting criteria. The mathematical properties of these modelsAM.
+                                                                    being very well known and studied, the results obtained are
+                                                                                  easily explainable. An example of an application can be target-9:03:25 Unported     2.2  Natural product extraction, targeting, and isolation                                                                       ing a natural product for isolation and detailed structural and
+   3.0
+        The natural product discovery process has  historically been   functional elucidation, which is a multifactorial problem and
+          driven by trial and error. Workows included varying extraction  oen dependent on expert insights. Far from the natural6/11/2026
+        and isolation methods or culture conditions for plants, microor-   product chemistry eld, this decision theory-driven strategy hason           Attribution
+         ganisms, or other organisms, with chemists seeking experimental   recently been augmented by ML-based approaches to predict
+          patterns to improve natural product discovery. The extraction  human decision-making.18 By accessing a large dataset in which
+          process ensues aer identifying biological niches by harvesting or   the success of decisions as well as the historical changes in       CommonsDownloaded        cultivating cultures and sometimes involving the construction of   those success rates are objectively measured, like a knowledge
+2024.        co-cultures in the laboratory to mimic conditions for producing   graph, that contains natural product chemists' decisions and        Creative     their specic extracts. However, reproducing the natural envi-   rationales, we may be able to uncover more accurate models of
+ a    ronment that accurately underpins the observed morphological,  human decision-making for eﬃciently targeting natural prod-August     under     physiological,  and  behavioral   characteristics   is   typically   ucts (Fig. 1eii). For instance, expert-based ranking of multi-16
+           nontrivial, as an organism produces diﬀerent compounds based   annotation outputs of commonly used tools could assign anon
+        on environmental conditions and moments in the life cycle.   aggregated condence and  facilitate the query  of specic        licensed
+  is    Recreating  the  environment where an  organism  produces   information on the knowledge graph.Published       a specic natural product of interest poses signicant challenges.
+       article    Numerous intricate factors contribute to the emergence and
+                                                                             2.3  Structure elucidation and bioactivity testing         sustenance of these traits within the native habitat. Furthermore,Article. This
+          the lack of standardization in extraction protocols results in   Following the  isolation  of the compound  of  interest, the
+          considerable parameter variations such as solvents, pH, grinding,  subsequent steps involve determining its chemical structureAccess
+          sonication, temperature, duration, and more. These variations  and assessing its biological activity through various assays. The
+Open        signicantly impact the composition of metabolites, leading to   structure determination process  necessitates matching the
+          imperfect extraction and potential  artifacts being generated.   conclusions provided by a profound interpretation of a set of
+       Upon completion of the extraction process, natural products in   mutually  supportive  analytical  read-outs,  including NMR,
+          the extracts await identication or even purication to facilitate  HRMS, MS/MS, IR, and VCD or ECD. Besides these spectro-
+         reproducing the biological eﬀect in an in vitro setting. During this   scopic and spectrometric pieces of evidence, in certain cases
+           stage, careful attention must be given to identifying and isolating   natural product structures can be inferred from sequence
+          the compound of interest (i.e., unidentied, biologically active, or   alone.19
+         a combination thereof). To do so, traditional bioactivity-guided     By leveraging  its analytical capabilities, AI methods can
+         approaches have been enriched with integrated data-mining   assist in structure elucidation by prioritizing lists of candidate
+         workows, including metabolomics and genomics data, to facil-   structures enumerated from combined genomic and metab-
+            itate eﬀective dereplication and prioritization.                  olomic datasets and considering additional context such as
+         When a natural product science knowledge graph contains   environmental factors based on literature. In this way, AI could
+        BGCs, their organisms of origin and sampling locations, and  be used to combine evidence from both genomics and metab-
+          additional physiochemical and climatic parameters, an algo-   olomics similar to how humans do it (Fig. 1eii). This would help
+         rithm using community diversity metrics could already high-  us to move away from correlation-based approaches followed by
+           light underrepresented ecological niches. AI models could be   selection and prioritization, that are now mainstream. More-
+          created that enhance this experience further. For example, by   over, the knowledge graph can be used to ag pitfalls like
+          creating a model that can predict likely phenotypes based on   frequently observed contaminants and batch eﬀects, empow-
+         experimental designs of synthetic communities. Knowledge   ering researchers to ensure the integrity of their ndings
+         graphs can  reveal undersampled communities  displaying   (Fig. 1eiii). Using a knowledge graph, it would eventually be
+         unique morphology or activity (Fig. 1eiii). Such communities   possible to create a data-agnostic model that consumes various
+         have a high probability of containing unexpected chemistries.   types of read-out data from a sample extract and proposes ways
+         For example, unknown biosynthetic pathways or compounds   to analyze the data further (Fig. 1ei).
+
+
+           This journal is © The Royal Society of Chemistry 2025                                                  Nat. Prod. Rep., 2025, 42, 654–662  | 659
+
+
+[PDF physical page 7]
+                                                                                                                                        View Article Online
+
+         Natural Product Reports                                                                      Viewpoint
+
+
+            Furthermore, the activity testing phase entails undertaking   modication.  Synthesis  methods  encompass  a  range  of
+         binding assays to determine what protein a compound binds to   approaches: organic synthesis as a classic choice, but also bio-
+          or phenotypic or functional screens. In the case of antibiotics,   logical techniques such as heterologous expression or cell-free
+         a  critical aspect involves determining whether they exhibit   biosynthesis.
+         a broad spectrum of activity against multiple organisms or    CASP can be employed  iteratively  to  facilitate eﬀective
+         a more narrow, targeted range and assessing how easily resis-   chemical synthesis and make (derivatives of) compounds of
+         tance can evolve. Although broad-spectrum antibiotics may be   interest. This iterative process utilizes computational tools and
+         advantageous in specic scenarios, human pharmacology typi-   algorithms to design and optimize chemical structures with
+           cally favors compounds with a more focused target.             desired properties. By leveraging CASP, researchers can explore
+         When  developing new  drugs, a common approach  is   a vast chemical space of possible structures and accelerate the        Licence.    designing or generating derivatives of existing scaﬀolds, prior-   discovery of compounds with improved potency or novel char-AM.
+           itizing compounds that contain known warheads or pharma-   acteristics. In addition, these models can even propose shorter
+         cophores. Compounds can also be generated completely de  and more inexpensive organic synthesis routes.6 CASP models9:03:25 Unported
+          novo. In both cases, knowledge of quantitative structure–activity   could utilize the natural product science knowledge graph to
+   3.0
+          relationships  is  helpful.  State-of-the-art ML models  try  to   generate structures under many constraints that are more
+        deduce  these  relationships  from  known  links  between   diﬃcult  to  optimize  for—for  example,  proposing  genetic6/11/2026
+        compounds, phenotypes, targets, and functional bioactivities.20   constructs for heterologous expression or cell-free synthesis toon           Attribution        What is oen lacking is data on the missing links: conclusive  produce natural product-like structures. Heterologous expres-
+         information on what phenotype, targets, and functional bioac-   sion of BGCs can be expensive for research purposes alone but
+            tivities are not related to a compound. These relationships are   incredibly  costly when  considering  industry  size  scale-up       CommonsDownloaded      even more obfuscated when the compound is a frequent hitter,   aerward. An AI model overlaying a knowledge graph that can
+2024.       a  compound  which  simultaneously  inuences  multiple  be queried for optimal growing conditions can supplement the        Creative    screening  methods.  These  considerations make  building   expert knowledge of technicians and help set up experiments
+ a     generative models and classiers for multiple labels chal-  through conversational or structured prediction  interfaces.August     under     lenging, as not all values for all labels are usually known.        Additionally, experimental outcomes could be queried against16
+          An AI-powered information retrieval system can leverage   the knowledge graph for anomaly detection. In both cases, AIon
+         a knowledge graph data structure to help infer the missing  models could ideally leverage the knowledge graph to go beyond        licensed
+  is    values based on mined  text annotations, which  is  called   forecasting and reason what an outcome could be even whenPublished      knowledge graph completion (Fig. 1eii).21 Moreover, devising   there is no related training data available (Fig. 1eii).
+       article    appropriate ontologies to label compounds  is mainly done
+         through expert annotation, usually manually or semi-manually,Article. This
+         by counting words in text annotations. Knowledge graphs are  3. How to enable an AI breakthrough
+         data structures that can help design new ontologies. ML modelsAccess                                                  in natural product science
+         have proven helpful in the semantic understanding of knowl-
+Open      edge graphs to perform entity resolution (Fig. 1eiv).22 Annota-    If we take a step back from the prototypical natural product
+          tions by diﬀerent individuals, or even the same individual,  workow discussed above, we could outline a utopian long-term
+         whether mined or manually added, are inuenced by culture   vision used to fuel the imagination of our community. Once
+        and can contain spelling errors. Through entity resolution,   a holistic and mature knowledge graph is in use, one can
+         a model can learn which terms, with or without spelling errors,  imagine the emergence of a natural product “tricorder”-type
+           refer to the same entity. This helps build an ontology on top of   technology. By simply scanning or sampling an organism,
+         the data, describing how terms are  hierarchically  related.   a natural product scientist could access its digitized identity
+         Although knowledge graphs already contain clearly identied   including taxonomic, genomic, proteomic, metabolomic and
+           entities, ML models can be tasked to nd appropriate labels to   functional data to mine it, associate it with existing data, and
+          separate a knowledge graph into communities based on given   anticipate further discoveries.
+          metrics, thereby minimizing bias in training data. Importantly,    An AI revolution in natural product science will not occur
+           this approach is not limited to large language models; rather,   simply by constructing a better classier for bioactivity or by
+      ML models in general would be able to leverage the knowledge   creating a better genome mining tool for identifying BGCs.
+         graph to discern additional relationships between entities and   Instead, it will require having models that can aid any natural
+          to autonomously generate names  or  ontologies  that  best   product scientist to leverage the full breadth of current knowl-
+          describe the entities in a knowledge graph for a specic use  edge  to help generate  better hypotheses  for what  is  yet
+          case.                                                unknown. This is the core of natural product anticipation. Such
+                                                              models would help us answer questions about where the best
+                                                                         place is to look for solutions when we have limited resources. To
+          2.4  (Bio)synthesis, optimization, and production                                                                        achieve this, we should follow the examples of initiatives like
+        Once the compound responsible for a specic eﬀect is identi-  ENPKG, the LOTUS initiative, and Wikidata, and ensure that all
+         ed, along with knowledge of its structure, target, and activity   of our data becomes linked open data. This will ensure the true
+            levels, the subsequent phase typically involves synthesis and   democratization of our data resources.
+
+
+        660  | Nat. Prod. Rep., 2025, 42, 654–662                                                 This journal is © The Royal Society of Chemistry 2025
+
+
+[PDF physical page 8]
+                                                                                                                                        View Article Online
+
+        Viewpoint                                                                            Natural Product Reports
+
+             At least two major steps are needed to move towards open  6.  Acknowledgements
+          linked natural product science data. First, we as natural product
+          science researchers need to perform  entity recognition to  DM and MHM are supported by the European Research Council
+           identify key entities like compounds, sources, and biological  (ERC Starting Grant 948770-DECIPHER to MHM). MAB, MO
+           activities in our data sets. Additionally, we have to map rela-  and YMM have received nancial support from the CNRS
+          tionships between these entities, such as a compound being  through the MITI interdisciplinary programs. CWC acknowl-
+          isolated from a plant or exhibiting certain activities. Then, we   edges support from the Machine Learning for Pharmaceutical
+         have to allocate relevant attributes to each entity, like molecular   Discovery and Synthesis consortium. We would like to express
+         weight and source species. Other key metadata to include   our gratitude to Pierre-Marie Allard, for generously providing an
+          involves specics on the methods used to generate the data,   extensive review, and two other anonymous reviewers. These        Licence.    such as equipment details that could cause batch eﬀects. This is   reviews made us aware of valuable contributions to the eld andAM.
+           for example what the Paired Omics Data Platform is doing for  have signicantly enhanced this Viewpoint.
+         paired omics  data.23 This  rst  step transforms our non-9:03:25 Unported
+           relational data into a knowledge graph.
+   3.0
+          The second step we need to take is to assign unique identi-  7.  References
+         ers (i.e., uniform resource identiers or URIs) to each entity,6/11/2026
+         using Resource Description Framework (RDF) standards, and   1 M. W. Mullowney, K. R. Duncan, S. S. Elsayed, N. Garg,on           Attribution           serialize the data in formats like RDF/XML.9 Then, we need to        J. J. J. van der Hoo, N. I. Martin, D. Meijer, B. R. Terlouw,
+         publish the data on the web using HTTP URIs, and establish      F.  Biermann,  K.  Blin,   J.  Durairaj,  M.  G.  Gonz´alez,
+          links to other related datasets by referencing their URIs. This      E.  J. N. Helfrich, F. Huber, S. Leopold-Messer, K. Rajan,       CommonsDownloaded       step will ensure the knowledge graphs we create are open and      T. de Rond, J. A. van Santen, M. Sorokina, M. J. Balunas,
+2024.       linked.                                               M.  A.  Beneddir,  D.  A.  van  Bergeijk,  L.  M.  Caroll,        Creative       In natural product science, extensive datasets oen lack      C. M. Clark, D.-A. Clever, C. A. Dejong, C. Du, S. Ferrinho,
+ a    standardized bioactivity screening data and interconnections      F.  Grisoni,  A.  Hofstetter, W.  Jespers,  O.  V.  Kalinina,August     under   among various components such as structures, biosynthetic       S.  A.  Kautsar,  H.  Kim,  T.  F.  Leao,   J.  Masschelein,16
+         gene  clusters, mass spectrometry  spectra, and unexplored      E. R. Rees, R. Reher, D. Reker, P. Schwaller, M. Segler,on
+         organisms. Despite these challenges, we encourage the wider    M. A. Skinnider, A. S. Walker, E. L. Willighagen, B. Zdrazil,        licensed
+  is    natural product science community to contribute as much data     N. Ziemert, R.  J. M. Goss, P. Guyomard, A. Volkamer,Published       as possible to Wikidata, centralizing the information eﬀectively.    W. H. Gerwich, H. U. Kim, R. Müller, G. P. van Wezel,
+       article    Subsequently, we recommend creating smaller, individually     G.  J. P. van Westen, A. K. H. Hirsch, R. G. Linington,
+        managed, user-specic knowledge graphs around this central-       S.  L. Robinson and M. H. Medema,  Nat.  Rev.  DrugArticle. This
+          ized resource, such as ENPKG, and integrating older knowledge      Discovery, 2023, 22, 895–916.
+         graphs into newer ones. The goal  is to record knowledge,   2 H. ¨Oztürk, A. ¨Ozgür, P. Schwaller, T. Laino and E. Ozkirimli,Access
+          annotations, interpretations, and review processes, making our     Drug Discovery Today, 2020, 25, 689–705.
+Open       data and rationales interpretable and machine-readable – thus   3 A. V. Sadybekov and V. Katritch, Nature, 2023, 616, 673–685.
+        making our data truly FAIR. This data infrastructure can serve as   4 B. Mikulak-Klucznik, P. Gołe˛biowska, A. A. Bayly, O. Popik,
+         a resource to create AI models that evolve alongside our      T.  Klucznik,  S.  Szymku´c,  E.  P. Gajewska,  P.  Dittwald,
+           collective knowledge, enabling the synthesis of new concepts     O.   Staszewska-Krajewska,  W.   Beker,   T.   Badowski,
+        and anticipation of novel chemistry.                               K. A. Scheidt, K. Molga,  J. Mlynarski, M. Mrksich and
+                                                                               B. A. Grzybowski, Nature, 2020, 588, 83–88.
+                                                                 5 F.  I. Sald´ıvar-Gonz´alez, V. D. Aldas-Bulos,  J. L. Medina-
+       4.  Data availability                                Franco and F. Plisson, Chem. Sci., 2022, 13, 1526–1546.
+                                                                 6 I. Levin, M. Liu, C. A. Voigt and C. W. Coley, Nat. Commun.,
+       No primary research  results, soware or code have been
+                                                                          2022, 13, 7747.
+         included and no new data were generated or analysed as part of
+                                                                 7 T. Michoel and J. D. Zhang, Drug Discovery Today, 2023, 28,
+           this review.
+                                                                        103737.
+                                                                 8 A. Hogan, E. Blomqvist, M. Cochez, C. d'Amato, G. D. Melo,
+       5.  Conﬂicts of interest                             C. Gutierrez, S. Kirrane, J. E. Gayo, R. Navigli, S. Neumaier
+                                                              and A. C. Ngomo, ACM Comput. Surv., 2021, 54, 1–37.
+         JJJvdH is a member of the scientic advisory board of NAICONS   9 Linked  Data  by Tim  Berners-Lee,  https://www.w3.org/
+             Srl., Milano, Italy, and consults for Corteva Agriscience, Indi-     DesignIssues/LinkedData.html, accessed May 2024.
+          anapolis, IN, USA. MHM is a member of the scientic advisory  10 D. Rebholz-Schumann, A. Oellrich and R. Hoehndorf, Nat.
+         board of Hexagon Bio. AS has been employed by Iktos, Phar-      Rev. Genet., 2021, 13, 829–839.
+        maron, and is currently employed by Chemify. AS opinions are  11 D. Daza, D. Alivanistos, P. Mitra, T. Pijnenburg, M. Cochez
+          his own and do not express the views of his former/current     and P. Groth, J. Biomed. Semant., 2023, 14, 20.
+         employer. The other authors declare to have no competing  12 M. Delmas, O. Filangi, N. Paulhe, F. Vinson, C. Duperier,
+           interests.                                            W.  Garrier,   P.-E.  Saunier,  Y.  Pitarch,   F.  Jourdan,
+
+
+           This journal is © The Royal Society of Chemistry 2025                                                  Nat. Prod. Rep., 2025, 42, 654–662  | 661
+
+
+[PDF physical page 9]
+                                                                                                                                        View Article Online
+
+         Natural Product Reports                                                                      Viewpoint
+
+
+              F. Giacomoni and C. Frainay, Bioinformatics, 2021, 37, 3896–      Y. Cohen, A. Aspuru-Guzik, D. A. Winkler, D. Agraotis,
+             3904.                                                              A. Cherkasov and A. Tropsha, Chem. Soc. Rev., 2020, 49,
+         13 A. Gaudry, M. Pagni, F. Mehl, S. Moretti, L.-M. Quiros-     3525–3564.
+             Guerrero, L. Cappelletti, A. Rutz, M. Kaiser, L. Marcourt,  21 Z. Chen, Y. Wang, B. Zhao, J. Cheng, X. Zhao and Z. Duan,
+              E.  F.  Queiroz,   J.-R.   Ioset,  A.  Grondin,  B.  David,     IEEE Access, 2020, 8, 192435–192456.
+                 J.-L. Wolfender and P.-M. Allard, ACS Cent. Sci., 2024, 10,  22 D. Obraczka,  J. Schuchart and  E. Rahm,  arXiv,  2021,
+            494–510.                                                          preprint, arXiv:2101.06126, DOI: 10.48550/arXiv.2101.06126.
+         14 A.  Rutz,  M.  Sorokina,   J.  Galgonek,  D.  Mietchen,  23 M.  A.  Schorn,  S.  Verhoeven,  L.  Ridder,  F.  Huber,
+              E. Willighagen,  A. Gaudry,  J. G. Graham, R. Stephan,     D. D. Acharya, A. A. Aksenov, G. Aleti, J. A. Moghaddam,
+             R.  Page,   J.  Vondr´aˇsek,  C.  Steinbeck,  G.  F.  Pauli,      A.  T.  Aron,  S.  Aziz,  A.  Bauermeister,  K. D. Bauman,        Licence.          J.-L. Wolfender, J. Bisson and P.-M. Allard, Elife, 2022, 11,     M.   Baunach,   C.   Beemelmanns,     J.  M.   Beman,AM.
+            e70780.                                            M.  V.  Berlanga-Clavero,  A.  A.  Blacutt,  H.  B.  Bode,
+         15 A. Jacobsen, R. de M. Azevedo, N. Juty, D. Batista, S. Coles,      A. Boullie, A. Brejnrod, T. S. Bugni, A. Calteau, L. Cao,9:03:25 Unported
+             R.  Cornet,  M.  Courtot,  M.  Crosas,  M.  Dumontier,      V. J. Carrion, R. Castelo-Branco, S. Chanana, A. B. Chase,
+   3.0
+             C.  T.  Evelo,  C.  Goble,  G.  Guizzardi,  K.  K.  Hansen,     M.  G.  Chevrette,  L.  V.  Costa-Lotufo,  J. M.  Crawford,
+              A. Hasnain,  K.  Hettne,  J.  Heringa,  R. W. W. Hoo,      C.  R.  Currie,  B.  Cuypers,  T.  Dang,  T.  de  Rond,6/11/2026
+          M. Imming, K. G. Jeﬀery, R. Kaliyaperumal, M. G. Kersloot,      A. M. Demko, E. Dittmann, C. Du, C. Drozd, J.-C. Dujardin,on           Attribution
+             C. R.  Kirkpatrick,  T. Kuhn,  I. Labastida,  B. Magagna,      R.   J.  Dutton,  A.  Edlund,  D.  P.  Fewer,  N.  Garg,
+              P. McQuilton, N. Meyers, A. Montesanti, M. van Reisen,         J. M.  Gauglitz,  E. C. Gentry,  L. Gerwick,  E. Glukhov,
+              P. Rocca-Serra, R. Pergl, S.-A. Sansone, L. O. B da Silva     H. Gross, M. Gugger, D. G. G. Matus, E.  J. N. Helfrich,       CommonsDownloaded          Santos,    J.   Schneider,   G.   Strawn,  M.  Thompson,       B.-F. Hempel, J.-S. Hur, M. Iorio, P. R. Jensen, K. B. Kang,
+2024.           A.   Waagmeester,   T.   Weigel,  M.   D.   Wilkinson,      L. Kaysser, N. L. Kelleher, C. S. Kim, K. H. Kim, I. Koester,        Creative        E. L. Willighagen, P. Wittenberg, M. Roos and B. Mons,      G. M. König, T. Leao, S. R. Lee, Y.-Y. Lee, X. Li, J. C. Little,
+ a       Dat Intell, 2020, 2, 1–29.                                        K. N. Maloney, D.  M¨annle, C. Martin,  A. C. McAvoy,August     under    16 J. W. Weis and J. M. Jacobson, Nat. Biotechnol., 2021, 39,    W.  W.  Metcalf,  H.  Mohimani,  C.  Molina-Santiago,16
+            1300–1307.                                                       B. S. Moore, M. W. Mullowney, M. Muscat, L.-F. Nothias,on
+         17 S. Auer, V. Kovtun, M. Prinz, A. Kasprzik and M. Stocker,      E. C. O’Neill, E. I. Parkinson, D. Petras, J. Piel, E. C. Pierce,        licensed
+  is       2018, doi:DOI: 10.1145/3227609.3227689.                       K. Pires, R. Reher, D. Romero, M. C. Roper, M. Rust,Published      18 J. C. Peterson, D. D. Bourgin, M. Agrawal, D. Reichman and     H. Saad, C. Saenz, L. M. Sanchez, S. J. Sorensen, M. Sosio,
+       article        T. L. Griﬃths, Science, 2021, 372, 1209–1214.                    R. D. Süssmuth, D. Sweeney, K. Tahlan, R.  J. Thomson,
+         19 J. I. Tietz and D. A. Mitchell, Curr. Top. Med. Chem., 2016, 16,     N.   J.  Tobias,  A.  E.  Trindade-Silva,  G.  P. van  Wezel,Article. This
+            1645–1694.                                          M.  Wang,  K.  C.  Weldon,   F.  Zhang,  N.  Ziemert,
+         20 E. N. Muratov,  J. Bajorath, R. P. Sheridan,  I. V. Tetko,      K. R. Duncan, M. Crüsemann, S. Rogers, P. C. Dorrestein,Access
+            D.  Filimonov,  V.  Poroikov,  T.  I.  Oprea,  I.  I.  Baskin,     M. H. Medema and J. J. J. van der Hoo, Nat. Chem. Biol.,
+Open           A. Varnek, A. Roitberg, O. Isayev, S. Curtalolo, D. Fourches,      2021, 17, 363–368.
+
+
+
+
+
+        662  | Nat. Prod. Rep., 2025, 42, 654–662                                                  This journal is © The Royal Society of Chemistry 2025

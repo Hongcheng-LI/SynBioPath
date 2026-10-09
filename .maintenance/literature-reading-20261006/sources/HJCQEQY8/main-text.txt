@@ -1,0 +1,296 @@
+
+[PDF physical page 1]
+W46–W50  Nucleic Acids Research, 2023, Vol. 51, Web Server issue                         Published online 4 May 2023
+https://doi.org/10.1093/nar/gkad344
+
+antiSMASH 7.0: new and improved predictions for
+detection, regulation, chemical structures and
+visualisation
+
+Kai Blin  1 ,* , Simon Shaw 1 , Hannah E. Augustijn  2 , 3 , Zachary L. Reitz  3 ,
+Friederike Biermann 3 , 4 , 5 , Mohammad Alanjary  3 , Artem Fetter 3 , 6 , Barbara R. Terlouw 3 ,
+William W. Metcalf  7 , 8 , Eric J.N. Helfrich 4 , 5 , Gilles P. van Wezel  2 , Marnix H. Medema 3 ,* and
+Tilmann Weber  1 ,*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           Downloaded
+1 The Novo Nordisk Foundation Center for Biosustainability, Technical University of Denmark, Kgs.Lyngby, Denmark,                   from
+2 Molecular Biotechnology, Institute of Biology, Leiden University, Leiden, The Netherlands, 3 Bioinformatics Group,
+Wageningen University, Wageningen, The Netherlands, 4 Institute of Molecular Bio Science, Goethe-University
+Frankfurt, Frankfurt am Main, Germany, 5 LOEWE Center for Translational Biodiversity Genomics. Frankfurt am Main,
+Germany, 6 Institute of Technical Chemistry, Leibniz University Hannover, Hannover, Germany, 7 Department of
+Microbiology, University of Illinois Urbana–Champaign, Urbana, IL, USA and 8 Institute for Genomic Biology,
+University of Illinois Urbana–Champaign, Urbana, IL, USA
+
+
+Received February 24, 2023; Revised March 31, 2023; Editorial Decision April 17, 2023; Accepted April 26, 2023
+
+
+
+ABSTRACT                                GRAPHICAL ABSTRACT
+
+Microorganisms  produce  small  bioactive  com-
+pounds  as  part  of  their  secondary  or  spe-
+cialised metabolism. Often, such metabolites have
+antimicrobial,  anticancer,  antifungal,  antiviral  or
+other  bio-activities and thus  play an importantrole   for  applications  in  medicine and  agricul-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 https://academic.oup.com/nar/article/51/W1/W46/7151336
+ture.  In  the  past decade , g enome mining has                                                                           by
+become a  widely-used method  to  explore,  ac-
+cess, and analyse  the  available  biodiversity  of                                                                                                                                                                                           Ocean
+these compounds. Since 2011, the ‘antibiotics and
+secondary metabolite analysis shell ––antiSMASH’( https:// antismash.secondarymetabolites.org/ )  has                                                                                                                                                                                                                                                                                                                                                                                      University
+supported researchers in their microbial genome                                                                           of
+mining        tasks,              both as                     a free                                 to                              use                              web server
+and as       a standalone                        tool                        under                            an                                   OSI-appr                                     oved                                                                                                                                                                                           China
+open source licence. It is currently the most widely                                                                                                                                                     user
+used tool for detecting and characterising biosyn-   INTRODUCTION                                                   on
+thetic gene clusters (BGCs) in archaea, bacteria, and                                                                           28                                                       Small bioactive compounds produced by microorganisms
+fungi. Here, we present the updated version 7 of anti-
+                                                    form the basis of many drugs  ( 1 ) and crop protection                JulySMASH. antiSMASH 7 increases the number of sup-                                                            agents ( 2 ). Traditionally, new compounds were discovered
+ported cluster types from 71 to 81, as well as con-                                                           using a ‘find and grind’ workflow of extracting from natu-                2024
+taining improvements in the areas of chemical struc-     ral sources, chemically isolating, purifying, and then test-
+ture prediction, enzymatic assembly-line visualisa-     ing compounds. This approach is now routinely comple-
+tion and gene cluster regulation.                      mented by sequencing and subsequent mining of genome
+                                                  and metagenome data to identify natural product biosyn-
+
+* To whom correspondence should be addressed. Tel: +45 93511306; Email: kblin@biosustain.dtu.dk
+Correspondence may also be addressed to Marnix H. Medema. Tel: +31 317482036; Email: marnix.medema@wur.nl
+Correspondence may also be addressed to Tilmann Weber. Tel: +45 24896132; Email: tiwe@biosustain.dtu.dk
+
+⃝TheC     Author(s) 2023. Published by Oxford University Press on behalf of Nucleic Acids Research.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution License (http: // creativecommons.org / licenses / by / 4.0 / ), which
+permits unrestricted reuse, distribution, and reproduction in any medium, provided the original work is properly cited.
+
+
+[PDF physical page 2]
+                                                          Nucleic Acids Research, 2023, Vol. 51, Web Server issue W47
+
+
+
+thetic pathways ( 3 ). Software tools for ‘genome mining’,     opine-like metallophores, and fungal-RiPP-likes. NRP met-
+i.e. searching genomes for secondary / specialised metabo-    allophore BGCs were previously detected by the general
+lite (SM) biosynthetic gene clusters (BGCs), have existed for   NRPS detection rules, but are now recognised specifically
+over a decade ( 4–7 ).                                 on the basis of genes encoding the biosynthesis of func-
+  Since its 2011 release, antiSMASH ( 8–13 ) has established     tional groups involved in metal chelation ( 30 ). The phos-
+itself as the most widely used tool for mining microbial    phonates rule was updated, with the old rule retained un-
+genomes for SM BGCs. Around antiSMASH, an ecosys-    der the name of ‘phosphonate-likes’. In addition to an
+tem of independent tools that incorporate or utilise anti-    improved phosphoenolpyruvate (PEP) mutase detection
+SMASH results has developed, such as the antibiotics resis-    model, supporting models (Supplementary Tables S1-S2)
+tance target seeker (ARTS 2) ( 14 ), the mass-spectrometry-     are leveraged to reduce false positives and improve delin-
+guided peptide mining tool Pep2Path ( 15 ), the sgRNA de-     eation of cluster boundaries (Supplementary Figure S1).
+sign tool CRISPY-web 2 ( 16 ), the BGC networking and      Because not all features of a BGC can be captured with
+clustering platform BiG-SCAPE ( 17 ), and the related big   pHMMs, antiSMASH 7 adds the option of creating dy-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          Downloaded
+data BGC clustering tool BiG-SLiCE ( 18 ). In turn, anti-    namic profiles that are defined by Python code instead. This
+SMASH can also incorporate and display BGC predictions      is currently being used to detect cyanobactin precursors         from
+from other tools such as DeepBGC ( 19 ) by using the side-    based on the M.KKN[IL].P. . . .PV.R motif as described in
+loading mechanism introduced in antiSMASH 6 ( 13 ). an-      ( 31 ), a conserved sequence motif too small to be picked up
+tiSMASH BGC predictions are included in many genomic     in a pHMM reliably.
+and BGC-oriented databases, like the Joint Genome Insti-
+tute’s Integrated Microbial Genomes database with its Atlas
+                                       NRPS & PKS improvements
+of Biosynthetic gene Clusters IMG-ABC ( 20 ), the Micro-
+Scope platform for microbial genome annotation and anal-    To improve PKS annotations in fungal gene clusters, we
+ysis ( 21 ), the MIBiG database of manually curated BGCs    have added detection profiles for carnitine-AT (cAT), prod-
+( 22 ), the BGC family database BiG-FAM ( 23 ) and the an-    uct template (PT) and thiocysteine / beta-eliminating lyase
+tiSMASH database ( 24 ).                                (SH) domains. The ketosynthase (KS) domains of bacterial
+  antiSMASH uses a rule-based approach to  identify      trans-acyltransferase polyketide synthases (trans-AT PKSs)
+many different types of biosynthetic pathways involved in     are now also annotated using the subtype-specific pHMMs
+SM production. More in-depth analyses are performed    of transATor ( 32 ). PKS KS domains and NRPS condensa-
+for BGCs encoding non-ribosomal peptide synthetases     tion (C) domains can be submitted to the recently released
+(NRPSs), type I and type II polyketide synthases (PKSs),     version 2 of the Natural Product Domain Seeker (Nap-
+and the ribosomally synthesised and post-translationally    DoS2) ( 33 ) for phylogenetic analysis. The recent MIBiG 3
+modified peptide (RiPP) classes of lanthipeptides, lasso     release ( 22 ) adds substrate specificities for over 2000 NRPS
+peptides, sactipeptides, and thiopeptides. For these, cluster-    adenylation (A) and related domains. To allow our users tospecific analyses can provide more information about the     benefit from the additional information, we have replaced                                                                                                                             https://academic.oup.com/nar/article/51/W1/W46/7151336
+biosynthetic steps performed and thus also provide more    the NRPSPredictor2 A domain substrate prediction tool     by
+detailed predictions on the compound(s) produced.               ( 34 ) we have been shipping since 2011 with the new ‘NR-
+  Here, we present version 7 of antiSMASH. It improves    PyS’ library ( https://github.com/kblin/nrpys/ ) that allowed            Ocean
+upon and further extends previous versions by adding    us to update the Stachelhaus code ( 35 ) lookup table from
+and updating BGC detection rules, enhancing regulatory     previously 554 to now 2319 entries. As the 10 amino acid
+function detection by predicting transcription factor bind-    (AA) code used by Stachelhaus does not always resolve                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          Universitying sites represented in the LogoMotif database  ( https:    to a single substrate prediction in the new data set, most
+//logomotif.bioinformatics.nl/ ), and adding new visualisa-     likely due to substrate promiscuity of the A domain in-     of
+tions for NRPS and PKS clusters, PFAM ( 25 ) and TIGR-     volved, NRPyS reports all equal quality 10 AA code hits,                                                                                                                                                                                                                                                                                                                                             ChinaFAM ( 26 ) domain hits, as well as tables listing all genes in    ranked by the highest match to the 34 AAs predicted to be
+a region with dynamic search and filter functions.              in an 8 ˚A radius around the A domain active site following         user
+                                                             the description of Rausch et al. used in NRPSPredictor 1     on
+NEW FEATURES AND UPDATES                                   ( 36 ). To act as a full drop-in replacement, NRPyS still runs     28
+                                                             the original support vector machine (SVM) models from
+New cluster types and dynamic detection profiles                                                    NRPSPredictor 2.                                                                                              July
+antiSMASH uses manually curated and validated ‘rules’                                                                                                                                               2024that define which core biosynthetic functions need to ex-
+                                              RiPP precursor comparisons
+ist in a genomic region in order to constitute a BGC. To
+identify these biosynthetic functions, antiSMASH uses pro-    To help users with evaluating the novelty of RiPP precur-
+file hidden Markov models (pHMMs) from PFAM ( 25 ),    sor peptides, we have developed the CompaRiPPson analy-
+TIGRFAMs ( 26 ), SMART ( 27 ), BAGEL ( 28 ), Yadav et al.      sis that compares the (predicted) core peptides of identified
+( 29 ) and custom models. antiSMASH 6 contained rules    RiPP precursors to RiPP precursors in the antiSMASH-DB
+for 71 BGC types ( 13 ). In antiSMASH 7, this number      ( 24 ) and MIBiG 3.1 ( 22 ) databases. Hits for these databases
+increases to 81, adding support for 2-deoxy-streptamine    are presented separately, with the antiSMASH-DB hits con-
+aminoglycosides, aminopolycarboxylic acid metallophores,     taining a much larger dataset of 10583 predicted precursors
+arginine-containing cyclo-dipeptides (RCDPs), crocagins,     in version 3.0 versus 28 experimentally verified and anno-
+methanobactins, mycosporines, NRP-metallophores ( 30 ),     tated precursors from MIBiG. Precursor hits are labelled
+
+
+[PDF physical page 3]
+W48  Nucleic Acids Research, 2023, Vol. 51, Web Server issue
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           Downloaded
+                                                                                                                                                                                                                                                                                 from
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      https://academic.oup.com/nar/article/51/W1/W46/7151336
+                                                                                                                                         by
+Figure 1. Examples of new antiSMASH visualisations. ( A ) shows the CompaRiPPSon MIBiG matches for the lanthipeptide class I nisin A input sequence
+with a 100% match for the self hit, and a much lower (8.8%) match with another lanthipeptide. ( B ) shows two high confidence TFBS-finder hits onStreptomyces coelicolor A3(2). The first hit, a putative ZurR binding site, is located right at the start of gene SCO0476, with the last two bases of the ATG                   Ocean
+start codon being the first two bases of the binding site. The DmdR1 hit is located between and upstream of both SCO0489 and SCO0490. ( C ) shows the
+first modules of the Streptomyces colinus T¨u 365 hybrid trans-AT PKS / NRPS kirromycin gene cluster (MIBiG ID: BGC0001070).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           University
+by precursor gene locus tag for the antiSMASH-DB and    Gene table                                                           of
+labelled by compound name for MIBiG. Ordered by se-
+                                                      Every region now lists all contained gene features in a fil-quence identity, database hits with identical precursor se-                                                                                                                                                                                           China
+                                                                      terable, interactive table. Genes can be filtered by entering a
+quences are grouped together. Query and hits are displayed                                                            search term in the search box (plain text and regex are both                userwith alignments (Figure 1 A).
+                                                            supported). Genes that match the filter will be shown in        on
+                                                             the region view and, if enabled, the view will automatically        28
+                                             zoom to the selection. Information used for filtering cur-Transcription factor binding site predictions                                                                                                                                                                                       July                                                                  rently includes the name of the gene, its biosynthetic type,
+The LogoMotif database ( https://logomotif.bioinformatics.    and gene function annotations (e.g. smCOG hits).                                  2024nl/ ) contains a curated collection of experimentally vali-
+dated transcription factor binding site (TFBS) profiles and
+                                                     Updated visualisations and other optimisations
+corresponding position weight matrices (PWMs), focusing
+on Actinobacteria. The antiSMASH TFBS-finder module   A new visualisation for NRPS and PKS clusters draws enzy-
+uses these PWMs to annotate putative TFBSs. Depending    matic domains and modules in the predicted assembly order
+on the hit score, TFBS-finder displays a confidence level of     in conventional publication style, which allows researchers
+strong, medium, or weak, respectively. Binding sites are dis-    to use the antiSMASH vector graphics as a starting point
+played in their genomic context, indicating the orientations     for their publication-quality figures (Figure 1 C). PFAM
+and distances to surrounding genes (Figure 1 B). All hits link      ( 25 ) and TIGRFAMs ( 26 ) domain hits in a region are now
+to the LogoMotif website for more in-depth information    shown in a similar fashion to the existing NRPS / PKS do-
+about specific profiles.                                 main visualisations.
+
+
+[PDF physical page 4]
+                                                          Nucleic Acids Research, 2023, Vol. 51, Web Server issue W49
+
+
+
+  Following the MIBiG 3.1 release ( 22 ), the KnownClus-   REFERENCES
+terBlast and ClusterCompare databases were updated.              1. Newman,D.J. and Cragg,G.M. (2020) Natural products as sources of
+                                                              new drugs over the nearly four decades from 01 / 1981 to 09 / 2019. J.
+                                                                           Nat. Prod. , 83 , 770–803.
+CONCLUSIONS & FUTURE PERSPECTIVES                     2. Sparks,T.C. and Bryant,R.J. (2022) Impact of natural products on
+                                                                               discovery of, and innovation in, crop protection compounds. Pest
+Genome mining for natural product BGCs with tools like        Manag. Sci. , 78 , 399–408.
+antiSMASH forms a cornerstone of modern natural prod-        3. Ziemert,N., Alanjary,M. and Weber,T. (2016) The evolution of
+uct discovery workflows. With the additions and updates       genome mining in microbes – a review. Nat. Prod. Rep. , 33 , 988–1005.
+                                                                                        4. Weber,T. (2014) In silico tools for the analysis of antibiotic
+presented in this manuscript, antiSMASH is being continu-                                                                                 biosynthetic pathways. Int. J. Med. Microbiol. , 304 , 230–235.
+ously updated to remain the go-to solution for microbial        5. Medema,M.H. and Fischbach,M.A. (2015) Computational
+natural product genome mining. The Open Source anti-        approaches to natural product discovery. Nat. Chem. Biol. , 11 ,
+SMASH software continues to contribute to the thriving         639–648.ecosystem of computational tools in the natural products        6. Weber,T. and Kim,H.U. (2016) The secondary metabolite                                                                          Downloaded                                                                                bioinformatics portal: computational tools to facilitate synthetic
+field. In addition to providing microbial natural product         biology of secondary metabolite production. Synth. Syst. Biotechnol. ,          frompredictions directly, antiSMASH also serves as the tech-        1 , 69–79.
+nology platform for other tools, such as the plant natu-        7. Blin,K., Kim,H.U., Medema,M.H. and Weber,T. (2019) Recent
+ral products prediction tool plantiSMASH ( 37 ), the pri-        development of antiSMASH and other computational approaches to
+                                                                   mine secondary metabolite biosynthetic gene clusters. Brief.
+mary metabolism gene cluster prediction tool gutSMASH                                                                               Bioinform. , 20 , 1103–1113.
+( 38 , 39 ), and other tools currently in development. In fu-        8. Medema,M.H., Blin,K., Cimermancic,P., de Jager,V., Zakrzewski,P.,
+ture updates, we will continue our work on improving com-        Fischbach,M.A., Weber,T., Takano,E. and Breitling,R. (2011)
+pound structure and subcomponent predictions, adding ad-       antiSMASH: rapid identification, annotation and analysis of
+ditional TFBS profiles for different taxa (e.g. fungal pro-         secondary metabolite biosynthesis gene clusters in bacterial and
+                                                                              fungal genome sequences. Nucleic Acids Res , 39 , W339–W346.
+files from JASPAR ( 40 )), as well as integrating with other        9. Blin,K., Medema,M.H., Kazempour,D., Fischbach,M.A.,
+tools in the ecosystem. We have also started providing a          Breitling,R., Takano,E. and Weber,T. (2013) antiSMASH 2.0 ––A
+website to try out potential future antiSMASH features at         versatile platform for genome mining of secondary metabolite
+https://experimentalsmash.secondarymetabolites.org/ .               producers. Nucleic Acids Res , 41 , W204–W212.
+                                                                               10. Weber,T., Blin,K., Duddela,S., Krug,D., Kim,H.U., Bruccoleri,R.,
+                                                                                     Lee,S.Y., Fischbach,M.A., M¨uller,R., Wohlleben,W. et al. (2015)
+                                                           antiSMASH 3.0 –– a comprehensive resource for the genome mining
+DATA AVAILABILITY                                                    of biosynthetic gene clusters. Nucleic Acids Res , 43 , W237–W243.
+                                                                               11. Blin,K., Wolf,T., Chevrette,M.G., Lu,X., Schwalen,C.J.,
+The bacterial and fungal versions of antiSMASH 7 can be                                                                              Kautsar,S.A., Suarez Duran,H.G., de los Santos,E.L.C., Kim,H.U.,
+freely accessed at https://antismash.secondarymetabolites.        Nave,M. et al. (2017) antiSMASH 4.0 ––Improvements in chemistry
+org and https://fungismash.secondarymetabolites.org , re-         prediction and gene cluster boundary identification. Nucleic Acids
+spectively.                                                          Res , 45 , W36–W41.                                                                               12. Blin,K., Shaw,S., Steinke,K., Villebro,R., Ziemert,N., Lee,S.Y.,                                                                                                                                                                                                                                                                                     https://academic.oup.com/nar/article/51/W1/W46/7151336  The antiSMASH documentation is available at https://
+                                                             Medema,M.H. and Weber,T. (2019) antiSMASH 5.0: updates to the      by
+docs.antismash.secondarymetabolites.org/ .                          secondary metabolite genome mining pipeline. Nucleic Acids Res , 47 ,
+  The antiSMASH source code is licensed under the GNU       W81–W87.Affero General Public License (AGPL) v3.0. antiSMASH      13. Blin,K., Shaw,S., Kloosterman,A.M., Charlop-Powers,Z., van                           Ocean
+is also available via Docker. See the documentation website         Wezel,G.P., Medema,M.H. and Weber,T. (2021) antiSMASH 6.0:
+                                                                         improving cluster detection and comparison capabilities. Nucleic
+for details on how to download and install antiSMASH.                                                                            Acids Res , 49 , W29–W35.                                                                               14. Mungan,M.D., Alanjary,M., Blin,K., Weber,T., Medema,M.H. and                              University
+                                                                           Ziemert,N. (2020) ARTS 2.0: feature updates and expansion of the       of
+SUPPLEMENTARY DATA                                               Antibiotic Resistant Target Seeker for comparative genome mining.
+                                                                               Nucleic Acids Res , 48 , W546–W552.                                                                                                                                                                                                                                                                                                                                             ChinaSupplementary Data are available at NAR Online.                15. Medema,M.H., Paalvast,Y., Nguyen,D.D., Melnik,A.,
+                                                                                   Dorrestein,P.C., Takano,E. and Breitling,R. (2014) Pep2Path:                       user                                                                     automated mass spectrometry-guided genome mining of peptidic
+FUNDING                                                                   natural products. PLoS Comput. Biol. , 10 , e1003822.                   on
+                                                                               16. Blin,K., Shaw,S., Tong,Y. and Weber,T. (2020) Designing sgRNAs for     28
+Novo Nordisk Foundation [NNF20CC0035580 to T.W.,       CRISPR-BEST base editing applications with CRISPy-web 2.0.
+NNF16OC0021746 to T.W.]; Center for Microbial Sec-         Synth. Syst. Biotechnol. , 5 , 99–102.                                                                    July
+ondary Metabolites (CeMiSt), Danish National Research      17. Navarro-Mu noz,J.C.,˜       Selem-Mojica,N., Mullowney,M.W.,                                                                              Kautsar,S.A., Tryon,J.H., Parkinson,E.I., De Los Santos,E.L.C.,                 2024Foundation [DNRF137 to T.W.]; ERC Starting Grant                                                                      Yeong,M., Cruz-Morales,P., Abubucker,S. et al. (2020) A
+[948770-DECIPHER to M.H.M.]; Novel Antibacterial         computational framework to explore large-scale biosynthetic
+Compounds and Therapies Antagonising Resistance pro-          diversity. Nat. Chem. Biol. , 16 , 60–68.
+gram (NACTAR) from  the Dutch Research Council      18. Kautsar,S.A., van der Hooft,J.J.J., de Ridder,D. and Medema,M.H.
+(NWO) [16440 to M.H.M.]; M.A is supported by the NWO         (2021) BiG-SLiCE: a highly scalable tool maps the diversity of 1.2
+                                                                                  million biosynthetic gene clusters. GigaScience , 10 , giaa154.
+Talent programme Veni science domain (VI.Veni.202.130).      19. Hannigan,G.D., Prihoda,D., Palicka,A., Soukup,J., Klempir,O.,
+Funding for open access charge: Novo Nordisk Founda-        Rampula,L., Durcak,J., Wurst,M., Kotowski,J., Chang,D. et al.
+tion.                                                                         (2019) A deep learning genome-mining strategy for biosynthetic gene
+Conflict of interest statement. M.H.M. is a co-founder of          cluster prediction. Nucleic Acids Res , 47 , e110.
+                                                                               20. Palaniappan,K., Chen,I.-M.A., Chu,K., Ratner,A., Seshadri,R.,
+Design Pharmaceuticals and a member of the scientific ad-                                                                              Kyrpides,N.C., Ivanova,N.N. and Mouncey,N.J. (2020) IMG-ABC
+visory board of Hexagon Bio.
+
+
+[PDF physical page 5]
+W50  Nucleic Acids Research, 2023, Vol. 51, Web Server issue
+
+
+
+    v.5.0: an update to the IMG / Atlas of Biosynthetic Gene Clusters          31. Leikoski,N., Fewer,D.P., Jokela,J., Wahlsten,M., Rouhiainen,L. and
+   Knowledgebase. Nucleic Acids Res , 48 , D422–D430.                        Sivonen,K. (2010) Highly diverse cyanobactins in strains of the genus
+21. Vallenet,D., Calteau,A., Dubois,M., Amours,P., Bazin,A.,                 Anabaena. Appl. Environ. Microbiol. , 76 , 701–709.
+   Beuvin,M., Burlot,L., Bussell,X., Fouteau,S., Gautreau,G. et al.           32. Helfrich,E.J.N., Ueoka,R., Dolev,A., Rust,M., Meoded,R.A.,
+    (2020) MicroScope: an integrated platform for the annotation and           Bhushan,A., Califano,G., Costa,R., Gugger,M., Steinbeck,C. et al.
+    exploration of microbial gene functions through genomic,                    (2019) Automated structure prediction of trans-acyltransferase
+   pangenomic and metabolic comparative analysis. Nucleic Acids Res ,           polyketide synthase products. Nat. Chem. Biol. , 15 , 813–821.
+   48 , D579–D589.                                                           33. Klau,L.J., Podell,S., Creamer,K.E., Demko,A.M., Singh,H.W.,
+22. Terlouw,B.R., Blin,K., Navarro-Mu noz,J.C.,˜       Avalon,N.E.,                    Allen,E.E., Moore,B.S., Ziemert,N., Letzel,A.C. and Jensen,P.R.
+   Chevrette,M.G., Egbert,S., Lee,S., Meijer,D., Recchia,M.J.J.,                 (2022) The Natural Product Domain Seeker version 2 (NaPDoS2)
+    Reitz,Z.L. et al. (2023) MIBiG 3.0: a community-driven effort to         webtool relates ketosynthase phylogeny to biosynthetic function. J.
+   annotate experimentally validated biosynthetic gene clusters. Nucleic           Biol. Chem. , 298 , 102480.
+   Acids Res , 51 , D603–D610.                                                34. R ¨ottig,M., Medema,M.H., Blin,K., Weber,T., Rausch,C. and
+23. Kautsar,S.A., Blin,K., Shaw,S., Weber,T. and Medema,M.H. (2021)          Kohlbacher,O. (2011) NRPSpredictor2 ––a web server for predicting
+   BiG-FAM: the biosynthetic gene cluster families database. Nucleic        NRPS adenylation domain specificity. Nucleic Acids Res , 39 ,   Acids Res , 49 , D490–D497.                                      W362–W367.                                                                                                                                                                                                                                                                                    Downloaded
+24. Blin,K., Shaw,S., Kautsar,S.A., Medema,M.H. and Weber,T. (2021)       35. Stachelhaus,T., Mootz,H.D. and Marahiel,M.A. (1999) The
+   The antiSMASH database version 3: increased taxonomic coverage             specificity-conferring code of adenylation domains in nonribosomal                   from
+   and new query features for modular enzymes. Nucleic Acids Res , 49 ,           peptide synthetases. Chem. Biol. , 6 , 493–505.
+   D639–D643.                                                              36. Rausch,C., Weber,T., Kohlbacher,O., Wohlleben,W. and Huson,D.H.
+25. Mistry,J., Chuguransky,S., Williams,L., Qureshi,M., Salazar,G.A.,            (2005) Specificity prediction of adenylation domains in nonribosomal
+   Sonnhammer,E.L.L., Tosatto,S.C.E., Paladin,L., Raj,S.,                      peptide synthetases (NRPS) using transductive support vector
+    Richardson,L.J. et al. (2021) Pfam: the protein families database in           machines (TSVMs). Nucleic Acids Res , 33 , 5799–5808.
+    2021. Nucleic Acids Res , 49 , D412–D419.                                  37. Kautsar,S.A., Suarez Duran,H.G., Blin,K., Osbourn,A. and
+26. Haft,D.H., Selengut,J.D., Richter,R.A., Harkins,D., Basu,M.K. and        Medema,M.H. (2017) plantiSMASH: automated identification,
+   Beck,E. (2013) TIGRFAMs and genome properties in 2013. Nucleic          annotation and expression analysis of plant biosynthetic gene
+   Acids Res , 41 , D387–D395.                                                         clusters. Nucleic Acids Res , 45 , W55–W63.
+27. Letunic,I., Khedkar,S. and Bork,P. (2021) SMART: recent updates,        38. Pascal Andreu,V., Roel-Touris,J., Dodd,D., Fischbach,M.A. and
+   new developments and status in 2020. Nucleic Acids Res , 49 ,              Medema,M.H. (2021) The gutSMASH web server: automated
+   D458–D460.                                                                      identification of primary metabolic gene clusters from the gut
+28. van Heel,A.J., de Jong,A., Song,C., Viel,J.H., Kok,J. and Kuipers,O.P.         microbiota. Nucleic Acids Res , 49 , W263–W270.
+    (2018) BAGEL4: a user-friendly web server to thoroughly mine            39. Pascal Andreu,V., Augustijn,H.E., Chen,L., Zhernakova,A., Fu,J.,
+   RiPPs and bacteriocins. Nucleic Acids Res , 46 , W278–W281.                Fischbach,M.A., Dodd,D. and Medema,M.H. (2023) gutSMASH
+29. Yadav,G., Gokhale,R.S. and Mohanty,D. (2009) Towards prediction           predicts specialized primary metabolic pathways from the human gut
+    of metabolic products of polyketide synthases: an In silico analysis.           microbiota. Nat. Biotechnol .
+  PLOS Comput. Biol. , 5 , e1000351.                                         40. Castro-Mondragon,J.A., Riudavets-Puig,R., Rauluseviciute,I.,
+30. Reitz,Z.L., Butler,A. and Medema,M.H. (2022) Automated genome         Berhanu Lemma,R., Turchi,L., Blanc-Mathieu,R., Lucas,J.,
+   mining predicts combinatorial diversity and taxonomic distribution            Boddie,P., Khan,A., Manosalva P ´erez,N. et al. (2022) JASPAR 2022:
+    of peptide metallophore structures. bioRxiv doi:                              the 9th release of the open-access database of transcription factor
+    https://doi.org/10.1101/2022.12.14.519525 , 16 December 2022,               binding profiles. Nucleic Acids Res , 50 , D165–D173.
+    preprint: not peer reviewed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      https://academic.oup.com/nar/article/51/W1/W46/7151336
+                                                                                                                                         by
+                                                                                                                                                                                                                                                                                                                                                     Ocean
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           University
+                                                                                                                                         of
+                                                                                                                                                                                                                                                                                                                                                     China
+                                                                                                                                                                                                                                                                                 user
+                                                                                                                                         on
+                                                                                                                                         28
+                                                                                                                                                                                                                                                                                 July
+                                                                                                                                                                                                                                                                                 2024
+
+
+
+
+
+⃝TheC     Author(s) 2023. Published by Oxford University Press on behalf of Nucleic Acids Research.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution License (http: // creativecommons.org / licenses / by / 4.0 / ), which
+permits unrestricted reuse, distribution, and reproduction in any medium, provided the original work is properly cited.

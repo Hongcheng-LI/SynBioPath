@@ -1,0 +1,2023 @@
+
+[PDF physical page 1]
+                                                i An update to this article is included at the end
+
+
+
+                                                       Article
+
+
+A Deep Learning Approach to Antibiotic Discovery
+
+Graphical Abstract                                Authors
+
+                                                        Jonathan M. Stokes, Kevin Yang,
+                                                             Kyle Swanson, ..., Tommi S. Jaakkola,
+                                                        Regina Barzilay, James J. Collins
+
+                                              Correspondence
+                                                                regina@csail.mit.edu (R.B.),
+                                                             jimjc@mit.edu (J.J.C.)
+
+                                                           In Brief
+
+                                             A trained deep neural network predicts
+                                                                       antibiotic activity in molecules that are
+                                                                       structurally different from known
+                                                                        antibiotics, among which Halicin exhibits
+                                                           efﬁcacy against broad-spectrum
+                                                                    bacterial infections in mice.
+
+
+
+
+
+Highlights
+
+d A deep learning model is trained to predict antibiotics based
+  on structure
+
+d  Halicin is predicted as an antibacterial molecule from the
+  Drug Repurposing Hub
+
+d  Halicin shows broad-spectrum antibiotic activities in mice
+
+d More antibiotics with distinct structures are predicted from
+   the ZINC15 database
+
+
+
+
+
+           Stokes et al., 2020, Cell 180, 688–702
+           February 20, 2020 ª 2020 Elsevier Inc.
+             https://doi.org/10.1016/j.cell.2020.01.021
+
+
+[PDF physical page 2]
+                                        Article
+
+
+A Deep Learning Approach
+to Antibiotic Discovery
+
+Jonathan M. Stokes,1,2,3 Kevin Yang,3,4,10 Kyle Swanson,3,4,10 Wengong Jin,3,4 Andres Cubillos-Ruiz,1,2,5
+Nina M. Donghia,1,5 Craig R. MacNair,6 Shawn French,6 Lindsey A. Carfrae,6 Zohar Bloom-Ackermann,2,7
+Victoria M. Tran,2 Anush Chiappino-Pepe,5,7 Ahmed H. Badran,2 Ian W. Andrews,1,2,5 Emma J. Chory,1,2
+George M. Church,5,7,8 Eric D. Brown,6 Tommi S. Jaakkola,3,4 Regina Barzilay,3,4,9,* and James J. Collins1,2,5,8,9,11,*
+1Department of Biological Engineering, Synthetic Biology Center, Institute for Medical Engineering and Science, Massachusetts Institute of
+Technology, Cambridge, MA 02139, USA
+2Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA
+3Machine Learning for Pharmaceutical Discovery and Synthesis Consortium, Massachusetts Institute of Technology, Cambridge, MA
+02139, USA
+4Computer Science and Artiﬁcial Intelligence Laboratory, Massachusetts Institute of Technology, Cambridge, MA 02139, USA
+5Wyss Institute for Biologically Inspired Engineering, Harvard University, Boston, MA 02115, USA
+6Department of Biochemistry and Biomedical Sciences, Michael G. DeGroote Institute for Infectious Disease Research, McMaster University,
+Hamilton, ON L8N 3Z5, Canada
+7Department of Genetics, Harvard Medical School, Boston, MA 02115, USA
+8Harvard-MIT Program in Health Sciences and Technology, Cambridge, MA 02139, USA
+9Abdul Latif Jameel Clinic for Machine Learning in Health, Massachusetts Institute of Technology, Cambridge, MA 02139, USA
+10These authors contributed equally
+11Lead Contact
+*Correspondence: regina@csail.mit.edu (R.B.), jimjc@mit.edu (J.J.C.)
+ https://doi.org/10.1016/j.cell.2020.01.021
+
+
+
+
+SUMMARY                                              cacy of these essential drugs is uncertain due to the global
+                                                              dissemination of antibiotic-resistance determinants. Moreover,
+Due to the rapid emergence of antibiotic-resistant   the decreasing development of new antibiotics in the private
+bacteria, there is a growing need to discover new an-   sector that has resulted from a lack of economic incentives is
+tibiotics. To address this challenge, we trained a   exacerbating  this already dire problem (Brown and Wright,
+deep neural network capable of predicting molecules   2016; PEW Trusts, 2019). Indeed, without immediate action to
+with antibacterial activity. We performed predictions   discover and develop new antibiotics, it is projected that deaths
+                                                                      attributable to resistant infections will reach 10 million per year
+on multiple chemical libraries and discovered a mole-
+                                                      by 2050 (O’Neill, 2014).
+cule from the Drug Repurposing Hub—halicin—that
+                                                                             Historically,  antibiotics were  discovered  largely  through
+is structurally divergent from conventional antibi-                                                             screening soil-dwelling microbes  for secondary metabolites
+otics and displays bactericidal activity against a   that prevented the growth of pathogenic bacteria (Clardy et al.,
+wide phylogenetic spectrum of pathogens including   2006; Wright, 2017). This approach resulted in the majority of
+Mycobacterium tuberculosis and carbapenem-resis-    clinically used classes of antibiotics, including b-lactams, amino-
+tant  Enterobacteriaceae.  Halicin  also  effectively   glycosides, polymyxins, and glycopeptides, among  others.
+treated  Clostridioides  difﬁcile and  pan-resistant   Semi-synthetic derivatives of these scaffolds have maintained
+Acinetobacter  baumannii  infections   in  murine   a viable clinical arsenal of antibiotics by increasing potency,
+models. Additionally, from a discrete set of 23 empir-   decreasing toxicity, and sidestepping resistance determinants.
+ically tested predictions from >107 million molecules   Entirely  synthetic  antibiotics  of  the  pyrimidine,  quinolone,
+                                                                 oxazolidinone, and sulfa classes have also found prolonged clin-
+curated from  the ZINC15 database, our model
+                                                                              ical utility, and continue to be optimized for the same properties.
+identiﬁed eight antibacterial compounds that are
+                                                                    Unfortunately, the discovery of new antibiotics is becoming
+structurally  distant from known  antibiotics. This                                                                   increasingly difﬁcult. Natural product discovery is now plagued
+work  highlights the  utility  of deep learning ap-   by the dereplication problem, wherein the same molecules are
+proaches to expand our antibiotic arsenal through   being repeatedly discovered (Cox et al., 2017). Moreover, given
+the discovery of structurally distinct antibacterial   the rapid expansion of chemical spaces that are accessible by
+molecules.                                                   the derivatization of complex scaffolds (Ortholand and Ganesan,
+                                                                 2004), engineering next-generation versions of existing antibi-
+INTRODUCTION                                                   otics results in substantially more failures than leads. Therefore,
+                                                many antibiotic discovery programs have turned to screening
+Since the discovery of penicillin, antibiotics have become the   large synthetic chemical libraries (Tommasi et al., 2015). How-
+cornerstone of modern medicine. However, the continued efﬁ-   ever, these libraries, which can contain hundreds of thousands
+
+
+
+688  Cell 180, 688–702, February 20, 2020 ª 2020 Elsevier Inc.
+
+
+[PDF physical page 3]
+                                                                   Chemical landscape
+                                                                           108       Directed message                Large scale predictions
+    passing neural network                 (upper limit 108 +)
+
+                                                                           107
+                       3                                                                                    Conventional small
+      N  2   1     5                                                                          molecule screening
+                                                                           106
+                           4
+
+
+
+                       3
+                              1                                                                           105                         2      N                                    5                         Training set
+                                                                                Iterative                        Chemical screening                                               (104 molecules)                           4                                            model                          (upper limit 105 - 106)
+                                                                            re-training     104
+
+        new bond
+             vector                             Machine learning                                                   Hit validation
+                                                                                                             (1 - 3% hit rate)
+         concat
+
+                                               Predictions &
+                                      model validation
+                           sum
+                                                                     Lead                                bonds into 2:                                                                                Growth                                            3-2, 4-2                                                            identification
+       bond 2-1                                                                                      [antibiotic]               & optimization
+
+
+
+Figure 1. Machine Learning in Antibiotic Discovery
+Modern approaches to antibiotic discovery often include screening large chemical libraries for those that elicit a phenotype of interest. These screens, which are
+upper bound by hundreds of thousands to a few million molecules, are expensive, time consuming, and can fail to capture an expansive breadth of chemical
+space. In contrast, machine learning approaches afford the opportunity to rapidly and inexpensively explore vast chemical spaces in silico. Our deep neural
+network model works by building a molecular representation based on a speciﬁc property, in our case the inhibition of the growth of E. coli, using a directed
+message passing approach. We ﬁrst trained our neural network model using a collection of 2,335 diverse molecules for those that inhibited the growth of E. coli,
+augmenting the model with a set of molecular features, hyperparameter optimization, and ensembling. Next, we applied the model to multiple chemical libraries,
+comprising >107 million molecules, to identify potential lead compounds with activity against E. coli. After ranking the candidates according to the model’s
+predicted score, we selected a list of promising candidates.
+
+
+
+to a few million molecules, are often prohibitively costly to curate,   molecules  are  represented;  traditionally,  molecules  were
+limited in chemical diversity, and fail to reﬂect the chemistry that   represented by their ﬁngerprint vectors, which reﬂected the
+is inherent to antibiotic molecules (Brown et al., 2014). Since the   presence or absence of functional groups in the molecule, or
+implementation of high-throughput screening in the 1980s, no   by descriptors that include computable molecular properties
+new clinical antibiotics have been discovered using this method.   and require expert knowledge to construct (Mauri et al., 2006;
+  Novel approaches to antibiotic discovery are needed to in-   Moriwaki et al., 2018; Rogers and Hahn, 2010). Even though
+crease the rate at which new antibiotics are identiﬁed and simul-   the mapping from these representations to properties was
+taneously decrease the associated cost of early lead discovery.   learned automatically, the ﬁngerprints and descriptors them-
+Given recent advancements  in machine learning (Camacho   selves were designed  manually. The  innovation  of  neural
+et al., 2018), the ﬁeld is now ripe for the application of algorithmic   network approaches lies in their ability to learn this representa-
+solutions for molecular property prediction to identify novel   tion automatically, mapping molecules into continuous vectors
+structural classes of antibiotics. Indeed, adopting methodolo-   that are subsequently used to predict their properties. These
+gies that allow early drug discovery to be performed largely in sil-   designs result in molecular representations that are highly at-
+ico enables the exploration of vast chemical spaces that is   tuned to the desired property, yielding gains in property predic-
+beyond the reach of current experimental approaches.             tion accuracy over manually crafted representations (Yang
+  The idea of analytical exploration in drug design is not new.   et al., 2019b).
+Decades of prior work in chemoinformatics have developed     While neural network models narrowed the performance
+models for molecular property prediction (Mayr et al., 2018;  gap between analytical and experimental approaches, a differ-
+Wu et al., 2017). However, the accuracy of these models has   ence still exists. Here, we demonstrate how the combination of
+been insufﬁcient to substantially change the traditional drug    in silico predictions and empirical investigations can lead to
+discovery pipeline. With recent algorithmic advancements in   the discovery of new antibiotics (Figure 1). Our approach con-
+modeling neural network-based molecular representations, we   sists of three stages. First, we trained a deep neural network
+are beginning to have the opportunity to inﬂuence the paradigm   model to predict growth inhibition of Escherichia coli using a
+of drug discovery. An important development relates to how   collection of 2,335 molecules. Second, we applied the resulting
+
+
+
+                                                                                                    Cell 180, 688–702, February 20, 2020  689
+
+
+[PDF physical page 4]
+model to several discrete chemical libraries, comprising >107   of a molecule into a continuous vector via a directed bond-
+million molecules, to identify potential lead compounds with ac-   based message passing approach. This builds a molecular
+tivity against E. coli. After ranking the compounds according to   representation by iteratively aggregating the features of individ-
+the model’s predicted score, we lastly selected a list of candi-   ual atoms and bonds. The model operates by passing ‘‘mes-
+dates based on a pre-speciﬁed prediction score threshold,   sages’’ along bonds that encode information about neighboring
+chemical structure, and availability.                         atoms and bonds. By applying this message passing operation
+  Through this approach, from the Drug Repurposing Hub, we   multiple times, the model constructs higher-level bond mes-
+identiﬁed the c-Jun N-terminal kinase inhibitor SU3327 (De   sages that contain information about larger chemical substruc-
+et al., 2009; Jang et al., 2015) (renamed halicin herein), which   tures. The highest-level bond messages are then combined
+is structurally divergent from conventional  antibiotics, as a   into a single continuous vector representing the entire molecule.
+potent inhibitor of E. coli growth. Further investigations revealed   Given the limited amount of data available for training the model,
+that halicin displays growth inhibitory properties against a wide     it was important to ensure that the model could generalize
+phylogenetic spectrum of pathogens through selective dissipa-   without  overﬁtting.  Therefore, we augmented  the  learned
+tion of the bacterial transmembrane DpH potential. Importantly,   representation with molecular features computed by RDKit
+halicin shows efﬁcacy against Clostridioides difﬁcile and pan-   (Landrum, 2006) (Table S2A), yielding a hybrid molecular repre-
+resistant Acinetobacter baumannii infections in murine models.   sentation. We further increased the algorithm’s robustness by
+Of  note,  the  World  Health  Organization  has  designated    utilizing an ensemble of classiﬁers and estimating hyperpara-
+A. baumannii as one of the highest priority pathogens against   meters  with  Bayesian  optimization.  The  resulting  model
+which new antibiotics are urgently required (Lee et al., 2017;   achieved a receiver operating characteristic curve-area under
+Perez et al., 2007). In addition to halicin, from a distinct set of   the curve (ROC-AUC) of 0.896 on the test data (Figure 2B).
+23 empirically tested predictions from >107 million molecules      After model development and optimization using our training
+found in the ZINC15 database, we readily discovered eight   dataset  of 2,335  molecules, we subsequently  applied an
+additional antibacterial compounds that are structurally distant   ensemble of models trained on twenty folds to identify potential
+from known antibiotics. Remarkably, two of these molecules   antibacterial molecules from the Drug Repurposing Hub (Cor-
+displayed potent broad-spectrum activity and could overcome   sello et al., 2017). This library consists of 6,111 molecules at
+an array of antibiotic-resistance determinants in E. coli. This   various stages of investigation for human diseases. Here, predic-
+work highlights the signiﬁcant impact that machine learning   tion scores for each compound were determined, molecules
+can have on early antibiotic discovery efforts by simultaneously   were ranked based on their probability of displaying growth
+increasing the accuracy rate of lead compound identiﬁcation    inhibition  against  E.  coli, and compounds  with molecular
+and decreasing the cost of screening efforts.                   graphs common between the training dataset and the Drug Re-
+                                                            purposing Hub were removed (Figure 2C; Table S2B). Notably,
+RESULTS                                      we compared the molecule prediction ranks from our model
+                                                                 (Table S2B) to numerous others, including a learned model
+Initial Model Training and the Identiﬁcation of Halicin       without RDKit feature augmentation (Table S2C), a model trained
+Initially, we desired to obtain a training dataset de novo that   exclusively on RDKit features (Table S2D), a feed-forward deep
+was inexpensive, chemically diverse, and did not require sophis-   neural network model using Morgan ﬁngerprints as the molecu-
+ticated laboratory resources. This would allow for the develop-    lar representation (Table S2E), a random forest classiﬁer using
+ment of a robust model with which new antibiotics could be  Morgan ﬁngerprints (Table S2F), and a support-vector machine
+predicted, without the practical hurdles that can be associated   model using Morgan ﬁngerprints (Table S2G).
+with large-scale antibiotic screening efforts. We screened for     Next, we curated the 99 molecules unique to the Drug
+growth inhibition against E.  coli BW25113 (Zampieri et  al.,   Repurposing Hub that were most strongly predicted to display
+2017) using a widely available US Food and Drug Administration   antibacterial properties by our model and empirically tested
+(FDA)-approved drug library consisting of 1,760 molecules of   these for growth inhibition. We observed that 51 of the 99 pre-
+diverse structure and function. To further increase chemical   dicted molecules displayed growth inhibition against E. coli,
+diversity, we included an  additional 800  natural products   based on a cut-off of OD600 <0.2 (Figure 2D). Importantly, higher
+isolated from plant, animal, and microbial sources, resulting in   prediction scores  correlated  with a  greater  probability  of
+a primary training set of 2,560 molecules (Figures 2A and S1A;   growth inhibition (Figure 2E). Furthermore, empirically testing
+Table S1A)—2,335 unique compounds when deduplicated   the lowest predicted 63 molecules that were unique to the
+(Figure S1B; Table S1B). Using 80% growth inhibition as a hit   Drug Repurposing Hub revealed that only two of these com-
+cut-off, this primary screen resulted in the identiﬁcation of 120   pounds displayed growth inhibitory activity (Figure 2F).
+molecules with growth inhibitory activity against E. coli.              After  identifying the 51 molecules that displayed growth
+  Next, all 2,335 compounds from the primary training dataset    inhibition against E. coli, we prioritized these based on clinical
+were binarized as hit or non-hit. After binarization, we used   phase of investigation, structural similarity to molecules in the
+these data to train a binary classiﬁcation model that predicts   primary training dataset, and predicted toxicity using a deep
+the probability of whether a new compound  will inhibit the   neural network model trained on the ClinTox database (Gayvert
+growth of E. coli based on its structure. For this purpose, we uti-   et al., 2016; Wu et al., 2017) (Table S2B). Speciﬁcally, we priori-
+lized a directed-message passing deep neural network model   tized predicted compounds in preclinical or Phase 1/2/3 studies,
+(Yang et al., 2019b), which translates the graph representation   those with low structural similarity to training set molecules, and
+
+
+
+690  Cell 180, 688–702, February 20, 2020
+
+
+[PDF physical page 5]
+ A                        B                        C
+      1.4                                               1                                               1
+
+      1.2
+                                                                0.8                                                      0.8
+       growth 0.81                                                                                    rate 0.6                                                                                                          score 0.6
+      0.6                                                                                                                                                                         positive 0.4                                                      0.4         Relative 0.4                                                                                    True                                                                                                                                                                                                                                     Prediction
+                                                                0.2                                                      0.2
+      0.2
+                                                 AUC = 0.896 ± 0.002
+       0                                               0                                               0
+         0    500   1000  1500  2000  2500  3000       0       0.2      0.4      0.6      0.8      1         0     1000    2000    3000    4000    5000
+                             Plate index                                         False positive rate                                Ranked molecules
+
+ D                          E                            F
+      1.2                                              10                                                      1.2
+                       99 predictions                                                                                    63 predictions
+       1                                                                                                          score                                                  1
+
+
+      0.6                                                                                                                         0.6        (600nm) 0.8                                               1                                                      0.8                                                                                                                                                                                                                                                         prediction                                                                                                                                                               (600nm)
+  OD 0.4                     / 0.1                                          OD 0.4
+      0.2      51.5% TPR                                                                                  growth                                                          0.2
+                                                                                                         3.2% FNR
+       0                                                   0.01                                              0
+         0      20      40      60      80     100        0      20      40      60      80     100        0    10   20   30   40   50   60   70
+                       Predicted molecules                       Predicted molecules (highest to lowest predictions)                      Predicted molecules
+
+ G                        H                                                             I
+                                                      1                                                      0.7
+
+                                                             N                               0.6
+                                                               0.8
+                                                                      S
+                                                                                                                         0.5
+                                                  O                                                                  S                                                                     N                                                        N                                                               0.6                                                                                                                         0.4                                                                                                                                                                                                                                                         similarity                                                                       S                                                                     N                                                    O                                                                                                                                                                                                                                                                                                                                                     (600nm)
+                                                               0.4                                                       0.3
+                                                                            H2N               OD 0.2                                                                                                                                                                                                       Tanimoto                                                               0.2
+                                                                                                                         0.1
+  training set                                                                                      BW25113
+                                                      0                                               0
+  Broad library
+                                                        0      500    1000    1500    2000    2500        10-5  10-4  10-3  10-2  10-1  100  101  102  103  halicin
+                                                              Ranked training set molecules                                             [halicin] μg/ml
+
+
+Figure 2. Initial Model Training and the Identiﬁcation of Halicin
+(A) Primary screening data for growth inhibition of E. coli by 2,560 molecules within the FDA-approved drug library supplemented with a natural product collection.
+Shown is the mean of two biological replicates. Red are growth inhibitory molecules; blue are non-growth inhibitory molecules.
+(B) ROC-AUC plot evaluating model performance after training. Dark blue is the mean of six individual trials (cyan).
+(C) Rank-ordered prediction scores of Drug Repurposing Hub molecules that were not present in the training dataset.
+(D) The top 99 predictions from the data shown in (C) were curated for empirical testing for growth inhibition of E. coli. Fifty-one of 99 molecules were validated as
+true positives based on a cut-off of OD600 <0.2. Shown is the mean of two biological replicates. Red are growth inhibitory molecules; blue are non-growth
+inhibitory molecules.
+(E) For all molecules shown in (D), ratios of OD600 to prediction score were calculated and these values were plotted based on prediction score for each cor-
+responding molecule. These results show that a higher prediction score correlates with a greater probability of growth inhibition.
+(F) The bottom 63 predictions from the data shown in (C) were curated for empirical testing for growth inhibition of E. coli. Shown is the mean of two biological
+replicates. Red are growth inhibitory molecules; blue are non-growth inhibitory molecules.
+(G) t-Distributed stochastic neighbor embedding (t-SNE) of all molecules from the training dataset (blue) and the Drug Repurposing Hub (red), revealing chemical
+relationships between these libraries. Halicin is shown as a black and yellow circle.
+(H) Tanimoto similarity between halicin (structure inset) and each molecule in the de-duplicated training dataset. The Tanimoto nearest neighbor is the anti-
+protozoal drug nithiamide (score   0.37), with metronidazole being the nearest antibiotic (score   0.21).
+(I) Growth inhibition of E. coli by halicin. Shown is the mean of two biological replicates. Bars denote absolute error.
+See also Figure S1 and Tables S1 and S2.
+
+
+those with low predicted toxicity. The compound that satisﬁed all   and Hahn, 2010) and the antibiotic metronidazole (Tanimoto
+of these  criteria was the c-Jun N-terminal kinase  inhibitor    similarity   0.21), displayed excellent growth inhibitory activity
+SU3327 (De et al., 2009; Jang et al., 2015) (renamed halicin), a   against E. coli, achieving a minimum inhibitory concentration
+preclinical nitrothiazole under investigation as a treatment for   (MIC) of 2 mg/mL (Figure 2I).
+diabetes. Excitingly, halicin, which is structurally most similar     Importantly, we observed that the prediction rank of halicin
+to a family of nitro-containing antiparasitic compounds (Tani-    in our model (position 89) was greater than that in four of the
+moto similarity   0.37; Figures 2G and 2H; Table S2H) (Rogers   other ﬁve models tested (positions ranging from 273 to 2579;
+
+
+
+                                                                                                    Cell 180, 688–702, February 20, 2020  691
+
+
+[PDF physical page 6]
+ A                        B                        C
+      109                                               109                                                  1010
+      108                                               108                                                109                 + halicin
+                                                                                                           108      107                                               107
+                                                                                                           107
+      106                                               106
+            1hr                                                    2hr                                           106  no drug       CFU/ml 105  2hr                                                                                                               CFU/ml 105  4hr                                                                                                                CFU/ml 105  10x amp - 0x hal
+                                                                                                             10x                                                                                             amp                                                                                                                                                                                           -                                                                                                                       5x                                                                                                                                                 hal      104  3hr                                                        104  6hr
+            4hr                                                                  8hr                                           104                                                                                                             10x                                                                                             amp                                                                                                                                                                                           -                                                                                                                     10x                                                                                                                                                  hal
+      103  BW25113                                     103  BW25113                                     103  10x amp - 20x hal
+             nutrient replete                                               nutrient deplete                                BW25113
+      102                                               102                                                102
+         10-2     10-1     100     101     102     103        10-2     10-1     100     101     102     103        0      2      4      6      8        24
+                                  [halicin] μg/ml                                                      [halicin] μg/ml                                      Time (hours)
+
+ D                          E                            F
+      10                                                      1.4                                                109  M. tuberculosis H37Rv
+                                                                                                         no drug
+                                                               1.2                                                                    halicin (16 μg/ml)                                                                                                           107
+                                                      1          (μg/ml)
+                                                               0.8                                                105    MIC  1                                                                                                                                                   (600nm) 0.6                                                                                                                              CFU/ml
+                                                  OD                                                   103
+                                                               0.4          halicin
+                                                               0.2                                                101
+                                                         M. tuberculosis H37Rv
+      0.1                                              0
+                                                                                                                          100                                                                                                                                   150      200                                                                               100                                                                                     101    102    103        0        50
+                                                                                                        [halicin]                                                                                       μg/ml                                                                                                                        Time                                                                                                                                                       (hours)     BW25113*∆bamB∆tolCMCR-1* CATOXA-1ant(2’’)-Iaaac(6’)-Ib-cr             10-3    10-2    10-1
+ G
+   1000   Carbapenem resistant Enterobacteriaceae (CRE) panel
+
+       (μg/ml) 100
+   MIC 10
+       halicin   1
+
+
+      0.1
+   1000   Acinetobacter baumannii multidrug resistance panel
+
+       (μg/ml) 100
+   MIC 10
+       halicin   1
+
+
+      0.1
+   1000   Pseudomonas aeruginosa multidrug resistance panel
+
+       (μg/ml) 100
+   MIC 10
+       halicin   1
+
+
+      0.1
+
+
+Figure 3. Halicin Is a Broad-Spectrum Bactericidal Antibiotic
+(A) Killing of E. coli in LB media in the presence of varying concentrations of halicin after 1 h (blue), 2 h (cyan), 3 h (green), and 4 h (red). The initial cell density is  106
+CFU/mL. Shown is the mean of two biological replicates. Bars denote absolute error.
+(B) Killing of E. coli in PBS in the presence of varying concentrations of halicin after 2 h (blue), 4 h (cyan), 6 h (green), and 8 h (red). The initial cell density is  106
+CFU/mL. Shown is the mean of two biological replicates. Bars denote absolute error.
+(C) Killing of E. coli persisters by halicin after treatment with 10 mg/mL (103 MIC) of ampicillin. Light blue is no halicin. Green is 53 MIC halicin. Purple is 103 MIC
+halicin. Red is 203 MIC halicin. Shown is the mean of two biological replicates. Bars denote absolute error.
+
+                                                                                                             (legend continued on next page)
+
+
+
+692  Cell 180, 688–702, February 20, 2020
+
+
+[PDF physical page 7]
+Tables S2D–S2G). Indeed, only the learned model without RDKit    To more comprehensively assess the  ability of halicin to
+augmentation positioned halicin  in a higher prediction rank   overcome antibiotic-resistance genes, as well as understand
+(position 61; Table S2C). These data highlight the importance   phylogenetic spectrum of bioactivity, we assayed for halicin-
+of using a directed-message passing deep neural network   dependent growth inhibition against Mycobacterium tubercu-
+approach in the discovery of halicin.                                    losis, as well as 36 multidrug-resistant clinical isolates each of
+                                                      carbapenem- resistant Enterobacteriaceae (CRE), A. baumannii,
+Halicin Is a Broad-Spectrum Bactericidal Antibiotic        and Pseudomonas aeruginosa. These pathogens are regarded
+Given that halicin displayed potent growth inhibitory activity   by the World Health Organization as the bacteria that most ur-
+against E. coli, we next performed time- and concentration-   gently require new treatments. The molecule we have named hal-
+dependent killing assays to determine whether this compound    icin was reported to have growth inhibitory activity against M.
+inhibited growth  through a  bactericidal  or  bacteriostatic   tuberculosis in a high-throughput screening setting (unpublished
+mechanism. In rich growth conditions against an initial cell   data; PubChem AID 1259343). Excitingly, we observed that hali-
+density of  106 colony-forming unit (CFU)/mL, we observed   cin was rapidly bactericidal against M. tuberculosis (Figures 3E
+bacterial cell  killing in the presence of halicin (Figure 3A).   and 3F) and had strong growth inhibitory activity against CRE
+The apparent potency  of  halicin decreased as  initial  cell   andA. baumannii clinical isolates(Figure 3G; Table S3).Whileit re-
+density increased (Figures S2A and S2B), likely as a result   mains to be experimentally elucidated, the lack of efﬁcacy against
+of dilution of the molecule over a greater number of cells.   P. aeruginosa may be explained by insufﬁcient permeability to the
+Next, we considered whether halicin might induce bacterial    cell membrane (Angus et al., 1982; Yoshimura and Nikaido, 1982).
+cell death against E. coli in a metabolically repressed, anti-
+biotic-tolerant  state (Balaban  et  al., 2019; Stokes  et  al.,   Halicin Dissipates the DpH Component of the Proton
+2019a, 2019b). Indeed, given that metronidazole is bacteri-   Motive Force
+cidal against non-replicating  cells  (Tally et  al., 1978), we   The  observations  that  halicin  retained  bactericidal  activity
+reasoned  that  halicin may  similarly  display  this  activity.   against antibiotic-tolerant E. coli and M. tuberculosis, as well
+Remarkably, by incubating E. coli in nutrient-free buffer sup-   as growth  inhibitory  properties  against  multidrug-resistant
+plemented with halicin, we observed that this molecule re-   Gram-negative clinical isolates, suggested that this compound
+tained bactericidal activity (Figures 3B, S2C, and S2D). This  was  antibacterial  through  an  unconventional  mechanism.
+is in stark contrast to the conventionally bactericidal antibiotic   Because our model was agnostic to the mechanism of action
+ampicillin, which was unable to eradicate E. coli existing in   underlying growth inhibition, we initially attempted to elucidate
+metabolically repressed states (Figures S2E–S2G), despite  mechanism through the evolution of halicin-resistant mutants.
+its efﬁcacy against metabolically active cells (Figures S2H–   However, we were unable to isolate spontaneous suppressor
+S2J). Moreover, halicin was able to eradicate E. coli persister   mutants after 30 days of serial passaging in liquid media (Fig-
+cells that remained after treatment with ampicillin (Figure 3C),   ure 4A) or after 7 days of continuous halicin exposure on solid
+consistent  with  its  bactericidal  activity  against  cells  in   media (Figure S3A). As such, we applied RNA sequencing to
+nutrient-free buffer conditions.                               understand the physiologic response  of E.  coli to  halicin.
+  The efﬁcacy of halicin against antibiotic-tolerant cells repre-   Here, early-log phase cells were treated with a range of concen-
+sents a signiﬁcant improvement over the majority of conven-   trations of compound, and whole-transcriptome sequencing
+tional antibiotics (Lobritz et  al., 2015; Stokes et  al., 2019b).  was performed. We observed a rapid downregulation of genes
+This observation suggested that the molecule could function   involved in cell motility across all concentrations, as well as the
+through an uncommon mechanism of action, and therefore   upregulation of genes required for iron homeostasis at sub-
+overcome many common resistance determinants. We initially    lethal concentrations (Figures 4B, S3B, and S3C; Tables S4A–
+tested halicin against a selection of E. coli strains harboring   S4C). Interestingly, previous work has shown that dissipation
+plasmid-borne antibiotic-resistance genes conferring resistance   of  the  cytoplasmic  transmembrane  potential  results   in
+to polymyxins (MCR-1),  chloramphenicol  (CAT),  b-lactams   decreased bacterial locomotion and ﬂagellar biosynthesis (Man-
+(OXA-1), aminoglycosides  [ant(200)-Ia], and ﬂuoroquinolones   son et al., 1977; Paul et al., 2008; Shioi et al., 1982). Moreover,
+[aac(60)-Ib-cr]. Here, we observed no change in halicin MIC   given that cells must maintain an electrochemical transmem-
+in the presence of any resistance gene relative to the anti-   brane gradient for viability (Hurdle et al., 2011; Coates and Hu,
+biotic-susceptible parent strains (Figures 3D and S2K). Similarly,   2008), dissipation of the proton motive force would result in the
+the MIC of halicin did not change in E. coli displaying resistance   death of tolerant cells.
+to the nitrofuran antibiotic nitrofurantoin via deletion of nfsA    To test the hypothesis that halicin dissipated the proton
+and nfsB (Sandegren et al., 2008) (Figures S2L and S2M).        motive force, we ﬁrst assayed for changes in halicin MIC against
+
+
+
+(D) MIC of halicin against E. coli strains harboring a range of antibiotic-resistance determinants. The mcr-1 gene was expressed in E. coli BW25113. All other
+resistance genes were expressed in E. coli BW25113 DbamBDtolC. Experiments were conducted with two biological replicates.
+(E) Growth inhibition of M. tuberculosis by halicin. Shown is the mean of three biological replicates. Bars denote standard deviation.
+(F) Killing of M. tuberculosis by halicin in 7H9 media at 16 mg/mL (13 MIC). Shown is the mean of three biological replicates. Bars denote standard deviation.
+(G) MIC of halicin against 36-strain panels of CRE isolates (green), A. baumannii isolates (red), and P. aeruginosa isolates (blue). Experiments were conducted with
+two biological replicates.
+See also Figure S2 and Table S3.
+
+
+
+                                                                                                    Cell 180, 688–702, February 20, 2020  693
+
+
+[PDF physical page 8]
+ A                       C                       D
+      103  ciprofloxacin                                       0.7                                                 12,000
+              halicin
+                                                               0.6                                                                                                                                                                                                                                                    (RFU) 10,000
+    MIC 102                                                     0.5
+   in
+                                                               0.4                                                   8,000
+                                                                                                                                                                              (600nm) 0.3  pH 5.4        change 101                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         fluorescence  6,000                                                  OD     pH 6.4
+      Fold 100                                                     0.2  pH 7.4                                           4,000                                    halicin (2 μg/ml)
+                                                               0.1  pH 8.4                                          PMB (32 μg/ml)  halicin (4 μg/ml)                                                  pH 9.4                                                                                                                   DiSC3(5)             DMSO            halicin (8 μg/ml)
+      10-1                                              0                                                   2,000
+         0           10          20          30         10-5  10-4  10-3  10-2  10-1  100  101  102  103           0           50          100          150
+                        Time (days)                                                       [halicin] μg/ml                                       Time (seconds)
+ B                         E
+        1010                                              8
+        106                                              4            CFU/ml 102
+                                        a
+                                        b                          μg/ml   21
+                                                                  0.5
+                                                                                                                                                                                                                                     [halicin]  0.3
+
+                                            c                 0.1
+                                                        0
+
+                                                           0  0.3 0.5 1  2  4  8 16       0  0.3 0.5 1  2  4  8 16       0 0.01   0.06   0.25    1
+                                           3
+                                                                                        [tetracycline] μg/ml                  [kanamycin] μg/ml                         [FeCl3] mM
+                                           2
+                                        d
+                                           1
+
+                                           0
+                                                      -1
+
+                                                      -2
+                                        e   -3
+
+
+
+
+                                                                               f
+
+
+              1      2      3      4
+                    Time (hours)
+
+
+Figure 4. Halicin Dissipates the DpH Component of the Proton Motive Force
+(A) Evolution of resistance to halicin (blue) or ciproﬂoxacin (red) in E. coli after 30 days of passaging in liquid LB media. Cells were passaged every 24 h.
+(B) Whole transcriptome hierarchical clustering of relative gene expression of E. coli treated with halicin at 43 MIC for 1 h, 2 h, 3 h, and 4 h. Shown is the mean
+transcript abundance of two biological replicates of halicin-treated cells relative to untreated control cells on a log2-fold scale. Genes enriched in cluster b are
+involved in locomotion (p 10  20); genes enriched in cluster c are involved in ribosome structure/function (p 10  30); and genes enriched in cluster d are involved
+in membrane protein complexes (p 10  15). Clusters a, e, and f are not highly enriched for speciﬁc biological functions. In the growth curve, blue represents
+untreated cells; red represents halicin-treated cells.
+(C) Growth inhibition by halicin against E. coli in pH-adjusted media. Shown is the mean of two biological replicates. Bars denote absolute error.
+(D) DiSC3(5) ﬂuorescence in E. coli upon exposure to polymyxin B (PMB), halicin, or DMSO.
+(E) Growth inhibition checkerboards of halicin in combination with tetracycline (left), kanamycin (center), and FeCl3 (right). Dark blue represents greater growth.
+See also Figure S3 and Table S4.
+
+
+E. coli as a function of media pH. In E. coli (Figure 4C), as well as   rupted, or the membrane is permeabilized, the probe is released
+Staphylococcus aureus (Figure S3D), we observed that halicin   into the extracellular milieu resulting in increased ﬂuorescence.
+potency decreased as pH increased, providing evidence that   Conversely, when DpH  is disrupted,  cells compensate by
+this compound may be dissipating the DpH component of the   increasing Dc, resulting in enhanced DiSC3(5) uptake into the
+proton motive force (Farha et al., 2013). Consistent with this   cytoplasmic membrane and therefore decreased ﬂuorescence.
+observation, the addition of sodium bicarbonate to the growth   Here, early-log E. coli cells were washed in buffer and introduced
+medium (Farha et al., 2018) antagonized the action of halicin   to DiSC3(5) to allow ﬂuorescence equilibration. Cells were then
+against E. coli (Figure S3E).                                    introduced to polymyxin B (Figure 4D), which disrupts the cyto-
+  To further ascertain that halicin dissipates the transmembrane   plasmic membrane, causing release of DiSC3(5) from the mem-
+DpH  potential  in  bacteria, we  applied  the  potentiometric   brane and a corresponding increase in ﬂuorescence. Next, we
+ﬂuorophore 3,30-dipropylthiadicarbocyanine iodide  [DiSC3(5)]   introduced  cells  to  varying  concentrations  of  halicin, and
+(Wu et al., 1999). DiSC3(5) accumulates in the cytoplasmic mem-   observed an immediate decrease in DiSC3(5) ﬂuorescence in a
+brane in response to the Dc component of the proton motive   dose-dependent manner (Figure 4D), suggesting that halicin
+force, and self-quenches its own ﬂuorescence. When Dc is dis-   selectively dissipated the DpH component of the proton motive
+
+
+
+694  Cell 180, 688–702, February 20, 2020
+
+
+[PDF physical page 9]
+ A                        B                        C
+      0.7                                                109                                                109
+      0.6                                                108                                                108
+      0.5                                                107                                                                                                           107
+      0.4                                                106
+                                                                  2hr                                           106        (600nm)      0.3                                                                                                                              CFU/ml 105  4hr                                                                                              CFU/g
+  OD                                                             6hr                                           105      0.2                                                104
+                                                                  8hr
+      0.1                                                103  A. baumannii CDC 288                          104
+            A. baumannii CDC 288                                       nutrient deplete
+       0                                                102                                                103
+         10-5  10-4  10-3  10-2  10-1  100  101  102  103        10-2     10-1     100     101     102     103                     vehicle              halicin
+                                 [halicin] μg/ml                                                      [halicin] μg/ml                               (0.5% DMSO)      (0.5% w/v)
+ D                          E                            F
+       1                                                                                                  109
+                                                                                                vehicle                   108
+      0.8
+                                                                                                           107
+                                                                                       metronidazole
+      0.6                                                                                                   106        (600nm)      0.4                                                                                                                                                                                                                                CFU/g 105
+  OD                                                                   disrupt                      halicin                    104  vehicle
+      0.2                                                          colonization          infect                                   metronidazole (50 mg/kg)
+                                                                  resistance                                        103   halicin (15 mg/kg)
+           C. difficile 630
+       0                                                                                                   102
+         10-5  10-4  10-3  10-2  10-1  100  101  102  103     -72  -48  -24      0 hrs      24       144              24    48    72    96   120   144
+                                 [halicin] μg/ml                             ampicillin       C. difficile        treatment                      Time after infection (hours)
+                                                      200 mg/kg         infection       every 24 hrs
+
+
+Figure 5. Halicin Displays Efﬁcacy in Murine Models of Infection
+(A) Growth inhibition of pan-resistant A. baumannii CDC 288 by halicin. Shown is the mean of two biological replicates. Bars denote absolute error.
+(B) Killing of A. baumannii CDC 288 in PBS in the presence of varying concentrations of halicin after 2 h (blue), 4 h (cyan), 6 h (green), and 8 h (red). The initial cell
+density is  108 CFU/mL. Shown is the mean of two biological replicates. Bars denote absolute error.
+(C) In a wound infection model, mice were infected with A. baumannii CDC 288 for 1 h and treated with either vehicle (green; 0.5% DMSO; n = 6) or halicin (blue;
+0.5% w/v; n = 6) over 24 h. Bacterial load from wound tissue after treatment was determined by selective plating. Black lines represent geometric mean of the
+bacterial load for each treatment group.
+(D) Growth inhibition of C. difﬁcile 630 by halicin. Shown is the mean of two biological replicates. Bars denote absolute error.
+(E) Experimental design for C. difﬁcile infection and treatment.
+(F) Bacterial load of C. difﬁcile 630 in feces of infected mice. Metronidazole (red; 50 mg/kg; n = 6) did not result in enhanced rates of clearance relative to vehicle
+controls (green; 10% PEG 300; n = 7). Halicin-treated mice (blue; 15 mg/kg; n = 4) displayed sterilization beginning at 72 h after treatment, with 100% of mice
+being free of infection at 96 h after treatment. Lines represent geometric mean of the bacterial load for each treatment group.
+See also Figure S4.
+
+
+force. Similar DiSC3(5) ﬂuorescence changes were observed in   Halicin Displays Efﬁcacy in Murine Models of Infection
+S. aureus treated with halicin (Figures S3F and S3G). Moreover,   Given that halicin displays broad-spectrum bactericidal activity
+halicin displayed antibiotic antagonism and synergy proﬁles   and is not highly susceptible to plasmid-borne antibiotic-resis-
+consistent with DpH dissipation. Of note, halicin antagonized   tance elements or de novo resistance mutations at high fre-
+the  activity of tetracycline  in E.  coli, and synergized with   quency, we next asked whether this compound might have
+kanamycin (Figure 4E), consistent with previous work showing    utility as an antibiotic in vivo. We therefore tested the efﬁcacy
+that the uptake of tetracyclines is dependent upon DpH (Yama-   of halicin in a murine wound model of A. baumannii infection.
+guchi et al., 1991), whereas aminoglycoside uptake is driven  On the dorsal surface of neutropenic BALB/c mice, we estab-
+largely by Dc (Taber et al., 1987).                                  lished a 2 cm2 wound and infected with   2.5 3 105 CFU of
+  Interestingly, our observations that halicin induced the expres-   A.  baumannii  strain 288  acquired  from  the  Centers  for
+sion of  iron acquisition genes at sub-lethal concentrations   Disease Control and Prevention (CDC). This strain is not suscep-
+(Tables S4A–S4C) suggested that this compound complexes    tible to  clinical  antibiotics generally used  for treatment  of
+with iron in solution, thereby dissipating transmembrane DpH   A.  baumannii,  and  therefore  represents  a  pan-resistant
+potential similarly to other antibacterial ionophores, such as    isolate. Importantly, halicin displayed potent growth inhibition
+daptomycin (Farha et al., 2013). We note here that daptomycin   against this strain in vitro (MIC = 1 mg/mL; Figure 5A) and
+resistance via deletion of dsp1 in S. aureus did not confer  was able to sterilize A. baumannii 288 cells residing in metabol-
+cross-resistance to halicin (Figure S3H). We observed enhanced    ically repressed conditions (Figures 5B, S4A, and S4B). After 1 h
+potency of halicin against E. coli with increasing concentrations   of  infection  establishment, mice were  treated  with  Glaxal
+of environmental Fe3+ (Figure 4E). This is consistent with a  Base Moisturizing Cream supplemented with vehicle (0.5%
+mechanism of action wherein halicin may bind iron prior to  DMSO) or halicin (0.5% w/v). Mice were then treated after 4 h,
+membrane association and DpH dissipation.                  8 h, 12 h, 20 h, and 24 h of infection, and sacriﬁced at 25 h
+
+
+
+                                                                                                    Cell 180, 688–702, February 20, 2020  695
+
+
+[PDF physical page 10]
+    A                                               -3                            -3 B                       C
+               0              1.28x10            9.75x10
+                                                              108                                               1                       ZINC000098210492
+                                                                             107,349,233 molecules total
+                                                              107         6,820 molecules with PS > 0.7                                      ZINC000001735150
+                                                                                                                                  ZINC000225434673
+              -1                                                106         3,260 molecules with PS > 0.8              0.95                       ZINC000004481415
+                                                                            1,070 molecules with PS > 0.9
+                                                                                                                                   ZINC000019771150            0                                                105                                                                                                         score                                                                                                                                                                                                                                                         molecules                                                              104                                                      0.9                       ZINC000004623615ZINC000238901709            11                                                       of
+                                                              103                                                                      ZINC000100032716            2                                                102                                                                                                                                                                                                                 Prediction                                                                                                                        0.85            2.5                                                                                                                                Number 101
+            3                                                100              LogP
+                                                                                                                                0.8
+            3.5
+            4                                                0.010.10.190.280.370.460.550.640.730.820.91 1         0     Tanimoto0.2    score0.4 to nearest0.6   antibiotic0.8      1
+                                                                                            Bin
+            4.5
+                              E                           F
+            5                                                1                                            100
+                                                                ZINC000100032716                              ZINC000225434673
+           >5
+
+              200    300    350    400    450    >500         0.1
+                         Molecular weight (Daltons)                                           (μg/ml) 10-2                                                                                                                                                    (μg/ml) 10    D
+              EC SA KP AB PA        MIC                                                                     MIC  1
+                        F   O                                                   10-3
+                         O                128                 N
+             N        F                                                      10-4                                                      0.1
+
+                 S
+             S
+
+              N                N      S    N+O                 32  8      32              BW25113*∆bamB∆tolCMCR-1* CATOXA-1ant(2’’)-Iaaac(6’)-Ib-cr        BW25113*∆bamB∆tolCMCR-1* CATOXA-1ant(2’’)-Iaaac(6’)-Ib-cr           O                                       O-
+
+                                      Br Br  N+O               G                       H
+            Br  Br      N N    N  N+OH  O-                                      109                                               109                  4   2   4   4   4        -O
+          N+               N+ N                    N  N O N                                                               108                                               108
+            OH        O                 N O
+                 HN                                                 107                                               107
+             O
+                    N N   SH        32                            106                                               106
+             H2N    S   S  NH2                                                                                                                                                                        CFU/ml 105                                                                                                                            CFU/ml 105
+                           N
+          O
+              N+  S     N N      32  32  32  16               104  time = 0                                      104  time = 0
+                            - O
+                       O                                            103  time = 4hrs                                   103  time = 4hrs                                                                                                    BW25113                                                         BW25113
+                                                                                                                 102                    F         N+ O-                                          102
+                 N        NH2   128     128  64                     10-4     10-3      10-2     10-1     100     101        10-2     10-1     100     101     102     103
+            HN
+                                                                          [ZINC000100032716] μg/ml                          [ZINC000225434673] μg/ml
+               O        S                                                 I
+               HN      NH                 128               primary training set
+                      N                                             Broad library
+               O                                           WuXi library
+   H2N S O                                                    ZINC15 predictions > 0.9
+    O                                                                                predictions                   0.01 0.25  4  0.25 0.06        false
+              N N N                                                                            true predictions
+                      N       N
+
+                           -O N+            OH
+                    O      O   O
+
+
+
+
+
+Figure 6. Predicting New Antibiotic Candidates from Unprecedented Chemical Libraries
+(A) Tranches of the ZINC15 database colored based on the proportion of hits from the original training dataset of 2,335 molecules within each tranche. Darker blue
+tranches have a higher proportion of molecules that are growth inhibitory against E. coli. Yellow tranches are those selected for predictions.
+(B) Histogram showing the number of ZINC15 molecules from selected tranches within a corresponding prediction score range.
+
+                                                                                                             (legend continued on next page)
+
+
+
+696  Cell 180, 688–702, February 20, 2020
+
+
+[PDF physical page 11]
+post-infection. We observed that wound-carrying capacity had   anti-tuberculosis library housed at the Broad Institute that con-
+reached  108 CFU/g in the vehicle control group, whereas 5 of   tains 9,997 molecules, and the ZINC15 database, a  virtual
+the 6 mice treated with halicin contained <103 CFU/g (below   collection  of   1.5  billion molecules designed  for  in  silico
+the limit of detection) and one contained  105 CFU/g (Figure 5C).   screening (Sterling and Irwin, 2015). The WuXi anti-tuberculosis
+  After  showing  that  halicin  displayed  efﬁcacy  against    library served to test our model in chemical spaces that were
+A. baumannii in a murine wound model, we next sought to   highly divergent from the training dataset, prior to conducting
+investigate whether this molecule may have  utility against a   large-scale predictions in the vast ZINC15 database. We applied
+phylogenetically  divergent  pathogen  that   is  increasingly   our  empirical  data  gathered  from  the Drug Repurposing
+becoming  burdensome  to  healthcare  systems—namely,  Hub molecules to re-train the original model and then applied
+C. difﬁcile. This spore-forming anaerobe causes pseudomem-    this new model to the WuXi anti-tuberculosis library. Interest-
+branous colitis, often as a result of dysbiosis following systemic    ingly, we observed an upper  limit prediction score of  just
+antibiotic  administration. Metronidazole  or vancomycin are     0.37 for the WuXi anti-tuberculosis library (Figure S5A), which
+ﬁrst-line treatments, with failure resulting from antibiotic resis-  was substantially lower than the highest prediction scores
+tance and/or the presence  of metabolically dormant  cells   observed for the Drug Repurposing Hub (upper limit   0.97;
+(Surawicz et al., 2013). In cases of recurrent infection, fecal   Figure 2C). Next, we curated and empirically assayed the 200
+bacteriotherapy is required to re-establish the normal colonic  WuXi anti-tuberculosis  library compounds with the highest
+microbiota to outcompete C. difﬁcile (Gough et al., 2011), which   prediction scores and the 100 with the lowest. As expected,
+can be more invasive than antibiotic therapy.                 none of the 300 molecules that were assayed  for growth
+ We ﬁrst assayed for the ability of this molecule to inhibit the    inhibition against E. coli displayed antibacterial activity (Figures
+growth of C. difﬁcile strain 630 in vitro and observed an MIC of  S5B and S5C; Table S5).
+0.5 mg/mL  (Figure  5D). To  establish the murine  infection,      After again  re-training our model with the empirical data
+C57BL/6 mice were administered intraperitoneal injections of   gathered from these 300 WuXi anti-tuberculosis library molecules,
+ampicillin (200 mg/kg) every 24 h for 72 h. Mice were then given  we performed predictions on a subset of the ZINC15 database.
+24 h to recover and subsequently administered 5 3 103 spores of   Here, rather than screening the entire  1.5 billion-molecule data-
+C. difﬁcile 630 via oral gavage. Beginning 24 h after C. difﬁcile   base, we focused speciﬁcally on those tranches that contained
+gavage, mice were gavaged with antibiotics (50 mg/kg metroni-   molecules with physicochemical properties that are observed in
+dazole or 15 mg/kg halicin) or vehicle (10% polyethylene glycol    antibiotic-like compounds  (Figure  6A).  This more  focused
+[PEG] 300) every 24 h for 5 days, and fecal samples were   approach resulted in the in silico curation of 107,349,233 mole-
+collected to quantify C. difﬁcile load (Figure 5E). Excitingly,   cules; for perspective, this is two orders of magnitude larger
+we observed that halicin resulted in C. difﬁcile clearance at a   than empirical screening permits (Brown et al., 2014), and our in
+greater rate than vehicle or the antibiotic metronidazole (Fig-    silico screen of the library could be performed in 4 days.
+ure 5F), which is not only a ﬁrst-line treatment for C. difﬁcile      After running predictions on the selected tranches of the
+infection, but also the antibiotic most similar to halicin based  ZINC15 database, compounds were binned based on prediction
+on Tanimoto score (Figure 2H; Table S2H). Indeed, halicin re-   score. This resulted in 6,820 molecules with scores >0.7, 3,260
+sulted in sterilization of 3 out of 4 mice after 72 h of treatment,   molecules with scores >0.8, and 1,070 molecules with scores
+and 4 out of 4 mice after 96 h of treatment.                     >0.9 (Figure 6B; Table S6A). We compared the top 6,820
+                                                    ZINC15  prediction  ranks from  our model  (Table S6A)  to
+Predicting New Antibiotic Candidates from Vast           numerous others, including a learned model without RDKit
+Chemical Libraries                                              feature augmentation (Table S6B); a model trained exclusively
+After applying our deep neural network model to identify anti-   on RDKit features (Table S6C); a feed-forward deep neural
+biotic candidates from the Drug Repurposing Hub, we subse-   network model using Morgan ﬁngerprints as the molecular rep-
+quently explored two additional chemical libraries—the WuXi   resentation (Table S6D); a random forest classiﬁer using Morgan
+
+
+
+
+(C) Prediction scores and Tanimoto nearest neighbor antibiotic scores of the 23 predictions that were empirically tested for growth inhibition. Yellow circles
+represent those molecules that displayed detectable growth inhibition of at least one pathogen. Grey circles represent inactive molecules. ZINC numbers of
+active molecules are shown on the right.
+(D) MIC values (mg/mL) of the eight active predictions from the ZINC15 database against E. coli (EC), S. aureus (SA), K. pneumoniae (KP), A. baumannii (AB), and
+P. aeruginosa (PA). Blank regions represent no detectable growth inhibition at 128 mg/mL. Structures are shown in the same order (top to bottom) as their
+corresponding ZINC numbers in (C).
+(E) MIC of ZINC000100032716 against E. coli strains harboring a range of antibiotic-resistance determinants. The mcr-1 gene was expressed in E. coli BW25113.
+All other resistance genes were expressed in E. coli BW25113 DbamBDtolC. Experiments were conducted with two biological replicates. Note the minor increase
+in MIC in the presence of aac(60)-Ib-cr.
+(F) Same as (E) except using ZINC000225434673.
+(G) Killing of E. coli in LB media in the presence of varying concentrations of ZINC000100032716 after 0 h (blue) and 4 h (red). The initial cell density is  106 CFU/
+mL. Shown is the mean of two biological replicates. Bars denote absolute error.
+(H) Same as (G) except using ZINC000225434673.
+(I) t-SNE of all molecules from the primary training dataset (blue), the Drug Repurposing Hub (red), the WuXi anti-tuberculosis library (green), the ZINC15 mol-
+ecules with prediction scores >0.9 (pink), false-positive predictions (gray), and true-positive predictions (yellow).
+See also Figure S5 and Tables S5, S6, and S7.
+
+
+
+                                                                                                    Cell 180, 688–702, February 20, 2020  697
+
+
+[PDF physical page 12]
+ﬁngerprints (Table S6E); and a support-vector machine model    ity in clinically implementing new antibiotics due to the high
+using Morgan ﬁngerprints (Table S6F). Next, all molecules were    risk of early discovery and low return on investment is exacer-
+rank ordered based on prediction score using our model and   bating this problem (Brown and Wright, 2016). Therefore, the
+assessed  for Tanimoto  similarity  to  all known  antibiotics.   development  of new  approaches  that  can  substantially
+Because we were interested in identifying antibacterial mole-   decrease the cost and increase the rate of antibiotic discovery
+cules that were structurally dissimilar from current antibiotics,    is essential to reinfuse the pipeline with a steady stream of
+we prioritized compounds for curation with prediction scores   candidates that show promise as next-generation therapeu-
+>0.8 and Tanimoto similarities to any known antibiotic <0.4.    tics. The adoption of machine learning approaches is ideally
+We were able to curate 23 compounds that met these criteria   suited to address these hurdles. Indeed, modern neural mo-
+for empirical testing (Figure 6C; Table S7A).                        lecular representations have the potential to:  (1) decrease
+  Next, we assayed these compounds for growth inhibition   the cost of lead molecule identiﬁcation because screening is
+against E. coli, S. aureus, Klebsiella pneumoniae, A. baumannii,   limited to gathering appropriate training data,  (2) increase
+and P. aeruginosa. Indeed, even though our model was trained   the true positive rate of identifying structurally novel com-
+on growth inhibition against E. coli, because the majority of  pounds with the desired bioactivity, and  (3) decrease the
+antibiotics display activity against numerous bacterial species,   time and labor required to ﬁnd these ideal compounds from
+we reasoned that it could be possible that some of these predic-  months or years to weeks.
+tions had bioactivity against diverse pathogens. Excitingly, we      In this study, we applied neural molecular representations to
+observed that 8 of the 23 molecules displayed detectable   predict antibacterial compounds in silico from a collection of
+growth inhibitory activity against at least one of the tested spe-   >107 million compounds. We ﬁrst trained a deep neural network
+cies (Figures 6C, 6D, and S5D–S5K; Tables S7A and S7B).      model with empirical data analyzing E. coli growth inhibition
+  Of  note, we  observed two compounds  that  displayed   by molecules from a widely  available FDA-approved drug
+potent  broad-spectrum   activity,  ZINC000100032716  and    library supplemented with a modest natural product library,
+ZINC000225434673 (Figure 6D), and overcame an array of   totaling 2,335 molecules. Next, we applied the resulting model
+common resistance determinants (Figures 6E and 6F). Interest-   to predict antibacterial compounds from the Drug Repurposing
+ingly, ZINC000100032716 has  structural  features found  in   Hub. Excitingly, among the most highly predicted molecules,
+both quinolones and sulfa drugs, yet remains highly divergent   our model performed well (51.5% accuracy) and ultimately re-
+from known  antibiotics (enroﬂoxacin nearest neighbor with   sulted in identifying halicin as a broad-spectrum bactericidal
+Tanimoto similarity   0.39) and was only weakly impacted by   antibiotic with exceptional in vivo efﬁcacy. The low structural
+plasmid-borne  ﬂuoroquinolone  resistance  via  aac(60)-Ib-cr    similarity of halicin to its nearest neighbor antibiotic, metronida-
+(Figure 6E) or chromosomal resistance via mutation of gyrA   zole (Tanimoto similarity   0.21), showed that our approach
+(Figures S5L and S5M). Moreover, both ZINC000100032716  was capable of generalization, thus permitting access to new
+and ZINC000225434673 displayed bactericidal activity against   antibiotic chemistry.
+E. coli in rich medium (Figures 6G and 6H), with the latter resulting   We subsequently expanded our prediction space to include
+in complete sterilization after just 4 h of treatment. Given its novel   the WuXi anti-tuberculosis library, as well as a subset of the
+structure (nitromide nearest neighbor with Tanimoto similarity  ZINC15 database comprising 107,349,233 molecules, in order
+  0.16) and low predicted toxicity in humans (Table S7A), we   to identify additional candidate antibacterial molecules. We
+posit that ZINC000225434673 warrants further investigation.      did not observe growth inhibition from any molecules empiri-
+  Last, upon determining the antibacterial properties of these 23   cally tested from the WuXi library, in agreement with the corre-
+predicted molecules, we ventured to understand their chemical   spondingly low model prediction scores (upper limit   0.37).
+relationships to the training data. We therefore analyzed the   However, from among the 23 molecules from the ZINC15
+structural relationships between these compounds, ZINC15   database that we curated for empirical testing, we observed
+molecules with prediction scores >0.9, our primary training set,   that eight of these validated as true positives  in at least
+the Drug Repurposing Hub, and the WuXi anti-tuberculosis li-   one of the tested pathogens. Importantly, these compounds
+brary (Figure  6I). Intriguingly, our analysis revealed that the   were curated based on high  prediction scores and low
+WuXi anti-tuberculosis library contained molecules that largely   Tanimoto similarities to known antibiotics, providing further
+occupied a distinct chemical space relative to compounds with   support  that  our model was  able  to  generalize  to new
+antibacterial activity, consistent with our results showing that   chemistries.  Remarkably, two  of  these  eight  molecules,
+even the highest predicted of these were unable to inhibit the  ZINC000100032716  and  ZINC000225434673,   displayed
+growth of E. coli. Moreover, this analysis emphasized the fact   broad-spectrum  activity  and  maintained  activity  against
+that the predicted compounds resided  in varied chemical   E. coli harboring an array of resistance determinants.
+spaces, suggesting that our model was largely unbiased in        It is important to emphasize that machine learning is imper-
+enriching for speciﬁc chemical moieties—at least below our    fect. Therefore, the success of deep neural network model-
+Tanimoto nearest neighbor threshold of 0.4.                   guided antibiotic discovery rests heavily on the coupling of
+                                                            these approaches to appropriate experimental designs. The
+DISCUSSION                                                       ﬁrst consideration should be the assay design for training:
+                                                      what is the biological outcome that is desired after cells are
+The prevalence of antibiotic resistance is rapidly increasing on   exposed to compounds? In the proof-of-concept described
+a global scale. Concurrently, the steadily declining productiv-   herein, we  selected  growth  inhibition  as  the  biological
+
+
+
+698  Cell 180, 688–702, February 20, 2020
+
+
+[PDF physical page 13]
+property on which we would gather training data, since this   prohibitive costs of synthesizing those that can, and/or com-
+generally results in a reasonable proportion of active com-  pound  instability  in aqueous  solution. However, emerging
+pounds relative to the size of the screening library, and quite   models in retrosynthesis and physicochemical property predic-
+easily generates reproducible data. However, the number of   tion may overcome these limitations in the near future (Coley
+bacterial phenotypes that could theoretically result in efﬁca-   et al., 2018; Gao et al., 2018).
+cious antibiotics is expansive (Farha and Brown, 2015; Kohan-    Where our deep neural network model was trained using a
+ski et al., 2010), and so long as it is possible to gather a suf-   targeted dataset, future endeavors could aim to assemble
+ﬁcient quantity of reproducible hit compounds from a primary   chemical libraries designed for model training on a task-by-
+screen, deep neural network approaches would be well-suited   task basis, which may contain on the order of perhaps  105
+to predict additional molecules with the desired biological  compounds of diverse structure. In the context of antibacterial
+property. Indeed, where our screen was largely mechanism   discovery, these training  libraries should contain molecules
+of  action  agnostic,  future  applications could  incorporate   with physicochemical properties consistent with antibacterial
+phenotypic screening conditions that enrich for molecules   drugs (Tommasi et al., 2015), yet sufﬁciently diverse such that
+against speciﬁc biological targets (Stokes and Brown, 2015;   the model can generalize to unconventional chemistry. Further-
+Stokes et al., 2016, 2017; Yang et al., 2019a).                more, with repeated training cycles across phylogenetically
+  The second consideration is the composition of the training   diverse species,  it may be possible to predict molecules with
+data itself: on what chemistry should the model be trained? It   antibacterial activity against a speciﬁed spectrum of patho-
+is important to use training data that have sufﬁcient chemical   gens. This has the promise to result in narrow-spectrum agents
+diversity  in both active and  inactive compounds, as  well   that can be administered systemically without damaging the
+as appropriate pharmacology/absorption, distribution, meta-   host microbiota. Moreover, by training on multidrug-resistant
+bolism, and excretion [ADME]/toxicity properties for in vivo   pathogens,  it may be possible to identify scaffolds that over-
+application. If all active molecules are structurally similar, the  come pre-existing resistance determinants. Overall, our results
+model will be unable to generalize to new scaffolds. Moreover,   suggest that the time is ripe for the application of modern ma-
+model accuracy deteriorates as the training set and prediction   chine learning approaches for antibiotic discovery—such ef-
+set diverge. As such, there exists a tension of sorts between    forts could increase the rate at which new molecular entities
+prediction accuracy and chemical generalization, and it is ad-   are discovered, decrease the resources required to identify
+vantageous to have the broadest structural variation possible   these  molecules,  and  decrease  associated  costs. Deep
+in the training phase to maximize the probability of successful   learning approaches could therefore enable us to expand our
+generalization in new chemical spaces. In our case, the desire   antibiotic  arsenal and  help outpace  the  dissemination  of
+to train on a supplemented FDA-approved drug library was to   resistance.
+offer the capability of performing a small screen and simulta-
+neously capturing substantial chemical diversity with desired                                        STAR+METHODS
+pharmacology/ADME/toxicity properties. While mining pre-ex-
+isting screening datasets could have been implemented, we                                                                 Detailed methods are provided in the online version of this paper
+reasoned that at this early stage in the application of machine                                                     and include the following:
+learning for antibiotic discovery, a carefully controlled training
+set would allow for more tractable predictions that avoided    d KEY RESOURCES TABLE
+potentially unfavorable molecules. Nevertheless, given the    d LEAD CONTACT AND MATERIALS AVAILABILITY
+increasing volume of screening data that exists (Wang et al.,    d METHODS DETAILS
+2017), carefully leveraging these resources could result in mil-     B Model training and predictions
+lions  of molecular  graph-biological  property  relationships,     B Additional molecule-level features
+provided that the data are of adequate quality and methodolog-     B Hyperparameter optimization
+ical  uniformity  so  that  erroneous  predictions  could  be     B Ensembling
+minimized.                               B Chemical analyses
+  The third consideration is in prediction prioritization: what is     B Chemical screening
+the most appropriate approach to selecting tens of molecules     B Growth inhibition assays
+for follow-up investigation from thousands of strongly predicted     B Bacterial cell killing assays
+compounds? Because we aimed to identify new antibacterial     B Mutant generation
+candidates, our prioritization scheme involved the selection of     B RNA sequencing
+molecules that were (1) given a high prediction score, (2) struc-     B DiSC3(5) assays
+turally unique relative to clinical antibiotics based on Tanimoto    d EXPERIMENTAL MODEL AND SUBJECT DETAILS
+nearest neighbor analyses, and in some cases, (3) unlikely to     B A. baumannii mouse infection model
+display toxicity. Indeed, this approach allowed us to identify     B C. difﬁcile mouse infection model
+halicin, as well as numerous attractive compounds from the    d DATA AND CODE AVAILABILITY
+ZINC15 database. It should be noted here, however, that inves-     B Code availability
+tigators can encounter limitations in acquiring predicted com-     B RNA sequencing data
+pounds in quantities sufﬁcient to perform experiments. This    d ADDITIONAL RESOURCES
+can be due to the inability to synthesize predicted molecules,     B Online model availability
+
+
+
+                                                                                                    Cell 180, 688–702, February 20, 2020  699
+
+
+[PDF physical page 14]
+SUPPLEMENTAL INFORMATION                                   Camacho, D.M., Collins, K.M., Powers, R.K., Costello, J.C., and Collins, J.J.
+                                                                                    (2018). Next-generation machine learning for biological networks. Cell 173,
+Supplemental Information can be found online at https://doi.org/10.1016/j.   1581–1592.
+cell.2020.01.021.                                                              Clardy, J., Fischbach, M.A., and Walsh, C.T. (2006). New antibiotics from bac-
+                                                                                                    terial natural products. Nat. Biotechnol. 24, 1541–1550.
+ACKNOWLEDGMENTS
+                                                                       Coates, A.R., and Hu, Y. (2008). Targeting non-multiplying organisms as
+                                                                   a way  to develop  novel  antimicrobials. Trends Pharmacol.  Sci.  29,
+We thank Caleb Bashor from Rice University for valuable discussions, Gerry
+                                                                     143–150.
+Wright from McMaster University for antibiotic-resistant strains of E. coli,
+and Michael Gilmore from Harvard Medical School for S. aureus RN4220    Coley, C.W., Jin, W., Rogers, L., Jamison, T.F., Jaakkola, T.S., Green, W.H.,
+and Ddsp1. This work was supported by the Abdul Latif Jameel Clinic for Ma-    Barzilay, R., and Jensen, K.F. (2018). A graph-convolutional neural network
+chine Learning in Health; the Defence Threat Reduction Agency (HDTRA1-15-   model for the prediction of chemical reactivity. Chem. Sci. (Camb.) 10,
+1-0051 to J.J.C.); the Broad Institute of MIT and Harvard (to J.J.C.); the DARPA   370–377.
+Make-It program under contract Army Research Ofﬁce (W911NF-16-2-0023 to    Corsello, S.M., Bittker, J.A., Liu, Z., Gould, J., McCarren, P., Hirschman, J.E.,
+T.S.J. and R.B.); the Defence Threat Reduction Agency (HR00111920025 to    Johnston, S.E., Vrcic, A., Wong, B., Khan, M., et al. (2017). The Drug Repur-
+T.S.J. and R.B.); the Canadian Institutes of Health Research (FRN 143215 to   posing Hub: a next-generation drug library and information resource. Nat.
+E.D.B.); the Canadian Foundation for Innovation (to E.D.B.); the Canada   Med. 23, 405–408.
+Research Chairs Program (Tier 1 to E.D.B.); the Banting Fellowships Program   Cox, G., Sieron, A., King, A.M., De Pascale, G., Pawlowski, A.C., Koteva, K.,
+(393360 to J.M.S.); the Canadian Institutes of Health Research (scholarship to   and Wright, G.D. (2017). A common platform for antibiotic dereplication and
+C.R.M.); the Human Frontier Science Program (LT000975/2016-L to Z.B.-A.);    adjuvant discovery. Cell Chem. Biol. 24, 98–109.
+the Broad Institute Tuberculosis Donor Group and the Pershing Square Foun-
+                                                                             D’haeseleer, P. (2005). How does gene expression clustering work? Nat. Bio-
+dation  (to Z.B.-A. and V.M.T.); the Swiss National Science Foundation
+                                                                                 technol. 23, 1499–1501.
+(P2ELP2_181884 to A.C.-P.); the Broad Institute of MIT and Harvard (to
+A.H.B.); NIH Early Investigator Award (DP5-OD-024590 to A.H.B.); the National   Datsenko, K.A., and Wanner, B.L. (2000). One-step inactivation of chromo-
+Science Foundation Graduate Research Fellowship Program (1122374 to   somal genes in Escherichia coli K-12 using PCR products. Proc. Natl. Acad.
+I.W.A.); and by a generous gift from Anita and Josh Bekenstein.                  Sci. USA 97, 6640–6645.
+                                                                       De, S.K., Stebbins, J.L., Chen, L.H., Riel-Mehan, M., Machleidt, T., Dahl, R.,
+AUTHOR CONTRIBUTIONS                                             Yuan, H., Emdadi, A., Barile, E., Chen, V., et al. (2009). Design, synthesis,
+                                                                and structure-activity relationship of substrate competitive, selective, and
+Conceptualization, J.M.S., T.S.J., R.B., and J.J.C.; Model Development and    in vivo active triazole and thiadiazole inhibitors of the c-Jun N-terminal kinase.
+Training, J.M.S., K.Y., K.S., W.J., and I.W.A.; Mechanistic Investigations,    J. Med. Chem. 52, 1943–1952.
+J.M.S., S.F., Z.B.-A., V.M.T., A.C.-P., and A.H.B.; Mouse Models, A.C.-R.,    Dietterich, T.G. (2000). Ensemble Methods in Machine Learning: Multiple Clas-
+N.M.D., C.R.M., and L.A.C.; Data Representation, J.M.S. and E.J.C.; Manu-    siﬁer Systems (Springer).
+script – Writing & Editing, J.M.S., K.Y., K.S., I.W.A., R.B., and J.J.C.; Funding
+                                                                    Edwards, A.N., and McBride, S.M. (2016). Isolating and purifying Clostridium
+Acquisition, J.M.S., A.H.B., E.D.B., T.S.J., R.B., and J.J.C.; Supervision,
+                                                                                            difﬁcile spores. Methods Mol. Biol. 1476, 117–128.
+G.M.C., E.D.B., T.S.J., R.B., and J.J.C.
+                                                                             Farha, M.A., and Brown, E.D. (2015). Unconventional screening approaches
+                                                                                          for antibiotic discovery. Ann. N Y Acad. Sci. 1354, 54–66.
+DECLARATION OF INTERESTS
+                                                                             Farha, M.A., Verschoor, C.P., Bowdish, D., and Brown, E.D. (2013). Collapsing
+J.J.C. is scientiﬁc co-founder and SAB chair of EnBiotix, an antibiotic drug dis-    the proton motive force to identify synergistic combinations against Staphylo-
+covery company.                                                     coccus aureus. Chem. Biol. 20, 1168–1178.
+
+                                                                             Farha, M.A., French, S., Stokes, J.M., and Brown, E.D. (2018). Bicarbonate al-
+Received: August 27, 2019                                                         ters bacterial susceptibility to antibiotics by targeting the proton motive force.
+Revised: December 4, 2019                                   ACS Infect. Dis. 4, 382–390.
+Accepted: January 15, 2020                                                                   Gao, H., Struble, T.J., Coley, C.W., Wang, Y., Green, W.H., and Jensen, K.F.
+Published: February 20, 2020; corrected online: April 16, 2020                                                                                    (2018). Using machine learning to predict suitable conditions for organic reac-
+                                                                                         tions. ACS Cent. Sci. 4, 1465–1476.
+REFERENCES
+                                                                            Gayvert, K.M., Madhukar, N.S., and Elemento, O. (2016). A data-driven
+                                                                    approach to predicting successes and failures of clinical trials. Cell Chem.
+Abeel, T., Van Parys, T., Saeys, Y., Galagan, J., and Van de Peer, Y. (2012).
+                                                                                           Biol. 23, 1294–1301.
+GenomeView: a  next-generation genome browser.  Nucleic Acids Res.
+40, e12.                                                           Gough, E., Shaikh, H., and Manges, A.R. (2011). Systematic review of intestinal
+                                                                            microbiota transplantation (fecal bacteriotherapy) for recurrent ClostridiumAngus, B.L., Carey, A.M., Caron, D.A., Kropinski, A.M., and Hancock, R.E.
+                                                                                            difﬁcile infection. Clin. Infect. Dis. 53, 994–1002.(1982). Outer membrane permeability in Pseudomonas aeruginosa: compari-
+son of a wild-type with an antibiotic-supersusceptible mutant. Antimicrob.    Hurdle, J.G., O’Neill, A.J., Chopra, I., and Lee, R.E. (2011). Targeting bacterial
+Agents Chemother. 21, 299–309.                                   membrane function: an underexploited mechanism for treating persistent in-
+                                                                                     fections. Nat. Rev. Microbiol. 9, 62–75.Balaban, N.Q., Helaine, S., Lewis, K., Ackermann, M., Aldridge, B., Andersson,
+D.I., Brynildsen, M.P., Bumann, D., Camilli, A., Collins, J.J., et al. (2019). Def-   Jang, S., Yu, L.R., Abdelmegeed, M.A., Gao, Y., Banerjee, A., and Song,
+initions and guidelines for research on antibiotic persistence. Nat. Rev. Micro-    B.J. (2015). Critical role of c-jun N-terminal protein kinase in promoting
+biol. 17, 441–448.                                                        mitochondrial  dysfunction and  acute  liver  injury. Redox  Biol.  6,
+Brown, E.D., and Wright, G.D. (2016). Antibacterial drug discovery in the resis-   552–564.
+tance era. Nature 529, 336–343.                                           Jaskowiak, P.A., Campello, R.J., and Costa, I.G. (2014). On the selection of
+Brown, D.G., May-Dracka, T.L., Gagnon, M.M., and Tommasi, R. (2014).    appropriate distances for gene expression data clustering. BMC Bioinformat-
+Trends and exceptions of physical properties on antibacterial activity for    ics 15 (Suppl 2), S2.
+Gram-positive  and  Gram-negative  pathogens.   J.  Med.  Chem.  57,    Karp, P.D. (2001). Pathway databases: a case study in computational symbolic
+10144–10161.                                                                     theories. Science 293, 2040–2044.
+
+
+
+700  Cell 180, 688–702, February 20, 2020
+
+
+[PDF physical page 15]
+Karp, P.D., Latendresse, M., Paley, S.M., Krummenacker, M., Ong, Q.D., Bill-   Sandegren, L., Lindqvist, A., Kahlmeter, G., and Andersson, D.I. (2008). Nitro-
+ington, R., Kothari, A., Weaver, D., Lee, T., Subhraveti, P., et al. (2016).    furantoin  resistance mechanism and  ﬁtness  cost  in  Escherichia  coli.
+Pathway Tools version 19.0 update: software for pathway/genome informatics    J. Antimicrob. Chemother. 62, 495–503.
+and systems biology. Brief. Bioinform. 17, 877–890.                              Shioi, J.I., Galloway, R.J., Niwano, M., Chinnock, R.E., and Taylor, B.L.
+Keseler, I.M., Mackie, A., Peralta-Gil, M., Santos-Zavaleta, A., Gama-    (1982). Requirement of ATP in bacterial chemotaxis. J. Biol. Chem. 257,
+Castro, S., Bonavides-Martı´nez, C., Fulcher, C., Huerta, A.M., Kothari,   7969–7975.
+A.,  Krummenacker,  M.,  et   al.  (2013).  EcoCyc:  fusing  model    Shishkin, A.A., Giannoukos, G., Kucukural, A., Ciulla, D., Busby, M., Surka, C.,
+organism databases with systems biology. Nucleic Acids Res. 41,   Chen, J., Bhattacharyya, R.P., Rudy, R.F., Patel, M.M., et al. (2015). Simulta-
+D605–D612.                                                       neous generation of many RNA-seq libraries in a single reaction. Nat. Methods
+                                                                              12, 323–325.Kohanski, M.A., Dwyer, D.J., and Collins, J.J. (2010). How antibiotics kill bac-
+teria: from targets to networks. Nat. Rev. Microbiol. 8, 423–435.                   Sterling, T., and Irwin, J.J. (2015). ZINC 15–ligand discovery for everyone.
+                                                                                          J. Chem. Inf. Model. 55, 2324–2337.
+Landrum, G. (2006). RDKit: Open-source cheminformatics. https://rdkit.org/
+docs/index.html.                                                           Stokes, J.M., and Brown, E.D. (2015). Chemical modulators of ribosome
+                                                                           biogenesis as biological probes. Nat. Chem. Biol. 11, 924–932.
+Lee, C.R., Lee, J.H., Park, M., Park, K.S., Bae, I.K., Kim, Y.B., Cha, C.J.,
+                                                                           Stokes, J.M., French, S., Ovchinnikova, O.G., Bouwman, C., Whitﬁeld, C., and
+Jeong, B.C., and Lee, S.H. (2017). Biology of Acinetobacter baumannii:
+                                                                    Brown, E.D. (2016). Cold stress makes Escherichia coli susceptible to glyco-
+pathogenesis, antibiotic resistance mechanisms, and prospective treat-
+                                                                          peptide antibiotics by altering outer membrane integrity. Cell Chem. Biol. 23,
+ment options. Front. Cell. Infect. Microbiol. 7, 55.
+                                                                      267–277.
+Li, H., and Durbin, R. (2009). Fast and accurate short read alignment with Bur-
+                                                                        Stokes, J.M., MacNair, C.R., Ilyas, B., French, S., Coˆ te´ , J.P., Bouwman,
+rows-Wheeler transform. Bioinformatics 25, 1754–1760.
+                                                                                 C., Farha, M.A., Sieron, A.O., Whitﬁeld, C., Coombes, B.K., and Brown,
+Lobritz, M.A., Belenky, P., Porter, C.B., Gutierrez, A., Yang, J.H., Schwarz,    E.D. (2017). Pentamidine sensitizes Gram-negative pathogens to antibi-
+E.G., Dwyer, D.J., Khalil, A.S., and Collins, J.J. (2015). Antibiotic efﬁcacy is    otics  and  overcomes  acquired  colistin  resistance.  Nat.  Microbiol.
+linked to bacterial  cellular respiration. Proc. Natl. Acad. Sci. USA 112,    2, 17028.
+8173–8180.                                                              Stokes, J.M., Gutierrez, A., Lopatkin, A.J., Andrews, I.W., French, S.,
+Loewenstein, Y., Portugaly, E., Fromer, M., and Linial, M. (2008). Efﬁcient algo-    Matic, I., Brown, E.D., and Collins, J.J. (2019a). A multiplexable assay for
+rithms for accurate hierarchical clustering of huge datasets: tackling the entire   screening antibiotic lethality against drug-tolerant bacteria. Nat. Methods
+protein space. Bioinformatics 24, i41–i49.                                     16, 303–306.
+Love, M.I., Huber, W., and Anders, S. (2014). Moderated estimation of fold    Stokes, J.M., Lopatkin, A.J., Lobritz, M.A., and Collins, J.J. (2019b). Bacterial
+change and dispersion  for RNA-seq data with DESeq2. Genome  Biol.   Metabolism and Antibiotic Efﬁcacy. Cell Metab. 30, 251–259.
+15, 550.                                                                   Surawicz, C.M., Brandt, L.J., Binion, D.G., Ananthakrishnan, A.N., Curry, S.R.,
+                                                                                           Gilligan, P.H., McFarland, L.V., Mellow, M., and Zuckerbraun, B.S. (2013).
+Manson, M.D., Tedesco, P., Berg, H.C., Harold, F.M., and Van der Drift, C.
+                                                                             Guidelines for diagnosis, treatment, and prevention of Clostridium difﬁcile in-
+(1977). A protonmotive force drives bacterial ﬂagella. Proc. Natl. Acad. Sci.
+                                                                                     fections. Am. J. Gastroenterol. 108, 478–498, quiz 499.
+USA 74, 3060–3064.
+                                                                           Taber, H.W., Mueller, J.P., Miller, P.F., and Arrow, A.S. (1987). Bacterial uptake
+Mauri, A., Consonni, V., Pavan, M., and Todeschini, R. (2006). Dragon soft-
+                                                                                   of aminoglycoside antibiotics. Microbiol. Rev. 51, 439–457.
+ware: an easy approach to molecular descriptor calculations. MATCH Com-
+                                                                                             Tally, F.P., Goldin, B.R., Sullivan, N., Johnston, J., and Gorbach, S.L. (1978).mun. Math. Comput. Chem. 56, 237–248.
+                                                                                Antimicrobial activity of metronidazole in anaerobic bacteria. Antimicrob.
+Mayr, A., Klambauer, G., Unterthiner, T., Steijaert, M., Wegner, J.K., Ceule-   Agents Chemother. 13, 460–465.
+mans, H., Clevert, D.A., and Hochreiter, S. (2018). Large-scale comparison
+                                                                  Tommasi, R., Brown, D.G., Walkup, G.K., Manchester, J.I., and Miller, A.A.
+of machine learning methods for drug target prediction on ChEMBL. Chem.
+                                                                                    (2015). ESKAPEing the labyrinth of antibacterial discovery. Nat. Rev. Drug Dis-
+Sci. (Camb.) 9, 5441–5451.
+                                                                            cov. 14, 529–542.
+Moriwaki, H., Tian, Y.S., Kawashita, N., and Takagi, T. (2018). Mordred: a mo-                                                               Wang, Y., Bryant, S.H., Cheng, T., Wang, J., Gindulyte, A., Shoemaker, B.A.,
+lecular descriptor calculator. J. Cheminform. 10, 4.                                                                            Thiessen, P.A., He, S., and Zhang, J. (2017). PubChem BioAssay: 2017 up-
+O’Neill,  J.  (2014).  Antimicrobial  Resistance:  Tackling  a  Crisis  for    date. Nucleic Acids Res. 45 (D1), D955–D963.
+the Health and Wealth  of Nations (Review on  Antimicrobial Resis-    Winston, J.A., Thanissery, R., Montgomery, S.A., and Theriot, C.M. (2016). Ce-
+tance, 2014).                                                               foperazone-treated mouse model of clinically-relevant Clostridium difﬁcile
+Ortholand, J.Y., and Ganesan, A. (2004). Natural products and combinatorial    strain R20291. J. Vis. Exp. (118), 54850.
+chemistry: back to the future. Curr. Opin. Chem. Biol. 8, 271–280.               Wright, G.D. (2017). Opportunities for natural products in 21st century anti-
+                                                                                        biotic discovery. Nat. Prod. Rep. 34, 694–701.Paul, K., Erhardt, M., Hirano, T., Blair, D.F., and Hughes, K.T. (2008). Energy
+source of ﬂagellar type III secretion. Nature 451, 489–492.                 Wu, M., Maier, E., Benz, R., and Hancock, R.E. (1999). Mechanism of interac-
+                                                                                       tion of different classes of cationic antimicrobial peptides with planar bilayers
+Perez, F., Hujer, A.M., Hujer, K.M., Decker, B.K., Rather, P.N., and Bonomo,
+                                                                and with the cytoplasmic membrane of Escherichia coli. Biochemistry 38,
+R.A. (2007). Global challenge of multidrug-resistant Acinetobacter baumannii.
+                                                                     7235–7242.
+Antimicrob. Agents Chemother. 51, 3471–3484.
+                                                             Wu, Z., Ramsundar, B., Feinberg, E.N., Gomes, J., Geniesse, C., Pappu, A.S.,
+P.E.W. Trusts (2019). Five-year analysis shows continued deﬁciencies in anti-                                                                        Leswing, K., and Pande, V. (2017). MoleculeNet: a benchmark for molecular
+biotic  development.  https://www.pewtrusts.org/en/research-and-analysis/                                                                  machine learning. Chem. Sci. (Camb.) 9, 513–530.
+data-visualizations/2019/ﬁve-year-analysis-shows-continued-deﬁciencies-in-
+                                                                    Yamaguchi, A., Ohmori, H., Kaneko-Ohdera, M., Nomura, T., and Sawai, T.
+antibiotic-development.
+                                                                                    (1991). Delta pH-dependent accumulation of tetracycline in Escherichia coli.
+Robinson, M.D., McCarthy, D.J., and Smyth, G.K. (2010). edgeR: a Bio-    Antimicrob. Agents Chemother. 35, 53–56.
+conductor package for differential expression analysis of digital gene expres-
+                                                                     Yang, J.H., Wright, S.N., Hamblin, M., McCloskey, D., Alcantar, M.A., Schru¨ b-
+sion data. Bioinformatics 26, 139–140.
+                                                                                bers, L., Lopatkin, A.J., Satish, S., Nili, A., Palsson, B.O., et al. (2019a). A white-
+Rogers, D., and Hahn, M. (2010). Extended-connectivity ﬁngerprints. J. Chem.   box machine learning approach for revealing antibiotic mechanisms of action.
+Inf. Model. 50, 742–754.                                                           Cell 177, 1649–1661.
+
+
+
+                                                                                                    Cell 180, 688–702, February 20, 2020  701
+
+
+[PDF physical page 16]
+Yang, K., Swanson, K., Jin, W., Coley, C., Eiden, P., Gao, H., Guzman-Perez,    Zampieri, M., Zimmermann, M., Claassen, M., and Sauer, U. (2017). Nontar-
+A., Hopper, T., Kelley, B., Mathea, M., et al. (2019b). Analyzing learned molec-   geted metabolomics reveals the multilevel response to antibiotic perturba-
+ular  representations  for property  prediction.  J. Chem.  Inf. Model.  59,    tions. Cell Rep. 19, 1214–1228.
+3370–3388.                                                              Zhu, Y.Y., Machleder, E.M., Chenchik, A., Li, R., and Siebert, P.D. (2001).
+Yoshimura, F., and Nikaido, H. (1982). Permeability of Pseudomonas aerugi-   Reverse transcriptase template switching: a SMART approach for full-length
+nosa outer membrane to hydrophilic solutes. J. Bacteriol. 152, 636–642.      cDNA library construction. Biotechniques 30, 892–897.
+
+
+
+
+
+702  Cell 180, 688–702, February 20, 2020
+
+
+[PDF physical page 17]
+STAR+METHODS
+
+
+KEY RESOURCES TABLE
+
+
+
+
+REAGENT or RESOURCE                        SOURCE                        IDENTIFIER
+
+Bacterial and Virus Strains
+
+Escherichia coli BW25113                       CGSC                          7636
+
+Staphylococcus aureus USA 300                    ATCC                        TCH1516
+
+Klebsiella pneumoniae ATCC 700721                 ATCC                          700721
+
+Acinetobacter baumannii ATCC 17978                ATCC                          17978
+
+Pseudomonas aeruginosa PA01                     ATCC                          47085
+
+Clostridioides difﬁcile 630                         ATCC                         BAA-1382
+
+Mycobacterium tuberculosis H37Rv                  ATCC                          25618
+
+Antibiotic-resistant isolates from CDC               CDC AR Isolate Bank             See Table S3 for unique identiﬁers
+
+Chemicals, Peptides, and Recombinant Proteins
+
+SU3327 (halicin)                                        TCI chemicals                   A2940
+
+ZINC000013517522                                      Vitas-M                        STL439768
+
+ZINC000006719085                                      Vitas-M                       STK708267
+
+ZINC000101675810                                      Vitas-M                       STK940888
+
+ZINC000101676256                                      Vitas-M                       STK929481
+
+ZINC000018090096                                  Specs                          AP-216/15652011
+
+ZINC000169457956                                  Specs                          AP-216/15652003
+
+ZINC000004481415                                     IBScreen                      STOCK1S-22001
+
+ZINC000019771150                                  ChemBridge                     5773027
+
+ZINC000001387673                                  ChemBridge                     5253687
+
+ZINC000005510605                                  TimTec                        ST50999405
+
+ZINC000022865640                                  TimTec                        ST50990898
+
+ZINC000015134557                                  TimTec                        ST4019615
+
+ZINC000098210492                                    KeyOrganics                    AS-8081
+
+ZINC000100506795                                  TimTec                        ST50222762
+
+ZINC000238901709                                  TimTec                        ST100643
+
+ZINC000004623615                                  TimTec                        ST4104620
+
+ZINC000100032716                                  TimTec                        ST45053787
+
+ZINC000584578353                                          PI Chemicals                      PI-31452
+
+ZINC000006661600                              Ambeed                       A107950
+
+ZINC000225434673                                     Ambinter                      Amb22349288
+
+ZINC000006599408                                     Ambinter                      Amb17836664
+
+ZINC000038586996                                     Ambinter                      Amb19958926
+
+ZINC000001735150                                  NCI Plated 2007                 200689
+
+Deposited Data
+
+RNA sequencing datasets                                   This study                           BioProject ID: PRJNA598708
+
+Experimental Models: Organisms/Strains
+
+Mouse: BALB/c                                           Charles River                    028
+
+Mouse: C57BL/6                                          Charles River                    C57BL/6NCrl
+
+Oligonucleotides
+
+TAGCCGGGCAGATGCCCGGCAAGAGAGAA                This study                     AB5044
+TTACACTTCGGTTAAGGTGATATTCCGGG
+GATCCGTCGACC
+
+ACCTTGTAATCTGCTGGCACGCAAAAT                      This study                     AB5045
+TACTTTCACATGGAGTCTTTATGT
+GTAGGCTGGAGCTGCTTCG
+
+                                                                                                                (Continued on next page)
+
+
+                                                                                              Cell 180, 688–702.e1–e6, February 20, 2020  e1
+
+
+[PDF physical page 18]
+Continued
+
+REAGENT or RESOURCE                        SOURCE                        IDENTIFIER
+
+tgcaaaataatatgcaccacgacggcggtcagaaaaataa                This study                     AB5046
+
+gaagcgttacttcgcgatctgatcaacgattcgtggaatc                  This study                     AB5047
+
+Software and Algorithms
+
+Chemprop                                        Yang et al., 2019b                 https://github.com/swansonk14/chemprop
+
+RDKit                                                Landrum, 2006                       https://github.com/rdkit
+
+BWA                                                                   Li and Durbin, 2009                 https://github.com/lh3/bwa
+
+DESeq2                                             Love et al., 2014                    https://bioconductor.org/packages/
+                                                                                             release/bioc/html/DESeq2.html
+
+edgeR                                               Robinson et al., 2010                https://bioconductor.org/packages/
+                                                                                               release/bioc/html/edgeR.html
+
+GenomeView                                           Abeel et al., 2012                   https://genomeview.org
+
+EcoCyc Pathway Tools                                     Keseler et al., 2013                  https://ecocyc.org
+
+
+
+LEAD CONTACT AND MATERIALS AVAILABILITY
+
+
+Further information and requests for resources and reagents should be directed to James J. Collins (jimjc@mit.edu). All unique/stable
+reagents generated in this study are available from the Lead Contact with a completed Materials Transfer Agreement.
+
+
+METHODS DETAILS
+
+
+Model training and predictions
+A directed-message passing neural network (Chemprop), like other message passing neural networks, learns to predict molecular
+properties directly from the graph structure of the molecule, where atoms are represented as nodes and bonds are represented
+as edges. For every molecule, we reconstructed the molecular graph corresponding to each compound’s SMILES string and
+determined the set of atoms and bonds using the open-source package RDKit (Landrum, 2006). Next, we initialized a feature vector,
+as described in Yang et al. (2019b), for each atom and bond based on computable features:
+
+   1. Atom features: atomic number, number of bonds for each atom, formal charge, chirality, number of bonded hydrogens, hy-
+       bridization, aromaticity, atomic mass.
+   2. Bond features: bond type (single/double/triple/aromatic), conjugation, ring membership, stereochemistry.
+
+  The model applies a series of message passing steps where it aggregates information from neighboring atoms and bonds to
+build an understanding of local chemistry. In Chemprop, on each step of message passing, each bond’s featurization is updated
+by summing the featurization of neighboring bonds, concatenating the current bond’s featurization with the sum, and then
+applying a single neural network layer with non-linear activation. After a ﬁxed number of message-passing steps, the learned
+featurizations across the molecule are summed to produce a single featurization for the whole molecule. Finally, this featurization
+is fed through a feed-forward neural network that outputs a prediction of the property of interest. Since the property of interest in
+our application was the binary classiﬁcation of whether a molecule inhibits the growth of E. coli, the model is trained to output a
+number between 0 and 1, which represents its prediction about whether the input molecule is growth inhibitory.
+  In addition to the basic D-MPNN architecture described above, we employed three model optimizations (Yang et al., 2019b):
+
+
+Additional molecule-level features
+While the message passing paradigm is excellent for extracting features that depend on local chemistry, it can struggle to extract
+global molecular features. This is especially true for large molecules, where the longest path through the molecule may be longer
+than the number of message-passing iterations performed, meaning information from one side of the molecule does not inform
+the features on the other side of the molecule. For this reason, we chose to concatenate the molecular representation that is learned
+via message passing with 200 additional molecule-level features computed with RDKit.
+
+
+Hyperparameter optimization
+The performance of machine learning models is known to depend critically on the choice of hyperparameters, such as the size of
+the neural network layers, which control how and what the model is able to learn. We used the Bayesian hyperparameter optimization
+scheme, with 20 iterations of optimization to improve the hyperparameters of our model (see table below). Baysian hyperparameter
+
+
+
+
+
+e2  Cell 180, 688–702.e1–e6, February 20, 2020
+
+
+[PDF physical page 19]
+optimization learns to select optimal hyperparameters based on performance using prior hyperparameter settings, allowing for
+rapid identiﬁcation of the best set of hyperparameters for any model.
+
+
+
+                  Hyperparameter                                 Range                          Value
+
+                Number of message-passing steps                              [2, 6]                         5
+
+                    Neural network hidden size                                 [300, 2400]                    1600
+
+                Number of feed-forward layers                                   [1, 3]                         1
+
+                  Dropout probability                                                 [0, 0.4]                           0.35
+
+
+Ensembling
+Another standard machine learning technique used to improve performance is ensembling, where several copies of the same model
+architecture with different random initial weights are trained and their predictions are averaged. We used an ensemble of 20 models,
+with each model trained on a different random split of the data (Dietterich, 2000).
+  Our initial training dataset consisted of 2,335 molecules, with 120 compounds (5.14%) showing growth inhibitory activity against
+E. coli, as deﬁned by endpoint OD600 < 0.2. We performed predictions on the Drug Repurposing Hub, consisting of 6,111 unique mol-
+ecules; the WuXi anti-tuberculosis library, consisting of 9,997 unique molecules; and tranches of the ZINC15 database. The ZINC15
+tranches that we used for molecular predictions were selected based on their likelihood to contain antibiotic-like molecules; these
+tranches included: ‘AA’, ‘AB’, ‘BA’, ‘BB’, ‘CA’, ‘CB’, ‘CD’, ‘DA’, ‘DB’, ‘EA’, ‘EB’, ‘FA’, ‘FB’, ‘GA’, ‘GB’, ‘HA’, ‘HB’, ‘IA’, ‘IB’, ‘JA’,
+‘JB’, ‘JC’, ‘JD’, ‘KA’, ‘KB’, ‘KC’, ‘KD’, ‘KE’, ‘KF’, ‘KG’, ‘KH’, ‘KI’, ‘KJ’, and ‘KK’, constituting a dataset of 107,349,233 unique molecules.
+  Our experimental procedure consisted of four phases: (1a) a training phase to evaluate the optimized but non-ensembled model
+and (1b) training the ensemble of optimized models; (2) a prediction phase; (3) a retraining phase; and (4) a ﬁnal prediction phase. We
+began by evaluating our model on the training set of 2,335 molecules using all optimizations except for ensembling, in order to deter-
+mine the best performance of a single model. Here, we randomly split the dataset into 80% training data, 10% validation data, and
+10% test data. We trained our model on the training data for 30 epochs, where an epoch is deﬁned as a single pass through all of the
+training data, and we evaluated it on the validation data at the end of each epoch. After training was complete, we used the model
+parameters that performed best on the validation data and tested the model with those parameters on the test data. We repeated
+this procedure with 20 different random splits of the data and averaged the results. After we were satisﬁed with model performance,
+we conducted predictions on new datasets. Since we wanted to maximize the amount of training data and were no longer interested
+in measuring performance on the test set, we trained new models on the training data from each of 20 random splits, each with 90%
+training data, 10% validation data, and no test data.
+  The ensemble consisting of 20 models is the model that was applied ﬁrst to the Drug Repurposing Hub, and then the WuXi anti-
+tuberculosis library. After empirically testing the highest and lowest predicted molecules from these libraries for growth inhibition
+against E. coli, we included all these data into our original training sets to create a new training set. The updated training set contained
+2,911 unique molecules, with 232 (7.97%) showing growth inhibitory activity. We next used our retrained model to make predictions
+on the aforementioned subset of the ZINC15 database. We selected all molecules with a prediction score > 0.7, which resulted in
+6,820 compounds. All molecules selected for curation were subsequently cross-referenced with SciFinder to ensure that these
+were not clinical antibiotics.
+ We lastly compared the prediction outputs of our augmented D-MPNN with a D-MPNN without RDKit features; a feedforward
+DNN model with the same depth as our D-MPNN model with hyperparameter optimization using RDKit features only; the same
+DNN instead using Morgan ﬁngerprints (radius 2) as the molecular representation; and RF and SVM models using the same Morgan
+ﬁngerprint representations. We used the scikit-learn implementation of a random forest classiﬁer with all of the default parameters
+except for the number of trees, where we used 500 instead of 10. When making predictions, we output the growth inhibition
+probability for each molecule according to the random forest, which is the proportion of trees in the model that predict a 1 for
+that molecule. Similarly, we used the scikit-learn implementation of a support vector machine with all of the default parameters.
+When making predictions, we output the signed distance between the Morgan ﬁngerprint of the molecule and the separating
+hyperplane that is learned by the SVM. This number represents how much the model predicts a molecule is antibacterial, with large
+positive distances meaning most likely antibacterial and large negative distances meaning most likely not. Although the signed
+distance is not a probability, it can still be used to rank the molecules according to how likely they are to be antibacterial.
+  To predict the toxicity of molecules for possible in vivo applications, we trained a Chemprop model on the ClinTox dataset.
+This dataset consisted of 1,478 molecules, each with two binary properties: (a) clinical trial toxicity and (b) FDA-approval status. Of
+these 1,478 molecules, 94 (6.36%) had clinical toxicity and 1,366 (92.42%) were FDA approved. Using the same methodology as
+described in phase (1) of our experimental procedure, the Chemprop model was trained on both properties simultaneously and learned
+a single molecular representation that was used by the feed-forward neural network layers to predict toxicity. We utilized the same
+RDKit features as in our other models, except for that the ClinTox model was an ensemble of ﬁve models and used the following
+optimal hyperparameters: message-passing steps = 6; neural network hidden size = 2200; number of feed-forward layers = 3; and
+dropout probability = 0.15. This ensemble of models was subsequently used to make toxicity predictions on our candidate molecules.
+
+
+
+                                                                                              Cell 180, 688–702.e1–e6, February 20, 2020  e3
+
+
+[PDF physical page 20]
+Chemical analyses
+We utilized Tanimoto similarity to quantify the chemical relationship between molecules predicted in our study. The Tanimoto sim-
+ilarity of two molecules is a measure of the proportion of shared chemical substructures in the molecules. To compute Tanimoto sim-
+ilarity, we ﬁrst determined Morgan ﬁngerprints (computed using RDKit) for each molecule using a radius of 2 and 2048-bit ﬁngerprint
+vectors. Tanimoto similarity was then computed as the number of chemical substructures contained in both molecules divided by
+the total number of unique chemical substructures in either molecule. The Tanimoto similarity is thus a number between 0 and 1,
+with 0 indicating least similar (no substructures are shared) and 1 indicating most similar (all substructures are shared). Morgan
+ﬁngerprints with radius R and B bits are generated by looking at each atom and determining all of the substructures centered
+at that atom that include atoms up to R bonds away from the central atom. The presence or absence of these substructures is en-
+coded as 1 and 0 in a vector of length B, which represents the ﬁngerprint. For t-SNE analyses, plots were created using scikit-learn’s
+implementation of t-Distributed Stochastic Neighbor Embedding. Here, we ﬁrst used RDKit to compute Morgan ﬁngerprints for each
+molecule using a radius of 2 and 2048-bit ﬁngerprint vectors. We then used t-SNE with the Jaccard distance metric to reduce the
+data points from 2048 dimensions to the two dimensions that are plotted. Note that Jaccard distance is another name for Tanimoto
+distance, and Tanimoto distance is deﬁned as: Tanimoto distance = 1 - Tanimoto similarity. Thus, the distance between points in
+the t-SNE plots is an indication of the Tanimoto similarity of the corresponding molecules, with greater distance between molecules
+indicating lower Tanimoto similarity. We used scikit-learn’s default values for all t-SNE parameters besides the distance metric.
+
+
+Chemical screening
+E. coli BW25113 was grown overnight in 3 mL Luria-Bertani (LB) medium and diluted 1/10,000 into fresh LB. 99 ml of cells was added
+to each well of a 96-well ﬂat-bottom plate (Corning) using a multichannel pipette. Next, 1 ml of a 5 mM stock of each molecule from an
+FDA-approved drug library supplemented with a natural product library (2,560 molecules total; MicroSource Discovery Systems)
+was added, in duplicate, using an Agilent Bravo liquid handler. The ﬁnal screening concentration was 50 mM. Plates were then incu-
+bated in sealed plastic bags at 37 C without shaking for 16 hr, and subsequently read at 600 nm using a SpectraMax M3 plate reader
+(Molecular Devices) to quantify cell growth. Plate data were normalized based on the interquartile mean of each plate.
+
+
+Growth inhibition assays
+Cells were grown overnight in 3 mL LB medium and diluted 1/10,000 into fresh LB. In 96-well ﬂat-bottom plates (Corning), cells were
+then introduced to compound at a ﬁnal concentration of 50 mM, or to compound at two-fold serial dilutions, in ﬁnal volumes of 100 ml.
+Plates were then incubated at 37 C without shaking until untreated control cultures reached stationary phase, at which time plates
+were read at 600 nm using a SpectraMax M3 plate reader. We note here that the incubation time required to reach stationary phase
+differed between species but was generally between 12 hr and 18 hr. For ZINC15 compound validation, the strains were E. coli
+BW25113, S. aureus USA 300, K. pneumoniae ATCC 700721, A. baumannii ATCC 17978, and P. aeruginosa PA01. C. difﬁcile 630
+growth inhibition was performed as described above, except cells were grown in BHI + 0.1% taurocholate for 18 hr in an anaerobic
+chamber (Coy Laboratory Products). M. tuberculosis H37Rv was grown at 37 C in Middlebrook 7H9 broth supplemented with 10%
+OADC (oleic acid-albumin-dextrose complex, vol/vol), 0.2% glycerol, and 0.05% Tween-80, or on Middlebrook 7H10 plates supple-
+mented with 10% OADC and 0.5% glycerol. Cells were grown to mid-log phase, then added to 96-well plates at OD600 = 0.0025, in a
+total of 50 ml of 7H9 medium. In addition, each well contained 45 ml of 7H9 medium and varying compound concentrations diluted in
+a total of 5 ml of medium. Plates were incubated at 37 C in a humidiﬁed container for 14 days. OD600 was measured using a Spec-
+traMax M5 plate reader.
+
+
+Bacterial cell killing assays
+Cells were grown overnight in 3 mL LB medium and diluted 1/10,000 into fresh LB. In 96-well ﬂat-bottom plates (Corning), cells were
+grown to the required density, at which time antibiotic was added at the indicated concentration and cultures were incubated for the
+required duration. Cells were then pelleted in plates by centrifugation at 4000 x g for 15 min at 4 C and washed in ice cold PBS. After
+washing, cells were 10-fold serially diluted in PBS and plated on LB to quantify cell viability. In experiments where cells were incubated
+with antibiotic in nutrient-deplete conditions, cells were grown to the required density in LB media, washed in PBS, and subsequently
+resuspended in PBS prior to the addition of antibiotic. After cultures were incubated for the required duration, cells were pelleted in
+plates by centrifugation at 4000 x g for 15 min at 4 C and washed in ice cold PBS. After washing, cells were 10-fold serially diluted
+in PBS and plated on LB to quantify cell viability. M. tuberculosis H37Rv was grown to mid-log phase, then 30,000 cells were added
+to a 24 well plate in 1 mL of 7H9 medium. A sample from each well was taken as time = 0, prior to halicin addition, then halicin was added
+to each well at the 16 mg/ml (1x MIC). At the indicated time points, samples were taken from each well and plated on 7H10. Control wells
+contained the relevant DMSO concentration without halicin. Plates were incubated at 37 C and counted twice after 4 and 6 weeks.
+
+
+Mutant generation
+For serial passage evolution, E. coli BW25113 was grown overnight in 3 mL LB medium and diluted 1/10,000 into fresh LB. Cells were
+grown in 96-well ﬂat-bottom plates (Corning), in the presence of varying concentrations of halicin (or ciproﬂoxacin) at two-fold
+serial dilutions, in ﬁnal volumes of 100 ml. Plates were incubated at 37 C without shaking for 24 hr, at which time they were read
+at 600 nm using a SpectraMax M3 plate reader. After 24 hr, cells that grew in the presence of the highest concentration of halicin
+
+
+
+e4  Cell 180, 688–702.e1–e6, February 20, 2020
+
+
+[PDF physical page 21]
+(or ciproﬂoxacin) were diluted into fresh LB at the equivalent of 1/10,000 of a dense culture, and once again introduced to varying
+concentrations of halicin (or ciproﬂoxacin) at two-fold serial dilutions. This procedure was performed every 24 hr over the course
+of 30 days. For spontaneous suppressor generation,  109 CFU of E. coli BW25113 grown in LB media was spread onto LB agar
+in 10 cm Petri dishes, either without antibiotics or supplemented with ciproﬂoxacin (Millipore Sigma) or halicin (TCI Chemicals) at
+the indicated concentrations. Plates were subsequently incubated at 37 C for seven days, at which time colonies from each plate
+were re-streaked onto LB and LB supplemented with antibiotics at the same concentration on which the colonies were originally
+grown. These plates were grown at 37 C overnight to monitor re-growth. For strain engineering, E. coli BW25113 DnfsA::kan
+DnfsB::cat was derived from BW25113 DnfsA::kan via introduction of a cat gene to disrupt the nfsB ORF using the Lambda Red
+method (Datsenko and Wanner, 2000). Brieﬂy, 2 mL 2x YT media with BW25113 DnfsA::kan carrying the temperature-sensitive
+plasmid pKD46 at 30 C was induced with 20 mM arabinose. Upon reaching mid-log phase (OD600  0.5), cells were pelleted at
+6000 x g for 2 min, then washed three times with 1 mL 15% glycerol. The ﬁnal pellet was resuspended in 200 ml of 15% glycerol,
+and 50 ml was mixed with 300 ng of disruption fragment (generated using primers AB5044 and AB5045 on pKD32 to amplify the
+FRT-ﬂanked cat cassette). Cells were electroporated at 1800 kV, then allowed to recover overnight in 5 mL 2x YT at 30 C. Cells
+were then pelleted at 6000 x g for 2 min, resuspended in 200 ml deionized water and plated on 2x YT agar plates with 15 mg/ml kana-
+mycin (Millipore Sigma) and 20 mg/ml chloramphenicol (Millipore Sigma). Plates were incubated at 37 C for 24-48 hr. Single colonies
+were PCR checked (primers AB5046, AB5047) for loss of the nfsB gene (1069 bp) and appearance of the cat gene insertion (1472 bp).
+Finally, positive colonies were assayed for loss of pKD46 at 37 C by replica plating on 15 mg/ml kanamycin and 20 mg/ml chloram-
+phenicol with or without 50 mg/ml carbenicillin (Millipore Sigma).
+
+  AB5044 TAGCCGGGCAGATGCCCGGCAAGAGAGAATTACACTTCGGTTAAGGTGATATTCCGGGGATCCGTCGACC
+  AB5045
+  ACCTTGTAATCTGCTGGCACGCAAAATTACTTTCACATGGAGTCTTTATGTGTAGGCTGGAGCTGCTTCG
+  AB5046
+   tgcaaaataatatgcaccacgacggcggtcagaaaaataa
+  AB5047
+   gaagcgttacttcgcgatctgatcaacgattcgtggaatc
+
+
+RNA sequencing
+Cells were grown overnight in 3 mL LB medium and diluted 1/10,000 into 50 mL fresh LB. When cultures reached  107 CFU/ml, hal-
+icin was added at 0.25x MIC (0.5 mg/ml), 1x MIC (2 mg/ml), or 4x MIC (8 mg/ml) and cells were incubated for the noted durations. After
+incubation, cells were harvested via centrifugation at 15,000 x g for 3 min at 4 C, and RNA was puriﬁed using the Zymo Direct-zol 96-
+well RNA puriﬁcation kit (R2056). Brieﬂy,  107-108 CFU pellets were lysed in 500 ml hot Trizol reagent (Life Technologies). 200 ml
+chloroform (Millipore Sigma) was added, and samples were centrifuged at 15,000 x g for 3 min at 4 C. 200 ml of the aqueous phase
+was added to 200 ml anhydrous ethanol (Millipore Sigma), and RNA was puriﬁed using a Zymo-spin plate as per the manufacturer’s
+instructions. After puriﬁcation, Illumina cDNA libraries were generated using a modiﬁed version of the RNAtag-seq protocol (Shishkin
+et al., 2015). Brieﬂy, 500 ng – 1 mg of total RNA was fragmented, depleted of genomic DNA, dephosphorylated, and ligated to DNA
+adapters carrying 50-AN8-30 barcodes of known sequence with a 50 phosphate and a 30 blocking group. Barcoded RNAs were pooled
+and depleted of rRNA using the RiboZero rRNA depletion kit (Epicenter). Pools of barcoded RNAs were converted to Illumina cDNA
+libraries in two main steps: (1) reverse transcription of the RNA using a primer designed to the constant region of the barcoded
+adaptor with addition of an adaptor to the 30 end of the cDNA by template switching using SMARTScribe (Clontech), as previously
+described (Zhu et al., 2001); and (2) PCR ampliﬁcation using primers whose 50 ends target the constant regions of the 30 or 50 adaptors
+and whose 30 ends contain the full Illumina P5 or P7 sequences. cDNA libraries were sequenced on the Illumina NextSeq 500 platform
+to generate paired end reads. Following sequencing, reads from each sample in a pool were demultiplexed based on their associated
+barcode sequence. Up to one mismatch in the barcode was allowed, provided it did not make assignment of the read to a different
+barcode possible. Barcode sequences were removed from the ﬁrst read, as were terminal G’s from the second read that may have
+been added by SMARTScribe during template switching. Next, reads were aligned to the E. coli MG1655 genome (NC_000913.3)
+using BWA (Li and Durbin, 2009) and read counts were assigned to genes and other genomic features. Differential expression
+analysis was conducted with DESeq2 (Love et al., 2014) and/or edgeR (Robinson et al., 2010). To verify coverage, visualization
+of raw sequencing data and coverage plots in the context of genome sequences and gene annotations was conducted using
+GenomeView (Abeel et al., 2012). To determine biological response of cells as a function of halicin exposure, we performed hierar-
+chical clustering of the gene expression proﬁles using the clustergram function in MATLAB 2016a. We selected the Euclidean dis-
+tance as the metric to deﬁne the pairwise distance between observations, which measures a straight-line distance between two
+points. The use of Euclidian distance has been considered as the most appropriate to cluster log-ratio data (D’haeseleer, 2005).
+With a metric deﬁned, we next selected the average linkage as the clustering method. The average linkage uses the algorithm called
+unweighted pair group method with arithmetic mean (UPGMA), which is the most popular and preferred algorithm for hierarchical
+data clustering (Jaskowiak et al., 2014; Loewenstein et al., 2008). UPGMA uses the mean similarity across all cluster data points
+to combine the nearest two clusters into a higher-level cluster. UPGMA assumes there is a constant rate of change among species
+
+
+
+
+                                                                                              Cell 180, 688–702.e1–e6, February 20, 2020  e5
+
+
+[PDF physical page 22]
+(genes) analyzed. We tested all alternative clustering metrics available (i.e., Spearman, Hamming, cosine, etc.) in the pdist function
+within the clustergram function in MATLAB and concluded that the Euclidean metric together with the average linkage allow the clear-
+est and probably most meaningful deﬁnition of clusters for our dataset. Transcript cluster enrichment was performed using EcoCyc
+Pathway Tools (Karp, 2001; Karp et al., 2016; Keseler et al., 2013). P values were calculated using Fisher’s exact test.
+
+DiSC3(5) assays
+S. aureus USA300 and E. coli MC1061 were streaked onto LB agar and grown overnight at 37 C. Single colonies were picked and
+used to inoculate 50 mL LB in 250 mL bafﬂed ﬂasks, which were incubated for 3.5 hr in a 37 C incubator shaking at 250 rpm. Cultures
+were pelleted at 4000 x g for 15 min and washed three times in buffer. For E. coli, the buffer was 5 mM HEPES with 20 mM glucose (pH
+7.2). For S. aureus, the buffer was 50 mM HEPES with 300 mM KCl and 0.1% glucose (pH 7.2). Both cell densities were normalized to
+OD600  0.1, loaded with 1 mM DiSC3(5) dye (3,30-dipropylthiadicarbocyanine iodide), and left to rest for 10 min in the dark for probe
+ﬂuorescence to stabilize. Fluorescence was measured in a cuvette-based ﬂuorometer with stirring (Photon Technology International)
+at 620 nm excitation and 670 nm emission wavelengths. A time-course acquisition was performed, with compounds injected after
+60 s of equilibration to measure increases or decreases in ﬂuorescence. For E. coli, polymyxin B was used as a control to monitor Dc
+dissipation. For S. aureus, valinomycin was used as a Dc control and nigiricin was used as a DpH control. Upon addition of antibiotic,
+ﬂuorescence was read continuously for 3 min and at an endpoint of 4 hr.
+
+
+EXPERIMENTAL MODEL AND SUBJECT DETAILS
+
+
+A. baumannii mouse infection model
+Experiments were conducted according to guidelines set by the Canadian Council on Animal Care, using protocols approved by the
+Animal Review Ethics Board at McMaster University under Animal Use Protocol #17-03-10. Before infection, mice were relocated at
+random from a housing cage to treatment or control cages. No animals were excluded from analyses, and blinding was considered
+unnecessary. Six- to eight-week old BALB/c mice were pretreated with 150 mg/kg (day   4) and 100 mg/kg (day   1) of cyclophos-
+phamide to render mice neutropenic. Mice were then anesthetized using isoﬂuorane and administered the analgesic buprenorphine
+(0.1 mg/kg) intraperitoneally. A 2 cm2 abrasion on the dorsal surface of the mouse was inﬂicted through tape-stripping to the basal
+layer of epidermis using approximately 25-30 pieces of autoclave tape. Mice were infected with  2.5x105 CFU A. baumannii CDC
+288 directly pipetted on the wounded skin. The infection was established for 1 hr prior to treatment with Glaxal Base supplemented
+with vehicle (0.5% DMSO) or halicin (0.5% w/v). Groups of mice were treated 1 hr, 4 hr, 8 hr, 12 hr, 20 hr, and 24 hr post-infection.
+Mice were euthanized at the experimental endpoint of 25 hr and the wounded tissue collected, homogenized, and plated onto LB to
+quantify bacterial load.
+
+
+C. difﬁcile mouse infection model
+Experiments were conducted according to protocol IS00000852-3, approved by Harvard Medical School Institutional Animal Care
+and Use Committee and the Committee on Microbiological Safety. C. difﬁcile 630 spores were prepared from a single batch
+and stored long term at 4 C, as previously reported (Edwards and McBride, 2016). To disrupt colonization resistance and enable
+infection with C. difﬁcile, four colonies (n = 20) of six- to eight-week-old C57BL/6 mice were administered 200 mg/kg ampicillin every
+24 hr for 72 hr via intraperitoneal injection. Antibiotic-treated mice were given 24 hr to recover prior to infection with C. difﬁcile. A
+total of 5x103 spores of C. difﬁcile strain 630 was delivered via oral gavage and mice were randomly assigned to three treatment
+groups: 50mg/kg metronidazole (n = 7), 15 mg/kg halicin (n = 7) and 10% PEG 300 vehicle (n = 6). We note here that three mice
+from the halicin treatment group failed to display C. difﬁcile colonization. Beginning at 24 hr after C. difﬁcile challenge, mice were
+gavaged with antibiotics or vehicle control every 24 hr for ﬁve days. To monitor C. difﬁcile colonization, fecal samples were collected,
+weighed and diluted under anaerobic conditions with anaerobic PBS. CFUs were quantiﬁed using TCCFA plates supplemented with
+50 mg/ml erythromycin at 37 C under anaerobic conditions, as previously described (Winston et al., 2016).
+
+
+DATA AND CODE AVAILABILITY
+
+
+Code availability
+Chemprop code is available at: https://github.com/swansonk14/chemprop.
+
+
+RNA sequencing data
+RNA sequencing data is available at the NCBI Sequence Read Archive under accession PRJNA598708.
+
+
+ADDITIONAL RESOURCES
+
+
+Online model availability
+A web-based version of the antibiotic prediction model described herein is available at: http://chemprop.csail.mit.edu/.
+
+
+
+
+e6  Cell 180, 688–702.e1–e6, February 20, 2020
+
+
+[PDF physical page 23]
+Supplemental Figures
+
+
+
+
+              A                         B
+                                   1.6                                                      1.6
+
+                                                                                            1.4
+                                   1.4
+                                                                                            1.2
+             2 1.2                                               1                                                                                                                                                                                                                              growth
+                                                                                            0.8
+                               1                                                                                                                       replicate                                                          0.6                                                                                                                                                                                                                                                                                                        Relative
+                                                                                growth 0.8                                                      0.40.2
+                                   0.6
+                                                                               0
+                                                                                 0      500    1000    1500   2000    2500                                                                                                          Relative 0.4
+                                                                                                                    Plate index
+
+                                   0.2
+
+                               0
+                                 0    0.2   0.4   0.6   0.8   1    1.2   1.4   1.6
+                                                   Relative growth replicate 1
+
+
+Figure S1. Primary Screening and Initial Model Training, Related to Figure 2.
+(A) Primary screening data for growth inhibition of E. coli by 2,560 molecules within the FDA-approved drug library supplemented with a natural product collection.
+Red are growth inhibitory molecules; blue are non-growth inhibitory molecules. (B) Rank-ordered de-duplicated screening data containing 2,335 molecules.
+Shown is the mean of two biological replicates. Red are growth inhibitory molecules; blue are non-growth inhibitory molecules.
+
+
+[PDF physical page 24]
+      A                         B                         C
+                 1010                                                  1010                                               109
+                109                                                109                                               108
+                108                                                108                                               107
+                107                                                107
+                                                                                                                      106
+                106  1hr                                           106  1hr                                                    2hr                                                                                                                                                                                     CFU/ml                                      CFU/ml                                                                                                                                                                                                                                                                                                                                   CFU/ml 105  4hr                105  2hr                                                                   105  2hr
+                       3hr                                                                               3hr                                                                                                                      104  6hr                104                       4hr                                           104                                                                               4hr                                                                                                                                     8hr
+                103  BW25113                                      103  BW25113                                     103  BW25113
+                           nutrient replete                                                nutrient replete                                               nutrient deplete
+                102                                                102                                               102
+                      10-2     10-1     100     101     102     103         10-2     10-1     100     101     102     103        10-2     10-1     100     101     102     103
+                                                 [halicin] μg/ml                                                       [halicin] μg/ml                                                      [halicin] μg/ml
+      D                           E                             F
+                109                                                109                                               109
+                108                                                108                                               108
+                107                                                107                                               107
+                106                                                106                                               106
+                       2hr                                                    2hr                                                    2hr                                      CFU/ml 105  4hr                                                                                                                 CFU/ml 105  4hr                                                                                                               CFU/ml 105  4hr
+                104  6hr                                           104  6hr                                           104  6hr
+                       8hr                                                    8hr                                                    8hr
+                103  BW25113                                      103  BW25113                                     103  BW25113
+                           nutrient deplete                                               nutrient deplete                                               nutrient deplete
+                102                                                102                                               102
+                      10-2     10-1     100     101     102     103         10-2     10-1     100     101     102     103        10-2     10-1     100     101     102     103
+                                                 [halicin] μg/ml                                                   [ampicillin] μg/ml                                                 [ampicillin] μg/ml
+      G                         H                                                                I
+                109                                                  1010                                                  1010
+                108                                                109                                               109
+                107                                                108                                               108
+                                                                   107                                               107
+                106
+                       2hr                                           106  1hr                                           106  1hr                                      CFU/ml 105  4hr                                                                                                                 CFU/ml 105  2hr                                                                                                               CFU/ml 105  2hr
+                                                                                                                                     3hr                                                                               3hr                104  6hr
+                                                                                                                                     4hr                       8hr                                           104                                                                               4hr                                           104
+                103  BW25113                                      103  BW25113                                     103  BW25113
+                           nutrient deplete                                               nutrient replete                                               nutrient replete
+                102                                                102                                               102
+                      10-2     10-1     100     101     102     103         10-2     10-1     100     101     102     103        10-2     10-1     100     101     102     103
+                                              [ampicillin] μg/ml                                                 [ampicillin] μg/ml                                                 [ampicillin] μg/ml
+        J                         K                             L
+                                                                        amp     gent
+                 1010                                                103             chlor   OXA-1  ant(2”)-Ia                0.7
+                109                                                102   colistin  CAT                                     0.6
+                108                                            MCR-1                                             0.5                                                                   101                107
+                                                                   100                       1hr                106                                                                                                                                                                                                                   (μg/ml)                                                                                                                                                                                                                                                                                                                                                                                        (600nm)                                                                                                                                     0.3                                      CFU/ml                                                                                                                   0.4                       2hr                                                                                                                         levo                105                                                                                                            OD                                                                                           MIC 10-1                       3hr                                                                                                                                   aac-(6’)-Ib-cr                                                                                                                                     0.2                104                       4hr
+                103  BW25113                                           10-2                                                      0.1  NfsA/B
+                           nutrient replete                                                                           BW25113
+                102                                                       10-3                                              0
+                      10-2     10-1     100     101     102     103       WT R  WT R  WT R  WT R  WT R            10-5  10-4  10-3  10-2  10-1  100  101  102  103
+                                              [ampicillin] μg/ml                                                                                                                          [halicin] μg/ml
+      M
+                  0.7
+
+                  0.6
+
+                  0.5
+
+                  0.4                                            (600nm) 0.3
+             OD
+                  0.2
+
+                  0.1  NfsA/B
+                  BW25113
+                 0
+                      10-5  10-4  10-3  10-2  10-1  100  101  102  103
+                                          [nitrofurantoin] μg/ml
+
+
+Figure S2. Activity of Halicin, Related to Figure 3
+(A) Killing of E. coli in LB media in the presence of varying concentrations of halicin after 1 hr (blue), 2 hr (cyan), 3 hr (green), and 4 hr (red). The initial cell density is
+  108 CFU/ml. Shown is the mean of two biological replicates. Bars denote absolute error. (B) Same as (A), with initial cell density  107 CFU/ml. (C) Killing of E. coli
+in PBS in the presence of varying concentrations of halicin after 2 hr (blue), 4 hr (cyan), 6 hr (green), and 8 hr (red). The initial cell density is  108 CFU/ml. Shown is
+the mean of two biological replicates. Bars denote absolute error. (D) Same as (C), with initial cell density  107 CFU/ml. (E) Killing of E. coli in PBS in the presence
+of varying concentrations of ampicillin after 2 hr (blue), 4 hr (cyan), 6 hr (green), and 8 hr (red). The initial cell density is  108 CFU/ml. Shown is the mean of two
+biological replicates. Bars denote absolute error. (F) Same as (E), with initial cell density  107 CFU/ml. (G) Same as (E), with initial cell density  106 CFU/ml. (H)
+Killing of E. coli in LB media in the presence of varying concentrations of ampicillin after 1hr (blue), 2 hr (cyan), 3 hr (green), and 4 hr (red). The initial cell density is
+  108 CFU/ml. Shown is the mean of two biological replicates. Bars denote absolute error. (I) Same as (H), except with initial cell density  107 CFU/ml. (J) Same as
+
+                                                                                                             (legend continued on next page)
+
+
+[PDF physical page 25]
+(H), except with initial cell density  106 CFU/ml. (K) MIC of various antibiotics against E. coli strains harboring a range of plasmid-borne, functionally diverse,
+antibiotic-resistance determinants. The mcr-1 gene was expressed in E. coli BW25113. All other resistance genes were expressed in E. coli BW25113
+DbamBDtolC. WT is wild-type E. coli. R is E. coli harboring a resistance plasmid. Chlor is chloramphenicol. Amp is ampicillin. Gent is gentamicin. Levo is lev-
+oﬂoxacin. Experiments were conducted with two biological replicates. (L) Growth inhibition of wild-type E. coli (blue) and DnfsADnfsB E. coli (green) by halicin.
+Shown is the mean of two biological replicates. Bars denote absolute error. (M) Growth inhibition of wild-type E. coli (blue) and DnfsADnfsB E. coli (green) by
+nitrofurantoin. Shown is the mean of two biological replicates. Bars denote absolute error.
+
+
+[PDF physical page 26]
+A                                                                                                                 wildtype                          wildtype
+
+
+
+
+
+                                                  halicin 20 μg/ml                    halicin 40 μg/ml                  no drug                         halicin 40 μg/ml
+
+
+
+
+                                                                                                                   wildtype                          wildtype
+
+            no drug
+
+
+
+
+
+                                            ciprofloxacin 10 ng/ml             ciprofloxacin 20 ng/ml               no drug                    ciprofloxacin 20 ng/ml
+
+
+B                         C                         D
+     1010                                                  1010
+      106                                                106                                                   0.3      CFU/ml 102                                                                                                                             CFU/ml 102
+
+                                                                                                                       0.2                                                                                                                                                                                                                                                                                                                                               (600nm)
+                                                                                          pH 5.4
+                                                                                                OD     pH 6.4
+                                                                                                                       0.1
+                                                                                          pH 7.4
+                                                                                          pH 8.4
+                                                                                          pH 9.4
+                                                                                                     0
+                                                                                                                             10-5  10-4  10-3  10-2  10-1  100  101  102  103
+                                         3                                               3                                      [halicin] μg/ml
+                                         2                                               2   E
+                                                                                                                       0.7
+                                         1                                               1
+                                         0                                               0          0.6
+                                                   -1                                                          -1          0.5
+                                                   -2                                                          -2          0.4                                                   -3                                                          -3                  (600nm) 0.3
+                                                                                                OD
+                                                                                                                       0.2
+
+                                                                                                                       0.1  LB + 25 mM NaHCO3
+                                                                                              LB
+                                                                                                     0
+                                                                                                                             10-5  10-4  10-3  10-2  10-1  100  101  102  103
+            1      2      3      4                          1      2      3      4                                                   [halicin] μg/ml
+F                 Time (hours)                                       Time (hours)           G
+   105                                                   6,000                                               105
+ (RFU)                                       valinomycin         (RFU)               valinomycin                  nigericin             (RFU)
+                                                          5,000
+
+   104                                            nigericin        4,000                       DMSO         104  fluorescence                            DMSO                       fluorescence                                                  halicin                                     fluorescence
+                                                          3,000
+                                                      halicin DiSC3(5)                                                                                                                                                      DiSC3(5)                                                                                                                                                         DiSC3(5)
+   103                                                   2,000                                               103
+       0           50                               100          150                                                         0           50
+                                                                                                                               μg/ml                                                                                                                                    μg/ml                                                                                                                         μg/ml                    Time (seconds)                                                                       Time (seconds)                                                                                 100          150      DMSO                                                        1                                                           4                                                                                                          0.5H                                                                                                              0.25                                                                                                                                          μg/mlnigericinvalinomycin    0.6                                                             0.6                                                                                                                                                                       [halicin]                                                                                                                                       μg/ml
+
+    0.5                                                      0.5
+ (600nm) 0.40.3                                                                                                                                                    (600nm) 0.30.4
+OD 0.2                                          OD 0.2
+
+    0.1   dsp1                                              0.1   dsp1
+       RN4220                                      RN4220
+     0                                               0
+       10-2     10-1     100     101     102     103         10-2     10-1     100     101     102     103
+                     [daptomycin] μg/ml                                                   [halicin] μg/ml
+
+
+
+                                                                                                                          (legend on next page)
+
+
+[PDF physical page 27]
+Figure S3. Mechanistic Investigations into Halicin, Related to Figure 4
+(A) Evolution of spontaneous resistance against halicin (top) or ciproﬂoxacin (bottom). E. coli BW25113 (  109 CFU) was plated onto non-selective or selective
+media and incubated for 7 days prior to imaging, and re-streaking of colonies onto fresh non-selective or selective media. 40 mg/ml halicin and 20 ng/ml cip-
+roﬂoxacin, respectively, were used for suppressor mutant evolution. Note that the colonies that emerged at the edge of halicin-supplemented plates after 7 days
+grew well on LB non-selective media but did not re-streak onto halicin-supplemented media. All seven selected ciproﬂoxacin-resistant colonies grew on both
+non-selective and ciproﬂoxacin-supplemented media. (B) Whole transcriptome hierarchical clustering of E. coli treated with halicin at 0.25x MIC for 1hr, 2 hr, 3 hr,
+and 4 hr. Shown is the mean transcript abundance of two biological replicates of halicin-treated cells relative to untreated control cells on a log2-fold scale. In the
+growth curve, blue represents untreated cells; red represents halicin-treated cells. (C) Same as (B), except cells were treated with 1x MIC halicin. (D) Growth
+inhibition by halicin against S. aureus USA300 in pH-adjusted media. Shown is the mean of two biological replicates. Bars denote absolute error. (E) Growth
+inhibition by halicin against E. coli in LB (blue) or LB supplemented with 25 mM sodium bicarbonate (red), which dissipates the DpH component of the proton
+motive force. Shown is the mean of two biological replicates. Bars denote absolute error. (F) DiSC3(5) ﬂuorescence in S. aureus upon exposure to valinomycin
+(64 mg/ml; dissipates Dc), nigericin (16 mg/ml; dissipates DpH), halicin (4 mg/ml), or DMSO. Halicin induced ﬂuorescence changes more similar to nigericin relative
+to valinomycin, suggesting that halicin dissipates the DpH component of the proton motive force. The right panel is a magniﬁed image of the drug-induced
+decrease in ﬂuorescence shown in the left. (G) DiSC3(5) ﬂuorescence in S. aureus upon exposure to valinomycin, nigericin, halicin, or DMSO after 4 hr of exposure.
+(H) Growth inhibition by daptomycin (left) and halicin (right) against S. aureus RN4220 (blue) or a daptomycin-resistant RN4220 strain (Ddsp1; red) in LB media.
+Shown is the mean of two biological replicates. Bars denote absolute error.
+
+
+[PDF physical page 28]
+              A                         B
+                              109                                                109
+                              108                                                108
+                              107                                                107
+                              106                                                106                            2hr
+                                      2hr                                                                                                                        4hr                                                                             CFU/ml 105  4hr                                                                                                                 CFU/ml 105                                                                                                                        6hr
+                              104  6hr                                           104                            8hr
+                                      8hr                                                                                                                          A. baumannii 288
+                              103  A. baumannii 288                               103                                 nutrient deplete
+                                            nutrient deplete
+                              102                                                102
+                                      10-2     10-1     100     101     102     103         10-2     10-1     100     101     102     103
+                                                                   [halicin] μg/ml                                                      [halicin] μg/ml
+
+
+Figure S4. Activity of Halicin against A. baumannii CDC 288, Related to Figure 5
+(A) Killing of A. baumannii in PBS in the presence of varying concentrations of halicin after 2 hr (blue), 4 hr (cyan), 6 hr (green), and 8 hr (red). The initial cell density is
+  107 CFU/ml. Shown is the mean of two biological replicates. Bars denote absolute error. (B) Same as (A), with initial cell density  106 CFU/ml.
+
+
+[PDF physical page 29]
+      A                         B                         C
+                 1                                                      1.2                                                       1.2
+
+                  0.8                                              1                                               1
+
+                                                                           0.8                                                       0.8                               score 0.6                                                                                                                                                                                                                 (600nm) 0.6                                                                                                                                                     (600nm) 0.6
+                  0.4                                          OD 0.4                                           OD 0.4                                                              Prediction
+                  0.2                                                      0.2                                                       0.2
+                                                                                 top 200                                              bottom 100
+                 0                                              0                                               0
+                   0          4000         8000        12000       0        50       100      150      200         0      20     40     60     80     100
+                              Ranked molecules                               Ranked molecules                                Ranked molecules
+
+      D                           E                             F
+                 1                                              1                                               1
+
+                  0.8                                                      0.8                                                       0.8
+
+                  0.6                                                      0.6                                                       0.6
+                                                                                                                                                                 E. coli                                            (600nm)                                                                                                                                                              (600nm)                                                                                                                                                                 (600nm)                               S. aureus
+            OD 0.4                                          OD 0.4                                           OD 0.4                           K. pneumoniae
+                                                                                                                                                                 A. baumannii
+                  0.2                                                      0.2                                                       0.2                                P. aeruginosa
+
+                 0                                              0                                               0
+                      10-2     10-1     100     101     102     103        10-2     10-1     100     101     102     103         10-2     10-1     100     101     102     103
+                            [ZINC000098210492] μg/ml                          [ZINC000001735150] μg/ml                           [ZINC000225434673] μg/ml
+      G                         H                                                                I
+                 1                                              1                                               1
+
+                  0.8                                                      0.8                                                       0.8
+
+                  0.6                                                      0.6                                                       0.6                                            (600nm)                                                                                                                                                              (600nm)                                                                                                                                                                 (600nm)
+            OD 0.4                                          OD 0.4                                           OD 0.4
+
+                  0.2                                                      0.2                                                       0.2
+
+                 0                                              0                                               0
+                      10-2     10-1     100     101     102     103        10-2     10-1     100     101     102     103         10-2     10-1     100     101     102     103
+                            [ZINC000004481415] μg/ml                           [ZINC000019771150] μg/ml                           [ZINC000004623615] μg/ml
+        J                         K                             L
+                 1                                              1                                                       0.6
+
+                  0.8                                                      0.8                                                       0.5
+                                                                                                                                     0.4
+                  0.6                                                      0.6                                            (600nm)                                                                                                                                                              (600nm)                                                                                                                                                                 (600nm) 0.3
+            OD 0.4                                          OD 0.4                                           OD 0.2
+                                                                                                                       BW25113
+                  0.2                                                      0.2                                                       0.1                 BW25113 gyrA S83A
+
+                 0                                              0                                               0
+                      10-2     10-1     100     101     102     103        10-6 10-5 10-4 10-3 10-2 10-1 100 101 102  103         10-5  10-4  10-3  10-2  10-1  100  101  102  103
+                            [ZINC000238901709] μg/ml                          [ZINC000100032716] μg/ml                           [ZINC000100032716] μg/ml
+      M
+                  0.6
+
+                  0.5
+                                            (600nm) 0.30.4
+            OD 0.2
+                                  BW25113
+                  0.1                  BW25113 gyrA S83A
+
+                 0
+                      10-5  10-4  10-3  10-2  10-1  100  101  102  103
+                                         [ciprofloxacin] μg/ml
+
+
+Figure S5. Model Predictions from the WuXi Anti-tuberculosis Library and the ZINC15 Database, Related to Figure 6
+(A) Rank-ordered prediction scores of WuXi anti-tuberculosis library molecules. Note the overall low prediction scores. (B) The top 200 predictions from the data
+shown in (A) were curated for empirical testing for growth inhibition of E. coli. None were growth inhibitory, in agreement with their low prediction scores. Shown is
+the mean of two biological replicates. (C) The bottom 100 predictions from the data shown in (A) were curated for empirical testing for growth inhibition of E. coli.
+None were growth inhibitory, in agreement with their low prediction scores. Shown is the mean of two biological replicates. (D-K) Growth inhibition by eight
+empirically validated ZINC15 predictions against E. coli (blue), S. aureus (green), K. pneumoniae (purple), A. baumannii (pink), and P. aeruginosa (red) in LB media.
+Shown is the mean of two biological replicates. Bars denote absolute error. (L) Growth inhibition by ZINC000100032716 against E. coli BW25113 (blue) or a
+ciproﬂoxacin-resistant gyrA S83A mutant of BW25113 (red). Shown is the mean of two biological replicates. Bars denote absolute error. (M) Same as (L) except
+using ciproﬂoxacin. Note the 4-fold smaller change in MIC with ZINC000100032716 between the gyrA mutant and wild-type E. coli relative to ciproﬂoxacin.
+
+
+[PDF physical page 30]
+          Update
+              Cell
+Volume 181, Issue 2, 16 April 2020, Page 475–483
+
+DOI: https://doi.org/10.1016/j.cell.2020.04.001
+
+
+[PDF physical page 31]
+Correction
+
+
+A Deep Learning Approach
+to Antibiotic Discovery
+
+Jonathan M. Stokes, Kevin Yang, Kyle Swanson, Wengong Jin, Andres Cubillos-Ruiz, Nina M. Donghia, Craig R. MacNair,
+Shawn French, Lindsey A. Carfrae, Zohar Bloom-Ackermann, Victoria M. Tran, Anush Chiappino-Pepe, Ahmed H. Badran,
+Ian W. Andrews, Emma J. Chory, George M. Church, Eric D. Brown, Tommi S. Jaakkola, Regina Barzilay,*
+and James J. Collins*
+*Correspondence: regina@csail.mit.edu (R.B.), jimjc@mit.edu (J.J.C.)
+ https://doi.org/10.1016/j.cell.2020.04.001
+
+
+(Cell 180, 688–702.e1–e13; February 20, 2020)
+Our paper reported the use of a machine learning approach to discover new antibacterial molecules. Since publication, we have
+become aware of the following errors in our paper that we are now correcting. (1) The structure of ZINC000100032716, shown in
+the Graphical Abstract and Figure 6D, mistakenly displayed a carbonyl carbon making ﬁve bonds. We have redrawn the molecules
+to display the correct structures. (2) In Figure S3A and the accompanying legend, the concentrations of halicin used were 20 mg/mL
+(10x MIC) and 40 mg/mL (20x MIC), not 10 mg/mL and 20 mg/mL. (3) In Figure S5K, the x axis labels should range from 10-6 to 103, in
+accordance with the axis tick marks, not 10-5 to 103. (4) In Table S2B, BRD-K57502136-345-03-4, BRD-K90177246-001-05-5, BRD-
+K15514357-001-05-6, and BRD-A56621826-001-02-1 were listed as being unavailable for empirical validation. However, the four
+molecules that were not available for testing were BRD-K76819217-001-01-4, BRD-A41063939-001-01-0, BRD-M10279501-065-
+05-9, and BRD-A40472231-304-02-5. This resulted from a transposition error in converting the original training data ﬁle into the Table
+S2B spreadsheet. This transposition error was not present in model training. (5) In the ‘‘Initial model training and the identiﬁcation of
+halicin’’ section of the Results, the halicin prediction ranks noted in parentheses should read ‘‘positions ranging from 273 to 2579,’’
+rather than ‘‘positions raging from 273 to 1987.’’ (6) In the ‘‘Bacterial cell killing assays’’ subsection of the STAR Methods, the M.
+tuberculosis strain used was H37Rv, not ‘‘M37Rv.’’ (7) In the ‘‘Mutant generation’’ section, DnfsA::kan was mistakenly written as
+‘‘DnsfA::kan.’’ (8) The section title ‘‘baumannii mouse infection model’’ should have been ‘‘A. baumannii mouse infection model.’’
+(9) It was brought to our attention that SU3327 (which we renamed halicin) had been reported as an active compound in an unpub-
+lished screen, deposited to PubChem, for growth inhibition of M. tuberculosis. The following sentence has been added to the last
+paragraph of the Results section ‘‘Halicin is a broad-spectrum bactericidal antibiotic’’ to acknowledge this: ‘‘The molecule we
+have named halicin was reported to have growth inhibitory activity against M. tuberculosis in a high-throughput screening setting
+(unpublished data; PubChem AID 1259343).’’ (10) In preparing the ﬁnal version of the manuscript, we inadvertently misspelled the
+last name of author Zohar Bloom-Ackermann as ‘‘Zohar Bloom-Ackerman.’’ These errors have now been corrected in the online
+version of the paper. We apologize for any inconvenience they may have caused the readers.
+
+
+
+
+
+                                                                                   Cell 181, 475–483, April 16, 2020 ª 2020 Elsevier Inc.  475
+
+
+[PDF physical page 32]
+Graphical Abstract (corrected)
+
+
+
+
+
+476  Cell 181, 475–483, April 16, 2020
+
+
+[PDF physical page 33]
+Graphical Abstract (original)
+
+
+
+
+
+                                                                                                        Cell 181, 475–483, April 16, 2020  477
+
+
+[PDF physical page 34]
+Figure 6. Predicting New Antibiotic Candidates from Unprecedented Chemical Libraries (Corrected)
+
+
+
+
+
+478  Cell 181, 475–483, April 16, 2020
+
+
+[PDF physical page 35]
+Figure 6. Predicting New Antibiotic Candidates from Unprecedented Chemical Libraries (original)
+
+
+
+
+
+                                                                                                        Cell 181, 475–483, April 16, 2020  479
+
+
+[PDF physical page 36]
+Figure S3. Mechanistic Investigations into Halicin, Related to Figure 4 (Corrected)
+
+
+
+
+480  Cell 181, 475–483, April 16, 2020
+
+
+[PDF physical page 37]
+Figure S3. Mechanistic Investigations into Halicin, Related to Figure 4 (original)
+
+
+
+
+                                                                                                        Cell 181, 475–483, April 16, 2020  481
+
+
+[PDF physical page 38]
+Figure S5. Model Predictions from the WuXi Anti-tuberculosis Library and the ZINC15 Database, Related to Figure 6 (Corrected)
+
+
+
+
+
+482  Cell 181, 475–483, April 16, 2020
+
+
+[PDF physical page 39]
+Figure S5. Model Predictions from the WuXi Anti-tuberculosis Library and the ZINC15 Database, Related to Figure 6 (original)
+
+
+
+
+
+                                                                                                        Cell 181, 475–483, April 16, 2020  483

@@ -1,0 +1,138 @@
+{
+  "review": {
+    "pass": false,
+    "major_issues": [
+      {
+        "issue": "Figure 1 裁剪图严重不完整：bbox [0.196, 0.23, 0.689, 0.86] 在 x 方向仅截到约 410 points，而 Figure 1 实际占据页面约 50–545 points，右侧约 23% 被截掉，导致化合物 9、10、16、17、32 整体缺失，化合物 7、8 仅显示标签而结构被截断",
+        "source_locator": "PDF 第 2 页 Figure 1（与裁剪图对比可见右上角 7/8、右侧 16/17、右下 32 均不在裁剪范围内）",
+        "correction": "将 Figure 1 bbox 修正为约 [0.196, 0.23, 0.85, 0.86]，以完整包含全部 32 个化合物结构"
+      },
+      {
+        "issue": "Figure 6 裁剪图缺失主体化学结构：裁剪图仅显示 caption 'Figure 6. Two possible isomers of compound 15 for DP4+ probability analysis.'，但 Figure 6 的核心内容——Isomer 1 (15a, 8R*,9S*,10aR*) 与 Isomer 2 (15b, 8S*,9S*,8aR*) 两个化学结构式完全不可见",
+        "source_locator": "PDF 第 7 页 Figure 6（结构位于 caption 上方约 y=0.50–0.62 区域）",
+        "correction": "将 Figure 6 bbox 修正为约 [0.094, 0.50, 0.806, 0.706]，向上扩展以包含两个候选异构体的化学结构"
+      },
+      {
+        "issue": "Figure 2 裁剪图越界进入 Figure 3 区域：bbox [0.0, 0.376, 1.0, 0.842] 在 y 方向延伸至 0.842，而 Figure 2 仅占据 y=0.376–0.62 区域，下半部分实际为 Figure 3 的 X 射线晶体结构（2、11、13、14）",
+        "source_locator": "PDF 第 4 页 Figure 2 与 Figure 3 边界",
+        "correction": "将 Figure 2 bbox 修正为约 [0.0, 0.376, 1.0, 0.62]，避免包含 Figure 3 晶体结构"
+      },
+      {
+        "issue": "Table 2 裁剪图右边缘被截断：碳信号列（如 173.2 C、42.2 CH₂、85.9 C 等）的右侧边缘未完整显示，数值末位被切除",
+        "source_locator": "PDF 第 6 页 Table 2",
+        "correction": "Table 2 bbox 应扩展右边界至约 0.78 以包含完整碳化学位移数值"
+      }
+    ],
+    "minor_issues": [
+      {
+        "issue": "Table 3 裁剪图左侧边缘略有截断（如 '6.29, s'、'6.53, s' 的左侧部分被切）",
+        "source_locator": "PDF 第 6 页 Table 3",
+        "correction": "建议 Table 3 bbox 左边界由 0.225 调至约 0.21"
+      },
+      {
+        "issue": "Table 5 裁剪图右侧碳数值列（如 160.9 C、109.8 CH、176.9 等）边缘略有截断",
+        "source_locator": "PDF 第 9 页 Table 5",
+        "correction": "Table 5 bbox 右边界建议扩展至约 0.80"
+      }
+    ],
+    "figure_coverage": {
+      "expected_labels": [
+        "Figure 1",
+        "Figure 2",
+        "Figure 3",
+        "Figure 4",
+        "Figure 5",
+        "Figure 6",
+        "Figure 7",
+        "Figure 8",
+        "Figure 9",
+        "Table 1",
+        "Table 2",
+        "Table 3",
+        "Table 4",
+        "Table 5",
+        "Table 6"
+      ],
+      "covered_labels": [
+        "Figure 1",
+        "Figure 2",
+        "Figure 3",
+        "Figure 4",
+        "Figure 5",
+        "Figure 6",
+        "Figure 7",
+        "Figure 8",
+        "Figure 9",
+        "Table 1",
+        "Table 2",
+        "Table 3",
+        "Table 4",
+        "Table 5",
+        "Table 6"
+      ],
+      "missing_panels": [
+        "Figure 1 右侧化合物 7–10（部分）、16、17、32",
+        "Figure 6 两个候选异构体 15a/15b 的化学结构",
+        "Figure 2 bbox 下半部分误纳入 Figure 3 的 X 射线晶体结构"
+      ],
+      "missing_pages": []
+    },
+    "verified_claims": [
+      {
+        "claim": "32 个聚酮化合物，包括 11 个新化合物（1, 3, 5, 11, 13–15, 25–27, 29）和 1 个新天然产物 28 (6-hydroxy-4-methoxycoumarin)",
+        "source_locator": "Abstract 第 1 页",
+        "evidence": "Thirty-two fungal polyketide derivatives, including eleven new compounds… (3R,5′R)-5-hydroxytalaroflavone (1), talaroisochromenols A–C (3, 5, and 11)… (8R,9R,10aR)-5-hydroxyaltenuene (13), (8R,9R,10aS)-5-hydroxyaltenuene (14), (8R,9S,10aR)-5-hydroxyaltenuene (15), nemanecins D and E (25 and 26), 2,5-dimethyl-8-iodochromone (27), and talarofurolactone A (29)… one new naturally occurring but previously synthesized metabolite, 6-hydroxy-4-methoxycoumarin (28)"
+      },
+      {
+        "claim": "菌株 Talaromyces sp. CS-258 分离自南海东北部冷泉贻贝样品，深度 −1200 m，GenBank 登录号 PP065775",
+        "source_locator": "第 2 页正文 / 第 12 页 3.2 节",
+        "evidence": "fungal strain Talaromyces sp. CS-258, which was isolated from a mussel sample collected in a cold seep area in the northeast of the South China Sea at a depth of −1200 m… accession number of No. PP065775"
+      },
+      {
+        "claim": "化合物 13 与 14 的 X 射线单晶数据：13 的 R₁=0.0328 (2185 个独立衍射点)；14 的 R₁=0.0315 (2917 个独立衍射点)",
+        "source_locator": "第 15 页 Crystal data for 13 与 Crystal data for 14",
+        "evidence": "Independent reflections: 2185 [Rint = 0.0319, Rsigma= 0.0248]. The final indices gave R1 = 0.0328 and wR2 = 0.0873 [I > 2σ(I)]… Independent reflections: 2917 [Rint = 0.0489, Rsigma = 0.0318]. The final indices gave R1 = 0.0315 and wR2 = 0.0877 [I > 2σ(I)]"
+      },
+      {
+        "claim": "化合物 10 对 E. coli、A. hydrophilia、V. parahaemolyticus、V. harveyi 的 MIC 分别为 0.5、0.5、1、0.5 µg/mL，达到或超过氯霉素（0.25–2 µg/mL）",
+        "source_locator": "第 12 页 Table 6 与第 11 页正文",
+        "evidence": "Table 6 行 EC/AH/VP/VH 列 10：0.5, 0.5, 1, 0.5；chloramphenicol 同列：0.25, 0.5, 1, 2"
+      },
+      {
+        "claim": "化合物 (±)-11 通过 Chiralcel IG 手性柱 (hexane/isopropanol = 80:20, 1 mL/min) 拆分为 (+)-11 (3aR, 9aR) 和 (−)-11 (3aS, 9aS)",
+        "source_locator": "第 6 页正文与第 13 页 3.4 节",
+        "evidence": "The chiral HPLC separation of 11 on a Chiralcel IG column (hexane/isopropanol = 80:20, flow rate of 1 mL/min) succeeded in separating two isomers… the assignment of absolute configurations for two isomers as (+)-11-(3aR, 9aR) and (−)-11-(3aS, 9aS), respectively"
+      },
+      {
+        "claim": "化合物 15 的相对构型通过 DP4+ 概率分析确认为 (8R*,9S*,10aR*)，100% 概率支持 15a",
+        "source_locator": "第 7 页正文",
+        "evidence": "The experimental 1H and 13C NMR data of 15 were compared with the calculated NMR data of 15a and 15b… matched well with those calculated for the isomer 15a (8R*,9S*,10aR*) with a DP4+ probability of 100%"
+      },
+      {
+        "claim": "化合物 25 与 26 通过 Mosher 法分别确定为 C-10 S 与 R 构型，ECD 计算将 C-7/8/8a 定为 7S,8R,8aR",
+        "source_locator": "第 8 页正文",
+        "evidence": "The modified Mosher's method using an NMR tube was used to determine the absolute configuration of C-10 in 25 and 26, leading to the assignments of S- for 25 and R-absolute configuration for 26… ECD calculations were performed to further solve the absolution configurations of C-7, C-8, and C-8a in 25 and 26"
+      },
+      {
+        "claim": "化合物 29 通过 DP4+ (99.12% 概率支持 5R*,3′S*-29b) 与 ECD 计算确证绝对构型为 5R, 3′S",
+        "source_locator": "第 10 页正文",
+        "evidence": "the experimental NMR data of 29 corresponded to the computed NMR data for (5R*,3′S*)-isomer 29b (99.12% probability)… The calculated ECD curves of (5R,3′S)-29 coincided with the measured curve, which demonstrated the absolute configuration of 29 as 5R, 3′S"
+      }
+    ],
+    "identity_matches": true,
+    "classification_supported": true,
+    "crop_complete": false
+  },
+  "usage": {
+    "total_tokens": 64623,
+    "total_characters": 0,
+    "prompt_tokens": 50486,
+    "completion_tokens": 14137,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 25344
+    }
+  }
+}

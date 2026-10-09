@@ -1,0 +1,109 @@
+{
+  "review": {
+    "pass": false,
+    "major_issues": [
+      {
+        "issue": "Figure 1 裁剪图左侧边缘被截掉：化合物 1 的 MeO 取代基标签只显示成 'eO₃'，丢失 'M' 字符，导致化学结构信息残缺",
+        "source_locator": "PDF 第 2 页 Fig. 1（约 bbox left=0.063, top=0.30, 实际应为 left=0.063 起即包含 'MeO' 完整）",
+        "correction": "将 Fig. 1 裁剪框左边界向左扩展至约 0.063，确保 'MeO' 完整显示；或使用归一化 bbox [0.06, 0.30, 0.50, 0.46] 重新裁剪"
+      },
+      {
+        "issue": "Table 1 裁剪图右边缘被截掉：化合物 2 的全部 δC 列被截断为 2-3 位有效数字（如 27./70./79./77.4 等），丢失完整数据（如 27.0、70.0、79.4、47.9、50.4、218.1、50.9、45.6、40.3、38.9、34.4、139.8、125.0、59.4、16.5、8.2、21.4、18.8、20.1 等）",
+        "source_locator": "PDF 第 2 页 Table 1（裁剪图右侧）；原文页 2 Table 1 完整数据",
+        "correction": "将 Table 1 裁剪框右边界扩展至约 0.45（覆盖 δC 列完整），或使用归一化 bbox [0.063, 0.296, 0.46, 0.668] 重新裁剪；至少确保化合物 2 δC 列完整可见"
+      }
+    ],
+    "minor_issues": [
+      {
+        "issue": "Figure 4 与 Figure 5 裁剪图存在内容重叠：'拟插入 Figure 4' 顶部含 Fig. 3 标题文字；'拟插入 Figure 5' 顶部仍包含 Fig. 4 的两个 ECD 面板与 Fig. 4 标题，应精确裁剪至仅含目标图",
+        "source_locator": "PDF 第 3 页 Fig. 4 (bbox [0.063, 0.275, 0.99, 0.47]) 与 Fig. 5 (bbox [0.06, 0.455, 0.99, 0.66])"
+      },
+      {
+        "issue": "草稿对 Fig. 5B 的 CMAE 推导理由不严谨：'(Exp)=0.9922(Calc)-0.3381' 是线性回归方程，截距 -0.3381 不是 CMAE；草稿虽自行声明'按原文不另行断言'，但叙述逻辑易误导读者",
+        "source_locator": "PDF 第 3 页 Fig. 5B；正文未给出化合物 2 的 CMAE 数值（仅化合物 1 给出 CMAE=1.9 ppm）"
+      }
+    ],
+    "figure_coverage": {
+      "expected_labels": [
+        "Figure 1",
+        "Table 1",
+        "Figure 2",
+        "Figure 3",
+        "Figure 4",
+        "Figure 5"
+      ],
+      "covered_labels": [
+        "Figure 1",
+        "Table 1",
+        "Figure 2",
+        "Figure 3",
+        "Figure 4",
+        "Figure 5"
+      ],
+      "missing_panels": [],
+      "missing_pages": []
+    },
+    "verified_claims": [
+      {
+        "claim": "化合物 1 分子式 C₂₀H₃₀O₃，(+)-HRESIMS [M+H]⁺ m/z 319.2276（计算值 319.2273），六个不饱和度",
+        "source_locator": "PDF 第 1 页 Results and discussion 第 2 段",
+        "evidence": "Its molecular formula was determined to be C20H30O3 by the (+)-HRESIMS m/z 319.2276 [M + H]+ (calcd for C20H31O3, 319.2273), with six indices of hydrogen deficiency"
+      },
+      {
+        "claim": "化合物 2 分子式 C₂₀H₃₄O₅，(+)-HRESIMS [M+Na]⁺ m/z 377.2301（计算值 377.2304），四个不饱和度",
+        "source_locator": "PDF 第 2 页 Results and discussion 化合物 2 段",
+        "evidence": "showed a quasi-molecular ion peak at m/z 377.2301 [M + Na]+ (calcd for C20H34O5Na, 377.2304), led to the molecular formula C20H34O5, indicating four IHD"
+      },
+      {
+        "claim": "化合物 1 的绝对构型由 ECD 计算确证为 3R, 8S, 9R, 10S",
+        "source_locator": "PDF 第 2 页 Results and discussion",
+        "evidence": "confirming the absolute configuration of 1 as 3R, 8S, 9R, 10S"
+      },
+      {
+        "claim": "化合物 2 的绝对构型由 ECD 计算确证为 2R, 3R, 4R, 5R, 8S, 9R, 10R",
+        "source_locator": "PDF 第 3 页 Results and discussion 倒数段",
+        "evidence": "The absolute configuration of 2 were assigned as 2R, 3R, 4R, 5R, 8S, 9R, 10R by comparison of experimental and TDDFT-calculated ECD spectra"
+      },
+      {
+        "claim": "化合物 1 的 GIAO ¹³C NMR 计算 R² = 0.9978，CMAE = 1.9 ppm；化合物 2 的 R² = 0.9982（图面 R=0.9991）",
+        "source_locator": "PDF 第 2 页 Results 段；PDF 第 3 页 Fig. 5A/B 图面标注",
+        "evidence": "with a correlation coefficient (R²) of 0.9978 and a corrected mean absolute error (CMAE) of 1.9 ppm; R=0.9991,R²=0.9982,(Exp)=0.9922(Calc)-0.3381"
+      },
+      {
+        "claim": "两个化合物均无 DRAK2 抑制活性",
+        "source_locator": "PDF 第 4 页 Results and discussion 末段",
+        "evidence": "Compounds 1 and 2 were tested to inhibit the phosphorylation of DRAK2, and all of them were inactive"
+      },
+      {
+        "claim": "分离得量：化合物 1 3.1 mg (tR=19 min)，化合物 2 3.7 mg (tR=23 min)；植物材料 5.5 kg 根茎，95% 乙醇渗漉，700 g 浸膏",
+        "source_locator": "PDF 第 4 页 4.3 Extraction and isolation",
+        "evidence": "compound 1 (3.1 mg, tR = 19 min)…compound 2 (3.7 mg, tR = 23 min)…5.5 kg…95 % ethanol (3 × 25 L)…700 g"
+      },
+      {
+        "claim": "旋光与 ECD：化合物 1 [α]²⁵_D −14.0 (c 0.1, MeOH)，ECD 215 (+1.1), 249 (−9.9) nm；化合物 2 [α]²⁵_D −15.3 (c 0.3, MeOH)，ECD 291 (+2.8) nm",
+        "source_locator": "PDF 第 4 页 4.4 Spectroscopic data",
+        "evidence": "Tinosagitine A (1): yellowish solid; [α]²⁵_D −14.0 (c 0.1, CH3OH)…ECD (CH3OH) λmax (Δε) 215 (+1.1), 249 (−9.9) nm; Tinosagitine B (2): white solid; [α]²⁵_D −15.3 (c 0.3, CH3OH)…ECD (CH3OH) λmax (Δε) 291 (+2.8) nm"
+      },
+      {
+        "claim": "化合物 1 单晶培养失败，绝对构型仅由 TDDFT ECD 计算确证",
+        "source_locator": "PDF 第 2 页 Results 段",
+        "evidence": "All the recipes to get a single crystal of 1 were failed. Thus, the absolute configuration for 1 was determined unequivocally by comparison of the experimental and the calculated ECD curves"
+      }
+    ],
+    "identity_matches": true,
+    "classification_supported": true,
+    "crop_complete": false
+  },
+  "usage": {
+    "total_tokens": 40890,
+    "total_characters": 0,
+    "prompt_tokens": 29031,
+    "completion_tokens": 11859,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 512
+    }
+  }
+}

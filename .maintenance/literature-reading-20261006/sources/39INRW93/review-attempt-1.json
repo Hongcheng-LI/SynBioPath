@@ -1,0 +1,112 @@
+{
+  "pass": false,
+  "major_issues": [
+    {
+      "issue": "Table 1 裁剪图缺失化合物 2 数据列",
+      "source_locator": "PDF 第 2 页 Table 1 (NMR Data for Compounds 1 and 2 in Pyridine-d₅)",
+      "correction": "原 Table 1 横跨双栏，包含化合物 1 与 2 两套 δC / δH 列。当前裁剪仅保留化合物 1 列及表头前半部分，化合物 2 的 18 行 NMR 数据（δC 97.3→72.6→90.8→63.4 等以及 δH 5.55、4.85、4.08、6.52 等关键信号）被右侧截掉。修正归一化 bbox 约为 [0.04, 0.65, 0.96, 0.99]，并需重新插入完整 Table 1 图像。"
+    },
+    {
+      "issue": "Table 2 裁剪图缺失 conformer B 数据列",
+      "source_locator": "PDF 第 4 页 Table 2 (NMR Data for Compound 3 in Pyridine-d₅)",
+      "correction": "原 Table 2 横跨双栏，包含 conformer A 与 conformer B 两套 δC / δH 列（17 行位置加 1-OH）。当前裁剪仅保留 conformer A 列及表头前半部分，conformer B 的全部 NMR 数据（包括 δH 5.64 dd, 5.16 d, 4.50 d, 6.54 s, 2.27 s, 2.00 s 等关键信号）被右侧截掉。修正归一化 bbox 约为 [0.04, 0.04, 0.96, 0.42]，并需重新插入完整 Table 2 图像。"
+    },
+    {
+      "issue": "Figure 2 裁剪图右侧化学结构可能轻微截断",
+      "source_locator": "PDF 第 3 页 Figure 2 (Key NOESY correlations of compound 1)",
+      "correction": "裁剪图结构中右侧 H/OAc 标签附近 NOE 箭头可能不完整。建议核对原图区域并校正 bbox 为 [0.04, 0.06, 0.49, 0.20]（含完整结构 + 完整图注 'Figure 2. Key NOESY correlations of compound 1.'）。"
+    }
+  ],
+  "minor_issues": [
+    "报告过长（约 5500 字），超过研究报告模板 1500–2500 中文字符推荐上限；建议精简'研究背景'与'未来研究方向'部分。",
+    "草稿将原文已报告的化合物 2 绝对构型归属过度夸大为'外推/未独立确证'，但原文表述是作者基于生源 + 相同 NOE 模式 + 右旋的完整论据给出的明确归属，表述上语气过重。"
+  ],
+  "figure_coverage": {
+    "expected_labels": [
+      "Figure 1",
+      "Figure 2",
+      "Figure 3",
+      "Figure 4",
+      "Table 1",
+      "Table 2"
+    ],
+    "covered_labels": [
+      "Figure 1",
+      "Figure 3",
+      "Figure 4",
+      "Table 1(partial)",
+      "Table 2(partial)",
+      "Figure 2(partial)"
+    ],
+    "missing_panels": [
+      "Table 1 化合物 2 数据列（δC / δH，18 行）",
+      "Table 2 conformer B 数据列（δC / δH，18 行）"
+    ],
+    "missing_pages": []
+  },
+  "verified_claims": [
+    {
+      "claim": "化合物 1 GI50 = 6.9 ± 0.4 μM (HL-60)、10.1 ± 0.9 μM (K562)",
+      "source_locator": "PDF 第 3 页 Results and Discussion, 倒数第二段",
+      "evidence": "GI50 values of 6.9 ± 0.4 μM (HL-60) and 10.1 ± 0.9 μM (K562) for 1"
+    },
+    {
+      "claim": "化合物 2 GI50 = 8.5 ± 0.7 μM (HL-60)、12.3 ± 1.1 μM (K562)",
+      "source_locator": "PDF 第 3 页 Results and Discussion",
+      "evidence": "8.5 ± 0.7 μM (HL-60) and 12.3 ± 1.1 μM (K562) for 2"
+    },
+    {
+      "claim": "顺铂对照 GI50 = 13.4 ± 1.9 μM (HL-60)、19.1 ± 2.3 μM (K562)",
+      "source_locator": "PDF 第 3 页 Results and Discussion",
+      "evidence": "cisplatin (13.4 ± 1.9 μM against HL-60 and 19.1 ± 2.3 μM against K562)"
+    },
+    {
+      "claim": "化合物 1 HRESIMS m/z 349.1607 [M+Na]+ (calcd for C₁₇H₂₆NaO₆, 349.1627)",
+      "source_locator": "PDF 第 5 页 Experimental Section, compound 1 数据",
+      "evidence": "HRESIMS m/z 349.1607 [M + Na]+ (calcd for C17H26NaO6, 349.1627)"
+    },
+    {
+      "claim": "化合物 2 分子式 C₁₈H₂₈O₆，比 1 多一个 CH₂ 单位",
+      "source_locator": "PDF 第 3 页 Results and Discussion, 第二段",
+      "evidence": "Compound 2 was given the molecular formula of C18H28O6 by HRESIMS, one CH2 unit more than in 1"
+    },
+    {
+      "claim": "化合物 1 绝对构型 1S, 2S, 6R, 7R, 8S, 9R, 14R",
+      "source_locator": "PDF 第 3 页 Results and Discussion",
+      "evidence": "the 1S, 2S, 6R, 7R, 8S, 9R, and 14R configuration was assigned for 1, named (+)-6-O-demethylpestalotiopsin A"
+    },
+    {
+      "claim": "化合物 3 [α]D²⁰ = −150 (c 0.5, MeOH)，分子式 C₁₇H₂₆O₅",
+      "source_locator": "PDF 第 3、5 页",
+      "evidence": "compound 3 ([α]D²⁰ −150)... C17H26O5 by HRESIMS"
+    },
+    {
+      "claim": "诱导 CD 数值：λmax (Δε) 274 (+0.37), 310 (−3.65), 357 (−0.98), 377 (−1.08) nm",
+      "source_locator": "PDF 第 5 页 Induced Circular Dichroism of Compound 1",
+      "evidence": "CD (c 1.3 mM, DMSO) λmax (Δε) 274 (+0.37), 310 (−3.65), 357 (−0.98), 377 (−1.08) nm"
+    },
+    {
+      "claim": "大规模发酵：77 瓶 500 mL、28 °C、7 天、11.55 L 培养液",
+      "source_locator": "PDF 第 4–5 页 Fermentation and Isolation",
+      "evidence": "77 flasks were incubated on a shaking platform at 28 °C for 7 days. The combined fermentation broth of 11.55 L"
+    },
+    {
+      "claim": "cyclonerodiol 在富营养培养基中产率 > 23 mg/L；菌株保藏号 CGMCC 8278",
+      "source_locator": "PDF 第 1 页 Introduction 与第 4 页 Isolation and Identification",
+      "evidence": "The yield of cyclonerodiol was more than 23 mg/L... CGMCC no. 8278"
+    },
+    {
+      "claim": "首次从 Ascotricha 属发现石竹烯型倍半萜",
+      "source_locator": "PDF 第 3 页 Results and Discussion",
+      "evidence": "This is the first time that caryophyllene derivatives have been isolated from the Ascotricha genus"
+    },
+    {
+      "claim": "化合物 2 HRESIMS 实测 m/z 363.1796 [M+Na]+；原文报告的 calcd 值 349.1784 与 C₁₈H₂₈O₆+Na 期望 363.1784 不符，疑为原文排版错误",
+      "source_locator": "PDF 第 5 页 Experimental Section",
+      "evidence": "HRESIMS m/z 363.1796 [M + Na]+ (calcd for C18H28NaO6, 349.1784)"
+    }
+  ],
+  "identity_matches": true,
+  "classification_supported": true,
+  "crop_complete": false
+}

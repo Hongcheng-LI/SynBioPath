@@ -1,0 +1,379 @@
+
+[PDF physical page 1]
+W362–W367  Nucleic Acids Research, 2011, Vol. 39, Web Server issue                  Published online 9 May 2011
+doi:10.1093/nar/gkr323
+
+NRPSpredictor2—a web server for predicting
+NRPS adenylation domain specificity
+
+Marc Ro¨ ttig1,*, Marnix H. Medema2,3, Kai Blin4, Tilmann Weber4, Christian Rausch5 and
+Oliver Kohlbacher1
+
+1Applied Bioinformatics, Center for Bioinformatics, Department of Computer Science, University of Tu¨ bingen,
+Sand 14, 72076 Tu¨ bingen, Germany, 2Department of Microbial Physiology, 3Groningen Bioinformatics Center,
+Groningen Biomolecular Sciences and Biotechnology Institute, University of Groningen, Nijenborgh 7, 9747AG
+Groningen, The Netherlands, 4Interfaculty Institute of Microbiology and Infection Medicine, University of
+Tu¨bingen, Auf der Morgenstelle 28 and 5Algorithms in Bioinformatics Group, Center for Bioinformatics/
+Department of Computer Science, University of Tu¨ bingen, Sand 14, 72076 Tu¨ bingen, Germany                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          Downloaded
+Received March 15, 2011; Revised April 12, 2011; Accepted April 20, 2011                                                                                                                                       from
+
+
+ABSTRACT                                 INTRODUCTION
+The products of many bacterial non-ribosomal pep-    Non-ribosomally synthesized peptides are a class of highly
+tide synthetases (NRPS) are highly important sec-    important metabolites in the secondary metabolisms of
+                                                               bacteria and fungi  (1,2). Important representatives ofondary metabolites, including vancomycin and other
+                                                                      this family are mostly antibiotics like penicillin or vanco-antibiotics. The ability to predict substrate specificity
+                                                    mycin but also the immunosuppressant cyclosporin. The
+of newly detected NRPS Adenylation (A-) domains by
+                                                           precursor peptides of these compounds are synthesized by
+genome sequencing efforts is of great importance to                                                       non-ribosomal peptide synthetases (NRPSs), which are
+identify and annotate new gene clusters that produce                                                        multi-modular megasynthetases with molecular weights
+secondary  metabolites.  Prediction  of A-domain    up to 2.3 MDa (tex1 NRPS from Trichoderma virens).
+specificity based on the sequence alone can be   NRPSs act as an assembly line that produces the ﬁnal
+achieved through sequence signatures  or, more    peptide by a chain of reactions occuring along that line.
+accurately, through machine learning methods. We    The primary sequence of the peptide product  is deter-
+present an improved predictor, based on previous    mined by the sequential arrangement of minimal repetitive
+work (NRPSpredictor), that predicts A-domain speci-    modules of an NRPS. The minimal module consists of
+                                                              three domains termed adenylation domain (A-domain),ficity using Support Vector Machines on four hier-
+                                                              peptidyl carrier domain (PCP-domain) and condensationarchical levels, ranging from gross physicochemical                                                  domain (C-domain). The A-domain is responsible for the                                                                                                                                                                                                                                               https://academic.oup.com/nar/article/39/suppl_2/W362/2506164properties of an A-domain’s substrates down to
+                                                            recruitment of the amino acid monomers that are to be        bysingle amino acid substrates. The three more gen-                                                          incorporated into the ﬁnal product. Several hundred dif-
+eral levels are predicted with an F-measure better                                                                 ferent A-domain substrate speciﬁcities have been biochem-                    guest
+than  0.89 and the most  detailed  level with an     ically characterized and each A-domain recruits a speciﬁc        on
+average F-measure of 0.80. We also modeled the    amino  acid as monomer. Accordingly,  the  sequential        31
+applicability domain of our predictor to estimate    order of A-domains along the assembly line determines
+for new A-domains whether they lie in the applicabil-     (in the majority of cases) the primary sequence of theity domain. Finally, since there are also NRPS that    ﬁnal peptide product. A comprehensive source of NRPS                            October
+                                                          and                                                           monomers                                                                                                                    is                                                                                         the                                                          NORINE                                                                                                  databaseplay an important role in natural products chemistry     peptides                                                                                                                            as-                2025                                                                                                 et                                                                                                                al.                                                      sembled                                                           by Caboche                                                                                which                                                                                                      currently                                                                                                                   featuresof fungi, such as peptaibols and cephalosporins,
+                                                         over 1000 peptide products and over 500 monomers (3) .we added a predictor for fungal A-domains, which
+                                                 The cross linking between each adjacent monomer  is
+predicts gross physicochemical properties with an
+                                                               carried out by the help of the other two domains that
+F-measure of 0.84. The service is available at http://                                                              synthesize the peptide bond between these monomers.
+nrps.informatik.uni-tuebingen.de/.                                                 The minimal module  is often equipped with additional
+
+
+
+
+
+*To whom correspondence should be addressed. Tel: +49 7071 29 70464; Fax: +49 7071 29 5152; Email: roettig@informatik.uni-tuebingen.de
+
+  The Author(s) 2011. Published by Oxford University Press.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/
+by-nc/3.0), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+
+
+[PDF physical page 2]
+                                                        Nucleic Acids Research, 2011, Vol. 39, Web Server issue  W363
+
+
+domains that allow for modiﬁcations of the recruited    Training data
+amino acid monomers like epimerization, methylation or                                                 The starting point for this work were the 397 labeled
+formylation.                                                   A-domains collected by Rausch et al. for which the speci-
+  The structure–function relationship for monomer re-                                                                ﬁcity had been harvested from scientiﬁc literature desc-
+cruitment by A-domains has been further elucidated by                                                                ribing  their  experimental  characterization  (10). We
+Stachelhaus et  al. and Challis et  al. by examining the                                                    added 79 labeled bacterial A-domains and 100 labeled
+crystal structure of the peptide synthetase gramicidin S                                                           fungal A-domains to the database of NRPSpredictor.
+synthetase 1 (GrsA, PDB-ID: 1AMU) (4–6). The structure                                                        Furthermore, we added 4282 unlabeled bacterial and 814
+of the GrsA adenylation domain was determined with a                                                           unlabeled  fungal  A-domains  to  the  data  set  (see
+co-crystallized phenylalanine monomer and thus delivers                                                      Supplementary  Material  S1).  These A-domains  were
+additional structural information about the binding pocket                                                                 retrieved from the UniProt database by an automated
+of the A-domain, which enabled Stachelhaus et  al. to                                        BLAST search for A-domains that are embedded within
+propose a speciﬁcity conferring-code of A-domains by    a minimal NRPS module, which requires the existence of
+relating the active site conﬁguration of A-domains to the    an A-domain (Pfam-ID: PF00501), C-domain (Pfam-ID:corresponding substrates.                               PF00668) and PCP-domain (Pfam-ID: PF00550) (11,12).                          Downloaded
+  The speciﬁcity-conferring code was based on 10 active
+site residues and it could be used to predict the putative    Signature extraction                                                                                          from
+substrates of A-domains for which only the sequence was
+                                                 The set of all active site amino acids, called the signa-known. Many NRPS  services  like  the NRPS-PKS
+                                                                    ture, was identiﬁed by extracting all residues within 8 A˚knowledgebase, the NP.searcher or the system devised by
+                                                             of the substrate phenylalanine in the crystal structure ofBachmann et al. make use of this speciﬁcity-conferring
+                                             GrsA (PDB-ID: 1AMU). These 34 positions were thencode to predict putative A-domain substrates (7–9). The
+                                                              extracted from the set of training sequences using anspeciﬁcity-conferring code was further reﬁned by Rausch
+                                                 A-domain proﬁle HMM and selecting relevant positions
+et al. (10) by not only considering these 10 residues but
+                                                   from the alignment. The speciﬁcity conferring code pro-by using all active site residues within 8 A˚ of the amino
+                                                      posed by Stachelhaus et al. is a subset of these 34 residues
+acid substrate. A predictor, NRPSpredictor, based on
+                                                  and is also reported by the web server (6). Handling of
+Transductive Support Vector Machines (TSVMs) was
+                                                             protein structures, extraction of signatures and further
+built on these 34 active site residues to predict A-domain
+                                                            processing  was  carried  out  using  the  Active  Site
+speciﬁcity. In the following part of this article we will                                                             Classiﬁcation (ASC) software (13).
+present details about the new version of this predictor,
+termed NRPSpredictor2, namely the improved prediction                                                       Encoding
+performance, simpliﬁed descriptor set used for signature
+encoding and estimation of the applicability domain of the    NRPSpredictor2 makes use of two feature encodings for
+predictor.                                          amino acids: one  is the original encoding proposed by
+                                                  Rausch et al. based on 12 AAindex (14) descriptors and
+                                                             the other is a reduced encoding based on three z-scales
+                                                               descriptors devised by Wold et al. (15). The z-scales de-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          https://academic.oup.com/nar/article/39/suppl_2/W362/2506164
+MATERIALS AND METHODS                                scriptors represent the following physicochemical proper-
+                                                                                                                                     by                                                                               ties: hydrophobicity (WOLS870101), size (WOLS870102)
+Method outline                                                  and electronic properties (WOLS870103). Each signature                                                                                                                                                                                                                                                                                                                                             guestThe predictions of substrate speciﬁcity are based on the    can be embedded in Rn by encoding each residue into a
+                                                                                                                                     on
+conﬁguration of the residues in the active  site of an     descriptor tuple and concatenating these tuples. The pre-
+                                                                                                                                     31
+A-domain. We  therefore made  use  of an A-domain     dictive models are then trained on the transformed data.
+crystal structure (PDB-ID: 1AMU) as a template to de-termine these active site residues. The positions of these   SVMs                                                                                                                                                                                                                 October
+residues were then located in the A-domain sequences of   SVMs are classiﬁers based on the maximum margin prin-
+our training data set, and for each domain we extracted     ciple (16,17). During SVM training a hyperplane in feature         2025
+those positions. Having labeled sequence data, we applied    space is determined that gives the largest possible margin
+machine learning methods, namely SVMs, to train pre-    between the positive and negative class, thereby yielding
+dictors of substrate speciﬁcity. The predictions are based    an intuitively robust classiﬁer. The hyperplane gives a
+on numerical representations of the extracted signatures.     decision surface deﬁned by f(x) =     i yiai k(x, xi) whose
+The predictors were trained as detectors for each known     functional value is zero for data points directly on the
+substrate speciﬁcity in a one-versus-rest scheme, so every    hyperplane, +1 or more for data points in the positive
+predictor that gives a positive prediction signals that the     half-space and  1 or less for points in the negative half-
+query A-domain might activate the corresponding sub-     space. The margin is determined by the geometric distance
+strate. Using this scheme, a query A-domain might yield     of points with functional value of +1 or  1 (support vec-
+positive signals from more than one predictor and thereby     tors) to the hyperplane. NRPSpredictor2 uses the RBF
+giving the user additional information about possible sub-     kernel  k(x, y) = exp(  gjjx  yjj2) and  the  linear  kernel
+strate promiscuity of the A-domain or ambiguity of the     k(x, y) = xty on  the  physico-chemical  feature  vectors.
+prediction.                                          For the training of SVMs a set of labeled data points
+
+
+[PDF physical page 3]
+W364  Nucleic Acids Research, 2011, Vol. 39, Web Server issue
+
+
+(xi, yi) is needed where xi is from Rn and the labels yi are in    data set to get a more robust average of the predictor
+(+1,   1) for two-class problems.                          performance on new test data.
+
+TSVMs
+                                                                 Applicability domainTSVMs extend classical SVMs by the property of making
+use of unlabeled data to train more robust classiﬁers, es-    The applicability domain of a predictor is a concept that
+pecially in the case of scarce labeled training data (18).     helps to give for each predictor query a feedback whether
+TSVMs try to determine a separating hyperplane that     that query  is too far away from the data used during
+does not cut clusters of data by forcing the hyperplane     training or whether that instance  lies within the, say,
+to go through low data density regions. This is enforced   95% support volume of the training data. Predictions
+by keeping the margin clear of unlabeled data points.     for  queries  that do  not  lie  within  the  applicability
+However, the objective function of TSVMs  is not that    domain of the model should be handled with more care.
+easily optimized as the classical SVM objective, hence   To model the applicability domain of our model we made
+heuristics have to be used to optimize the objective. For    use of the 1-Class SVM concept as described by Scho¨ lkopfNRPSpredictor2 we make use of the SVMlight package     et al. (19). Therefore, we modelled the 95% support of our                                        Downloaded
+that offers such an heuristic to train TSVM classiﬁers (18).    data using the 1-Class SVM functionality of LIBSVM. We                                                                                                                                                                                                                                                                                 from                                                                 selected values for g and n in such a way as to achieve a
+Prediction levels and predictor quality                                                                      recall of  95% on left out data and then trained a 1-class
+NRPSpredictor2 was designed to predict the putative   SVM for the whole data set using these parameters to
+substrate speciﬁcity on four different hierarchical levels     describe the 95% support volume in feature space of our
+for  bacterial A-domains and on one  level for fungal     data.
+A-domains. The  bacterial  levels  are:  gross  physico-
+chemical  properties  of  the  substrate  (hydrophobic–
+aromatic, hydrophobic–aliphatic and hydrophilic), large
+clusters, small clusters and on a single amino acid level   RESULTS
+(Table  1). The fungal predictor predicts only on the     Predictor quality
+gross  physico-chemical  properties  level  (hydrophobic-
+                                                 The quality of each bacterial predictor as determined byaromatic, hydrophobic-aliphatic and hydrophilic) due to
+                                                      our model validation  is given  in Table  1.  It can bethe lack of sufﬁcient fungal training data to allow further
+                                                        observed that the predictors at the highest hierarchicalsubdivision of substrate clusters. However, within the web
+                                                                      level are the best-performing ones. At the level of grossserver we trigger the bacterial models to give also more
+ﬁne grained predictions for fungal signatures. An overview    physico-chemical   properties  we  have  an  average
+of the set of bacterial prediction levels is given in Table 1.    F-measure of F = 0.94, whereas the average F-measure at
+For many substrates there are only very few labeled     the most ﬁne-grained level (single substrates) is F = 0.80.
+A-domains, like the 2-amino-butyric acid (Abu) speciﬁcity     Generally, the average performance as quantiﬁed by the
+with less than ﬁve known A-domain sequences. For these    F-measure is F = 0.94 for the three class level, F = 0.93
+speciﬁcities  no  SVM-model  was  built.  Instead,  we     for the large clusters level, F = 0.89 for the small clusters                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              https://academic.oup.com/nar/article/39/suppl_2/W362/2506164
+make use of the Nearest-Neighbor Rule to get a speciﬁcity     level and F = 0.80 for the single substrate level. The fungal
+                                                                                                                                        by
+prediction, by reporting for each query the substrate     predictor has an average F-measure of F = 0.84 at the
+speciﬁcity of the most similar active-site signature (based     three class level. Table 1 also gives for each prediction                                                                                                                                                                                                                                                                                                                                                     guest
+on the Stachelhaus code) in our database, along with the     task the best performing kernel, feature encoding and                                                                                                                                        on
+sequence identity.                         SVM type (classic or TSVM).                                                                                                                                        31
+                                    A general trend is that, except from the more exotic
+Predictor validation                                       aromatic substrates, like the hydroxy-benzoic derivatives                                                              that can be predicted very well, the other more common                            OctoberTo quantify the performance of the NRPSpredictor2 we
+                                                        aromatic substrates are predicted less reliably. One reasonused the F-measure as quality criterion, which is deﬁned as                                                      might be the observed promiscuity of the A-domains                2025the harmonic mean of precision and recall. The precision
+is deﬁned by prec = tp/(tp+fp) and the recall (or sensitiv-     utilizing these substrates (10). When compared with the
+ity) is deﬁned by rec = tp/(tp+fn), where tp, fp and fn are     original version of the NRPSpredictor (Table 1) the new
+the number of true positives, false positives and false nega-     version could improve the performance (F-measure) on
+tives, respectively. The precision (or positive predictive     the large cluster level and on the small clusters level by
+value) measures how reliable a positive prediction of a    roughly  one  percentage  point.  While  the  original
+substrate speciﬁcity detector  is and the recall measures    NRPSpredictor was able to predict the membership to
+how good the detector is in ﬁnding the true positives. To     clusters of amino acids only, NRPSpredictor2 also can
+determine the performance on new test data we applied a     predict  single  amino  acid  speciﬁcities.  The  newly
+repeated external validation scheme. We split the whole    introduced applicability domain gives further information
+data set into half, selected and trained a SVM model on    on the quality of the speciﬁcity prediction. Upon request
+one half of the data and evaluated the predictor perform-     of many colleagues working on fungal NRPSs, a predictor
+ance on the other half, the independent test set. This pro-     speciﬁc  for  fungal NRPS sequences was  included  in
+cedure was repeated on 10 shufﬂed versions of the whole    NRPSpredictor2.
+
+
+[PDF physical page 4]
+                                                        Nucleic Acids Research, 2011, Vol. 39, Web Server issue  W365
+
+
+
+Table 1. Prediction levels and predictor quality (bacterial)
+
+Classname                              Members                           Type         NRPSpredictor2       NRPSpredictor1
+
+                                                                          F        Prec.    Rec.    F
+
+Three class
+  Hydrophobic aliphatic                        Ala, Gly, Val, Leu, Ile, Abu, Iva Ser,   W,R,T    0.974    0.974    0.974    –
+                                                Thr, Hpg, Dhpg, Cys, Pro, Pip
+  Hydrophilic                                Arg, Asp, Glu, His, Asn, Lys,         W,R,T    0.940    0.940    0.940    –
+                                               Gln, Orn, Aad
+  Hydrophobic aromatic                       Phe, Tyr, Trp, Dhb, Phg, Bht         W,R,T    0.890    0.889    0.892    –
+
+Large clusters
+  Hydroxy-benzoic acid derivates            Dhb, Sal                         W,R,T    0.982    1.000    0.967    0.982
+  Polar, uncharged (aliphatic with -SH)       Cys                               R,R,T     0.976    0.975    0.975    0.954
+  Aliphatic chain or phenyl group with -OH    Ser, Thr, Dhpg, Hpg                 R,R,T     0.968    0.967    0.969    0.963
+  Aliphatic chain with H-bond donor          Asp, Asn, Glu, Gln, Aad            W,R,C    0.958    0.969    0.950    0.942
+  Apolar, aliphatic                            Gly, Ala, Val, Leu, Ile, Abu, Iva      W,R,T    0.940    0.947    0.934    0.940                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          Downloaded  Aromatic side chain                         Phe, Trp, Phg, Tyr, Bht             W,R,T    0.881    0.881    0.881    0.881
+  Cyclic aliphatic chain (polar NH2 group)     Pro, Pip                           R,R,T     0.867    0.867    0.867    0.811                             from  Long positively charged side chain           Orn, Lys, Arg                     W,R,T    0.864    0.898    0.833    0.861
+                                                    Ø         0.930    –       –        0.917
+Small clusters
+  2-amino-adipic acid                    Aad                             W,L,C    1.000    1.000    1.000    1.000
+  Dhb, Sal                              Dhb, Sal                         W,L,C    1.000    1.000    1.000    0.940
+  Polar, uncharged (hydroxy-phenyl)          Dhpg, Hpg                          R,L,T     1.000    1.000    1.000    0.981
+  Cys                                    Cys                                R,L,T     0.983    0.983    0.983    0.950
+  Serine-speciﬁc                                Ser                             W,R,T    0.972    1.000    0.947    0.936
+  Threonine-speciﬁc                        Thr                             W,L,C    0.969    0.978    0.961    0.942
+  Asp-Asn                                  Asp, Asn                         W,L,C    0.948    0.969    0.931    0.942
+  Orn and hydroxy- Orn speciﬁc            Orn                                R,L,T     0.900    0.900    0.900    0.800
+  Aliphatic, branched hydrophobic              Val, Leu, Ile, Abu, Iva              W,R,T    0.893    0.892    0.895    0.887
+  Tiny, hydrophilic, transition to aliphatic      Gly, Ala                         W,L,C    0.886    0.938    0.843    0.859
+  Pro-speciﬁc                              Pro                                R,L,T     0.882    0.938    0.833    0.900
+  Polar aromatic ring                          Tyr, Bht                         W,R,T    0.857    0.892    0.825    0.793
+  Glu-Gln                                   Glu, Gln                         W,L,C    0.813    0.850    0.791    0.860
+  Arg-speciﬁc                            Arg                             W,L,C    0.740    1.000    0.600    0.800
+  Unpolar aromatic ring                       Phe, Trp                         W,L,C    0.538    0.608    0.500    0.671
+                                                    Ø         0.892    –       –        0.884
+Single substrates
+  Aad                               Aad                            W,R,T    1.000    1.000    1.000    –
+  Cys                                    Cys                               R,R,T     1.000    1.000    1.000    –
+  Hpg                              Hpg                              R,R,T     0.974    1.000    0.950    –
+  Ser                                          Ser                             W,R,T    0.962    0.993    0.933    –
+  Thr                                    Thr                            W,R,T    0.949    0.976    0.922    –  Dhb                             Dhb                            W,R,T    0.947    1.000    0.900    –                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        https://academic.oup.com/nar/article/39/suppl_2/W362/2506164
+  Dhpg                              Dhpg                           W,R,T    0.943    0.967    0.925    –                  by
+  Asn                                 Asn                               R,R,T     0.939    0.934    0.944    –
+  Orn                                 Orn                               R,R,T     0.933    0.933    0.933    –   Ile                                                      Ile                                R,R,T     0.918    1.000    0.850    –                                             guest
+  Gly                                    Gly                               R,R,T     0.906    0.902    0.910    –                  on
+  Ala                                     Ala                             W,R,T    0.878    0.901    0.856    –                  31
+  Arg                                  Arg                            W,R,T    0.833    0.833    0.833    –
+  Iva                                          Iva                             W,R,T    0.814    0.933    0.725    –
+  Val                                       Val                             W,R,T    0.801    0.828    0.777    –                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  October  Leu                                  Leu                            W,R,T    0.784    0.782    0.787    –
+  Pro                                          Pro                                                                    W,R,T                                                                                                   0.755                                                                                                            0.792                                                                                                                     0.722                                                                                                                   –
+  Bht                                          Bht                                                                    W,R,T                                                                                                   0.717                                                                                                            0.782                                                                                                                     0.675                                                                                                                   –                                    2025
+  Glu                                   Glu                               R,R,T     0.704    0.760    0.657    –
+  Pip                                        Pip                             W,R,T    0.700    0.800    0.625    –
+  Asp                                 Asp                               R,R,T     0.700    0.700    0.700    –
+  Tyr                                     Tyr                             W,R,T    0.696    0.671    0.725    –
+  Gln                                   Gln                            W,R,T    0.689    0.775    0.620    –
+  Phe                                    Phe                            W,R,T    0.688    0.740    0.643    –
+  Lys                                     Lys                               R,R,T     0.400    0.500    0.333    –
+  Trp                                    Trp                            W,R,T    0.320    0.400    0.267    –
+
+The column type gives the best performing predictor encoded by three letters: the ﬁrst letter represents the used encoding (W: Wold, R: Rausch), the
+second letter the used kernel (L: linear, R: RBF) and the third letter the used SVM type (C: classical SVM T: transductive SVM). The columns F,
+Prec. and Rec. give the F-measure, Precision and Recall of the best predictor, respectively. Aad: 2-amino-adipic-acid; Bht: beta-hydroxy-tyrosine;
+Hpg: 4-hydoxy-phenyl-glycine; Dhb: 2,3-dihydroxy-benzoic acid; Dhpg: 3,5-dihydroxy-phenyl-glycin; Iva: isovaline; Orn: ornitine; Pip: pipecolic acid;
+Sal: salicylic acid.
+
+
+[PDF physical page 5]
+W366  Nucleic Acids Research, 2011, Vol. 39, Web Server issue
+
+
+
+
+
+Figure 1. NRPSpredictor2 prediction report for one extracted A-domain. On top, the ID of the parent sequence, location of the A-domain within
+the sequence and the bit score of the PFAM-HMM are given. The green checkmark signals that the signature sequence lies within the applicability
+domain of the model. The extracted 8 A˚ signature and Stachelhaus code are given directly below. Subsequently, the list of predictions is given along
+with the score of the respective SVM predictors. For each predictor we also report the reliability of that predictor as determined during model
+validation. The last row gives the nearest sequence neighbor in the NRPSpredictor2 database (based on Stachelhaus code) and the respective
+sequence identity.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          Downloaded
+                                                                                                                                                                                                                                                                                 from
+
+
+Web server                                                   prediction performance over the previous version and
+                                                               also with two new prediction levels, namely the gross
+Users of the NRPSpredictor2 web server can submit their
+                                                           physico-chemical properties level and the detailed predic-data as full NRPS sequences in multi-FASTA format and
+                                                               tion level, which predicts the single amino acid likely to bethe signatures will be extracted automatically. Another
+                                                              activated by the given A-domain. The performance im-option is to directly supply the extracted signatures and
+                                                     provement was mainly due to the additional  labeledrequest a prediction from the predictor, thus users are not
+                                                                training  data  as  well  as  the  use  of an  additionalrequired to disclose the full NRPS sequence. After short
+                                                        encoding of A-domain signatures (Wold encoding). Theextraction and prediction phases the user receives a list of
+                                                             transductive SVM method, which makes use of unlabeleddetected  A-domains  along  with  the  predictions  of
+                                                              data, is very important in the settings with scarce trainingNRPSpredictor2 at each hierarchical level. For user con-
+                                                         data per class, as can be seen in the most detailed predic-venience we report the predictions of the original version
+                                                               tion tasks (single amino acid level) where the transductiveof the NRPSpredictor. A typical report for one particular
+                                    SVM is the best performing type of SVM. In the upperextracted A-domain  is given in Figure 1. For each ex-
+                                                              prediction levels classical SVMs quite often sufﬁce to buildtracted A-domain the ID of the parent sequence is given
+                                                      a well-performing predictive model. In some of these caseswith the number of the A-domain added as sufﬁx. The
+                                                             the use of a transductive SVM might even hurt perform-exact  location  of  the  A-domain  within  the  parent
+                                                        ance due to the heuristic training procedure that may yieldsequence is also reported, along with the bit score of the
+                                                        suboptimal models, when compared to the classical SVMPfam HMM that extracted this domain. The result of the                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              https://academic.oup.com/nar/article/39/suppl_2/W362/2506164                                                         models, which use only labeled training data. We alsoapplicability check is given by either a green checkmark                                                                                                                                        by                                                             created a new web interface for the predictor, allowing(as shown in Figure 1) if the query signatures lies within
+the applicability domain of our predictor or as red X if the     prediction of either bacterial or fungal sequences based                    guest
+signature is most likely outside the applicability domain of    on full NRPS sequences or already extracted signatures.                                                                                                                                        on
+the model. In this case the prediction should be taken    For comparison purposes the web server also reports the                                                                                                                                        31
+with caution. Finally, the speciﬁcity predictors that give     predictions  of  the  original  NRPSpredictor.  Finally,
+positive predictions for this signature are listed for each    NRPSpredictor2  has  also  been  incorporated  intohierarchical level. The scores of the SVMs along with the    antiSMASH, a new comprehensive pipeline for secondary                            October
+precision of the SVM predictors, determined during model    metabolite gene cluster detection and annotation, which
+validation, are given in the last two columns. The last row    allows users to rapidly analyze complete NRPS gene                2025
+gives the nearest neighbor to the query signature found in     clusters  or  even whole genomes  containing  multiple
+our database of annotated A-domain signatures (based on   NRPS gene clusters (M. H. Medema et  al., submitted
+Stachelhaus code) along with the sequence identity. Using     for publication).
+this rule NRPSpredictor2 can even detect speciﬁcities for
+which no SVM model could be learned, due to scarcity of
+labeled training data.                          SUPPLEMENTARY DATA
+
+                                                      Supplementary Data are available at NAR Online.
+DISCUSSION
+
+We have presented the NRPSpredictor2 that predicts
+                                     ACKNOWLEDGEMENTSA-domain substrate speciﬁcity based on sequence and
+structural  information  about  the  active  site  of  the    The  authors thank Rainer  Breitling  for  constructive
+domain. The new predictor comes with an improved    comments and suggestions.
+
+
+[PDF physical page 6]
+                                                        Nucleic Acids Research, 2011, Vol. 39, Web Server issue  W367
+
+
+FUNDING                                                                          9. Bachmann,B.O. and Ravel,J. (2009) Methods for in silico
+                                                                                 prediction of microbial polyketide and nonribosomal peptide
+German Ministry for Education and Research (BMBF)          biosynthetic pathways from DNA sequence data. Methods
+[0315585A (GenBioCom) to T.W.]. The work of MHM         Enzymol., 458, 181–217.
+was supported by the Dutch Technology Foundation      10. Rausch,C., Weber,T., Kohlbacher,O., Wohlleben,W. and
+                                                                  Huson,D.H. (2005) Speciﬁcity prediction of adenylation domains
+(STW), which  is  the  applied-science  division  of The                                                                                     in nonribosomal peptide synthetases (NRPS) using transductive
+Netherlands Organisation for Scientiﬁc Research (NWO)         support vector machines (TSVMs). Nucleic Acids Res., 33,
+and  the Technology Programme  of  the  Ministry  of         5799–5808.
+Economic Affairs (grant STW 10463). Funding for open      11. UniProt Consortium. (2010) The Universal Protein Resource
+access charge: University of Tu¨bingen.                               (UniProt) in 2010. Nucleic Acids Res., 38, D142–148.
+                                                                               12. Finn,R.D., Mistry,J., Tate,J., Coggill,P., Heger,A., Pollington,J.E.,
+Conﬂict of interest statement. None declared.                       Gavin,O.L., Gunasekaran,P., Ceric,G., Forslund,K. et al. (2010)
+                                                                The Pfam protein families database. Nucleic Acids Res., 38,
+                                                                 D211–D222.
+                                                                               13. Ro¨ ttig,M., Rausch,C. and Kohlbacher,O. (2010) Combining
+REFERENCES                                                               structure and sequence information allows automated prediction
+                                                                               of substrate speciﬁcities within enzyme families. PLoS Comput  1. Marahiel,M.A., Stachelhaus,T. and Mootz,H.D. (1997) Modular                                                                                              Biol., 6, e1000636.                                                                                                                                                                                                                                            Downloaded    Peptide Synthetases Involved in Nonribosomal Peptide Synthesis.
+                                                                               14. Kawashima,S., Pokarowski,P., Pokarowska,M., Kolinski,A.,   Chem. Rev., 97, 2651–2674.                                                                    Katayama,T. and Kanehisa,M. (2008) AAindex: amino acid index          from  2. Schwarzer,D., Finking,R. and Marahiel,M.A. (2003)
+   Nonribosomal peptides: from genes to products. Nat. Prod. Rep.,          database, progress report 2008. Nucleic Acids Res., 36,
+    20, 275–287.                                                    D202–D205.
+  3. Caboche,S., Pupin,M., Leclere,V., Fontaine,A., Jacques,P. and          15. Wold,S., Eriksson,L., Hellberg,S., Jonsson,J., Sjo¨ stro¨m,M.,
+   Kucherov,G. (2008) NORINE: a database of nonribosomal                Skagerberg,B. and Wikstro¨ m,C. (1987) Principal property-values
+    peptides. Nucleic Acids Res., 36, D326–D331.                                for 6 nonnatural amino-acids and their application to a structure
+  4. Challis,G.L., Ravel,J. and Townsend,C.A. (2000) Predictive,                  activity relationship for oxytocin peptide analogs. Can. J. Chem.,
+    structure-based model of amino acid recognition by nonribosomal          65, 1814–1820.
+    peptide synthetase adenylation domains. Chem. Biol., 7, 211–224.        16. Boser,B.E., Guyon,I.M. and Vapnik,V.N. (1992) Proceedings of
+  5. Conti,E., Stachelhaus,T., Marahiel,M.A. and Brick,P. (1997)                the Fifth Annual Workshop on Computational Learning Theory.
+    Structural basis for the activation of phenylalanine in the            ACM, Pittsburgh, Pennsylvania, United States, pp. 144–152.
+   non-ribosomal biosynthesis of gramicidin S. EMBO J., 16,              17. Cortes,C. and Vapnik,V. (1995) Support-vector networks.
+   4174–4183.                                                     Mach. Lear., 20, 273–297.
+  6. Stachelhaus,T., Mootz,H.D. and Marahiel,M.A. (1999) The             18. Joachims,T. (1999) Proceedings of the Sixteenth International
+    speciﬁcity-conferring code of adenylation domains in                      Conference on Machine Learning. Morgan Kaufmann Publishers
+   nonribosomal peptide synthetases. Chem. Biol., 6, 493–505.                   Inc., pp. 200–209.
+  7. Ansari,M.Z., Yadav,G., Gokhale,R.S. and Mohanty,D. (2004)           19. Scho¨lkopf,B., Platt,J.C., Shawe-Taylor,J.C., Smola,A.J. and
+   NRPS-PKS: a knowledge-based resource for analysis of NRPS/           Williamson,R.C. (2001) Estimating the Support of a
+  PKS megasynthases. Nucleic Acids Res., 32, W405–413.                  High-Dimensional Distribution. Neural Comput., 13, 1443–1471.
+  8. Li,M.H., Ung,P.M., Zajkowski,J., Garneau-Tsodikova,S. and
+   Sherman,D.H. (2009) Automated genome mining for natural
+    products. BMC Bioinformatics, 10, 185.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          https://academic.oup.com/nar/article/39/suppl_2/W362/2506164
+                                                                                                                                     by
+                                                                                                                                                                                                                                                                                                                                             guest
+                                                                                                                                     on
+                                                                                                                                     31
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  October
+                                                                                                                                                                                                                                                                          2025

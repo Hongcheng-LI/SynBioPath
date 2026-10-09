@@ -1,0 +1,133 @@
+---
+type: literature-reading
+zotero_key: 9BYJS95S
+doi: "10.1097/CAD.0000000000000063"
+paper_type: review
+classification_status: pending
+reading_status: main-text-and-figures-read
+review_status: codex-source-checked
+human_full_paper_review: false
+source_attachment: XR6TYP4T
+source_sha256: ff6a5664b3c69d74fe2b0d2df6cd7104946bfeb654b5a2a3406ae71cb7a1d419
+created: 2026-10-09
+---
+
+> 原文来源：[Zotero 条目](zotero://select/library/items/9BYJS95S)；[DOI](https://doi.org/10.1097/CAD.0000000000000063)；由当前 Codex 读取原始主文并核对图表，尚未经人工逐项复核。 来源限制：Review historical firsthand narrative6pages2authors no new experiment no clinical guidance cited19papers unread independently；Visual PDF25(5)4824872014 ZoteroJune2014month not inferred exact day；Preparedfigureindex empty actual Chart1Chart2Figure1Figure2Table1Figure3 all6 manually identified；12kg air dried stem bark 0.5g recovered0.004167percent41.667ugg not absolute tissuecontent mass loss not analyterecovery；Table1visible ED503.5e-5ugml extractedmgml1000fold difference preservevisible historicalvalue original unverified；T/C Walkerweight ratio lowerbetter versus survival higherbetter Table1negative77 notordinarymassratio definitionunclear notinvent responseformula pluslevelsnotPvalues；Figure3A549ControlTaxol not adjacentHeLa orrefmousefibroblast no scale dose time n quantifiederror；Compound2to6historicalderivatives structuresXraypluschemical evidence original1971unread UV272IR1680delta6.46oxidationderivative notTaxol itself；Photoaffinity threecontacts not3independentpockets drugnormalnoncovalent versusmodifiedcrosslinks electroncrystal3.7A distinctevidence；Clinicaldatesregimensonlyhistorical no currentmedicaladvice justthisyear2013received2014pub not2026 no updatedFDA verification；No clinicalcostLCA TEA nP CI humanreviewfalseclassificationdeferred。
+
+# 一、文献基本信息
+
+**英文题目**：Nature as a remarkable chemist: a personal story of the discovery and development of Taxol。**中文题目**：紫杉醇发现与开发的亲历回顾。**作者**：Mansukh C. Wani、Susan Band Horwitz；通讯作者为 Susan Band Horwitz。作者分别来自 RTI International 与 Albert Einstein College of Medicine 的 Department of Molecular Pharmacology。**期刊**：Anti-Cancer Drugs，2014，25(5)：482–487。**DOI**：10.1097/CAD.0000000000000063。2013年11月8日收稿，11月18日修订稿接受；Zotero 日期为06/2014，原页标2014及第5期，保留两个来源口径，不推定具体出版日。
+
+**Zotero key**：9BYJS95S；附件 XR6TYP4T，正文6页。题名及DOI与实时本地条目已核对。**文章类型**：Review article，以发现与机制研究亲历者的历史叙事为主，采用综述结构。本文不是新临床试验或新实验报告，不存在独立新增的Methods与Results。已阅读6页正文、19条参考文献及原始页面，发现预备索引遗漏了全部图表；实际有Chart 1、Chart 2、Figure 1、Figure 2、Table 1、Figure 3，共6幅图表，均纳入完整截图。
+
+作者致谢NCI合同SA-43-ph-4322下的最初分离与结构研究，回顾Monroe E. Wall及合作者贡献；声明无利益冲突。参与者的直接经验是历史材料优势，但叙事选择与回顾解释仍需和原始论文、档案分别记录。所引实验与临床论文尚未在本次笔记中独立精读，本文涉及药物批准、适应证和给药经过仅作为历史转述，不作为当前治疗方案。
+
+# 二、核心摘要
+
+这篇综述解释了紫杉醇怎样经历天然产物筛选、低收率分离、复杂结构确定、作用机制发现及供给和制剂难题，最终进入临床。故事的重点不只是发现一个有细胞毒性的化合物，而是多个证据和条件逐步改变研究判断：最初粗提物活性推动分离，衍生化与X射线信息解决结构，微管稳定机制提供独特价值，实体瘤模型、制剂及合作开发使其继续前进。
+
+作者回顾从12 kg风干茎及树皮获得约0.5 g Taxol，收率约0.004%。这是特定分离过程的回收产量，不是整个种属恒定含量，也不是可直接预测产业提取量的参数。图表中的T/C存在肿瘤重量与生存时间等不同终点，不能跨模型直接排序。Table 1可见ED₅₀单位为µg/mL，而提取文本为mg/mL；笔记按原图记录，并明确该历史数值还需原始来源核查。
+
+# 三、内容深度解读
+
+### 1. 从广泛采样到优先级选择：发现不是纯粹随机事件
+
+第482页回顾1960年NCI开始植物抗肿瘤筛选，1962年USDA采集650个植物样品，其中包括Taxus brevifolia的不同部位，1964年样品抵达RTI。这里650是采集样品规模，并非650个独立植物物种，也不是紫杉醇实验样本量。采集部位、粗提物筛选及研究团队接收样品是不同阶段，不应把1962年的采集直接等同于结构已经确定。
+
+作者说明Wall和Wani在喜树碱研究中注意到9 KB细胞毒性与L1210小鼠模型活性的相关性，因而要求优先接收9 KB活性提取物。这个选择带有已有经验和模型偏好，虽包含机会因素，却并非完全盲目分配。相关性在一组化合物中有用，不代表对所有天然产物均能预测体内功效；后文紫杉醇在不同肿瘤模型中的表现差异，正好提醒早期筛选终点可能影响候选去留。
+
+本文按历史名称描述KB细胞来源，本次未核查该细胞系身份及后来的数据库修订，不将这项历史标签改写成已核实的现代认证结论。对知识库，发现事件应拆成采集、接收、活性分离、结构发表和批准节点。1971年的原始结构论文到1992年的首次批准相隔21年，与摘要一致；1964年的研究样品起点到批准则是另一时间跨度，不能混用。
+
+### 2. 活性导向分离与约0.004%的回收收率
+
+Chart 1概括风干茎皮材料到粗有机相，Chart 2展示多阶段Craig逆流分配及最终结晶相关纯化。核心是每个阶段用Walker-256模型活动性监测，随着分离推进，在较低材料剂量下仍观察到作用。本文回顾了历史路线，不提供当前经过验证的最优提取工艺；笔记保留原图用于理解证据过程，不将旧溶剂方案推广为今天的推荐实验流程。
+
+
+![Chart 1 原文第 2 页](https://synbiopath.online/9BYJS95S-Chart-1-p2-complete-6770c3442a00d3d0.png)
+
+*Chart 1：原文 Chart 1：完整图表及图注（原文 PDF 截图）。*
+
+
+
+![Chart 2 原文第 2 页](https://synbiopath.online/9BYJS95S-Chart-2-p2-complete-0ce2830552f04caf.png)
+
+*Chart 2：原文 Chart 2：完整图表及图注（原文 PDF 截图）。*
+
+
+原图记载起始风干材料12 kg、粗有机相146 g固体、后续41 g、14 g、2.4 g固体，最终约0.5 g Taxol。算术核对0.5/12000×100%=0.004167%，与约0.004%相容，折合约41.67 µg/g原始风干材料。这个量是分离得到的回收质量，不等于没有损失时的组织真实含量；也不能由中间组分质量下降计算每步Taxol损失，因为各组分纯度未逐项报告。
+
+Chart 1把Walker-256中的T/C定义为处理组平均肿瘤重量除以对照组平均肿瘤重量，再乘100。因此该终点越低表示相对肿瘤重量越小。图示粗提物T/C 31%，末段纯化物出现16%等值，但不同材料剂量并不相同，不能单凭数值差异声称等剂量下效力提高某个倍数。反复活性追踪支持有效成分随纯化富集的历史解释，却没有本评论新增的统计分析。
+
+原文认为温和逆流分配避免了活性成分改变或丢失，这属于参与者对方法的判断。当前没有提供各步骤物料平衡或降解对照，因此不能提升为“完全无损失”的定量证明。天然含量低和分离困难共同解释供给问题，但成本、资源消耗和替代生产路线的比较仍需要独立数据。
+
+### 3. 结构确证：分子式、拆分衍生物和连接位置各有证据
+
+第483页回顾用质谱及元素分析确定C₄₇H₅₁NO₁₄，早期¹H NMR与生源考虑提示紫杉烷骨架及多个酯基。分子式和骨架猜测不能唯一确定所有立体化学、酯连接与侧链结构；当时有限样品和相对简陋的NMR条件促使研究者转向可结晶衍生物的X射线分析。
+
+
+![Figure 1 原文第 3 页](https://synbiopath.online/9BYJS95S-Figure-1-p3-complete-024eaa289b26a893.png)
+
+*Figure 1：原文 Figure 1：完整图表及图注（原文 PDF 截图）。*
+
+
+Figure 1展示Taxol、Taxotere及cabazitaxel结构关系与编号，它适合对照核心骨架和取代位置，不能由结构相似程度直接推断相同适应证、效力或耐药表现。衍生物在原文中用于历史介绍，本篇没有新增头对头药理试验。
+
+
+![Figure 2 原文第 3 页](https://synbiopath.online/9BYJS95S-Figure-2-p3-complete-629370bcd2f89b59.png)
+
+*Figure 2：原文 Figure 2：完整图表及图注（原文 PDF 截图）。*
+
+
+原文将Taxol经温和甲醇解后得到的含氮α-羟基酯及四醇分别衍生化，以两类含卤结晶衍生物的X射线结构推回侧链与骨架。Figure 2的化合物编号2至6是本文历史结构分析对象，不能与其他论文相同数字的化合物混用。四醇对应10-deacetylbaccatin III；侧链甲酯对应N-benzoyl-β-phenylisoserine的甲酯。
+
+拆分后的结构仍不足以单独定位原分子中的全部酯连接。作者进一步结合氧化反应行为、质谱组成、UV、IR与¹H NMR定位，提出C10与C13的连接关系，并通过氧化产物排除某些替代结构。这里的价值是多类证据相互约束，不是任何一条谱峰独自证明整分子。文中给出的UV 272 nm、IR 1680 cm⁻¹、C10质子δ6.46属于特定氧化衍生物，不能填入Taxol本身的表征栏。原始衍生物晶体数据和物理常数需回1971论文核对，当前不声称已独立复核。
+
+### 4. 模型和单位：Table 1不能被当成统一效力排名
+
+
+![Table 1 原文第 3 页](https://synbiopath.online/9BYJS95S-Table-1-p3-complete-a4d9ce79dbfbcf63.png)
+
+*Table 1：原文 Table 1：完整图表及图注（原文 PDF 截图）。*
+
+
+Table 1可见KB细胞ED₅₀为3.5×10⁻⁵ µg/mL，文本提取层却写作mg/mL。可见单位优先保留，同时标注这是历史表格转述值，未返回原始实验验证。若按mg/mL解释会放大1000倍，因而未经原图核对的数值不能直接进入定量数据表。本文没有对应实验时间、重复数、拟合方式或置信区间，不能将ED₅₀变成现代标准化效力结论。
+
+表中P388、B16、L1210行的数值164、283、139，与实体瘤移植模型的3、8、−77并列。正文介绍P4为延长小鼠生存的试验，并说T/C超过300；这种生存终点与Chart 1的肿瘤重量比方向不同。Table 1对各行未完整定义计算公式，尤其−77不能是普通非负肿瘤重量比，可能采用另外的响应表达，但当前材料不足以确定其确切算法。因此全部按原表保留，不将−77解释为负肿瘤质量，不换算为统一抑制率。
+
+表里的“+”“++”没有在本文给出明确分级阈值，不能当作显著性星号，也不能据此推断P值。模型、给药途径与观察终点不同，无法直接横向比较某模型更敏感多少倍。本文回顾在P388及L1210效果一般而B16与某些实体瘤模型效果较强，说明单一筛选体系可能低估候选价值；它不证明这些动物结果能直接预测患者疗效。
+
+### 5. 微管稳定机制：形态、功能与结合位置分层理解
+
+第485至486页回顾Horwitz团队从细胞周期与纯化微管蛋白体系入手，观察到Taxol促进稳定微管形成，与长春碱类抑制聚合的作用有所区别。作者描述低温及钙条件下仍稳定的微管、细胞中微管束以及浓度依赖的细胞周期效应。这些是原有研究的总结，不是本综述新增的定量动力学测量。
+
+
+![Figure 3 原文第 4 页](https://synbiopath.online/9BYJS95S-Figure-3-p4-complete-9f779ca0b791b61b.png)
+
+*Figure 3：原文 Figure 3：完整图表及图注（原文 PDF 截图）。*
+
+
+Figure 3图注明确为A549细胞的Control与Taxol对照；相邻文字主要讨论HeLa细胞，并引用历史鼠成纤维细胞研究，不能把三类细胞视为同一个实验。图可见处理条件下微管成束的代表性形态，但没有比例尺、剂量、处理时长、定量细胞数或误差。由图可以记录形态示例，不足以独立证明迁移抑制程度或统计显著的机制效应。
+
+原文进一步用三类光亲和类似物及蛋白片段分析探索β-tubulin接触位置，并与3.7 Å电子晶体学密度图拟合的α/β异二聚体模型联系起来。光亲和类似物在照射后形成共价连接，不意味着未修饰Taxol正常结合时就是共价作用，也不意味着三个标记接触点是三个互相独立的完整结合位点。文中还介绍氢氘交换与质谱用于构象及变构研究，这些方法提供互补限制，需要原始数据才能评价分辨率和定位精度。
+
+作者将高于10 nmol/L与较低浓度下的细胞效应区别描述。这个阈值是文中对既有细胞研究的概括，不是所有细胞和培养条件下的通用界线，更不能转换为患者给药浓度。微管结构、动态、细胞周期与细胞死亡属于不同测量层级，笔记不将“稳定微管”简化为单一、浓度无关的死亡机制。
+
+### 6. 临床开发史与供给：回顾不能替代当前资料
+
+文章将制剂疏水性、早期超敏反应、有限天然供给、缺乏结构或机制专利及商业接续问题列为开发障碍，并回顾NCI与Bristol-Myers Squibb合作。这里的重点是科研、药理、制剂与组织协作共同影响候选进入临床；纯化和机制创新本身不足以解决生产、制剂及监管要求。
+
+作者称1983至1988年有五年临床研究停顿，并回顾预处理及输注方式改变。本笔记仅记录历史叙事，不将文中旧用药方案作为操作建议，也未独立核查“无任何试验”的绝对范围。成熟树皮供应一位患者的说法缺乏体重、疗程和剂量前提，不能用来计算今天的每患者树木消耗或生产需求。
+
+文章列1992年12月29日卵巢癌批准，以及1994、1999年的后续批准；末页“就在今年”的Abraxane表述位于2013年收稿、2014年出版背景，不能读成当前年份。本次任务是阅读本地历史文献，批准日期和适用范围均保留为作者历史转述，未据此推导今天的临床选择。超过百万人使用等数字同样没有在本文给出统计时间窗口与原始来源，不作为当前市场规模。
+
+# 四、总结与展望
+
+**核心认识**：Taxol的开发来自活性筛选、结构确证、机制解释与供给制剂问题持续交汇。文献提供了研究亲历者视角，展示不同模型、方法和团队怎样改变候选优先级，而非仅讲述一个从发现到成功的必然过程。
+
+**优点**：保留最初分离流程、结构推理、早期药理模型与微管机制的联系；解释长期开发中的技术和组织障碍。**限制**：叙事回顾并非系统综述或新试验，原始重复数、对照与统计多未列出；历史模型名称、T/C口径、ED₅₀单位与相对时间语言必须回到原页核对。图形也缺少现代定量评估所需的部分信息。
+
+**证据补全方向**：优先精读1971结构原文与1979微管组装原文，确认实验边界；对表格中的负T/C及KB效力值，保持原图记录并核查原始定义；药物批准与制剂若用于当前判断，需要另行查官方最新资料。本文未报告的n、SD或SEM、精确P值与置信区间均保留未报告。
+
+**完成范围**：6页正文及6幅完整图表已核对，19条引用未在此笔记中逐篇精读。原始PDF和既有笔记保持只读，生成笔记进入全库待归类目录；本记录是AI辅助阅读与图文核对，人工科学复核尚未完成。
+
+> 分类状态：待全部文献笔记完成后统一分类归档。

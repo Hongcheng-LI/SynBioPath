@@ -1,0 +1,1097 @@
+
+[PDF physical page 1]
+Reconstruction of the Early Stage Paclitaxel Biosynthesis Pathway in
+Escherichia coli by Integrating Enzyme and Metabolic Engineering
+Approaches
+Wen-Liang Xie, Chen-Yi Sun, Chun-Xiu Li, Gao-Wei Zheng, and Jian-He Xu*
+Cite This: https://doi.org/10.1021/acssuschemeng.5c11338
+Read Online
+ACCESS
+Metrics & More
+Article Recommendations
+*
+sı
+Supporting Information
+ABSTRACT: Heterologous biosynthesis of paclitaxel (Taxol) has recently become a hot research topic due to its potential to
+alleviate resource scarcity and shorten production cycles. However, the poor expression and low efficiency of catalytic components
+and challenges in combinatorial regulation remain critical bottlenecks, hindering the efficient synthesis of paclitaxel and its
+intermediates. In this study, we constructed an early stage biosynthesis pathway of paclitaxel from glycerol in an Escherichia coli (E.
+coli) cell factory. A 10.3-fold increase in taxadiene titer (up to 131 mg/L) was achieved through the engineering of isopentenyl
+diphosphate isomerase and geranylgeranyl diphosphate synthase, accompanied by a substrate channeling strategy. Promoter and
+protein engineering were then employed to optimize the production of taxadien-5α-ol and taxadien-5α-yl-acetate, resulting in titers
+of 17.9 and 7.6 mg/L, respectively. Finally, cofactor engineering strategies involving intracellular heme supplementation and
+NADPH regeneration were applied to synthesize taxadiene-5α,10β-diol-5-acetate, yielding titers of 8.7 mg/L in shake-flask
+cultivation and 18.5 mg/L in a 5 L jar fermenter. To the best of our knowledge, this represents the highest level reported to date in
+E. coli. The engineered strains and enzymes constructed in this study will serve as a solid foundation for subsequent paclitaxel
+biosynthesis, and the engineering strategies employed here may be applied to the de novo biosynthesis of terpenoids in microbial cell
+factories.
+KEYWORDS: early stage paclitaxel biosynthesis pathway, Escherichia coli, substrate channeling, protein engineering, cofactor engineering
+■INTRODUCTION
+The rise of synthetic biology has provided new methods for the
+large-scale production of natural products, such as squalene,
+artemisinic acid, and salidroside.1−3 In addition, the heterol-
+ogous biosynthesis of complex natural products has led to
+numerous breakthroughs. For example, Caputi et al. elucidated
+the biosynthetic pathway of vinblastine,4 and Zhang et al.
+subsequently achieved the de novo synthesis of its precursors,
+catharanthine and vindoline in Saccharomyces cerevisiae.5
+Similarly, Reed et al. deciphered the biosynthetic pathway of
+the vaccine adjuvant QS-21, which was later synthesized de
+novo by Liu et al.6,7 Paclitaxel, well known for its high efficacy,
+low toxicity, and broad-spectrum anticancer properties, has
+garnered significant attention.8−10 The synthesis of paclitaxel is
+a critical area of focus due to its persistent market demand and
+the limitations of traditional synthesis methods (plant
+extraction or chemical synthesis), which are both inefficient
+and unsustainable.11−13 The isolation of intermediate 10-
+deacetylbaccatin III or baccatin III from yew needles, followed
+by chemical synthesis into paclitaxel, represents the most
+commonly employed commercial route.14 However, this
+method’s reliance on yew plants remains insufficient to meet
+Received:
+October 20, 2025
+Revised:
+January 19, 2026
+Accepted:
+January 21, 2026
+Research Article
+pubs.acs.org/journal/ascecg
+© XXXX American Chemical Society
+A
+https://doi.org/10.1021/acssuschemeng.5c11338
+ACS Sustainable Chem. Eng. XXXX, XXX, XXX−XXX
+Se
+es.
+
+
+
+[PDF physical page 2]
+the rapidly growing market demand for paclitaxel and related
+drugs, a market that expands by billions of dollars annually.15,16
+Paclitaxel biosynthesis initiates with the cyclization of
+geranylgeranyl diphosphate (GGPP) into taxadiene (Tax)
+(Figure 1), a reaction catalyzed by taxadiene synthase (TS).
+GGPP is formed from two common building blocks,
+isopentenyl diphosphate (IPP) and dimethylallyl diphosphate
+(DMAPP), under the catalysis of geranylgeranyl diphosphate
+synthase (GGPPS).17 IPP and DMAPP can be produced
+through either the natural methylerythritol phosphate (MEP)
+or mevalonate (MVA) pathways, or the artificially constructed
+isopentenol utilization pathway (IUP), with isoprenyl
+diphosphate isomerase (IDI) mediating the interconversion
+between IPP and DMAPP.18−20 In the early stage paclitaxel
+biosynthesis pathway, Tax, as the core and hydrophobic
+skeleton of paclitaxel, is converted by taxadiene-5α-hydroxylase
+(T5αOH), taxadien-5α-ol O-acetyltransferase (TAT), and
+taxane-10β-hydroxylase (T10βOH) in sequence, forming
+taxadien-5α-ol (T5OH), taxadien-5α-yl-acetate (T5OAc),
+and taxadiene-5α,10β-diol-5-acetate (T10OH).21 The key
+enzymes responsible for the conversion of T10OH to paclitaxel
+have been identified; however, the detailed synthetic sequence
+still requires further elucidation. Moreover, paclitaxel biosyn-
+thesis is not strictly dependent on T10OH, as Tax and T5OH
+can also be converted to paclitaxel through alternate
+routes.22−24
+Hence, the construction of highly efficient recombinant
+strains capable of producing early stage paclitaxel intermediates
+is of particular importance for both paclitaxel synthesis and
+pathway elucidation. Currently, research on paclitaxel biosyn-
+thesis has predominantly been focused on early precursors
+including Tax, T5OH, T5OAc, and T10OH, with the highest
+recorded yields of approximately 1020, 135, 95, and 32 mg/L,
+respectively.25−27 Excitingly, recent efforts by Jiang et al. have
+identified the missing pathway enzymes, taxane oxetanase
+(TOT) and taxane-9α-hydroxylase (T9αOH), enabling the
+synthesis of baccatin III in Nicotiana benthamiana (N.
+benthamiana).28 Additionally, some analogous studies have
+discovered different sequences encoding TOT and T9αOH,
+yet the order of formation for paclitaxel intermediates remains
+unknown.22,24,29−31 Furthermore, the biosynthesis of baccatin
+III has been achieved in the plant N. benthamiana, although the
+yield remains very low28 potentially due to the insufficient
+precursor supply and/or the poor multienzyme coregulation.
+Escherichia coli (E. coli), with a well-characterized genetic
+background, comprehensive metabolic tools, and the highest
+reported production of Tax,25 serves as an excellent host for
+the biosynthesis of paclitaxel and its intermediates. In this
+study, we utilized E. coli BL21(DE3) as the host strain for
+constructing the early stage paclitaxel biosynthesis pathway. To
+address the aforementioned issues, we initially adopted
+directed evolution to obtain IDI and GGPPS variants with
+enhanced catalytic performance and a finely regulated MEP
+pathway and improved the Tax synthesis via copy number
+optimization. Subsequently, protein scaffolds were introduced
+to form a substrate channeling effect, further increasing Tax
+production. An online prediction tool was used to obtain
+highly efficient variants of TAT, significantly alleviating T5OH
+accumulation. Promoter engineering, coupled with an
+enhanced acetyl-CoA supply, was employed to regulate
+T5OAc production. Finally, cofactor engineering was applied
+to increase T10OH production, reaching 18.5 mg/L in a 5 L
+bioreactor, representing the highest titer reported for
+heterologous biosynthesis of T10OH in E. coli. The resulting
+Figure 1. Overview of an early stage paclitaxel synthesis pathway and effective strategies for increasing precursor production. (a) Directed evolution
+of the rate-limiting enzyme IDI and optimization of the MEP pathway expression. (b) Constructing substrate channels for improving Tax
+production. (c) Combinatorial engineering of promoters and proteins for T5αOH-CPR and TAT to optimize the biosynthesis of T5OH and
+T5OAc. (d) Application of cofactor engineering to enhance T10OH production. Insertion site A: noncoding sequence between ompW and yciE in
+the locus; insertion site B: noncoding sequence between rulF and yjbD in the locus; IS1: insertion sequence 1. Endogenous enzymes and pathway
+enzymes are shown in italicized text. G3P: glyceraldehyde 3-phosphate; Pyr: pyruvate; DXP: 1-deoxy-D-xylulose 5-phosphate; IPP: isopentenyl
+diphosphate; DMAPP: dimethylallyl diphosphate; GGPP: geranylgeranyl diphosphate; Tax: taxadiene; T5OH: taxadien-5α-ol; T5OAc: taxadien-
+5α-yl-acetate; T10OH: taxadiene-5α,10β-diol-5-acetate;
+L-Glu-tRNA:
+L-glutamate-tRNA; 5-ALA: 5-aminolevulinic acid; Acetyl-P: acetyl
+phosphate; DXS: 1-deoxy-D-xylulose-5-phosphate synthase; IDI: isopentenyl diphosphate isomerase; GGPPS: geranylgeranyl diphosphate
+synthase; TS: taxadiene synthase; T5αOH: taxadien-5α-hydroxylase; CPR: cytochrome P450 reductase; TAT: taxadien-5α-ol O-acetyltransferase;
+T10βOH: taxane-10β-hydroxylase; ACS: acetyl-CoA synthetase; Zwf: glucose-6-phosphate dehydrogenase; PTA: phosphate acetyltransferase;
+ACKA: acetate kinase. Genes overexpressed and knocked out are represented by ↑and ×, respectively.
+ACS Sustainable Chemistry & Engineering
+pubs.acs.org/journal/ascecg
+Research Article
+https://doi.org/10.1021/acssuschemeng.5c11338
+ACS Sustainable Chem. Eng. XXXX, XXX, XXX−XXX
+B
+
+
+
+[PDF physical page 3]
+strains in this study, which produce Tax, T5OH, T5OAc, and
+T10OH, establish a solid foundation for subsequent
+elucidation and synthesis of the paclitaxel pathway. Further-
+more, the demonstrated approaches may serve as a valuable
+reference for the efficient biosynthesis of other terpenoids.
+■MATERIALS AND METHODS
+Strains and Genes
+E. coli TOP10 and BL21(DE3) (Novagen, Germany) were used to
+construct recombinant plasmids and cultivate production strains,
+respectively. The strains and genes used in this study are listed in
+Tables S1 and S2, respectively. Specifically, 1-deoxy-D-xylulose-5-
+phosphate synthase (DXS) and IDI were cloned from E. coli
+BL21(DE3). GGPPS, TS, T5αOH, CPR, TAT, and T10βOH were
+stored in our laboratory.32,33 The protein scaffolds, reporter gene
+mCherry, and interenzyme SEGLinker were all codon-optimized for
+E. coli and chemically synthesized by GenScript (Nanjing, China).
+Detailed sequence information is provided in Table S3.
+Plasmids and DNA Manipulation
+All plasmids applied and constructed in this study are listed in Table
+S4. All primers were synthesized by Tsingke (Shanghai, China), and
+nucleic acid sequence information is listed in Table S5. The
+recombinant plasmids were constructed by a ClonExpress Ultra
+One Step Cloning Kit (Vazyme, China), and detailed construction
+steps are described in Table S5. Multicopy integration based on
+transposases was used for gene editing.34−36
+Culture Conditions
+Gene-edited engineered strains were cultivated according to
+previously reported methods.34−36 For recombinant vector con-
+struction, the seamless ligation mixture was transformed into E. coli
+TOP10 competent cells via heat shock. Transformed cells were
+cultured on LB agar plates at 37 °C for 12−14 h. A single colony was
+randomly selected and inoculated into a test tube containing an LB
+medium (10 g/L tryptone, 5 g/L yeast extract, 10 g/L sodium
+chloride), followed by incubation at 37 °C/200 rpm shaking for 10−
+12 h. Cultures were subsequently used for sequencing and plasmid
+extraction. Antibiotics were supplemented as required during
+cultivation (ampicillin: 100 mg/L, kanamycin: 50 mg/L, streptomy-
+cin: 100 mg/L, and chloramphenicol: 34 mg/L).
+For the construction of plasmid-carrying engineered strains, the
+recombinant plasmids were transformed into E. coli BL21(DE3) via a
+heat shock method and cultured at 37 °C for 12−14 h. A single
+colony was subsequently inoculated into an LB tube containing
+appropriate antibiotics and incubated at 37 °C/200 rpm shaking for
+10−14 h. The cultures were transferred at 1% inoculum into 50 mL of
+a TB2 medium (12 g/L tryptone, 24 g/L yeast extract, 20 g/L
+glycerol, 2.31 g/L KH2PO4, and 12.54 g/L K2HPO4) in shake flasks.
+When the OD600 reached 0.6−0.8, specific inducers were added to
+initiate paclitaxel precursor synthesis, including 0.1 mM isopropyl-β-
+D-1-thiogalactopyranoside (IPTG) and 0.2 mM δ-aminolevulinic acid
+(ALA). During optimization of inducer concentrations, the levels of
+IPTG and arabinose (Ara) were adjusted accordingly, while the
+concentration of ALA was maintained constant. Antibiotics were
+added throughout the cultivation. For fed-batch fermentation in a 5 L
+jar bioreactor, the optimal strain T67 glycerol stock was activated on
+chloramphenicol- and kanamycin-containing agar plates at 37 °C for
+12−16 h. Single colony was inoculated into an LB medium tube and
+cultivated at 37 °C/200 rpm shaking for 10−14 h. Cultures were
+transferred at 1% inoculum into LB medium shake flasks and grown
+for 4−5 h under identical conditions, followed by 10% inoculation
+into a 5 L jar bioreactor containing 2.5 L of TB2 medium. Initial
+agitation was set at 200 rpm with dissolved oxygen (DO) controlled
+at 30% saturation through the automatic adjustment of the agitation
+rate. The pH was maintained at 7.0 using an aqueous solution of 30%
+ammonia or 20% sulfuric acid. When the OD600 reached 30, IPTG
+and Ara were added to induce protein expression. A 500 g/L glycerol
+solution was supplemented to maintain the carbon source
+concentration at 20 g/L when it was depleted. Fermentation
+parameters, including microbial growth, product formation, and
+glycerol concentration, were periodically monitored throughout the
+fermentation process.
+Extraction and Analysis of Metabolites
+For fermentation samples supplemented with n-dodecane, an
+appropriate volume of the mixture was centrifuged at 13,000×g and
+4 °C for 5 min. The upper n-dodecane phase was collected and mixed
+with an equal volume of ethyl acetate containing 10 mg/L n-
+Figure 2. Directed evolution of key enzymes and pathway optimization for enhancing Tax synthesis. (a) Schematic of the Tax biosynthesis pathway
+and expression of associated enzymes. (b) Directed evolution of IDI and expression optimization of the MEP pathway. (c) Protein sequence
+alignment of NtGGPPS and TcGGPPS. (d) Directed evolution of TcGGPPS for enhancing Tax production. GPP: geranylpyrophosphate; FPP:
+farnesyl pyrophosphate.
+ACS Sustainable Chemistry & Engineering
+pubs.acs.org/journal/ascecg
+Research Article
+https://doi.org/10.1021/acssuschemeng.5c11338
+ACS Sustainable Chem. Eng. XXXX, XXX, XXX−XXX
+C
+
+
+
+[PDF physical page 4]
+octadecane as an internal standard, followed by gas chromatography−
+mass spectrometry (GC-MS) analysis. For samples without n-
+dodecane, an equal volume of the fermentation broth was mixed
+with ethyl acetate containing 10 mg/L n-octadecane, vortexed at 4 °C
+for 10 min, and centrifuged at 4 °C/13,000×g for 5 min. The upper
+ethyl acetate phase was then analyzed via GC-MS. The GC-MS
+analysis of Tax, T5OH, and T5OAc was performed using the
+following temperature program: 80 °C (held for 3 min), ramped at 20
+°C/min to 250 °C (held for 5 min). For the T10OH analysis, the
+temperature program was set as follows: the oven was maintained at
+120 °C for 3 min, then ramped to 220 °C at a rate of 20 °C/min and
+held for 20 min, and finally ramped to 280 °C at 20 °C/min for a final
+hold of 3 min.
+Following extraction as described by Vadali et al.,37 the acetyl-CoA
+content was subsequently quantified with a commercial ELISA kit
+(Takara, Japan).
+Purification and In Vitro Activity Assay of TAT
+TAT was purified using nickel-column affinity chromatography. Cells
+harvested after 24 h of growth were centrifuged at 4 °C and 12,000×g
+for 3 min. The cell pellet was washed with Buffer A and then
+disrupted by sonication for 15 min (4 s pulse and 6 s pause). The
+lysate was centrifuged at 4 °C and 12,000×g for 45 min, and the
+supernatant was collected for purification. After the supernatant was
+loaded onto the nickel column, elution was performed sequentially
+with 5 column volumes each of Buffer A, 2% Buffer B, 5% Buffer B,
+10% Buffer B, and 20% Buffer B. The collected elution fractions were
+then concentrated. Buffer A, 200 mM KPB buffer, 500 mM NaCl, pH
+7.5; Buffer B, 200 mM KPB buffer, 500 mM imidazole, 500 mM
+NaCl.
+In Vitro Reaction System. 0.25 mM T5OH, 80 μL of cell-free
+extract, 0.25 mM acetyl-CoA, 1 mM MgCl2, 1 mM ATP, and Buffer A
+were added to a final volume of 500 μL. The reaction was carried out
+for 1 h at 30 °C with shaking at 1000 rpm.
+■RESULTS
+Optimization of Tax Production by the Engineering MEP
+Pathway and Its Key Enzymes
+To achieve the de novo synthesis of Tax in E. coli, two
+recombinant plasmids pET21a-DXS-IDI and pACYCDuet-1-
+TS-GGPPS were constructed (Figure 2a and Table S4). The
+plasmid pET21a-DXS-IDI was employed to enhance the
+precursor supply by expressing the key MEP pathway enzymes
+DXS and IDI, while plasmid pACYCDuet-1-TS-GGPPS was
+used to express the heterologous enzymes (TS and GGPPS)
+for Tax synthesis. The resultant two recombinant plasmids
+were cotransformed into E. coli, giving a recombinant strain
+designated as T11 (Table S1). After 72 h of shake-flask
+cultivation, a Tax titer of 12.7 mg/L was achieved (Figure 2b).
+GGPP, the direct precursor of Tax, is essential for the efficient
+production of Tax. The synthesis of 1 mol of GGPP requires 3
+mol of IPP and 1 mol of DMAPP, while IDI mediates the
+necessary interconversion between IPP and DMAPP (Figure
+2a). Enhancing the catalytic efficiency of IDI through protein
+engineering can accelerate this interconversion and thereby
+promote the GGPP synthesis. Therefore, it is a promising
+strategy to improve Tax production through molecular
+engineering of IDI.
+In a study by Siedentop et al.,38 IDI variants (IDIR51K,
+IDIK55A, and IDIR83K) were found to enhance the synthesis of
+farnesyl pyrophosphate (FPP), the direct precursor of
+sesquiterpenes. We also tested these three IDI variants (Figure
+2a), giving different results in that IDIR83K increased the
+production of Tax to 20.2 mg/L, whereas IDIR51K and IDIK55A
+did not enhance the Tax titer at all (Figure 2b). The expression
+level of the MEP pathway enzymes has a significant impact on
+the titer of terpenoids. Thus, a refined expression regulation
+strategy for the MEP pathway was implemented to enhance
+the production of Tax (Figures 1a and 2a). DXS and IDIR83K
+were integrated into multicopy site insertion sequence 3 (IS3).
+Through screening, we obtained recombinant strains of T15,
+T16, and T17, harboring 1, 3, and 4 copies of DXS-IDIR83K,
+respectively, along with plasmid pACYCDuet-1-TS-GGPPS
+(Table S1). It was shown that the Tax titers were all improved
+with strains T15, T16, and T17; however, the highest titer (up
+to 46.2 mg/L) was achieved when a single copy of DXS-
+IDIR83K was integrated (Figure 2b).
+Directed evolution of GGPPS was successfully applied to
+enhance the production of diterpenoids. For example, in the
+study by Leonard et al. on the biosynthesis of levopimaradiene,
+two single-point mutants of Taxus cuspidata GGPPS
+(TcGGPPS), namely, S142C and G198D, significantly
+increased the levopimaradiene production.39 Additionally, in
+another study by Dong et al. on the biosynthesis of lycopene, a
+more efficient pentamutant of N. benthamiana GGPPS
+(NtGGPPS) was developed.40 Furthermore, a comparison
+between the protein sequences TcGGPPS and NtGGPPS
+revealed that four residues (V154A, I161L, R209S, and F218Y)
+might be mutated in TcGGPPS (Figure 2c). We introduced
+these mutations into TcGGPPS and combined them with the
+single-point mutants S142C and G198D, giving six variants for
+the performance tests. It was indicated that mutations V154A,
+R209S, and F218Y were beneficial for improving the Tax
+production, and the corresponding recombinant strains T23,
+T25, and T26 achieved Tax titers of 56.7, 59.6, and 55.3 mg/L,
+respectively (Table S1 and Figure 2d). Subsequently, the
+advantageous single-point mutants were combined to create
+three double-point mutants. Regrettably, these modifications
+did not lead to any further increase in the Tax titer (Figure
+2d). AlphaFold3 was employed to model the template and
+mutants of TcGGPPS, followed by molecular docking using
+AutoDock Vina. As shown in Figure S1a, the mutation sites are
+distributed as follows: S142C, G198D, and R209S are located
+on the protein surface, while V154A, I161L, and F218Y are
+situated near the active pocket. The V154A mutation reduced
+the side-chain volume, potentially facilitating substrate binding
+(Figure S1b). The F218Y mutation introduced an additional
+hydrogen bond with IPP, which may help stabilize IPP in the
+correct catalytic position (Figure S1c). Although R209S is
+located on the protein surface, it may enhance the catalytic
+performance by improving protein stability or exerting
+allosteric effects on enzymatic activity.
+Constructing a Substrate Channel to Further Enhance Tax
+Production
+In E. coli, heterologously introduced enzymes are randomly
+distributed. By introducing protein scaffolds to construct a
+substrate channeling effect, the substrate diffusion distances
+between target enzymes can be reduced, thereby increasing the
+reaction rate of multienzyme catalysis. Rat GTPase-binding
+domains (GBDs), mouse Src homology 3 (SH3) domains, and
+the PSD95/DlgA/Zo-1 (PDZ) domain from the adaptor
+protein syntrophin were used to construct a protein scaffold
+and applied to enhance the synthesis of various terpenoid
+compounds.41,42 The principle is as follows: GBD, SH3, and
+PDZ are expressed as fusion proteins via linkers to form the
+scaffold. Corresponding ligands (GBDLigand, SH3Ligand, and
+PDZLigand) are then appended to the target enzymes, enabling
+the enzymes to interact with GBD, SH3, and PDZ through
+ACS Sustainable Chemistry & Engineering
+pubs.acs.org/journal/ascecg
+Research Article
+https://doi.org/10.1021/acssuschemeng.5c11338
+ACS Sustainable Chem. Eng. XXXX, XXX, XXX−XXX
+D
+
+
+
+[PDF physical page 5]
+specific protein−protein interactions. This brings the enzymes
+into close proximity. As a result, after the initial substrate is
+catalyzed by the first enzyme, it can be transferred to
+subsequent enzymes for further rapid further reactions. In
+our study, the synthesis of Tax involved the overexpression of
+four enzymes: DXS, IDI, GGPPS, and TS. DXS, as the first
+enzyme in the MEP pathway, is crucial for driving the
+metabolic flux. IDI, the final enzyme in the MEP pathway,
+mediates the interconversion between IPP and DMAPP,
+serving as a key link for downstream terpenoid biosynthesis.
+Moreover, IDI, GGPPS, and TS catalyze three consecutive
+reactions, converting IPP/DMAPP into Tax. Given their
+sequential catalytic roles and critical position in the pathway,
+IDI, GGPPS, and TS represent the optimal candidates for
+constructing a substrate channel (Figures 1b and 3a). In
+addition, we altered the quantities of these protein scaffolds to
+modulate the local concentrations of IDI, GGPPS, and TS,
+thereby influencing the titer of Tax (Figure 3b). It was evident
+that the introduction of protein scaffolds resulted in a decrease
+in Tax titer for recombinant strains T32, T33, T34, T35, T37,
+and T38 (Table S1 and Figure 3b). However, their specific
+titers were not significantly different compared to those of the
+control strain T11. Similarly, strain T31, which lacks protein
+scaffold ligands, also exhibited a reduced Tax titer compared to
+T11, with no significant difference in specific titer (Figure 3b).
+This reduction might be attributed to the additional metabolic
+burden caused by the introduction of protein scaffold plasmids.
+Fortunately, strain T36 showed a 20% increase in Tax titer
+compared to T11, reaching 15.3 mg/L, with improvement of
+the specific titer from 1.0 mg/g DCW to 2.5 mg/g DCW
+(Figure 3b). Furthermore, both the titer and specific titer of
+strain T36 were significantly higher than those of T31,
+indicating the successful construction of a substrate channeling
+effect (Figure 3a,b). In vitro pull-down assays further validated
+the formation of the substrate channel. The cell-free extract
+containing 6His-GBD-SH3-PDZ was bound to a nickel
+column via affinity chromatography. Subsequently, the cell-
+free extract coexpressing TS-PDZLigand and GGPPS-SH3Ligand
+was passed through the nickel column. Through protein−
+protein interactions, TS and GGPPS were pulled down
+together. Finally, the bound proteins were eluted, as shown
+in Figure S3. Distinct bands corresponding to 6His-GBD-SH3-
+PDZ (28.8 kDa), GGPPS-SH3Ligand (36.1 kDa), and TS-
+PDZLigand (95.5 kDa) were clearly observed in the elution
+fraction. It should be noted that due to the relatively poor
+expression of IDI-GBDLigand, we employed mCherry-GBDLigand
+(38.6 kDa) as a substitute for its interaction with the GBD
+domain (Figure S4).
+To reduce the potential metabolic burden introduced by the
+protein scaffold plasmid, the protein scaffolds in strain T36
+were integrated into the genome of E. coli. Through screening,
+we obtained recombinant strains T361 and T362, harboring 3
+and 4 copies of PBAD-GBD-SH3-SH3-SH3-SH3-PDZ, respec-
+tively, along with plasmid pET21a-DXS-IDI-GDBLigand and
+pACYCDuet-1-TS-PDZLigand-GGPPS-SH3Ligand (Table S1).
+Recombinant strains T361 and T362 showed a notable
+recovery in cell growth, and the Tax titers reached 23.5 and
+23.9 mg/L, respectively (Figure 3c). The ratio of target
+enzymes to protein scaffolds also impacts reaction efficiency,
+necessitating the optimization of inducer concentration. As a
+result, strain T362, which controlled the protein scaffold
+expression with Ara and stimulated the target enzyme
+expression with IPTG, was used for orthogonal experimental
+optimization. Among them, the concentration gradients of Ara
+and IPTG are 0.3, 0.6, and 1.2 mM and 0.025, 0.05, and 0.1
+mM, respectively. The Tax titer reached 43.0 mg/L under a
+Figure 3. Colocalization of enzymes to facilitate substrate channeling and enhance expression of pathway enzymes for increasing metabolic flux
+toward Tax titer. (a) Schematic diagram of substrate channeling construction. (b) Optimizing Tax titer through rational design of multienzyme
+scaffold systems. (c) Genomic integration of protein scaffolds to alleviate metabolic burden. (d) Optimizing Tax production through precise
+control of inducer concentration. (e) Schematic illustration of the construction of a plasmid-free Tax-producing microbial strain. (f) Impact of TS
+and GGPPS expression levels on Tax biosynthesis efficiency. Insertion site 1: noncoding sequence between rpnC and panC in the locus; insertion
+site 2: noncoding sequence between tktB and ypfG in the locus; insertion site 3: noncoding sequence between aroG and gpmA in the locus;
+insertion site 4: noncoding sequence between yghA and exbD in the locus; IS186: insertion sequence 186.
+ACS Sustainable Chemistry & Engineering
+pubs.acs.org/journal/ascecg
+Research Article
+https://doi.org/10.1021/acssuschemeng.5c11338
+ACS Sustainable Chem. Eng. XXXX, XXX, XXX−XXX
+E
+
+
+
+[PDF physical page 6]
+combination of 0.025 mM IPTG and 1.2 mM Ara (Figure 3d).
+Finally, we integrated the aforementioned optimization
+strategies for the MEP pathway and molecular engineering of
+enzyme components and also optimized the copy numbers of
+TS-PDZLigand-GGPPSR209S-SH3Ligand, resulting in the gener-
+ation of recombinant strains T41−T45 (Table S1 and Figure
+3e). The Tax titer increased and then decreased with
+increasing copy numbers of TS-PDZLigand-GGPPSR209S-
+SH3Ligand. The highest titer of 131 mg/L was achieved by
+recombinant strain T44, which was 3.0-fold higher than that of
+strain T362 (Figure 3f).
+Optimizing Tax Hydroxylation/Acetylation Efficiencies by
+Promoter Engineering
+Following the development of strain T44, additional strains
+capable of hydroxylation and acetylation were successively
+constructed. Consistent with previous research, the T5αOH
+and its reductase partner (CPR) were fused, forming a
+chimeric enzyme T5αOH-CPR. The recombinant strain T44
+was utilized as the chassis strain for T5OH production, while
+plasmid pACYCDuet-1 served as an expression vector for
+T5αOH-CPR. Constitutive promoters (J23100, J23112, trxA,
+and racR) and an inducible promoter (T7) were employed to
+precisely regulate the T5αOH-CPR expression (Figures 1c and
+4a). As the expression intensity increased gradually, the T5OH
+production first rose and then declined. Notably, the T5OH
+titer of the recombinant strain T54, which was regulated by the
+racR promoter, reached a maximum of 17.9 mg/L (Figure 4a).
+Meanwhile, because T5αOH is promiscuous, it generates
+multiple byproducts, including 5(13)-oxa-3(11)-cyclotaxane
+(iso-OCT), 5(12)-oxa-3(11)-cyclotaxane (OCT), and other
+unknown compounds (Figure S5).
+Figure 4. Combinatorial promoter and protein engineering of T5αOH-CPR and TAT to enhance the production of T5OH and T5OAc. (a)
+Promoter engineering for optimizing expression of T5αOH-CPR to enhance T5OH titer. (b) Promoter engineering for optimizing expression of
+TAT to enhance T5OAc titer. (c) Validation of promoter strength using a fluorescent protein reporter system. The “Control” refers to the control
+strain, specifically the recombinant strain without mCherry addition.
+Figure 5. Computational protein engineering of TAT using PROSS to improve T5OAc production. (a) Impact of single-site mutations on T5OAc
+titer. (b) Effects of saturation mutagenesis and combinatorial mutagenesis on T5OAc titer. (c) Enhancing intracellular acetyl-CoA availability to
+improve T5OAc titer. N.D., not detected.
+ACS Sustainable Chemistry & Engineering
+pubs.acs.org/journal/ascecg
+Research Article
+https://doi.org/10.1021/acssuschemeng.5c11338
+ACS Sustainable Chem. Eng. XXXX, XXX, XXX−XXX
+F
+
+
+
+[PDF physical page 7]
+Subsequently, recombinant strains for acetylation were
+constructed. Using the recombinant strain T54 as the base,
+the same promoters (J23100, J23112, trxA, racR, and T7) were
+utilized to regulate the TAT expression levels (Figures 1c and
+4b). Following a trend similar to that observed for T5OH
+titers, the highest T5OAc titer (3.3 mg/L) was achieved in
+strain T58, which was regulated by the promoter trxA (Figure
+4b), and the distribution of its precursor metabolites is shown
+in Figure S6. The reporter gene mCherry was fused with TAT
+to assess the actual expression strengths of the promoters. As a
+result, it was shown that the promoter strength increased in the
+order of J23100, J23112, trxA, racR, and T7 (Figure 4c). A
+significant accumulation of precursor T5OH was still observed,
+even after precise regulation of TAT (Figure 4b). Based on
+these observations, we tried to engineer TAT to improve its
+catalytic efficiency.
+Protein Engineering of TAT to Enhance T5OAc Production
+To enhance the catalytic performance of TAT, we employed a
+protein engineering approach (Figure 1c). The PROSS online
+server (https://pross.weizmann.ac.il/step/pross-terms/) was
+used to computationally design TAT, identifying single-point
+mutations that might improve the heterologous expression
+level and the degree of stability. A total of 23 candidate single-
+point mutants were selected for subsequent experimental
+evaluation. The T5OAc titer of five single-point mutants was
+significantly higher than that of the parental strain, with
+specific mutations including T262V, A218P, V332K, P65V,
+and F211Y (Figure 5a). We then mutated these residues to
+each of the remaining 18 amino acids to investigate their
+impact on T5OAc production. The results indicated that
+single-point mutants P65T, P65M, P65C, P65S, P65K, T262I,
+V332G, V332F, V332W, V332C, A218K, F211H, and F211N
+enhanced T5OAc production to varying degrees (Figure 5b).
+Subsequently, five beneficial single-point mutants (P65S,
+F211Y, A218P, T262V, and V332K) were selected to construct
+possible double-site mutants (Figure 5b). Among them, the
+double mutant F211Y/A218P further enhanced the titer of
+T5OAc, up to 6.3 mg/L (Strain T511) (Figure 5b). Molecular
+modeling of TAT indicated that A218 is situated on a loop
+near the entrance of the substrate channel. Mutation of this
+residue to tyrosine induced conformational changes in the
+substrate channel (Figure S2a,b), which may facilitate substrate
+entry. Meanwhile, F211 is located on a surface-exposed α-helix,
+and its mutation to proline may influence TAT activity by
+enhancing structural stability or through allosteric effects
+(Figure S2a). Furthermore, due to factors such as the poor
+soluble expression and challenging purification of TAT (a
+protein molecular weight of 49.1 kDa, as shown in Figure S7),
+we validated the conversion of substrate T5OH by the wild-
+type and the F211Y/A218P mutant using in vitro cell-free
+extract assays. The result clearly demonstrated a significantly
+higher conversion rate for mutant F211YA218P (Figure S8),
+providing strong functional support for the observed in vivo
+improvement.
+Since the biosynthesis of T5OAc also requires acetyl-CoA as
+a cosubstrate, we sought to enhance the intracellular levels of
+acetyl-CoA to further improve T5OAc titer. To enhance flux
+toward acetyl-CoA, we employed a metabolic engineering
+strategy involving the overexpression of acetyl-CoA synthetase
+(ACS) and the knockout of the acetate-forming pathway
+enzymes, phosphate acetyltransferase (PTA) and acetate
+kinase (ACKA) (Figure 1). As a result, this engineering
+enhanced the acetyl-CoA yield by 49% in strain T512 relative
+to T511, concomitantly raising the T5OAc titer from 6.3 to 7.6
+mg/L (Figure 5c).
+Cofactor Engineering toward Improving T10OH
+Production
+After the optimization of T5OAc production, we proceeded to
+construct the subsequent dihydroxylated product, T10OH
+(Figures 1 and 6a). Based on previous studies, the addition of
+n-dodecane during fermentation was found to significantly
+influence the product distribution, with T10βOHM3 demon-
+Figure 6. Cofactor engineering of T5αOH and T10βOH to enhance T10OH production. (a) Effects of culture conditions on the biosynthesis of
+metabolites. (b) Endogenous heme biosynthesis pathway in E. coli. (c) Scheme of the NADPH metabolic recycling pathway. (d) Overview of the
+construction of cofactor-engineered strains. (e) Analysis of metabolite production in strains with engineered cofactor metabolism. (f) Analysis of
+heme-enriched engineered strains. N.D., not detected. Insertion site A: noncoding sequence between ompW and yciE in the locus; insertion site B:
+noncoding sequence between rulF and yjbD in the locus.
+ACS Sustainable Chemistry & Engineering
+pubs.acs.org/journal/ascecg
+Research Article
+https://doi.org/10.1021/acssuschemeng.5c11338
+ACS Sustainable Chem. Eng. XXXX, XXX, XXX−XXX
+G
+
+
+
+[PDF physical page 8]
+strating significantly higher catalytic performance compared to
+T10βOH.33 To investigate this effect, fermentation experi-
+ments with or without n-dodecane were conducted. It was
+shown that omitting n-dodecane led to a higher T10OH
+production (3.4 mg/L), in contrast to the titer of only 0.3 mg/
+L in the case with the n-dodecane phase (Figure 6a).
+Furthermore, in the absence of n-dodecane, a small amount
+of T5OAc was accumulated, but no T5OH was detected at all.
+In contrast, when n-dodecane was added, T5OAc did not
+accumulate at all while significant T5OH accumulation was
+observed (Figure 6a). Under both conditions, large amounts of
+Tax were observed. Based on these findings, we hypothesized
+that n-dodecane addition hindered T10OH formation
+primarily because n-dodecane rapidly extracts the majority of
+the newly generated T5OH out of the cells during
+fermentation, preventing its further conversion. The substantial
+accumulation of Tax may be resulted from the insufficient
+catalytic activity of T5αOH.
+Therefore, to drive Tax conversion, we implemented two
+cofactor engineering strategies, aiming at increasing the
+intracellular heme levels and regenerating NADPH. As the
+prosthetic group and cofactor of P450 enzymes, respectively,
+heme and NADPH play pivotal roles in their electron transfer
+processes. In E. coli, there is a native heme biosynthesis
+pathway in which glutamyl-tRNA reductase (HemA) and
+glutamate-1-semialdehyde-2,1-aminomutase (HemL) are
+widely investigated as rate-limiting enzymes for enhancing
+the heme production.43−45 Within the glycolytic pathway,
+glucose-6-phosphate dehydrogenase (Zwf) catalyzes the
+conversion of glucose-6-phosphate to gluconolactone-6-
+phosphate, simultaneously reducing NADP+ to NADPH
+(Figure 6b,c).46,47 Therefore, to increase the intracellular
+heme levels and to regenerate NADPH effectively, we
+randomly overexpressed varying copy numbers of HemA-
+HemL and Zwf on the chromosomes of E. coli. After screening,
+we identified strains harboring 1, 3, or 8 copies of HemA-
+HemL and 1 or 2 copies of Zwf (Figure 6d). We subsequently
+introduced the T10OH-producing plasmids into these strains,
+yielding five recombinant strains, namely, T62, T63, T64, T65,
+and T66 (Figure 6d). As the intracellular heme levels
+increased, the T10OH titer first rose and then declined,
+reaching a maximum of 5.2 mg/L in strain T62 (Figure 6e).
+However, we observed compromised cell growth likely due to
+the heme toxicity at higher concentrations. In strains
+overexpressing Zwf, both T65 and T66 showed moderate
+increases in T10OH titer, up to 3.4 and 4.2 mg/L, respectively
+(Figure 6e,f). We then combined both the strategies to
+construct a new recombinant strain, T67, which overexpresses
+one copy of HemA-HemL and two copies of Zwf. The T10OH
+titer by strain T67 was further increased to 8.7 mg/L (Figure
+6e). Compared with T61, the precursor Tax formed in T67
+decreased by 68% (Figure 6e), while intermediate T5OAc was
+nearly undetectable, indicating that cofactor engineering did
+improve the T10OH biosynthesis substantially.
+Proof of Strain T67 Performance by Fed-Batch
+Fermentation in a 5 L Bioreactor
+After attaining the optimal T10OH-producing strain T67, we
+conducted fed-batch fermentation in a 5 L jar bioreactor. To
+facilitate the bioprocess scale-up, the agitation speed was
+correlated with the dissolved oxygen (DO) level monitored,
+maintaining a DO around approximately 30% saturation. The
+glycerol concentration remaining in the culture was regularly
+monitored off-line and replenished to 20 g/L whenever
+necessary. Consequently, following a 7 h induction, Tax and
+T5OH began to form, with T10OH production commencing
+at 18 h. The accumulation of T5OAc was minimal and nearly
+undetectable in the later stages. This may be attributed to the
+enhanced catalytic efficiency of T10βOH under high-agitation
+culture conditions, which facilitates the conversion of T5OAc
+to T10OH more readily. The T10OH titer reached a
+maximum of 18.5 mg/L at 65 h (Figure 7), to our knowledge,
+representing the highest record in E. coli reported to date.
+■DISCUSSION
+In this study, we established an early stage paclitaxel
+biosynthetic pathway in E. coli, proceeding from the paclitaxel
+backbone (Tax) to the double-oxidation product T10OH. We
+employed a variety of metabolic and protein engineering
+strategies to improve the Tax production efficiency, thereby
+laying a robust foundation for subsequent oxidation and
+acetylation steps. Initially, we coexpressed the key enzymes of
+the MEP pathway, DXS and IDI, together with GGPPS and TS
+on plasmids, resulting in an initial strain that produced 12.7
+mg/L of Tax. De novo terpenoid biosynthesis typically suffers
+from flux imbalance and suboptimal enzyme perform-
+ance.18,48,49 To address these issues, we optimized the
+expression of MEP pathway genes and improved the catalytic
+activities of IDI and GGPPS, achieving a 4.7-fold increase in
+Tax titer to 59.6 mg/L. The MEP pathway optimization is
+commonly implemented in terpenoid production50−52 and
+thus will not be overly detailed here.
+Efforts to improve terpenoid titers often involve exploring
+different enzyme sources. However, relatively few reports have
+focused on engineering individual enzymes directly. In our
+work, we identified a beneficial single-point mutant, IDIR83K,
+which enhanced Tax production by approximately 59%,
+underscoring the critical importance of efficient IPP/DMAPP
+interconversion in terpenoid biosynthesis. We also used
+sequence alignment to improve the catalytic performance of
+another enzyme, GGPPS. Specifically, the single-point mutant
+GGPPSR209S was proved to be effective in boosting Tax titers,
+and we anticipate that this mutation could facilitate the
+production of other diterpenoids as well. This mutant was
+postulated to enhance catalytic performance by improving
+stability or through allosteric effects, which was consistent with
+the findings reported by Dong et al. in their study on
+NtGGPPS.40 One noteworthy aspect of this study is the
+engineering of enzyme components, a strategy that is not
+widely employed in de novo terpenoid biosynthesis. Meanwhile,
+a protein-scaffolding strategy was employed to establish
+Figure 7. Scale-up cultivation of engineered strain T67 in a 5 L jar
+fermenter.
+ACS Sustainable Chemistry & Engineering
+pubs.acs.org/journal/ascecg
+Research Article
+https://doi.org/10.1021/acssuschemeng.5c11338
+ACS Sustainable Chem. Eng. XXXX, XXX, XXX−XXX
+H
+
+
+
+[PDF physical page 9]
+substrate channeling, thereby shortening the distance between
+relevant enzymes and enhancing the mass transfer of
+substrates. After optimizing both the protein scaffolds and
+enzyme component expression, the Tax titer increased by 3.4-
+fold to 43 mg/L. One point worth mentioning is that
+compared to plasmid-based expression, expressing the protein
+scaffold from the genome led to a significant increase in Tax
+production. This was largely because excessive plasmid load
+imposed a metabolic burden on the host, adversely affecting
+both growth and productivity. Subsequently, by integrating the
+aforementioned enzyme engineering and MEP pathway
+optimization strategies, we successfully constructed a recombi-
+nant strain (T44) that produced up to 131 mg/L Tax in shake-
+flask cultures.
+Promoter engineering was then applied to the biosynthesis
+of T5OH and T5OAc, resulting in recombinant strains capable
+of producing 17.9 mg/L T5OH and 3.3 mg/L T5OAc,
+respectively. It is worth mentioning that a recent study had
+found FoTO1 can enhance the titer of T5OH.53 In future
+work, coexpression of this enzyme could be attempted to
+further improve T5OH production in E. coli. Then, to address
+the issue of excessive T5OH accumulation, the online PROSS
+server was used to improve the thermal stability and protein
+expression of TAT. Ultimately, the double mutant F211Y/
+A218P effectively alleviated the accumulation of T5OH and
+enhanced the T5OAc titer by 1.9-fold, reaching 6.3 mg/L. In
+addition, by enhancing the supply of intracellular acetyl-CoA,
+the titer of T5OAc can be further increased up to 7.6 mg/L.
+This work represents the first protein engineering effort
+targeting TAT, although further improvements remain
+possible.
+In the T10OH biosynthesis, different cultivation strategies
+influenced the distribution of products, and the removal of
+traditional n-dodecane coverage (biphasic cultivation) proved
+more favorable for T10OH production, which is consistent
+with the earlier findings of Zhang et al.33 Previous studies on
+the biosynthesis of paclitaxel intermediates have been mainly
+focused on screening and expressing enzyme components,
+balancing the overall pathway, and optimizing the cultivation
+conditions.54−56 Although Tax accumulation has frequently
+been observed, it has not yet been addressed effectively.
+Herein, we employed cofactor engineering strategies to
+enhance the catalytic performance of P450 enzymes and
+thereby promoted Tax bioconversion. As a result, the
+optimized strain T67 exhibited a 68% reduction in Tax
+accumulation, with T10OH titers reaching 8.7 mg/L in a
+shake-flask and 18.5 mg/L in a bioreactor.
+In summary, by integrating various metabolic and protein
+engineering strategies, we succeeded in constructing an
+optimized early stage paclitaxel biosynthesis pathway. Because
+the paclitaxel biosynthesis pathway is both complex and
+nonlinear, the high-efficiency intermediate-producing strains
+developed in this study are critical for exploring downstream
+steps and facilitating the efficient production of paclitaxel.
+Additionally, the efficient enzyme mutants and engineering
+strategies described here provide valuable references for the
+biosynthesis of paclitaxel and other terpenoids.
+■ASSOCIATED CONTENT
+*
+sı Supporting Information
+The Supporting Information is available free of charge at
+https://pubs.acs.org/doi/10.1021/acssuschemeng.5c11338.
+Detailed description of all strains, details of all genes,
+nucleic acid sequences of protein scaffolds, character-
+istics of constructed plasmids, nucleic acid sequences of
+primers used, molecular modeling of TcGGPPS and
+TAT, in vitro pull-down experiments, product distribu-
+tion of characteristic strains, protein expression analysis
+of TAT, and in vitro reaction experiments (PDF)
+■AUTHOR INFORMATION
+Corresponding Author
+Jian-He Xu −State Key Laboratory of Bioreactor Engineering,
+Shanghai Collaborative Innovation Center for
+Biomanufacturing, East China University of Science and
+Technology, Shanghai 200237, P.R. China; Shanghai
+Bioforany Biotechnology Corporation, Shanghai 200233, P.R.
+China;
+orcid.org/0000-0003-4301-7630;
+Email: jianhexu@ecust.edu.cn
+Authors
+Wen-Liang Xie −State Key Laboratory of Bioreactor
+Engineering, Shanghai Collaborative Innovation Center for
+Biomanufacturing, East China University of Science and
+Technology, Shanghai 200237, P.R. China
+Chen-Yi Sun −State Key Laboratory of Bioreactor
+Engineering, Shanghai Collaborative Innovation Center for
+Biomanufacturing, East China University of Science and
+Technology, Shanghai 200237, P.R. China
+Chun-Xiu Li −State Key Laboratory of Bioreactor
+Engineering, Shanghai Collaborative Innovation Center for
+Biomanufacturing, East China University of Science and
+Technology, Shanghai 200237, P.R. China;
+orcid.org/
+0000-0002-6633-5626
+Gao-Wei Zheng −State Key Laboratory of Bioreactor
+Engineering, Shanghai Collaborative Innovation Center for
+Biomanufacturing, East China University of Science and
+Technology, Shanghai 200237, P.R. China;
+orcid.org/
+0000-0001-5918-6047
+Complete contact information is available at:
+https://pubs.acs.org/10.1021/acssuschemeng.5c11338
+Author Contributions
+W.-L.X. constructed the research framework and drafted the
+manuscript. J.-H.X. conceived and supervised the project. C.-
+Y.S., J.-H.X., G.-W.Z., and C.-X.L. revised the manuscript. All
+contributing authors rigorously reviewed and unanimously
+approved the final version of the manuscript.
+Funding
+This work was financially supported by the National Natural
+Science Foundation of China (22478116 and 32471495), the
+National Key R & D Program of China (2024YFA0917800),
+and the Science and Technology Commission of Shanghai
+Municipal Government (Major Project and 25HC2810400).
+Notes
+The authors declare no competing financial interest.
+■ACKNOWLEDGMENTS
+We thank the research and development platform provided by
+the State Key Laboratory of Bioreactor Engineering, Shanghai
+Collaborative Innovation Centre for Biomanufacturing,
+Frontiers Science Center for Materiobiology and Dynamic
+Chemistry, East China University of Science and Technology.
+ACS Sustainable Chemistry & Engineering
+pubs.acs.org/journal/ascecg
+Research Article
+https://doi.org/10.1021/acssuschemeng.5c11338
+ACS Sustainable Chem. Eng. XXXX, XXX, XXX−XXX
+I
+
+
+
+[PDF physical page 10]
+■REFERENCES
+(1) Xu, M.; Yang, N.; Pan, J.; Hua, Q.; Li, C.; Xu, J. Remodeling the
+homologous recombination mechanism of Yarrowia lipolytica for high-
+level biosynthesis of Squalene. J. Agric. Food Chem. 2024, 72 (17),
+9984−9993.
+(2) Ro, D. K.; Paradise, E. M.; Ouellet, M.; Fisher, K. J.; Newman, K.
+L.; Ndungu, J. M.; Ho, K. A.; Eachus, K. A.; Ham, T. S.; Kirby, J.;
+Chang, M. C. Y.; Withers, S. T.; Shiba, Y.; Sarpong, R.; Keasling, J. D.
+Production of the antimalarial drug precursor artemisinic acid in
+engineered yeast. Nature 2006, 440 (7086), 940−943.
+(3) Zeng, W. Z.; Wang, H. J.; Chen, J. B.; Hu, M. L.; Wang, X. R.;
+Chen, J.; Zhou, J. W. Engineering Escherichia coli for efficient de novo
+synthesis of Salidroside. J. Agric. Food Chem. 2024, 72 (51), 28369−
+28377.
+(4) Caputi, L.; Franke, J.; Farrow, S. C.; Chung, K.; Payne, R. M. E.;
+Nguyen, T. D.; Dang, T. T. T.; Soares Teto Carqueijeiro, I.;
+Koudounas, K.; Dugé de Bernonville, T.; Ameyaw, B.; Jones, D. M.;
+Vieira, I. J. C.; Courdavault, V.; O’Connor, S. E. Missing enzymes in
+the biosynthesis of the anticancer drug vinblastine in Madagascar
+periwinkle. Science 2018, 360 (6394), 1235−1239.
+(5) Zhang, J.; Hansen, L. G.; Gudich, O.; Viehrig, K.; Lassen, L. M.
+M.; Schruebbers, L.; Adhikari, K. B.; Rubaszka, P.; Carrasquer-
+Alvarez, E.; Chen, L.; D’Ambrosio, V.; Lehka, B.; Haidar, A. K.;
+Nallapareddy, S.; Giannakou, K.; Laloux, M.; Arsovska, D.; Jorgensen,
+M. A. K.; Chan, L. J. G.; Kristensen, M.; Christensen, H. B.; Sudarsan,
+S.; Stander, E. A.; Baidoo, E.; Petzold, C. J.; Wulff, T.; O’Connor, S.
+E.; Courdavault, V.; Jensen, M. K.; Keasling, J. D. A microbial supply
+chain for production of the anti-cancer drug vinblastine. Nature 2022,
+609 (7926), 341−347.
+(6) Reed, J.; Orme, A.; El-Demerdash, A.; Owen, C.; Martin, L. B.
+B.; Misra, R. C.; Kikuchi, S.; Rejzek, M.; Martin, A. C.; Harkess, A.;
+Leebens-Mack, J.; Louveau, T.; Stephenson, M. J.; Osbourn, A.
+Elucidation of the pathway for biosynthesis of saponin adjuvants from
+the soapbark tree. Science 2023, 379 (6638), 1252−1264.
+(7) Liu, Y. Z.; Zhao, X. X.; Gan, F.; Chen, X. Y.; Deng, K.; Crowe, S.
+A.; Hudson, G. A.; Belcher, M. S.; Schmidt, M.; Astolfi, M. C. T.;
+Kosina, S. M.; Pang, B.; Shao, M.; Yin, J.; Sirirungruang, S.; Iavarone,
+A. T.; Reed, J.; Martin, L. B. B.; El-Demerdash, A.; Kikuchi, S.; Misra,
+R. C.; Liang, X. M.; Cronce, M. J.; Chen, X. L.; Zhan, C. J.;
+Kakumanu, R.; Baidoo, E. E. K.; Chen, Y.; Petzold, C. J.; Northen, T.
+R.; Osbourn, A.; Scheller, H.; Keasling, J. D. Complete biosynthesis of
+QS-21 in engineered yeast. Nature 2024, 629 (9013), 937−944.
+(8) Jordan, M. A.; Wilson, L. Microtubules as a target for anticancer
+drugs. Nat. Rev. Cancer. 2004, 4 (4), 253−265.
+(9) Mu, L.; Feng, S. S. A novel controlled release formulation for the
+anticancer drug paclitaxel (Taxol®): PLGA nanoparticles containing
+vitamin E TPGS. J. Controlled Release 2003, 86 (1), 33−48.
+(10) Yousfan, A.; MourseL, N.; Hanano, A. Encapsulation of
+paclitaxel into date palm lipid droplets for enhanced brain cancer
+therapy. Sci. Rep. 2024, 14 (1), 32057.
+(11) Pezzuto, J. H. Plant-derived anticancer agents. Biochem.
+Pharmacol. 1997, 53 (2), 121−133.
+(12) Nicolaou, K. C.; Yang, Z.; Liu, J. J.; Ueno, H.; Nantermet, P.
+G.; Guy, R. K.; Claiborne, C. F.; Renaud, J.; Couladouros, E. A.;
+Paulvannan, K.; Sorensen, E. J. Total synthesis of Taxol. Nature 1994,
+367 (6464), 630−634.
+(13) Kingston, D. G. The chemistry of Taxol. Pharmacol. Ther. 1991,
+52 (1), 1−34.
+(14) Mangatal, L.; Adeline, M. T.; Guenard, D.; Guerittevoegelein,
+F.; Potier, P. Application of the vicinal oxyamination reaction with
+asymmetric induction to the hemisynthesis of taxol and analogues.
+Tetrahedron 1989, 45 (13), 4177−4190.
+(15) Shao, F. J.; Wilson, I. W.; Qiu, D. Y. The research progress of
+Taxol in Taxus. Curr. Pharm. Biotechnol. 2021, 22 (3), 360−366.
+(16) Perez-Matas, E.; Hidalgo-Martinez, D.; Escrich, A.; Alcalde, M.
+A.; Moyano, E.; Bonfill, M.; Palazon, J. Genetic approaches in
+improving biotechnological production of taxanes: An update. Front.
+Plant. Sci. 2023, 14, 1100228.
+(17) Tong, Y. R.; Luo, Y. F.; Gao, W. Biosynthesis of paclitaxel using
+synthetic biology. Phytochem. Rev. 2022, 21 (3), 863−877.
+(18) Pitera, D. J.; Paddon, C. J.; Newman, J. D.; Keasling, J. D.
+Balancing a heterologous mevalonate pathway for improved
+isoprenoid production in Escherichia coli. Metab. Eng. 2007, 9 (2),
+193−207.
+(19) Morrone, D.; Lowry, L.; Determan, M. K.; Hershey, D. M.; Xu,
+M.; Peters, R. J. Increasing diterpene yield with a modular metabolic
+engineering system in E. coli: Comparison of MEV and MEP
+isoprenoid precursor pathway engineering. Appl. Microbiol. Biotechnol.
+2010, 85 (6), 1893−1906.
+(20) Chatzivasileiou, A. O.; Ward, V.; Edgar, S. M.; Stephanopoulos,
+G. Two-step pathway for isoprenoid synthesis. Proc. Natl. Acad. Sci. U.
+S. A. 2019, 116 (2), 506−511.
+(21) Mutanda, I.; Li, J. H.; Xu, F. L.; Wang, Y. Recent advances in
+metabolic engineering, protein engineering, and transcriptome-guided
+insights toward synthetic production of Taxol. Front. Bioeng.
+Biotechnol. 2021, 9, No. 632269.
+(22) Yang, C. S.; Wang, Y.; Su, Z.; Xiong, L. Y.; Wang, P. P; Lei, W.;
+Yan, X.; Ma, D. W.; Zhao, G. P; Zhou, Z. H. Biosynthesis of the
+highly oxygenated tetracyclic core skeleton of Taxol. Nat. Commun.
+2024, 15 (1), 2339.
+(23) Liu, J. C. T.; De La Peña, R.; Tocol, C.; Sattely, E. S.
+Reconstitution of early Paclitaxel biosynthetic network. Nat. Commun.
+2024, 15 (1), 1419.
+(24) Zhang, Y. J.; Wiese, L.; Fang, H.; Alseekh, S.; Perez de Souza,
+L.; Scossa, F.; Molloy, J. J.; Christmann, M.; Fernie, A. R. Synthetic
+biology identifies the minimal gene set required for Paclitaxel
+biosynthesis in a plant chassis. Mol. Plant. 2023, 16 (12), 1951−1961.
+(25) Ajikumar, P. K.; Xiao, W. H.; Tyo, K. E. J.; Wang, Y.; Simeon,
+F.; Leonard, E.; Mucha, O.; Phon, T. H.; Pfeifer, B.; Stephanopoulos,
+G. Isoprenoid pathway optimization for Taxol precursor over-
+production in Escherichia coli. Science 2010, 330 (6000), 70−74.
+(26) Santoyo-Garcia, J. H.; Walls, L. E.; Valdivia-Cabrera, M.; Malci,
+K.; Jonguitud-Borrego, N.; Halliday, K. J.; Rios-Solis, L. The
+Synergetic effect from the combination of different adsorption resins
+in batch and semi-continuous cultivations of S. cerevisiae cell factories
+to produce acetylated taxanes precursors of the anticancer drug Taxol.
+Biotechnol. Bioeng. 2023, 120 (8), 2160−2174.
+(27) Escrich, A.; Jonguitud-Borrego, N.; Malci, K.; Sanchez-Munoz,
+R.; Palazon, J.; Rios-Solis, L.; Moyano, E. A novel step towards the
+heterologous biosynthesis of Paclitaxel: characterization of T1βOH
+Taxane Hydroxylase. Metab. Eng. 2024, 85, 201−212.
+(28) Jiang, B.; Gao, L.; Wang, H. J.; Sun, Y. P.; Zhang, X. L.; Ke, H.;
+Liu, S. C.; Ma, P. C.; Liao, Q. G.; Wang, Y.; Wang, H.; Liu, Y. G.; Du,
+R.; Rogge, T.; Li, W.; Shang, Y.; Houk, K. N.; Xiong, X. Y.; Xie, D. X.;
+Huang, S. W.; Lei, X. G.; Yan, J. B. Characterization and heterologous
+reconstitution of Taxus biosynthetic enzymes leading to baccatin III.
+Science 2024, 383 (6683), 622−629.
+(29) Zhao, Y.; Liang, F. Y.; Xie, Y. M.; Duan, Y. T.; Andeadelli, A.;
+Pateraki, I.; Makris, A.; Pomorski, T. G.; Staerk, D.; Kampranis, S. C.
+Oxetane ring formation in Taxol biosynthesis is catalyzed by a
+bifunctional cytochrome P450 enzyme. J. Am. Chem. Soc. 2024, 146
+(1), 801−810.
+(30) Li, C. K.; Yin, X. X.; Wang, S.; Sui, S. Y.; Liu, J. M.; Sun, X. C.;
+Di, J. M.; Chen, R. D.; Chen, D. W.; Han, Y. T.; Xie, K. B.; Dai, J. J. A
+cytochrome P450 enzyme catalyses oxetane ring formation in
+Paclitaxel biosynthesis. Angew. Chem., Int. Ed. 2024, 63 (31),
+No. e202407070.
+(31) Sagwan-Barkdoll, L.; Anterola, A. M. Taxadiene-5-ol is a minor
+product of CYP725A4 when expressed in Escherichia coli. Biotechnol.
+Appl. Biochem. 2018, 65 (3), 294−305.
+(32) Xie, W. L.; Zhang, M. F.; Huang, Z. Y.; Xu, M.; Li, C. X.; Xu, J.
+H. Enhancing the biosynthesis of taxadien-5α-yl-acetate in Escherichia
+coli by combinatorial metabolic engineering approaches. Bioresour.
+Bioprocess. 2024, 11 (1), 50.
+(33) Zhang, M. F.; Xie, W. L.; Chen, C.; Li, C. X.; Xu, J. H.
+Computational redesign of taxane-10β-hydroxylase for de novo
+ACS Sustainable Chemistry & Engineering
+pubs.acs.org/journal/ascecg
+Research Article
+https://doi.org/10.1021/acssuschemeng.5c11338
+ACS Sustainable Chem. Eng. XXXX, XXX, XXX−XXX
+J
+
+
+
+[PDF physical page 11]
+biosynthesis of a key paclitaxel intermediate. Appl. Microbiol.
+Biotechnol. 2023, 107 (23), 7105−7117.
+(34) Klompe, S. E.; Vo, P. L. H.; Halpin-Healy, T. S.; Sternberg, S.
+H. Transposon-encoded CRISPR-Cas systems direct RNA-guided
+DNA integration. Nature 2019, 571 (7764), 219−225.
+(35) Zhang, Y. W.; Sun, X. M.; Wang, Q. Z.; Xu, J. Q.; Dong, F.;
+Yang, S. Q.; Yang, J. W.; Zhang, Z. X.; Qian, Y.; Chen, J.; Zhang, J.;
+Liu, Y. M.; Tao, R.; Jiang, Y.; Yang, J. J.; Yang, S. Multicopy
+chromosomal integration using CRISPR-associated transposases. ACS
+Synth. Biol. 2020, 9 (8), 1998−2008.
+(36) Zhang, Y. W.; Yang, J. W.; Yang, S. Q.; Zhang, J. Z.; Chen, J.;
+Tao, R. S.; Jiang, Y.; Yang, J. J.; Yang, S. Programming cells by
+multicopy chromosomal integration using CRISPR-associated trans-
+posases. CRISPR J. 2021, 4 (3), 350−359.
+(37) Vadali, R.; Horton, C.; Rudolph, F.; Bennett, G.; San, K.
+Production of isoamyl acetate in ackA-pta and/or ldh mutants of
+Escherichia coli with overexpression of yeast ATF2. Appl. Microbiol.
+Biotechnol. 2004, 63 (6), 698−704.
+(38) Siedentop, R.; Dziennus, M.; Lütz, S.; Rosenthal, K.
+Debottlenecking of an in vitro enzyme cascade using a combined
+model- and experiment-based approach. Chem. Ing. Technol. 2023, 95
+(4), 543−548.
+(39) Leonard, E.; Ajikumar, P. K.; Thayer, K.; Xiao, W. H.; Mo, J.
+D.; Tidor, B.; Stephanopoulos, G.; Prather, K. L. J. Combining
+metabolic and protein engineering of a terpenoid biosynthetic
+pathway for overproduction and selectivity control. Proc. Natl. Acad.
+Sci. U. S. A. 2010, 107 (31), 13654−13659.
+(40) Dong, C.; Qu, G.; Guo, J. G.; Wei, F.; Gao, S. W.; Sun, Z. T.;
+Jin, L. F.; Sun, X. W.; Rochaix, J. D.; Miao, Y. C.; Wang, R. Rational
+design of geranylgeranyl diphosphate synthase enhances carotenoid
+production and improves photosynthetic efficiency in Nicotiana
+tabacum. Sci. Bull. 2022, 67 (3), 315−327.
+(41) Wu, J.; Wang, X.; Xiao, L. J.; Wang, F.; Zhang, Y.; Li, X.
+Synthetic protein scaffolds for improving R-(−)-Linalool production
+in Escherichia coli. J. Agri. Food Chem. 2021, 69 (20), 5663−5670.
+(42) Dueber, J. E.; Wu, G. C.; Malmirchegini, G. R.; Moon, T. S.;
+Petzold, C. J.; Ullal, A. V.; Prather, K. L. J.; Keasling, J. D. Synthetic
+protein scaffolds provide modular control over metabolic flux. Nat.
+Biotechnol. 2009, 27 (8), 753−759.
+(43) Hu, B. D.; Yu, H. B.; Zhou, J. W.; Li, J. H.; Chen, J.; Du, G. C.;
+Lee, S. Y.; Zhao, X. R. Whole-Cell P450 biocatalysis using engineered
+Escherichia coli with fine-tuned Heme biosynthesis. Adv. Sci. 2023, 10
+(6), 2205580.
+(44) Yang, Q. Y.; Sun, X.; Wang, H.; Chen, T.; Wang, Z. W. Multi-
+modular metabolic engineering of heme synthesis in Corynebacterium
+glutamicum. Synth. Syst. Biotechnol. 2024, 9 (2), 285−293.
+(45) Lee, H.; Shin, D. J.; Nho, S. B.; Lee, K. W.; Kim, S. Metabolic
+engineering of Saccharomyces cerevisiae for fermentative production of
+heme. Biotechnol. J. 2024, 19 (10), No. e202400351.
+(46) Zou, S. P.; Zhang, Z.; Zhao, K.; Liu, Z. Q.; Zheng, Y. G.
+Metabolic engineering of Escherichia coli for improved D-Pantothenic
+Acid biosynthesis by enhancing NADPH availability. Biochem. Eng. J.
+2022, 187, No. 108603.
+(47) Lim, S. J.; Jung, Y. M.; Shin, H. D.; Lee, Y. H. Amplification of
+the NADPH-related genes zwf and gnd for the oddball biosynthesis of
+PHB in an E. coli transformant harboring a cloned phbCAB operon. J.
+Biosci. Bioeng. 2002, 93 (6), 543−549.
+(48) Kizer, L.; Pitera, D. J.; Pfleger, B. F.; Keasling, J. D. Application
+of functional genomics to pathway optimization for increased
+isoprenoid production. Appl. Environ. Microbiol. 2008, 74 (10),
+3229−3241.
+(49) Czajka, J. J.; Oyetunde, T.; Tang, Y. J. Integrated knowledge
+mining, genome-scale modeling, and machine learning for predicting
+Yarrowia lipolytica bioproduction. Metab. Eng. 2021, 67, 227−236.
+(50) Song, Y.; He, S.; Abdallah, I. I.; Jopkiewicz, A.; Setroikromo, R.;
+van Merkerk, R.; Tepper, P. G.; Quax, W. J. Engineering of multiple
+modules to improve amorphadiene production in Bacillus subtilis
+using CRISPR-Cas9. J. Agric. Food Chem. 2021, 69 (16), 4785−4794.
+(51) Zhou, Y. F.; Cui, Z.; Li, H.; Tian, J.; Gao, W. Y. Optimized
+enzymatic preparation of 1-deoxy-D-xylulose 5-phosphate. Bioorg.
+Chem. 2010, 38 (1−3), 120−123.
+(52) Li, L.; Wang, X.; Li, X. Y.; Shi, H.; Wang, F.; Zhang, Y.; Li, X.
+Combinatorial engineering of mevalonate pathway and diterpenoid
+synthases in Escherichia coli for cis-Abienol production. J. Agric. Food
+Chem. 2019, 67 (23), 6523−6531.
+(53) McClune, C. J.; Liu, J. C. T.; Wick, C.; de la Pena, R.; Lange, B.
+M.; Fordyce, P. M.; Sattely, E. M. Discovery of FoTO1 and Taxol
+genes enables biosynthesis of baccatin III. Nature 2025, 643 (8071),
+582−592.
+(54) Wu, Q. Y.; Huang, Z. Y.; Wang, J. Y.; Yu, H. L.; Xu, J. H.
+Construction of an Escherichia coli cell factory to synthesize Taxadien-
+5α-ol, the key precursor of anti-cancer drug Paclitaxel. Bioresour.
+Bioprocess. 2022, 9 (1), 82.
+(55) Edgar, S.; Zhou, K.; Qiao, K. J.; King, J. R.; Simpson, J. H.;
+Stephanopoulos, G. Mechanistic insights into taxadiene epoxidation
+by Taxadiene-5α-Hydroxylase. ACS Chem. Biol. 2016, 11 (2), 460−
+469.
+(56) Walls, L. E.; Malci, K.; Nowrouzi, B.; Li, R. A.; d’Espaux, L.;
+Wong, J.; Dennis, J. A.; Semião, A. J. C.; Wallace, S.; Martinez, J. L.;
+Keasling, J. D.; Rios-Solis, L. Optimizing the biosynthesis of
+oxygenated and acetylated Taxol precursors in Saccharomyces
+cerevisiae using aadvanced bioprocessing strategies. Biotechnol. Bioeng.
+2021, 118 (1), 279−293.
+ACS Sustainable Chemistry & Engineering
+pubs.acs.org/journal/ascecg
+Research Article
+https://doi.org/10.1021/acssuschemeng.5c11338
+ACS Sustainable Chem. Eng. XXXX, XXX, XXX−XXX
+K

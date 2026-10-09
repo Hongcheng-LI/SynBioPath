@@ -1,0 +1,16 @@
+import json,re,fitz,hashlib
+import worker as w
+d=w.ROOT/'sources'/'G6BTSC3C';rec=json.loads((d/'prepared.json').read_text(encoding='utf-8'))
+spec=[('Graphical Abstract',1,[324,265,560,406]),('Chart 1',2,[51,58,556,478]),('Table 1',3,[51,58,556,337]),('Table 2',3,[51,343,556,612]),('Table 3',4,[51,58,556,327]),('Figure 1',4,[51,332,556,611]),('Figure 2',5,[51,58,556,638]),('Figure 3',6,[51,54,293,274]),('Table 4',6,[51,441,556,754]),('Table 5',7,[51,58,556,366]),('Table 6',7,[51,373,556,531]),('Table 7',8,[51,58,556,346]),('Table 8',8,[51,352,556,423])]
+with fitz.open(rec['main_pdf']) as doc:
+    figs=[{'label':l,'caption':next((x['caption'] for x in rec['figure_candidates'] if x['label']==l),'原文摘要图或完整结构总图'),'panels':[],'pages':[{'page':p,'bbox':[b[0]/doc[p-1].rect.width,b[1]/doc[p-1].rect.height,b[2]/doc[p-1].rect.width,b[3]/doc[p-1].rect.height],'dpi':300}]} for l,p,b in spec]
+gaps=['No localSI,NP-MRD,citedpatent or originalreference independentlyread; ECDnotrerun','18newstructures versus21/22 knownpatentstructures newlynamed','Pleosporales versusSporormiaceae sourceclassification wording preserved','20-nor mother skeleton canhaveC20formula withmethoxycarbon','Table3 compound3C11 printedCH2 inconsistentwithprose/Table1/structure','PDF9–10 printedexactmasses inconsistentwithionformula; arithmeticindependentlychecked for1/3/10 without claimingactualrawpeaks','9experimental carbonTable7crossreference inconsistentwithactualTable3','Compound12 comparisonprinted1D; followingprosecompares10','16–18 absoluteconfiguration usesECDanalogy,notallsinglecrystal orindependentfullcalculations','Methanolnegativecontrols limitedsubstratesconditionsanddetection','Table8 1/10/16/17/20 30/33/30/33/31 versuscontrol33 conflictsstrongactivitywording; noerrororstatistics','NOIC50 8=19,12=25uM; >50notzeroactivity','No per-doseMTTnumericerrors orreportedreplicatesCItest','SARassociation nottargetorpathwaycausality; nogenesenzymeanimalresults']
+draft={'identity_matches':True,'identity_reason':'Formal11pageJNP87 304–314 titleauthorsDOImatch; preparation supplementflag isincorrect mainPDFconfirmed','paper_type':'research','title_zh':'Pleosmaranes氧桥结构与NO活性证据','filename_title':'Pleosmaranes氧桥结构与NO活性证据','journal_short':'J Nat Prod','category':None,'related_categories':[],'classification_reason':'全库笔记完成后归类','source_gaps':gaps,'figures':figs,'report':(d/'codex-report.md').read_text(encoding='utf-8')}
+w.normalize_format(draft);w.validate_structure(draft);w.write_json(d/'codex-draft.json',{'draft':draft,'method':'CurrentCodex mainPDFreading without externalmodel'})
+images=w.crops(rec,draft,d)
+with fitz.open(rec['main_pdf']) as doc:
+    for i,(l,p,b) in enumerate(spec):
+        out=d/('G6BTSC3C-'+l.replace(' ','-')+'-complete.png');doc[p-1].get_pixmap(matrix=fitz.Matrix(300/72,300/72),clip=fitz.Rect(b),alpha=False).save(out)
+        sha=hashlib.sha256(out.read_bytes()).hexdigest();target=out.with_name(out.stem+'-'+sha[:16]+'.png');out.replace(target);images[i].update(file=str(target),sha256=sha,bbox=b)
+w.write_json(d/'codex-crops.json',images)
+print(json.dumps({'chinese_characters':len(re.findall(r'[\u4e00-\u9fff]',draft['report'])),'images':[{'label':x['label'],'file':x['file']} for x in images]},ensure_ascii=False))

@@ -1,0 +1,1448 @@
+
+[PDF physical page 1]
+A MassQL-Integrated Molecular Networking Approach for the
+Discovery and Substructure Annotation of Bioactive Cyclic Peptides
+Tim Berger, Judith Alenfelder, Sophie Steinmüller, Dominik Heimann, Namrata Gohain, Daniel Petras,
+Mingxun Wang, Robert Berger, Evi Kostenis, and Raphael Reher*
+Cite This: J. Nat. Prod. 2024, 87, 692−704
+Read Online
+ACCESS
+Metrics & More
+Article Recommendations
+*
+sı
+Supporting Information
+ABSTRACT: The marine sponge-derived fungus Stachylidium
+bicolor 293 K04 is a prolific producer of specialized metabolites,
+including certain cyclic tetrapeptides called endolides, which are
+characterized by the presence of the unusual amino acid N-methyl-
+3-(3-furyl)-alanine. This rare feature can be used as bait to detect
+new endolide-like analogs through customized fragment pattern
+searches of tandem mass spectrometry data using the Mass Spec
+Query Language (MassQL). Here, we integrate endolide-specific
+MassQL queries with molecular networking to obtain substructural
+information guiding the targeted isolation and structure elucidation
+of the new proline-containing endolides E (1) and F (2). We
+showed that endolide F (but not E) is a moderate antagonist of the
+arginine vasopressin V1A receptor, a member of the G protein-
+coupled receptor superfamily.
+M
+arine fungi are a rich but still understudied source of
+specialized metabolites (SMs, traditionally referred to as
+“secondary metabolites” or “natural products”) with distinct
+structures and bioactivities,1 including antibacterial,2 antiviral,3
+and antineoplastic4 agents, among others.
+One such marine sponge-derived-fungus is Stachylidium
+bicolor 293 K04, which harbors a remarkably diverse
+metabolome that has yielded SMs from different chemical
+classes. These include the cyclic tetrapeptide endolides,5 the
+phthalide-derived marilones,6 the phthalimidine-derived mari-
+lines,7 the tyrosine-derived stachylines,8 thiodiketopipera-
+zines,9 and several volatile compounds.10
+The increasing global availability of liquid chromatography
+tandem mass spectrometry (HPLC-MS/MS) instruments
+coupled with the widespread adoption of open science
+initiatives has enabled the development of community-driven
+and publicly accessible repositories for LC-MS/MS data such
+as GNPS-MassIVE11 and MassBank.12 As manual analysis of
+the overwhelming amount of LC-MS/MS data derived even
+from a single microorganism extract is simply not feasible, new
+computational strategies are being developed to overcome
+common bottlenecks such as prioritization and dereplication,
+i.e., recognizing and eliminating the active substances already
+studied in the early stage of the screening process that hinder
+the discovery of new specialized metabolites.13−20 The GNPS
+framework13 allows for fast and scalable dereplication of
+known compounds and detection of putatively new analogs by
+clustering features with similar MS/MS spectra together in
+molecular networks.11 In this way, it is possible to dereplicate
+the annotated substances (annotation occurs against publicly
+available or in-house MS/MS spectral libraries) within the
+molecular clusters and obtain information about the remaining
+unannotated metabolites that have been grouped in the
+respective cluster by manual analysis21,22 or in-silico annotation
+tools.23−26 An alternative strategy toward new SMs is to
+investigate molecular clusters for which none of the nodes have
+been annotated yet.27−29
+The recently developed Mass Spec Query Language
+(MassQL) enables LC-MS/MS data sets to be searched for
+specific user-defined features, leveraging all the associated data
+acquisition parameters and variables, including MS1/MS2
+precursor m/z, MS/MS fragments, retention time, intensity,
+and mass tolerance.15 MassQL is an SQL (Structured Query
+Language) inspired tool explicitly designed for noncomputer
+scientists to write their own queries in a flexible, precise, and
+scalable fashion.
+In this study we developed an integrative approach in which
+MassQL queries are used to add substructural information to
+all nodes of a molecular cluster, allowing for the targeted
+isolation and structure elucidation of new endolides E (1) and
+Received:
+August 18, 2023
+Revised:
+January 26, 2024
+Accepted:
+February 1, 2024
+Published: February 22, 2024
+Article
+pubs.acs.org/jnp
+© 2024 American Chemical Society and
+American Society of Pharmacognosy
+692
+https://doi.org/10.1021/acs.jnatprod.3c00750
+J. Nat. Prod. 2024, 87, 692−704
+Downloaded via OCEAN UNIV OF CHINA on June 14, 2024 at 02:15:53 (UTC).
+See https://pubs.acs.org/sharingguidelines for options on how to legitimately share published articles.
+
+
+
+[PDF physical page 2]
+F (2), cyclic tetrapeptides containing the rare amino acid N-
+methyl-3-(3-furyl)-alanine, from the marine fungus S. bicolor.5,9
+■RESULTS AND DISCUSSION
+To dereplicate known and annotate putatively new endolide
+analogs from an ethyl acetate extract of S. bicolor, the workflow
+shown in Scheme 1 was developed and applied. First, an
+OSMAC (one strain many compounds)30 approach was used
+to determine cultivation conditions for production of diverse
+endolides. Extracts were analyzed using molecular networking.
+Endolide yields and their structural diversity peaked after 30-
+day cultivation on rice medium (Figures S1, S2).
+The common feature for all endolides is the rare amino acid
+N-methyl-3-(3-furyl)-alanine (NMefAla), which can be used as
+a metabolomics hook to find known as well as putatively new
+endolide analogs. Iminium ions occurring in the low-m/z
+region of MS/MS spectra have been demonstrated to be useful
+for fishing peptides from metabolomics data.15,31 To make the
+query specific for endolides while also obtaining substructural
+information to permit annotation of putative amino acid
+building blocks for all nodes of the endolide molecular family,
+we thought of a two-step query. First, we designed a MassQL
+command to search the metabolome of the fungus S. bicolor for
+NMefAla-containing peptides. The query command was
+designed to search for signals within the MS/MS spectra
+with the exact mass of the corresponding iminium ion with an
+m/z tolerance of 0.001 and a minimum intensity of 5%
+compared to the base peak in high-resolution MS/MS data.
+We included both methylated and unmethylated iminium ions,
+as demethylation can also occur via in-source fragmentation.
+Second, as the endolides contain multiple amino acids, we
+expected multiple iminium ion fragments in the MS/MS
+pattern. Thus, we hyphenated the aforementioned query with a
+second query command searching for other, unspecified
+iminium ions from all possible methylated and unmethylated
+iminium adducts of proteinogenic amino acids and NMefAla/
+fAla (to account for endolides with multiple units of this amino
+acid, Figure 1A).
+Given by the “CARDINALITY”-function, at least two MS/
+MS fragments of the listed iminium ions must be present in the
+second part of the query to fulfill the entire query. This was
+added to improve the specificity of the results, because
+compounds consisting of MS/MS fragments with the same
+exact m/z as described in the first part of the query (m/z
+124.0757, C7H10NO+ or m/z 110.0600, C6H8NO+, respec-
+tively), but happen to be constitutional isomers of NMefAla/
+fAla of nonpeptidic origin will be discarded unless they contain
+at least another false positive fragment. Furthermore, the high
+upper range CARDINALITY value allows for the detection of
+putatively bigger NMefAla/fAla-containing peptides.
+To extend the node annotation and thus obtain more
+information about the amino acid composition, further specific
+queries were created. For this purpose, the first part of the
+query was adapted to each proteinogenic amino acid. The
+exact masses of the methylated and unmethylated iminium
+ions used for the queries are given in Table S1.
+For visualization of the query, an example for the known
+endolide B as well as the results for amino acids with
+annotations in the endolide cluster are shown in Figure 1B,C.
+After analyzing the query results for the respective amino
+acids, we noticed that there are only five amino acids with a
+significant number of hits (Table S2). As expected, most of the
+annotated amino acids were 3-(3-furyl)-alanine, leucine/
+isoleucine/valine, and phenylalanine, which occur in previously
+described endolides, from S. bicolor.5,9 Surprisingly, a
+significant number of annotations were also obtained for the
+iminium ion of proline. Proline-containing endolides have not
+been reported or predicted before.
+In order to visualize the MassQL-predicted amino acid
+composition within the endolide molecular family, the
+MassQL query results were integrated as a feature table into
+the molecular network (Figure 2). To ensure that the query
+results are correctly assigned to each feature, the ion identity
+molecular network file was inspected for the respective query
+commands. Each feature has a specific scan number which can
+be used as a link between the ion identity molecular network
+and the MassQL results. Additionally, filters were applied to
+Scheme 1. Applied LC-MS/MS and Computational
+Metabolomics Workflow; from Identification and
+Purification of Prioritized Specialized Metabolites (SMs) to
+Subsequent Structure Elucidation and Bioactivity Testing
+Journal of Natural Products
+pubs.acs.org/jnp
+Article
+https://doi.org/10.1021/acs.jnatprod.3c00750
+J. Nat. Prod. 2024, 87, 692−704
+693
+
+
+
+[PDF physical page 3]
+the molecular cluster containing the already known endolides
+A/B and onychocin D. Edges with a cosine similarity score less
+than 0.75 as well as nodes with no MassQL annotation were
+discarded since the focus of this study is on endolide analogs.
+To further filter for endolide analogs that are supposedly
+produced in sufficient amounts for isolation and structure
+elucidation, only nodes with an intensity (sum of precursor
+ion) greater than 1.5 × 106 were retained, as it was shown
+before that the peak areas of [M + H]+ adducts and
+concentrations of endolides correlate well.32 Previous yields
+of 24.6 mg/L after reisolation of the known endolide A (Table
+S3, Figure S3) indicated that nodes below this threshold would
+have yields below 0.1 mg/10L.
+In this way, we generated a MassQL-annotated molecular
+network with substructural information for all endolides.
+Encouragingly, the amino acid composition of the known
+endolides was correctly annotated in a qualitative manner and
+the putatively new proline-containing analogs were found to
+cluster together (pink nodes, Figure 2). Furthermore, the new
+proline-containing analogs were suggested to contain NMefA-
+la/fAla as well as Leu and/or Val. To confirm the predicted
+amino acid composition, and because no proline-containing
+endolides had previously been reported, the most abundant
+candidates, corresponding to features m/z 461.2754 (com-
+pound 1, Figure 2) and m/z 485.2389 (compound 2, Figure
+2), were targeted for isolation and structural elucidation.
+Therefore, the fungus was cultivated at larger scale using the
+previously determined conditions for the optimal production
+of these substances (Figures S1, S2).
+The structure elucidation for the targeted feature m/z
+461.2754 was achieved using 1D and 2D NMR spectroscopy,
+assisted by HR-LC-MS/MS analysis. Complementary to the
+molecular networking approach, the SIRIUS framework was
+used to determine the most likely molecular formula as
+C24H37N4O5
++ [M + H]+ (Figures S4, S5).16 Additionally,
+CSIFinger:ID was used to generate molecular fingerprints,
+which in turn can be used to search structure databases for
+similar/identical compounds17 and to classify the mass
+spectrometric features using the integrated CANOPUS
+function.18 The top CSI:FingerID results did not contain
+endolides, but the CANOPUS annotations “valine and
+derivatives” hinted at a valine moiety, while “pyrrolidinecar-
+boxamides” and “azacyclic compounds” hinted at a proline
+moiety in the new compound (Figure S6) (as reported before
+for other proline-containing natural products).18,33 Altogether,
+the CANOPUS and SIRIUS results supported the MassQL-
+annotated molecular networking predicted amino acid
+composition NMefAla, Pro, Leu, and Val for m/z 461.2754.
+However, it is usually not possible to unambiguously assign
+the amino acid sequence for cyclic peptides from LC-MS2 data
+Figure 1. MassQL workflow for amino acid annotation (A) MassQL
+query for endolides. Example MassQL query for the specific search for
+the methylated (dark blue) and unmethylated (light blue) iminium
+ions of 3-(3-furyl)-alanine and valine (green) are highlighted. (B)
+Visualization of MassQL query in MS/MS data of endolide B. (C)
+Indicative MS/MS hooks in endolide B, iminium adducts of amino
+acids (N-methyl-3-(3-furyl)-alanine, 3-(3-furyl)-alanine, and valine).
+(D) Results of MassQL queries focusing on occurring amino acids.
+Valine and leucine/isoleucine were combined, as it is not possible to
+distinguish between N-methyl-valine and leucine/isoleucine by
+analysis of the iminium adducts only.
+Figure 2. MassQL-annotated ion identity molecular network of the
+endolide molecular family; colors of the pie charts show amino acid
+composition; already annotated substances are highlighted with red
+borders; prioritized compounds for isolation are highlighted with
+yellow borders.
+Journal of Natural Products
+pubs.acs.org/jnp
+Article
+https://doi.org/10.1021/acs.jnatprod.3c00750
+J. Nat. Prod. 2024, 87, 692−704
+694
+
+
+
+[PDF physical page 4]
+only. Therefore, 1D and 2D NMR spectroscopic data analysis
+(Figures S7−S12) was used for unambiguous structure
+elucidation of the new endolides (Figure 3).
+The multiplicity-edited
+1H−13C HSQC data provided
+evidence for the presence of five CH2 groups in the structure
+of compound 1. In addition, five non-hydrogenated carbons,
+nine CH, and five CH3 groups were identified based on the 13C
+and 1H−13C HSQC data as well as the integrals of the 1H
+NMR data. The occurrence of four amide carbonyl (δC 173.0,
+172.4, 172.2, 169.7) and four alpha-CH groups (δH/δC 4.74/
+50.0, 4.49/61.6, 4.47/54.8, 4.43/61.8) suggested a tetrapepti-
+dic structure of 1. The individual component amino acids and
+their sequence was confirmed based on the interpretation of
+2D NMR data.
+1H−1H COSY, 1H−13C HMBC, and 1H−1H NOESY data
+allow clear assignment of the carbons and hydrogens in
+NMefAla. HMBC correlations from aromatic hydrogens H-5,
+H-6, and H-7 to C-4 and from H-5, H-6, H-3a, and H-3b to C-
+7 together with the COSY correlation between H-5 and H-6
+establish the furan moiety. The HMBC correlations from H-3a
+and H-3b to C-4 and the COSY coupling from H-3a and H-3b
+to the alpha H-2 allow for the assignment of 3-(3-furyl)-
+alanine. H-2 in turn shows an HMBC correlation to C-8 of the
+N-methyl group, allowing for the assignment of NMefAla.
+The two methyl groups H3-12 and H3-13 exhibited COSY
+correlations to H-11, suggesting a valine moiety. Furthermore,
+the HMBC spectrum showed correlations from H-10 to C-11,
+C-12, and C-13 and from H-10 to C-9.
+The third residue was designated as proline, based on the
+continuous COSY spin system beginning with the alpha H-15
+and continuing through H-16a/16b, H-17a/17b, and H-18a/
+18b. HMBC correlations were observed from H-15, H-16b,
+and H-17a to C-14 as well as from H-15 and H-16a to C-18.
+Interestingly, the large chemical shift difference between C-16
+and C-17 (Δ = 9.8 ppm)34 implies a cis Leu-Pro amide bond,
+which is a known feature for proline residues in cyclic
+peptides.35 The cis amide bond is further supported by NOEs
+between H-15 (α-Pro) and H-20 (α-Leu). An NOE between
+H-18 (δ-Pro) and H-20 (α-Leu), which would be suggestive of
+a trans amide bond, is absent. The last subunit was found to be
+leucine on the basis of COSY couplings between the two
+methyl groups H3-23 and H3-24 and H-22, suggesting an
+isopropyl unit, and from H-21 to H-20 to NH-(2).
+The amino acid sequence could be deduced from the
+HMBC and NOESY data. The HMBC spectrum showed a
+correlation from the NH-(2) of leucine to the carbonyl carbon
+C-1 of NMefAla, and this linkage was further supported by an
+NOE between NH-(2) of leucine and H-3 of NMefAla. Next, a
+NOESY correlation connected the alpha H-20 of leucine to the
+alpha H-15 of proline. In contrast to all other previously
+reported endolides, which show a strictly alternating N-
+methylation pattern, there is only one site of N-methylation in
+1. The H3-8 of NMefAla couple to the carbonyl carbon C-9 of
+valine in the HMBC spectrum. It follows that N-methyl-3-(3-
+furyl)-alanine is flanked by valine and leucine. Proline must be
+on the opposite site of N-methyl-3-(3-furyl)-alanine in the
+cyclic tetrapeptide.
+The structure of the proline-containing endolide F (2) was
+also assigned based on LC-MS/MS (m/z 485.2389, [M + H]+,
+C25H33O6N4
++, Figures S13, S14) and analysis of 1D and 2D
+NMR data. The amino acid composition of this cyclic
+tetrapeptide was assigned by comparing MS/MS data (Figure
+S15) and the 1H NMR data of 2 with 1 (Figures S16, S17).
+The signals for leucine were absent from the 1H NMR data
+of 2. However, the analogous signals for proline, valine, and N-
+methyl-3-(3-furyl)-alanine were present. In addition, a closer
+look at the integrals of the aromatic hydrogen atoms of the
+furan moiety showed that they are twice as large in 2 as in 1
+(Figure S17). Together with the Δm/z of 23.9637, these data
+suggested that 2 has a second, but unmethylated 3-(3-furyl)-
+alanine moiety in place of the leucine in 1. The substitution of
+leucine by 3-(3-furyl)-alanine and the resulting planar structure
+of compound 2 were confirmed by analysis of 13C and 2D
+NMR experiments (Figures 3, S16−S21). Similarly, as in 1, the
+fAla-Pro amide bond possesses a cis configuration in 2 as
+judged by the ΔCβCγ = 9.7 ppm chemical shift.
+Compounds 1 and 2 were isolated from the same fungal
+strain as the known endolide A and are presumably encoded by
+the same biosynthetic gene cluster. The absolute configuration
+for endolide A has been established by Marfey’s analysis and X-
+ray crystallography; all amino acids are L-configured, and we
+thus predicted that all amino acids in 1 and 2 are also L-
+configured. To prove this, Marfey’s analysis was conducted and
+enabled the successful determination of the configuration for
+three out of the four amino acids in 1 and two out of four
+amino acids in 2 (Figure S22). An L-configuration was indeed
+Figure 3. Planar structures of endolide E (1) and endolide F (2) with selected 1H−1H COSY, 1H−13C HMBC, and 1H−1H NOESY correlations
+shown.
+Journal of Natural Products
+pubs.acs.org/jnp
+Article
+https://doi.org/10.1021/acs.jnatprod.3c00750
+J. Nat. Prod. 2024, 87, 692−704
+695
+
+
+
+[PDF physical page 5]
+found for proline, valine, and leucine. However, the harsh
+hydrolysis conditions (6 N HCl, 110 °C) used to break down
+the tetrapeptide into its amino acid building blocks also led to
+the degradation of NMefAla/fAla from compounds 1 and 2 as
+Figure 4. Computational details. (A) relative 13C NMR chemical shifts for each carbon atom of compound 1 with N-methyl-3-(3-furyl)-(R)-
+alanine and N-methyl-3-(3-furyl)-(S)-alanine. (B) Comparison of measured and theoretical 13C NMR chemical shifts.
+Journal of Natural Products
+pubs.acs.org/jnp
+Article
+https://doi.org/10.1021/acs.jnatprod.3c00750
+J. Nat. Prod. 2024, 87, 692−704
+696
+
+
+
+[PDF physical page 6]
+reported before, as well as from synthetic standards (D-
+NMefAla, D-fAla, L-NMefAla, L-fAla) conjugated with D-FDLA
+(Figure S23), rendering an unambiguous configuration
+determination by this method alone impossible. Therefore,
+we acquired specific rotation and ECD data for compounds 1,
+2, and endolide A. All spectra are very similar to a negative
+Cotton effect at 217−222 nm, suggesting the same absolute
+configuration for all three molecules (Figure S24). This
+suggestion receives further support from a computational study
+on compound 1. The conformer spaces of the two possible
+diastereomers of 1 with R (D)- and S (L)-configured NMefAla
+were explored (see Computational Details, Figures 4, S25, and
+S26, and Tables S4−S10), and specific rotations as well as 13C
+NMR chemical shifts were computed for a Boltzmann-
+weighted ensemble of low-energy conformers obtained in
+this study. The specific rotation was estimated to be −206 deg
+cm3 g−1 dm−1 for R- and −213 deg cm3 g−1 dm−1 for S-
+configured NMefAla in 1, compared to −240 deg cm3 g−1
+dm−1 determined experimentally. Comparison between meas-
+ured and computed 13C NMR chemical shifts is displayed in
+Figure 4. Root mean square deviations (RMSD) of 3.2 ppm for
+R (NMefAla) and 2.7 ppm for S (NMefAla) suggest a slight
+preference for S, and the strong deviation for the 13C shielding
+of the N-methyl group of NMefAla in R provides enhanced
+support for the S configuration and, thus, an all-S configuration
+in tetrapeptide 1. Given that all previously reported endolides
+were assigned as all-S, we propose that all endolides are
+produced by the same biosynthetic gene cluster and thus that
+Figure 5. Two-digit micromolar concentrations of endolide F (2) inhibit arginine vasopressin (AVP)-induced activation of the vasopressin V1A
+receptor (V1AR). Concentration-dependent whole cell activation of naïve HEK293 cells after transfection with empty vector or an expression
+plasmid coding for the V1A receptor following application of AVP (A, B) or endolide F (C, D). (B, D) Concentration−effect relationships of the
+traces shown in A and C expressed as a percentage of the 1 μM AVP response obtained on V1A-receptor-transfected cells in each individual
+experiment, with the stippled line indicating the EC80 value. (E) Effect of endolide F on whole cell activation evoked with AVP or carbachol (CCh)
+at their respective EC80 concentrations in HEK293 cells transfected to transiently express the V1A receptor. (F) Concentration−effect relationship
+of the traces depicted in E expressed as the normalized reduction of the maximal DMR response caused by AVP or CCh alone in each individual
+experiment. Representative single traces are buffer-corrected means + standard error of the mean (S.E.M.) of three replicate measurements.
+Concentration−effect relationships are means ± S.E.M. of at least three independent biological experiments, each performed in technical triplicate.
+Δpm, buffer-corrected wavelength shift in picometers. DMR, dynamic mass redistribution.
+Journal of Natural Products
+pubs.acs.org/jnp
+Article
+https://doi.org/10.1021/acs.jnatprod.3c00750
+J. Nat. Prod. 2024, 87, 692−704
+697
+
+
+
+[PDF physical page 7]
+the amino acid building blocks of compound 2 have most likely
+all-S configuration, too.
+Based on the MassQL-annotated molecular network and
+subsequent manual inspection of the MS/MS data, the amino
+acid composition of additional cyclic tetrapeptides could be
+annotated with high confidence. These included further
+proline-containing analogs, the known endolides C and D,9
+and other sequences of the same four amino acids (Figure
+S27).
+The scalability of MassQL queries makes them useful for
+other purposes. S. bicolor harbors a bacterial endosymbiont,
+Burkholderia contaminans, and there is evidence that the
+endolides are produced by the bacterium and not the fungus.36
+At present, only two other NMefAla-containing peptides,
+bingchamide B and rhizonin A, are known,37,38 both
+originating from bacteria. Only recently did Ehinger et al.
+prove the production of furylalanine moieties in rhizonin A by
+the endofungal symbiont Mycetohabitans endofungorum.39
+Thus, it is likely that the endolides are also of bacterial origin,
+but to date we have not been able to cultivate the
+endosymbiont in axenic cultures (a commonly observed
+phenomenon).40 To add further evidence for the bacterial
+origin of the endolides, an extended repository-scale MassQL
+search of all data sets deposited on MASSIVE from the same
+mass analyzer (Q-Exactive Orbitrap) was carried out by
+targeting the accurate masses for the iminium ion as well as the
+neutral loss of NMefAla. Additionally, we also applied a
+taxonomically informed mass spectrometry search tool for
+microbial metabolomics data (microbeMASST41) with several
+different endolides to find putatively cultivable endolide
+producers that might allow for more detailed biosynthetic
+studies of the endolides in the future. Unfortunately, both
+attempts to detect other producer organisms of NMefAla-
+containing natural products in the repositories were
+unsuccessful and thus highlight the rarity of the NMefAla
+building block.
+Apart from the structure determination and the possible
+bacterial origin of endolides, the question of their biological
+activity arose. The already published endolides A and B are
+known to bind to the vasopressin receptor 1A (V1A) and the
+serotonin receptor 2B (5-HT2B),5 respectively, with low
+micromolar affinities. However, only weak (5-HT2B) or no
+(V1A) antagonistic activity could be determined for synthetic
+endolides A and B in a cellular assay.42 To investigate whether
+small structural modifications such as different amino acids and
+amino acid sequence might translate to a functional effect, the
+newly isolated endolides E (1) and F (2) were tested for V1A
+antagonistic activity. While pretesting (data not shown)
+confirmed that endolide A was inactive as well as 1, our
+results suggested that 2 might indeed impact V1A receptor
+signaling induced by the endogenous agonist arginine
+vasopressin (AVP), causing us to focus on this ligand−
+receptor system.
+We employed label-free whole cell biosensing based on
+dynamic mass redistribution (DMR) as functional readout for
+V1A receptor activation. DMR technology provides phenotypic
+measures of cellular activity in real time when cells are exposed
+to pharmacologically active stimuli.43−45 In our experimental
+DMR paradigm, AVP evoked concentration-dependent cellular
+activity in naïve HEK293 cells that was significantly enhanced
+when cells were transfected to transiently overexpress V1AR
+(Figure 5A,B). In contrast, 2 on its own did not promote
+activation of either endogenous or exogenous V1AR signaling
+(Figure 5C,D).
+We therefore investigated a possible inhibitory effect of 2 on
+AVP-induced cell activation. Indeed, when cells were pre-
+treated with various concentrations of 2, V1AR activation
+promoted with AVP at its EC80 (10 nM) was significantly
+diminished (Figure 5E,F). In contrast, carbachol (CCh)-
+promoted cell activation (EC80 = 31.6 μM) via the
+endogenously expressed muscarinic M3 receptor was not
+affected (Figure 5E,F). Inhibition of AVP- but not of CCh-
+mediated signaling in the two-digit micromolar concentration
+range by 2 (∼22% at 31.6 μM) is consistent with bioactivity of
+this natural product on V1AR and also with the low micromolar
+affinity observed for endolide A on this receptor in an earlier
+study.5,42
+Combining molecular networking with substructural analysis
+offers a promising strategy to subclassify and identify members
+of a molecular family of interest, e.g., cyclic plant peptides.31
+Recently, building blocks-based molecular networking
+(BBMN)46 was developed to annotate specific substructures
+in the Securinega alkaloid family to provide additional insights
+for their biosynthesis as well as exploration of their chemical
+space. BBMN even led to the unprecedented discovery of
+alkaloids containing novel backbone scaffolds (8/5/6/5/6/6/
+6/6-fused octacyclic scaffold with a unique cage-shaped 3-
+azatricyclo[6.4.0.0]dodecane core),3,11 highlighting the useful-
+ness of integrating molecular networking with annotation
+strategies on a substructural (building block) level. MassQL-
+annotated molecular networking goes one step further by
+adding reliable substructural information to all previously
+unannotated nodes in a molecular networking cluster of the
+targeted endolide molecular family (Figure S27). It is possible
+to identify putatively new compounds based on specific
+structural features using simple search commands. The
+application of MassQL thus enables rapid decision making to
+prioritize candidates for subsequent isolation and hints toward
+A-domain specificities of targeted nonribosomal peptides. In
+addition, the m/z data of additional iminium ion fragments in
+the MS/MS data can be used to facilitate and speed up the
+structure elucidation process by assigning the available
+iminium ion fragments to known (non-)proteinogenic amino
+acids. However, this annotation remains only an aid to
+structure elucidation, and the method has some other MS-
+intrinsic limitations. (i) One limitation is the requirement of an
+MS/MS capable high-resolution mass spectrometer with a low-
+m/z cutoff in MS/MS spectral data to also detect iminium ions
+from small amino acids such as glycine or alanine. (ii) A
+second limitation is the occurrence of false positives in
+metabolomics analysis due to analytes having the exact same
+fragment masses as the respective amino acid iminium ions.
+However, by combining different specific queries this effect can
+be mitigated. Another limitation is the occurrence of false
+positives due to selection of the query parameters; therefore,
+the query parameters should be adapted to the quality of the
+available data. (iii) A third limitation is the redundancy of
+features due to in-source fragments and adducts. The redundant
+adducts and in-source fragments such as water loss can be
+removed by integrating filtering queries in future studies. (iv)
+A fourth limitation is that MS2 signal quantification is not
+possible: if there is a query hit for a specific iminium adduct, it
+is not possible to determine how often the corresponding
+amino acid in the cyclic peptide occurs, as there is no direct
+correlation between signal intensity and feature abundance. (v)
+Journal of Natural Products
+pubs.acs.org/jnp
+Article
+https://doi.org/10.1021/acs.jnatprod.3c00750
+J. Nat. Prod. 2024, 87, 692−704
+698
+
+
+
+[PDF physical page 8]
+Another is unknown biosynthetic modifications of individual
+amino acids are not taken into account, since no data are
+available on the structure and thus the exact mass of the
+modified iminium ions. However, this can be also leveraged by
+designing MassQL queries for iminium adducts of amino acids
+that are currently new to nature. (vi) It is also not possible to
+determine the amino acids sequence in (cyclic) peptides with
+simple iminium adduct targeting queries based on MS/MS
+data, which is important considering the bioactivity results of
+this study.
+■CONCLUSIONS
+In conclusion, MassQL is a versatile tool for generating and
+answering research questions from MS data, both broad and
+specific, in different areas of natural products research,15 and
+can be used to add useful substructural information to
+molecular networks. Here we reported the guided isolation,
+structure elucidation, and bioactivity evaluation of two new
+proline-containing compounds, 1 and 2, by MassQL-annotated
+molecular networking, as well as the putative annotation of the
+amino acid constitution of seven additional endolides (Figure
+S27). Future integration with other computational tools such
+as MolNetEnhancer,23 NAP,24 or MolDiscovery25 can be
+envisioned to guide the discovery of new natural products and
+increase confidence in MS-based annotations of known and
+new bioactive SMs.
+■EXPERIMENTAL SECTION
+General Experimental Procedures. Jasco DIP-370 with the D-
+line of the sodium lamp at λ = 589.3 nm was employed to measure the
+optical rotations of the isolated compounds. UV data were acquired
+using a J-1500 CD spectrometer (Jasco). CD spectra were recorded
+using a 1 mm path length quartz cell (Hellma Analytics) on a J-1500
+CD spectrometer (Jasco). A Bruker Alpha FT IR instrument was used
+to obtain the IR data. NMR measurements were performed on a
+JEOL ECA-500 spectrometer (for 1) and on a JEOL ECA-400S
+spectrometer (for 2). NMR spectra were referenced to residual
+solvent acetone-d6 signals (δH 2.05 and δC 29.9). NMR spectra were
+analyzed with MestReNova software (version: 12.0.0-20080). DMR
+measurements were performed as previously described43−45 using the
+Epic biosensor (Corning) together with the CyBi-SELMA semi-
+automated electronic pipetting system (Analytik Jena AG). Cell
+culture materials were purchased from Invitrogen. The solvents used
+were supplied by Th. Geyer GmbH & Co. KG and Fisher Scientific
+GmbH. Double-distilled water was used for HPLC. For LC-MS/MS
+measurements, LC-MS grade acetonitrile and water were used.
+Acetone-d6 was purchased from Sigma-Aldrich Co. All other reagents
+were from Sigma-Aldrich if not stated otherwise.
+Strains, Media, and Growth Conditions. The marine fungus
+Stachylidium bicolor, strain number 293 K04, is from the collection of
+the Institute of Pharmaceutical Biology, University of Bonn, Germany.
+It was isolated from the sponge Callyspongia sp. cf. C. flammea in the
+coral reef of Bare Island, New South Wales, Australia, derived from
+the collection trip CT293-2, 1993.
+A 4 kg amount of rice and 6 L of water were divided into 40 × 250
+mL Fernbach flasks and autoclaved. A preculture was prepared by
+inoculating spores of the fungus in liquid PD medium (24 g/L) and
+cultivating for 2 weeks at 25 °C. A 2 mL amount of the preculture was
+used to inoculate each Fernbach flask, and the final culture was
+cultivated for 30 days at 25 °C. A dark environment was maintained
+for both cultivations. A specimen was deposited at the Institute for
+Pharmaceutical Biology, University of Bonn (Bonn, Germany), strain
+number “293 K04”, running number “220”, and is available upon
+request.
+LC-MS/MS Data Acquisition. LC-MS/MS analysis for the
+MassQL analysis was performed on a Vanquish Horizon UHPLC
+pump (Thermo Fisher Scientific) equipped with a C18 core−shell
+microflow column (Kinetex C18, 150 × 1 mm, 1.8 μm particle size,
+100 Å pore size, Phenomenex). A Q-Exactive HF quadrupole
+Orbitrap mass spectrometer (Thermo Fisher Scientific) was used
+for detection. For chromatography, water (A) and acetonitrile (B)
+were used as mobile phase. An ACN gradient of 5% to 50% in
+minutes 0 to 4 and of 50% to 99% in minutes 4 to 5 was used,
+followed by a 2 min wash phase at 99% (B) and a 2 min re-
+equilibration phase at 5% (B) with a continuous flow rate of 0.150
+mL/min.
+Further LC-MS/MS measurements for verification during the
+analytical process and for OSMAC analysis were performed on an
+Agilent HPLC 1260 series system with a photo diode array detector
+and a Bruker micro TOF QIII mass spectrometer by using a VDSpher
+PUR 100 C18-M-SE column (150 × 2.0 mm, 3 μm, VDS Optilab
+Chromatographietechnik GmbH). A linear gradient of 5−100%
+acetonitrile in water, containing 0.1% formic acid, in 10 min at a flow
+rate of 0.3 mL/min was used for LC-MS analysis. The parameters of
+the MS device were set as electrospray positive ion mode for
+ionization, capillary voltage of 4.5 kV, and collision energy of 8.0 eV.
+File Conversion. LC-MS/MS data were converted from .RAW
+(Thermo Scientific data format) for iminium ion analysis and from .d
+(Bruker data format) for OSMAC analysis to mzML format using MS
+convert from the ProteoWizard or vendor software, respectively.47
+Classic Molecular Networking. The molecular networks were
+created using the online workflow on the GNPS Web site (http://
+gnps.ucsd.edu). The data were filtered by removing all MS/MS
+fragment ions within ±17 Da of the precursor m/z. MS/MS spectra
+were window filtered by choosing only the top six fragment ions in the
+±50 Da window throughout the spectrum. The precursor ion mass
+tolerance was set to 0.02 Da with an MS/MS fragment ion tolerance
+of 0.02 Da. A network was then created in which edges were filtered
+to have a cosine score above 0.70 and more than six matched peaks.
+Edges between two nodes were kept in the network if and only if each
+of the nodes appeared in each other’s respective top 10 most similar
+nodes. Finally, the maximum size of a molecular family was set to 100,
+and the lowest scoring edges were removed from molecular families
+until the molecular family size was below this threshold. The spectra
+in the network were then searched against the GNPS spectral
+libraries.12,13 The library spectra were filtered in the same manner as
+the input data. All matches kept between network spectra and library
+spectra were required to have a cosine score above 0.8 and at least six
+matched peaks.
+Feature-Based Molecular Networking. LC-MS/MS data was
+preprocessed using MZMine348 employing the mass detection ADAP
+chromatogram builder, local minimum feature resolver, 13C isotope
+filter, isotopic peaks finder, join aligner, feature list rows filter, peak
+finder, duplicate peak filter, meta-correlate, and ion identity molecular
+networking (IIMN) capabilities. The processed data were uploaded to
+GNPS using the IIMN workflow. The data were filtered by removing
+all MS/MS fragment ions within ±17 Da of the precursor m/z. MS/
+MS spectra were window filtered by choosing only the top six
+fragment ions in the ±50 Da window throughout the spectrum. The
+precursor ion mass tolerance was set to 0.02 Da, and the MS/MS
+fragment ion tolerance to 0.02 Da. A molecular network was then
+created in which edges were filtered to have a cosine score above 0.7
+and more than six matched peaks. Further, edges between two nodes
+were kept in the network if and only if each of the nodes appeared in
+each other’s respective top 20 most similar nodes. Finally, the
+maximum size of a molecular family was set to 400, and the lowest
+scoring edges were removed from molecular families until the
+molecular family size was below this threshold. The spectra in the
+network were then searched against GNPS spectral libraries.12,13 The
+library spectra were filtered in the same manner as the input data. All
+matches kept between network spectra and library spectra were
+required to have a cosine score above 0.7 and at least six matched
+peaks.
+Molecular Network Visualization. Molecular networks were
+exported to Cytoscape software (version 3.9.1.)49 for visualization.
+Journal of Natural Products
+pubs.acs.org/jnp
+Article
+https://doi.org/10.1021/acs.jnatprod.3c00750
+J. Nat. Prod. 2024, 87, 692−704
+699
+
+
+
+[PDF physical page 9]
+Extraction and Isolation of the Specialized Metabolites
+from Large-Scale Cultivation. The 10 L culture of Stachylidium
+bicolor 293 K04 was extracted three times for 10 min each in an
+ultrasonic bath with 250 mL of ethyl acetate for each Fernbach flask.
+The organic fraction was then concentrated using a rotary evaporator
+to yield 31.5 g of extract. Chromatography on silica gel 60 from Karl
+Table 1. NMR Spectroscopic Data (500/125 MHz) for Endolide E (1) and (400/100 MHz) Endolide F (2) in Acetone-d6
+endolide E (1)
+endolide F (2)
+position
+δC, type
+δH (J in Hz)
+1H−1H-COSY
+1H−13C-
+HMBC
+1H−1H-NOESY
+δC, type
+δH (J in Hz)
+1
+169.7, C
+173.1, C
+2
+61.6, CH
+4.49, d (3.2)
+3-b, 3-a
+3, 8
+3-a, 5
+61.4, CH
+4.37, m
+3
+24.6, CH2
+3.35, d (15.3)
+2, 3-b
+4, 7
+7
+23.6, CH2
+3.22, d (15.5)
+2.90, m
+2, 3-a
+2, 4, 7, 8
+2
+2.80, m
+4
+122.3, C
+121.3, C
+5
+111.1, CH
+6.37, brs
+6
+4, 6, 7
+6
+110.2, CH
+6.32, d (1.7)
+6
+144.4, CH
+7.52, t (1.6)
+5
+4, 5, 7
+5
+143.5, CH
+7.47, t (1.7)
+7
+141.0, CH
+7.41, brs
+4, 5, 6
+140.1, CH
+7.38, s
+8
+29.5, CH3
+2.77, s
+9
+7, NH-(2)
+29.5, CH3
+2.69, s
+9
+172.2, C
+171.0, C
+10
+54.8, CH
+4.47, m
+NH-(1)
+9, 11, 12, 13
+12, NH-(1)
+54.6, CH
+4.44, m
+11
+29.0, CH
+2.13, m
+12, 13
+10, 12, 13
+10, 12
+28.7, CH
+2.10, m
+12
+18.4, CH3
+0.83, d (6.5)
+11
+10, 11, 13
+10, 11, 17-b, NH-(1)
+17.5, CH3
+0.79, d (7.0)
+13
+20.9, CH3
+0.81, d (6.5)
+11
+10, 12
+20.1, CH3
+0.76, d (7.0)
+NH-(1)
+7.73, d (12.5)
+10
+10, 12
+7.70, s
+14
+173.0, C
+172.4, C
+15
+61.8, CH
+4.43, m
+16b
+14, 16, 17, 18
+16-a, 16-b, 17-b, 20, NH-(2)
+61.9, CH
+4.40, m
+16
+32.5, CH2
+2.17, m
+15, 17-b
+18
+31.7, CH2
+2.12, m
+2.09, m
+15
+14, 15
+2.08, m
+17
+22.7, CH2
+1.96, m
+17-b, 16-a, 18-a
+14, 15, 16
+17-b, 18-a
+22.0, CH2
+1.93, m
+1.74, m
+16-a, 16-b, 17-a, 18-a, 18-b
+14, 15, 16
+12, 17-a, 18-b
+1.73, m
+18
+47.9, CH2
+3.57, m
+17-b, 17-a, 18-b
+47.3, CH2
+3.55, m
+3.30, m
+17-b, 18-a
+16
+3.32, t (10.0)
+19
+172.4, C
+173.4, C
+20
+50.0, CH
+4.74, brs
+21-a, 20
+15, 23, NH-(2)
+51.9, CH
+4.84, brs
+21
+42.2, CH2
+1.70, m
+20, 21-b
+22
+21-b, 23, NH-(2)
+26.5, CH2
+2.94, dd (6.3, 14.5)
+1.41, m
+20, 21-a
+20, 21-a, 23
+2.72, m
+22
+25.0, CH
+1.61, m
+23, 24
+21
+24
+121.1, C
+23
+22.5, CH3
+0.91, d (6.6)
+22
+21, 24
+20
+112.5, CH
+6.34, d (1.8)
+24
+23.9, CH3
+0.88, d (6,6)
+22
+21, 23
+21-a, 21-b, 17-a, 22
+142.3, CH
+7.37, t (1.8)
+25
+140.8, CH
+7.34, s
+NH-(2)
+7.76, d (9.4)
+20
+1
+3-b, 8, 20, 21-a
+7.72, s
+Scheme 2a
+aReagents: (a) 1. zinc dust (4.0 equiv), I2 (0.1 equiv), DMF; 2. 3-bromofuran (3.0 equiv), Pd2(dba)3 (0.1 equiv), XPhos (0.4 equiv); (b) aq. LiOH
+1 M (2.0 equiv), THF; (c) NaH in mineral oil (5.0 equiv), iodomethane (5.0 equiv), THF.
+Journal of Natural Products
+pubs.acs.org/jnp
+Article
+https://doi.org/10.1021/acs.jnatprod.3c00750
+J. Nat. Prod. 2024, 87, 692−704
+700
+
+
+
+[PDF physical page 10]
+Roth (0.04−0.063 mm) with step gradient elution (100% petroleum
+ether; 1:1 petroleum ether−dichloromethane; 100% dichlorome-
+thane; 1:1 dichloromethane−ethyl acetate; 100% ethyl acetate; 1:1
+ethyl acetate−acetone; 100% acetone; 1:1 acetone−methanol; 100%
+methanol) gave nine fractions. Fraction 5 was subject to further
+purification on a puriFlash 5.250P system equipped with a Kinetex 5
+μm C18 100 Å column (150 × 21.2 mm, Phenomenex Ltd., with a
+linear gradient of 30−50% acetonitrile in water over 20 min, flow rate:
+20.0 mL/min, λ = 206 nm). Subfractions 5.9−5.16 purified by HPLC
+using an Agilent HPLC 1260 series system with a semipreparative
+VDSpher PUR 100 C18-SE column (250 × 10 mm, 5 μm, VDS
+Optilab Chromatographietechnik GmbH, linear gradient of 30−50%
+acetonitrile in water in 35 min, flow rate: 2.0 mL/min, λ = 206 nm)
+gave endolide E (1) (tR: 33.0 min) in a yield of 3.1 mg/L and
+endolide F (2) (tR: 27.0 min) in a yield of 0.8 mg/L.
+Endolide E (1): white powder; [α]28
+D −240 (c 0.03, acetone); UV
+(ACN) λmax (log ε) 218 (5.08) nm; ECD (1.30 mM, ACN) λmax (Δε)
+217 (−29.25); IR (ν̃max) 3296, 2956, 2873, 1654, 1626, 1508, 1404,
+1385, 1026, 849, 601, 468 cm−1 (Figure S28); 1H and 13C NMR see
+Table 1; HRESIMS m/z 461.2754 [M + H]+ (calcd for C24H37N4O5
++,
+461.2758).
+Endolide F (2): white powder, [α]28
+D −215 (c 0.03, acetone); UV
+(ACN) λmax (log ε) 216 (5.34) nm; ECD (1.24 mM, ACN) λmax (Δε)
+221.5 (−15.71); IR (ν̃max) 3311, 2965, 2875, 1648, 1628, 1508, 1402,
+1385, 1157, 1024, 874, 778, 601 cm−1 (Figure S29); 1H and 13C
+NMR see Table 1; HRESIMS m/z 485.2389 [M + H]+ (calcd for
+C25H33 N4O6
++, 485.2395).
+Synthesis of 3-(3-Furyl)-L/D-alanine and N-Methyl-3-(3-
+furyl)-L/D-alanine Derivatives. The compounds were prepared
+according to an established literature procedure.42 All compounds
+were obtained with the shown alanine derivative impurity.
+Advanced Marfey’s Method. Endolides E (1) and F (2) (each
+0.3 mg) and the synthesized NMefAla/fAla standards (only for the
+hydrolyzed approach, Figure S23) were hydrolyzed with 6 N HCl
+(300 μL) and heated at 110 °C for 16 h in sealed tubes. The
+hydrolysates were concentrated to dryness under N2, and each was
+treated with a solution of Nα-(5-fluoro-2,4-dinitrophenyl)-D-leucina-
+mide (FDLA, 1 mg/mL) in acetone (100 μL) and a solution of 1 M
+NaHCO3 (20 μL) and H2O (50 μL) in a sealed vial at 40 °C for 60
+min. The reaction mixture was neutralized with 1 N HCl (20 μL) and
+diluted with CH3CN (810 μL). The resulting solution was analyzed
+by an Agilent HPLC 1260 series system with a photodiode array
+detector and a Bruker micro TOF QIII mass spectrometer by using a
+VDSpher PUR 100 C18-M-SE column (150 × 2.0 mm, 3 μm, VDS
+Optilab Chromatographietechnik GmbH). A linear gradient of 5−
+100% acetonitrile in water, containing 0.1% formic acid, in 10 min at a
+flow rate of 0.3 mL/min was used. Retention times, UV spectra, and
+EICs of the amino acid−FDLA conjugates from the reaction mixtures
+were compared with the commercially available and synthesized
+amino acid standards that were derivatized using identical method-
+ology.
+Cell Culture. Native human embryonic kidney (HEK)-293 cells
+were cultivated in Dulbecco’s modified Eagle’s medium (DMEM)
+with 5% CO2 at 37 °C in a humidified atmosphere. The medium was
+supplemented with 10% (v/v) fetal calf serum, penicillin (100 U/ml),
+and streptomycin (0.1 mg/mL). Cells were transfected 24 h before
+the experiments using polyethylenimine (PEI, 1 mg/mL). Trans-
+fection was performed according to the manufacturer’s instructions
+(DNA to PEI solution ratio 1:3). Approximately 2.8 × 106 cells were
+seeded into 10 cm dishes and immediately transfected with 5 μg of
+total cDNA per condition (with and without 3 μg of V1A receptor,
+filled up to 5 μg with empty pcDNA3.1(+) vector).
+Label-Free DMR Assays. DMR measurements were performed as
+previously described43−45 using the Epic biosensor (Corning)
+together with the CyBi-SELMA semiautomated electronic pipetting
+system (Analytik Jena AG). In brief, 24 h after transfection, HEK293
+cells were washed with PBS, detached with trypsin, taken up in
+DMEM, counted, and seeded at a density of 18,000 cells per well on
+384-well fibronectin-coated biosensor plates (Corning) and were then
+cultivated overnight. After 22 to 24 h, cells were washed three times
+with assay buffer (Hank’s buffered salt solution (HBSS) containing 20
+mM Hepes and 0.25% DMSO). Cells were incubated in 20 μL of
+assay buffer for 1 h at 37 °C in the Epic reader to equilibrate.
+Endolides and the reference agonist were diluted in assay buffer (final
+concentration of 0.25% DMSO for every condition). After
+equilibration, the sensor plate was scanned to record a baseline
+optical signature for 5 min, followed by buffer or endolide addition
+(10 μL of 3× concentrated dilution). As a second addition, either
+buffer or agonist dilutions were added after 16 min (10 μL of 4×
+concentrated dilution). Data points were generated from an average of
+five measurements per point. Single DMR traces are shown as buffer-
+corrected signal (Δpm) by subtracting the mean of the buffer values
+corresponding to each data point. Data were analyzed using
+GraphPad Prism 10 software.
+Computational Details. All quantum chemical calculations were
+performed using the Turbomole software package (version 7.7).50 An
+initial conformer search for the possible configurations was conducted
+by employing the default iMTD-GC algorithm as implemented in the
+CREST program.51 The resulting conformer candidate structures
+(149 for R-configured NMefAla, 163 for S-configured NMefAla) were
+energy optimized at BP86/def2-SVP level of theory with the D3
+dispersion correction with damping (BJ) and the resolution of
+identity method for the Coulomb part (RI-J) enabled on the m3
+integration grid for an initial screening. The structures of the
+energetically lowest lying conformers were further refined by
+reoptimization at the M06-2X/def2-TZVP level of theory on the
+m4 integration grid. The Boltzmann average weight of the different
+conformers was calculated on the basis of their electronic energies at
+the temperature T = 298.15 K. For the conformers with significant
+weight (>0.8%), specific optical rotation at a wavelength of λ = 589.3
+nm was calculated at the B3LYP/aug-cc-pVTZ level of theory. NMR
+chemical shieldings were also calculated for the candidate conformers
+and trimethylsilane at the PBE0/pcSseg-2 level of theory. To account
+for effects due to the solvent acetone used in the experiments, its
+behavior has been mimicked by employing the COSMO solvation
+model with the corresponding relative dielectric constant (εr =
+1.3592) in the above calculations.52
+■ASSOCIATED CONTENT
+Data Availability Statement
+The NMR data for compounds 1 and 2 (endolides E, and F)
+have been deposited in the Natural Products Magnetic
+Resonance Database (NP-MRD; www.np-mrd.org)53 and can
+be found at NP0332294 (compound 1) and NP0332293
+(compound 2). All raw (.raw) and centroided (.mzXML or
+.mzML) mass spectrometry data as well as processed data
+feature tables (.csv) are available through the MassIVE
+repository
+(massive.ucsd.edu)
+with
+the
+identifier
+MSV000092685 and are publicly available. The MS/MS
+spectra of the newly described endolides have been added to
+the GNPS library (gnps.ucsd.edu) with the following IDs:
+endolide E (1): CCMSLIB00011434720; endolide F (2):
+CCMSLIB00011434719. The IIMN job on GNPS Figure 2
+can be accessed at https://gnps.ucsd.edu/ProteoSAFe/status.
+jsp?task=16509238a19a46b4a0450976e8dfb855. The classic
+molecular network jobs for Figures S1 and S2 can be accessed
+at https://gnps.ucsd.edu/ProteoSAFe/status.jsp?task=
+15631e9eceed480bb1ac1119a212643d and at https://gnps.
+u c s d . e d u / P r o t e o S A F e / s t a t u s . j s p ? t a s k =
+d56f6f9eba314a33a6bead036874d10c. The job for the reposi-
+tory scale MassQL search for NMefAla-containing natural
+products can be found at https://proteomics2.ucsd.edu/
+P r o t e o S A F e / s t a t u s . j s p ? t a s k =
+1e6e8220872b4e39ad08d31672acd1e1.
+Journal of Natural Products
+pubs.acs.org/jnp
+Article
+https://doi.org/10.1021/acs.jnatprod.3c00750
+J. Nat. Prod. 2024, 87, 692−704
+701
+
+
+
+[PDF physical page 11]
+*
+sı Supporting Information
+The Supporting Information is available free of charge at
+https://pubs.acs.org/doi/10.1021/acs.jnatprod.3c00750.
+Additional experimental details: GNPS Molecular
+Networking analysis for the OSMAC approach;
+extended MassQL query results for all examined amino
+acids; 1H NMR data of endolide A and 1D/2D NMR
+data for new compounds 1 and 2; HR-LC-MS/MS data
+for 1 and 2; Advanced Marfey’s analysis and ECD
+spectra for compounds 1 and 2, detailed computational
+data for compound 1, MassQL-annotated molecular
+network with further annotations of cyclic tetrapeptide
+structure hypotheses; IR spectra of 1 and 2 (PDF)
+■AUTHOR INFORMATION
+Corresponding Author
+Raphael Reher −Institute for Pharmaceutical Biology and
+Biotechnology, Department of Pharmacy, Philipps-University
+Marburg, 35037 Marburg, Germany;
+orcid.org/0000-
+0002-5858-1173; Email: raphael.reher@pharmazie.uni-
+marburg.de
+Authors
+Tim Berger −Institute for Pharmaceutical Biology and
+Biotechnology, Department of Pharmacy, Philipps-University
+Marburg, 35037 Marburg, Germany;
+orcid.org/0009-
+0006-4188-3294
+Judith Alenfelder −Section of Molecular, Cellular and
+Pharmacobiology, Institute of Pharmaceutical Biology, 53115
+Bonn, Germany
+Sophie Steinmüller −Section of Molecular, Cellular and
+Pharmacobiology, Institute of Pharmaceutical Biology, 53115
+Bonn, Germany;
+orcid.org/0000-0003-4648-3098
+Dominik Heimann −Department of Chemical Biology,
+Helmholtz Centre for Infection Research (HZI), 38124
+Braunschweig, Germany
+Namrata Gohain −Department of Chemistry, Philipps-
+University Marburg, 35032 Marburg, Germany
+Daniel Petras −Interfaculty of Microbiology and Infection
+Medicine, University of Tübingen, 72076 Tübingen, Germany
+Mingxun Wang −Department of Computer Science, University
+of California Riverside, Riverside, California 92507, United
+States
+Robert Berger −Department of Chemistry, Philipps-
+University Marburg, 35032 Marburg, Germany
+Evi Kostenis −Section of Molecular, Cellular and
+Pharmacobiology, Institute of Pharmaceutical Biology, 53115
+Bonn, Germany;
+orcid.org/0000-0001-8284-5514
+Complete contact information is available at:
+https://pubs.acs.org/10.1021/acs.jnatprod.3c00750
+Funding
+D.P. was supported by the Deutsche Forschungsgemeinschaft
+through the CMFI Cluster of Excellence (EXC 2124) and the
+Collaborative Research Center CellMap (TRR 261). E.K.
+gratefully acknowledges DFG funding support for the grants
+214362475/GRK1873/3 and 290847012/FOR2372. N.G. and
+R.B. acknowledge funding by the Deutsche Forschungsge-
+meinschaft (DFG, German Research Foundation)−Projekt-
+nummer 328961117−SFB 1319 ELCH and computer time
+provided by the NHR Center NHR@SW at Goethe-University
+Frankfurt. The latter is funded by the Federal Ministry of
+Education and Research and the state governments participat-
+ing on the basis of the resolutions of the GWK for national
+high performance computing at universities (www.nhr-verein.
+de/unsere-partner).
+Notes
+The authors declare the following competing financial
+interest(s): M.W. is a co-founder of Ometa labs.
+■ACKNOWLEDGMENTS
+The authors would like to thank Prof. Dr. Gabriele M. König
+(Bonn) for providing us with the examined fungal strain.
+Furthermore, we would like to thank Prof. Dr. Shuming Li
+(Marburg) for providing equipment for LC-MS/MS, UV and
+optical rotation measurements. We also thank Lena Ludwig-
+Radtke, Haowen Wang, Kevin Hoffmann, Ekaterina Eguereva,
+and Stefan Newel for technical support.
+■REFERENCES
+(1) Wang, H.-N.; Sun, S.-S.; Liu, M.-Z.; Yan, M.-C.; Liu, Y.-F.; Zhu,
+Z.; Zhang, Z. J. Asian Nat. Prod. Res. 2022, 24 (3), 203−230.
+(2) Ribeiro, R.; Pinto, E.; Fernandes, C.; Sousa, E. Mar. Drugs 2022,
+20 (6), 397.
+(3) Yi, M.; Lin, S.; Zhang, B.; Jin, H.; Ding, L. Eur. J. Med. Chem.
+2020, 207, No. 112790.
+(4) Noman, E.; Al-Shaibani, M. M.; Bakhrebah, M. A.; Almoheer, R.;
+Al-Sahari, M.; Al-Gheethi, A.; Radin Mohamed, R. M. S.; Almulaiky,
+Y. Q.; Abdulaal, W. H. J. Fungi 2021, 7 (6), 436.
+(5) Almeida, C.; Maddah, F. E.; Kehraus, S.; Schnakenburg, G.;
+König, G. M. Org. Lett. 2016, 18 (3), 528−531.
+(6) Almeida, C.; Kehraus, S.; Prudêncio, M.; König, G. M. Beilstein J.
+Org. Chem. 2011, 7, 1636−1642.
+(7) Almeida, C.; Hemberger, Y.; Schmitt, S. M.; Bouhired, S.;
+Natesan, L.; Kehraus, S.; Dimas, K.; Gütschow, M.; Bringmann, G.;
+König, G. M. Chem.Eur. J. 2012, 18 (28), 8827−8834.
+(8) Almeida, C.; Part, N.; Bouhired, S.; Kehraus, S.; König, G. M. J.
+Nat. Prod. 2011, 74 (1), 21−25.
+(9) El Maddah, F.; Kehraus, S.; Nazir, M.; Almeida, C.; König, G. M.
+J. Nat. Prod. 2016, 79 (11), 2838−2845.
+(10) Barra, L.; Barac, P.; König, G. M.; Crüsemann, M.; Dickschat, J.
+S. Flammea. Org. Biomol. Chem. 2017, 15 (35), 7411−7421.
+(11) Aron, A. T.; Gentry, E. C.; McPhail, K. L.; Nothias, L.-F.;
+Nothias-Esposito, M.; Bouslimani, A.; Petras, D.; Gauglitz, J. M.;
+Sikora, N.; Vargas, F.; van der Hooft, J. J. J.; Ernst, M.; Kang, K. B.;
+Aceves, C. M.; Caraballo-Rodríguez, A. M.; Koester, I.; Weldon, K.
+C.; Bertrand, S.; Roullier, C.; Sun, K.; Tehan, R. M.; Boya, P. C. A.;
+Christian, M. H.; Gutiérrez, M.; Ulloa, A. M.; Tejeda Mora, J. A.;
+Mojica-Flores, R.; Lakey-Beitia, J.; Vásquez-Chaves, V.; Zhang, Y.;
+Calderón, A. I.; Tayler, N.; Keyzers, R. A.; Tugizimana, F.; Ndlovu,
+N.; Aksenov, A. A.; Jarmusch, A. K.; Schmid, R.; Truman, A. W.;
+Bandeira, N.; Wang, M.; Dorrestein, P. C. Nat. Protoc. 2020, 15 (6),
+1954−1991.
+(12) Horai, H.; Arita, M.; Kanaya, S.; Nihei, Y.; Ikeda, T.; Suwa, K.;
+Ojima, Y.; Tanaka, K.; Tanaka, S.; Aoshima, K.; Oda, Y.; Kakazu, Y.;
+Kusano, M.; Tohge, T.; Matsuda, F.; Sawada, Y.; Hirai, M. Y.;
+Nakanishi, H.; Ikeda, K.; Akimoto, N.; Maoka, T.; Takahashi, H.; Ara,
+T.; Sakurai, N.; Suzuki, H.; Shibata, D.; Neumann, S.; Iida, T.;
+Tanaka, K.; Funatsu, K.; Matsuura, F.; Soga, T.; Taguchi, R.; Saito, K.;
+Nishioka, T. J. Mass Spectrom. 2010, 45 (7), 703−714.
+(13) Wang, M.; Carver, J. J.; Phelan, V. V.; Sanchez, L. M.; Garg, N.;
+Peng, Y.; Nguyen, D. D.; Watrous, J.; Kapono, C. A.; Luzzatto-Knaan,
+T.; Porto, C.; Bouslimani, A.; Melnik, A. V.; Meehan, M. J.; Liu, W.-
+T.; Crüsemann, M.; Boudreau, P. D.; Esquenazi, E.; Sandoval-
+Calderón, M.; Kersten, R. D.; Pace, L. A.; Quinn, R. A.; Duncan, K.
+R.; Hsu, C.-C.; Floros, D. J.; Gavilan, R. G.; Kleigrewe, K.; Northen,
+T.; Dutton, R. J.; Parrot, D.; Carlson, E. E.; Aigle, B.; Michelsen, C. F.;
+Jelsbak, L.; Sohlenkamp, C.; Pevzner, P.; Edlund, A.; McLean, J.; Piel,
+J.; Murphy, B. T.; Gerwick, L.; Liaw, C.-C.; Yang, Y.-L.; Humpf, H.-
+Journal of Natural Products
+pubs.acs.org/jnp
+Article
+https://doi.org/10.1021/acs.jnatprod.3c00750
+J. Nat. Prod. 2024, 87, 692−704
+702
+
+
+
+[PDF physical page 12]
+U.; Maansson, M.; Keyzers, R. A.; Sims, A. C.; Johnson, A. R.;
+Sidebottom, A. M.; Sedio, B. E.; Klitgaard, A.; Larson, C. B.; Boya, P
+C. A.; Torres-Mendoza, D.; Gonzalez, D. J.; Silva, D. B.; Marques, L.
+M.; Demarque, D. P.; Pociute, E.; O’Neill, E. C.; Briand, E.; Helfrich,
+E. J. N.; Granatosky, E. A.; Glukhov, E.; Ryffel, F.; Houson, H.;
+Mohimani, H.; Kharbush, J. J.; Zeng, Y.; Vorholt, J. A.; Kurita, K. L.;
+Charusanti, P.; McPhail, K. L.; Nielsen, K. F.; Vuong, L.; Elfeki, M.;
+Traxler, M. F.; Engene, N.; Koyama, N.; Vining, O. B.; Baric, R.; Silva,
+R. R.; Mascuch, S. J.; Tomasi, S.; Jenkins, S.; Macherla, V.; Hoffman,
+T.; Agarwal, V.; Williams, P. G.; Dai, J.; Neupane, R.; Gurr, J.;
+Rodríguez, A. M. C.; Lamsa, A.; Zhang, C.; Dorrestein, K.; Duggan, B.
+M.; Almaliti, J.; Allard, P.-M.; Phapale, P.; Nothias, L.-F.; Alexandrov,
+T.; Litaudon, M.; Wolfender, J.-L.; Kyle, J. E.; Metz, T. O.; Peryea, T.;
+Nguyen, D.-T.; VanLeer, D.; Shinn, P.; Jadhav, A.; Müller, R.; Waters,
+K. M.; Shi, W.; Liu, X.; Zhang, L.; Knight, R.; Jensen, P. R.; Palsson,
+B. Ø.; Pogliano, K.; Linington, R. G.; Gutiérrez, M.; Lopes, N. P.;
+Gerwick, W. H.; Moore, B. S.; Dorrestein, P. C.; Bandeira, N. Nat.
+Biotechnol. 2016, 34 (8), 828−837.
+(14) Gaudêncio, S. P.; Bayram, E.; Lukić Bilela, L.; Cueto, M.; Díaz-
+Marrero, A. R.; Haznedaroglu, B. Z.; Jimenez, C.; Mandalakis, M.;
+Pereira, F.; Reyes, F.; Tasdemir, D. Mar. Drugs 2023, 21 (5), 308.
+(15) Jarmusch, A. K.; Aron, A. T.; Petras, D.; Phelan, V. V.;
+Bittremieux, W.; Acharya, D. D.; Ahmed, M. M. A.; Bauermeister, A.;
+Bertin, M. J.; Boudreau, P. D.; Borges, R. M.; Bowen, B. P.; Brown, C.
+J.; Chagas, F. O.; Clevenger, K. D.; Correia, M. S. P.; Crandall, W. J.;
+Crüsemann, M.; Damiani, T.; Fiehn, O.; Garg, N.; Gerwick, W. H.;
+Gilbert, J. R.; Globisch, D.; Gomes, P. W. P.; Heuckeroth, S.; James,
+C. A.; Jarmusch, S. A.; Kakhkhorov, S. A.; Kang, K. B.; Kersten, R. D.;
+Kim, H.; Kirk, R. D.; Kohlbacher, O.; Kontou, E. E.; Liu, K.; Lizama-
+Chamu, I.; Luu, G. T.; Knaan, T. L.; Marty, M. T.; McAvoy, A. C.;
+McCall, L.-I.; Mohamed, O. G.; Nahor, O.; Niedermeyer, T. H. J.;
+Northen, T. R.; Overdahl, K. E.; Pluskal, T.; Rainer, J.; Reher, R.;
+Rodriguez, E.; Sachsenberg, T. T.; Sanchez, L. M.; Schmid, R.;
+Stevens, C.; Tian, Z.; Tripathi, A.; Tsugawa, H.; Nishida, K.;
+Matsuzawa, Y.; Hooft, J. J. J. van der; Vicini, A.; Walter, A.; Weber, T.;
+Xiong, Q.; Xu, T.; Zhao, H. N.; Dorrestein, P. C.; Wang, M. A
+Universal Language for Finding Mass Spectrometry Data Patterns.
+bioRxiv August 7, 2022; p 2022.08.06.503000. .
+(16) Dührkop, K.; Fleischauer, M.; Ludwig, M.; Aksenov, A. A.;
+Melnik, A. V.; Meusel, M.; Dorrestein, P. C.; Rousu, J.; Böcker, S. Nat.
+Methods 2019, 16 (4), 299−302.
+(17) Dührkop, K.; Shen, H.; Meusel, M.; Rousu, J.; Böcker, S. Proc.
+Natl. Acad. Sci. U. S. A. 2015, 112 (41), 12580−12585.
+(18) Dührkop, K.; Nothias, L.-F.; Fleischauer, M.; Reher, R.;
+Ludwig, M.; Hoffmann, M. A.; Petras, D.; Gerwick, W. H.; Rousu, J.;
+Dorrestein, P. C.; Böcker, S. Nat. Biotechnol. 2021, 39 (4), 462−471.
+(19) Schmid, R.; Petras, D.; Nothias, L.-F.; Wang, M.; Aron, A. T.;
+Jagels, A.; Tsugawa, H.; Rainer, J.; Garcia-Aloy, M.; Dührkop, K.;
+Korf, A.; Pluskal, T.; Kameník, Z.; Jarmusch, A. K.; Caraballo-
+Rodríguez, A. M.; Weldon, K. C.; Nothias-Esposito, M.; Aksenov, A.
+A.; Bauermeister, A.; Albarracin Orio, A.; Grundmann, C. O.; Vargas,
+F.; Koester, I.; Gauglitz, J. M.; Gentry, E. C.; Hövelmann, Y.; Kalinina,
+S. A.; Pendergraft, M. A.; Panitchpakdi, M.; Tehan, R.; Le Gouellec,
+A.; Aleti, G.; Mannochio Russo, H.; Arndt, B.; Hübner, F.; Hayen, H.;
+Zhi, H.; Raffatellu, M.; Prather, K. A.; Aluwihare, L. I.; Böcker, S.;
+McPhail, K. L.; Humpf, H.-U.; Karst, U.; Dorrestein, P. C. Nat.
+Commun. 2021, 12 (1), 3832.
+(20) Nothias, L.-F.; Petras, D.; Schmid, R.; Dührkop, K.; Rainer, J.;
+Sarvepalli, A.; Protsyuk, I.; Ernst, M.; Tsugawa, H.; Fleischauer, M.;
+Aicheler, F.; Aksenov, A. A.; Alka, O.; Allard, P.-M.; Barsch, A.;
+Cachet, X.; Caraballo-Rodriguez, A. M.; Da Silva, R. R.; Dang, T.;
+Garg, N.; Gauglitz, J. M.; Gurevich, A.; Isaac, G.; Jarmusch, A. K.;
+Kameník, Z.; Kang, K. B.; Kessler, N.; Koester, I.; Korf, A.; Le
+Gouellec, A.; Ludwig, M.; Martin, H. C.; McCall, L.-I.; McSayles, J.;
+Meyer, S. W.; Mohimani, H.; Morsy, M.; Moyne, O.; Neumann, S.;
+Neuweger, H.; Nguyen, N. H.; Nothias-Esposito, M.; Paolini, J.;
+Phelan, V. V.; Pluskal, T.; Quinn, R. A.; Rogers, S.; Shrestha, B.;
+Tripathi, A.; van der Hooft, J. J. J.; Vargas, F.; Weldon, K. C.; Witting,
+M.; Yang, H.; Zhang, Z.; Zubeil, F.; Kohlbacher, O.; Böcker, S.;
+Alexandrov, T.; Bandeira, N.; Wang, M.; Dorrestein, P. C. Nat.
+Methods 2020, 17 (9), 905−908.
+(21) Reher, R.; Kuschak, M.; Heycke, N.; Annala, S.; Kehraus, S.;
+Dai, H.-F.; Müller, C. E.; Kostenis, E.; König, G. M.; Crüsemann, M.
+J. Nat. Prod. 2018, 81 (7), 1628−1635.
+(22) LeClair, M. M.; Maw, Z. A.; Grunwald, A. L.; Kelly, J. R.; Haltli,
+B. A.; Kerr, R. G.; Cartmell, C. Molecules 2022, 27 (22), 7794.
+(23) Ernst, M.; Kang, K. B.; Caraballo-Rodríguez, A. M.; Nothias, L.-
+F.; Wandy, J.; Chen, C.; Wang, M.; Rogers, S.; Medema, M. H.;
+Dorrestein, P. C.; van der Hooft, J. J. J. Metabolites 2019, 9 (7), 144.
+(24) da Silva, R. R.; Wang, M.; Nothias, L.-F.; van der Hooft, J. J. J.;
+Caraballo-Rodríguez, A. M.; Fox, E.; Balunas, M. J.; Klassen, J. L.;
+Lopes, N. P.; Dorrestein, P. C. PLoS Comput. Biol. 2018, 14 (4),
+No. e1006089.
+(25) Cao, L.; Guler, M.; Tagirdzhanov, A.; Lee, Y.-Y.; Gurevich, A.;
+Mohimani, H. Nat. Commun. 2021, 12 (1), 3718.
+(26) Reher, R.; Kim, H. W.; Zhang, C.; Mao, H. H.; Wang, M.;
+Nothias, L.-F.; Caraballo-Rodriguez, A. M.; Glukhov, E.; Teke, B.;
+Leao, T.; Alexander, K. L.; Duggan, B. M.; Van Everbroeck, E. L.;
+Dorrestein, P. C.; Cottrell, G. W.; Gerwick, W. H. J. Am. Chem. Soc.
+2020, 142 (9), 4114−4120.
+(27) Lee, S. R.; Schalk, F.; Schwitalla, J. W.; Guo, H.; Yu, J. S.; Song,
+M.; Jung, W. H.; de Beer, Z. W.; Beemelmanns, C.; Kim, K. H. Chem.
+- Eur. J. 2022, 28 (36), No. e202200612.
+(28) Agampodi Dewa, A.; Khalil, Z. G.; Elbanna, A. H.; Capon, R. J.
+Molecules 2022, 27 (10), 3172.
+(29) Hao, B.-C.; Zheng, Y.-Y.; Li, Z.-H.; Zheng, C.-J.; Wang, C.-Y.;
+Chen, M. Nat. Prod. Res. 2023, 0 (0), 1−6.
+(30) Romano, S.; Jackson, S. A.; Patry, S.; Dobson, A. D. W. Mar.
+Drugs 2018, 16 (7), 244.
+(31) Chigumba, D. N.; Mydy, L. S.; de Waal, F.; Li, W.; Shafiq, K.;
+Wotring, J. W.; Mohamed, O. G.; Mladenovic, T.; Tripathi, A.;
+Sexton, J. Z.; Kautsar, S.; Medema, M. H.; Kersten, R. D. Nat. Chem.
+Biol. 2022, 18 (1), 18−28.
+(32) Almeida, C.; Bills, G.; González-Menéndez, V.; Martin, J.;
+Tormo, J. R.; Genilloud, O. Fermentation 2017, 3 (3), 45.
+(33) Reher, R.; Aron, A. T.; Fajtová, P.; Stincone, P.; Wagner, B.;
+Pérez-Lorente, A. I.; Liu, C.; Shalom, I. Y. B.; Bittremieux, W.; Wang,
+M.; Jeong, K.; Matos-Hernandez, M. L.; Alexander, K. L.; Caro-Diaz,
+E. J.; Naman, C. B.; Scanlan, J. H. W.; Hochban, P. M. M.; Diederich,
+W. E.; Molina-Santiago, C.; Romero, D.; Selim, K. A.; Sass, P.; Brötz-
+Oesterhelt, H.; Hughes, C. C.; Dorrestein, P. C.; O’Donoghue, A. J.;
+Gerwick, W. H.; Petras, D. Nat. Commun. 2022, 13 (1), 4619.
+(34) Shen, Y.; Bax, A. J. Biomol. NMR 2010, 46 (3), 199−204.
+(35) Fang, W.-Y.; Dahiya, R.; Qin, H.-L.; Mourya, R.; Maharaj, S.
+Mar. Drugs 2016, 14 (11), 194.
+(36) Almeida, C.; Silva Pereira, C.; Gonzalez-Menendez, V.; Bills,
+G.; Pascual, J.; Sánchez-Hidalgo, M.; Kehraus, S.; Genilloud, O. Appl.
+Environ. Microbiol. 2018, 84 (15), e00660−18.
+(37) Steyn, P. S.; Tuinman, A. A.; van Heerden, F. R.; van Rooyen,
+P. H.; Wessels, P. L.; Rabie, C. J. J. Chem. Soc., Chem. Commun. 1983,
+0 (1), 47−49.
+(38) Xiang, W.-S.; Wang, J.-D.; Wang, X.-J.; Zhang, J. J. Antibiot.
+2009, 62 (9), 501−505.
+(39) Ehinger, F. J.; Niehs, S. P.; Dose, B.; Dell, M.; Krabbe, J.; Pidot,
+S. J.; Stinear, T. P.; Scherlach, K.; Ross, C.; Lackner, G.; Hertweck, C.
+Angew. Chem., Int. Ed. 2023, 62 (42), No. e202308540.
+(40) Crüsemann, M.; Reher, R.; Schamari, I.; Brachmann, A. O.;
+Ohbayashi, T.; Kuschak, M.; Malfacini, D.; Seidinger, A.; Pinto-
+Carbó, M.; Richarz, R.; Reuter, T.; Kehraus, S.; Hallab, A.; Attwood,
+M.; Schiöth, H. B.; Mergaert, P.; Kikuchi, Y.; Schäberle, T. F.;
+Kostenis, E.; Wenzel, D.; Müller, C. E.; Piel, J.; Carlier, A.; Eberl, L.;
+König, G. M. Angew. Chem., Int. Ed. 2018, 57 (3), 836−840.
+(41) Zuffa, S.; Schmid, R.; Bauermeister, A.; Gomes, P. W. P.;
+Caraballo-Rodriguez, A. M.; Abiead, Y. E.; Aron, A. T.; Gentry, E. C.;
+Zemlin, J.; Meehan, M. J.; Avalon, N. E.; Cichewicz, R. H.; Buzun, E.;
+Terrazas, M. C.; Hsu, C.-Y.; Oles, R.; Ayala, A. V.; Zhao, J.; Chu, H.;
+Kuijpers, M. C. M.; Jackrel, S. L.; Tugizimana, F.; Nephali, L. P.;
+Dubery, I. A.; Madala, N. E.; Moreira, E. A.; Costa-Lotufo, L. V.;
+Journal of Natural Products
+pubs.acs.org/jnp
+Article
+https://doi.org/10.1021/acs.jnatprod.3c00750
+J. Nat. Prod. 2024, 87, 692−704
+703
+
+
+
+[PDF physical page 13]
+Lopes, N. P.; Rezende-Teixeira, P.; Jimenez, P. C.; Rimal, B.;
+Patterson, A. D.; Traxler, M. F.; Pessotti, R. de C.; Alvarado-
+Villalobos, D.; Tamayo-Castillo, G.; Chaverri, P.; Escudero-Leyva, E.;
+Quiros-Guerrero, L.-M.; Bory, A. J.; Joubert, J.; Rutz, A.; Wolfender,
+J.-L.; Allard, P.-M.; Sichert, A.; Pontrelli, S.; Pullman, B. S.; Bandeira,
+N.; Gerwick, W. H.; Gindro, K.; Massana-Codina, J.; Wagner, B. C.;
+Forchhammer, K.; Petras, D.; Aiosa, N.; Garg, N.; Liebeke, M.;
+Bourceau, P.; Kang, K. B.; Gadhavi, H.; Carvalho, L. P. S. de; Santos,
+M. S. dos; Pérez-Lorente, A. I.; Molina-Santiago, C.; Romero, D.;
+Franke, R.; Brönstrup, M.; León, A. V. P. de; Pope, P. B.; Rosa, S. L.
+L.; Barbera, G. L.; Roager, H. M.; Laursen, M. F.; Hammerle, F.;
+Siewert, B.; Peintner, U.; Licona-Cassani, C.; Rodriguez-Orduña, L.;
+Rampler, E.; Hildebrand, F.; Koellensperger, G.; Schoeny, H.;
+Hohenwallner, K.; Panzenboeck, L.; Gregor, R.; O’Neill, E. C.;
+Roxborough, E. T.; Odoi, J.; Bale, N. J.; Ding, S.; Damsté, J. S. S.;
+Guan, X. L.; Cui, J. J.; Ju, K.-S.; Silva, D. B.; Silva, F. M. R.; Silva, G. F.
+da; Koolen, H. H. F.; Grundmann, C.; Clement, J. A.; Mohimani, H.;
+Broders, K.; McPhail, K. L.; Ober-Singleton, S. E.; Rath, C. M.;
+McDonald, D.; Knight, R.; Wang, M.; Dorrestein, P. C. Nat. Microbiol.
+2024, 9, 336−345.
+(42) Liu, L.; Guo, Y.; Liu, Q.; Ratnayake, R.; Luesch, H.; Ye, T.
+Synlett 2019, 30 (20), 2279−2284.
+(43) Schröder, R.; Janssen, N.; Schmidt, J.; Kebig, A.; Merten, N.;
+Hennen, S.; Müller, A.; Blättermann, S.; Mohr-Andrä, M.; Zahn, S.;
+Wenzel, J.; Smith, N. J.; Gomeza, J.; Drewke, C.; Milligan, G.; Mohr,
+K.; Kostenis, E. Nat. Biotechnol. 2010, 28 (9), 943−949.
+(44) Schröder, R.; Schmidt, J.; Blättermann, S.; Peters, L.; Janssen,
+N.; Grundmann, M.; Seemann, W.; Kaufel, D.; Merten, N.; Drewke,
+C.; Gomeza, J.; Milligan, G.; Mohr, K.; Kostenis, E. Nat. Protoc. 2011,
+6 (11), 1748−1760.
+(45) Patt, J.; Alenfelder, J.; Pfeil, E. M.; Voss, J. H.; Merten, N.;
+Eryilmaz, F.; Heycke, N.; Rick, U.; Inoue, A.; Kehraus, S.; Deupi, X.;
+Müller, C. E.; König, G. M.; Crüsemann, M.; Kostenis, E. J. Biol.
+Chem. 2021, 296, No. 100472.
+(46) He, Q.-F.; Wu, Z.-L.; Li, L.; Sun, W.-Y.; Wang, G.-Y.; Jiang, R.-
+W.; Hu, L.-J.; Shi, L.; He, R.-R.; Wang, Y.; Ye, W.-C. Angew. Chem.,
+Int. Ed. 2021, 60 (36), 19609−19613.
+(47) Kessner, D.; Chambers, M.; Burke, R.; Agus, D.; Mallick, P.
+Bioinformatics 2008, 24 (21), 2534−2536.
+(48) Schmid, R.; Heuckeroth, S.; Korf, A.; Smirnov, A.; Myers, O.;
+Dyrlund, T. S.; Bushuiev, R.; Murray, K. J.; Hoffmann, N.; Lu, M.;
+Sarvepalli, A.; Zhang, Z.; Fleischauer, M.; Dührkop, K.; Wesner, M.;
+Hoogstra, S. J.; Rudt, E.; Mokshyna, O.; Brungs, C.; Ponomarov, K.;
+Mutabdžija, L.; Damiani, T.; Pudney, C. J.; Earll, M.; Helmer, P. O.;
+Fallon, T. R.; Schulze, T.; Rivas-Ubach, A.; Bilbao, A.; Richter, H.;
+Nothias, L.-F.; Wang, M.; Orešič, M.; Weng, J.-K.; Böcker, S.;
+Jeibmann, A.; Hayen, H.; Karst, U.; Dorrestein, P. C.; Petras, D.; Du,
+X.; Pluskal, T. Nat. Biotechnol. 2023, 41 (4), 447−449.
+(49) Shannon, P.; Markiel, A.; Ozier, O.; Baliga, N. S.; Wang, J. T.;
+Ramage, D.; Amin, N.; Schwikowski, B.; Ideker, T. Genome Res. 2003,
+13 (11), 2498−2504.
+(50) Balasubramani, S. G.; Chen, G. P.; Coriani, S.; Diedenhofen,
+M.; Frank, M. S.; Franzke, Y. J.; Furche, F.; Grotjahn, R.; Harding, M.
+E.; Hättig, C.; Hellweg, A.; Helmich-Paris, B.; Holzer, C.; Huniar, U.;
+Kaupp, M.; Marefat Khah, A.; Karbalaei Khani, S.; Müller, T.; Mack,
+F.; Nguyen, B. D.; Parker, S. M.; Perlt, E.; Rappoport, D.; Reiter, K.;
+Roy, S.; Rückert, M.; Schmitz, G.; Sierka, M.; Tapavicza, E.; Tew, D.
+P.; van Wüllen, C.; Voora, V. K.; Weigend, F.; Wodyński, A.; Yu, J. M.
+J. Chem. Phys. 2020, 152 (18), 184107.
+(51) Pracht, P.; Bohle, F.; Grimme, S. Phys. Chem. Chem. Phys. 2020,
+22 (14), 7169−7192.
+(52) Klamt, A.; Schüürmann, G. J. Chem. Soc. Perkin 2 1993, 0 (5),
+799−805.
+(53) Wishart, D. S.; Sayeeda, Z.; Budinski, Z.; Guo, A.; Lee, B. L.;
+Berjanskii, M.; Rout, M.; Peters, H.; Dizon, R.; Mah, R.; Torres-
+Calzada, C.; Hiebert-Giesbrecht, M.; Varshavi, D.; Varshavi, D.; Oler,
+E.; Allen, D.; Cao, X.; Gautam, V.; Maras, A.; Poynton, E. F.;
+Tavangar, P.; Yang, V.; van Santen, J. A.; Ghosh, R.; Sarma, S.;
+Knutson, E.; Sullivan, V.; Jystad, A. M.; Renslow, R.; Sumner, L. W.;
+Linington, R. G.; Cort, J. R. Nucleic Acids Res. 2022, 50 (D1), D665−
+D677.
+Journal of Natural Products
+pubs.acs.org/jnp
+Article
+https://doi.org/10.1021/acs.jnatprod.3c00750
+J. Nat. Prod. 2024, 87, 692−704
+704

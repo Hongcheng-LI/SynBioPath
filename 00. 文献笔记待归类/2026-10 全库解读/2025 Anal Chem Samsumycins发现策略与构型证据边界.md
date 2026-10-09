@@ -1,0 +1,169 @@
+---
+type: literature-reading
+zotero_key: FZARD87N
+doi: "10.1021/acs.analchem.5c02213"
+paper_type: research
+classification_status: pending
+reading_status: main-text-and-figures-read
+review_status: codex-source-checked
+human_full_paper_review: false
+source_attachment: QN52NHC2
+source_sha256: 5c4d552e65bade4df906a94f7d5a8f620134451d776f9dd35bc26d23a51c85c1
+created: 2026-10-08
+---
+
+> 原文来源：[Zotero 条目](zotero://select/library/items/FZARD87N)；[DOI](https://doi.org/10.1021/acs.analchem.5c02213)；由当前 Codex 读取原始主文并核对图表，尚未经人工逐项复核。 来源限制：Readall9formalmainpages notSI despitepreparedsupplementflag; SI/HRMSraw/genes/citedfunctionalpapers/calculationinputs notread；PDFPublishedAug15 vsZoteroAug26; OUCT/OUTCTtypo andS samsunensisFigure6 notspeciesverification；Isolation38Lmethods vs20Lresults unresolved；SMARTtop25similaritynotidentity; HSQCdoesnotdirectlyobserveunprotonatedketalC needHMBC; actualrawspectraunread；Compound1printedobserved808.4933calculated808.4636 gap36.7363ppm notsilentlycorrected；5/6neutralprintedC41H62NO10 [M-H]727.430096 not713.4265; formulawithoutN713.427022 masscompatible butrawnotverified；Compound4C23ketoversustext4/5methylketal contradiction actualFigure2ketofor4；JBCArelative17RversusKR17S; auxiliaryenzymeexplanationunvalidated；FullmirrorcandidateconfigurationsinTable1 ordinaryachiralNMRcannotindependentlyselectenantiomer;DP4differencecouldsampling/reportingnotresolved；DP4energywindow10kcal/molmethod vs<10kJ/moltablefactor4.184; conditionalprobabilitynotglobaltruth；NOEusedpreconstructionandassessment notwhollyindependent; absolute2–6partlybiosyntheticanchor;NMR/ECDnotrerun；hexcandidate/previousheterologousexpressionnotcurrentwholepathconfirmation; enzymeversusspontaneousDAhypothesisnotdirectlyproven；Methanol/wateracetalization/proposedisomerization artifactoriginnotallroutesexcluded；MIC3.1threeGpositive1;vancomycin1.6–6.2range noindividualassignmentwithoutSI;notallbetter；Antibacterialn/errors/CI/statisticaltests/mainMICthreshold notclearlyreported; nocytotox/invivo；Gnegativeinactive25ugmLonlytestedstrainsnotallbacteria;missing3/4/6activitiesnotfilledzero；Figure5B mirrorcandidateECDnotperfectsignmirror suggestsconformers/inputissues,notindependentlyverified；Graphicalabstractsourceembeddedraster itselfpartialrightstructures; entireoriginalrasterextentpreserved;fullstructuresFigure2complete。
+
+# 文献基本信息
+
+**标题：** NMR-Metabologenomics Coupled with Activity-Picking Inspires Discovery of Samsumycins: a Fast-Mining Strategy for Novel Antibiotics（NMR 代谢组与基因组结合活性筛选发现 Samsumycins）。研究性论文，Analytical Chemistry，2025，97，18075–18083；DOI：[10.1021/acs.analchem.5c02213](https://doi.org/10.1021/acs.analchem.5c02213)。Zotero key：FZARD87N，主 PDF 附件：QN52NHC2。主文 Published 为 2025-08-15，Zotero 日期为 2025/08/26，分别保留，不修改源记录。
+
+Yilei Bao 与 Fayu Deng 为共同第一作者，通讯作者 Huayue Li，主要来自中国海洋大学医药学院、海洋药物教育部重点实验室及青岛海洋药物相关研究平台。来源菌主要写作 Streptomyces sp. OUCT16-12，部分段落误拼 OUTCT16-12；Figure 6 使用 S. samsunensis，主文未给出独立物种鉴定证据，本笔记保留属级名称。本次已读全部 9 页主文，核对图表、实验方法及参考文献表；无本地 SI，未读取原始谱图、逐菌株活性表及计算文件，未独立访问基因数据库。
+
+
+![Graphical Abstract 原文第 1 页](https://synbiopath.online/FZARD87N-Graphical-Abstract-p1-complete-a2672999daceba69.png)
+
+*Graphical Abstract：原文摘要图（原文 PDF 截图）。*
+
+
+摘要图概括活性筛菌、核磁结构片段和候选基因簇的对应关系。它展示研究设计，不等于已经通过遗传学建立产物与基因簇的因果联系。
+
+# 研究背景
+
+微生物天然产物发现中，重复分离已知成分会消耗结构解析资源。本文希望把活性筛选与诊断性化学片段结合，在大量菌株和复杂提取物中找到具有研究价值的化学家族。NMR 能提供局部连接信息，基因组能提示某种片段的合成潜力，两者相容时可以提高优先级；但这种相容仍需要分离产物、完整结构和功能验证来检验。
+
+Samsumycins 是包含大环骨架与 fumaryl/C5N 相关侧链的系列。本研究的问题包括如何锁定候选分离组分、如何处理柔性大环的立体化学、如何解释新增融合环，以及这些结构变化是否伴随活性改变。新的结构类型和抗菌能力是两个独立维度，不能因骨架更复杂就预设活性更好。本文采用的 NMR 约束计算引用此前 Sanyensin 工作，但本研究需要按自身候选、构象和原始数据评价，不能直接继承前一案例的可靠性。
+
+# 研究思路
+
+作者先对超过 200 株海洋细菌做活性筛选，选择 OUCT16-12。随后将粗提物及最活跃预分离部分 Fr.8 的 HSQC 数据送入 SMART 2.1，参考相似结构家族；再用 HMBC/COSY 识别诊断性侧链片段，检查该菌基因组是否含有相关候选簇。活性、结构片段和基因组线索共同支持继续分离，但没有任何单一步骤可以确定全结构。
+
+分离获得 1–6 后，作者用二维 NMR 建立连接，用偶合和 NOE 提出相对构型，再以生物合成域预测与计算 ECD 处理绝对构型。最后将结构关系与已报道 hex 簇结合提出途径模型，并比较纯化化合物的抗菌表型。活性导向最初定位 Fr.8，纯化 1 在系列中最强，是对筛选方向的支持；它不说明提取物里所有活性都由 1 贡献。
+
+# 研究方法
+
+SMART 2.1 接收注释 HSQC 的化学位移表，按相似度返回结构候选，主文描述参考库超过 100,000 个天然产物。该数据库规模和结果均是作者报告，本次没有重新运行平台。粗提物的前 25 个高相似度候选中有 22 个包含 ketal/hemiketal，Fr.8 的前 25 个候选归入六类，其中五类含该单元；这些是候选排序统计，不是产物结构确证。
+
+结构解析使用 HRMS、600 MHz NMR、COSY、HSQC、HMBC、NOESY 及 J-based configurational analysis（JBCA）。计算构象由 Chem3D 和 MM2/MMFF94 构造，Gaussian 09 的 B97D/TZVP 优化，CAM-B3LYP 计算 ECD，MeOH 连续介质考虑溶剂。DP4-AI/PyDP4 辅助 NMR 比较，GIAO 为 mPW1PW91/6-311G(d)。本次未重跑任何量子化学计算。
+
+抗菌方法包含双层共培养抑菌圈筛选与纯化产物的微孔生长吸光测量；MeOH 阴性对照、培养基空白及 vancomycin 阳性对照在主文列出。主文未清楚交代纯化产物测试的独立重复数、误差、MIC 抑制阈值及统计方法，不能补造置信区间或显著性。检测的是所测条件下的生长抑制，不能自动延伸为杀菌动力学、作用靶点或临床效力。
+
+# 实验设计及结果分析
+
+### 1. NMR 诊断片段与基因组线索：提高优先级而非确定结构
+
+
+![Figure 1 原文第 2 页](https://synbiopath.online/FZARD87N-Figure-1-p2-complete-d08779553b57150a.png)
+
+*Figure 1：Figure 1. A multistage workflow of NMR-metabologenomics coupled with high-throughput screening for targeted mining of novel antibiotic
+samsumycins (DL: deep-learning).（原文 PDF 截图）。*
+
+
+Figure 1 完整展示 activity-picking、2D-NMR 片段识别与 genome mining 的组合。作者先依据 SMART 候选提示关注 δC 95–110 的 ketal/hemiketal 碳，再通过 Fr.8 的 HMBC 进行检查。需要区分：HSQC 主要提供直接相连 C-H 的信息，非质子化的缩酮季碳通常不能由一个直接 HSQC 交叉峰独立观察。SMART 命中的结构含季碳是相似家族线索，实际季碳的定位仍要依靠 13C/HMBC。
+
+另一个诊断片段是 N-(3-hydroxy-2-cyclopentenone-2-yl)-fumaryl monoamide（HCFM）。作者以 δH 10.34 的酰胺质子为探针，通过 COSY/HMBC 推出该侧链。在基因组中寻找相关 fumarate adenyltransferase 与 5-aminolevulinate synthase，得到 bfl 与 hex 两套线索。它们分别对应既有 bafilomycin 和 hexacosalactone 研究，但 Fr.8 主峰的 UV/LC-MS 不吻合已知产物，提示需要进一步研究。
+
+“不吻合已知主峰”并不等于已证明一种全新化学骨架：数据库覆盖不足、异构体、衍生化和混合信号也可能导致不匹配。真正的身份判断来自后续分离及全结构分析。作者强调快速挖掘，但本次主文未展示与传统流程在相同样品上的总耗时、成功率和重复发现比例比较，因此不能量化其普遍效率优势。方法中分离规模写 38 L，结果段写 20 L，存在未解释的内部差异。
+
+### 2. Type A 与 Type B：新增融合环伴随化学差异
+
+
+![Figure 2 原文第 3 页](https://synbiopath.online/FZARD87N-Figure-2-p3-complete-bcdf24f2dfcc9b7b.png)
+
+*Figure 2：Figure 2. Structures of compounds 1−6.（原文 PDF 截图）。*
+
+
+Figure 2 列出全部 1–6。1 是 samsumycin A，具有 26 元大环、C-23 缩酮及 HCFM 侧链；2–6 是 B1–B5，侧链与大环形成新的融合连接。由 1 的 H-3/H-25 到 C-1 的 HMBC、与 C-23 相关的多条长程相关、H-13 到侧链羰基的相关，可理解大环闭合、局部缩酮及侧链连接，不能仅凭准确质量定位这些键。
+
+1 的中性分子式为 C46H67NO11。实验段印出 [M−H]− 808.4933，计算值 808.4636，两者相差约 36.7 ppm；这是根据印刷数值实际计算出的差异，不能当作正常的高精度吻合。它可能涉及文本错误，也可能需要原始谱重新核查；没有 SI 时不能替作者决定。2–4 的报告质量约为 794.4442–794.4452，接近文中计算值 794.4479，本笔记不因 1 的异常否定整系列全部质量证据。
+
+5、6 被描述为缺少末端 C5N 单元，但实验段仍印中性式 C41H62NO10，并给 [M−H]− 713.4235/713.4231、计算值 713.4265。按该含 N 分子式重算离子质量约 727.4301，而去掉 N 的 C41H62O10 给约 713.4270，后者与所报质量相容。这说明印刷分子式中的 N 与质量/结构存在矛盾；本次仅记录算术核查，不将推定修订写成已确认原始分子式。
+
+2 的 C-23 半缩酮、3/4 的酮形式及 5/6 的甲基缩酮应依实际 Figure 2 逐项区分。第 7 页先称 3、4 为 C-23 酮形式，又称 4、5 为甲基缩酮，彼此冲突，4 的实际结构图为羰基。不能将第二句话直接复制为结构事实。核心 6/6 融合之外，缩酮闭合还能增加额外环，因此摘要的 6/6/26 概括与正文的 6/6/6/26 需按具体产物解释，而不是统一数环。
+
+### 3. 相对构型、KR 预测与 ECD 的作用不同
+
+
+![Figure 3 原文第 4 页](https://synbiopath.online/FZARD87N-Figure-3-p4-complete-2046ed32694b8e6a.png)
+
+*Figure 3：Figure 3. (A) COSY, key HMBC and NOESY correlations of 1. The
+short-range and medium/long-range NOEs to establish relative
+configurations of 1 are labeled as blue and red dotted arrows,
+respectively. (B) J-based configurational analysis (JBCA) of 1.（原文 PDF 截图）。*
+
+
+Figure 3A 区分连接相关与短程、长程 NOE，Figure 3B 展示 JBCA。1 的双键被指定为 2E、4Z、6E、8E、10E；部分邻近手性关系为 13S*、14R*、15R*、17R* 及 19S*、20S*、22R*，星号不可直接省略为绝对构型。
+
+作者用 hex 中 KR/ER 的类别预测多个中心，但 C-17 预测为 S，与 JBCA 所示关系不相容；最终建议为 17R。辅助酶或底物约束被用于解释差异，主文没有验证这些机制。该案例提示域类型预测可提供假说，不能替代结构证据，更不能从一次不一致就确定存在新的辅助酶。
+
+
+![Figure 4 原文第 5 页](https://synbiopath.online/FZARD87N-Figure-4-p5-complete-61906cc6ef3e1639.png)
+
+*Figure 4：Figure 4. Key NOESY correlations to establish relative configurations
+of C-8, C-11, C-2′ and C-3′ of 2−6. The NOEs were labeled as red
+(upside), blue (downside), or black (double bonds) dotted arrows.（原文 PDF 截图）。*
+
+
+Figure 4 展示 2–6 新形成的 C-8、C-11、C-2′、C-3′ 的 NOE。作者将 2/4/5 指定为 2′R*、3′R*、8R*、11R*，3/6 为 2′R*、3′R*、8S*、11S*，再借助与 C-13 的关系和生源共同骨架假定向绝对构型延伸。2、3、5、6 的烯键关系为 2E、4E、6Z、9Z，4 为 2E、4E、6E、9Z。因为存在多个差异，活性比较不能只归因于一对新增中心。
+
+
+![Figure 5 原文第 6 页](https://synbiopath.online/FZARD87N-Figure-5-p6-complete-2b53fe1d4f50fe5f.png)
+
+*Figure 5：Figure 5. (A) The NOE-constrained conformers used in the ECD calculations. The 1H−1H distances (Å) between the atoms showing key NOEs
+(short-range and medium/long-range) were measured to verify that the constructed conformers agree with the structures of 1−6 in solution NMR
+experiments. (B) Experimental and calculated ECD spectra of 1−6.（原文 PDF 截图）。*
+
+
+Figure 5A 是用于计算的 NOE 相容构象，5B 为六个产物的实验与计算 ECD。1 的最终建议完整构型为 13S、14R、15R、17R、18R、19S、20S、22R、23R、25S。ECD 能对镜像结构提供手性敏感比较，但结果仍依赖构象代表与溶剂假设。本次只核对主文曲线，不声称重建全部构象分布或独立确定每个中心。
+
+### 4. DP4 的关键限制：普通 NMR 不能区分镜像构型
+
+
+![Table 1 原文第 4 页](https://synbiopath.online/FZARD87N-Table-1-p4-complete-17ea0c6f71897649.png)
+
+*Table 1：Table 1. DP4 NMR Calculations and Probabilities of
+Stereoisomers of 1（原文 PDF 截图）。*
+
+
+Table 1 将 1 的两种候选赋予 100% 与 0%，低能构象数分别为 20、11。正文列出的两组完整构型全部反转，彼此为对映体；在非手性溶剂和普通 NMR 条件下，对映体应具有相同化学位移。因此这张表不能作为绝对构型的独立确认，DP4 的差别可能反映候选构象采样、计算处理或报告差异，原因需原始输入才能查明。
+
+这不仅是一般的“100% 不等于完全证明”问题，还涉及比较对象是否能由该测量区分。即使相对结构已正确，非手性计算 NMR 也不应替代 ECD 或直接手性测量来选择镜像。Figure 5B 中 1 的两条候选计算 ECD 也不是简单的镜像反号；真正镜像且采用对应构象/相同条件时应有反号关系，该图进一步提示构象采样或输入需要检查。故笔记保留作者表中结果，同时把真正手性敏感的 ECD 与该项不能独立支持的结论分开，ECD 吻合也不宜脱离这一计算疑点评价。
+
+另一个复现问题是方法称构象窗 10 kcal/mol，Table 1 脚注写 <10 kJ/mol，相差 4.184 倍；本次未取得计算文件，不能判断实际用了哪一个。图中满足用于预构造的 NOE 也不完全独立于模型建设，不能重复计数为多项互不依赖的证明。
+
+### 5. 候选途径与活性：环加成是否自发仍待验证
+
+
+![Figure 6 原文第 7 页](https://synbiopath.online/FZARD87N-Figure-6-p7-complete-2412ebfedb755542.png)
+
+*Figure 6：Figure 6. (A) Proposed biosynthetic pathway of samsumycins (1−6) in S. samsunensis OUCT16-12. (B) The intramolecular endo- and exo- Diels−
+Alder reactions and acetalizations to generate 8,11-stereoisomers of 5 and 6.（原文 PDF 截图）。*
+
+
+Figure 6A 标为 proposed biosynthetic pathway，6B 将 endo/exo Diels–Alder 与缩酮反应联系到 5、6。hex 与既有 hcl 的高同源性、既有 hex 异源表达产物为该模型提供背景；这些既有研究不是本次对全部 samsumycin 步骤的新功能验证。主文引用 HexF 的功能已在前文献研究，但没有在本次展示各终产物的完整敲除、回补或重建。
+
+作者认为 8R/11R 的 2/4/5 与 endo 相容，8S/11S 的 3/6 与 exo 相容；由于同时产生不同选择性产物，推测环加成更可能自发。不过，产物异构体并存不能排除多个酶、酶的非绝对选择性或提取转化。图中 H2O/MeOH 相关 ketal/hemiketal 过程尤其提示需要区分天然产物与处理后衍生物。本次主文未直接验证全部转化，也未提供覆盖完整流程的人工产物排除证据。
+
+活性方面，1 对 S. aureus CCARM 3090、E. faecalis CCARM 5172、E. faecium CCARM 5203 的主文 MIC 都为 3.1 μg/mL，对照 vancomycin 报告范围 1.6–6.2 μg/mL。逐菌株对照在未读 Table S8，不能自行分配或声称 1 对所有菌株更强。2 对 E. faecalis 为 6.2，5 对 S. aureus/E. faecalis 为 12.5 μg/mL，其余逐项数值未在主文列全，不能补成 0 或无限。
+
+全部产物对本文四个革兰阴性测试对象在 25 μg/mL 上限未显示抑制；该阴性结果仅限对象与条件，不代表所有革兰阴性细菌永远无效。1 的最强表型支持活性分离方向，但新增融合环的 B 系列相对较弱，不能得出新骨架必然提高效力。未见主文细胞毒性或动物资料，不推导选择指数、安全性或临床用途。
+
+# 总体结论
+
+本文提供活性筛选、NMR 诊断片段和基因组线索协同发现 samsumycins 的案例。平面连接、相对构型与 ECD 有主文支持，但准确质量印刷差异、部分结构叙述冲突及 DP4 对映体比较存在明确证据问题。hex 及后期自发转化属于有依据的途径假说，尚非完整功能验证。1 的体外抗菌表现为该系列最强，但不能据此称临床有效、安全或对所有菌株优于 vancomycin。
+
+# 论文评价
+
+方法优势在于提前识别值得分离的片段，并将纯化产物活性与筛选线索回接。对柔性大环，作者没有仅靠单个谱图，而结合连接、偶合、NOE 和 ECD。
+
+最需谨慎的是将相似结构命中、同源簇和计算概率提升成确定结论。下一步核查应优先读取 SI 的原始 HRMS、DP4 两组输入与构象、化学位移表及逐菌株活性表，分别解决身份、镜像比较和功能边界；不能仅用更多叙述覆盖原文冲突。方法推广还应有相同条件的效率比较和无诊断片段样品的适用性评估。
+
+# 关键问题及回答
+
+**问题 1：SMART 命中缩酮家族是否足够确定 Fr.8 的结构？** 不足。它提供相似家族和分离优先级，季碳及连接仍需 13C/HMBC 等证据，混合谱也可能影响匹配。
+
+**问题 2：DP4 的 100% 是否独立确认了 1 的绝对构型？** 没有。本文两组完整候选互为对映体，普通非手性 NMR 不能选择镜像；ECD 提供不同性质的支持，DP4 差异需原始处理文件解释。
+
+**问题 3：endo/exo 产物共存是否证明无需酶催化？** 没有。它使自发反应成为合理假说，却不能排除多酶或处理转化。把产物结构关系和路径功能验证分开，是这篇最有用的证据阅读训练。
+
+> 分类状态：待全部文献笔记完成后统一分类归档。

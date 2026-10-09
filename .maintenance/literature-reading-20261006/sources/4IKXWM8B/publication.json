@@ -1,0 +1,767 @@
+{
+  "note": "C:\\Software\\Data\\05-Obsidian\\SynBioPath\\00. 文献笔记待归类\\2026-10 全库解读\\2024 Nature 可解释深度学习发现抗生素新结构类.md",
+  "images": [
+    {
+      "label": "Figure 1",
+      "caption": "用于预测抗生素活性与人细胞毒性的图神经网络集成模型。a 为方法学示意（消息传递卷积 → 训练集 10³–10⁴ → 数据库 10⁸ 可购买 → 预测分数 → 实验验证结构类）；b 为针对 S. aureus RN4220 的 39,312 化合物 50 μM 生长抑制活性筛选散点图（两生物重复 R=0.8，P<10⁻¹⁴；活性化合物 512 个，1.3%；非活性 38,800 个）；c 为 10 模型 Chemprop+RDKit 集成的 PR 曲线（AUPRC=0.364，95% CI [0.359,0.379]，虚线黑点 1.3% 基线）；d/f/h 为 HepG2、HSkMC、IMR-90 三种人源细胞 10 μM、2–3 天相对存活率散点图（毒性化合物 3,341/1,490/3,447 个，分别 8.5%/3.8%/8.8%；R=0.9/0.96/0.81，P<10⁻¹⁴）；e/g/i 为对应三种细胞毒性预测 PR 曲线（AUPRC=0.176/0.168/0.335，95% CI [0.174,0.179]/[0.167,0.175]/[0.334,0.341]）。",
+      "page": 2,
+      "file": "C:\\Software\\Data\\05-Obsidian\\SynBioPath\\.maintenance\\literature-reading-20261006\\sources\\4IKXWM8B\\4IKXWM8B-Figure-1-p2-1-45c0e062b84e2f1f.png",
+      "bbox": [
+        16.048831939697266,
+        38.12503433227539,
+        579.2271728515625,
+        586.6591186523438
+      ],
+      "panels": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f",
+        "g",
+        "h",
+        "i"
+      ],
+      "sha256": "45c0e062b84e2f1f259ff1156502168cb831ab42d3442356728dfe43136373b4",
+      "url": "https://synbiopath.online/4IKXWM8B-Figure-1-p2-1-45c0e062b84e2f1f.png"
+    },
+    {
+      "label": "Figure 2",
+      "caption": "化合物筛选与化学空间可视化。a 为 in silico 过滤流程（12,076,365 → 10,310 → 3,646 → 2,209 → 1,261；含 Mcule 11,277,225 + Broad 799,140 各分阶段数字；其中活性阈值 Mcule >0.4、Broad >0.2；三种细胞毒性均 <0.2；剔除 PAINS/Brenk；Tanimoto ≤0.5 且不含喹诺酮/β-内酰胺核心）；b 为 12,076,365 化合物的抗生素预测分数排序（高活性蓝、低活性棕）；c–e 为 10,310 高活性 hits 的三种人源细胞毒性预测分数排序；f 为基于 Morgan 指纹 (radius=2, bits=2048) 与 Jaccard 距离的 t-SNE 投影（hits=蓝、非 hits=棕、训练集活性=红、化合物 1/2 用粉色三角标出）。",
+      "page": 3,
+      "file": "C:\\Software\\Data\\05-Obsidian\\SynBioPath\\.maintenance\\literature-reading-20261006\\sources\\4IKXWM8B\\4IKXWM8B-Figure-2-p3-1-ae3d399eed0e9ec5.png",
+      "bbox": [
+        16.048831939697266,
+        52.60401916503906,
+        579.2271728515625,
+        547.1158447265625
+      ],
+      "panels": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f"
+      ],
+      "sha256": "ae3d399eed0e9ec55f83e173ba06fd4d5e78f08c87f96c9653063db7d3cf4b3a",
+      "url": "https://synbiopath.online/4IKXWM8B-Figure-2-p3-1-ae3d399eed0e9ec5.png"
+    },
+    {
+      "label": "Figure 3",
+      "caption": "图搜索 rationale 揭示新型抗生素结构类的潜在骨架。a 为 Monte Carlo 树搜索 (MCTS) 图子结构搜索示意（选择 → 删除 → 评分 → 反向传播 → 图子结构 rationale + 解释分数）；b 为头孢甲肟 (cefmenoxime) 的 MCTS rationale 与头孢菌素核心对照（rationale 单独作为 Chemprop 输入得预测分数 0.149）；c 为所有 hits 与训练集活性化合物的 Tanimoto 相似度排序（阈值 ≤0.5，灰色阴影 = 训练集相似，浅色阴影 = 与训练集不同）；d 为 186 个含 rationale 的 hits 在 5 个骨架 (G1–G5) 中的分布（16 hits 占 8.6%，3 个含氯）；e 为 283 个实验测试化合物按预测分数排序（253 高活性 + 30 低分数；真阳性 33/253，真阴性 30/30；工作真发现率 21/241 = 8.7% 适用于所有结构新颖 hits，12/12 = 100% 适用于头孢/喹诺酮阳性对照）；f 为化合物 1 与 2 的化学结构（依据图示：两者均为 5-卤代-1H-吲哚-2-甲酰胺骨架，2 位羧基接 N–CH₂–C(=O)–O–(2,4-二氯苯基) 链；化合物 1 吲哚 5-位为 Cl，化合物 2 吲哚 5-位为 Br）；注：原文 p.6 文本描述其为 'N-[2-(2-chlorophenoxy)ethyl]aniline 核心'，与本图图示的吲哚-2-甲酰胺结构存在图文不符；g 为化合物 1 与 2 的 S. aureus RN4220 / MRSA USA300 MIC（含与不含 10% 血清）与 HepG2 / HSkMC / IMR-90 IC50 对数刻度柱状图（两组柱状数据来自两生物重复均值，星号表示 >128 μg/mL）。",
+      "page": 4,
+      "file": "C:\\Software\\Data\\05-Obsidian\\SynBioPath\\.maintenance\\literature-reading-20261006\\sources\\4IKXWM8B\\4IKXWM8B-Figure-3-p4-1-408a3aa393f0d644.png",
+      "bbox": [
+        16.048831939697266,
+        46.033695220947266,
+        579.2271728515625,
+        626.2024536132812
+      ],
+      "panels": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f",
+        "g"
+      ],
+      "sha256": "408a3aa393f0d644e3fef53771989d5d633471ab44bdab085414a7dc693c3166",
+      "url": "https://synbiopath.online/4IKXWM8B-Figure-3-p4-1-408a3aa393f0d644.png"
+    },
+    {
+      "label": "Figure 4",
+      "caption": "新型结构类抗生素的耐药性与作用机制。a 为对数生长期 S. aureus RN4220 与 B. subtilis 168 的 time-kill 曲线（化合物 1、2（8、16 μg/mL）与万古霉素（4 h）对比，CFU/mL 检测限 10²）；b 为 30 天连续传代中 MIC 倍数变化（对数坐标；环丙沙星对照 ≥64 倍 MIC 升高；化合物 1/2 MIC 几乎不变）；c 为 10⁹ CFU 涂板中抑制性突变体生长图（化合物 1、2 在 8 与 16 μg/mL；环丙沙星 0.64 与 1.28 μg/mL）；d 为 B. subtilis 168 的相差显微图像（化合物 1 或 2（16 μg/mL）处理 3 h，标尺 3 μm；未处理对照）；e 为 DiSC3(5) 荧光曲线（PMF 探针；DMSO、缬氨霉素、尼日利亚菌素（≈1 mg/mL）及化合物 1、2（32 μg/mL）处理于 300 s）；f 为不同 pH 条件（7.0/8.0/9.0）下的 OD600 生长曲线；g 为对 40 株 CDC MRSA 与 VRE 临床分离株的 MIC 对数刻度柱状图（万古霉素中间型、氨基糖苷/四环素耐药、噁唑烷酮耐药三类；VRE 用星号标注，化合物 1 与 2 MIC 中位数 4 与 3 μg/mL，范围 2–16 μg/mL）。",
+      "page": 6,
+      "file": "C:\\Software\\Data\\05-Obsidian\\SynBioPath\\.maintenance\\literature-reading-20261006\\sources\\4IKXWM8B\\4IKXWM8B-Figure-4-p6-1-71ba764460fd8710.png",
+      "bbox": [
+        16.048831939697266,
+        38.12503433227539,
+        579.2271728515625,
+        531.2985229492188
+      ],
+      "panels": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f",
+        "g"
+      ],
+      "sha256": "71ba764460fd8710a9dfe630f38af7604a8daf6b3b34667c9e7b789035258ad0",
+      "url": "https://synbiopath.online/4IKXWM8B-Figure-4-p6-1-71ba764460fd8710.png"
+    },
+    {
+      "label": "Figure 5",
+      "caption": "体内疗效。a 为环磷酰胺诱导中性粒细胞减少的小鼠 MRSA (CDC 563) 皮肤伤口感染模型（局部给药：Vehicle vs 夫西地酸（Fusidic acid, 0.25%）vs 化合物 1（1%），感染后 1、4、8、12、20、24 h 给药，n=5/组；化合物 1 与夫西地酸臂在不同批次测试，两个载体组散点叠加；图内标注单侧双样本置换检验：夫西地酸 **P=0.004，化合物 1 **P=0.01）；b 为环磷酰胺诱导中性粒细胞减少的小鼠 MRSA (CDC 706) 大腿感染模型（单次腹腔注射：Vehicle vs 万古霉素（Vancomycin, 50 mg kg⁻¹）vs 化合物 1（80 mg kg⁻¹），n=6/组；图内标注单侧双样本置换检验：万古霉素 **P=0.001，化合物 1 **P=0.01）。横线为各组均值 log₁₀ CFU/g 或 CFU/mL；图注整体限定单侧双样本置换检验相对载体：**P≤10⁻²。",
+      "page": 7,
+      "file": "C:\\Software\\Data\\05-Obsidian\\SynBioPath\\.maintenance\\literature-reading-20261006\\sources\\4IKXWM8B\\4IKXWM8B-Figure-5-p7-1-1c7c1d2512c15e75.png",
+      "bbox": [
+        16.048831939697266,
+        22.30771255493164,
+        317.30572509765625,
+        562.9331665039062
+      ],
+      "panels": [
+        "a",
+        "b"
+      ],
+      "sha256": "1c7c1d2512c15e759d2920a2376dc870cdb22760ddfd95cc22ff2afdc291db60",
+      "url": "https://synbiopath.online/4IKXWM8B-Figure-5-p7-1-1c7c1d2512c15e75.png"
+    },
+    {
+      "label": "Extended Data Figure 1",
+      "caption": "39,312 化合物训练集的分子量分布直方图。分子量范围 40 Da–4,200 Da，对数纵轴频率。",
+      "page": 18,
+      "file": "C:\\Software\\Data\\05-Obsidian\\SynBioPath\\.maintenance\\literature-reading-20261006\\sources\\4IKXWM8B\\4IKXWM8B-Extended-Data-Figure-1-p18-1-8c1e898a4e7dc488.png",
+      "bbox": [
+        16.048831939697266,
+        38.12503433227539,
+        579.2271728515625,
+        404.75994873046875
+      ],
+      "panels": [],
+      "sha256": "8c1e898a4e7dc4888efa3ba5d1ccc72a8d9afeb3232c454374b86b198a8cf067",
+      "url": "https://synbiopath.online/4IKXWM8B-Extended-Data-Figure-1-p18-1-8c1e898a4e7dc488.png"
+    },
+    {
+      "label": "Extended Data Figure 2",
+      "caption": "抗生素活性预测模型对比。a：10 模型 Chemprop 无 RDKit 特征的 PR 曲线（AUPRC=0.274，95% CI [0.264,0.282]）；b：基于 Morgan 指纹的最佳随机森林分类器 PR 曲线（AUPRC=0.314，95% CI [0.302,0.322]）。两图黑虚线均为 1.3% 基线，蓝线为 100 次 bootstrap 95% CI。",
+      "page": 19,
+      "file": "C:\\Software\\Data\\05-Obsidian\\SynBioPath\\.maintenance\\literature-reading-20261006\\sources\\4IKXWM8B\\4IKXWM8B-Extended-Data-Figure-2-p19-1-ff354bde0f33c93e.png",
+      "bbox": [
+        16.048831939697266,
+        38.12503433227539,
+        579.2271728515625,
+        444.3032531738281
+      ],
+      "panels": [
+        "a",
+        "b"
+      ],
+      "sha256": "ff354bde0f33c93e53542306b21d05d2db92752e734b43b18560a5621124f946",
+      "url": "https://synbiopath.online/4IKXWM8B-Extended-Data-Figure-2-p19-1-ff354bde0f33c93e.png"
+    },
+    {
+      "label": "Extended Data Figure 3",
+      "caption": "细胞毒性预测模型对比。a/b：10 模型 Chemprop 无 RDKit 特征 HepG2 毒性 PR 曲线（AUPRC=0.168，95% CI [0.168,0.173]）与最佳随机森林分类器 HepG2 PR 曲线（AUPRC=0.172，95% CI [0.171,0.175]）；c/d：HSkMC 毒性 Chemprop 无 RDKit（AUPRC=0.148，95% CI [0.148,0.154]）与最佳随机森林（AUPRC=0.158，95% CI [0.156,0.163]）；e/f：IMR-90 毒性 Chemprop 无 RDKit（AUPRC=0.295，95% CI [0.294,0.301]）与最佳随机森林（AUPRC=0.331，95% CI [0.327,0.334]）。黑虚线分别为 8.5% / 3.8% / 8.8% 基线。",
+      "page": 20,
+      "file": "C:\\Software\\Data\\05-Obsidian\\SynBioPath\\.maintenance\\literature-reading-20261006\\sources\\4IKXWM8B\\4IKXWM8B-Extended-Data-Figure-3-p20-1-3a6620c3125a1bc2.png",
+      "bbox": [
+        16.048831939697266,
+        30.216373443603516,
+        579.2271728515625,
+        726.2179565429688
+      ],
+      "panels": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f"
+      ],
+      "sha256": "3a6620c3125a1bc2167d688175e2dc5aa5e9d50ab4df2c02d7926cedb410c82a",
+      "url": "https://synbiopath.online/4IKXWM8B-Extended-Data-Figure-3-p20-1-3a6620c3125a1bc2.png"
+    },
+    {
+      "label": "Extended Data Figure 4",
+      "caption": "不同预测分数阈值下的 t-SNE 可视化。a：所有阈值 All PS > 0.5 (1,889) / Structurally novel & no unfavourable substructure (63) / Tested with high PS (241) / Compounds 1 & 2 / Low PS (497) / Antibiotic activity training set: active (512), inactive (38,800)；b：Mcule PS > 0.3、Broad PS > 0.2 阈值 (22,194) / Structurally novel & no unfavourable substructure (9,038) / Tested with high PS (241) / Compounds 1 & 2 / Low PS (15,348) / Active (512), inactive (38,800)。两图显示训练集活性化合物 (红) 与高预测分数化合物 (绿/黑/紫) 与低预测分数化合物 (棕) 的相对分离。",
+      "page": 21,
+      "file": "C:\\Software\\Data\\05-Obsidian\\SynBioPath\\.maintenance\\literature-reading-20261006\\sources\\4IKXWM8B\\4IKXWM8B-Extended-Data-Figure-4-p21-1-b45022a688c420a3.png",
+      "bbox": [
+        16.048831939697266,
+        30.216373443603516,
+        579.2271728515625,
+        523.3898315429688
+      ],
+      "panels": [
+        "a",
+        "b"
+      ],
+      "sha256": "b45022a688c420a3af56c8672bc824e055f7370690d265454f467e2c2fd206da",
+      "url": "https://synbiopath.online/4IKXWM8B-Extended-Data-Figure-4-p21-1-b45022a688c420a3.png"
+    },
+    {
+      "label": "Extended Data Figure 5",
+      "caption": "以化合物 1 为例的 Monte Carlo 树搜索示意。a：从根 (compound 1) 通过删除周边键或环（红色高亮）得到三条可能搜索路径（仅展示从根出发的三步）；b：从根 (compound 1) 到叶节点 (rationale) 的完整搜索路径，Chemprop 用于预测每个叶节点的活性，并在反向传播中更新每个中间节点的统计量，最终得分 0.144。",
+      "page": 22,
+      "file": "C:\\Software\\Data\\05-Obsidian\\SynBioPath\\.maintenance\\literature-reading-20261006\\sources\\4IKXWM8B\\4IKXWM8B-Extended-Data-Figure-5-p22-1-7a9c9bb8a572dd85.png",
+      "bbox": [
+        16.048831939697266,
+        30.216373443603516,
+        579.2271728515625,
+        444.3032531738281
+      ],
+      "panels": [
+        "a",
+        "b"
+      ],
+      "sha256": "7a9c9bb8a572dd85bdd64d2e97719844667ba72fe5c0c3b1f63c357a6fd686e2",
+      "url": "https://synbiopath.online/4IKXWM8B-Extended-Data-Figure-5-p22-1-7a9c9bb8a572dd85.png"
+    },
+    {
+      "label": "Extended Data Figure 6",
+      "caption": "最大共有子结构 (MCS) 识别可揭示已知抗生素类，但跨所有 hits 的预测能力弱于 Chemprop rationale。a/b：3,646 高活性 hits (a) 与 3,355 非 hits (b) 在 12 原子 MCS 阈值下分组排序（绿色/棕色条形图表示每条 MCS 自身的预测分数；约 0 值的条形表明对应 MCS 预测分数近似为零）；c/d：类似 a/b 但阈值改为 10 原子 (c) 或 15 原子 (d)（1,983 vs 1,272 hits）；e：A1–A11 示例化合物 (黑) 与对应 MCS (红) 上的 MCTS rationale；f：MCS A1–A12 的预测分数 (蓝) 与其关联 hits rationale 平均预测分数 (红)。",
+      "page": 23,
+      "file": "C:\\Software\\Data\\05-Obsidian\\SynBioPath\\.maintenance\\literature-reading-20261006\\sources\\4IKXWM8B\\4IKXWM8B-Extended-Data-Figure-6-p23-1-2801fa7595f76375.png",
+      "bbox": [
+        16.048831939697266,
+        30.216373443603516,
+        579.2271728515625,
+        681.5630493164062
+      ],
+      "panels": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f"
+      ],
+      "sha256": "2801fa7595f76375322158d99c8ffa69358163fb43b413f7a8e19a79b2eca7c9",
+      "url": "https://synbiopath.online/4IKXWM8B-Extended-Data-Figure-6-p23-1-2801fa7595f76375.png"
+    },
+    {
+      "label": "Extended Data Figure 6",
+      "caption": "最大共有子结构 (MCS) 识别可揭示已知抗生素类，但跨所有 hits 的预测能力弱于 Chemprop rationale。a/b：3,646 高活性 hits (a) 与 3,355 非 hits (b) 在 12 原子 MCS 阈值下分组排序（绿色/棕色条形图表示每条 MCS 自身的预测分数；约 0 值的条形表明对应 MCS 预测分数近似为零）；c/d：类似 a/b 但阈值改为 10 原子 (c) 或 15 原子 (d)（1,983 vs 1,272 hits）；e：A1–A11 示例化合物 (黑) 与对应 MCS (红) 上的 MCTS rationale；f：MCS A1–A12 的预测分数 (蓝) 与其关联 hits rationale 平均预测分数 (红)。",
+      "page": 24,
+      "file": "C:\\Software\\Data\\05-Obsidian\\SynBioPath\\.maintenance\\literature-reading-20261006\\sources\\4IKXWM8B\\4IKXWM8B-Extended-Data-Figure-6-p24-2-008d18fbf9eb89a6.png",
+      "bbox": [
+        16.048831939697266,
+        30.216373443603516,
+        579.2271728515625,
+        365.2166442871094
+      ],
+      "panels": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f"
+      ],
+      "sha256": "008d18fbf9eb89a6ca645f405ce9026173ae9ad9d2bf767d00692d2476b088ff",
+      "url": "https://synbiopath.online/4IKXWM8B-Extended-Data-Figure-6-p24-2-008d18fbf9eb89a6.png"
+    },
+    {
+      "label": "Extended Data Figure 7",
+      "caption": "四个经验证 hits（化合物 1、2、I、II）关联 G1–G5 rationale 组的最近训练集活性化合物与选择性。a：化合物 1 (G2)、2 (G2)、I (G1)、II (G5) 及各自按 Tanimoto 相似度最接近的训练集活性化合物（Triclosan, BRD-K56595518, Tropifexor, Oxiconazole nitrate；Tanimoto 相似度 0.348/0.343/0.217/0.269）；依据 Extended Data Fig. 7a 与 Extended Data Fig. 10 图示，化合物 1 与 2 的化学结构为 5-卤代-1H-吲哚-2-甲酰胺（5-位卤素：化合物 1 = Cl，化合物 2 = Br），吲哚 2 位羧基上的 N 取代基为 –CH₂–C(=O)–O–(2,4-二氯苯基)；注：原文 p.6 文本称其为 'N-[2-(2-chlorophenoxy)ethyl]aniline 核心'，与本图图示存在图文不符；b：四化合物的 S. aureus RN4220 / MRSA USA300 MIC（含与不含 10% 血清）与 HepG2 / HSkMC / IMR-90 IC50 对数刻度柱状图（两生物重复均值；星号表示 >128 μg/mL）。",
+      "page": 25,
+      "file": "C:\\Software\\Data\\05-Obsidian\\SynBioPath\\.maintenance\\literature-reading-20261006\\sources\\4IKXWM8B\\4IKXWM8B-Extended-Data-Figure-7-p25-1-d83ad74cfef237c9.png",
+      "bbox": [
+        16.048831939697266,
+        30.216373443603516,
+        579.2271728515625,
+        760.649658203125
+      ],
+      "panels": [
+        "a",
+        "b"
+      ],
+      "sha256": "d83ad74cfef237c9a21001077d1171c6d5083cf02dfe0bb7dbf0e1824ac3bfa5",
+      "url": "https://synbiopath.online/4IKXWM8B-Extended-Data-Figure-7-p25-1-d83ad74cfef237c9.png"
+    },
+    {
+      "label": "Extended Data Figure 8",
+      "caption": "不同抗生素对甲氧西林敏感与耐药 S. aureus MIC 对比及化合物 1、2 对 B. subtilis 持留菌的根除活性。a：九种抗生素（kanamycin、fosfomycin、nitrofurantoin、chloramphenicol、tetracycline、vancomycin、ampicillin、ciprofloxacin、teicoplanin）对 RN4220 (黑) 与 USA300 (蓝) 的 MIC 对数刻度柱状图（两生物重复均值）；依据原文 p.6，对照药物中 ampicillin、ciprofloxacin、tetracycline 对 MRSA USA300 相对甲氧西林敏感株 RN4220 的 MIC 至少升高 16 倍，而化合物 1 与 2 对 USA300 相对 RN4220 仅 2 倍 MIC 升高（MIC 由 2 升至 4 μg/mL），提示化合物 1/2 与 β-内酰胺、氟喹诺酮、四环素不共享主要作用机制；b：B. subtilis 168 在卡那霉素 (50 μg/mL) 或卡那霉素 + 化合物 1/2 (20 μg/mL) 联合处理下的存活曲线（联合处理 24 h 后 CFU/mL = 0，截断为 −7）。",
+      "page": 26,
+      "file": "C:\\Software\\Data\\05-Obsidian\\SynBioPath\\.maintenance\\literature-reading-20261006\\sources\\4IKXWM8B\\4IKXWM8B-Extended-Data-Figure-8-p26-1-7f5a062757d17b62.png",
+      "bbox": [
+        16.048831939697266,
+        30.216373443603516,
+        579.2271728515625,
+        444.3032531738281
+      ],
+      "panels": [
+        "a",
+        "b"
+      ],
+      "sha256": "7f5a062757d17b624f663aaddd78e1e1d6cdba88ffe1be8331dedd2cc1ba9385",
+      "url": "https://synbiopath.online/4IKXWM8B-Extended-Data-Figure-8-p26-1-7f5a062757d17b62.png"
+    },
+    {
+      "label": "Extended Data Figure 9",
+      "caption": "化合物 1 与 2 的毒性、化学性质及体内实验示意。a：人红细胞 (RBC) 在 16/128 μg/mL 化合物 1/2 下的溶血分数（Vehicle = 1% DMSO；Triton X-100 (10%) = 阳性对照）；b：16/128 μg/mL 化合物 1/2 的亚铁螯合分数（Vehicle = 1% DMSO；EDTA = 阳性对照）；c：16/128 μg/mL 化合物 1/2 在 Ames 试验中的 S. typhimurium TA100 突变回复分数（Vehicle = 1% DMSO；5 μg/mL 叠氮化钠 = 阳性对照）；d：化合物 1 在 pH 5.0 / 7.1 / 10.0 缓冲液中 0/45/120 min 的化学稳定性（LC–MS，归一化至 t=0 均值）；e：1% 化合物 1 vs DMSO 在 WoundSkin 上 24 h 后外观（6 生物重复/组；标尺 2 mm）；f：Fig. 5a 小鼠皮肤伤口感染模型流程示意（环磷酰胺诱导中性粒细胞减少、皮肤感染与各组局部给药方案）；g：Fig. 5b 小鼠大腿感染模型流程示意（环磷酰胺诱导中性粒细胞减少、肌肉内接种与单次腹腔注射方案）。",
+      "page": 27,
+      "file": "C:\\Software\\Data\\05-Obsidian\\SynBioPath\\.maintenance\\literature-reading-20261006\\sources\\4IKXWM8B\\4IKXWM8B-Extended-Data-Figure-9-p27-1-31baa7d9cc14cdd9.png",
+      "bbox": [
+        16.048831939697266,
+        30.216373443603516,
+        579.2271728515625,
+        721.1063232421875
+      ],
+      "panels": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f",
+        "g"
+      ],
+      "sha256": "31baa7d9cc14cdd976757b72b337c047ca159524adee812826cce6f1ea90b019",
+      "url": "https://synbiopath.online/4IKXWM8B-Extended-Data-Figure-9-p27-1-31baa7d9cc14cdd9.png"
+    },
+    {
+      "label": "Extended Data Figure 10",
+      "caption": "通过 SAR 探索化合物 1 与 2 的结构类。a：化合物 1/2 的 rationale（红色高亮部分）叠加化学修饰位点 R1–R8，覆盖用于 SAR 测试的所有化合物；依据 Extended Data Fig. 10a 图示，核心结构为 5-卤代-1H-吲哚-2-甲酰胺骨架（吲哚 5-位为 Cl 或 Br，2 位羧基 N 上接 –CH₂–C(=O)–O–(2,4-二氯苯基) 链），R1–R8 修饰位于吲哚环、α-甲基及 2,4-二氯苯氧基环上；b：7 个具代表性的 SAR 类似物结构（编号 1–7）与对应 MIC / IC50 表（S. aureus RN4220、MRSA USA300 加与不加 10% 血清 MIC；HepG2、HSkMC、IMR-90 IC50；两生物重复均值）；图底注 '5/17 (29.4%) working true discovery rate for compounds in structural class'。",
+      "page": 28,
+      "file": "C:\\Software\\Data\\05-Obsidian\\SynBioPath\\.maintenance\\literature-reading-20261006\\sources\\4IKXWM8B\\4IKXWM8B-Extended-Data-Figure-10-p28-1-457e27473a7277be.png",
+      "bbox": [
+        16.048831939697266,
+        30.216373443603516,
+        579.2271728515625,
+        760.649658203125
+      ],
+      "panels": [
+        "a",
+        "b"
+      ],
+      "sha256": "457e27473a7277be67ac89df443e1a344307678c5ecd491c414a517cb0db2f82",
+      "url": "https://synbiopath.online/4IKXWM8B-Extended-Data-Figure-10-p28-1-457e27473a7277be.png"
+    }
+  ],
+  "draft_metadata": {
+    "identity_matches": true,
+    "identity_reason": "原文 PDF 第 1 页题名 'Discovery of a structural class of antibiotics with explainable deep learning'，DOI 10.1038/s41586-023-06887-8，期刊 Nature（Vol 626，1 February 2024，pp 177–185），通讯作者 James J. Collins，与 Zotero 元数据完全一致。",
+    "paper_type": "research",
+    "title_zh": "通过可解释深度学习发现一类新型结构抗生素",
+    "filename_title": "可解释深度学习发现抗生素新结构类",
+    "journal_short": "Nature",
+    "category": null,
+    "related_categories": [],
+    "classification_reason": "本论文核心研究问题是利用图神经网络（Chemprop+RDKit 特征）与 Monte Carlo 树搜索（MCTS）在 12,076,365 个化合物中预测、筛选并实验验证针对耐甲氧西林金黄色葡萄球菌 (MRSA) 的新结构类抗生素，涉及分子机器学习、抗菌药效学、ΔpH 耗散机制与小鼠体内疗效评估，属于化学信息学/药物发现/抗感染药理学交叉领域，不属于天然产物生物合成骨架、酶工程酶类或细胞工厂实际宿主的天然产物三框架，故 category=null。",
+    "source_gaps": [
+      "未提供 Supporting Information 中具体数值表（Supplementary Tables 1–9、Supplementary Data 1–4）以及各 MIC/IC50 的逐化合物精确数值，部分定量数值（如 DiSC3(5) 荧光的绝对变化幅度、PMF 模型训练集化合物的具体结构与折刀验证数字、Supplementary Note 1 的 Tox21 与 HMDB 基准详细数字、Tox21 7151/5726 化合物与 HMDB 3126 代谢物的具体 AUPRC 等）只能从正文与图注摘要性引用。",
+      "正文未在表/图内提供所有子图的精确 P 值与置信区间数字；Figure 5a/b 中所示的精确 P 值（夫西地酸 **P=0.004、化合物 1 皮肤 **P=0.01；万古霉素 **P=0.001、化合物 1 大腿 **P=0.01）来自图内散点图标注，图注中仅以 **P≤10⁻² 表示，作整体限定。",
+      "Extended Data Fig. 5（MCTS 搜索路径示例，以化合物 1 为例展示前向三条搜索路径与从根到叶节点的完整回溯更新）与 Extended Data Fig. 6（MCS 识别；包含 A1–A12、B1–B12、C1–C12、D1–D12 四套 MCS 结构、各 MCS 对应命中数、预测分数与示例化合物）子图密集、SMARTS 结构复杂，部分原子级细节无法可靠识别，仅按图注概述。",
+      "Extended Data Fig. 8a 列出 9 种抗生素（kanamycin、fosfomycin、nitrofurantoin、chloramphenicol、tetracycline、vancomycin、ampicillin、ciprofloxacin、teicoplanin）对 RN4220 与 USA300 的 MIC，原文 p.6 提及对照药对 USA300 vs RN4220 MIC 比值 ≥16 倍、化合物 1/2 仅 2 倍，但具体 MIC 数值未在正文逐一列出，部分需从 Supplementary Data 2 读取；Extended Data Fig. 10 中各 SAR 类似物（17 个市售化合物，5/17 = 29.4% 工作真发现率）的精确 MIC/IC50 数值虽在图注中以对数刻度列出（化合物 1–7），但其余 10 个未在图注展示的类似物数值未在正文完整罗列。",
+      "补充方法中的部分技术细节（如 20 模型集成与 10 模型集成的区别、Bayesian 超参优化的具体范围、Tox21 与人代谢物库基准的方法学描述）只能从 Methods 摘要性引用，未见逐项参数表。"
+    ],
+    "figures": [
+      {
+        "label": "Figure 1",
+        "caption": "用于预测抗生素活性与人细胞毒性的图神经网络集成模型。a 为方法学示意（消息传递卷积 → 训练集 10³–10⁴ → 数据库 10⁸ 可购买 → 预测分数 → 实验验证结构类）；b 为针对 S. aureus RN4220 的 39,312 化合物 50 μM 生长抑制活性筛选散点图（两生物重复 R=0.8，P<10⁻¹⁴；活性化合物 512 个，1.3%；非活性 38,800 个）；c 为 10 模型 Chemprop+RDKit 集成的 PR 曲线（AUPRC=0.364，95% CI [0.359,0.379]，虚线黑点 1.3% 基线）；d/f/h 为 HepG2、HSkMC、IMR-90 三种人源细胞 10 μM、2–3 天相对存活率散点图（毒性化合物 3,341/1,490/3,447 个，分别 8.5%/3.8%/8.8%；R=0.9/0.96/0.81，P<10⁻¹⁴）；e/g/i 为对应三种细胞毒性预测 PR 曲线（AUPRC=0.176/0.168/0.335，95% CI [0.174,0.179]/[0.167,0.175]/[0.334,0.341]）。",
+        "panels": [
+          "a",
+          "b",
+          "c",
+          "d",
+          "e",
+          "f",
+          "g",
+          "h",
+          "i"
+        ],
+        "pages": [
+          {
+            "page": 2,
+            "bbox": [
+              0.04,
+              0.06,
+              0.96,
+              0.73
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Figure 2",
+        "caption": "化合物筛选与化学空间可视化。a 为 in silico 过滤流程（12,076,365 → 10,310 → 3,646 → 2,209 → 1,261；含 Mcule 11,277,225 + Broad 799,140 各分阶段数字；其中活性阈值 Mcule >0.4、Broad >0.2；三种细胞毒性均 <0.2；剔除 PAINS/Brenk；Tanimoto ≤0.5 且不含喹诺酮/β-内酰胺核心）；b 为 12,076,365 化合物的抗生素预测分数排序（高活性蓝、低活性棕）；c–e 为 10,310 高活性 hits 的三种人源细胞毒性预测分数排序；f 为基于 Morgan 指纹 (radius=2, bits=2048) 与 Jaccard 距离的 t-SNE 投影（hits=蓝、非 hits=棕、训练集活性=红、化合物 1/2 用粉色三角标出）。",
+        "panels": [
+          "a",
+          "b",
+          "c",
+          "d",
+          "e",
+          "f"
+        ],
+        "pages": [
+          {
+            "page": 3,
+            "bbox": [
+              0.04,
+              0.1,
+              0.96,
+              0.68
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Figure 3",
+        "caption": "图搜索 rationale 揭示新型抗生素结构类的潜在骨架。a 为 Monte Carlo 树搜索 (MCTS) 图子结构搜索示意（选择 → 删除 → 评分 → 反向传播 → 图子结构 rationale + 解释分数）；b 为头孢甲肟 (cefmenoxime) 的 MCTS rationale 与头孢菌素核心对照（rationale 单独作为 Chemprop 输入得预测分数 0.149）；c 为所有 hits 与训练集活性化合物的 Tanimoto 相似度排序（阈值 ≤0.5，灰色阴影 = 训练集相似，浅色阴影 = 与训练集不同）；d 为 186 个含 rationale 的 hits 在 5 个骨架 (G1–G5) 中的分布（16 hits 占 8.6%，3 个含氯）；e 为 283 个实验测试化合物按预测分数排序（253 高活性 + 30 低分数；真阳性 33/253，真阴性 30/30；工作真发现率 21/241 = 8.7% 适用于所有结构新颖 hits，12/12 = 100% 适用于头孢/喹诺酮阳性对照）；f 为化合物 1 与 2 的化学结构（依据图示：两者均为 5-卤代-1H-吲哚-2-甲酰胺骨架，2 位羧基接 N–CH₂–C(=O)–O–(2,4-二氯苯基) 链；化合物 1 吲哚 5-位为 Cl，化合物 2 吲哚 5-位为 Br）；注：原文 p.6 文本描述其为 'N-[2-(2-chlorophenoxy)ethyl]aniline 核心'，与本图图示的吲哚-2-甲酰胺结构存在图文不符；g 为化合物 1 与 2 的 S. aureus RN4220 / MRSA USA300 MIC（含与不含 10% 血清）与 HepG2 / HSkMC / IMR-90 IC50 对数刻度柱状图（两组柱状数据来自两生物重复均值，星号表示 >128 μg/mL）。",
+        "panels": [
+          "a",
+          "b",
+          "c",
+          "d",
+          "e",
+          "f",
+          "g"
+        ],
+        "pages": [
+          {
+            "page": 4,
+            "bbox": [
+              0.04,
+              0.07,
+              0.96,
+              0.78
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Figure 4",
+        "caption": "新型结构类抗生素的耐药性与作用机制。a 为对数生长期 S. aureus RN4220 与 B. subtilis 168 的 time-kill 曲线（化合物 1、2（8、16 μg/mL）与万古霉素（4 h）对比，CFU/mL 检测限 10²）；b 为 30 天连续传代中 MIC 倍数变化（对数坐标；环丙沙星对照 ≥64 倍 MIC 升高；化合物 1/2 MIC 几乎不变）；c 为 10⁹ CFU 涂板中抑制性突变体生长图（化合物 1、2 在 8 与 16 μg/mL；环丙沙星 0.64 与 1.28 μg/mL）；d 为 B. subtilis 168 的相差显微图像（化合物 1 或 2（16 μg/mL）处理 3 h，标尺 3 μm；未处理对照）；e 为 DiSC3(5) 荧光曲线（PMF 探针；DMSO、缬氨霉素、尼日利亚菌素（≈1 mg/mL）及化合物 1、2（32 μg/mL）处理于 300 s）；f 为不同 pH 条件（7.0/8.0/9.0）下的 OD600 生长曲线；g 为对 40 株 CDC MRSA 与 VRE 临床分离株的 MIC 对数刻度柱状图（万古霉素中间型、氨基糖苷/四环素耐药、噁唑烷酮耐药三类；VRE 用星号标注，化合物 1 与 2 MIC 中位数 4 与 3 μg/mL，范围 2–16 μg/mL）。",
+        "panels": [
+          "a",
+          "b",
+          "c",
+          "d",
+          "e",
+          "f",
+          "g"
+        ],
+        "pages": [
+          {
+            "page": 6,
+            "bbox": [
+              0.04,
+              0.06,
+              0.96,
+              0.66
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Figure 5",
+        "caption": "体内疗效。a 为环磷酰胺诱导中性粒细胞减少的小鼠 MRSA (CDC 563) 皮肤伤口感染模型（局部给药：Vehicle vs 夫西地酸（Fusidic acid, 0.25%）vs 化合物 1（1%），感染后 1、4、8、12、20、24 h 给药，n=5/组；化合物 1 与夫西地酸臂在不同批次测试，两个载体组散点叠加；图内标注单侧双样本置换检验：夫西地酸 **P=0.004，化合物 1 **P=0.01）；b 为环磷酰胺诱导中性粒细胞减少的小鼠 MRSA (CDC 706) 大腿感染模型（单次腹腔注射：Vehicle vs 万古霉素（Vancomycin, 50 mg kg⁻¹）vs 化合物 1（80 mg kg⁻¹），n=6/组；图内标注单侧双样本置换检验：万古霉素 **P=0.001，化合物 1 **P=0.01）。横线为各组均值 log₁₀ CFU/g 或 CFU/mL；图注整体限定单侧双样本置换检验相对载体：**P≤10⁻²。",
+        "panels": [
+          "a",
+          "b"
+        ],
+        "pages": [
+          {
+            "page": 7,
+            "bbox": [
+              0.04,
+              0.04,
+              0.52,
+              0.7
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Extended Data Figure 1",
+        "caption": "39,312 化合物训练集的分子量分布直方图。分子量范围 40 Da–4,200 Da，对数纵轴频率。",
+        "panels": [],
+        "pages": [
+          {
+            "page": 18,
+            "bbox": [
+              0.04,
+              0.06,
+              0.96,
+              0.5
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Extended Data Figure 2",
+        "caption": "抗生素活性预测模型对比。a：10 模型 Chemprop 无 RDKit 特征的 PR 曲线（AUPRC=0.274，95% CI [0.264,0.282]）；b：基于 Morgan 指纹的最佳随机森林分类器 PR 曲线（AUPRC=0.314，95% CI [0.302,0.322]）。两图黑虚线均为 1.3% 基线，蓝线为 100 次 bootstrap 95% CI。",
+        "panels": [
+          "a",
+          "b"
+        ],
+        "pages": [
+          {
+            "page": 19,
+            "bbox": [
+              0.04,
+              0.06,
+              0.96,
+              0.55
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Extended Data Figure 3",
+        "caption": "细胞毒性预测模型对比。a/b：10 模型 Chemprop 无 RDKit 特征 HepG2 毒性 PR 曲线（AUPRC=0.168，95% CI [0.168,0.173]）与最佳随机森林分类器 HepG2 PR 曲线（AUPRC=0.172，95% CI [0.171,0.175]）；c/d：HSkMC 毒性 Chemprop 无 RDKit（AUPRC=0.148，95% CI [0.148,0.154]）与最佳随机森林（AUPRC=0.158，95% CI [0.156,0.163]）；e/f：IMR-90 毒性 Chemprop 无 RDKit（AUPRC=0.295，95% CI [0.294,0.301]）与最佳随机森林（AUPRC=0.331，95% CI [0.327,0.334]）。黑虚线分别为 8.5% / 3.8% / 8.8% 基线。",
+        "panels": [
+          "a",
+          "b",
+          "c",
+          "d",
+          "e",
+          "f"
+        ],
+        "pages": [
+          {
+            "page": 20,
+            "bbox": [
+              0.04,
+              0.05,
+              0.96,
+              0.85
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Extended Data Figure 4",
+        "caption": "不同预测分数阈值下的 t-SNE 可视化。a：所有阈值 All PS > 0.5 (1,889) / Structurally novel & no unfavourable substructure (63) / Tested with high PS (241) / Compounds 1 & 2 / Low PS (497) / Antibiotic activity training set: active (512), inactive (38,800)；b：Mcule PS > 0.3、Broad PS > 0.2 阈值 (22,194) / Structurally novel & no unfavourable substructure (9,038) / Tested with high PS (241) / Compounds 1 & 2 / Low PS (15,348) / Active (512), inactive (38,800)。两图显示训练集活性化合物 (红) 与高预测分数化合物 (绿/黑/紫) 与低预测分数化合物 (棕) 的相对分离。",
+        "panels": [
+          "a",
+          "b"
+        ],
+        "pages": [
+          {
+            "page": 21,
+            "bbox": [
+              0.04,
+              0.05,
+              0.96,
+              0.65
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Extended Data Figure 5",
+        "caption": "以化合物 1 为例的 Monte Carlo 树搜索示意。a：从根 (compound 1) 通过删除周边键或环（红色高亮）得到三条可能搜索路径（仅展示从根出发的三步）；b：从根 (compound 1) 到叶节点 (rationale) 的完整搜索路径，Chemprop 用于预测每个叶节点的活性，并在反向传播中更新每个中间节点的统计量，最终得分 0.144。",
+        "panels": [
+          "a",
+          "b"
+        ],
+        "pages": [
+          {
+            "page": 22,
+            "bbox": [
+              0.04,
+              0.05,
+              0.96,
+              0.55
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Extended Data Figure 6",
+        "caption": "最大共有子结构 (MCS) 识别可揭示已知抗生素类，但跨所有 hits 的预测能力弱于 Chemprop rationale。a/b：3,646 高活性 hits (a) 与 3,355 非 hits (b) 在 12 原子 MCS 阈值下分组排序（绿色/棕色条形图表示每条 MCS 自身的预测分数；约 0 值的条形表明对应 MCS 预测分数近似为零）；c/d：类似 a/b 但阈值改为 10 原子 (c) 或 15 原子 (d)（1,983 vs 1,272 hits）；e：A1–A11 示例化合物 (黑) 与对应 MCS (红) 上的 MCTS rationale；f：MCS A1–A12 的预测分数 (蓝) 与其关联 hits rationale 平均预测分数 (红)。",
+        "panels": [
+          "a",
+          "b",
+          "c",
+          "d",
+          "e",
+          "f"
+        ],
+        "pages": [
+          {
+            "page": 23,
+            "bbox": [
+              0.04,
+              0.05,
+              0.96,
+              0.85
+            ]
+          },
+          {
+            "page": 24,
+            "bbox": [
+              0.04,
+              0.05,
+              0.96,
+              0.45
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Extended Data Figure 7",
+        "caption": "四个经验证 hits（化合物 1、2、I、II）关联 G1–G5 rationale 组的最近训练集活性化合物与选择性。a：化合物 1 (G2)、2 (G2)、I (G1)、II (G5) 及各自按 Tanimoto 相似度最接近的训练集活性化合物（Triclosan, BRD-K56595518, Tropifexor, Oxiconazole nitrate；Tanimoto 相似度 0.348/0.343/0.217/0.269）；依据 Extended Data Fig. 7a 与 Extended Data Fig. 10 图示，化合物 1 与 2 的化学结构为 5-卤代-1H-吲哚-2-甲酰胺（5-位卤素：化合物 1 = Cl，化合物 2 = Br），吲哚 2 位羧基上的 N 取代基为 –CH₂–C(=O)–O–(2,4-二氯苯基)；注：原文 p.6 文本称其为 'N-[2-(2-chlorophenoxy)ethyl]aniline 核心'，与本图图示存在图文不符；b：四化合物的 S. aureus RN4220 / MRSA USA300 MIC（含与不含 10% 血清）与 HepG2 / HSkMC / IMR-90 IC50 对数刻度柱状图（两生物重复均值；星号表示 >128 μg/mL）。",
+        "panels": [
+          "a",
+          "b"
+        ],
+        "pages": [
+          {
+            "page": 25,
+            "bbox": [
+              0.04,
+              0.05,
+              0.96,
+              0.95
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Extended Data Figure 8",
+        "caption": "不同抗生素对甲氧西林敏感与耐药 S. aureus MIC 对比及化合物 1、2 对 B. subtilis 持留菌的根除活性。a：九种抗生素（kanamycin、fosfomycin、nitrofurantoin、chloramphenicol、tetracycline、vancomycin、ampicillin、ciprofloxacin、teicoplanin）对 RN4220 (黑) 与 USA300 (蓝) 的 MIC 对数刻度柱状图（两生物重复均值）；依据原文 p.6，对照药物中 ampicillin、ciprofloxacin、tetracycline 对 MRSA USA300 相对甲氧西林敏感株 RN4220 的 MIC 至少升高 16 倍，而化合物 1 与 2 对 USA300 相对 RN4220 仅 2 倍 MIC 升高（MIC 由 2 升至 4 μg/mL），提示化合物 1/2 与 β-内酰胺、氟喹诺酮、四环素不共享主要作用机制；b：B. subtilis 168 在卡那霉素 (50 μg/mL) 或卡那霉素 + 化合物 1/2 (20 μg/mL) 联合处理下的存活曲线（联合处理 24 h 后 CFU/mL = 0，截断为 −7）。",
+        "panels": [
+          "a",
+          "b"
+        ],
+        "pages": [
+          {
+            "page": 26,
+            "bbox": [
+              0.04,
+              0.05,
+              0.96,
+              0.55
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Extended Data Figure 9",
+        "caption": "化合物 1 与 2 的毒性、化学性质及体内实验示意。a：人红细胞 (RBC) 在 16/128 μg/mL 化合物 1/2 下的溶血分数（Vehicle = 1% DMSO；Triton X-100 (10%) = 阳性对照）；b：16/128 μg/mL 化合物 1/2 的亚铁螯合分数（Vehicle = 1% DMSO；EDTA = 阳性对照）；c：16/128 μg/mL 化合物 1/2 在 Ames 试验中的 S. typhimurium TA100 突变回复分数（Vehicle = 1% DMSO；5 μg/mL 叠氮化钠 = 阳性对照）；d：化合物 1 在 pH 5.0 / 7.1 / 10.0 缓冲液中 0/45/120 min 的化学稳定性（LC–MS，归一化至 t=0 均值）；e：1% 化合物 1 vs DMSO 在 WoundSkin 上 24 h 后外观（6 生物重复/组；标尺 2 mm）；f：Fig. 5a 小鼠皮肤伤口感染模型流程示意（环磷酰胺诱导中性粒细胞减少、皮肤感染与各组局部给药方案）；g：Fig. 5b 小鼠大腿感染模型流程示意（环磷酰胺诱导中性粒细胞减少、肌肉内接种与单次腹腔注射方案）。",
+        "panels": [
+          "a",
+          "b",
+          "c",
+          "d",
+          "e",
+          "f",
+          "g"
+        ],
+        "pages": [
+          {
+            "page": 27,
+            "bbox": [
+              0.04,
+              0.05,
+              0.96,
+              0.9
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Extended Data Figure 10",
+        "caption": "通过 SAR 探索化合物 1 与 2 的结构类。a：化合物 1/2 的 rationale（红色高亮部分）叠加化学修饰位点 R1–R8，覆盖用于 SAR 测试的所有化合物；依据 Extended Data Fig. 10a 图示，核心结构为 5-卤代-1H-吲哚-2-甲酰胺骨架（吲哚 5-位为 Cl 或 Br，2 位羧基 N 上接 –CH₂–C(=O)–O–(2,4-二氯苯基) 链），R1–R8 修饰位于吲哚环、α-甲基及 2,4-二氯苯氧基环上；b：7 个具代表性的 SAR 类似物结构（编号 1–7）与对应 MIC / IC50 表（S. aureus RN4220、MRSA USA300 加与不加 10% 血清 MIC；HepG2、HSkMC、IMR-90 IC50；两生物重复均值）；图底注 '5/17 (29.4%) working true discovery rate for compounds in structural class'。",
+        "panels": [
+          "a",
+          "b"
+        ],
+        "pages": [
+          {
+            "page": 28,
+            "bbox": [
+              0.04,
+              0.05,
+              0.96,
+              0.95
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "source_review": {
+    "pass": true,
+    "major_issues": [],
+    "minor_issues": [
+      {
+        "issue": "化合物 1/2 的连接基（linker）描述略有出入：草稿多处描述为'–CH₂–C(=O)–O–(2,4-二氯苯基)'，多了一个 C=O；但 Fig. 3f/Extended Data Fig. 7a/Extended Data Fig. 10a 中所示的连接基为 –C(=O)–N(CH₃)–CH(R)–O–(2,4-二氯苯基)，N 与 O 之间仅有一个 CH(R)，并无第二个羰基。建议将连接基描述更正为'N-甲基-N-(α-取代基-2,4-二氯苯氧甲基)-1H-吲哚-2-甲酰胺'。",
+        "source_locator": "草稿报告正文多处（'化合物 1 与 2…'、'G2…'、'结构类发现'、'化合物 1 与 2 在 G2 中的核心' 等），原图 Fig. 3f (PDF p.4) / Extended Data Fig. 7a (PDF p.25) / Extended Data Fig. 10a (PDF p.28)",
+        "correction": "将连接基部分统一改为'–C(=O)–N(CH₃)–CH(R)–O–(2,4-二氯苯基)'或'–CO–N(Me)–CH(R)–O–Ar'；草稿'5-卤代-1H-吲哚-2-甲酰胺骨架'的总称保留。"
+      },
+      {
+        "issue": "草稿仅引用 21/241 (8.7%) 总体工作真发现率，未引用正文 p.5 同时给出的 7.4%（与含 rationale 的结构新颖 hits 对应）这一补充数字。",
+        "source_locator": "原 PDF p.5 正文段落：'The working true discovery rates associated with all tested structurally novel hits with rationales (7.4%) and across all tested structurally novel hits (8.7%) were higher…'",
+        "correction": "在'(三) 基于图 rationale 的结构类发现'段落补一句：'含 rationale 的结构新颖 hits 工作真发现率为 7.4%，与 8.7% 一并高于训练集 1.3% 基线。'"
+      },
+      {
+        "issue": "SAR 段落对化合物 3、5 活性'与化合物 1、2 相当'的表述稍弱。Extended Data Fig. 10b 中化合物 3、5 对 S. aureus RN4220 与 USA300 的 MIC 均为 16 μg/mL，弱于化合物 1/2 (2 与 4 μg/mL)，但仍属活性范畴。",
+        "source_locator": "原 PDF p.28 Extended Data Fig. 10b；草稿'（五）毒理性质与体内疗效'段落",
+        "correction": "改为'化合物 3、5、7 对 S. aureus RN4220 与 USA300 MIC 为 2–16 μg/mL（化合物 7 与 1/2 活性相当为 2、4 μg/mL；化合物 3、5 为 16、16 μg/mL，弱于 1/2 但仍属活性）；化合物 4、6 MIC 升至 64 μg/mL'。"
+      }
+    ],
+    "figure_coverage": {
+      "expected_labels": [
+        "Figure 1",
+        "Figure 2",
+        "Figure 3",
+        "Figure 4",
+        "Figure 5",
+        "Extended Data Figure 1",
+        "Extended Data Figure 2",
+        "Extended Data Figure 3",
+        "Extended Data Figure 4",
+        "Extended Data Figure 5",
+        "Extended Data Figure 6",
+        "Extended Data Figure 7",
+        "Extended Data Figure 8",
+        "Extended Data Figure 9",
+        "Extended Data Figure 10"
+      ],
+      "covered_labels": [
+        "Figure 1",
+        "Figure 2",
+        "Figure 3",
+        "Figure 4",
+        "Figure 5",
+        "Extended Data Figure 1",
+        "Extended Data Figure 2",
+        "Extended Data Figure 3",
+        "Extended Data Figure 4",
+        "Extended Data Figure 5",
+        "Extended Data Figure 6",
+        "Extended Data Figure 7",
+        "Extended Data Figure 8",
+        "Extended Data Figure 9",
+        "Extended Data Figure 10"
+      ],
+      "missing_panels": [],
+      "missing_pages": []
+    },
+    "verified_claims": [
+      {
+        "claim": "训练集 39,312 个化合物、512 个活性（1.3%）；虚拟筛选化合物数 12,076,365（= Mcule 11,277,225 + Broad 799,140）。",
+        "source_locator": "原 PDF p.1 摘要、p.2 左栏正文、p.3 Fig. 2a 漏斗",
+        "evidence": "'We determined the antibiotic activities and human cell cytotoxicity profiles of 39,312 compounds…applied ensembles of graph neural networks to predict antibiotic activity and cytotoxicity for 12,076,365 compounds.'"
+      },
+      {
+        "claim": "抑菌活性 10 模型 Chemprop+RDKit 集成的 AUPRC = 0.364（95% CI [0.359, 0.379]）；三种毒性模型 AUPRC = 0.176 / 0.168 / 0.335。",
+        "source_locator": "原 PDF p.2 Fig. 1c/e/g/i 内嵌文字",
+        "evidence": "'AUC: 0.364, 95% CI: [0.359, 0.379]'; 'AUC: 0.176, 95% CI: [0.174, 0.179]'; 'AUC: 0.168, 95% CI: [0.167, 0.175]'; 'AUC: 0.335, 95% CI: [0.334, 0.341]'"
+      },
+      {
+        "claim": "筛选漏斗：12,076,365 → 10,310 → 3,646 → 2,209 → 1,261；含 1,261 中 186 个含 rationale、5 个 scaffold 组（G1–G5）覆盖 16 个 hits（8.6%）；最终测试 283 个化合物。",
+        "source_locator": "原 PDF p.3 Fig. 2a 漏斗 + p.4 Fig. 3d,e",
+        "evidence": "'We filtered chemical compounds of interest…1,210 compounds from the Mcule purchasable database and 2,436 from the Broad Institute database…structural novelty yields a final set of 1,261 hits'; '16 of 186 hits with rationales (8.6%) could be grouped using five scaffolds—G1–G5'; 'resulted in a set of 283 compounds'"
+      },
+      {
+        "claim": "化合物 1 与 2 对 S. aureus RN4220 MIC = 2 μg/mL、MRSA USA300 MIC = 4 μg/mL；HepG2/HSkMC/IMR-90 IC50 ≥128 μg/mL；治疗窗 ≥64 倍；10% 血清 MIC 升至 16 μg/mL。",
+        "source_locator": "原 PDF p.5 Fig. 3g 与图注、p.7 Fig. 4g 综述；Extended Data Fig. 7b",
+        "evidence": "'compounds 1 and 2 exhibited half-maximal inhibitory concentration (IC50) values ≥128 μg ml−1 for all cell types, indicating robust selectivity against S. aureus'; 'MRSA USA300 exhibits at least 16-fold increased MICs relative to the methicillin-susceptible strain for ampicillin, ciprofloxacin and tetracycline but exhibits only twofold increased MICs for compounds 1 and 2'; 'MICs of compounds 1 and 2 increased 4- to 8-fold to 16 μg ml−1'"
+      },
+      {
+        "claim": "小鼠 MRSA CDC 563 皮肤模型（n=5/组，化合物 1 1% 局部给药）和小鼠 MRSA CDC 706 大腿模型（n=6/组，化合物 1 80 mg/kg 单次腹腔）均使平均细菌载量下降约 1.2 log₁₀；皮肤模型 **P=0.01（化合物 1）/**P=0.004（夫西地酸）；大腿模型 **P=0.01（化合物 1）/**P=0.001（万古霉素）；均为单侧双样本置换检验。",
+        "source_locator": "原 PDF p.7 Fig. 5a,b 图内文字与图注",
+        "evidence": "'n = 5 mice were used in each group'; 'n = 6 mice were used in each treatment group'; '**P = 0.004'; '**P = 0.01'; '**P = 0.001'; 'One-sided, two-sample permutation test compared to vehicle treatment'"
+      },
+      {
+        "claim": "5/17 (29.4%) working true discovery rate for the SAR structural class（17 个市售类似物，Fig. 10b 列出 7 个代表结构）。",
+        "source_locator": "原 PDF p.28 Extended Data Fig. 10b 内嵌数字",
+        "evidence": "'5/17 (29.4%) working true discovery rate for compounds in structural class'"
+      }
+    ],
+    "identity_matches": true,
+    "classification_supported": true,
+    "crop_complete": true
+  }
+}

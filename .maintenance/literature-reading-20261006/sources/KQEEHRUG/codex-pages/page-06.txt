@@ -1,0 +1,99 @@
+ARTICLE                                    COMMUNICATIONS BIOLOGY | https://doi.org/10.1038/s42003-021-02697-8
+
+
+them clustered on chromosome 12 and exhibited co-expression,    of RepeatMasker36 library and the de novo repetitive sequences constructed by
+which contributes to the further elucidation of the Taxol bio-    RepeatModeler, we used RepeatMasker (v.4.0.5)36 (http://www.repeatmasker.org/)
+                                                                                          for genome repeat annotation. We used Genometools (v1.5.9)37 (-motif tgcasynthetic pathway.
+                                                                               -motifmis 1 -minlenltr 100 -maxlenltr 3000 -mintsd 4 -maxtsd 20) to detect full-
+                                                                                    length LTR retrotransposons in four gymnosperms and three angiosperm (T.
+Methods                                                                      yunnanensis, G. montanum, G. biloba, S. giganteum, A. trichopoda, O. sativa and A.
+Plant materials, DNA library construction and sequencing. Fresh leaves were     thaliana) genomes. Further, we used tBLASTn (V2.2.26) to identify Copia and
+collected from T. yunnanensis in Yunnan province. High-quality genomic DNA    Gypsy super-families in seven genomes based on the reported Gypsy and Copia
+was isolated from the fresh leaves using the CTAB method29, and the DNA quality    reverse transcriptase domains with sequences EAYLDDLASRSRKRKDHPTHLR
+and concentration were tested by 0.75% agarose gel electrophoresis, NanoDrop    LIFERoCRYFRIRLNPNKCSFCVTSGRLLGFIVSTTGIMVDPLKVGAIVQLPPPR
+One spectrophotometer (Thermo Fisher Scientiﬁc) and Qubit 3.0 Fluorometer (Life   TIVQLQSLQGKANFLRRFIANYAE and WKVYQMDVKSAFLNGYLEEEVYVQ
+Technologies, Carlsbad, CA, USA).                                 QPPRYEVRGQEDKVYRLKKALNGLKQAPRAWYSKIDSYMIKNEFIRSTSEP
+   After the DNA quality and integrity were tested, it was randomly sheared by   TLYTKVNEQGQILIVCLYVDDLIY, respectively16. Target hits were obtained
+Covaris ultrasonic disruptor. Illumina sequencing pair-end libraries with an insert    using a strict ﬁlter criteria of identity ≥50% (Gypsy) and 60% (Copia) and
+size of 300 bp were prepared using Nextera DNA Flex Library Prep Kit (Illumina,    coverage ratio ≥0.90. Then, the resultant amino acid sequences were aligned using
+San Diego, CA, USA). Sequencing was performed using the Illumina NovaSeq    MUSCLE (V3.8.31)38 with default parameters. Phylogenetic trees were inferred
+platform (Illumina, San Diego, CA, USA). Raw reads were cleaned to discard low-    based on multiple sequence alignment using FastTree (V2.1.9)39. The integration
+quality reads (reads with adaptors or unknown nucleotides (Ns) or reads with more    times (t) of intact LTRs were estimated using the equation t = K/2r, where K is the
+than 20% low-quality bases) using the SOAPnuke (v2.1.4) tool (https://github.com/   number of nucleotide substitutions per site between each LTR pair and r is the
+BGI-ﬂexlab/SOAPnuke) and, after data ﬁltering, clean data were used for            nucleotide substitution rate, which was set to 7.34573 × 10−10 substitutions per site
+subsequent analyses.                                                             per year11.
+   For Oxford Nanopore sequencing, the libraries were prepared using the SQK-
+LSK109 ligation kit and using the standard protocol. The puriﬁed library was
+                                                               Gene prediction. Evidence from transcript mapping, ab initio gene prediction, and
+loaded onto primed R9.4 Spot-On Flow Cells and sequenced using a PromethION
+                                                                      homologous gene alignment was combined to predict protein-coding genes in the
+sequencer (Oxford Nanopore Technologies, Oxford, UK) with 48-h runs at Wuhan
+                                                                                     T. yunnanensis genome. ONT cDNA reads from T. yunnanensis were aligned
+Benagen Tech Solutions Company Limited, Wuhan, China. Base-calling analysis of
+                                                                                       against the genome using Minimap2 (v2.17)40. Transcripts were assembled using
+raw data was performed using the Oxford Nanopore GUPPY software (v0.3.0).
+                                                                                             stringtie2 (v2.1.5)41 and all assembled transcripts ORF were predicted by Trans-
+                                                                        Decoder (v5.1.0) (https://github.com/TransDecoder/TransDecoder). Augustus
+RNA library construction, sequencing and data processing. For gene prediction    (v3.3.2)42, Genscan (v1.0) (http://bioinf.uni-greifswald.de/webaugustus/
+analysis, total RNA was extracted from young leaves of T. yunnanensis using the     predictiontutorial) and GlimmerHMM (v3.0.4) (http://ccb.jhu.edu/software/
+RNA prep Pure Plant Plus Kit according to the manufacturer’s instructions         glimmer/index.shtml) were used for ab initio gene prediction. For homologous
+(Tiangen Biotech (Beijing) Co., Ltd., China). RNA samples were pooled and used a   gene alignment, the proteins from four relative species (Picea abies, Pinus lam-
+strand-switching method and the cDNA-PCR Sequencing Kit (SQK-PCS109) to      bertiana, Pinus taeda and S. giganteum) were aligned to the genome using Exon-
+carry out sequencing of cDNA by PromethION sequencer (Oxford Nanopore        erate (v2.4.0) (https://github.com/nathanweeks/exonerate). Finally, Use MAKER
+Technologies, Oxford, UK).                                                           (v2.31.10) software (http://yandell.topaz.genetics.utah.edu/cgi-bin/
+  To analyze the gene expression pattern, total RNA was extracted from           maker_license.cgi) to integrate gene sets predicted by three methods and remove
+15 samples that comprise three biological replicates of independent samples of ﬁve    incomplete genes and genes with too short CDS (CDS length < 150 bp), a non-
+tissues (root, stem, twig bark, bark and leaf) and sequencing was performed using   redundant and more complete gene set were obtained. We employed the BUSCO
+the Illumina NovaSeq platform (Illumina, San Diego, CA, USA). The stem refers to    software (v.4.1.2)18 for evaluating the quality of the prediction based on the
+the young shoots ca. 1 mm in diameter; twig bark is the bark of lateral branch      eukaryotic and embryophyta database.
+about 0.5 cm in diameter; bark refers to the bark of the tree trunk about 5 cm in
+diameter.
+   RNA-seq reads were mapped to the reference genome assembly using STAR    Gene function annotation. Functional annotation of the predicted protein-coding
+(v2.5.1b; parameters: -two pass Mode)30 and the FPKM was calculated to evaluate    genes was carried out by performing Blastp (e value cut-off 1e−05) searches against
+the expression level of each gene using the HTSeq (v.0.11.2) tool31 after averaging    entries in both the NCBI nr and Uniprot databases (http://www.uniprot.org/).
+some replicated samples. DESeq was used for normalizing gene expression (Base    Searches for gene motifs and domains were performed using InterProScan
+Mean) in each sample, and for identifying differentially expressed genes (DEGs) for    (v5.33)43 and HMMER (v3.1). The GO terms (http://geneontology.org/) for genes
+each compared group by using P-adj (adjusted P value) < 0.05 as the threshold. Co-   were obtained from the corresponding InterPro (https://github.com/ebi-pf-team/
+expression network analysis (Pearson correlation coefﬁcient > 0.8, P < 0.05) was      interproscan) or Uniprot entry (https://www.uniprot.org/). Pathway annotation
+performed and the co-expressed genes that may share taxol metabolism were       was performed using KOBAS (v3.0) (https://github.com/xmao/kobas) against the
+characterized.                                            KEGG database.
+
+
+Genome assembly. Based on the sequencing data of T. yunnanensis, the K-mer    Phylogenetic tree construction. All amino acid sequences of the 14 selected
+analysis method was used to estimate the genome size and heterozygosity using the    species were aligned using Blastp (v.2.6.0; parameter: -evalue 1e−5 -outfmt 6), and
+kmer_freq program in the GCEpackage (v.1.0.0).                                    the gene family clustering was performed using OrthoMCL software (v.2.0.9;
+   Genomic assembly was performed using SMARTdenovo software (https://        parameters: percentMatchCutoff = 30, evalueExponentCutoff = 1e−5, expansion
+github.com/ruanjue/smartdenovo). Two rounds of error correction were             coefﬁcient 1.5)44.
+performed on the assembly result based on the nanopore sequencing data using     A single-copy gene family shared by at least eight selected species (575 gene
+Racon (v1.4.11) (https://github.com/isovic/racon). Two rounds of error correction    families) was screened to construct phylogenetic trees. The 575 gene family ﬁles
+were performed on the assembly result based on the Illumina Novaseq sequencing   were each aligned using MUSCLE (v.3.8.31)38, both as amino acid and nucleotide,
+data using Pilon (v1.23)32. Finally, the genome was removed from the heterozygous    resulting in two distinct alignments per gene family. We also forced nucleotide
+sequences using the Purge_haplotigs pipeline (v.1.0.4)33 to obtain the ﬁnal          sequences on the amino acid alignments using a custom Perl script to obtain
+assembly result. To evaluate the genome, BUSCO (v.4.1.2)18 assessments and the    codon-preserving alignments of nucleotide sequences. Gene trees were then
+Illumina short reads were aligned to the assembled genome using BWA, resulting    reconstructed for each gene family using RAxML (v.8.2.10) software45 with 100
+in a mapping rate of 99.64%.                                                             replicates of bootstrapping. For each gene family, we estimated four different gene
+                                                                                             trees based on: amino acid alignments, DNA alignment, codon alignment
+                                                                                      (nucleotides forced to the amino acid alignment), and codon 1 and 2 alignment
+Hi-C sequencing and data processing. High-quality DNA extracted from young
+                                                                          (codon alignments where the third codon position was removed). Nucleotide-based
+leaves of T. yunnanensis was used for Hi-C sequencing. Formaldehyde was used for
+                                                                                     analyses were conducted using the GTR + GAMMA model; for amino acid
+ﬁxing chromatin. In situ Hi-C chromosome conformation capture was performed
+                                                                                          analyses, we used WAG model. For four different datasets, we inferred fouraccording to the DNase-based protocol described by Ramani34. The libraries were
+                                                           maximum likelihood tree of species from gene trees using RAxML (v.8.2.10)
+sequenced using 150 bp paired-end mode on an Illumina NovaSeq (Illumina, San
+                                                                                        software45. A phylogenetic tree of each single-copy gene was further constructed to
+Diego, CA, USA). For pseudochromosome level scaffolding, we used the assembly
+                                                                                             infer a consensus species tree using ASTRAL (v5.7.1)46.
+software ALLHIC (v0.9.12) for stitching, and then we imported the ﬁnal ﬁles (.hic
+                                                                              For supermatrix analyses, we concatenated all gene alignments and MLand .assembly) generated by the software into Juicebox (v1.11.08)35 for manual
+                                                                               supermatrix analyses were performed using RAxML (v.8.2.10)45 software. In this
+optimization.
+                                                                                        study, four supermatrix datasets were created for amino acid, codon alignment
+                                                                                      (nucleotides forced to the amino acid alignment), nucleotide alignments and
+Repeat sequence annotation. We identiﬁed de novo repetitive sequences in the T.    codon1, 2 alignment (codon alignments where the third codon position was
+yunnanensis genome using the RepeatModeler (v.1.0.4) (https://github.com/         removed). These data matrices were used for maximum likelihood phylogenetic
+rmhubley/RepeatModeler) software. After combining known repetitive sequences    analyses by RAxML (v.8.2.10)45 with the GTR + GAMMA models for nucleotide
+
+
+6                     COMMUNICATIONS BIOLOGY | (2021)4:1203 | https://doi.org/10.1038/s42003-021-02697-8 | www.nature.com/commsbio

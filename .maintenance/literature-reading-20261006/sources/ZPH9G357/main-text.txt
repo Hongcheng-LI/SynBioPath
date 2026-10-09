@@ -1,0 +1,1045 @@
+
+[PDF physical page 1]
+                                                                                                                           This article is licensed under CC-BY 4.0
+
+               pubs.acs.org/acscatalysis                                                                                                  Review
+
+     Genome Mining for New Enzyme Chemistry
+        Dinh T. Nguyen, Douglas A. Mitchell,* and Wilfred A. van der Donk*
+
+
+
+                      Cite This: ACS Catal. 2024, 14, 4536−4553                        Read Online
+
+      ACCESS                         Metrics & More                                              Article Recommendations
+
+         ABSTRACT: A revolution in the field of biocatalysis has enabled
+              scalable  access  to compounds  of  high  societal  values  using        articles.       enzymes. The construction of biocatalytic routes  relies on the
+              reservoir  of  available enzymatic  transformations. A  review  of
+             uncharacterized  proteins  predicted from genomic  sequencing(UTC).        published        projects shows that a treasure trove of enzyme chemistry awaits
+    share        to be uncovered. This Review highlights enzymatic transformations            discovered  through  various genome  mining methods and03:41:49
+at         showcases their potential future applications in biocatalysis.
+2024          legitimately
+19,to
+July      KEYWORDS: genome mining, enzymes, biocatalysis, database, peptides, RiPPs, bioinformatics   how
+on  on
+                   I. INTRODUCTION                                                 reactions.21−24 Hence, elucidating new enzymatic functionsCHINAoptions                                                                from genomic data is a promising avenue for unlocking novel
+OFfor      Enzymes are pivotal for biological processes and are valuable      chemical reactions.               catalysts for many industrial applications.1−3 The  ability of
+UNIV         enzymes to catalyze complex transformations efficiently makes     A  notable  challenge  in  uncovering enzyme  function  is                                                                                  identifying  the  appropriate  substrate. One  approach  to
+          them  invaluable  for  applications  in  agriculture,  food
+                                                                                  predicting candidate substrates includes docking a compre-             production, consumer goods, and medicine.1,4−6 The use of
+                                                                              hensive ligand library (composed of metabolites from bio-OCEAN        enzymes  enhances  the  synthesis  of  pharmaceuticals by
+                                                                                          logical databases) to multiple enzymes in one biosyntheticvia         improving atom economy, minimizing waste generation, and
+                                                                             pathway.25 In a natural product class termed the ribosomally              elevating the selectivity of chemical reactions.7,8 Additionally,
+                                                                          synthesized and  post-translationally  modified  peptides
+            enzymatic synthesis facilitates the fermentation of genetically
+                                                                                    (RiPPs),26,27 substrate prediction is much less computationally
+            modified organisms on the industrial scale, providing greenerDownloaded                                                                                     intensive, as these compounds are produced from a genetically           and more sustainable access to commodity chemicals.9,10
+                                                                    encoded precursor peptide(s) that is typically encoded near                                https://pubs.acs.org/sharingguidelines         Enzymatic synthesis of a selected target typically commences                                                                          other  genes  for  the  biosynthetic  enzymes.  Thus,  any            with retrosynthetic analysis.11,12 Candidate enzymes that could   See                                                                       uncharacterized  proteins  in  a  biosynthetic  gene  cluster
+                facilitate the assembly of potential precursors are identified
+                                                         (BGC)  will most  likely act on the precursor peptide or a
+            through review of scientific literature and online databases that
+                                                                                   derivative made by  the  other enzyme(s)  in  the BGC.             catalog enzymatic reactions.13−16 Once tentative catalysts have
+                                                                         Heterologous  expression  of  the gene-encoded  substrate(s)
+           been identified, directed evolution or other protein engineering
+                                                                            with the enzymes of the BGC can therefore not only facilitate            techniques can be employed for reaction optimization.17,18 As
+                                                                              the discovery of new natural products but also assign function
+            has been pointed out, the scope and efficiency of biocatalytic
+                                                                                to uncharacterized enzymes.
+             processes would be enhanced by expanding the repertoire of
+                                                              The RiPP precursor peptide contains a core region that
+              available enzymatic transformations.
+                                                                                    receives the post-translational modifications (PTMs) and an
+               Exploring reactions catalyzed by uncharacterized proteins in
+                                                                           N-terminal leader region and/or a C-terminal follower region
+           genomic databases offers a promising path to uncover unique
+            enzymatic  activities.19 The  rapid  expansion  in genome
+            sequencing has led to the identification of a multitude of      Received:  December 27, 2023
+             uncharacterized enzymes,  either misannotated  as having a      Revised:   February 9, 2024
+             function  equivalent  to known enzymes  or  annotated  as      Accepted:  February 13, 2024
+             hypothetical  proteins  or domains  of unknown  function      Published: March 12, 2024
+           (DUFs).20 Notably, certain enzyme superfamilies are recog-
+            nized for their ability to facilitate a wide range of chemical
+
+                                            © 2024 The Authors. Published by
+                                                                  American Chemical Society                                                                   https://doi.org/10.1021/acscatal.3c06322
+                                                                         4536                                                   ACS Catal. 2024, 14, 4536−4553
+
+
+[PDF physical page 2]
+ACS Catalysis                                              pubs.acs.org/acscatalysis                                          Review
+
+
+
+
+
+Figure 1. (A) General concept of RiPP biosynthesis and structures of select examples of RiPPs. (B) A general workflow describing the process of
+identifying putative precursor peptides in RiPP BGCs of interest.
+
+responsible  for  recruiting  the modifying enzymes  (Figure     both  for known  classes and  in  yet-uncharacterized  fami-
+1A).27 At present, more than 40 classes of RiPPs have been       lies.31−38
+reported,  categorized by common,  class-defining PTMs.     A general workflow utilized in many genome mining studies
+                                                                   to identify RiPP precursor peptides of BGCs of interest  isIndividual members  of  a  class may  have  additional,
+                                                                 depicted in Figure 1B. Past challenges in identifying the RiPPcompound-specific tailoring PTMs. Examples of RiPPs include
+                                                                  precursor peptide are associated with their small size, sequence
+those formed by a few enzymes (e.g., darobactin, matured by a
+                                                                             diversity, and  the  frequent  lack  of  predictable  secondary
+modifying enzyme and proteolysis),28 hypermodified peptides
+                                                                          structure. These issues are mitigated by tools like RODEO,
+formed by a cascade of tailoring enzymes (e.g., thiostrepton),29                                                          which employs a six-frame translation of intergenic regions of a
+or even nonpeptidic small molecules (e.g., ammosamide C,                                                                 candidate BGC to identify unannotated small genes (Figure
+Figure 1).30 Recent advancements in the analysis of short      1B).31 Marriage of RODEO with gene finding algorithms like
+open-reading frames (ORFs) in prokaryotic genomes have      Prodigal39  can  be  useful,  as shown  with  the program
+greatly facilitated the identification of RiPP precursor peptides,     RiPPER,34  to  locate  the most  probable  short ORFs by
+
+                                                             4537                                                       https://doi.org/10.1021/acscatal.3c06322
+                                                                                                                                     ACS Catal. 2024, 14, 4536−4553
+
+
+[PDF physical page 3]
+ACS Catalysis                                              pubs.acs.org/acscatalysis                                          Review
+
+
+
+
+
+Figure 2. Novel RiPP enzyme chemistry resulting from homology-based genome mining. The enzymes performing novel chemistry are bolded,
+while the utilized bioinformatic hooks are underlined. In many cases, the IPR protein families used as the bioinformatic handle yielded novel
+chemistry. Colors are either used to depict bond formations or conceptually describe a BGC. (A) General concept of homology-based mining. (B)
+Canonical class I lanthipeptide biosynthesis. X = amino acid. (C) Pearlin biosynthetic pathways identified from mining LanB homologues. The
+BGCs were identified from homology searches using LanB (TglB, BhaB1, BhaB7, BhaB5), whereas the activities of TglHI-, TmoD-, and TPR-
+containing flavin-dependent (BhaC1) enzymes were discovered by coexpression studies taking advantage of the genetically encoded substrates and
+the linear biosynthetic pathways of most RiPPs.
+
+                                                             4538                                                       https://doi.org/10.1021/acscatal.3c06322
+                                                                                                                                     ACS Catal. 2024, 14, 4536−4553
+
+
+[PDF physical page 4]
+ACS Catalysis                                              pubs.acs.org/acscatalysis                                          Review
+
+evaluating ribosome binding sites (RBS), start codons, and G/      delineated by how the dehydroamino acids are formed and the
+C  content. The  candidate  precursor  peptides  are  then       specific  features  of  the  cyclase enzymes  responsible  for
+evaluated  through machine  learning  algorithms  (such  as      thioether formation. The  characterization  of  lanthipeptide-
+support vector machine  classification), which identify  traits       like BGCs containing unusual features revealed new RiPP
+of  precursor  peptides based on  characterized RiPP  path-       classes and enzymatic functions.
+ways.31,35−37 This task is often aided by sequence similarity         Pearlins.  Peptide  aminoacyl-transfer  ribonucleic  acid
+networks (SSNs) and sequence alignments of the identified     (tRNA) ligase-derived RiPPs  (i.e., pearlins) were discovered
+short ORFs, which point out the most probable precursor     from investigations of LanB enzymes (IPR006827). These
+peptide(s) through sequence conservation.40−44                    proteins  consist  of an  N-terminal domain  that  facilitates
+  This Review centers on the latest advances in identifying     glutamyl-tRNA-dependent transesterification of the glutamyl
+unprecedented enzymatic functions by analyzing prokaryotic     group to the side chains of Ser or Thr residues and a C-
+RiPP BGCs. This Review will not cover enzyme functions      terminal domain (IPR023809) that catalyzes an elimination
+identified through assigning BGCs to metabolites that had      reaction on these glutamylated residues to form Dha or Dhb
+been detected in extracts or metabolomic data prior to genome      (Figure 2B).56 In silico analyses identified numerous BGCs
+searches and  molecules  previously documented  in  the      that lack a lanthionine cyclase (IPR007822) and Cys residues
+literature. We also will not cover enzymatic reactions that are       in the precursor peptide but  that  feature truncated LanB
+unprecedented to RiPPs but that have been reported in other     enzymes (termed short LanBs) possessing only a glutamyla-
+contexts or that from a chemical perspective are not surprising.       tion-like domain.30
+Our focus is on the use of genomic analysis to characterize new        Coexpression in Escherichia coli of the precursor peptide and
+enzymatic activities within the context of RiPP biosynthesis.     the  short LanB  (TglB, NCBI  accession  code:
+We concentrate on two primary strategies: first, characterizing     WP_007252217.1)  of one  such BGC from  Pseudomonas
+BGCs  that  contain homologues  of known RiPP enzyme       syringae unveiled an unexpected new function of the LanB
+families, and second, development of bioinformatic techniques      superfamily: ligation of an amino acid, in this case cysteine, via
+to detect new RiPP classes in an enzyme-agnostic fashion.     an amide bond to the C-terminal carboxylate of the precursor
+These elements serve as markers to identify putative RiPP      peptide (Figure 2C).30 Subsequent investigations on BGCs
+pathways, with a particular focus on those featuring unfamiliar     from  Bacillus  halodurans and  Streptomyces  sp. CNR-698
+enzymes and/or substrates. Notably, these methods are not     demonstrated the versatility of the short LanBs, with Ala and
+necessarily mutually exclusive; orthogonal approaches can lead     Trp also being conjugated to the C-termini of their substrate
+to the computational identification of similar BGCs.                peptides.57 Hence, the renaming of short LanBs as peptide
+                                                          aminoacyl tRNA  ligases (PEARLs). These  discoveries
+II. REACTION DISCOVERY VIA HOMOLOGY TO            introduced  a  biosynthetic  concept  distinct from  other
+  KNOWN RIPP ENZYMES                                    canonical natural product pathways involving the transient
+Homology-based mining starts with retrieving homologues of      attachment of an amino acid to a peptide scaffold, which after
+known RiPP enzymes using sequence homology searches [e.g.,      extensive chemical modification, is released as a distinct small-
+Basic Local Alignment Search Tool (BLAST)]45 and/or the      molecule  natural  product  a  process  that  contrasts  with
+profile hidden Markov models (pHMMs)46,47 representing the      conventional RiPP PTMs  resulting  in  modified  peptides
+RiPP enzyme families (Figure 2A). Many protein databases      (Figure 2C).
+utilize pHMMs  to  catalog  protein  families, with InterPro        Additional new  enzymatic  transformations  were  also
+(IPR)48,49 being the most comprehensive resource, as it is a     uncovered in these investigations. Taking advantage of the
+collection  of smaller pHMM  libraries  (e.g., Pfam50,51 and       linearity of most RiPP biosynthetic pathways, once the activity
+TIGR/NCBIFAM51). For consistency, this Review uses IPR      of TglB was determined, the function of the multinuclear iron-
+identifiers to describe all discussed RiPP enzyme families. The     dependent  oxidative enzyme (MNIO,  formerly DUF692,
+assembled pool of putative RiPP enzymes is then subdivided     IPR007801) TglH (WP_007252215.1) from the P. syringae
+into different groups based on primary structure using SSNs41    BGC was determined by coexpression in E. coli. TglH together
+and/or phylogenetic trees.52,53 Then, the genome neighbor-      with the substrate-binding protein TglI (WP_007252216.1)
+hood  of homologues  of  interest  is  collected  to  identify      catalyzes the unprecedented excision of the β-carbon of the
+potential modifying enzymes and the precursor peptide(s).     TglB-appended Cys residue to form a C-terminal 2-amino-2-
+BGCs anticipated to uncover new RiPP chemistry based on      mercaptoacetate. This structure is converted by more conven-
+uncharacterized enzymes or unusual gene combinations are       tional enzymatic reactions to a C-terminal 3-thiaglutamate
+usually prioritized based on several criteria (Figure 2A): (i) the      (Figure 2C). A protease in the BGC then cleaves off this
+presence  of  distant homologues  of the query  proteins or      product from  the  scaffold  peptide  to  allow  for  catalytic
+uncharacterized families/subfamilies within a selected super-      turnover.30 A related BGC (tmo) was found in Tistrella mobilis
+family; (ii) BGCs featuring substrate peptides with unusual      with TmoB and TmoHI catalyzing chemistry analogous to
+sequences; (iii) BGCs comprising a different set of modifying     TglB/HI. The  subsequent  steps  differ,  as  revealed  by
+enzymes compared to those containing the query proteins of      coexpression experiments in E.  coli. The tmo BGC contains
+known RiPP enzymes; and (iv) BGCs that exhibit more than      the S-adenosyl-L-methionine (SAM)-dependent methyltrans-
+one of these attributes.                                               ferase (IPR029063) TmoS (WP_014744571.1) and  the
+   II.a. Lanthipeptide Synthetase Homology as a Route      cobalamin- and  radical  S-adenosyl-L-methionine-dependent
+to Discover New Enzyme Chemistry. Lanthipeptides are      e n z y m e   ( B 1 2 - r S A M ,   I P R 0 3 4 4 6 6 )  T m o D
+defined by thioether linkages resulting from a Michael-type     (WP_228382265.1).58 TmoS is responsible for S-methylation
+addition  of Cys  residues  to  dehydroalanine (Dha)  or      of the C-terminal 2-amino-2-mercaptoacetate, while TmoD
+dehydrobutyrine (Dhb) (Figure 2B).54,55 To date, researchers      performs three successive B12-dependent C-methylations to
+have  identified  five  distinct  lanthipeptide  subclasses, each     form 3-thiahomoleucine (Figure 2C).
+
+                                                             4539                                                       https://doi.org/10.1021/acscatal.3c06322
+                                                                                                                                     ACS Catal. 2024, 14, 4536−4553
+
+
+[PDF physical page 5]
+ACS Catalysis                                              pubs.acs.org/acscatalysis                                          Review
+
+
+
+
+
+Figure 3. Novel RiPP enzyme chemistry resulting from homology-based genome mining. The enzymes performing novel chemistry are bolded,
+while the utilized bioinformatic hooks are underlined. In many cases, the IPR protein families used as the bioinformatic handle yielded novel
+chemistry. Colors are used to depict bond formations. (A) Enzymatic activity of the MNIO ChrH. (B) His-Dhb cross-link formation catalyzed by
+the class III lanthipeptide synthase NorKC. (C) C−N cross-link formation and hydroxylation catalyzed by the P450 SroB. (D) Histidine C2
+geranylation catalyzed by the cyanobactin prenyltransferase LimF.
+
+  The  bha  pathway  uses  two  PEARLs, BhaB1    CPACGMG sequence  at the C-terminus. Coexpression  of
+(WP_161598560.1) and BhaB7 (WP_010898205.1), to attach     ChrA with ChrHI in E. coli resulted in a macrocycle with two
+Ala and Trp  at  the  C-terminus  of  a  scaffold  peptide,      thioaminals and a thiomethyl group, and a five-membered
+respectively (Figure 2C). A previous protein  of unknown      imidazolidinedione  (hydantoin,  Figure  3A). The  overall
+function, BhaC1 (WP_010898191.1), was demonstrated to be      process was without precedent, with the only similarity to
+a unique  flavin mononucleotide-dependent enzyme with a      reactions  catalyzed by other MNIOs being the net  four-
+tetratricopeptide domain (IPR011990) that introduces three      electron oxidation and chemistry involving Cys. ChrHI uses
+hydroxyl groups to the C4, C5, and C7 positions of the ligated    SAM for methylation of the thiol of a thiohemiaminal (Figure
+Trp  residue.57  These  hydroxylations  set  the  stage  for      3A). The predicted structures of ChrH and ChrI (Alpha-
+subsequent oxidation to form an ortho-hydroxy para-quinone      Fold)64 do not exhibit the typical Rossmann fold for SAM
+structure. This moiety then serves as a substrate for another      binding, suggesting a new set of residues comprise the ligand
+PEARL (BhaB5, WP_041820575.1), which attaches Gly to      binding pocket.63
+Trp-C5  (Figure  2C).  Ultimately,  the  glycine  adduct  is         All characterized MNIOs (MbnB, TglH, ChrH) are iron-
+transformed to an amine, revealing a heretofore unprecedented      dependent. The  crystal  structures  of MbnBC and TglHI
+route  to  aromatic  amines. These  transformations  were      revealed two to three irons in the active sites of MbnB and
+leveraged  for  the  previously  elusive  biosynthesis  of  the      TglH.65−67 The crystal structure of MbnBC bound to MbnA,66
+myosin-targeting59 ammosamides (e.g., Figure 1A). Thus, the      the AlphaFold model of TglHI with the precursor TglA, and
+characterization of RiPP BGCs containing a peculiar LanB    biochemical  assays  demonstrated  that MbnC
+homologue revealed new biosynthetic  logic and enzymatic     (WP_003614727.1) and TglI engage their cognate precursor
+transformations. A  related  observation  of BGCs encoding       peptides.67,68 In the MbnABC structure, one Cys residue of
+truncated LanB enzymes but neither lanthionine cyclase(s) nor    MbnA is ligated to an iron. Comprehensive activity assays of
+precursor peptides containing Cys residues led to the discovery    MbnBC under varying redox conditions, complemented by
+of pyridine-based cyclic peptides (termed pyritides) similar to      electron  paramagnetic  resonance (EPR) and  Mössbauer
+thiopeptides but without thiazol(in)es.60,61                         spectroscopy, suggested MbnB’s  reliance on a mixed iron
+  Cyclization Reactions Forming Thioaminal, Thiomethyl,      oxidation state [Fe(II) and Fe(III)] for functionality.65 The
+and Hydantoin Groups. TglH was the second characterized     unique constellation of irons in these enzymes, combined with
+MNIO protein after MbnB (WP_065083569.1), which acts in      the distinct activities of ChrHI, MbnBC, and TglHI, prompted
+methanobactin biosynthesis by converting two Cys into two      the renaming of DUF692 to the more descriptive MNIO.63
+oxazolone/thioamide pairs in the MbnA precursor peptide.62 A        Histidine-Dehydrobutyrine Cross-Link. A RiPP displaying
+SSN of the MNIO family (IPR007801) highlighted a subgroup     an unusual His-Dhb (Hbt) cross-link was discovered during
+predominantly from the Chryseobacterium genus. The corre-     genome mining efforts for new class III lanthipeptides using
+sponding BGCs  encode  the MNIO  protein ChrH      the class-defining lanthipeptide synthetase LanKC (IPR000719
+(WP_034727520.1),  a  putative  anthrone  oxygenase-like     and IPR007822). A putative class III lanthipeptide BGC (nor)
+protein  (IPR013901,  formerly DUF1772)  ChrI     was identified in Streptomyces noursei ATCC 11455, with the
+(WP_165571891.1),  a  ribulose  phosphate-3-epimerase-like      precursor peptide NorA containing three Ser/Thr and only
+enzyme (IPR000056) ChrE (WP_034727525.1), and an     one Cys.69 Heterologous expression in Streptomyces lividans
+M42  peptidase (IPR008007) ChrP (WP_034727527.1).63     and in vitro reconstitution demonstrated that the lanthipeptide
+The  substrate  peptide (ChrA)  contains  a  conserved      synthetase NorKC (ANZ21440.1) catalyzes the dehydration of
+
+                                                             4540                                                       https://doi.org/10.1021/acscatal.3c06322
+                                                                                                                                     ACS Catal. 2024, 14, 4536−4553
+
+
+[PDF physical page 6]
+ACS Catalysis                                              pubs.acs.org/acscatalysis                                          Review
+
+
+
+
+
+Figure 4. Novel enzymatic chemistry resulting from homology-based genome mining using rSAMs. (A) Tyramine splicing catalyzed by the rSAM
+PlpX and the RRE protein PlpY. The bioinformatic hook was another rSAM in the BGC, PlpD (homologue of polytheonamide epimerase). (B)
+Enzymatic activity of the ranthipeptide synthase CteB, and how ranthipeptide synthases were discovered from searching for homologues of
+sactipeptide synthases. (C) Seleno(thio)oxazole formation by the rSAM SbtM. (D) Cyclopropyl formation catalyzed by the rSAM TvgB.
+
+all three Ser/Thr to the corresponding Dha/Dhb as well as the      biosynthesis was recently utilized as a bioinformatic hook.77
+formation of a canonical labionin between the Cys and Dha      Examination  of P450-containing BGCs  containing  specific
+residues. Unexpectedly, NorKC also formed an unprecedented      patterns of aromatic residues in the precursor peptides led to
+cross-link between the Nτ of His and Cβ of an aminobutyric      the discovery of SroB (WP_157848581.1) that catalyzes the
+acid residue via a Michael addition of His to dehydrobutyrine      formation of a C−N linkage between C7 in Trp (residue i) and
+(Figure  3B).  Notably,  the  resulting  lanthipeptide, termed     Nτ in His (i+3) and hydroxylation of C6 in Trp (Figure 3C).
+noursin, possessed  selective copper-binding  activity  that  is     The authors also identified a C−C linkage between C7 of Trp
+dependent on the Hbt cross-link.                             and C3 of Tyr(i+3). While a similar linkage is known from
+   II.b. Cytochrome P450 Homology as a Route to     TMC-95A,78 the  difference  is  that TMC-95A possesses a
+Discover New Enzyme Chemistry. Cytochromes P450      smaller ring  size, and the C−C bond  is formed in reverse
+(IPR001128)  comprise  a  superfamily  of heme-dependent      residue order (Tyri-Trpi+3). Another P450 identified in the
+enzymes catalyzing diverse and remarkable transformations.24     same study catalyzed C−N bond formation between C6 of Tyr
+Besides  their  natural  catalytic  activity,  directed  evolution      (residue i) and N1 of Trp (i+2). This specific linkage type is
+techniques have been extensively employed to engineer P450       also observed in tryptorubin and nocapeptin A79 but again in a
+enzymes  to  catalyze  unnatural  transformations.17  In RiPP      reversed residue order and smaller ring  size  (Trpi-Tyri+1).
+biosynthesis, P450-catalyzed reactions are frequently observed,     Other new P450-catalyzed transformations, discovered using a
+with most identified retrospectively after traditional natural      substrate-centric approach, are described later in this Review
+product isolation efforts.70,71 We focus here on noncanonical      (section III.c).
+cytochrome P450-catalyzed transformations. Examples include           II.c.  Prenyltransferase Homology as a Route to
+macrocyclization during the biosynthesis of tryptorubin,72,73     Discover New Enzyme Chemistry.  Cyanobactins  are
+cittilins,74 biarylitides,75 and the recently discovered cihuna-     RiPPs produced in diverse cyanobacterial taxa.80 Initially, all
+mides,76 which display a C−N bond between C7 in Trp     known  cyanobactins  were  head-to-tail-cyclized;  however,
+(residue  i) and the N1 of another Trp (i+3). To gather       several  linear  versions have been  described. Cyanobactins
+additional P450s associated with RiPP biosynthesis, the P450       also undergo other  modifications, such  as YcaO-catalyzed
+TrpB72 (WP_093582223.1)  responsible  for  tryptorubin      azol(in)e  formation,  methylation, and  prenylation.80 The
+
+                                                             4541                                                       https://doi.org/10.1021/acscatal.3c06322
+                                                                                                                                     ACS Catal. 2024, 14, 4536−4553
+
+
+[PDF physical page 7]
+ACS Catalysis                                              pubs.acs.org/acscatalysis                                          Review
+
+cyanobactin prenyltransferases (IPR031037) perform diverse      leader regions with similarity to either  nitrile hydratase or
+prenylation reactions with a wide variety of donor nucleophiles     Nif11 proteins.93 The function of the uncharacterized rSAM
+and prenyl  acceptors.81 Prenylation  is  beneficial from the     PlpX (WP_019503880.1) was elucidated by coexpression with
+viewpoint  of  peptide  engineering,  as  it can enhance  the      the precursor peptides and the RRE PlpY (WP_019503879.1).
+interaction of peptides with membranes resulting in increased     PlpX was found to catalyze the unprecedented excision of
+membrane permeability and bioavailability.82,83                   tyramine from a Xaa−Tyr−Gly motif and reconnection of the
+ New  geranylation  chemistry  involving C2  of  His was      peptide with an α-keto amide in the backbone, giving rise to
+discovered  through genome  mining  for  uncharacterized      the term  spliceotide (Figure 4A).94 This  post-translational
+homologues  of  cyanobactin  prenyltransferases. An SSN      modification is widespread in nature and has been leveraged as
+constructed from homologues of the Trp C-prenyltransferase      a bioorthogonal  labeling method and moiety  for protease
+KgpF (WP_061432709.1)84 retrieved by BLAST identified a       inhibition.95,96
+unique putative prenyltransferase (LimF, RFP52075.1) from        Ranthipeptides. Numerous RiPPs contain thioether-based
+Limnothrix sp. CACIAM 69d, which did not group with known      macrocycles  as  the  class-defining  modification,  including
+prenyltransferases.85 Furthermore, when compared phyloge-      lanthipeptides, sactipeptides, and the more recently bioinfor-
+netically with characterized prenyltransferases, LimF consti-      matically discovered ranthipeptides. While lanthipeptides are
+tuted a separate branch between the Tyr-O-prenyltransferase      biosynthesized using Michael-like addition chemistry, sactipep-
+and Trp-C/N prenyltransferase groups. In vitro reconstitution       tides and  ranthipeptides  are formed by rSAM  enzymes.
+of LimF with the predicted head-to-tail-cyclized cyanobactin      Sactipeptides contain a sactionine (sulfur-to-α-carbon) cross-
+substrate unveiled a novel enzymatic activity: geranylation of       link between a donor Cys and an acceptor amino acid, often
+C2  of  the  His  imidazole  ring  (Figure 3D). LimF  is  a      forming  a  hairpin-like  structure.97  Ranthipeptides  instead
+bifunctional prenyltransferase, as  it can also geranylate the      contain ranthionine  (radical non-α)  cross-links, which  are
+phenolic oxygen  of  Tyr.  Notably, LimF  possesses broad     more stable relative to the isomeric sactionine.
+substrate scope, accepting macrocyclic peptides with diverse         Prior to the discovery of the first ranthipeptide, RODEO was
+sequences, ring sizes, and small molecules.                          trained to detect sactipeptides. Several rounds of BLAST and
+   II.d. Radical SAM Homology as a Route to Discover   RODEO  analysis  of rSAMs  from known  (AlbA,
+New Enzyme  Chemistry. The rSAM  superfamily     WP_003242599.1; SkfB, NP_388073.2; ThnB, ACY56718.1;
+(IPR007197), currently comprised of over >800 000 members,     and TrnC, AED99784.1) and assumed  sactipeptide BGCs
+is  recognized  for  catalyzing  a  spectrum  of  extraordinary     (CteB, WP_003517268.1 and  Tte1186, AAM24417.1)98
+transformations across various metabolite  classes.23 Despite      retrieved nearly 5000 proteins encoded next to high-scoring,
+their functional diversity, canonical rSAM enzymes generate a      Cys-rich precursor peptides. Sequence analysis of the rSAMs
+5′-deoxyadenosyl radical via the reductive cleavage of SAM.      revealed a large separation between the known and assumed
+Scission of the key C−S bond is afforded by electron donation      sactionine synthases with the latter being much more similar to
+into its σ* orbital from a ubiquitous [4Fe-4S]+ center. The 5′-    QhpD (SDJ52620.1). This rSAM is responsible for the Cys−
+deoxyadenosyl radical then typically abstracts a hydrogen atom     Asp (S−Cβ) and Cys-Glu (S−Cγ)  cross-links  found  in
+from the substrate, yielding 5′-deoxyadenosine as a byproduct     quinohemoprotein amine  dehydrogenase.99 Hence, rSAMs
+and a substrate-based radical that can undergo a range of      that grouped with QhpD might not be forming sactionine
+transformations.86 Numerous studies have identified rSAMs       linkages. This reasoning led to the discovery of freyrasin, which
+with a wide spectrum of functions in RiPP pathways,87 which      contains six thioether macrocycles formed by S−Cβ linkages
+have been used  for homology searching and to construct     between Cys and Asp residues. The freyrasin synthase PapB
+pHMMs to  retrieve additional rSAM enzymes involved in     (WP_019688962.1) possesses broad substrate scope, generat-
+peptide and protein modification.                                  ing  unnatural  ranthipeptides  with  diverse  ring  sizes and
+  Many RiPP-associated rSAM enzymes contain a second      forming S−Cγ linkages between Cys and Glu and cross-links
+protein domain identified by IPR023885, which contains two     between  nonproteogenic  thiols and  non-natural amino
+additional [Fe−S] centers. Such domains are referred to as       acids.100−103 The RiPP thermocellin, previously thought to
+SPASM,  given  they  are  involved  in  the  biosynthesis  of     be a sactipeptide, contains a novel S−Cγ linkage between Cys
+Subtilosin A, Pyrroloquinoline quinone, Anaerobic Sulfatase,     and Thr residues formed by the rSAM CteB. These insights led
+and  Mycofactocin.88  Various new enzyme  functions were      to a new class of RiPPs termed radical-non-α-carbon thioether-
+discovered by characterizing BGCs containing orphan rSAMs      containing peptides (ranthipeptides) (Figure 4B).98 Another
+with the SPASM/twitch domain (with twitch being a truncated      separate ranthipeptide with the S−Cβ linkage between Cys and
+SPASM domain that binds to one auxiliary [Fe−S] center)89,90     Asn residues from Streptococcus orisratti and Streptococcus porci
+and/or homologues of known rSAMs.                         was independently discovered through genome mining  for
+   Spliceotides. The discovery of spliceotides resulted from     rSAMs in the neighborhood of a quorum-sensing (QS) system,
+exploring a BGC in Pleurocapsa sp. PCC 7319 (plp) encoding a     which is described later in this review.104
+member (PlpX) of an uncharacterized subclass of SPASM-        Thio(seleno)oxazole-Containing RiPPs. A separate group
+containing rSAM enzymes (IPR026482) found  alongside      of rSAM-SPASM proteins are defined by IPR018641, which
+known rSAM epimerases. Such BGCs were first identified by      contain the selenocysteine (SeCys) insertion element in their
+BLAST  searches  using  the rSAM  epimerase PoyD     BGCs.88 This element is encoded immediately downstream of
+(AFS60640.1) from polytheonamide biosynthesis as query.      the TGA codon in the predicted precursor peptide, suggesting
+The homologue PlpD was confirmed to convert L-amino acids     the  presence  of  selenocysteine. The rSAM SbtM
+into D-amino acids in its peptide substrate (Figure 4A).91 The     (WP_083768621) was used for in vitro assays with substrates
+BGC accommodating PlpD (WP_019503883.1) and PlpX also      containing Cys or SeCys.105 High-resolution mass  spectral
+encodes a truncated version of a RiPP precursor recognition      analyses  demonstrated  that  Cys- and  SeCys-containing
+element (RRE)92 and signature precursor peptides containing      substrate peptides lost four hydrogens after rSAM treatment.
+
+                                                             4542                                                       https://doi.org/10.1021/acscatal.3c06322
+                                                                                                                                     ACS Catal. 2024, 14, 4536−4553
+
+
+[PDF physical page 8]
+ACS Catalysis                                              pubs.acs.org/acscatalysis                                          Review
+
+
+
+
+
+Figure 5. Unique enzymatic chemistry forming cyclophanes discovered by homology-based genome mining using rSAMs. (A) Novel C−C bond
+formation catalyzed by the 3-CyFE rSAMs XncB, OscB, and MscB. (B) Bioinformatic mapping based BLAST hits of XncB, OscB, and MscB and
+SPASM/Twitch-containing rSAMs from radicalSAM.org lead to novel C−C bond formation catalyzed by the 3-CyFE rSAMs YxdB, HaaB, and
+YhhB. (C) Discovery of a novel narrow-spectrum antibiotic with a C−C cross-link and a C−N cross-link formed by the rSAM DynE, which was
+identified through BLAST searches with the darobactin rSAM DarE.
+
+NMR analyses on the product of the Cys-substrate revealed a      enzymes.88 A BGC from Halomonas anticariensis DSM 16096
+thiooxazole moiety (Figure 4C).                               encodes a precursor peptide with Thr−Val−Gly−Gly repeats
+  Polycyclopropylglycine-Containing Peptides. The discov-     (TvgA), an rSAM (TvgB, WP_016417470.1), an iron- and α-
+ery of a polycyclopropylglycine-containing peptide was enabled      keto-glutarate-dependent enzyme (IPR018724) (TvgC,
+by the analysis of the SPASM domain containing anaerobic     WP_081645852.1), and two  membrane-associated  trans-
+sulfatase-maturase rSAM  subfamily  (IPR023867),  which      porters (TvgD/E, WP_016417468.1 and WP_016417467.1).
+includes  characterized and  predicted  peptide-modifying     TvgB catalyzed the formation of multiple cyclopropyl groups
+
+                                                             4543                                                       https://doi.org/10.1021/acscatal.3c06322
+                                                                                                                                     ACS Catal. 2024, 14, 4536−4553
+
+
+[PDF physical page 9]
+ACS Catalysis                                              pubs.acs.org/acscatalysis                                          Review
+
+
+
+
+
+Figure 6. Unique enzyme chemistry discovered from mining RiPP pathways based on the RiPP precursor recognition element (RRE). (A) A
+general workflow discovering novel RiPP BGCs using the RRE as the bioinformatic hook. (B) The biosynthesis of daptides, a novel RiPP class
+identified by mining for uncharacterized RRE-containing RiPP BGCs. (C) The biosynthesis of aminopyruvatides, a new RiPP class biosynthesized
+by a B12-rSAM (ApyD), cytochrome P450 (ApyO), MNIO (ApyHI), and methyltransferase (ApyS) identified by mining for uncharacterized RRE-
+containing RiPP BGCs.
+
+by cross-linking the two methyl groups of the Val side chain in    C β(Arg)  and  C2(His)  to C β(Arg)  by YhhB
+the repeat sequence (Figure 4D).106                         (WP_013448981.1) (Figure 5B).108
+   Triceptides. Triceptides were discovered by analyzing a        Dynobactin. Dynobactin was discovered from a BLAST
+subset  of BGCs  housing  the  uncharacterized SPASM-      search on the rSAM DarE (WP_152962146.1), which installs
+containing rSAMs XncB (IPR030989, WP_010848442.1),   C−O and C−C cross-links to form the fused bicyclic structure
+OscB (IPR026357, OIP69445.1), and MscB (IPR026335,      of darobactin (Figure 1A).28 Darobactin binds to the outer
+WP_013477425.1) and unique precursor peptides featuring     membrane insertase BamA and inhibits the action of the β-
+conserved motifs not previously observed in reported RiPPs      barrel  assembly  machinery (BAM)  complex. RiPPER  (a
+matured by rSAMs.88 These enzymes were coexpressed with     combination of RODEO with Prodigal)34 and SSN analysis
+the corresponding predicted precursor peptides in E. coli, and     were used to obtain the precursor peptides of the rSAMs
+2D-NMR analysis demonstrated C−C cross-links that result in      retrieved from the search. A phylogenetic tree was constructed,
+three-residue cyclophanes (Figure 5A).107 These cross-links     and outgroups containing DarE-like enzymes but associated
+                                                               with substrates distinct from the darobactin precursor peptideare located between residues i and (i+2). The salient features
+                                                         were  prioritized. A  total  of 14  strains  containing  theof  these cyclophanes  include:  (i) XncB-catalyzed  linkages
+                                                                      bioinformatically prioritized rSAMs were then cultivated, andbetween C6 (Trp) and Cβ (Arg or Asn), (ii) OscB-catalyzed
+                                                                 the  extracts were screened  for  growth-suppressive  activitycross-links between C7 (Trp) and Cβ (Asn or Asp), (iii) XncB-
+                                                            toward Proteobacteria. Bioactivity-guided isolation identifiedor OscB-catalyzed linkage between C4 (Phe) and Cβ (Asn),
+                                                              dynobactin from Photorhabdus australis, which contained a C−and (iv) MscB-catalyzed bond formation between C4 (Phe)
+                                       C bond between C6 of Trpi and Cβ of Asni+3 and a C−N cross-and Cβ (Ser). This class of natural product was termed the
+                                                                           link between Cβ of Tyri and Nτ of Hisi+2 formed by the rSAMtriceptides, and the rSAMs are termed three-residue cyclo-                                                DynE (WP_152962146.1) (Figure 5C).109 In contrast to thephane forming enzymes (3-CyFEs).108
+                                                                  fused bicyclic structure of darobactin (Figure 1A), dynobactin
+  Combination of BLAST results of characterized 3-CyFEs
+                                                                   possesses two discrete macrocycles. Dynobactin also inhibits
+with putative 3-CyFEs sequences identified from RadicalSAM.
+                                             BamA with a binding mode that largely overlaps with that of
+org, a web resource consisting of SSNs and annotation of all
+                                                                    darobactin.
+predicted rSAMs from UniProt and European Nucleotide
+Archive databases,86 was utilized to discover novel enzyme
+                                                                                                  III. USING PREVALENT ELEMENTS IN RIPPfunctions. Heterologous expression of candidate BGCs in E.
+                                                   BIOSYNTHESIS AS BIOINFORMATIC HANDLEScoli followed by NMR characterization identified triceptides
+with a variety of rSAM-catalyzed C−C cross-links, including            III.a. RRE Domains as a Route to Discover New
+the  formation  of  a C3(Tyr)−Cβ(Asp)  linkage by YxdB    Enzyme Chemistry. The RiPP precursor recognition element
+(WP_226048651.1), generation of a C2(His)−Cβ(Ala) bond     (RRE) is a protein domain found in approximately half of the
+by HaaB (WP_133931326.1), and cross-linking of C3(Tyr) to     known  prokaryotic RiPP  classes.92  Canonical RREs  are
+
+                                                             4544                                                       https://doi.org/10.1021/acscatal.3c06322
+                                                                                                                                     ACS Catal. 2024, 14, 4536−4553
+
+
+[PDF physical page 10]
+ACS Catalysis                                              pubs.acs.org/acscatalysis                                          Review
+
+comprised  of  three  alpha  helices and  three  beta  strands.     (WP_060922562.1). An invariant C-terminal Thr residue in
+Despite the high level of sequence diversity associated with      the precursor peptides was determined to be the exclusive site
+RRE  domains,  the  remote homology  detection  tool       for  enzymatic  modification  (Figure  6B).38 The  process
+HHpred110,111  is capable of their retrieval. Functionally, the      involved MpaB and MpaC performing oxidative decarbox-
+leader region of RiPP precursor peptides engages the RRE as a      ylation of the C-terminal Thr to a methylketone. Subsequently,
+fourth beta strand, thus “completing” the tertiary fold of the    MpaD  converted  the  ketone  into an  amine, which was
+RRE domain. The often nanomolar interaction between RREs      dimethylated by MpaM. MpaP removed the leader peptide,
+and  their cognate  precursor  peptides  is  critical  for RiPP       resulting in the mature product that exhibited helical structures
+biosynthesis.27 It should be noted, however, that other putative     and hemolytic activity. Given the conversion of the C-terminus
+peptide-binding domains (e.g., MbnC) do not have detectable      to  (S)-N2,N2-dimethyl-1,2-propanediamine,  the new RiPP
+homology with RRE domains, as defined above.                        class, termed daptides, are ribosomal peptides with two N-
+  RREs are found in various RiPP  classes, each having a       termini.38
+distinct  set  of  modifying  enzymes,  precursor  peptide        Aminopyruvatides. RRE-Finder identified a set of BGCs
+sequences, and  biological  functions.92 Consequently, RREs      featuring several metalloenzyme superfamilies recognized for
+serve  as  valuable  bioinformatic  markers  for  identifying      catalyzing a wide range of complex chemical transformations.
+potential RiPP BGCs  that may  exhibit  novel  enzymatic     These BGCs encoded a precursor peptide, cytochrome P450,
+activities. However, in  silico identification of RREs presents    MNIO, MNIO partner protein, methyltransferase, and a B12-
+challenges due to their considerable sequence variability and     rSAM.113 RRE domains were fused to the MNIO partner
+relatively small size (80−90 residues). As alluded to above,      protein and  the B12-rSAM. Sequence  alignment  of  the
+HMM-based  retrieval  is  preferrable  over  a  contiguous      predicted  precursor  peptides  highlighted  distinct  profiles,
+homology-based  tool  like BLAST  for  detecting  remote      including  a  conserved  C-terminal Asp and two  aromatic
+homology. However, tools  like HHpred are  relatively slow      residues (either Trp or Tyr) in the second and fourth residues
+and not well suited for processing many thousands of protein     from the C-terminus that were only present in BGCs encoding
+sequences that would be needed for even a minimal genome     cytochrome P450 proteins.
+mining effort. To solve these issues, RRE-Finder employs a        Functional  expression  of  the  Burkholderia  thailandensis
+panel of custom pHMMs and secondary structure prediction      biosynthetic  pathway  in  Burkholderia  sp. FERM  BP-
+using a truncated HHpred workflow. This tool identified over      3421114,115  unveiled  that  the MNIO enzyme ApyH
+30 000 RREs from UniProt.112 Analysis of RRE-containing     (ABC35712.1) and  its partner protein ApyI (ABC34269.1)
+BGCs  revealed  both BGCs  encoding known and  yet-      catalyzed the unprecedented conversion of a C-terminal Asp
+uncharacterized RiPP classes (Figure 6A). Focus on BGCs      residue into a C-terminal aminopyruvate (Figure 6C). Hence,
+containing  unique  substrate  profiles and  unprecedented     ApyHI represents the first instance of an MNIO modifying a
+combinations of modifying enzymes, followed by experimental     non-Cys  residue.113 The B12-rSAM enzyme ApyD
+characterization, led to the  first-in-class  discoveries  of the     (ABC34219.1) methylated the β-carbon  of Tyr while the
+daptides38 and aminopyruvatides.113                           cytochrome P450 ApyO (ABC35200.1) formed a biaryl C−C
+  Daptides. The identification of daptides commenced with a       cross-link between the ortho positions of the Tyr residues.
+comprehensive analysis of putative RRE domains identified by     While similar P450 reactions have been observed in non-RiPP
+RRE-Finder. An SSN-guided approach classified the results     pathways such as arylomycin116 and mycocyclosin,117 ApyO
+into distinct RRE families. For each putative RRE, short ORFs      introduced an R axial chirality in the biaryl rings, a feature
+associated with the corresponding putative RiPP BGC were       distinct from the stereochemistry observed in arylomycin and
+identified using RODEO and Prodigal. These ORFs were then      mycocyclosin.118,119 Given the conservation  of the MNIO
+subjected  to an  all-by-all BLASTP  within  a  similar SSN     enzyme and  the  Asp-containing  precursor  peptide,  the
+framework. A custom script iteratively adjusted the fractiona-      aminopyruvate moiety emerged as the defining motif of this
+tion threshold  in each SSN, which addressed a common     RiPP class, which was termed the aminopyruvatides (Apy).113
+problem in genomic enzymology where a  single  similarity     Another MNIO that does not modify a Cys was recently
+threshold is insufficient for identifying isofunctional families.      reported from a BGC that encodes two such enzymes. One
+This script aimed to align the number of proteins in each RRE    MNIO performs the same chemistry on Cys as found in
+cluster (m) with the size of the largest SSN group from its      methanobactins  (i.e.,  as MbnBC), but the second MNIO
+corresponding precursor peptide SSN (n) until m ≈n or m <      catalyzes cleavage of the N−Cα bond of an Asn residue to
+n. The goal was to assign each member of a given RRE group      generate a C-terminal amide.120
+at least one precursor peptide. After the suitable fractionation           III.b. Quorum-Sensing Factor and Transporters to
+threshold for each SSN was identified, sequence alignments for     Identify New Enzyme Chemistry. A  surge  of new
+each  group  were  generated, which  identified  conserved      biochemical reactions catalyzed by rSAM enzymes have been
+motifs.38                                                          recently  reported  for RiPP and non-RiPP  pathways.89
+  This method identified a unique set of genes co-occurring      Consequently,  additional  bioinformatic  handles have been
+with precursor peptides with unusual amino acid compositions.      leveraged to discover new enzymatic reactions involving these
+The examined BGC from Microbacterium paraoxydans DSM       versatile biocatalysts.
+15019 encompassed three precursor peptides MpaA1-A3, the      The use of quorum-sensing (QS) factors as a biomarker for
+R R E - p e p t i d a s e   ( I P R 0 0 8 9 1 5 )    f u s i o n M p a P     RiPP rSAM mining was  inspired by  the  investigation  of
+(WP_060922558.1),  the  aminotransferase (IPR005814)      streptide biosynthesis in Streptococcus.121 The QS system for
+MpaD  (WP_060922561.1),  the  methyltransferase      streptide  production  is an operon  containing  the  short
+(IPR029063) MpaM (WP_060922559.1), the iron-dependent     hydrophobic peptide (SHP) and a transcriptional regulator
+a l c o h o l  d e h y d r o g e n a s e  ( I P R 0 0 1 6 7 0 ) M p a C    (RGG)  located upstream  of  the  streptide BGC. SHP,  a
+(WP_060922560.1), and  the DUF-RRE  fusion MpaB     pheromone, is exported by a subset of cells and later imported
+
+                                                             4545                                                       https://doi.org/10.1021/acscatal.3c06322
+                                                                                                                                     ACS Catal. 2024, 14, 4536−4553
+
+
+[PDF physical page 11]
+ACS Catalysis                                              pubs.acs.org/acscatalysis                                          Review
+
+
+
+
+
+Figure 7. Enzyme chemistry discovered by mining quorum-sensing controlled RiPP pathways. (A) rSAM-catalyzed transformations discovered
+through RiPP pathways controlled by the shp/rgg quorum-sensing operon. (B) A general description of identifying novel RiPP BGCs utilizing
+transporter protein families observed in known RiPP BGCs as the bioinformatic handle. (C) Unique rSAM- and YcaO-catalyzed activity discovered
+in an RiPP pathway identified through the strategy depicted in (B).
+
+
+
+
+
+Figure 8. New enzyme chemistry discovered by mining precursor peptides that co-occur with specific protein families. (A) A general description of
+identifying novel RiPP BGCs through small-peptide and enzyme co-occurrence analysis (SPECO). (B) Novel rSAM- and P450-catalyzed
+transformations discovered through the SPECO workflow. The natural substrate for ScaB is a His−Ala−Ala motif similar to the substrate for HaaB
+identified in the triceptide mining studies (Figure 5B). The chemistry depicted in the figure resulted from the mutation of His to Tyr. (C) Novel
+P450 chemistry identified through a workflow different from SPECO but also utilizing the precursor peptide as the bioinformatic handle.
+
+once  an  extracellular  threshold  concentration  has been     were  discovered  with  this method and  were  recently
+produced.122  Intracellular SHP then  binds  to  its cognate      reviewed.127 The most recent pathway discovered was that of
+RGG, which activates streptide production. Streptide possesses       bicyclostreptin.128 Specifically, a BGC containing two rSAM
+a C−C cross-link between Cβ of Lys (residue 2) and C7 of Trp    enzymes HghB  (WP_283265752.1)  and HghC
+(residue  6),  which  is  formed  by  the rSAM  StrB                                            (WP_017649765.1),  the RRE  protein HghD
+(ABJ66529.1).121 As SHP/RGG has been shown to regulate
+                                                        (WP_017649764.1), and a precursor peptide (HghA) with a
+other processes in Streptococcus, including other streptide-like
+                                                              conserved C-terminal His−Gly−His motif was characterized.pathways,123 the identification of distinct rSAM and peptide
+                                                                                  First, the rSAM HghC catalyzed formation of an O−C cross-substrates downstream of the shp/rgg operon was anticipated
+                                                                           link between the hydroxy group of  Seri and Cβ of Hisi+3to potentially lead to novel structures of rSAM-modified RiPPs.
+Approximately 600 rSAMs in Streptococcus were found to be      (Figure 7A). Then, HghB, which required HghC-modified
+encoded near substrate peptides and controlled by shp/rgg.104     HghA, catalyzed a N−C cross-link between the N−H amide of
+Various new rSAM enzymatic activities (Figure 7A)104,124−126      Hisi and Cα of Glyi+1 to form a five-membered cyclic moiety.
+
+                                                             4546                                                       https://doi.org/10.1021/acscatal.3c06322
+                                                                                                                                     ACS Catal. 2024, 14, 4536−4553
+
+
+[PDF physical page 12]
+ACS Catalysis                                              pubs.acs.org/acscatalysis                                          Review
+
+  Prevalent genes found  in RiPP BGCs encode  for ABC      transformations.135,136 Common RBS  motifs  were  first
+transporters, which export the RiPP upon maturation.27 As the      gathered from 10  bacterial  species, followed by compiling
+QS SHP/RGG operons are only conserved in Streptococcus, the     genome neighborhoods for  all bacterial P450 proteins. Any
+same research group expanded their rSAM mining by querying    BGCs containing short peptides encoded downstream of a
+for  SPASM/twitch-containing rSAM  that  co-occur  with      detected RBS were  prioritized. An SSN  of the  identified
+transporter-encoding genes (Figure 7B).129 Short ORFs in      putative  precursor  peptides was  constructed, and  groups
+the genome neighborhood were then identified, and precursor      representing  conserved and  unique  precursor  peptide
+peptide SSNs were constructed. This procedure identified a      sequences were  prioritized. This strategy discovered P450s
+BGC from Bacteroides thetaiotaomicron containing the rSAM     from  Amycolatopsis  xylanica KCTC  19581  (axy)
+ItfD (WP_004319392.1),  the ATP-dependent  backbone-     (WP_218134608.1), Streptoalloteichus hindustanus NRRL B-
+activating  YcaO-like  protein  (IPR003776)  ItfB     11280 (SHF91911.1), and Streptomyces spectabilis NA07643
+(WP_004319383.1) fused to an [Fe−S]-recognition domain,    (WMW29964.1) that form two C−N bonds: between C2 and
+the ABC transporter/C39 peptidase ItfE (WP_044917720.1),      the backbone N of a single Trp residue as well as between C3
+the TonB-dependent transporter ItfF (WP_004319394.1), and      of the same Trpi and N1 of Trpi+2 (Figure 8C).
+the precursor peptide ItfA with a conserved C-terminal Ile−
+Thr−Phe  motif.  Structural  analyses  after  heterologous      IV. OUTLOOK
+expression in E. coli revealed that ItfB installed a backbone    Many RiPPs are macrocyclic structures that possess favorable
+amidine  using NH4Cl  as  the  nitrogen  source, and  ItfD      physiochemical properties such as higher metabolic stability,
+catalyzed an unprecedented C−C cross-link between C7 of       cell membrane permeability, and reduced entropy cost upon
+Trpi and the unactivated primary carbon Cδ of Ilei+2 (Figure      target  binding compared  to  the  corresponding  linear
+7C).                                                                   peptides.137,138 Numerous RiPP enzymes  possess  broad
+   III.c. Precursor Peptide(s) as the Route for Identifying      substrate specificity, enabling catalysis on unnatural substrates
+New Enzyme Chemistry. Homology searches of protein      to  accelerate  early drug  discovery.27,139−142 Consequently,
+domains have uncovered numerous examples of new enzyme       libraries of RiPPs have been developed and screened against
+chemistry associated with RiPPs. However, no single protein      disease-relevant protein targets, yielding new-to-nature RiPPs
+family  is ubiquitous  in  all RiPP  classes. In  fact, the only      as potential drug candidates.102,143−148
+universal feature is the precursor peptide itself, which cannot        Besides peptide library construction, RiPP enzymes can also
+be reliably retrieved across disparate RiPP classes using any     modify larger proteins (e.g., thioamides in methyl coenzyme M
+existing  tool.  Nevertheless,  a workflow was developed  to      reductase,149 lanthionines in eukarya,150 or ranthionine cross-
+identify RiPP BGCs  using  the  precursor  peptide  (Figure       links in quinohemoprotein amine dehydrogenase99). Although
+8A).130 First, bacterial genomes were scanned by Prodigal to     many RiPP enzymes require the leader peptide for substrate
+identify short ORFs, with those being 20−100 amino acids in      recognition, impeding their use in non-natural reactions, a
+length being deemed as potential precursor peptides (note:     workaround involves creating a  constitutively  active fusion
+some RiPP precursor peptides are shorter than 20 amino acids,     (ConFusion) enzyme by  genetically  attaching  the  leader
+while others are longer than 100 amino acids27). Any genes      peptide to the enzyme.151−154 This strategy circumvented the
+encoding rSAM or P450 enzymes located near the gene of the      requirement of a recognition sequence for enzymatic activity
+candidate precursor peptides were analyzed by BIG-SCAPE     and has been exploited to form thiazol(in)es on intact folded
+and CORASON131 to facilitate BGC similarity analysis. SSNs       proteins.155 Hence, together with genetic tools for unnatural
+for the rSAM enzymes and putative precursor peptides were     amino acid incorporation156 and selective chemical modifica-
+generated to aid target prioritization. This workflow, termed      tion methods,157 RiPP enzymes provide a route to access
+the  small  peptide and enzyme  co-occurrence  analysis      unnatural scaffolds in proteins for downstream applications.
+(SPECO), facilitated the discovery of a C−C bond between      This strategy greatly benefits from the diversity of chemical
+C2 of His and Cβ of Ala formed by the rSAM enzyme ScaB      transformation by RiPP enzymes, which is further amplified by
+(WP_184986415.1), a  cross-link  similar  to  that  discussed     genome and metagenome158 mining efforts.
+above in the triceptide section. Mutation of the His residue in       RiPP enzymes also have been shown to be active on small
+the precursor peptide to a Tyr residue resulted in a linkage      molecules, as exemplified by cyanobactin prenyltransferases.81
+between C3  of  Tyri and Cβ  of  Alai+2  (Figure  8B).130     For instance, the Trp C-prenyltransferase KgpF and the Tyr C-
+Subsequent work applied the same workflow to P450s, which      prenyltransferase LynF  processed  protected Trp and Tyr
+revealed a C−O−C ether cross-link between C2 of Hisi and       derivatives, respectively.159,160 Furthermore, LimF was active
+C2 of  Hisi+2 formed by SgrB (WP_051865888.1) (Figure     on cimetidine, a histamine receptor antagonist used to treat
+8B).132 The authors also identified the enzymes responsible for     duodenal and  gastric  ulcers.85 RiPP enzymes  that  act on
+forming the C−N cross-link between C7 of Trpi and N1 of      substrates after leader peptidolysis such as the mycofactocin
+Trpi+3 in cihunamide76 and the rare C−C cross-link between      oxidative deaminase MftD (IPR000262, ABK72067.1)161 and
+C3  of  Tyri and C5  of  Trpi+2  observed  previously  in      pyrroloquinoline quinone iron-dependent hydroxylase PqqB
+pseudosporamide.133 A peptide−P450  multilayer SSN was     (IPR001279, WP_003597599.1)  and  oxidase PqqC
+constructed to analyze the coconservation of substrate and     (IPR016084, CAA41581.1)162,163 may also be suitable starting
+enzymes, and  along  with  AlphaFold-Multimer  substrate−      points for directed evolution of useful biocatalysts.
+enzyme  docking,64,134 enhanced the accuracy  of precursor        In conclusion,  this Review showcases recent progress in
+peptide prediction. Such analyses may find more novel BGCs      discovering novel enzymatic activity through genome mining
+going forward, given the enhanced bioinformatic matching of       for RiPPs, taking advantage of the relatively easy identification
+enzymes with their cognate substrates.                              of  their  genetically encoded  substrates.  Different  mining
+  Another workflow involving precursor peptide prediction       strategies  have been  utilized,  ranging from  searching  for
+using RBS analysis was utilized to discover new P450-catalyzed     pathways  similar  to  characterized  RiPPs,  especially  those
+
+                                                             4547                                                       https://doi.org/10.1021/acscatal.3c06322
+                                                                                                                                     ACS Catal. 2024, 14, 4536−4553
+
+
+[PDF physical page 13]
+ACS Catalysis                                              pubs.acs.org/acscatalysis                                          Review
+
+containing members of large and functionally diverse enzyme       (7) Sheldon, R. A.; Woodley, J. M. Role of biocatalysis in sustainable
+superfamilies, to using more  generalized  features  of RiPP       chemistry. Chem. Rev. 2018, 118, 801−838.
+biosynthesis as a biomarker to identify more dissimilar BGCs.       (8) Benítez-Mateos, A. I.; Roura Padrosa, D.; Paradisi, F. Multistep
+                                                          enzyme  cascades  as  a  route  towards  green and  sustainableThese  studies have  yielded  novel  enzymatic  activity and
+                                                                       pharmaceutical syntheses. Nat. Chem. 2022, 14, 489−499.chemical  structures  with  diverse  bioactivities and  unique
+                                                                     (9) Keasling,  J. D. Manufacturing molecules through metabolic
+mechanisms  of  action. The  potential  application  of RiPP                                                                            engineering. Science 2010, 330, 1355−1358.
+enzymes in biocatalysis and bioengineering may contribute to                                                                  (10)  Intasian,  P.;  Prakinee,  K.;  Phintha,  A.;  Trisrivirat,  D.;
+an expanded enzymatic toolbox for the production of new-to-      Weeranoppanant, N.; Wongnate, T.; Chaiyen, P. Enzymes, in vivo
+nature compounds.                                                            biocatalysis, and  metabolic  engineering  for  enabling  a  circular
+                                                           economy and sustainability. Chem. Rev. 2021, 121, 10367−10451.
+          INFORMATION                                    (11) Corey, E. J. The logic of chemical synthesis: multistep synthesis
+                                                                              of complex carbogenic molecules (Nobel lecture). Angew. Chem., Int.■AUTHORCorresponding Authors
+                                                                          Ed. 1991, 30, 455−465.
+  Douglas A. Mitchell −Department of Chemistry and Carl R.       (12) Turner, N.  J.; O’Reilly, E. Biocatalytic retrosynthesis. Nat.
+    Woese Institute for Genomic Biology, University of Illinois at      Chem. Biol. 2013, 9, 285−288.
+    Urbana-Champaign, Urbana, Illinois 61801, United States;        (13) Finnigan, W.; Hepworth, L.  J.; Flitsch, S. L.; Turner, N.  J.
+      orcid.org/0000-0002-9564-0953; Email: douglasm@         RetroBioCat  as  a  computer-aided  synthesis  planning  tool  for
+     illinois.edu                                                               biocatalytic reactions and cascades. Nat. Catal. 2021, 4, 98−104.
+  Wilfred A. van der Donk −Department of Chemistry and         (14) Finnigan, W.; Lubberink, M.; Hepworth, L.  J.; Citoler,  J.;
+    Carl R. Woese Institute for Genomic Biology, University of        Mattey, A. P.; Ford, G. J.; Sangster, J.; Cosgrove, S. C.; da Costa, B.
+      Illinois at Urbana-Champaign, Urbana, Illinois 61801,             Z.; Heath, R. S.; Thorpe, T. W.; Yu, Y.; Flitsch, S. L.; Turner, N. J.
+                                                                   RetroBioCat  database: a platform  for  collaborative  curation and    United States; Howard Hughes Medical Institute at the
+                                                                 automated meta-analysis of biocatalysis data. ACS Catal. 2023, 13,
+     University of Illinois at Urbana-Champaign, Urbana, Illinois
+                                                              11771−11780.
+    61801, United States;   orcid.org/0000-0002-5467-7071;                                                                    (15) Wackett, L. P. Microbial biocatalysis databases: An annotated
+    Email: vddonk@illinois.edu                                                                               selection of World Wide Web sites relevant to the topics in microbial
+                                                                         biotechnology. Microb. Biotechnol. 2018, 11, 429−431.
+Author
+                                                                    (16) Schomburg, D.; Schomburg, I. Enzyme databases. Methods Mol.
+  Dinh T. Nguyen −Department of Chemistry and Carl R.            Biol. 2010, 609, 113−128.
+    Woese Institute for Genomic Biology, University of Illinois at       (17) Arnold, F. H. Directed evolution: bringing new chemistry to
+    Urbana-Champaign, Urbana, Illinois 61801, United States;           life. Angew. Chem., Int. Ed. 2018, 57, 4143−4148.
+      orcid.org/0000-0002-2101-6808                              (18) Wang, Y.; Xue, P.; Cao, M.; Yu, T.; Lane, S. T.; Zhao, H.
+                                                                       Directed evolution: methodologies and applications. Chem. Rev. 2021,Complete contact information is available at:
+                                                                        121, 12384−12444.
+https://pubs.acs.org/10.1021/acscatal.3c06322                                                                    (19) Zallot, R.; Oberg, N.; Gerlt, J. A. Discovery of new enzymatic
+                                                                           functions and metabolic pathways using genomic enzymology web
+Funding                                                                                      tools. Curr. Opin. Biotechnol. 2021, 69, 77−90.
+RiPP research in the laboratories of the authors is funded by       (20) Zallot, R.; Oberg, N. O.; Gerlt, J. A. ’Democratized’ genomic
+grants from the National Institutes of Health (R01 GM097142,      enzymology web tools for functional assignment. Curr. Opin. Chem.
+GM123998, GM129344, and R24 GM141196 to D.A.M.; R37        Biol. 2018, 47, 77−85.
+GM058822  to W.A.vdD; and AI144967  to D.A.M. and       (21) Gerlt,  J. A.; Babbitt, P. C. Mechanistically diverse enzyme
+W.A.vdD).                                                                  superfamilies:  the importance  of  chemistry  in  the  evolution  of
+                                                                                         catalysis. Curr. Opin. Chem. Biol. 1998, 2, 607−612.
+Notes                                                                    (22) Gerlt,  J. A.; Babbitt, P. C. Divergent evolution of enzymatic
+The authors declare no competing financial interest.                 function:  mechanistically  diverse  superfamilies and  functionally
+                                                                                   distinct suprafamilies. Annu. Rev. Biochem. 2001, 70, 209−246.
+                                                                    (23) Broderick, J. B.; Duffus, B. R.; Duschene, K. S.; Shepard, E. M.■ACKNOWLEDGMENTS                                         Radical S-adenosylmethionine enzymes. Chem. Rev. 2014, 114, 4229−The authors thank Austin Woodard and Shravan Dommaraju
+                                                                      4317.
+for helpful discussions.                                                                    (24) Bernhardt, R. Cytochromes P450 as versatile biocatalysts.  J.
+                                                                                  Biotechnol. 2006, 124, 128−145.
+                                                                    (25) Zhao, S.; Kumar, R.; Sakai, A.; Vetting, M. W.; Wood, B. M.;■REFERENCES(1) Robinson,  P.  K. Enzymes:  principles and  biotechnological      Brown, S.; Bonanno, J. B.; Hillerich, B. S.; Seidel, R. D.; Babbitt, P. C.;
+applications. Essays Biochem. 2015, 59, 1−41.                          Almo, S. C.; Sweedler, J. V.; Gerlt, J. A.; Cronan, J. E.; Jacobson, M. P.
+ (2) Wu, S.; Snajdrova, R.; Moore, J. C.; Baldenius, K.; Bornscheuer,      Discovery of new enzymes and metabolic pathways by using structure
+U. T. Biocatalysis: enzymatic synthesis for industrial applications.      and genome context. Nature 2013, 502, 698−702.
+Angew. Chem., Int. Ed. 2021, 60, 88−119.                               (26) Arnison, P. G.; Bibb, M. J.; Bierbaum, G.; Bowers, A. A.; Bugni,
+ (3) Maghraby, Y. R.; El-Shabasy, R. M.; Ibrahim, A. H.; Azzazy, H.      T. S.; Bulaj, G.; Camarero, J. A.; Campopiano, D. J.; Challis, G. L.;
+M. E. Enzyme immobilization technologies and industrial applica-       Clardy,  J.; Cotter, P. D.; Craik, D.  J.; Dawson, M.; Dittmann, E.;
+tions. ACS Omega. 2023, 8, 5184−5196.                               Donadio,  S.; Dorrestein, P. C.; Entian, K. D.; Fischbach, M. A.;
+ (4) Rosenthal, K.; Bornscheuer, U. T.; Lütz, S. Cascades of evolved       Garavelli,   J.  S.;  Göransson,  U.;  Gruber,  C. W.;  Haft, D.  H.;
+enzymes for the synthesis of complex molecules. Angew. Chem., Int.      Hemscheidt, T. K.; Hertweck, C.; Hill, C.; Horswill, A. R.; Jaspars,
+Ed. 2022, 61, No. e202208358.                                       M.; Kelly, W. L.; Klinman, J. P.; Kuipers, O. P.; Link, A. J.; Liu, W.;
+ (5) Heath, R.  S.; Ruscoe, R.  E.; Turner, N.  J. The beauty of       Marahiel, M. A.; Mitchell, D. A.; Moll, G. N.; Moore, B. S.; Müller, R.;
+biocatalysis: sustainable synthesis of ingredients in cosmetics. Nat.       Nair, S. K.; Nes,  I. F.; Norris, G. E.; Olivera, B. M.; Onaka, H.;
+Prod. Rep. 2022, 39, 335−388.                                               Patchett, M. L.; Piel, J.; Reaney, M. J.; Rebuffat, S.; Ross, R. P.; Sahl,
+ (6) Kaspar, F.; Schallmey, A. Chemo-enzymatic synthesis of natural      H. G.; Schmidt, E. W.; Selsted, M.  E.; Severinov, K.; Shen,  B.;
+products and their analogs. Curr. Opin. Biotechnol. 2022, 77, 102759.       Sivonen, K.; Smith, L.; Stein, T.; Süssmuth, R. D.; Tagg, J. R.; Tang,
+
+                                                             4548                                                       https://doi.org/10.1021/acscatal.3c06322
+                                                                                                                                     ACS Catal. 2024, 14, 4536−4553
+
+
+[PDF physical page 14]
+ACS Catalysis                                              pubs.acs.org/acscatalysis                                          Review
+
+G. L.; Truman, A. W.; Vederas, J. C.; Walsh, C. T.; Walton, J. D.;       (41) Atkinson, H. J.; Morris, J. H.; Ferrin, T. E.; Babbitt, P. C. Using
+Wenzel,  S. C.; Willey,  J. M.; van der Donk, W. A. Ribosomally      sequence similarity networks for visualization of relationships across
+synthesized and  post-translationally  modified  peptide  natural       diverse protein superfamilies. PLoS One 2009, 4, e4345.
+products: overview and recommendations for a universal nomencla-       (42)  Katoh,  K.;  Standley, D. M. MAFFT  multiple  sequence
+ture. Nat. Prod. Rep. 2013, 30, 108−160.                                alignment software version 7: improvements in performance and
+ (27) Montalbán-López, M.; Scott, T. A.; Ramesh, S.; Rahman, I. R.;        usability. Mol. Biol. Evol. 2013, 30, 772−780.
+van Heel, A. J.; Viel, J. H.; Bandarian, V.; Dittmann, E.; Genilloud, O.;       (43) Sievers, F.; Higgins, D. G. Clustal omega for making accurate
+Goto,  Y.; Grande Burgos, M.  J.;  Hill, C.; Kim,  S.; Koehnke,  J.;      alignments of many protein sequences. Protein Sci. 2018, 27, 135−
+Latham,  J. A.; Link, A.  J.; Martínez, B.; Nair, S. K.; Nicolet, Y.;       145.
+Rebuffat, S.; Sahl, H.-G.; Sareen, D.; Schmidt, E. W.; Schmitt, L.;       (44) Moffat, A. D.; Santos-Aberturas, J.; Chandra, G.; Truman, A.
+Severinov, K.; Süssmuth, R. D.; Truman, A. W.; Wang, H.; Weng, J.-     W. A user guide for the identification of new RiPP biosynthetic gene
+K.; van Wezel, G. P.; Zhang, Q.; Zhong, J.; Piel, J.; Mitchell, D. A.;       clusters using a RiPPer-based workflow. Methods Mol.  Biol. 2021,
+Kuipers, O. P.; van der Donk, W. A. New developments in RiPP      2296, 227−247.
+discovery, enzymology and engineering. Nat. Prod. Rep. 2021, 38,       (45) Altschul, S. F.; Madden, T. L.; Schaffer, A. A.; Zhang, J.; Zhang,
+130−239.                                                                        Z.; Miller, W.; Lipman, D. J. Gapped BLAST and PSI-BLAST: a new
+ (28) Imai, Y.; Meyer, K. J.; Iinishi, A.; Favre-Godal, Q.; Green, R.;       generation of protein database search programs. Nucleic Acids Res.
+Manuse, S.; Caboni, M.; Mori, M.; Niles, S.; Ghiglieri, M.; Honrao,      1997, 25, 3389−3402.
+C.; Ma, X.; Guo, J. J.; Makriyannis, A.; Linares-Otoya, L.; Böhringer,       (46) Eddy, S. R. A new generation of homology search tools based
+N.; Wuisan, Z. G.; Kaur, H.; Wu, R.; Mateus, A.; Typas, A.; Savitski,     on probabilistic inference. Genome Inform. 2009, 23, 205−211.
+M. M.; Espinoza, J. L.; O’Rourke, A.; Nelson, K. E.; Hiller, S.; Noinaj,       (47) Potter, S. C.; Luciani, A.; Eddy, S. R.; Park, Y.; Lopez, R.; Finn,
+N.; Schäberle, T.  F.; D’Onofrio,  A.; Lewis, K. A new  antibiotic       R. D. HMMER web server: 2018 update. Nucleic Acids Res. 2018, 46,
+selectively kills Gram-negative pathogens. Nature 2019, 576, 459−     W200−w204.
+464.                                                               (48) Blum,  M.; Chang, H.  Y.;  Chuguransky,  S.;  Grego,  T.;
+ (29) Vinogradov, A.  A.; Suga, H. Introduction to thiopeptides:      Kandasaamy,  S.;  Mitchell,  A.; Nuka,  G.;  Paysan-Lafosse,  T.;
+biological  activity,  biosynthesis, and  strategies  for  functional       Qureshi, M.; Raj, S.; Richardson, L.; Salazar, G. A.; Williams, L.;
+reprogramming. Cell Chem. Biol. 2020, 27, 1032−1051.                   Bork, P.; Bridge, A.; Gough,  J.; Haft, D. H.; Letunic,  I.; Marchler-
+ (30) Ting, C. P.; Funk, M. A.; Halaby, S. L.; Zhang, Z.; Gonen, T.;       Bauer,  A.; Mi,  H.;  Natale, D.  A.;  Necci, M.; Orengo, C.  A.;
+van der Donk, W. A. Use of a scaffold peptide in the biosynthesis of      Pandurangan, A. P.; Rivoire, C.; Sigrist, C. J. A.; Sillitoe, I.; Thanki,
+amino acid-derived natural products. Science 2019, 365, 280−284.         N.; Thomas, P. D.; Tosatto, S. C. E.; Wu, C. H.; Bateman, A.; Finn, R.
+ (31) Tietz, J. I.; Schwalen, C. J.; Patel, P. S.; Maxson, T.; Blair, P. M.;      D. The InterPro protein families and domains database: 20 years on.
+Tai, H. C.; Zakai, U. I.; Mitchell, D. A. A new genome-mining tool       Nucleic Acids Res. 2021, 49, D344−D354.
+redefines the lasso peptide biosynthetic landscape. Nat. Chem. Biol.       (49) Paysan-Lafosse, T.; Blum, M.; Chuguransky,  S.; Grego, T.;
+2017, 13, 470−478.                                                         Pinto, B. L.; Salazar, G. A.; Bileschi, M. L.; Bork, P.; Bridge, A.;
+ (32) Agrawal, P.; Khater,  S.; Gupta, M.; Sain, N.; Mohanty, D.       Colwell, L.; Gough, J.; Haft, D. H.; Letunić, I.; Marchler-Bauer, A.;
+RiPPMiner:  a  bioinformatics  resource  for  deciphering  chemical      Mi, H.; Natale, D. A.; Orengo, C. A.; Pandurangan, A. P.; Rivoire, C.;
+structures of RiPPs based on prediction of cleavage and cross-links.        Sigrist, C. J. A.; Sillitoe, I.; Thanki, N.; Thomas, P. D.; Tosatto, S. C.
+Nucleic Acids Res. 2017, 45, W80−w88.                                         E.; Wu, C. H.; Bateman, A. InterPro in 2022. Nucleic Acids Res. 2023,
+ (33) van Heel, A.  J.; de Jong, A.; Song, C.; Viel,  J. H.; Kok,  J.;       51, D418−d427.
+Kuipers, O. P. BAGEL4: a user-friendly web server to thoroughly       (50) Mistry, J.; Chuguransky, S.; Williams, L.; Qureshi, M.; Salazar,
+mine RiPPs and bacteriocins. Nucleic Acids Res. 2018, 46, W278−      G. A.; Sonnhammer, E. L. L.; Tosatto, S. C. E.; Paladin, L.; Raj, S.;
+w281.                                                                  Richardson, L. J.; Finn, R. D.; Bateman, A. Pfam: The protein families
+ (34) Santos-Aberturas, J.; Chandra, G.; Frattaruolo, L.; Lacret, R.;       database in 2021. Nucleic Acids Res. 2021, 49, D412−d419.
+Pham, T. H.; Vior, N. M.; Eyles, T. H.; Truman, A. W. Uncovering       (51) Li, W.; O’Neill, K. R.; Haft, D. H.; DiCuccio, M.; Chetvernin,
+the  unexplored  diversity  of  thioamidated  ribosomal  peptides  in       V.; Badretdin, A.; Coulouris, G.; Chitsaz,  F.; Derbyshire, M. K.;
+Actinobacteria using the RiPPER genome mining tool. Nucleic Acids      Durkin, A. S.; Gonzales, N. R.; Gwadz, M.; Lanczycki, C. J.; Song, J.
+Res. 2019, 47, 4624−4637.                                                           S.; Thanki, N.; Wang,  J.; Yamashita, R. A.; Yang, M.; Zheng, C.;
+ (35) de Los Santos, E. L. C. NeuRiPP: Neural network identification      Marchler-Bauer,  A.;  Thibaud-Nissen,  F.  RefSeq:  expanding  the
+of RiPP precursor peptides. Sci. Rep. 2019, 9, 13406.                      Prokaryotic Genome Annotation Pipeline reach with protein family
+ (36) Kloosterman, A. M.; Cimermancic, P.; Elsayed, S. S.; Du, C.;      model curation. Nucleic Acids Res. 2021, 49, D1020−d1028.
+Hadjithomas, M.; Donia, M. S.; Fischbach, M. A.; van Wezel, G. P.;       (52) Fitch, W. M.; Margoliash, E. Construction of phylogenetic
+Medema, M. H. Expansion  of RiPP  biosynthetic space through        trees. Science 1967, 155, 279−284.
+integration of pan-genomics and machine learning uncovers a novel       (53) Letunic,  I.; Bork, P. Interactive Tree Of Life (iTOL) v5: an
+class of lanthipeptides. PLoS Biol. 2020, 18, No. e3001026.                online tool for phylogenetic tree display and annotation. Nucleic Acids
+ (37) Merwin, N. J.; Mousa, W. K.; Dejong, C. A.; Skinnider, M. A.;        Res. 2021, 49, W293−W296.
+Cannon, M. J.; Li, H.; Dial, K.; Gunabalasingam, M.; Johnston, C.;       (54) Repka, L. M.; Chekan, J. R.; Nair, S. K.; van der Donk, W. A.
+Magarvey, N. A. DeepRiPP integrates multiomics data to automate      Mechanistic understanding of lanthipeptide biosynthetic enzymes.
+discovery of novel ribosomally synthesized natural products. Proc.      Chem. Rev. 2017, 117, 5457−5520.
+Natl. Acad. Sci. U.S.A 2020, 117, 371−380.                             (55) Ortiz-López, F. J.; Carretero-Molina, D.; Sánchez-Hidalgo, M.;
+ (38) Ren, H.; Dommaraju, S. R.; Huang, C.; Cui, H.; Pan, Y.; Nesic,       Martín, J.; González, I.; Román-Hurtado, F.; de la Cruz, M.; García-
+M.; Zhu, L.; Sarlah, D.; Mitchell, D. A.; Zhao, H. Genome mining      Fernández, S.; Reyes, F.; Deisinger, J. P.; Müller, A.; Schneider, T.;
+unveils a class of ribosomal peptides with two amino termini. Nat.       Genilloud, O. Cacaoidin,  first member of the new lanthidin RiPP
+Commun. 2023, 14, 1624.                                                      family. Angew. Chem., Int. Ed. 2020, 59, 12654−12658.
+ (39) Hyatt, D.; Chen, G. L.; Locascio, P. F.; Land, M. L.; Larimer, F.       (56) Ortega, M. A.; Hao, Y.; Zhang, Q.; Walker, M. C.; van der
+W.;  Hauser,  L.   J.  Prodigal:  prokaryotic  gene  recognition and      Donk, W. A.; Nair, S. K. Structure and mechanism of the tRNA-
+translation  initiation  site  identification. BMC  bioinformatics 2010,      dependent lantibiotic dehydratase NisB. Nature 2015, 517, 509−512.
+11, 119.                                                             (57) Daniels, P. N.; Lee, H.; Splain, R. A.; Ting, C. P.; Zhu, L.; Zhao,
+ (40) Crooks, G. E.; Hon, G.; Chandonia,  J. M.; Brenner, S. E.       X.; Moore, B. S.; van der Donk, W. A. A biosynthetic pathway to
+WebLogo: a sequence logo generator. Genome Res. 2004, 14, 1188−      aromatic amines that uses glycyl-tRNA as nitrogen donor. Nat. Chem.
+1190.                                                              2022, 14, 71−77.
+
+                                                             4549                                                       https://doi.org/10.1021/acscatal.3c06322
+                                                                                                                                     ACS Catal. 2024, 14, 4536−4553
+
+
+[PDF physical page 15]
+ACS Catalysis                                              pubs.acs.org/acscatalysis                                          Review
+
+ (58) Yu, Y.; van der Donk, W. A. Biosynthesis of 3-thia-α-amino       (74) Hug, J. J.; Dastbaz, J.; Adam, S.; Revermann, O.; Koehnke, J.;
+acids on a carrier peptide. Proc. Natl. Acad. Sci. U. S. A. 2022, 119,      Krug, D.; Müller, R. Biosynthesis of  cittilins, unusual ribosomally
+No. e2205285119.                                                        synthesized and  post-translationally modified peptides from Myx-
+ (59) Hughes, C. C.; MacMillan, J. B.; Gaudencio, S. P.; Fenical, W.;       ococcus xanthus. ACS Chem. Biol. 2020, 15, 2221−2231.
+La Clair, J. J. Ammosamides A and B target myosin. Angew. Chem., Int.       (75) Zdouc, M. M.; Alanjary, M. M.; Zarazúa, G. S.; Maffioli, S. I.;
+Ed. 2009, 48, 728−732.                                                Crüsemann, M.; Medema, M. H.; Donadio, S.; Sosio, M. A biaryl-
+ (60) Hudson, G. A.; Hooper, A. R.; DiCaprio, A.  J.; Sarlah, D.;       linked tripeptide from Planomonospora reveals a widespread class of
+Mitchell, D. A. Structure prediction and synthesis of pyridine-based      minimal RiPP gene clusters. Cell Chem. Biol. 2021, 28, 733−739.
+macrocyclic peptide natural products. Org. Lett. 2021, 23, 253−256.       (76) An, J. S.; Lee, H.; Kim, H.; Woo, S.; Nam, H.; Lee, J.; Lee, J. Y.;
+ (61) Nguyen, D. T.; Le, T. T.; Rice, A. J.; Hudson, G. A.; van der     Nam, S. J.; Lee, S. K.; Oh, K. B.; Kim, S.; Oh, D. C. Discovery and
+Donk, W.  A.;  Mitchell, D.  A.  Accessing  diverse  pyridine-based       biosynthesis of cihunamides, macrocyclic antibacterial RiPPs with a
+macrocyclic peptides by a two-site recognition pathway. J. Am. Chem.      unique C-N linkage formed by CYP450 catalysis. Angew. Chem., Int.
+Soc. 2022, 144, 11263−11269.                                            Ed. 2023, 62, No. e202300998.
+ (62) Kenney, G. E.; Dassama, L. M. K.; Pandelia, M. E.; Gizzi, A. S.;       (77) Nam, H.; An, J. S.; Lee, J.; Yun, Y.; Lee, H.; Park, H.; Jung, Y.;
+Martinie, R. J.; Gao, P.; DeHart, C. J.; Schachner, L. F.; Skinner, O. S.;      Oh, K.-B.; Oh, D.-C.; Kim, S. Exploring the diverse landscape of
+Ro, S. Y.; Zhu, X.; Sadek, M.; Thomas, P. M.; Almo, S. C.; Bollinger, J.       biaryl-containing peptides generated by cytochrome P450 macro-
+M., Jr.; Krebs, C.; Kelleher, N. L.; Rosenzweig, A. C. The biosynthesis        cyclases. J. Am. Chem. Soc. 2023, 145, 22047−22057.
+of methanobactin. Science 2018, 359, 1411−1416.                        (78) Kohno,  J.; Koguchi, Y.; Nishio, M.; Nakao, K.; Kuroda, M.;
+ (63) Ayikpoe, R. S.; Zhu, L.; Chen, J. Y.; Ting, C. P.; van der Donk,      Shimizu, R.; Ohnuki, T.; Komatsubara, S. Structures of TMC-95A−
+W. A. Macrocyclization and backbone rearrangement during RiPP     D: novel proteasome inhibitors from Apiospora montagnei Sacc. TC
+biosynthesis by a SAM-dependent domain-of-unknown-function 692.      1093. J. Org. Chem. 2000, 65, 990−995.
+ACS Cent. Sci. 2023, 9, 1008−1018.                                    (79) Saad, H.; Majer, T.; Bhattarai, K.; Lampe, S.; Nguyen, D. T.;
+ (64) Jumper,  J.; Evans, R.; Pritzel, A.; Green, T.; Figurnov, M.;      Kramer, M.; Straetener,  J.; Brötz-Oesterhelt, H.; Mitchell, D. A.;
+Ronneberger,  O.;  Tunyasuvunakool,  K.;  Bates,  R.;  Žídek,  A.;       Gross, H.  Bioinformatics-guided  discovery  of  biaryl-linked  lasso
+Potapenko, A.; Bridgland, A.; Meyer, C.; Kohl, S. A. A.; Ballard, A.       peptides. Chem. Sci. 2023, 14, 13176−13183.
+J.; Cowie, A.; Romera-Paredes, B.; Nikolov, S.; Jain, R.; Adler,  J.;       (80) Gu, W.; Dong, S. H.; Sarkar, S.; Nair, S. K.; Schmidt, E. W. The
+Back,  T.;  Petersen,  S.; Reiman,  D.;  Clancy,  E.;  Zielinski,  M.;      biochemistry and  structural  biology  of  cyanobactin  pathways:
+Steinegger, M.;  Pacholska, M.; Berghammer,  T.; Bodenstein,  S.;       enabling combinatorial biosynthesis. Methods Enzymol. 2018, 604,
+Silver, D.; Vinyals, O.; Senior, A. W.; Kavukcuoglu, K.; Kohli, P.;      113−163.
+Hassabis, D.  Highly  accurate  protein  structure  prediction  with       (81)  Zhang,  Y.;  Goto,  Y.;  Suga, H.  Discovery,  biochemical
+AlphaFold. Nature 2021, 596, 583−589.                                     characterization, and  bioengineering  of  cyanobactin  prenyltrans-
+ (65) Park, Y. J.; Jodts, R. J.; Slater, J. W.; Reyes, R. M.; Winton, V. J.;        ferases. Trends Biochem. Sci. 2023, 48, 360−374.
+Montaser, R. A.; Thomas, P. M.; Dowdle, W. B.; Ruiz, A.; Kelleher, N.       (82) Jeong, A.; Suazo, K. F.; Wood, W. G.; Distefano, M. D.; Li, L.
+L.; Bollinger, J. M., Jr.; Krebs, C.; Hoffman, B. M.; Rosenzweig, A. C.       Isoprenoids and protein prenylation: implications in the pathogenesis
+A  mixed-valent  Fe(II)Fe(III)  species  converts  cysteine  to  an      and therapeutic intervention of Alzheimer’s disease. Crit. Rev. Biochem.
+oxazolone/thioamide pair in methanobactin biosynthesis. Proc. Natl.      Mol. Biol. 2018, 53, 279−310.
+Acad. Sci. U. S. A. 2022, 119, No. e2123566119.                         (83) Hatano, T.; Shintani, Y.; Aga, Y.; Shiota,  S.; Tsuchiya, T.;
+ (66) Dou, C.; Long, Z.; Li, S.; Zhou, D.; Jin, Y.; Zhang, L.; Zhang,       Yoshida, T. Phenolic constituents of  licorice.  VIII. Structures of
+X.; Zheng, Y.; Li, L.; Zhu, X.; Liu, Z.; He, S.; Yan, W.; Yang, L.;      glicophenone and glicoisoflavanone, and effects of licorice phenolics
+Xiong, J.; Fu, X.; Qi, S.; Ren, H.; Chen, S.; Dai, L.; Wang, B.; Cheng,     on methicillin-resistant Staphylococcus aureus. Chem. Pharm.  Bull.
+W.  Crystal  structure and  catalytic mechanism  of  the MbnBC      2000, 48, 1286−1292.
+holoenzyme  required  for  methanobactin  biosynthesis.  Cell  Res.       (84) Parajuli, A.; Kwak, D. H.; Dalponte, L.; Leikoski, N.; Galica, T.;
+2022, 32, 302−314.                                               Umeobika, U.; Trembleau, L.; Bent, A.; Sivonen, K.; Wahlsten, M.;
+ (67) Zheng, Y.; Xu, X.; Fu, X.; Zhou, X.; Dou, C.; Yu, Y.; Yan, W.;     Wang, H.; Rizzi, E.; De Bellis, G.; Naismith, J.; Jaspars, M.; Liu, X.;
+Yang,  J.; Xiao, M.; van der Donk, W.  A.; Zhu,  X.; Cheng, W.      Houssen, W.; Fewer, D. P. A unique tryptophan C-prenyltransferase
+Structures of the holoenzyme TglHI required for 3-thiaglutamate      from the kawaguchipeptin biosynthetic pathway. Angew. Chem., Int.
+biosynthesis. Structure 2023, 31, 1220−1232.                              Ed. 2016, 55, 3596−3599.
+ (68) McLaughlin, M.  I.; Yu, Y.; van der Donk, W. A. Substrate       (85) Zhang, Y.; Hamada, K.; Nguyen, D. T.; Inoue, S.; Satake, M.;
+recognition by the peptidyl-(S)-2-mercaptoglycine synthase TglHI      Kobayashi, S.; Okada, C.; Ogata, K.; Okada, M.; Sengoku, T.; Goto,
+during 3-thiaglutamate biosynthesis. ACS Chem. Biol. 2022, 17, 930−        Y.; Suga, H. LimF  is a versatile prenyltransferase for histidine-C-
+940.                                                                       geranylation on diverse non-natural substrates. Nat. Catal. 2022, 5,
+ (69) Li, Y.; Ma, Y.; Xia, Y.; Zhang, T.; Sun, S.; Gao,  J.; Yao, H.;      682−693.
+Wang, H. Discovery and biosynthesis of  tricyclic copper-binding       (86) Oberg, N.; Precord, T. W.;  Mitchell, D.  A.;  Gerlt,  J. A.
+ribosomal peptides containing histidine-to-butyrine crosslinks. Nat.      RadicalSAM.org: A resource to interpret sequence-function space and
+Commun. 2023, 14, 2944.                                                 discover new radical SAM enzyme chemistry. ACS Bio. Med. Chem. Au
+ (70) Kunakom,  S.; Otani, H.; Udwary, D. W.; Doering, D. T.;      2022, 2, 22−35.
+Mouncey, N.  J. Cytochromes P450  involved  in  bacterial RiPP       (87) Benjdia, A.; Balty, C.; Berteau, O. Radical SAM enzymes in the
+biosyntheses. J. Ind. Microbiol. Biotechnol. 2023, 50, kuad005.              biosynthesis  of  ribosomally  synthesized and  post-translationally
+ (71) Zhong, G. Cytochromes P450 associated with the biosyntheses      modified peptides (RiPPs). Front. Chem. 2017, 5, 87.
+of ribosomally synthesized and post-translationally modified peptides.       (88) Haft, D. H.; Basu, M. K. Biological systems discovery in silico:
+ACS Bio. Med. Chem. Au 2023, 3, 371−388.                                 radical  S-adenosylmethionine  protein  families and  their  target
+ (72) Reisberg, S. H.; Gao, Y.; Walker, A.  S.; Helfrich, E.  J. N.;       peptides for posttranslational modification.  J. Bacteriol. 2011, 193,
+Clardy, J.; Baran, P. S. Total synthesis reveals atypical atropisomerism      2745−2755.
+in a small-molecule natural product, tryptorubin A. Science 2020, 367,       (89) Grell, T. A.; Goldman, P. J.; Drennan, C. L. SPASM and twitch
+458−463.                                                       domains in S-adenosylmethionine (SAM) radical enzymes.  J. Biol.
+ (73) Wyche, T. P.; Ruzzini, A. C.; Schwab, L.; Currie, C. R.; Clardy,      Chem. 2015, 290, 3964−3971.
+J.  Tryptorubin  A:  a  polycyclic  peptide from  a  fungus-derived       (90) Mendauletova, A.; Kostenko, A.; Lien, Y.; Latham,  J. How a
+streptomycete. J. Am. Chem. Soc. 2017, 139, 12899−12902.               subfamily  of  radical  S-adenosylmethionine enzymes became  a
+
+                                                             4550                                                       https://doi.org/10.1021/acscatal.3c06322
+                                                                                                                                     ACS Catal. 2024, 14, 4536−4553
+
+
+[PDF physical page 16]
+ACS Catalysis                                              pubs.acs.org/acscatalysis                                          Review
+
+mainstay of ribosomally synthesized and post-translationally modified       (107) Nguyen, T. Q. N.; Tooh, Y. W.; Sugiyama, R.; Nguyen, T. P.
+peptide discovery. ACS Bio. Med. Chem. Au 2022, 2, 53−59.               D.; Purushothaman, M.; Leow, L. C.; Hanif, K.; Yong, R. H.  S.;
+ (91) Morinaka, B. I.; Vagstad, A. L.; Helf, M. J.; Gugger, M.; Kegler,       Agatha, I.; Winnerdy, F. R.; Gugger, M.; Phan, A. T.; Morinaka, B. I.
+C.; Freeman, M.  F.;  Bode, H.  B.;  Piel,   J.  Radical  S-adenosyl       Post-translational formation of strained cyclophanes in bacteria. Nat.
+methionine epimerases:  regioselective  introduction  of  diverse D-      Chem. 2020, 12, 1042−1053.
+amino acid patterns into peptide natural products. Angew. Chem. Int.       (108) Sugiyama, R.; Suarez, A. F. L.; Morishita, Y.; Nguyen, T. Q.
+Ed. 2014, 53, 8503−8507.                                               N.; Tooh, Y. W.; Roslan, M.; Lo Choy,  J.; Su, Q.; Goh, W. Y.;
+ (92) Burkhart, B. J.; Hudson, G. A.; Dunbar, K. L.; Mitchell, D. A. A      Gunawan, G. A.; Wong, F. T.; Morinaka, B.  I. The biosynthetic
+prevalent peptide-binding domain guides ribosomal natural product      landscape of triceptides reveals radical SAM enzymes that catalyze
+biosynthesis. Nat. Chem. Biol. 2015, 11, 564−570.                       cyclophane formation on Tyr- and His-containing motifs.  J. Am.
+ (93)  Haft, D. H.; Basu, M.  K.;  Mitchell, D. A. Expansion  of      Chem. Soc. 2022, 144, 11580−11593.
+ribosomally produced natural products: a nitrile hydratase- and Nif11-       (109) Miller, R. D.; Iinishi, A.; Modaresi, S. M.; Yoo, B. K.; Curtis,
+related precursor family. BMC Biol. 2010, 8, 70.                         T. D.; Lariviere, P. J.; Liang, L.; Son, S.; Nicolau, S.; Bargabos, R.;
+ (94) Morinaka, B. I.; Lakis, E.; Verest, M.; Helf, M. J.; Scalvenzi, T.;       Morrissette, M.; Gates, M. F.; Pitt, N.; Jakob, R. P.; Rath, P.; Maier,
+Vagstad, A. L.; Sims,  J.; Sunagawa, S.; Gugger, M.; Piel,  J. Natural                                                                               T.; Malyutin, A. G.; Kaiser, J. T.; Niles, S.; Karavas, B.; Ghiglieri, M.;
+noncanonical protein splicing yields products with diverse β-amino                                                          Bowman, S. E.  J.; Rees, D. C.; Hiller, S.; Lewis, K. Computational
+acid residues. Science 2018, 359, 779.                                                                                  identification of a systemic antibiotic for gram-negative bacteria. Nat.
+ (95) Scott, T. A.; Verest, M.; Farnung, J.; Forneris, C. C.; Robinson,                                                                                Microbiol. 2022, 7, 1661−1672.
+S. L.;  Ji, X.; Hubrich, F.; Chepkirui, C.; Richter, D. U.; Huber, S.;                                                                   (110) Söding, J.; Biegert, A.; Lupas, A. N. The HHpred interactive
+Rust, P.; Streiff, A. B.; Zhang, Q.; Bode,  J. W.; Piel,  J. Widespread                                                                              server  for  protein homology  detection and  structure  prediction.
+microbial utilization of ribosomal β-amino acid-containing peptides                                                                             Nucleic Acids Res. 2005, 33, W244−248.
+and proteins. Chem. 2022, 8, 2659−2677.                                                                   (111) Zimmermann, L.; Stephens, A.; Nam, S. Z.; Rau, D.; Kübler,
+ (96) Richter, D.; Lakis, E.; Piel, J. Site-specific bioorthogonal protein                                                                                                               J.; Lozajic, M.; Gabler,  F.; Söding,  J.; Lupas, A. N.; Alva, V. A
+labelling by  tetrazine  ligation  using endogenous β-amino  acid                                                                      completely reimplemented MPI bioinformatics toolkit with a New
+dienophiles. Nat. Chem. 2023, 15, 1422−1430.                                                       HHpred server at its core. J. Mol. Biol. 2018, 430, 2237−2243.
+ (97)  Flühe,  L.;  Marahiel, M.  A.  Radical S-adenosylmethionine
+                                                                   (112) Kloosterman, A. M.;  Shelton, K.  E.; van Wezel, G.  P.;
+enzyme catalyzed thioether bond formation in sactipeptide biosyn-
+                                                          Medema, M. H.; Mitchell, D. A. RRE-finder: a genome-mining tool
+thesis. Curr. Opin. Chem. Biol. 2013, 17, 605−612.
+                                                                                  for class-independent RiPP discovery. mSystems 2020, 5, e00267-20.
+ (98) Hudson, G. A.; Burkhart, B. J.; DiCaprio, A. J.; Schwalen, C. J.;
+                                                                   (113) Nguyen, D. T.; Zhu, L.; Mitchell, D. A.; van der Donk, W. A.
+Kille, B.; Pogorelov, T. V.; Mitchell, D. A. Bioinformatic mapping of
+                                                                      Discovery of biaryl macrocyclic peptides with C-terminal β-amino-α-
+radical S-adenosylmethionine-dependent ribosomally synthesized and
+                                                                       keto acid groups. bioRxiv 2023.
+post-translationally modified peptides identifies new Cα, Cβ, and Cγ-
+                                                                   (114) Eustáquio, A. S.; Chang, L. P.; Steele, G. L.; O'Donnell, C. J.;
+linked thioether-containing peptides.  J. Am. Chem. Soc. 2019, 141,
+                                                                Koehn,  F.  E.  Biosynthetic  engineering and  fermentation media
+8228−8238.
+                                                                 development leads to gram-scale production of spliceostatin natural
+ (99) Nakai, T.; Ito, H.; Kobayashi, K.; Takahashi, Y.; Hori, H.;
+                                                                      products in Burkholderia sp. Metab. Eng. 2016, 33, 67−75.Tsubaki, M.; Tanizawa, K.; Okajima, T. The radical S-adenosyl-L-
+                                                                   (115) Kunakom, S.; Eustaquio, A. S. Heterologous production of
+methionine enzyme QhpD catalyzes sequential formation of intra-
+                                                                                 lasso peptide capistruin in a Burkholderia host. ACS Synth. Biol. 2020,
+protein sulfur-to-methylene carbon thioether bonds.  J. Biol. Chem.
+                                                                                      9, 241−248.2015, 290, 11144−11166.
+                                                                   (116) Aldemir, H.; Shu, S.; Schaefers, F.; Hong, H.; Richarz, R.; (100) Precord, T. W.; Mahanta, N.; Mitchell, D. A. Reconstitution
+                                                                               Harteis, S.; Einsiedler, M.; Milzarek, T. M.; Schneider, S.; Gulder, T.and  substrate  specificity  of  the  thioether-forming  radical  S-
+                                                                        A. M. Carrier Protein-Free Enzymatic Biaryl Coupling in Arylomycinadenosylmethionine enzyme in freyrasin biosynthesis. ACS Chem.
+                                                      A2 Assembly and Structure of the Cytochrome P450 AryC. ChemistryBiol. 2019, 14, 1981−1989.
+                                                                   2022, 28, No. e202104451. (101)  Eastman,  K.  A.  S.;  Kincannon, W.  M.;  Bandarian,  V.
+                                                                   (117) Belin, P.; Le Du, M. H.; Fielding, A.; Lequin, O.; Jacquet, M.;Leveraging substrate promiscuity of a radical S-adenosyl-L-methio-
+                                                                     Charbonnier,  J. B.; Lecoq, A.; Thai, R.; Courcon, M.; Masson, C.;nine RiPP maturase toward  intramolecular  peptide  cross-linking
+                                                                   Dugave, C.; Genet, R.; Pernodet, J. L.; Gondry, M. Identification andapplications. ACS Cent. Sci. 2022, 8, 1209−1217.
+ (102) King, A. M.; Anderson, D. A.; Glassey, E.; Segall-Shapiro, T.       structural basis of the reaction catalyzed by CYP121, an essential
+H.; Zhang, Z.; Niquille, D. L.; Embree, A. C.; Pratt, K.; Williams, T.      cytochrome P450 in Mycobacterium tuberculosis. Proc. Natl. Acad.
+L.; Gordon, D. B.; Voigt, C. A. Selection for constrained peptides that         Sci. U. S.A 2009, 106, 7426−7431.
+bind to a single target protein. Nat. Commun. 2021, 12, 6343.            (118) Paetzel, M.; Goodall, J. J.; Kania, M.; Dalbey, R. E.; Page, M.
+ (103) Eastman, K. A. S.; Mifflin, M. C.; Oblad, P. F.; Roberts, A. G.;      G. Crystallographic and biophysical  analysis of a  bacterial  signal
+Bandarian, V. A promiscuous rSAM enzyme enables diverse peptide       peptidase in complex with a lipopeptide-based inhibitor. J. Biol. Chem.
+cross-linking. ACS Bio. Med. Chem. Au 2023, 3, 480−493.               2004, 279, 30781−30790.
+ (104) Bushin, L. B.; Clark, K. A.; Pelczer, I.; Seyedsayamdost, M. R.       (119) Cochrane, J. R.; White, J. M.; Wille, U.; Hutton, C. A. Total
+Charting an unexplored streptococcal biosynthetic landscape reveals a       synthesis of mycocyclosin. Org. Lett. 2012, 14, 2402−2405.
+unique peptide  cyclization  motif.  J. Am. Chem.  Soc. 2018, 140,       (120) Chioti, V. T.; Clark, K. A.; Seyedsayamdost, M. R. N−Cα
+17674−17684.                                                bond cleavage catalyzed by a multinuclear iron oxygenase from a
+ (105) Lewis,  J. K.; Jochimsen, A. S.; Lefave, S.  J.; Young, A. P.;       divergent  methanobactin-like RiPP gene  cluster. chemRxiv 2023.
+Kincannon, W.  M.;  Roberts,  A.  G.; Kieber-Emmons, M.  T.;     DOI: 10.26434/chemrxiv-2023-b3k7g
+Bandarian, V. New role for radical SAM enzymes in the biosynthesis       (121) Schramma, K. R.; Bushin, L.  B.; Seyedsayamdost, M. R.
+of thio(seleno)oxazole RiPP natural products. Biochemistry 2021, 60,       Structure and biosynthesis of a macrocyclic peptide containing an
+3347−3361.                                                        unprecedented lysine-to-tryptophan crosslink. Nat. Chem. 2015, 7,
+ (106) Kostenko, A.; Lien, Y.; Mendauletova, A.; Ngendahimana, T.;      431−437.
+Novitskiy, I. M.; Eaton, S. S.; Latham, J. A. Identification of a poly-       (122)  Fleuchot,  B.;  Guillot,  A.;  Mezange,  C.;  Besset,  C.;
+cyclopropylglycine-containing peptide via bioinformatic mapping of      Chambellon,  E.; Monnet,  V.;  Gardan,  R.  Rgg-associated SHP
+radical S-adenosylmethionine enzymes.  J.  Biol. Chem. 2022, 298,       signaling  peptides mediate  cross-talk  in  Streptococci. PLoS One.
+101881.                                                            2013, 8, e66042.
+
+                                                             4551                                                       https://doi.org/10.1021/acscatal.3c06322
+                                                                                                                                     ACS Catal. 2024, 14, 4536−4553
+
+
+[PDF physical page 17]
+ACS Catalysis                                              pubs.acs.org/acscatalysis                                          Review
+
+ (123) Schramma, K. R.; Seyedsayamdost, M. R. Lysine-tryptophan-       (141) Do,  T.;  Link,  A.  J.  Protein  engineering  in  ribosomally
+crosslinked peptides produced by radical SAM enzymes in pathogenic       synthesized and  post-translationally  modified  peptides  (RiPPs).
+Streptococci. ACS Chem. Biol. 2017, 12, 922−927.                          Biochemistry 2023, 62, 201−209.
+ (124) Caruso, A.; Martinie, R. J.; Bushin, L. B.; Seyedsayamdost, M.       (142) Mordhorst, S.; Ruijne, F.; Vagstad, A. L.; Kuipers, O. P.; Piel,
+R. Macrocyclization via an arginine-tyrosine crosslink broadens the          J. Emulating nonribosomal  peptides with ribosomal  biosynthetic
+reaction scope of radical S-adenosylmethionine enzymes. J. Am. Chem.        strategies. RSC Chem. Biol. 2023, 4, 7−36.
+Soc. 2019, 141, 16610−16614.                                        (143) Urban,  J. H.; Moosmeier, M. A.; Aumüller, T.; Thein, M.;
+ (125) Caruso,  A.; Bushin, L.  B.; Clark, K.  A.; Martinie, R.  J.;      Bosma, T.; Rink, R.; Groth, K.; Zulley, M.; Siegers, K.; Tissot, K.;
+Seyedsayamdost, M. R. Radical approach to enzymatic beta-thioether       Moll, G. N.; Prassler, J. Phage display and selection of lanthipeptides
+bond formation. J. Am. Chem. Soc. 2019, 141, 990−997.               on the carboxy-terminus of the gene-3 minor coat protein. Nat.
+ (126) Covington, B. C.; Seyedsayamdost, M. R. Vitamin B3 triggers     Commun. 2017, 8, 1500.
+biosynthesis of secondary metabolite dormancy signals in Strepto-       (144)  Hetrick,  K.   J.;  Walker, M.  C.;  van  der Donk, W.  A.
+coccus suis. J. Am. Chem. Soc. 2022, 144, 14997−15001.                 Development and application of yeast and phage display of diverse
+ (127) Clark, K. A.; Bushin, L. B.; Seyedsayamdost, M. R. RaS-RiPPs       lanthipeptides. ACS Cent. Sci. 2018, 4, 458−467.
+in streptococci and the human microbiome. ACS Bio. Med. Chem. Au       (145) Yang, X.; Lennard, K. R.; He, C.; Walker, M. C.; Ball, A. T.;
+2022, 2, 328−339.                                                   Doigneaux, C.; Tavassoli, A.; van der Donk, W. A. A lanthipeptide
+ (128) Bushin, L. B.; Covington, B. C.; Clark, K. A.; Caruso, A.;        library used to identify a protein-protein interaction inhibitor. Nat.
+Seyedsayamdost, M. R. Bicyclostreptins are radical SAM enzyme-      Chem. Biol. 2018, 14, 375−380.
+modified peptides with unique cyclization motifs. Nat. Chem. Biol.       (146) Schmitt, S.; Montalban-Lopez, M.; Peterhoff, D.; Deng,  J.;
+2022, 18, 1135−1143.                                              Wagner, R.; Held, M.; Kuipers, O. P.; Panke, S. Analysis of modular
+ (129) Clark, K. A.; Seyedsayamdost, M. R. Bioinformatic atlas of      bioengineered antimicrobial lanthipeptides  at nanoliter  scale. Nat.
+radical SAM enzyme-modified RiPP  natural products  reveals an      Chem. Biol. 2019, 15, 437−443.
+isoleucine-tryptophan crosslink. J. Am. Chem. Soc. 2022, 144, 17876−       (147) Vinogradov, A. A.; Zhang, Y.; Hamada, K.; Chang,  J.  S.;
+17888.                                                           Okada,  C.;  Nishimura,  H.;  Terasaka,  N.; Goto,  Y.;  Ogata,  K.;
+ (130) He, B. B.; Cheng, Z.; Zhong, Z.; Gao, Y.; Liu, H.; Li, Y. X.      Sengoku, T.; Onaka, H.; Suga, H. De Novo discovery of thiopeptide
+Expanded sequence space of radical S-adenosylmethionine-dependent       pseudo-natural products acting as potent and selective TNIK kinase
+enzymes  involved  in  post-translational  macrocyclization.  Angew.        inhibitors. J. Am. Chem. Soc. 2022, 144, 20332−20341.
+Chem., Int. Ed. 2022, 61, No. e202212447.                             (148) Chang, J. S.; Vinogradov, A. A.; Zhang, Y.; Goto, Y.; Suga, H.
+ (131) Navarro-Munoz, J. C.; Selem-Mojica, N.; Mullowney, M. W.;     Deep learning-driven library design for the de novo discovery of
+Kautsar, S. A.; Tryon, J. H.; Parkinson, E. I.; De Los Santos, E. L. C.;       bioactive thiopeptides. ACS Cent. Sci. 2023, 9, 2150−2160.
+Yeong, M.; Cruz-Morales, P.; Abubucker, S.; Roeters, A.; Lokhorst,       (149) Nayak, D. D.; Mahanta, N.; Mitchell, D. A.; Metcalf, W. W.
+W.; Fernandez-Guerra,  A.; Cappelini, L. T. D.; Goering, A. W.;       Post-translational thioamidation of methyl-coenzyme M reductase, a
+Thomson, R. J.; Metcalf, W. W.; Kelleher, N. L.; Barona-Gomez, F.;      key enzyme  in methanogenic and methanotrophic Archaea.  eLife
+Medema, M. H. A computational framework to explore large-scale      2017, 6, e29218.
+biosynthetic diversity. Nat. Chem. Biol. 2020, 16, 60−68.                 (150) Lai, K. Y.; Galan, S. R. G.; Zeng, Y.; Zhou, T. H.; He, C.; Raj,
+ (132) He, B. B.; Liu, J.; Cheng, Z.; Liu, R.; Zhong, Z.; Gao, Y.; Liu,       R.; Riedl, J.; Liu, S.; Chooi, K. P.; Garg, N.; Zeng, M.; Jones, L. H.;
+H.; Song, Z. M.; Tian,  Y.;  Li, Y. X. Bacterial cytochrome P450      Hutchings, G. J.; Mohammed, S.; Nair, S. K.; Chen, J.; Davis, B. G.;
+catalyzed post-translational macrocyclization of ribosomal peptides.      van der Donk, W. A. LanCLs add glutathione to dehydroamino acids
+Angew. Chem., Int. Ed. 2023, 135, No. e202311533.                      generated at phosphorylated sites in the proteome. Cell 2021, 184,
+ (133) Saito, S.; Atsumi, K.; Zhou, T.; Fukaya, K.; Urabe, D.; Oku,      2680−2695.
+N.; Karim, M. R. U.; Komaki, H.; Igarashi, Y. A cyclopeptide and       (151) Oman, T. J.; Knerr, P. J.; Bindman, N. A.; Vélasquez, J. E.; van
+three oligomycin-class polyketides produced by an underexplored      der Donk, W. A. An engineered lantibiotic synthetase that does not
+actinomycete of the genus Pseudosporangium. Beilstein J. Org. Chem.       require a leader peptide on its substrate. J. Am. Chem. Soc. 2012, 134,
+2020, 16, 1100−1110.                                            6952−6955.
+ (134) Evans, R.; O’Neill, M.; Pritzel, A.; Antropova, N.; Senior, A.;       (152) Goto, Y.; Ito, Y.; Kato, Y.; Tsunoda, S.; Suga, H. One-pot
+Green, T.; Žídek, A.; Bates, R.; Blackwell, S.; Yim, J.; Ronneberger,       synthesis  of  azoline-containing peptides  in a  cell-free  translation
+O.; Bodenstein, S.; Zielinski, M.; Bridgland, A.; Potapenko, A.; Cowie,      system integrated with a posttranslational cyclodehydratase. Chem.
+A.; Tunyasuvunakool, K.; Jain, R.; Clancy, E.; Kohli, P.; Jumper, J.;        Biol. 2014, 21, 766−774.
+Hassabis, D. Protein complex prediction with AlphaFold-Multimer.       (153) Koehnke, J.; Mann, G.; Bent, A. F.; Ludewig, H.; Shirran, S.;
+bioRxiv 2021, 2021.2010.2004.463034.                                      Botting, C.; Lebl, T.; Houssen, W. E.; Jaspars, M.; Naismith,  J. H.
+ (135) Hu, Y. L.; Yin, F. Z.; Shi, J.; Ma, S. Y.; Wang, Z. R.; Tan, R. X.;       Structural  analysis  of  leader  peptide  binding  enables  leader-free
+Jiao,  R.  H.; Ge, H. M. P450-modified  ribosomally  synthesized      cyanobactin processing. Nat. Chem. Biol. 2015, 11, 558−563.
+peptides with aromatic  cross-links.  J. Am. Chem. Soc. 2023, 145,       (154) Reyna-Gonzalez, E.; Schmid, B.; Petras, D.; Süssmuth, R. D.;
+27325−27335.                                                       Dittmann, E. Leader peptide-free in vitro reconstitution of micro-
+ (136) Liu, C. L.; Wang, Z. J.; Shi, J.; Yan, Z. Y.; Zhang, G. D.; Jiao,        viridin  biosynthesis enables design  of  synthetic  protease-targeted
+R. H.; Tan, R. X.; Ge, H. M. P450-modified multicyclic cyclophane-        libraries. Angew. Chem., Int. Ed. 2016, 55, 9398−9401.
+containing ribosomally synthesized and post-translationally modified       (155) Walker, J. A.; Hamlish, N.; Tytla, A.; Brauer, D. D.; Francis,
+peptides. Angew. Chem., Int. Ed. 2024, No. e202314046.              M.  B.;  Schepartz, A.  Redirecting RiPP  biosynthetic enzymes  to
+ (137)  Nielsen, D.  S.; Shepherd, N.  E.; Xu, W.; Lucke, A.  J.;       proteins and backbone-modified substrates. ACS Cent. Sci. 2022, 8,
+Stoermer, M. J.; Fairlie, D. P. Orally absorbed cyclic peptides. Chem.      473−482.
+Rev. 2017, 117, 8094−8128.                                          (156) Lang, K.; Chin,  J. W. Cellular incorporation of unnatural
+ (138) Vinogradov, A. A.; Yin, Y.; Suga, H. Macrocyclic peptides as      amino acids and bioorthogonal labeling of proteins. Chem. Rev. 2014,
+drug candidates: recent progress and remaining challenges.  J. Am.       114, 4764−4806.
+Chem. Soc. 2019, 141, 4167−4181.                                    (157) Hoyt, E. A.; Cal, P. M. S. D.; Oliveira, B. L.; Bernardes, G. J. L.
+ (139) Hudson, G. A.; Mitchell, D. A. RiPP antibiotics: biosynthesis      Contemporary approaches to site-selective protein modification. Nat.
+and engineering potential. Curr. Opin. Microbiol. 2018, 45, 61−69.         Rev. Chem. 2019, 3, 147−171.
+ (140) Wu, C.; van der Donk, W. A. Engineering of new-to-nature       (158) Haft, D. H.; Badretdin, A.; Coulouris, G.; DiCuccio, M.;
+ribosomally synthesized and  post-translationally modified peptide      Durkin, A.  S.;  Jovenitti,  E.;  Li, W.; Mersha, M.; O’Neill, K. R.;
+natural products. Curr. Opin. Biotechnol. 2021, 69, 221−231.               Virothaisakun,  J.; Thibaud-Nissen, F. RefSeq and the prokaryotic
+
+                                                             4552                                                       https://doi.org/10.1021/acscatal.3c06322
+                                                                                                                                     ACS Catal. 2024, 14, 4536−4553
+
+
+[PDF physical page 18]
+ACS Catalysis                                              pubs.acs.org/acscatalysis                                          Review
+
+genome annotation pipeline in the age of metagenomes. Nucleic Acids
+Res. 2024, 52, No. D762.
+ (159) McIntosh,  J. A.; Donia, M. S.; Nair, S. K.; Schmidt, E. W.
+Enzymatic basis of ribosomal peptide prenylation in cyanobacteria. J.
+Am. Chem. Soc. 2011, 133, 13698−13705.
+ (160) Okada, M.; Sugita, T.; Akita, K.; Nakashima, Y.; Tian, T.; Li,
+C.; Mori, T.; Abe,  I. Stereospecific prenylation of tryptophan by a
+cyanobacterial post-translational modification enzyme. Org. Biomol.
+Chem. 2016, 14, 9639−9644.
+ (161) Ayikpoe, R. S.; Latham, J. A. MftD catalyzes the formation of a
+biologically active redox center in the biosynthesis of the ribosomally
+synthesized and post-translationally modified redox cofactor myco-
+factocin. J. Am. Chem. Soc. 2019, 141, 13582−13591.
+ (162) Koehn, E. M.; Latham, J. A.; Armand, T.; Evans, R. L., 3rd;
+Tu, X.; Wilmot, C. M.; Iavarone, A. T.; Klinman, J. P. Discovery of
+hydroxylase  activity  for PqqB  provides  a  missing  link  in  the
+pyrroloquinoline quinone biosynthetic pathway.  J. Am. Chem. Soc.
+2019, 141, 4398−4405.
+ (163) Magnusson, O. T.; Toyama, H.; Saeki, M.; Rojas, A.; Reed, J.
+C.; Liddington, R. C.; Klinman, J. P.; Schwarzenbacher, R. Quinone
+biogenesis: Structure and mechanism of PqqC, the final catalyst in the
+production of pyrroloquinoline quinone. Proc. Natl. Acad. Sci. U.S.A.
+2004, 101, 7913−7918.
+
+
+
+
+
+                                                             4553                                                       https://doi.org/10.1021/acscatal.3c06322
+                                                                                                                                     ACS Catal. 2024, 14, 4536−4553

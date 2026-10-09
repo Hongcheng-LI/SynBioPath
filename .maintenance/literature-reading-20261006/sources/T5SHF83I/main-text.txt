@@ -1,0 +1,708 @@
+
+[PDF physical page 1]
+                                                                                                                                                                                                                                                                                                                                                        PLUS
+                                                                                                                                                                                                                                                                                                                                                        PNAS
+   Accurate prediction of secondary metabolite gene
+    clusters in ﬁlamentous fungi
+
+       Mikael R. Andersena,1, Jakob B. Nielsena, Andreas Klitgaarda, Lene M. Petersena, Mia Zachariasena, Tilde J. Hansena,
+       Lene H. Blicherb, Charlotte H. Gotfredsenc, Thomas O. Larsena, Kristian F. Nielsena, and Uffe H. Mortensena
+
+          aCenter for Microbial Biotechnology, Department of Systems Biology, bDTU Multi-Assay Core, Department of Systems Biology, and cDepartment of Chemistry,
+          Technical University of Denmark, DK-2800 Kongens Lyngby, Denmark
+
+          Edited by Jerrold Meinwald, Cornell University, Ithaca, NY, and approved November 19, 2012 (received for review August 20, 2012)
+
+         Biosynthetic pathways of secondary metabolites from fungi are    The efﬁcient elucidation of the biosynthetic genes for each SM
+         currently subject to an intense effort to elucidate the genetic basis    cluster has thus so far been based on laborious single gene deletion
+         for these compounds due to their large potential within pharma-   of each of the putative members and chemical proﬁling of the SMs
+          ceutics and synthetic biochemistry. The preferred method is me-   of the deletion strains. This effort has been especially noticeable in
+         thodical gene deletions to identify supporting enzymes for key   the model fungus Aspergillus nidulans, which is presently the fungal
+        synthases one cluster at a time. In this study, we design and apply                                                                              species with the largest number (n = 25) of characterized SM
+        a DNA expression array for Aspergillus nidulans in combination with
+                                                                               synthases/synthetases, due to a massive effort by several groups (7–
+         legacy data to form a comprehensive gene expression compendium.
+                                                                                 30). In recent studies, this fungus has also been shown to have     We apply a guilt-by-association–based analysis to predict the extent
+                                                                            cross-chemistry between gene clusters on separate chromosomes         of the biosynthetic clusters for the 58 synthases active in our set of
+        experimental conditions. A comparison with legacy data shows the    (8, 30). Although these reactions are highly interesting for com-
+       method to be accurate in 13 of 16 known clusters and nearly accu-    binatorial chemistry, the identiﬁcation of gene clusters involved in
+         rate for the remaining 3 clusters. Furthermore, we apply a data   cross-chemistry is cumbersome because it involves combinatorial
+         clustering approach, which identiﬁes cross-chemistry between phys-    deletion of SM synthetic genes, thus greatly increasing the po-
+           ically separate gene clusters (superclusters), and validate this both    tential number of candidates.
+        with legacy data and experimentally by prediction and veriﬁcation     In this study, we propose a general “omics”-based method for
+         of a supercluster consisting of the synthase AN1242 and the prenyl-   the accurate determination of fungal SM gene cluster members.
+         transferase AN11080, as well as identiﬁcation of the product com-   The method is based on an annotated genome sequence and
+       pound nidulanin A. We have used A. nidulans for our method   a catalog of gene expression, a set of information that is readily
+        development and validation due to the wealth of available bio-    available for many fungal species and can easily be generated for
+         chemical data, but the method can be applied to any fungus with
+                                                                   more. To develop, benchmark, and validate this algorithm, we have
+        a sequenced and assembled genome, thus supporting further sec-
+                                                                    used A. nidulans as a model organism, which is especially well-
+        ondary metabolite pathway elucidation in the fungal kingdom.
+                                                                              suited for this purpose due to the above-stated wealth of in-
+            aspergilli | natural products | secondary metabolism | polyketide synthases    formation. The algorithm is proven to be very powerful in identi-
+                                                                                 fying gene cluster members. We furthermore report an extension1.65.216.240.                                                                         of the algorithm, which is proven to be successful in identifying           o other group of biochemical compounds holds as much
+                                                                             cross-chemistry between gene clusters.            promise for drug development as the secondary (nongrowth  Naddress      associated) metabolites (SMs). A review from 2012 (1) found that   Results
+IP      for small-molecule pharmaceuticals, 68% of the anticancer agents
+                                                                                 Analysis of SMs A. nidulans on Complex Solid Medium Identiﬁes 42
+                                                                   Compounds. Initially, we evaluated the production of SMs on fourfrom     andfrom52%naturalof theproducts.antiinfectiveThe factagentsthatareSMsnaturalare oftenproducts,synthesizedor derivedas
+        polymer               backbones                             that                               are subsequently                                                 diversiﬁed                                                               greatly via                                                                   the2024                                                                             different solid media [oatmeal agar (OTA), yeast extract sucrose                                                                 (YES), Czapek yeast autolysate (CYA), and CYA with 50 g/L         actions of                     tailoring                        enzymes                                         sets the stage                                                      for combinatorial                                                                        bio-
+8,
+        chemistry (2), because their biosynthesis is modular.             NaCl sucrose (CYAS); Materials and Methods] at 4, 8, and 10 d.
+                                                          The object of this was to identify a selection of media that (i)April       Major groups of SMs include polyketides (PKs) consisting of
+on     -CH2-(C = O)- units, ribosomal and nonribosomomal peptides   gave as many produced SMs as possible, (ii) showed one or more
+        (NRPs), and terpenoids made from C5 isoprene units. These  SMs unique to each medium, and (iii) had SMs that were only
+        polymer backbones are, with the exception of ribosomal peptides,   produced on two of the selected media.
+       made by synthases or synthetases and are modiﬁed by a plethora of
+          tailoring enzymes, including (de)hydratases, oxygenases, hydro-1.65.216.240
+          lases, methylases, and others.                                             Author contributions: M.R.A., J.B.N., L.M.P., C.H.G., T.O.L., K.F.N., and U.H.M. designedby
+           In fungi, these biosynthetic genes of secondary metabolism are     research; M.R.A., J.B.N., A.K., L.M.P., M.Z., T.J.H., L.H.B., C.H.G., and K.F.N. performed
+        organized in discrete clusters around the synthase genes. Although     research; M.R.A. and K.F.N. contributed new reagents/analytic tools; M.R.A., J.B.N.,
+         quite accurate algorithms are available for identiﬁcation of possible     A.K., L.M.P., T.J.H., C.H.G., T.O.L., K.F.N., and U.H.M. analyzed data; and M.R.A., J.B.N.,
+                                                                                                               A.K., L.M.P., C.H.G., K.F.N., and U.H.M. wrote the paper.
+     SM biosynthetic genes, particularly PK synthases (PKSs), NRP
+                                                                                      The authors declare no conﬂict of interest.
+         synthetases (NRPSs), and  dimethylallyl  tryptophan  synthases
+      (DMATSs) (3, 4), the assignment and prediction of the members of     This article is a PNAS Direct Submission.
+        the individual clusters solely from the genome sequence have not    Data deposition: The gene expression data, gene expression microarray data description,https://www.pnas.org                                                                                and legacy gene expression data reported in this paper are available from the Gene
+        been accurate. Relevant protein domains can be predicted for some    Expression Omnibus (GEO) database, www.ncbi.nlm.nih.gov/geo (accession nos.
+                                                                                            GSE39993, GPL15899, GSE12859 and GSE7295).from      of the genes (e.g., cytochrome P450 genes) (5); however, genes in
+         identiﬁed clusters often have unknown functions, which makes    1To whom correspondence should be addressed. E-mail: mr@bio.dtu.dk.
+         predicting their inclusion impossible. Furthermore, SM gene clus-    See Author Summary on page 24 (volume 110, number 1).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       MICROBIOLOGY          ters often colocalize on the chromosomes (6), which makes sepa-     This article contains supporting information online at www.pnas.org/lookup/suppl/doi:10.
+         ration of clusters solely based on gene function predictions difﬁcult.    1073/pnas.1205532110/-/DCSupplemental.Downloaded
+
+
+          www.pnas.org/cgi/doi/10.1073/pnas.1205532110                                             PNAS   |  Published online December 17, 2012   |  E99–E107
+
+
+[PDF physical page 2]
+          These characteristics should allow us to have as many active    positive rate of 0.05 (Fig. S2). Therefore, CS ≥2.13 was used as
+         gene clusters as possible, as well as ensuring unique production   a guideline for identifying the extent of gene clusters.
+          proﬁles for as many SM gene clusters as possible.
+         From this initial analysis, we selected the YES, CYA, and    Prediction of the Extent of 51 Gene Clusters. Evaluation of the size
+      CYAS media for transcriptional proﬁling. On these media, we   of the clusters around SM genes was performed using a pre-
+                                                               computed list of 66 putative PKSs, NRPSs, and DMATSs from        were able to separate and detect 59 unique SMs, of which we
+                                                                         the secondary metabolite unique regions ﬁnder (SMURF) algo-         could name 42 by comparison with our extensive in-house library
+                                                                        rithm (3) based on the A. nidulans FGSC A4 gene set (35). In          of microbial metabolites (31) and the AntiBase 2010 natural
+                                                                            addition to these 66 genes, we added one prenyltransferase gene         products database. The production proﬁle of the compounds
+                                                                   found in the primary literature (30) and three diterpene synthase
+          satisﬁed the three criteria listed above (Fig. 1, Fig. S1, and
+                                                             (DTS) genes predicted by Bromann et al. (25), resulting in 70
+         Dataset S1).                                                                              putative biosynthetic genes. All 25 experimentally veriﬁed PKSs,
+                                                             NRPSs, DTSs, and prenyltransferases were found to be included         Generation of a Diverse Gene Expression Compendium for A.
+                                                                                  in this list (Tables 1–3).          nidulans. Samples were taken for transcriptional proﬁling from
+                                                                   For each of the 70 biosynthetic genes, we examined the genes
+          plates cultivated in parallel to those of the SM proﬁling above.                                                                      nearby for high CS values and inspected the expression proﬁles of
+      RNA was puriﬁed, prepared for labeling, and hybridized to cus-                                                                         the genes manually for additional validation and reﬁnement.
+         tom-designed Agilent Technologies arrays based on version 5 of                                                                   Apart from 12 genes that were silent under the conditions tested
+         the A. nidulans annotation (32).                                                                        (Table S1), this allowed prediction of the sizes of gene clusters
+         The produced data were combined with previously published                                                                  around 58 biosynthetic genes organized in 51 clusters and counting
+         microarray data from A. nidulans bioreactor cultivations (33, 34) to   of a total of 254 genes included in the clusters (an example is shown
+        form a microarray compendium spanning a diverse set of con-    in Fig. 2). The fact that we can map expression for 58 of the 70
+           ditions, comprising 44 samples in total. The set includes four strains    biosynthetic genes (a large proportion of the gene clusters) is
+          of A. nidulans. Four different growth media are included: three    surprising, considering that many, or even the majority, of the gene
+         complex media (see above) and one minimal medium. Medium    clusters are reported to be silent under standard laboratory con-
+          variations include ﬁve different deﬁned carbon sources (ethanol,    ditions (13, 14, 20, 36–38). An example of a cluster previously
+          glycerol, xylose, glucose, and sucrose), as well as yeast extract.   described as silent but identiﬁed here is the inpAB cluster (39).
+       The combined compendium of expression data is available in   However, those cultivation experiments were conducted on liquid
+         Dataset S2.                                                minimal medium and not on solid complex media, where we ﬁnd
+                                                                                that the expression from most of these genes is most pronounced.
+          Correlation-Based Identiﬁcation of Gene Clusters. To identify gene  We therefore see the large number of active clusters as a conﬁr-
+           clusters efﬁciently around SM synthases, we developed a gene   mation of adequate diversity of the cultivation conditions in our
+           clustering score (CS) based on the Pearson product-moment cor-   microarray compendium.
+          relation coefﬁcient. Our CS gives a numerical value for correlation      Next, we investigated how our cluster predictions matched those
+          of the expression proﬁle of a given gene with the expression pro-   published in the literature. This comparison demonstrated that our
+          ﬁles of the three immediate neighbor genes on either side. Only   algorithm generally predicts gene clusters with excellent accuracy.
+                                                                                Speciﬁcally, we accurately predict the extent of 11 of the 16 known           positive correlation is considered. Values for the CS are available
+                                                                   gene clusters (Tables 1–3). In two of the remaining 5 gene clusters,           in Dataset S2.
+                                                                         the difference is due to artifacts. For the gene sterigmatocystin1.65.216.240.           Statistical simulation of the distribution of CS on the given
+                                                                                   cluster (Fig. 2), the difference of 24 genes relative to 25 genes is          dataset showed that CS values ≥2.13 corresponded to a false-
+                                                                      caused by differences in the current gene annotation comparedaddress                                                                          with the original paper from 1996 (17). Changes in gene calling are
+IP                                                                             also the reason for discrepancy in the terrequinone cluster, where
+from                                                                  our legacy microarray data only contain data for 3 of the 5 genes,
+                            CYA                                thus impairing the prediction. For the three remaining cases, the
+2024                                                                2 gene clusters involved in meroterpenoid (austinol and dehy-
+8,                                                                           droaustinol) biosynthesis and the aspyridone  cluster, the  di-
+April                                   1                                vergencedouble-clusterseemssystem,to be biological.we predictFor3theextraaustinol/dehydroaustinolgenes in one cluster
+on                                                                  (around AN8383) and 2 extra genes in the other cluster (around
+                                                            AN9259) in addition to genes identiﬁed by Lo et al. (30). We in-
+                                14(4)                3                          dividually deleted the 3 extra genes (AN8375, AN8376, and
+                                                            AN8380) in the AN8383 cluster; however, apart from differences1.65.216.240                                        21(8)                                   in the austinol/dehydroaustinol ratio, we could only conﬁrm the
+by                                                                                  results of Lo et al. (30) of these genes not being essential for
+                                                                             austinol/dehydroaustinol biosynthesis (Fig. S3). Because the size
+                                                                             of most of the clusters was accurately predicted by our algorithm,
+                        16(4)                            1              we speculate that some or all of the extra genes are involved in
+                                              2(1)                                   biosynthesis of derivatives of austinol/dehydroaustinol. In agree-
+                                                              ment with this scenario, it is not uncommon that newly detected
+                                                              compounds are linked to known PKS pathways. For example,
+                                                                     shamixanthones and arugusins were recently discovered to behttps://www.pnas.org                    YES          CYAS
+                                                                         products derived from the monodictyphenone cluster (8, 11), and
+                                                                                         this cluster has been redeﬁned several times (9, 10). For thefrom          Fig. 1.  Venn diagram of SMs found on three different solid media. The
+         number of different metabolites is sorted according to which media the   remaining case, the apdG gene of the aspyridone cluster (20),
+           metabolites have been identiﬁed on. The number of metabolites unable to   misprediction of the cluster members is due to a complete di-
+         be conﬁdently identiﬁed are noted in parentheses. Details can be found in   vergence between the transcription proﬁles of apdG and the re-
+           Dataset S1, and the chemical structures are illustrated in Fig. S1.           mainder of the gene cluster. In general, we conclude that the use ofDownloaded
+
+
+           E100   |  www.pnas.org/cgi/doi/10.1073/pnas.1205532110                                                                                 Andersen et al.
+
+
+[PDF physical page 3]
+                                                                                                                                                                                                                                                                                                                                                        PLUS
+                                                                                                                                                                                                                                                                                                                                                        PNAS
+                          Table 1.  Prediction of PKS gene clusters
+
+                                                                                             Cluster size
+
+                         GeneID    Gene      Compound (if known)        Predicted   Known   Medium       Ref(s).
+
+                       AN0150   mdpG   Monodictyphenone/emodin        12        12       Solid         (7–10)
+                       AN7903               Violaceol I and II                  12          ?       Solid          (11)
+                       AN6448    pkbA                                    8          ?       Solid          (24)
+                       AN7084                                             8                    Solid
+                       AN8209   wA     Green conidial pigment             6          ?       Solid
+                       AN7909    orsA      Orsellinic acid/F9975/violaceols       5         5       Solid        (11–14)
+                       AN1784                                             4                    Solid
+                       AN9005                                             4                    Solid
+                       AN6000    aptA     Asperthecin                       3         3       Solid          (15)
+                       AN6431                                             3                    Solid
+                        AN11191                                            2                    Solid
+                       AN7489                                             1                    Solid
+                       AN3273                                             1                    Solid
+                       AN2547    easB     Emericellamide                    4         4      Both           (16)
+                       AN3230    pkfA     Orsellinaldehydes                  6          ?      Both           (24)
+                       AN7071    pkgA    Alternariol/isocoumarins            7          ?      Both           (24)
+                       AN7825     stcA     Sterigmatocystin                  24*       25      Both        (17–19)
+                       AN7815      stcJ      Sterigmatocystin                  24*       25      Both        (17–19)
+                       AN8383    ausA     Austinol                          7         4      Both       (11, 24, 30)
+                       AN2032    pkhA   Unknown                       10          ?       Liquid         (24)
+                       AN2035    pkhB   Unknown                       10          ?       Liquid         (24)
+                       AN8412    adpA    Aspyridone                          7†        8       Liquid         (20)
+                       AN6791                                             1                   Liquid
+                       AN8910                                             1                   Liquid
+
+                                    This table contains predicted PKSs as well as PKS-like genes (AN7489 and AN7815) and a PKS/hybrid gene
+                              (AN8412). The medium column describes under which type of medium (liquid, solid, or both) the cluster is
+                                expressed. For gene clusters with identiﬁed functions and gene members, the number of identiﬁed cluster
+                         members is given as well as references to the original papers. Further details on the cluster members and the
+                               expression proﬁles of the individual clusters may be found in Dataset S2 and Fig. S4. Chemical structures of all
+                          compounds may be found in Fig. S1.
+                               *Difference seemingly due to the current gene calling diverging from the original paper from 1996 (17).
+                             †Algorithm was not able to predict the inclusion of apdG, the outmost gene hypothesized to be a part of the
+                                   cluster (20). The expression proﬁle of apdG diverges from the rest of the cluster.1.65.216.240.
+      CS values in combination with inspection of the expression proﬁles   Ten of 44 samples can be removed with only an approximately 10%
+            is a very effective tool to predict the extent of gene clusters, be-    loss in the data variation, and 25 of 44 samples (all replicates) can beaddress
+IP      cause the borders of 13 of 16 clusters were accurately predicted   removed with less than a 35% loss in data variation. The time sample
+       (when predictions were adjusted to compensate for the two arti-    series on a solid medium presented in this study were not reduced
+from       facts discussed above) and there was near-accurate prediction of   from the set until all biological replicates were reduced. We con-
+2024        all 16 clusters.                                                    clude that in selection of samples for cluster elucidation, one should                                                                    sample as diversely as possible. Biological replicates are not cost-
+8,      Diverse Gene Expression Compendium  Is Important for Accurate    effective unless already available from prior studies.
+          Prediction. To evaluate the compendium size needed for accu-April
+         rate predictions, we used principal component analysis (PCA) on    Clustering of Synthase Expression Proﬁles Identiﬁes Superclusters.
+on
+        our matrix of expression values (Dataset S2). Greater than 95% of   Recent work has identiﬁed two cases of cross-chemistry between
+        the variation within the set can be described in the ﬁrst three    clusters located on separate chromosomes. The production of
+         principal components. This suggests that a theoretical lower limit    austinol and derived compounds (the meroterpenoid pathway) has
+         for this type of analysis would be three arrays if one could select   been shown to be dependent on two separate clusters (11, 30), and1.65.216.240      conditions with a near-perfect difference in expression levels,   the biosynthesis of prenyl xanthones is dependent on three sepa-
+by       ideally high, medium, and low expression for all genes, and with    rate clusters (8). We were interested in seeing whether this is
+        a maximum difference between all clusters and their surrounding   a general phenomenon and whether such cross-chromosomal
+         genes. This would be nearly impossible to achieve for all clusters.   “superclusters” could be detected using our expression data.
+       However, if one is only interested in a single or a few gene clusters   A full gene-to-gene comparison of expression proﬁles between
+         of interest, and has the appropriate prior knowledge, it should be    all predicted NRPSs, PKSs, DTSs, and prenyl transferases found in
+         possible to select three to ﬁve conditions and achieve accurate   the array data was conducted, and the genes were clustered (Fig.
+         predictions. Very informative studies have been performed with    3). This clustering is not based directly on the expression proﬁles,https://www.pnas.org
+       two conditions, but the boundaries of the cluster can be difﬁcult to   because expression index variation from silent conditions distorts
+from     determine (e.g., ref. 25).                                                clustering. Instead, we clustered on the basis of a Spearman-based
+        To test how much it was possible to reduce our dataset, we used an   score of similarity to the expression proﬁles of the other synthases,
+        unsupervised PCA-based analysis for incremental reduction of the   which effectively eliminates noise.          dataset. In this, we found (unsurprisingly) that our biological repli-    The method is efﬁcient for clustering the synthases and trans-                                   MICROBIOLOGY
+         cate samples contain the smallest amount of unique information.    ferases according to shared products. Seven of eight sets of genesDownloaded
+
+
+         Andersen et al.                                                                        PNAS   |  Published online December 17, 2012   |  E101
+
+
+[PDF physical page 4]
+                           Table 2.  Prediction of NRPS gene clusters
+
+                                                                                                 Cluster size
+
+                          GeneID      Gene       Compound (if known)      Predicted  Known  Medium     Source
+
+                        AN9226                                              18                   Solid
+                        AN6444                                               8                   Solid
+                        AN4827                                               7                   Solid
+                        AN8105                                               8                   Solid
+                        AN8513    tdiA         Terrequinone A                  3*       5        Solid       (21, 22)
+                        AN1242    nlsA          Nidulanin A                     3                   Solid     This study
+                        AN6961                                               2                   Solid
+                        AN0016                                               1                   Solid
+                         AN10486                                              1                   Solid
+                        AN7884                                              14               Both
+                        AN3495   inpA       Unknown                       7        7      Both       (25, 39)
+                        AN3496    inpB       Unknown                       7        7      Both       (25, 39)
+                        AN2545   easA         Emericellamide                   4        4      Both         (16)
+                        AN2621   acvA/pcbAB   Penicillin G                      3        3      Both     (25, 27, 28)
+                        AN3396    mica         Microperfuranone                3         3†      Both         (29)
+                        AN2924                                               2               Both
+                         AN10576   ivoA         N-acetyl-6-hydroxytryptophan      2        2      Both       (23, 26)
+                        AN0607    sidC          Siderophores                     1        1      Both         (55)
+                         AN10297                                              1               Both
+                        AN5318                                               1               Both
+                        AN1680                                               1                 Liquid
+                        AN2064                                               1                 Liquid
+                        AN9129                                               1                 Liquid
+                        AN9291                                               1                 Liquid
+
+                                      This table contains predicted NRPSs as well as NRPS-like genes (AN3396, AN5318, and AN9291). The medium
+                            column describes under which type of medium (liquid, solid, or both) the cluster is expressed. For gene clusters
+                              with identiﬁed functions and gene members, the number of identiﬁed cluster members is given as well as refer-
+                               ences to the original papers. Further details on the cluster members and the expression proﬁles of the individual
+                                     clusters may be found in Dataset S2, and Fig. S4. Chemical structures of all compounds may be found in Fig. S1.
+                               *Extent of the gene cluster is predicted correctly. The difference is due to the absence of two of the genes on the
+                                legacy microarray data, which removes them from the prediction.
+                            †Yeh et al. (29), who examined this cluster, found increased transcription of the two extra genes we predict, but
+                               they found them to be nonessential for microperfuranone production.1.65.216.240.
+          predicted to be in the same biosynthetic clusters by the method   In examining the two examples of cross-chemistry between gene
+         above are found to cluster together in this representation. The    clusters, it is found that these are predicted correctly. The mer-address
+IP       exception is AN2032 and AN2035, which do not cocluster due to   oterpenoid pathway includes the PKS AN8383 and the DMATS
+from       veryFurthermore,low signalsthe clusteringfrom the isAN2032accurateprobesin termsonof cross-chemistry.the microarray.   AN9259,ample is thewhichprenylxanthoneare illustratedbiosyntheticto colocatepathway,in Fig. 3.whichThe otherincludesex-
+2024
+8,                         Table 3.  Prediction of gene clusters around prenyltransferases and diterpene synthases
+April                                                                                               Cluster size
+on
+                          GeneID     Type   Gene    Compound (if known)     Predicted  Known  Medium    Source
+
+                         AN11194  DMATS                                     18                   Solid
+                         AN11202  DMATS                                     18                   Solid1.65.216.240                      AN9259   DMATS                                     12        10      Both        (30)
+by                      AN8514   DMATS   tdiB    Terrequinone A               3*        5       Solid       (21, 22)
+                         AN11080  DMATS  nptA   Nidulanin A                  1                Both     This study
+                         AN10289  DMATS                                      1                   Solid
+                        AN6784   DMATS   xptA   Variecoxanthone A            1         1       Solid       (8–10)
+                        AN1594   DTS              Ent-pimara-8(14),15-diene       9         9       Solid        (25)
+                        AN3252   DTS                                         7                   Solid
+                        AN9314   DTS                                         2                   Solidhttps://www.pnas.org                                   This table contains predicted DMATSs, functionally prenyltransferases, and three DTSs predicted by Bromann et al.
+from                                    (25).clustersThewithmediumidentiﬁedcolumnfunctionsdescribesandon genewhichmembers,type of mediumthe number(liquid,ofsolid,identiﬁedor both)clusterthe clustermembersis expressed.is given asForwellgeneas
+                                  references to the original papers. Further details on the cluster members and the expression proﬁles of the individual
+                                      clusters may be found in Dataset S2, and Fig. S4. Chemical structures of all compounds may be found in Fig. S1.
+                               *Extent of the gene cluster is predicted correctly. The difference is due to the absence of two of the genes on the
+                                legacy microarray data, which removes them from the prediction.Downloaded
+
+
+           E102   |  www.pnas.org/cgi/doi/10.1073/pnas.1205532110                                                                                 Andersen et al.
+
+
+[PDF physical page 5]
+                                                                                                                                                                                                                                                                                                                                                        PLUS
+                                                                                                                                                                                                                                                                                                                                                        PNAS
+    A                                    Sterigmatocystin gene cluster expression
+            15
+                                                 O           OH
+                                                H
+
+
+                                                          O
+                                     O
+
+                                          H   O           O
+            10          Sterigmatocystin                              index
+                                                            Expression
+             5
+
+
+
+             0
+                                                                Liquid medium                                                  Solid medium
+
+    B
+
+                                   0.79                                              0.46
+           CS               2.77   3.33   4.42 5.51  4.55 4.53 4.74        4.70 4.57 4.59      5.34           4.24      5.58 5.45 5.09 5.19 4.80 2.42 4.89  4.23 3.97  3.54         2.73       0.07
+
+        Cluster                                               PKS                               PKS
+                 AN11012AN7804AN7805AN7806AN7807AN7808AN7809AN7810AN7811AN7812AN11017AN11013AN7814 AN7815AN7816AN11021AN7817AN7818AN7819AN7820AN7821AN7822AN7823AN7824AN7825AN7826
+
+            Fig. 2.  Identiﬁcation of the sterigmatocystin biosynthetic cluster. (A) Gene expression proﬁles across 44 experiments for the 24 genes (marked in black in B)
+          predicted to be in the sterigmatocystin biosynthetic cluster (liquid and solid cultures are marked for reference). The expression proﬁle of AN7811(stcO) is
+        marked in blue. (B) Illustration of the values of the gene CS for the 24 genes and the two immediate neighbors. Genes included in the predicted cluster are
+        marked in black. AN7811(stcO) did not have a CS above the used cutoff of 2.13 denoting clustering but was added due to the similarity of the expression
+          proﬁle, as shown in blue. The predicted extent of the cluster corresponds with the cluster as originally described by Brown et al. (17), when correcting for the
+           fact that the gene models have changed since then. Full data for all predicted clusters may be found in Dataset S2.
+1.65.216.240.
+        the PKS AN0150 and the DMATS AN6784. These two genes are   a small fraction of the ions during MS analysis. Compound 4 has
+         also found close to each other in Fig. 3.                         a molecular formula of (1)-C5H8, suggesting it to be the unpreny-address     We further use the maximum separation distance of two genes    lated precursor of compound 1.
+IP      in the same biosynthetic cluster in the heat map of Fig. 3 as a cutoff   We thus isolated and elucidated the structure of compound 1,
+from      distanceinto sevenforlargercross-chemistry.superclusters.ThisDetailsallowedon thethe expressiongenes to beproﬁlessorted   henceforthstereochemistrycalledofnidulanincompoundA, based1 wasonexaminedNMR spectroscopy.using Marfey’sThe
+2024      of the individual clusters in each supercluster can be found in Fig.   method (40) and was supported by bioinformatic analysis of the
+8,      S4. Although we cannot directly separate tight coregulation from   protein domains of AN1242 (SI Text). Altogether, nidulanin A is
+         cross-chemistry with this method, the presence of these super-   proposed to be a tetracyclopeptide with the sequence -L-Phe-L-
+April       clusters consisting of individual clusters with similar expression   Kyn-L-Val-D-Val- and an isoprene unit N-linked to the amino
+on      proﬁles suggests a larger extent of cross-chemistry in A. nidulans   group of L-kynurenine (Fig. 4).
+        than what has been reported to date. To test the predictive power     Because no prenyltransferase genes are found near AN1242,
+         of this clustering further, we performed a gene deletion study    cross-chemistry catalyzed by an N-prenylating DMATS is a likely
+         within supercluster 5, which contains clusters located on six of the   assumption. Examination of supercluster 5 in Fig. 3, where the
+         eight chromosomes.                               NRPS AN1242 is found, shows AN11080 to be the DMATS with1.65.216.240
+                                                                        the expression proﬁle most similar to AN1242. Gene deletion of
+by
+         Identiﬁcation of the Chemical Structure of Nidulanin A Conﬁrms   AN11080 and subsequent ultra-high-performance liquid chroma-
+         Prediction of Cross-Chemistry Between NRPS AN1242 (NlsA) and   tography (UHPLC) high-resolution MS (HRMS) analysis of the
+         Prenyltransferase AN11080 (NptA). To test the hypothesis of super-   ΔAN11080 strain show that the deprenylated compound 4, but
+          clusters and whether the analysis above could be used to elucidate   none of the three prenylated forms, is present, thus conﬁrming that
+         cross-chemistry, we constructed a deletion mutant of the NRPS   nidulanin A and the two oxygenated forms (compounds 3 and 4)
+       AN1242 and evaluated the SMs found in the mutant relative to   are synthesized by cross-chemistry between AN1242 (now NlsA)
+        a reference strain. Four related compounds (compounds 1–4) were   on chromosome VIII and AN11080 (now NptA) on chromosomehttps://www.pnas.org
+        found to be absent in the ΔAN1242 strain (Fig. S5). MS isotope  V (Fig. S5).
+from      patterns as well as tandem MS (MS/MS) analysis showed compound     Furthermore, we note that the masses corresponding to com-
+        1 to have the molecular formula C34H45N5O5, with compounds   pound 3 (nidulanin A + O) and compound 4 (nidulanin A + O2)
+        2 and 3 likely being oxygenated forms with one and two extra oxygen   are not found in the reference strain or in the ΔAN11080 strain.         molecules, respectively. Compounds 1–3 all seem to be prenylated,   This suggests that compounds 3 and 4 are oxidized after the                                    MICROBIOLOGY
+         as shown by spontaneous loss of a prenyl-like fragment, C5H8, in    prenylation step.Downloaded
+
+
+         Andersen et al.                                                                        PNAS   |  Published online December 17, 2012   |  E103
+
+
+[PDF physical page 6]
+                   Clustering             I                II         III   IV    V          VI               VII                VIII     Type ID
+                                                                                                                                                PKS    AN2032
+                                                                                                                                          NRPS   AN7884
+                                                                                                                                          NRPS   AN9291
+                                                                                                                                          NRPS   AN9243
+                                                                                                                                          NRPS   AN2621
+                                                                                                                                                PKS                                                                                                                                                                       AN0523
+                                                                                                                                         DMATS                                                                                                                                                                       AN8514     Cl. 1
+                                                                                                                                          NRPS   AN8513
+                                                                                                                                                PKS    AN9005
+                                                                                                                                          NRPS   AN9244
+                                                                                                                                                PKS    AN7815
+                                                                                                                                                PKS    AN7825
+                                                                                                                                                PKS    AN10430
+                                                                                                                                                PKS    AN1036
+                                                                                                                                                PKS    AN1034     Cl. 2
+                                                                                                                                                PKS    AN3273
+                                                                                                                                                PKS    AN5475
+                                                                                                                                          NRPS   AN10576
+                                                                                                                                          NRPS   AN0016
+                                                                                                                                          NRPS   AN5318     Cl. 3
+                                                                                                                                                PKS    AN8910
+                                                                                                                                          NRPS   AN1680
+                                                                                                                                                PKS    AN8209
+                                                                                                                                                DTS    AN1594
+                                                                                                                                          NRPS   AN9129
+                                                                                                                                          NRPS   AN10297
+                                                                                                                                          NRPS   AN2924
+                                                                                                                                                PKS    AN2547     Cl. 4
+                                                                                                                                          NRPS   AN2545
+                                                                                                                                                PKS    AN3230
+                                                                                                                                         DMATS AN9259
+                                                                                                                                                PKS    AN8383
+                                                                                                                                          NRPS   AN0607
+                                                                                                                                          NRPS   AN3396
+                                                                                                                                                DTS    AN3252
+                                                                                                                                                PKS    AN7071
+                                                                                                                                          NRPS   AN1242
+                                                                                                                                                PKS    AN7909
+                                                                                                                                                PKS    AN7903
+                                                                                                                                                DTS    AN9314     Cl. 5
+                                                                                                                                         DMATS AN11080
+                                                                                                                                          NRPS   AN3496
+                                                                                                                                          NRPS   AN3495
+                                                                                                                                         DMATS AN10289
+                                                                                                                                                PKS    AN8412
+                                                                                                                                                PKS    AN3386
+                                                                                                                                          NRPS   AN6444
+                                                                                                                                                PKS    AN6448
+                                                                                                                                                PKS                                                                                                                                                                       AN7084
+                                                                                                                                         DMATS                                                                                                                                                                       AN6784     Cl. 6
+                                                                                                                                                PKS    AN0150
+                                                                                                                                          NRPS   AN8105
+                                                                                                                                          NRPS   AN4827
+                                                                                                                                          NRPS   AN6961
+                                                                                                                                                PKS    AN7489
+                                                                                                                                             PKS    AN6000
+                                                                                                                                                PKS    AN3612
+                                                                                                                                          NRPS   AN2064
+                                                                                                                                                PKS    AN11191
+                                                                                                                                         DMATS                                                                                                                                                                        AN11202
+                                                                                                                                          NRPS                                                                                                                                                                        AN10486    Cl. 7
+                                                                                                                                                PKS    AN6431
+                                                                                                                                                PKS    AN1784
+                                                                                                                                                PKS    AN6791
+                                                                                                                                          NRPS   AN9226
+                                                                                                                                         DMATS AN11194
+                                                                                                                                                PKS    AN2035
+                                                                                                                                                               AN6448 AN6444 AN6431 AN6000 AN6784 AN6791 AN6961 AN7884 AN7903 AN7909 AN8105 AN8209 AN10486 AN3612 AN10430 AN3496 AN3495 AN4827 AN10576 AN7084 AN7071 AN7489 AN7815 AN7825 AN8383 AN8412 AN11080 AN8513 AN8514 AN5475 AN5318 AN11202 AN11194 AN9226 AN11191 AN9129 AN3396 AN3386 AN3273 AN3252 AN3230 AN2924 AN2621 AN9005 AN8910 AN1594 AN1680 AN1784 AN2032 AN2035 AN2064 AN10289 AN10297 AN2545 AN2547 AN9243 AN9244 AN9259 AN9291 AN9314 AN1242 AN1036 AN1034 AN0607 AN0523 AN0150 AN0016 0             1
+
+             Fig. 3.  Cross-chromosomal clustering. Matrix diagram of the correlation between 67 predicted and known biosynthetic genes. Each square in the matrix
+          shows the compounded squared Spearman correlation coefﬁcient for comparison of the expression proﬁle of the genes color-coded from 0 (white) to 1
+            (green). Genes are sorted horizontally according to their location on the chromosomes (marked in orange) and vertically according to their scores (Left,
+         marked with a dendrogram). (Right) Genes located in the same clusters are highlighted with a gray box, which is connected with a gray bracket in one case.
+          Genes with known cross-chemistry are marked with a black bracket. An example of cross-chemistry found in this study is marked with a red bracket. Seven1.65.216.240.        putative superclusters are marked. Further details of the clusters may be found in Fig. S4.
+address         Discussion                                                     data has veriﬁed the method to be highly accurate and effective
+IP
+         In this study, we present a method for fungal SM cluster esti-    for a large proportion of the gene clusters.
+from      mation based on similarity of expression proﬁles for neighboring       It is clear from our results that the composition of the gene
+          genes. For the given organism A. nidulans, comparison with legacy   expression compendium has a signiﬁcant effect on cluster pre-2024                                                                                 dictions. We show here that it is important with a diverse set of
+8,                                                                       samples, including both liquid and agar cultures as well as min-
+April                                                                     imal medium and complex medium. This is in accordance with                                                                          previous observations (11, 13, 14, 20, 36) stating that at a given
+on
+                                                                                    set of conditions, only a fraction of the clusters are active. A
+                                                NH                              reduction analysis of our own data has further shown that the
+                                                                               inclusion of biological replicates in the dataset does not improve
+                                            O                               the analysis as much as inclusion of more unique samples. A1.65.216.240                                                                           diverse set of conditions should remedy regulation at the tran-
+by                                           H2C                                         scriptional level as well as chromatin-level regulation, which has
+                                                NH           (1)             been shown to have signiﬁcant effects in fungi (13, 41). Another
+                                         C       C                               factor of importance is the quality of genome annotation. Er-
+                                     HN
+                                         O O                             roneous gene calls inside clusters decrease the value of the CS
+                                         O O                                                     NH                           for genes within a distance of three genes. Furthermore, prob-
+                                         C       C                           lems with gene calls can affect expression proﬁling  if a non-
+                                          HN                                    transcribed region  is included in the gene cluster. However,https://www.pnas.org
+                                                                             neither of these seems to be a problem in the data presented
+from                                                                          here. Including the expression proﬁles of seven genes in the
+                                                                               calculation of the CS also increases the robustness of the method                             Nidulanin A
+                                                                    toward erroneous gene calls.
+             Fig. 4.  Proposed absolute structure of nidulanin A. Details on the structural    The stated robustness of the CS has the disadvantage that the
+            elucidation are available in SI Text.                          CS alone performs poorly for clusters with four or fewer genes,Downloaded
+
+
+           E104   |  www.pnas.org/cgi/doi/10.1073/pnas.1205532110                                                                                 Andersen et al.
+
+
+[PDF physical page 7]
+                                                                                                                                                                                                                                                                                                                                                        PLUS
+                                                                                                                                                                                                                                                                                                                                                        PNAS
+        because the maximum value of CS for n genes is n −1. However,    inner diameter (ID), 2.6-μm Kinetex C18 column (Phenomenex) using a linear
+         in the cases of small clusters, the clustering can still be predicted    water-acetonitrile gradient (both buffered with 20 mM formic acid) at a ﬂow
+       from the transcription proﬁles, as shown in this study.                rate of 0.4 mL/min starting from 10% (vol/vol) acetonitrile and increased to
+           In some cases, we also see that cluster calling based on expression   100% acetonitrile in 10 min, keeping this for 3 min. HRMS was performed in
+                                                                                                ESI+ with a data acquisition range of 10 scans per second at m/z 100–1,000. The
+         proﬁles outperforms the combination of gene KO and metab-
+                                                                             mass spectrometer was calibrated using sodium formate automatically infused
+         olomics. If a given detected metabolite is not the end product of the    before each analytical run, providing a mass accuracy better than 1.5 ppm.
+         biosynthetic pathway, gene deletions will only identify a part of an   Compounds were detected as their [M + H]+ ion ± 0.002 Da, often with
+     SM cluster as being relevant for that metabolite, thus missing genes.    their [M + NH4]+ and/or [M + Na]+ ion used as a qualiﬁer ion with the same
+      An example of this  is seen in the emodin/monodictyphenone   narrow mass range. SMs with a peak areas >10,000 counts (random noise
+          cluster (PKS AN0150), where a subset of the genes is only required    peaks of approximately 300 counts) were integrated and identiﬁed by com-
+         for some of the metabolites, resulting in a two-step elucidation of    parison with approximately 900 authentic standards available from previous
+        the gene cluster (7, 8). The CS method correctly calls the    studies (31, 44) and dereplicated against the approximately 18,000 fungal
+          full cluster.                                                              metabolites listed in AntiBase 2010 by ultraviolet-visible (UV/Vis) spectra, re-
+        One aspect of the method is the ability to identify gene clusters    tention time, adduct pattern, and high-resolution data (<1.5 ppm mass accu-
+                                                                                          racy and isotope ﬁt better than 40 using SigmaFit; Bruker Daltonics) (31, 45).
+         simply from identifying groups of genes with high CS values, and
+        not using a seeding set of synthases as was done in this case. This
+                                                                                     Array Design. Initial probe design was done using OligoWiz 2.0 software (46)
+         allows the unbiased identiﬁcation of gene clusters throughout the   from the coding sequences of predicted genes from the genome sequence
+         entire genome. Although we see a surprising amount of these    of A. nidulans FGSC A4 (35), using version 5 of the A. nidulans gene anno-
+          clusters (Dataset S2) not limited to the predicted SM synthases, we    tation, downloaded from the Aspergillus Genome Database (32).
+        have not evaluated these in this study, because data for appropriate      For each gene, a maximum of three nonoverlapping, perfect-match 60-
+        benchmarking is not available. However, we believe that there is   mer probes was calculated using the OligoWiz standard scoring of cross-
+         great potential for biological discoveries to be made here, both in    hybridization, melting temperature, folding, position preference, and low
+        terms of promoter and chromatin-based transcriptional regulation.    complexity. A position preference for the probes was included in the com-
+         The ﬁnal extension of the algorithm is its ability to identify    putations. Pruning of the probe sequences was done by removing duplicate
+         biosynthetic  superclusters  scattered  across  different chromo-    probe sequences.
+        somes. Although this is a recently reported phenomenon (8), we      Also included on the chip were 1,407 standard controls designed by
+         believe that this is a common phenomenon, at least in A. nidulans    Agilent Technologies. Details of the array are available from the National
+       and possibly in fungi in general. It is important to note that our    Center for Biotechnology Information Gene Expression Omnibus (accession
+                                                                                     no. GPL15899).
+       method does not allow one to discriminate between tight cor-
+         egulation and cross-chemistry between two distant clusters. It is                                                                                      Microarray Gene Expression Proﬁling. Mycelium harvest and RNA puriﬁcation.
+         therefore most efﬁcient in cases in which it is evident that a given   Whole colonies from three-stab agar plates were sampled for transcriptional
+        gene cluster does not hold all enzymatic activities required to    analysis by scraping the mycelium off the agar with a scalpel and transferring
+         synthesize the associated compound. In those cases, the use of    the agar directly into a 50-mL Falcon tube containing approximately 15 mL of
+        a diverse transcription catalog, such as the one applied here, is    liquid nitrogen. Care was taken to transfer a minimum of agar to the Falcon
+        a powerful strategy for identifying cross-chemistry, as shown for    tube. The liquid nitrogen was allowed to evaporate before capping the lid
+        the NRPS AN1242 and the assisting prenyltransferase AN11080   and recooling the tube in liquid nitrogen before storing the tube at −80 °C
+         in the synthesis of nidulanin A and derived compounds.               until use for RNA puriﬁcation.
+          In summary, this study provides (i) an updated gene expres-      For RNA puriﬁcation, 40–50 mg of frozen mycelium was placed in a 2-mL
+                                                                                     microcentrifuge tube precooled in liquid nitrogen containing three steel1.65.216.240.      sion DNA array for A. nidulans, (ii) a wealth of information
+        advancing the cluster elucidation in the model fungus A. nidu-     balls (two balls with a diameter of 2 mm and one ball with a diameter of 5
+                                                                       mm). The tubes were then shaken in a Retsch Mixer Mill at 5 °C for 10 min
+          lans,  (iii) a powerful tool for prediction of SM cluster geneaddress                                                                                               until the mycelium was ground to a powder. Total RNA was isolated from
+       members in fungi, (iv) a proven methodology for prediction of    the powder using the Qiagen RNeasy Mini Kit according to the protocol forIP
+     SM gene cluster cross-chemistry, and (v) a proposed structure for    isolation of total RNA from plant and fungi, including the optional use of
+from      the compound nidulanin A.                                          the QiaShredder column. Quality of the puriﬁed RNA was veriﬁed using
+2024      Materials and Methods                                           a(AgilentNanoDropTechnologies).ND-1000 spectrophotometer and an Agilent 2100 Bioanalyzer
+8,        Strains. A. nidulans FGSC A4 was used for all transcriptomic experiments in    Microarray hybridization. A total of 150 ng in 1.5-μL total RNA was labeled
+April        thisAR16msaGP74study. Furthermore,(expressing legacythe msaSdatageneusingfromthePenicilliumFGSC A4,griseofulvum)A. nidulans    accordingInput (QALI)to themanual,One ColorversionLabeling6.5, fromforAgilentExpressionTechnologies.Analysis, QuickYieldAmpand Lowspe-
+on        (34), A. nidulans AR1phk6msaGP74 (expressing the msaS gene from P. gri-    ciﬁc activity were determined on the ND-1000 spectrophotometer and veri-
+         seofulvum and overexpressing the A. nidulans xpkA) (34), and A. nidulans   ﬁed on a Qubit 2.0 ﬂuorometer (Invitrogen). A total of 1.65 μg of labeled
+        AR1phkGP74 (overexpressing the A. nidulans xpkA) (33), were applied.      cRNA was fragmented at 60 °C on a heating block, and the cRNA was pre-
+           The A. nidulans FGSC A4 stock culture was maintained on CYA agar at 4 °C.    pared for hybridization according to the QALI protocol. A 100-μL sample was
+          A. nidulans strain IBT 29539 (veA1, argB2, pyrG89, and nkuAΔ) was used for all    loaded on a 4 × 44 Agilent Gasket Slide situated in a hybridization chamber1.65.216.240      gene deletions. Gene deletion strains (see below) are available from the IBT    (both from Agilent Technologies). The 4 × 44 array was placed on top of the
+by       fungal collection as A. nidulans IBT 32029, (AN1242Δ::AfpyrG, veA1, argB2,    Gasket Slide. The array was hybridized at 65 °C for 17 h in an Agilent Tech-
+          pyrG89, and nkuAΔ) and A. nidulans IBT 32030, (AN11080Δ::AfpyrG, veA1,    nologies hybridization oven. The array was washed following the QALI pro-
+          argB2, pyrG89, and nkuAΔ). For chemical analyses, A. nidulans IBT 28738    tocol and scanned in a G2505C Agilent Technologies Micro Array Scanner.
+          (veA1, argB2, pyrG89, and nkuA-trS::AfpyrG) was used as reference strain.        Analysis of transcriptome data. The raw array signal was processed by ﬁrst
+                                                                            removing the background noise using the normexp method, and signals
+          Metabolite Proﬁling Analysis. A. nidulans strains were inoculated on CYA   between arrays were made comparable using the quantiles normalization
+          agar, OTA, YES agar, and CYAS agar (42). All strains were three-point in-   method as implemented in the Limma package (47). Multiple probe signals
+          oculated on these media and incubated at 32 °C in darkness for 4, 8, or 10 d,    per gene were summarized into a gene-level expression index using Tukey’shttps://www.pnas.org       after which three to ﬁve plugs (6-mm diameter) along the diameter of the    medianpolish, as performed in the last step of the robust multiarray average
+from       fungalSamplescolonywereweresubsequentlycut out andanalyzedextractedby UHPLC-UV/vis(43).        diode array detector   (RMA)pressionprocessingOmnibus databasemethod (48).(accessionThe datano. areGSE39993).available from the Gene Ex-
+        (DAD)-HRMS on a maXis G3 quadrupole time-of-ﬂight mass spectrometer      The generated data from the Agilent Technologies arrays were combined
+          (Bruker Daltonics) equipped with an electrospray injection (ESI) source. The    with legacy Affymetrix data (accession nos. GSE12859 and GSE7295) using the                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       MICROBIOLOGY         mass spectrometer was connected to an Ultimate 3000 UHPLC system (Dionex).    qspline normalization method (46) to combine the two normalized sets of
+          Separation of 1-μL samples was performed at 40 °C on a 100-mm × 2.1-mm    data to one microarray catalog with expression indices in comparable ranges.Downloaded
+
+
+         Andersen et al.                                                                        PNAS   |  Published online December 17, 2012   |  E105
+
+
+[PDF physical page 8]
+            Calculation of the Gene CS. The CS is calculated for each individual gene along    stream and downstream of the gene to be deleted were ampliﬁed by PCR
+           the chromosomes according to the following equation:                       using primers containing a uracil residue (Table S2). The two PCR fragments
+                                                                          were simultaneously  inserted  into the  PacI/Nt.BbvCI USER  cassette of
+           X3     s0;i þ   s0;i    2 X3    s0;i þ   s0;i    2               pU20002A by USER cloning (54, 55). As a result, AFpyrG is now ﬂanked by
+                      CS ± 3 ¼           þ                                ;              [1]
+                                     i¼−3     2              i¼1      2                        the two PCR fragments to complete the gene targeting substrate. The gene
+                                                                                        targeting substrate was released from the resulting vector pU20002A-
+         where s0,i is the Spearman coefﬁcient for the expression indices of the gene   AN11080 by digestion with SwaI. All restriction enzymes are from New
+             in question and the gene located  i genes away in a positive or negative    England Biolabs. Primer sequences for deletion of the targeted genes and
+            direction relative to the chromosomal coordinate of the gene. The absolute    veriﬁcation of strains are listed in Table S2. In addition, internal AFpyrG
+          term is added to set inverse correlations to 0. The CS assigned to a speciﬁc    primers were used in combination with the check primers listed in Table S2
+         gene is the average of the CS for the liquid cultures and the CS for the solid    for conﬁrmation of correct integration of DNA substrates  (52). Trans-
+            cultures to adjust for background expression levels. Genes located less than    formants and AFpyrG pop-out recombinant strains were rigorously tested
+           four genes away from the ends of the supercontigs are assigned a CS of 0. All    for correct insertions as well as for the presence of heterokaryons by
+            calculations were performed in the R software suite v. 2.14.0 (49), using the   touchdown spore-PCR analysis on conidia with an initial denaturation at 98 °C
+           Bioconductor package (50, 51) for handling of array data. An adaptable R    for 20 min.
+             script for calculation of the CS is available on request.
+
+                                                                              MS/MS-Based Characterization of Compounds 1–4. Analysis was performed as
+           Generation of Random Values for Evaluation of CS Signiﬁcance. To estimate    stated above for the UHPLC-DAD-HRMS but in MS/MS mode, where analysis
+           signiﬁcance levels of the CS, a random set of scores was generated by    of the target mass and 6 m/z units up (to maintain isotopic pattern) was
+            selecting six genes at random as simulated neighbors for each of the 10,411   performed both via a targeted MS/MS list for the target compounds of in-
+          genes in the dataset. Examining this random distribution showed 95% of the    terest and by the data-dependent MS/MS mode with an exclusion list, such
+           population to have a CS <2.13 (Fig. S2). This value was used to have a false                                                                                        that the same compound was selected several times. MS/MS fragmentation
+            discovery rate of 0.05. All calculations were performed in R (49).
+                                                                                energy was varied from 18 to 55 eV.
+
+            Identiﬁcation of Gene Clusters. Gene clusters were deﬁned around each NRPS,
+                                                                                                   Isolation and Structural Elucidation of Nidulanin A. Two hundred plates of
+           PKS, and DMATS by examination of the transcription proﬁle of all sur-
+                                                                                minimal medium were inoculated with A. nidulans, from which SMs were
+          rounding genes with a CS ≥2.13 as well as three ﬂanking genes in either
+                                                                                        extracted and nidulanin A was isolated in pure form. One-dimensional and
+             direction.  All genes with  similar expression proﬁles were included  in
+                                                                   2D NMR spectra were recorded on a Bruker Daltonics Avance 800-MHz
+           the cluster.
+                                                                                   spectrometer with a 5-mm TCI Cryoprobe at the Danish Instrument Centre
+                                                                                             for NMR Spectroscopy of Biological Macromolecules at Carlsberg Laboratory.
+          PCA-Based Analysis of Dataset Variation. PCA analysis was performed on the
+                                                                                      Stereoisometry of the amino acids was elucidated using Marfey’s method          data of Dataset S2 using the prcomp-function of R (49). For stepwise re-
+           duction of the dataset, all principal components were calculated in each     (40). Details are provided in SI Text, Table S3, and Figs. S6–S8.
+            iteration and a sample was eliminated based on the one that had the largest     NRPS protein domains were predicted to identify adenylation domains and
+           contribution to the last principal component (i.e., with the smallest amount    epimerase domains (56). Adenylation-domain speciﬁcities were predicted
+           of unique information).                                                     using NRPSpredictor (57). Details are provided in SI Text.
+
+           Generation of A. nidulans Gene Deletion Mutants. The genetic transformation   ACKNOWLEDGMENTS. We thank Peter Dmitrov, who treated the raw
+           experiments were performed with A. nidulans strain IBT 29539 [veA1, argB2,    microarray data. We acknowledge Laurent Gautier for good scientiﬁc
+                                                                                              discussion of experimental design for microarray experiments, Marie-Louise           pyrG89, and nkuAΔ as described by Nielsen et al. (52)]. Fusion PCR-based
+                                                                                          Klejnstrup for assistance in retrieving MS data, and Dorte Koefoed Holm and
+            bipartite gene targeting of substrates using the AFpyrG marker for selection
+                                                                                       Francesca Ambri for analysis of the austinol gene deletion mutants. We also
+         and deletion of AN1242 was performed as described by Nielsen et al. (52),    thank the Danish Instrument Center for NMR Spectroscopy of Biological1.65.216.240.
+           with the exception that all PCR assays were performed with the PfuX7 DNA    Macromolecules for NMR time. This work was supported by the Danish
+          polymerase (53). The deletion construct for AN11080 was assembled by    Research Agency for Technology and Production Grants 09-064967 and FI
+            uracil-speciﬁc excision reagent (USER) cloning. Speciﬁcally, sequences up-    2136-08-0023.address
+IP
+
+                 1. Newman DJ, Cragg GM (2012) Natural products as sources of new drugs over the 30     14. Schroeckh V, et al. (2009) Intimate bacterial-fungal interaction triggers biosynthesisfrom              years from 1981 to 2010. J Nat Prod 75(3):311–335.                                        of archetypal polyketides in Aspergillus nidulans. Proc Natl Acad Sci USA 106(34):
+2024            2. “unnatural”Liu T, ChiangnaturalYM, productSomoza byAD,swappingOakley polyketideBR, Wang synthaseCC (2011)domainsEngineeringin Aspergillusof an     15. 14558–14563.Szewczyk E, et al. (2008) Identiﬁcation and characterization of the asperthecin
+8,              nidulans. J Am Chem Soc 133(34):13314–13316.                                   gene  cluster of Aspergillus nidulans. Appl Environ Microbiol 74(24):7607–
+April            3. Khaldiclusters.N,Fungalet al. Genet(2010)BiolSMURF:47(9):736–741.Genomic mapping of fungal secondary metabolite     16. 7612.Chiang YM, et al. (2008) Molecular genetic mining of the Aspergillus secondary
+                 4. Medema MH, et al. (2011) antiSMASH: Rapid identiﬁcation, annotation and analysis       metabolome: Discovery of the emericellamide biosynthetic pathway. Chem Biol 15(6):
+on
+                 of secondary metabolite biosynthesis gene clusters in bacterial and fungal genome        527–532.
+                 sequences. Nucleic Acids Res 39(Web server issue):W339–W346.                          17. Brown DW, et al. (1996) Twenty-ﬁve coregulated transcripts deﬁne a sterigmatocystin
+                 5. Kelly DE, Krasevec N, Mullins J, Nelson DR (2009) The CYPome (Cytochrome P450       gene cluster in Aspergillus nidulans. Proc Natl Acad Sci USA 93(4):1418–1422.
+               complement) of Aspergillus nidulans. Fungal Genet Biol 46(Suppl 1):S53–S61.            18. Kelkar HS, Keller NP, Adams TH (1996) Aspergillus nidulans stcP encodes an O-
+                 6. Palmer JM, Keller NP (2010) Secondary metabolism in fungi: Does chromosomal        methyltransferase that is required for sterigmatocystin biosynthesis. Appl Environ1.65.216.240              location matter? Curr Opin Microbiol 13(4):431–436.                                       Microbiol 62(11):4296–4298.
+by            7. Chiang YM, et al. (2010) Characterization of the Aspergillus nidulans monodictyphenone     19. Keller NP, Watanabe CM, Kelkar HS, Adams TH, Townsend CA (2000) Requirement of
+               gene cluster. Appl Environ Microbiol 76(7):2067–2074.                                  monooxygenase-mediated steps for sterigmatocystin biosynthesis by Aspergillus
+                 8. Sanchez JF, et al. (2011) Genome-based deletion analysis reveals the prenyl xanthone         nidulans. Appl Environ Microbiol 66(1):359–362.
+                  biosynthesis pathway in Aspergillus nidulans. J Am Chem Soc 133(11):4010–4017.        20. Bergmann S, et al. (2007) Genomics-driven discovery of PKS-NRPS hybrid metabolites
+                 9. Simpson TJ (2012) Genetic and biosynthetic studies of the fungal prenylated xanthone       from Aspergillus nidulans. Nat Chem Biol 3(4):213–217.
+               shamixanthone and related metabolites in Aspergillus spp. revisited. ChemBioChem     21. Bouhired S, Weber M, Kempf-Sontag A, Keller NP, Hoffmeister D (2007) Accurate
+                 13(11):1680–1688.                                                                          prediction of the Aspergillus nidulans terrequinone gene cluster boundaries using the
+              10. Schätzle MA, Husain SM, Ferlaino S, Müller M (2012) Tautomers of anthrahydroquinones:         transcriptional regulator LaeA. Fungal Genet Biol 44(11):1134–1145.
+                Enzymatic reduction and implications for chrysophanol, monodictyphenone, and related     22. Schneider P, Weber M, Hoffmeister D (2008) The Aspergillus nidulans enzyme TdiBhttps://www.pnas.org            xanthone biosyntheses. J Am Chem Soc 134(36):14742–14745.                                  catalyzes prenyltransfer to the precursor of bioactive asterriquinones. Fungal Genet
+from          11. uncoversNielsen ML,novelet genetical. (2011)linksA genome-wideto polyketides polyketideand meroterpenoidssynthase deletionin Aspergilluslibrary     23. BiolClutterbuck45(3):302–309.AJ (1969) A mutational analysis of conidial development in Aspergillus
+                  nidulans. FEMS Microbiol Lett 321(2):157–166.                                               nidulans. Genetics 63(2):317–327.
+              12. Sanchez JF, et al. (2010) Molecular genetic analysis of the orsellinic acid/F9775 gene     24. Ahuja M, et al. (2012) Illuminating the diversity of aromatic polyketide synthases in
+                   cluster of Aspergillus nidulans. Mol Biosyst 6(3):587–593.                                     Aspergillus nidulans. J Am Chem Soc 134(19):8212–8221.
+              13. Bok JW, et al. (2009) Chromatin-level regulation of biosynthetic gene clusters. Nat     25. Bromann K, et al. (2012) Identiﬁcation and characterization of a novel diterpene gene
+             Chem Biol 5(7):462–464.                                                                          cluster in Aspergillus nidulans. PLoS ONE 7(4):e35450.Downloaded
+
+
+           E106   |  www.pnas.org/cgi/doi/10.1073/pnas.1205532110                                                                                 Andersen et al.
+
+
+[PDF physical page 9]
+                                                                                                                                                                                                                                                                                                                                                        PLUS
+                                                                                                                                                                                                                                                                                                                                                        PNAS
+            26. Birse CE, Clutterbuck AJ (1990) N-acetyl-6-hydroxytryptophan oxidase, a developmentally     43. Smedsgaard J (1997) Micro-scale extraction procedure for standardized screening of
+                controlled phenol oxidase from Aspergillus nidulans. J Gen Microbiol 136(9):1725–        fungal metabolite production in cultures. J Chromatogr A 760(2):264–270.
+               1730.                                                                                     44. Nielsen KF, Smedsgaard J (2003) Fungal metabolite screening: Database of 474
+            27. MacCabe AP, et al. (1991) Delta-(L-alpha-aminoadipyl)-L-cysteinyl-D-valine synthetase        mycotoxins and  fungal  metabolites  for  dereplication by  standardised  liquid
+             from Aspergillus nidulans. Molecular characterization of the acvA gene encoding the        chromatography-UV-mass spectrometry methodology. J Chromatogr A 1002(1-2):
+                 ﬁrst enzyme of the penicillin biosynthetic pathway. J Biol Chem 266(19):12646–12654.        111–136.
+            28. Martin JF (1992) Clusters of genes for the biosynthesis of antibiotics: regulatory genes     45. Månsson M, et al. (2010) Explorative solid-phase extraction (E-SPE) for accelerated
+             and overproduction of pharmaceuticals. J Ind Microbiol 9(2):73–90.                         microbial natural product discovery, dereplication, and puriﬁcation. J Nat Prod 73(6):
+            29. Yeh HH, et al. (2012) Molecular genetic analysis reveals that a nonribosomal peptide        1126–1132.
+                synthetase-like (NRPS-like) gene in Aspergillus nidulans is responsible for microper-     46. Workman C, et al. (2002) A new non-linear normalization method for reducing
+              furanone biosynthesis. Appl Microbiol Biotechnol 96(3):739–748.                                variability in DNA microarray experiments. Genome Biol 3(9):research0048.
+            30. Lo H-C, et al. (2012) Two separate gene clusters encode the biosynthetic pathway for     47. Smyth GK (2005) Limma: Linear models for microarray data (Springer, New York), pp
+               the meroterpenoids austinol and dehydroaustinol in Aspergillus nidulans. J Am Chem        397–420.
+               Soc 134(10):4709–4720.                                                                   48. Irizarry RA, et al. (2003) Summaries of Affymetrix GeneChip probe level data. Nucleic
+            31. Nielsen KF, Månsson M, Rank C, Frisvad JC, Larsen TO (2011) Dereplication of         Acids Res 31(4):e15.
+                microbial natural products by LC-DAD-TOFMS. J Nat Prod 74(11):2338–2348.             49. R Development Core Team (2007) R: A Language and Environment for Statistical
+            32. Arnaud MB, et al. (2010) The Aspergillus Genome Database, a curated comparative       Computing (R Foundation for Statistical Computing, Vienna, Austria), Available at
+              genomics resource for gene, protein and sequence information for the Aspergillus
+                                                                                                     www.R-project.org.
+                research community. Nucleic Acids Res 38(Database issue):D420–D427.
+                                                                                                           50. Gentleman  RC,  et  al.  (2004)  Bioconductor: Open  software development  for
+            33. Panagiotou G, et al. (2008) Systems analysis unfolds the relationship between the
+                                                                                                  computational biology and bioinformatics. Genome Biol 5(10):R80.
+              phosphoketolase pathway and growth in Aspergillus nidulans. PLoS ONE 3(12):e3847.
+                                                                                                           51. Nielsen ML, Albertsen L, Lettier G, Nielsen JB, Mortensen UH (2006) Efﬁcient PCR-
+            34. Panagiotou G, et  al. (2009) Studies of the production of fungal polyketides in
+                                                                                              based gene targeting with a recyclable marker for Aspergillus nidulans. Fungal Genet
+                Aspergillus nidulans by using systems biology tools. Appl Environ Microbiol 75(7):
+                                                                                                                    Biol 43(1):54–64.
+               2212–2220.
+                                                                                                           52. Nielsen JB, Nielsen ML, Mortensen UH (2008) Transient disruption of non-homologous
+            35. Galagan JE, et al. (2005) Sequencing of Aspergillus nidulans and comparative analysis
+                                                                                                         end-joining facilitates targeted genome manipulations in the ﬁlamentous fungus
+              with A. fumigatus and A. oryzae. Nature 438(7071):1105–1115.
+                                                                                                               Aspergillus nidulans. Fungal Genet Biol 45(3):165–170.
+            36. Brakhage AA, et al. (2008) Activation of fungal silent gene clusters: A new avenue to
+                                                                                                           53. Nørholm MH (2010) A mutant Pfu DNA polymerase designed for advanced uracil-
+              drug discovery. Prog Drug Res 66(1):3–12.
+            37. Bok JW, et al. (2006) Genomic mining for Aspergillus natural products. Chem Biol 13         excision DNA engineering. BMC Biotechnol 10:21.
+                 (1):31–37.                                                                                 54. Hansen BG, et al. (2011) Versatile enzyme expression and characterization system for
+            38. Cullen D (2007) The genome of an industrial workhorse. Nat Biotechnol 25(2):         Aspergillus nidulans, with the Penicillium brevicompactum polyketide synthase gene
+               189–190.                                                                     from the mycophenolic acid gene cluster as a test case. Appl Environ Microbiol 77(9):
+            39. Bergmann  S, et  al. (2010) Activation of a silent fungal polyketide biosynthesis        3044–3051.
+             pathway through  regulatory  cross  talk with a  cryptic nonribosomal peptide     55. Eisendle M, Oberegger H, Zadra I, Haas H (2003) The siderophore system is essential
+               synthetase gene cluster. Appl Environ Microbiol 76(24):8143–8149.                           for viability of Aspergillus nidulans: Functional analysis of two genes encoding  l-
+            40. Marfey P (1984) Determination of D- amino acids. II. Use of a bifunctional reagent,         ornithine N 5-monooxygenase (sidA) and a non-ribosomal peptide synthetase (sidC).
+                1,5-di-ﬂuoro-2,4-dinitrobenzene. Carlsberg Res Commun 49(6):591–596.                 Mol Microbiol 49(2):359–375.
+            41. Nützmann HW, et  al. (2011) Bacteria-induced natural product formation in the     56. Bachmann BO, Ravel J (2009) Chapter 8. Methods for in silico prediction of microbial
+              fungus Aspergillus nidulans requires Saga/Ada-mediated histone acetylation. Proc        polyketide and nonribosomal peptide biosynthetic pathways from DNA sequence
+                Natl Acad Sci USA 108(34):14282–14287.                                                    data. Methods Enzymol 458:181–217.
+            42. Frisvad JC, Samson R (2004) Polyphasic taxonomy of Penicillium subgenus Penicillium.     57. Rausch C, Weber T, Kohlbacher O, Wohlleben W, Huson DH (2005) Speciﬁcity
+          A guide to identiﬁcation of the food and air-borne terverticillate Penicillia and their         prediction of adenylation domains in nonribosomal peptide synthetases (NRPS) using
+               mycotoxins. Stud Mycol 49:1–173.                                                           transductive support vector machines (TSVMs). Nucleic Acids Res 33(18):5799–5808.
+1.65.216.240.
+address
+IP
+from
+2024
+8,
+April
+on
+1.65.216.240
+by
+https://www.pnas.org
+from
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       MICROBIOLOGYDownloaded
+
+
+         Andersen et al.                                                                        PNAS   |  Published online December 17, 2012   |  E107

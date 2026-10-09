@@ -1,0 +1,461 @@
+
+[PDF physical page 1]
+                                                       Metabolic Engineering 82 (2024) 193–200
+
+                                                 Contents lists available at ScienceDirect
+                            Metabolic Engineering
+
+
+                                          journal homepage: www.elsevier.com/locate/meteng
+
+
+Combinatorial biosynthesis in yeast leads to over 200 diterpenoids
+Maximilian Frey a,1, Ulschan Bathe a,b,1, Luca Meink a, Gerd U. Balcke a, Jürgen Schmidt c,
+Andrej Frolov c, Alena Soboleva c, Ahmed Hassanin c,d, Mehdi D. Davari c, Oliver Frank e,
+Verena Schlagbauer e, Corinna Dawid e, Alain Tissier a,f,*
+a Department of Cell and Metabolic Biology, Leibniz Institute of Plant Biochemistry, Weinberg 3, 06120, Halle (Saale), Germany
+b Department of Horticultural Sciences, University of Florida, 2550 Hull Road, Gainesville, FL 32611, USA
+c Department of Bioorganic Chemistry Leibniz Institute of Plant Biochemistry, Weinberg 3, 06120, Halle (Saale), Germany
+d Department of Pharmacognosy, Faculty of Pharmacy, Assiut University, Assiut 71526, Egypt
+e Food Chemistry and Molecular Sensory Science, Technical University of Munich, Lise-Meitner-Straße 34, 85354 Freising, Germany
+f Martin-Luther University Halle-Wittenberg, Institute of Pharmacy, Kurt-Mothes-Strasse 3, 06120 Halle, Germany
+
+
+A R T I C L E  I N F O                  A B S T R A C T
+
+Keywords:                                         Diterpenoids form a diverse group of natural products, many of which are or could become pharmaceuticals or
+Diterpenes                                            industrial chemicals. The modular character of diterpene biosynthesis and the promiscuity of the enzymes
+Combinatorial biosynthesis                         involved make combinatorial biosynthesis a promising approach to generate libraries of diverse diterpenoids.Cytochrome P450 oxidases                                                Here, we report on the combinatorial assembly in yeast of ten diterpene synthases producing (+)-copalylTerpene synthases                                                diphosphate-derived backbones and four cytochrome P450 oxygenases (CYPs) in diverse combinations. ThisYeast
+Synthetic biology                                    resulted in the production of over 200 diterpenoids. Based on literature and chemical database searches, 162 of
+Golden gate cloning                                 these compounds can be considered new-to-Nature. The CYPs accepted most substrates they were given but
+New-to-nature                                 remained regioselective with few exceptions. Our results provide the basis for the systematic exploration of the
+                                                 diterpenoid chemical space in yeast using sequence databases.
+
+
+1. Introduction                                                  La Pe˜na and Sattely, 2021; Ignea et al., 2016; Pateraki et al., 2017; Pe­
+                                                                                         ters, 2010; Scheler et al., 2016; Zhang et al., 2023).
+   Terpenoids are the largest class of natural products and include        Diterpene  biosynthesis  starts  with  geranylgeranyl  diphosphate
+various important pharmaceuticals such as the anticancer compound    (GGPP) as general precursor. First, diterpene synthases (diTPS) convert
+Taxol® and the antimalarial artemisinin (Kingston, 1991; Miller and Su,    GGPP to the diverse diterpene skeletons (Davis and Croteau, 2000).
+2011). Among them, diterpenoids are C20 compounds made from four    There are two major classes of diTPS. Class II diTPS initiate cyclization
+isoprene units and occur in plants, insects, bacteria and fungi (Hanson    by protonation at the C14–C15 double bond of GGPP and typically
+et al., 2019). It is estimated that there are >18,000 known diterpene     generate bicyclic diterpenyl-diphosphates such as ent-copalyl diphos­
+structures and that they derive from at least 126 different backbones     phate (ent-CPP), the precursor of gibberellins (Peters, 2010; Zi et al.,
+(Roncero et al., 2018). Despite this tremendous chemical diversity, the    2014) and of a number of specialized bioactive diterpenes like the
+potential of diterpenoids is not fully exploited due to low concentrations     oryzalexins (Wang et al., 2012b). Class I diTPS cleave the diphosphate
+in their natural hosts and/or the difficulty to access or cultivate the     ester bond of GGPP, or of diterpenyl-diphosphates produced by class II
+organisms that produce them. Furthermore, their complex structures     diTPS, generating a carbocation that initiates a cyclization reaction (Zi
+make chemical synthesis highly challenging with complex synthetic     et al., 2014). In addition, bifunctional diTPS have both class I and class II
+routes and low yields, as the example of the total biosynthesis of Taxol      activity, and can perform two cyclization reactions in succession (Peters,
+shows (Wang et  al., 2012b). Recent progress in the elucidation of    2010; Zi et al., 2014). The final products of diTPS are single or multiple
+diterpenoid biosynthesis pathways offers the opportunity to use meta­     diterpene olefins or alcohols of linear, macrocyclic or polycyclic struc­
+bolic engineering in appropriate hosts to produce these compounds (De     tures. Downstream of diterpene skeletons, cytochrome P450 oxygenases
+
+
+ * Corresponding author.
+    E-mail address: alain.tissier@ipb-halle.de (A. Tissier).
+  1 These authors contributed equally.
+https://doi.org/10.1016/j.ymben.2024.02.006
+Received 8 December 2023; Received in revised form 24 January 2024; Accepted 12 February 2024
+Available online 20 February 2024
+1096-7176/© 2024 The Authors. Published by Elsevier Inc. on behalf of International Metabolic Engineering Society. This is an open access article under the CC
+BY-NC-ND license (http://creativecommons.org/licenses/by-nc-nd/4.0/).
+
+
+[PDF physical page 2]
+M. Frey et al.                                                                                                                                Metabolic Engineering 82 (2024) 193–200
+
+(CYPs) play a crucial role by introducing oxygen groups and in some
+cases triggering backbone rearrangements, thereby greatly increasing
+the diversity of diterpenoids (Banerjee and Hamberger, 2018; Bathe and
+Tissier, 2019). Many of the CYPs involved in diterpenoid biosynthesis
+are promiscuous, accepting not only their natural substrate but also
+structurally related compounds (Bathe and Tissier, 2019). Modularity,
+multi-product formation by diTPS, and promiscuous CYPs are features
+that make diterpenoid biosynthesis highly amenable to combinatorial
+biosynthesis, which is a powerful approach to generate libraries of
+natural products, either existing or new-to-Nature. The synthesized
+products can then be screened for biological activity. In the natural
+product field, there are successful demonstrations of combinatorial
+biosynthesis of polyketides, which include compounds with antitumor
+or antimicrobial activities (Wong and Khosla, 2012; Zhang et al., 2018).
+For diterpenoids, the promiscuity of class I diTPS was harnessed by
+generating  class  II/class  I combinations to produce new-to-Nature
+backbones (Andersen-Ranberg et al., 2016; Jia et al., 2019). Further­
+more, specific diterpene backbones were combined with CYPs, either
+from the same or closely related organisms or that have a highly
+conserved function resulting in significant but limited extension of the
+chemical space (Bathe et al., 2019; Mafu et al., 2016; Wang et al.,
+2012a).
+   Our objective for this work was to extend the approach to CYPs from
+unrelated plant species that act on related diterpene backbones but
+oxidize at different positions. Combining these CYPs with non-native
+substrates (either diterpene backbones or oxidized diterpenes) should
+allow the production of new-to-Nature diterpenoids. Mining the litera­
+ture for enzymes involved in diterpenoid metabolism showed that more
+than 50 diTPS and 80 CYPs that oxidize diterpenes have been published
+in the last two decades. As a proof of concept to demonstrate the
+feasibility of the approach we decided to focus on three types of back­
+bones derived from (+)-copalyl diphosphate ((+)-CPP) and selected
+CYPs that are known to oxidize one or more of these backbones. These
+backbones contain the tricyclic pimarane and abietane, as well as the
+bicyclic labdane backbone, that are at the heart of a number of diter­
+penes with intriguing bioactivities, such as antiviral (Wardana et al.,
+2021), anticancer (Islam, 2017) neuroprotective - as activator of po­
+tassium channels (Ottosson et al., 2017) or anti-atherosclerotic (Suh
+et al., 2012).
+
+2. Results and discussion
+                                                                                     Fig. 1. Chemical space of products downstream of the diterpenes and diterpene
+                                                                                         acids. A, Level (I) in the center represents the universal precursor GGPP, Level2.1.  Project strategy                                                                                                          (II) represents the published products of the bifunctional diTPS (left semi-circle)
+                                                                     and class I diTPS (right semi-circle, together with a (+)CPS enzyme. The size of
+  We explored the potential of combinatorial assembly of diTPS and     the sectors is proportional to the numbers products generated by DiTPS. DiTPS
+CYPs by combining 10 known diTPS that produce backbones derived      that were selected for this study use either GGPP (left side) or (+)-CPP (right
+from (+)-copalyl diphosphate ((+)-CPP) with four CYPs from diverse      side) as substrate to produce the diterpene skeletons shown belonging to either
+plant species (Table 1 and S1). Expression of all possible combinations in      abietane, pimarane, or labdane backbone type. They serve as substrates for
+individual Saccharomyces cerevisiae strains (Tables S2–S4) resulted in the    RoCYP76AH22  (blue),  OsCYP76M8  (red),  SpCYP71BE52  (green)  and
+production of >200 different diterpenoids (Fig. 1). We include a full    PsCYP720B4 (yellow) for oxidation at C2, C6, C7, C9, C11, C12 and C18. The
+structure elucidation for a subset of the products (Figs. S1–S55). We     published oxidation sites are highlighted with asterisks in the colour matching
+detected enzyme products using GC-MS (Fig. S56, Table S5) and LC–MS     the oxidating CYP; asterisks in brackets refer to oxidations by OsCYP76M8 on
+                                                                                     substrates of syn- or ent-configuration. B, Sunburst plot of products resulting(Fig. S57, Tables S6–S8). Of these products, 36 have already been                                                                       from the combination of 1 CYP with 1 diTPS (level III) (first level with colours)described, 18 were determined by  interpretation  of mass spectra                                                                                or 2 CYPs with 1 diTPS (level IV; outermost level). The size of the sectors is(Figs. S58–S81), and 13 by NMR (Figs. S1–S55, Tables S9–S34). We then                                                                                 proportional to the number of products identified. Colours represent the CYP
+sorted enzyme  products  into  the  metabolic  grids  (Figs. S82–90,     involved in the formation of the product (RoCYP76AH22 (blue), OsCYP76M8
+Tables S35–S37) that lead to their biosynthesis, defined reliability      (red), SpCYP71BE52 (green) and PsCYP720B4 (yellow)). In the outer circle the
+classes (Fig. S91) and performed NMR-based yield quantification of the      total circumference represents 217 diterpenes. Some of the main products are
+enzyme products wherever possible (Table 2). We could not find any    shown with their position in the sunburst and their structure elucidated
+report in the literature or in chemical databases for 162 of these diter­     by NMR.
+penoids, which can therefore be considered as new-to-Nature.
+                                                                      (Bathe and Tissier, 2019; Dickschat, 2019; Li et al., 2019; Murphy and
+2.2. Production of diterpene backbones derived from (+)-CPP in yeast        Zerbe, 2020). From this dataset, we selected ten plant diTPS that pro­
+                                                                 duce diterpene skeletons derived from (+)-CPP (Fig. 1A, Table 1,
+   In recent years, more than 150 diTPS and 50 CYPs acting on diter­     Table S1).
+pene backbones have been reported from plants, bacteria, and fungi
+
+                                                                       194
+
+
+[PDF physical page 3]
+M. Frey et al.                                                                                                                                Metabolic Engineering 82 (2024) 193–200
+
+Table 1                                                                 (Table S5) indicated olefinic diterpene backbones (PaLAS: 55, 59, 62,
+Enzymes used in this study.                                              64, MsTPS1: 49) or diterpene alcohols (60), that could be the result of
+  Gene            Organism         Accession no.      Full name                  rearrangement reactions that can occur in the engineering of terpene
+                                                                pathways in yeast (Frey, 2020) or the result of different pathways of  NtGGPPS          Nicotiana        NP_001313025    Nicotiana tabacum
+                  tabacum                             geranylgeranyl              carbon cation quenching.
+                                                      diphosphate synthase
+  RoCPS           Rosmarinus      AHL67261        Rosmarinus officinalis            2.3. Four CYPs give rise to 190 oxidized diterpenes                         officinalis                            copalyl diphosphate
+                                                        synthase
+  PbPIM            Pinus banksiana   AFU73868        Pinus banksiana               To generate oxidized diterpenoids, we selected four CYPs from two
+                                                     pimaradiene synthase          dicotyledonous plants, rosemary (Rosmarinus officinalis, RoCYP76AH22)
+  RoMiS           Rosmarinus      AHL67263        Rosmarinus officinalis           (Scheler et al., 2016) and apple sage (Salvia pomifera, SpCYP71BE52)
+                         officinalis                             miltiradiene synthase           (Ignea  et  al.,  2016), one monocotyledonous,  rice  (Oryza  sativa, OmTPS3         Origanum        AZB50371       Origanum majorana terpene
+                   majorana                           synthase 3               OsCYP76M8) (Wang et al., 2012a) and one Gymnosperm, Sitka spruce
+  IrKSL6            Isodon          ASC55318        Isodon rubescens kaurene         (Picea sitchensis, PsCYP720B4) (Hamberger et al., 2011) (Table 1). Three
+                     rubescens                           synthase like 6                 of them, namely RoCYP76AH22 (colour code blue), SpCYP71BE52
+  IrTPS2            Isodon          ARO38140        Isodon rubescens terpene         (colour code green), and PsCYP720B4 (colour code yellow), use diter­
+                     rubescens                           synthase 2                 pene backbones derived from (+)-CPP as natural substrates and one,  MsTPS1         Mentha spicata    AZB50369       Mentha spicata terpene
+                                                        synthase 1              OsCYP76M8 (colour code red), has diterpene backbones derived from
+  GbLPS           Ginkgo biloba     Q947C4          Ginkgo biloba                    ent- or syn-CPP as natural substrates but was also shown to react on
+                                                      levopimaradiene synthase       (+)-CPP-derived diterpenes (Fig. 1A, Tables S1 and S41) (Hamberger
+  PaLAS             Picea abies       AAS47691         Picea abies                     et al., 2011; Ignea et al., 2016; Scheler et al., 2016; Wang et al., 2012a).                                                      levopimaradiene/
+                                                         abietadiene synthase        On their natural substrates, these CYPs collectively oxidize positions C2,
+  SmCPSKSL1        Selaginella       AEK75338         Selaginella moellendorffii        C6, C7, C9, C11, C12 and C18 of the diterpene backbone. We expected
+                       moellendorffii                        (13E)-labda-7,13-dien-15-        that they would accept slightly different substrates but would remain
+                                                               ol synthase                    regio- and stereoselective (see Fig. 1A, level  II, coloured asterisks)
+  AbCAS            Abies balsamea    XP_002513340    Abies balsamea cis-Abienol      compared to their known substrates (Helfrich et al., 2019). First, we                                                        synthase
+  ATR1              Arabidopsis       NP_194183        Arabidopsis thaliana            generated 40 strains that express a diTPS as described above and a single
+                      thaliana                           (cytochrome P450)         CYP together with the Arabidopsis thaliana CYP reductase ATR1 (Scheler
+                                                        reductase 1                     et al., 2016) (Table S1). When co-expressing each the four selected CYPs
+  RoCYP76AH22    Rosmarinus      KP091843         n.d.                         individually with the diTPS that produces the endogenous CYP sub­                         officinalis
+  SpCYP71BE52     Salvia pomifera    KT157042         n.d.                           strates  (Fig. 1B,  level  III), oxidized diterpenoids were formed as
+  OsCYP76M8      Oryza sativa     BAG91560         n.d.                        described previously (Bathe et al., 2019; Hamberger et al., 2011; Wang
+  PsCYP720B4      Picea sitchensis    HM245403        n.d.                           et al., 2012a). We then analyzed the strains co-expressing each of the ten
+                                                                  diTPS with each of the CYPs to provide the CYPs with substrates that
+                                                                                    differ from their native ones. This led to the production of 110 oxidized   The diterpene synthase substrates (Fig. 1A, Level  I) are either                                                                          diterpenes (Tables S5–S6, S36, Fig. S56, Fig. 1B, Level III). Of 40 enzyme(+)-CPP for the monofunctional class I diTPS (OmTPS3, RoMiS, IrTPS2,                                                                    combinations of a terpene synthase with a single CYP enzyme, 31 pro­IrKSL6, PbPIM and MsTPS1) or GGPP for the bifunctional DiTPS                                                                duced oxidized compounds ranging from only one product up to 13(AbCAS, SmCPSKSL1, GbLPS and PaLAS) (referenced in Table S1).                                                                                different oxidized diterpenoids (PaLAS + RoCYP76AH22) detected byThese diTPS generate a set of cyclized terpene products (Fig. 1A, Level                                                                           high-resolution GC-MS and LC–MS, Tables S5–S6). Next, to minimize theII) of the tricyclic abietane (GbLPS, PaLAS and RoMiS) or pimarane                                                           number of combinations to  test, we generated constructs  for the(IrTPS2, IrKSL6, PbPIM and MsTPS1) and the bicyclic labdane backbone                                                                         co-expression of each diTPS with three or all four of the selected CYPs.type (AbCAS, SmCPSKSL1 and OmTPS3). Using the Golden Gate modular                                                We found that mostly combinations containing PsCYP720B4 gave newcloning system we developed for yeast (Fig. S92, Tables S39–40)                                                                      products (Fig. S57h or Table S36). PsCYP720B4 generates a carboxylic(Scheler et al., 2016), we co-expressed these diTPS together with GGPPS                                                                         acid function at position C18 on most diterpene backbones, as it does onand (if required) (+)-CPS on one plasmid to produce a set of diterpene                                                                                                 its endogenous substrates. We thus selected seven diTPS (Table S36),backbones (Table S3) (Scheler et al., 2016). In addition to the previously                                                              where a significant amount of C18 acid was produced by PsCYP720B4reported diterpene skeletons produced by the ten diTPS (Fig. 1A, Level                                                                                for co-expression with either of the remaining CYP enzymes (21 strains).II, Table S1) we detected additional diterpenes not described before for                                                                  These gave rise to 87 further oxidized diterpene acids (Fig. 1B, Level IV,PaLAS and MsTPS1 (Table S5). The masses of these novel products                                                                                  Fig. S57, Table S36). An additional permutation of two and three CYPs
+
+Table 2
+Yield of selected enzyme combination products.
+  Compound nr.      Enzymes                         Compound                                               Strain      Method      n       Concentration
+  11               RoMiS + CYP76M8                       Abietatriene-7β-ol                               7796      GC-MS      4       1.27 ± 0.13 mg/L
+  13               RoMiS + CYP76M8                      Abietatriene-7-one                               7796      GC-MS      4       0.07 ± 0.00 mg/L
+  22             OmTPS3 + CYP76M8                   Trans-biformeme-6β-ol                           7701      GC-MS      4       0.73 ± 0.06 mg/L
+  23             OmTPS3 + CYP76M8                   Trans-biformeme-7β-ol                           7701      GC-MS      4       2.09 ± 0.16 mg/L
+  26             OmTPS3 + CYP720B4                   Trans-biformeme-3β-ol                           7702      GC-MS      4       2.68 ± 0.29 mg/L
+  119                IrKSL6 + CYP720B4 + CYP76M8         Isopimaric acid                                 10097     LC–MS      5      0.008 ± 0.001 mg/L
+  119                IrKSL6 + CYP720B4                     Isopimaric acid                                 7805      LC–MS      5       0.46 ± 0.12 mg/L
+  131                IrTPS2 + CYP720B4 + CYP71BE52       2α-Hydroxy-isopimaric acid                       10083     LC–MS      5       0.10 ± 0.03 mg/L
+  134                IrKSL6 + CYP720B4 + CYP76M8        134: 6β,7α-dihydroxy-isopimara-8,15-dienoic acid      10097     LC–MS      5       0.91 ± 0.24 mg/L
+  147                IrTPS2 + CYP720B4 + CYP76M8         6β,8β-Dihydroxy-15-isopimaren-18-oic acid           10098     LC–MS      3       2.38 ± 0.43 mg/L
+  148             CYP720B4                              8β,9-Epoxy-isopimarenoic acid                     10098     LC–MS      3       0.25 ± 0.05 mg/L
+  152              LAS                                    2α-Hydroxy-abietic acid                          10087     LC–MS      5       0.15 ± 0.13 mg/L
+  210              RoMiS                                   7β-Hydroxy-abietatrienoic acid                     10096     LC–MS      5       0.47 ± 0.24 mg/L
+
+                                                                       195
+
+
+[PDF physical page 4]
+M. Frey et al.                                                                                                                                Metabolic Engineering 82 (2024) 193–200
+
+downstream of the diterpene acids yielded only ten further enzyme     2.4. Oxidation of pimarane-type diterpenes
+products (Table S37). Of 21 combinations tested downstream of diter­
+pene acids, 19 yielded new oxidized products (Table S37). trans-­       The tricyclic pimarane type (Fig. 2A) diterpene isopimaradiene (27),
+Biformene (20), nezukol (37) and cis-abienol (84) were not converted by    produced  by  IrKSL6  from  Isodon  rubescens,  was  converted  by
+some of the CYPs, while labda-7,13E-dien-15-ol (83) was not accepted    PsCYP720B4 to isopimaric-18-acid (119). An aldehyde detected in low
+by any of the CYPs (Table S35). Selected major enzyme products were    abundance by GC-MS (36) (Fig. 2B) is likely to be the intermediate
+purified and their structure elucidated by NMR spectroscopy (13 prod­     isopimara-7,15-dien-18-al to 119. Co-expression of OsCYP76M8 with
+ucts, Figs. S1–S55, Tables S9–S34). The identification of further enzyme    PsCYP720B4 (Fig. 2C) led to the conversion of 119 to a major product
+products was based on comparison of MS2 spectra to literature and da­    (134) (Fig. 2D) that was identified as 6β,7α-dihydroxy-isopimara-8,15-
+tabases (38 products, Tables S5–S7, Fig. S58) and considering the     dienoic acid. The production of this diterpenoid requires two stereo­
+regioselectivity of the enzymes. For additional enzyme products a     specific  hydroxylations  as  well  as a 7 → 8 double bond  shift.
+structure suggestion was performed based on HR-GC-MS (Figs. S58–S70)    SpCYP71BE52 converted 119 to 2α-hydroxy-isopimaric acid (131) that
+and LC–MSn (Figs. S71–S80) measurements or on reported enzyme    was reported as a product of fungal oxidation of 119 (Kutney et al.,
+regioselectivity. The enzyme products whose structure was elucidated     1981). IrTPS2, a diTPS from the same species, produces nezukol (37)
+with high confidence gave us an insight into the reactions carried out by      (Fig. 2E), the hydrated version of 27 (Pelot et al., 2017). Nezukol (37)
+the studied CYPs on alternative substrates and whether their regiose­    was converted  to 8-hydroxy-sandaracopimar-15-en-11-one (38) by
+lectivity was retained in the different diterpene backbone types. Unless    RoCYP76AH22 and to nezukolic-18-acid (120) by PsCYP720B4 (Fig. 2F)
+stated otherwise, products with names mentioned in the next sections     in a three-step oxidation of the C18 methyl group as it was reported for
+were either already known or characterized here by NMR.                 multiple  olefinic  tricyclic  diterpenes  (Hamberger  et  al.,  2011).
+                                                                       Co-expression of OsCYP76M8 with PsCYP720B4 led to two major
+                                                                      products  6β,8β-dihydroxy-15-isopimaren-18-oic   acid  (147)  and
+                                                                       epoxy-8β,9-isopimarenoic acid (148) (Fig. 2G) requiring hydroxylation
+
+
+
+
+
+Fig. 2. Analysis of yeast strains expressing pimarane-type diterpene synthases and enzymes oxidizing the pimarane backbone. A, Pimarane backbone with the
+expected hydroxylation sites of RoCYP76AH22 (blue), PsCYP720B4 (yellow), SpCYP71BE52 (green) and OsCYP76M8 (red). B, GC-MS EIC analysis of oxidation
+products downstream of IrKSL6, EIC m/z [268.21, 270.23, 272.25, 284.21, 286.22, 288.24, 300.20, 302.22], ± 0.5 u. C, LC–MS (negative ionization) EIC analysis of
+oxidation products downstream of IrKSL6, EIC m/z [299.20, 301.22, 313.18, 315.20, 317.21, 319.23, 329.18, 331.19, 333.21, 335.22, 343.15, 345.17, 349.20,
+351.22, 359.15, 361.17, 363.18] ± 0.05 u. D, Pathway scheme for enzyme reactions downstream of IrKSL6. E, GC-MS EIC analysis of oxidation products downstream
+of IrTPS2, EIC m/z [268.21, 270.23, 272.25, 284.21, 286.22, 288.24, 290.26, 300.20, 302.22] ± 0.5 u F, LC–MS (negative ionization) EIC analysis of oxidation
+products downstream of IrTPS2, EIC m/z [299.20, 301.22, 313.18, 315.20, 317.21, 319.23, 329.18, 331.19, 333.21, 335.22, 343.15, 345.17, 349.20, 351.22, 359.15,
+361.17, 363.18] ± 0.05 u. G, Pathway scheme for enzyme reactions downstream of IrTPS2. Grey numbers indicate enzyme products not shown in the schemes.
+
+                                                                       196
+
+
+[PDF physical page 5]
+M. Frey et al.                                                                                                                                Metabolic Engineering 82 (2024) 193–200
+
+reactions at C6 or at C9, in the latter case with an epoxidation. Iso­     (Brückner et al., 2014). When co-expressed with RoMiS, OsCYP76M8
+pimaric acid (119) can activate human potassium channels (Yuji et al.,     converts (1) to abietatrien-7β-ol (11) and to abietatrien-7-one (13),
+2002), which could be relevant for the treatment of epilepsy (Silverå     along with additional uncharacterized products (12, 14–15). Both (1)
+Ejneby et al., 2021). For pimaric acid potent anti-atherosclerotic activity    and (2) were converted by PsCYP720B4 to the corresponding acids
+(Suh et al., 2012) has been reported. In both cases further oxidation of     abietatrien-18-oic acid, also known as dehydroabietic acid (DHAA)
+the diterpene resin acid backbone by CYP enzymes could lead to    (114) and miltiradienoic-18-acid (19) (via intermediates (17) and (18)),
+improvement in the biological activity or water solubility.                  respectively (Fig. 3G). Co-expression of PsCYP720B4 with OsCYP76M8
+                                                                           led to multiple major enzyme products (199, 209–212), of which the
+                                                                       diastereomers   7β-hydroxy-abietatrien-18-oic   acid   (210)   and2.5. Oxidation of abietane-type diterpenes
+                                                                         7α-hydroxy-abietatrienoic acid (211) could be identified by NMR.
+                                                DHAA (114) derivatives were reported as potential antitumor, anti­   Several tricyclic abietane-type (Fig. 3A) diterpene backbones were
+                                                                       mycotic, and antiviral agents (Zapata et al., 2013). Silverå Ejneby et al.produced by LAS, such as (56), (61) and abietadiene (58) (Fig. 3B and C)
+                                                                   (2021) reported how the potassium channel opening activity of DHAAas previously reported (Keeling et al., 2011). Expression of PsCYP720B4
+                                                                     could be improved by electrophilic modifications of the B and C ring.with LAS resulted in an uncharacterized product (124) and abietic acid
+                                                                  These findings suggest that abietane-type diterpenes from this study(125) (Fig. 3B + D). Co-expression of PsCYP720B4 with SpCYP71BE52
+                                                                     could be good candidates for such bioactivities. Furthermore, combiningsubsequently led to the formation of 2α-hydroxy-abietic acid (152)
+                                                                        the current combinatorial approach on the DHAA backbones with pre­(Fig. 3D). The expression of RoMiS led to the formation of miltiradiene
+                                                                        vious combinatorial approaches (Bathe et al., 2019) by adding a C20(2) that is spontaneously converted to abietatriene (1) (Fig. 2E + F)
+
+
+
+
+
+Fig. 3. Analysis of yeast strains expressing the core module and the given enzymes oxidizing the abietane backbone. A, Abietane backbone with the expected
+hydroxylation sites of PsCYP720B4 (yellow), SpCYP71BE52 (green) and OsCYP76M8 (red). B, Pathway scheme for enzyme reactions downstream of LAS. C, GC-MS
+EIC analysis of oxidation products downstream of LAS, EIC m/z [268.21, 270.23, 272.25, 284.21, 286.22, 288.24, 300.20, 302.22] ± 0.5 u. D, LC–MS (negative
+ionization) EIC analysis of oxidation products downstream of LAS, EIC m/z [299.20, 301.22, 313.18, 315.20, 317.21, 319.23, 329.18, 331.19, 333.21, 335.22,
+343.15, 345.17, 349.20, 351.22, 359.15, 361.17, 363.18] ± 0.05 u. E, Pathway scheme for enzyme reactions downstream of RoMiS. F, GC-MS EIC analysis of
+oxidation products downstream of RoMiS, EIC m/z [268.21, 270.23, 272.25, 284.21, 286.22, 288.24, 290.26, 300.20, 302.22] ± 0.5 u. G, LC–MS (negative ioni­
+zation) EIC analysis of oxidation products downstream of RoMiS EIC m/z [299.20, 301.22, 313.18, 315.20, 317.21, 319.23, 329.18, 331.19, 333.21, 335.22, 343.15,
+345.17, 349.20, 351.22, 359.15, 361.17, 363.18] ± 0.05 u. Grey numbers indicate enzyme products not shown in the schemes.
+
+                                                                       197
+
+
+[PDF physical page 6]
+M. Frey et al.                                                                                                                                Metabolic Engineering 82 (2024) 193–200
+
+oxidase from the CYP76AK subfamily of CYPs could lead to bioactive     previous publications and mass spectra libraries we suggest structures
+derivatives  of carnosic  acid, a potent antioxidant and anticancer     for other, less abundant, enzyme products (Figs. S59–89, Tables S5–S8).
+compound.
+                                                                                 2.8. Mechanism-based substrate docking
+2.6. Oxidation of labdane-type diterpenes
+                                                           One notable exception to the conserved regioselectivity of CYP en­
+   The bicyclic labdane-backbone (Fig. 4A) trans-biformene (20) was    zymes was observed with PsCYP720B4 on trans-biformene (20) with an
+produced by the diTPS OmTPS3 (Fig. 4B). Upon co-expression of     oxidation at C3, instead of the expected C18. To understand how
+OmTPS3 with OsCYP76M8 two major products, namely biformen-6β-ol    PsCYP720B4 controls the regioselective oxidation of trans-biformene
+(22) and biformen-7β-ol (23) were produced. Co-expression of OmTPS3     (20) at position C3, we performed mechanism-based substrate docking
+with PsCYP720B4 gave rise to a diterpene alcohol (26) as well as a     simulations.  First, we generated and  validated the 3D model  of
+diterpene aldehyde (25) (Fig. 4B), and trace amounts of a diterpene acid    PsCYP720B4  enzyme  using  AlphaFold  (Jumper  et   al.,  2021)
+(117) (Table S6) were observed. Our initial assumption was that the      (Figs. S93–94, Table S42). Next, in the substrate docking simulations we
+intermediate trans-biformen-18-ol accumulated due to less efficient     assessed the catalytically competent binding poses of trans-biformene
+subsequent oxidation steps. However, structural elucidation showed    and nezukol substrates to the PsCYP720B4 active site by applying geo­
+that (26) is trans-biformen-3β-ol (Fig. 4C). This observed shift of C18     metric catalytic criteria in line with the cytochrome P450 oxygenase
+hydroxylation to C3β-hydroxylation upon exchange of a tricyclic with a    mechanism (Meunier et al., 2004) (Fig. 5, Figs. S95–98 and Table S43).
+bicyclic  diterpene was  already  reported  for  the  closely  related    The near attack conformation (NAC) (Bruice, 2006) criteria suggested
+CYP720B1 from Pinus taeda (Ignea et  al., 2015). Another bicyclic     that both trans-biformene C18–H and βC3-H are in close proximity to
+diterpene, cis-abienol, was converted mainly to a diterpene alcohol,    compound I oxygen, indicating the reactivity toward both positions
+which   could   be   either   3β-hydroxy   or   18-hydroxy-abienol      (Fig. 5, Figs. S95–98 and Table S43). By contrast, in the case of nezukol
+(Figs. S68–S69).                                                            (37), C18–H is closer to compound I oxygen than βC3-H, implying that
+                                                                        the selective oxidation is more reactive at position C18 for 37. Thus, the
+2.7. CYP regioselectivity and structure assignment                            calculated catalytic distance and angles criteria correlate well with the
+                                                                       experimentally observed  selective oxidation  of trans-biformene by
+   Based on the compounds whose structure was elucidated, we found    CYP720B4.
+that the four tested CYPs retained their regioselectivity on distinct
+diterpene backbones, with one notable exception (compound 26, trans-     3. Conclusion
+biformen-3β-ol). We also observed that the stereospecific formation of a
+2α-hydroxy-group by SpCYP71BE52 was conserved for different sub­       Our results show that yeast is well suited for the combinatorial
+strates when combined with PsCYP720B4. Overall, the four tested CYP     biosynthesis of diterpenoids. We were able to calculate the yields based
+enzymes showed a remarkable promiscuity on a range of diterpenoid    on quantitative NMR data and generate yields of over 2 mg/L yeast
+substrates. Four of the products whose structure was elucidated are new-     culture for the products trans-biformeme-7β-ol (23), trans-biformeme-
+to-Nature (22, 120, 134, 147) while the others have been reported from     3β-ol  (26),  and  6β,8β-dihydroxy-15-isopimaren-18-oic  acid  (147)
+different natural sources (Tables S5–S7). Other observed enzyme prod­     (yields are summarized in Table 2). LC–MS data suggest similar yields
+ucts were assigned with varying levels of confidence. Some of the     for a number of other enzyme products, where no standard is available.
+enzyme products were identified by comparing mass spectra to public     In future experiments we aim to further improve the yield by additional
+libraries or previous publications (NIST, Essential Oils Library, Fig. S58,     engineering. Recently, a combination  of enzymatic oxidation and
+Table S5). Based on our observations on the regioselectivity of the CYPs     chemical synthesis allowed the synthesis of nine highly oxidized natural
+as well as our own HR-GC-MS and LC–MSn data in comparison to     diterpenoids (Zhang et al., 2020). There, the starting compounds were
+
+
+
+
+
+Fig. 4. Analysis of yeast strains expressing the core module and the given enzymes oxidizing the labdane backbone. A, Labdane backbone with the expected hy­
+droxylation sites of PsCYP720B4 (yellow), and OsCYP76M8 (red). B, GC-MS EIC analysis of oxidation products downstream of OmTPS3, EIC m/z [268.21, 270.23,
+272.25, 284.21, 286.22, 288.24, 290.26, 300.20, 302.22] ± 0.5 u. C, Pathway scheme for enzyme reactions downstream of OmTPS3.
+
+                                                                       198
+
+
+[PDF physical page 7]
+M. Frey et al.                                                                                                                                Metabolic Engineering 82 (2024) 193–200
+
+
+
+
+
+Fig. 5. Comparison of catalytic competent docking pose of nezukol and trans-biformene showing the catalytic orientation of substrates in PsCYP720B4 for selective
+oxidation at 18 and 3 positions. A Trans-biformene C18–H indicated with cyan and βC3-H in red are closer to compound I oxygen in terms of catalytic distance
+suggesting the oxidation will be reactive towards both positions C18 and βC3. B Nezukol C18–H indicated with cyan is closer to compound I oxygen than C3–H, thus
+the selective oxidation will be more reactive to position C18.
+
+oxidized diterpenoids such as steviol. In contrast, our strategy does not    Declaration of competing interest
+depend on the availability of a specific diterpenoid but starts ab initio
+from known diTPS and advances further with known CYPs. All diterpene       The authors have no competing interests to declare.
+backbones produced have in common the same structure of the A-ring,
+because they are all derived from (+)-CPP, whereas the rest of structures    Data availability
+around the B-ring and the C-ring, if present, is variable. Despite this
+common structural feature of the A-ring, not all substrates could be       The spectral NMR data generated and analysed during this study are
+oxidized by PsCYP720B4 or SpCYP71BE52, two CYPs that specifically     openly available in the nmrXiv repository at DOI:10.57992/nmrxiv.p56.
+oxidize around the A-ring. This concerns mostly diterpenes without a    The GC/MS and LC/MS data have been submitted to the MetaboLights
+C-ring and instead with a side chain, such as trans-biformene  - not     repository under accession MTBLS2724.
+oxidized by SpCYP71BE52 and at a different position by PsCYP720B4 -,
+cis-abienol   -  not  oxidized  by  SpCYP71BE52  –  and  labda-7,    Acknowledgements
+13-E-dien-15-ol - oxidized by neither SpCYP71BE52 nor PsCYP720B4.
+This shows that although the CYPs conserve their regioselectivity,       The authors thank Dr. Andrea Porzel for assisting NMR analysis and
+structural features that are further away from the oxidation sites can     Chris Richter for technical support regarding measurements at the GC-
+determine the ability of these CYPs to oxidize diterpene backbones. By    QTOF. We would like to thank Dr. Steffen Neumann (NFDI4Chem
+selecting CYPs from distantly related plant species but known to act on   DFG grant 441958208 and de. NBI) for support to prepare the data
+diterpene backbones derived from (+)-CPP we could generate a high     submission for nmrXiv and MetaboLights. The work was supported by
+proportion of compounds that have not yet been reported. Our approach     the European Regional Development Fund (grant number ZS/2018/08/
+opens up further possibilities, either by combining additional CYPs (also    94166 to AT) and the Leibniz Institute of Plant Biochemistry in Halle,
+from non-plant species) acting on (+)-CPP derived diterpenes or by    Germany. AH is supported by a Ph.D. scholarship from the Ministry of
+applying the same strategy to other groups of diterpene skeletons, e.g.,    Higher Education of the Arab Republic of Egypt.
+derived from other CPP isoforms or macrocyclic diterpenes. This will
+allow the production  of diverse  libraries  of diterpenoids  in high    Appendix A. Supplementary data
+throughput using yeast that can then be screened for biological activ­
+ities, such as antiviral or anticancer. With the progress in sequencing       Supplementary data to this article can be found online at https://doi.
+technologies, the increasing number of high-quality transcriptome and     org/10.1016/j.ymben.2024.02.006.
+genome sequences of plants, bacteria and fungi provides vast resources
+for combinatorial biosynthesis of diterpenoids that can be performed in    References
+the lab without having to grow or cultivate the respective organisms.
+                                                                                     Andersen-Ranberg, J., Kongstad, K.T., Nielsen, M.T., Jensen, N.B., Pateraki, I., Bach, S.S.,
+                                                                                    Hamberger, B., Zerbe, P., Staerk, D., Bohlmann, J., Moller, B.L., Hamberger, B.,
+CRediT authorship contribution statement                                     2016. Expanding the landscape of diterpene structural diversity through
+                                                                                               stereochemically controlled combinatorial biosynthesis. Angew Chem. Int. Ed. Engl.
+   Maximilian Frey: Investigation, Methodology, Writing – original          55, 2142–2146.
+draft. Ulschan Bathe: Investigation, Methodology, Writing – original      Banerjee,terpeneA.,specializedHamberger,metabolism.B., 2018. P450sPhytochem.controllingRev. metabolic17, 81–111.bifurcations in plant
+draft. Luca Meink: Investigation. Gerd U. Balcke: Investigation. Jür­      Bathe, U., Frolov, A., Porzel, A., Tissier, A., 2019. CYP76 oxidation network of abietane
+gen Schmidt: Formal analysis. Andrej Frolov: Formal analysis, Inves­          diterpenes in lamiaceae reconstituted in yeast. J. Agric. Food Chem. 67,
+tigation. Alena Soboleva: Investigation. Ahmed Hassanin: Formal         13437–13450.                                                                                          Bathe, U., Tissier, A., 2019. Cytochrome P450 enzymes: a driving force of plant diterpene
+analysis, Methodology. Mehdi D. Davari: Supervision. Oliver Frank:           diversity. Phytochemistry 161, 149–162.
+Formal analysis, Investigation, Methodology. Verena Schlagbauer:      Brückner, K., Boˇzi´c, D., Manzano, D., Papaefthimiou, D., Pateraki, I., Scheler, U.,
+Investigation. Corinna Dawid: Supervision, Validation. Alain Tissier:           Ferrer, A., de Vos, R.C., Kanellis, A.K., Tissier, A., 2014. Characterization of two                                                                                         genes for the biosynthesis of abietane-type diterpenes in rosemary (Rosmarinus
+Conceptualization,  Formal  analysis,  Funding  acquisition,  Project             officinalis) glandular trichomes. Phytochemistry 101, 52–64.
+administration, Writing – original draft, Writing – review & editing.          Bruice, T.C., 2006. Computational approaches: reaction trajectories, structures, and
+                                                                                        atomic motions. Enzyme reactions and proficiency. Chem. Rev. 106, 3119–3139.
+
+
+                                                                       199
+
+
+[PDF physical page 8]
+M. Frey et al.                                                                                                                                Metabolic Engineering 82 (2024) 193–200
+
+Davis, E.M., Croteau, R., 2000. Cyclization enzymes in the biosynthesis of monoterpenes,       Pateraki, I., Andersen-Ranberg, J., Jensen, N.B., Wubshet, S.G., Heskes, A.M.,
+    sesquiterpenes, and diterpenes. In: Leeper, F.J., Vederas, J.C. (Eds.), Biosynthesis:           Forman, V., Hallstr¨om, B., Hamberger, B., Motawia, M.S., Olsen, C.E., Staerk, D.,
+    Aromatic Polyketides, Isoprenoids, Alkaloids. Springer Berlin Heidelberg, Berlin,            Hansen, J., Møller, B.L., Hamberger, B., 2017. Total biosynthesis of the cyclic AMP
+    Heidelberg, pp. 53–95.                                                                     booster forskolin from Coleus forskohlii. Elife 6, e23001.
+De La Pe˜na, R., Sattely, E.S., 2021. Rerouting plant terpene biosynthesis enables               Pelot, K.A., Hagelthorn, D.M., Addison, J.B., Zerbe, P., 2017. Biosynthesis of the
+    momilactone pathway elucidation. Nat. Chem. Biol. 17, 205–212.                         oxygenated diterpene nezukol in the medicinal plant Isodon rubescens is catalyzed by
+Dickschat, J.S., 2019. Bacterial diterpene biosynthesis. Angew Chem. Int. Ed. Engl. 58,          a pair of diterpene synthases. PLoS One 12, e0176507.
+    15964–15976.                                                                                Peters, R.J., 2010. Two rings in them all: the labdane-related diterpenoids. Nat. Prod.
+Frey, M., 2020. Traps and pitfalls-unspecific reactions in metabolic engineering of               Rep. 27, 1521–1530.
+    sesquiterpenoid pathways. Molecules 25.                                             Roncero, A.M., Tobal, I.E., Moro, R.F., Díez, D., Marcos, I.S., 2018. Halimane
+Hamberger, B., Ohnishi, T., Hamberger, B., S´eguin, A., Bohlmann, J., 2011. Evolution of           diterpenoids: sources, structures, nomenclature and biological activities. Nat. Prod.
+    diterpene metabolism: Sitka spruce CYP720B4 catalyzes multiple oxidations in resin          Rep. 35, 955–991.
+    acid biosynthesis of conifer defense against insects. Plant Physiol. 157, 1677–1695.       Scheler, U., Brandt, W., Porzel, A., Rothe, K., Manzano, D., Bozic, D., Papaefthimiou, D.,
+Hanson, J.R., Nichols, T., Mukhrish, Y., Bagley, M.C., 2019. Diterpenoids of terrestrial            Balcke, G.U., Henning, A., Lohse, S., Marillonnet, S., Kanellis, A.K., Ferrer, A.,
+     origin. Nat. Prod. Rep. 36, 1499–1512.                                                               Tissier, A., 2016. Elucidation of the biosynthesis of carnosic acid and its
+Helfrich, E.J.N., Lin, G.-M., Voigt, C.A., Clardy, J., 2019. Bacterial terpene biosynthesis:           reconstitution in yeast. Nat. Commun. 7, 12942.
+    challenges and opportunities for pathway engineering. Beilstein J. Org. Chem. 15,        Silverå Ejneby, M., Gromova, A., Ottosson, N.E., Borg, S., Estrada-Mondrag´on, A.,
+    2889–2906.                                                                                 Yazdi, S., Apostolakis, P., Elinder, F., Delemotte, L., 2021. Resin-acid derivatives
+Ignea, C., Athanasakoglou, A., Ioannou, E., Georgantea, P., Trikka, F.A., Loupassaki, S.,          bind to multiple sites on the voltage-sensor domain of the Shaker potassium channel.
+    Roussis, V., Makris, A.M., Kampranis, S.C., 2016. Carnosic acid biosynthesis                     J. Gen. Physiol. 153, e202012676.
+    elucidated by a synthetic biology platform. Proc. Natl. Acad. Sci. U. S. A. 113,           Suh, S.-J., Kwak, C.-H., Chung, T.-W., Park, S.J., Cheeeei, M., Park, S.-S., Seo, C.-S.,
+    3681–3686.                                                                             Son, J.-K., Chang, Y.-C., Park, Y.-G., Lee, Y.-C., Chang, H.W., Kim, C.-H., 2012.
+Ignea, C., Ioannou, E., Georgantea, P., Loupassaki, S., Trikka, F.A., Kanellis, A.K.,                Pimaric acid from Aralia cordata has an inhibitory effect on TNF-α-induced MMP-9
+    Makris, A.M., Roussis, V., Kampranis, S.C., 2015. Reconstructing the chemical               production and HASMC migration via down-regulated NF-κB and AP-1. Chem. Biol.
+    diversity of labdane-type diterpene biosynthesis in yeast. Metab. Eng. 28, 91–103.             Interact. 199, 112–119.
+Islam, M.T., 2017. Diterpenes and their derivatives as potential anticancer agents.          Wang, Q., Hillwig, M.L., Okada, K., Yamazaki, K., Wu, Y., Swaminathan, S., Yamane, H.,
+    Phytother. Res. 31, 691–712.                                                                     Peters, R.J., 2012a. Characterization of CYP76M5-8 indicates metabolic plasticity
+Jia, M., Mishra, S.K., Tufts, S., Jernigan, R.L., Peters, R.J., 2019. Combinatorial                  within a plant biosynthetic gene cluster. J. Biol. Chem. 287, 6159–6168.
+    biosynthesis and the basis for substrate promiscuity in class I diterpene synthases.      Wang, Q., Hillwig, M.L., Wu, Y., Peters, R.J., 2012b. CYP701A8: a rice ent-kaurene
+    Metab. Eng. 55, 44–58.                                                                   oxidase paralog diverted to more specialized diterpenoid metabolism. Plant Physiol.
+Jumper, J., Evans, R., Pritzel, A., Green, T., Figurnov, M., Ronneberger, O.,                     158, 1418–1425.
+    Tunyasuvunakool, K., Bates, R., Zidek, A., Potapenko, A., Bridgland, A., Meyer, C.,      Wardana, A.P., Aminah, N.S., Rosyda, M., Abdjan, M.I., Kristanti, A.N., Tun, K.N.W.,
+    Kohl, S.A.A., Ballard, A.J., Cowie, A., Romera-Paredes, B., Nikolov, S., Jain, R.,             Choudhary, M.I., Takaya, Y., 2021. Potential of diterpene compounds as antivirals, a
+    Adler, J., Back, T., Petersen, S., Reiman, D., Clancy, E., Zielinski, M., Steinegger, M.,           review. Heliyon 7, e07777.
+    Pacholska, M., Berghammer, T., Bodenstein, S., Silver, D., Vinyals, O., Senior, A.W.,     Wong, F.T., Khosla, C., 2012. Combinatorial biosynthesis of polyketides—a perspective.
+    Kavukcuoglu, K., Kohli, P., Hassabis, D., 2021. Highly accurate protein structure              Curr. Opin. Chem. Biol. 16, 117–123.
+    prediction with AlphaFold. Nature 596, 583–589.                                            Yuji, I., Kazuho, S., Aki, Y., Aya, H., Susumu, O., Katsuhiko, M., Masanobu, U.,
+Keeling, C.I., Madilao, L.L., Zerbe, P., Dullat, H.K., Bohlmann, J., 2011. The primary            Tomohiko, O., 2002. Molecular basis of pimarane compounds as novel activators of
+    diterpene synthase products of Picea abies levopimaradiene/abietadiene synthase            large-conductance Ca2+-activated K+ channel α-subunit. Mol. Pharmacol. 62, 836.
+    (PaLAS) are epimers of a thermally unstable diterpenol. J. Biol. Chem. 286,              Zapata, B., Rojas, M., Betancur-Galvis, L., Mesa-Arango, A.C., P´erez-Guaita, D.,
+    21145–21153.                                                                                   Gonz´alez, M.A., 2013. Cytotoxic, immunomodulatory, antimycotic, and antiviral
+Kingston, D.G.I., 1991. The chemistry of taxol. Pharmacol. Ther. 52, 1–34.                           activities of semisynthetic 14-hydroxyabietane derivatives and triptoquinone C-4
+Kutney, J.P., Singh, M., Hewitt, G., Salisbury, P.J., Worth, B.R., Servizi, J.A., Martens, D.           epimers. MedChemComm 4, 1239–1246.
+    W., Gordon, R.W., 1981. Studies related to biological detoxification of kraft pulp mill      Zhang, C., Ke, D., Duan, Y., Lu, W., 2018. The Combinatorial Biosynthesis of “Unnatural”
+     effluent. I. The biodegradation of dehydroabietic acid with Mortierella isabellina.            Products with Polyketides, vol. 24. Transactions of Tianjin University, pp. 501–512.
+    Can. J. Chem. 59, 2334–2341.                                                     Zhang, X., King-Smith, E., Dong, L.-B., Yang, L.-C., Rudolf, J.D., Shen, B., Renata, H.,
+Li, X.L., Xu, Y.X., Li, Y., Zhang, R., Hu, T.Y., Su, P., Zhou, M., Tang, T., Zeng, Y., Yang, Y.          2020. Divergent synthesis of complex diterpenes through a hybrid oxidative
+     L., Gao, W., 2019. Rapid discovery and functional characterization of diterpene             approach. Science 369, 799–806.
+    synthases from basidiomycete fungi by genome mining. Fungal Genet. Biol. 128,        Zhang, Y., Wiese, L., Fang, H., Alseekh, S., Perez de Souza, L., Scossa, F., Molloy, J.,
+    36–42.                                                                                Christmann, M., Fernie, A.R., 2023. Synthetic biology identifies the minimal gene set
+Mafu, S., Jia, M., Zi, J., Morrone, D., Wu, Y., Xu, M., Hillwig, M.L., Peters, R.J., 2016.            required for paclitaxel biosynthesis in a plant chassis. Mol. Plant 16 (12),
+    Probing the promiscuity of ent-kaurene oxidases via combinatorial biosynthesis.            1951–1961.
+    Proc. Natl. Acad. Sci. U. S. A. 113, 2526–2531.                                                  Zi, J., Mafu, S., Peters, R.J., 2014. To gibberellins and beyond! Surveying the evolution of
+Meunier, B., de Visser, S.P., Shaik, S., 2004. Mechanism of oxidation reactions catalyzed          (Di)Terpenoid metabolism. Annu. Rev. Plant Biol. 65, 259–286.
+   by cytochrome p450 enzymes. Chem. Rev. 104, 3947–3980.
+Miller,        L.H.,             Su, X., 2011. Artemisinin: discovery from the Chinese herbal garden. Cell      Further reading    146,        855–858.
+Murphy, K.M., Zerbe, P., 2020. Specialized diterpenoid metabolism in monocot crops:
+    biosynthesis and chemical diversity. Phytochemistry 172, 112289.                     Hansen, C.C., Nelson, D.R., Moller, B.L., Werck-Reichhart, D., 2021. Plant cytochrome
+Ottosson, N.E., Silverå Ejneby, M., Wu, X., Yazdi, S., Konradsson, P., Lindahl, E.,              P450 plasticity and evolution. Mol. Plant 14, 1772.
+    Elinder, F., 2017. A drug pocket at the lipid bilayer–potassium channel interface. Sci.
+    Adv. 3, e1701099.
+
+
+
+
+
+                                                                       200

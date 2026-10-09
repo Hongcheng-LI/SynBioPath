@@ -1,0 +1,108 @@
+{
+  "review": {
+    "pass": true,
+    "major_issues": [],
+    "minor_issues": [
+      "草稿在 Q2 中将 Set C 表现最佳 DFT 方法写作 mPW1PW91/6-311G*//B3LYP/6-31G** + M06-2X/6-31G** 单点，与 Table 1 原文标注为 'mPW1PW91/6-311G*//B3LYP/6-31G** (M06-2X/6-31G** single-point energy)' 一致，但体例上可注明完整泛函基组命名",
+      "草稿未具体列出来源代码仓库地址（GitHub: github.com/Wen-Xuan-Wang/GFN2NMR），但该信息不影响内容准确性，仅作为可读性建议",
+      "草稿中'MTX 分子量超过 3000 Da'为推断，原文未给出 MTX 分子量数字；建议删除或改为'已知最大非聚合天然产物'"
+    ],
+    "figure_coverage": {
+      "expected_labels": [
+        "Figure 1",
+        "Figure 2",
+        "Figure 3",
+        "Figure 4",
+        "Figure 5",
+        "Figure 6",
+        "Figure 7",
+        "Figure 8",
+        "Figure 9",
+        "Table 1",
+        "Table 2"
+      ],
+      "covered_labels": [
+        "Figure 1",
+        "Figure 2",
+        "Figure 3",
+        "Figure 4",
+        "Figure 5",
+        "Figure 6",
+        "Figure 7",
+        "Figure 8",
+        "Figure 9",
+        "Table 1",
+        "Table 2"
+      ],
+      "missing_panels": [],
+      "missing_pages": []
+    },
+    "verified_claims": [
+      {
+        "claim": "GFN2NMR 为 54 层 GCN，由 18 个残差块×3 层 GCN 单元组成",
+        "source_locator": "PDF p.4, Details of the Model 段",
+        "evidence": "Our optimized model comprises 54 GCN layers, which are organized into 18 stacked residual blocks... Each residual block consists of 3 stacked GCN units"
+      },
+      {
+        "claim": "Exp9K 含 9000+ 化合物、110,000+ 标记碳原子，覆盖 H, B, C, N, O, F, P, S, Cl, Br, Si, Ge, Se, Sn, I",
+        "source_locator": "PDF p.2, Data Collection 段",
+        "evidence": "we obtained over 9000 compounds with over 110,000 carbons labeled by experimental 13C NMR chemical shifts (Exp9K)... elements of these compounds included H, B, C, N, O, F, P, S, Cl, Br, Si, Ge, Se, Sn, and I"
+      },
+      {
+        "claim": "Diast-set 含 978,000 个标记碳原子",
+        "source_locator": "PDF p.3, 第一段",
+        "evidence": "yielding another set of 978,000 labeled carbons (Diast-set)"
+      },
+      {
+        "claim": "Set A 在 GFN2NMR-full 上：R²=0.9983, MAE=1.75 ppm, RMS=2.30 ppm, Max error=11.90 ppm",
+        "source_locator": "PDF p.6, Figure 6A 图内标注",
+        "evidence": "R² = 0.9983; MAE = 1.75 ppm; RMS = 2.30 ppm; Max error = 11.90 ppm"
+      },
+      {
+        "claim": "Set B 中 GFN2NMR-full 正确指派全部 13 对修订结构；DFT 仅 11 对正确",
+        "source_locator": "PDF p.7, Table 1 + p.6 正文",
+        "evidence": "GFN2NMR-full Correct = 13, Wrong = 0... mPW1PW91/6-311G*//B3LYP/6-31G*... Correct = 11, Wrong = 2"
+      },
+      {
+        "claim": "Set C 上 GFN2NMR-full 正确率 72%（DFT 范围 56-84%）",
+        "source_locator": "PDF p.7, Table 1",
+        "evidence": "GFN2NMR-full 72%... B3LYP/6-311G*//B3LYP/6-31G** 60%; ... mPW1PW91/6-311G*//B3LYP/6-31G** (M06-2X/6-31G** single-point energy) 84%"
+      },
+      {
+        "claim": "MTX 1a: MAE=1.62, RMS=2.17, DP4=100%; 1b-1: DP4=0%; 1b-2: DP4=0%",
+        "source_locator": "PDF p.8, Table 2",
+        "evidence": "1a MAE 1.62, RMS 2.17, DP4 100%; 1b-1 MAE 1.85, RMS 2.44, DP4 0%; 1b-2 MAE 1.77, RMS 2.38, DP4 0%"
+      },
+      {
+        "claim": "DP4 σ 值：GFN2NMR-full 2.34, GFN2NMR-Exp9K 2.81, CASCADE 3.16",
+        "source_locator": "PDF p.8, EXPERIMENTAL SECTION, Computation Details",
+        "evidence": "σ was set to 2.34, 2.81, and 3.16 for GFN2NMR-full, GFN2NMR-Exp9K, and CASCADE, respectively"
+      },
+      {
+        "claim": "训练集 7455 分子，测试集 1792 分子；Set A 含 92 个分子",
+        "source_locator": "PDF p.4, Details of the Model 段",
+        "evidence": "divided the Exp9K data set into a training set (7455 molecules) and test set (1792 molecules)... we collected 92 molecules... as an external validation set"
+      },
+      {
+        "claim": "3.97 s/构象，Intel I5-12600KF 单核",
+        "source_locator": "PDF p.8, 正文",
+        "evidence": "approximately 3.97 s per conformer) on a personal computer equipped with I5-12600KF"
+      }
+    ],
+    "identity_matches": true,
+    "classification_supported": true,
+    "crop_complete": true
+  },
+  "usage": {
+    "total_tokens": 85747,
+    "total_characters": 0,
+    "prompt_tokens": 81431,
+    "completion_tokens": 4316,
+    "completion_tokens_details": {
+      "reasoning_tokens": 2861
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 128
+    }
+  }
+}

@@ -1,0 +1,13 @@
+import json,re,fitz,hashlib
+import worker as w
+d=w.ROOT/'sources'/'N5CFQ4FU';rec=json.loads((d/'prepared.json').read_text(encoding='utf-8'));doc=fitz.open(rec['main_pdf'])
+spec=[('Figure 1',4,[49,74,548,394]),('Figure 2',5,[49,74,548,466]),('Figure 3',6,[49,74,548,460]),('Figure 4',7,[49,74,548,409]),('Figure 5',7,[49,430,548,771]),('Table 1',8,[49,74,294,762])]
+gaps=['All11mainpagesreadandviewedFigure1to5Table1; actualsupplementarytablesunreadSRArawdatabasesnotdownloadedreferencesnotindependentlyread','Allregulationedgespredictionorcoexpression noPARE5RACEcleavagereportergeneticperturbationtaxolquantification nofunctionalenzymeproof','Methodtreatmentreplicate1 tissue6sex3; new2female2male leavesdifferentdataset n3notunified nofullmetadataorbatchmodelverified','Table1miR159bduplicateB/C 15categoryentries14uniquemiRNA namesplusPhas217; Discussion4.3directtargetovergeneralization','49miRNAtargetenzymes18phasiRNAtargetenzymesoverlapunknownnot67unique;160PHASloci not160validatedmatureproducts','48of160Chr10equals30percent;71enzymehomologyespecially_like_notvalidatedfunction','Coordinates109N30Ewith60minuteinvalid retainnotcorrect;141.687512MbregionnotcompactBGCproof','TPTMsRNA notTPMmRNA orpercellcopies activity yield; heatmaptranscriptnotmetaboliteproduction']
+figs=[{'label':l,'caption':('原文 Movie 1 静态海报及图注（内部索引 Chart 1，视频未读取）' if l=='Chart 1' else '原文 '+l+'：完整图表及图注'),'panels':[],'pages':[{'page':p,'bbox':[b[0]/doc[p-1].rect.width,b[1]/doc[p-1].rect.height,b[2]/doc[p-1].rect.width,b[3]/doc[p-1].rect.height],'dpi':300}]} for l,p,b in spec]
+draft={'identity_matches':True,'identity_reason':'11pages title7authorsFrontPlantSci15article1403060DOI verified','paper_type':'research','title_zh':'中国红豆杉miRNA与phasiRNA紫杉醇候选调控网络','filename_title':'中国红豆杉miRNA与phasiRNA紫杉醇候选调控网络','journal_short':'Front Plant Sci','category':None,'related_categories':[],'classification_reason':'全部文献解读完成后统一分类','source_gaps':gaps,'figures':figs,'report':(d/'codex-report.md').read_text(encoding='utf-8')}
+w.normalize_format(draft);w.validate_structure(draft);w.write_json(d/'codex-draft.json',{'draft':draft,'method':'CurrentCodexsourcegrounded11pages'})
+images=[]
+for fig,(l,p,b) in zip(figs,spec):
+ out=d/('N5CFQ4FU-'+l.replace(' ','-')+'-p'+str(p)+'-complete.png');doc[p-1].get_pixmap(dpi=300,clip=fitz.Rect(b),alpha=False).save(out);sha=hashlib.sha256(out.read_bytes()).hexdigest();target=out.with_name(out.stem+'-'+sha[:16]+'.png');out.replace(target);images.append({'label':l,'caption':fig['caption'],'page':p,'file':str(target),'bbox':b,'panels':[],'sha256':sha})
+w.write_json(d/'codex-crops.json',images)
+print(json.dumps({'CJK':len(re.findall(r'[\u4e00-\u9fff]',draft['report'])),'images':len(images),'files':[x['file'] for x in images]},ensure_ascii=False))

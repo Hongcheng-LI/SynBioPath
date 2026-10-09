@@ -1,0 +1,13 @@
+import json,re,fitz,hashlib
+import worker as w
+d=w.ROOT/'sources'/'W6R3DDNY';rec=json.loads((d/'prepared.json').read_text(encoding='utf-8'));doc=fitz.open(rec['main_pdf'])
+spec=[('Table 1',3,[39,64,556,608]),('Figure 1',4,[40,65,555,520]),('Table 2',5,[39,64,556,477]),('Figure 2',6,[40,65,555,225])]
+gaps=['12pagesallreadoriginalsviewed2figures2tablescomplete300dpicropsreviewnarrativenotsystematicoriginalreferencesSIunread','PDFvisualmicrogramunitsnottextlayermg3179.9TableactualmgpergDWbodyugpergDWconflict568.2ugL27ugpergdry56.6and1.3ugpergfreshverifiednofreshdryconversion','TXS Table1PTX256176percenthigherversusbodytaxanes2.64and1.55foldconflictretained','Zhang2011abodyDBATTableFig2011bbutreferences2011bfungaltransformationconflictretained','75percenttabletransformationefficiencybodymaintainedtransformedcallidenominatorunclearHoTmaireicellrootlanguageconflict','Heating4CsourcewordingconflictSahaispectroscopictaxolnotfullstructproofendophyteclaimspositiveandnegativepreserved','15000foldnot1000over1.3samebaselineDeJongendpointmixedoxygenatedtaxanesnotfinalPTXpotentialT5ol isomernotconfirmed','ReportedplusminusnoSDSEMknownnPCIunreportednotinvented2023pathwaystatusnotcurrentindustrialproofclassificationdeferredhumanreviewfalse']
+figs=[{'label':l,'caption':('原文 Movie 1 静态海报及图注（内部索引 Chart 1，视频未读取）' if l=='Chart 1' else '原文 '+l+'：完整图表及图注'),'panels':[],'pages':[{'page':p,'bbox':[b[0]/doc[p-1].rect.width,b[1]/doc[p-1].rect.height,b[2]/doc[p-1].rect.width,b[3]/doc[p-1].rect.height],'dpi':300}]} for l,p,b in spec]
+draft={'identity_matches':True,'identity_reason':'12pages7authorsFrontPlantSci14:1100228DOI liveZotero titlevisualverifiedTYPEReview','paper_type':'review','source_article_type':'Review','title_zh':'紫杉烷遗传工程综述中的平台比较与产物证据边界','filename_title':'紫杉烷遗传工程综述中的平台比较与产物证据边界','journal_short':'Front Plant Sci','category':None,'related_categories':[],'classification_reason':'全部文献解读完成后统一分类','source_gaps':gaps,'figures':figs,'report':(d/'codex-report.md').read_text(encoding='utf-8')}
+w.normalize_format(draft);w.validate_structure(draft);w.write_json(d/'codex-draft.json',{'draft':draft,'method':'CurrentCodexsourcegrounded12pages'})
+images=[]
+for fig,(l,p,b) in zip(figs,spec):
+ out=d/('W6R3DDNY-'+l.replace(' ','-')+'-p'+str(p)+'-complete.png');doc[p-1].get_pixmap(dpi=300,clip=fitz.Rect(b),alpha=False).save(out);sha=hashlib.sha256(out.read_bytes()).hexdigest();target=out.with_name(out.stem+'-'+sha[:16]+'.png');out.replace(target);images.append({'label':l,'caption':fig['caption'],'page':p,'file':str(target),'bbox':b,'panels':[],'sha256':sha})
+w.write_json(d/'codex-crops.json',images)
+print(json.dumps({'CJK':len(re.findall(r'[\u4e00-\u9fff]',draft['report'])),'images':len(images),'files':[x['file'] for x in images]},ensure_ascii=False))

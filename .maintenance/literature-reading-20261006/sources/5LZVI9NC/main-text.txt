@@ -1,0 +1,678 @@
+
+[PDF physical page 1]
+ bioRxiv preprint doi: https://doi.org/10.1101/2025.10.26.684697; this version posted October 27, 2025. The copyright holder for this preprint
+(which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is made
+                                          available under aCC-BY-NC-ND 4.0 International license.
+
+
+
+
+
+Predicting protein complexes in biosynthetic gene clusters
+
+Yoshitaka Moriwaki1,2, †, Taro Shiraishi3, Yohei Katsuyama2,4, Kenichi Matsuda5, Toyoyuki Ose6, Atsushi
+Minami7, Hideaki Oikawa8, Tomohisa Kuzuyama2,4, Ryuichiro Ishitani1, Tohru Terada2,4
+
+1Department of Computational Drug Discovery and Design, Medical Research Laboratory, Institute of Integrated Research, Institute
+of Science Tokyo, 1-5-45 Yushima, Bunkyo-ku, Tokyo 113-8510, Japan.
+2Department of Biotechnology, Graduate School of Agricultural and Life Sciences, The University of Tokyo, 1-1-1 Yayoi, Bunkyo-ku,
+Tokyo 113-8657, Japan.
+3Department of Chemistry, Graduate School of Science, Kyoto University, Sakyo-ku, 606-8502 Kyoto, Japan.
+4Collaborative Research Institute for Innovative Microbiology, The University of Tokyo, Bunkyo-ku, Tokyo 113-8657, Japan
+5Faculty of Pharmaceutical Sciences, Hokkaido University, kita-ku, Sapporo, 060-0812, Japan.
+6Faculty of Advanced Life Science, Hokkaido University, kita-ku, Sapporo, 060-0810, Japan.
+7Department of Chemistry, Institute of Science Tokyo, 2-12-1 O-okayama, Meguro-ku, Tokyo 152-8551, Japan.
+8Division of Chemistry, Faculty of Science, Hokkaido University, Sapporo, 060-0810, Japan.
+
+ABSTRACT: Biosynthetic gene clusters (BGCs) are contiguous genomic regions that encode diverse, non-homologous proteins required for
+the production of specific natural products. Their genetic diversity underlies the structural complexity of these compounds, and their
+biosynthetic pathways still remain to be clarified in many cases. The biosynthetic mechanisms rely not only on substrate specificity between
+proteins and ligands, but also on protein–protein interactions that mediate transport of intermediates, regulation of activity, and structural
+ stabilization. However, sequence-based functional predictions have had limited success for many uncharacterized proteins within BGCs. To
+address this challenge, we built a high-throughput complex prediction pipeline by replacing AlphaFold3’s multiple sequence alignment
+generation with a faster MMSeqs2. We systematically screened 487,828 protein pairs derived from 2,437 BGCs registered in the Minimum
+Information about a Biosynthetic Gene cluster (MIBiG) database and predicted 15,438 heteromeric interactions with an ipTM ≥ 0.6. Among
+them, 1,390 protein pairs exhibited structural homology with an RMSD ≤ 2.0 Å. These predictions highlight intriguing molecular mechanisms
+involving proteins previously annotated as uncharacterized or potentially dysfunctional. Furthermore, we provide these results in a reusable
+format and as a protein interaction network map to facilitate future experimental validation by researchers.
+
+
+
+INTRODUCTION                                                systems have enabled the expression of a wider range of proteins.
+                                                                    Since the 2000s, progress in sequencing technologies, such as next-   Secondary  metabolites  are  natural  products  produced  by
+                                                                     generation sequencing and metagenomic analysis, along with theorganisms  that  are  not  directly  involved  in  their  growth,
+                                                              development of bioinformatics tools and the expansion of genomicdevelopment, or reproduction. Unlike primary metabolites, such as
+                                                                         databases,  has  significantly  advanced  research on  secondaryamino acids, nucleotides, and carbohydrates, secondary metabolites
+                                                                      metabolites derived from uncultivable microorganisms. For example,often play specialized roles in ecological interactions—such as
+                                                           antiSMASH[7-14]  is a widely used bioinformatics tool for thedefense against predators[2], competition with other organisms[3],
+                                                                                identification, annotation, and  analysis  of BGCs  in microbialor symbiotic  relationships[4]. These compounds are  typically
+                                                              genomes. It also classifies clusters into known types by comparingsynthesized by biosynthetic gene clusters (BGCs), which are co-
+                                                         them  to  curated  reference  datasets,  including  the Minimumlocated sets of genes that collectively encode enzymes required to
+                                                                   Information  about  a  Biosynthetic  Gene  cluster  (MIBiG)produce a  specific metabolite and  auxiliary  proteins such  as
+                                                                      database[15]. DeepBGC[16]  incorporates deep  learning andtransporter and regulatory proteins[5,6]. Secondary metabolites
+                                                                          natural language processing strategies and incorporates genomiccontain a wide variety of chemical structures and classes, including
+                                                                        position dependency and order information not considered innon-ribosomal peptides (NRPs), polyketides (PKs), ribosomally
+                                                               hidden  Markov  model  (HMM)-based   tools   such   assynthesized and post-translationally modified peptides (RiPPs),
+                                                                   ClusterFinder[17]  and  antiSMASH.   This  improved   theterpenes, and saccharides, which have attracted significant interest
+                                                                              identification of BGCs in bacterial genomes and contributed to thefrom both enzymology and organic chemistry.
+                                                                      discovery of novel BGCs encoding natural products that could not
+   Early studies on secondary metabolites were limited in scope due                                                             be detected by existing methods.
+to the large number of host organisms that could not be cultured
+                                                                      In addition to these sequence-based analyses, highly accurateunder  laboratory  conditions.  However,  advances  in  genetic
+                                                                       prediction of protein tertiary structures, as exemplified by AlphaFoldengineering and the establishment of heterologous expression
+                                                          2 (AF2)[18], has become available since 2021. The computational
+
+
+[PDF physical page 2]
+ bioRxiv preprint doi: https://doi.org/10.1101/2025.10.26.684697; this version posted October 27, 2025. The copyright holder for this preprint
+(which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is made
+                                          available under aCC-BY-NC-ND 4.0 International license.
+
+and biological breakthrough significantly expanded the availability    BGC accession IDs deposited in MIBiG version 4.0 (2024-11-15)
+of protein structural information, which had previously been limited      that are currently maintained and updated. IDs marked as “retired”
+to around 200,000 experimental structures. AlphaFold can generate      or “pending” were excluded from analysis. Second, among the
+accurate models of protein monomers and complexes by predicting      proteins encoded in these BGCs, those with more than 1,950 amino
+inter-residue distances based on co-evolution signals concealed in       acids, which are commonly found in PKS- or NRPS-modular type
+the multiple sequence alignments (MSA) for the query sequence(s),       proteins, were excluded from the prediction, as they can exceed the
+provided that more than roughly 30–100 effective homologous      computational limits of modeling using AF3. The amino acid
+sequences are available in the target sequence database. The      sequences were obtained from the GBK format files provided by
+predicted structures have been already used as search models of     MIBiG. Using the amino acid sequences that meet the criteria, we
+molecular replacement method of for X-ray crystallography[19,20],     performed exhaustive predictions of homo- and heterodimeric
+as  well  as  initial  structures  for  molecular  dynamics (MD)      complexes for each BGC.
+simulations  and  quantum  mechanics/molecular  mechanics     MSA generation and structure prediction.  Despite recent
+(QM/MM) calculations[21]. Furthermore, AlphaFold provides                                                                     advances, protein structure prediction with AF3  still  relies on
+valuable  predictions  about  protein–protein[22] and  protein–                                                                                 sufficient number of multiple sequence alignments (MSAs) for the
+ligand[23] interactions that are difficult to obtain from sequence-                                                                 query  sequences. To  achieve both high  accuracy and  high-
+based bioinformatics tools alone. One of the applications of the                                                                 throughput prediction, we replaced the default MSA generation
+former prediction is the discovery and experimental validation of the                                                                         pipeline using HMMER 3[33] implemented in AF3 with a faster
+protein Tmem81, which  is conserved across vertebrates during                                                                               alternative: the colabfold_search command in LocalColabFold[34].
+ fertilization of sperm and egg[24].                                                   MMseqs2 version 15-6f452[35] was used to build two sequence
+   Formation of protein complexes also plays a crucial role in BGCs.      databases, Uniref30_2302 and colabfold_envdb_202108 (released
+Notably,  protein–protein   interactions  observed   in   carrier     on   July   31,  2023),  which  can  be  downloaded  from
+proteins[25], trans-type acyltransferase (AT) polyketide synthase      https://colabfold.mmseqs.com/ and generate MSAs for the query
+(PKS)[26], cis-type AT PKS[27], type I/II PKS, and fatty acid      sequences. The obtained MSAs have been shown to be sufficient for
+synthase[28,29] have been extensively studied and discussed as key      producing highly accurate predicted models with AF2 or ColabFold
+components  in  the  biosynthetic pathways. In homomultimer       in most cases.[34] In addition to unpaired MSAs, we also obtained
+complexes, residues that are distant in the primary and tertiary      paired MSAs to further improve the accuracy of complex modeling.
+structures assemble at the multimer interface to form a single     The protein template search against PDB100 database was not
+binding pocket[30]. Additionally, some heteromeric complexes      performed, as it is known to improve monomeric but not complex
+influence the  stability,  specificity, and catalytic activity[31,32].      prediction accuracy. The MSA generation was performed on the
+Because these interactions underlie the remarkable structural and     SuperComputer Flow Type III subsystem at Nagoya University.
+chemical diversity of the products, many enzymes in these systems      This system comprises 16 Intel Xeon Platinum 8280M processors
+have been structurally characterized to elucidate their molecular      (2.7 GHz, 28 cores each) and 24 TiB of RAM per node. Each query
+ basis. Nevertheless, most BGCs still harbor numerous proteins of      took approximately 1–2 minutes on the calculation node. The
+unknown function, often annotated simply as “hypothetical protein”      obtained a3m-formatted MSA files were added to the “pairedMsa”
+in  MIBiG,  which  represents  a  major  challenge  for  the     and “UnpairedMsa” keys of the AF3 input JSON file using the
+comprehensive understanding of their biosynthetic pathways.            msatojson command of the alphafold3_tools software that we
+   Here, we report a comprehensive search of all pairwise complex      developed  and made  available on  our  GitHub  repository:
+predictions among proteins encoded within each BGCs using      https://github.com/cddlab/alphafold3_tools/. The “modelSeeds”
+AlphaFold3 (AF3)[23]. These computational analyses enabled      value in the AF3 input JSON file was set to 1 and five models were
+highly sensitive detection of potential homo- and heteromultimer      generated for each prediction. For dimer with a total number of
+formation  that  were  previously   difficult  to  predict  using      residues below  1500,  the complex  structure  prediction was
+conventional sequence-based bioinformatics tools. This approach     performed using the SuperComputer Flow Type II subsystem with
+led to the identification of novel pairs of proteins that are likely to act    NVIDIA GPU V100; for those with 1500 to 2000 residues, our in-
+cooperatively. Furthermore, our results suggest that numerous     house NVIDIA GPU RTX4090; and for those with 2000–3900
+structurally homologous heterocomplexes exist in BGCs and that       residues, NVIDIA GPU H100 (VRAM 94GB). The Predicted
+many of them involve proteins previously annotated as having      Aligned Error (PAE) of the predicted structures was visualized using
+unknown functions.  Finally, we visualized the protein–protein      the paeplot command of alphafold3_tools.
+interaction network maps to provide a comprehensive overview in                                                              Validation of the predicted complex structures.
+the BGCs. Taken together, these findings offer novel and significant
+                                                                       Metrics. To  identify  biologically  plausible  protein–proteininsights into previously uncharacterized proteins in BGCs, thereby
+                                                                           interactions in the AF3-predicted complexes, we employed twoproviding  valuable  contributions  to  both  experimental  and
+                                                                         metrics:  the  interface  predicted TM-score (ipTM) and  thecomputational researcher communities engaged in the investigation
+                                                                          interaction prediction score from aligned errors (ipSAE)[36]. Theof secondary metabolites.
+                                                  ipTM measures the accuracy of the predicted relative arrangement
+MATERIALS AND METHODS                                       of subunits. Values ≥ 0.8 indicate confident and high-quality
+                                                                           predictions, < 0.6 suggest failure, and 0.6–0.8 represent an uncertain
+Structure Prediction Workflow.                                    range.[22,23] The ipTM values are provided in the AF3 output
+   Input amino acid sequences. We selected the proteins derived    JSON files. The ipSAE is a modified scoring function that evaluates
+from BGCs for comprehensive protein-protein complex prediction      the quality of predicted interactions by focusing on residue pairs
+based on the following criteria. First, we focused on 2,437 “active”       likely to participate in the interface, rather than the entire sequence.
+
+
+[PDF physical page 3]
+ bioRxiv preprint doi: https://doi.org/10.1101/2025.10.26.684697; this version posted October 27, 2025. The copyright holder for this preprint
+(which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is made
+                                          available under aCC-BY-NC-ND 4.0 International license.
+
+
+     1. Input       BGC0000001          2. MSA generation               3. Complex prediction          4. PPI network visualization
+
+
+
+                     BGC0000002                                                                                                                                                                                                                                                                           0.68
+                                                                                                                                                                                                                                                                                                                                      0.86                 XXX06320.1Orf1
+                                                                                                                                                                                                                                                                                       XXX06309.1putativeligaseCoA           0.8
+                                  colabfold_search /                                                                                                                                                                                                                                                                                                                                                                                                               putativeXXX06310.1transferasemalonyl
+                     BGC0002826        MMSeq2
+
+
+
+
+
+ Figure 1 Computational workflow. 1. Input amino acid sequences. List all pairs of self or other protein sequences encoded in each BGC accession
+ ID, excluding those with a length more than 1950 residues. 2. Generate paired and unpaired MSAs for all the protein pairs using MMseqs2 and colab-
+ fold_search. 3. Predict the dimeric complex using AlphaFold3. The input JSON files were created with alphafold3_tools. 4. Visualize a protein-protein
+ interaction (PPI) map for each BGC accession ID. Output JSON files containing ipTM and ipSAE metrics were also generated.
+
+This metric can be computed by applying the ipSAE script[36] to       High-throughput  complex  prediction  pipeline.   We
+the AF3 output JSON file with both the PAE cutoff (pae_cutoff) and      developed a computational pipeline for the systematic prediction of
+Cα-Cα distance cutoff (dist_cutoff) set to 10. We did not use other      protein–protein complexes encoded within BGCs (Figure 1). The
+metrics such as pDock[37], pDockQ2[38], or LIS[39] in this      pipeline takes as input the GenBank (.gbk) files associated with BGC
+analysis, although they serve similar purposes in evaluating protein–      accession IDs registered in MIBiG. Users may also provide a
+protein interactions.                                       GenBank  files generated by antiSMASH or FASTA-formatted
+   Validation datasets and complex analysis. We evaluated      protein sequence files for unregistered BGCs. Here, we focused on
+                                                          2437 BGCs that are labeled as “active” in MIBiG and targetedboth ipTM and ipSAE metrics for the predicted homo- and
+heterodimeric structures by validating them against experimentally      proteins with up to 1,950 amino acid residues. For each BGC,
+                                                               complexes were predicted for all possible protein combinations,determined complexes. For proteins encoded in the BGCs listed in
+MIBiG version 4.0 and also registered in the Protein Data Bank      including self-pairs. Specifically, for a BGC containing N qualifying
+(PDB), we retrieved their biologically relevant complex structures       proteins, we performed N(N − 1)/2 predictions for heteromeric
+(also  referred  as  “biological  assemblies”) and  stoichiometry       pairs and N additional predictions for homomeric pairs, resulting in
+information were retrieved from Protein Data Bank (PDB) as of      a total of N(N + 1)/2 predictions per BGC.
+November 30, 2024. To minimize the impact of amino acid        Highly accurate structure prediction using AF3 requires the
+substitutions on protein oligomerization, the sequence identity      generation of multiple sequence alignments (MSAs) for the input
+threshold was set to 95%. Additionally, for complexes whose      sequences. However, comprehensive prediction using the AF3 Web
+biological assemblies contained more than two chains and did not      server is not feasible due to its usage limits (currently 30 trials per
+exceed 3,900 amino acid residues in total, we performed further      day). Moreover, the official AF3 inference code available on GitHub
+structure  predictions  with  the  stoichiometries  to  obtain  the        is also impractical for the high-throughput workflows because the
+corresponding ipTM and ipSAE metrics.                   MSA generation process using HMMER 3 (http://hmmer.org)
+  For the obtained heterodimeric structures, the RMSD of the      [33] is slow. To address these issues, we used colabfold_search from
+backbone heavy atoms (N, Cα, C, and O) between the two subunits      LocalColabFold[34] in conjunction with MMseqs2[35] to rapidly
+was      calculated     using    Gemmi     version      0.7.3      generate MSAs. The resultant MSAs included both unpaired MSAs
+(https://github.com/project-gemmi/gemmi)   [40],   with   the       for individual proteins and paired MSAs generated by concatenating
+maximum number of outlier rejection cycles set to 5. To prevent      sequences from the same organism. These were assigned to the
+calculation errors caused by very short sequences (e.g., precursor      “unpairedMsa” and “pairedMsa” keys, respectively, in the AF3 input
+peptides), RMSD values were not computed for proteins with fewer    JSON file. This conversion process was achieved using msatojson
+than 20 residues.                                       command developed as part of our toolkit of alphafold3_tools. Using
+                                                                                 this pipeline, we prepared the input JSON files for subsequent
+Network visualization                                                             complex structure prediction on 487,828 protein pairs.
+  The protein–protein networks obtained for the 2437 BGCs were                                                                  Validation of the predicted homomeric complexes. We
+drawn using NetworkX version 3.5. Each protein was represented as                                                                    subsequently  compared  the  predicted  complexes  with  the
+a node, and edges were drawn between heterodimers that showed                                                                      experimentally determined protein complexes deposited in the PDB
+ipTM > 0.55 in the AF3 structural prediction. Proteins that formed                                                                      to evaluate the validity. As of November 30, 2024, a total of 555
+homodimers at the same threshold were represented with self-loop                                                         homomeric and 30 heteromeric protein entries were found in PDB
+edges. Then, the network maps were output in SVG image format                                                                      to exhibit over 95% sequence identity with proteins registered in
+and made available on a web server. Additionally, the JSON files and                                                    MIBiG ver. 4.0. Among the 555 homomeric proteins, 408 were
+Python codes used for generating these network maps will be                                                                  annotated as homodimers, and 135 as homotrimers or higher-order
+published as supplementary files, allowing users to regenerate them                                                                      assemblies that could be modeled on our GPUs. The remaining 12
+in their own environments using arbitrary thresholds.                                                                             entries could not be predicted due to their extremely large complex
+                                                                                      sizes. A high sequence similarity threshold of 95% was applied to
+RESULTS
+                                                               minimize the  effects of amino acid  differences,  insertions, or
+                                                                         deletions that could  alter the composition of residues  at the
+
+
+[PDF physical page 4]
+ bioRxiv preprint doi: https://doi.org/10.1101/2025.10.26.684697; this version posted October 27, 2025. The copyright holder for this preprint
+(which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is made
+                                          available under aCC-BY-NC-ND 4.0 International license.
+
+
+
+
+
+ Figure 2. Validation of the predicted complexes. (A) Scatter plot of chain-level ipTM and ipSAE values for predicted homodimers (n = 408). Marginal
+ histograms for each axis are displayed above and to the right. (B) Differences in ipTM and ipSAE between the predicted homodimer (blue) and the
+ biological assembly (red). Only biological assemblies forming homomeric complexes larger than dimers and computable on our GPUs are included (n
+ = 135). (C) Scatter plot of ipTM and ipSAE values for predicted heterodimers. (D) Superimposition of the predicted OsCutA1 trimer (GenBank ID:
+ BAT10611.1; blue, yellow, and green) and dimer (purple) with the crystal structure (PDB code: 2ZOM). (E) Predicted MupZ homotetramer (col-
+ ored) and its crystal structure (white). An artificial N-terminal peptide (orange) is shown in stick representation. (F) Predicted HitB (GenBank ID:
+ BAR73008.1)–HitD (BAR73010.1) and its crystal structure (white and gray). The cross-linking probe in the crystal structure is shown in brown stick
+ representation. (G) Superimposition of the predicted PbtA (AGY49587.1; blue)–PbtF (AGY49592.1; yellow) complex with the crystal structure
+ (PDB code: 8T19; white and gray). Residues of PbtA at the interface are shown in stick representation.
+
+multimerization  interface  and  thereby  lead  to  inaccurate      (residues 1–64) was not included in the prediction. This finding also
+measurements.                                                         indicated  that  the  long-disordered  region  lowered  ipTM
+  For the protein structures registered in the PDB as homodimers,     (Supplementary Figure S1). Despite this, ipSAE remained high,
+our predicted dimeric models showed ipTM ≥ 0.8 for 294/408      underscoring its reliability as an evaluation metric in such cases.
+(72.1%) and ipTM ≥ 0.6 for 358/408 (87.7%) (Figure 2A). The         Nevertheless, some of the predicted complexes did not exhibit
+ipSAE metric, which represents a corrected ipTM calculated using      high ipTM/ipSAE values even when using the stoichiometries of
+only interchain residue pairs with reliable PAE scores, correlated       biological assemblies. Closer inspection revealed that several of
+well with ipTM above the 0.6 threshold, but approached zero below      these cases represented artifacts, either due to misassignments of
+this cutoff. We next examined the 135 proteins annotated as forming      stoichiometry   inferred  from   the   crystal   packing   using
+higher-order homomeric complexes. When predicted as dimers,     PDBePISA[41], or the inclusion of artificial sequence tags that
+these proteins frequently yielded ipTM values around 0.6. However,      induced unnatural oligomerization. The former example is MxaA in
+when  re-predicted  with  their  stoichiometries  of  biological       Stigmatella aurantiaca (GenBank ID: AAK57184.1; PDB code:
+assemblies  registered  in PDB,  the ipTM  values  substantially     4U7W), which is experimentally validated as a monomer[42]. The
+improved,  exceeding  0.8  in  most  cases  (Figure  2B). A       latter example is MupZ from Pseudomonas fluorescens (GenBank ID:
+representative example is CutA1 from Oryza sativa (PDB code:     AFD33556.1; PDB code: 6FXD), which is registered as a homo-
+2ZOM). In the dimeric prediction, the substructure was nearly      tetramer due  to C-terminal His₆-tag–induced  tetramerization,
+identical to the crystal structure but exhibited low confidence scores      although the native protein forms a dimer.[43] We summarized the
+(ipTM = 0.38; ipSAE = 0.001). In contrast, the trimeric prediction,      proteins exhibiting low ipSAE and ipTM values in Supplementary
+corresponding to the biological assembly, closely reproduced the     Table 1. These observations highlight the challenges of constructing
+experimental structure, with improved ipTM and ipSAE values of       fully reliable datasets of multimeric assemblies from the PDB.
+0.64 and 0.84, respectively (Figure 2D). These results highlight the      Nonetheless, our findings suggest that an ipTM threshold of 0.6 is
+limitations of using ipTM or ipSAE thresholds for dimer prediction,       effective   for   screening   proteins   for   the   potential   of
+especially when the inter-subunit interface is small. Additionally, the      homooligomerization.
+ipTM and ipSAE metrics were further improved to 0.93 and 0.86,        Validation of the predicted heteromeric complexes. For the
+respectively, when  its N-terminal long  transit peptide region                                                          30 heteromeric complexes, we observed similar ipTM and ipSAE
+
+
+[PDF physical page 5]
+ bioRxiv preprint doi: https://doi.org/10.1101/2025.10.26.684697; this version posted October 27, 2025. The copyright holder for this preprint
+(which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is made
+                                          available under aCC-BY-NC-ND 4.0 International license.
+
+
+
+
+
+ Figure 3. Examples of predicted complex models. (A) cae45685.1 (green)–cae45686.1 (purple)–Acetyl-CoA (brown) trimeric complex model. (B)
+ The predicted complex colored by pLDDT (orange, 0–50; yellow, 50–70; cyan, 70–90; and blue, 90–100). (C) The predicted aligned error (PAE)
+ matrix with chain coloring of (A) on the side bars. The dashed black lines indicate the chain boundaries. (D) Superimposition of the Naa30 crystal
+ structure (white) on the predicted model shown in Panel A. The N-terminal region of major capsid protein as a substrate peptide (Uniprot ID: P32503)
+ is shown as cyan stick. (E) PGA1_262p00820 (green)–PGA1_262p00830 (purple) complex model found in BGC0000932. (F) pLDDT-colored
+ predicted PGA1_262p00820 –PGA1_262p00830 complex. The PAE matrix with chain coloring of (F) is shown on right panel. (G) Predicted
+ PGA1_262p00820 monomer structure colored by pLDDT. The right panel shows the PAE matrix. These data were obtained from the AlphaFold
+ Protein Structure Database[1] (UniProt ID: I7E6A3).
+
+correlations to those in the homomeric complexes. Among these,     peptide–enzyme  complexes,  a  statistical  evaluation  for them
+6M01[44],    7YN3[45],    8K4R[46],    8T19    (DOI:      remains difficult.
+10.2210/pdb8T19/pdb), and 4TX3[47] showed ipTM < 0.6. We       Taken together, these results indicate that AF3 successfully
+further investigated the cause of these low ipTM values. First, in                                                                      predicted complex formation (ipTM ≥ 0.6) in 26 out of the 30
+PDB entries of 7YN3, 8K4R (VinM-VinL), and 6M01, a chemical      heteromeric cases. However, there are limitations in its predictive
+reagent to induce covalent cross-linking between the two proteins                                                                                  capabilities, particularly for transient complexes or those with small
+was used to obtain the crystal structure of the heterodimeric      binding interfaces, such as those formed by ACPs or precursor
+complexes. Biologically, one of the proteins in these two PDB entries                                                                          peptides.
+ is an acyl carrier protein (ACP), which is known to form a transient
+                                                            Novel heterocomplexes. Among 487,828 predicted protein
+complex with the other protein. Thus, it is speculated that the ipTM
+                                                                                   pairs, 15,438 heterodimers exhibited ipTM ≥ 0.6, and 3,754 showed
+does not yield high values for such complexes.
+                                                  ipTM ≥  0.8. These include complexes formed by previously
+  PDB code 8T19 represents the complex structure of PbtA, a RiPP                                                                     uncharacterized proteins. Here, we can hypothesize the functions of
+precursor peptide, and its modifying enzyme PbtF from the GE2270                                                                      these proteins based on the predicted models. For example, a
+BGC (BGC0001155). The ipTM and ipSAE values were 0.39 and                                                                 heterodimer of cae45685.1 and cae45686.1 (Figure 3A–C) found
+ 0.1, respectively. Interestingly, AF3 predicted that the peptide binds                                                                           in borrelidin BGC from Streptomyces parvulus (MIBiG accession ID:
+to the β-strand region of PbtF; however, the predicted binding                                                          BGC0000031)[52-54] is annotated as “hypothetical protein” in
+position was shifted by two residues compared with the crystal                                                          MIBiG, and to our knowledge, no studies have been reported for
+structure. We further investigated NisB from Lactococcus lactis subsp.                                                                      these proteins. BLASTp[55] search predicted both proteins have
+ lactis  and  StrB  from   Streptococcus   thermophilus  LMD-9                                                                                 partial sequence similarity with GCN5-related N-acetyltransferase
+(BGC0001209)[48] to gain insights into proteins that bind RiPP                                                     (GNAT). Structure-based searches against PDB100 database using
+precursor peptides. The crystal structure of NisB in complex with its                                                                     the Foldseek webserver[56] indicated that the predicted complex
+precursor peptide NisA was not included in the validation dataset                                                                          structure resembles the single subunit Naa30 of the heterotrimeric
+because these proteins were fused within the same chain (PDB code:                                                     NatC complex (PDB code: 6YGD, chain A)[57], which catalyzes N-
+4WD9)[49] or the peptide is chemically modified (PDB code:                                                                      terminal  acetylation  (Nt-acetylation)  of numerous  eukaryotic
+6M7Y)[50].  StrB  shares 94.98%  sequence  identity  with  its                                                                            proteins. Superimposition of the complex model on the Naa30
+homologous protein SuiB from Streptococcus  suis (PDB code:                                                                          structure revealed that a binding pocket for the cofactor acetyl-CoA
+5V1T)[51]. The predicted complex structures for both matched                                                                                               is formed between the cae45685.1–cae45686.1 interface, with the
+well with their corresponding crystal structures, showing no residue                                                                            acetyl group of acetyl-CoA being exposed to the peptide-binding site
+ shift and high ipTM and ipSAE values (Supplementary Figure S2).                                                                          of Naa30 (Figure 3D). This suggests that this heterocomplex may
+However, because of the extremely limited number of available                                                                           also catalyze Nt-acetylation of its substrate. Recently, Streptomyces
+structures or experimental data on formation of RiPP precursor                                                                           mutabilis sp. MII, which is thought to possess a BGC similar to
+
+
+[PDF physical page 6]
+ bioRxiv preprint doi: https://doi.org/10.1101/2025.10.26.684697; this version posted October 27, 2025. The copyright holder for this preprint
+(which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is made
+                                          available under aCC-BY-NC-ND 4.0 International license.
+
+
+
+
+
+ Figure 4. Predicted structurally homologous complexes. (A) Histogram of structural RMSD values between monomeric units of predicted heterodi-
+ mer pairs. An inset shows a magnified view of the 0–10 Å range. (B) Superimposition of the predicted complex structure of actinorhodin polyketide β-
+ ketoacyl synthase alpha (KS) and beta (CLF) subunits (blue and red) on the crystal structure (PDB code: 1TQY; green and yellow). KS is shown in
+ blue and green, and CLF in red and yellow. (C) mbg cluster. Only the genes encoding KS and CLF are depicted. (D) Computed ipTM and ipSAE
+ values for each complex prediction of the four KS (horizontal) and four CLF (vertical) subunits in mbg cluster. (E) Superimposition of the predicted
+ MonBI (blue)–MonBII (yellow) heterodimer on the crystal structure of the MonBI homodimer (PDB code: 3WMD; cyan). The computed ipTM
+ values for each homo- and hetero-dimer are shown below. (F) Predicted Ams8 (blue)–Ams9 (yellow) complex. (G) Close-up view of the FAD binding
+ site in the predicted structures of Ams8 (blue) and Ams9 (yellow). The pltA crystal structure (PDB code: 5DBJ) is shown in gray. Residues presumed
+ to be important for chlorination activity are shown in stick representation. (H) Proposed trichlorination mechanism in the armeniaspirol BGC (bot-
+ tom). Formation of the dichloropyrrole moiety catalyzed by PltA during pyoluteorin biosynthesis is shown on the top for comparison.
+
+BGC0000031, has been reported to produce N-acetylborrelidin B in        Structurally homologous heterocomplexes. By examining
+addition to borrelidin (Supplementary Figure S3A)[58]. Given      the predicted heterodimers, we identified 952 pairs (4.9%) in which
+that  borrelidin  B,  a known  precursor  of  borrelidin,  has an      the structural RMSD between constituent proteins was ≤1.0 Å, and
+aminomethyl group  at C12  carbon,  it  is  plausible  that  the     1390 pairs (7.1%) with RMSD ≤ 2.0 Å (Figure 4A). The median
+heterocomplex  binds  borrelidin B  at  a  peptide-binding  site    ipTM and ipSAE values for the protein pairs with RMSD ≤2.0 Å
+analogous to that of Naa30 and catalyzes its acetylation to yield N-     were 0.82 and 0.71, respectively, indicating that these predictions
+acetylborrelidin B (Supplementary Figure S3B and C).              were made with high confidence. This observation suggests that
+  We also identified several Domain Unknown Function (DUF)       structurally homologous heterodimers are present across BGCs and
+proteins whose function appears to  arise only upon complex      contribute to the biosynthesis. A well-characterized and popular
+formation.  For  example,  PGA1_262p00820  (Genbank  ID:     example is a ketosynthase (KS)–chain length factor (CLF) complex,
+AFO93364.1) in tropodithietic acid BGC from Phaeobacter inhibens     which constitutes the central catalytic machinery in Type II PKSs. In
+DSM 17395 (MIBiG  accession  ID: BGC0000932)[59] was       this complex, the KS subunit catalyzes the decarboxylation of the
+annotated as a DUF4399 domain–containing protein, a family for      malonyl unit tethered to a phosphopantetheinyl arm of an ACP, and
+which functional characterization remains scarce. Our analysis      the condensation of the resulting enolate anion with a growing
+predicted that this protein forms a complex with PGA1_262p00830      polyketide chain attached to its catalytic cysteine. The CLF subunit
+(AFO93365.1), a DoxX-family protein, with an ipTM of 0.82 and an        is a KS homolog lacking catalytic residues, but the internal tunnel
+ipSAE of 0.64 (Figure 3E). Notably, the N-terminal region of     formed by the complex plays a critical role in determining the
+PGA1_262p00820 was predicted to be disordered as a monomer;      polyketide chain length. The actinorhodin polyketide beta-ketoacyl
+however, in the heterodimer, this region adopted an α-helical      synthase   alpha  (GenBank  ID:  CAC44200.1)  and   beta
+conformation with high pLDDT and formed an interaction interface     (CAC44201.1) subunits of BGC0000194 have been identified as
+with a helix of PGA1_262p00830 (Figure 3F and G). Given that    KS and CLF, respectively, and their heterocomplex structure was
+DoxX-family  proteins  are  localized  to  the  cell  membrane,      determined (PDB  code: 1TQY)[60]. The  protein  pair was
+PGA1_262p00820    is   expected   to  be  embedded   with      predicted to form a complex with high ipTM and ipSAE values of
+PGA1_262p00830 in the cell membrane. Thus, the two proteins      0.96 and 0.93, respectively, and closely matched the crystal structure
+may act cooperatively as membrane-bound enzymes or transporters.      (Figure 4B). Interestingly, despite the KS and CLF subunits sharing
+
+
+[PDF physical page 7]
+ bioRxiv preprint doi: https://doi.org/10.1101/2025.10.26.684697; this version posted October 27, 2025. The copyright holder for this preprint
+(which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is made
+                                          available under aCC-BY-NC-ND 4.0 International license.
+
+the same fold with an RMSD of 1.02 Å, the homodimeric prediction      Our structure prediction pipeline showed that Ams8 and Ams9
+for KS yielded relatively low scores (ipTM = 0.65, ipSAE = 0.38),     may form homodimers with ipTM values  of 0.77 and  0.73,
+and CLF showed almost no signal (ipTM = 0.20, ipSAE = 0.0).       respectively, whereas their heterodimer displayed a higher ipTM
+These findings indicate that AF3 is capable of correctly identifying      value of 0.86 (Figure 4F). Intriguingly, the predicted structure of
+heterocomplex  formation  independent  of  overall  structural    Ams8 revealed that E337 is positioned at a site that would inhibit the
+similarity between monomers.                                       binding of flavin adenine dinucleotide (FAD), an essential cofactor
+   Subsequently, we examined whether ipTM and ipSAE could       for halogenation. In addition, the conserved lysine residue required
+                                                                      to mediate the reaction between the substrate and hypochlorousidentify correct KS–CLF pairs within a BGC cluster encoding
+multiple KS and CLF  proteins.  In  our  previous  work, we     acid[66-68]—generated from FAD, molecular oxygen, and chloride
+                                                              ions—is replaced by N90 in Ams8. (Figure 4G). These unusualexperimentally  validated  the  correct  pairing  in mbg  cluster
+(BGC0002441;  Figure 4C)  as Mbg7–Mbg3, Mbg6–Mbg5,      residue substitutions strongly suggest that Ams8 lacks halogenase
+                                                                                     activity. By contrast, Ams9 and Ams22 retain these conservedMbg16–Mbg15, and Mbg21–Mbg22 [61]. Our all-by-all complex
+predictions for the 4 × 4 combinations showed that both ipTM and       residues. However, gene deletion of ams8 completely abolished the
+                                                                        biosynthetic process of armeniaspirol, whereas deletion of eitheripSAE values reached their maximum values for the experimentally
+validated pairs (Figure 4D). Notably, ipSAE yielded lower values     ams9 or ams22 reduced its production by 100-fold but did not lead
+                                                                      to complete loss[64]. This indicates that Ams8 is more essential forfor incorrect pairings than ipTM, indicating greater discriminatory
+power. A  similar  trend  was  observed  in  the  Ysf  cluster      the biosynthetic pathway. Overall, these findings suggest that Ams9
+                                                                       functions  as  the  enzyme  catalyzing  trichlorination  of  4,5-(BGC0002547)[62], which encodes three KSs and three CLFs,
+where the highest values again corresponded to the experimentally      dichloropyrrolyl–S-Ams22, while Ams8 acts as an auxiliary protein
+                                                                           that supports the activity of Ams9 through complex formationconfirmed pairings (Supplementary Figure S4). Collectively, these
+results demonstrate that the ipTM and ipSAE metrics provide      (Figure 4H).
+reliable indicators for identifying true KS–CLF pairs and predicting        Visualization of the protein–protein interaction network
+their   released   polyketide   intermediates,  even  when  the     map. To facilitate the use of our computational results by a broad
+corresponding genes are not located adjacent within the BGC.           range of researchers, we created a web site that visualizes protein–
+  Our comprehensive predictions further identified 381 protein      protein network diagrams for the 2437 BGCs. On this site, users can
+pairs that are likely to form both homodimers and heterodimers,        filter  the  data by MIBiG  accession ID, taxonomy,  class, or
+meeting the criteria of ipTM ≥ 0.6 and ipSAE ≥ 0.6. A representative     compound names, and view both the network diagrams and
+example is the pair MonBI and MonBII from the monensin BGC      representative chemical structures of the products (Figure 5A).
+(BGC0000100). Although the crystal structure of the MonBI      Proteins are represented as nodes, and pairs of proteins predicted to
+homodimer has been determined in our previous work (PDB code:     form homodimers or heterodimers are connected by edges when
+3WMD)[63], biological assays have shown that MonBI also forms a      they exceed a certain threshold (Figure 5B). The JSON files and
+heterodimer with MonBII, and this complex displays enzymatic     Python scripts used to generate these network diagrams are available
+ activity. AF3 predictions indicated that MonBI and MonBII form      in the supplementary files, allowing users to perform their own
+homodimers with ipTM values of 0.87 and 0.84, respectively, while       analyses.
+they form a heterodimer with a higher ipTM value of 0.93 (Figure
+                                               DISCUSSION4E). The predicted MonBI–MonBII heterodimer structure closely
+matched the MonBI homodimer crystal structure, with an RMSD of      One of the core challenges in the field of secondary metabolism
+1.0 Å. This result suggests that dimer formation between these two     and biosynthesis research is to elucidate the origins and biosynthetic
+proteins is competitive, and that the heterodimer is preferentially     mechanisms of the vast repertoire of natural products. In this study,
+formed.                                              we established a high-throughput complex prediction pipeline based
+                                                        on AF3 and demonstrated that it enables comprehensive detection   Proteins predicted to form both homo- and hetero-dimers were
+                                                                          of protein–protein interactions within BGCs. We further showedalso observed among other functional proteins. We highlight three
+                                                                           that BGCs contain a considerable proportion of protein homo- orflavin-dependent  halogenase-like proteins—Ams8, Ams9, and
+                                                                       hetero- complexes whose function emerges only upon complexAms22—from the armeniaspirol BGC (BGC0002022)[64] as an
+                                                                      formation, as well as structurally homologous heterocomplexes.example. Within the BGC, Ams21 and Ams22 share sequence
+ similarities of 43% and 65% with PltL and PltA, respectively, from        Although our pipeline and network maps provide valuable
+the characterized pyoluteorin BGC (BGC0000127), suggesting that       insights into the interactome in BGCs, they have three limitations.
+Ams21 functions as an ACP and Ams22 as a flavin-dependent       First, AF2 (including AlphaFold-Multimer) and AF3 often fail to
+halogenase. Moreover, the structure of the active site of Ams22 is      accurately  predict weak or  transient protein complexes. This
+highly similar to that of PltA (PDB code: 5DBJ)[65], which       limitation arises because their algorithms infer three-dimensional
+catalyzes the 4,5-dichlorination of the pyrrolyl moiety covalently      protein structures primarily from coevolutionary signals in the MSA
+attached  to  the  phosphopantetheinyl arm  of  PltL,  strongly      derived from individual amino acid sequence(s), and inter-chain
+suggesting that Ams22 catalyzes the same reaction (Supplementary       interactions were not considered during their training processes[23].
+Figure  S5). However,  unlike  in  the  pyoluteorin BGC,  the      Carrier proteins, such as ACPs in PKSs and peptidyl carrier proteins
+armeniaspirol BGC was reported to produce a 3,4,5-trichlorinated     (PCPs) in NRPSs, exemplify this limitation. These proteins tether
+pyrollyl intermediate during the biosynthetic process[64]. Thus, the      biosynthetic intermediates via a thioester bond to the thiol group of
+remaining  halogenase-like  enzymes,  Ams8  and  Ams9,  are      a phosphopantetheinyl arm attached to a conserved serine residue.
+hypothesized to catalyze chlorination at the 3-position of the     They then interact with multiple catalytic domains in a specific yet
+pyrrolyl moiety, although the mechanism remains unclear[64].           transient manner to promote stepwise transformations of the
+                                                                             substrate. Although identifying their partner enzymes is crucial for
+
+
+[PDF physical page 8]
+ bioRxiv preprint doi: https://doi.org/10.1101/2025.10.26.684697; this version posted October 27, 2025. The copyright holder for this preprint
+(which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is made
+                                          available under aCC-BY-NC-ND 4.0 International license.
+
+
+
+
+
+ Figure 5. Visualization of the protein–protein interaction (PPI) network map. (A) The interface on the website. (B) The PPI network map in the
+ monensin BGC (BGC0000100). The nodes represent proteins encoded within the BGC. Edges indicate predicted interactions, with labels showing
+ the corresponding ipTM values. Blue edges denote structurally homologous interactions. Only nodes connected by edges above the ipTM threshold
+ are displayed (ipTM > 0.55 was applied on the website).
+studying  biosynthetic  pathways,  improving  their  prediction        Third, our method may fail to correctly predict the complex
+accuracy remains an important  technical  challenge.  Similarly,      formation of proteins with potentially conformational changes.
+predicting the binding position of precursor peptides in RiPPs is also     Although talaromyolides tlx BGC from Talaromyces purpureogenus
+ difficult for the same reason.                                         has not been registered in the current MIBiG dataset yet, the TlxJ–
+                                                                      TlxI heterodimer  crystal structure (PDB code: 7VBQ)[71]  is   Second, our computational pipeline did not perform complex
+predictions  for  proteins  larger  than  1,950  residues due  to      notable case to discuss the issue (Supplementary Figure S6A).
+                                                             While sequence analysis suggests that both TlxJ (GenBank ID:computational limitations. Such large proteins are typically found in
+type I PKS or NRPS systems, where multiple catalytic domains are     BDC03472.1) and  TlxI (BDC03471.1) were nonheme  iron
+                                                                  oxygenases and the RMSD between the two proteins was 1.6 Å, TlxIlinked within a single polypeptide to form the core scaffold of the
+product. While these modular proteins mainly assemble the product        is suggested to be enzymatically dysfunctional as oxidases due to the
+                                                                           lack of an arginine residue for α-ketoglutarate (α-KG) binding andthrough their intramolecular domain–domain interactions, some
+tailoring enzymes within the same BGC can modify intermediates      serve as an auxiliary protein to assist in TlxJ expression enhancing its
+                                                                                catalytic activity[71]. The gel  filtration analysis and the X-raytethered to the modular proteins, thereby expanding the chemical
+diversity of the final products.[69,70] Prior prediction of these      crystallography indicated that TlxI  is monomeric (PDB code:
+                                                            7VBR).[71] However, while TlxJ–TlxI was correctly predicted as ainteractions could help identify novel tailoring enzymes responsible
+for  introducing  unusual  functional  groups;  however,  such      heterocomplex with an ipTM of 0.91 (Supplementary Figure S6B),
+                                                                      TlxI was predicted to form a homodimer with an ipTM of 0.85predictions were not fully performed in this study.
+                                                           (Supplementary Figure S6C). Interestingly, the crystal structures
+
+
+[PDF physical page 9]
+ bioRxiv preprint doi: https://doi.org/10.1101/2025.10.26.684697; this version posted October 27, 2025. The copyright holder for this preprint
+(which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is made
+                                          available under aCC-BY-NC-ND 4.0 International license.
+
+revealed that TlxI undergoes a large conformational change when     The predicted protein–protein interaction network and JSON files un-
+forming a heterocomplex with TlxJ. Yet the predicted TlxI structure       derlying     this     article    are    available    in   Zenodo    at
+was close to the conformation observed in the heterocomplex crystal      https://doi.org/10.5281/zenodo.17451667.
+structure   in   both  monomeric  and  homomeric   forms
+(Supplementary  Figure S6C and D).  This  observation  is   AUTHOR INFORMATION
+consistent with the caveat that AF3 does not adequately predict                                                        Corresponding Author
+proteins that undergo conformational changes[23]. By contrast,
+                                                                       moriwaki.yoshitaka@tmd.ac.jp
+AF3 successfully predicted the homodimer of MonBI with an ipTM
+of 0.87 and the heterodimer with MonBII with a higher ipTM of 0.93     Author Contributions (CRediT Taxonomy)
+(Figure 4E). These results suggest that MonBI does not undergo      Yoshitaka Moriwaki (Conceptualization [lead], Data curation [lead],
+significant conformational changes upon dimerization. To our      Formal analysis [lead], Funding acquisition [equal], Investigation
+knowledge, MSA subsampling with AF2 or ColabFold[72] is one of       [lead], Methodology[lead], Resources [equal], Software [lead], Vali-
+the best strategies for predicting such conformational changes in      dation [lead], Visualization [lead], Writing—original draft [lead],
+advance. However, we did not apply this approach in this study      Writing—review & editing [equal]),
+because of its high computational cost.                              Taro Shiraishi (Conceptualization [equal], Investigation [supporting],
+                                                                     Resources [equal], Validation [equal], Writing—review & editing   Although  several  technical  challenges remain  in  accurately
+                                                                             [equal]),predicting  protein  complexes,  our  comprehensive  approach
+                                                                  Yohei Katsuyama (Conceptualization [equal], Investigation [support-
+uncovered numerous plausible complexes hidden within BGCs.
+                                                                                   ing], Validation [equal], Writing—review & editing [equal]),
+Notably, the structurally homologous heterodimers identified in this
+                                                                      Kenichi Matsuda (Conceptualization [equal], Investigation [support-
+study may serve as intriguing targets for future research, particularly                                                                                   ing], Writing—review & editing [equal]),
+in the context of microbial evolution. According to the genome                                                                Toyoyuki Ose (Writing—review & editing [supporting]),
+streamlining theory, natural selection in prokaryotes tends to      Atsushi Minami (Writing—review & editing [supporting]),
+eliminate genetic redundancy and nonessential sequences, leading      Hideaki Oikawa (Writing—review & editing [supporting]),
+to the evolution of highly compact and efficient genomes[73,74].     Tomohisa Kuzuyama (Funding acquisition [lead], Project administra-
+Thus, the structurally homologous complexes are unlikely to be       tion [lead], Writing—review & editing [equal]),
+mere products of gene duplication but are instead expected to      Ryuichiro Ishitani (Funding acquisition [equal], Resources [equal],
+possess distinct functional roles such as regulation or assistance in      Supervision [equal], Writing—review & editing [equal]),
+protein expression. Examples of the former function have been     Tohru Terada (Funding acquisition [equal], Project administration
+reported in both homo-[75,76] and hetero-complexes[71], and       [lead], Resources [equal], Supervision [equal], Writing—review & ed-
+their characterization is relatively straightforward. In contrast, the       iting [equal])
+ latter function can only be uncovered through co-expression of a
+specific  protein  combination,  and   its  underlying  molecular   ACKNOWLEDGMENT
+mechanisms remain largely unexplored. Among the reported cases,    We thank Dr Naruki Yoshikawa for a fruitful discussion.
+MonBI–MonBII[63] and LstA–LstB[77] become functional only
+                                                      Funding Sources
+when co-expressed. Co-expression of LxmK and LxmY has been
+                                                                    This work was supported by the Ministry of Education, Culture, Sports,shown not only to improve stability but also to increase yield.[78]
+                                                                       Science and Technology, Japan [Grant-in-Aid for Transformative Re-Interestingly, TalA from Talaromyces pinophilus LD-7[79] and
+                                                                         search Areas, 22H05126 to Y.M. and T.T., 22H05120 to T.K. and T.S.,Lsd19 from Streptomyces lasaliensis[80-83] have been identified as
+                                                          22H05130 to Y.K., 22H05128 to K.M., 25H01575 to A.M., and
+naturally occurring chimeric enzymes, in which two structurally
+                                                          25H02250  to  R.I.;  Grant-in-Aid  for  Scientific  Research  (JSPS
+homologous protein domains are fused into a single polypeptide
+                                                      KAKENHI), 25K01890 to Y.M. and 19H04634 to T.O.]. Additional
+chain. Such protein (or domain) pairs may exist to expand the range                                                                      support was provided by the Medical Research Center Initiative for
+of catalytic functions that can be achieved by a single enzyme alone.                                                             High Depth Omics at the Institute of Science Tokyo, Nanken-Kyoten at
+   Currently, sequence-based prediction tools such as DeepBGC      the Institute of Science Tokyo 2025, and the Multilayered Stress Dis-
+and ClusterFinder are widely used to identify BGCs that produce       eases project (JPMXP1323015483) at the Institute of Science Tokyo.
+novel natural products. In contrast, structure-based approaches have      This work utilized computational resources from the supercomputer
+the potential to elucidate the molecular mechanisms underlying      “Flow” provided by the Information Technology Center at Nagoya Uni-
+these products based on the relationship between protein function       versity through the HPCI System Research Project (Project IDs:
+and tertiary structure. The development of prediction tools for      jh240001 and jh250002) and the TSUBAME 4.0 supercomputer at the
+                                                                                   Institute of Science Tokyo.protein structures and their interaction networks is a key step toward
+unraveling enzymatic mechanisms and entire metabolic pathways,
+                                                                  Conflict of interesteven  in  uncultivable  microorganisms. Our  results  provide  a
+                                                       None declared.comprehensive overview of the constituent proteins within BGCs
+and highlight intriguing protein complexes for future investigation.
+                                              ABBREVIATIONS
+These bottom-up approaches  will  accelerate  identification  of
+                                                      BGC, biosynthetic gene cluster; ipTM, interface predicted templateprotein pairs that should be co-expressed or co-analyzed and deepen
+                                                                     modeling; AF3, AlphaFold3; RiPP(s), ribosomally synthesized andour  biochemical  understanding,  ultimately  providing  insights
+                                                                                 post-translationally modified peptide(s); ACP, acyl-carrier protein.essential for the rational engineering of enzymes.
+
+                                              REFERENCESASSOCIATED CONTENT
+                                                                                                     1.      Varadi M, Anyango S, Deshpande M  et  al. AlphaFold Protein
+Data Availability                                                              Structure Database: massively expanding the structural coverage of protein-
+
+
+[PDF physical page 10]
+ bioRxiv preprint doi: https://doi.org/10.1101/2025.10.26.684697; this version posted October 27, 2025. The copyright holder for this preprint
+(which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is made
+                                          available under aCC-BY-NC-ND 4.0 International license.
+
+sequence space with high-accuracy models. Nucleic Acids Res 2022;50:D439–           23.    Abramson J, Adler J, Dunger J et al. Accurate structure prediction of
+D444. https://doi.org/10.1093/nar/gkab1061                                     biomolecular  interactions  with  AlphaFold  3.  Nature  2024;630:493–500.
+    2.     Zhang S, Mukherji R, Chowdhury S et al. Lipopeptide-mediated       https://doi.org/10.1038/s41586-024-07487-w
+ bacterial interaction enables cooperative predator defense. Proc Natl Acad Sci           24.    Deneke V, Blaha A, Lu Y et al. A conserved fertilization complex
+USA 2021;118:e2013759118. https://doi.org/10.1073/pnas.2013759118             bridges sperm and  egg  in  vertebrates.  Cell  2024;187:7066–7078.e7022.
+    3.      Chevrette M, Thomas C, Hurley A et al. Microbiome composition       https://doi.org/10.1016/j.cell.2024.09.035
+modulates secondary metabolism in a multispecies bacterial community. Proc           25.     Gulick A and Aldrich C. Trapping interactions between catalytic
+Natl        Acad          Sci      USA        2022;119:e2212930119.      domains and carrier proteins of modular biosynthetic enzymes with chemical
+https://doi.org/10.1073/pnas.2212930119                                          probes.        Nat        Prod        Rep        2018;35:1156–1184.
+    4.     Modolon F, Barno A, Villela H et al. Ecological and biotechnological       https://doi.org/10.1039/c8np00044a
+importance of secondary metabolites produced by coral-associated bacteria. J           26.     Kosol S, Jenner M, Lewandowski J et al. Protein–protein interactions
+Appl Microbiol 2020;129:1441–1457. https://doi.org/10.1111/jam.14766             in  trans-AT  polyketide  synthases.  Nat  Prod  Rep  2018;35:1097–1109.
+    5.      Malpartida  F  and  Hopwood D  A.  Physical  and  genetic       https://doi.org/10.1039/c8np00066b
+ characterisation of the gene cluster for the antibiotic actinorhodin in Streptomyces           27.    Dodge G, Maloney F and Smith J. Protein–protein interactions in
+ coelicolor A3(2). Mol Genet Genomics 1986;205:66–73.                                “cis-AT”   polyketide   synthases.  Nat   Prod  Rep  2018;35:1082–1096.
+    6.      Stanzak R, Matsushima P, Baltz R et al. Cloning and Expression in       https://doi.org/10.1039/c8np00058a
+ Streptomyces  lividans of Clustered Erythromycin Biosynthesis Genes from           28.     Herbst D, Townsend C and Maier T. The architectures of iterative
+ Streptomyces         erythreus.        Bio/Technology       1986;4:229–232.       type    I  PKS   and   FAS.   Nat   Prod   Rep   2018;35:1046–1069.
+https://doi.org/10.1038/nbt0386-229                                           https://doi.org/10.1039/c8np00039e
+    7.     Medema M, Blin K, Cimermancic P  et  al. antiSMASH: rapid           29.    Chen A, Re R and Burkart M. Type II fatty acid and polyketide
+ identification, annotation and analysis of secondary metabolite biosynthesis gene       synthases: deciphering protein–protein and protein–substrate interactions. Nat
+ clusters  in  bacterial  and  fungal genome  sequences.  Nucleic  Acids  Res       Prod Rep 2018;35:1029–1045. https://doi.org/10.1039/c8np00040a
+2011;39:W339–W346. https://doi.org/10.1093/nar/gkr466                             30.     Mori T, Moriwaki Y, Sakurada K et  al. Molecular basis for the
+    8.       Blin K, Medema M, Kazempour D et al. antiSMASH 2.0—a versatile        diversification of lincosamide biosynthesis by pyridoxal phosphate-dependent
+ platform for genome mining of secondary metabolite producers. Nucleic Acids Res       enzymes. Nat Chem 2025;17:256–264. https://doi.org/10.1038/s41557-024-
+2013;41:W204–W212. https://doi.org/10.1093/nar/gkt449                      01687-7
+    9.     Weber T, Blin K, Duddela S et al. antiSMASH 3.0-a comprehensive           31.     Sikandar A and Koehnke J. The role of protein-protein interactions
+ resource for the genome mining of biosynthetic gene clusters. Nucleic Acids Res        in the biosynthesis of ribosomally synthesized and post-translationally modified
+2015;43:W237–W243. https://doi.org/10.1093/nar/gkv437                          peptides.       Nat        Prod        Rep        2019;36:1576–1588.
+    10.      Blin K, Wolf T, Chevrette M et al. antiSMASH 4.0-improvements in       https://doi.org/10.1039/c8np00064f
+chemistry prediction and gene cluster boundary identification. Nucleic Acids Res           32.      Rattray D and Foster L. Dynamics of protein complex components.
+2017;45:W36–W41. https://doi.org/10.1093/nar/gkx319                         Curr         Opin        Chem            Biol          2019;48:81–85.
+    11.      Blin K, Shaw S, Steinke K et al. antiSMASH 5.0: updates to the       https://doi.org/10.1016/j.cbpa.2018.11.003
+secondary metabolite genome mining pipeline. Nucleic Acids Res 2019;47:W81–           33.    Eddy S R. Accelerated Profile HMM Searches. PLoS Comp Biol
+W87. https://doi.org/10.1093/nar/gkz310                                      2011;7:e1002195. https://doi.org/10.1371/journal.pcbi.1002195
+    12.      Blin K, Shaw S, Kloosterman A et al. antiSMASH 6.0: improving           34.     Mirdita M, Schütze K, Moriwaki Y et al. ColabFold: making protein
+ cluster detection and comparison capabilities. Nucleic Acids Res 2021;49:W29–        folding     accessible    to      all.    Nat    Methods    2022;19:679–682.
+W35. https://doi.org/10.1093/nar/gkab335                                      https://doi.org/10.1038/s41592-022-01488-1
+    13.      Blin K, Shaw S, Augustijn H et al. antiSMASH 7.0: new and improved           35.     Steinegger M and Söding  J. MMseqs2 enables sensitive protein
+ predictions for detection, regulation, chemical structures and visualisation.       sequence searching  for the  analysis  of massive data  sets. Nat  Biotechnol
+ Nucleic Acids Res 2023;51:W46–W50. https://doi.org/10.1093/nar/gkad344         2017;35:1026–1028. https://doi.org/10.1038/nbt.3988
+    14.      Blin K, Shaw S, Vader L et al. antiSMASH 8.0: extended gene cluster           36.     Dunbrack R L. Rēs ipSAE loquunt: What’s wrong with AlphaFold’s
+ detection capabilities and analyses of chemistry, enzymology, and regulation.     ipTM  score  and how  to   fix   it.  bioRxiv  2025;2025.2002.2010.637595.
+ Nucleic Acids Res 2025;53:W32–W38. https://doi.org/10.1093/nar/gkaf334          https://doi.org/10.1101/2025.02.10.637595
+    15.    Zdouc M, Blin K, Louwen N et al. MIBiG 4.0: advancing biosynthetic           37.     Bryant P, Pozzati G and Elofsson A. Improved prediction of protein-
+gene  cluster  curation  through  global  collaboration.  Nucleic  Acids  Res       protein   interactions  using  AlphaFold2.  Nat  Commun  2022;13:1265.
+2025;53:D678–D690. https://doi.org/10.1093/nar/gkae1115                      https://doi.org/10.1038/s41467-022-28865-w
+    16.     Hannigan G, Prihoda D, Palicka A et al. A deep learning genome-           38.    Zhu W, Shenoy A, Kundrotas P et al. Evaluation of AlphaFold-
+mining strategy for biosynthetic gene cluster prediction. Nucleic Acids Res      Multimer  prediction  on  multi-chain  protein  complexes.  Bioinformatics
+2019;47:https://doi.org/10.1093/nar/gkz654                                    2023;39:btad424. https://doi.org/10.1093/bioinformatics/btad424
+    17.     Cimermancic P, Medema M, Claesen J et al. Insights into Secondary           39.    Kim A-R, Hu Y, Comjean A  et  al. Enhanced Protein-Protein
+Metabolism from a Global Analysis of Prokaryotic Biosynthetic Gene Clusters.        Interaction      Discovery       via      AlphaFold-Multimer.      bioRxiv
+ Cell 2014;158:412–421. https://doi.org/10.1016/j.cell.2014.06.034                 2024;2024.2002.2019.580970. https://doi.org/10.1101/2024.02.19.580970
+    18.     Jumper J, Evans R, Pritzel A et al. Highly accurate protein structure           40.     Wojdyr M. GEMMI: A library for structural biology. J Open Source
+ prediction      with      AlphaFold.      Nature      2021;596:583–589.       Softw 2022;7:4200. https://doi.org/10.21105/joss.04200
+https://doi.org/10.1038/s41586-021-03819-2                                           41.      Krissinel E and Henrick K. Inference of macromolecular assemblies
+    19.    McCoy A, Sammito M and Read R. Implications of AlphaFold2 for      from      crystalline      state.      J    Mol     Biol    2007;372:774–797.
+ crystallographic phasing by molecular replacement. Acta  Crystallographica       https://doi.org/10.1016/j.jmb.2007.05.022
+ Section        D:          Structural          Biology        2022;78:1–13.           42.      Barajas J, Phelan R, Schaub A et al. Comprehensive Structural and
+https://doi.org/10.1107/S2059798321012122                                   Biochemical Analysis of the Terminal Myxalamid Reductase Domain for the
+    20.     Akdel M, Pires D, Pardo E et al. A structural biology community       Engineered Production of Primary Alcohols. Chem Biol 2015;22:1018–1029.
+assessment of AlphaFold2 applications. Nat Struct Mol Biol 2022;29:1056–1067.       https://doi.org/10.1016/j.chembiol.2015.06.022
+https://doi.org/10.1038/s41594-022-00849-w                                          43.    Wang L, Parnell A, Williams C et al. A Rieske oxygenase/epoxide
+    21.   Homma M, Wakabayashi T, Moriwaki Y  et  al.  Insights  into       hydrolase-catalysed reaction cascade creates oxygen heterocycles in mupirocin
+ stereoselective ring formation in canonical strigolactone: Discovery of a dirigent        biosynthesis. Nat Catal 2018;1:968–976. https://doi.org/10.1038/s41929-018-
+domain-containing enzyme catalyzing orobanchol synthesis. Proc Natl Acad Sci       0183-5
+USA 2024;121:e2313683121. https://doi.org/10.1073/pnas.2313683121                44.     Miyanaga A, Kurihara S, Chisuga T et al. Structural Characterization
+    22.     Evans R, O’Neill M, Pritzel A et al. Protein complex prediction with        of Complex of Adenylation Domain and Carrier Protein by Using Pantetheine
+AlphaFold-Multimer.          bioRxiv         2022;2021.2010.2004.463034.       Cross-Linking    Probe.   ACS   Chem     Biol    2020;15:1808–1812.
+https://doi.org/10.1101/2021.10.04.463034                                      https://doi.org/10.1021/acschembio.0c00403
+
+
+[PDF physical page 11]
+ bioRxiv preprint doi: https://doi.org/10.1101/2025.10.26.684697; this version posted October 27, 2025. The copyright holder for this preprint
+(which was not certified by peer review) is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is made
+                                          available under aCC-BY-NC-ND 4.0 International license.
+
+    45.     Mori T, Kadlcik S, Lyu S et al. Molecular basis for carrier protein-           65.     Pang A, Garneau-Tsodikova S and Tsodikov O. Crystal structure of
+dependent amide bond formation in the biosynthesis of lincosamide antibiotics.       halogenase PltA from the pyoluteorin biosynthetic pathway. J Struct Chem
+Nat Catal 2023;6:531–542. https://doi.org/10.1038/s41929-023-00971-y           2015;192:349–357. https://doi.org/10.1016/j.jsb.2015.09.013
+    46.     Miyanaga A, Nagata K, Nakajima J et al. Structural Basis of Amide-           66.     Barker R D, Yu Y, De Maria L et al. Mechanism of Action of Flavin-
+Forming Adenylation Enzyme VinM in Vicenistatin Biosynthesis. ACS Chem Biol      Dependent     Halogenases.    ACS     Catal     2022;12:15352–15360.
+2023;18:2343–2348. https://doi.org/10.1021/acschembio.3c00517                 https://doi.org/10.1021/acscatal.2c05231
+    47.     Haslinger K, Peschke M, Brieke C  et  al. X-domain of peptide           67.    Yeh E, Blasiak L C, Koglin A et al. Chlorination by a long-lived
+ synthetases recruits oxygenases crucial for glycopeptide biosynthesis. Nature       intermediate in the mechanism of flavin-dependent halogenases. Biochemistry
+2015;521:105–109. https://doi.org/10.1038/nature14141                        2007;46:1284–1292. https://doi.org/10.1021/bi0621213
+    48.    Schramma K R, Bushin L B and Seyedsayamdost M R. Structure and           68.     Flecks S, Patallo E P, Zhu X et al. New insights into the mechanism
+ biosynthesis of a macrocyclic peptide containing an unprecedented lysine-to-        of enzymatic chlorination of tryptophan. Angew Chem Int Ed 2008;47:9533–
+tryptophan         crosslink.      Nat      Chem       2015;7:431–437.       9536. https://doi.org/10.1002/anie.200802466
+https://doi.org/10.1038/nchem.2237                                                   69.    Ames  B, Nguyen C, Bruegger  J  et  al.  Crystal  structure and
+    49.     Ortega M A, Hao Y, Zhang Q et al. Structure and mechanism of the       biochemical studies of the trans-acting polyketide enoyl reductase LovC from
+tRNA-dependent  lantibiotic dehydratase NisB. Nature 2015;517:509–512.        lovastatin  biosynthesis. Proc Natl Acad  Sci USA 2012;109:11144–11149.
+https://doi.org/10.1038/nature13888                                           https://doi.org/10.1073/pnas.1113029109
+    50.     Bothwell I R, Cogan D P, Kim T et al. Characterization of glutamyl-           70.     Matthews M, Krest C, Barr E et al. Substrate-Triggered Formation
+tRNA-dependent dehydratases using nonreactive substrate mimics. Proc Natl      and Remarkable Stability of the C-H Bond-Cleaving Chloroferryl Intermediate
+Acad               Sci         USA            2019;116:17245–17250.        in  the  Aliphatic  Halogenase,  SyrB2.  Biochemistry  2009;48:4331–4343.
+https://doi.org/10.1073/pnas.1905240116                                       https://doi.org/10.1021/bi900109z
+    51.     Davis K M, Schramma K R, Hansen W A et al. Structures of the           71.      Li X, Awakawa T, Mori T et al. Heterodimeric Non-heme Iron
+peptide-modifying radical SAM enzyme SuiB elucidate the basis of substrate      Enzymes   in  Fungal  Meroterpenoid   Biosynthesis.   J Am  Chem  Soc
+ recognition.   Proc   Natl   Acad    Sci  USA   2017;114:10420–10425.      2021;143:21425–21432. https://doi.org/10.1021/jacs.1c11548
+https://doi.org/10.1073/pnas.1703663114                                              72.      del Alamo D, Sala D, McHaourab H S et al. Sampling alternative
+    52.     Olano C, Wilkinson B, Moss S et al. Evidence from engineered gene       conformational states of transporters and receptors with AlphaFold2. eLife
+ fusions for the repeated use of a module in a modular polyketide synthase. Chem       2022;11:https://doi.org/10.7554/eLife.75751
+Commun 2003;2780–2782. https://doi.org/10.1039/b310648a                          73.     Giovannoni S, Tripp H, Givan S et al. Genome streamlining in a
+    53.     Olano C, Moss S, Braña A et al. Biosynthesis of the angiogenesis       cosmopolitan    oceanic    bacterium.     Science    2005;309:1242–1245.
+ inhibitor borrelidin by Streptomyces parvulus Tü4055: insights into  nitrile       https://doi.org/10.1126/science.1114057
+ formation. Mol Microbiol 2004;52:1745–1756. https://doi.org/10.1111/j.1365-           74.     Giovannoni  S, Thrash  J and Temperton  B.  Implications  of
+2958.2004.04090.x                                                                  streamlining  theory  for  microbial  ecology. ISME  J  2014;8:1553–1565.
+    54.     Olano C, Wilkinson B, Sánchez C  et  al. Biosynthesis  of the       https://doi.org/10.1038/ismej.2014.60
+ angiogenesis inhibitor borrelidin by Streptomyces parvulus Tü4055: Cluster           75.     Kotaka M, Ren  J, Lockyer M et al. Structures of R- and T-state
+ analysis  and  assignment   of   functions.  Chem   Biol  2004;11:87–97.        Escherichia coli aspartokinase III: Mechanisms of the allosteric transition and
+ https://doi.org/10.1016/j.chembiol.2003.12.018                                      inhibition    by     lysine.     J    Biol   Chem    2006;281:31544–31552.
+    55.    Camacho C, Coulouris G, Avagyan V et al. BLAST+ : architecture       https://doi.org/10.1074/jbc.M605886200
+and        applications.    BMC        Bioinformatics       2009;10:421.           76.     Mattevi A, Valentini G, Rizzi M et al. Crystal structure of Escherichia
+https://doi.org/10.1186/1471-2105-10-421                                                     coli pyruvate kinase type I: molecular basis of the allosteric transition. Structure
+    56.     van Kempen M, Kim S S, Tumescheit C et al. Fast and accurate       1995;3:729–741. https://doi.org/10.1016/S0969-2126(01)00207-6
+ protein  structure  search with  Foldseek. Nat  Biotechnol 2024;42:243–246           77.    Zhang D, Zhang F and Liu W. A KAS-III Heterodimer in Lipstatin
+https://doi.org/10.1038/s41587-023-01773-0                                       Biosynthesis Nondecarboxylatively Condenses C8 and C14 Fatty Acyl-CoA
+    57.     Grunwald S, Hopf L, Bock-Bierbaum T et al. Divergent architecture       Substrates by a Variable Mechanism during the Establishment of a C22 Aliphatic
+ of the heterotrimeric NatC complex explains N-terminal acetylation of cognate       Skeleton.        J    Am     Chem      Soc      2019;141:3993–4001.
+ substrates. Nat Commun 2020;11:5506. https://doi.org/10.1038/s41467-020-       https://doi.org/10.1021/jacs.8b12843
+19321-8                                                                                78.     Randall G, Grant-Mackie E, Chunkath S et al. A Stable Dehydratase
+    58.    Hamed A, Abdel-Razek A, Frese M et al. N-Acetylborrelidin B: a new      Complex Catalyzes the Formation of Dehydrated Amino Acids in a Class V
+ bioactive metabolite from Streptomyces mutabilis sp MII. Z Naturforsch, C: Biosci       Lanthipeptide.     ACS     Chem        Biol      2024;19:2548–2556.
+2018;73:49–57. https://doi.org/10.1515/znc-2017-0140                           https://doi.org/10.1021/acschembio.4c00637
+    59.     Brock N, Nikolay A and Dickschat J. Biosynthesis of the antibiotic           79.    Ren M, Li Z, Wang Z  et  al.  Antiviral Chlorinated Drimane
+ tropodithietic acid by the marine bacterium Phaeobacter inhibens. Chem Commun       Meroterpenoids from the Fungus Talaromyces pinophilus LD-7 and Their
+2014;50:5487–5489. https://doi.org/10.1039/c4cc01924e                           Biosynthetic     Pathway.       J    Nat     Prod     2024;87:2034–2044.
+    60.     Keatinge-Clay A, Maltby D, Medzihradszky K et al. An antibiotic       https://doi.org/10.1021/acs.jnatprod.4c00539
+ factory  caught   in   action.  Nat   Struct  Mol   Biol  2004;11:888–893.           80.     Hotta K, Chen X, Paton R et al. Enzymatic catalysis of anti-Baldwin
+https://doi.org/10.1038/nsmb808                                                    ring   closure   in   polyether   biosynthesis.   Nature  2012;483:355–358.
+    61.    Zhang  J, Yuzawa S, Thong W et al. Reconstitution of a Highly       https://doi.org/10.1038/nature10865
+Reducing Type II PKS System Reveals 6π-Electrocyclization Is Required for o-           81.    Minami A, Oguri H, Watanabe K et al. Biosynthetic machinery of
+Dialkylbenzene   Biosynthesis.   J Am  Chem  Soc  2021;143:2962–2969.       ionophore polyether lasalocid: enzymatic construction of polyether skeleton.
+ https://doi.org/10.1021/jacs.0c13378                                          Curr         Opin       Chem           Biol         2013;17:555–561.
+    62.    Deng Z, Liu J, Li T et al. An Unusual Type II Polyketide Synthase       https://doi.org/10.1016/j.cbpa.2013.06.004
+System Involved  in Cinnamoyl  Lipid  Biosynthesis. Angew Chem  Int Ed           82.     Migita A, Watanabe M, Hirose Y et al. Identification of a Gene
+2021;60:153–158. https://doi.org/10.1002/anie.202007777                         Cluster of Polyether Antibiotic Lasalocid from Streptomyces lasaliensis. Biosci
+    63.    Minami A, Ose T, Sato K et al. Allosteric Regulation of Epoxide        Biotechnol Biochem 2009;73:169–176. https://doi.org/10.1271/bbb.80631
+Opening Cascades by a Pair of Epoxide Hydrolases in Monensin Biosynthesis.           83.    Wong F, Hotta K, Chen X et al. Epoxide Hydrolase-Lasalocid A
+ACS Chem Biol 2014;9:562–569. https://doi.org/10.1021/cb4006485                Structure  Provides  Mechanistic  Insight  into  Polyether  Natural  Product
+    64.    Fu C, Xie F, Hoffmann J et al. Armeniaspirol Antibiotic Biosynthesis:        Biosynthesis.         J    Am     Chem       Soc      2015;137:86–89.
+ Chlorination and Oxidative Dechlorination Steps Affording Spiro[4.4]non-8-       https://doi.org/10.1021/ja511374k
+ ene.                ChemBioChem                  2019;20:764–769.
+https://doi.org/10.1002/cbic.201800791

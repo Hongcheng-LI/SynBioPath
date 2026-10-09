@@ -1,0 +1,978 @@
+
+[PDF physical page 1]
+       Article                                                                                     https://doi.org/10.1038/s41467-025-62168-0
+   Ancestral sequence reconstruction as a tool
+   for structural analysis of modular polyketide
+   synthases
+
+
+
+        Received: 28 October 2024                Taichi Chisuga1,2, Shota Takinami1, Zengwei Liao3,4, Masayuki Karasawa   3,
+                                           Naruhiko Adachi   5,6, Masato Kawasaki5, Toshio Moriya   5, Toshiya Senda   5,
+       Accepted: 14 July 2025                                                                                                                                   1,9                                          Tohru Terada3,7, Fumitaka Kudo2,8, Tadashi Eguchi   2, Shogo Nakano           ,
+                                            Sohei Ito   1  & Akimasa Miyanaga   2,3,7
+
+
+          Check for updates
+
+                                       Modular polyketide synthases (PKSs) are large multi-domain enzymes critical
+                                                for the biosynthesis of polyketide antibiotics. However, challenges with1234567890():,;                 1234567890():,;
+                                                structural analysis limits our mechanistic understanding of modular PKSs. In
+                                                   this report, we explore the potential of ancestral sequence reconstruction
+                                          (ASR) for structure analysis of target proteins. As a model, we focus on the FD-
+                                         891 PKS loading module composed of ketosynthase-like decarboxylase (KSQ),
+                                               acyltransferase (AT) and acyl carrier protein (ACP) domains. We construct a
+                                    KSQAncAT chimeric didomain by replacing the native AT with an ancestral AT
+                                        (AncAT) using ASR. After conﬁrming that KSQAncAT chimeric didomain
+                                                retains similar enzymatic function to the native KSQAT didomain, we suc-
+                                                  cessfully determine a high-resolution crystal structure of the KSQAncAT chi-
+                                         meric didomain and cryo-EM structures of the KSQ–ACP complex. These cryo-
+                              EM structures, which could not be determined for the native protein, exem-
+                                                     plify the utility of ASR to enable cryo-EM single-particle analysis. Our ﬁndings
+                                         demonstrate that integrating ASR with structural analysis provides deeper
+                                           mechanistic insight into modular PKSs. Furthermore, applying ASR to a partial
+                                            region of the targeted multi-domain proteins could expand the potential of
+                                   ASR and may serve as a valuable framework for investigating the structure and
+                                             function of various multi-domain proteins.
+
+
+
+
+       Modular polyketide synthases (PKSs) produce structurally diverse   set of catalytic domains involved in one round of polyketide chain
+        polyketide natural products, including the antibiotics erythromycin1   elongation  is called a “module”, which contains three  essential
+       and rifamycin2 and the anticancer drug epothilone3. Modular PKSs are   domains: ketosynthase (KS) domain, acyltransferase (AT) domain and
+          large, multifunctional proteins containing several catalytic domains. A   acyl  carrier protein (ACP) domain4–6. The AT domain generally
+
+
+
+         1Graduate School of Integrated Pharmaceutical and Nutritional Science, University of Shizuoka, Shizuoka, Japan. 2Department of Chemistry, Tokyo Institute of
+        Technology (Institute of Science Tokyo), Tokyo, Japan. 3Graduate School of Agricultural and Life Science, The University of Tokyo, Tokyo, Japan. 4California
+           Institute for Quantitative Biosciences/Department of Molecular and Cell Biology/Howard Hughes Medical Institute, University of California at Berkeley,
+          Berkeley, CA, USA. 5Structural Biology Research Center, Institute of Materials Structure Science, High Energy Accelerator Research Organization (KEK),
+           Ibaraki, Japan. 6Life Science Center for Survival Dynamics, Tsukuba Advanced Research Alliance (TARA), University of Tsukuba, Ibaraki, Japan. 7Collaborative
+        Research Institute for Innovative Microbiology, The University of Tokyo, Tokyo, Japan. 8Faculty of Chemistry and Biochemistry, Kanagawa University,
+        Yokohama, Japan. 9PREST, Japan Science and Technology Agency, Saitama, Japan.    e-mail: snakano@u-shizuoka-ken.ac.jp; itosohei@u-shizuoka-ken.ac.jp;
+         amiyanaga@g.ecc.u-tokyo.ac.jp
+
+
+
+        Nature Communications| (2025)16:6847                                                                                                        1
+
+
+[PDF physical page 2]
+Article                                                                                   https://doi.org/10.1038/s41467-025-62168-0
+
+   a                                    b
+                  loading module           elongation module 1
+
+                                      KS1   KAL  AT1     KR1  ACP1      KSQ    ATL                    KSQ    ATL    GfsA     KSQ   KAL  ATL    ACPL
+                           PAL                  PAL                  KAL      PAL     ATL             KAL
+                        PAL                                                                        O   O
+                                                                        ACPL  malonyl-CoA  CoA              ACPL
+                                                                                    HS                           O        S
+
+
+
+                                                                                      KSQ    ATL
+                       KAL                                             KSQ
+                                                                                                       KAL
+                                  ATL
+                                                                                            CO2            O
+       GfsA KSQ             ACPL                                                                       ACPL
+                                                                                                                                  S
+
+Fig. 1 | The GfsA loading module reaction. a Domain organization of the GfsA      protein domain of loading module, KS1 ketosynthase, KR1 ketoreductase of elon-
+loading module. The domain architecture of GfsA is shown in the top panel. The    gation module 1. The KSQ, KAL, ATL and PAL regions are colored green, light gray,
+bottom panel shows the crystal structure of the GfsA loading module [PDB entry:   cyan and magenta, respectively. b Construction of a starter unit by the loading
+8IN9]29. KSQ ketosynthase-like decarboxylase, ATL acyltransferase domain of       module of GfsA. The ATL domain transfers a malonyl unit onto ACPL. The KSQ
+loading module, KAL KSQ to ATL linker, PAL post-AT linker48, ACPL acyl carrier      domain catalyzes the decarboxylation of malonyl-ACPL.
+
+
+
+
+transfers the (alkyl-)malonic acid moiety as an extender unit from   migrate together between the two equivalent reaction chambers of the
+(alkyl-)malonyl-CoA to the pantetheine arm of the ACP domain. The KS   homodimeric cis-AT PKS during the catalytic cycle, leading to the
+domain then catalyzes decarboxylative Claisen-like condensation of   observed asymmetric conﬁguration of the KR and ACP domains14,27.
+the (alkyl-)malonic acid moiety with the polyketide precursor to pro-   Intact single modules larger than KS-AT-KR-ACP (e.g., KS-AT-DH-KR-
+duce an elongated β-ketoacyl thioester. Optionally, the β-position of  ACP) and multi-modules are also expected to have the properties.
+the β-ketoacyl thioester is modiﬁed by ketoreductase (KR), dehy-   Thus, determining the structures of these modules is necessary for a
+dratase (DH) and enoyl reductase (ER) domains in the same module.   comprehensive understanding of the molecular mechanisms of cis-AT
+The polyketide chain is elongated by repeating the condensation and   PKSs. A factor that hampers the structural analysis of cis-AT PKSs is the
+β-position modiﬁcation steps, and ﬁnally, the chain is released from   conformational variability caused by the abovementioned dynamic
+the pantetheine arm of the ACP domain by a thioesterase (TE) domain.   properties25. Therefore, devising a method that enables the structural
+Modular PKSs containing modules with embedded AT domains are   elucidation of a single module and a multi-module of cis-AT PKSs is
+known as cis-AT PKSs. Each catalytic domain of cis-AT PKSs functions   required. Single-particle analysis of a KS-AT-KR-ACP module has been
+only once in polyketide biosynthesis. Thus, the conﬁguration of its   successfully achieved using the fragment antigen-binding domain
+modules is a blueprint that deﬁnes the chemical structure of the   (Fab) 1B225,26, which stabilized the dimeric form of the module and
+resulting polyketide compound. Therefore, efforts have been made to   reduced the conformational heterogeneity by interacting with the KS
+produce unnatural polyketides by engineering cis-AT PKSs, such as  and AT domains.
+domain swapping and module swapping7–11. However, in many repor-     We previously reported the functional and structural analysis of
+ted cases, production of the desired non-native polyketides by engi-   the loading module of cis-AT PKS GfsA28,29, which is involved in the
+neered cis-AT PKS is signiﬁcantly reduced relative to the wild-type   biosynthesis of macrolide antibiotic FD-891 produced by Streptomyces
+systems, or completely abolished9–13. Consequently, functional and   graminofaciens A-8890 (Supplementary Fig. 1)30. Unlike the elongation
+structural analyses of cis-AT PKSs have been conducted to solve this  modules mentioned above, the loading module does not catalyze
+problem14.                                                         chain elongation but instead prepares a primer unit for the ﬁrst elon-
+   To elucidate the molecular mechanisms of cis-AT PKSs, the crystal   gation module (module 1)31. The GfsA loading module contains the
+structures of modular PKS fragments, which typically contain only a   ketosynthase-like decarboxylase (KSQ) domain, ATL (L indicates load-
+single catalytic domain (e.g., TE15, DH16 and KR17,18), have been deter-   ing module) and ACPL domains (Fig. 1a)28,29. The KSQ domain, in which
+mined. Crystal structures of didomain proteins such as the KS-AT   the catalytic Cys residue in KS domains is replaced by Gln, renders it
+didomain19–21 and the DH-ER-KR tridomain22 have also been reported.   incapable of catalyzing the condensation reaction typical of KS
+However, structural information on intact single modules is limited   domains32. The GfsA KSQATL didomain recombinant protein was used
+regardless of developments in structural biology, such as recent   for functional and structural analysis of the KSQ domain because the
+technological advances in cryo-EM single particle analysis23. Only the  KSQ domain alone was expressed as an insoluble protein in Escherichia
+crystal and cryo-EM structures of the KS-AT-KR-ACP elongation mod-    coli28. We showed that the GfsA KSQ domain catalyzes the decarbox-
+ule have been reported among the intact single modules of various   ylation of malonyl-GfsA ACPL to construct the polyketide starter unit in
+domain conﬁgurations24–26. These structures revealed two functionally   FD-891 biosynthesis (Fig. 1b). Based on the crystal structure of the GfsA
+important dynamic properties: the turnstile mechanism25, in which the  KSQATL didomain, in which a malonate thioester mimic is bound to the
+location of the AT domain relative to the KS domain within the KS-AT  KSQ domain, we elucidated the recognition mechanism of the KSQ
+didomain core changes during the catalytic process, and the pendu-  domain for the malonate thioester moiety of the substrate28. We have
+lum clock model26, in which the KR and ACP domains swing back and   also elucidated the recognition mechanism for the ACP moiety of the
+forth like a pendulum. In the turnstile mechanism, the AT domain   substrate based on the crystal structure of the KSQ–ACPL interacting
+adopts an extended conformation in the transacylation and elongation   complex, in which the ACPL protein was covalently linked to the KSQ
+steps, whereas the AT domain adopts a ﬂexed orientation to block the  domain in the KSQATL didomain protein through a pantetheinamide
+KS domain active site from accessing the acyl-ACP substrate in the   crosslinking probe for maintaining the interaction between KSQ and
+post-elongation step. In the pendulum clock model, the two ACPs  ACPL domains29. However, the resolution of the ACPL = KSQATL
+
+
+
+Nature Communications| (2025)16:6847                                                                            2
+
+
+[PDF physical page 3]
+Article                                                                                   https://doi.org/10.1038/s41467-025-62168-0
+
+   a                           b                     c
+
+                                      Anc         Intensity                                          Intensity
+     KSQ    ATL               KSQ                            / mAu                                                                  / mAu0.0 35                 ASR            AT
+         KAL                         KAL                                  malonyl-
+              PAL                    PAL                      GfsA ACPL      0.030.0 3                  holo-                                                                                                   GfsA ACPL      GfsA KSQATL              GfsA KSQAncAT
+                                                                0.04                                                                     0.0 25
+                                      chimeric protein
+                                                                                          acetyl-                               malonyl-
+                                                                    GfsA ACPL      0.020.0 2               GfsA ACPL
+
+
+                                                                                                                                                                                       0.0 15                              Crosslinking                                   KSQAncAT_2                   KSQAncAT_2
+                                                                0.02
+                Anc                                                               S666A reaction     0.0 1             Q197C reaction
+         KSQ                                                                                           0.01
+               AT                                                                                                  GfsA KSQATL
+              KAL                                                   GfsA KSQATL       0.0 05        ACPL                  PAL                                                                  Q197C reaction
+                                                               S662A reaction
+      GfsA ACPL=KSQAncAT                                                                                                        0
+         crosslinking complex                                  10     14      18                      10        15        20
+                                                                         Retention time / min                          Retention time / min
+
+Fig. 2 | The construction of the GfsA KSQAncAT_2 chimeric didomain.            protein with malonyl-GfsA ACPL as the substrate. The enzymatic reactions were
+a Application of ASR to the structural analysis of the GfsA KSQ = ACPL crosslinked   performed for 5 min at 28 °C. c HPLC analysis of the acyltransfer reaction of the
+complex. b High-performance liquid chromatography (HPLC) analysis of the dec-   KSQAncAT_2 chimeric didomain and native protein with holo-ACPL and malonyl-
+arboxylation reaction of the GfsA KSQAncAT_2 chimeric didomain and native      CoA as substrates. The enzymatic reactions were performed for 5 min at 28 °C.
+
+
+
+
+crosslinked complex structure (= indicates covalently crosslinked) was   (Supplementary Table 1, Supplementary Fig. 2). The apparent ﬂex-
+moderate (3.40 Å resolution), and the electron density of the cross-    ibility of the GfsA ATL domain was inferred to increase the con-
+linking probe was poorly observed29.                                 formational variability of this crosslinking complex, which lowered its
+    Ancestral sequence reconstruction (ASR) is an emerging strategy   resolution. Therefore, we designed a chimeric didomain protein by
+for designing proteins with enhanced stability and solubility33. ASR   replacing the GfsA ATL domain with the ancestral AT (AncAT) domain
+estimates the amino acid sequences of ancestors corresponding to   designed by ASR, expecting this construct to confer advantages for
+nodes on a phylogenetic tree of existing amino acid sequences34–36.   structural analysis of the complex (e.g., reduce the ﬂexibility of the ATL
+ASR has been used in molecular evolutionary studies of proteins, and it   domain) (Fig. 2a). Considering that ASR is generally applied to full-
+is possible to infer ancient habitats34–36 and the evolutionary origin of   length amino acid sequences of a single catalytic domain proteins49,50
+the extant-enzymatic function37 by functional analysis of recon-   and, to our knowledge, has not been used to target only one catalytic
+structed enzymes, leading to the discovery of ancestral enzymes with  domain within multi-catalytic domain proteins such as cis-AT PKSs, our
+higher  thermal  stability38–41,  solubility42  and  broader  substrate   approach represents a strategy that expands the scope of ASR
+selectivity41,43 compared to extant enzymes. Therefore, ASR has also   applications.
+attracted attention as a tool for protein engineering in developing       Although applying ASR to only one domain in a multi-domain
+highly functional proteins such as an ancestral biotin ligase, AirID,   protein may disrupt native domain–domain interactions, we expected
+capable of proximal biotinylation44, an L-arginine sensor protein with  no major issues with this strategy because this study focused on the
+high thermal stability41 and an ancestral RNA ligase, AncT4_2, with high  KSQ–ACPL interaction. The recognition of the KSQ domain for the ACPL
+thermal stability and high activity45. Recently, crystal structural ana-   includes the KAL–ACPL interaction. Thus, replacing the KAL region
+lyses of ancestral enzymes as surrogate enzymes have been reported  may affect the KSQ–ACPL interactions. Therefore, we chose to replace
+to elucidate the function of extant enzymes because of the beneﬁts of   only the ATL domain region described above. This approach differs
+solubility and thermal stability in crystallization46,47, which is promising   from the typical AT domain swapping in modular PKS engineering,
+for using ASR as a tool for crystal structure analysis. We therefore   which often involves replacing the AT domain and the corresponding
+expected that applying ASR to cis-AT PKSs could facilitate structural  KAL and PAL regions48,51. Initially, to design AncAT domains, 1887
+analysis of PKSs.                                                     extant amino acid sequences were retrieved from a BLAST search52
+     In this study, we focus on the GfsA loading module as a model case   using  the  amino  acid  sequence  of  the  GfsA  ATL  domain
+for applying ASR to cis-AT PKSs. We replace the native ATL domain with   (Gly559–Arg870) as a query (Supplementary Fig. 3). Twelve AncAT
+an ancestral AT (AncAT) using ASR to generate a KSQAncAT chimeric   domains were then designed (Supplementary Fig. 3), by data curation
+didomain, which retains enzymatic activity comparable to the native  and inputting the residual sequences into MAFFT2ASR53, which is a
+KSQATL didomain. We determine a high-resolution crystal structure of   pipeline tool used for reconstructing ancestral proteins through mul-
+the KSQAncAT chimeric didomain and cryo-EM structures of the   tiple sequence alignment, phylogenetic tree construction, and ances-
+KSQ–ACP complex. These ﬁndings highlight the utility of ASR for    tral sequence reconstruction using the ‘codeml’ tool implemented in
+structural and functional analysis of multi-domain proteins.            the PAML package54. Among the designed AncATs, we selected
+                                                             AncAT_1 and AncAT_2, which have the lowest (57%) and highest (80%)
+Results                                                  amino acid sequence identities, respectively, with the GfsA ATL domain
+Design and functional analysis of the KSQ–ancestral AT chimeric   (Supplementary Figs. 3b, 4). AncAT_2 is positioned closest to the GfsA
+didomain protein                                           ATL domain on the phylogenetic tree, whereas AncAT_1 is relatively
+We found that in the crystal structure of GfsA ACPL = KSQATL [PDB   distant from it (Supplementary Fig. 3d). Given that the amino acid
+entry: 8IN9]29, the temperature factor (B-factor) in the GfsA ATL   sequence identity between AncAT_1 and AncAT_2 is not particularly
+domain (Gly559–Arg870) was higher than those in the KSQ domain   high (65%) (Supplementary Fig. 3c), we considered that replacing each
+(Ala24–Pro453), KSQ to ATL  linker (KAL) (Ala474–Ser546), ACPL  AncAT domain might lead to distinct effects. The chimeric didomain
+domain (Asp946–Leu1020) and post-AT linker (PAL)48 (Ala871–Glu919)   proteins incorporating these AncAT domains in place of the GfsA ATL
+
+
+
+Nature Communications| (2025)16:6847                                                                        3
+
+
+[PDF physical page 4]
+Article                                                                                   https://doi.org/10.1038/s41467-025-62168-0
+
+
+Table 1 | Initial velocity of the decarboxylation reaction cat-    with the SEC result. The overall structure of KSQAncAT_2 is similar to
+alyzed by the KSQ domain in the GfsA KSQAncAT_2 chimeric   that of GfsA KSQATL (RMSD for  all Cα-atoms (Cα-RMSD): 1.86 Å)
+didomain and the GfsA KSQATL didomain                      (Supplementary  Fig.  11a).  The  structure  of  the KSQ  domain
+                                                                  (Ser25–Pro453) in the chimeric didomain is almost identical to that in
+ Protein                                                  Initial velocity (min–1)a
+                                                                  the GfsA KSQATL didomain (Ser25–Pro453, Cα-RMSD: 0.30 Å)28. The
+ GfsA KSQAncAT_2 S666A                  54 ± 2
+                                                                                catalytically important Gln197, His332, Thr334, Thr336 and His370
+ GfsA KSQAncAT_2 Q197C/S666A                 N.D.b
+                                                                     residues of the KSQ domain in the chimeric didomain are located at the
+ GfsA KSQATL S662A                      66 ± 3                   same position as those of GfsA KSQATL (Fig. 3c)28. The AncAT_2 domain
+ GfsA KSQATL Q197C/S662A                      N.D.b                       (Arg561–Val869) is also structurally similar to the GfsA ATL domain
+aInitial velocity determined using 0.2 μM KSQAncAT_2 (or ATL) didomain and 100 μM malonyl-    (Gly559–Leu854, Cα-RMSD: 0.526 Å)28. The catalytic residues and the
+GfsA ACPL.                                                              substrate recognition residues of AncAT_2 are located in the same
+bInitial velocity <1 μM min–1.
+                                                                      position as those of GfsA ATL (Fig. 3d). In addition, the KAL and PAL
+                                                                    regions of the chimeric didomain are structurally similar to those of
+                                                                  the native didomain (Supplementary Fig. 11c, d). The AncAT_2 domain
+domain (Gly559–Arg870) were expressed in E. coli. The expressed GfsA   contacts PAL through the same salt bridge and hydrophobic interac-
+KSQAncAT_2 chimeric didomain was obtained as a soluble protein,   tions observed in the GfsA KSQATL didomain (Supplementary Fig. 12).
+whereas the GfsA KSQAncAT_1 chimeric didomain was insoluble   These structural comparisons suggest that fusion with the AncAT_2
+(Supplementary Figs. 5, 6). Therefore, functional analysis of the GfsA  domain does not signiﬁcantly affect the function and structure of the
+KSQAncAT_2 chimeric didomain was performed.                     GfsA KSQAT didomain. The position of the AncAT_2 domain differs
+   To assess whether the KSQ domain retains its decarboxylation  from that of the GfsA ATL domain by ~6 Å (Supplementary Fig. 11b). It is
+activity by fusion with AncAT_2 in the chimeric didomain, we pre-   unclear whether the different positioning of the AncAT_2 domain is
+pared an AncAT_2-inactivated protein by replacing Ser666, the   attributed to the structural difference between the AncAT_2 domain
+putative catalytic residue of the AncAT_2 domain, with Ala (Supple-  and the GfsA ATL domain or to the ﬂexibility of an AT domain in a
+mentary Fig. 6). The GfsA KSQAncAT_2 S666A mutant showed dec-  KSQAT didomain. The structure of the chimeric protein was deter-
+arboxylation  activity toward  malonyl-GfsA ACPL  (Fig. 2b and  mined at a higher resolution (2.0 Å resolution) compared to the native
+Supplementary Fig. 7a). In contrast, the GfsA KSQAncAT_2 Q197C/   GfsA KSQATL didomain construct (2.6 Å), suggesting that the chimeric
+S666A mutant, in which Gln197 in the active site of the KSQ domain   protein facilitated structural analysis, as expected.
+was replaced with Cys, showed no decarboxylation  activity as
+reported  previously28.  The  decarboxylation   activity  of  the   Structural analysis of the ACPL=KSQAncAT_2 chimeric didomain
+KSQAncAT_2 S666A mutant was similar to that of the GfsA KSQATL  complex
+S662A mutant (ATL domain-inactivated protein) (Table  1). Thus,  To improve the resolution of the GfsA KSQ–ACPL complex structure,
+substituting the GfsA ATL domain with the AncAT_2 domain has no  we performed a structural analysis of the KSQ–ACPL complex utilizing
+signiﬁcant effect on the activity of the KSQ domain, suggesting that   the KSQAncAT_2 chimeric didomain. The GfsA ACPL=KSQAncAT_2 was
+KSQ–ACPL interactions are maintained even in the presence of   prepared by the “crosslinking reaction” using a crosslinking probe57, as
+AncAT_2 (Supplementary Fig. 7b, c). The acyltransferase activity of   reported previously29 (Fig. 4a). Brieﬂy, we enzymatically modiﬁed the
+the AncAT_2 domain was measured using the GfsA KSQAncAT_2   Ser980 residue of apo-ACPL with Cl-acetyl pantetheinamide by coen-
+Q197C mutant. The reaction of the KSQAncAT_2 Q197C mutant with  zyme A biosynthetic enzymes, CoaA, CoaD and CoaE, and phospho-
+holo-GfsA ACPL and malonyl-CoA gave malonyl-GfsA ACPL, suggest-   pantetheinyl transferase, Sfp, to prepare crypto-ACPL (Supplementary
+ing that the AncAT_2 domain displays acyltransferase activity for   Fig. 13)58. The crosslinking reaction between the KSQAncAT_2 Q197C
+malonyl-CoA (Supplementary Table 2, Fig. 2c and Supplementary   mutant protein and crypto-ACPL was then performed. The crosslinking
+Fig. 8). The AncAT_2 domain showed no activity toward methylma-   reaction gave the desired crosslinked complex (ACPL=KSQAncAT_2),
+lonyl-CoA, indicating that the AncAT_2 domain has similar substrate   with the mutated Cys197 residue of the KSQ domain covalently linked
+speciﬁcity to the GfsA ATL domain (Supplementary Fig. 9). This result   to the ACPL domain via the crosslinking probe (Fig. 4b). Crystals of the
+is also supported by the presence of the recognition motif for   crosslinked complex were obtained under conditions different from
+malonyl-CoA (His-Ala-Phe-His)29,55 in the AncAT_2 domain (Supple-   that of GfsA ACPL = KSQATL (Supplementary Fig. 14). However, the
+mentary Fig. 4). We then investigated the solubility, quaternary   structure was not solved because these crystals did not diffract.
+structure and thermal stability of the chimeric didomain. E. coli       Therefore, we decided to conduct a cryo-EM single-particle ana-
+expression of GfsA KSQAncAT_2 yielded ~22.2 mg from 1 L expression    lysis of ACPL=KSQAncAT_2. After initial screening of grid preparation
+culture, which  is comparable  to  the  yield  for GfsA KSQATL   conditions, we successfully collected data on a grid featuring ideally
+(~21.5 mg L–1). Size exclusion chromatography (SEC) analysis showed   monodispersed particles (Fig. 4c and Supplementary Fig. 15a). This
+that GfsA KSQAncAT_2 forms a homodimer as in the case of GfsA   ﬁnding was surprising because particles of native GfsA ACPL = KSQATL
+KSQATL (Supplementary Fig. 10a). Differential scanning calorimetry   were observed to aggregate and failed to give clear 2D class averages in
+(DSC) analysis showed that GfsA KSQAncAT_2 and GfsA KSQATL   previous single-particle analysis efforts (Fig. 4c and Supplementary
+didomains have a similar Tm value (Supplementary Table 3 and   Fig.   15b).  We  performed   single-particle   analysis   of   the
+Supplementary Fig. 10b). These results showed that fusing the  ACPL=KSQAncAT_2  (Supplementary  Fig.  16).  Given  that  GfsA
+AncAT_2 domain does not signiﬁcantly affect the decarboxylation  ACPL = KSQATL aggregates, the observations indicate that substituting
+activity of the KSQ domain or the solubility and the thermal stability   AncAT_2 signiﬁcantly improved the monodispersity of the particles in
+of the KSQAT didomain.                                            the grid for cryo-EM single-particle analysis. In the 2D class averages,
+                                                                     density corresponding to the KSQ domain, ACPL domain and KAL was
+Crystal structure of the KSQAncAT_2 chimeric didomain            clearly observed, whereas that of the AncAT_2 domain was obscured
+The crystal structure of GfsA KSQAncAT_2 was determined at 2.0 Å    (Fig. 4c and Supplementary Fig. 15a). Several rounds of particle sorting
+resolution (Supplementary Table 4 and Fig. 3a) and compared with the   revealed a symmetry-breaking feature of the ACPL region. Thus,
+GfsA KSQATL structure. In the crystal structure, the KSQAncAT_2 forms   focusing on this part, we applied the C2 symmetry expansion method
+a homodimer in an extended conformation56 as observed for the GfsA   with further non-alignment 3D classiﬁcation. We ﬁnally succeeded in
+KSQATL didomain [PDB entry: 7VEE]28 (Fig. 3a, b), which is consistent   reconstructing  three  high-resolution Coulomb  potential  maps,
+
+
+
+Nature Communications| (2025)16:6847                                                                    4
+
+
+[PDF physical page 5]
+Article                                                                                   https://doi.org/10.1038/s41467-025-62168-0
+
+   a                               c                                                                                        T334
+                          KSQ
+
+                                                                                                      T336
+
+                                                                            H370                                 PAL
+
+                                                                                         H332                            KAL
+                                                                           Q197
+      AncAT_2                                     GfsA KSQ
+        GfsA KSQAncAT_2 chimeric didomain              chimeric didomain / native protein
+
+
+   b                            d
+                          KSQ                                                                 R691
+                                                                       H767
+                                                                                                                                                                                                               / R687
+                                                                                                                                                         / H762
+                                                                                            F769
+                                                                                                                                                                                            / F764
+                                 PAL
+
+                            KAL                                      A768
+      GfsA ATL                                                                                                                            / A763                     S666
+                                                                                 H770
+        GfsA KSQATL didomain (native protein)              AncAT_2 / GfsA ATL                            / H765                        / S662
+
+Fig. 3 | Structure of the GfsA KSQAncAT_2 chimeric didomain. a Overall structure   and active site structures of both KSQ domains (right panel). The GfsA KSQ domain
+of the GfsA KSQAncAT_2 chimeric didomain. The KSQ domain, KSQ to ATL linker      in the chimeric didomain and native protein (PDB entry: 7VEE) are shown in green
+(KAL) and post-ATL linker (PAL) are colored green, gray and magenta, respectively.   and light gray, respectively. d Comparison of the AncAT_2 domain and GfsA ATL
+The AncAT_2 domain is colored blue. b Overall structure of the GfsA KSQATL       domain. Superposition of the overall structures of both AT domains (left panel) and
+didomain (native protein) [PDB entry: 7VEE]. The GfsA ATL domain is colored cyan.    active site structures of both AT domains (right panel) are shown. The AncAT_2
+c Comparison of the GfsA KSQ domain between the chimeric didomain and the     domain and GfsA ATL domain (PDB entry: 7VEE) are shown in blue and cyan,
+native protein. Superposition of overall structures of both KSQ domains (left panel)    respectively. Red dots in (c and d) indicate catalytic residues.
+
+
+
+
+designated as class 1, class 2 and class 3, at 2.68, 2.73 and 2.71 Å reso-   interfaces in the cryo-EM structures of KS-AT-KR-ACP elongation
+lution, respectively, with slightly yet signiﬁcantly different positioning  modules (Supplementary Fig. 23)25,26.
+of the ACPL domain (Supplementary Figs. 16–18 and Supplementary        In the class 3 structure of the asymmetric dimer, the KSQ domain,
+Table 5). The potential map regions corresponding to the ACPL were  KAL and PAL were also observed, whereas the AncAT_2 domain was
+distinctly observed in class 1 and class 3; therefore, we built molecular   disordered as observed in the class 1 structure (Fig. 4d). The dimeric
+models into these two classes (Supplementary Fig. 17).                  structure of this KSQKAL and PAL in the class 3 structure is also similar
+     In the class 1 structure of the C2 symmetric dimer, the KSQ domain   to the corresponding region in the crystal structure of KSQAncAT_2
+(Glu27–Pro453), KAL (Leu476–Ser546) and PAL (Val897–Glu926) were  (Cα-RMSD: 0.51 Å, Supplementary Fig. 19b). In the class 3 structure,
+observed, whereas the AncAT_2 domain (Gly559–Arg876) was dis-   only one molecule of GfsA ACPL (chain B, Glu949–Val1016) was clearly
+ordered (Fig. 4d). Considering that the region corresponding to the   observed to bind to the KSQ domain of chain A (Fig. 4d), as observed in
+AncAT_2 domain was also obscured in the 2D class average (Fig. 4c),   the  cryo-EM  structure  of  the  deoxyerythronolide B  synthase
+the KSQAncAT_2 didomain could adopt various conformations with   module25,27. On the opposite side of the observed ACPL, a particularly
+different locations of the AncAT_2 domain. The structures of the KSQ  weak potential map, presumably derived from another ACPL, was
+domain, KAL and PAL in the class 1 state are similar to the crystal   observed (Supplementary Fig. 24), suggesting that ACPL bound to the
+structure of KSQAncAT_2 (Cα-RMSD: 0.51 Å) (Supplementary Fig. 19a).  KSQ domain may be ﬂexible. The position of the observed ACPL is
+The potential map of the crosslinking probe was more clearly observed   different from that in the class 1 structure (Fig. 4e): the Cα of Arg989 in
+than the density map of the GfsA ACPL = KSQATL crystal structure,   helix 2 and Glu1014 in helix 4 shift 1.5 Å and 1.3 Å, respectively (Sup-
+suggesting that using the chimeric protein aids structural analysis   plementary Fig. 21b). In the class 3 structure, the ACPL interacts with
+(Supplementary Fig. 20). Notably, the position of ACPL in the class   the KSQ domain (chain C) through a salt bridge between Asp979 and
+1 state is different from that in the GfsA ACPL = KSQATL structure [PDB   His165 (2.9 Å) but lacks the Arg971–Glu524 and Glu985–Arg105 salt
+entry: 8IN9]29: the Cα of Arg989 in helix 2 and Glu1014 in helix 4 vary by   bridges, which may be attributed to the different positioning of the
+4.4 Å and 4.8 Å, respectively (Supplementary Fig. 21a). The ACPL  ACPL (Fig. 5 and Supplementary Fig. 22b). The different positioning of
+interacts with the KSQ domain and KAL through several salt bridges.  ACPL between these ACPL = KSQ complex structures suggests that
+Asp979 of ACPL (chain C) forms a salt bridge with His165 of the KSQ  ACPL moves slightly while remaining in contact with the KSQ domain in
+domain (chain A, 3.3 Å) (Fig. 5a and Supplementary Fig. 22a). Arg971 of   the crosslinked complex.
+ACPL forms a salt bridge with Glu524 of KAL (chain A, 2.6 Å) (Fig. 5a).      Each of the two cryo-EM structures of ACPL=KSQAncAT_2 was
+These salt bridges were also observed in the GfsA ACPL = KSQATL   observed to have a different KSQKAL–ACPL interaction mode to that
+crystal structure. In contrast, Glu985 of ACPL and Arg105 of the KSQ   in the crystal structure of GfsA ACPL = KSQATL, raising the possibility
+domain are ~10 Å apart (Fig. 5a, c). This observation is interesting   that the KSQ–ACPL complex has multiple KSQKAL–ACPL interaction
+because Glu985 of ACPL forms a salt bridge with Arg105 of the KSQ  modes in solution. To investigate this possibility, we performed
+domain in the GfsA ACPL = KSQATL crystal structure. The correspond-   molecular dynamics (MD) simulations using a model of GfsA
+ing salt bridge interaction was consistently observed in the KS–ACP  KSQATLACPL (Ser25–Leu1020), in which the ACPL domain adopts the
+
+
+
+Nature Communications| (2025)16:6847                                                                          5
+
+
+[PDF physical page 6]
+Article                                                                                   https://doi.org/10.1038/s41467-025-62168-0
+
+   a                                         b
+          ACPL
+                                                            Anc
+                                                   KSQ                                                         AT2              (kDa) M   1   2
+         O       OH                  O
+                       H        H                                        245
+           P            N        N                  Cl       Cys197
+      O                                                                          180           O                         N                                                  HS  GfsA KSQAncAT_2                                      H         O
+                   O       O                    Q197C             145
+                             crypto-GfsA ACPL                                                                Crosslinked complex
+                                                                  Anc         100                  GfsA KSQAncAT_2
+                    ACPL                                   KSQ AT2                                                                                   Q197C
+        crosslinking                                                           75
+                  O       OH                  O        Cys197
+                                H        H
+                    P            N        N             S
+               O    O                         N
+                  O                           H
+                            O       O
+                   GfsA ACPL=KSQAncAT_2 crosslinked complex
+
+   c                   ACPL=KSQAncAT_2                                   ACPL=KSQATL
+
+
+                                                 ACPL
+
+
+
+
+                                       50 nm               ACPL                                     50 nm
+                                               AncAT_2
+                                                       KSQ
+
+
+                                                                         ACPL_class 1   d                                                e                        KAL        KSQ                                                                                    3                                                                         ACPL_class          KSQ
+
+                                  ACPL       ACPL
+                                                                   KAL_class 1
+                                                  KAL   KAL_class 3
+
+
+
+
+
+                 class 1 state                       class 3 state
+
+
+
+                                                                                       KSQ_class 1, KSQ_class 3
+
+Fig. 4 | Cryo-EM structure of GfsA ACPL=KSQAncAT_2. a Crosslinking reaction of   was well dispersed in the left panel whereas aggregation of native GfsA
+the KSQAncAT_2 Q197C mutant with crypto-ACPL. b SDS-PAGE analysis of the       ACPL = KSQATL was observed in the right panel. Similar micrographs were con-
+crosslinking reaction. Lane M: protein marker. Lane 1: KSQAncAT_2 Q197C mutant.    sistently obtained for each of the three independent samples. d The
+Lane 2: crosslinking reaction between KSQAncAT_2 Q197C and crypto-ACPL (Reac-   ACPL=KSQAncAT_2 structure and the cryo-EM map (light blue mesh) in the class 1
+tion time: 15 min). The ratio of the crosslinked complex to the non-crosslinked     and 3 states. KSQ domain, KAL, PAL and ACPL are colored green, gray, magenta and
+protein is 83 ± 3 to 17 ± 3 in lane 2 (the experiments were conducted in triplicates).   orange, respectively. The Coulomb potential maps are shown at level 2.0σ.
+Source data are provided as a Source Data ﬁle. c A representative cryo-EM micro-   e Superposition of the class 1 and class 3 ACPL=KSQAncAT_2 structures. The KSQ
+graph and 2D class average of ACPL=KSQAncAT_2 (left panel) and a representative   domain, KAL and ACPL of the class 1 structure are colored green, gray and orange,
+cryo-EM micrograph of native GfsA ACPL = KSQATL (right panel). ACPL=KSQAncAT_2    respectively. The class 3 structure is colored purple.
+
+
+
+
+functional form, is covalently modiﬁed with a malonyl phospho-   multiple interaction modes, which is not caused by fusion with the
+pantetheine thioester group and is not crosslinked with the KSQ  AncAT_2 domain.
+domain (Supplementary Figs. 25 and 26). During the 500 ns MD
+simulations, ACPL was retained on the KSQKAL surface, and multiple  Discussion
+KSQKAL–ACPL interaction modes were observed (Supplementary   In this study, we applied ASR to the ATL domain of the loading module
+Fig. 26c–f). Notably, the Arg105–Glu985 and Glu524–Arg971 salt   of cis-AT PKS GfsA and performed functional and structural analysis of
+bridges were transiently formed in the MD simulations (Supple-   the GfsA KSQAncAT_2 chimeric didomain protein, which contains the
+mentary Fig. 26c, d), as observed in the cryo-EM structures. The MD   ancestral AT domain instead of the native ATL domain. Replacing the
+simulations exhibit the KSQKAL–ACPL interaction modes observed in  ATL domain in GfsA KSQATL with the AncAT_2 domain did not affect
+the crystal structure and cryo-EM structures (Fig. 5 and Supplemen-   the decarboxylation activity of the KSQ domain, and crystal structural
+tary Fig. 26f), suggesting that the KSQ–ACPL complex inherently has   analysis of the KSQAncAT_2 chimeric protein gave a higher resolution
+
+
+
+Nature Communications| (2025)16:6847                                                                      6
+
+
+[PDF physical page 7]
+Article                                                                                   https://doi.org/10.1038/s41467-025-62168-0
+
+   a                      b                         c
+          cryo-EM class 1 structure              cryo-EM class 3 structure                   crystal structure [8IN9]
+
+                                                                                      H165
+                 H165                                H165
+
+                                                                                  2.9 Å                                              3.8 Å
+                             3.3 Å                                                                      D979
+        H166                              H166       D979                   H166
+                                                                                                                                  3.2 Å
+                    D979
+                                                                                                    E985
+                                                             E985                                     2.8 Å
+             R105                                R105                              R105
+
+
+                          E985
+
+
+
+
+
+                    2.6 Å                                                                                                          2.9 Å
+                                              E524
+          E524                                                                     E524
+                      R971                                    R971                             R971
+
+
+Fig. 5 | Interactions at the ACPL interface in ACPL = KSQ complex structures.      entry: 8IN9]29. KSQ domain, KAL and ACPL are colored green, gray and orange,
+a The ACPL interface of the class 1 structure. b The ACPL interface of the class        respectively. Interacting residues at the interface are shown as stick representa-
+3 structure. c The ACPL interface of the GfsA ACPL = KSQATL crystal structure [PDB    tions. Salt bridges are shown as black dashed lines.
+
+
+
+structure  (i.e., 2.0 Å) than that of the wild-type didomain protein   variability of the KSQAT didomain protein was not achieved. Instead,
+(2.6 Å)28 (Supplementary Table 6). Furthermore, ACPL=KSQAncAT_2   the improvement in monodispersity likely arose from other con-
+displayed high monodispersity compared to GfsA ACPL = KSQATL,   tributing factors.
+allowing the cryo-EM structures of the crosslinked complex to be      The cryo-EM single-particle analysis utilizing the chimeric dido-
+solved at ~2.7 Å resolution. These structural analyses of the chimeric  main suggested that the GfsA KSQ domain likely has several interaction
+didomain protein indicate that domain exchange with an ancestral AT  modes for cognate ACP (the ratio between interaction modes is dis-
+domain was beneﬁcial for crystal structural analysis and cryo-EM sin-   cussed in Supplementary Note 1).In the class 1 cryo-EM structure, three
+gle-particle analysis of the GfsA loading module. It is unclear why the    salt bridges (His165–Asp979, His166–Asp979 and Glu524–Arg971) are
+domain exchange with AncAT_2 was beneﬁcial for the structural ana-   observed in the KSQKAL–ACPL interaction and only one salt bridge
+lysis because KSQAncAT_2 did not exhibit improved thermal stability   (His165–Asp979) is observed in the class 3 cryo-EM structure, whereas
+or solubility compared with GfsA KSQATL. More broadly, the under-   in the crystal structure of GfsA ACPL = KSQATL, four salt bridges
+laying reasons why several ancestral proteins designed by ASR display   (His165–Asp979, His166–Asp979, Arg105–Glu985 and Glu524–Arg971)
+enhanced solubility, thermal stability and suitability for structural   are observed (Fig. 5). Therefore, GfsA ACPL = KSQATL is assumed to
+analysis remain unresolved46,47,59. Nevertheless, we inferred that dif-   crystallize in the most stable KSQKALL–ACPL interaction mode con-
+ferences in crystal packing might account for the improved resolution   formation among the several interaction modes observed. Several
+of the crystal structure. Notably, the crystal packing differed sig-   catalytic domain–ACP interaction modes have been elucidated based
+niﬁcantly between GfsA KSQATL and KSQAncAT_2 (Supplementary  on the crystal structures of their crosslinked complexes61–67. Although
+Fig. 27). In the native GfsA KSQATL crystal structure, part of the packing   a single interaction mode between the catalytic domain and ACP was
+interface between the symmetry mates involves contacts between the   observed in their crystal structures, these catalytic domains may also
+KAL and the ATL domain (Supplementary Fig. 28a, b). Several GfsA ATL   have multiple interaction modes for cognate ACP, such as the GfsA KSQ
+residues located in the vicinity of the KAL-ATL packing interface are not   domain. The multiple interaction modes for ACP, which were sup-
+conserved in AncAT_2 (Supplementary Fig. 28c). The salt bridge   ported by the result of MD simulations of the native KSQATLACPL
+between Asp490 of the KAL and Arg717 of the ATL domain appears to   dimer, may be an intrinsic feature of catalytic domains in modular
+promote the crystal packing of GfsA KSQATL (Supplementary Fig. 28d).   PKSs. The multiple interaction modes may reﬂect important transi-
+In the amino acid sequence of the AncAT_2 domain, Glu721 is inserted   tions during ACP-mediated shuttling of the growing polyketide chain
+between Gly720 and Arg722, corresponding to Gly716 and Arg717 of   to the catalytic domain.
+the ATL domain, respectively (Supplementary Figs. 4, 28f). The inser-      The application of ASR to multi-domain proteins has been impli-
+tion of Glu721 prevents Arg722 of the AncAT_2 domain from occupying    citly avoided because of the negative impact on domain–domain
+the same position as Arg717 of the ATL domain (Supplementary   interactions and conformational dynamics49. The application of ASR to
+Fig. 28e). Therefore, it is likely that the Glu721 insertion and some   the full-length amino acid sequences of multi-domain proteins has
+mutations in the AncAT_2 domain affected the crystal packing, which   recently been reported in protein engineering49, demonstrating the
+may have contributed to improving resolution. The insertion of amino   potential of applying ASR to multi-domain proteins. In this study, we
+acid residues is a distinctive feature of amino acid sequence mod-   demonstrated that applying ASR to only one catalytic domain region in
+iﬁcations introduced by ASR, and is not typically observed in protein   a multi-catalytic domain protein is also useful for the structural ana-
+engineering approaches that rely on amino acid substitutions, such as    lysis of multi-domain proteins. For the structural analysis of cis-AT
+site-directed mutagenesis and directed evolution60. However, the   PKSs, applying ASR not only to an AT domain but also to other catalytic
+reason why the fusion with AncAT_2 domain improved the mono-   domains and even to a single module may provide properties that
+dispersity of ACPL=KSQAncAT_2 particles in the cryo-EM single-particle    facilitate structural analysis. Notably, this study represents an example
+analysis remains unclear. Because AncAT_2 was disordered in the cryo-   of ASR that facilitates cryo-EM single-particle analysis of a target pro-
+EM single-particle analysis, the expected reduction in conformational    tein. Thus, our strategy is expected to extend the application potential
+
+
+
+Nature Communications| (2025)16:6847                                                                                 7
+
+
+[PDF physical page 8]
+Article                                                                                   https://doi.org/10.1038/s41467-025-62168-0
+
+
+of ASR even further. One of the major concerns is whether ASR affects   sequences with the others in the library. Protein sequences of the
+domain–domain interactions. Importantly, the KSQ domain of the   designed AncATs were shown in Supplementary Fig. 3b.
+chimeric didomain showed similar decarboxylation activity against the
+malonyl-ACPL substrate compared to the KSQ domain of the native   Preparation of GfsA KSQAncAT_1 and GfsA KSQAncAT_2 chimeric
+didomain. Taken together with the structural comparison of the  didomain proteins
+KSQ–ACPL complexes and the results of MD simulations, it is likely that  A expression plasmid of GfsA KSQAncAT chimeric protein was con-
+the KSQ–ACPL interactions were not impaired by fusing AncAT_2. The   structed by Gibson assembly (the strategy is shown in Supplementary
+AncAT_2–PAL interactions in the chimeric protein are also consistent   Fig. 32). For construction of pColdI-gfsA KSQAncAT_1 and pColdI-gfsA
+with the ATL–PAL interactions of the native protein (Supplementary   KSQAncAT_2, fragment 1 was ampliﬁed by PCR using pColdI-gfsA
+Fig. 12). AncAT_2 was shown to have acyltransferase activity onto ACPL   KSQATL28 as the template DNA with oligonucleotides shown in Sup-
+(Fig. 2c and Supplementary Table 2), suggesting that AncAT_2 interacts   plementary Table 8. Fragment 2 was ampliﬁed by PCR using pEXA2J2-
+with ACPL, although AncAT_2–ACPL interactions may differ from   AncAT_1 and pEXA2J2-AncAT_2 as the template DNA with oligonucleo-
+ATL–ACPL interactions in the native protein. Despite these concerns,   tides shown in Supplementary Table 8. These AncAT-encoding plas-
+recent applications of ASR46,47,49, including this study, suggest that ASR   mids were synthesized by Euroﬁns Genetics (Tokyo, Japan). Next, the
+should be considered a tool for structural analysis of not only cis-AT   fragment 1 and fragment 2 were combined by Gibson assembly reac-
+PKSs but also various multi-domain proteins.                              tion. The reaction mixture (10 μL) containing 0.5 pmol of fragment 1
+     In conclusion, we have demonstrated the utility of ASR in the  and 0.5 pmol of fragment 2, and 10 μL of Gibson Assembly® Master Mix
+structural analysis of the GfsA PKS loading module by applying ASR to  (New England Biolabs) was then added to the mixture. The reaction
+the GfsA ATL domain. Fusion with the ancestral domain facilitated   mixture was incubated at 50 °C for 15 min to generate pColdI-gfsA
+crystal structure analysis and cryo-EM single-particle analysis. Fur-   KSQAncAT_1 and pColdI-gfsA KSQAncAT_2.
+thermore, applying ASR to a partial region of the amino acid sequence       For the expression of the GfsA KSQAncAT_1 and GfsA KSQAncAT_2
+of multi-domain proteins has expanded the application potential of   proteins, E. coli BL21(DE3) cells harboring each gene were grown at
+ASR. We believe that ASR should be an attractive tool for structural   37 °C in LB broth containing ampicillin (50 μg/mL). When the optical
+analyses, including X-ray crystallography and cryo-EM single-particle   density at 600 nm reached 0.4, protein expression was induced by the
+analysis of single- and multi-domain proteins.                          addition of 0.2 mM isopropyl β-D-1-thiogalactopyranoside (IPTG), and
+                                                                  the cells were then cultured for an additional 20 h at 15 °C. The har-
+Methods                                                       vested cell pellets were suspended in buffer A [50 mM HEPES-NaOH
+General procedure                                         (pH 8.0), 100 mM NaCl, and 10% (w/v) glycerol] and lysed by sonica-
+All commercial reagents derived from TCI, Kanto Chemical and Sigma   tion. The supernatant was loaded onto a His60 Ni Superﬂow afﬁnity
+Aldrich were used unless otherwise indicated. The details of com-  column (Clontech). The column was washed with buffer A containing
+mercially available reagents are summarized in a Supplementary  20 mM imidazole to remove unbound proteins. The protein was then
+data ﬁle.                                                            eluted with buffer A containing 200 mM imidazole. The protein solu-
+                                                                        tion was then desalted and concentrated using a PD-10 column (Cytiva)
+Reconstruction of ancestral acyltransferase domains (AncAT_1   and an Amicon Ultra 10 K centrifugal ﬁlter (Merck Millipore).
+and AncAT_2)
+From an initial pool of 6132 sequences by BLAST search using the   In vitro assay of the decarboxylation activity of the KSQ domain
+amino acid sequence of the GfsA ATL domain, 1887 homolog sequen-   of GfsA KSQAncAT_2 chimeric protein
+ces of GfsA ATL domain were identiﬁed via the following two steps of   For in vitro assay of the KSQ domain of GfsA KSQAncAT_2 chimeric
+the curation: (1) Homolog sequences were downloaded using Blastp by   protein,  GfsA  KSQAncAT_2  S666A  mutant  protein  and  GfsA
+inputting the GfsA ATL domain (Gly559–Arg870) sequence with an  KSQAncAT_2 Q197C/S666A mutant protein were prepared. For con-
+E-value of “1.0E−6” and selecting the “non-redundant” database. (2)   struction of pColdI-gfsA KSQAncAT_2 S666A, site-directed mutagenesis
+Sequences deviating by more than 90% in length from the GfsA ATL   of pColdI-gfsA KSQAncAT_2 as a template DNA was performed with the
+domain, or those showing >90% identity with other sequences, were   oligonucleotides in Supplementary Table 9. pColdI-gfsA KSQAncAT_2
+excluded. We identiﬁed four key residues which are correlatively   Q197C/S666A was constructed by site-directed mutagenesis of pColdI-
+conserved among the sequences as a motif by referring to the proce-   gfsA KSQAncAT_2 Q197C as a template DNA was performed with the
+dures described in our previous study68. This analysis was conducted   oligonucleotides in Supplementary Table 9. The mutations were con-
+under the hypothesis that correlatively mutated residues confer  ﬁrmed by determining the nucleotide sequences. Each plasmid was
+diverse enzymatic properties69. Using these key residues, the sequence   transformed into E. coli BL21(DE3) cells, and the mutated enzymes
+library was categorized into several groups. Utilizing the sequences   were prepared as described above.
+categorized into a group with S567/G722/L790/C853 motif as an input       For in vitro analysis of the KSQ domain of the chimeric protein, the
+(Supplementary Fig. 31), the AncATs were designed by MAFFT2ASR.py   substrate, malonyl-GfsA ACPL was prepared by the following enzy-
+(https://doi.org/10.5281/zenodo.10208128)53 (Supplementary Fig. 3a).   matic reaction with Sfp and RpMatB T208G mutant28. Malonyl-CoA
+The MAFFT2ASR is a pipeline tool to run three of the software auto-   (ﬁnal concentration: 10 mM) was mixed with 30 μM RpMatB T208G
+matically to reconstruct ancestral proteins via three steps; (1) multiple   mutant, 5 mM sodium malonate, 5 mM ATP, and 5 mM MgCl2 in buffer
+sequence alignment (MSA) was performed by MAFFT software70, (2)   A. The reaction was carried out at 20 °C for 30 min. Subsequently, 5 μL
+The phylogenetic tree was reconstructed by the PhyML software based   of the above malonyl-CoA solution was mixed with 200 μM apo-GfsA
+on the maximum likelihood method71, and (3) ancestral proteins were   ACPL, 10 μM Sfp, and 5 mM MgCl2 in buffer A (total volume 50 μL).
+reconstructed by the “codeml” tool implemented  in the PAML   After incubation at 20 °C for 10 min, this solution was directly used for
+package54. For the reconstruction process, the Jones–Taylor–Thornton   in vitro assay of the activity of the KSQ domain. The reaction mixture
+(JTT) empirical model was utilized, primarily due to codeml employing   (20 μL) contained 0.2 μM GfsA KSQAncAT_2 mutant and 100 μM
+JTT as its default setting. No speciﬁc model selection procedures were   malonyl-GfsA ACPL in buffer A. After incubation at 28 °C for 1, 2 and
+implemented to determine the model. Many of ancestral sequences   5 min, equal volume of acetonitrile was added to this solution. This
+were generated  via ancestral sequence reconstruction methods.   mixture was applied to HPLC analysis with Hitachi instrument (Pump
+Manual truncation of insertions in the AncAT candidates was con-   L-7300 and Chromaster Column Oven 5110) equipped with an Aeris C4
+ducted based on MSA  results comparing the AncAT candidate  WIDEPORE  column  (3.6 μm,  150 × 4.6 mm2;  Phenomenex).  The
+
+
+
+Nature Communications| (2025)16:6847                                                                       8
+
+
+[PDF physical page 9]
+Article                                                                                   https://doi.org/10.1038/s41467-025-62168-0
+
+
+product was detected at 280 nm and eluted with a gradient of solvents   samples. The samples were heated ranging from 25–75 °C that the
+B (0.1% triﬂuoroacetic acid (TFA) in water) and C (0.1% TFA in acet-   increase of temperature speed was set to 90 °C per hour (Supple-
+onitrile); 0–5 min in 41% C isocratic, 5–20 min in 41–45% C linear gra-   mentary Fig. 10). The Tm values were estimated by ﬁtting the obtained
+dient. The ﬂow rate was 1.0 mL/min.                                 data (Supplementary Table 3).
+
+In vitro assay of the acyltransferase activity of the AT domains of   Crystallization, data collection, and structural determination of
+GfsA KSQATL and GfsA KSQAncAT_2 for malonyl-CoA            the GfsA KSQAncAT_2
+For the analysis of the acyltransferase activity of the AncAT_2 domain,   GfsA KSQAncAT_2 crystals were grown using sitting-drop vapor diffu-
+the GfsA KSQAncAT_2 Q197C, the KSQ domain inactivated mutant was   sion by mixing protein solution (12 mg/mL) in buffer A with an equal
+prepared. For construction of pColdI-gfsA KSQAncAT_2 Q197C, site-  volume of reservoir solution (25% w/v SOKALAN PA 25 CL, Molecular
+directed mutagenesis of pColdI-gfsA KSQAncAT_2 as a template DNA   Dimensions) at 25 °C. Before X-ray data collection, crystals were
+was performed with the oligonucleotides in Supplementary Table 9.   soaked in reservoir solution containing 25% (v/v) glycerol as a cryo-
+The mutation was conﬁrmed by determining the nucleotide sequence.   protectant and ﬂash-frozen in liquid nitrogen. All diffraction data were
+The plasmid was transformed into E. coli BL21(DE3) cells, and the GfsA   collected at the BL-5A beamline at the Photon Factory (Tsukuba,
+KSQAncAT_2 Q197C mutant was prepared as described above.           Japan). Diffraction data of GfsA KSQAncAT_2 crystals were processed
+    For in vitro analysis of the AncAT_2 domain, the substrate, holo-   with XDS software72. The initial phase was determined by molecular
+GfsA ACPL was prepared by the following enzymatic reaction with   replacement using the MOLREP program73 with the predicted model of
+Sfp28. 2 mM CoA were mixed with 200 μM apo-GfsA ACPL, 10 μM Sfp,   GfsA KSQAncAT_2 by AlphaFold274 as a search model. Protein model
+5 mM MgCl2 in buffer A in a volume of 50 μL. The reaction was carried   building of the GfsA KSQAncAT_2 was carried out by Coot75. Refmac76
+out at 20 °C for 30 min. In the reaction of AncAT_2 domain, the reac-  was used for reﬁnement of the structure. Structural representations
+tion mixture (30 μL) contained 0.2 μM GfsA KSQAncAT_2 Q197C,   were prepared with PyMOL (https://pymol.org/2/).
+100 μM holo-GfsA ACPL and 1 mM malonyl-CoA in buffer A. After
+incubation at 28 °C for 0.5, 1, 2.5 and 5 min, equal volume of acetoni-   Crosslinking reaction between GfsA KSQAncAT_2 Q197C mutant
+trile was added to this solution. This mixture was applied to HPLC  and crypto-GfsA ACPL and crystallization of the GfsA
+analysis with Hitachi instrument (Pump L-7300 and Chromaster Col-  ACPL=KSQAncAT_2 crosslinked complex
+umn Oven 5110) equipped with an Aeris C4 WIDEPORE column   For preparation of crypto-GfsA ACPL, 600 μM of Cl-acetyl pantethei-
+(3.6 μm, 150 × 4.6 mm2). The product was detected at 280 nm and  namide was mixed with 5 mM ATP, 5 mM MgCl2, 2 μM CoaA, 2.8 μM
+eluted with a gradient of solvents B and C; 0–5 min in 41% B isocratic,   CoaD, 2.4 μM CoaE, 20 μM Sfp and 400 μM of apo-GfsA ACPL protein
+5–20 min in 41–45% C linear gradient. The ﬂow rate was 1.0 mL/min.   in buffer A. This modiﬁed reaction was carried out at 28 °C for 3 h, and
+For in vitro analysis of the GfsA ATL domain, the GfsA KSQATL Q197C   then it was stored at −80 °C. For the crosslinking reaction, 50 µM of
+mutant protein was prepared as previously reported28. The acyl-   GfsA KSQAncAT_2 Q197C mutant was mixed with 200 µM of crypto-
+transfer reaction of the GfsA ATL domain and the HPLC analysis were   GfsA ACPL. After incubation at 20 °C for 15 min, the sample of the
+performed in the same method as the acyltransfer assay of the   crosslinking reaction mixture were taken, and the reaction was quen-
+AncAT_2 domain.                                             ched by the addition of an equal volume of SDS-PAGE loading buffer
+                                                                    [1% (v/v) 2-mercaptoethanol, 20% (v/v) glycerol, 1% (w/w) sodium
+In vitro analysis of two-step reaction, acyltransfer and dec-       dodecyl sulfate, and 50 mM Tris-HCl (pH 6.8)].
+arboxylation catalyzed by the GfsA KSQ domain and the AT          For crystallization of GfsA ACPL=KSQAncAT_2 crosslinked com-
+domains                                                                 plex, the His6 tag at N-terminus of GfsA KSQAncAT_2 Q197C and GfsA
+For investigation of the substrate speciﬁcity of the AncAT_2 domain,  ACPL was removed. The His6 tag was removed from apo-GfsA ACPL by
+two-step reaction, acyltransfer and decarboxylation, by GfsA KSQAT   protease Factor Xa (Millipore). 1000 μM apo-GfsA ACPL was mixed
+(ATL and AncAT_2) didomain was performed. The GfsA KSQATL dido-   with 10 ng/μL Factor Xa in buffer E [50 mM HEPES-NaOH, 50 mM Tris-
+main was prepared as previously reported28. The reaction mixture  HCl (pH 8.0), 200 mM NaCl, 5 mM CaCl2, and 10% glycerol]. The mix-
+(10 μL) contained 0.2 μM GfsA KSQAT (ATL and AncAT_2), 100 μM holo-   ture was incubated at 28 °C for 2 h, and then it was directly used for
+GfsA ACPL and 1 mM methylmalonyl-CoA in buffer A. After incubation at   conversion to crypto-GfsA ACPL. For removal of the His6 tag from GfsA
+28 °C for 15 min, equal volume of acetonitrile was added to this solution.  KSQAncAT_2 Q197C mutant, 100 μM N-short GfsA KSQAncAT_2 Q197C
+This mixture was applied to HPLC analysis with Hitachi instrument   mutant was mixed with 10 ng/μL Factor Xa in buffer E. The mixture was
+(Pump L-7300 and Chromaster Column Oven 5110) equipped with an   incubated at 10 °C for 2 h, and then it was directly used for crosslinking
+Aeris C4 WIDEPORE column (3.6 μm, 150 × 4.6 mm2). The product was   reaction. For preparation of the crosslinking complex, 50 μM of His-tag
+detected at 280 nm and eluted with a gradient of solvents B and C;   free GfsA KSQAncAT_2 Q197C mutant was mixed with 200 μM of His-
+0–5 min in 41% C isocratic, 5–20 min in 41–45% C linear gradient. The   tag free crypto-GfsA ACPL, which was then incubated at 20 °C for 1 h.
+ﬂow rate was 1.0 mL/min. The assay was performed in the same manner  The resulting GfsA ACPL=KSQAncAT_2 crosslinked complex was pur-
+as above when malonyl-CoA was used as the substrate.                 iﬁed using MonoQ 5/50 GL column (Cytiva) equilibrated in buffer A.
+                                                         The GfsA ACPL=KSQAncAT_2 crosslinked complex was eluted with a
+Size exclusion chromatography and differential scanning          linear gradient of 0.1–1 M NaCl in buffer A. The puriﬁed crosslinked
+calorimetry of GfsA KSQAT didomain protein                   complex was concentrated and desalted to buffer F [5 mM HEPES-
+Size exclusion chromatography (SEC) of the GfsA KSQAncAT_2 and the  NaOH (pH 8.0), and 50 mM NaCl] using an Amicon Ultra centrifugal
+GfsA KSQATL was performed using ÄKTA pure 25 system (Cytiva)   ﬁlter. GfsA ACPL=KSQAncAT_2 crystals were grown using sitting-drop
+equipped with Superdex 200 Increase 10/300 GL column (Cytiva).   vapor diffusion by mixing protein solution (12 mg/mL in buffer F) with
+After equilibration of Superdex 200 Increase 10/300 GL column with   an equal volume of reservoir solution (1600 mM magnesium sulfate,
+buffer D [50 mM HEPES-NaOH (pH 8.0), and 100 mM NaCl], KSQAT  100 mM MES-NaOH, pH 6.5) at 25 °C.
+didomain proteins puriﬁed by Ni afﬁnity chromatography were loaded
+the column. The ﬂow rate was 0.7 mL/min.                         Grid preparation and cryo-EM data collection for single particle
+    Thermal stability of the GfsA KSQAncAT_2 and the GfsA KSQATL   analysis
+was analyzed by PEAQ-DSC (Microcal. Inc.). 20–30 μM KSQAT dido-   For cryo-grid preparation, 3 μL of an approximately 4.0 mg/mL pre-
+main proteins puriﬁed by SEC in the buffer D were utilized as the   paration of GfsA ACPL=KSQAncAT crosslinked complex in 5 mM
+
+
+
+Nature Communications| (2025)16:6847                                                                      9
+
+
+[PDF physical page 10]
+Article                                                                                   https://doi.org/10.1038/s41467-025-62168-0
+
+
+HEPES-NaOH (pH 8.0) and 50 mM NaCl was applied onto a holey car-   those of singly protonated phosphoserine (S1P). The geometry of
+bon grid (Quantifoil, Cu, R1.2/1.3, 300 mesh). The grid was rendered   malonyl pantetheine was optimized at B3LYP/6-31 G(d) level using
+hydrophilic by a 30 s glow-discharge in air (11 mA current) using a   Gaussian 16 rev. C.0285, followed by a single-point calculation at HF/6-
+model PIB-10 device (Vacuum Device Inc., Ibaraki, Japan). The grid was   31 G(d) level to calculate the electrostatic potential around the mole-
+blotted for 5 s with a blot force of 15 at 18 °C and 100% humidity. The   cule. The atomic charges that ﬁt the electrostatic potential were cal-
+grid was then ﬂash-frozen in liquid ethane using Vitrobot Mark IV   culated  using  the  Antechamber  module  with  the  Restrained
+(Thermo Fisher Scientiﬁc, Waltham, MA, USA). For automated data   Electrostatic Potential (RESP) method. The parameters and the topol-
+collection, 20,198 micrographs were acquired with a Titan Krios G4  ogy ﬁles of the S1P were obtained from the Amber Parameter
+microscope (Thermo Fisher Scientiﬁc) equipped with a SelectrisX   Database86.
+energy ﬁlter operating at 300 kV in the nanoprobe mode using EPU      Ser980 and the crosslinker connecting KSQATL and ACPL were
+software. The movie micrographs were collected by a Falcon 4i direct   manually replaced by the serine residue modiﬁed by malonyl phos-
+electron detector in the electron counting mode at a nominal magni-   phopantetheine thioester. Q197C mutation in the GfsA KSQ domain,
+ﬁcation of 215,000 (0.58 Å/pixel). Thirty-nine movie frames were   which was introduced to allow the crosslinking reaction, was reverted
+recorded at an exposure of 1.0 electrons per Å2 per frame, corre-   to the wild type. The resulting complex was immersed in a box of TIP3P
+sponding to a total exposure of 50 e−/Å2. The defocus steps used were   water molecules with a buffer width of more than 10 Å, containing
+−0.8, −1.2, −1.6 and −2.0 μm.                                             ~0.15 M of Na+ and Cl−ions based on the SPLIT method87. Solvation was
+                                                             performed using the AMBER LEaP module. The initial system was a
+Data processing for cryo-EM single particle analysis              cubic box of 201.2 Å × 201.2 Å × 201.2 Å, consisting of 243,025 water
+For the GfsA ACPL=KSQAncAT crosslinked complex datasets, image   molecules, 705 Na+ molecules, 631 Cl−molecules, and a dimer of the
+processing was performed using cryoSPARC v4.377, detailed the single-   full-length wild-type GfsA bound to the substrate with 1992 residues.
+particle analysis workﬂow is included in Supplementary Fig. 16. Drift  The AMBER ff14SB88 and GAFF2 force ﬁeld were applied to the protein
+correction and dose weighing were performed using patch motion,  and the substrate, respectively. Subsequent MD simulations were
+and the CTF parameters were estimated using patch CTF. The particles   performed as follows using AMBER2289.
+were automatically picked and extracted (4× binned) from a subset of       Energy minimization was carried out for 5500 steps, during which
+500 micrographs using a blob picker and subjected to subsequent 2D   the position restraints on the non-hydrogen atoms of the protein were
+classiﬁcation. Particles associated to good 2D class averages which   gradually decreased from 10 kcal mol−1 Å−2 to 5, 2, 1, 0.5, 0.2 kcal mol−1
+displayed secondary-structural elements and multiple views of the    Å−2, and ﬁnally removed completely. Then the system was heated from
+target complex were used as seeds for Topaz training. 4× binned   10 K to 300 K over a 500 ps NVT simulation using the Langevin ther-
+particles were extracted from the whole dataset for 2D classiﬁcation.   mostat with a collision frequency of 2.0 ps−1 and position restraints of
+Particles were further sorted with ab-initio reconstruction, hetero-   10 kcal mol−1 Å−2 on the non-hydrogen atoms of the protein, followed
+geneous reﬁnement and 3D classiﬁcation and used as seeds for Topaz   by an additional 500-ps NVT simulation. The equilibration and sub-
+training again. Then, symmetry expansion and 3D classiﬁcation with   sequent production run were conducted in NPT ensembles, employing
+mask focused on cis-ACP region were performed to tackle the pseudo   the Bussi thermostat90 and the Monte Carlo barostat91 to maintain
+symmetry between cis and trans protomer. After removing duplicated   temperature and pressure at 300 K and 1 bar, respectively. During the
+particles, one of the classes with extra trans-ACP density was used for   25-ns equilibration step, harmonic position restraints of 10 kcal mol−1
+focused classiﬁcation and ﬁnal reﬁnement in C2 symmetry (class 1)   Å−2 were applied to the non-hydrogen atoms of the protein, and these
+while the others were reﬁned in C1 symmetry (class 2 and 3), with   restraints were released incrementally in a similar way to the energy
+integrated CTF reﬁnement to optimize the per-particle defocus, per-   minimization step. Following a subsequent 150-ns NPT simulation to
+group CTF parameters (tilt, trefoil, spherical aberration, tetrafoil, and   further relax the system, a production run was conducted for 500 ns
+anisotropic magniﬁcation), and Ewald sphere correction. After ﬁtting   without position restraints. Long-range electrostatic interactions were
+the GfsA ACPL = KSQAT crosslinked complex structure (PDB entry:   treated using the particle mesh Ewald method92, with a nonbonded
+8IN9)29 to the map with UCSF Chimera78, the model was readjusted to   cutoff distance set to 8 Å for both van der Waals and the direct space
+the map and reﬁned using Coot75 and PHENIX79. The model was further   electrostatic interactions. A 2-fs time step was used for the simulations,
+applied to Real-space Reﬁne in PHENIX79. Coot was used for manual   where the SHAKE algorithm93 was applied to constrain the bonds
+modiﬁcation of the model75. The ﬁnal model was validated using   involving hydrogen atoms. MD simulations, consisting of energy
+MolProbity80 in PHENIX. The statistics of the model reﬁnement are   minimization, equilibration and production run, were performed three
+summarized in Supplementary Table 5.                              times independently.
+                                                            The resulting trajectories were processed and analyzed for every
+Molecular dynamic (MD) simulations                         100 ps using CPPTRAJ94. Root mean square deviation (RMSD) of Cα
+Amino acid residues ranging from 25 to 1020 of GfsA were employed  atoms was calculated for each individual domain (KSQ, KAL, ATL, PAL
+for the following modeling and simulations. The dimeric crystal  and ACPL) in both subunits (chains A and B) after aligning each frame
+structure of GfsA ACPL = KSQATL was obtained from the protein data   to the initial energy-minimized structure. Two alignment methods
+bank (PDB ID: 8IN9)29. The structure of the disordered regions in the   were employed for analyzing the structural ﬂuctuations of the whole
+experimental structure were modeled using ColabFold 1.5.581, with   protein and individual domains (Supplementary Fig. 26a, b, respec-
+which the dimeric structure of the full-length wild-type GfsA was pre-    tively): the ﬁrst involved aligning all Cα atoms in the dimer to the
+dicted using the crystal structure as a template. The geometries of the   reference, while the second aligned only Cα atoms of each individual
+amino acid residues located near the boundaries between the pre-   domain. Hydrogen bonding interactions between Arg105–Glu985,
+dicted and experimental structures, were optimized using Modeller   His165–Asp979, His166–Asp979 and Glu524–Arg971 pairs were ana-
+10.482. The protonation states of the titratable residues were estimated   lyzed using the hbond command in CPPTRAJ with criteria of a 3.5 Å
+using the Reduce83 software implemented in AmberTools84, except for   distance cutoff between hydrogen donor-acceptor atoms and a 105°
+His165, 166, 332 and 337, which were in the doubly (Nδ and Nε)   angle cutoff formed by hydrogen donor-hydrogen-acceptor atoms.
+protonated state.
+    The parameters and the topology ﬁles of the serine residue  Reporting summary
+modiﬁed by malonyl phosphopantetheine thioester (Supplementary   Further information on research design is available in the Nature
+Fig. 25b) were created by combining those of malonyl pantetheine with   Portfolio Reporting Summary linked to this article.
+
+
+
+Nature Communications| (2025)16:6847                                                                              10
+
+
+[PDF physical page 11]
+Article                                                                                   https://doi.org/10.1038/s41467-025-62168-0
+
+Data availability                                                       19.  Tang, Y., Kim, C. Y., Mathews, I. I., Cane, D. E. & Khosla, C. The 2.7-Å
+The source data underlying Table 1, Fig. 4b and Supplementary Figs. 5,        crystal structure of a 194-kDa homodimeric fragment of the
+6, 8, 10, 26a–c, 29 are provided as a Source data ﬁle. The electron       6-deoxyerythronolide B synthase. Proc. Natl Acad. Sci. USA 103,
+density map and the atomic coordinates of the GfsA KSQAncAT_2        11124–11129 (2006).
+chimeric didomain crystal structure have been deposited in the PDB   20. Tang, Y., Chen, A. Y., Kim, C. Y., Cane, D. E. & Khosla, C. Structural
+under accession code 9IYW. The reconstructed cryo-EM maps and      and mechanistic analysis of protein interactions in module 3 of the
+atomic coordinates of the GfsA ACPL=KSQAncAT_2 crosslinked com-       6-deoxyerythronolide B synthase. Chem. Biol. 14, 931–943 (2007).
+plex were deposited in EMDB and PDB under accession codes EMD-    21.  Whicher, J. R. et al. Cyanobacterial polyketide synthase docking
+61522 and 9JJB (class 1 state), EMD-60989 (class 2 state) and EMD-       domains: a tool for engineering natural product biosynthesis.
+61520 and 9JJ9 (class 3 state). Previously published structures used in      Chem. Biol. 20, 1340–1351 (2013).
+this study can be accessed using PDB codes 7VEE and 8IN9. Source   22. McCullough, T. M. et al. Structure of a modular polyketide synthase
+data are provided with this paper.                                       reducing region. Structure 31, 1109–1120.e3 (2023).
+                                                                        23.  Kühlbrandt, W. The resolution revolution. Science 343,
+Code availability                                               1443–1444 (2014).
+The code for MAFFT2ASR53 is available in GitHub (https://doi.org/10.   24.  Dutta, S. et al. Structure of a modular polyketide synthase. Nature
+5281/zenodo.10208128).                                                  510, 512–517 (2014).
+                                                                         25. Cogan, D. P. et al. Mapping the catalytic conformations of an
+References                                                            assembly-line polyketide synthase module. Science 374,
+1.   Staunton, J. & Wilkinson, B. Biosynthesis of erythromycin and           729–734 (2021).
+    rapamycin. Chem. Rev. 97, 2611–2629 (1997).                        26. Bagde, S. R., Mathews, I. I., Fromme, J. C. & Kim, C. Y. Modular
+2.   Floss, H. G. & Yu, T. W. Rifamycin - mode of action, resistance, and       polyketide synthase contains two reaction chambers that operate
+     biosynthesis. Chem. Rev. 105, 621–632 (2005).                         asynchronously. Science 374, 723–729 (2021).
+3.   Tang, L. et al. Cloning and heterologous expression of the epothi-    27. Cogan, D. P. et al. Structural basis for intermodular communication
+    lone gene cluster. Science 287, 640–642 (2000).                           in assembly-line polyketide biosynthesis. Nat. Chem. Biol. 21,
+4.  Hertweck, C. The biosynthetic logic of polyketide diversity. Angew.      876–882 (2025).
+    Chem. Int. Ed. 48, 4688–4716 (2009).                               28. Chisuga, T. et al. Structural insight into the reaction mechanism of
+5.   Staunton, J. & Weissman, K. J. Polyketide biosynthesis: a millennium        ketosynthase-like decarboxylase in a loading module of modular
+     review. Nat. Prod. Rep. 18, 380–416 (2001).                              polyketide synthases. ACS Chem. Biol. 17, 198–206 (2022).
+6.   Keatinge-Clay, A. T. The structures of type I polyketide synthases.    29. Chisuga, T., Murakami, S., Miyanaga, A., Kudo, F. & Eguchi, T.
+     Nat. Prod. Rep. 29, 1050–1073 (2012).                                  Structure-based analysis of transient interactions between
+7.   Ranganathan, A. et al. Knowledge-based design of bimodular and        ketosynthase-like decarboxylase and acyl carrier protein in a load-
+    trimodular polyketide synthases based on domain and module           ing module of modular polyketide synthase. ACS Chem. Biol. 18,
+    swaps: a route to simple statin analogues. Chem. Biol. 6,               1398–1404 (2023).
+    731–741 (1999).                                                 30. Kudo, F., Motegi, A., Mizoue, K. & Eguchi, T. Cloning and char-
+8.   Menzella, H. G. & Reeves, C. D. Combinatorial biosynthesis for drug        acterization of the biosynthetic gene cluster of 16-membered
+    development. Curr. Opin. Microbiol. 10, 238–245 (2007).                macrolide antibiotic FD-891: Involvement of a dual functional
+9.   Su, L. et al. Engineering the stambomycin modular polyketide          cytochrome P450 monooxygenase catalyzing epoxidation and
+    synthase yields 37-membered mini-stambomycins. Nat. Commun.        hydroxylation. ChemBioChem 11, 1574–1582 (2010).
+     13, 1–16 (2022).                                                            31.  Keatinge-Clay, A. T. The uncommon enzymology of cis-
+10.  Wlodek, A. et al. Diversity oriented biosynthesis via accelerated           acyltransferase assembly lines. Chem. Rev. 117, 5334–5366 (2017).
+     evolution of modular gene clusters. Nat. Commun. 8, 1206 (2017).   32.  Jones, B. C. et al. A chain initiation factor common to both modular
+11.  Peng, H., Ishida, K., Sugimoto, Y., Jenke-Kodama, H. & Hertweck, C.      and aromatic polyketide synthases. Nature 401, 502–505 (1999).
+    Emulating evolutionary processes to morph aureothin-type mod-    33.  Prakinee, K. et al. Ancestral sequence reconstruction for designing
+     ular polyketide synthases and associated oxygenases. Nat. Com-          biocatalysts and investigating their functional mechanisms. JACS
+    mun. 10, 1–14 (2019).                                        Au 4, 4571–4591 (2024).
+12.  Menzella, H. G. et al. Combinatorial polyketide biosynthesis by de   34.  Risso, V. A., Sanchez-Ruiz, J. M. & Ozkan, S. B. Biotechnological and
+    novo design and rearrangement of modular polyketide synthase         protein-engineering implications of ancestral protein resurrection.
+    genes. Nat. Biotechnol. 23, 1171–1176 (2005).                              Curr. Opin. Struct. Biol. 51, 106–115 (2018).
+13.  Klaus, M. et al. Protein-protein interactions, not substrate recogni-    35.  Merkl, R. & Sterner, R. Ancestral protein reconstruction: techniques
+     tion, dominate the turnover of chimeric assembly line polyketide       and applications. Biol. Chem. 397, 1–21 (2016).
+     synthases. J. Biol. Chem. 291, 16404–16415 (2016).                  36. Thornton, J. W. Resurrecting ancient genes: experimental analysis
+14.  Grininger, M. Enzymology of assembly line synthesis by modular         of extinct molecules. Nat. Rev. Genet. 5, 366–375 (2004).
+    polyketide synthases. Nat. Chem. Biol. 19, 401–415 (2023).           37.  Clifton, B. E. & Jackson, C. J. Ancestral protein reconstruction yields
+15.  Tsai, S. C. et al. Crystal structure of the macrocycle-forming               insights into adaptive evolution of binding speciﬁcity in solute-
+     thioesterase domain of the erythromycin polyketide synthase:           binding proteins. Cell Chem. Biol. 23, 236–245 (2016).
+     Versatility from a unique substrate channel. Proc. Natl Acad. Sci.     38. Trudeau, D. L., Kaltenbach, M. & Tawﬁk, D. S. On the potential ori-
+   USA 98, 14808–14813 (2001).                                           gins of the high stability of reconstructed ancestral proteins. Mol.
+16.  Keatinge-Clay, A. Crystal structure of the erythromycin polyketide          Biol. Evol. 33, 2633–2641 (2016).
+    synthase dehydratase. J. Mol. Biol. 384, 941–953 (2008).            39. Akanuma, S. et al. Experimental evidence for the thermophilicity of
+17.  Keatinge-Clay, A. T. & Stroud, R. M. The structure of a ketoreductase        ancestral life. Proc. Natl Acad. Sci. USA 110, 11067–11072 (2013).
+    determines the organization of the β-carbon processing enzymes of   40. Watanabe, K., Ohkuri, T., Yokobori, S. I. & Yamagishi, A. Designing
+    modular polyketide synthases. Structure 14, 737–748 (2006).            thermostable proteins: Ancestral mutants of 3-isopropylmalate
+18.  Keatinge-Clay, A. T. A tylosin ketoreductase reveals how chirality is       dehydrogenase designed by using a phylogenetic tree. J. Mol. Biol.
+    determined in polyketides. Chem. Biol. 14, 898–908 (2007).             355, 664–674 (2006).
+
+
+
+
+Nature Communications| (2025)16:6847                                                                                                          11
+
+
+[PDF physical page 12]
+Article                                                                                   https://doi.org/10.1038/s41467-025-62168-0
+
+
+41.  Voordeckers, K. et al. Reconstruction of ancestral metabolic         62. Du, D. et al. Structural basis for selectivity in a highly reducing type II
+    enzymes reveals molecular mechanisms underlying evolutionary         polyketide synthase. Nat. Chem. Biol. 16, 776–782 (2020).
+     innovation through gene duplication. PLoS Biol. 10, e1001446       63. Feng, Y. et al. Structural visualization of transient interactions
+     (2012).                                                      between the cis-acting acyltransferase and acyl carrier protein of
+42. Gonzalez, D. et al. Ancestral mutations as a tool for solubilizing          the salinomycin modular polyketide synthase. Acta Crystallogr D
+     proteins: the case of a hydrophobic phosphate-binding protein.           Struct. Biol 78, 779–791 (2022).
+    FEBS Open Bio 4, 121–127 (2014).                                  64. Miyanaga, A., Kawada, K., Chisuga, T., Kudo, F. & Eguchi, T. Struc-
+43.  Risso, V. A., Gavira, J. A., Mejia-Carmona, D. F., Gaucher, E. A. &            tural basis of transient interactions of acyltransferase VinK with the
+    Sanchez-Ruiz, J. M. Hyperstability and substrate promiscuity in           loading acyl carrier protein of the vicenistatin modular polyketide
+     laboratory resurrections of precambrian β-lactamases. J. Am.             synthase. Biochemistry 62, 17–21 (2023).
+    Chem. Soc. 135, 2899–2902 (2013).                                65. Miyanaga, A., Kurihara, S., Chisuga, T., Kudo, F. & Eguchi, T. Struc-
+44. Kido, K. et al. Airid, a novel proximity biotinylation enzyme, for             tural characterization of complex of adenylation domain and carrier
+     analysis of protein–protein interactions. Elife 9, 1–24 (2020).              protein by using pantetheine cross-linking probe. ACS Chem. Biol.
+45. Kajimoto, S. et al. Enzymatic conjugation of modiﬁed RNA frag-            15, 1808–1812 (2020).
+    ments by ancestral RNA ligase AncT4_2. Appl. Environ. Microbiol.    66. Miyanaga, A., Iwasawa, S., Shinohara, Y., Kudo, F. & Eguchi, T.
+     Environ. Microbiol. 88, e0167922 (2022).                               Structure-based analysis of the molecular interactions between
+46. Schriever, K. et al. Engineering of ancestors as a tool to elucidate         acyltransferase and acyl carrier protein in vicenistatin biosynthesis.
+     structure, mechanism, and speciﬁcity of extant terpene cyclase. J.        Proc. Natl Acad. Sci. USA 113, 1802–1807 (2016).
+    Am. Chem. Soc. 143, 3794–3807 (2021).                             67. Miyanaga, A. et al. Structural basis of protein-protein interac-
+47.  Nicoll, C. R. et al. Ancestral-sequence reconstruction unveils the         tions between a trans-acting acyltransferase and acyl carrier
+     structural basis of function in mammalian FMOs. Nat. Struct. Mol.        protein in polyketide disorazole biosynthesis. J. Am. Chem.
+     Biol. 27, 14–24 (2020).                                             Soc. 140, 7970–7978 (2018).
+48. Yuzawa, S. et al. Comprehensive in vitro analysis of acyltransferase   68. Miyata, A. et al. Design of ancestral sortase E that is applicable in
+    domain exchanges in modular polyketide synthases and its appli-        protein biomaterial synthesis. Acs. Catal. 14, 3514–3523 (2024).
+     cation for short-chain ketone production. ACS Synth. Biol. 6,        69. Franceus, J., Verhaeghe, T. & Desmet, T. Correlated positions in
+    139–147 (2017).                                                          protein evolution and engineering. J. Ind. Microbiol. Biotechnol. 44,
+49. Jones, B. S. et al. Engineering biocatalysts for the C-H activation of      687–695 (2017).
+     fatty acids by ancestral sequence reconstruction. Angew. Chem.     70. Yamada, K. D., Tomii, K. & Katoh, K. Application of the MAFFT
+      Int. Ed. 63, e202314869 (2024).                                   sequence alignment program to large data - Reexamination of the
+50. Lewis, R. D., France, S. P. & Martinez, C. A. Emerging technologies        usefulness of chained guide trees. Bioinformatics 32, 3246–3251
+     for biocatalysis in the pharmaceutical industry. ACS Catal. 13,             (2016).
+    5571–5577 (2023).                                                            71.  Guindon, S. et al. New algorithms and methods to estimate
+51.  Englund, E. et al. Expanding extender substrate selection for            maximum-likelihood phylogenies: Assessing the performance of
+    unnatural polyketide biosynthesis by acyltransferase domain          PhyML 3.0. Syst. Biol. 59, 307–321 (2010).
+    exchange within a modular polyketide synthase. J. Am. Chem. Soc.   72.  Kabsch, W. XDS. Acta Crystallogr. D Biol Crystallogr. 66, 125–132
+    145, 8822–8832 (2023).                                                   (2010).
+52.  Shiryev, S. A., Papadopoulos, J. S., Schäffer, A. A. & Agarwala, R.     73.  Vagin, A. & Teplyakov, A. Molecular replacement with MOLREP.
+    Improved BLAST searches using longer words for protein seeding.       Acta Crystallogr. D. Biol. Crystallogr. 66, 22–25 (2010).
+     Bioinformatics 23, 2949–2951 (2007).                                74. Jumper, J. et al. Highly accurate protein structure prediction with
+53.  Ishida, C. et al. Reconstruction of hyper-thermostable ancestral          AlphaFold. Nature 596, 583–589 (2021).
+    L-amino acid oxidase to perform deracemization to D-amino acids.   75.  Emsley, P. & Cowtan, K. Coot: Model-building tools for molecular
+   ChemCatChem 13, 5228–5235 (2021).                                    graphics. Acta Crystallogr. D. Biol. Crystallogr. 60, 2126–2132
+54. Yang, Z. PAML 4: phylogenetic analysis by maximum likelihood.          (2004).
+    Mol. Biol. Evol. 24, 1586–1591 (2007).                                76. Murshudov, G. N., Vagin, A. A. & Dodson, E. J. Reﬁnement of mac-
+55. Haydock, S. F. et al. Divergent sequence motifs correlated with the       romolecular structures by the maximum-likelihood method. Acta
+     substrate speciﬁcity of (methyl)malonyl-CoA:acyl carrier protein           Crystallogr. D. Biol. Crystallogr. 53, 240–255 (1997).
+     transacylase domains in modular polyketide synthases. FEBS Lett.    77.  Punjani, A. Algorithmic advances in single particle cryo-EM data
+    374, 246–248 (1995).                                                processing using CryoSPARC. Micros. Microanal. 26, 2322–2323
+56.  Li, X. et al. Structure-function analysis of the extended conforma-        (2020).
+     tion of a polyketide synthase module. J. Am. Chem. Soc. 140,        78. Goddard, T. D., Huang, C. C. & Ferrin, T. E. Visualizing density maps
+    6518–6521 (2018).                                                     with UCSF Chimera. J. Struct. Biol. 157, 281–287 (2007).
+57.  Finzel, K. & Lee, D. J. & Burkart, M. D. Using modern tools to probe   79.  Liebschner, D. et al. Macromolecular structure determination using
+    the structure-function relationship of fatty acid synthases. Chem-         X-rays, neutrons and electrons: Recent developments in Phenix.
+    BioChem 16, 528–547 (2015).                                         Acta Crystallogr. D. Struct. Biol. 75, 861–877 (2019).
+58.  Nazi, I., Koteva, K. P. & Wright, G. D. One-pot chemoenzymatic      80. Chen, V. B. et al. MolProbity: all-atom structure validation for
+    preparation of coenzyme A analogues. Anal. Biochem. 324,             macromolecular crystallography. Acta Crystallogr. D. Biol. Crystal-
+    100–105 (2004).                                                               logr. 66, 12–21 (2010).
+59. Wheeler, L. C., Lim, S. A., Marqusee, S. & Harms, M. J. The ther-       81.  Mirdita, M. et al. ColabFold: making protein folding accessible toall.
+     mostability and speciﬁcity of ancient proteins. Curr. Opin. Struct.         Nat. Methods 19, 679–682 (2022).
+     Biol. 38, 37–43 (2016).                                              82.  Šali, A. & Blundell, T. L. Comparative protein modelling by satis-
+60. Savino, S., Desmet, T. & Franceus, J. Insertions and deletions in           faction of spatial restraints. J. Mol. Biol. 234, 779–815 (1993).
+     protein evolution and engineering. Biotechnol. Adv. 60,             83. Word, J. M., Lovell, S. C., Richardson, J. S. & Richardson, D. C.
+    108010 (2022).                                                     Asparagine and glutamine: using hydrogen atom contacts in the
+61.  Nguyen, C. et al. Trapping the dynamic acyl carrier protein in fatty       choice of side-chain amide orientation. J. Mol. Biol. 285, 1735–1747
+    acid biosynthesis. Nature 505, 427–431 (2014).                             (1999).
+
+
+
+Nature Communications| (2025)16:6847                                                                                       12
+
+
+[PDF physical page 13]
+Article                                                                                   https://doi.org/10.1038/s41467-025-62168-0
+
+84. Case, D. A. et al. AmberTools. J. Chem. Inf. Model 63, 6183–6191   Author contributions
+     (2023).                                                               T.C. and A.M. designed the research. T.C. performed biochemical and
+85.  Frisch, M. J. et al. Gaussian 16 Revision C.02 (Gaussian, Inc., 2016).    crystallization experiments, and S.T. performed the DSC analysis. T.C.
+86. Homeyer, N., Horn, A. H. C., Lanig, H. & Sticht, H. AMBER force-ﬁeld  and A.M. performed the crystal structural analysis. T.C., S.T., S.N. and S.I.
+    parameters for phosphorylated amino acids in different protonation   designed ancestral AT domains. N.A. and M.Kawasaki performed the
+     states: phosphoserine, phosphothreonine, phosphotyrosine, and    cryo-EM data collection. T.C., Z.L., N.A., M.Kawasaki and A.M. performed
+    phosphohistidine. J. Mol. Model 12, 281–289 (2006).                the single particle analysis. M.Karasawa and T.T. performed the MD
+87. Machado, M. R. & Pantano, S. Split the charge difference in two! A   simulations. All authors analyzed the data. T.C., S.N., Z.L., M.Karasawa,
+     rule of thumb for adding proper amounts of ions in MD simulations.    T.T. and A.M. wrote the manuscript. All authors discussed the data and
+      J. Chem. Theory Comput. 16, 1367–1372 (2020).                     contributed to the completion of the manuscript.
+88. Maier, J. A. et al. ff14SB: improving the accuracy of protein side
+    chain and backbone parameters from ff99SB. J. Chem. Theory    Competing interests
+    Comput. 11, 3696–3713 (2015).                                The authors declare no competing interests.
+89. Case, D. A. et al. Amber 2023 (University of California, 2023).
+90. Bussi, G., Donadio, D. & Parrinello, M. Canonical sampling through  Additional information
+     velocity rescaling. J. Chem. Phys. 126, 014101 (2007).             Supplementary information The online version contains
+91.  Åqvist, J., Wennerström, P., Nervall, M., Bjelic, S. & Brandsdal, B. O.   supplementary material available at
+    Molecular dynamics simulations of water and biomolecules with a   https://doi.org/10.1038/s41467-025-62168-0.
+    Monte Carlo constant pressure algorithm. Chem. Phys. Lett. 384,
+    288–294 (2004).                                          Correspondence and requests for materials should be addressed to
+92. Darden, T., York, D. & Pedersen, L. Particle mesh Ewald: An N⋅log(N)  Shogo Nakano, Sohei Ito or Akimasa Miyanaga.
+    method for Ewald sums in large systems. J. Chem. Phys. 98,
+    10089–10092 (1993).                                         Peer review information Nature Communications thanks Matthew
+93. Ryckaert, J. P., Ciccotti, G. & Berendsen, H. J. C. Numerical inte-     Jenner, Kira Weissman, and the other, anonymous, reviewer(s) for their
+     gration of the cartesian equations of motion of a system with con-   contribution to the peer review of this work. A peer review ﬁle is
+     straints: molecular dynamics of n-alkanes. J. Comput. Phys. 23,       available.
+    327–341 (1977).
+94. Roe, D. R. & Cheatham, T. E. PTRAJ and CPPTRAJ: software for       Reprints and permissions information is available at
+    processing and analysis of molecular dynamics trajectory data. J.    http://www.nature.com/reprints
+    Chem. Theory Comput. 9, 3084–3095 (2013).
+                                                                      Publisher’s note Springer Nature remains neutral with regard to jur-
+Acknowledgements                                                 isdictional claims in published maps and institutional afﬁliations.
+We thank the staff of the Photon Factory (proposal number
+2022G506) for X-ray data collection. We acknowledge support     Open Access This article is licensed under a Creative Commons
+from the Platform Project for Supporting Drug Discovery and Life    Attribution-NonCommercial-NoDerivatives 4.0 International License,
+Science Research (Basis for Supporting Innovative Drug Discovery   which permits any non-commercial use, sharing, distribution and
+and Life Science Research (BINDS)) and AMED (cryo-EM data col-    reproduction in any medium or format, as long as you give appropriate
+lection: support number 1809; MD simulation: support number       credit to the original author(s) and the source, provide a link to the
+5550). This work was also supported in part by Grant-in-Aid for      Creative Commons licence, and indicate if you modiﬁed the licensed
+Scientiﬁc Research (B) 20H02911 (to A.M.), Grant-in-Aid for Scien-    material. You do not have permission under this licence toshare adapted
+tiﬁc Research (B) 25K01946 (to A.M.), Grant-in-Aid for Scientiﬁc      material derived from this article or parts of it. The images or other third
+Research (C) 21K05395 (to S.N.), Grant-in-Aid for Transformative     party material in this article are included in the article’s Creative
+Research Areas 24H01153 (to S.N.), Grant-in-Aid for Transformative  Commons licence, unless indicated otherwise in a credit line to the
+Research Areas 25H01588 (to S.N.), Grant-in-Aid for Research         material. If material is not included in the article’s Creative Commons
+Activity Start-up 23K19283 (to T.C.) and Grant-in-Aid for Transfor-    licence and your intended use is not permitted by statutory regulation or
+mative Research Areas 25H01589 (to T.C.) from the Japan Society   exceeds the permitted use, you will need to obtain permission directly
+for the Promotion of Science and the Ministry of Education, Cul-    from the copyright holder. To view a copy of this licence, visit http://
+ture, Sports, Science and Technology, and JST PRESTO grant no.    creativecommons.org/licenses/by-nc-nd/4.0/.
+JPMJPR20AB (to S.N.). We thank Prof. Shinya Fushinobu for the
+helpful discussions.                            © The Author(s) 2025
+
+
+
+
+
+Nature Communications| (2025)16:6847                                                                                      13

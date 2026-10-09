@@ -1,0 +1,960 @@
+
+[PDF physical page 1]
+A Very Deep Graph Convolutional Network for 13C NMR Chemical
+Shift Calculations with Density Functional Theory Level
+Performance for Structure Assignment
+Wen-Jing Ai, Jing Li, Dongsheng Cao, Shao Liu, Yi-Yun Yuan, Yan Li, Gui-Shan Tan, Kang-Ping Xu,
+Xia Yu, Fenghua Kang, Zhen-Xing Zou, and Wen-Xuan Wang*
+Cite This: J. Nat. Prod. 2024, 87, 743−752
+Read Online
+ACCESS
+Metrics & More
+Article Recommendations
+*
+sı
+Supporting Information
+ABSTRACT: Nuclear magnetic resonance (NMR) chemical shift calcu-
+lations are powerful tools for structure elucidation and have been extensively
+employed in both natural product and synthetic chemistry. However, density
+functional theory (DFT) NMR chemical shift calculations are usually time-
+consuming, while fast data-driven methods often lack reliability, making it
+challenging to apply them to computationally intensive tasks with a high
+requirement on quality. Herein, we have constructed a 54-layer-deep graph
+convolutional network for
+13C NMR chemical shift calculations, which
+achieved high accuracy with low time-cost and performed competitively with
+DFT NMR chemical shift calculations on structure assignment benchmarks.
+Our model utilizes a semiempirical method, GFN2-xTB, and is compatible
+with a broad variety of organic systems, including those composed of
+hundreds of atoms or elements ranging from H to Rn. We used this model to
+resolve the controversial J/K ring junction problem of maitotoxin, which is the largest whole molecule assigned by NMR calculations
+to date. This model has been developed into user-friendly software, providing a useful tool for routine rapid structure validation and
+assignation as well as a new approach to elucidate the large structures that were previously unsuitable for NMR calculations.
+C
+orrectly assigning the structures of new synthetic or
+natural organic compounds is crucial for further chemical
+and biologic research. Density functional theory (DFT) NMR
+chemical shift calculations, particularly for 13C NMR, play an
+essential role in validating and elucidating structures, providing
+high accuracy and reliability in numerous practices.1−6
+However, these accurate and reliable DFT-based method-
+ologies are often time-consuming and computationally
+intensive, making it challenging to apply them to systems
+with hundreds of heavy atoms or many low-energy conformers.
+On the other hand, the fast empirical or data-driven
+approaches, including empirical additivity rules, similarity-to-
+database analysis, or machine learning models,7−20 have not
+been widely proven for elucidating complex structures, such as
+new natural products with multiple stereogenic centers.7,8,21−23
+For instance, CASCADE,8 the recent state-of-the-art NMR
+calculator with DFT level accuracy, still has weaknesses in
+distinguishing stereoisomers.22 Additionally, because of the
+limitation of methods (e.g., MMFF94) or algorithms used to
+calculate molecular features, they cannot support or provide
+correct results for some organic structures. For example,
+CASCADE is not compatible with molecules consisting of
+elements other than C, H, N, O, S, P, F, and Cl or having
+formal/net charges (nitro compounds, amine oxides, anions,
+cations, zwitterions, etc.), as well as the structures that cannot
+be properly calculated by MMFF94.8
+There are challenging tasks that remain unsolved due to the
+limitations of DFT or data-driven approaches. An example is
+the controversy over the relative configuration at the J/K ring
+junction of the largest known nonpolymeric natural product,
+maitotoxin (1, MTX) (Figure 1).24−27 Although the fragments
+of the GHIJK (2a)26 and the GHIJKLMNO (3a)27 ring
+systems have been successfully synthesized, supporting the
+originally proposed structure (1a) based on comparison
+between their 13C NMR chemical shift data, the possibility
+of 1b cannot be fully excluded. Assigning relative configuration
+to a single diastereoisomer with one set of experimental data is
+supposed to be the exact application scenario of DFT NMR
+chemical calculations, for which sophisticated statistical
+approaches, including DP4, DP5, DP4+, and Prel, have been
+designed.28−31 Due to the computational cost, however, DFT
+Received:
+September 16, 2023
+Revised:
+January 29, 2024
+Accepted:
+January 29, 2024
+Published: February 15, 2024
+Article
+pubs.acs.org/jnp
+© 2024 American Chemical Society and
+American Society of Pharmacognosy
+743
+https://doi.org/10.1021/acs.jnatprod.3c00862
+J. Nat. Prod. 2024, 87, 743−752
+Downloaded via OCEAN UNIV OF CHINA on March 23, 2025 at 03:32:17 (UTC).
+See https://pubs.acs.org/sharingguidelines for options on how to legitimately share published articles.
+
+
+
+[PDF physical page 2]
+level
+13C NMR calculations were only performed for the
+truncated GHIJKLM domain,25 and the strict calculations for
+whole molecules of the possible structures have not been
+achieved yet. Therefore, a potential solution for this
+predicament is to improve the performance of data-driven
+approaches to match that of the DFT level methods.
+It is well-known that feed-forward neural networks with
+sufficient depth and width are universal function approxima-
+tors,32 which has been widely verified in the numerous
+practices of successful architectures, such as graph convolu-
+tional networks (GCNs),33,34 recurrent neural networks,35
+convolutional neural networks,36 and transformers.37 Given
+this understanding, it is plausible that a sophisticated neural
+network model can accurately approximate the process of
+converting the chemical environments of atoms into chemical
+shifts.
+In this paper, we introduce a very deep GCN model for 13C
+NMR chemical shift calculations that combines the efficiency
+of machine learning methods and the performance of DFT
+level methods. We will elaborate on our work from five
+aspects: data collection, feature engineering, details of model,
+performance in benchmarks, and application in elucidating the
+J/K ring junction of MTX.
+■RESULTS AND DISCUSSION
+Data Collection. While DFT is based on fundamental
+principles of physics, data-driven approaches rely highly on
+large amounts of correct experimental data. However, flaws of
+13C NMR chemical shift data, such as mislabeling and wrong
+or ambiguous structures, are pervasive in the literature and
+databases, making it challenging to collect sufficient correct
+data.8 To address this issue, Paton’s group cleaned the
+NMR8K data set to generate Exp5K by DFT
+13C NMR
+calculations, which they generously made available for open
+access.8 These precious data have been included in our data
+set. However, without further correction, their DFT 13C NMR
+calculation method fails for a considerable number of chemical
+environments (e.g., heavy atom bearing carbons, some sp2
+hybrid carbons),1−6,31,38 potentially excluding some correctly
+assigned data. Besides, some wrong configuration assignments,
+which cause less significant error in DFT
+13C NMR
+calculations, may not be excluded. Moreover, this set lacks
+some elements (such as Br and I) or functional groups (such as
+ionized groups) that frequently occurred in organic com-
+pounds, which will limit the application area of our model.
+Therefore, we have collected and fully labeled another over
+4000 compounds from the accessible literature or the AIST
+database.39 These data from the literature were validated by
+GIAO DFT calculations at the ωB97x-D4/TZVP//r2scan-3c
+level of theory40 or manual checking of their 1D/2D NMR
+data, and any suspicious structures or data were excluded.
+Additionally, the energetically favorable structures of com-
+pounds with tautomerism were also determined by DFT free
+energy calculations at the B3LYP/TZVP level of theory. As a
+result, we obtained over 9000 compounds with over 110,000
+carbons labeled by experimental 13C NMR chemical shifts
+(Exp9K). In addition, the elements of these compounds
+included H, B, C, N, O, F, P, S, Cl, Br, Si, Ge, Se, Sn, and I
+(Table S43), covering most types of organic compounds.
+Moreover, the structure coverage can be further extended to
+other elements in the range of H to Rn or other moieties
+supported by GFN2-xTB,41 if there are experimental data
+available for training.
+For most compounds with multiple stereogenic centers,
+however, only a few diastereomers have experimental data.
+Because determining the relative configuration is a major
+anticipated capacity of our model, the incompleteness of the
+experimental data may hinder its ability to analyze the general
+Figure 1. Originally proposed (1a) and revised (1b) structures of MTX and two synthesized models (2a and 3a).
+Journal of Natural Products
+pubs.acs.org/jnp
+Article
+https://doi.org/10.1021/acs.jnatprod.3c00862
+J. Nat. Prod. 2024, 87, 743−752
+744
+
+
+
+[PDF physical page 3]
+rules of configurational effects. Fortunately, stereogenic centers
+are predominantly sp3-hybridized carbons. Their chemical
+shifts can be accurately calculated with the sorted training set
+(STS) protocol, which has a mean absolute error (MAE) of
+less than 0.9 ppm,31 enabling us to label compounds with
+many stereogenic centers with near experimental level quality.
+Therefore, we artificially truncated moieties with multiple
+stereogenic centers from the collected compounds to compose
+a set of their diastereomers and labeled them and their low-
+energy conformers with chemical shift values calculated by the
+STS protocol,31 yielding another set of 978,000 labeled
+carbons (Diast-set).
+Feature Engineering. To address configurational prob-
+lems, obtaining accurate 3D molecular geometry is critical,
+particularly for some unique structures.8 To date, GFN2-xTB
+is the most accurate semiempirical method with the highest
+compatibility with most organic structures.41 Although slightly
+more time-consuming than force field methods for small
+organic molecules, GFN2-xTB provides robustness for as many
+organic compounds as possible, making it the optimal choice
+for 3D geometry optimization and molecular property
+calculation.41 Herein, we used GFN2-xTB to optimize
+geometries and calculate the coordination number (CN),
+atomic partial charge (q), and Wiberg bond order (WBO).
+For flexible compounds, however, the accuracy of semi-
+empirical methods for conformational energy calculation is too
+rough to correctly order the population of low-energy
+conformers, unlike DFT-based methods.42,43 Such a problem
+may lead to misguiding results in configuration determination,
+because important conformers are missing or minor con-
+formers are erroneously emphasized after Boltzmann averag-
+ing.44 In a previous study, to deal with inappropriate
+description of the conformational amplitudes, Zanardi et al.
+explored an approach that completely neglected the relative
+energies given by DFT calculations and alternatively created
+and evaluated different ensembles with random conformational
+amplitudes.44 As we are proposing a fast method, obtaining
+more accurate conformational energy by more time-consuming
+methods (e.g., DFT) is not a feasible option. Herein, to
+balance between removing high-energy conformers and
+reducing the influence of inaccurate conformational weights,
+we equally weighted all the conformers within an energy
+window of 3 kcal/mol, referring to the mean absolute deviation
+range of GFN2-xTB for conformational energy.43
+Within our molecular graphs, atoms embody nodes,
+characterized by a suite of attributes encompassing atomic
+number (Z), CN, q, q2, and Z × q, all illustrated in formula 1.
+Notably, the final two attributes encompass augmented
+quadratic terms, serving to amplify the model’s expressiveness.
+= {
+× }
+Z
+q q
+Z
+q
+Node feature
+, CN,
+,
+,
+2
+(1)
+In the edges and edge features, a comprehensive integration
+of molecular internal coordinates for atoms takes precedence.
+It involves the incorporation of bond-length (r, in angströms),
+bond-angle (α, within the interval [0, π]), and dihedral angle
+(θ, within the interval [0, 2π]) measurements between atoms.
+These coordinates holistically encode the intricate 3D
+molecular characteristics, thereby bestowing our molecular
+graph with both translational and rotational invariance (Figure
+2).
+For a pair of atoms separated by one, two, or three bonds
+(WBO > 0.52), they are assigned with an undirected edge with
+11 edge features. For atoms directly bonded, the first two and
+the last two edge features are WBO, the reciprocal of r2, WBO
+divided by r2, and squared WBO, respectively, and the other
+features are set to zero (Figure 2). The last two edge features
+also feature expansion terms. The third edge feature records
+the bond angle of the atoms separated by two bonds. To
+differentiate the zero value of angle from those edges without
+angle information, the value of α is increased by one (Figure
+2).
+Edge features calculated from bond orders, bond lengths,
+and bond angles do not vary significantly between conformers
+of flexible compounds. Therefore, these edge features of
+flexible compounds can be directly averaged from all low-
+energy conformers. However, the dihedral angles involving
+rotatable bonds are the major differences between the
+conformers for the atoms separated by three bonds. If the
+dihedral angles of conformers have a large deviation (e.g., 0 for
+one conformer and π for another one), the averaged
+intermediate value may not represent the dihedral angles of
+any conformers. Thus, we divide the range of dihedral angle [0,
+2π] into six intervals, corresponding to the staggered
+conformation of ethane, namely, [0, π/6] ∪[11π/6, 2π],
+(π/6, π/2], (π/2, 5π/6], (5π/6, 7π/6], (7π/6, 3π/2], and (3π/
+2, 11π/6) (Figure 2). We use the fourth to ninth features to
+record θ values, which correspond one-to-one to the six
+intervals. If θ falls within one of the six intervals, the value of θn
++ 1 is recorded in the corresponding position (Figure 2). For
+flexible compounds, nonzero values of these six features are
+averaged, respectively. Therefore, the multiple patterns of
+dihedral angles at flexible moieties are all recorded and passed
+to our model.
+Details of the Model. In the previous studies on NMR
+chemical shift calculations, GCN models have been widely
+used, due to the natural graph structure of organic
+Figure 2. Edge features (EFs) of three types of edges connecting
+nodes (atoms) i−m.
+Journal of Natural Products
+pubs.acs.org/jnp
+Article
+https://doi.org/10.1021/acs.jnatprod.3c00862
+J. Nat. Prod. 2024, 87, 743−752
+745
+
+
+
+[PDF physical page 4]
+molecules.33,34 However, stacking many GCN layers leads to a
+vanishing gradient problem and hinders the ability of the
+network to distinguish between different nodes because the
+“oversmoothing” issue eliminates or minimizes their feature
+differences.45−47 Consequently, most state-of-the-art GCNs are
+shallow.33,34 The numbers of GCN layers in the recent NMR
+predicting models developed by Paton’s group,8 Choi’s group,9
+Scheidt’s group,10 and White’s group19 were three, five, three,
+and four, respectively. The limitation of depth in those models
+may cause a significant loss of their power.45−47
+Herein, we have developed a GCN model named
+GFN2NMR, which overcomes the training difficulty and
+oversmoothing problem associated with much deeper GCN
+models, using residual connections and a deep adaptive
+strategy.45−47 Our optimized model comprises 54 GCN layers,
+which are organized into 18 stacked residual blocks with
+shortcut connections (Figure 3). Each residual block consists
+of 3 stacked GCN units with a shortcut connection. The
+message passing and propagation unit is a NNConv48 module
+that uses an attention-augmented multilayer perceptron to map
+the edge features. The node features output from each residual
+block are concatenated, multiplied with two-head self-attention
+weights, and then passed through a fully connected layer to
+output final chemical shift values (Figure 3).
+To ensure the model’s generalizability, we divided the
+Exp9K data set into a training set (7455 molecules) and test
+set (1792 molecules). We also anticipate a model that has high
+performance on previously unseen structures, which frequently
+occurs in natural product research. Therefore, we collected 92
+molecules with previously undescribed ring systems and
+complex stereogenic centers as an external validation set to
+challenge the generalizing power of our model as well as other
+data-driven methods (Set A, Figure S1, X-ray diffraction-
+analyzed neutral natural products published in 2022 in the
+journals Organic Chemistry Frontiers, Organic Letters, and
+Chinese Chemical Letters).
+First, the molecules in the test set and the training set were
+selected randomly from Exp9K, respectively (Figure 4).
+Besides, we also clustered all of the Murcko scaffolds of
+molecules in Exp9K and randomly selected 1792 molecules
+with unique scaffolds to compose another test set, and the rest
+of the molecules were used as another training set (Figure 4).
+In model training, the losses of training, test, and validation
+sets tended to converge within 400 epochs (Figure 4). With a
+randomly composed training set, the best root-mean-square
+(RMS) value of the validation sets was less than 3.00 ppm.
+When we selectively allocated a considerable number of
+unique molecules to the test set, we observed only a marginal
+increase of approximately 0.33 ppm in the best RMS value for
+validation sets and a similarly modest increase of approximately
+0.49 ppm for the test set. These results underscore the robust
+generalizability of our model, even when confronted with
+previously unseen scaffolds.
+Moreover, we also analyzed the deep adaptive weights
+associated with each carbon for the 92 molecules in the
+validation set. Notably, our findings revealed a strong
+correlation between the depth of graph node representations
+and the specific chemical environments of these carbons
+(Figure 5). Deeper graph node representations gather more
+global information from larger receptive fields. The observed
+hierarchy of depth across different carbon types emerged as
+follows: H/C-connected sp3 carbons < heteroatom-connected
+sp3 carbons < H/C-connected sp2 carbons < heteroatom-
+connected sp2 carbons, which generally aligns with the
+Figure 3. Architecture of GFN2NMR. The edge features and node features described in Figure 2 are directly passed to the model.
+Journal of Natural Products
+pubs.acs.org/jnp
+Article
+https://doi.org/10.1021/acs.jnatprod.3c00862
+J. Nat. Prod. 2024, 87, 743−752
+746
+
+
+
+[PDF physical page 5]
+intensity of long-range interactions such as inductive effect,
+mesomeric effect, conjugate effect, and magnetic anisotropy
+effect. The flexibility of gathering local and global information
+should have a positive contribution to its performance. The
+optimal number of GCN layers in our model was determined
+to be 54 according to the performance of final models with a
+different number of stacked GCN layers (trained by Exp9K +
+Diast-set, tested by Set A) (Figure S2).
+For further benchmark studies, we trained our model with
+only Exp9K (GFN2NMR-Exp9K) or Exp9K + Diast-set
+(GFN2NMR-full) to show the effects of diastereomer
+coverage.
+Comparison with State-of-the-Art Data-Driven Meth-
+ods. To assess the performance of GFN2NMR, we selected
+the recent state-of-the-art methods, namely, the online version
+of CASCADE8 and Ensemble NMR Prediction49 consisting of
+Mestrelab and Modgraph (Neural Network + HOSE), for
+comparison. Our evaluation utilized compounds in Set A,
+which were unlikely to have been part of the training sets or
+databases employed by the two methods. We evaluated the
+performance of each method using several metrics, namely,
+coefficient of determination (R2), unscaled MAE, RMS, max
+error, and kernel density estimation (KDE). The results
+indicated that both GFN2NMR-Exp9K and GFN2NMR-full
+outperformed the other two tools (Figure 6), which was likely
+attributed to a synergistic interplay between the deeper model
+architecture and an increased volume of training data.
+Moreover, GFN2NMR-full exhibited a particularly superior
+performance compared to GFN2NMR-Exp9K. This observa-
+tion suggests that the incorporation of configurational effects
+learned from the coverage of diastereomers substantially
+contributed to enhancing the performance on those previously
+unseen scaffolds.
+Comparison with DFT-Based Methods. First, we tested
+GFN2NMR on the compound set used to test the regular
+GIAO DFT 13C NMR chemical shift calculation method with
+global scaling correction (GSC) and the STS protocol.31 The
+accuracy of GFN2NMR-full (R2 = 0.9975, unscaled MAE =
+1.85 ppm, RMS = 2.56 ppm) fell between the regular GSC
+method and the STS protocol (Table 1). CASCADE was not
+tested for this set, because some molecules in the STS set are
+in its training set or have formal charges.
+Furthermore, structure assignment is a critical application of
+DFT 13C NMR chemical shift calculations. Although Paton’s
+group achieved some positive results with CASCADE8 in
+discriminating between constitutional isomers and diaster-
+Figure 4. Max Tanimoto similarity of Morgan fingerprints between molecules in validation/test sets and training set, with the test set composed in
+a random manner (random) (A) or using scaffold-unique molecules (scaffold-splitting) (B). The RMS losses of training/test/validation sets within
+400 epochs (C: random, D: scaffold-splitting).
+Journal of Natural Products
+pubs.acs.org/jnp
+Article
+https://doi.org/10.1021/acs.jnatprod.3c00862
+J. Nat. Prod. 2024, 87, 743−752
+747
+
+
+
+[PDF physical page 6]
+eomers, no data-driven method has ever been publicly
+benchmarked for structure assignment on the same baseline
+as DFT 13C NMR chemical shift calculation methods, prior to
+this study. We selected the 13 pairs of incorrect/revised
+structures as the test set for constitutional isomers (Set B,
+Figure S3)29 and 25 compounds with multiple stereogenic
+centers as the test set for diastereomers (Set C, Figure S4),50
+which were used by Goodman’s group to assess the
+performance of DFT-based methods. To be consistent with
+their evaluation methods, we used scaled MAE, RMS, and DP4
+methodology to assign candidate structures rather than other
+more advanced statistical methods. The benchmark results of
+the DFT-based methods are the reported values in the
+corresponding reference.
+For Set B, GFN2NMR-full can assign all 13 revised
+structures correctly, while the DFT calculation correctly
+assigned only 11 structures (at the mPW1PW91/6-311G*//
+B3LYP/6-31G* level with M06-2X/def2-TZVP-calculated
+single-point energy) (Table 1). CASCADE was not compatible
+with 2 Br-bearing compounds, but it correctly assigned the
+remaining 11 structures.
+For the assignment of diastereomers in Set C, GFN2NMR-
+full can correctly identify 72% of the structures, which fell in
+the range of the correct rates of DFT-based methods (56−
+84%) (Table 1). In contrast, GFN2NMR-Exp9K exhibited a
+correct rate of only 64% when the Diast-set was not utilized.
+On Set C, CASCADE was also not compatible with two
+groups of diastereomers with formal/net charges and showed a
+correct rate of 52% for the rest of the structures.
+Comparatively, CASCADE was less attuned to configurational
+nuances, with predictions more often exhibiting equal
+outcomes for closely related diastereomers (Figure 7).
+Additionally, DFT-based methods without further correction
+have large errors in calculating heavy-atom-bearing car-
+Figure 5. Distribution of depth index and chemical shifts (predicted
+by GFN2NMR-full) of H/C-connected sp3 carbons (C(sp3)),
+heteroatom-connected sp3 carbons (X-C(sp3)), H/C-connected sp2
+carbons (C(sp2)), and heteroatom-connected sp2 carbons (X-
+C(sp2)).
+Figure 6. Linear relationship, R2, MAE (in ppm), RMS (in ppm), max error (in ppm), and KDE (E) between experimental 13C NMR chemical
+shifts of compounds in Set A and those predicted by GFN2NMR-full (A), GFN2NMR-Exp9K (B), CASCADE (C), and Ensemble NMR
+Prediction (D).
+Journal of Natural Products
+pubs.acs.org/jnp
+Article
+https://doi.org/10.1021/acs.jnatprod.3c00862
+J. Nat. Prod. 2024, 87, 743−752
+748
+
+
+
+[PDF physical page 7]
+bons,1−6,31,38 which caused low confidence in the assignment
+of those structures (e.g., S9a/S9b and S13a/S13b in Set B29),
+while GFN2NMR has no such problem.
+For efficiency, we assessed the time-cost of a representative
+DFT-based method (mPW1PW91/6-311G*//B3LYP/6-
+31G** level) and GFN2NMR on several structures with
+molecular weights ranging from 100 to 800 Da. For structures
+with a molecular weight greater than 200 Da, the calculation
+speed of GFN2NMR is 3 to 4 orders of magnitude faster than
+DFT (Figure 8).
+Applying GFN2NMR to the J/K Ring Junction
+Problem of MTX. Due to the high flexibility of structures
+1a/1b and 3a/3b, we used the reported conformational
+analysis results for MTX25,51−53 to constrain the initial
+structures in the conformational search. However, C-56 of
+1b and 3b is at the axial position of the K ring, while that of
+MTX in the reported conformation is at the equatorial
+position, which indicates that their low-energy conformation
+between the K/L ring may not be the same. Therefore, we set
+the dihedral angle between the K and L rings in structures 1b
+and 3b free in a conformation search rather than constraining
+it to the reported conformation of MTX. However, the
+obtained global minimal conformers (1b-1) of 1b are tangled
+Table 1. Performance of GNF2NMR and CASCADE on the
+reported Dataset, Using DFT Methods for Comparison
+(Not Compatible: n.c.)
+Method
+Performance
+Accuracy of calculation for 21 molecules in ref 31
+GFN2NMR-full
+R2 = 0.9977, scaled MAE =
+1.85 ppm, RMS = 2.56 ppm
+GFN2NMR-Exp9K
+R2 = 0.9968, scaled MAE =
+2.11 ppm, RMS = 3.06 ppm
+B3LYP/6-31G**//B3LYP/6-31G**
+(GSC)31
+R2 = 0.9973, scaled MAE =
+2.15 ppm, RMS = 2.79 ppm
+STS protocol31
+R2 = 0.9994, scaled MAE =
+1.03 ppm, RMS = 1.35 ppm
+Assigning 13 pair of wrongly proposed/revised molecules in ref 29, by DP4
+evaluation
+GFN2NMR-full
+Correct = 13, Wrong = 0,
+scaled MAE = 1.64
+GFN2NMR-Exp9K
+Correct = 12, Wrong = 1,
+scaled MAE = 1.82
+CASCADE
+Correct = 11, Wrong = 0, n.c.
+= 2, scaled MAE = 1.96
+mPW1PW91/6-311G*//B3LYP/6-31G*
+(M06-2X/def2-TZVP single-point
+energy)29
+Correct = 11, Wrong = 2,
+scaled MAE = 2.42
+Correct rate of assigning 25 compounds from their diastereomers in ref 50, by
+DP4 evaluation
+GFN2NMR-full
+72%, scaled MAE = 1.31
+GFN2NMR-Exp9K
+64%, scaled MAE = 1.48
+CASCADE
+52%, n.c. = 2, scaled MAE =
+1.31
+B3LYP/6-311G*//B3LYP/6-31G**50
+60%
+mPW1PW91/6-311G*//B3LYP/6-31G**50
+72%
+M06-2X/6-311G*//B3LYP/6-31G**50
+72%
+mPW1PW91/6-311G*//B3LYP/6-31G**
+(M06-2X/6-31G** single-point energy)50
+84%, scaled MAE = 1.26
+B3LYP/6-311G*//M06-2X/6-31G**50
+56%
+mPW1PW91/6-311G*//M06-2X/6-
+31G**50
+64%
+M06-2X/6-311G*// M06-2X/6-31G**50
+56%
+mPW1PW91/6-311G*// M06-2X/6-31G**
+(M06-2X/6-31G** single-point energy)50
+72%
+Figure 7. DP4 probabilities of diastereomer groups in Set C calculated by GFN2NMR-full, GFN2NMR-Exp9K, and CASCADE.
+Figure 8. Wall-clock-time cost of GIAO NMR calculations at the
+mPW1PW91/6-311G*//B3LYP/6-31G** level (with g09defaults
+keyword) and GFN2NMR for single conformers of the structures
+with different molecular weights (using a single core of Intel I5-
+12600KF to eliminate the difference of parallel performance between
+Gaussian 16 and XTB).
+Journal of Natural Products
+pubs.acs.org/jnp
+Article
+https://doi.org/10.1021/acs.jnatprod.3c00862
+J. Nat. Prod. 2024, 87, 743−752
+749
+
+
+
+[PDF physical page 8]
+with intramolecular H-bonding, which might not form in the
+solvents with strong H-bond donors/acceptors (pyridine:-
+MeOH = 1:1).44 Thus, we redid the conformational search of
+1b with a constrained dihedral angle between the K/L ring, to
+avoid intramolecular H-bonding, resulting in another set of
+unfolded global minimal conformers (1b-2). The conforma-
+tional searches for structures 2a/2b were performed regularly.
+We then calculated the 13C NMR chemical shifts based on the
+screened conformational clusters of 1a/1b-1/1b-2, 2a/2b, and
+3a/3b by GFN2NMR (Tables S1−S3). Notably, the
+13C
+NMR calculation for 1a/1b(1b-1/1b-2) consumed nearly the
+same amount of time as a single-point calculation by GFN2-
+xTB (approximately 3.97 s per conformer) on a personal
+computer equipped with I5-12600KF.
+We assessed the calculated data with the experimental 13C
+NMR chemical shifts of MTX, 2a, and 3a, respectively, via
+MAE, RMS, and DP4 analysis. The results showed that
+GFN2NMR-full can accurately calculate the
+13C NMR
+chemical shifts of structures 2a and 3a and correctly assign
+them with 100% DP4 probability, while CASCADE misas-
+signed the structure of 3a (Table 2). For MTX, the calculated
+data by GFN2NMR-full of the originally proposed structure 1a
+showed significantly lower error, particularly for the carbons on
+the J/K ring (Figure 9). The DP4 analysis also yielded 100%
+confidence for the assignation of MTX as structure 1a.
+Therefore, we can confidently assign the configuration of the
+J/K ring in MTX to the originally proposed structure (1a).
+Discussion. One of the key advantages of GFN2NMR is
+the deep architecture that ensures a wide receptive field on the
+molecular graph and the extraction of high-level features of
+graph data. Notably, configurational information encoded in
+edge features can be directly perceived by every GCN layer,
+which probably reinforces the learning of configurational
+effects. Furthermore, GFN2-xTB, a semiempirical method
+utilized in this model, provides high-quality geometric data and
+introduces nonempirical features that may also contribute to its
+enhanced performance.
+Like all other data-driven approaches, however, GFN2NMR
+is still limited by the data used for training. Although we made
+efforts to collect the data of chemically diverse compounds,
+and GFN2-xTB supports a broad range of elements, the results
+for some unique chemical systems still need further
+verification. In addition, GFN2NMR cannot deal with the
+conformational energy accurately. For these cases sensitive to
+conformational population (e.g., nivariol54), the users should
+always be cautious and combine other methods including NOE
+or J-based analysis to draw correct conclusions.
+■CONCLUSION
+In summary, we present a very deep GCN model
+(GFN2NMR) for 13C NMR chemical shift calculations that
+unprecedently offers both low time-cost and DFT level
+performance in structure assignment. Based on GFN2-xTB,
+this model is compatible with a broad variety of organic
+structures. Therefore, it can be an ideal tool for assigning large
+or flexible organic molecules and rapidly validating proposed
+structures. We demonstrated the utility of our model by
+resolving the J−K ring junction of MTX and its synthetic
+moieties. Our results illustrated that the power of NMR
+chemical shift calculations can extend to much larger systems
+than previously feasible using this model. Furthermore, we
+believe that GFN2NMR has the potential to be applied to the
+structure determination of biomacromolecules, which would
+open a fascinating avenue for future research.
+■EXPERIMENTAL SECTION
+Computation Details. All molecules for the benchmark were
+cross-checked with training data, and duplicates were deleted from
+training sets. CREST55 was used to search the conformational space
+of compounds at the GFNFF56 level of theory, followed by
+optimization at the GFN2-xTB41 level in the gas phase, with a 3
+kcal/mol energy window to remove high-energy conformers. The
+features of the conformers in the energy window were equivalently
+weighted. All DFT calculations were performed by Gaussian 1657 or
+ORCA 5.058 software packages. CASCADE was an online version in
+February 2023 (http://nova.chem.colostate.edu/cascade/predict),
+and the Ensemble NMR Prediction was provided by MestReNova
+(version 14.3.2, free trial, released on 03/04/2023). In the benchmark
+for Set B and Set C, the calculated 13C NMR chemical shift values
+were scaling corrected, and the DP4 probability of each candidate
+structure was calculated via the equation in the literature,28 where σ
+was set to 2.34, 2.81, and 3.16 for GFN2NMR-full, GFN2NMR-
+Exp9K, and CASCADE, respectively, based on their error
+distributions on Set A. All the codes and data can be retrieved at
+the Github repository https://github.com/Wen-Xuan-Wang/
+GFN2NMR.
+Table 2. MAE (in ppm), RMS (in ppm), and DP4
+Probability of the Predicted 13C NMR Chemical Shifts
+(Scaled) of Structures 1a/1b (1b-1/1b-2), 2a/2b, and 3a/3b
+by GFN2NMR-full and CASCADE, Fitting to the
+Experimental Data of MTX, 2a, and 3a, Respectively (Not
+Compatible: n.c.)
+GFN2NMR-full
+CASCADE
+structure
+MAE
+RMS
+DP4
+MAE
+RMS
+DP4
+1a
+1.62
+2.17
+100%
+n.c.
+1b-1
+1.85
+2.44
+0%
+n.c.
+1b-2
+1.77
+2.38
+0%
+n.c.
+2a
+1.71
+2.04
+100%
+2.45
+3.22
+99%
+2b
+2.60
+3.39
+0%
+2.93
+3.71
+1%
+3a
+2.02
+2.91
+100%
+3.01
+4.17
+2%
+3b
+2.42
+3.45
+0%
+2.77
+4.01
+98%
+Figure 9. Errors of calculated chemical shifts of carbons closely
+relevant to the J/K ring (at positions 48−55) of structures 1a and 1b
+(1b-1/1b-2).
+Journal of Natural Products
+pubs.acs.org/jnp
+Article
+https://doi.org/10.1021/acs.jnatprod.3c00862
+J. Nat. Prod. 2024, 87, 743−752
+750
+
+
+
+[PDF physical page 9]
+■ASSOCIATED CONTENT
+*
+sı Supporting Information
+The Supporting Information is available free of charge at
+https://pubs.acs.org/doi/10.1021/acs.jnatprod.3c00862.
+The original computational results, data sets, and source
+codes for GFN2NMR (ZIP)
+The instructions for GFN2NMR and supplementary
+figures and tables (PDF)
+■AUTHOR INFORMATION
+Corresponding Author
+Wen-Xuan Wang −Xiangya School of Pharmaceutical
+Sciences, Central South University, Changsha, Hunan
+410013, People’s Republic of China; Hunan Prima Drug
+Research Center Co., Ltd, Hunan Research Center for Drug
+Safety Evaluation, Hunan Key Laboratory of
+Pharmacodynamics and Safety Evaluation of New Drugs,
+Changsha, Hunan 410331, People’s Republic of China;
+orcid.org/0000-0002-7391-2954;
+Email: wenxuanwang@tom.com
+Authors
+Wen-Jing Ai −Xiangya School of Pharmaceutical Sciences,
+Central South University, Changsha, Hunan 410013,
+People’s Republic of China
+Jing Li −Department of Pharmacy, National Clinical Research
+Center for Geriatric Disorder, in Xiangya Hospital, Central
+South University, Changsha, Hunan 410013, People’s
+Republic of China;
+orcid.org/0000-0001-8133-507X
+Dongsheng Cao −Xiangya School of Pharmaceutical Sciences,
+Central South University, Changsha, Hunan 410013,
+People’s Republic of China;
+orcid.org/0000-0003-3604-
+3785
+Shao Liu −Department of Pharmacy, National Clinical
+Research Center for Geriatric Disorder, in Xiangya Hospital,
+Central South University, Changsha, Hunan 410013,
+People’s Republic of China
+Yi-Yun Yuan −Xiangya School of Pharmaceutical Sciences,
+Central South University, Changsha, Hunan 410013,
+People’s Republic of China
+Yan Li −Xiangya School of Pharmaceutical Sciences, Central
+South University, Changsha, Hunan 410013, People’s
+Republic of China
+Gui-Shan Tan −Department of Pharmacy, National Clinical
+Research Center for Geriatric Disorder, in Xiangya Hospital,
+Central South University, Changsha, Hunan 410013,
+People’s Republic of China;
+orcid.org/0000-0001-8041-
+6185
+Kang-Ping Xu −Xiangya School of Pharmaceutical Sciences,
+Central South University, Changsha, Hunan 410013,
+People’s Republic of China
+Xia Yu −Xiangya School of Pharmaceutical Sciences, Central
+South University, Changsha, Hunan 410013, People’s
+Republic of China;
+orcid.org/0000-0003-2429-347X
+Fenghua Kang −Xiangya School of Pharmaceutical Sciences,
+Central South University, Changsha, Hunan 410013,
+People’s Republic of China
+Zhen-Xing Zou −Xiangya School of Pharmaceutical Sciences,
+Central South University, Changsha, Hunan 410013,
+People’s Republic of China
+Complete contact information is available at:
+https://pubs.acs.org/10.1021/acs.jnatprod.3c00862
+Author Contributions
+W.-J.A. and J.L. contributed equally.
+Notes
+The authors declare no competing financial interest.
+■ACKNOWLEDGMENTS
+The work was financially supported by National Natural
+Science Foundation of China (No. 82173713), China
+Postdoctoral Science Foundation (No. 2020M682599),
+Natural Science Foundation of Hunan Province (Nos.
+2021JJ41000, 2021JJ40812), and Key Research and Develop-
+ment Program of Hunan Province (No. 2022SK2031). The
+authors thank the Institute for Advanced Study, Central South
+University, for NMR measurement.
+■REFERENCES
+(1) Marcarino, M. O.; Cicetti, S.; Zanardi, M. M.; Sarotti, A. M. Nat.
+Prod. Rep. 2022, 39, 58−76.
+(2) Tantillo, D. J. Nat. Prod. Rep. 2013, 30, 1079−1086.
+(3) Krivdin, L. B. Magn. Reson. Chem. 2022, 60, 733−828.
+(4) Grimblat, N.; Sarotti, A. M. Chem.Eur. J. 2016, 22, 12246−
+12261.
+(5) Lodewyk, M. W.; Siebert, M. R.; Tantillo, D. J. Chem. Rev. 2012,
+112, 1839−1862.
+(6) Marcarino, M. O.; Zanardi, M. M.; Cicetti, S.; Sarotti, A. M. Acc.
+Chem. Res. 2020, 53, 1922−1932.
+(7) Jonas, E.; Kuhn, S.; Schlörer, N. Magn. Reson. Chem. 2022, 60,
+1021−1031.
+(8) Guan, Y.; Sowndarya, S. V. S.; Gallegos, L. C.; John, P. C. St.;
+Paton, R. S. Chem. Sci. 2021, 12, 12012−12026.
+(9) Han, J.; Kang, H.; Kang, S.; Kwon, Y.; Lee, D.; Choi, Y.-S. Phys.
+Chem. Chem. Phys. 2022, 24, 26870−26878.
+(10) Fischer, M.; Schwarze, B.; Ristic, N.; Scheidt, H. A. Comput.
+Biol. Chem. 2022, 100, No. 107750.
+(11) Bremser, W. Anal. Chim. Acta 1978, 103, 355−365.
+(12) Smurnyy, Y. D.; Blinov, K. A.; Churanova, T. S.; Elyashberg, M.
+E.; Williams, A. J. J. Chem. Inf. Model. 2008, 48, 128−134.
+(13) Kuhn, S.; Egert, B.; Neumann, S.; Steinbeck, C. BMC Bioinf.
+2008, 9, 400.
+(14) Aires-de-Sousa, J.; Hemmer, M. C.; Gasteiger, J. Anal. Chem.
+2002, 74, 80−90.
+(15) Meiler, J.; Maier, W.; Will, M.; Meusinger, R. J. Magn. Reson.
+2002, 157, 242−252.
+(16) Blinov, K. A.; Smurnyy, Y. D.; Elyashberg, M. E.; Churanova, T.
+S.; Kvasha, M.; Steinbeck, C.; Lefebvre, B. A.; Williams, A. J. J. Chem.
+Inf. Model. 2008, 48, 550−555.
+(17) Bartók, A. P.; Kondor, R.; Csányi, G. Phys. Rev. B 2013, 87,
+No. 184115.
+(18) Gerrard, W.; Bratholm, L. A.; Packer, M. J.; Mulholland, A. J.;
+Glowacki, D. R.; Butts, C. P. Chem. Sci. 2020, 11, 508−515.
+(19) Yang, Z.; Chakraborty, M.; White, A. D. Chem. Sci. 2021, 12,
+10802−10809.
+(20) Cobas, C. Magn. Reson. Chem. 2020, 58, 512−519.
+(21) Buevich, A. V.; Elyashberg, M. E. J. Nat. Prod. 2016, 79, 3105−
+3116.
+(22) Tsai, Y.-H.; Amichetti, M.; Zanardi, M. M.; Grimson, R.;
+Daranas, A. H.; Sarotti, A. M. Org. Lett. 2022, 24, 7487−7491.
+(23) Novitskiy, I. M.; Kutateladze, A. G. J. Org. Chem. 2022, 87,
+4818−4828.
+(24) Gallimore, A. R.; Spencer, J. B. Angew. Chem., Int. Ed. 2006, 45,
+4406−4413.
+(25) Nicolaou, K. C.; Frederick, M. O. Angew. Chem., Int. Ed. 2007,
+46, 5278−5282.
+(26) Nicolaou, K. C.; Cole, K. P.; Frederick, M. O.; Aversa, R. J.;
+Denton, R. M. Angew. Chem., Int. Ed. 2007, 46, 8875−8879.
+Journal of Natural Products
+pubs.acs.org/jnp
+Article
+https://doi.org/10.1021/acs.jnatprod.3c00862
+J. Nat. Prod. 2024, 87, 743−752
+751
+
+
+
+[PDF physical page 10]
+(27) Nicolaou, K. C.; Frederick, M. O.; Burtoloso, A. C. B.; Denton,
+R. M.; Rivas, F.; Cole, K. P.; Aversa, R. J.; Gibe, R.; Umezawa, T.;
+Suzuki, T. J. Am. Chem. Soc. 2008, 130, 7466−7476.
+(28) Smith, S. G.; Goodman, J. M. J. Am. Chem. Soc. 2010, 132,
+12946−12959.
+(29) Howarth, A.; Goodman, J. M. Chem. Sci. 2022, 13, 3507−3518.
+(30) Grimblat, N.; Zanardi, M. M.; Sarotti, A. M. J. Org. Chem. 2015,
+80, 12526−12534.
+(31) Li, J.; Liu, J.-K.; Wang, W.-X. J. Org. Chem. 2020, 85, 11350−
+11358.
+(32) Hornik, K.; Stinchcombe, M.; White, H. Neural Netw. 1989, 2,
+359−366.
+(33) Zhou, J.; Cui, G.; Hu, S.; Zhang, Z.; Yang, C.; Liu, Z.; Wang, L.;
+Li, C.; Sun, M. AI Open 2020, 1, 57−81.
+(34) Li, Q.; Han, Z.; Wu, X.-M.Conference on Artificial Intelligence
+(AAAI’18); Association for the Advances of Artificial Intelligence,
+2018; pp 3538−3545.
+(35) Yu, Y.; Si, X.; Hu, C.; Zhang, J. Neural Comput. 2019, 31,
+1235−1270.
+(36) Schmidhuber, J. Neural Netw. 2015, 61, 85−117.
+(37) Lin, T.; Wang, Y.; Liu, X.; Qiu, X. AI Open 2022, 3, 111−132.
+(38) Kutateladze, A. G.; Reddy, D. S. J. Org. Chem. 2017, 82, 3368−
+3381.
+(39) SDBSWeb: https://sdbs.db.aist.go.jp.
+(40) Grimme, S.; Hansen, A.; Ehlert, S.; Mewes, J.-M. J. Chem. Phys.
+2021, 154, No. 064103.
+(41) Bannwarth, C.; Ehlert, S.; Grimme, S. J. Chem. Theory Comput.
+2019, 15, 1652−1671.
+(42) Řezáč, J.; Bím, D.; Gutten, O.; Rulíšek, L. J. Chem. Theory
+Comput. 2018, 14, 1254−1266.
+(43) Plett, C.; Grimme, S.; Hansen, A. J. Comput. Chem. 2024, 45,
+419.
+(44) Zanardi, M. M.; Marcarino, M. O.; Sarotti, A. M. Org. Lett.
+2020, 22, 52−56.
+(45) Li, G.; Müller, M.; Thabet, A.; Ghanem, B. IEEE/CVF
+International Conference on Computer Vision (ICCV); 2019;
+DOI: 10.1109/ICCV.2019.00936.
+(46) Liu, M.; Gao, H.; Ji, S. KDD ’20: Proceedings of the 26th ACM
+SIGKDD International Conference on Knowledge Discovery & Data
+Mining; 2020; pp 338−348.
+(47) Loukas, A. arXiv preprint 2019, DOI: 10.48550/
+arXiv.1907.03199.
+(48) Gilmer, J.; Schoenholz, S. S.; Riley, P. F.; Vinyals, O.; Dahl, G.
+E. arXiv preprint 2017, DOI: 10.48550/arXiv.1704.01212.
+(49) Cobas, C. Ensemble NMR Prediction. https://resources.
+mestrelab.com/ensemble-nmr-prediction/.
+(50) Ermanis, K.; Parkes, K. E. B.; Agback, T.; Goodman, J. M. Org.
+Biomol. Chem. 2019, 17, 5886−5890.
+(51) Murata, M.; Naoki, H.; Matsunaga, S.; Satake, M.; Yasumoto,
+T. J. Am. Chem. Soc. 1994, 116, 7098−7107.
+(52) Zheng, W.; DeMattei, J. A.; Wu, J.-P.; Duan, J. J.-W.; Cook, L.
+R.; Oinuma, H.; Kishi, Y. J. Am. Chem. Soc. 1996, 118, 7946−7968.
+(53) Cook, L. R.; Oinuma, H.; Semones, M. A.; Kishi, Y. J. Am.
+Chem. Soc. 1997, 119, 7928−7937.
+(54) Cen-Pacheco, F.; Rodríguez, J.; Norte, M.; Fernández, J. J.;
+Daranas, A. H. Chem.Eur. J. 2013, 19, 8525−8532.
+(55) Pracht, P.; Bohle, F.; Grimme, S. Phys. Chem. Chem. Phys. 2020,
+22, 7169−7192.
+(56) Spicher, S.; Grimme, S. Angew. Chem., Int. Ed. 2020, 59,
+15665−15673.
+(57) Frisch, M. J.; Trucks, G. W.; Schlegel, H. B.; Scuseria, G. E.;
+Robb, M. A.; Cheeseman, J. R.; Scalmani, G.; Barone, V.; Petersson,
+G. A.; Nakatsuji, H.; Li, X.; Caricato, M.; Marenich, A. V.; Bloino, J.,
+Janesko, B. G.; Gomperts, R.; Mennucci, B.; Hratchian, H. P.; Ortiz, J.
+V.; Izmaylov, A. F.; Sonnenberg, J. L.; Williams-Young, D.; Ding, F.;
+Lipparini, F.; Egidi, F.; Goings, J.; Peng, B.; Petrone, A.; Henderson,
+T.; Ranasinghe, D.; Zakrzewski, V. G.; Gao, J.; Rega, N.; Zheng, G.;
+Liang, W.; Hada, M.; Ehara, M.; Toyota, K.; Fukuda, R.; Hasegawa, J.;
+Ishida, M.; Nakajima, T.; Honda, Y.; Kitao, O.; Nakai, H.; Vreven, T.;
+Throssell, K.; Montgomery, J. A., Jr.; Peralta, J. E.; Ogliaro, F.;
+Bearpark, M. J.; Heyd, J. J.; Brothers, E. N.; Kudin, K. N.; Staroverov,
+V. N.; Keith, T. A.; Kobayashi, R.; Normand, J.; Raghavachari, K.;
+Rendell, A. P.; Burant, J. C.; Iyengar, S. S.; Tomasi, J.; Cossi, M.;
+Millam, J. M.; Klene, M.; Adamo, C.; Cammi, R.; Ochterski, J. W.;
+Martin, R. L.; Morokuma, K.; Farkas, O.; Foresman, J. B.; Fox, D. J.
+Gaussian 16, Revision C.01; Gaussian, Inc.: Wallingford, CT, 2016.
+(58) Neese, F. WIREs Comput. Mol. Sci. 2022, 12, No. e1606.
+Journal of Natural Products
+pubs.acs.org/jnp
+Article
+https://doi.org/10.1021/acs.jnatprod.3c00862
+J. Nat. Prod. 2024, 87, 743−752
+752

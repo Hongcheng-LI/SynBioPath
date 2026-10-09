@@ -1,0 +1,14 @@
+import json,re,fitz,hashlib
+import worker as w
+d=w.ROOT/'sources'/'G824PQKI';rec=json.loads((d/'prepared.json').read_text(encoding='utf-8'))
+spec=[('Graphical Abstract',1,[177,294,435,364],[],'原文摘要结构图：完整三种骨架与质子转移方向'),('Scheme 1',2,[52,49,296,369],[],'原文 Scheme 1：完整既有机制与碳正离子编号；不是所有步骤均在本文计算'),('Figure 1',2,[314,49,561,482],[],'原文 Figure 1：完整 3/4/6 与三个过渡态的计算几何、距离和图注'),('Scheme 2',3,[52,49,296,190],[],'原文 Scheme 2：全部结构、静电势表面与共同参考相对能量')]
+gaps=['All3mainpagesread andvisuallyinspected;SIcoordinatesfrequenciesIRCenergiesandmPWcomparison notread orrecomputed','Automatictitleflagfalse originaltitleDOIauthorsidentityverified','Originalcomputationalresearch notenzymebiochemicalexperiment','Intrinsiccarbonframework model noexplicit enzyme/PPi/solvent inmainreported','Reportedstationarypointtypes notindependently frequency/IRCverified','Relativeenergiesnotverifiedenzymeactivationfreeenergies; no biologicalratesyield inferred','Scheme2TS6to4+5.0relativeto3zero with6+.1;4.9localbarrier and5.5comparison arithmeticonly','Nobridgingminimumfound notuniversalnonexistence','Footnote15severalconformerswithin3.5kcal butSIcoverageunknown','Priorisotopelabeling citednotnewmeasurement andsourcesunread','Chargecolor+0.07redto+0.13blue positiveboth; notexperimentaldensity','Byproducts,inhibitors,mutations,tunnelingandactive-siteeffects predictionsnottested']
+with fitz.open(rec['main_pdf']) as doc:
+    figs=[{'label':l,'caption':c,'panels':a,'pages':[{'page':p,'bbox':[b[0]/doc[p-1].rect.width,b[1]/doc[p-1].rect.height,b[2]/doc[p-1].rect.width,b[3]/doc[p-1].rect.height],'dpi':300}]} for l,p,b,a,c in spec]
+draft={'identity_matches':True,'identity_reason':'Original3pages titleDOIauthorsvolumeverified despiteautomatedtitleflag','paper_type':'research','title_zh':'紫杉二烯质子转移的两步计算机制与证据边界','filename_title':'紫杉二烯质子转移的两步计算机制与证据边界','journal_short':'Org Lett','category':None,'related_categories':[],'classification_reason':'全部笔记完成后统一归类','source_gaps':gaps,'figures':figs,'report':(d/'codex-report.md').read_text(encoding='utf-8')}
+w.normalize_format(draft);w.validate_structure(draft);w.write_json(d/'codex-draft.json',{'draft':draft,'method':'CurrentCodex directmainreading'})
+images=[]
+with fitz.open(rec['main_pdf']) as doc:
+    for l,p,b,a,c in spec:
+        out=d/('G824PQKI-'+l.replace(' ','-')+'-p'+str(p)+'-complete.png');doc[p-1].get_pixmap(matrix=fitz.Matrix(300/72,300/72),clip=fitz.Rect(b),alpha=False).save(out);sha=hashlib.sha256(out.read_bytes()).hexdigest();target=out.with_name(out.stem+'-'+sha[:16]+'.png');out.replace(target);images.append({'label':l,'caption':c,'page':p,'file':str(target),'bbox':b,'panels':a,'sha256':sha})
+w.write_json(d/'codex-crops.json',images);print(json.dumps({'chinese_characters':len(re.findall(r'[\u4e00-\u9fff]',draft['report'])),'images':[{'label':x['label'],'file':x['file']} for x in images]},ensure_ascii=False))

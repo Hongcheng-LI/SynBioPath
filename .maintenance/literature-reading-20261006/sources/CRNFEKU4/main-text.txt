@@ -1,0 +1,701 @@
+
+[PDF physical page 1]
+Applied Microbiology and Biotechnology (2023) 107:7105–7117
+https://doi.org/10.1007/s00253-023-12784-x
+
+ BIOTECHNOLOGICALLY RELEVANT ENZYMES AND PROTEINS
+
+
+Computational redesign of taxane‑10β‑hydroxylase for de novo
+biosynthesis of a key paclitaxel intermediate
+
+Mei‑Fang Zhang1 · Wen‑Liang Xie1 · Cheng Chen1 · Chun‑Xiu Li1 · Jian‑He Xu1 
+
+
+Received: 22 June 2023 / Revised: 27 August 2023 / Accepted: 7 September 2023 / Published online: 22 September 2023
+© The Author(s), under exclusive licence to Springer-Verlag GmbH Germany, part of Springer Nature 2023
+
+Abstract 
+Paclitaxel (Taxol®) is the most popular anticancer diterpenoid predominantly present in Taxus. The core skeleton of pacli-
+taxel is highly modified, but researches on the cytochrome P450s involved in post-modification process remain exceedingly
+limited. Herein, the taxane-10β-hydroxylase (T10βH) from Taxus cuspidata, which is the third post-modification enzyme
+that catalyzes the conversion of taxadiene-5α-yl-acetate (T5OAc) to taxadiene-5α-yl-acetoxy-10β-ol (T10OH), was investi-
+gated in Escherichia coli by combining computation-assisted protein engineering and metabolic engineering. The variant of
+T10βH, M3 (I75F/L226K/S345V), exhibited a remarkable 9.5-fold increase in protein expression, accompanied by respective
+1.3-fold and 2.1-fold improvements in turnover frequency (TOF) and total turnover number (TTN). Upon integration into
+the engineered strain, the variant M3 resulted in a substantial enhancement in T10OH production from 0.97 to 2.23 mg/L.
+Ultimately, the titer of T10OH reached 3.89 mg/L by fed-batch culture in a 5-L bioreactor, representing the highest level
+reported so far for the microbial de novo synthesis of this key paclitaxel intermediate. This study can serve as a valuable
+reference for further investigation of other P450s associated with the artificial biosynthesis of paclitaxel and other terpenoids.
+Key points
+• The T10βH from T. cuspidata was expressed and engineered in E. coli unprecedentedly.
+• The expression and activity of T10βH were improved through protein engineering.
+• De novo biosynthesis of T10OH was achieved in E. coli with a titer of 3.89 mg/L.
+
+Keywords  Paclitaxel (Taxol®) · Taxane-10β-hydroxylase · De novo biosynthesis · Protein engineering · Taxadiene-5α-yl-
+acetoxy-10β-ol
+
+Introduction                                               native hosts, synthetic biology has emerged as a more poten-
+                                                                              tial and sustainable method for the heterologous synthesis
+Terpenoids, the most structurally and functionally diverse    of taxanes in microorganisms with high biomass and well-
+group of natural products in living organisms, are widely    defined metabolic backgrounds (Sabzehzari et al. 2020). The
+utilized in various fields including foods, pharmaceuticals,    biosynthetic pathway of paclitaxel involves at least eight
+and agriculture (Tetali 2019). Paclitaxel (Taxol®), a diterpe-    cytochrome P450-catalyzed oxidation steps. The genes and
+noid unique to Taxus, has been approved for treating multi-     catalytic capabilities of 5α-, 10β-, 13α- and 2′α-hydroxylase
+ple diseases such as ovarian cancer, breast cancer, Kaposi’s    have been elucidated (Jennewein et al. 2004, 2001; Schoen-
+sarcoma, pancreatic cancer, and lung cancer (Yang et al.    dorf et al. 2001; Sanchez-Muñoz et al. 2020). In addition,
+2020). Owing to the restricted abundance of paclitaxel in    the putative 2α- and 7β-hydroxylase have been reported to
+                                                               exhibit oxidative activities toward the surrogate substrate
+                                                                (taxusin) (Chau and Croteau 2004; Chau et al. 2004). How-
+* Jian‑He Xu                                                   ever, except for the first P450, taxadiene-5α-hydroxylase
+    jianhexu@ecust.edu.cn                               (T5αH) (Rontein et al. 2008; Ajikumar et al. 2010; Yadav
+1                                                       2014; Edgar et al. 2016; Biggs et al. 2016a, b; Rouck et al.    State Key Laboratory of Bioreactor Engineering, Shanghai                                                      2017; Wu et al. 2022), scientific inquiries into the other    Collaborative Innovation Center for Biomanufacturing,
+    East China University of Science and Technology,              P450s within the pathway remain constrained, which hin-
+    Shanghai 200237, People’s Republic of China                    ders the advancement of heterologous synthesis of taxanes.
+
+                                                                                                                                      Vol.:(0123456789)1 3
+
+
+[PDF physical page 2]
+7106                                                                          Applied Microbiology and Biotechnology (2023) 107:7105–7117
+
+  Taxane-10β-hydroxylase (T10βH), the second P450    biosynthesis of T10OH reported to date. Our work may pro-
+hydroxylase in the biosynthetic pathway of paclitaxel, pos-    vide valuable guidance for the protein engineering of other
+sesses the ability to hydroxylate taxadiene-5α-yl-acetate   P450s involved in the biosynthesis of paclitaxel and high-
+(T5OAc), generating taxadiene-5α-yl-acetoxy-10β-ol     lights the potential of E. coli as a host for the biosynthesis
+(T10OH). The gene encoding this enzyme was identified    of plant-originating terpenoids.
+within the Taxus cuspidata genome through the differen-
+tial display of mRNA-reverse transcription-PCR (DD-RT-
+PCR) (Schoendorf et al. 2001). Its catalytic activity has been   Materials and methods
+preliminarily investigated in Saccharomyces cerevisiae and
+Spodoptera fugiperda (Jennewein et al. 2005). DeJong et al.    Strains and plasmids
+(2006) constructed a metabolic pathway for de novo syn-
+thesis of T10OH in S. cerevisiae, but the production of the    E. coli BL21 (DE3) (Novagen, Darmstadt, Germany) was
+desired metabolite was not observed. Subsequently, Zhou    used as the cloning, expression, and production host. The
+et al. (2015) co-cultivated the S. cerevisiae strain expressing    plasmid vectors, pACYCDuet-1 and pRSFDuet-1 (Novagen,
+T5αH, taxane-5α-ol-O-acetyltransferase (TAT), and T10βH    Darmstadt, Germany), were used for gene expression. The
+together with the Escherichia coli strain producing a high    recombinant plasmids were constructed using the ClonEx-
+level of taxadiene, which resulted in the first successful    press Ultra One-Step Cloning Kit (Vazyme, Nanjing, China).
+microbial heterologous synthesis of T10OH, albeit with a    All the engineered strains and plasmids constructed in this
+titer of only 1 mg/L. Therefore, further studies are required   work are listed in Table S1.
+to improve the level of heterologous T10OH synthesis by     The genes of 1-deoxy-D-xylulose 5-phosphate synthase
+exploring the properties of T10βH comprehensively.         (DXS), isopentenyl diphosphate isomerase (IDI), gera-
+  Being a Class II cytochrome P450, T10βH is a mem-    nylgeranyl diphosphate synthase (GGPPS), and taxadiene
+brane-integrated protein and necessitates coupling with the    synthase (TS) have been reported in detail before (Wang
+redox partner known as cytochrome P450 reductase (CPR)     et al. 2022). The taxadiene-5α-hydroxylase (T5αH) and
+for its function. Consequently, the expression of this enzyme    cytochrome P450 reductase (CPR), derived from T. cuspi-
+in prokaryotic systems with limited endomembrane struc-    data, underwent truncation of their N-terminal transmem-
+tures and post-translational modifications presents a signifi-    brane region by 24 and 74 amino acid residues, respectively.
+cant challenge. Nevertheless, there are numerous techniques   They were expressed in a chimera construction with a linker
+currently available to enhance the expression and activity   (GSTGS) (Ajikumar et al. 2010; Wu et al. 2022).
+of eukaryotic P450s in E. coli, including but not limited
+to selecting appropriate strains, codon optimization, N-ter-   Media and culture conditions
+minal sequence modification, coexpression with molecular
+chaperones, and increasing the supply of heme (Hu et al.    Luria Bertani (LB) medium (10 g/L tryptone, 5 g/L yeast
+2023; Hausjell et al. 2018). Furthermore, computational     extract, and 10 g/L NaCl) was used for plasmid construc-
+design can also be employed to address the issue of dif-    tion and seed culture. Terrific Broth (TB) medium (12 g/L
+ficult heterologous expression due to the folding instability    tryptone, 24 g/L yeast extract, 2.31 g/L ­KH2PO4, 12.54 g/L
+of the target protein. The computational tool called PROSS,    ­K2HPO4, and 5 g/L glycerol) was used for protein expres-
+which combines phylogenetic analysis and energy calcula-    sion. TB2 medium (the TB medium containing 20 g/L glyc-
+tion, has been proven effective in improving the expression    erol) was used to produce taxanes. When necessary, 25 µg/
+of diverse eukaryotic proteins in E. coli (Goldenzweig et al.  mL chloramphenicol or 50 µg/mL kanamycin was added.
+2016; Weinstein et al. 2020; Kriegel et al. 2021; Peleg et al.   Seed cultures were prepared in 4 mL LB medium and incu-
+2021). Despite these advances, no study has yet explored the    bated at 37 °C and 200 rpm. After 12 h, 1 mL seed culture
+application of this tool for P450 modification.              was transferred to 50 mL TB or TB2 medium and incu-
+   This study presents the first-ever investigation of T10βH    bated at 37 °C and 200 rpm until ­OD600 reached 0.6–0.8.
+from T. cuspidata in E. coli. We successfully expressed    Isopropyl-β-D-thiogalactopyranoside (IPTG), 5-aminole-
+T10βH in E. coli BL21 (DE3) and established a pathway    vulinic acid (ALA), and ­FeCl3 were added at final concen-
+for the de novo synthesis of T10OH using E. coli as the    trations of 0.1, 0.2, and 0.1 mM, respectively, for inducing
+sole host. Computational protein engineering aided in    gene expression. For the production of taxanes, the induction
+improving the expression level and specific activity of this    temperature was set to 18 °C and samples were taken every
+enzyme, leading to further enhancement in T10OH produc-   24 h to analyze the ­OD600 and the progress of metabolite
+tion. Following optimization of culture conditions, we were    accumulation. In a two-phase organic overlay culture sys-
+able to produce 3.89 mg/L of T10OH in a 5-L bioreactor,    tem, 6% (v/v) dodecane was added and used for GC–MS
+which stands for the highest level of microbial heterologous    analysis. In all other cases, the induction temperature was
+
+1 3
+
+
+[PDF physical page 3]
+Applied Microbiology and Biotechnology (2023) 107:7105–7117                                                                   7107
+
+set to 22 °C, and cells were induced for 24 h before being   column temperature was kept at 150 °C for 25 min initially
+collected.                                             and then increased to 230 °C at a rate of 10 °C/min, and held
+  To optimize the culture conditions of strain T6, we tested     for 15 min. A calibration curve of taxadiene was established
+different induction temperatures, including the initial set-   by using the purified taxadiene as standard, which was then
+ting of 18 °C and additional settings of 16 °C, 22 °C, 26    used to accurately determine the concentration of taxadiene
+°C, and 30 °C. The inducer (IPTG) concentration was also    (Fig. S1). Regarding the quantification of taxadiene-5α-ol
+varied from the initial setting of 0.10 to 0.01 mM, 0.05 mM,   (T5OH), T5OAc, and T10OH, since standards for these
+0.20 mM, and 0.40 mM. In addition, we tested different lev-   compounds were not available, they were quantified by uti-
+els of glycerol content in the culture medium, ranging from    lizing the calibration curve of taxadiene.
+10 to 60 g/L, with the initial setting being 20 g/L. While the
+initial culture medium did not add ­MgSO4, we attempted to    Bioinformatic methods
+add 0.3–1.5 g/L of ­MgSO4 to evaluate its effects on produc-
+tion. Prioritize the optimization of a single condition before   The protein sequence of T10βH was inputted into the “Pre-
+moving on to the next. To ensure accuracy and consistency,    dictProtein” website (https://​predi​ctpro​tein.​org) to predict its
+each condition was established in three parallel sets.         transmembrane region. The structural models of t20T10βH
+  For fed-batch cultures, the seed culture was transferred   and its variant were predicted using AlphaFold2 (Jumper
+to a 2 L shake flask containing 300 mL LB medium, and     et al. 2021) (Fig. S2). The model of t20T10βH-WT was
+cultured for 3–4 h under the same conditions. The second-    submitted to a dedicated web server called PROSS (https://​
+ary seed culture was inoculated in a 5 L bioreactor with     pross.​weizm​ann.​ac.​il) (Weinstein et al. 2020). The 45 single-
+2.5 L fermentation medium (15 g/L glycerol, 10 g/L tryp-    point mutations in design 1 were chosen to calculate the
+tone, 5 g/L yeast extracts, 5 g/L ­Na2HPO4·12H2O, 0.7 g/L    folding free energy changes (ΔΔGFold) using FoldX (Schym-
+­Na2SO4, 3.4 g/L ­KH2PO4, 0.25 g/L ­MgSO4, 2.7 g/L ­NH4Cl,    kowitz et al. 2005) (Table S2). Among them, 30 single-
+and 0.2% (w/v) defoamer). The pH of the medium was    point mutations with a ΔΔGFold less than 0.5 kcal/mol were
+remained constant at 6.9 by the automatic addition of 50%    selected for further screening through whole-cell reactions.
+(v/v) ­NH4OH. The flow of air was maintained at 2 L/min,
+while the fermentation process was carried out at 37 °C,   Mutant screening
+with an initial stirring speed of 200 rpm. Whenever the dis-
+solved oxygen (DO) fell below 25%, the stirring speed was   The primers used for constructing mutations were listed in
+increased (3 rpm/10 s) until it reached its highest point of    Table S3. Following the cultivation and induction of pro-
+750 rpm. When the ­OD600 exceeded 10, the stirring speed     tein expression, the cells were collected and resuspended in
+and temperature were adjusted to 400 rpm and 18 °C,    potassium phosphate buffer (KPB) (100 mM, pH 7.5). The
+respectively. After the temperature had stabilized, IPTG    reaction mixture (200 µL) was composed of wet cell (0.2 g/
+(0.1 mM), ALA (0.2 mM), and ­FeCl3 (0.1 mM) were added   mL), T5OAc (20 µM), NADPH (4 mM), methanol (1%, v/v)
+to the culture medium. The stirring speed was regulated to    in a total volume of 200 µL containing KPB (100 mM, pH
+maintain the DO around 30%. Once the glycerol concentra-     7.5). After incubation at 25 °C (300 rpm) for 24 h, the prod-
+tion in the medium fell below 5 g/L, feed solution (500 g/L    ucts were extracted using ethyl acetate. The ethyl acetate
+glycerol, 120 g/L tryptone, and 60 g/L yeast extract) was fed    layer was collected and dried for GC analysis.
+into the medium to raise it to 20 g/L. Periodic measurements
+of ­OD600 and metabolite production were taken from the   SDS‑PAGE and CO difference spectra
+outset of fermentation.
+                                                 The cells were resuspended in KPB (100 mM, pH 7.5) and
+GC–MS analytic methods                                 lysed by ultrasonication on an ice bath for 15 min. After
+                                                              centrifugation of the cell lysate (10,000 × g, 5 min, 4 °C),
+To detect products, an 800 µL sample was mixed with 400    the supernatant was collected while the precipitate was
+µL ethyl acetate containing 10 mg/L octadecane as internal   washed twice before being resuspended in KPB. Both the
+standard and vortexed for 20 min. The organic phase was    supernatant and the precipitate were then treated with 20%
+collected by centrifugation (10,000 × g, 3 min, 4 °C), fol-    (v/v) 5 × SDS-PAGE loading buffer and subjected to a metal
+lowed by drying with anhydrous sodium sulfate. The organic    bath at 95 °C for 10 min. Protein expression was analyzed
+phase was then analyzed using GC–MS. An Rtx-5MS (30   by SDS-PAGE after centrifugation at room temperature
+m × 0.25 mm × 0.25 µM) column was used on a Shimadzu    (10,000 × g, 3 min).
+Technologies GC/MS-QP2010 SE. The ethyl acetate sample       After centrifugation of the cell lysate (10,000 × g, 30 min,
+(1 µL) was injected with a split ratio of 5. The injector and   4 °C), the supernatant was collected to determine the active
+column oven was set at 250 °C and 150 °C, respectively. The   P450 concentration via CO difference spectra. CO gas was
+
+                                                                1 3
+
+
+[PDF physical page 4]
+7108                                                                          Applied Microbiology and Biotechnology (2023) 107:7105–7117
+
+injected into 1 mL supernatant at a rate of one bubble per    conform with the codon usage preference of E. coli. In addi-
+second. A 200-µL aliquot was withdrawn as a control group,     tion, we employed the “PredictProtein” website to predict its
+while 4 mg sodium hydrosulfite was added to the remain-    transmembrane region (Bernhofer et al. 2021). According
+ing mixture as the experimental group. The absorbances of    to the prediction result that the transmembrane region of
+the control group and experimental group at wavelengths   T10βH is situated within the N-terminal residues ranging
+between 400 and 500 nm were measured using a UV/Visible   from 17 to 39, we truncated its N-terminal sequence by 0,
+spectrophotometer. By subtracting the absorbance values of     7, 20, and 39 amino acids, respectively, denoted as fT10βH,
+the two groups, the CO difference spectra could be obtained.   t7T10βH, t20T10βH, and t39T10βH. We further modified
+The P450 concentration was than calculated using a molar    the N-terminus of T10βH by incorporating the “MALL-
+extinction coefficient of 91 ­mM−1 ­cm−1.                LAVF” sequence from CYP17A1, which has been proven
+                                                                  to robustly enhance the expression of a variety of eukaryotic
+Enzyme assay                                      P450s in E. coli (Pritchard et al. 1997; Park et al. 2014;
+                                               Cheesman et al. 2013). And the CPR from T. cuspidata
+The supernatant of cell lysate was subjected to a series of   was connected to the N-terminally truncated and modified
+incubation temperatures (30–52 °C) for 10 min. Following   T10βHs via a linker (GSTGS), yielding the expression as
+centrifugation (10,000 × g, 2 min, 4 °C), the alterations in    fusion proteins (Fig. S3a).
+active P450 content were examined using CO difference     Upon analyzing the protein expression by SDS-PAGE,
+spectra. The obtained data were then fitted using the Boltz-   we ascertained that the fusion proteins could be successfully
+mann equation in Origin 2023 software to derive the thermal    expressed in E. coli, with varied expression levels across dif-
+deactivation curve and T5010 (half-deactivation temperature).    ferent truncation variants (Fig. S3b). Out of all the variants
+  The reaction mixture for the activity assay was composed    explored, t39T10βH-CPR demonstrated the utmost expres-
+of P450 lysate (0.1 µM), purified CPR (120 µM), T5OAc    sion level, notwithstanding the emergence of significant
+(10 µM), NADPH (4 mM), and methanol (2%, v/v) in a total    inclusion bodies. Variants t7T10βH-CPR and fT10βH-CPR,
+volume of 150 µL containing KPB (100 mM, pH 7.5). Reac-   on the other hand, exhibited comparatively lower expres-
+tions were performed at 25 °C under 200 rpm. Turnover fre-    sion levels, and t20T10βH-CPR recorded the least amount
+quency (TOF) was defined as the rate of product formation    of expression.
+catalyzed by P450 within the initial 3 min of the reaction.
+Total turnover number (TTN) was determined as the number   Constructing biosynthetic pathway of T10OH in E.
+of product molecules generated by each P450 molecule in    coli
+a duration of 1 h.
+                                      We proceeded to design and construct artificial E. coli
+Statistical analysis                                             strains for the de novo synthesis of T10OH, to examine the
+                                                                  catalytic properties of various truncated forms of T10βH.
+Data are shown as the averages of triplicates ± standard    E. coli exhibits the capacity to generate terpene precursors,
+deviations (s.d.). Pairwise comparison between two data    isopentenyl diphosphate (IPP), and dimethylallyl diphos-
+groups was carried out using the one-tailed Student’s t-test    phate (DMAPP), via its innate 2-C-methyl-D-erythritol-
+(*P < 0.05, **P < 0.01, ***P < 0.001, or ****P < 0.0001).     4-phosphate (MEP) pathway. In order to increase the sup-
+                                                            ply of these precursors, we overexpressed two rate-limiting
+Accession number of nucleotide sequences in this      enzymes, 1-deoxy-D-xylulose 5-phosphate synthase (DXS)
+study                                              and isopentenyl diphosphate isomerase (IDI), within the
+                                                     pathway (Lv et al. 2016). Additionally, we heterologously
+The amino acid sequence of T10βH was deposited in NCBI    expressed geranylgeranyl diphosphate synthase (GGPPS),
+with accession no. AAK00946.1. The codon optimized gene    taxadiene synthase (TS), T5αH, TAT, T10βH, and CPR from
+sequence of T10βH for E. coli expression was deposited in    Taxus to mediate the formation of geranylgeranyl diphos-
+GenBank with accession no. OR125113.                     phate (GGPP), taxadiene, taxadiene-5α-ol (T5OH), T5OAc,
+                                                     and T10OH (Fig. 1). The fT10βH, t7T10βH, t20T10βH, and
+                                                 t39T10βH were utilized to generate strains T1, T2, T3, and
+Results                                                 T4, respectively, whereas a strain without T10βH-CPR was
+                                                     employed as the control strain (strain T0) (Table S1, Fig. 2a).
+Active expression of T10βH in E. coli                      During shake flask cultivation, we observed a substantial
+                                                         hindrance in the growth of strains T1, T2, and T4. Despite
+To promote the functional expression of T10βH from T.    undergoing induction for 72 h, their ­OD600 remained below
+cuspidata in E. coli, we optimized its coding sequence to   10 (Fig. S4). Conversely, strain T3 and the control strain
+
+1 3
+
+
+[PDF physical page 5]
+Applied Microbiology and Biotechnology (2023) 107:7105–7117                                                                   7109
+
+
+
+
+
+Fig. 1   Metabolic pathway  for de novo  synthesis  of T10OH by     toisomerase (DXR), 2-C-methyl-D-erythritol-4-phosphate cytidylyl-
+E.  coli.  Intermediates  in  the  pathway:  glyceraldehyde-3-phos-     transferase  (IspD),  4-(cytidine  5′-diphospho)-2-C-methyl-D-eryth-
+phate  (G3P),  pyruvate  (PYR),  1-deoxy-D-xylulose-5-phosphate      ritol  kinase  (IspE),  2-C-methyl-D-erythritol-2,4-cyclodiphosphate
+(DXP),  2-C-methyl-D-erythritol-4-phosphate  (MEP),  4-(cytidine     synthase  (IspF), 1-hydroxy-2-methyl-2-butenyl 4-diphosphate syn-
+5′-diphospho)-2-C-methyl-D-erythritol   (CDP-ME),   2-phospho-     thase  (IspG),  1-hydroxy-2-methyl-2-butenyl  4-diphosphate  reduc-
+4-(cytidine   5′-diphospho)-2-C-methyl-D-erythritol   (CDP-MEP),     tase (IspH), isopentenyl diphosphate isomerase (IDI), geranylgeranyl
+2-C-methyl-D-erythritol  2,4-cyclodiphosphate (MEC),  1-hydroxy-     diphosphate synthase (GGPPS), taxadiene synthase (TS), taxane-5α-
+2-methyl-2-butenyl  4-diphosphate (HMBPP),  isopentenyl  diphos-     hydroxylase (T5αH), cytochrome P450 reductase (CPR), taxane-5α-
+phate (IPP), dimethylallyl diphosphate (DMAPP), and geranylgeranyl     ol-O-acetyltransferase (TAT), and taxane-10β-hydroxylase (T10βH).
+diphosphate (GGPP). Enzymes in the pathway: 1-deoxy-D-xylulose    The enzymes in blue and red were overexpressed in our study, with
+5-phosphate synthase (DXS), 1-deoxy-D-xylulose 5-phosphate reduc-    our attention primarily focused on the red one
+
+(strain T0) exhibited notably higher ­OD600. Analysis of      Covering dodecane during the cultivation process has
+the metabolic products of different strains using GC–MS    the potential to prevent the products from volatilizing. Fur-
+revealed a positive correlation between the growth of the    thermore, by performing in situ extraction, it is possible to
+engineered strains and the production of taxanes (Fig. S5,    mitigate the toxicity of metabolites on cells and simplify the
+Fig. S6). The productions of taxadiene and oxygenated    product extraction process. However, according to Alonso-
+taxanes were extremely limited in strains T1, T2, and T4,    Gutierrez et al. (2013), adding dodecane was unfavorable
+while the production of T5OAc was virtually undetectable.    to the hydroxylation of limonene, which might be extracted
+Although the productions of taxadiene and T5OH in strain    into the extracellular space, by P450 inside the cell result-
+T3 were comparable to that in strain T0, the accumulation    ing in an undetectable production of perillyl alcohol in the
+of T5OAc in strain T3 was notably lower (Fig. S5). A new    engineered E. coli. Therefore, we investigated the impact
+product with a GC–MS retention time of 16.35 min emerged    of dodecane on bacterial growth and metabolite production
+in strain T3 albeit with a considerably low concentration,    (Fig. S7). It was observed that the use of a dodecane overlay
+which was not observed in strain T0. Moreover, the mass   was slightly conducive to the growth of strain T3, with the
+spectrum of the newly appeared metabolite was highly con-    highest ­OD600 reaching 40.1. In contrast, without dodecane,
+sistent with the reported standard for T10OH (346, 286, 271,    the highest ­OD600 was 36.9. This observation suggested that
+243 m/z) (Wheeler et al. 2001) (Fig. 2c). The appearance of    dodecane could extract taxanes out of the cells, ultimately
+the “new product” and the related reduction in the T5OAc    reducing their toxicity to the host. When dodecane was
+accumulation were indicative that t20T10βH, existing in    added, the amount of T5OH that accumulated in the organic
+strain T3, could indeed catalyze the effective bioconversion    phase was approximately 2 mg/L, whereas the productions
+of T5OAc into T10OH. Furthermore, this marks the first    of T5OAc and T10OH remained quite low (< 0.1 mg/L).
+instance where a single microbial strain has been utilized to    Conversely, without dodecane overlay, T5OH accumulation
+achieve de novo biosynthesis of T10OH, a key intermediate   was barely detectable, while the titers of T5OAc and T10OH
+of paclitaxel.                                             reached 0.22 mg/L and 0.75 mg/L after induction for 96 h,
+
+                                                                1 3
+
+
+[PDF physical page 6]
+7110                                                                          Applied Microbiology and Biotechnology (2023) 107:7105–7117
+
+
+
+
+
+Fig. 2   De novo synthesis of T10OH in E. coli. a Construction of     metabolites after 96 h of induction without dodecane overlay during
+engineered strains. The N-terminal sequence of T10βH underwent     cultivation. c Mass spectra of the emerged metabolite produced by
+truncation by 0, 7, 20, and 39 amino acids, respectively, denoted     strain T3. Statistical analysis was performed using the one-tailed Stu-
+as fT10βH, t7T10βH, t20T10βH, and t39T10βH. b Specific titer of     dent’s t-test (*P < 0.05, **P < 0.01). N.D., not detected
+
+respectively (Fig. S7, Fig. S8). The aforementioned phenom-    of 0.97 mg/L (or 0.18 mg/gDCW). Additionally, the specific
+enon indicated that dodecane could extract the metabolic     titers of taxadiene and T5OAc also increased by 31% and
+intermediate, T5OH, into the extracellular organic phase,   48%, respectively (Fig. 2b).
+ultimately facilitating the conversion of additional taxadiene
+into T5OH. Nevertheless, this extraction process hindered   Computation‑assisted protein engineering
+the intracellular enzymes (TAT and T10βH) from their trans-    of t20T10βH
+formation of T5OH into T5OAc and T10OH. In summary,
+we decided not to add dodecane during the subsequent cul-    Considering the expression level of t20T10βH was extremely
+ture process, where the titer of T10OH in strain T3 reached    limited in E. coli, computation-assisted protein engineering
+0.75 mg/L (or 0.11 mg/gDCW) (Fig. 2b).                   was carried out. Firstly, a structural model of t20T10βH was
+   Previous studies have indicated that the operon construc-    predicted using AlphaFold2 (Jumper et al. 2021) (Fig. 3a,
+tion of T5αH-CPR could result in a more efficient metabolic    Fig. S2). The initial 24 amino acids at the N-terminus of
+flux attributed to the relatively lower expression strength of   t20T10βH assemble into an α-helix connecting to the pro-
+CPR (Biggs et al. 2016a, b; Nowrouzi et al. 2022). There-    tein body through a long loop, which corresponds to the
+fore, we attempted to modify the T10βH-CPR fusion protein    prior prediction of the transmembrane region. This hydro-
+into an operon form, where both proteins were driven by    phobic helix has the potential to traverse the phospholipid
+the same T7 promoter and expressed independently in the    bilayer, anchoring the protein to the membrane structure.
+modified strain T5 (Fig. 2a). Subsequent to this modification,    Meanwhile, the long loop enables flexible positioning of
+the specific titer of T10OH in strain T5 was significantly    the protein body on one side of the membrane, thereby
+improved by 65% in contrast to strain T3, resulting in a titer     facilitating the recognition and binding of substrates. The
+
+
+1 3
+
+
+[PDF physical page 7]
+Applied Microbiology and Biotechnology (2023) 107:7105–7117                                                                   7111
+
+Fig. 3   Protein engineering
+of t20T10βH. a Distribu-
+tion of mutation sites (green
+and deep pink spheres) in the
+protein structure. The sub-
+strate (T5OAc) and heme are
+represented by yellow and pink
+sticks, respectively. b Reaction
+performance of mutants. Sta-
+tistical analysis was performed
+using the one-tailed Student’s
+t-test (****P < 0.0001)
+
+
+
+main body of the t20T10βH is composed of 12 α-helices and     activity (Fig. S9). By combining the three beneficial point
+antiparallel β-sheets, with heme depositing between helices I    mutations, three double-point mutants and one triple-point
+and L. Additionally, a conserved cysteine residue is situated    mutant were obtained. The conversions of I75F/L226K,
+beneath the heme at position 423.                          I75F/S345V, and L226K/S345V were 2.6-fold, 2.3-fold, and
+  Following this, an online tool called PROSS was    1.9-fold higher than that of WT, respectively. Furthermore,
+employed to predict potentially advantageous point muta-    the combinatorial triple-point mutant I75F/L226K/S345V
+tions with better folding state (Weinstein et al. 2020). After    exhibited the highest conversion, which was 2.8-fold higher
+uploading the structural model of t20T10βH to the PROSS    than that of WT (Fig. 3b).
+website, the resultant 45 single-point mutations in design
+1 were chosen for subsequent screening. We then executed   Enzymatic characterization of t20T10βH
+virtual screening using another computational tool called
+FoldX, which is capable of modeling each point mutation   We named the most favorable single-point mutant I75F,
+individually and calculating the changes in folding free    double-point mutant I75F/L226K, and triple-point mutant
+energy (ΔΔGFold) (Schymkowitz et al. 2005) (Table S2).   I75F/L226K/S345V as M1, M2, and M3, respectively. Bio-
+Based on this virtual screening, we selected 30 single-point    chemical characterization was performed to investigate the
+mutations with a ΔΔGFold lower than 0.5 kcal/mol for fur-    factors contributing to the improvement in the conversion
+ther experimental verification (Fig. 3a).                         rate of whole-cell reaction. SDS-PAGE analysis demon-
+   After screen through whole-cell reactions, it was discov-    strated a sequential escalation of protein expression for the
+ered that the substrate conversions of mutants I75F, L226K,    three mutants in contrast to WT (Fig. S10a). Through utiliz-
+and S345V were 2.1-fold, 1.4-fold, and 1.4-fold higher than    ing CO difference spectra to analyze the active P450 con-
+that of the wild type (WT), respectively. The conversions    tent in a unit of the wet cells, it was observed that the P450
+of 17 mutants were similar to that of WT (within a range    contents of WT, M1, M2, and M3 were 1.73, 7.22, 12.02,
+of 0.8–1.2-folds). However, five mutants showed decreased   and 16.45 nmol/gWCW​, respectively (Fig. S10b, Table 1).
+conversions, while four mutants almost completely lost their   The P450 contents of M1, M2, and M3 were found to be
+
+
+Table 1   Enzymatic properties of t20T10βH and its variants
+Variants      Mutations              ∆∆GFold (kcal/  P450 content (nmol/gWCW​)       T5010 (°C)a     TOF ­(h−1)b    TTN
+                                    mol)                                                                           (µmolT10OH/
+                                                                                                                              µmolP450)c
+WT              −                     0                 1.73 ± 0.02                    45.5                  126 ± 1     16.0 ± 0.3
+M1          I75F                         − 2.13            7.22 ± 0.17****                 45.0                   192 ± ­16**    32.3 ± 3.4***
+M2          I75F/L226K                − 2.47          12.02 ± 0.49****                 43.7                   212 ± ­18***   33.2 ± 1.2****
+M3          I75F/L226K/S345V        − 3.99          16.45 ± 0.02****                 44.3                   162 ± ­16*     33.8 ± 3.3****
+Statistical comparisons between the WT and variants were carried out by the one-tailed Student’s t-test (*P < 0.05, **P < 0.01, ***P < 0.001,
+****P < 0.0001)
+a Residual CO binding following the incubation of cell lysates supernatant at elevated temperatures for 10 min
+b Turnover frequency (TOF) was defined as the rate of product formation within 3 min after reaction initiation
+c Total turnover number (TTN) was defined as the number of product molecules generated by each P450 enzyme molecule after 1 h
+
+                                                                1 3
+
+
+[PDF physical page 8]
+7112                                                                          Applied Microbiology and Biotechnology (2023) 107:7105–7117
+
+4.2, 7.0, and 9.5 times that of WT, which is consistent with    to fill the internal cavities of Bacillus subtilis lipase A,
+the SDS-PAGE results. These highlight the significant    resulting in a 7.43 °C elevation in Tm. We also found that
+contribution made by I75F, L226K, and S345V in enhanc-    eliminating a cavity in M3 increased its T50 10 by 0.6 °C in
+ing t20T10βH expression. The ΔΔGFold of M1, M2, and   comparison to M2.
+M3 were − 2.13, − 2.47, and − 3.99 kcal/mol, respectively,         It was surprising that the activities of mutants were also
+calculated by FoldX (Table 1). The negative values of the    enhanced. The turnover frequencies (TOFs) of M1, M2, and
+three mutants sequentially increased, indicating a successive  M3 were 1.5, 1.7, and 1.3 times that of the WT, respectively.
+reduction in the folding energy of these mutants. This would    Additionally, the total turnover numbers (TTNs) of all three
+result in a more stable folding state, which consequently    mutants were approximately twice as high as that of WT
+promoted the in vivo protein stability and led to an elevation    (Table 1). The reaction progress curves also revealed that
+in protein expression.                        M3 exhibited a much higher initial reaction rate, as well as
+  The T50 10 (half-deactivation temperature) of mutants    a greater final product concentration, in comparison to WT
+exhibited a slight decrease compared to that of WT    (Fig. S12). The TOFs of M1 and M2 were relatively higher,
+(Table 1, Fig. S11). Specifically, the T50 10 of M1, M2, and   which indicated that I75F and L226K contributed greatly to
+M3 decreased by 0.5 °C, 1.8 °C, and 1.2 °C, respectively.    the improvement of the enzyme activity. Specifically, sub-
+This indicated that I75F and L226K might be detrimental     stituting the isoleucine at position 75, located in the loop at
+to the thermal stability of t20T10βH, while S345V could    the entrance of the substrate channel, with phenylalanine
+potentially enhance its thermal stability. The serine at    resulted in a conformational change in the substrate chan-
+position 345 is located inside the protein, and its mutation    nel (Fig. 4c, d). Indeed, the hydrophobic nature of pheny-
+to the more hydrophobic valine could help stabilize the    lalanine might facilitate the entrance of a hydrophobic sub-
+core structure of the protein through hydrophobic interac-     strate (T5OAc). The leucine at position 226 is situated on the
+tions. Furthermore, we observed that S345V was able to    surface of the protein. The substitution of this residue with
+eliminate a cavity within the protein which was typically    lysine altered the distribution of surface charges (Fig. 4e, f),
+considered detrimental to protein stability (Fig. 4a, b)   which has the potential to lead to significant modifications
+(Chen et al. 2021; Xue et al. 2019). A study by Xiang et al.    in the conformation of the enzyme.
+(2020) employed the sophisticated tool called Rosetta-VIP
+
+
+
+
+
+Fig. 4   Structural analysis of WT and mutants. S345V could eliminate a cavity (dark grey) inside the protein (a, b); Conformational change in
+substrate channel caused by I75F (c, d); L226K altered the distribution of the surface charge (e, f)
+
+1 3
+
+
+[PDF physical page 9]
+Applied Microbiology and Biotechnology (2023) 107:7105–7117                                                                   7113
+
+Cultivation optimization and scale‑up                       et al. 2022), we attempted to supplement the medium with
+                                                     ­MgSO4. However, there was no noticeable increase in the
+We generated strain T6 by substituting the WT of t20T10βH    production of taxadiene and T10OH when 0.3–1.5 g/L of
+in strain T5 with M3. Strain T6 exhibited a T10OH titer of   ­MgSO4 was added to the medium (Fig. S13e, f).
+2.23 mg/L (or 0.34 mg/gDCW), which represents a 2.3-fold       Finally, the fed-batch culture of strain T6 was performed
+(or 1.9-fold) increase compared to strain T5 (Fig. 5a). The    in a 5 L bioreactor (Fig. 5b, Fig. S14). The initial glycerol
+enhanced expression and activity of M3 provided advantages    content in the culture medium was set at the optimized
+in elevating the production capacity of the final product in    value of 20 g/L. Throughout the fermentation process,
+engineered strain, underscoring the importance of integrat-    the concentration of glycerol in the broth was monitored
+ing metabolic and protein engineering approaches.           continuously as an indicator for feeding. Whenever the
+   Subsequently, the culture conditions for strain T6 were    concentration of glycerol fell below 5 g/L, it was replen-
+optimized including temperature, inducer (IPTG) concen-    ished to 20 g/L through feeding that was repeated until
+tration, glycerol content, and ­Mg2+ concentration in the    the end of the fermentation (Fig. S14b). After induction,
+medium (Fig. S13). The optimal induction temperature    taxadiene rapidly accumulated and reached a significant
+and IPTG concentration were determined to be 18 °C    concentration of 8.49 mg/L by 30.7 h. Afterward, T5OH
+and 0.10 mM, respectively (Fig. S13a, b). The optimal   and T5OAc were produced, with concentrations of 5.56
+glycerol content in the medium was found to be 20 g/L.   mg/L and 0.61 mg/L, respectively, at 30.7 h (Fig. 5b). Dur-
+Higher glycerol concentrations led to an increase in taxa-    ing shake flask cultivation without dodecane, there was
+diene production, but there was no corresponding eleva-     little to no accumulation of T5OH observed. In contrast, a
+tion observed in the production of downstream metabo-    considerable amount of T5OH accumulated during fermen-
+lites (Fig. S13c). When the concentration of glycerol in    tation, indicating that the high-speed agitation and aera-
+the medium exceeded 20 g/L, the cell density started    tion in the bioreactor provided more favorable conditions
+to decline. At a glycerol concentration of 60 g/L, the    for the oxidation reaction catalyzed by T5αH. Through-
+maximum ­OD600 reached only 18.7 (Fig. S13d). Exces-    out the fermentation process, the concentration of T5OAc
+sive addition of carbon sources could potentially result    remained low. After 20 h of fermentation, T10OH began to
+in the accumulation of a large quantity of organic acids,    accumulate and reached a peak titer of 3.89 mg/L at 70.2
+ultimately leading to a reduction in the pH of the sys-    h, after which there was no significant increase observed.
+tem and having a detrimental impact on bacterial growth.    This currently represents the highest level of microbial de
+Besides, since both TS and GGPPS rely on ­Mg2+ (Walls   novo synthesis reported for T10OH.
+
+
+
+
+
+Fig. 5   The production ability of strain T6. a The contribution of M3     strain T6. b Fed-batch culture of strain T6 in a 5-L bioreactor. Sta-
+to T10OH production after 96 h of induction in shake flask cultiva-      tistical analysis was performed using the one-tailed Student’s t-test
+tion. The t20T10βH-WT in strain T5 was replaced with M3 to obtain     (*P < 0.05, **P < 0.01, ***P < 0.001)
+
+                                                                1 3
+
+
+[PDF physical page 10]
+7114                                                                          Applied Microbiology and Biotechnology (2023) 107:7105–7117
+
+Discussion                                 PROSS integrates phylogenetic analysis with energy
+                                                          calculations and has demonstrated profound success
+The expression of plant-derived P450s in E. coli encounters    in improving the heterologous expression and stability
+unique challenges arising from the absence of an endomem-    of an array of eukaryotic proteins in E. coli, crucial for
+brane network, leading to complications in the appropriate     vital areas which include transcriptional regulation, dis-
+localization, structure, and function of membrane-bound    ease occurrence and treatment, and immune modulation
+P450s. We addressed this issue by selectively truncating and   (Goldenzweig et al. 2016; Campeotto et al. 2017; Zahrad-
+modifying the transmembrane region of T10βH, successfully    ník et al. 2019; Malladi et al. 2020; Kriegel et al. 2021;
+enabling the functional expression of t20T10βH in E. coli.    Peleg et al. 2021). Nonetheless, no research has yet imple-
+The “Barnes sequence” (MALLLAVF) we used was well-   mented this tool for P450 modification. The noteworthy
+known for facilitating ribosome recognition at the start of the    elevation in both expression level and catalytic activity
+translation process, particularly the second alanine (Barnes    of the T10βH variants in our study implied that PROSS
+et al. 1991). Additionally, it can be recognized by the sig-    could serve as a valuable tool for directing the protein
+nal recognition particle (SRP) in E. coli, which assisted in    engineering of eukaryotic P450s. The TOF of T10βH was
+directing the protein to the cytoplasmic membrane (Zelasko    remarkably increased from 126 to 212 ­h−1 in E. coli, simi-
+et al. 2013). Meanwhile, we observed that other truncation     lar to the 210 ­h−1 in S. fugiperda (Jennewein et al. 2005).
+variants of T10βH severely inhibited the growth of the cor-    Moreover, the ease of conducting molecular evolution in
+responding strains, potentially stemming from the toxicity    E. coli paved the way for considering more strategies in
+of these membrane proteins to the host. The transmembrane    the future to modify this enzyme, such as iterative satura-
+regions of these proteins might be incompatible with the    tion mutagenesis (ISM) at hotspots (Acevedo-Rocha et al.
+cytoplasmic membrane of the host, causing disruptions to    2021).
+the cell membrane structure and impeding the normal func-       In summary, we investigated T10βH, the third post-mod-
+tion of native membrane proteins, especially those involved     ification enzyme involved in the biosynthetic pathway of
+in aerobic respiration (Gialama et al. 2017; Gubellini et al.    paclitaxel, in a prokaryotic system for the first time. Func-
+2011). Thus, it underscored the importance of selectively    tional expression of this membrane protein was achieved in
+truncating the transmembrane regions of membrane-inte-    E. coli by truncating and modifying its N-terminal trans-
+grated P450s for heterologous expression within prokaryotic   membrane region. Afterward, we established the metabolic
+systems.                                              pathway for de novo synthesis of T10OH, ultimately achiev-
+  Although there have been numerous reports on the heter-    ing the unprecedented biosynthesis of this key paclitaxel
+ologous synthesis of taxadiene (Huang et al. 2001; Engels    intermediate using E. coli solely. Subsequently, guided by
+et al. 2008; Ajikumar et al. 2010; Nowrouzi et al. 2020;    computational design, we carried out protein engineering of
+Abdallah et al. 2019), T5OH (Biggs et al. 2016a, b; Wu et al.     this enzyme, with variant M3 exhibiting a 9.5-fold increase
+2022), and T5OAc (Walls et al. 2021, 2022) using micro-    in protein expression compared to WT. Additionally, the
+organisms, our study is the first to demonstrate the de novo    catalytic activity of M3 was also enhanced, as evidenced
+synthesis of T10OH using a single microorganism. DeJong   by its TOF and TTN being 1.3 and 2.1 times higher than
+et al. (2006) co-expressed GGPPS, TS, T5αH, TAT, and    those of WT, respectively. Then, M3 was integrated into the
+T10βH in S. cerevisiae using three plasmids. The resulting    metabolic engineering strain, resulting in a T10OH titer of
+taxadiene titer reached approximately 1 mg/L with T5OH    3.89 mg/L in a 5-L bioreactor, which presently stands for the
+at 25 µg/L, however, no T5OAc or T10OH was detected.    highest level achieved by microbial heterologous synthesis
+In this engineered yeast, T5αH was driven by a constitutive    of this rare compound. This study carried profound implica-
+GPD promoter which may restrict its expression and activity    tions for other P450s involved in the paclitaxel biosynthetic
+in vivo. Additionally, the two heterologous P450s relied on    pathway, laying a solid foundation for the heterologous bio-
+endogenous CPR from yeast, which might result in subopti-    synthesis of other taxanes and even the pharmaceutically
+mal electron transfer efficiency. As discovered by Jennewein    relevant paclitaxel.
+et al. (2005), utilizing a homologous redox partner derived                                                              Supplementary Information  The online version contains supplemen-
+from Taxus was more beneficial for T10βH. Building on     tary material available at https://​doi.​org/​10.​1007/​s00253-​023-​12784-x.
+the preceding findings, we co-expressed T10βH, T5αH, and
+their homologous CPR under stronger T7 promoters, culmi-    Acknowledgements  We thank the research and development platform
+nating in the successful de novo biosynthesis of T10OH with    provided by State Key Laboratory of Bioreactor Engineering, Shang-                                                                        hai Collaborative Innovation Centre for Biomanufacturing, College
+a titer of 3.89 mg/L within E. coli. Further improvements in     of Biotechnology (East China University of Science and Technology,
+the production of T10OH can be explored through additional    Shanghai, China). We thank Kun Shi (East China University of Sci-
+metabolic engineering strategies (Volk et al. 2023).            ence and Technology, Shanghai, China) for his assistance in modeling
+                                                     T10βH and its variants using AlphaFold2.
+
+1 3
+
+
+[PDF physical page 11]
+Applied Microbiology and Biotechnology (2023) 107:7105–7117                                                                   7115
+
+Author contribution  JHX and CXL conceived the study. MFZ and CC          in Escherichia coli. Proc Natl Acad Sci USA 113(12):3209–3214.
+designed experiments. MFZ and WLX performed experiments. MFZ           https://​doi.​org/​10.​1073/​pnas.​15158​26113
+analyzed experimental data and prepared the draft. JHX finalized the    Biggs BW, Rouck JE, Kambalyal A, Arnold W, Lim CG, De Mey M,
+manuscript. All authors read and approved the manuscript.                  O’Neil-Johnson M, Starks CM, Das A, Ajikumar PK (2016b)
+                                                                    Orthogonal assays clarify the oxidative biochemistry of Taxol
+Funding  This study was funded by the National Key Research and        P450 CYP725A4. ACS Chem Biol 11(5):1445–1451. https://​doi.​
+Development Program of China (2019YFA0905000), the National           org/​10.​1021/​acsch​embio.​5b009​68
+Natural Science Foundation of China (Grant numbers 21922804    Campeotto I, Goldenzweig A, Davey J, Barfod L, Marshall JM, Silk
+and 21871085), Program of Shanghai Academic Research Leader        SE, Wright KE, Draper SJ, Higgins MK, Fleishman SJ (2017)
+(21XD1400800), and the Fundamental Research Funds for the Central         One-step design of a stable variant of the malaria invasion protein
+Universities (Grant number 22221818014).                       RH5 for use as a vaccine immunogen. Proc Natl Acad Sci USA
+                                                                      114(5):998–1002. https://​doi.​org/​10.​1073/​pnas.​16169​03114
+Data availability  All data generated or analyzed during this study are    Chau M, Croteau R (2004) Molecular cloning and characterization of
+included in this published article (and its supplementary information         a cytochrome P450 taxoid 2alpha-hydroxylase involved in Taxol
+files). All plasmids and engineered strains used in this study are avail-          biosynthesis. Arch Biochem Biophys 427(1):48–57. https://​doi.​
+able upon reasonable request.                                                        org/​10.​1016/j.​abb.​2004.​04.​016
+                                                        Chau M, Jennewein S, Walker K, Croteau R (2004) Taxol biosynthe-
+Declarations                                                                            sis: molecular cloning and characterization of a cytochrome P450
+                                                                             taxoid 7 beta-hydroxylase. Chem Biol 11(5):663–672. https://​doi.​
+Ethical approval  This article does not contain any studies with human           org/​10.​1016/j.​chemb​iol.​2004.​02.​025
+participants or animals performed by any of the authors.              Cheesman MJ, Traylor MJ, Hilton ME, Richards KE, Taylor MC,
+                                                              Daborn PJ, Russell RJ, Gillam EM, Oakeshott JG (2013) Solu-
+Consent for publication  All listed authors have approved the manu-         ble and membrane-bound Drosophila melanogaster CYP6G1
+script before submission, including the names and order of authors.           expressed in Escherichia coli: purification, activity, and binding
+                                                                              properties toward multiple pesticides. Insect Biochem Mol Biol
+                                                                        43(5):455–465. https://​doi.​org/​10.​1016/j.​ibmb.​2013.​02.​003
+Conflict of interest  The authors declare no competing interests.         Chen S, Wu JL, Liang Y, Tang YG, Song HX, Wu LL, Xing YF, Yan N,
+                                                                        Li YT, Wang ZY, Xiao SJ, Lu X, Chen SJ, Lu M (2021) Arsenic
+                                                                                 trioxide rescues structural p53 mutations through a cryptic allos-
+                                                                                        teric site. Cancer Cell 39(2):225–239. https://​doi.​org/​10.​1016/j.​
+References                                                                      ccell.​2020.​11.​013
+                                                          DeJong JHM, Liu Y, Bollon AP, Long RM, Jennewein S, Williams
+Abdallah II, Pramastya H, van Merkerk R, Sukrasno QWJ (2019)        D, Croteau RB (2006) Genetic engineering of taxol biosyn-
+    Metabolic engineering of Bacillus subtilis toward taxadiene bio-          thetic genes in Saccharomyces cerevisiae. Biotechnol Bioeng
+     synthesis as the first committed step for taxol production. Front         93(2):212–224. https://​doi.​org/​10.​1002/​bit.​20694
+    Microbiol 10:218. https://​doi.​org/​10.​3389/​fmicb.​2019.​00218       Edgar S, Zhou K, Qiao K, King JR, Simpson JH, Stephanopoulos
+Acevedo-Rocha CG, Li A, D’Amore L, Hoebenreich S, Sanchis J,      G (2016) Mechanistic insights into taxadiene epoxidation by
+    Lubrano P, Ferla MP, Garcia-Borràs M, Osuna S, Reetz MT         taxadiene-5α-hydroxylase. ACS Chem Biol 11(2):460–469.
+    (2021) Pervasive cooperative mutational effects on multiple           https://​doi.​org/​10.​1021/​acsch​embio.​5b007​67
+     catalytic enzyme traits emerge via long-range conformational    Engels B, Dahm P, Jennewein S (2008) Metabolic engineering of taxa-
+    dynamics. Nat Commun 12(1):1621. https://​doi.​org/​10.​1038/​        diene biosynthesis in yeast as a first step towards Taxol (Pacli-
+     s41467-​021-​21833-w                                                       taxel) production. Metab Eng 10(3–4):201–206. https://​doi.​org/​
+Ajikumar PK, Xiao WH, Tyo KEJ, Wang Y, Simeon F, Leonard E,           10.​1016/j.​ymben.​2008.​03.​001
+    Mucha O, Phon TH, Pfeifer B, Stephanopoulos G (2010) Iso-    Gialama D, Kostelidou K, Michou M, Delivoria DC, Kolisis FN,
+     prenoid pathway optimization for taxol precursor overproduction         Skretas G (2017) Development of Escherichia coli strains that
+     in Escherichia coli. Science 330(6000):70–74. https://​doi.​org/​10.​         withstand membrane protein-induced toxicity and achieve high-
+     1126/​scien​ce.​11916​52                                                       level recombinant membrane protein production. ACS Synth Biol
+Alonso-Gutierrez J, Chan R, Batth TS, Adams PD, Keasling JD, Pet-         6(2):284–300. https://​doi.​org/​10.​1021/​acssy​nbio.​6b001​74
+     zold CJ, Lee TS (2013) Metabolic engineering of Escherichia    Goldenzweig A, Goldsmith M, Hill SE, Gertman O, Laurino P, Ashani
+     coli for limonene and perillyl alcohol production. Metab Eng         Y, Dym O, Unger T, Albeck S, Prilusky J, Lieberman RL, Aha-
+    19:33–41. https://​doi.​org/​10.​1016/j.​ymben.​2013.​05.​004                   roni A, Silman I, Sussman JL, Tawfik DS, Fleishman SJ (2016)
+Barnes HJ, Arlotto MP, Waterman MR (1991) Expression and enzy-        Automated structure- and sequence-based design of proteins for
+     matic activity of recombinant cytochrome P450 17 alpha-hydrox-         high bacterial expression and stability. Mol Cell 63(2):337–346.
+     ylase in Escherichia coli. Proc Natl Acad Sci USA 88(13):5597–           https://​doi.​org/​10.​1016/j.​molcel.​2016.​06.​012
+    5601. https://​doi.​org/​10.​1073/​pnas.​88.​13.​5597                      Gubellini F, Verdon G, Karpowich NK, Luff JD, Boël G, Gauthier N,
+Bernhofer M, Dallago C, Karl T, Satagopam V, Heinzinger M, Litt-        Handelman SK, Ades SE, Hunt JF (2011) Physiological response
+    mann M, Olenyi T, Qiu J, Schütze K, Yachdav G, Ashkenazy H,          to membrane protein overexpression in E. coli. Mol Cell Prot-
+    Ben-Tal N, Bromberg Y, Goldberg T, Kajan L, O’Donoghue S,         eomics 10(10):M111.007930. https://​doi.​org/​10.​1074/​mcp.​M111.​
+    Sander C, Schafferhans A, Schlessinger A, Vriend G, Mirdita M,        007930
+    Gawron P, Gu W, Jarosz Y, Trefois C, Steinegger M, Schneider     Hausjell J, Halbwirth H, Spadiut O (2018) Recombinant production of
+    R, Rost B (2021) PredictProtein - Predicting protein structure and         eukaryotic cytochrome P450s in microbial cell factories. Biosci
+     function for 29 years. Nucleic Acids Res 49(W1):W535–W540.        Rep 38(2):BSR20171290. https://​doi.​org/​10.​1042/​BSR20​171290
+      https://​doi.​org/​10.​1093/​nar/​gkab3​54                      Hu B, Zhao X, Wang E, Zhou J, Li J, Chen J, Du G (2023) Efficient
+Biggs BW, Lim CG, Sagliani K, Shankar S, Stephanopoulos G, De Mey         heterologous expression of cytochrome P450 enzymes in micro-
+    M, Ajikumar PK (2016a) Overcoming heterologous protein inter-        organisms for the biosynthesis of natural products. Crit Rev
+    dependency to optimize P450-mediated taxol precursor synthesis
+
+                                                                1 3
+
+
+[PDF physical page 12]
+7116                                                                          Applied Microbiology and Biotechnology (2023) 107:7105–7117
+
+    Biotechnol 43(2):227–241. https://​doi.​org/​10.​1080/​07388​551.​    Pritchard MP, Ossetian R, Li DN, Henderson CJ, Burchell B, Wolf
+     2022.​20293​44                                              CR, Friedberg T (1997) A general strategy for the expression of
+Huang Q, Roessner CA, Croteaul R, Scott AI, Huang QL, Roessner C         recombinant human cytochrome P450s in Escherichia coli using
+    (2001) Engineering Escherichia coli for the synthesis of taxadi-          bacterial signal peptides: expression of CYP3A4, CYP2A6, and
+     ene, a key intermediate in the biosynthesis of taxol. Bioorgan Med       CYP2E1. Arch Biochem Biophys 345(2):342–354. https://​doi.​org/​
+   Chem 9(9):2237–2242. https://​doi.​org/​10.​1016/​s0968-​0896(01)​          10.​1006/​abbi.​1997.​0265
+    00072-4                                                      Rontein D, Onillon S, Herbette G, Lesot A, Werck-Reichhart D, Sal-
+Jennewein S, Rithner CD, Williams RM, Croteau RB (2001) Taxol         laud C, Tissier A (2008) CYP725A4 from yew catalyzes complex
+     biosynthesis: taxane 13 alpha-hydroxylase is a cytochrome           structural rearrangement of taxa-4(5),11(12)-diene into the cyclic
+    P450-dependent monooxygenase. Proc Natl Acad Sci USA          ether 5(12)-oxa-3(11)-cyclotaxane. J Biol Chem 283(10):6067–
+    98(24):13595–13600. https://​doi.​org/​10.​1073/​pnas.​25153​9398           6075. https://​doi.​org/​10.​1074/​jbc.​M7089​50200
+Jennewein S, Long RM, Williams RM, Croteau R (2004) Cytochrome    Rouck JE, Biggs BW, Kambalyal A, Arnold WR, De Mey M, Aji-
+    p450 taxadiene 5alpha-hydroxylase, a mechanistically unusual        kumar PK, Das A (2017) Heterologous expression and charac-
+    monooxygenase catalyzing the first oxygenation step of taxol bio-          terization of plant Taxadiene-5α-Hydroxylase (CYP725A4) in
+     synthesis. Chem Biol 11(3):379–387. https://​doi.​org/​10.​1016/j.​        Escherichia coli. Protein Expr Purif 132:60–67. https://​doi.​org/​
+     chemb​iol.​2004.​02.​022                                                        10.​1016/j.​pep.​2017.​01.​008
+Jennewein S, Park H, DeJong JM, Long RM, Bollon AP, Croteau RB    Sabzehzari M, Zeinali M, Naghavi MR (2020) Alternative sources
+     (2005) Coexpression in yeast of Taxus cytochrome P450 reductase        and metabolic engineering of Taxol: advances and future per-
+    with cytochrome P450 oxygenases involved in Taxol biosynthe-          spectives. Biotechnol Adv 43:107569. https://​doi.​org/​10.​1016/j.​
+      sis. Biotechnol Bioeng 89(5):588–598. https://​doi.​org/​10.​1002/​         biote​chadv.​2020.​107569
+     bit.​20390                                               Sanchez-Muñoz R, Perez-Mata E, Almagro L, Cusido RM, Bonfill
+Jumper J, Evans R, Pritzel A, Green T, Figurnov M, Ronneberger O,       M, Palazon J, Moyano E (2020) A novel hydroxylation step
+    Tunyasuvunakool K, Bates R, Žídek A, Potapenko A, Bridgland          in the taxane biosynthetic pathway: a new approach to pacli-
+    A, Meyer C, Kohl SAA, Ballard AJ, Cowie A, Romera-Paredes          taxel production by synthetic biology. Front Bioeng Biotechnol
+    B, Nikolov S, Jain R, Adler J, Back T, Petersen S, Reiman D,         8:410. https://​doi.​org/​10.​3389/​fbioe.​2020.​00410
+    Clancy E, Zielinski M, Steinegger M, Pacholska M, Berghammer    Schoendorf A, Rithner CD, Williams RM, Croteau RB (2001)
+     T, Bodenstein S, Silver D, Vinyals O, Senior AW, Kavukcuoglu         Molecular cloning of a cytochrome P450 taxane 10 beta-hydrox-
+    K, Kohli P, Hassabis D (2021) Highly accurate protein structure          ylase cDNA from Taxus and functional expression in yeast. Proc
+     prediction with AlphaFold. Nature 596(7873):583–589. https://​         Natl Acad Sci USA 98(4):1501–1506. https://​doi.​org/​10.​1073/​
+     doi.​org/​10.​1038/​s41586-​021-​03819-2                                     pnas.​98.4.​1501
+Kriegel M, Wiederanders HJ, Alkhashrom S, Eichler J, Muller YA    Schymkowitz J, Borg J, Stricher F, Nys R, Rousseau F, Serrano L
+    (2021) A PROSS-designed extensively mutated estrogen recep-         (2005) The FoldX web server: an online force field. Nucleic
+     tor α variant displays enhanced thermal stability while retaining        Acids Res 33(Web Server issue):W382–W388. https://​doi.​org/​
+     native allosteric regulation and structure. Sci Rep 11(1):10509.          10.​1093/​nar/​gki387
+     https://​doi.​org/​10.​1038/​s41598-​021-​89785-1                         Tetali SD (2019) Terpenes and isoprenoids: a wealth of compounds
+Lv X, Gu J, Wang F, Xie W, Liu M, Ye L, Yu H (2016) Combinatorial          for global use. Planta 249(1):1–8. https://​doi.​org/​10.​1007/​
+    pathway optimization in Escherichia coli by directed co-evolution         s00425-​018-​3056-x
+     of rate-limiting enzymes and modular pathway engineering. Bio-    Volk MJ, Tran VG, Tan SI, Mishra S, Fatma Z, Boob A, Li H, Xue P,
+     technol Bioeng 113(12):2661–2669. https://​doi.​org/​10.​1002/​bit.​        Martin TA, Zhao H (2023) Metabolic engineering: methodolo-
+    26034                                                                   gies and applications. Chem Rev 123(9):5521–5570. https://​doi.​
+Malladi SK, Schreiber D, Pramanick I, Sridevi MA, Goldenzweig A,           org/​10.​1021/​acs.​chemr​ev.​2c004​03
+    Dutta S, Fleishman SJ, Varadarajan R (2020) One-step sequence    Walls LE, Malcı K, Nowrouzi B, Li RA, d’Espaux L, Wong J, Den-
+    and structure-guided optimization of HIV-1 envelope gp140. Curr          nis JA, Semião AJC, Wallace S, Martinez JL, Keasling JD,
+    Res Struct Biol 2:45–55. https://​doi.​org/​10.​1016/j.​crstbi.​2020.​04.​         Rios-Solis L (2021) Optimizing the biosynthesis of oxygenated
+    001                                                         and acetylated Taxol precursors in Saccharomyces cerevisiae
+Nowrouzi B, Li R, Walls LE, d’Espaux L, Malci K, Lungang L, Jongui-         using advanced bioprocessing strategies. Biotechnol Bioeng
+    tud-Borrego N, Lerma-Escalera AI, Morones-Ramirez JR, Keas-         118(1):279–293. https://​doi.​org/​10.​1002/​bit.​27569
+     ling JD, Rios-Solis L (2020) Enhanced production of taxadiene     Walls LE, Martinez JL, Del Rio Chanona EA, Rios-Solis L (2022) Defin-
+     in Saccharomyces cerevisiae. Microb Cell Fact 19(1):200. https://​           itive screening accelerates Taxol biosynthetic pathway optimization
+     doi.​org/​10.​1186/​s12934-​020-​01458-2                               and scale up in Saccharomyces cerevisiae cell factories. Biotechnol
+Nowrouzi B, Lungang L, Rios-Solis L (2022) Exploring optimal           J 17(1):e2100414. https://​doi.​org/​10.​1002/​biot.​20210​0414
+    Taxol® CYP725A4 activity in Saccharomyces cerevisiae. Microb   Wang JY, Huang ZY, Wu QY, Pan J, Li CX, Xu JH (2022) Facile
+     Cell Fact 21(1):197. https://​doi.​org/​10.​1186/​s12934-​022-​01922-1         biosynthesis of taxadiene by a newly constructed Escherichia
+Park HG, Lim YR, Han S, Kim D (2014) Expression and characteriza-          coli strain fusing enzymes taxadiene synthase and geranylgera-
+     tion of truncated recombinant human cytochrome P450 2J2. Toxi-          nyl pyrophosphate synthase. Process Biochem 122(2):129–136.
+     col Res 30(1):33–38. https://​doi.​org/​10.​5487/​TR.​2014.​30.1.​033            https://​doi.​org/​10.​1016/j.​procb​io.​2022.​09.​005
+Peleg Y, Vincentelli R, Collins BM, Chen KE, Livingstone EK, Weera-    Weinstein JJ, Goldenzweig A, Hoch S, Fleishman SJ (2020) PROSS
+    tunga S, Leneva N, Guo Q, Remans K, Perez K, Bjerga GEK,          2: a new server for the design of stable and highly expressed
+    Larsen Ø, Vaněk O, Skořepa O, Jacquemin S, Poterszman A, Kjær          protein variants. Bioinformatics 37(1):123–125. https://​doi.​org/​
+     S, Christodoulou E, Albeck S, Dym O, Ainbinder E, Unger T,           10.​1093/​bioin​forma​tics/​btaa1​071
+    Schuetz A, Matthes S, Bader M, de Marco A, Storici P, Semrau    Wheeler AL, Long RM, Ketchum RE, Rithner CD, Williams RM,
+   MS, Stolt-Bergner P, Aigner C, Suppmann S, Goldenzweig A,         Croteau R (2001) Taxol biosynthesis: differential transforma-
+    Fleishman SJ (2021) Community-wide experimental evaluation of          tions of taxadien-5 alpha-ol and its acetate ester by cytochrome
+     the PROSS stability-design method. J Mol Biol 433(13):166964.        P450 hydroxylases from Taxus suspension cells. Arch Biochem
+      https://​doi.​org/​10.​1016/j.​jmb.​2021.​166964                           Biophys 390(2):265–278. https://​doi.​org/​10.​1006/​abbi.​2001.​2377
+
+
+1 3
+
+
+[PDF physical page 13]
+Applied Microbiology and Biotechnology (2023) 107:7105–7117                                                                   7117
+
+Wu QY, Huang ZY, Wang JY, Yu HL, Xu JH (2022) Construction         govern promiscuous binding of IL-24 to receptors IL-20R1 and
+     of an Escherichia coli cell factory to synthesize taxadien-5α-ol,        IL-22R1. FEBS J 286(19):3858–3873. https://​doi.​org/​10.​1111/​
+     the key precursor of anti-cancer drug paclitaxel. Bioresour Bio-          febs.​14945
+     process 9(1):1–11. https://​doi.​org/​10.​1186/​s40643-​022-​00569-5     Zelasko S, Palaria A, Das A (2013) Optimizations to achieve high-level
+Xiang Y, Zhang M, Xu F (2020) Improving the thermal stability of         expression of cytochrome P450 proteins using Escherichia coli
+     Bacillus subtilis lipase based on multiple computational design         expression systems. Protein Expr Purif 92(1):77–87. https://​doi.​
+     strategies. Chin J Biotechnol 36(8):1556–1567. https://​doi.​org/​           org/​10.​1016/j.​pep.​2013.​07.​017
+     10.​13345/j.​cjb.​190535                                   Zhou K, Qiao K, Edgar S, Stephanopoulos G (2015) Distributing a
+Xue M, Wakamoto T, Kejlberg C, Yoshimura Y, Nielsen TA, Risør         metabolic pathway among a microbial consortium enhances
+   MW, Sanggaard KW, Kitahara R, Mulder FAA (2019) How         production of natural products. Nat Biotechnol 33(4):377–383.
+     internal cavities destabilize a protein. Proc Natl Acad Sci USA            https://​doi.​org/​10.​1038/​nbt.​3095
+    116(42):21031–21036. https://​doi.​org/​10.​1073/​pnas.​19111​81116
+Yadav VG (2014) Unraveling the multispecificity and catalytic prom-     Publisher's Note  Springer Nature remains  neutral with regard  to
+     iscuity of taxadiene monooxygenase. J Mol Catal B Enzym     jurisdictional claims in published maps and institutional affiliations.
+    110:154–164. https://​doi.​org/​10.​1016/j.​molca​tb.​2014.​10.​004
+Yang YH, Mao JW, Tan XL (2020) Research progress on the source, pro-     Springer Nature or its licensor (e.g. a society or other partner) holds
+     duction, and anti-cancer mechanisms of paclitaxel. Chin J Nat Med     exclusive rights to this article under a publishing agreement with the
+     18(12):890–897. https://​doi.​org/​10.​1016/​S1875-​5364(20)​60032-2     author(s) or other rightsholder(s); author self-archiving of the accepted
+Zahradník J, Kolářová L, Peleg Y, Kolenko P, Svidenská S, Charnavets    manuscript version of this article is solely governed by the terms of
+     T, Unger T, Sussman JL, Schneider B (2019) Flexible regions    such publishing agreement and applicable law.
+
+
+
+
+
+                                                                1 3

@@ -1,0 +1,970 @@
+
+[PDF physical page 1]
+Resistance Gene-Guided Discovery of a Fungal Spirotetramate as an
+Acetolactate Synthase Inhibitor
+Tsz Ki Chan, Xingxing Wei, Li Ma, Hang Wang, Pan Liao,* and Yudai Matsuda*
+Cite This: https://doi.org/10.1021/jacs.5c16272
+Read Online
+ACCESS
+Metrics & More
+Article Recommendations
+*
+sı
+Supporting Information
+ABSTRACT: Biosynthetic gene clusters (BGCs) of bioactive
+natural products occasionally encode resistant versions of the
+proteins they inhibit, offering opportunities for resistance gene-
+guided genome mining to uncover natural products with
+predictable modes of action. In this study, we developed a genome
+mining tool designed to identify fungal BGCs harboring putative
+resistance genes. Applying this tool to approximately 2500 fungal
+genomes, we identified a BGC designated as the pts cluster, which
+encodes an acetolactate synthase (ALS) homologue. Functional
+characterization of the pts cluster resulted in the identification of
+pterrespiramide A (1), featuring unique spirotetramate and cis-
+decalin moieties. Consistent with the predicted activity, 1 was
+confirmed as an ALS inhibitor and exhibited both antifungal and herbicidal activities. This study illuminates the potential of
+resistance gene-guided genome mining as a powerful strategy for accelerating the discovery of previously undescribed bioactive
+natural products.
+■INTRODUCTION
+Natural products have long served as a privileged source for
+the discovery of pharmaceutical drugs and other functional
+substances, owing to their diverse range of biological activities
+and unique molecular architectures.1 These biological activities
+often result from the inhibition of proteins essential for
+fundamental cellular functions or primary metabolism.2
+However, since such housekeeping proteins are widely
+conserved among organisms, bioactive metabolites may also
+be toxic to their producers. Consequently, self-resistance
+mechanisms must exist to protect the producing organisms
+from these toxic compounds.3 One well-known mechanism
+involves the expression of transporter proteins that export the
+toxic metabolites out of the cell; accordingly, many natural
+product biosynthetic gene clusters (BGCs) contain one or
+more transporter genes.4
+Intriguingly, some BGCs of bioactive natural products
+encode a close homologue of the housekeeping protein
+inhibited by the natural product, which is resistant to the
+toxic compound and can maintain cellular processes even in its
+presence.3b,5 This phenomenon is also observed in the BGCs
+for several clinically relevant molecules (Figure 1). For
+example, the cholesterol-lowering agent lovastatin inhibits 3-
+hydroxy-3-methylglutaryl-CoA (HMG-CoA) reductase, which
+is the rate-limiting enzyme in cholesterol biosynthesis, and its
+BGC encodes an HMG-CoA reductase homologue.6 Likewise,
+the BGCs of the immunosuppressant medications mycophe-
+nolic acid and cyclosporin A encode an inosine 5′-mono-
+phosphate dehydrogenase (IMPDH) and cyclophilintheir
+respective target proteins.7 Given that the presence of a
+housekeeping protein within a BGC is relatively rare, natural
+products derived from such BGCs might hold greater promise
+for clinical drug development.
+Searching for BGCs encoding a close homologue of
+housekeeping proteins offers an opportunity to discover
+natural products with predictable biological activities.8 Along-
+side the accumulation of microbial genome sequence data,
+resistance gene-guided genome mining has now been widely
+adopted, leading to the discovery of new bioactive molecules9
+and the identification of molecular targets of known natural
+products.10 Accordingly, bioinformatic tools that facilitate
+resistance gene-directed genome mining, such as FRIGG11 and
+ARTS/FunARTS,12 have been developed. Nevertheless, given
+the large number of unexploited BGCs in microorganisms,
+many BGCs likely encode resistance proteins against
+previously undescribed bioactive compounds.
+In this study, to discover bioactive natural products, we first
+updated our fungal genome mining tool, FunBGCeX,13 to
+perform resistance gene-guided genome mining. By utilizing
+this tool, we focused on a BGC encoding an acetolactate
+Received:
+September 16, 2025
+Revised:
+October 17, 2025
+Accepted:
+October 20, 2025
+Article
+pubs.acs.org/JACS
+© XXXX The Authors. Published by
+American Chemical Society
+A
+https://doi.org/10.1021/jacs.5c16272
+J. Am. Chem. Soc. XXXX, XXX, XXX−XXX
+This article is licensed under CC-BY 4.0
+Downloaded via 205.198.76.75 on November 6, 2025 at 16:17:52 (UTC).
+See https://pubs.acs.org/sharingguidelines for options on how to legitimately share published articles.
+
+
+
+[PDF physical page 2]
+synthase (ALS) homologue. Characterization of this BGC led
+to the discovery of a compound named pterrespiramide A (1),
+consisting of spirotetramate and decalin moieties. The
+compound exhibits antifungal and herbicidal activities and
+was, as expected, confirmed as an ALS inhibitor. Our study
+demonstrates the utility of our genome mining tool and the
+effectiveness of resistance gene-guided genome mining in
+discovering bioactive natural products.
+■RESULTS
+Development of a Tool for Resistance Gene-Guided
+Genome Mining in Fungi. We initially sought to add a
+function to our recently developed genome mining tool,
+FunBGCeX,13 to facilitate resistance gene-directed genome
+mining in fungi (Figures 2A and S1). To this end, we focused
+on the proteins encoded by the genome of Aspergillus fumigatus
+Af293 and, based on comparisons with those in other
+organisms, selected 1925 highly conserved proteins considered
+to be possible housekeeping proteins (Supporting Data 1).
+These proteins are used as hooks for genome mining, and only
+BGCs encoding a close homologue of these A. fumigatus
+proteins, with the homologue duplicated in the genome, are
+extracted. Furthermore, although not directly relevant to the
+present study, we also created a database of human proteins
+classified as “FDA approved drug targets” or “Disease related
+genes” in the Human Protein Atlas,14 for future genome
+mining specifically targeting human protein homologues.
+To examine whether this improved version of FunBGCeX
+works as expected, we analyzed the genome of Aspergillus
+terreus NIH 2624, since A. terreus produces several bioactive
+compounds whose BGCs encode self-resistance enzymes.6,9a,15
+As a result, eight BGCs were extracted (Figure S2), including
+those for three known bioactive compounds: lovastatin
+(BGC1),6 citreoviridin (BGC2),15 and aspterric acid
+(BGC8).9a We noted that one of the other BGCs (BGC3) is
+highly similar to the apm cluster responsible for asperphena-
+mate biosynthesis.16 The apm cluster encodes a close
+homologue of phospho-2-dehydro-3-deoxyheptonate aldolase
+ApmC, which has been shown not to be directly involved in
+asperphenamate biosynthesis.16 Thus, ApmC might be a self-
+resistance protein, although its detailed function remains to be
+clarified. Moreover, another BGC (BGC6) containing a
+homologue of sphingolipid C4-hydroxylase was found. Since
+the BGC is not closely related to known clusters, it might
+produce a new bioactive compound. Overall, although some
+false-positive cases may be included, we judged that our
+genome mining tool possesses sufficient ability to detect BGCs
+with possible resistance proteins.
+Global Genome Mining in Pezizomycotina Fungi and
+Selection of a Biosynthetic Gene Cluster for Exper-
+imental Characterization. To discover new bioactive natural
+products via resistance gene-guided genome mining, we
+downloaded 2544 reference genomes of Pezizomycotina
+fungi, including well-known genera such as Aspergillus,
+Penicillium, and Fusarium, from the NCBI database (Support-
+ing Data 2). These genomes were analyzed using FunBGCeX,
+and the extracted BGCs were grouped into gene cluster
+families using BiG-SCAPE.17 Some families contained BGCs
+with different core enzymes or housekeeping protein
+homologues; therefore, further classification was performed
+to ensure that each family comprised only BGCs sharing the
+same core enzymes and housekeeping proteins. Families
+composed solely of BGCs from a single genus were
+subsequently excluded to eliminate potential false positives,
+resulting in 413 gene cluster families encompassing 2901
+BGCs (Supporting Data 3). While some families included
+BGCs homologous to known clusters containing resistance
+proteins, many could not be readily linked to reported
+metabolites (Figure 3B). Notably, the majority of identified
+BGCs originated from fungi in the class Sordariomycetes,
+Figure 1. Selected fungal biosynthetic gene clusters (BGCs) with resistance genes and their products, including clinically relevant molecules
+(lovastatin, mycophenolic acid, and cyclosporin A) and acetolactate synthase (ALS) inhibitors (harzianic acid and chlorflavonin). Note that the
+BGC of harzianic acid encodes a truncated ALS and that the resistant version of ALS is encoded outside the cluster. Only core biosynthetic enzyme
+genes and resistance genes are labeled for clarity. HR-PKS: highly reducing polyketide synthase; NR-PKS: nonreducing polyketide synthase; PT:
+prenyltransferase; NRPS: nonribosomal peptide synthetase.
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.5c16272
+J. Am. Chem. Soc. XXXX, XXX, XXX−XXX
+B
+
+
+
+[PDF physical page 3]
+although proteins from A. fumigatus (Eurotiomycetes) were
+used to construct the database of putative housekeeping
+enzymes (Figure 3C), suggesting the broad applicability of our
+genome mining tool.
+Among the families lacking significant similarity to known
+clusters, we focused on Family 283, which comprises 11 BGCs
+derived from three genera: Aspergillus, Hypoxylon, and
+Calonectria. Each of these BGCs encodes a close homologue
+of acetolactate synthase (ALS; also known as acetohydroxyacid
+synthase, AHAS). ALS catalyzes the first step in branched-
+chain amino acid biosynthesis and is a well-known target of
+antimicrobial and herbicidal agents.18 While ALS homologues
+have been identified in the BGCs of two known natural
+products, harzianic acid19 and chlorflavonin20 (Figure 1),
+Family 283 BGCs are not closely related to these clusters.
+Consequently, we hypothesized that Family 283 BGCs might
+produce a previously unreported ALS inhibitor.
+Subsequently, comparison of three representative BGCs, one
+from each genus, revealed seven genes that are highly
+conserved among the clusters. Notably, these conserved
+genes show relatively limited occurrence across fungal
+genomes, whereas many of the adjacent genes are more widely
+distributed, thereby allowing us to delineate the BGC
+boundaries (Figure 3A). In the following experimental
+characterization, we focused on the BGC from Aspergillus
+pseudoterreus ATCC 32359, designated as the pts cluster
+(Tables S1 and S2). In addition to the ALS PtsB, the pts
+cluster encodes the polyketide synthase−nonribosomal peptide
+synthetase (PKS−NRPS) PtsA, the trans-acting enoylreductase
+(trans-ER) PtsE, the Diels−Alderase PtsC, the cytochrome
+P450 monooxygenase PtsF, the NRPS-like carboxylic acid
+reductase (CAR) PtsG, and the transcription factor (TF) PtsD.
+Interestingly, the BGCs from Hypoxylon pulicicidum ATCC
+74245 and other Hypoxylon fungi also encode a homologue of
+adenylosuccinate synthetase, which is a key enzyme in purine
+nucleotide biosynthesis.21 Given that the BGC from H.
+pulicicidum encodes an additional P450 enzyme (Figure 3A),
+this cluster could potentially produce two distinct bioactive
+compounds.
+Heterologous Expression of the pts Cluster. To obtain
+metabolites derived from the pts cluster, we performed
+heterologous expression of the BGC using the Aspergillus
+oryzae NSARU1 strain.22 In our experiments, A. pseudoterreus
+CBS 116.46 (=ATCC 10020), the parental strain of A.
+pseudoterreus ATCC 32359, served as the source of the pts
+cluster due to its easier accessibility to us. Initially, all five
+Figure 2. (A) General workflow of resistance gene-guided genome mining using FunBGCeX. Example HTML visualization output is shown in
+Figure S1. The FunBGCeX logo was created by the author and is used with permission. (B) Summary of biosynthetic gene clusters (BGCs)
+detected in this study, grouped into families. Families corresponding to BGCs with similarity to known clusters with resistance genes are indicated
+in blue, whereas the family of interest is indicated in pink. These highlighted families are also shown in the accompanying table. (C) Distribution of
+all BGCs classified into families according to the fungal taxonomic class from which they originate.
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.5c16272
+J. Am. Chem. Soc. XXXX, XXX, XXX−XXX
+C
+
+
+
+[PDF physical page 4]
+biosynthetic enzyme-encoding genes (ptsA, -C, -E, -F, and -G),
+along with the ALS gene ptsB, were coexpressed in A. oryzae.
+HPLC analysis of the metabolites from the transformant
+revealed the presence of a major product 1, which was absent
+in the host strain (Figure 3B, traces i and ii). Compound 1 was
+successfully isolated through chromatographic steps, and its
+molecular formula was determined as C23H31NO4 by HR−MS
+analysis. NMR analysis revealed that 1 contains a decalin
+system and a tetramate moiety with a 3-hydroxypropyl side
+chain. Furthermore, the decalin and tetramate units were
+found to be spiro-fused via a cyclopentanone ring, establishing
+the planar structure of 1 (Figure 3C). Regarding stereo-
+chemistry, the relative configuration of the cis-fused decalin
+moiety was determined based on the
+1H−1H coupling
+constants and NOESY analysis. However, NMR analysis
+alone was insufficient to establish the complete relative
+configuration of 1. Thus, we applied the advanced Marfey’s
+method23 using 5-hydroxynorvaline standards, confirming the
+15R configuration (Figure S3). Nevertheless, the configuration
+of the spiro center and the absolute configuration of 1
+remained unsolved. Gratifyingly, 1 was successfully crystallized
+and subjected to single-crystal X-ray diffraction analysis
+(Figure 3C; CCDC 2487927), which, together with the
+Marfey’s method results, revealed the complete structure of 1.
+Compound 1 was named pterrespiramide A. We also
+confirmed the presence of 1 in A. pseudoterreus CBS 116.46
+(Figure S4), further indicating that 1 is the genuine product of
+the pts cluster.
+Additionally, we isolated an isomer of 1, 2, as a minor
+product (Figure 3B, trace ii). The NMR spectra of 2 were
+highly similar to those of 1, revealing that 2 has the same
+planar structure as 1. One notable difference was the presence
+of the NOSEY correlation between H-15 and H-20 in 2. This
+observation suggested that 2 possesses the opposite config-
+uration at C-12 or C-15. While this manuscript was in
+submission, another work reported 1, along with its C-12 and
+C-15 epimers.24 Based on the reported NMR data of these
+compounds, we determined that 2 is the C-12 epimer of 1.
+Notably, we observed nonenzymatic interconversion between
+1 and 2 in the fungal culture medium (DPY liquid medium)
+(Figure S5). Compound 2 was designated as pterrespiramide
+B.
+To investigate the importance of the ALS PtsB, we
+constructed an A. oryzae transformant expressing five
+biosynthetic genes but lacking ptsB. The metabolic profile of
+this transformant was similar to that of the transformant with
+ptsB (Figure 3B, trace iii), making it unclear whether PtsB
+confers self-resistance. The lack of apparent toxicity of 1 to A.
+oryzae might be attributed to the abundance of transporter
+genes in the fungus,25 which could provide intrinsic resistance
+to 1. Although further investigations are required to clarify the
+self-resistance mechanism in A. oryzae, this observation
+demonstrates that PtsB is not directly involved in the
+biosynthesis of 1, consistent with the expectation that PtsB
+functions as a resistance protein.
+Figure 3. (A) Schematic representation of the pts cluster and its comparison with homologous clusters from fungi in different genera. The sequence
+identity values of each gene product are given. (B) HPLC profiles of the metabolites produced by A. oryzae NSARU1 transformants. The asterisk
+indicates an unstable metabolite that cannot be isolated in this study. The chromatograms were monitored at 190 nm. (C) Biosynthetic pathway
+and crystal structure of pterrespiramide A (1).
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.5c16272
+J. Am. Chem. Soc. XXXX, XXX, XXX−XXX
+D
+
+
+
+[PDF physical page 5]
+Investigation of the Biosynthetic Pathway of
+Pterrespiramide A. Next, we turned our attention to the
+biosynthetic route leading to pterrespiramide A (1). Since the
+PKS−NRPS PtsA, the trans-ER PtsE, and the Diels−Alderase
+PtsC are predicted to collaboratively produce the first stable
+pathway intermediate,26 an A. oryzae transformant harboring
+ptsA, ptsE, and ptsC was constructed, which yielded a new
+major metabolite 3 (Figure 3B, trace iv). Structural analysis
+revealed that 3 contains a cis-fused decalin moiety, as observed
+in 1, and a tetramate moiety with a 2-carboxyethyl side chain,
+but lacks the spiro ring system as well as the double bond
+between C-2 and C-3 (Figure 3C). Interestingly, advanced
+Marfey’s analysis23 showed that 3 possesses the 15S
+configuration (Figure S3), opposite to that of 1. This suggests
+that L-glutamate is utilized for the biosynthesis of 3, and that
+stereoinversion occurs during the conversion leading to 1.
+Compound 3 was named pterramide.
+The following biosynthetic step is predicted to be catalyzed
+either by the P450 PtsF or the CAR PtsG. Since it was unclear
+which enzyme acts first, we constructed two A. oryzae
+transformants expressing four genes, each harboring either
+ptsF or ptsG. The transformant expressing the P450 gene ptsF
+produced a pair of isomers, 4 and 5, which were not observed
+in the transformant expressing only the three genes (Figure 3B,
+trace v). The NMR spectra of 4 and 5 closely resemble those
+of 1 and 2; however, the hydroxymethyl signals for C-19
+disappeared in both the 1H and 13C NMR spectra, and a new
+carboxy signal appeared in the 13C NMR spectrum. Addition-
+ally, the NOESY correlation between H-15 and H-20 was only
+observed in 5, as was the case for 2. Further comparison with
+the recently reported data of all four possible diastereomers24
+determined that 4 was the oxidized form of 1, featuring a C-19
+carboxy group, and that 5 was the C-15 isomer of 4 (Figure
+3C). Compounds 4 and 5 were designated as pterrespiramides
+C and D, respectively. Meanwhile, the transformant expressing
+ptsG yielded another metabolite (Figure 3B, trace vi), whose
+molecular formula was deduced to be C23H33NO4 by HR−MS
+analysis. Although this molecular formula corresponds to the
+aldehyde form of 3, we were unable to isolate the metabolite in
+pure form, likely due to its instability, which also resulted in
+complicated NMR spectra.
+On the basis of the experimental results described above, it is
+reasoned that the P450 PtsF is responsible for the oxidative
+spiro ring formation as well as the desaturation at C-2/C-3,
+whereas the CAR PtsG performs the reduction of the C-19
+carboxy group to an alcohol. However, one of the key
+remaining questions in the biosynthetic process is how the end
+product 1 with the 15R configuration is formed from 3, its
+precursor with the 15S configuration. First, we noted that the
+P450 products, 4 and 5, undergo rapid epimerization in DPY
+liquid medium (Figure S5). Importantly, this epimerization
+occurs much faster than that between 1 and 2. Collectively, the
+direct product of PtsF would be 5 with the 15S configuration,
+but 5 can be nonenzymatically converted to 4. Next, we
+focused on the detailed function of the CAR PtsG. We initially
+aimed to investigate the substrate specificity of the adenylation
+(A) domain, which, however, was found to be difficult due to
+the rapid epimerization between 4 and 5 in all reaction buffer
+systems used in this study. Thus, we then sought to
+reconstitute the complete reaction catalyzed by PtsG. Since
+our attempt to obtain full-length PtsG was unsuccessful, we
+separately purified the A domain and the thiolation (T)−
+reductase (R) didomain as N-terminal His-tagged proteins
+using an Escherichia coli expression system. The in vitro
+enzymatic reaction of either 4 or 5 with the A domain, the T−
+R didomain, the promiscuous phosphopantetheinyl transferase
+Sfp,27 CoA, ATP, Mg2+, and NADPH afforded 1 as a major
+product regardless of the substrate used for the reaction, with
+no detectable production of the corresponding aldehyde form
+(Figure 4, traces iii to vi). Meanwhile, 3 was not converted to
+any products, including the uncharacterized metabolite
+detected in the A. oryzae transformant expressing ptsA, ptsE,
+ptsC, and ptsG, under the same reaction conditions (Figure 4,
+traces i and ii). This observation indicates that the CAR PtsG
+acts after the P450 PtsF. The unstable product observed in the
+heterologous expression experiment could possibly be
+synthesized through the combined action of PtsG and an
+endogenous enzyme in A. oryzae.
+Biological Activities of Pterrespiramide A as an
+Acetolactate Synthase Inhibitor. Having established the
+biosynthetic pathway leading to pterrespiramide A (1), we next
+examined whether 1 functions as an acetolactate synthase
+(ALS) inhibitor. To this end, we employed a yeast-based assay
+in which the inhibitory activities of 1 were compared against
+three Saccharomyces cerevisiae INVSc1 transformants (Figure
+5A). Compound 1 effectively inhibited the growth of the yeast
+transformant harboring an empty vector, with an IC50 value of
+0.4 μM, which is comparable to that of the commercially
+available herbicide and ALS inhibitor sulfometuron methyl
+(IC50 = 0.6 μM) (Figure S6). By comparison, the yeast strain
+carrying an additional copy of ilv2, encoding ALS, exhibited
+greater resistance to 1, resulting in an increased IC50 value of
+1.5 μM. As expected, the transformant expressing ptsB,
+predicted to encode a resistant version of ALS, showed clear
+resistance to 1. Collectively, these results demonstrate that 1
+targets ALS and that ptsB functions as a self-resistance gene.
+Meanwhile, pterrespiramide B (2), the C-12 epimer of 1,
+displayed weaker antifungal activity against S. cerevisiae
+INVSc1, with an IC50 value of 5.8 μM (Figure S6). Conversely,
+compounds 3−5 did not exhibit apparent antifungal activity
+against the yeast strain. To further verify the molecular target
+of 1, we conducted in vitro enzymatic assays using S. cerevisiae
+ALS (ScALS), purified from the E. coli expression system, in
+the presence of different concentrations of 1 or 2. Both
+Figure 4. LC−MS profiles of the in vitro enzymatic reactions with
+PtsG. PtsG was provided as two separate proteins, the A domain and
+the T−R didomain.
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.5c16272
+J. Am. Chem. Soc. XXXX, XXX, XXX−XXX
+E
+
+
+
+[PDF physical page 6]
+compounds inhibited ScALS activity in a dose-dependent
+manner, with 1 being more potent (Figure S7), further
+corroborating that 1 is an ALS inhibitor.
+Given that ALS is an essential enzyme in microorganisms
+and plants, we further evaluated the antimicrobial and
+herbicidal potential of 1 and the other compounds obtained
+in this study. While none of the compounds 1−5 displayed
+antibacterial activity against the tested strains, 1 and 2
+exhibited moderate antifungal activity against the pathogenic
+fungus A. fumigatus, with MIC values of 7.7 and 30.8 μg/mL
+(20 and 80 μM), respectively. Furthermore, the primary root
+length of 5- to 10-day-old Arabidopsis seedlings was
+significantly inhibited by compound 1 (2, 5, and 10 μM) in
+a dose-dependent manner (Figures 5B,C, S8, and S9). We
+tested the effect of the compound 1 on root growth under 16 h
+light and 8 h dark cycles. After 5 days of treatment with the
+compound 1, the root length in the untreated control group
+reached 4.15 ± 0.421 cm from about 1 cm (Figure S8), while
+the root length in the group treated with only DMSO was 3.59
+± 0.371 cm, which is slightly reduced from the untreated
+control group (Figure 5B,C). With 2 μM of 1, the root length
+was 2.28 ± 0.352 cm; with 5 μM, the root length was 1.38 ±
+0.211 cm; and with 10 μM, the root length was 1.12 ± 0.145
+cm, showing a significant reduction in primary root growth
+compared to the untreated control and DMSO groups (Figure
+5B,C). Further statistical analysis of the data indicated that the
+compound at 2 μM significantly inhibited Arabidopsis primary
+root growth, and concentrations of 5 to 10 μM had an even
+greater inhibitory effect on primary root growth (Figure 5B,C).
+Taken together, these results demonstrate that the compound
+1 inhibits Arabidopsis primary root growth in a dose-dependent
+manner.
+■DISCUSSION
+The discovery of pterrespiramide A (1) demonstrates the
+potential of resistance gene-guided genome mining to uncover
+previously undescribed bioactive natural products. Although
+this strategy has been widely adopted over the past decade, one
+key limitation of this approach is the frequent rediscovery of
+known compounds following the characterization of mined
+BGCs, particularly in fungal genome mining. Fortunately, we
+obtained a new bioactive natural product with an intriguing
+molecular skeleton in this study, suggesting that many more
+unexploited bioactive compounds can be discovered by
+characterizing additional BGCs identified in our current
+work. For example, although ALS has been found as a
+resistance protein in three different types of BGCs,19,20 our
+global genome mining revealed more BGCs encoding close
+homologues of ALS (Figure S10). BGCs in Family 107 include
+large gene clusters encoding an ALS homologue as well as two
+Figure 5. Evaluation of the biological activity of pterrespiramide A (1) as an acetolactate synthase inhibitor. (A) Growth inhibition of S. cerevisiae
+transformants by 1. (B) Arabidopsis primary roots after treatment with 1 for 5 days at different concentrations. Scale bar = 1 cm. (C) Quantification
+of root length after treatment with 1. Significance was determined by one-way ANOVA with Tukey’s multiple comparisons test. Data are shown as
+the means ± SD (n = 45).
+Figure 6. Proposed reaction mechanism for the PtsF-catalyzed spirotetramate formation. See Figure S11 for alternative possible mechanisms.
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.5c16272
+J. Am. Chem. Soc. XXXX, XXX, XXX−XXX
+F
+
+
+
+[PDF physical page 7]
+or three NRPSs and one PKS, whereas those in Families 39
+and 296 contain an ALS gene together with an NRPS-like
+enzyme. Given that these BGCs do not closely resemble
+known clusters, their characterization may lead to the
+discovery of previously unreported ALS inhibitors. The wide
+occurrence of ALS-containing BGCs across diverse fungal taxa
+suggests that these clusters may play important roles in
+interspecies competition. Furthermore, FunBGCeX outputs
+also include BGCs with potential resistance genes other than
+ALS, which might be responsible for the formation of novel
+bioactive molecules. Notably, FunARTS,12c a recently
+developed tool for resistance gene-based genome mining,
+failed to recognize ptsB, the resistance gene in the pts cluster, as
+a resistance gene (Figure S11). Thus, the combined use of
+FunARTS and FunBGCeX may enhance the discovery of
+fungal bioactive natural products.
+The molecular architecture of pterrespiramides represents an
+unprecedented natural product scaffold. The biosynthetic
+route leading to pterrespiramide A (1) can be proposed as
+follows (Figure 3C). The PKS−NRPS PtsA and the trans-ER
+PtsE collaboratively produce a tetramate-containing inter-
+mediate with a linear carbon chain. The Diels−Alderase PtsC
+catalyzes an exoselective [4 + 2] cycloaddition to yield
+pterramide (3) featuring a cis-decalin moiety. Compound 3
+then undergoes two rounds of oxidative reactions catalyzed by
+PtsF to form pterrespiramides C (4) and D (5), either or both
+of which are accepted by PtsG to selectively afford 1.
+The reactions catalyzed by the P450 enzyme PtsF involve
+desaturation at C-2/C-3 and oxidative spiro ring formation.
+Since we were unable to isolate the product of the first step, we
+cannot definitively conclude which reaction occurs first;
+however, given that installation of the spiro system causes a
+significant structural change, double bond formation likely
+precedes spiro ring formation to produce compound A (Figure
+6). The mechanism for subsequent spirotetramate formation
+can be proposed based on a similar P450-catalyzed C−C bond
+formation observed in the synthesis of wigandol,28 and on the
+general observation that many P450-catalyzed C−C bond
+formations proceed via a diradical intermediate29 (Figure 6).
+Initial hydrogen abstraction by compound I may occur either
+at the enolic hydrogen or at C-1, generating the substrate
+radical B or C, respectively, followed by an additional
+hydrogen abstraction from the other site, yielding the diradical
+species D. Finally, C−C bond formation between C-1 and C-
+12 completes the spiro ring formation to afford 5. Never-
+theless, alternative reaction mechanisms, such as those
+involving electron transfer to generate carbocationic species
+and C−C bond formation by radical attack (Figure S12),
+cannot be excluded at this stage. Therefore, further
+investigations, including theoretical calculations, are required
+to clarify the mechanism of this unusual transformation. A
+similar spirotetramate system can be found in the structures of
+altercrasins,30 and therefore, their biosynthesis might also
+involve a P450-catalyzed oxidative spiro-ring formation.
+Meanwhile, 5 can spontaneously interconvert with its C-15
+epimer 4. Considering that the interconversion between 4 and
+5 occurs rapidly, it is likely that the carboxy group in 4 and 5
+facilitates rapid epimerization. The carboxylate may act as a
+base to deprotonate at C-15, and subsequent reprotonation
+results in epimerization at this position (Figure S13).
+The final step of biosynthesis, catalyzed by the NRPS-like
+CAR PtsG, requires a four-electron reduction and results in the
+stereoselective formation of 1 with the 15R configuration. One
+possible explanation for the product selectivity is that the A
+domain of PtsG only accepts 4 with the 15R configuration;
+however, as mentioned above, we were unable to determine
+the substrate specificity of the A domain. Another possible
+scenario is that both 4 and 5 can be loaded onto the enzyme.
+In this case, online epimerization likely occurs prior to
+reduction by the R domain, which proceeds exclusively with
+the substrate bearing the 15R configuration. This epimerization
+may also be catalyzed by the R domain, analogous to those
+catalyzed by ketoreductase (KR) domains in modular type I
+PKSs.31 In any case, the R domain catalyzes a four-electron
+reduction to yield the alcohol 1 as the major product, which
+clearly contrasts with the general understanding that CAR
+enzymes perform a strict two-electron reduction.32 Thus,
+although NcCAR, a CAR enzyme from the fungus Neurospora
+crassa, is known to be capable of four-electron reduction,33
+PtsG represents a rare example in which a CAR enzyme
+performs four-electron reduction as its primary function. We
+noted that PtsG exhibits the highest similarity (39% protein
+sequence identity) with FSL6 encoded by the BGC of
+fusarielin H,34 according to the FunBGCs database. Although
+FSL6 was predicted not to be involved in fusarielin
+biosynthesis,34 given the requirement of four-electron reduc-
+tion in the formation of fusarielin H, FSL6 may also serve as a
+CAR enzyme, similar to PtsG. Finally, considering that 4 and
+5, containing a carboxy group, did not display antifungal
+activity, the PtsG-catalyzed four-electron reduction with
+stereoinversion is a crucial step to afford a compound with
+the highest biological activity.
+■CONCLUSIONS
+In this study, we developed an improved fungal genome
+mining tool targeting biosynthetic gene clusters (BGCs)
+containing genes that encode potential self-resistance proteins
+by updating FunBGCeX. Using this platform, we successfully
+identified a previously undescribed acetolactate synthase
+(ALS) inhibitor, pterrespiramide A (1), which features a
+unique spirotetramate moiety and exhibits antifungal and
+herbicidal activities. Additionally, we identified biosynthetic
+enzymes with unique functions, including the P450 PtsF and
+the CAR PtsG, whose detailed characterization will be the
+subject of future investigations. Building upon this work, we
+will continue to characterize additional BGCs harboring
+diverse resistance genes, thereby facilitating the discovery of
+a wide range of bioactive molecules with potential applications
+in drug development.
+■ASSOCIATED CONTENT
+Data Availability Statement
+All original codes for FunBGCeX (v1.0.0) are deposited at
+Zenodo under the DOI 10.5281/zenodo.17113445 and are
+also available at https://github.com/ydmatsd/funbgcex.
+CCDC 2487927 contains the supporting crystallographic
+data for this paper. These data can be obtained free of charge
+from The Cambridge Crystallographic Data Centre via www.
+ccdc.cam.ac.uk/structures. The other data underlying this
+study are available in the published article and its Supporting
+Information.
+*
+sı Supporting Information
+The Supporting Information is available free of charge at
+https://pubs.acs.org/doi/10.1021/jacs.5c16272.
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.5c16272
+J. Am. Chem. Soc. XXXX, XXX, XXX−XXX
+G
+
+
+
+[PDF physical page 8]
+Experimental details, analytical data, tables of gene
+cluster information, DNA and protein sequences, primer
+sequences, constructed plasmids, and A. oryzae trans-
+formants, figures of FunBGCeX outputs, HPLC/LC−
+MS profiles, graphs/photos for bioassay experiments,
+BGC comparisons, FunARTS output, reaction mecha-
+nisms, SDS-PAGE analysis, and NMR data/spectra, and
+references (PDF)
+List of the selected proteins from A. fumigatus Af293
+(Data S1) (XLSX)
+List of fungal genomes used in this study (Data S2)
+(XLSX)
+Summary of the BGCs extracted in this study (Data S3)
+(XLSX)
+Accession Codes
+Deposition Number 2487927 contains the supplementary
+crystallographic data for this paper. These data can be obtained
+free of charge via the joint Cambridge Crystallographic Data
+Centre (CCDC) and Fachinformationszentrum Karlsruhe
+Access Structures service.
+■AUTHOR INFORMATION
+Corresponding Authors
+Pan Liao −Department of Biology, Hong Kong Baptist
+University, Kowloon Tong, Hong Kong SAR, China; State
+Key Laboratory of Agrobiotechnology (CUHK), Shatin, New
+Territories, Hong Kong SAR, China; AoE Centre for Plant
+Vacuole Biology and Biotechnology, The Chinese University
+of Hong Kong, Shatin, New Territories, Hong Kong SAR,
+China; Institute of Systems Medicine and Health Sciences,
+Hong Kong Baptist University, Kowloon Tong, Hong Kong
+SAR, China;
+orcid.org/0000-0002-1156-8916;
+Email: panliao@hkbu.edu.hk
+Yudai Matsuda −Department of Chemistry, City University of
+Hong Kong, Kowloon, Hong Kong SAR, China;
+orcid.org/0000-0001-5650-4732; Email: ymatsuda@
+cityu.edu.hk
+Authors
+Tsz Ki Chan −Department of Chemistry, City University of
+Hong Kong, Kowloon, Hong Kong SAR, China;
+orcid.org/0009-0004-3883-7727
+Xingxing Wei −Department of Chemistry, City University of
+Hong Kong, Kowloon, Hong Kong SAR, China;
+orcid.org/0000-0002-1819-6983
+Li Ma −Department of Biology, Hong Kong Baptist University,
+Kowloon Tong, Hong Kong SAR, China;
+orcid.org/0009-
+0007-2164-1121
+Hang Wang −School of Life Science and Technology, China
+Pharmaceutical University, Nanjing 210009, China;
+orcid.org/0000-0001-7706-0536
+Complete contact information is available at:
+https://pubs.acs.org/10.1021/jacs.5c16272
+Notes
+The authors declare no competing financial interest.
+■ACKNOWLEDGMENTS
+We thank Prof. Katsuya Gomi (Tohoku University) and Profs.
+Katsuhiko Kitamoto and Jun-ichi Maruyama (University of
+Tokyo) for the expression vectors and fungal strain. We are
+also grateful to Dr. Kwok Chung Law (City University of Hong
+Kong) for the NMR spectra acquisition and Dr. Shek Man Yiu
+(City University of Hong Kong) for X-ray diffraction data
+collection and analysis. We also thank Prof. Jeroen S. Dickschat
+(University of Bonn) for helpful discussions regarding the
+reaction mechanisms. This work was carried out using the
+computational facilities, CityUHK Burgundy, managed and
+provided by the Computing Services Centre at City University
+of Hong Kong (https://www.cityu.edu.hk/). The plasmid
+pAT426 was provided by the National BioResource Project
+(NBRP) yeast, Japan. This work was supported by General
+Research Fund grants from the Research Grants Council of
+Hong Kong (RGC) (Project Nos. 11309022 and 11301724 to
+Y.M.), the Research Enhancement Grant from City University
+of Hong Kong (Project No. 7020157 to Y.M.), Early Career
+Scheme grant from the RGC (Project No. 22100923 to P.L.),
+the NSFC/RGC Joint Research Scheme (Project No.
+N_HKBU201/23 to P.L.), and Areas of Excellence Scheme
+from the RGC (AoE/M-402/25-N).
+■REFERENCES
+(1) Newman, D. J.; Cragg, G. M. Natural products as sources of new
+drugs over the nearly four decades from 01/1981 to 09/2019. J. Nat.
+Prod. 2020, 83, 770−803.
+(2) Santos, R.; Ursu, O.; Gaulton, A.; Bento, A. P.; Donadi, R. S.;
+Bologa, C. G.; Karlsson, A.; Al-Lazikani, B.; Hersey, A.; Oprea, T. I.;
+Overington, J. P. A comprehensive map of molecular drug targets.
+Nat. Rev. Drug Discov. 2017, 16, 19−34.
+(3) (a) Cundliffe, E.; Demain, A. L. Avoidance of suicide in
+antibiotic-producing microbes. J. Ind. Microbiol. Biotechnol. 2010, 37,
+643−672. (b) Almabruk, K. H.; Dinh, L. K.; Philmus, B. Self-
+resistance of natural product producers: past, present, and future
+focusing on self-resistant protein variants. ACS Chem. Biol. 2018, 13,
+1426−1437.
+(4) Crits-Christoph, A.; Bhattacharya, N.; Olm, M. R.; Song, Y. S.;
+Banfield, J. F. Transporter genes in biosynthetic gene clusters predict
+metabolite characteristics and siderophore activity. Genome Res. 2021,
+31, 239−250.
+(5) O’Neill, E. C.; Schorn, M.; Larson, C. B.; Millán-Aguiñaga, N.
+Targeted antibiotic discovery through biosynthesis-associated resist-
+ance determinants: target directed genome mining. Crit. Rev.
+Microbiol. 2019, 45, 255−277.
+(6) Kennedy, J.; Auclair, K.; Kendrew, S. G.; Park, C.; Vederas, J. C.;
+Hutchinson, C. R. Modulation of polyketide synthase activity by
+accessory proteins during lovastatin biosynthesis. Science 1999, 284,
+1368−1372.
+(7) (a) Regueira, T. B.; Kildegaard, K. R.; Hansen, B. G.; Mortensen,
+U. H.; Hertweck, C.; Nielsen, J. Molecular basis for mycophenolic
+acid biosynthesis in Penicillium brevicompactum. Appl. Environ.
+Microbiol. 2011, 77, 3035−3043. (b) Yang, X.; Feng, P.; Yin, Y.;
+Bushley, K.; Spatafora, J. W.; Wang, C. Cyclosporine biosynthesis in
+Tolypocladium inflatum benefits fungal adaptation to the environment.
+mBio 2018, 9, No. e01211-18.
+(8) Yan, Y.; Liu, N.; Tang, Y. Recent developments in self-resistance
+gene directed natural product discovery. Nat. Prod. Rep. 2020, 37,
+879−892.
+(9) (a) Panter, F.; Krug, D.; Baumann, S.; Müller, R. Self-resistance
+guided genome mining uncovers new topoisomerase inhibitors from
+myxobacteria. Chem. Sci. 2018, 9, 4898−4908. (b) Yuan, Y.; Huang,
+C.; Singh, N.; Xun, G.; Zhao, H. Self-resistance-gene-guided, high-
+throughput automated genome mining of bioactive natural products
+from Streptomyces. Cell Syst. 2025, 16, No. 101237, DOI: 10.1016/
+j.cels.2025.101237. (c) Kishore, S.; Privalsky, T. M.; Del Rio Flores,
+A.; Lynch, S. R.; Khosla, C. Self-Resistance guided discovery of a
+hybrid polyketide-peptide antibiotic from Vibrio ruber. J. Am. Chem.
+Soc. 2025, 147, 24032−24039. (d) Nie, Q.-Y.; Fang, S.-Q.; Wu, L.;
+Gao, R.-Q.; Hu, Y.; Ding, D.; Pan, H.-X.; Pei, Z.-F.; He, J.-B.; Zhou,
+Q.; Chen, Z.-H.; Hou, X.-F.; Zhao, X.-Q.; Tang, G.-L. Targeted
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.5c16272
+J. Am. Chem. Soc. XXXX, XXX, XXX−XXX
+H
+
+
+
+[PDF physical page 9]
+discovery and characterization of type-II PKS-NRPS hybrid DNA-
+alkylating antibiotics. Angew. Chem., Int. Ed. 2025, No. e202512820.
+(10) (a) Yan, Y.; Liu, Q.; Zang, X.; Yuan, S.; Bat-Erdene, U.;
+Nguyen, C.; Gan, J.; Zhou, J.; Jacobsen, S. E.; Tang, Y. Resistance-
+gene-directed discovery of a natural-product herbicide with a new
+mode of action. Nature 2018, 559, 415−418. (b) Liu, N.; Abramyan,
+E. D.; Cheng, W.; Perlatti, B.; Harvey, C. J. B.; Bills, G. F.; Tang, Y.
+Targeted genome mining reveals the biosynthetic gene clusters of
+natural product CYP51 inhibitors. J. Am. Chem. Soc. 2021, 143,
+6043−6047. (c) Dunbar, K. L.; Perlatti, B.; Liu, N.; Cornelius, A.;
+Mummau, D.; Chiang, Y.-M.; Hon, L.; Nimavat, M.; Pallas, J.; Kordes,
+S.; Ng, H. L.; Harvey, C. J. B. Resistance gene−guided genome
+mining reveals the roseopurpurins as inhibitors of cyclin-dependent
+kinases. Proc. Natl. Acad. Sci. U.S.A. 2023, 120, No. e2310522120.
+(d) Yee, D. A.; Overacker, R. D.; Grau, M. F.; Cornelius, A.; Pigula,
+A.; Mummau, D.; Pavey, T.; Bailey, C.; Yeung, C. H. L.; Hon, L. S.;
+Spraker, J. E.; Li, S.; Perlatti, B.; Oteng-Pabi, S. K.; Le, H. H.; Harvey,
+C. J. B. Resistance gene-guided genome mining reveals RPL10 as the
+target of ligustrone A. J. Am. Chem. Soc. 2025, 147, 21284−21289.
+(11) Kjærbølling, I.; Vesth, T.; Andersen, M. R. Resistance gene-
+directed genome mining of 50 Aspergillus species. mSystems 2019, 4,
+No. e00085-19.
+(12) (a) Alanjary, M.; Kronmiller, B.; Adamek, M.; Blin, K.; Weber,
+T.; Huson, D.; Philmus, B.; Ziemert, N. The Antibiotic Resistant
+Target Seeker (ARTS), an exploration engine for antibiotic cluster
+prioritization and novel drug target discovery. Nucleic Acids Res. 2017,
+45, W42−W48. (b) Mungan, M. D.; Alanjary, M.; Blin, K.; Weber, T.;
+Marnix, M. H.; Ziemert, N. ARTS 2.0: Feature updates and expansion
+of the Antibiotic Resistant Target Seeker for comparative genome
+mining. Nucleic Acids Res. 2020, 48, W546−W552. (c) Yılmaz, T. M.;
+Mungan, M. D.; Berasategui, A.; Ziemert, N. FunARTS, the Fungal
+bioActive compound Resistant Target Seeker, an exploration engine
+for target-directed genome mining in fungi. Nucleic Acids Res. 2023,
+51, W191−W197.
+(13) Tang, J.; Matsuda, Y. Discovery of fungal onoceroid
+triterpenoids through domainless enzyme-targeted global genome
+mining. Nat. Commun. 2024, 15, No. 4312.
+(14) (a) Uhlén, M.; Fagerberg, L.; Hallström, B. M.; Lindskog, C.;
+Oksvold, P.; Mardinoglu, A.; Sivertsson, Å.; Kampf, C.; Sjöstedt, E.;
+Asplund, A.; Olsson, I.; Edlund, K.; Lundberg, E.; Navani, S.;
+Szigyarto, C. A.-K.; Odeberg, J.; Djureinovic, D.; Takanen, J. O.;
+Hober, S.; Alm, T.; Edqvist, P.-H.; Berling, H.; Tegel, H.; Mulder, J.;
+Rockberg, J.; Nilsson, P.; Schwenk, J. M.; Hamsten, M.; von Feilitzen,
+K.; Forsberg, M.; Persson, L.; Johansson, F.; Zwahlen, M.; von Heijne,
+G.; Nielsen, J.; Pontén, F. Tissue-based map of the human proteome.
+Science 2015, 347, No. 1260419. (b) The Human Protein Atlas.
+https://www.proteinatlas.org/. (accessed September 07, 2025).
+(c) The human proteome in druggable. https://www.proteinatlas.
+org/humanproteome/tissue/druggable/. (accessed September 07,
+2025).
+(15) Lin, T.-S.; Chiang, Y.-M.; Wang, C. C. C. Biosynthetic pathway
+of the reduced polyketide product citreoviridin in Aspergillus terreus
+var. aureus revealed by heterologous expression in Aspergillus nidulans.
+Org. Lett. 2016, 18, 1366−1369.
+(16) Li, W.; Fan, A.; Wang, L.; Zhang, P.; Liu, Z.; An, Z.; Yin, W.-B.
+Asperphenamate biosynthesis reveals a novel two-module NRPS
+system to synthesize amino acid esters in fungi. Chem. Sci. 2018, 9,
+2589−2594.
+(17) (a) Navarro-Muñoz, J. C.; Selem-Mojica, N.; Mullowney, M.
+W.; Kautsar, S. A.; Tryon, J. H.; Parkinson, E. I.; De Los Santos, E. L.
+C.; Yeong, M.; Cruz-Morales, P.; Abubucker, S.; Roeters, A.;
+Lokhorst, W.; Fernandez-Guerra, A.; Cappelini, L. T. D.; Goering,
+A. W.; Thomson, R. J.; Metcalf, W. W.; Kelleher, N. L.; Barona-
+Gomez, F.; Medema, M. H. A computational framework to explore
+large-scale biosynthetic diversity. Nat. Chem. Biol. 2020, 16, 60−68.
+(b) Draisma, A.; Loureiro, C.; Louwen, N. L. L.; Kautsar, S. A.;
+Navarro-Muñoz, J. C.; Doering, D. T.; Mouncey, N. J.; Medema, M.
+H. BiG-SCAPE 2.0 and BiG-SLiCE 2.0: Scalable, accurate and
+interactive sequence clustering of metabolic gene clusters bioRxiv
+2025 DOI: 10.1101/2025.08.20.671210.
+(18) (a) Richie, D. L.; Thompson, K. V.; Studer, C.; Prindle, V. C.;
+Aust, T.; Riedl, R.; Estoppey, D.; Tao, J.; Sexton, J. A.; Zabawa, T.;
+Drumm, J.; Cotesta, S.; Eichenberger, J.; Schuierer, S.; Hartmann, N.;
+Movva, N. R.; Tallarico, J. A.; Ryder, N. S.; Hoepfner, D.
+Identification and evaluation of novel acetolactate synthase inhibitors
+as antifungal agents. Antimicrob. Agents Chemother. 2013, 57, 2272−
+2280. (b) Lonhienne, T.; Garcia, M. D.; Pierens, G.; Mobli, M.;
+Nouwens, A.; Guddat, L. W. Structural insights into the mechanism of
+inhibition of AHAS by herbicides. Proc. Natl. Acad. Sci. U.S.A. 2018,
+115, E1945−E1954.
+(19) Xie, L.; Zang, X.; Cheng, W.; Zhang, Z.; Zhou, J.; Chen, M.;
+Tang, Y. Harzianic acid from Trichoderma afroharzianum is a natural
+product inhibitor of acetohydroxyacid synthase. J. Am. Chem. Soc.
+2021, 143, 9575−9584.
+(20) Zhang, W.; Zhang, X.; Feng, D.; Liang, Y.; Wu, Z.; Du, S.;
+Zhou, Y.; Geng, C.; Men, P.; Fu, C.; Huang, X.; Lu, X. Discovery of a
+unique flavonoid biosynthesis mechanism in fungi by genome mining.
+Angew. Chem., Int. Ed. 2023, 62, No. e202215529.
+(21) Stayton, M. M.; Rudolph, F. B.; Fromm, H. J. Regulation,
+Genetics, and Properties of Adenylosuccinate Synthetase: A Review.
+In Current Topics in Cellular Regulation; Horecker, B. L.; Stadtman, E.
+R., Eds.; Academic Press, 1983; Vol. 22, pp 103−141.
+(22) Tang, J.; Matsuda, Y. Discovery of branching meroterpenoid
+biosynthetic pathways in Aspergillus insuetus: Involvement of two
+terpene cyclases with distinct cyclization modes. Chem. Sci. 2022, 13,
+10361−10369.
+(23) Fujii, K.; Ikai, Y.; Oka, H.; Suzuki, M.; Harada, K.-i. A
+nonempirical method using LC/MS for determination of the absolute
+configuration of constituent amino acids in a peptide: Combination of
+Marfey’s method with mass spectrometry and its practical application.
+Anal. Chem. 1997, 69, 5146−5151.
+(24) Perlatti, B.; Vellanki, S.; Zhang, Y.; Chiang, Y.-M.; Hu, Y.;
+Yuan, M.; Dunbar, K.; Fine, A.; Grau, M. F.; Li, S.; O’Donnell, T.;
+Shenoy, R.; Li, H.; Shi, H.; Xu, X.; Chen, Z.; Arvedson, T.; Tang, Y.;
+Cramer, R. A.; Cee, V.; Harvey, C. J. An antifungal with a novel
+mechanism of action discovered via resistance gene-guided genome
+mining bioRxiv 2025 DOI: 10.1101/2025.10.09.681488.
+(25) (a) Machida, M.; Asai, K.; Sano, M.; Tanaka, T.; Kumagai, T.;
+Terai, G.; Kusumoto, K.-I.; Arima, T.; Akita, O.; Kashiwagi, Y.; Abe,
+K.; Gomi, K.; Horiuchi, H.; Kitamoto, K.; Kobayashi, T.; Takeuchi,
+M.; Denning, D. W.; Galagan, J. E.; Nierman, W. C.; Yu, J.; Archer, D.
+B.; Bennett, J. W.; Bhatnagar, D.; Cleveland, T. E.; Fedorova, N. D.;
+Gotoh, O.; Horikawa, H.; Hosoyama, A.; Ichinomiya, M.; Igarashi, R.;
+Iwashita, K.; Juvvadi, P. R.; Kato, M.; Kato, Y.; Kin, T.; Kokubun, A.;
+Maeda, H.; Maeyama, N.; Maruyama, J.-i.; Nagasaki, H.; Nakajima,
+T.; Oda, K.; Okada, K.; Paulsen, I.; Sakamoto, K.; Sawano, T.;
+Takahashi, M.; Takase, K.; Terabayashi, Y.; Wortman, J. R.; Yamada,
+O.; Yamagata, Y.; Anazawa, H.; Hata, Y.; Koide, Y.; Komori, T.;
+Koyama, Y.; Minetoki, T.; Suharnan, S.; Tanaka, A.; Isono, K.;
+Kuhara, S.; Ogasawara, N.; Kikuchi, H. Genome sequencing and
+analysis of Aspergillus oryzae. Nature 2005, 438, 1157−1161.
+(b) Kjærbølling, I.; Vesth, T.; Frisvad, J. C.; Nybo, J. L.; Theobald,
+S.; Kildgaard, S.; Petersen, T. I.; Kuo, A.; Sato, A.; Lyhne, E. K.;
+Kogle, M. E.; Wiebenga, A.; Kun, R. S.; Lubbers, R. J. M.; Mäkelä, M.
+R.; Barry, K.; Chovatia, M.; Clum, A.; Daum, C.; Haridas, S.; He, G.;
+LaButti, K.; Lipzen, A.; Mondo, S.; Pangilinan, J.; Riley, R.; Salamov,
+A.; Simmons, B. A.; Magnuson, J. K.; Henrissat, B.; Mortensen, U. H.;
+Larsen, T. O.; de Vries, R. P.; Grigoriev, I. V.; Machida, M.; Baker, S.
+E.; Andersen, M. R. A comparative genomics study of 23 Aspergillus
+species from section Flavi. Nat. Commun. 2020, 11, No. 1106.
+(26) (a) Li, L.; Yu, P.; Tang, M.-C.; Zou, Y.; Gao, S.-S.; Hung, Y.-S.;
+Zhao, M.; Watanabe, K.; Houk, K. N.; Tang, Y. Biochemical
+characterization of a eukaryotic decalin-forming Diels−Alderase. J.
+Am. Chem. Soc. 2016, 138, 15837−15840. (b) Kato, N.; Nogawa, T.;
+Takita, R.; Kinugasa, K.; Kanai, M.; Uchiyama, M.; Osada, H.;
+Takahashi, S. Control of the stereochemical course of [4 + 2]
+cycloaddition during trans-decalin formation by Fsa2-family enzymes.
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.5c16272
+J. Am. Chem. Soc. XXXX, XXX, XXX−XXX
+I
+
+
+
+[PDF physical page 10]
+Angew. Chem., Int. Ed. 2018, 57, 9754−9758. (c) Sato, M.; Kishimoto,
+S.; Yokoyama, M.; Jamieson, C. S.; Narita, K.; Maeda, N.; Hara, K.;
+Hashimoto, H.; Tsunematsu, Y.; Houk, K. N.; Tang, Y.; Watanabe, K.
+Catalytic mechanism and endo-to-exo selectivity reversion of an
+octalin-forming natural Diels−Alderase. Nat. Catal. 2021, 4, 223−
+232.
+(27) (a) Quadri, L. E. N.; Weinreb, P. H.; Lei, M.; Nakano, M. M.;
+Zuber, P.; Walsh, C. T. Characterization of Sfp, a Bacillus subtilis
+phosphopantetheinyl transferase for peptidyl carrier protein domains
+in peptide synthetases. Biochemistry 1998, 37, 1585−1595. (b) Yin, J.;
+Lin, A. J.; Golan, D. E.; Walsh, C. T. Site-specific protein labeling by
+Sfp phosphopantetheinyl transferase. Nat. Protoc. 2006, 1, 280−285.
+(28) Yang, E.; Yao, Y.; Su, H.; Sun, Z.; Gao, S.-S.; Sureram, S.;
+Kittakoop, P.; Fan, K.; Pan, Y.; Xu, X.; Sun, Z.-H.; Ma, G.; Liu, G.
+Two cytochrome P450 enzymes form the tricyclic nested skeleton of
+meroterpenoids by sequential oxidative reactions. J. Am. Chem. Soc.
+2024, 146, 11457−11464.
+(29) Guengerich, F. P.; Yoshimoto, F. K. Formation and cleavage of
+C−C bonds by enzymatic oxidation−reduction reactions. Chem. Rev.
+2018, 118, 6573−6655.
+(30) (a) Yamada, T.; Kikuchi, T.; Tanaka, R. Altercrasin A, a novel
+decalin derivative with spirotetramic acid, produced by a sea urchin-
+derived Alternaria sp. Tetrahedron Lett. 2015, 56, 1229−1232.
+(b) Yamada, T.; Tanaka, A.; Nehira, T.; Nishii, T.; Kikuchi, T.
+Altercrasins A−E, decalin derivatives, from a sea-urchin-derived
+Alternaria sp.: Isolation and structural analysis including stereo-
+chemistry. Mar. Drugs 2019, 17, No. 218.
+(31) (a) Garg, A.; Khosla, C.; Cane, D. E. Coupled methyl group
+epimerization and reduction by polyketide synthase ketoreductase
+domains. Ketoreductase-catalyzed equilibrium isotope exchange. J.
+Am. Chem. Soc. 2013, 135, 16324−16327. (b) Xie, X.; Garg, A.;
+Keatinge-Clay, A. T.; Khosla, C.; Cane, D. E. Epimerase and reductase
+activities of polyketide synthase ketoreductase domains utilize the
+same conserved tyrosine and serine residues. Biochemistry 2016, 55,
+1179−1186. (c) Xie, X.; Garg, A.; Khosla, C.; Cane, D. E. Mechanism
+and stereochemistry of polyketide chain elongation and methyl group
+epimerization in polyether biosynthesis. J. Am. Chem. Soc. 2017, 139,
+3283−3292.
+(32) Gahloth, D.; Dunstan, M. S.; Quaglia, D.; Klumbys, E.;
+Lockhart-Cairns, M. P.; Hill, A. M.; Derrington, S. R.; Scrutton, N. S.;
+Turner, N. J.; Leys, D. Structures of carboxylic acid reductase reveal
+domain dynamics underlying catalysis. Nat. Chem. Biol. 2017, 13,
+975−981.
+(33) Daniel, B.; Hashem, C.; Leithold, M.; Sagmeister, T.; Tripp, A.;
+Stolterfoht-Stock, H.; Messenlehner, J.; Keegan, R.; Winkler, C. K.;
+Ling, J. G.; Younes, S. H. H.; Oberdorfer, G.; Bakar, F. D. A.; Gruber,
+K.; Pavkov-Keller, T.; Winkler, M. Structure of the reductase domain
+of a fungal carboxylic acid reductase and its substrate scope in
+thioester and aldehyde reduction. ACS Catal. 2022, 12, 15668−
+15674.
+(34) Droce, A.; Saei, W.; Jørgensen, S. H.; Wimmer, R.; Giese, H.;
+Wollenberg, R. D.; Sondergaard, T. E.; Sørensen, J. L. Functional
+analysis of the fusarielin biosynthetic gene cluster. Molecules 2016, 21,
+No. 1710.
+Journal of the American Chemical Society
+pubs.acs.org/JACS
+Article
+https://doi.org/10.1021/jacs.5c16272
+J. Am. Chem. Soc. XXXX, XXX, XXX−XXX
+J

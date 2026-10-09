@@ -1,0 +1,67 @@
+                                                        Nucleic Acids Research, 2011, Vol. 39, Web Server issue  W363
+
+
+domains that allow for modiﬁcations of the recruited    Training data
+amino acid monomers like epimerization, methylation or                                                 The starting point for this work were the 397 labeled
+formylation.                                                   A-domains collected by Rausch et al. for which the speci-
+  The structure–function relationship for monomer re-                                                                ﬁcity had been harvested from scientiﬁc literature desc-
+cruitment by A-domains has been further elucidated by                                                                ribing  their  experimental  characterization  (10). We
+Stachelhaus et  al. and Challis et  al. by examining the                                                    added 79 labeled bacterial A-domains and 100 labeled
+crystal structure of the peptide synthetase gramicidin S                                                           fungal A-domains to the database of NRPSpredictor.
+synthetase 1 (GrsA, PDB-ID: 1AMU) (4–6). The structure                                                        Furthermore, we added 4282 unlabeled bacterial and 814
+of the GrsA adenylation domain was determined with a                                                           unlabeled  fungal  A-domains  to  the  data  set  (see
+co-crystallized phenylalanine monomer and thus delivers                                                      Supplementary  Material  S1).  These A-domains  were
+additional structural information about the binding pocket                                                                 retrieved from the UniProt database by an automated
+of the A-domain, which enabled Stachelhaus et  al. to                                        BLAST search for A-domains that are embedded within
+propose a speciﬁcity conferring-code of A-domains by    a minimal NRPS module, which requires the existence of
+relating the active site conﬁguration of A-domains to the    an A-domain (Pfam-ID: PF00501), C-domain (Pfam-ID:corresponding substrates.                               PF00668) and PCP-domain (Pfam-ID: PF00550) (11,12).                          Downloaded
+  The speciﬁcity-conferring code was based on 10 active
+site residues and it could be used to predict the putative    Signature extraction                                                                                          from
+substrates of A-domains for which only the sequence was
+                                                 The set of all active site amino acids, called the signa-known. Many NRPS  services  like  the NRPS-PKS
+                                                                    ture, was identiﬁed by extracting all residues within 8 A˚knowledgebase, the NP.searcher or the system devised by
+                                                             of the substrate phenylalanine in the crystal structure ofBachmann et al. make use of this speciﬁcity-conferring
+                                             GrsA (PDB-ID: 1AMU). These 34 positions were thencode to predict putative A-domain substrates (7–9). The
+                                                              extracted from the set of training sequences using anspeciﬁcity-conferring code was further reﬁned by Rausch
+                                                 A-domain proﬁle HMM and selecting relevant positions
+et al. (10) by not only considering these 10 residues but
+                                                   from the alignment. The speciﬁcity conferring code pro-by using all active site residues within 8 A˚ of the amino
+                                                      posed by Stachelhaus et al. is a subset of these 34 residues
+acid substrate. A predictor, NRPSpredictor, based on
+                                                  and is also reported by the web server (6). Handling of
+Transductive Support Vector Machines (TSVMs) was
+                                                             protein structures, extraction of signatures and further
+built on these 34 active site residues to predict A-domain
+                                                            processing  was  carried  out  using  the  Active  Site
+speciﬁcity. In the following part of this article we will                                                             Classiﬁcation (ASC) software (13).
+present details about the new version of this predictor,
+termed NRPSpredictor2, namely the improved prediction                                                       Encoding
+performance, simpliﬁed descriptor set used for signature
+encoding and estimation of the applicability domain of the    NRPSpredictor2 makes use of two feature encodings for
+predictor.                                          amino acids: one  is the original encoding proposed by
+                                                  Rausch et al. based on 12 AAindex (14) descriptors and
+                                                             the other is a reduced encoding based on three z-scales
+                                                               descriptors devised by Wold et al. (15). The z-scales de-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          https://academic.oup.com/nar/article/39/suppl_2/W362/2506164
+MATERIALS AND METHODS                                scriptors represent the following physicochemical proper-
+                                                                                                                                     by                                                                               ties: hydrophobicity (WOLS870101), size (WOLS870102)
+Method outline                                                  and electronic properties (WOLS870103). Each signature                                                                                                                                                                                                                                                                                                                                             guestThe predictions of substrate speciﬁcity are based on the    can be embedded in Rn by encoding each residue into a
+                                                                                                                                     on
+conﬁguration of the residues in the active  site of an     descriptor tuple and concatenating these tuples. The pre-
+                                                                                                                                     31
+A-domain. We  therefore made  use  of an A-domain     dictive models are then trained on the transformed data.
+crystal structure (PDB-ID: 1AMU) as a template to de-termine these active site residues. The positions of these   SVMs                                                                                                                                                                                                                 October
+residues were then located in the A-domain sequences of   SVMs are classiﬁers based on the maximum margin prin-
+our training data set, and for each domain we extracted     ciple (16,17). During SVM training a hyperplane in feature         2025
+those positions. Having labeled sequence data, we applied    space is determined that gives the largest possible margin
+machine learning methods, namely SVMs, to train pre-    between the positive and negative class, thereby yielding
+dictors of substrate speciﬁcity. The predictions are based    an intuitively robust classiﬁer. The hyperplane gives a
+on numerical representations of the extracted signatures.     decision surface deﬁned by f(x) =     i yiai k(x, xi) whose
+The predictors were trained as detectors for each known     functional value is zero for data points directly on the
+substrate speciﬁcity in a one-versus-rest scheme, so every    hyperplane, +1 or more for data points in the positive
+predictor that gives a positive prediction signals that the     half-space and  1 or less for points in the negative half-
+query A-domain might activate the corresponding sub-     space. The margin is determined by the geometric distance
+strate. Using this scheme, a query A-domain might yield     of points with functional value of +1 or  1 (support vec-
+positive signals from more than one predictor and thereby     tors) to the hyperplane. NRPSpredictor2 uses the RBF
+giving the user additional information about possible sub-     kernel  k(x, y) = exp(  gjjx  yjj2) and  the  linear  kernel
+strate promiscuity of the A-domain or ambiguity of the     k(x, y) = xty on  the  physico-chemical  feature  vectors.
+prediction.                                          For the training of SVMs a set of labeled data points

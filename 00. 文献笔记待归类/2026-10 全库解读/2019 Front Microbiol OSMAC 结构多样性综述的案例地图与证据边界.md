@@ -1,0 +1,245 @@
+---
+type: literature-reading
+zotero_key: CTJPEHPH
+doi: "10.3389/fmicb.2019.00294"
+paper_type: review
+classification_status: pending
+reading_status: main-text-and-figures-read
+review_status: codex-source-checked
+human_full_paper_review: false
+source_attachment: LFWTNF7W
+source_sha256: 550960a1542288d7c6f60d0f2235226a387c3c8cffe7b7e0485533e5254ffc98
+created: 2026-10-07
+---
+
+> 原文来源：[Zotero 条目](zotero://select/library/items/CTJPEHPH)；[DOI](https://doi.org/10.3389/fmicb.2019.00294)；由当前 Codex 读取原始主文并核对图表，尚未经人工逐项复核。 来源限制：综述引用的原始论文未全面逐篇复核，活性与产量为二手转述；原文存在编号、数量、单位和菌名的局部冲突，相关例子待原始来源核对；共培养生产者及沉默基因簇激活在多例中未被直接验证；原文关于 nicotinamide 抑制剂类型和组蛋白乙酰化静电方向的表述经补充来源纠错；结构图版无原刊图号，笔记采用页码与化合物范围建立23个定位标识。
+
+# 一、文献基本信息
+
+**文章题目：Exploring Structural Diversity of Microbe Secondary Metabolites Using OSMAC Strategy: A Literature Review（利用 OSMAC 策略探索微生物次级代谢产物结构多样性：文献综述）** 。作者 Rui Pan、Xuelian Bai、Jianwei Chen、Huawei Zhang、Hong Wang。通讯作者 Huawei Zhang、Hong Wang 均来自浙江工业大学药学院（School of Pharmaceutical Sciences, Zhejiang University of Technology），合作单位为杭州师范大学生命与环境科学学院。期刊为 *Frontiers in Microbiology*，2019，10：294；DOI：10.3389/fmicb.2019.00294。
+
+论文于 2019 年 2 月 26 日发表，2018 年 8 月 11 日收稿、2019 年 2 月 4 日接受。基金包括国家重点研发计划 2018YFC0311004、2017YFE0103100，国家自然科学基金 41776139、81773628，以及浙江、杭州相关项目。文献类型为叙述性综述，集中整理已发表案例，没有开展本综述自身的一套统一培养、鉴定和活性实验，也未报告可复现的系统检索式与纳排流程。
+
+本笔记依据 Zotero CTJPEHPH 的二十页 PDF，附件 LFWTNF7W，解读正文和结论，图版分布在 PDF 第 2–13 页。原文没有标准 Figure、Table、Scheme 编号，化学结构以连续化合物编号分散排布。**下文“未编号结构图版 1–23”为本笔记的定位标识，并非作者原有图号** 。每版按原页完整截图、按对应主题插入；本文未将全部被引原始研究逐篇独立复核，涉及细胞读数和产量均保留综述转述的证据等级。
+
+# 二、核心摘要
+
+作者围绕微生物次级代谢产物（microbial secondary metabolites, MSMs）的结构发现，归纳一株多化合物（One Strain–Many Compounds, OSMAC）策略的应用案例。讨论范围包括培养基碳氮来源、盐度和金属离子，温度、pH、供氧及培养状态，共培养，表观遗传修饰剂，其他酶干预和生物合成前体。**核心观察是同一菌株在不同条件下呈现不同可分离结构，而非所有结构均来自已直接证明的沉默基因簇激活** 。结构图版覆盖多类聚酮、肽、萜及杂合成员，活性资料来自各被引研究。
+
+综述为 OSMAC 文献阅读提供较广的案例索引，但没有统一因素设计、定量口径、失败案例或跨策略效率比较。部分编号、单位、菌名和生化机制表述存在问题，因此不能把案例数量换算成普遍成功率，也不能将“最有效”当作经直接比较成立的结论。知识库应区分结构已被分离、条件关联、推测的调控机制，以及独立基因或酶证据，并保留原文位置与待核查状态。
+
+# 三、内容深度解读
+
+### (一) 培养基变化：营养来源、分析可见性与结构家族
+
+培养基不仅提供元素和能量，也同时影响生长、酸碱状态、菌体形态及代谢物提取。作者用更换氮源、碳源、固体基质及水源的案例说明，**一种条件下未检出某结构不等于菌株没有相应遗传潜力** 。相反，检出结构也不能直接证明表达被上调，提取率、检测灵敏度和生物量差异同样可能影响结果。综述没有为每个例子统一排除这些替代解释，因此条件与产物的对应应先记录为观察关联。
+
+PDF 第 2 页右栏的未编号结构图版 1 汇总 **1–19**。lajollamide A（**1**）与氮源替换相关，**2** 与特定培养基相关；**3–8** 涉及富氘条件所得标记成员，waikialoid A（**9**）在另一培养背景出现。后半部 **10–16** 比较 Cladosporium 的稻米与大豆基质相关聚酮，**17–19** 为 Dothideomycete 的不同骨架。**同位素标记、构象互变和新结构发现不能用同一种“新增化合物数”口径混算** 。
+
+
+![Unnumbered Structure Graphic 1 原文第 2 页](https://synbiopath.online/CTJPEHPH-Unnumbered-Structure-Graphic-1-p2-1-613b50d5c91eee5e.png)
+
+*Unnumbered Structure Graphic 1：未编号结构图版 1：原文 PDF 第 2 页，化合物 1–19；定位编号由本笔记设置，非原刊图号（原文 PDF 截图）。*
+
+
+PDF 第 3 页左栏图版 2 继续 **20–29**，说明即使同叫马铃薯培养基，鲜块茎与商业粉末也不保证相同结构谱；后续 fusarielins（**26–28**）和二酮哌嗪 **29** 则关联不同基质背景。图版中一些编号用共享骨架与取代基表示，另一些成员有立体化学差异。由此可见 OSMAC 的结构终点需要具体鉴定，不能仅用配方名称把研究归为同一干预，也不能从跨论文 IC50 判断某培养基具有普遍药效优势。
+
+
+![Unnumbered Structure Graphic 2 原文第 3 页](https://synbiopath.online/CTJPEHPH-Unnumbered-Structure-Graphic-2-p3-1-590a866cb7ae6317.png)
+
+*Unnumbered Structure Graphic 2：未编号结构图版 2：原文 PDF 第 3 页，化合物 20–29；定位编号由本笔记设置，非原刊图号（原文 PDF 截图）。*
+
+
+右栏图版 3 覆盖 **30–54**，前部包括 Lentzea 的 **30–31**、Paraphaeosphaeria 的 **32–37**、其他真菌的 **38–47**，后部为 Streptomyces C34 的 ansamycin 和大环内酯相关成员 **48–54**。不同水源、富蛋白基质或碳源替换引出不同家族，说明观察可以跨越同系物比例调整。正文却将“four”与 **48–49** 两个编号相连，属于计数或范围冲突；本笔记按图保留结构范围，不补造其余编号。
+
+
+![Unnumbered Structure Graphic 3 原文第 3 页](https://synbiopath.online/CTJPEHPH-Unnumbered-Structure-Graphic-3-p3-1-80ffedf24dbe8442.png)
+
+*Unnumbered Structure Graphic 3：未编号结构图版 3：原文 PDF 第 3 页，化合物 30–54；定位编号由本笔记设置，非原刊图号（原文 PDF 截图）。*
+
+
+PDF 第 4 页左栏图版 4 延伸到 **55–92**：Streptomyces CS 的 **55–70** 跨越不同大环和聚酮，ML55 的 **71–75** 包括 antimycins 与 depsipeptides，**76–77** 为另一菌株的 spectinabilin 类；**78–81** 涉及 A1 的不同培养背景，**82–92** 则包括 Talaromyces 的聚酮和内酯。图版支持结构家族的广度，但没有直接比较同一策略在全部菌株中的增益。正文某些细胞 IC50 写为 mM，不能未经原始文献核对改成 μM。
+
+
+![Unnumbered Structure Graphic 4 原文第 4 页](https://synbiopath.online/CTJPEHPH-Unnumbered-Structure-Graphic-4-p4-1-daaf44252ced8b13.png)
+
+*Unnumbered Structure Graphic 4：未编号结构图版 4：原文 PDF 第 4 页，化合物 55–92；定位编号由本笔记设置，非原刊图号（原文 PDF 截图）。*
+
+
+### (二) 盐、金属及物理条件：元素引入和调控效应需分开
+
+盐度可能改变渗透状态和细胞过程，卤盐又可能成为含卤结构的元素来源，二者不是同一种机制。PDF 第 5 页左栏图版 5 汇总 **93–118**：Aspergillus unguis 的 **93–98**、Dothideomycete 的 **99–107**、其他真菌 **108–110**，以及放线菌和 Trichoderma 的 **111–118**。含溴、含碘成员与未含卤结构同时存在，提示外加盐的结果不能全部解释为直接卤化，也不能全部解释为基因簇激活。
+
+
+![Unnumbered Structure Graphic 5 原文第 5 页](https://synbiopath.online/CTJPEHPH-Unnumbered-Structure-Graphic-5-p5-1-f96978bfd1199420.png)
+
+*Unnumbered Structure Graphic 5：未编号结构图版 5：原文 PDF 第 5 页，化合物 93–118；定位编号由本笔记设置，非原刊图号（原文 PDF 截图）。*
+
+
+右栏图版 6 为 **119–130**，金属关联案例包括 Ascotricha ZJ-M-5 的三萜或倍半萜成员 **119–123**、曲霉含氮成员 **124–129** 与环缩肽 NC-1（**130**）。某些干预后出现的少量峰没有充分结构鉴定，这类峰不能和已分离单体同等计数。Ascotricha 原始研究在本知识库另有精读；该综述将其归为金属效应，仍不能消除原始研究的营养背景等混杂因素，二手分类不是额外的因果验证。
+
+
+![Unnumbered Structure Graphic 6 原文第 5 页](https://synbiopath.online/CTJPEHPH-Unnumbered-Structure-Graphic-6-p5-1-6b13bf16466bd0f9.png)
+
+*Unnumbered Structure Graphic 6：未编号结构图版 6：原文 PDF 第 5 页，化合物 119–130；定位编号由本笔记设置，非原刊图号（原文 PDF 截图）。*
+
+
+作者继续讨论温度、pH 和供氧。PDF 第 6 页左栏上部图版 7 包括碱性背景的 pyranones **131–132**、酸性背景的螺双萘 **133–134**，及供氧关联的 aspinonene、aspyrone **135–136**。温度可影响酶和生长，但不能只从不同产物推出某酶已经失活；pH 既可能是干预也可能是培养终点，因果方向需辨别。**跨结构家族切换与同一骨架氧化程度改变可有不同机制，不能以“培养条件”统一替代具体解释** 。
+
+
+![Unnumbered Structure Graphic 7 原文第 6 页](https://synbiopath.online/CTJPEHPH-Unnumbered-Structure-Graphic-7-p6-1-917acc4f94d2776b.png)
+
+*Unnumbered Structure Graphic 7：未编号结构图版 7：原文 PDF 第 6 页，化合物 131–136；定位编号由本笔记设置，非原刊图号（原文 PDF 截图）。*
+
+
+### (三) 培养状态：十二个属的案例没有统一方向
+
+作者按十二个属整理固液、静置与动态培养差异，但很多例子同时更换了基质，不能视为只改变一个状态变量。PDF 第 6 页左下图版 8 的 **137–146** 为 Arthrinium 的萘糖苷、细胞松弛素、含氮成员及另一酯类；右上图版 9 的 **147–160** 为 Aspergillus 的环肽、二苯醚和其他聚酮。它们说明不同条件可揭示不同结构，不能推出固体或摇动条件对所有菌株都更有利。
+
+
+![Unnumbered Structure Graphic 8 原文第 6 页](https://synbiopath.online/CTJPEHPH-Unnumbered-Structure-Graphic-8-p6-1-73b5ffa55b0dbf8c.png)
+
+*Unnumbered Structure Graphic 8：未编号结构图版 8：原文 PDF 第 6 页，化合物 137–146；定位编号由本笔记设置，非原刊图号（原文 PDF 截图）。*
+
+
+
+![Unnumbered Structure Graphic 9 原文第 6 页](https://synbiopath.online/CTJPEHPH-Unnumbered-Structure-Graphic-9-p6-1-89810d1344e98a89.png)
+
+*Unnumbered Structure Graphic 9：未编号结构图版 9：原文 PDF 第 6 页，化合物 147–160；定位编号由本笔记设置，非原刊图号（原文 PDF 截图）。*
+
+
+图版 9 的正文把“four”与 **153–157** 五个编号并列，属于范围和数量不一致；本笔记保留五个编号及原图。PDF 第 6 页右下图版 10 为 Lentinus 的 **161–171**，并列 prenyl phenols、含氮成员、蒽醌及 benzopyrans、panepoxydones 等。跨家族的表观切换比单峰增减信息更多，但主文没有给这些成员统一生物量和回收率。**结构类别丰富不等于某状态已达到完整代谢组覆盖** ，更不能据引用中的细胞读数推广药理功效。
+
+
+![Unnumbered Structure Graphic 10 原文第 6 页](https://synbiopath.online/CTJPEHPH-Unnumbered-Structure-Graphic-10-p6-1-4e1ab374a9528c74.png)
+
+*Unnumbered Structure Graphic 10：未编号结构图版 10：原文 PDF 第 6 页，化合物 161–171；定位编号由本笔记设置，非原刊图号（原文 PDF 截图）。*
+
+
+PDF 第 7 页左栏图版 11 覆盖 **172–200**，将 Myxotrichum 的聚酮成员 **172–180**、Nodulisporium 的甾体 **181–192** 与 Paraphaeosphaeria 的不同内酯 **193–200** 并列。该图提供三个属的化学变化尺度：聚酮家族差异、甾体取代差异及环大小变化。它们来自不同研究，条件和鉴定深度并不一致；图上的结构关系不能直接作为已验证的连续转化途径，静置或动态状态也不能替代每个案例的具体生源证据。
+
+
+![Unnumbered Structure Graphic 11 原文第 7 页](https://synbiopath.online/CTJPEHPH-Unnumbered-Structure-Graphic-11-p7-1-7d1a80947e659499.png)
+
+*Unnumbered Structure Graphic 11：未编号结构图版 11：原文 PDF 第 7 页，化合物 172–200；定位编号由本笔记设置，非原刊图号（原文 PDF 截图）。*
+
+
+右栏图版 12 汇总 Penicillium 的 **201–242**。P. brocae 的含硫二酮哌嗪 **201–217**、P. adametzioides 的 **218–221**、P. commune 的 **222–229**、P. paneum 的 **230–237** 和深海菌株的 **238–242** 展现多个培养背景。含硫成员、倍半萜、azaphilones 与其他含氮骨架并不属于一个共同修饰序列。该属案例较多是文献覆盖特征，不能据此证明 Penicillium 的 OSMAC 成功率高于其他属。
+
+
+![Unnumbered Structure Graphic 12 原文第 7 页](https://synbiopath.online/CTJPEHPH-Unnumbered-Structure-Graphic-12-p7-1-2cbf7dece7228b5f.png)
+
+*Unnumbered Structure Graphic 12：未编号结构图版 12：原文 PDF 第 7 页，化合物 201–242；定位编号由本笔记设置，非原刊图号（原文 PDF 截图）。*
+
+
+PDF 第 8 页左栏图版 13 包括 Pestalotiopsis 的 **243–267**，体现 pupukeanane、异戊烯化色原酮、环丙烷及螺内酯等不同骨架；右栏图版 14 包括 Phomopsis 的 **268–274** 与 Spicaria 的 **275–293**。其中有大量细胞松弛素及相关成员，也有不同聚酮。综述对 Spicaria 活性的句子引用了 **235**，该编号属于前页其他背景，属于明确错位，不能在笔记中擅自改为某个相近编号并分配活性。
+
+
+![Unnumbered Structure Graphic 13 原文第 8 页](https://synbiopath.online/CTJPEHPH-Unnumbered-Structure-Graphic-13-p8-1-529ce1cd1f538e77.png)
+
+*Unnumbered Structure Graphic 13：未编号结构图版 13：原文 PDF 第 8 页，化合物 243–267；定位编号由本笔记设置，非原刊图号（原文 PDF 截图）。*
+
+
+
+![Unnumbered Structure Graphic 14 原文第 8 页](https://synbiopath.online/CTJPEHPH-Unnumbered-Structure-Graphic-14-p8-1-edffcdd1c794719e.png)
+
+*Unnumbered Structure Graphic 14：未编号结构图版 14：原文 PDF 第 8 页，化合物 268–293；定位编号由本笔记设置，非原刊图号（原文 PDF 截图）。*
+
+
+PDF 第 9 页左栏图版 15 完成培养状态部分，覆盖 Streptomyces 的 **294–309** 与 Ulocladium 的 **310–319**。前者兼有多烯、大环、杂合含氮成员和其他结构，后者包括聚酮、tricycloalternarenes 及 ophiobolanes。作者报告动态和静置培养存在不同成员，但未统一样本量、检出限或效应量。**固液培养、营养组成与供氧经常联动，不能将结构差异全部归因于剪切或氧浓度** ，这些图版首先是后续寻找原始来源的索引。
+
+
+![Unnumbered Structure Graphic 15 原文第 9 页](https://synbiopath.online/CTJPEHPH-Unnumbered-Structure-Graphic-15-p9-1-64aa99fb476626a5.png)
+
+*Unnumbered Structure Graphic 15：未编号结构图版 15：原文 PDF 第 9 页，化合物 294–319；定位编号由本笔记设置，非原刊图号（原文 PDF 截图）。*
+
+
+### (四) 共培养：出现新结构不自动确认生产者或相互作用机制
+
+共培养部分分为真菌间、细菌间及真菌与细菌的案例。PDF 第 9 页右栏图版 16 覆盖 **320–341**，包括 lipoaminopeptides、含氮结构、聚酮和大环成员。作者记录部分化合物在共培养检出而在各单培养未见，但这种对照本身不决定究竟由哪株直接合成；对方可能提供信号、前体、酶或改变环境。本文没有对全部案例给出同位素归属或分离菌株表达证据，因此“共培养相关产物”应先于“某株被激活”作为记录。
+
+
+![Unnumbered Structure Graphic 16 原文第 9 页](https://synbiopath.online/CTJPEHPH-Unnumbered-Structure-Graphic-16-p9-1-f33defe416fca37d.png)
+
+*Unnumbered Structure Graphic 16：未编号结构图版 16：原文 PDF 第 9 页，化合物 320–341；定位编号由本笔记设置，非原刊图号（原文 PDF 截图）。*
+
+
+PDF 第 10 页右栏图版 17 包括 **342–364**，涵盖大环、biphenomycin、butenolides、diterpenoids、pyridone 及 sesquiterpenoids 等。biphenomycin A/C 的 **345–346** 案例提示某些变化可涉及产物转化而非新基因簇。正文将 **349–354** 概括为 Chaetomium 与 Pseudomonas 的共培养，其引用标题却明确写 *autoclaved Pseudomonas aeruginosa*。**灭活细胞诱导和活菌共培养并不等同** ，不能由这种二手概括断言实时竞争或活菌分泌信号是必需因素。
+
+
+![Unnumbered Structure Graphic 17 原文第 10 页](https://synbiopath.online/CTJPEHPH-Unnumbered-Structure-Graphic-17-p10-1-1d0d4e9c6af9f466.png)
+
+*Unnumbered Structure Graphic 17：未编号结构图版 17：原文 PDF 第 10 页，化合物 342–364；定位编号由本笔记设置，非原刊图号（原文 PDF 截图）。*
+
+
+PDF 第 11 页左栏图版 18 汇总 **365–388**，包括单培养与混合背景的配对成员、糖苷、二苯醚、含氮产物及 cyclic depsipeptides。正文提及 A. nidulans 与 Streptomyces 接触相关的 **380–383**，以及相互作用引出的 **384–388**。这些例子把共培养效应从仅增加数量推进到具体结构和互作条件，但“物理接触相关”不能推广成所有案例都需要接触。各研究的活性和诱导强度没有统一口径，不能合并计算共培养的平均增益。
+
+
+![Unnumbered Structure Graphic 18 原文第 11 页](https://synbiopath.online/CTJPEHPH-Unnumbered-Structure-Graphic-18-p11-1-e3db1be4955adf23.png)
+
+*Unnumbered Structure Graphic 18：未编号结构图版 18：原文 PDF 第 11 页，化合物 365–388；定位编号由本笔记设置，非原刊图号（原文 PDF 截图）。*
+
+
+综述还转述色素或抗生素产量倍数，这些属于某些既有产物增加，不同于新骨架发现。实验中未检测到单培养产物也需要检出限才能判定是否真正零表达。本文对共同培养使用较积极的机制语言，但很多段落仍以“may”描述原因。**竞争、代谢互补、转化和表观遗传响应是不同解释，不能互换** ，若作为后续理论依据，应进一步检查各原始研究是否针对这些解释设置了区分性证据。
+
+### (五) 表观遗传干预：保留案例，同时纠正生化机制表述
+
+DNA 甲基转移酶（DNA methyltransferase, DNMT）和组蛋白去乙酰化酶（histone deacetylase, HDAC）相关干预被归为表观遗传手段。PDF 第 11 页右栏图版 19 包括 DNMT 干预关联的 **389–404** 与 SAHA 关联的 **405–413**，结构跨越萜、芳香聚酮、糖苷和肽。作者展示了化学扰动后的结构产出，但没有逐例给出甲基化或组蛋白标记测量，**使用被称为表观遗传修饰剂的化合物，不等于目标基因簇染色质状态已直接测定** 。
+
+
+![Unnumbered Structure Graphic 19 原文第 11 页](https://synbiopath.online/CTJPEHPH-Unnumbered-Structure-Graphic-19-p11-1-7eef049a07c75278.png)
+
+*Unnumbered Structure Graphic 19：未编号结构图版 19：原文 PDF 第 11 页，化合物 389–413；定位编号由本笔记设置，非原刊图号（原文 PDF 截图）。*
+
+
+PDF 第 12 页左下图版 20 覆盖 **414–430**，右上图版 21 延续 **431–453**，主要为 SBHA 或 nicotinamide 背景下的多种聚酮及其他成员。共有核心与不同取代基说明可见结构谱扩大，但不能把这些成员全部分配给某个相同 HDAC 亚型。正文将 nicotinamide 写为 Zn(II)-type HDAC inhibitor，与其引用 Asai 等研究不符；该原始研究明确将其归为 **NAD<sup>+</sup> 依赖 HDAC 的抑制剂** 。[补充核查：Asai 等原始研究作者版](https://pubs.rsc.org/en/content/getauthorversionpdf/c5ob01595b)
+
+
+![Unnumbered Structure Graphic 20 原文第 12 页](https://synbiopath.online/CTJPEHPH-Unnumbered-Structure-Graphic-20-p12-1-89f8966a4008aee0.png)
+
+*Unnumbered Structure Graphic 20：未编号结构图版 20：原文 PDF 第 12 页，化合物 414–430；定位编号由本笔记设置，非原刊图号（原文 PDF 截图）。*
+
+
+
+![Unnumbered Structure Graphic 21 原文第 12 页](https://synbiopath.online/CTJPEHPH-Unnumbered-Structure-Graphic-21-p12-1-7ff03d9abadab6a8.png)
+
+*Unnumbered Structure Graphic 21：未编号结构图版 21：原文 PDF 第 12 页，化合物 431–453；定位编号由本笔记设置，非原刊图号（原文 PDF 截图）。*
+
+
+正文还把组蛋白赖氨酸乙酰化描述为增加与 DNA 的静电吸引，这个方向不宜照搬。较准确的基础解释是乙酰化中和相应赖氨酸正电荷，可减少相关静电作用；染色质变化仍涉及多种因素，并不等于每次乙酰化都简单打开所有核小体。本段属于补充纠错，不是宣称综述作者已证明这一机制。[原始研究：组蛋白尾乙酰化与核小体内 DNA 压缩](https://academic.oup.com/nar/article/47/16/8470/5530308)
+
+PDF 第 13 页左栏图版 22 汇总组合干预相关的 **453–480**（**453** 在前页也出现），含芳香聚酮、萜、甾体、isariotin 类、cytosporone 和糖脂。正文比较若干单药与组合处理，但没有给所有案例统一的剂量矩阵、相互作用模型或统计检验，不能将“组合后更多”称为已定量证明协同。原文 SBHA/SHBA 拼写不一致，本笔记保留实际化合物名称并注明该问题，不能把倒置拼写误认成不同试剂。
+
+
+![Unnumbered Structure Graphic 22 原文第 13 页](https://synbiopath.online/CTJPEHPH-Unnumbered-Structure-Graphic-22-p13-1-b78d1de61f594cff.png)
+
+*Unnumbered Structure Graphic 22：未编号结构图版 22：原文 PDF 第 13 页，化合物 453–480（453 在前页也出现）；定位编号由本笔记设置，非原刊图号（原文 PDF 截图）。*
+
+
+### (六) 其他酶扰动与前体：从结构变化回到证据层级
+
+PDF 第 13 页右栏图版 23 包括 **481–501**，将氧化相关干预、其他细胞过程干预及前体关联成员放在末段。**481–487** 涉及不同氧化程度，**488–495** 包括细胞松弛素与相关成员，**496** 为另一含硫结构，**497–501** 涉及前体背景的结构报告。这些例子共同支持培养扰动扩大可观察谱，但不能把所有干预都称为作用于生物合成酶的特异抑制，特别是 DMSO 的终点效应不识别唯一分子靶点。
+
+
+![Unnumbered Structure Graphic 23 原文第 13 页](https://synbiopath.online/CTJPEHPH-Unnumbered-Structure-Graphic-23-p13-1-bd5b8c90b1892dbd.png)
+
+*Unnumbered Structure Graphic 23：未编号结构图版 23：原文 PDF 第 13 页，化合物 481–501；定位编号由本笔记设置，非原刊图号（原文 PDF 截图）。*
+
+
+前体章节需要区分原子进入产物与诱导产物出现。外加物可能直接参与结构装配，也可能经代谢转化或改变信号、营养状态。正文末段把 **499–501** 的 cytochalasins 与活性句中的 **498** 相连，而 **498** 已属于前一个 Penicillium 案例；未经原始来源核对不能指定哪个成员具有该 IC50。同样，综述中的 mM 与 μM、IC50、GI50、EC50、MIC 等不同读数不能合并排序，更不能据体外读数声称人体疗效。
+
+# 四、总结与展望
+
+### 4.1 总结
+
+本文的主要贡献是按培养基、物理条件、培养状态、相互作用与化学干预组织广泛案例，使 OSMAC 从泛指“换条件”变成可沿研究问题检索的文献地图。**结构已被分离和鉴定是化学观察，具体基因簇激活、生产者归属与催化机制需要独立验证** 。二十三个未编号图版承载不同家族与取代关系，但化合物编号达到 **501** 不代表五百零一个全球新化合物，也不代表统一实验下五百零一个成功结果。
+
+该综述没有提供跨策略的统一定量比较，缺乏失败案例和透明系统检索标准，因此摘要的“最有效”应理解为作者判断。原文局部编号、数量、单位、菌株写法和机制表述存在需追查的问题，本笔记保留定位与纠错依据。**将二手叙述拆解为可回到原始研究的证据条目，比把它直接转换成普适操作规则更有利于理论知识库** ，后续归类也应按实际问题和证据强度进行。
+
+### 4.2 展望
+
+作者提出将 OSMAC 与活性导向分离、微生物基因组挖掘及 LC-MS/MS 分子网络（molecular networking）结合，以减少重复发现并寻找新结构。本文并没有实际构建一个跨菌株验证的分子网络或基因组闭环，因此这些是综述展望，不是本篇的新结果。对于当前阅读任务，最需要补齐的是不同培养背景的准确元数据、结构对应和原始来源，而非仅凭图版扩大已知基因簇列表。
+
+从知识整理角度，可用标准化代谢物标识、来源页码和证据标签把化学观察与转录、染色质和酶功能结果关联；这属于解读者提出的信息组织方向。AI 辅助结构去重与文献检索可以提高追溯效率，但不能自动修正错位编号或混淆单位，也不能用模型判断代替原始谱图。当前笔记暂存待归类，来源未核实的机制继续保留明确状态，待全部阅读完成后再连接研究专题与既有分类。
+
+> 分类状态：待全部文献笔记完成后统一分类归档。

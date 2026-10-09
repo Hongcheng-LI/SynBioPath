@@ -1,0 +1,670 @@
+
+[PDF physical page 1]
+Molecular Plant                                                                                                                                                                                                                llll
+Research article
+
+Synthetic biology identiﬁes the minimal gene set
+required for paclitaxel biosynthesis in a plant
+chassis
+
+Youjun Zhang1,2,*, Lorenz Wiese3, Hao Fang3,4, Saleh Alseekh1,2, Leonardo Perez de Souza1,
+Federico Scossa1,5, John J. Molloy4, Mathias Christmann3 and Alisdair R. Fernie1,2,*
+1Max-Planck-Institut f€ur Molekulare Pﬂanzenphysiologie, Am M€uhlenberg 1, 14476 Potsdam-Golm, Germany
+2Center of Plant Systems Biology and Biotechnology, 4000 Plovdiv, Bulgaria
+3Institute of Chemistry and Biochemistry, Freie Universit€at Berlin, Takustraße 3, 14195 Berlin, Germany
+4Department of Biomolecular Systems, Max Planck Institute of Colloids and Interfaces, 14476 Potsdam, Germany
+5Research Center for Genomics and Bioinformatics (CREA-GB), Via Ardeatina 546, 00178 Rome, Italy
+
+*Correspondence: Youjun Zhang (yozhang@mpmimp-golm.mpg.de), Alisdair R. Fernie (fernie@mpimp-golm.mpg.de)
+
+https://doi.org/10.1016/j.molp.2023.10.016
+
+
+ABSTRACT
+
+The diterpenoid paclitaxel (Taxol) is a chemotherapy medication widely used as a ﬁrst-line treatment against
+several types of solid cancers. The supply of paclitaxel from natural sources is limited. However, missing
+knowledge about the genes involved in several speciﬁc metabolic steps of paclitaxel biosynthesis has
+rendered it difﬁcult to engineer the full pathway. In this study, we used a combination of transcriptomics,
+cell biology, metabolomics, and pathway reconstitution to identify the complete gene set required for the het-
+erologous production of paclitaxel. We identiﬁed the missing steps from the current model of paclitaxel
+biosynthesis and conﬁrmed the activity of most of the missing enzymes via heterologous expression in Nico-
+tiana benthamiana. Notably, we identiﬁed a new C4b-C20 epoxidase that could overcome the ﬁrst bottleneck
+of metabolic engineering. We used both previously characterized and newly identiﬁed oxomutases/epoxi-
+dases, taxane 1b-hydroxylase, taxane 9a-hydroxylase, taxane 9a-dioxygenase, and phenylalanine-CoA
+ligase, to successfully biosynthesize the key intermediate baccatin III and to convert baccatin III into pacli-
+taxel in N. benthamiana. In combination, these approaches establish a metabolic route to taxoid biosynthesis
+and provide insights into the unique chemistry that plants use to generate complex bioactive metabolites.
+
+Key words: paclitaxel biosynthesis, synthetic biology, baccatin III biosynthesis, Taxus
+
+Zhang Y., Wiese L., Fang H., Alseekh S., Perez de Souza L., Scossa F., Molloy J.J., Christmann M., and Fernie
+A.R. (2023). Synthetic biology identiﬁes the minimal gene set required for paclitaxel biosynthesis in a plant chassis.
+Mol. Plant. 16, 1951–1961.
+
+
+INTRODUCTION                                            several solid cancers (ovarian, breast, lung, cervical, pancreatic,
+                                                       and   Kaposi’s  sarcoma)   (Fischer  and   Ganellin,   2010).
+As a major source of bioactive small molecules, medicinal plants    Subsequently, Taxol and some of its related taxane analogs (e.g.,
+represent important resources for treatments against several hu-    docetaxel) have become leading anti-cancer drugs, with sales re-
+man diseases. Since the mid-1800s, the toxicity of Taxaceae ex-    ported to exceed ﬁve billion USD per year (Onrubia et al., 2013).
+tracts to animals has attracted the attention of chemists (Lucas,     Originally, paclitaxel was directly extracted from twigs, bark, or
+1856). An unusual cyclic diterpenoid (paclitaxel) was isolated and    needles of paciﬁc yew, but the low yield and the amount generally
+characterized from the bark of the Paciﬁc yew (Taxus brevifolia)    required for a therapeutic cycle (2–3 g paclitaxel/patient) have
+(Wani et  al., 1971) and was later shown to bind to b-tubulin,    intensiﬁed the search  for  alternative approaches to produce
+thereby destabilizing the assembly of microtubules. This activity     paclitaxel (Li et al., 2019). Total chemical synthesis of paclitaxel,
+of paclitaxel results in the slowing or blocking of mitosis at the    achieved  for the  ﬁrst time  in 1994,  is not an economically
+metaphase-anaphase transition and ultimately causes the induc-
+tion of apoptotic cell death (Yang and Horwitz, 2017). Since 1992,
+paclitaxel, under the brand name Taxol, has been approved by     Published by the Molecular Plant Shanghai Editorial Ofﬁce in association with
+the US Food and Drug Administration for medical use against     Cell Press, an imprint of Elsevier Inc., on behalf of CSPB and CEMPS, CAS.
+
+                                                          Molecular Plant 16, 1951–1961, December 4 2023 ª 2023 The Author. 1951
+                 This is an open access article under the CC BY-NC-ND license (http://creativecommons.org/licenses/by-nc-nd/4.0/).
+
+
+[PDF physical page 2]
+Molecular Plant                                     The gene complement of paclitaxel biosynthesis
+
+
+
+
+
+Figure 1. The pathway of paclitaxel biosynthesis.
+The catalytic sequence of seven hydrogenation steps is unclear. The black dotted line and the red enzyme represent newly identiﬁed steps. A black color
+represents previously identiﬁed steps. Module 1 represents baccatin III biosynthesis. Module 2 represents the second part of the pathway. TXS, tax-
+adiene synthase; T5aOH, taxane 5a-hydroxylase; TAT, taxadiene-5a-ol-O-acetyl transferase; T10bOH, taxane 10b-hydroxylase; T13aOH, taxane
+13a-hydroxylase; T2aOH, taxane 2a-hydroxylase; T9aOH, taxane 9a-hydroxylase; T7bOH, taxane 7b-hydroxylase; T1bOH, taxane 1b-hydroxylase; TBT,
+taxane-2a-O-benzoyltransferase; DBAT, 10-deacetyl baccatin III-10-O-acetyltransferase; BAPT, baccatin III-3-amino, 13-phenylpropanoyltransferase;
+T20aOH, taxane 20a-hydroxylase; DBTNBT, 30-N-debenzoyl-20-deoxytaxol-N-benzoyltransferase; PAM, phenylalanine aminomutase; PCL, b-phenylal-
+anine coenzyme A ligase.
+
+sustainable alternative (Nicolaou et al., 1994). Paclitaxel production     is then presumably transported to the endoplasmic reticulum
+for medical use is currently based on a semi-synthetic approach,     (ER), where it is further modiﬁed by at least 19 enzymes (Guerra-
+using10-deacetylbaccatinIIIisolatedfromTaxusneedlesasastart-   Bubb et al., 2012). In particular, taxadiene is hydroxylated at the
+ing material for chemical synthesis. Plant cell cultures derived from    C1, C2, C5, C7, C9, C10, and C13  positions, with  further
+several Taxus species are also employed for commercial paclitaxel    oxidation occurring at the C9 position (Guerra-Bubb et al., 2012;
+production. Ideally, metabolic engineering approaches could be   Zhang  et  al.,  2021)  (Figure  1).  After  further  modiﬁcations,
+used to enhance paclitaxel levels in Taxus cell culture (Roberts,    including acetylation and formation of the oxetane  ring, the
+2007; Nazhand  et  al.,  2020; Mutanda  et  al.,  2021)  or  to     resulting intermediate, baccatin  III (8), is subjected to the ﬁnal
+reconstitute paclitaxel production in a heterologous host such as    decoration  steps,  which  include  the  attachment   of  a
+Saccharomyces cerevisiae (Zhou et  al., 2015). However, the    b-phenylalanoyl moiety to C-13, additional oxidation of C-2a, and
+biosynthetic pathway for paclitaxel must ﬁrst be fully elucidated    transferofabenzoyl moietyonthesameb-phenylalanoylsidechain
+for metabolic engineering strategies to be feasible.                 (Figure1).Theenzymesresponsiblefor12ofthesestepshavebeen
+                                                                    identiﬁed and well characterized (Onrubia et al., 2014; Ramı´rez-
+The biosynthesis of taxadiene (taxa-4(5),11(12)-diene,15), a C20    Estrada et al., 2016; Sanchez-Mun˜oz et al., 2020), but for at least
+terpenoid,isthe ﬁrstcommitted stepinthe production ofpaclitaxel.     six additional hypothetical reactions, presumably catalyzed by
+Taxadiene is formed in the plastid by the action of taxadiene syn-    phenylalanine-CoA ligase (PCL), taxane 1b-hydroxylase (T1bOH),
+thase (TXS) (K€oksal et al., 2011), an enzyme using geranylgeranyl    taxane 9a-hydroxylase (T9aOH), and taxane 9a-dioxygenase, mo-
+pyrophosphate produced through the methylerythritol phosphate     lecular evidence is lacking, despite numerous omics resources that
+pathway as substrate (De La Pen˜a and Sattely, 2021). Taxadiene    are now available for Taxus, including the recent release of the
+
+1952  Molecular Plant 16, 1951–1961, December 4 2023 ª 2023 The Author.
+
+
+[PDF physical page 3]
+The gene complement of paclitaxel biosynthesis                                   Molecular Plant
+
+
+
+
+
+Figure 2. Identiﬁcation of epoxidase.
+Enzyme assay of epoxidase using taxusin as substrate. The generation of taxusin-4b,20-epoxide (26) by either enzyme assay or chemical synthesis was
+conﬁrmed by NMR. n.d., not detected.
+
+
+genome sequence of Taxus chinensis var. mairei (Cheng et al.,    Subsequently, we  optimized  production  of  taxadiene  in
+2021; Xiong et al., 2021; Zhang et al., 2021). Here, we report the    N. benthiamana using previously reported approaches. We tran-
+discovery  of these missing  paclitaxel  biosynthetic enzymes,     siently expressed truncated versions of the diterpene synthase
+veriﬁed by the reconstitution of the baccatin  III and paclitaxel   TXS  (nsTXS)  and  geranylgeranyl  pyrophosphate  synthase
+pathways in the heterologous host N. benthamiana (Figure 1).       (nsGGPS) that were targeted to the cytosol instead of the plastid,
+                                                              along with the rate-limiting enzyme of the cytosolic mevalonate-
+                                                         dependent  isoprenoid  pathway,  3-hydroxy-3-methylglutaryl-
+RESULTS                                               CoA reductase (HMGR) (Rontein et al., 2008; Li et al., 2019; De
+Identiﬁcation of candidate genes completing the           La Pen˜ a and Sattely, 2021). Approximately 100 mg taxadiene
+pathway of paclitaxel biosynthesis                           per gram fresh weight (FW) of N. benthiamana leaf was obtained.
+
+Genes of plant specialized biosynthetic pathways are often co-
+                                                             With an optimized taxadiene production platform in hand, we setexpressed  (Mutwil, 2020). We  utilized  this  characteristic to
+                                                           about screening the biosynthetic gene candidates that encodedsearch for candidate genes for the missing steps of paclitaxel
+                                                             oxidases to see if one of these candidates could use taxadienebiosynthesis across multiple published RNA sequencing (RNA-
+                                                          as a substrate. When one of the candidates, encoding a 2-seq) datasets using the 12 previously characterized paclitaxel
+                                                                  oxoglutarate/Fe(II)-dependent    dioxygenase     (epoxidase)biosynthesis genes as bait (Ramı´rez-Estrada et al., 2016; Liao
+                                                                   (Ramı´rez-Estrada et al., 2016), was expressed in N. benthaminaet   al.,  2017;  Kuang  et   al.,  2019;  Zhou  et   al.,  2019)
+                                                              along with nsTXS1, nsGGPS, and HMGR, we observed three(Supplemental Figure 1). Expression of the 12 characterized
+                                                                    ion peaks  related  to a compound with m/z 288  followingpaclitaxel biosynthesis genes could be detected in these RNA-
+                                                                   derivatization-based gas chromatography–mass spectrometryseq datasets, and a further 37 uncharacterized potential biosyn-
+                                                     (GC–MS)  analysis  of  an  ethyl  acetate  extract  of  thethetic gene candidates were found to be co-expressed with these
+                                                             N. benthiamana leaf tissue (Supplemental Figures 9 and 10).known genes (Supplemental Table 1). Moreover, three chemicals
+                                                   None of these spectra matched OCT (17), iso-OCT (18), taxa-(10-deacetylbaccatin III, baccatin III and paclitaxel) could not be
+                                                                 diene-5a-ol (16), or chemically synthesized epoxide-taxadienedetected in N. benthamiana, which indicated that this species
+                                                              (Supplemental Figures 5 and 10). We attempted to express thiscould  be  used  to  verify  the  function  of  these  genes
+                                                                    putative 4b-C20 epoxidase (19) in E. coli or S. cerevisiae strains(Supplemental Figures 2 and 3). Given the high complexity of
+                                                                       that produced taxadiene. However, in both instances, only thepaclitaxel biosynthesis, we split the pathway into two modules:
+                                                               taxadiene starting material could be detected, suggesting that(i) 10-deacetylbaccatin  III and baccatin  III biosynthesis and  (ii)
+                                                                             this enzyme cannot be expressed  in active form  in thesethe  late  stages  of  paclitaxel  production from  baccatin   III
+                                                              expression systems. However, when we transiently expressed(Figure 1).
+                                                     T5aOH, along with HMGR, nsGGPS, nsTXS, and epoxidase,
+                                                                 the  level  of  oxidized  taxadiene was  signiﬁcantly reduced,
+Epoxidation reactions of baccatin III biosynthesis           suggesting that it is a substrate of the downstream enzymes of
+The biosynthetic genes for the biosynthetic intermediate taxa-    the paclitaxel pathway (Supplemental Figures 9–14).
+diene have been successfully transferred to E. coli (Ajikumar
+et al., 2010), yeast (Zhou et al., 2015), and tobacco chloroplasts    Moreover, using the synthesized taxusin-4b,20-epoxide (26) as an
+(Li et al., 2019; De La Pen˜ a and Sattely, 2021). However, how    authentic standard (Kaspera et  al., 2010), we were able to
+the pathway proceeds immediately downstream is less clear. It    demonstrate that the epoxidase could catalyze the conversion of
+is  proposed  that  the  CYP725A4  taxane-5a-hydroxylase    taxusin (25) to taxusin-4b,20-epoxide (26, high-resolution MS
+(T5aOH)  converts  taxadiene  into  taxadiene-5a-ol  (16),  but   [HRMS]  m/z  543.25572  [M++Na])  (Figure  2;  Supplemental
+enzyme assays show that T5aOH produces primarily 5(12)-oxa-    Figures 15 and  16). This suggests that the epoxidase may
+3 (11)-cyclotaxane (OCT; 17), which can no longer re-enter the    catalyze an epoxidation of C4-20, but since we were unable to
+route to paclitaxel (Zhou et  al., 2015; Edgar et  al., 2017; Li     isolate any of the epoxidase products in quantities sufﬁcient for nu-
+et al., 2019; Mutanda et al., 2021) (Supplemental Figures 4–8).      clear magnetic resonance (NMR), the catalytic activity of this
+
+                                                          Molecular Plant 16, 1951–1961, December 4 2023 ª 2023 The Author. 1953
+
+
+[PDF physical page 4]
+Molecular Plant                                     The gene complement of paclitaxel biosynthesis
+
+
+
+
+
+Figure 3. Identiﬁcation of T9aOH and T9a oxidase.
+(A) Biosynthesis of taxusin from taxa-4(20),11-dien-5a-acetate (29) with newly identiﬁed T9aOH alongside T10bOH, T13aOH, DBAT, TAX19, and TAX14.
+(B) LC–MS conﬁrmation of the products of taxusin with and without T9aOH compared with the authentic standard of taxusin.
+(C) 13-Acetylbaccatin III (31) could be generated by either T9a oxidase or TAX19. TAX19 is the taxoid-O-acetyltransferase acting at the C13 position to
+generate 13-acetylbaccatin III (31).
+(D) LC–MS analysis of 13-acetylbaccatin III(31) produced from the two different enzymes and substrates and compared with the authentic standard
+(conﬁrmed by NMR).
+
+epoxidase remains speculative, and future research will be needed    Given that both taxane 7b-hydroxylase and taxane 2a-hydroxylase
+in order to unambiguously deﬁne this stage of the pathway.         were found to display activity using taxusin (25) as substrate (Chau
+                                                                       et al., 2004a), we independently expressed 12 new cytochrome
+                                                       P450s iin N. benthamiana leaves, which were subsequently fed
+Identiﬁcation of two missing hydroxylases
+                                                                   with taxusin (25). Hydroxylased taxusin, which has a distinct
+The enzyme in the next missing step is predicted to be a taxoid                                                                       retention time but the same spectral proﬁle as 7b-hydroxytaxusin
+9a-hydroxylase. Based on the transcriptomic analysis, 12 new cy-                                                                            (36) and 2a-hydroxytaxusin (37), was generated by CYP725A23-1
+tochrome P450s were found with high sequence similarity to the                                                               (Supplemental Figure 19). To conﬁrm the function of the 4b-C20
+other ﬁve taxadiene hydroxylation enzymes, including three poten-                                                               epoxidase, T9a oxidase, T9aOH, and taxane 1b-hydroxylase
+tialT9aOHs.Thus, wescreenedall potential proteinstodetermine if                                                               candidates  within  the  paclitaxel pathway,  all  the  identiﬁed
+they were capable of acting as distinct hydroxylases by expressing                                                       enzymes of baccatin  III  (8) biosynthesis  (i.e., the 12 known
+the selected enzymes alongside nsTXS1, nsGGPS, 4b-C20 epoxi-                                                       enzymes plus these four novel enzymes) were expressed  in
+dase,HMGR,andRNAsilencing suppressorp19 inN.benthamiana                                                             N. benthamiana leaves as described below.
+leaves (Supplemental Figure 17). The expression CYP725A22-1
+was found to signiﬁcantly reduce the levels of the 4b-C20 epoxi-
+dase (19) and to produce novel metabolic intermediates with m/z   Discovery of the missing T9a oxidase
+304 in GC-MS, a mass consistent with C5 or C10 hydroxylation   An oxidase that acts on carbon 9 (T9 a oxidase) is anticipated to be
+(Supplemental Figure 17). This peak has mass spectral proﬁles    essential for the formation of baccatin III (8), but the responsible
+and a retention time distinct from those of products generated by    protein has not yet been identiﬁed. Supplying 9-dihydro-13-
+all ﬁve  characterized  hydroxylases. To conﬁrm  this  taxoid    acetylbaccatin  III (30) to tobacco leaves expressing one of the
+9a-hydroxylase, we synthesized taxusin (25) using previously   gene candidates, which was homologous to  gibberellin 20-
+characterized enzymes (T10bOH, taxane 13a-hydroxylase, 10-    oxidase (2-oxoglutarate/Fe(II)-dependent dioxygenase), resulted
+deacetyl  baccatin  III-10-O-acetyltransferase  [DBAT],  TAX19,     in the production of 13-acetylbaccatin  III (31) by C9 oxidation
+TAX14) alongside the newly identiﬁed T9aOH (Figure 3A) by    (Figure  3;  Supplemental  Figures  20  and  21).  The  13-
+supplying taxa-4(20),11-dien-5a-acetate (29). As assessed by the    acetylbaccatin III (31) could also be generated from baccatin III (8)
+production of taxusin (25), which we followed by liquid chromatog-   by C13 acetylation (Chau et  al., 2004b). Similarly, supplying
+raphy–tandem MS (LC–MS/MS), the presence of T9aOH could    N.  benthiamana  expressing  taxane-2a-O-benzoyltransferase,
+overcome the limitation of using taxadiene-5a,13a-ol (32) or taxa-   DBAT, T9 a oxidase, and taxadiene-5a-ol-O-acetyl transferase
+diene-5a-yl-acetate-10b-diol (33) as a precursor, which was stated    with deacetyl-9-dihydro-13-acetylbaccatin  III (39) as an exoge-
+inpreviouspublications(Jenneweinetal.,2001;Guerra-Bubbetal.,    nously supplied substrate resulted in the production of baccatin
+2012) (Supplemental Figure 18).                                                                 III (8) (Supplemental Figure 22). A mechanism for spontaneous
+
+1954  Molecular Plant 16, 1951–1961, December 4 2023 ª 2023 The Author.
+
+
+[PDF physical page 5]
+The gene complement of paclitaxel biosynthesis                                   Molecular Plant
+
+
+
+
+
+Figure 4. Biosynthesis of baccatin III(8) in N. benthamiana.
+(A) Scheme of baccatin III(8) biosynthesis.
+(B) The characterized enzymes (T5aOH, T13aOH, T10bOH, T2aOH, T7bOH, TBT, TAT, DBAT) were expressed with four newly identiﬁed enzymes to
+produce baccatin III (8).
+(C) Around 154.87 ng/g baccatin III (8) was produced from four biological replicates compared with 225.32 ng/g in Taxus needles.
+(D)TheidentiﬁcationofbaccatinIII(8)fromtaxus,authenticstandard,andinﬁltratedN.benthamiana.Errorbarsrepresentstandarddeviation.n.d.,notdetected.
+
+
+
+
+formation of the oxetane ring has been suggested in previous      full Taxol pathway are the lack of detection of many putative inter-
+research (Ondari and Walker, 2008; Guerra-Bubb et al., 2012)    mediates and the insufﬁcient data concerning the localization and
+(Supplemental Figure 23). Here, the spontaneous transfer of the    the transport of these intermediates at the subcellular level. Thus,
+deacetyl-1-hydroxybaccatin I (43) oxetane ring to deacetyl-9-dihy-   we engineered all baccatin  III (8) biosynthetic genes, including
+dro-13-acetylbaccatin  III (39) was also observed (Supplemental    P19, 3-hydroxy-3-methylglutaryl coenzyme A reductase (HMGR),
+Figure 24). Moreover, deacetylated taxusin (44) could not be used   and benzoate-Coenzyme A ligase (BZL), so that their products
+for baccatin III biosynthesis in our feeding experiment, the same   were located in either the cytosol or at the ER membrane. The en-
+ﬁnding as in previous research (Supplemental Figure 25) (Ondari    gineered DBAT, which has been demonstrated topossess superior
+and Walker, 2008; Guerra-Bubb et al., 2012).                           catalytic properties (estimated to be 60 times more efﬁcient than
+                                                      DBAT) (You et  al., 2018), was also used. Although the co-
+                                                                   transformation efﬁciency of these three large plasmids remained
+Engineering baccatin III biosynthesis                          low, we found that both 10-deacetylbaccatin III (7) and baccatin
+The use of heterologous hosts for paclitaxel production represents       III (8) were produced in all replications in N. benthamiana leaves
+a research priority, given the complexity and associated costs of    (Figure 4A; Supplemental Figures 26–28). Although the level of
+the current alternative approach based on semi-synthesis. In this    10-deacetylbaccatin  III (7) was relatively low  (  15.40 ng/g FW),
+regard, Arabidopsis and Nicotiana are expected to offer a favorable    the levels of baccatin  III (8) could reach   154.84 ng/g FW in
+environment for the functional expression of CYP450s and the    N. benthamiana, which is close to the amount produced in Taxus
+othergenesinvolvedinthebiosynthesisofpaclitaxelpathwayinter-    needles (  225.32 ng/g FW). Despite the lower yield than that found
+mediates.Thetwomainbottleneckshinderingtheelucidationofthe   when the genes are expressed in their native environment, these
+
+                                                          Molecular Plant 16, 1951–1961, December 4 2023 ª 2023 The Author. 1955
+
+
+[PDF physical page 6]
+Molecular Plant                                     The gene complement of paclitaxel biosynthesis
+
+
+
+
+
+Figure 5. Identiﬁcation of the missing PCL and conﬁrmation of the activity of T20aOH.
+(A) Scheme of paclitaxel(14) biosynthesis from baccatin III(8) and L-phenylalanine(9).
+(B) Expression of the three characterized enzymes (PAM, BAPT, and DBTNBT) with the newly identiﬁed enzymes to produce paclitaxel by feeding
+baccatin III(8) and L-pheylalanine(9).
+(C) Paclitaxel(14) was produced by TmAAE16  (  29.39 ng/g) and Pc21g20650  (  64.29 ng/g) in N. benthamiana. Taxus needles produced around
+941.40 ng/g paclitaxel.
+(D) The identiﬁcation of paclitaxel(14) from taxus, authentic standard, and inﬁltrated N. benthamiana. Error bars represent standard deviation. n.d., not
+detected.
+
+
+results showed that we can produce 10-deacetylbaccatin III (7) and     (9) by phenylalanine aminomutase (Walker et  al., 2004);  (ii) the
+baccatin III (8) in a heterologous system, having deﬁned an entire     activation of b-phenylalanine to a CoA ester by a b-PCL;  (iii) the
+minimal pathway for their biosynthesis (Figure 4; Supplemental    binding of the side chain by the enzyme baccatin III-3-amino, 13-
+Figures 26 and 29). As a ﬁnal experiment regarding the pathway    phenylpropanoyltransferase (BAPT) (Walker et al., 2002a); (iv) the
+structure, we carried out a so-called dropout experiment in which    hydroxylation  of the  side chain  at carbon  20 by an as  yet
+the entire pathway of baccatin III (8) biosynthesis was expressed    uncharacterized  taxane  20a-hydroxylase  (T20aOH)  (Sanchez-
+in N. benthamiana leaves with the exception of one gene at a    Mun˜oz et al., 2020); and (v) the benzoylation of the product of this
+time. Without expression of any of the four newly identiﬁed genes,    reaction  by  30-N-debenzoyl-20-deoxytaxol-N-benzoyltransferase
+both 10-deacetylbaccatin III (7) and baccatin III (8) were not pro-    (Walker et al., 2002b). An in-depth computational and experimental
+duced, thus conﬁrming that each gene is necessary for baccatin    analysis of a previously analyzed cDNA-ampliﬁed fragment length
+III (8) biosynthesis (Figure 4B). Moreover, when leaves were fed a    polymorphism (AFLP)c dataset (Ramı´rez-Estrada et al., 2016) was
+puriﬁed epo-taxadiene mix, baccatin III could also be generated    recently conducted, leading  to the  identiﬁcation  of  transcript
+by this minimal pathway without TXS (Supplemental Figure 30).     TB506 (CYP73A171) as a putative T20aOH (Sanchez-Mun˜oz et al.,
+                                                                     2020). Molecular docking was conducted to conﬁrm the binding of
+                                                           such a  large substrate as 30N-dehydroxydebenzoyltaxol, with
+Identiﬁcation of enzymes catalyzing the last steps of         possible docking sites being recognized. Here, we identiﬁed that
+paclitaxel biosynthesis                                                  this T20aOH was subcellularly localized to the ER membrane.
+In the ﬁnal steps of paclitaxel biosynthesis, the most pressing chal-     Intriguingly, although T20aOH  activity was conﬁrmed  in Pisum
+lengesareto elucidatethereactionsleadingto theside-chainattach-    sativum protoplasts, T20aOHs have not yet been employed in
+ment of b-phenylalanoyl-CoA (11) to baccatin III (8) and its down-    metabolic  engineering  strategies.  Here,  we  overexpressed
+stream modiﬁcations (Figure 5A). This part of the pathway is known    Arabidopsis benzoate-CoA ligase (BZO) and Taxus BAPT, 30-N-de-
+to include (i) the conversion of a-phenylalanine to b-phenylalanine    benzoyl-20-deoxytaxol-N-benzoyltransferase,  and  T20aOH   in
+
+1956  Molecular Plant 16, 1951–1961, December 4 2023 ª 2023 The Author.
+
+
+[PDF physical page 7]
+The gene complement of paclitaxel biosynthesis                                   Molecular Plant
+
+N. benthamiana leaves and co-inﬁltrated them with benzoic acid,    given that few intermediates can be detected, it is possible that
+b-phenylalanine-CoA (11), and baccatin III (8). Following co-inﬁltra-    substrate channeling may mediate these reactions (Pareek et al.,
+tion,  low   levels   of   paclitaxel   (14)  accumulated   in  the    2021; Zhang and Fernie, 2021). Future investigations are  still
+N. benthamiana leaves (Figure 5B; Supplemental Figure 31). The   needed to  identify possible enzyme–enzyme assemblies and
+identity of paclitaxel (14) was conﬁrmed by comparison of mass    substrate channeling. Such studies may also provide insight into
+spectra to those of an authentic standard.                           the order of the reactions underlying baccatin III (8) biosynthesis.
+
+
+Given that one Penicilium chrysogenum enzyme (Pc21g30650) has   The metabolic engineering of paclitaxel remains limited to the use
+been characterized as b-PCL (Koetsier et al., 2011), we used this    of a transient expression system in N. benthamiana. Given the low
+gene  to  replace  the Taxus homologs  that  could produce   enzyme activities of DBAT, PCL, and BAPT and the toxicity of
+paclitaxel  (14) (Figure 5B). Blasting the protein sequence of     paclitaxel, both 10-deacetylbaccatin  III (7) and baccatin  III (8)
+Pc21g30650 against the Taxus genome, we identiﬁed seven    accumulate to levels 10–20 times greater than paclitaxel in Taxus
+acyl-activating enzymes (AAEs), including three AAEs from the    (McElroy and Jennewein, 2018). Moreover, the expression of a
+transcriptomics dataset of the three Taxus species (Zhou et al.,    mutant  P.  chrysogenum PCL  could  signiﬁcantly  increase
+2019) (Supplemental Table 1). Given that the products of most     catalytic  efﬁciency  (Koetsier  et  al.,  2011). Since we have
+paclitaxel biosynthesis genes are subcellularly localized at the    identiﬁed the  full pathway, future engineering work on BAPT
+ER membrane,  it seems likely that the active PCL will also be   and PCL will likely greatly improve the efﬁciency of paclitaxel
+found at  this location (Supplemental Figure 31). Indeed, our    biosynthesis in stably transformed plants.
+experiments conﬁrmed that, similar to the T5aOH and taxadiene-
+5a-ol-O-acetyl transferase enzymes, this enzyme was localized    Through our combined use of metabolomic analyses and heterol-
+to the ER membrane (Supplemental Figure 32).                  ogous expression in N. benthamiana, we have been able to rapidly
+                                                                      establish a complete overview  of the complex  biosynthetic
+To identify the native Taxus b-phenylalanine-CoA ligase, seven co-    pathway of paclitaxel, a plant-derived drug of historical and
+expressed AAEs were expressed with the  suite  of enzymes    contemporary importance. By combining  biosynthetic genes
+described above (Figure 5A); following feeding with benzoic acid,    from the medicinal plant Taxus with enzymes co-opted from other
+L-phenylalanine, and baccatin  III, we detected a low level of    pathways, we demonstrate de novo biosynthetic production of
+paclitaxel accumulation in the leaves of N. benthamiana only upon    both 10-deacetylbaccatin   III  (7) and baccatin   III  (8)  in  this
+overexpression of TAAE16 (Figure 5B; Supplemental Figure 31).   commonly   used   model   plant.   However,   given   that
+Thus, after the identiﬁcation of this PCL and of the T20aOH,    N. benthamiana has diterpenoid-biosynthesis-related genes, we
+alongside the elucidation of the missing steps  in baccatin  III    cannot exclude the possibility that the biosynthesis of baccatin III
+biosynthesis, a complete ‘‘minimal’’ pathway for the biosynthesis    might be assisted by some chaperone proteins, enzymes, or co-
+of paclitaxel could be formulated (Figure 1). Although yields were     factors. Ultimately, our results not only provide a metabolic route
+too low to successfully reconstitute the entire paclitaxel pathway in    to the production of paclitaxel but also highlight a powerful strategy
+a single module, the combined analysis that we present suggests     for accelerating the discovery and engineering of natural product
+not only that the pathway is complete but also that paclitaxel    biosynthesis in medicinal plants.
+production via synthetic biology approaches is possible.
+                                        METHODS
+DISCUSSION                                         Chemicals and reagents
+
+Despite the enormous chemical diversity (close to 600 reported    Unless stated otherwise, general chemicals and reagents, including 10-
+taxane structures and 21 000 recorded chemicals), only the three    deacetylbaccatin  III (Sigma, D3676); baccatin  III (Sigma, B8154); pacli-
+                                                                                 taxel (Sigma, T7402); L-phenylalanine (Sigma, P2126); DL-b-phenylala-
+taxanes paclitaxel, docetaxel, and cabazitaxel have been devel-
+                                                                          nine (Sigma, 159 492); b-phenylalanoyl-CoA (TransMIT, no. P038); taxusin
+oped as drugs for the treatment of various types of cancer (Lange
+                                                                                         (P) (LGC, CDX-00020082-010); 1-hydroxybaccatin I (TMO-TN2540, Tar-
+and Conner, 2021). The bioactivities of most other taxanes have                                                                            getMol); 9-dihydro-13-acetylbaccatin  III (TMO-T5132, TargetMol); and
+not been  well  characterized  because  of  their  low  levels.    benzoic acid (Sigma, 242 381), were purchased commercially.
+Identiﬁcation of the full paclitaxel biosynthesis pathway should
+allow us to overcome this limitation by enabling us to purify large    Plant growth
+quantities of the various taxanes for use in preclinical and clinical    N. benthamiana plants were maintained on growth shelves at the Max
+trials. Since the release of the sequenced genomes of Taxus    Planck Institute of Molecular Plant Physiology with a 16 h light and 8 h
+(Cheng et al., 2021; Xiong et al., 2021; Zhang et al., 2021), many    dark cycle at 22 C. Plants were grown for 4–5 weeks before Agrobacte-
+taxane P450s and acetyltransferases have been suggested to    rium  inﬁltration, with periodic watering as needed. T. baccata and
+be  related  to  taxane  biosynthesis. The  application  of  the     T. cuspidata plant materials were provided by the Botanical Garden of
+                                                                          the University of Potsdam. Needles of T. baccata and T. cuspidata werestrategies we presented here will facilitate future research efforts
+                                                                      immediately snap frozen in liquid nitrogen after removal from the plant
+to characterize the biosynthesis of additional useful taxanes.
+                                                             and stored at  80 C until further use.
+
+Although the full pathway was identiﬁed, the order of some of the    Transcriptomic analysis
+catalytic steps in the pathway remains to be deciphered. Given the
+                                                                               Additional candidate biosynthetic genes involved in the biosynthesis of
+very low abundance of the intermediates, the classical approach of     paclitaxel were obtained from four published Taxus plant RNA-seq datasets
+ordering the sequence of reactions through isotope tracer experi-     (methyl jasmonate-induced Taxus cell lines [Ramı´rez-Estrada et al., 2016;
+ments does not seem to be feasible. Furthermore, since all these    Xiong et al., 2021], three tissues [Kuang et al., 2019], three species [Zhou
+enzymes are subcellularly localized to the ER membrane, and     et al., 2019], and a 10-year-old culture compared with a new culture [Liao
+
+                                                          Molecular Plant 16, 1951–1961, December 4 2023 ª 2023 The Author. 1957
+
+
+[PDF physical page 8]
+Molecular Plant                                     The gene complement of paclitaxel biosynthesis
+
+et al., 2017]) using the 13 already characterized paclitaxel biosynthesis    Confocal analysis
+genes as bait. The top correlated genes were selected from the different                                                                      Constructs were transiently expressed in N. benthamiana leaves by agro-
+datasets and used for overlap heatmap analysis. The similarly changed                                                                                       inﬁltration as described above for the protein co-sublocalization analysis.
+genes were selected from  different databases  prior  to  this overlap                                                                     Confocal images were taken using a DM6000B/SP8 confocal laser scan-
+analysis. We only selected candidates that were putatively annotated as                                                                         ning microscope.
+having  the  function  of  P450s,  characterized  hydroxylases,  PCLs,
+Pc21g30650,  taxane  9a-dioxygenases,  or C4b-C20  epoxidases by                                              GC–MS
+comparing the sequence homology of similar functional proteins.
+                                                                      For GC–MS analysis of taxa-4(5),11(12)-diene, iso-OCT, OCT, and taxa-
+                                                                            diene-5a-ol, plant materials (needles from T. baccata) were collected
+cDNA cloning and vector construction                           and ground to a powder in liquid nitrogen. According to a previously pub-
+                                                                               lished protocol (Li et al., 2019), around 1 g plant material was extracted
+cDNA of the T. baccata needles was generated according to a previous
+                                                                            three times by 1 ml hexane with 20 min of shaking and 20 min of
+publication (Ramı´rez-Estrada et al., 2016). The 41 paclitaxel biosynthesis
+                                                                              sonication. Samples were then extracted once with a hexane:ethyl
+genes (Supplemental Table 1) alongside the Taxus cytochrome P450
+                                                                        acetate mixture (4:1 v/v). The organic solvent phases were combined
+reductase (CPR) were cloned from the cDNA of T. baccata by PCR-based
+                                                             and dried under a stream of nitrogen. The sample (1 ml) was injected
+Gateway BP cloning using the pDONR207 donor vector (Thermo Fisher Sci-
+                                                                                   into the GC–MS in splitless mode in a Thermo Scientiﬁc TRACE 1300 Se-
+entiﬁc, Waltham, MA, USA). Similarly, ATHMGR and ATBZO were cloned
+                                                                                       ries Gas Chromatograph by ZB-5 column (Phenomenex). The retention
+from Arabidopsis cDNA. The P19 protein was cloned from pBIN61-P19.
+                                                                       times of taxa-4(5),11(12)-diene (m/z 272), OCT (m/z 288), and taxadiene-
+Pc21g3065 was cloned from P. chrysogenum (Koetsier et al., 2011). The
+                                                                           5a-ol (m/z 288) were comparable with those from the yeast extraction pos-
+gene-speciﬁc primers used did not include a stop codon to ensure C-termi-
+                                                                                                itive  control, and  the  products were  further conﬁrmed by NMR
+nal fusion of tags according to our previous protocol (Zhang et al., 2019)
+                                                                      (Supplemental Table 4) (Walls et al., 2022).
+(Supplemental Table  2). For  subcellular  localization,  all genes were
+subcloned into PK7FWG2 with a C-terminal GFP tag. The pBin-ER-
+mCherry was used as the subcellular localization marker (Nelson et al.,    For GC–MS proﬁling analysis of other intermediates from 4b,20-taxadiene
+2007). All the paclitaxel biosynthesis genes were subsequently cloned    and 4b,20-taxadiene-5a-ol, plant material was collected and ground to a
+under the control of the 35S promoter and terminator using gene-speciﬁc    powder in liquid nitrogen. Around 1 g plant material was extracted by 650
+primers with stop codons using In-Fusion (Takara Bio) technology, while      ml ethyl acetate with 30 min of shaking and 10 min of sonication. After centri-
+both CPR and AtBZO were linked with the CsMV promoter and terminator     fuging at 16 000 g for 5 min, the 600 ml supernatant was transferred to a fresh
+of Arabidopsis actin 8 (Supplemental Table 4). All four genes were linked by    2 ml tube. Subsequently, 500 ml ethyl acetate was added, and the sample
+two-step In-fusion (Takara Bio) using two pairs of promoter- and terminator-    was vortexed and sonicated twice. After repeating this step and collecting
+speciﬁc primers (Supplemental Table  2).  Finally, these genes were       all the ethyl acetate extract (around 1600ml), the supernatantsweredried un-
+subcloned into pK7m34GW2-8m21GW3 or pK7WG2 (VIB) using the LR    der a stream of nitrogen gas. Given that a high concentration of chlorophyll
+reaction-based construction of expression vectors. The vectors con-     results in low-quality GC–MS proﬁles, the dried extracts were treated with
+structed in this study are listed in Supplemental Table 3.               100% methanol for 10 min of vortexing and 10 min of sonication at 4 C. After
+                                                                    adding 200 ml CHCl3, 600 ml ddH2O was added to extract the polar metabo-
+                                                                                                      lites. The supernatant was subsequently dried under a stream of gas. Trime-
+Agroinﬁltration                                                                       thylsilylation was performed by adding a 50 ml mixture of N,O-bis(trimethyl-
+Frozen stocks of AGL1 Agrobacterium electrocompetent cells were added     silyl)triﬂuoroacetamide and an n-alkane standard mix in hexane (7:1, v/v),
+to YEB medium with Carb25 mg/l carbenicillin) and Rif (20 mg/l rifampicin)     followed by incubation at 37 C for 30 min with gentle shaking (800 rpm).
+and incubated at 28 C overnight. The cells were centrifuged for 30 s at    The sample (1 ml) was injected into the GC–MS in splitless mode.
+20 000 g at 4 C and washed with 1 ml and 500 ml ice-cold water. The cells
+were ﬁnally resuspended in 200 ml water (these cells are subsequently    Metabolite proﬁling was performed as detailed previously by GC coupled
+referred to as Agrobacteria competent cells). Around 100 ng expression     to electron impact ionization/time-of-ﬂight MS using an Agilent 6890N24
+plasmid was added into a 2 ml tube with 45 ml Agrobacteria competent cells    gas chromatograph (Agilent Technologies) connected to a Pegasus  III
+on ice for 5 min. The solution was electrically shocked in cuvettes and main-     time-of-ﬂight mass spectrometer (LECO Instrumente, M€onchengladbach,
+tained at 28 C with 1 ml YEB medium. After shaking for 1–2 h at 28 C at 250    Germany) (Erban  et  al.,  2007). Data  analysis was performed  with
+rpm, the cells were plated on a YEB plate (containing Carb, Rif, and appro-     Xcalibur software (Thermo Fisher Scientiﬁc). The retention times of
+priate antibiotics) and incubated at 28 C for 2–3 days.                       4b,20-taxadiene  (m/z  288, room  temperature,  21.70) and  4b,20-
+                                                                              taxadiene-5a-triol (m/z 376, 1TMS room temperature, 22.33) were deter-
+The Agrobacteria were grown on YEB-induced medium plates at 28 C for    mined by comparing peaks of the expected masses in the samples and
+24–36 h (Zhang et al., 2020). The cells were scratched and resuspended in     controls (Supplemental Table 4).
+500 ml washing solution (10 mM MgCl2, 100 mM acetosyringone). After a
+short vortex, the 100 ml resuspended Agrobacteria were diluted 10 times    Ultra-high-performance LC HRMS (UHPLC–HRMS)
+and the OD600 was measured (should be equal to or greater than 12).    For UHPLC–HRMS proﬁling analysis, plant material was collected and
+The Agrobacteria were ﬁnally diluted to OD600 = 1 in inﬁltration solution    ground to a powder in liquid nitrogen. Around 50 mg plant material was ex-
+(1/4 Murashige and Skoog [pH = 6.0], 1% sucrose, 100 mM acetosyringone,     tracted  using  the  methyl-tert-butyl-ether:methanol (MeOH)  extraction
+0.005% [v/v, 50 ml/l] Silwet L-77). The Agrobacteria were inﬁltrated into    method (Salem et al., 2020). Both the upper and lower phases were dried
+N. benthamiana leaves using a 1 ml plastic syringe. The plants were      in  a vacuum  concentrator  before  being  resuspended  in  200  ml
+kept in the light to dry the leaves (1 h), and then subsequently kept in     acetonitrile:isopropanol (70:30, upper phase) or 50% methanol (lower
+the dark for 3–4 days at room temperature. Unless stated otherwise,    phase) and transferred to a glass vial for UHPLC–HRMS metabolomic
+each experimental condition tested consisted of at least two replicates,     proﬁling. The UHPLC–HRMS system consisted of a Waters Acquity UPLC
+with each replicate corresponding to an independently inﬁltrated leaf.    coupled to an Exactive Orbitrap mass detector according to a previously
+Each leaf among these two replicates was selected from a different     published protocol (Alseekh et al., 2015; Perez de Souza et al., 2019). The
+N. benthamiana plant such that no replicates for one experimental condi-   UPLC system was equipped with an HSS T3 C18 reversed-phase column
+tion were taken from the same plant. In general, inﬁltrated leaves were har-     (100 3 2.1 mm i.d., 1.8 mm particle size; Waters) that was operated at a tem-
+vested 4–5 days after inﬁltration, snap frozen in liquid nitrogen, and stored     perature of 40 C. The mobile phases consisted of 0.1% formic acid in water
+at  80 C for downstream processing.                                         (solvent A) and 0.1% formic acid in acetonitrile (solvent B). The ﬂow rate of
+
+1958  Molecular Plant 16, 1951–1961, December 4 2023 ª 2023 The Author.
+
+
+[PDF physical page 9]
+The gene complement of paclitaxel biosynthesis                                   Molecular Plant
+
+the mobile phase was 400 ml/min, and 2 ml sample was injected. The UPLC   Enzyme assay
+was connected to an Exactive Orbitrap (Thermo Fisher Scientiﬁc) via a heat-                                                              The epoxidase was transiently expressed in N. benthamiana leaves by
+ed electrospray source (Thermo Fisher Scientiﬁc). The spectra were re-                                                                                   agroinﬁltration. A leaf disc was fed taxusin in 1/4 Murashige and Skoog me-
+corded using the full scan mode of positive ion detection modes, covering                                                              dium for a 12 h reaction period. Metabolism was quenched with liquid ni-
+a mass range from m/z 100 to 1500. The resolution was set to 25 000, and                                                                            trogen, and samples were extracted using the methyl-tert-butyl-ether
+themaximumscantimewasset to250 ms. Thesheath gaswasset toavalue                                                            method and measured by an Acquity UPLC system using an RP C8 col-
+of 60, while the auxiliary gas was set to35. The transfer capillarytemperature                                                     umn and analyzed by MS (Salem et al., 2020).
+was set to 150 C, while the heater temperature was adjusted to 300 C. The
+spray voltage was ﬁxed at 3 kV, with a capillary voltage and a skimmer
+voltage of 25 and 15 V, respectively. MS spectra were recorded from min   SUPPLEMENTAL INFORMATION
+0 to 19 of the UPLC gradient. Molecular masses, retention time, and associ-    Supplemental information is available at Molecular Plant Online.
+ated  peak  intensities  were  extracted  from  the  raw  ﬁles  using
+Xcalibur software (Thermo Fisher Scientiﬁc). Metabolite identiﬁcation and
+                                            FUNDING
+annotation were performed using standard compounds and the monoiso-
+                                                                           This work was supported by funding from the Max Planck Society (Y.Z-.,
+topic mass of predicted compounds. Data are reported in Supplemental
+                                                                                 S.A., L.P.d.S. , F.S., and A.R.F.), and Y. Z., S.A., and A.R.F. acknowledge
+Table 5 in a manner compliant with the literature standards (Alseekh et al.,
+                                                                          the European Union’s Horizon 2020 research and innovation programme,
+2021; Perez de Souza et al., 2021).
+                                                                              project PlantaSYST (SGA-CSA No. 739582 under FPA No. 664620) and
+                                                                          the BG05M2OP001-1.003-001-C01 project, ﬁnanced by the European
+NMR spectroscopy
+                                                                       Regional Development Fund through the Bulgarian "Science and Educa-
+1H NMR spectral data were recorded on a BRUKER (AVANCE  III 700)     tion for Smart Growth" Operational Programme. J.J.M. thanks the Fonds
+spectrometer in the reported deuterated solvents. The chemical shifts    der Chemischen Industrie, FCI for funding, H.F. thanks the Chinese Schol-
+(d) are listed in parts per million (ppm) and are reported relative to the cor-     arship Council for funding.
+responding residual nondeuterated solvent signal (CDCl3: dH = 7.26 ppm,
+dC = 77.2 ppm). Integrals are in accordance with assignments, and
+coupling constants (J) are given in Hz. Multiplicity is indicated as follows:   AUTHOR CONTRIBUTIONS
+s (singlet), d (doublet), t (triplet), br (broad), and combinations thereof.     Y.Z. conceived the project and experiments. A.R.F. acquired the funding.
+When no multiplicity could be identiﬁed, the chemical shift range of the     A.R.F. supervised the project. Y.Z. analyzed transcriptomic data, charac-
+signal is given as m (multiplet).                                                terized biosynthetic genes, and established the metabolic engineering
+                                                                                strategy. L.W., H.F., J.J.M., and M.C. helped the with the chemical synthe-
+Chemical reaction experiments                                              sis and NMR measurement. S.A,  . performed LC-–MS measurements.
+                                                                             L.P.d.S. and F.S. checked all chromatography data. L.W., H.F., J.J.M.,
+Taxadiene (1 mg, 0.0036 mM) was mixed with CH2Cl2 (1 ml) and NaHCO3                                                             and M.C. performed chemical synthesis. Y.Z. and A.R.F. wrote the manu-
+(0.5 mg, 0.05 mmol) in a 14 ml Pyrex glass tube. mCPBA (20 ml 25 mM
+                                                                                       script. Y.Z., L.P.d.S., F.S., and A.R.F. revised the manuscript.
+stock, calculated assuming a nominal purity of 70%) was added, and
+the reaction proceeded for 2 h. The crude product mixture was subse-
+quently washed twice with saturated sodium carbonate and once with  ACKNOWLEDGMENTS
+NaS2O3. The organic layer was transferred and dried for GC–MS analysis.   We would like to thank Ms. Antje Bolze and Ms. Ina Krahnert for helping
+Similarly, the DMDO reaction was performed by adding 0.34 mg taxadiene     with sample extraction. We would like to thank Mr. Alexander Erban and
+(0.00125 mM) to 250 ml EA and 250 ml water (buffered with 0.66 mg sodium     Dr. Joachim Kopka for help with performing some of the GC–MS mea-
+carbonate) with 10 ml acetate. Oxone in water (4.8 mg in 1 ml) and a solu-    surements and Ms.  €Anne  Michaelis  for  help  with  performing  the
+tion of acetone and sodium carbonate in water (18 ml and 0.66 mg, respec-   UHPLC–HRMS measurements. We would also like to thank the Green
+tively, in 1 ml) were added dropwise as separate solutions over a period of   Team of the Max Planck Institute of Molecular Plant Physiology for
+2 h. Sodium carbonate was used as ﬁnal buffering reagent after quenching     providing N. benthamiana. No conﬂict of interest is declared.
+the reaction. The reaction mixture was analyzed by GC–MS.
+                                                                      Received: August 31, 2023
+The deacetylation of taxusin, 1-hydroxybaccatin  I, and 9-dihydro-13-    Revised: October 4, 2023
+acetylbaccatin III was performed by global reductive removal of the ace-    Accepted: October 25, 2023
+tates with LiAlH4 as described by previous research (Li et al., 2008), and     Published: October 28, 2023
+the reaction products were conﬁrmed by UHPLC–HRMS. Taxusin-
+4b,20-epoxide was synthesized from taxusin by peracetic acid as des-   REFERENCES
+cribed in previous research (Kaspera et al., 2010), separately by normal-    Ajikumar,P.K.,Xiao,W.-H.,Tyo,K.E.J.,Wang,Y.,Simeon,F.,Leonard,E.,
+phase HPLC, conﬁrmed by NMR. The produce was subsequently      Mucha, O., Phon, T.H., Pfeifer, B., and Stephanopoulos, G. (2010).
+measured using an acquit UPLC system equipped with an RP C8        Isoprenoid pathway optimization for Taxol precursor overproduction in
+column and analyzed by MS as standard (Salem et al., 2020).                   Escherichia coli. Science 330:70–74.
+
+                                                                      Alseekh, S., Aharoni, A., Brotman, Y., Contrepois, K., D’Auria, J., Ewald,
+13-Acetyl baccatin III was synthesized via a reaction similar to the synthesis                                                                                                    J., C Ewald, J., Fraser,P.D., Giavalisco, P., Hall, R.D.,etal. (2021).Mass
+of 13-butyrylbaccatin III (Ondari and Walker, 2008) as previously described                                                                          spectrometry-based metabolomics: A guide for annotation, quantiﬁcation
+and was subsequently conﬁrmed by NMR and LC–MS. Both taxadiene-                                                                 and best reporting practices. Nat. Methods 18:747–756.
+5a-ol and taxadiene-5a-acetyl were additionally synthetized as previously
+described and conﬁrmed by NMR and GC–MS (Kanda et al., 2020).          Alseekh, S., Tohge, T., Wendenberg, R., Scossa, F., Omranian, N., Li,
+                                                                                                J., Kleessen, S., Giavalisco, P., Pleban, T., Mueller-Roeber, B.,
+                                                                             et al. (2015). Identiﬁcation and mode of inheritance of quantitative
+In addition, epoxidase was linked into p5T7tds-ggpps and co-transformed
+                                                                                                        trait loci for secondary metabolite abundance in tomato. Plant Cell
+with pSEVA228-pro4IUPi (Chatzivasileiou et al., 2019) into E. coli. After 24
+                                                                        27:485–512.
+h of incubation with prenol, isopernol, and IPTG, only taxadiene could be
+detected. The epoxidase was also subcloned into pYES-DEST52 and trans-     Chatzivasileiou, A.O., Ward, V., Edgar, S.M., and Stephanopoulos, G.
+formed into LRS5 (Nowrouzi et al., 2020), which could produce taxadiene.        (2019). Two-step pathway for isoprenoid synthesis. Proc. Natl. Acad.
+However, after galactose inducible, only taxadiene could be detected.             Sci. USA 116:506–511.
+
+                                                          Molecular Plant 16, 1951–1961, December 4 2023 ª 2023 The Author. 1959
+
+
+[PDF physical page 10]
+Molecular Plant                                     The gene complement of paclitaxel biosynthesis
+
+Chau, M., Jennewein, S., Walker, K., and Croteau, R. (2004a). Taxol    McElroy,  C., and Jennewein, S.  (2018). Taxol   biosynthesis and
+   biosynthesis: molecular cloning and characterization of a cytochrome       production: from forests to fermenters. In Biotechnology of Natural
+  P450 taxoid 7b-hydroxylase. Chem. Biol. 11:663–672.                     Products (Springer), pp. 145–185.
+
+Chau, M., Walker, K., Long, R., and Croteau, R. (2004b). Regioselectivity of    Mutanda, I., Li, J., Xu, F., and Wang, Y. (2021). Recent Advances in
+   taxoid-O-acetyltransferases:heterologousexpressionand characterization       Metabolic  Engineering,  Protein  Engineering, and  Transcriptome-
+   of a new taxadien-5a-ol-O-acetyltransferase. Arch. Biochem. Biophys.      Guided  Insights Toward  Synthetic  Production  of  Taxol.  Front.
+   430:237–246.                                                           Bioeng. Biotechnol. 9:632269.
+
+Cheng, J., Wang, X., Liu, X., Zhu, X., Li, Z., Chu, H., Wang, Q., Lou, Q.,    Mutwil, M. (2020). Computational approaches to unravel the pathways
+   Cai,  B., Yang,  Y., et  al.  (2021). Chromosome-level genome  of      and evolution of specialized metabolism. Curr. Opin. Plant  Biol.
+   Himalayan yew provides insights into the origin and evolution of the       55:38–46.
+   paclitaxel biosynthetic pathway. Mol. Plant 14:1199–1209.             Nazhand, A., Durazzo, A., Lucarini, M., Mobilia, M.A., Omri, B., and
+De La Pen˜ a, R., and Sattely, E.S. (2021). Rerouting plant terpene        Santini, A. (2020). Rewiring cellular metabolism for heterologous
+   biosynthesis enables momilactone pathway elucidation. Nat. Chem.       biosynthesis of Taxol. Nat. Prod. Res. 34:110–121.
+   Biol. 17:205–212.                                                 Nelson, B.K., Cai, X., and Nebenf€uhr, A. (2007). A multicolored set of
+Edgar, S., Li, F.-S., Qiao, K., Weng, J.-K., and Stephanopoulos, G.         in vivo organelle markers for co-localization studies in Arabidopsis
+   (2017). Engineering of taxadiene synthase for improved selectivity      and other plants. Plant J. 51:1126–1136.
+  and yield of a key taxol biosynthetic intermediate. ACS Synth. Biol.    Nicolaou, K., Yang, Z., Liu, J.J., Ueno, H., Nantermet, P., Guy, R.,
+   6:201–205.                                                            Claiborne, C., Renaud, J., Couladouros, E., and Paulvannan, K.
+Erban, A., Schauer, N., Fernie, A.R., and Kopka, J. (2007). Nonsupervised        (1994). Total synthesis of taxol. Nature 367:630–634.
+   construction and application of mass spectral and retention time index    Nowrouzi, B., Li, R.A., Walls, L.E., d’Espaux, L., Malcı, K., Liang, L.,
+    libraries from time-of-ﬂight gas chromatography-mass spectrometry       Jonguitud-Borrego, N., Lerma-Escalera, A.I., Morones-Ramirez,
+   metabolite proﬁles. In Metabolomics (Springer), pp. 19–38.                      J.R., Keasling, J.D., et al. (2020). Enhanced production of taxadiene
+Fischer, J., and Ganellin, C.R. (2010). Analogue-based drug discovery.         in Saccharomyces cerevisiae. Microb. Cell Factories 19:200–212.
+   Chemistry International–Newsmagazine for IUPAC 32:12–15.            Ondari, M.E., and Walker, K.D. (2008). The taxol pathway 10-O-
+Guerra-Bubb, J., Croteau, R., and Williams, R.M. (2012). The early        acetyltransferase shows regioselective promiscuity with the oxetane
+   stages of taxol biosynthesis: an interim report on the synthesis and       hydroxyl of 4-deacetyltaxanes. J. Am. Chem. Soc. 130:17187–17194.
+   identiﬁcation  of  early  pathway  metabolites.  Nat.  Prod.  Rep.    Onrubia, M., Moyano, E., Bonﬁll, M., Cusido´ , R.M., Goossens, A., and
+   29:683–696.                                                               Palazo´ n, J. (2013). Coronatine, a more powerful elicitor for inducing
+Jennewein, S., Rithner, C.D., Williams, R.M., and Croteau, R.B. (2001).       taxane  biosynthesis  in Taxus media  cell  cultures  than  methyl
+   Taxol biosynthesis: taxane 13a-hydroxylase  is a cytochrome P450-       jasmonate. J. Plant Physiol. 170:211–219.
+   dependentmonooxygenase. Proc. Natl. Acad. Sci.USA 98:13595–13600.    Onrubia, M., Pollier, J., Vanden Bossche, R., Goethals, M., Gevaert,
+Kanda, Y., Ishihara, Y., Wilde, N.C., and Baran, P.S. (2020). Two-phase        K., Moyano, E., Vidal-Limon, H., Cusido´ , R.M., Palazo´ n, J., and
+    total synthesis of taxanes: tactics and strategies. J. Org. Chem.      Goossens, A. (2014). Taximin, a conserved plant-speciﬁc peptide is
+   85:10293–10320.                                                          involved in the modulation of plant-specialized metabolism. Plant
+                                                                              Biotechnol. J. 12:971–983.
+Kaspera, R., Cape, J.L., Faraldos, J.A., Ketchum, R.E.B., and Croteau,
+   R.B. (2010). Synthesis and in vitro evaluation of taxol oxetane ring D    Pareek, V., Sha, Z., He, J., Wingreen, N.S., and Benkovic, S.J. (2021).
+   precursors. Tetrahedron Lett. 51:2017–2019.                             Metabolic channeling: predictions, deductions, and evidence. Mol.
+                                                                                     Cell 81:3775–3785.
+Koetsier, M.J., Jekel, P.A., Wijma, H.J., Bovenberg, R.A.L., and Janssen,
+   D.B. (2011). Aminoacyl-coenzyme A synthesis catalyzed by a CoA ligase    Perez de Souza, L., Alseekh, S., Naake, T., and Fernie, A. (2019). Mass
+   from Penicillium chrysogenum. FEBS Lett. 585:893–898.                     spectrometry-based untargeted plant metabolomics. Curr. Protoc.
+                                                                               Plant Biol. 4, e20100.
+K€oksal, M., Jin, Y., Coates, R.M., Croteau, R., and Christianson, D.W.
+   (2011). Taxadiene synthase  structure and  evolution  of modular    Perez de Souza, L., Alseekh, S., Scossa, F., and Fernie, A.R. (2021).
+   architecture in terpene biosynthesis. Nature 469:116–120.                  Ultra-high-performance liquid chromatography high-resolution mass
+                                                                        spectrometry  variants  for metabolomics research. Nat. Methods
+Kuang, X., Sun, S., Wei, J., Li, Y., and Sun, C. (2019). Iso-Seq analysis of
+                                                                        18:733–746.
+   the Taxus cuspidata transcriptome reveals the complexity of Taxol
+   biosynthesis. BMC Plant Biol. 19:210–216.                             Ramı´rez-Estrada,  K.,  Altabella,  T.,  Onrubia,  M.,  Moyano,  E.,
+                                                                Notredame, C., Osuna, L., Vanden Bossche, R., Goossens, A.,
+Lange, B.M., and Conner, C.F. (2021). Taxanes and taxoids of the genus
+                                                                     Cusido,  R.M., and  Palazon,  J.  (2016).  Transcript  proﬁling  of
+   Taxus–A comprehensive inventory of chemical diversity. Phytochemistry                                                                               jasmonate-elicited Taxus cells reveals a b-phenylalanine-CoA ligase.
+   190, 112829.
+                                                                               Plant Biotechnol. J. 14:85–96.
+Li, H., Horiguchi, T., Croteau, R., and Williams, R.M. (2008). Studies on
+                                                                   Roberts, S.C. (2007). Production and engineering of terpenoids in plant
+   Taxol biosynthesis: preparation of taxadiene-diol and triol derivatives                                                                                              cell culture. Nat. Chem. Biol. 3:387–395.
+   by deoxygenation of taxusin. Tetrahedron 64:6561–6567.
+                                                                     Rontein, D., Onillon, S., Herbette, G., Lesot, A., Werck-Reichhart, D.,
+Li, J., Mutanda, I., Wang, K., Yang, L., Wang, J., and Wang, Y. (2019).                                                                            Sallaud, C., and Tissier, A. (2008). CYP725A4 from yew catalyzes
+   Chloroplastic metabolic engineering coupled with isoprenoid pool                                                                 complex structural rearrangement of taxa-4 (5), 11 (12)-diene into the
+  enhancement  for  committed  taxanes  biosynthesis  in  Nicotiana                                                                                    cyclic  ether  5  (12)-oxa-3  (11)-cyclotaxane.   J.   Biol.  Chem.
+   benthamiana. Nat. Commun. 10:4850–4912.                                                                      283:6067–6075.
+Liao, W., Zhao, S., Zhang, M., Dong, K., Chen, Y., Fu, C., and Yu, L.                                                                Salem, M.A., Yoshida, T., Perez de Souza, L., Alseekh, S., Bajdzienko,
+   (2017). Transcriptome assembly and systematic  identiﬁcation  of                                                                                    K., Fernie, A.R., and Giavalisco, P. (2020). An improved extraction
+   novel cytochrome P450s in Taxus chinensis. Front. Plant Sci. 8:1468.                                                               method enables the comprehensive  analysis  of  lipids,  proteins,
+Lucas, H. (1856). Ueber ein  in den Bl€attern von Taxus baccata L.       metabolites and phytohormones from a single sample of leaf tissue
+   enthaltenes Alkaloid (das Taxin). Arch. Pharmazie 135:145–149.            under water-deﬁcit stress. Plant J. 103:1614–1632.
+
+1960  Molecular Plant 16, 1951–1961, December 4 2023 ª 2023 The Author.
+
+
+[PDF physical page 11]
+The gene complement of paclitaxel biosynthesis                                   Molecular Plant
+
+Sanchez-Mun˜oz, R., Perez-Mata,  E., Almagro,  L., Cusido, R.M.,    You, L.-F., Huang, J.-J., Wei, T., Lin, S.-L., Jiang, B.-H., Guo, L.-Q., and
+   Bonﬁll,  M.,  Palazon,  J.,  and  Moyano,  E.  (2020). A  novel        Lin, J.-F. (2018). Enhanced catalytic activities and modiﬁed substrate
+   hydroxylation  step  in  the taxane  biosynthetic pathway: a new       preferences   for  taxoid  10b-O-acetyl  transferase  mutants  by
+   approach  to  paclitaxel  production by  synthetic  biology.  Front.       engineering    catalytic    histidine   residues.   Biotechnol.    Lett.
+   Bioeng. Biotechnol. 8:410.                                             40:1245–1251.
+
+Walker, K., Fujisaki, S., Long, R., and Croteau, R. (2002a). Molecular    Zhang, Y., Chen, M., Siemiatkowska, B., Toleco, M.R., Jing, Y.,
+   cloning and heterologous expression of the C-13 phenylpropanoid       Strotmann, V., Zhang, J., Stahl, Y., and Fernie, A.R. (2020). A
+   side chain-CoA acyltransferase that functions in Taxol biosynthesis.        highly efﬁcient agrobacterium-mediated method for transient gene
+   Proc. Natl. Acad. Sci. USA 99:12715–12720.                              expression and functional studies in multiple plant species. Plant
+Walker, K., Long, R., and Croteau, R. (2002b). The ﬁnal acylation step in      Commun. 1, 100028.
+   taxol   biosynthesis:   cloning   of   the   taxoid   C13-side-chain
+                                                               Zhang,  Y., and Fernie, A.R.  (2021). Metabolons, enzyme–enzyme
+   N-benzoyltransferase  from  Taxus.  Proc.  Natl.  Acad.  Sci. USA
+                                                                        assemblies that mediate substrate channeling, and their roles in plant
+   99:9166–9171.
+                                                                        metabolism. Plant Commun. 2, 100081.
+Walker, K.D., Klettke, K., Akiyama, T., and Croteau, R. (2004). Cloning,
+                                                               Zhang, Y., Natale, R., Domingues, A.P., Toleco, M.R., Siemiatkowska,   heterologous expression, and characterization of a phenylalanine
+                                                                                     B., Fa` bregas, N., and Fernie, A.R. (2019). Rapid identiﬁcation of  aminomutase  involved  in  Taxol  biosynthesis.  J.  Biol.  Chem.
+                                                                                  protein-protein interactions  in plants. Curr. Protoc. Plant  Biol. 4,   279:53947–53954.
+                                                                      e20099.
+Walls,  L.E., Martinez,  J.L., and Rios-Solis,  L.  (2022). Enhancing
+  Saccharomyces  cerevisiae taxane  biosynthesis and overcoming    Zhang, Y., Scossa, F., and Fernie, A.R. (2021). The genomes of Taxus
+   nutritional  stress-induced pseudohyphal  growth. Microorganisms       species unveil novel candidates in the biosynthesis of taxoids. Mol.
+   10:163.                                                                     Plant 14:1773–1775.
+
+Wani, M.C., Taylor, H.L., Wall, M.E., Coggon, P., and McPhail, A.T.    Zhou,  K., Qiao,  K., Edgar,  S., and Stephanopoulos, G.  (2015).
+   (1971). Plant antitumor agents. VI. Isolation and structure of taxol, a        Distributing a metabolic pathway among a microbial consortium
+   novel antileukemic and antitumor agent from Taxus brevifolia. J. Am.      enhances  production   of   natural  products.  Nat.  Biotechnol.
+  Chem. Soc. 93:2325–2327.                                             33:377–383.
+
+Xiong, X., Gou, J., Liao, Q., Li, Y., Zhou, Q., Bi, G., Li, C., Du, R., Wang,                                                               Zhou, T., Luo, X., Yu, C., Zhang, C., Zhang, L., Song, Y.-b., Dong, M.,
+   X., Sun, T., et al. (2021). The Taxus genome provides insights into      and Shen, C. (2019). Transcriptome analyses provide insights into the
+   paclitaxel biosynthesis. Nat. Plants 7:1026–1036.                                                                          expression  pattern  and  sequence  similarity  of  several  taxol
+Yang, C.-P.H., and Horwitz, S.B. (2017). Taxol   : the ﬁrst microtubule        biosynthesis-related genes  in  three Taxus  species. BMC  Plant
+   stabilizing agent. Int. J. Mol. Sci. 18:1733.                                        Biol. 19:33.
+
+
+
+
+
+                                                          Molecular Plant 16, 1951–1961, December 4 2023 ª 2023 The Author. 1961

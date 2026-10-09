@@ -1,0 +1,1000 @@
+
+[PDF physical page 1]
+       Article                                                                                    https://doi.org/10.1038/s41467-025-62990-6
+  Gymnosperm-speciﬁc CYP90Js enable
+  biﬂavonoid biosynthesis and microbial
+  production of amentoﬂavone
+
+
+
+        Received: 1 December 2024              Xue-Hui Dai    1,2,3, Jiang-Ming Zhu1,2,3, Guang-Yi Wang    1,3, Yu-Hong Ren2,
+                                                    Hai-Li Liu    1,2  & Yong Wang   1,2,3
+       Accepted: 31 July 2025
+
+
+                                            Biﬂavonoids, a unique subclass of ﬂavonoids with superior clinical activity
+          Check for updates                 compared to their monomeric counterparts, offer distinct therapeutic beneﬁts
+                                      by targeting multiple pathways in neurodegenerative disorders. However, the1234567890():,;                 1234567890():,;                                  mechanism of ﬂavonoid dimerization in plants remains enigmatic. Here, we
+                                                 identify CYP90J orthologs as the missing link in biﬂavonoid biosynthesis. We
+                                         demonstrate that gymnosperm-speciﬁc CYP90Js catalyze intermolecular C–C
+                                    bond formation in the biosynthesis of biaryl natural products. Together with
+                                           the identiﬁed O-methyltransferases, CYP90Js are responsible for the produc-
+                                               tion of ginkgo biﬂavonoids. Phylogenetic analysis reveals that the CYP90J
+                                            subfamily evolved from CYP90E of lycophytes and is found exclusively in
+                                      gymnosperms. Molecular dynamics simulations show that regioselective
+                                            dimerization of apigenin to amentoﬂavone is driven by spatial constraints and
+                                  π–π stacking interactions. QM/MM calculations support a heme-induced dir-
+                                                adical coupling mechanism. Notably, the de novo reconstruction of amento-
+                                       ﬂavone was achieved in an engineered L-tyrosine E. coli strain, with a titer of
+                                              4.75 mg/L. Overall, the discovery of CYP90Js represents a crucial step toward
+                                          understanding ﬂavone dimerization, and the engineering of biﬂavonoids in
+                                        microorganism provides a promising biotechnology platform for expanding
+                                             therapeutic applications of biﬂavonoids.
+
+
+
+
+       The global surge in neurodegenerative disorders, projected to affect  from 5 to 10 μM2,5, a hallmark pathological feature of Alzheimer’s dis-
+        139 million people by 20501, urgently demands innovative therapeutic   ease. Moreover, the regioselective formation of the intermolecular
+        approaches. Recent breakthroughs in drug development have high-  C–C bonds is crucial for achieving their distinct therapeutic beneﬁts6.
+         lighted natural biﬂavonoids as promising candidates, particularly for     A prominent clinical application of amentoﬂavone-type biﬂavo-
+         their unique ability to engage multiple therapeutic targets2,3. Among   noids is EGb 761, a standardized Ginkgo biloba leaf extract known for
+         various biﬂavonoids, amentoﬂavone-type derivatives, characterized by    its cognitive-enhancing and neuroprotective properties7. Its clinical
+        a C3’, C8”-linked asymmetric skeleton, have emerged as leads due to   efﬁcacy in treating mild cognitive impairment was demonstrated in a
+         their superior drug-like properties and robust target engagement2,4.   24-week randomized controlled trial, showing signiﬁcant improve-
+         Notably, these derivatives exhibited the most potent inhibitory activity  ment in neuropsychiatric symptoms and cognitive abilities compared
+         against amyloid-β peptide (Aβ40) aggregation with IC50 values ranging   to placebo8. The key active components, including amentoﬂavone (1),
+
+
+         1Laboratory of Synthetic Biology, State Key Laboratory of Plant Trait Design, CAS Center for Excellence in Molecular Plant Sciences, Institute of Plant
+         Physiology and Ecology, Chinese Academy of Sciences, Shanghai, China. 2State Key Laboratory of Bioreactor Engineering, School of Biotechnology, East
+        China University of Science and Technology, Shanghai, China. 3University of Chinese Academy of Sciences, Beijing, China.    e-mail: hlliu@cemps.ac.cn;
+        yongwang@cemps.ac.cn
+
+
+
+        Nature Communications| (2025)16:7792                                                                                                         1
+
+
+[PDF physical page 2]
+Article                                                                                  https://doi.org/10.1038/s41467-025-62990-6
+
+
+bilobetin (2), ginkgetin (3), and isoginkgetin (4), account for 0.047% to   quantitatively assessing biﬂavonoids 1–4 across different tissues. Our
+1.68% of the extract and are responsible for its multi-target therapeutic   results showed that biﬂavonoids predominantly accumulated in the
+effects7. However, despite their promising potential, the broader   leaves, regardless of developmental stage (Fig. 1a, b). Then, we con-
+clinical application of these compounds is severely limited by their   ducted RNA-Seq analyses using total RNA from various tissues and
+scarce natural abundance (typical isolation yield <0.001% from plant   annotated the transcriptome proﬁles with the reference genome28.
+sources)9, creating a critical bottleneck in drug development and   Genes with high leaf-speciﬁc expression [fragments per kilo base of
+highlighting the urgent need for efﬁcient synthetic strategies.           transcript per million mapped fragments (FPKM) > 20] were prior-
+   To address such limitations, chemical synthesis of biﬂavonoids   itized for further study. Giving the roles of CYPs, peroxidases, laccases,
+has been explored as a  potential  strategy.  Nevertheless, these  and  PPOs  in C–C  oxidative  cross-coupling  in  biaryl  natural
+approaches require high temperatures, strong oxidants, and multi-   products14–17, we identiﬁed six CYPs (chr1.3004, chr5.1346, chr5.1347,
+step procedures, leading to low-to-moderate yields and limited prac-   chr12.44, chr12.47, and chr12.764) and three peroxidases (chr2.1867,
+tical applications10,11. In contrast, biosynthetic technology has emerged   chr6.552, and chr3.1671) as candidates for functional characterization,
+as a promising alternative, offering high efﬁciency and selectivity   while no suitable laccases or PPOs were selected (Fig. 1c and Supple-
+under  mild  reaction  conditions  for  cost-effective  biﬂavonoid   mentary Fig. 1).
+production11,12. Although biﬂavonoids were discovered nearly a century       Since 1 is the most primitive C–C type biﬂavonoid2 and 5 functions
+ago, beginning with the isolation of 3 from G. biloba13, the enzymes   as the essential structural unit, we employed 5 as the substrate for our
+responsible for ﬂavonoid dimerization remain unknown, hindering   primary screening. Nicotiana benthamiana (tobacco) was chosen as
+further development and applications.                               the initial host due to its suitability for expressing functional CYPs and
+     In the broader context of biaryl natural product biosynthesis6,   peroxidases. The full-length cDNAs of the candidate genes were indi-
+various oxidative enzymes, including peroxidases14, laccases15, poly-   vidually cloned into the pEAQ-HT vector and expressed in tobacco
+phenol oxidases (PPOs)16, and cytochromes P450 monooxygenases   leaves using Agrobacterium-mediated transformation. Upon the inﬁl-
+(CYPs)17, are known to catalyze cross-coupling reactions. Among   tration of the substrate  5, only the transient expression of the
+them, peroxidases, laccases, and PPOs exhibit limited control over   chr1.3004 protein, designated GbCYP90J6, produced a detectable
+post-oxidation bond formation. In contrast, CYPs mediate highly   product (Fig. 1d and Supplementary Fig. 1). Sequential liquid chro-
+selective oxidation reactions, including regio- and stereoselective   matography coupled with high-resolution mass spectrometry (LC-
+dimerization18 in the biosynthesis of dinaphthalenes19, diketopiper-  HRMS) analysis revealed that the newly formed product had a mole-
+azine alkaloids20, and bicoumarins21. Structural analyses of CYPs   cular weight 2 Da less than twice that of 5 (Fig. 1d), implying that
+reveal diverse substrate-binding pockets crucial for deﬁning sub-  GbCYP90J6 catalyzed the dimerization of two molecules of 5 to form
+strate  speciﬁcity22–25. This  structural  diversity enables CYPs to   bi-apigenin (Fig. 1e). This bi-apigenin exhibited identical retention time
+recognize speciﬁc substrates and catalyze dimeric reactions with  and MS2 spectra as the authentic standard 1 (Fig. 1d), thereby proving
+precise connectivity, driven by steric and electronic biases and    its identiﬁcation. To eliminate the involvement of native enzymes in
+facilitated by radical-mediated mechanisms22–25. Although such cat-   tobacco, we conducted assays with N-terminal modiﬁed GbCYP90J6
+alytic activities for CYPs are exclusively identiﬁed in bacteria and   (trGbCYP90J6), heterologously expressed in  E.  coli, alongside  its
+fungi22–25, the widespread presence of biﬂavonoids in plants suggests   electron transport chain partner, N-terminal modiﬁed CPR from Ara-
+that similar enzymatic processes may also operate in the plant   bidopsis thaliana (trAtCPR). As in tobacco,  E.  coli cells carrying
+kingdom.                                                    trGbCYP90J6 yielded 1 when fed with 5 (Supplementary Fig. 2). Further
+    Here, we report the identiﬁcation of CYP90J and CYP90E sub-   kinetic analysis revealed that GbCYP90J6 had a high afﬁnity for 5, with
+family members, which catalyze the regioselective C–C cross-coupling   a Km value of 0.4925 μM (Supplementary Fig. 3), and remarkable
+dimerization of apigenin (5) and its related compounds. Unlike pre-   regioselectivity, catalyzing the formation of 3’,8”-linked biﬂavonoids.
+viously known CYP90 family members that primarily catalyze the  To our knowledge, GbCYP90J6 represented a rare example of a plant-
+sterols hydroxylation, including canonical brassinosteroids26, our   derived CYP enzyme that catalyzed the intermolecular C–C dimeriza-
+identiﬁed CYP90J and CYP90E members demonstrate distinctcatalytic   tion in the biosynthesis of biaryl natural products.
+functions. Our ﬁndings link the presence of CYP90J orthologs to the      To further investigate the substrate speciﬁcity of GbCYP90J6, we
+biﬂavonoids in plants. Through comprehensive QM/MM calculations,   designed synthetic routes to assess whether methylated monomers
+we reveal that GbCYP90J6 catalyzes the intermolecular C–C bond   could serve as substrates for dimerization into putative methylated
+formation via an energetically favorable diradical coupling mechan-   derivatives of 1 (Supplementary Fig. 4a). In an E. coli reaction system,
+ism, with key active site residues stabilizing intermediates and direct-   incubation of 5 with acacetin (6) was intended to generate 2 and 4, and
+ing regioselective coupling. The subsequent methylation modiﬁcation   co-incubation with apigenin 7,4’-dtimethyl ether (7) aimed to produce
+pathway of biﬂavonoids 2–4 and 8–10  is mediated by GbOMT1-   3. However, GbCYP90J6 exclusively catalyzed the dimerization of non-
+GbOMT5. Based on these ﬁndings, we successfully engineer a synthetic   methylated 5, while methoxylated analogs 6 and 7 as substrates were
+pathway in Escherichia coli for de novo production of 1, achieving a   not recognized (Supplementary Fig. 4b, c). This observation suggested
+titer of 4.75 mg/L. This study reveals unique plant-derived CYPs that   that the dimerization preceded the methylation of phenol groups in 5.
+expand our understanding of atypical P450 functions and establishes   Moreover, 1 likely served as the key precursor for the biosynthesis of
+further insights into the biosynthetic pathways of biﬂavonoids, pro-   2–4, consistent with its early evolutionary origin29.
+viding opportunities for the application of biﬂavonoids in biomanu-      To validate this, we conducted gene co-expression analysis using
+facturing and therapeutic development.                           GbCYP90J6  as a  bait gene,  revealing candidates  for O-methyl-
+                                                                        transferases (GbOMTs, Fig. 2a). The resulting 2, which was modiﬁed by
+Results                                                           O-methyltransferases GbOMT1 and GbOMT2 from  1, veriﬁed this
+Unprecedented GbCYP90J6 drives the dimerization of            hypothesis (Fig. 2b). Subsequently, GbOMT3 further modiﬁed 2 to
+biﬂavonoids                                                 produce 3, while GbOMT4 and GbOMT5 convert 2 into 4 (Fig. 2c).
+G. biloba  is rich in 3’,8”-linked amentoﬂavone-type biﬂavonoids,  Beyond 2–4, we identiﬁed several naturally occurring O-methylated
+including 1–427. The recent availability of its nearly complete genome28   biﬂavonoids, including podocarpusﬂavone A  (8)30, sequoiaﬂavone
+makes it a perfect model for elucidating the molecular mechanism    (9)31 (Fig. 2d), with their methylation sites conﬁrmed by NOESY cor-
+underlining the dimerization of biﬂavonoids. To identify candidate   relations and comparison to authentic standards (Supplementary
+genes, we examined the tissue-speciﬁc distribution of biﬂavonoids,   Figs. 5–11). A low-yield product, tentatively identiﬁed as 4’,7”-O-
+
+
+
+Nature Communications| (2025)16:7792                                                                            2
+
+
+[PDF physical page 3]
+Article                                                                                  https://doi.org/10.1038/s41467-025-62990-6
+
+
+
+
+
+Fig. 1 | Leaf-speciﬁc abundant amentoﬂavone-type biﬂavonoids and its unique   c Expression patterns of screened peroxidases and CYPs in different organs. The
+dimerase GbCYP90J6 in G. biloba. a Detailed schematic of plant tissue sampling.   ﬁgure displays the values as log2(average FPKM of biological replicates). d LC-MS/
+YL young leaf, uML unmature leaf, ML mature leaf, YS young shoot, OS old shoot,  MS analysis of tobacco leave crude extract expressing the chr1.3004 (GbCYP90J6)
+OR old root, MR main root, FR ﬁbrous root. b Dry weight content of amentoﬂavone   candidate with the ﬁltration of substrate apigenin (5). The empty vector was used as
+(1), bilobetin (2), ginkgetin (3), and isoginkgetin (4) in selected tissues of G. biloba.   a negative control. The MS2 spectra of the 1 standard (black) and the product from
+All data represent the means values ± SD; error bars show the standard deviation of   GbCYP90J6-expressing tobacco (blue) were shown on the right. e The dimeric
+three biological replicates. Source data are provided as a Source Data ﬁle.           reaction catalyzed by GbCYP90J6 with 5 as substrate.
+
+
+
+
+methylamentoﬂavone (10)32 (Fig. 2e), was also detected. Based on   Nevertheless, 5 remained the preferred substrate for GbCYP90J6.
+unmodiﬁed 7-OH and 4’”-OH groups retained in 3 and 4, the methy-   Thus, the CYP90J subfamily likely played a crucial role in ﬂavonoid
+lation in 10 was assigned to the 7”-OH position (Fig. 2f). Interestingly,   dimerization, contributing to the formation of biﬂavonoid scaffolds
+biochemical characterization revealed that each GbOMT exhibited  and sparking further interest in this unique CYP subfamily.
+distinct regioselectivity. GbOMT1 showed preference for the 4’-OH and
+7”-OH positions adjacent to the intramolecular C3’-C8” linkage, indi-  Gymnosperm-speciﬁc CYP90J subfamily enzymes specially cat-
+cating high activity toward 4’-OH but limited activity toward 7”-OH.   alyze the intermolecular C–C dimerization of ﬂavonoids
+GbOMT2   selectively  methylated  the  4’-OH   position,  while   Phylogenetically, CYP90 members  were  initially  identiﬁed  in
+GbOMT3 selectively methylated the 7-OH position. Both GbOMT4 and   lycophytes34 and later maintained their presence in ferns, gymnos-
+GbOMT5 demonstrated selective methylation of the 4”’-OH position   perms, and angiosperms. To investigate the evolutionary origin of
+(Fig. 2f). Based on these ﬁndings, we concluded that the biosynthetic   GbCYP90J6, we conducted a systematic phylogenetic analysis of
+pathway of amentoﬂavone-type biﬂavonoids began with oxidative  CYP90 proteins across representative species of lycophytes35,36,
+cross-coupling reactions, followed by subsequent modiﬁcations such   ferns37, gymnosperms38–43, and angiosperms44 using available gen-
+as regioselective O-methylation mediated by speciﬁc GbOMTs (Fig. 2f).  ome data (Supplementary Data 1). Additionally, we incorporated
+     Additionally, we probed the substrate speciﬁcity of GbCYP90J6  known angiosperm CYP90 proteins collected in the Plant Cyto-
+toward a broader range of ﬂavonoids, as hundreds of C–C linkage  chrome P450 database45. Three additional G. biloba CYP90 family
+biﬂavonoids were reported to form via ﬂavonoids dimerization12,33.  members: chr1.681 (GbCYP90B61), chr9.869 (GbCYP90A68), and
+This range extended beyond 5 and its methylated derivatives. To this   chr10.96 (GbCYP90D59) were included, each sharing less than 45%
+end, we selected a series of unmodiﬁed aglycones, including ﬂava-   protein sequence identity with GbCYP90J6 (Supplementary Fig. 1c).
+nones, ﬂavones, ﬂavonols, and ﬂavanonols, as substrates in the bio-   Notably, the three G. biloba CYP90 proteins were dispersed and
+synthetic route of ﬂavonoid (Supplementary Fig. 12a). LC-HRMS results   clustered  with  functionally known AtCYP90,  suggesting  their
+revealed that GbCYP90J6 catalyzed the dimerization of (S)-naringenin   potential typical role in the oxidation of polyhydroxylated steroids26
+(11), a precursor in the biosynthesis of 5, generating two bi-naringenins   (Fig. 3a). In contrast, GbCYP90J6 clusters within the gymnosperms
+11a and 11b (Supplementary Fig. 12b), albeit with a conversion rate of  CYP90J subclade, closely related to lycophytes CYP90E subclade,
+less than 3%. Additionally, a trace amount of bi-tricetin 12a was also   with no angiosperm CYP90 members in this lineage (Fig. 3a). This
+detected when using tricetin (12) as the substrate (Supplementary   suggested that the CYP90J subfamily may be unique to gymnos-
+Fig. 12c), although its exact structure also remains to be elucidated.   perms, and the proximity of lycophyte CYP90E members implied a
+
+
+
+Nature Communications| (2025)16:7792                                                                        3
+
+
+[PDF physical page 4]
+Article                                                                                  https://doi.org/10.1038/s41467-025-62990-6
+
+
+
+
+
+potential evolutionary relationship between these two subclades.   revealed a strong correlation between the presence of GbCYP90J6
+Furthermore, we constructed the phylogenetic tree of GbCYP90   orthologs and the reported occurrence of biﬂavonoids (Fig. 4).
+subfamily orthologs in land plants, spanning from bryophytes to  GbCYP90J6 orthologs were predominantly found in plant species
+gymnosperms (Supplementary Fig. 13), to investigate the evolu-  documented to produce biﬂavonoids (Supplementary Data 2), while
+tionary distribution of GbCYP90 members. Based on this analysis, we   they were generally absent in plant species lacking such reports. For
+extracted relevant orthologs distribution patterns and presented a   instance, biﬂavonoids and their corresponding orthologous genes
+simpliﬁed overview in Fig. 4. Notably, the phylogenetic relationships   are present in mosses but absent in hornworts and liverworts46. A
+
+
+
+Nature Communications| (2025)16:7792                                                                     4
+
+
+[PDF physical page 5]
+Article                                                                                  https://doi.org/10.1038/s41467-025-62990-6
+
+
+Fig. 2 | The biosynthesis pathway from biﬂavonoids 1 to its methyl modiﬁed    (GbOMT3),chr10.1253 (GbOMT4), and chr12.613 (GbOMT5) activities on substrate 1
+derives in G. biloba. For GbOMT characterization, crude enzymes generated from    in vitro. GbOMT4 and GbOMT5 catalyzed substrates 1 to podocarpusﬂavone A (8).
+BL21(DE3) carrying the empty vector pET28a were used as a negative control.     GbOMT3 catalyzed 1 to sequoiaﬂavone (9). MS2 fragmentation spectra of products
+a Expression patterns of screened O-methyltransferases in different organs. The    8 and 9 were shown on the right side. e LC-MS/MS analysis of G. biloba OMTs
+ﬁgure displayed the values as log2FPKM. b LC-MS/MS analysis of G. biloba OMTs    chr7.385 (GbOMT1) activities on substrates 2 in vitro. GbOMT1 catalyzed 2 to 10,
+chr7.385 (GbOMT1) and chr8.315 (GbOMT2) activities on substrates 1 in vitro.       which was speculated as 4,7”-O-methylamentoﬂavone. f The biosynthetic pathway
+GbOMT1 and GbOMT2 catalyzed substrate 1 to produce bilobetin (2). MS2 frag-      of biﬂavonoid 1 and its methylated derivatives 2–4 and 8–10 in G. biloba.
+mentation spectra for authentic 2 and products of GbOMT1 and GbOMT2 were     GbCYP90J6 dimerized 5 to generate 1, which served as the common precursor for
+shown on the right. c LC-MS/MS analysis of G. biloba OMTs chr1.879 (GbOMT3),    2–4 and 8–10. GbOMT1 and GbOMT2 catalyze the conversion of 1 to 2. Subse-
+chr10.1253 (GbOMT4) and chr12.613 (GbOMT5) activities on substrates 2 in vitro.    quently, GbOMT3 can modify 2 to produce 3, while GbOMT4 and GbOMT5 convert
+GbOMT3 catalyzed 2 to produce ginkgetin (3), GbOMT4 and GbOMT5 catalyzed 2   2 into 4. 8–10 are shunt products.
+to produce isoginkgetin (4). d LC-MS/MS analysis of G. biloba OMTs chr1.879
+
+
+similar pattern was observed in gymnosperms, such as Gnetales47,48  M296 in αD, N355-R362 in loop 4, and F458-V461 in loop 6 (Fig. 5a, b).
+(including Ephedra, Gnetum, and Welwitschia) and Pinaceae48,49,   Notably, alanine mutations at the tunnel entrance (M53, F458, P459,
+which lacked both biﬂavonoids and orthologous genes. Although the   V461) and within the catalytic center (Y113, P114, F121, I126, F286, L361,
+catalytic function of each ortholog remained to be fully validated,   R362) abolished or nearly abolished dimerization. In contrast, only
+their phylogenetic association with biﬂavonoid-producing species   V215A mutation  in αC, located near the entrance,  signiﬁcantly
+suggested a potentially conserved role in biﬂavonoid biosynthesis.   enhanced the activity. To further probe the structure-function rela-
+We acknowledge, however, that some uncertainty persists in species   tionship, we examined the homologous mutants derived from inactive
+lacking comprehensive phytochemical characterization. The co-   CYP90Js, as well as the selected mutations (V215T, F286Y, L382N)
+distribution of biﬂavonoids and GbCYP90J6 orthologs suggested a   based on hydrophobicity and polarity differences between active and
+plausible evolutionary trajectory from mosses to gymnosperms in   inactive enzymes (Fig. 5c and Supplementary Fig. 16a). We noticed that
+biﬂavonoid biosynthesis, with the CYP90J playing a specialized role   different homologous mutants at the same site often resulted in
+in biﬂavonoid synthesis within gymnosperms.                        divergent functional outcomes, reinforcing the importance of spatial
+   To determine whether biﬂavonoid synthesis was common within   constraints in maintaining catalytic activity (Supplementary Fig. 16a).
+CYP90J, we characterized additional gymnosperm CYP90J members:   For instance, at position M287 in αD, M287A retained approximately
+TcCYP90J7 from Taxus chinensis, CpCYP90J8 from Cycas panzhi-   14% activity, M287L showed near wild-type activity, while M287Y and
+huaensis, ChCYP90J7 from Cephalotaxus harringtonia, MgCYP90J1  M287F nearly abolished function. Similarly, mutations at L382 in loop 5
+from Metasequoia glyptostroboides, and TpCYP90J1v1, TpCYP90J9, and   at the bottom of the substrate tunnel revealed contrasting outcomes:
+TpCYP90J10 from Thuja plicata. Despite their high sequence similarity  L382N eliminated activity, whereas L382F doubled  it. Comparable
+(68–71%), their catalytic activities varied. Notably, ChCYP90J7, similar   trends were observed at M53, L127, V215, L284, F286, and L361, further
+to GbCYP90J6, exhibited dimerization  activities that were more   highlighting the critical role of spatial constraints in substrate posi-
+inclined towards 5 than 11, as evidenced by its higher catalytic efﬁ-   tioning. Moreover, none of the single-site mutations introduced into
+ciency (Fig. 3b and Supplementary Fig. 14). In contrast, MgCYP90J1   the inactive TcCYP90J7 conferred dimeric activity (Supplementary
+catalyzed only the dimerization of 11 (Supplementary Fig. 14), while the   Fig. 16b). Western blot analyses conﬁrmed the comparable expression
+other CYP90J members did not show these activities. Given the rich   across all mutants, indicating that the observed activity differences
+diversity of C–C type biﬂavonoids in gymnosperms12,50, it was plausible   were attributable to functional effects of the mutations rather than
+that these CYP90J enzymes participate in the dimerization of addi-   expression level (Supplementary Fig. 17). These mutation tests suggest
+tional ﬂavonoid substrates. Additionally, to further elucidate the evo-   that the steric hindrance within the substrate-binding cavity creates a
+lutionary relationship, SmCYP90E3v1 from Selaginella moellendorfﬁi in   sophisticated enzymatic environment crucial for substrate dimeriza-
+CYP90E subclade was also chosen for screening. It exhibited weak   tion, governing substrate entry and arrangement.
+catalytic activity toward 5 and 11, producing trace amounts of 1 and 11a      To clarify the catalytic mechanism underlying biﬂavonoid for-
+(Fig. 3b and Supplementary Fig. 14). Based on the above observations   mation, we conducted molecular dynamics (MD) simulations on the
+and the established plant phylogeny, gymnosperm CYP90J subfamily   protein variants GbCYP90J6L382F and GbCYP90J6L382N due to their
+members likely evolved from ancestral lycophyte CYP90Es and sub-   opposing catalytic activities at the same site (Supplementary Fig. 16a).
+sequently diverged to specialize in biﬂavonoid synthase. Their sub-   Additionally, we included the active ChCYP90J7 and the inactive
+strate scope, however, required further investigation.                TcCYP90J7 for comparative analysis. Structural alignment revealed
+                                                                        that even subtle sequence variations signiﬁcantly alter the conforma-
+Ligand conformation controlled by surrounding amino acids      tions of surrounding residues and bound ligands (Fig. 6a). While the
+determines enzyme dimerization catalytic activity                speciﬁc locations of these conformational changes varied among
+Although the unique gymnosperms CYP90Js specialized in ﬂavonoid   variants, they consistently altered ligand positioning relative to the
+dimerization, only GbCYP90J6 and ChCYP90J7 catalyzed the dimer-   catalytic center. This tread was observed both in the single-site mutant
+ization of 5 to 1 via an intermolecular 3’,8”-linkage (Figs. 1d and 3b). To   comparison (Fig. 6a) and across active (GbCYP90J6, ChCYP90J7) ver-
+explain this phenomenon, we investigated the unique function of   sus inactive (TcCYP90J7) enzymes  (Fig. 6b). These observations
+GbCYP90J6. Using molecular docking, we constructed a structural  prompted further investigation into which speciﬁc conformational
+model of the GbCYP90J6-apigenin (5D)-apigenin (5U) complex (Sup-   arrangements favor the regiospeciﬁc  catalysis of C3’-C8” linked
+plementary Fig. 15). The alanine scanning mutagenesis targeting resi-   biﬂavonoids.
+dues within 5 Å of 5D and 5U in the active pocket revealed 31 residues      Our analysis revealed a  critical correlation between enzyme
+that signiﬁcantly impact activity (Fig. 5a). Residues A357 and A460   activity and substrate positioning. In active enzyme models (Fig. 6), the
+were excluded due to their native alanine identity, and T293 (in the  two apigenin molecules (5U and 5D), were positioned closer to the
+conserved AGxxT motif) and the heme-coordinating C425 were not  heme center than in inactive variants (Fig. 6 and Supplementary
+mutated due to their essential roles. Most deleterious mutations were   Fig. 18). This proximity directly correlated with enhanced dimerization
+clustered in the substrate-binding region, spanning M53-H60 in αA,    activity, as exempliﬁed by GbCYP90J6L382F with shorter critical dis-
+H83-P88 in loop 1, Y113-L127 in loop 2-αB-loop 3, Y208-I216 in αC, L284-   tances (d1 = 2.0 Å, d2 = 3.3 Å, d3 = 3.1 Å) showing higher activity than
+
+
+
+Nature Communications| (2025)16:7792                                                                           5
+
+
+[PDF physical page 6]
+Article                                                                                  https://doi.org/10.1038/s41467-025-62990-6
+
+
+
+
+
+Fig. 3 | Phylogenetic analysis of the CYP90 subfamily and validation results of   catalyzed the hydroxylation of steroids from angiosperms. Additionally, the green
+dimerase activity of other gymnosperm CYP90J and lycophyte CYP90E mem-    leaf represented three other CYP90 members in Ginkgo biloba: GbCYP90A68,
+bers towards substrate 5. a CYP90s from representative species of lycophytes,    GbCYP90B61, and GbCYP90D59, which were adjacent to known steroid hydro-
+ferns, gymnosperms, and angiosperms, along with known CYP90s from the Plant    xylases. b LC-MS/MS results characterized the dimerase activity of additional
+Cytochrome P450 database45, were selected to construct a phylogenetic tree of     CYP90Js from gymnosperms and SmCYP90E3v1 from lycophytes towards apigenin
+plant CYP90s. All sequences used in the phylogenetic analysis were listed in Sup-     (5). Functional characterization was conducted in vivo in E. coli JM109(DE3), with
+plementary Data 1. Protein sequences were aligned using MUSCLE86 and then used   the strain carrying the pFe00 vector used as a negative control. MS2 fragmentation
+to construct a Maximum Likelihood (ML) tree with IQ-TREE68 with 1000 bootstrap   spectra for authentic amentoﬂavone (1) and products of ChCYP90J7 and SmCY-
+replicates. The resulting tree was visualized using iTOL87. In the tree, the purple     P90E3v1 were shown on the right. All these members were also tested for dimerase
+clade represented the CYP90J subfamily from gymnosperms, with GbCYP90J6        activity toward substrate (S)-naringenin (11) (Supplementary Fig. 14), with the
+located within it. The pink clade represented the CYP90E subfamily from lyco-       results summarized on the right side of b.
+phytes, and the blue clade represented the known CYP90A-D subfamily that
+
+
+wild-type GbCYP90J6 (d1 = 2.2 Å, d2 = 4.9 Å, d3 = 3.5 Å) (Fig. 6a). Con-   hydrophobic interactions (Supplementary Fig. 18a). The crucial π–π
+versely, increased distances from the heme center in GbCYP90J6L382N   stacking interaction between 5U and 5D, stabilized the substrates in an
+(d1 = 4.2 Å, d2 = 4.0 Å, d3 = 5.1 Å) correlated with substantially reduced   almost head-tail anti-parallel conﬁguration52, positioning C3’ of 5D
+activity (Fig. 6a).                                                      close to C8” of 5U (d3 = 3.5 Å) (Supplementary Fig. 18a). The enhanced
+   To elucidate the molecular basis underlying substrate positioning,   activity of GbCYP90J6L382F resulted from the larger hydrophobic side
+we conducted detailed protein-ligand interaction analysis using PLIP51   chain of F382 disrupting the original hydrogen bonding network,
+(Supplementary Fig. 18), complementing the structural comparisons in   accompanied by new hydrogen bonds forming between A357 and 5D,
+Fig. 6. In wide-type GbCYP90J6, residues S358 formed hydrogen bonds  and between H84 and 5U. These altered interactions, along with
+with substrates and L117, V215, I216, T293, and A357 contributed   hydrophobic contacts from P114, F121, V215, and A357 (Supplementary
+
+
+
+Nature Communications| (2025)16:7792                                                                      6
+
+
+[PDF physical page 7]
+Article                                                                                  https://doi.org/10.1038/s41467-025-62990-6
+
+
+
+
+
+Fig. 4 | The relationship between the distribution of biﬂavonoids and            (Anthoceros angustus, Anthoceros agrestis, and Anthoceros punctatus), liverworts
+GbCYP90J6 orthologs in land plants, ranging from bryophytes to gymnos-      (Marchantia polymorpha), Pinaceae (Pseudotsuga menziesii, Picea babies, and Pinus
+perms. Plants containing biﬂavonoids possess GbCYP90J6 orthologs. These         teada), and Gnetales (Gnetum montanum and Welwitschia mirabilis). Thus, the
+includemosses (Sphagnumfallax, Sphagnum magellanicum, Physcomitrium patens,    distribution of biﬂavonoids is highly correlated with the presence of GbCYP90J6
+Ceratodon purpureus, and Pohlia nutans), the lycophyte Selaginella moellendorfﬁi,    orthologs, indicating the important role of these orthologs in the dimerization of
+ferns (Alsophila spinulosa and Adiantum capillus-veneris), and gymnosperms        biﬂavonoids. Additionally, we provide the detailed distribution of orthologs in
+(Ginkgo biloba, Cycas panzhihuaensis, Taxus chinensis, Thuja plicata, Metasequoia    plants in Supplementary Fig. 13 and detailed plant biﬂavonoids dispersed infor-
+glyptostroboides, and Sequoiadendron giganteum). Conversely, in plants lacking     mation in Supplementary Data 2.
+biﬂavonoids, GbCYP90J6 orthologs are absent. These include hornworts
+
+
+Fig. 18b), effectively positioned the substrates closer to the heme  prompts the regiospeciﬁc formation of 1 (3’,8”-biapigenin); (3) Muta-
+center, enhancing catalytic efﬁciency. In contrast, the introduction of a   tions within the pocket disrupt the existing interaction network. A new
+polarasparagine in GbCYP90J6L382N destabilized the substrate-binding   network is formed, changing the distance between the ligands and the
+network. N382 and H84 formed new hydrogen bonds with 5U and 5D,  heme center. These alterations in conformation and interactions
+respectively, disrupting the original interaction pattern. Hydrophobic   indicate that a tight steric hindrance between the substrates and
+interactions between L117, V215, and A357 with 5U and 5D. While under   pocket amino acids determines the dimerization activity. This altered
+these interactions, the inappropriate π–π stacking between the ligands   distance affects dimerization activity. Regiospeciﬁcity in biﬂavonoids
+pulled 5D away from 5U, increasing d3 to 5.1 Å and diminishing activity   biosynthesis is intricately tied to the conformational orientation and
+(Supplementary Fig. 18c). A similar ligand arrangement was observed   relative positioning of the substrates within the active pocket.
+in the active ChCYP90J7, though driven by a distinct set of residues
+(Supplementary Fig. 18d). In contrast, the inactive TcCYP90J7 failed to   Dimerization mechanism validated by QM/MM calculation
+support π–π stacking between 5D and 5U, resulting in the displace-   After conﬁrming that the stable conformation of ligands close to the
+ment of 5D away from both 5U and the heme center (d1 = 30.3 Å,  heme center determined GbCYP90J6 dimerization activity, we pro-
+d2 = 6.2 Å, d3 = 24.5 Å) (Supplementary Fig. 18e). Therefore, suitable   posed two plausible C–C bond formation mechanisms: a radical
+protein-ligand interactions were crucial for positioning the ligands   addition pathway (A) and a diradical coupling pathway (B), inspired by
+near the heme center. Changes in surrounding amino acid residues will   mechanical insights from fungal and bacterial P450s20,22–24. As illu-
+disrupt the original interactions and form new networks, leading to   strated in Fig. 7a, both pathways began with a hydrogen atom transfer
+alterations in dimerization activity.                               (HAT) from the C4’-OH of the proximal unit (5D) (Fig. 6a) to the highly
+    Based on the analysis of protein-ligand models and experimental   reactive Cpd I, producing a delocalized apigenin radical R5d. In path-
+results, we concluded that the key factors inﬂuencing CYP90J dimer-  way A, R5d attacked the C8” position of a distal apigenin (5U), forming
+ization activity are as follows: (1) Non-covalent interactions between   a C3’-C8” linked dimeric radical intermediate (R5du), which was sub-
+amino acid residues in the active pocket and ligands create a spatial   sequently oxidized by Cpd II via HAT from C7”-OH, yielding the keto
+constraint that brings the ligands close to the heme center, which is   form of 1. Alternatively, in pathway B, a second HAT from the C7”-OH
+essential for dimerization activity; (2) In addition to constraints from   of 5U, also mediated by Cpd II, generated a second delocalized radical
+surrounding amino acid residues, π-stacking between 5D and 5U in a   (R5u). The resulting radicals (R5d and R5u) then underwent inter-
+head-tail manner stabilizes their anti-parallel alignment, positioning   molecular coupling to form the same C–C linked keto intermediate.
+C3’ near C8”. This arrangement prevents random ligand coupling and   This species spontaneously tautomerized to the ﬁnal enol form of 153.
+
+
+
+Nature Communications| (2025)16:7792                                                                                  7
+
+
+[PDF physical page 8]
+Article                                                                                  https://doi.org/10.1038/s41467-025-62990-6
+
+
+
+
+
+Fig. 5 | Mutations analysis of GbCYP90J6 revealed critical amino acid residues    generated by molecular docking and MD simulation, showing the spatial rela-
+within the substrate pocket that determine biﬂavonoid dimerization speciﬁ-     tionship between key residues identiﬁed by mutagenesis and the substrate mole-
+city. a Results of alanine scanning within a 5 Å range of the 5 ligands of GbCYP90J6.     cules. Two ligands maintained a head-to-tail, anti-parallel conﬁguration, with
+The x-axis represented the mutagenesis sites of GbCYP90J6, and the y-axis showed    distance from C4’-OH of ligand 1 (5D) and C7”-OH of ligand 2 (5U) to the heme
+the relative enzyme activity compared to the wild-type (WT). Each value was pre-    center of 2.2 Å and 4.9 Å, separately. The distance between C3’ of 5D and C8’ of 5U
+sented as mean ± S.D. (n = 3). Experiments were conducted in vivo using E. coli      was 3.5 Å. Key sites from alanine scanning mutagenesis were highlighted in dif-
+JM109(DE3). “nd” indicated no production of 1. All mutagenesis within a 5 Å range     ferent colors. c Protein sequence alignment of gymnosperm CYP90J, ordered by
+of the 5 ligands showed signiﬁcant variation compared to the WT. Source data are    the sequence of GbCYP90J6, revealing conservation patterns of functionally
+provided as a Source Data ﬁle. b GbCYP90J6-apigenin (5D)-apigenin (5U) model     important residues across active and inactive enzymes.
+
+
+
+   To assess the feasibility of both pathways, we performed QM/   renders the pathway kinetically unfavorable. In contrast, pathway B
+MM calculations based on a representative conformation derived   involved a second HAT (IM1 →IM4) with a lower barrier of 22.5 kcal/
+from 200 ns MD simulation. The QM region was carefully deﬁned to  mol compared to TS3. This was followed by a radical-radical coupling
+include key residues involved in hydrogen bonding and steric inter-   (IM4 →IM3) via TS5, which required only 4.6 kcal/mol from IM4 to
+actions near the reactive center. The computed energy proﬁles, the   TS5. Notably, this C–C formation barrier was substantially lower than
+optimized structures of key intermediates and transition states were   that in pathway A (15.5 kcal/mol from IM1 to TS2). The ﬁnal keto-enol
+shown in Fig. 7b and Supplementary Fig. 19. The initial HAT step from   tautomerization (IM3 →PC) occured spontaneously, driven by a
+the C4’-OH of 5D to Cpd I proceeded with a low activation barrier of   sharp energy drop of over 42 kcal/mol (from 18.2 to −24.2 kcal/mol),
+12.5 kcal/mol, generating intermediate IM1, which was 7.9 kcal/mol   thereby stabilizing the coupled product 1 (Fig. 7b)53. These results
+above the reactant complex (RC). Spin population analysis revealed   strongly supported the diradical coupling mechanism (pathway B) as
+that the radical in IM1 was delocalized across the aromatic ring of   the thermodynamically preferred pathway for GbCYP90J6-catalyzed
+R5d54, with a high spin densities at the C-3’/C-5’ (−0.27/−0.25), con-   dimerization.
+sistent with its potential as a radical reaction site. In pathway A, the      To further elucidate the conformational changes required for C–C
+subsequent radical addition (IM1 →IM2) and HAT from C7”-OH  bond formation, we analyzed the structural transition from IM1
+(IM2 →IM3) catalyzed by Cpd II proceeds via a high energy barrier of   through the pre-coupling intermediate IM4 to the transition state TS5.
+32.8 kcal/mol (TS3 relative to RC), attributed to the suboptimal  QM/MM-optimized structures (Supplementary Fig. 19) revealed a
+geometry and the distal positioning of the hydroxyl group. This   progressive decrease in the C3’-C8” distance, from 4.7 Å in IM1 to 1.8 Å
+
+
+
+Nature Communications| (2025)16:7792                                                                       8
+
+
+[PDF physical page 9]
+Article                                                                                  https://doi.org/10.1038/s41467-025-62990-6
+
+
+
+
+
+in IM4 and 1.7 Å in TS5. This reorganization was primarily driven by   bonding interaction (Supplementary Fig. 19). While mutagenesis and
+counterclockwise rotation and reorientation of R5d, which brought its  MD simulations revealed additional residues essential for catalytic
+C3’ atom into close proximity with the C8” atom of R5u, thereby    activity, these QM/MM-identiﬁed residues speciﬁcally exempliﬁed how
+enabling selective C3’-C8” coupling. QM/MM calculations further   the active site environment precisely orchestrates substrate align-
+identiﬁed residues V215, I216, E292, and G359 were crucial for stabi-   ment, thereby supporting the central role of the conformational con-
+lizing high-energy transition states and intermediates via hydrogen   trol in the GbCYP90J6-catalyzed dimerization.
+
+
+
+
+Nature Communications| (2025)16:7792                                                                      9
+
+
+[PDF physical page 10]
+Article                                                                                  https://doi.org/10.1038/s41467-025-62990-6
+
+
+Fig. 6 | Structural basis for altered catalytic activity due to conformational     comparison of active sites between functional amentoﬂavone synthases
+changes. a Structural alignment of active sites among GbCYP90J6 wild-type, high-   (GbCYP90J6 and ChCYP90J7) and inactive TcCYP90J7. Regions corresponding to
+activity mutant GbCYP90J6L382F, and low-activity mutant GbCYP90J6L382N. Regions   the alanine scanning area in GbCYP90J6 were shown as cartoon representations.
+targeted in alanine scanning were shown as cartoon representations, with L382,    The three critical distances (d1, d2, and d3) were displayed in the lower left corner
+L382F, and L382N displayed as sticks. Critical distances were indicated in the lower   of each structural panel, highlighting conformational differences between active
+left corner of each structure panel:d1 (distance between Fe = O and 4’-OH of 5D), d2   and inactive enzymes. c Binding free energies (kcal/mol) of ligand 1 (5D) and ligand
+(distance between Fe = O and 7”-OH of 5U), and d3 (distance between C3’of 5D and   2 (5U) in GbCYP90J6, GbCYP90J6L382F, GbCYP90J6L382N, TcCYP90J7, and
+C8” of 5U). These results demonstrated how single-point variations in the active site   ChCYP90J7 as determined by gmx_MMPBSA analysis.
+signiﬁcantly altered both protein pocket and substrate conformations. b Structural
+
+
+
+
+
+Fig. 7 | Mechanistic pathways for the formation of dimer 1 catalyzed by         mediated sequential hydrogen extraction reactions. These radicals underwent
+GbCYP90J6. a Two proposed dimerization pathways (A and B) for the formation of   rearrangement, intermolecular radical-radical coupling, and aromatized to pro-
+1. Pathway A represented a radical addition mechanism, initiated by formation of   duce 1. b QM/MM calculated energy proﬁles for the formation of 1 catalyzed by
+the apigenin radical R5d. This radical underwent rearrangement and attacked C8”   GbCYP90J6 via two proposed pathways. The relative Gibbs free energy changes
+of 5U, forming the C3’-C8” linked dimeric radical intermediate R5du. Cpd II then    (ΔG, kcal/mol) during product 1 formation were shown with pathway A in red and
+abstracted hydrogen from C7”-OH, generating 1 (keto form), which underwent      pathway B in blue. Key points along the reaction coordinate included: RC (reactant
+tautomerization to produce 1 (enol form). Pathway B described a diradical coupling   complex), TS1–5 (transition states 1–5), IM1–4 (intermediates 1–4), and PC (product
+pathway. Speciﬁcally, apigenin radicals (R5d and R5u) were generated via heme-    complex). The QM/MM optimazed structures were shown in Supplementary Fig. 19.
+
+
+
+
+De novo biosynthesis of amentoﬂavone in E. coli                 derived from JM109(DE3) by deleting tyrR and pheA genes, fol-
+Based on our discovery of biﬂavonoid dimerases, we established a  lowed by integration of aroGfbr, tyrAfbr, ydiB, tktA, and ppsA genes
+synthetic pathway for producing 1 in E. coli. To this end, we ﬁrst   into the tyrR locus (Fig. 8a)55. This engineered GJA3 produced
+engineered a L-tyrosine (L-Tyr) over-producing strain GJA3, as L-Tyr   1.89 g/L  L-Tyr  after  72 h  cultivation,  reaching an OD600  of
+is the key precursor of apigenin (5). The engineered E. coli GJA3 was   15.5 (Fig. 8b).
+
+
+
+Nature Communications| (2025)16:7792                                                                              10
+
+
+[PDF physical page 11]
+Article                                                                                  https://doi.org/10.1038/s41467-025-62990-6
+
+
+
+
+
+Fig. 8 | De novo biosynthesis of 1 in E. coli. a Metabolic engineering strategy for L-   c Biosynthetic modules for 1 production from L-Tyr in GJA3 strain. d Titers of 1 and
+Tyr over-production in E. coli JM109(DE3). b L-Tyr production by the engineered      its precursor 5. Each value represents mean ± S.D. (n = 3). “nd”: not detected. Source
+strain GJA3 after 72 h fermentation. Each value represents mean ± S.D. (n = 3).        data are provided as a Source Data ﬁle.
+
+
+
+
+
+   We then assembled two functional modules for 1 production: an   RsCYB5, required for CYP-catalyzed oxidation reaction  (Fig. 8c).
+apigenin monomer generation module and a dimerization synthesis   Finally, strain sXH140 (GJA3 carrying pYH57 and pBIF21) successfully
+module. The apigenin generation module, carried on plasmid pYH5756,   produced 1 at the titer of 4.75 mg/L after 72 h cultivation in shake
+includes four known functional proteins (RtPAL from Rhodotorula   ﬂasks (Fig. 8d).
+toruloides, Pc4CL from Petroselinum crispum, PhCHS from Petunia
+hybrida, and MsCHI from Medicago sativa) to produce 5 from L-Tyr in  Discussion
+E.  coli  (Fig. 8c). Strain sXH138 (GJA3 carrying pYH57) produced   Plant CYP enzymes are crucial for synthesizing and modifying natural
+236.93 mg/L 5 after 72 h cultivation, reaching an OD600 of 18.8  compounds, engaging in typical monooxygenation and hydroxylation
+(Fig.  8d). The dimerization synthesis module was implemented   reactions, as well as unique processes like oxidative rearrangements,
+through plasmid pBIF21, carrying the apigenin dimerase variant   oxidative C–C bond cleavage, and phenol coupling57. While intramo-
+trGbCYP90J6L382F along with its electron transfer partners AtCPR2 and   lecular C–C and intermolecular C-O phenol coupling reactions have
+
+
+
+Nature Communications| (2025)16:7792                                                                                                          11
+
+
+[PDF physical page 12]
+Article                                                                                  https://doi.org/10.1038/s41467-025-62990-6
+
+
+been previously documented58,59, intermolecular C–C phenol coupling       Although CYP90J subfamily members catalyzed ﬂavonoids dimer-
+remains largely unexplored. C–C linkages in biﬂavonoids, which are   ization, they exhibit varying catalytic abilities (Fig. 3 and Supplementary
+widespread in plants, play an essential role in conferring distinct bio-    Fig. 14). To investigate the reasons behind these differences, we built
+logical  activities,  differentiating them from  mono-ﬂavonoids60,61.   representative active models GbCYP90J6-apigenin (5D)-apigenin (5U)
+Despite their signiﬁcance, the enzymes responsible for biﬂavonoid   for analysis (Fig. 6). Using these models, we performed alanine scanning
+biosynthesis have long been unknown.                           and single-site mutation analysis based on the sequences of the inactive
+     In this work, we identiﬁed key enzymes involved in this pathway,   CpCYP90J8, MgCYP90J1 and TcCYP90J7, within a 5 Å range of the 5D
+especially focusing on the synthesis of the biﬂavonoid skeleton   and 5U ligands. These analyses reveal the critical roles of each residue in
+amentoﬂavone (1), which is produced by the action of GbCYP90J6,   dimerization activity (Fig. 5 and Supplementary Fig. 16) and indicate the
+ChCYP90J7, and SmCYP90E3v1. Beyond native substrate apigenin (5),   importance of residues surrounding the ligand in determining dimer-
+these enzymes, together with MgCYP90J1, also catalyzed the oxidative   ization activity. Understanding how single-site mutations affect dimer-
+dimerization of (S)-naringenin (11) to form products 11a and 11b, with   ization  activity can also uncover the mechanism behind CYP90J
+SmCYP90E3v1 producing only 11a. Although low conversion efﬁciency   enzymes activity or inactivity. Therefore, we compared several complex
+prevented precise structural characterization, MD simulations sug-   models—GbCYP90J6, GbCYP90J6L382F GbCYP90J6L382N, TcCYP90J7, and
+gested these dimers may arise from C3’-C8”, C3-C8”, or C7-O-C3”   ChCYP90J7—based on their minimal differences in active site amino
+coupling modes, depending on substrate’s conformational alignment   acid residues. From a structural alignment perspective, single-site dif-
+(Supplementary Fig. 20). In G. biloba, 1 underwent successive methy-   ferences could signiﬁcantly impact the conformation of residues within
+lation by GbOMT1-GbOMT5 to yield prominent biﬂavonoids including   the active sites and their interaction with ligands (Fig. 6). Consequently,
+bilobetin (2), ginkgetin (3), and isoginkgetin (4), podocarpusﬂavone A   this affects the distance between the ligands and the heme center,
+(8),  sequoiaﬂavone  (9), and  likely  4’,7”-O-methylamentoﬂavone   leading to variations in enzyme activity. The regioselectivity and cata-
+(10) (Fig. 2).                                                                         lytic efﬁciency of the dimerization reaction are primarily determined by
+    Unlike classical CYP90 enzymes known for catalyzing the steroid   the substrate conformational orientation and spatial positioning during
+hydroxylation45, these CYP90J subfamily enzymes facilitate the for-   the formation of the reactive Fe(IV)-oxo intermediate, as demonstrated
+mation of an intermolecular C–C bond, a function previously attrib-   in microbial CYPs such as NasbB, aryC, and AtuP45022–25. At the mole-
+uted solely to microorganisms  CYPs22–25. This represents a rare   cular level, our analysis of protein-ligand interactions revealed that
+identiﬁcation of CYP enzymes in plants capable of catalyzing inter-   active enzymes establish tight interactions between surrounding resi-
+molecular C–C coupling, marking a signiﬁcant advance in plant bio-   dues and ligands through hydrogen bonds and hydrophobic interac-
+chemistry. The distinctive functional divergence of CYP90J enzymes   tions. Additionally, π–π stacking between the two apigenin (5D and 5U)
+prompted us to investigate their evolutionary origins.                   ligands helps stabilize their relative positions52, bringing C3’ and C8” into
+    Given the unique role of GbCYP90J6 compared to other CYP90   close proximity. Minor changes in this balance could disrupt the
+members in G. biloba (Supplementary Fig. 1d), we investigated the   molecular conformation, resulting in different interactions and con-
+origin and distribution of CYP90J to understand its evolutionary   formations (Fig. 6 and Supplementary Fig. 18). These observations
+background. Phylogenetic analysis of plant-derived CYP90s (Fig. 3),   indicated that active enzymes, such as GbCYP90J6, create tight steric
+together with the known evolutionary history of plant lineages,   constraints between the substrates and pocket residues, which deter-
+suggests that CYP90Js in gymnosperms likely evolved from the   mines dimerization activity. As minor changes in the surrounding resi-
+CYP90E family in lycophytes. This hypothesis was supported by our   dues signiﬁcantly affect both the protein-substrates conformations and
+observation that SmCYP90E3v1 also catalyzes the dimerization of   their interactions, such tight steric hindrance typically plays a decisive
+apigenin (5) and (S)-naringenin (11)  (Fig. 3 and Supplementary   role in CYP-catalyzed dimerization22–24.
+Fig. 14). While this result provided functional support for the pro-      To  further  elucidate  the  molecular mechanism  underlying
+posed evolutionary link, we noted that only one CYP90E paralog   GbCYP90J6, we performed QM/MM calculations to evaluate the C–C
+from Selaginella was tested in this study. Additional biochemical  bond  formation pathway and  to exclude  the  radical  addition
+validation of closely related CYP90E members was considered   mechanism, which was kinetically inaccessible due to a high energy
+necessary to determine whether this activity is broadly conserved   barrier of 32.8 kcal/mol. Instead, we proposed a more feasible diradical
+within the subclade. In contrast, no CYP90J-like members were found   coupling mechanism in which residues V215, I216, E292, and G359 play
+in angiosperms, demonstrating the uniqueness of CYP90J in gym-   key roles in stabilizing the conformations of intermediates and tran-
+nosperms (Fig. 3). Further characterization of other gymnosperm-   sition states through hydrogen bonding interactions (Supplementary
+speciﬁc CYP90J subfamily members conﬁrmed their specialized in   Fig. 19). Alongside steric constraints imposed by surrounding residues,
+ﬂavonoid dimerization (Fig. 3b and Supplementary Fig. 14), but their   these interactions guide the reactive radicals into productive orienta-
+varying catalytic activities suggested the need for further investiga-   tions, thereby conferring regioselectivity to the C3’-C8” coupling.
+tion into suitable natural substrates, especially considering the divers   Notably, while the intermolecular C–C formation often contributes to
+subtypes and C–C connection patterners of biﬂavonoids found in   the rate-limiting step in previously characterized fungal and bacterial-
+gymnosperms33,50. Moreover, our ﬁndings reveal that CYP90J exists   derived CYPs20,25, GbCYP90J6 facilitates this step via a diradical cou-
+exclusively in gymnosperms, suggesting that different enzymes may   pling mechanism with a comparatively low energry barrier of only
+be responsible for biﬂavonoid skeleton synthesis in other plants,   4.6 kcal/mol from IM4 to TS5. In contrast, the second HAT step to Cpd
+such as angiosperms. Additionally, while previous studies suggested     II represents the rate-limiting step, with a barrier of 22.5 kcal/mol
+that the emergence of CYP90 in lycophytes marks the advent of   relative  to  RC,  thereby  distinguishing  the  catalytic  proﬁle  of
+brassinosteroid biosynthesis34, our analysis reveals that the dis-  GbCYP90J6 from microbial CYPs (Fig. 7). In addition, the requirement
+tribution of CYP90J in gymnosperms aligns with that of biﬂavonoids,   for radical formation also explains the lack of GbCYP90J6 activity
+enhancing our understanding of the functional role of the CYP90   toward methylated apigenin substrates such as acacetin (6) and api-
+family (Fig. 4). The biosynthesis of brassinosteroids and biﬂavonoid   genin 7,4’-dimethyl ether (7) (Supplementary Fig. 4). Methylation at
+skeletons shares a common CYP ancestor, suggesting that ancestral   the C3’-OH and C7-OH positions blocks the initial hydrogen abstrac-
+subfamilies such as CYP85 and CYP763 likely possessed bifunctional   tion by the CYP heme center, preventing radical intermediate forma-
+activities   in  the   biosynthesis   of  both  biﬂavonoids  and   tion. Additionally, the binding free energy calculations revealed
+brassinosteroids34. However, the evolutionary divergence of these   weaker substrate afﬁnity for methylated compounds, with ΔG values of
+bifunctional activities remains unclear.                                 13.25 and 18.39 kcal/mol for acacetin-containing complexes compared
+
+
+
+Nature Communications| (2025)16:7792                                                                                       12
+
+
+[PDF physical page 13]
+Article                                                                                  https://doi.org/10.1038/s41467-025-62990-6
+
+
+to apigenin (−12.06 kcal/mol) (Supplementary Fig. 21 and Supple-   Extraction and quantiﬁcation of biﬂavonoids from G. biloba
+mentary Table 1). These ﬁndings demonstrate that successful inter-   Biﬂavonoid extraction from G. biloba tissues was performed according
+molecular coupling requires both accessible hydroxyl groups for   to Mistry et al.62. In brief, plant tissues were ground into powder using a
+radical generation and optimal substrate positioning within the   high-throughput tissue grinder, and 0.1 g of the powder was trans-
+enzyme active site.                                                    ferred to a 2 mL microcentrifuge tube. Then, 1 mL of 70% methanol was
+    Building on the discovery of  crucial biﬂavonoid dimerases   added, followed by ultrasound treatment for 30 min. The supernatant
+responsible for oxidative C–C cross-coupling formation, we success-  was collected, and the extraction process was repeated twice. The
+fully engineered an E. coli strain for the de novo production of amen-   solvent was evaporated using a vacuum centrifugal concentrator, and
+toﬂavone (1), achieving a titer of 4.75 mg/L through the sequential   the residue was re-dissolved in 1 mL of 70% (v/v) methanol. Detection
+conversion of L-Tyr (1.89 g/L) to apigenin (5, 236.93 mg/L), followed by  and quantiﬁcation were performed using HPLC (Thermo, UltiMate
+its subsequent dimerization (Fig. 8d). Notably, this microbial produc-   3000, USA). Three biological replicates were performed for each
+tion system proved more efﬁcient than natural sourcing (0.059 mg/g   sample group.
+DW, Fig. 1b). This heterologous biosynthetic platform represents a
+promising alternative for efﬁcient biﬂavonoid production and holds  Transcriptome analysis
+signiﬁcant potential for pharmaceutical manufacturing.                 G. biloba tissues from three different trees were used to prepare the
+     In summary, we uncovered the function of CYP90J subfamily   Illumina sequence library. Total RNA was isolated using the mirVanaTM
+members that catalyze the speciﬁc C2 unsymmetrical dimerization of  RNA Isolation Kit (Ambion, USA, catalog AM1560). The sequencing
+biﬂavonoids with  distinct C3’-C8”  linkages. These gymnosperm-   library was constructed from total RNA samples using a TruSeq
+speciﬁc CYP90J enzymes, which our analyses indicate evolved from   Stranded mRNA LT Sample Prep Kit (Illumina, San Diego, CA, USA,
+CYP90E in lycophytes, are essential for C–C type biﬂavonoid synthesis.   catalog RS-122-9004DOC). The high-quality library was sequenced
+Additionally, we elucidated the methylation modiﬁcation pathway for   with Illumina HiSeqTM 2500. The transcriptome sequencing was con-
+key ginkgo biﬂavonoid biosynthesis, including bilobetin, ginkgetin,   ducted by OE Biotech Co., Ltd. (Shanghai, China). The genome of G.
+and isoginkgetin, mediated by GbOMT1 to GbOMT5. Through MD   biloba, published in 202128, was used to establish the reference
+simulations and QM/MM calculations, we discovered that CYP90Js   transcriptome.
+share catalytic mechanisms with bacteria and fungi CYPs, controlling
+the regiospeciﬁcity of C–C cross-coupling reactions. Importantly,   Candidates screening and gene cloning
+GbCYP90J6 catalyzes a diradical coupling reaction, where the steric   Candidate genes were initially identiﬁed by extracting peroxidases,
+hindrance from the enzyme pocket and π–π stacking interactions   PPOs, laccases, and CYPs from the G. biloba genome and tran-
+between two apigenin molecules guide their head-tail, anti-parallel   scriptome annotations. Additional candidates were identiﬁed using
+alignment, regioselectivity yielding amentoﬂavone. Finally, building  Hmmer (version 3.4)63 (E < 1 × 10−10) with Pfam identiﬁers: peroxidase
+on these mechanistic insights, we successfully engineered a microbial   (PF00141), PPO (PF12143), laccase (PF02578), and CYP (PF00067).
+platform for the de novo synthesis of amentoﬂavone, which holds   Candidates with complete domains and high leaf-speciﬁc expression
+signiﬁcant promise for biotechnological applications in the produc-   were selected for functional characterization. Expression levels of
+tion of valuable biﬂavonoids.                                        candidate biﬂavonoid synthase genes are provided in Supplemen-
+                                                                         tary Data 3.
+Methods                                                          For transient expression in tobacco, candidate genes were cloned
+Plant materials and reagent                                  from leaf cDNA using 2 × Phanta Flash Master Mix enzyme (Vazyme,
+The G. biloba L. trees (3 years old) used in this study were collected   Nanjing, China, catalog P520) and subcloned into the SalI and XhoI
+from a cultivated population in Shanghai, China, under open-air con-   sites in the pEAQ-HT vector using In-Fusion cloning (ClonExpress II
+ditions. The main roots (MR), old roots (OR), ﬁbrous roots (FR), and  One Step Cloning Kit, Vazyme, Nanjing, China, catalog C112). The
+young stems (YS) were collected in March, June, and August 2022,   resulting vectors were transformed into E. coli DH10B. After sequen-
+ensuring consistent growth conditions and ages across different trees.   cing by Sangon Biotech (Shanghai, China), the correct recombinant
+Young leaves (YL) and semi-mature leaves (uML) were collected in June   plasmids were transformed into A. tumefaciens GV3101.
+2022, and mature old leaves (ML) were collected in August 2022. The       For the plasmid used in the E. coli expression system, trGbCYP90J6
+speciﬁc appearance of each tissue type is shown in Fig. 1a. Each tissue  was subcloned into the NcoI and BamHI sites of pFe00. The pFe00
+type was collected in three biological replicates for transcriptome   (pCDFduet-AtCPR2-RsCYB5) was constructed from pCDFDuet by
+sequencing and content determination. Tissues used for sequencing   inserting the AtCPR2-RBS-RsCYB5 fragment into the SalI and XhoI sites.
+were immediately frozen in liquid nitrogen and stored at −80 °C until   RsCYB5 was ampliﬁed from pCZ44164, and AtCPR2 was cloned from A.
+use. Tissues for content determination were dehydrated in a 37 °C   thaliana (accession number: NM_179141). TcCYP90J7, ChCYP90J7,
+oven until completely dry, followed by extraction and quantiﬁcation.   CpCYP90J8, MgCYP90J1, TpCYP90J1v1, TpCYP90J9, TpCYP90J10, and
+    Biﬂavonoid  standards,  including  amentoﬂavone  (catalog:  SmCYP90E3v1 were synthesized by General Biol (Anhui, China) after
+FY1576), ginkgetin  (catalog: FY1965), and isoginkgetin (catalog:  codon optimization for E. coli and inserted into pFe00 between the
+FY3037), were purchased from Feiyubio (Nantong, China). Bilobetin   NcoI and BamHI sites. All CYPs and AtCPR2 transmembrane sequences
+(catalog: B20029) was obtained from Yuanye (Shanghai, China).   were predicted using TMHMM-2.0 and replaced with a synthetic 17α-
+Additionally, various mono-ﬂavonoids, such as apigenin (catalog:   tag (MALLLAVF)65.
+CFN98843), acacetin (catalog: CFN98744), apigenin 7,4’-dimethyl       Mutations were introduced by using mutant-speciﬁc primers to
+(catalog: CFN98819), (S)-naringenin (catalog: CFN98742), tricetin   amplify plasmids containing the wild-type gene, which served as the
+(catalog: CFN70392), luteolin (catalog: CFN98784), eriodictyol (cat-   template. The ampliﬁed fragments were digested with DpnI and then
+alog: CFN99719), aromadedrin (catalog: CFN98736), kaempferol   transformed into DH10B. Correct clones were selected by Sanger
+(catalog: CFN98838),  quercetin  (catalog: CFN99272),  myricetin   sequencing.
+(catalog: CFN98877), taxifolin (catalog: CFN98734), and ampelopsin      The O-methyltransferases (OMTs) were screened based on tran-
+(catalog: CFN98326) were sourced from ChemFaces (Wuhan, China).   scriptome annotation and subcloned into pET28a between NdeI and
+All ﬂavonoids were dissolved in DMSO with a concentration of   EcoRI. Details of primers and plasmids used in this research are listed in
+50 mM. The stock solutions of all reagents are stored at −20 °C.      Supplementary Data 4 and 5.
+
+
+
+
+Nature Communications| (2025)16:7792                                                                                      13
+
+
+[PDF physical page 14]
+Article                                                                                  https://doi.org/10.1038/s41467-025-62990-6
+
+
+Phylogenetic analyses                                            the cells were transferred to SD/-His (containing 2% galactose) for an
+To infer the evolutionary history of the CYP90 family, we conducted   additional 12 h. Microsomes were prepared as previously described68.
+phylogenetic analysis based on the existence of the CYP90 family in       For kinetic analyses, in vitro reactions were conducted in a total
+plants, including representative genomes of lycophytes, ferns, gym-   volume of 1 mL. The reaction mixtures consist of 500 μg microsomal
+nosperms, and angiosperms. Additionally, this analysis incorporated   protein, 50 mM Tris-HCl (pH 7.5), 1 mM NADPH, 5 μM FAD, 5 μg FMN,
+known functional CYP90 members collected from the plant P450  4 mM glucose-6-phosphate, 1 unit glucose-6-phosphate dehydrogenase
+database45. On the other hand, we used Orthoﬁnder (version 2.5.4)66 to   and apigenin ranging from 0.1 to 30 μM. Three biological replicates
+identify GbCYP90J6 orthologs in bryophytes, lycophytes, ferns, and   were set up for analysis. After incubating the mixtures at 30 °C for 1 h,
+gymnosperms, analyzing the relationship between the presence of   the reactions were quenched by extracting three times with 1 mL of
+orthologs and biﬂavonoid compounds. All sequences used in these   ethyl acetate. The supernatants were evaporated to dryness, resus-
+analysis are listed in Supplementary Data 1 and 2. Sequences were  pended in 100 μL methanol, and the products were quantiﬁed by HPLC.
+aligned using MUSCLE (version 5.1) multiple sequence alignment, and   Curve ﬁtting was performed using Michaelis–Menten model.
+phylogenetic analyses were conducted with IQ-tree (version 3.0)67        Additionally,  for the GbCYP90J6  in  vitro ﬂavonoids  multi-
+using the maximum likelihood method with bootstrap support and   substrates characterization, substrates were added to 25 μM sepa-
+1000 replications (Fig. 3 and Supplementary Fig. 13).                     rately and extracted three times with 1 mL water-saturated n-butanol.
+                                                         The extractions were resuspended in 100 μL of methanol and analyzed
+Transient expression in N. benthamiana                       by LC-MS/MS.
+To screen functional genes, A. tumefaciens carrying candidate genes
+was used for transient inﬁltration of tobacco plants. Positive strains   Characterization of OMTs in vitro
+were  cultured  in  LB medium  supplemented  with  kanamycin  The pET28a vectors carrying the OMTs open reading frame were
+(50 μg·mL−1), rifampicin (50 μg·mL−1), and gentamycin (50 μg·mL−1) at   transformed into E. coli BL21(DE3) for protein expression. The starter
+28 °C with shaking until they reached an OD600 of 1. The culture was   cultures of strains harboring the plasmids were grown overnight at
+then centrifuged at 4629 g for 5 min, and the resulting pellet was   37 °C in an LB medium containing 50 μg/mL kanamycin. These cul-
+resuspended in inﬁltration buffer (10 mM MES,10 mM MgCl2, 150 μM   tures were then inoculated (1:100) into 20 mL of LB medium (con-
+acetosyringone, pH 5.6) to achieve an OD600 of 0.8. The resuspended   taining 50 μg/mL kanamycin). Upon reaching an OD600 of 0.4, IPTG
+cultures were incubated at room temperature for 2–3 h before being  was added to the cooled cultures to a ﬁnal concentration of 0.1 mM.
+inﬁltrated into the leaves of 4-week-old tobacco plants. Each sample  The expression system was incubated at 22 °C and 220 rpm for 20 h.
+was inﬁltrated into three different plants as biological replicates, with   Subsequently, the cell pellets were collected and resuspended in
+A. tumefaciens carrying the empty vector pEAQ-HT serving as a nega-   1 mL of resuspension buffer (50 mM Tris-HCl, pH 7.5, 50 mM NaCl,
+tive control. Three days post-inﬁltration, the leaves were inﬁltrated  10% glycerol, 5 mM DTT). After adding protease inhibitor (1% v/v
+with 100 μM apigenin (dissolved in 4.75 mM methyl-β-cyclodextrin   Cocktail, Sangon, China), the cells were lysed using an ultrasonic
+(MCD) solution) and further cultivated for two days. Leaftissues (0.3 g)   homogenizer at 30 W power. The resulting crude enzymes were used
+from each treatment were frozen in liquid nitrogen, ground into ﬁne   for in vitro enzyme reactions, while crude enzymes from recombi-
+powder, and subjected to  triple extraction with  1 mL of water-   nant strains harboring the pET28a empty vector were used as nega-
+saturated n-butanol. After extraction, the resulting extracts were eva-   tive controls.
+porated to dryness and reconstituted in 200 μL of methanol for sub-       For the active analyses, in vitroreactions were conducted in a total
+sequent analysis using HPLC and Q-Exactive mass spectrometry.       volume of 100 μL. The reaction mixtures consist of 98 μL crude
+                                                              enzymes, 50 μM substrates (amentoﬂavone), and 0.1 mM S-adenosyl-L-
+Characterization of CYPs in E. coli                                methionine. After incubating the mixtures at37 °C for 1 h, the reactions
+E. coli JM109(DE3) (Promega, USA) was used for the characterization of   were quenched by extracting three times with 100 μL of ethyl acetate.
+CYPs in vivo. Plasmids utilized in these experiments are described in  The supernatants were evaporated to dryness and resuspended in
+Supplementary Data 5. The starter cultures of strains carrying plasmids  100 μL methanol, and the products were detected by HPLC and LC-
+were precultured at 37 °C in LB medium overnight and then inoculated  MS/MS.
+(1:100) into 10 mL of TB medium (with 20 g·L−1 glycerol), with three
+replicates for each experiment. After reaching an OD600 of 0.6–0.8,  HPLC and LC-MS/MS analyses
+isopropyl β-D-1-thiogalactopyranoside (IPTG) was added to the cooled   For the biﬂavonoids analysis using the HPLC system, a Dionex Ultimate
+cultures to a ﬁnal concentration of 0.1 mM. Concurrently, ﬂavonoid  3000 HPLC instrument (Thermo Fisher Scientiﬁc, USA) equipped with
+substrates dissolved in 50 mM MCD were added to a ﬁnal concentra-   an Athena C18 column (4.6 × 250 mm) (ANPEL Laboratory Technolo-
+tion of 100 μM (with a ﬁnal concentration of 4.75 mM MCD). Control   gies, China) was utilized. The mobile phase consisted of solvent A
+cultures containing plasmid pFe00 were run in parallel. The cultures   (pure water with 0.1% formic acid) and solvent B (acetonitrile with 0.1%
+were shaken at 22 °C for 72 h. Afterward, 1 mL of fermentation broth   formic acid). Gradient elution began with 95% solvent A and 5% solvent
+was ultrasonicated and extracted three times with 1 mL of ethyl acet-  B maintained for 5 min. Subsequently, solvent B increased from 5% to
+ate. All extracts were evaporated to dryness and re-dissolved in 200 μL  100% over 15 min and maintained at 100% for 10 min. Thereafter, sol-
+of methanol for subsequent analysis.                                vent B was reduced to 5% over 5 min. The ﬂow rate was set at
+                                                                              1 mL·min−1, and UV absorbance was monitored at 280 nm. Quantiﬁca-
+Kinetic analysis                                                       tion of biﬂavonoids was performed by measuring the peak areas in the
+The coding region of GbCYP90J6 was ampliﬁed from the vector pEAQ-  UV absorbance at 280 nm, followed by calculation using a standard
+1.3004 by PCR using primer pair ESC-GbJ6-F/-R (Supplementary   curve. For the catalytic activity analysis of mutants, the peak area of the
+Data 4). The PCR fragments were ligated into a predigested pESC/-HIS   wild-type was standardized to 100%, and the relative peak areas of
+vector using EcoRI and NotI (NEB, U.S.A.), yielding pESC-GbCYP90J6.   mutants were calculated for comparison. All calculations were based
+The correct plasmids were transformed into the Saccharomyces cere-  on three biological replicates.
+visiae WAT11. The recombinant yeast strains grew at 30 °C on a syn-       For L-Tyr detection, HPLC analysis was performed using the same
+thetic drop-out medium without histidine (SD/-His, containing 2%  column and mobile phase as for biﬂavonoids. The gradient elution
+glucose) plate for 48 h. A single clone was cultured in 200 mL SD/-His  program was as follows: 5–15% B (0–12 min), 15–95% B (12–12.1 min),
+(containing 2% glucose) medium until an OD600 reached 1, after which   held at 95% B (12.1–15.1 min), followed by re-equilibration at 5% B for
+
+
+
+Nature Communications| (2025)16:7792                                                                                    14
+
+
+[PDF physical page 15]
+Article                                                                                  https://doi.org/10.1038/s41467-025-62990-6
+
+
+5 min. The ﬂow rate was maintained at 1 mL·min−1, with UV detection   recording every 10 ps77. Stable molecular conformations from the last
+at 278 nm.                                               20 ns of the equilibrium trajectory were extracted for the analysis of
+    Samples prepared as described above were subjected to qualita-   the model and the strength of interactions between the protein and
+tive analysis by LC-MS/MS (n = 1). Characteristic fragment ions of the   the ligand.
+target compounds were extracted and analyzed using Xcalibur (ver-
+sion 4.4) software. For the LC-MS/MS analyses of ﬂavonoids, a Dionex  Quantum mechanics/molecular mechanics (QM/MM)
+Ultimate 3000 HPLC instrument (Thermo Fisher Scientiﬁc, USA)   calculation
+equipped with a 00D-4462-AN C18 column (2.1 × 100 mm, 2.6 μm)  QM/MM calculations were performed to investigate the reaction
+(Phenomenex, USA) coupled to a Q Exactive Hybrid Quadrupole-  mechanism at the active site of GbCYP90J6. Representative snapshots
+Orbitrap mass spectrometer (Thermo Scientiﬁc, USA) was employed.   were extracted from the MD trajectory by selecting frames that
+The mobile phase consists of H2O (0.1% formic acid, solvent A) and  showed both a minimal distance between the oxo group of Cpd I and
+acetonitrile (solvent B). The elution gradient was as follows: 0–1 min   the target hydroxyl proton, and a close spatial proximity between the
+10% solvent B, 1–15 min with a linear increase from 10% to 99% solvent   C3’ and C8” carbons of the substrates. All QM/MM calculations were
+B, 15–18 min 99% solvent B, and 18–21 min returning to 10% solvent B.   conducted using the ChemShell (version 23.0.3) software package78.
+The ﬂow was set at 0.3 mL·min−1. Electrospray ionization was used as  The QM/MM system included all amino acid residues within 12 Å of the
+the ion source in negative mode, with full-scan mass spectrometry set   protein. The QM region comprised the apigenin substrates, a heme
+with a range of m/z 100–1500 Da.                                      iron porphyrin axially coordinated by C425, and residues V215, I216,
+                                                                       E291, E292, T293, S294, P295, G359, and V360 (see Supplementary
+NMR spectroscopy                                                          Fig. 22). These residues were selected based on the criterion that they
+The 1H NMR and NOESY spectra were recorded on a Bruker AVANCE III  formed hydrogen bonds or hydrophobic interactions with the sub-
+HD 500 MHz spectrometer. Lyophilized samples (1–2 mg) were dis-   strates or facilitated substrates positioning within the active site. The
+solved in 450 μL of CD3OD (Cambridge Isotope Laboratories), and all  MM region was treated with the AMBER force ﬁeld79. The active region
+spectra were acquired at 25 °C. 1H chemical shifts were referenced to   during QM/MM calculations included all the residues and solvent
+the residual solvent signal of CD3OD at 3.31 ppm. NMR data were   molecules within 12 Å from the Fe center. During the QM/MM geo-
+processed using Bruker TopSpin (version 3.2) and analyzed with   metry optimization, the QM region was treated with the hybrid
+MestReNova (version 16.0.0).                                    UB3LYP80 density functional. For geometry optimization and scanning
+                                                                            calculations, the def2-SVP81 basis set was used. Then, the single-point
+Protein structure prediction, molecular docking, and site-         calculations were conducted with the higher-level basis set def2-
+directed mutagenesis                                              TZVP82. The D3(BJ) dispersion83 correction was employed for all QM/
+The CYP protein structures containing heme used in this study were  MM computations. The coordinates of all geometries obtained from
+predicted by AlphaFold 2, as provided by the tools in PCPD database69.   the QM/MM calculations are provided in Supplementary Data 6.
+AutoDockTools (version 1.5.7) was employed to prepare the proteins
+and ligands70. Subsequently, the ligands were docked into the pocket  De novo biosynthesis of amentoﬂavone in engineered E. coli
+near the heme using AutoDock Vina (version  1.1.2)71. The relative  The E. coli GJA3, engineered for high L-Tyr production, was con-
+conformations of the two substrates were determined through   structed from JM109(DE3) by knocking out tyrR and pheA genes, fol-
+sequential docking. First, apigenin (5D) was docked to identify its   lowed by inserting aroGfbr, tyrAfbr, ydiB, tktA, and ppsA genes into the
+optimal binding pose. Then, the second apigenin (5U) was docked   tyrR locus using CRISPR-Cas9-assisted genome editing according to
+while keeping the ﬁrst substrate ﬁxed. Models were selected based on   the protocol described by Yang et al.84. The CRISPR-related platmids
+speciﬁc criteria: proximity of reactive sites to heme iron, proper   pQZ26185 and pQZ26585, as well as plasmid pYH5756 harboring apigenin
+orientation of C4’-OH in 5D and C7”-OH in 5U toward the catalytic  monomer generation module, were previously constructed in our
+center, compatible positioning for C3’-C8” coupling, and favorable   laboratory.
+interaction energy scores. No artiﬁcial constraints were applied during      The starter cultures of engineered strains were precultured at
+this process, allowing substrate conformations to emerge naturally   37 °C in LB medium supplemented with appropriate antibiotics over-
+from protein-substrate interactions. Amino acids residues within 5 Å of   night and then inoculated (1:100) into 10 mL of TB medium containing
+the apigenin ligands were chosen for alanine scanning mutagenesis.  20 g·L−1 glycerol, with three replicates for each experiment. After
+ChimeraX (version 1.8)72 was used for protein-ligand model analysis   reaching an OD600 of 0.6–0.8, 0.1 mM IPTG was added to the cooled
+and visualization.                                                         cultures. The cultures were fermented at 22 °C, 220 rpm for 72 h.
+                                                                    For L-Tyr quantiﬁcation, the culture supernatant was acidiﬁed
+Classical MD                                                      with 1 N HCl and analyzed using HPLC. For ﬂavonoid quantiﬁcation,
+Using GROMACS (version 2021.3) software, a 100–200 ns MD simula-   1 mL of fermentation broth was ultrasonicated and extracted three
+tion of the protein-ligand complex was conducted73. The AMBER99SB-   times with 1 mL of ethyl acetate. All extracts were evaporated to dry-
+ILDN force ﬁeld was selected to generate the protein topology ﬁle, and   ness and re-dissolved in 200 μL of methanol for subsequent analysis.
+the small molecule ligand topology ﬁle was generated using the MCPY
+module from Amber20 software and the GAFF force ﬁeld74. A trun-   Statistics & reproducibility
+cated octahedral TIP3P solvent box was applied to the system with a   Quantitative experiments were conducted with three independent
+10 nm distance, and Na+/Cl−ions were added to neutralize the system   biological  replicates  unless  otherwise  stated.  Results,  including
+charge. Energy minimization was performed with 2500 steps of stee-  enzyme activity, metabolite concentrations, and product yields, are
+pest descent followed by 2500 steps of conjugate gradient75. The   presented as mean ± standard deviation (s.d.). No statistical methods
+system was then equilibrated using a 100 ps NVT ensemble simulation   were used to predetermine sample size. No data were excluded from
+and a 100 ps NPT ensemble simulation at a temperature of 298.15 K76. A   the analysis. The experiments were not randomized, and investigators
+100 ns MD ensemble simulation under periodic boundary conditions   were not blinded to group allocation or outcome assessment.
+was subsequently carried out. The Particle Mesh Ewald method was
+employed for long-range electrostatic interactions, using a 1 nm cutoff  Reporting summary
+for non-bonded interactions, a collision frequency of 2 ps, system   Further information on research design is available in the Nature
+pressure set to 101.325 kPa, an integration step of 2 s, and trajectory   Portfolio Reporting Summary linked to this article.
+
+
+
+Nature Communications| (2025)16:7792                                                                                        15
+
+
+[PDF physical page 16]
+Article                                                                                  https://doi.org/10.1038/s41467-025-62990-6
+
+Data availability                                                        18.  Liu, J., Liu, A. & Hu, Y. Enzymatic dimerization in the biosynthetic
+The data supporting the ﬁndings of this study are available within the      pathway of microbial natural products. Nat. Prod. Rep. 38,
+paper and its supplementary information ﬁles. The raw transcriptome       1469–1505 (2021).
+data of G. biloba has been deposited in the Genome Sequence Archive   19.  Funa, N., Funabashi, M., Ohnishi, Y. & Horinouchi, S. Biosynthesis of
+and is accessible under accession number CRA019958. The sequen-       hexahydroxyperylenequinone melanin via oxidative aryl coupling
+ces of GbCYP90s reported in this study have been submitted to the      by cytochrome P-450 in Streptomyces griseus. J. Bacteriol. 187,
+NCBI GenBank under accession numbers GbCYP90J6, PV862377;       8149–8155 (2005).
+GbCYP90D59, PV862378; GbCYP90A68, PV862379; GbCYP90B61,   20. Shende, V. V. et al. Structure and function of NzeB, a versatile C–C
+PV862380. Additional CYP90 sequences of this study are provided in      and C–N bond-forming diketopiperazine dimerase. J. Am. Chem.
+Supplementary Data 1. The mass spectrometry data generated in this       Soc. 142, 17413–17424 (2020).
+study are available in Figshare [https://doi.org/10.6084/m9.ﬁgshare.    21.  Mazzaferro, L. S., Hüttel, W., Fries, A. & Müller, M. Cytochrome
+29552828.v1]. Source data are provided with this paper.                   P450-catalyzed regio-and stereoselective phenol coupling of fun-
+                                                                            gal natural products. J. Am. Chem. Soc. 137, 12289–12295
+References                                                                  (2015).
+1.   World Health Organization. Global status report on the public health   22.  Sun, C. et al. Molecular basis of regio- and stereo-speciﬁcity in
+    response to dementia (World Health Organization, Geneva, 2021).         biosynthesis of bacterial heterodimeric diketopiperazines. Nat.
+    https://www.who.int/publications/i/item/9789240033245.           Commun. 11, 6251 (2020).
+2.  Menezes, J. C. J. M. D. S. & Diederich, M. F. Bioactivity of natural     23. Ma, C. et al. Exploring the diverse landscape of fungal cytochrome
+    biﬂavonoids in metabolism-related disease and cancer therapies.        P450-catalyzed regio- and stereoselective dimerization of diketo-
+    Pharmacol. Res. 167, 105525 (2021).                                       piperazines. Adv. Sci. 11, 2310018 (2024).
+3.   Uddin, M. S. et al. Emerging signal regulating potential of small      24. Shende, V. V. et al. Molecular dynamics simulations guide chi-
+    molecule biﬂavonoids to combat neuropathological insults of Alz-       meragenesis and engineered control of chemoselectivity in dike-
+    heimer’s disease. Sci. Total Environ. 700, 134836 (2020).                 topiperazine dimerases. Angew. Chem. Int. Ed. 62,
+4.  Zhang, Z. et al. Amentoﬂavone protects hippocampal neurons: anti-      e202210254 (2023).
+    inﬂammatory, antioxidative, and antiapoptotic effects. Neural        25. Kardam, V., Bhatt, V. & Dubey, K. D. Structural and mechanistic
+    Regen. Res. 10, 1125 (2015).                                                insights into oxidative biaryl coupling to form the arylomycin core
+5.   Tatlı Çankaya, İİ, Devkota, H. P., Zengin, G. & Šamec, D. Neuropro-       by an engineered CYP450. Dalton Trans. 54, 754–763 (2025).
+     tective potential of biﬂavone ginkgetin: a review. Life 13, 562 (2023).   26.  Fujiyama, K. et al. Structural insights into a key step of brassinos-
+6.   Zetzsche, L. E. et al. Biocatalytic oxidative cross-coupling reactions        teroid biosynthesis and its inhibition. Nat. Plants 5, 589–594 (2019).
+     for biaryl bond formation. Nature 603, 79–85 (2022).                 27.  Mohanta, T. K., Tamboli, Y. & Zubaidha, P. K. Phytochemical and
+7.    Ihl, R. Gingko biloba extract EGb 761®: clinical data in dementia. Int.       medicinal importance of Ginkgo biloba L. Nat. Prod. Res. 28,
+     Psychogeriatr. 24, S35–S40 (2012).                                 746–752 (2014).
+8.   Gavrilova, S. I. et al. Efﬁcacy and safety of Ginkgo biloba extract EGb   28.  Liu, H. et al. The nearly complete genome of Ginkgo biloba illumi-
+    761® in mild cognitive impairment with neuropsychiatric symptoms:       nates gymnosperm evolution. Nat. Plants 7, 748–756 (2021).
+    a randomized, placebo-controlled, double-blind, multi-center trial.   29.  Geiger, H. Biﬂavones from some mosses. Z. Naturforsch. C. 43,
+      Int. J. Geriatr. Psychiatry 29, 1087–1095 (2014).                         1–4 (1988).
+9.   Šalić, A. et al. Extraction of polyphenolic compounds from ginkgo   30. Suárez, A. I., Diaz, M. B., Delle Monache, F. & Compagnone, R. S.
+    leaves using deep eutectic solvents: a potential solution for the          Biﬂavonoids from Podocalyx loranthoides. Fitoterapia 74,
+     sustainable and environmentally friendly isolation of biﬂavonoids.       473–475 (2003).
+     Ind. Crops Prod. 219, 119068 (2024).                                    31.  Leong, K. I., Alviarez, P. F., Compagnone, R. S. & Suárez, A. I. Iso-
+10. Rahman, M., Riaz, M. & Desai, U. R. Synthesis of biologically relevant        lation and structural elucidation of chemical constituents of Ama-
+    biﬂavanoids–a review. Chem. Biodivers. 4, 2495–2527 (2007).          noa almerindae. Pharm. Biol. 47, 496–499 (2009).
+11.  Fregoso-López, D. & Miranda, L. D. Visible-light mediated radical     32.  Li, X.-C. et al. Fatty acid synthase inhibitors from plants: isolation,
+     alkylation of ﬂavones: a modular access to nonsymmetrical 3,3″-         structure elucidation, and SAR studies. J. Nat. Prod. 65,
+    biﬂavones. Org. Lett. 24, 8615–8620 (2022).                          1909–1914 (2002).
+12.  He, X., Yang, F. & Huang, X. Proceedings of chemistry, pharma-      33. Šamec, D. et al. 3′-8″- Biﬂavones: a review of their structural diver-
+    cology, pharmacokinetics and synthesis of biﬂavonoids. Molecules          sity, natural occurrence, role in plants, extraction and identiﬁcation.
+    26, 6088 (2021).                                                   Molecules 29, 4634 (2024).
+13.  Baker, W. & Simmonds, W. H. C. 258. Derivatives of 5: 6: 4′-and 5: 8:   34. Nelson, D. & Werck-Reichhart, D. A P450-centric view of plant
+     4′-trihydroxyﬂavones, and a note on the structure of ginkgetin. J.         evolution. Plant J. 66, 194–211 (2011).
+    Chem. Soc. (Resumed) 1370–1374 https://doi.org/10.1039/           35. Banks, J. A. et al. The Selaginella genome identiﬁes genetic changes
+    JR9400001370 (1940).                                                associated with the evolution of vascular plants. Science 332,
+14.  Sih, C. J. & Malnar, I. Peroxidase-catalyzed oxidative phenolic cou-      960–963 (2011).
+     pling of some tripeptides containing tyrosine and hydro-            36.  Li, C. et al. Extraordinary preservation of gene collinearity over three
+    xyphenylglycine residues. Biocatal. Biotransfor. 18, 301–310 (2000).      hundred million years revealed in homosporous lycophytes. Proc.
+15.  Kudanga, T., Nemadziva, B. & Le Roes-Hill, M. Laccase catalysis for         Natl. Acad. Sci. 121, e2312607121 (2024).
+    the synthesis of bioactive compounds. Appl. Microbiol. Biotechnol.   37.  Fang, Y. et al. The genome of homosporous maidenhair fern sheds
+     101, 13–33 (2017).                                                               light on the euphyllophyte evolution and defences. Nat. Plants 8,
+16.  Guyot, S., Vercauteren, J. & Cheynier, V. Structural determination of       1024–1037 (2022).
+     colourless and yellow dimers resulting from (+)-catechin coupling   38.  Liu, Y. et al. The Cycas genome and the early evolution of seed
+    catalysed by grape polyphenoloxidase. Phytochemistry 42,                plants. Nat. Plants 8, 389–401 (2022).
+    1279–1288 (1996).                                                39. Wan, T. et al. A genome for gnetophytes and early evolution of seed
+17.  Hüttel, W. & Müller, M. Regio- and stereoselective intermolecular         plants. Nat. Plants 4, 82–89 (2018).
+    phenol coupling enzymes in secondary metabolite biosynthesis.     40. Xiong, X. et al. The Taxus genome provides insights into paclitaxel
+     Nat. Prod. Rep. 38, 1011–1043 (2021).                                      biosynthesis. Nat. Plants 7, 1026–1036 (2021).
+
+
+
+Nature Communications| (2025)16:7792                                                                                    16
+
+
+[PDF physical page 17]
+Article                                                                                  https://doi.org/10.1038/s41467-025-62990-6
+
+
+41.  Wan, T. et al. The Welwitschia genome reveals a unique biology     63.  Potter, S. C. et al. HMMER web server: 2018 update. Nucleic Acids
+    underpinning extreme longevity in deserts. Nat. Commun. 12,            Res. 46, W200–W204 (2018).
+    4247 (2021).                                                     64. Sun, Y. et al. De novo production of versatile oxidized kaurene
+42.  Shalev, T. J. et al. The western redcedar genome reveals low             diterpenes in Escherichia coli. Metab. Eng. 73, 201–213 (2022).
+    genetic diversity in a self-compatible conifer. Genome Res. 32,      65. Barnes, H. J., Arlotto, M. P. & Waterman, M. R. Expression and
+    1952–1964 (2022).                                                 enzymatic activity of recombinant cytochrome P450 17 alpha-
+43. Fu, F. et al. The Metasequoia genome and evolutionary relationships       hydroxylase in Escherichia coli. Proc. Natl. Acad. Sci. USA 88,
+   among redwoods. Plant Commun. 4, 100643 (2023).                  5597–5601 (1991).
+44. Wang, B. et al. High-quality Arabidopsis Thaliana genome assembly   66. Emms, D. M. & Kelly, S. OrthoFinder: phylogenetic orthology
+    with nanopore and HiFi long reads. Genomics Proteom. Bioinforma.       inference for comparative genomics. Genome Biol. 20, 238 (2019).
+    20, 4–13 (2022).                                                    67.  Triﬁnopoulos, J., Nguyen, L.-T., von Haeseler, A. & Minh, B. Q. W-IQ-
+45. Hansen, C. C., Nelson, D. R., Møller, B. L. & Werck-Reichhart, D. Plant       TREE: a fast online phylogenetic tool for maximum likelihood ana-
+    cytochrome P450 plasticity and evolution. Mol. Plant 14,                      lysis. Nucleic Acids Res. 44, W232–W235 (2016).
+    1244–1265 (2021).                                                68. Pompon, D., Louerat, B., Bronine, A. & Urban, P. Yeast expression of
+46. Commisso, M. et al. Bryo-Activities: a review on how bryophytes are       animal and plant P450s in optimized redox environments. In
+     contributing to the arsenal of natural bioactive compounds against      Methods in Enzymology (eds Abelson, J. N., Simon, M. I., Johnson, E.
+     fungi. Plants 10, 203 (2021).                                                    F. & Waterman, M. R.) 272, 51–64 (Academic Press, 1996).
+47.  Wallace, J. W. C-Glycosylﬂavones in the Gnetopsida: a preliminary   69. Wang, H. et al. PCPD: plant cytochrome P450 database and web-
+     report. Am. J. Bot. 66, 343–346 (1979).                             based tools for structural construction and ligand docking. Synth.
+48. Geiger, H. & Quinn, C. Biﬂavonoids. In The Flavonoids 692–742            Syst. Biotechnol. 6, 102–109 (2021).
+    https://doi.org/10.1007/978-1-4899-2909-9_13 (Springer US, Bos-    70.  Forli, S. et al. Computational protein–ligand docking and virtual
+     ton, MA, 1975).                                                 drug screening with the AutoDock suite. Nat. Protoc. 11,
+49. Kariyone, T. & Sawada, T. Studies on ﬂavonoids of the leaves of         905–919 (2016).
+     coniferae and allied plants. I: on the ﬂavonoid from the leaves of      71.  Eberhardt, J., Santos-Martins, D., Tillack, A. F. & Forli, S. AutoDock
+    Torreya nucifera SIEB. et ZUCC. J. Pharm. Soc. Jpn. 78,                  Vina 1.2.0: new docking methods, expanded force ﬁeld, and Python
+    1010–1013 (1958).                                                       bindings. J. Chem. Inf. Model. 61, 3891–3898 (2021).
+50. Anand, A. V., Arinchedathu Surendran, V. & Sukumaran, S. T.         72. Meng, E. C. et al. UCSF ChimeraX: tools for structure building and
+     Bioactive metabolites in gymnosperms. In Plant Metabolites:               analysis. Protein Sci. 32, e4792 (2023).
+    Methods, Applications and Prospects 317–346 https://doi.org/10.     73. da Silva, T. U. et al. Development of parameters compatible with the
+    1007/978-981-15-5136-9_14 (Springer, Singapore, 2020).            CHARMM36 force ﬁeld for [Fe4S4]2+ clusters and molecular
+51.  Adasme, M. F. et al. PLIP 2021: expanding the scope of the             dynamics simulations of adenosine-5’-phosphosulfate reductase in
+     protein–ligand interaction proﬁler to DNA and RNA. Nucleic Acids     GROMACS 2019. J. Biomol. Struct. Dyn. 40, 3481–3491 (2022).
+     Res. 49, W530–W534 (2021).                                        74. Man, V. H., Nguyen, P. H. & Derreumaux, P. High-resolution struc-
+52. Moreno, A. G. et al. Structure, isomerization and dimerization pro-        tures of the amyloid-β 1–42 dimers from the comparison of four
+    cesses of naringenin ﬂavonoids. Phys. Chem. Chem. Phys. 23,            atomistic force ﬁelds. J. Phys. Chem. B 121, 5977–5987 (2017).
+    18068–18077 (2021).                                                 75.  Ren, J., Vaid, T. M., Lee, H., Ojeda, I. & Johnson, M. E. Evaluation of
+53. Yu, X. et al. Biosynthesis of strained piperazine alkaloids: uncover-        interactions between the hepatitis C virus NS3/4A and sulfonami-
+    ing the concise pathway of herquline A. J. Am. Chem. Soc. 138,         dobenzamide based molecules using molecular docking, mole-
+    13529–13532 (2016).                                                     cular dynamics simulations and binding free energy calculations. J.
+54.  Li, S.-H. et al. Chemoenzymatic synthesis of ﬂuorinated mycocy-        Comput. Aided Mol. Des. 37, 53–65 (2023).
+     closin enabled by the engineered cytochrome P450-catalyzed       76.  Suleiman, M. R. et al. Discovery of small molecule inhibitors
+     biaryl coupling reaction. J. Am. Chem. Soc. 146,                       through pharmacophore modeling, molecular docking, molecular
+    19962–19973 (2024).                                             dynamics simulation and experimental validation against myeloid
+55. Nakagawa, A. et al. A bacterial platform for fermentative production         cell leukemia-1 (Mcl-1). J. Biomol. Struct. Dyn. 39, 2512–2525 (2021).
+     of plant alkaloids. Nat. Commun. 2, 326 (2011).                        77.  Ulutürk, M., Karabacak Atay, Ç., Dede, B. & Tilki, T. Potentially
+56.  Li, J. et al. Production of plant-speciﬁc ﬂavones baicalein and scu-        bioactive novel isophthalic acid based azo molecules: synthesis,
+     tellarein in an engineered E. coli from available phenylalanine and        characterization, quantum chemical calculations, ADMET proper-
+     tyrosine. Metab. Eng. 52, 124–133 (2019).                                         ties, molecular docking and molecular dynamics simulations.
+57.  Mizutani, M. & Sato, F. Unusual P450 reactions in plant secondary         Polycycl. Aromat. Compd. 1–22 https://doi.org/10.1080/10406638.
+    metabolism. Arch. Biochem. Biophys. 507, 194–203 (2011).             2023.2284797 (2023).
+58. An, Z. et al. Lineage-speciﬁc CYP80 expansion and benzylisoqui-     78.  Metz, S., Kästner, J., Sokol, A. A., Keal, T. W. & Sherwood, P.
+     noline alkaloid diversity in early-diverging eudicots. Adv. Sci. 11,        ChemShell—a modular software package for QM/MM simulations.
+    2309990 (2024).                                               WIREs Comput. Mol. Sci. 4, 101–110 (2014).
+59. Meng, F. et al. Characterization of two CYP80 enzymes provides     79. Zhang, J. & Liu, Y. A QM/MM study of the catalytic mechanism of
+     insights into aporphine alkaloid skeleton formation in Aristolochia         aspartate ammonia lyase. J. Mol. Graph. Model. 51, 113–119 (2014).
+     contorta. Plant J. 118, 1439–1454 (2024).                          80. Gritsenko, O. V., Cordero, N. A., Rubio, A. & Alonso, J. A. Gradient
+60. Liu, Y. et al. Ginkgetin alleviates inﬂammation and senescence by        correction to the exchange pair-correlation function of the weigh-
+     targeting STING. Adv. Sci. 12, 2407222 (2025).                         ted spin-density approximation in the density functional formalism.
+61.  Smer-Barreto, V. et al. Discovery of senolytics using machine          Chem. Phys. Lett. 296, 307–312 (1998).
+     learning. Nat. Commun. 14, 3445 (2023).                               81.  Bayach, I., Sancho-García, J. C., Di Meo, F., Weber, J.-F. F. & Trouillas,
+62. Guo, J., Wu, Y., Jiang, M., Wu, C. & Wang, G. An LC–MS-based             P. π-Stacked polyphenolic dimers: a case study using dispersion-
+    metabolomic approach provides insights into the metabolite pro-        corrected methods. Chem. Phys. Lett. 578, 120–125 (2013).
+     ﬁles of Ginkgo biloba L. at different developmental stages and in    82. Weigend, F. & Ahlrichs, R. Balanced basis sets of split valence, triple
+     various organs. Food Res. Int. 159, 111644 (2022).                        zeta valence and quadruple zeta valence quality for H to Rn: design
+
+
+
+
+Nature Communications| (2025)16:7792                                                                                           17
+
+
+[PDF physical page 18]
+Article                                                                                  https://doi.org/10.1038/s41467-025-62990-6
+
+    and assessment of accuracy. Phys. Chem. Chem. Phys. 7,        Additional information
+    3297–3305 (2005).                                         Supplementary information The online version contains
+83. Zheng, D., Yuan, Y. & Wang, F. Determining the hydration free       supplementary material available at
+    energies of selected small molecules with MP2 and local MP2       https://doi.org/10.1038/s41467-025-62990-6.
+    through adaptive force matching. J. Chem. Phys. 154, 104113 (2021).
+84.  Li, Q. et al. A modiﬁed pCas/pTargetF system for CRISPR-Cas9-     Correspondence and requests for materials should be addressed to
+     assisted genome editing in Escherichia coli. Acta Biochim. Biophys.   Hai-Li Liu or Yong Wang.
+     Sin. 53, 620–627 (2021).
+85. Zhang, Q., Wu, Y.-H., Huang, X.-S., Liu, H.-L. & Wang, Y. Design and   Peer review information Nature Communications thanks Lorenzo
+     optimization for efﬁcient production of (S)-canadine in Escherichia   Caputi, who co-reviewed with Qi Ding and the other, anonymous,
+      coli. ACS Sustain. Chem. Eng. 12, 6941–6951 (2024).                  reviewer(s) for their contribution to the peer review of this work. [A peer
+86. Madeira, F. et al. Search and sequence analysis tools services from   review ﬁle is available].
+    EMBL-EBI in 2022. Nucleic Acids Res. 50, W276–W279 (2022).
+87.  Letunic, I. & Bork, P. Interactive tree of life (iTOL) v6: recent updates   Reprints and permissions information is available at
+     to the phylogenetic tree display and annotation tool. Nucleic Acids   http://www.nature.com/reprints
+     Res. 52, W78–W82 (2024).
+                                                                       Publisher’s note Springer Nature remains neutral with regard to
+Acknowledgements                                                   jurisdictional claims in published maps and institutional afﬁliations.
+This work is ﬁnancially supported by the National Key R&D Program of
+China (No. 2024YFA0919900) to Y.W. and H.-L.L., the State Key       Open Access This article is licensed under a Creative Commons
+Laboratory of Plant Trait Design to Y.W., the Key Laboratory of Plant      Attribution-NonCommercial-NoDerivatives 4.0 International License,
+Carbon Capture, Chinese Academy of Sciences to Y.W., and the        which permits any non-commercial use, sharing, distribution and
+Shanghai Municipal Science and Technology Major Project to Y.W. We   reproduction in any medium or format, as long as you give appropriate
+thank Prof. David R. Nelson (University of Tennessee Health Science      credit to the original author(s) and the source, provide a link to the
+Center) for his assistance on the classiﬁcation of the CYP90J subfamily   Creative Commons licence, and indicate if you modiﬁed the licensed
+referenced in this study.                                                   material. You do not have permission under this licence toshare adapted
+                                                                         material derived from this article or parts of it. The images or other third
+Author contributions                                          party material in this article are included in the article’s Creative
+Y.W. conceptualized the project. Y.W. and H.-L.L. sourced the funding   Commons licence, unless indicated otherwise in a credit line to the
+and managed the whole project. Y.W., H.-L.L., Y.-H.R., and X.-H.D.         material. If material is not included in the article’s Creative Commons
+designed the research. X.-H.D. conducted experiments and analysis. J.-   licence and your intended use is not permitted by statutory regulation or
+M.Z. prepared the G. biloba plant materials and conducted the tran-     exceeds the permitted use, you will need to obtain permission directly
+scriptome sequencing. G.-Y.W. proposed the initial catalysis mechanism   from the copyright holder. To view a copy of this licence, visit http://
+and constructed the L-tyrosine high-producing strain GJA3. X.-H.D.       creativecommons.org/licenses/by-nc-nd/4.0/.
+compiled the data and drafted the manuscript. Y.W., H.-L.L., and X.-H.D.
+revised the manuscript. All authors reviewed and approved the ﬁnal   © The Author(s) 2025
+manuscript.
+
+Competing interests
+The authors declare no competing interests.
+
+
+
+
+
+Nature Communications| (2025)16:7792                                                                                     18

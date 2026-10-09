@@ -1,0 +1,958 @@
+
+[PDF physical page 1]
+nature chemical biology
+
+
+Article                                                                               https://doi.org/10.1038/s41589-023-01349-8
+Deep learning-guided discovery of
+an antibiotic targeting Acinetobacter
+baumannii
+
+
+
+Received: 25 March 2022               Gary Liu1,10, Denise B. Catacutan1,10, Khushi Rathod1,10, Kyle Swanson        2,
+                             Wengong Jin2, Jody C. Mohammed1, Anush Chiappino-Pepe       3,4, Saad A. Syed5,
+Accepted: 25 April 2023                              Meghan Fragis       1,6, Kenneth Rachwalski        1, Jakob Magolan       1,6,
+Published online: 25 May 2023               Michael G. Surette5, Brian K. Coombes        1, Tommi Jaakkola        2,
+                                   Regina Barzilay2,7, James J. Collins       3,7,8,9  & Jonathan M. Stokes         1 
+  Check for updates
+
+                                     Acinetobacter baumannii is a nosocomial Gram-negative pathogen that
+                                    often displays multidrug resistance. Discovering new antibiotics against
+                                        A. baumannii has proven challenging through conventional screening
+                                   approaches. Fortunately, machine learning methods allow for the rapid
+                                    exploration of chemical space, increasing the probability of discovering new
+                                        antibacterial molecules. Here we screened ~7,500 molecules for those that
+                                      inhibited the growth of A. baumannii in vitro. We trained a neural network
+                                   with this growth inhibition dataset and performed in silico predictions for
+                                        structurally new molecules with activity against A. baumannii. Through
+                                         this approach, we discovered abaucin, an antibacterial compound with
+                                 narrow-spectrum activity against A. baumannii. Further investigations
+                                    revealed that abaucin perturbs lipoprotein trafficking through a mechanism
+                                     involving LolE. Moreover, abaucin could control an A. baumannii infection in
+                                  a mouse wound model. This work highlights the utility of machine learning
+                                        in antibiotic discovery and describes a promising lead with targeted activity
+                                     against a challenging Gram-negative pathogen.
+
+
+Acinetobacter baumannii is a nosocomial Gram-negative pathogen that   fundamentally new antibiotics against A. baumannii has proven chal-
+often displays multidrug resistance due to its robust outer membrane   lenging through conventional screening approaches. Indeed, most
+and its ability to acquire and retain extracellular DNA1 that frequently  new antibiotics that achieve clinical use are analogs of existing classes2.
+encodes antibiotic resistance genes. Moreover, it can survive for pro-   However, while structural analogs of existing antibiotic classes may
+longed durations on surfaces and is resistant to desiccation. Discovering   satisfy short-term clinical needs, their long-term efficacy is inherently
+
+
+1Department of Biochemistry and Biomedical Sciences, Michael G. DeGroote Institute for Infectious Disease Research, David Braley Centre for Antibiotic
+Discovery, McMaster University, Hamilton, Ontario, Canada. 2Computer Science and Artificial Intelligence Laboratory, Massachusetts Institute of
+Technology, Cambridge, MA, USA. 3Wyss Institute for Biologically Inspired Engineering, Harvard University, Boston, MA, USA. 4Department of Genetics,
+Harvard Medical School, Boston, MA, USA. 5Department of Medicine, Department of Biochemistry and Biomedical Sciences, Farncombe Family Digestive
+Health Research Institute, McMaster University, Hamilton, Ontario, Canada. 6Department of Chemistry and Chemical Biology, McMaster University,
+Hamilton, Ontario, Canada. 7Abdul Latif Jameel Clinic for Machine Learning in Health, Massachusetts Institute of Technology, Cambridge, MA, USA.
+8Department of Biological Engineering, Institute for Medical Engineering and Science, Massachusetts Institute of Technology, Cambridge, MA, USA.
+9Broad Institute of MIT and Harvard, Cambridge, MA, USA. 10These authors contributed equally: Gary Liu, Denise B. Catacutan, Khushi Rathod.
+    e-mail: jimjc@mit.edu; stokesjm@mcmaster.ca
+
+Nature Chemical Biology | Volume 19 | November 2023 | 1342–1350                                                       1342
+
+
+[PDF physical page 2]
+Article                                                                               https://doi.org/10.1038/s41589-023-01349-8
+
+limited due to the high prevalence of existing resistance determinants3.   a problematic nosocomial Gram-negative pathogen that commonly
+Ideally, new antibiotic discovery efforts should focus on identifying   displays multidrug resistance and, increasingly, pan-drug resistance
+new chemotypes with mechanisms of action that are unique relative to   (Fig. 1a). We first screened a diverse collection of 7,684 small molecules
+existing antibiotics. Such compounds are likely to have prolonged util-   at 50 µM for those that inhibited the growth of A. baumannii ATCC 17978
+ity, given that the probability of pre-existing clinical resistance is low.   in Lysogeny Broth (LB) medium (Fig. 1b and Extended Data Fig. 1a). This
+    Fortunately, machine learning methods allow for the rapid explo-   chemical collection consisted of both off-patent drugs (2,341 mol-
+ration of vast chemical/sequence spaces in silico, increasing the prob-   ecules) and synthetic chemicals (5,343 molecules) curated from various
+ability of discovering desirable new chemotypes with antibacterial   high-throughput screening sub-libraries at the Broad Institute. Using
+activity, particularly against challenging pathogens like A. bauman-   a conventional hit cutoff of one standard deviation below the mean
+nii. As a reference, typical high-throughput screening programs are  growth of the entire dataset resulted in 480 molecules being defined
+limited to testing a few million molecules for antibacterial activity at   as ‘active’ and 7,204 being defined as ‘inactive’ (Supplementary Data 1).
+the largest scales4. Contrarily, contemporary algorithmic approaches       Next, this dataset was used to train a binary classifier to predict
+can assess hundreds of millions to billions of molecules for antibacte-  whether structurally new molecules may display activity against
+rial properties. For example, Stokes et al.5 applied a message-passing   A. baumannii. Briefly, we leveraged a directed message-passing neural
+neural network trained on growth inhibition of lab strain Escherichia   network architecture, which translates the graph structure of a mol-
+coli to discover new broad-spectrum small molecule antibacterial   ecule into a continuous vector18 (Fig. 1a).
+compounds. In a complementary application, Ma et al.6 applied mul-       This type of model operates by iteratively exchanging informa-
+tiple natural language processing neural network models to predict   tion of local chemistry between adjacent atoms and bonds in a series
+broad-spectrum antimicrobial peptides encoded in the human gut   of ‘message-passing’ steps. Each iteration of message passing propa-
+microbiome. These, and other important studies (detailed in ref. 7)   gates information about local chemistry across the molecule, thereby
+showcase the importance of machine learning approaches toward the   allowing the model to build a more holistic representation of the mol-
+discovery of structurally and functionally new antibiotic candidates.   ecule. After a defined number of message-passing steps, the vector
+   Beyond simply discovering structurally and functionally   representations of various local chemical regions of a molecule are
+new antibiotics, a largely unmet need exists for the application of  summed into a single continuous vector that captures the complexity
+narrow-spectrum therapies that target specific bacterial species. Such   of the entire compound. This learned final vector is then supplemented
+antibiotics are beneficial for the following two reasons8: first, the rate   with fixed molecular features computed using RDKit19. A final vector
+at which resistance to narrow-spectrum agents would disseminate   containing both learned and computed features is then used as an input
+is likely lower than conventional broad-spectrum agents, because   vector for a feed-forward neural network that predicts antibacterial
+narrow-spectrum drugs do not impose a universal selective pressure   properties. The model was further optimized by using an ensemble
+that favors the wide propagation of resistance determinants; second,   of ten classifiers, increasing its robustness. Our final model achieved
+narrow-spectrum antibiotics would not disrupt the ecology of the  an area under the precision-recall curve of 0.337 ± 0.088 and an area
+microbiota during treatment. Indeed, dysbiosis has been associated  under the receiver-operating characteristic curve of 0.792 ± 0.042,
+with a wide array of poor health outcomes, including infectious dis-   providing confidence in leveraging the model for predictions in new
+eases9, inflammatory bowel diseases10, metabolic diseases11, neuropsy-   chemical spaces.
+chiatric disorders12 and cancer13. For instance, Clostridioides difficile       After model training, we applied our ensemble of ten
+infections are prime examples of opportunistic infections resulting  RDKit-augmented models to identify antibacterial molecules with
+from antibiotic-induced dysbiosis, causing upwards of 224,000 infec-   activity against A. baumannii from the updated Drug Repurposing
+tions in hospitalized patients and 13,000 deaths in the US alone in   Hub15 consisting of 6,680 molecules. This chemical library was selected
+2017 (ref. 14).                                                      as a proof-of-concept due to the structural diversity inherent to this
+   An opportunity exists to apply contemporary machine learning   collection, as well as the favorable cytotoxicity and drug-like proper-
+methods to discover structurally and functionally new antibiotics   ties that are observed for many Drug Repurposing Hub molecules.
+that specifically target challenging pathogens, with A. baumannii  Our ensemble of ten classifiers returned a prediction score for each
+being a prime candidate. Here we screened ~7,500 molecules for those  compound, representing the probability of growth inhibition against
+that inhibited the growth of A. baumannii in vitro. We trained a   A. baumannii (Fig. 1c and Supplementary Data 2). Molecules that were
+message-passing neural network with this growth inhibition dataset  both strongly predicted to be antibacterial and structurally unique
+and performed predictions on the Drug Repurposing Hub15 for struc-  from training set ‘actives’ were prioritized for in vitro testing (Supple-
+turally new molecules with activity against A. baumannii. Through this  mentary Data 3). Notably, this process of performing predictions and
+approach, we discovered abaucin, an antibacterial compound with   prioritizing molecules for validation was completed within a couple of
+narrow-spectrum activity against A. baumannii, which could overcome   hours. We note here that we also trained and applied a message-passing
+intrinsic and acquired resistance mechanisms in clinical isolates. Fur-   neural network model that was not augmented with RDKit features
+ther mechanistic investigations revealed that abaucin perturbs lipo-   as a baseline reference (Supplementary Data 2). This model did not
+protein trafficking through a mechanism involving LolE, a functionally  perform as well as the RDKit-augmented primary model, achieving
+conserved protein that contributes to shuttling lipoproteins from the  an area under the precision-recall curve of 0.266 ± 0.070 and an area
+inner membrane to the outer membrane16,17. Moreover, abaucin was   under the receiver-operating characteristic curve of 0.756 ± 0.050. The
+able to control an A. baumannii infection in a mouse wound model.   reduced performance of the model omitting RDKit features highlights
+This study highlights the utility of machine learning in discovering   the importance of these computable molecular features in maximizing
+new antibiotics and describes a promising lead molecule with specific   predictive utility in the context of our training dataset.
+activity against a challenging Gram-negative pathogen.                  Using a prediction score threshold of >0.2 (Fig. 1c) and subse-
+                                                               quently filtering these predicted compounds based on a Tanimoto
+Results                                                          nearest neighbor similarity of <0.3 to molecules that were ‘active’ in the
+Machine learning-guided discovery of abaucin                    training dataset, we identified 240 priority molecules that met these
+Our recent work has highlighted the utility of machine learning in dis-   highly stringent criteria (Supplementary Data 3). These molecules
+covering new antibacterial molecules using E. coli K12 as a model organ-  were acquired and tested against A. baumannii at a concentration of
+ism5. Building off this prior research, here we applied a message-passing  50 µM in LB medium—the same conditions in which the training data
+deep neural network18 to discover new antibiotics against A. baumannii,   were acquired (Extended Data Fig. 1b and Supplementary Data 3). Using
+
+Nature Chemical Biology | Volume 19 | November 2023 | 1342–1350                                                      1343
+
+
+[PDF physical page 3]
+Article                                                                               https://doi.org/10.1038/s41589-023-01349-8
+
+a                  Prediction set compounds      b  3                             c   1.0                                                                     Inactive
+                                                                Active
+                                                                                                                                0.8
+
+                                                               2                                                                                                                                                                                                         score 0.6 Training data                                                                                           growth
+  compounds
+                                                                                 Mean   1                                                           0.4                                                                                                                                                                                                                                                                                                                                                                                                                 Prediction                                  3                                                          1                                                                                                                                     0.2                                       2                     N
+                                          5
+                                    4                     0                                               0
+                                           Updated               0       2,000     4,000     6,000     8,000           0       2,000     4,000     6,000     8,000
+                                       bond vector
+                                                                     Molecule index                                       Molecule rank
+                                           Concatenate
+                                    Sum       d
+                                                            Training dataset
+                                        Bonds into 2:            Prediction set
+                                          3–2 and 4–2           Abaucin                    Bond 2–1 vector
+
+
+
+
+
+                  New antibiotics
+
+e                                                f                             g
+                       Abaucin                       1010                                                       10 10
+                                                           LB - 1.5 h                                   PBS - 1.5 h
+                                                                  109     LB - 3 h                                          10 9  PBS - 3 h
+     HN         N                                       LB - 4.5 h                                  PBS - 4.5 h
+         O                       CF3                  108     LB - 6 h                                          108  PBS - 6 h
+      O                                                             ml−1       7                                                              ml−1       7                                                                  10                                                        10
+    0.50                                                     CFU                                                                                                                        CFUnm)                                                                  106                                                                                                                            106
+(600  0.25                                                          10 5                                                        10 5
+
+                                                                                              4                                                        104OD   0                                                          10
+         0.01         0.1             1          10        100           0         5         10          15        20          0         5         10          15        20
+                   Abaucin (µg ml−1)                                   Abaucin (µg ml−1)                                  Abaucin (µg ml−1)
+
+Fig. 1 | Machine learning-guided discovery of abaucin. a, Machine learning        d, A t-SNE plot showing the chemical relationship between the training dataset
+approaches allow for the rapid exploration of chemical space, increasing the         (blue), the prediction set (red) and abaucin (yellow). e, Growth inhibition of A.
+probability of discovering new chemical matter with antibacterial activity. We      baumannii by abaucin in LB medium. Experiments were conducted in biological
+screened ~7,500 molecules for those that inhibited the growth of A. baumannii       duplicate. Individual replicates with means connected are plotted. The structure
+(blue), trained a directed message-passing deep neural network with this growth     of abaucin is shown. f, Killing of A. baumannii by abaucin in nutrient-replete
+inhibition dataset and performed predictions (red) on the Drug Repurposing        conditions (LB) at varying concentrations after incubation for 1.5 h (blue), 3 h
+Hub for structurally new molecules with activity against A. baumannii (purple).       (teal), 4.5 h (green) and 6 h (purple). Experiments were conducted in biological
+b, Growth inhibition of A. baumannii ATCC 17978 by a collection of 7,684 small       duplicate. Individual replicates with means connected are plotted. g, Killing
+molecules at 50 µM. The mean of two biological replicates is shown. Red dots        of A. baumannii by abaucin in nutrient-deplete conditions (PBS) at varying
+represent actives, with the hit cutoff defined as one standard deviation below       concentrations after incubation for 1.5 h (blue), 3 h (teal), 4.5 h (green) and
+the mean of the dataset. c, Rank-ordered prediction scores of molecules within       6 h (purple). Experiments were conducted in biological duplicate. Individual
+the Drug Repurposing Hub by our trained model. Molecules with prediction         replicates with means connected are plotted.
+scores > 0.2 were considered preliminary candidates for experimental validation.
+
+
+another stringent cutoff of >80% growth inhibition, we observed that   with the lowest prediction scores and observed that none displayed
+nine of the tested molecules displayed antibacterial activity against   antibacterial activity as defined by >80% growth inhibition, emphasiz-
+A. baumannii, emphasizing the ability of our model to generalize to   ing the discriminatory utility of our model (Extended Data Fig. 1b and
+compounds that are highly divergent from the chemical space on   Supplementary Data 3). Furthermore, testing the 240 molecules with
+which the model was trained. We note here that >80% growth inhibi-   the highest prediction scores, without considering Tanimoto nearest
+tion is a statistically more stringent cutoff than that used for model   neighbor similarity to training set ‘actives’, resulted in 40 molecules
+training, which was a conventional one standard deviation below the   that passed the stringent >80% growth inhibition cutoff, indicating
+mean growth of the dataset, or ~20% growth inhibition. This stringent   that our model has a high predictive value over traditional chemical
+>80% growth inhibition cutoff was applied to efficiently prioritize   screening (Extended Data Fig. 1b and Supplementary Data 3).
+the most potent predicted molecules on which to conduct further      The nine priority molecules were subsequently assessed to remove
+experimentation. For reference, if we defined a hit cutoff of 20% growth    (1) those with major structural features that are observed in known
+inhibition for prediction selection—similar to that used for model train-   antibiotics; (2) those with reported antibacterial activity from the
+ing—we would acquire 41 molecules classified as active predictions   scientific or patent literature; and (3) those with possible nonspecific
+(Supplementary Data 3). Notably, we also tested the 240 molecules  membrane activity as assessed by the presence of acyclic aliphatic
+
+Nature Chemical Biology | Volume 19 | November 2023 | 1342–1350                                                     1344
+
+
+[PDF physical page 4]
+Article                                                                               https://doi.org/10.1038/s41589-023-01349-8
+
+         a                        b                         e   Gut                  Skin
+                          1.4  A. baumannii                                        1.4  CRE                                                   1                   35
+                           1.2                                                              1.2                                                  Actino
+                nm)  1.0                                           nm)  1.0                                        5                               Actino
+                     0.8                                                0.8
+                     (600 0.6                                                         (600 0.6
+           OD 0.4                             OD 0.4                                                 Bact     44
+                      0.2                                                  0.2
+                 0                                       0                                                                    Fermi
+                         0×  0.5×   1×   2×   5×   10×  20×                  0×        1×       10×     20×
+                            Abaucin fold-MIC                          Abaucin fold-MIC                17
+                                                                                                                              53
+         c   1.4                     d   1.4                                                Fermi A     Aba AC                           P. aeruginosa                                    S. aureus
+                           1.2                                                              1.2
+                nm)  1.0                                           nm)  1.0                                        25
+                     0.8                                                0.8
+                     (600 0.6                                                         (600 0.6                                                Fermi B
+           OD 0.4                            OD 0.4
+                      0.2                                                  0.2                                        32                                                                                                                  Proteo
+                 0                                      0
+                            0×        1×       10×     20×                    0×        1×       10×     20×       34         Verruco
+                            Abaucin fold-MIC                          Abaucin fold-MIC             Aba AC
+
+Fig. 2 | Abaucin has a narrow phylogenetic spectrum of antibacterial activity.    growth inhibition of a panel of human gut commensal species (left) and human
+a, Growth inhibition of 41 multidrug-resistant clinical A. baumannii isolates by       skin commensal species (right) by abaucin at 0×, 1×, 10× and 20× MIC (left to
+abaucin. Drug concentrations are shown as fold-MIC based on the MIC of abaucin     right), ampicillin (A) at 128 µg ml−1, and ciprofloxacin (C) at 2 µg ml−1. Darker red
+against A. baumannii ATCC 17978. Each dot represents a different clinical strain      indicates more growth inhibition as analyzed by OD. Strains used are described
+(mean OD of two biologically independent replicates). Black bars show the mean     in Supplementary Tables 5 and 6. Experiments were conducted in biological
+growth inhibition of the entire panel at each abaucin concentration. b, Same as       duplicate. Note that abaucin displays minimal activity against commensal
+a, except using 24 carbapenem-resistant Enterobacteriaceae clinical isolates.        species, whereas ampicillin and ciprofloxacin have broad-spectrum activity
+c, Same as a, except using 24 multidrug-resistant P. aeruginosa clinical isolates.      against commensals. Actino, Actinobacteriota; Bact, Bacteroidota; Fermi,
+d, Same as a, except using 14 S. aureus clinical isolates. e, Heat map showing mean    Fermicutes; Proteo, Proteobacteria; Verruco, Verrucomicrobiota.
+
+
+
+moieties. This structure-based filtering resulted in the retention of   observed that abaucin could overcome all intrinsic and acquired resist-
+two molecules—RS102895 and serdemetan. RS102895 is a well-studied   ance mechanisms within the A. baumannii isolates from this diverse
+CCR2− selective chemokine receptor antagonist20,21 that displayed a   clinical strain library (Fig. 2a and Supplementary Table 1).
+minimum inhibitory concentration (MIC) of ~2 µg ml−1 against A. bau-       Next, we investigated the phylogenetic spectrum of activ-
+mannii ATCC 17978 (Fig. 1d,e); serdemetan22,23 is an antagonist of the   ity displayed by abaucin by testing this compound against 24
+transcription factor HDM2 that displayed MIC of ~32 µg ml−1 (Extended   carbapenem-resistant Enterobacteriaceae strains (Supplementary
+Data Fig. 1c). Given that RS102895 was substantially more potent at   Table 2), 24 Pseudomonas aeruginosa strains (Supplementary Table 3)
+inhibiting the growth of A. baumannii, we focused our subsequent  and 14 Staphylococcus aureus strains (Supplementary Table 4), all from
+investigations on this molecule.                                    the ARIsolate Bank. In stark contrast to our observations with A. bau-
+   Upon further experimentation with RS102895 to assess A. bauman-   mannii, abaucin did not display any growth inhibitory activity against
+nii viability after treatment, we observed modest bactericidal activity   these pathogenic species up to 20× the MIC in A. baumannii ATCC 17978
+against A. baumannii in LB medium (Fig. 1f). Indeed, upon removal of   (Fig. 2b–d). Excitingly, in the context of clinical bacterial pathogens,
+RS102895 from A. baumannii cultures in vitro after 6 h of treatment,   these data provide strong evidence that abaucin has narrow-spectrum
+we observed A. baumannii regrowth, wherein the apparent lag period   antibacterial activity, which is advantageous for decreasing the inter-
+increased with increasing concentrations of abaucin (Extended Data  pathogen dissemination of resistance. We note here that a modest
+Fig. 1d). We observed no discernable activity in nutrient-deplete PBS   collection of structural analogs of abaucin displayed varying levels
+(Fig. 1g). Collectively, these data suggest that RS102895—renamed   of activity against A. baumannii but avoided any discernable activity
+abaucin for its activity against A. baumannii—displayed its antibacterial   against lab strains of the bacterial species mentioned above (Table 1).
+efficacy through inhibition of a biological process that was maximally   This initial structure–activity relationship investigation provides
+active during growth and division24, consistent with most known antibi-   strong support that exploration of the chemical space around abaucin
+otics25. Notably, these data also suggest that abaucin is not membrane   toward developing a medicinal chemistry-optimized narrow-spectrum
+active via physical disruption of the phospholipid bilayer, a mechanism   antibiotic against A. baumannii is feasible without being hampered by
+of action that we deliberately attempted to avoid during our prediction   broad-spectrum antibacterial activity.
+filtering process. Indeed, membrane-active molecules generally retain      Given these observations, we hypothesized that abaucin would
+bactericidal efficacy in nutrient-deplete conditions24.                  display minimal growth inhibitory activity against human commensal
+                                                                        species. Indeed, currently employed antibiotics often induce dysbiosis
+Abaucin has a narrow spectrum of activity                       during treatment26, resulting in a wide array of complications, including
+After probing the activity of abaucin against A. baumannii ATCC 17978,   secondary infections caused by opportunistic pathogens—C. difficile
+we next tested for growth inhibitory activity against clinical isolates   gut infections being a common example27. To test this hypothesis,
+of A. baumannii. Here we acquired 41 strains of A. baumannii from the  we curated panels of 34 diverse human gut commensal isolates (Sup-
+Center for Disease Control and Prevention Antibiotic Resistance Iso-   plementary Table 5) and 19 diverse human skin commensal isolates
+late Bank (ARIsolate Bank; Supplementary Table 1) and tested abaucin   (Supplementary Table 6), then tested the growth inhibitory proper-
+at a range of concentrations below and above MIC. Remarkably, we   ties of abaucin at varying concentrations, as well as ampicillin and
+
+Nature Chemical Biology | Volume 19 | November 2023 | 1342–1350                                                      1345
+
+
+[PDF physical page 5]
+Article                                                                               https://doi.org/10.1038/s41589-023-01349-8
+
+Table 1 | MICs of abaucin analogs against a panel of bacterial species
+
+                                                                   E. coli                   P. aeruginosa          S. aureus              A. baumannii
+
+                                                                       >128 µg ml−1             >128 µg ml−1              >128 µg ml−1               2 µg ml−1
+
+
+
+           HN         N
+              O                        CF3
+           O
+                            Abaucin (1)
+
+                                                                       >128 µg ml−1             >128 µg ml−1              >128 µg ml−1               8 µg ml−1
+
+
+
+              HN         N
+                 O
+              O
+                                  2
+
+                                                                       >128 µg ml−1             >128 µg ml−1              >128 µg ml−1              64 µg ml−1
+                    F
+
+
+
+           HN         N
+              O                        CF3
+           O                              3
+
+                                                                       >128 µg ml−1             >128 µg ml−1              >128 µg ml−1               128 µg ml−1
+                          Cl
+
+
+
+           HN         N
+              O                        CF3
+           O
+                              4
+
+Growth inhibition of bacterial species by abaucin and analogs thereof. Cells were grown in LB in the presence of varying concentrations of each molecule at 37 °C and the MIC of each was
+determined. The strains shown are E. coli BW25113, P. aeruginosa PAO1, S. aureus RN4220 and A. baumannii ATCC 17978. Experiments were conducted in biological duplicate and resulted in
+identical MIC values.
+
+
+ciprofloxacin at their respective MIC concentrations in A. bauman-   Gram-negative antibiotic development16,17,28. Two mutants (Y394F and
+nii ATCC 17978 (Extended Data Fig. 2a). As expected, ampicillin and  an upstream G to A mutation) displayed fourfold resistance to abaucin
+ciprofloxacin displayed antibacterial activity across a wide range of   relative to wild-type A. baumannii, and two independent mutants con-
+commensal isolates, whereas abaucin largely avoided growth inhibi-   tained an identical A362T variant that resulted in 16-fold resistance.
+tion of commensal species, even up to 20× MIC (Fig. 2e). Indeed, of the  We note that the frequency of resistance to abaucin in vitro is 10−8–10−7
+53 isolates tested, abaucin only displayed bona fide growth inhibition   (Supplementary Table 7), largely consistent with known antibiotics
+against the gut isolates Bifidobacterium breve and Bifidobacterium   that target a single protein29. Interestingly, A. baumannii LolE position
+longum, and this occurred above the MIC observed in A. baumannii  A362 is homologous to E. coli LolE position I365, which resides near the
+ATCC 17978 (Extended Data Fig. 2b–d). Given that Bifidobacterium   acyl chains of the nascent lipoprotein during transport17. We predicted
+is a Gram-positive genus that is phylogenetically divergent from   the structure of A. baumannii LolE using RoseTTAFold30,31 (Extended
+Gram-negative Acinetobacter, it is likely that the lower potency activ-   Data Fig. 3i,j) and observed that AbLolE position A362 is near EcLolE
+ity of abaucin against Bifidobacterium is through a mechanism that is   position I365 in space, and both are adjacent to the accommodated
+unrelated to that in Acinetobacter. This statement is elaborated below.   acyl chains of the nascent lipoprotein (Fig. 3b).
+                                                                These mutational data, combined with in silico structural insights,
+Abaucin inhibits lipoprotein trafficking in A. baumannii         provided evidence suggesting that abaucin may disrupt lipoprotein
+Given the A. baumannii selectivity displayed by abaucin, we next ven-  accommodation and transport facilitated by LolE. To further explore
+tured to elucidate the mechanism underlying its narrow-spectrum   the hypothesis that abaucin was interfering with lipoprotein traffick-
+functionality. To this end, we first selected abaucin-resistant mutants   ing, we treated wild-type A. baumannii with 5× MIC of abaucin, or no
+using wild-type A. baumannii growing on solid media supplemented  compound, for varying durations and subjected cells to RNA sequenc-
+with varying concentrations of abaucin. Using 4 µg ml−1 and 5 µg ml−1,   ing. A transcriptomics approach would afford systems-level insight
+we were able to isolate abaucin-resistant clones that did not dis-   that could provide additional indirect evidence to support or negate
+play cross-resistance to functionally diverse antibiotics (Fig. 3a and   our initial mechanistic hypothesis. After sequencing, we performed
+Extended Data Fig. 3a–h). Whole-genome sequencing of four inde-   differential expression analyses between the no-drug control cultures
+pendent isolates revealed mutations in or upstream of the gene  and the abaucin-treated cultures to quantify up- and down-regulated
+encoding LolE, an essential inner membrane protein involved in lipo-   transcripts. Differentially abundant transcripts were then clustered
+protein trafficking that has become a target of strong interest for new   based on Gene Ontology (GO) term to identify the biological processes
+
+Nature Chemical Biology | Volume 19 | November 2023 | 1342–1350                                                     1346
+
+
+[PDF physical page 6]
+Article                                                                               https://doi.org/10.1038/s41589-023-01349-8
+
+a                          c  300                           d                  e
+                                                                     3 hours
+         1.2                                                                                                               0.8                               5                          Wild type                            cydB                                                    Empty                                                                                                                              rpoD
+                                                                                                                              LolE1              4
+                                                                           cydA                                                       0.6        1.0               A362T                            value) 200
+  nm) 0.8               Y394F     P                                                            nm)               LolE2
+                            Intergenic                                                                                 LolE3              3       0.6                                                                             cyoA                                            0.4                                                          change
+                                                                                                           atpD   (600                                              100                     nuoI                                                                                                                                                       (600                                     2                                                                                                  cyoC
+                                                                                         nuoF                                                                                               cyoB                                                                                                                                                                                                       Fold OD 0.4                                                                                                            atpA                    OD                                                                                                                                                –log10(Adj                                                                                  nuoGacnA                                                                                                                             0.2                                                                                                sdhAnuoL                                                                                                                                                                                                                1                                                                                 nuoMatpG                                                                                           nuoN       0.2                                                                             cydX                                                                                                                           gltP
+                                             0
+      0                                                                                       0                          0
+              1             10          100                     –7 –6 –5 –4 –3 –2 –1 0   1  2  3  4  5  6  7                0.01         1       100
+               Abaucin (µg ml−1)                                        log2(FC)                             Abaucin (µg ml−1)          A362TA362TY394FIntergenic
+b                                                       f          Cell width (µm)         Cell width (µm)        Cell width (µm)         Cell width (µm)
+                                                              0         1.0       2.0   0         1.0       2.0   0         1.0       2.0    0         1.0       2.0
+                                                                           3.0
+
+                                                                       n = 1,278             n = 398             n = 112              n = 420                                                                                                                                                                 Density  0
+
+
+
+
+
+                                                     0 µg ml−1                1.0 µg ml−1               1.5 µg ml−1             2.0 µg ml−1
+
+Fig. 3 | Abaucin inhibits lipoprotein trafficking in A. baumannii. a, Growth        Vertical black lines show statistical significance cutoff values. Note the
+inhibition of wild-type A. baumannii (red), two independent abaucin-resistant       significant downregulation of genes involved in the electron transport chain and
+mutants with the A362T variant in LolE (2,901,674C→T; blue), a mutant with        transmembrane ion transport. d, Growth inhibition of A. baumannii harboring
+the Y394F variant in LolE (2,901,577T→A; teal) and a mutant with an intergenic      an empty CRISPRi vector (red), or three distinct sgRNAs targeting lolE (blue,
+mutation (2,902,955G→A) upstream of LolE (green). All strains were grown in         teal and green). All strains were grown in LB medium with induction using aTc to
+LB medium. Experiments were conducted in biological duplicate. Individual       knock down lolE. Experiments were conducted in biological duplicate. Individual
+replicates with means connected are plotted. b, Structure of the LolCDE complex    replicates with means connected are plotted. e, qPCR quantifying the expression
+from E. coli (EcLolC is green, EcLolD is gray and beige and EcLolE is orange),          of lolE relative to the housekeeping gene rpoD in all four abaucin-resistant
+with the predicted structure of A. baumannii LolE overlayed (AbLolE is blue).        mutants, normalized to wild-type A. baumannii. Experiments were conducted in
+The highlighted region shows the position of the A362T variant of AbLolE            biological duplicates with technical triplicates. Bar height represents the mean
+and the homologous position in E. coli (I365). Note how AbLolE position 362 is       normalized expression. f, Fluorescence micrographs of wild-type A. baumannii
+predicted to reside near EcLolE I365 and both are adjacent to the acyl chain.          treated with abaucin. From left to right, cells were treated with no drug, or
+c, RNA sequencing of wild-type A. baumannii treated with 5× MIC abaucin for 3 h.    abaucin (1 µg ml−1, 1.5 µg ml−1 or 2 µg ml−1) before imaging. Scale bars, 5 µm. Note
+Data are the mean of biological duplicates. Transcript abundance in drug-treated    the loss of native cell morphology and nucleoid condensation as a function of
+samples is normalized to no-drug control cultures grown in identical conditions.    abaucin concentration.
+
+
+
+that most statistically changed due to abaucin exposure. Through this   of the CRISPRi construct resulted in fourfold to eightfold decreased
+method, we observed that abaucin caused downregulation of genes   abaucin MIC relative to an empty vector control with no guide RNA
+involved in the aerobic electron transport chain and transmembrane   (Fig. 3d). Notably, uninduced cells with or without LolE-targeting
+ion transport (Fig. 3c, Extended Data Fig. 3k and Supplementary Data   guide RNAs all displayed identical abaucin sensitivities (Extended Data
+4). Interestingly, this transcriptional response is consistent with the   Fig. 3l). Next, we hypothesized that the abaucin-resistant mutant
+activation of the Cpx two-component envelope stress response that   with the upstream intergenic mutation may be conferring resistance
+has been well-characterized in the model bacterium E. coli32,33. Indeed,   through increased expression of lolE—multicopy suppression-mediated
+CpxAR has a principal role in monitoring lipoprotein trafficking from   resistance36. This is the inverse experiment to that described above.
+the inner membrane to the outer membrane in Gram-negative bacte-  To test this hypothesis, we performed qPCR on all four independent
+ria34. When lipoprotein trafficking is perturbed, CpxA autophospho-   abaucin-resistant mutants, as well as the wild-type parent strain of
+rylates upon associated membrane stress, before phosphotransfer   A. baumannii, and observed that the mutant carrying the upstream G
+to the transcriptional regulator CpxR and subsequent transcriptional   to A mutation displayed ~4-fold increased expression of lolE relative
+remodeling to restore envelope homeostasis32. These transcriptomics   to all other strains tested (Fig. 3e and Extended Data Fig. 3m). Intrigu-
+data further strengthen the hypothesis that abaucin displays antibacte-   ingly, this fourfold increase in lolE expression parallels the fourfold
+rial efficacy through perturbation of Lol complex-mediated lipoprotein   increase in abaucin MIC observed relative to wild-type A. baumannii.
+trafficking. We note that the A. baumannii Lol system has not yet been   Collectively, these data are consistent with the mechanistic model that
+thoroughly explored, necessitating our interpretation of these data in   abaucin targets LolE-mediated lipoprotein trafficking.
+the context of the better-studied E. coli model.                              Prior work has shown that inhibition of lipoprotein transport in E.
+    With mutational, in silico structural and transcriptional data pro-   coli results in abnormal cell morphology characterized by significant
+viding support that abaucin perturbs lipoprotein trafficking, we next   bacterial cell swelling and loss of nucleoid condensation37. We hypoth-
+investigated whether modulation of LolE expression would change   esized that abaucin treatment would result in similar morphological
+abaucin potency. First, we hypothesized that the MIC of abaucin would   features in A. baumannii. Therefore, we subjected wild-type A. bau-
+decrease with decreased LolE expression35. To test this, we engineered  mannii to increasing concentrations of abaucin and imaged these
+A. baumannii with an inducible CRISPRi system using three distinct   cells using fluorescence microscopy. Here we stained A. baumannii
+guide RNAs targeting AbLolE. As expected, we observed that induction   cells with DAPI and FM4-64, respectively, to visualize DNA and the
+
+Nature Chemical Biology | Volume 19 | November 2023 | 1342–1350                                                        1347
+
+
+[PDF physical page 7]
+Article                                                                               https://doi.org/10.1038/s41589-023-01349-8
+
+                                                                                       is readily amenable to medicinal chemistry optimization (Table 1), we                             b a  10            10                   **                                                           emphasize the existing opportunity to develop structural analogs of
+                                **                                  abaucin with enhanced in vivo activity.           9                                                                                           t = 0      10
+                 NS                                 Discussion g−1      8
+      10                                                                                             t = 24 h    Structurally and functionally new antibiotics are urgently needed for CFU                                                                         vehicle    A. baumannii, which is notoriously difficult to eradicate due to its abil-
+      107                                                                          ity to uptake and retain antibiotic resistance determinants1. Moreover,
+                                                                       species-selective antibiotics hold promise to limit the horizontal dis-
+           6                                                                                            t = 24 h      10                                                            abaucin   semination of resistance determinants and decrease the likelihood of
+               Pre-Tx     Abaucin     Vehicle                              dysbiosis during treatment8. The machine learning-guided discovery
+Fig. 4 | Abaucin can suppress A. baumannii infection in a wound model.         of abaucin highlights the utility of algorithmic approaches to discover
+a, In a dorsal wound infection model, mice were infected with A. baumannii      new antibacterial molecules against A. baumannii and provides the
+ATCC 17978 (~6.5 × 106 CFU). After 1 h of infection, mice were treated with vehicle    field with a promising new narrow-spectrum molecular scaffold to
+(red; n = 6) or 4% abaucin (blue; n = 6) over 24 h. Bacterial load from wound        address one of the world’s most challenging Gram-negative pathogens.
+tissue after treatment (25 h postinfection) was determined by selective plating.     Lipoprotein trafficking is a highly sought-after antibiotic target that
+Pre-Tx represents the bacterial load at the time of initial treatment (n = 5). Black    has yet to be perturbed by clinically used antibacterial drugs, which
+lines represent the mean ± s.d. of the bacterial load for each group. NS means         is advantageous toward increasing the duration of clinical utility of
+not statistically significant; **P < 0.005 using unpaired two-sided t-test with       molecules that disrupt this process. Notably, our observations that
+Welch’s correction (pre-Tx versus 4% abaucin, P = 0.0704; pre-Tx versus vehicle,
+                                                              abaucin displays narrow-spectrum activity through perturbation of
+P = 0.0034; vehicle versus 4% abaucin, P = 0.0039). b, Representative images of
+                                                                LolE-mediated lipoprotein trafficking can be explained, at least in part,the dorsal surface of mice before infection (t = 0), after 24 h of treatment with
+                                                       due to the divergence of the A. baumannii Lol system relative to mostvehicle, and after 24 h of treatment with abaucin. Note the inflammation seen in
+the vehicle control (arrows) that is absent in the abaucin-treated mouse.          other Gram-negative species16. Specifically, in most Gram-negative
+                                                             organisms, the inner membrane-associated lipoprotein transport
+                                                           machinery consists of LolC, LolD and LolE in an asymmetric multipro-
+                                                                        tein complex. A. baumannii, on the other hand, encodes a symmetric
+cell envelope. Consistent with prior work in E. coli, abaucin-treated   inner membrane complex containing LolD and two copies of LolE (also
+A. baumannii cells displayed increased swelling and a loss of intracel-  termed LolF), without LolC.
+lular nucleoid condensation as a function of concentration (Fig. 3f).      The work described herein represents an advancement toward
+These data provide compelling phenotypic support that abaucin dis-   the validation of machine learning for new narrow-spectrum antibiotic
+rupts lipoprotein trafficking.                                       discovery and adds to the growing body of literature that supports the
+                                                                                    utility of computational approaches to accelerate drug discovery more
+Abaucin can suppress A. baumannii in a wound infection          generally7. Indeed, over the past half-decade, investigators have suc-
+model                                                                   cessfully applied classic molecular fingerprint-based machine learning
+A. baumannii is a problematic nosocomial pathogen that survives   methods, as well as more sophisticated neural network approaches, to
+for prolonged periods on surfaces and has the ability to accumulate   predict antibiotics5, antiviral compounds40 and anticancer therapies41.
+extracellular DNA1, including antibiotic resistance genes38. Indeed,   Furthermore, recent advancements in chemical generation algorithms
+A. baumannii is a major cause of multidrug-resistant infections in   have resulted in the design of new molecules with desired properties
+wounded military personnel39. Our data showing that abaucin inhib-   of interest42.
+ited the growth of a wide array of multidrug-resistant clinical isolates of       Expectedly, there exist opportunities for improvement of molecu-
+A. baumannii—including pan-resistant strains—provided confidence   lar property prediction methods. For example, future endeavors can
+that abaucin may be used to treat such problematic wound infections.   readily expand on this work by increasing the size of the A. baumannii
+To test the in vivo efficacy of abaucin, we established a wound infection   antibiotic training dataset and performing predictions on larger in
+on the dorsal surface of neutropenic C57BL/6 mice using A. baumannii   silico chemical libraries. Given that our prediction filtering method
+ATCC 17978 (~6.5 × 106 CFU inoculum) and allowed the bacterial popu-  was exceptionally stringent to enrich for chemicals that were struc-
+lation to expand for 1 h. Mice were subsequently treated with Glaxal   turally divergent from our training dataset, it is likely that similarly
+Base Moisturizing Cream supplemented with vehicle (1.65% DMSO)   aggressive filtering approaches could be leveraged going forward to
+or abaucin (4% wt/vol). Application of vehicle or abaucin occurred  manage the number of molecules for experimental validation, even
+at 2 h, 3 h, 4 h, 6 h, 10 h, 21 h and 24 h postinfection. Mice were killed  when predictions are performed on the scale of hundreds of millions
+at 25 h postinfection, and tissue was aseptically dissected and then   to billions of compounds. However, we emphasize that algorithmic
+plated to quantify A. baumannii viability. In vehicle-treated mice, we   approaches may be applied to in silico chemical libraries of any size,
+retrieved ~6.9 × 108 CFU g−1 at the experimental endpoint and observed   serving to decrease the time and costs required to identify valuable
+that the wounded tissues displayed significant inflammation. Contra-   molecules by avoiding the strict necessity for successive rounds of
+rily, abaucin-treated mice carried ~4.0 × 107 CFU g−1—nearly identical   resource-intensive screening.
+to the pretreated infection control mice—and abaucin-treated tissues      Moreover, investigators can apply multiproperty optimization
+displayed markedly less inflammation (Fig. 4). These data show that  models that simultaneously predict numerous properties of interest.
+abaucin can effectively suppress an A. baumannii wound infection, con-   In the context of antibiotic drug discovery specifically, future models
+sistent with its effect on A. baumannii viability in vitro (Fig. 1f). We note,   could be trained on (1) growth inhibition of a pathogen of interest and
+however, that conventional clinically employed bactericidal antibiotics   (2) mammalian cell toxicity, given that a sufficiently robust training
+would likely result in enhanced A. baumannii clearance in our wound   dataset exists. In this manner, forthcoming predictive models can
+model relative to abaucin. However, due to widespread resistance to  be applied to wide regions of unexplored chemical space, with more
+conventional antibiotics, as well as the broad-spectrum activity of these   confidence that prioritized molecules will satisfy multiple properties
+medicines, abaucin and derivatives thereof may represent a structurally   that are required of new clinical antibiotics. Indeed, with the increas-
+and functionally new class of A. baumannii-specific antibiotics that can   ing availability of high-quality datasets on which to train, we posit that
+overcome existing resistance determinants. Indeed, given that abaucin  machine learning methods are now well positioned to become widely
+
+Nature Chemical Biology | Volume 19 | November 2023 | 1342–1350                                                      1348
+
+
+[PDF physical page 8]
+Article                                                                               https://doi.org/10.1038/s41589-023-01349-8
+
+employed tools to more efficiently identify structurally and function-    21.  Cerri, C. et al. The chemokine CCL2 mediates the
+ally new antibacterial leads.                                              seizure-enhancing effects of systemic inflammation. J. Neurosci.
+                                                                     36, 3777–3788 (2016).
+Online content                                                    22.  Chargari, C. et al. Preclinical assessment of JNJ-26854165
+Any methods, additional references, Nature Portfolio reporting sum-       (Serdemetan), a novel tryptamine compound with
+maries, source data, extended data, supplementary information,        radiosensitizing activity in vitro and in tumor xenografts. Cancer
+acknowledgements, peer review information; details of author contri-         Lett. 312, 209–218 (2011).
+butions and competing interests; and statements of data and code avail-   23. Lehman, J. A. et al. Serdemetan antagonizes the Mdm2-HIF1α axis
+ability are available at https://doi.org/10.1038/s41589-023-01349-8.        leading to decreased levels of glycolytic enzymes. PLoS ONE 8,
+                                                                      e74741 (2013).
+References                                                         24.  Stokes, J. M., Lopatkin, A. J., Lobritz, M. A. & Collins, J. J. Bacterial
+1.   Antunes, L. C. S., Visca, P. & Towner, K. J. Acinetobacter baumannii:       metabolism and antibiotic efficacy. Cell Metab. 30, 251–259
+    evolution of a global pathogen. Pathog. Dis. 71, 292–301 (2014).           (2019).
+2.  2020 Antibacterial Agents in Clinical and Preclinical Development:    25. Zheng, E. J., Stokes, J. M. & Collins, J. J. Eradicating bacterial
+   An Overview and Analysis (World Health Organization, 2021);              persisters with combinations of strongly and weakly
+    https://www.who.int/publications/i/item/9789240021303              metabolism-dependent antibiotics. Cell Chem. Biol. 27,
+3.   Walsh, C. Where will new antibiotics come from? Nat. Rev.              1544–1552 (2020).
+     Microbiol. 1, 65–70 (2003).                                         26.  Francino, M. P. Antibiotics and the human gut microbiome:
+4.  Tommasi, R., Brown, D. G., Walkup, G. K., Manchester, J. I. & Miller,        dysbioses and accumulation of resistances. Front. Microbiol. 6,
+    A. A. ESKAPEing the labyrinth of antibacterial discovery. Nat. Rev.        1543 (2016).
+    Drug Discov. 14, 529–542 (2015).                                         27.  Smits, W. K., Lyras, D., Lacy, D. B., Wilcox, M. H. & Kuijper, E. J.
+5.   Stokes, J. M. et al. A deep learning approach to antibiotic                Clostridium difficile infection. Nat. Rev. Dis. Prim. 2, 16020 (2016).
+     discovery. Cell 180, 688–702 (2020).                                28. Sharma, S. et al. Mechanism of LolCDE as a molecular extruder of
+6.  Ma, Y. et al. Identification of antimicrobial peptides from the              bacterial triacylated lipoproteins. Nat. Commun. 12, 4687 (2021).
+   human gut microbiome using deep learning. Nat. Biotechnol. 40,    29.  Nicholson, W. L. & Maughan, H. The spectrum of spontaneous
+    921–931 (2022).                                                       rifampin resistance mutations in the rpoB gene of Bacillus subtilis
+7.   Lluka, T. & Stokes, J. M. Antibiotic discovery in the artificial              168 spores differs from that of vegetative cells and resembles
+     intelligence era. Ann. N. Y. Acad. Sci. 1519, 74–93 (2023).                  that of Mycobacterium tuberculosis. J. Bacteriol. 184, 4936–4940
+8.   Melander, R. J., Zurawski, D. V. & Melander, C. Narrow-spectrum          (2002).
+     antibacterial agents. MedChemComm 9, 12–21 (2018).              30. Baek, M. et al. Accurate prediction of protein structures and
+9.   Theriot, C. M. et al. Antibiotic-induced shifts in the mouse                 interactions using a three-track neural network. Science 373,
+    gut microbiome and metabolome increase susceptibility to             871–876 (2021).
+    Clostridium difficile infection. Nat. Commun. 5, 3114 (2014).           31.  Buel, G. R. & Walters, K. J. Can AlphaFold2 predict the impact of
+10.  Willing, B. P. et al. A pyrosequencing study in twins shows that          missense mutations on structure? Nat. Struct. Mol. Biol. 29, 1–2
+     gastrointestinal microbial profiles vary with inflammatory bowel          (2022).
+    disease phenotypes. Gastroenterology 139, 1844–1854 (2010).       32.  Raivio, T. L., Leblanc, S. K. D. & Price, N. L. The Escherichia coli Cpx
+11.  Turnbaugh, P. J. et al. An obesity-associated gut microbiome with        envelope stress response regulates genes of diverse function that
+    increased capacity for energy harvest. Nature 444, 1027–1031           impact antibiotic resistance and membrane integrity. J. Bacteriol.
+    (2006).                                                              195, 2755–2767 (2013).
+12.  Kelly, J. R. et al. Transferring the blues: depression-associated gut    33. Guest, R. L., Wang, J., Wong, J. L. & Raivio, T. L. A bacterial stress
+    microbiota induces neurobehavioural changes in the rat.               response regulates respiratory protein complexes to control
+       J. Psychiatr. Res. 82, 109–118 (2016).                                 envelope stress adaptation. J. Bacteriol. 199, e00153-17
+13.  Wu, N. et al. Dysbiosis signature of fecal microbiota in colorectal          (2017).
+    cancer patients. Microb. Ecol. 66, 462–470 (2013).                  34. Delhaye, A., Laloux, G. & Collet, J.-F. The lipoprotein NlpE is a Cpx
+14.  Lee, H. S., Plechot, K., Gohil, S. & Le, J. Clostridium difficile:              sensor that serves as a sentinel for protein sorting and folding
+    diagnosis and the consequence of over diagnosis. Infect. Dis.            defects in the Escherichia coli envelope. J. Bacteriol. 201,
+     Ther. 10, 687–697 (2021).                                            e00611-18 (2019).
+15.  Corsello, S. M. et al. The Drug Repurposing Hub: a                   35.  Peters, J. M. et al. A comprehensive, CRISPR-based functional
+    next-generation drug library and information resource. Nat. Med.         analysis of essential genes in bacteria. Cell 165, 1493–1506 (2016).
+    23, 405–408 (2017).                                              36. Pathania, R. et al. Chemical genomics in Escherichia coli identifies
+16.  Kaplan, E., Greene, N. P., Crow, A. & Koronakis, V. Insights into          an inhibitor of bacterial lipoprotein targeting. Nat. Chem. Biol. 5,
+     bacterial lipoprotein trafficking from a structure of LolA bound         849–856 (2009).
+    to the LolC periplasmic domain. Proc. Natl Acad. Sci. USA 115,        37.  McLeod, S. M. et al. Small-molecule inhibitors of Gram-negative
+    E7389–E7397 (2018).                                                    lipoprotein trafficking discovered by phenotypic screening.
+17.  Tang, X. et al. Structural basis for bacterial lipoprotein relocation             J. Bacteriol. 197, 1075–1082 (2015).
+    by the transporter LolCDE. Nat. Struct. Mol. Biol. 28, 347–355        38. Manchanda, V., Sanchaita, S. & Singh, N. Multidrug resistant
+     (2021).                                                                acinetobacter. J. Glob. Infect. Dis. 2, 291–304 (2010).
+18.  Yang, K. et al. Analyzing learned molecular representations for       39.  Davis, K. A., Moran, K. A., McAllister, C. K. & Gray, P. J.
+    property prediction. J. Chem. Inf. Model. 59, 3370–3388 (2019).           Multidrug-resistant Acinetobacter extremity infections in soldiers.
+19.  Landrum, G. RDKit: a software suite for cheminformatics,               Emerg. Infect. Dis. 11, 1218–1224 (2005).
+    computational chemistry, and predictive modeling. https://www.    40.  Jin, W. et al. Deep learning identifies synergistic drug
+     rdkit.org/RDKit_Overview.pdf                                       combinations for treating COVID-19. Proc. Natl Acad. Sci. USA 118,
+20. Seok, S. J. et al. Blockade of CCL2/CCR2 signalling ameliorates         e2105070118 (2021).
+     diabetic nephropathy in db/db mice. Nephrol. Dial. Transplant. 28,    41.  Preuer, K. et al. DeepSynergy: predicting anti-cancer drug synergy
+    1700–1710 (2013).                                                    with Deep Learning. Bioinformatics 34, 1538–1546 (2018).
+
+Nature Chemical Biology | Volume 19 | November 2023 | 1342–1350                                                     1349
+
+
+[PDF physical page 9]
+Article                                                                               https://doi.org/10.1038/s41589-023-01349-8
+
+42.  Jin, W., Barzilay, R. & Jaakkola, T. Junction tree variational            Springer Nature or its licensor (e.g. a society or other partner) holds
+    autoencoder for molecular graph generation. In Proc. 35th          exclusive rights to this article under a publishing agreement with
+     International Conference on Machine Learning (eds Dy, J. & Krause,   the author(s) or other rightsholder(s); author self-archiving of the
+     A.) 2323–2332 (PMLR, 2018).                                  accepted manuscript version of this article is solely governed by the
+                                                               terms of such publishing agreement and applicable law.
+Publisher’s note Springer Nature remains neutral with regard
+to jurisdictional claims in published maps and institutional        © The Author(s), under exclusive licence to Springer Nature America,
+affiliations.                                                                    Inc. 2023
+
+
+
+
+
+Nature Chemical Biology | Volume 19 | November 2023 | 1342–1350                                                     1350
+
+
+[PDF physical page 10]
+Article                                                                               https://doi.org/10.1038/s41589-023-01349-8
+
+Methods                                                            iterations. After we achieved model performance that was accept-
+Training data acquisition                                        able for our prediction task, we conducted predictions on the Drug
+A. baumannii ATCC 17978 was grown in 2 ml LB medium (Becton, Dick-   Repurposing Hub.
+inson and Company) overnight at 37 °C with shaking. Cells were diluted      Our model had the following hyperparameters: number of
+1/10,000 into fresh LB and 99 µl of cells was added to each well of a   message-passing steps = 3; neural network hidden size = 300; number
+96-well flat-bottom plate (Corning). Next, 1 µl of a 5 mM stock of each   of feed-forward layers = 2; dropout probability = 0.
+molecule from a collection of 7,684 small molecules (FDA-approved
+drugs and molecules from screening collections from the Broad Insti-   Structural analysis
+tute) was added, in duplicate, using an Agilent Bravo liquid handling  We used Tanimoto similarity to quantify the chemical relationship
+system. The final concentration was 50 µM. Plates were incubated  between molecules in our training dataset and prediction dataset.
+in sealed plastic bags at 37 °C for 16 h and read at 600 nm using a  The Tanimoto similarity between two molecules is a measure of the
+SpectraMax M3 plate reader. Plate data were normalized based on   proportion of shared chemical substructures. To compute Tanimoto
+the interquartile mean of each plate before binarization into ‘active’   similarity, we first made Morgan fingerprints for each molecule using
+and ‘nonactive’ categories for model training. Active molecules were   radius = 2 and 2,048-bit fingerprint vectors using RDKit. Tanimoto
+defined as those that resulted in growth at least 1σ below the mean   similarity was then computed as the number of chemical substructures
+growth of the entire dataset.                                     contained in both molecules divided by the total number of unique
+                                                                chemical substructures in either molecule. The Tanimoto similarity is a
+Model training and predictions                            number between 0 and 1, where 0 represents no shared substructures
+A directed message-passing neural network (Chemprop), like other  and 1 represents all substructures that are shared. For t-distributed sto-
+message-passing neural networks, learns to predict molecular prop-   chastic neighbor embedding (t-SNE) analysis, plots were created using
+erties directly from the graph structure of molecules, where atoms   the implementation of t-distributed stochastic neighbor embedding
+are nodes and bonds are edges. For every molecule in our training  by scikit-learn43. Here we first used RDKit to compute Morgan finger-
+dataset, we reconstructed the molecular graph corresponding to each   prints for each molecule as described above. We then used t-SNE with
+compound’s SMILES string and determined the set of atoms and bonds   the Jaccard distance metric to reduce the data from 2,048 dimensions
+using RDKit19. Next, we initialized a feature vector for each atom and   to the two dimensions that are plotted. Jaccard distance is Tanimoto
+bond, as described previously5.                                        distance, which is defined as follows: Tanimoto distance = 1 – Tanimoto
+   The model applies a series of message-passing steps where it   similarity. We used the scikit-learn default values for all t-SNE param-
+aggregates information from neighboring atoms and bonds to build   eters besides the distance metric.
+a representation of local chemistry. On each step of message passing,
+every bond’s featurization is updated by summing the featurization of  Pathogen growth inhibition
+neighboring atoms and bonds, applying a single neural network layer,   Cells were grown overnight in 2 ml LB medium and diluted 1/10,000
+adding the bond’s previous featurization, and then applying ReLU acti-   into fresh LB. In 96-well flat-bottom plates (Corning), cells were then
+vation. After a defined number of message-passing steps, the learned   introduced to compound at a final concentration of 50 µM, or to com-
+featurizations across the molecule are summed to produce a single  pound at twofold serial dilutions, in final volumes of 100 µl. Plates
+featurization for the whole molecule. Lastly, this featurization is sub-  were then incubated at 37 °C until untreated control cultures reached
+jected to a feed-forward neural network that outputs a prediction of the   the stationary phase, at which time plates were read at 600 nm using
+property of interest—in our case, antibiotic activity against A. baumannii.   a SpectraMax M3 plate reader. We note here that the incubation time
+To augment the architecture described here, we employed the following   required to reach the stationary phase differed slightly between strains.
+two model enhancements: molecule-level features and ensembling.     For abaucin analog spectrum of coverage assays, the laboratory strains
+                                                           were E. coli BW25113, S. aureus RN4220 and P. aeruginosa PAO1. Clinical
+Molecule-level features. The message-passing approach is ideal   isolate panels were curated from the CDC ARIsolate Bank and assayed
+for extracting features of local chemistry within a larger molecule.   in LB as described above.
+However, it can struggle to extract global molecular features for larger
+molecules. To address this limitation, we concatenated the molecular   Bacterial cell killing
+representation that is learned during message passing with 200 addi-   Cells were grown overnight in 2 ml LB medium and diluted 1/10,000
+tional molecule-level features computed using RDKit.                  into fresh LB. In 96-well flat-bottom plates (Corning), cells were grown
+                                                                 to the required density (100 µl final volume) at 37 °C, at which time
+Ensembling. Ensembling was used to further improve model per-  compound was added at the indicated concentration and cultures were
+formance, where several copies of the same model architecture with   incubated for the required duration. Cells were then pelleted in plates
+different random initial weights are trained and their predictions are  by centrifugation at 4,000g for 15 min at 4 °C and washed in ice-cold
+averaged. Here we used an ensemble of ten models, with each model   PBS. After washing, cells were tenfold serially diluted in PBS and plated
+trained on a unique split of the training dataset.                  on LB. In experiments where cells were incubated with antibiotic in
+    After model building and training on the 7,684-molecule train-   nutrient-deplete conditions, cells were grown to the required density in
+ing dataset (with ~6.2% active examples), we applied our model to the  LB media at 37 °C, washed in PBS and subsequently resuspended in PBS
+updated Drug Repurposing Hub, consisting of 6,680 compounds, many   before the addition of compound (100 µl final volume). After cultures
+of which occupy a unique chemical space relative to that on which the  were incubated for the required duration at 37 °C, cells were pelleted
+model was trained. Here we randomly split the dataset into 80% train-   in plates by centrifugation at 4,000g for 15 min at 4 °C and washed in
+ing data, 10% validation data and 10% test data. We trained our model   ice-cold PBS. After washing, cells were tenfold serially diluted in PBS
+on these data for 30 epochs and evaluated the model on the validation  and plated on LB. For post-treatment regrowth experiments, cells were
+data at the end of each epoch. Once training was complete, we used   treated with abaucin and incubated in LB for 6 hours as described above
+the model parameters that performed best on the validation data   (100 µl final volume). Cells were then pelleted in plates by centrifuga-
+and tested the model on the test data. We ran tenfold cross-validation   tion at 4,000g for 15 min at 4 °C and washed in ice-cold PBS. After
+by repeating this procedure with ten different splits by systemati-   washing, cells were resuspended in 100 µl fresh LB, diluted 1/1,000 in
+cally dividing training, validation and test sets such that all molecules   fresh 100 µl LB and grown at 37 °C in a Biotek Synergy H1 plate reader.
+appeared at equal proportions across all sets over the course of training   Plates were read at 600 nm every 20 min for 16 h.
+
+Nature Chemical Biology
+
+
+[PDF physical page 11]
+Article                                                                               https://doi.org/10.1038/s41589-023-01349-8
+
+Commensal species growth inhibition                             additional 3 h, 4.5 h or 6 h. After the required durations of incubation
+For analysis of commensal species from the human gut, strains were   post-treatment, 2 ml samples were collected and flash-frozen on liquid
+grown from frozen stock on brain heart infusion (BHI) agar supple-   nitrogen. cDNA library construction and sequencing for these samples
+mented with 0.5 g l−1 l-cysteine, 10 mg l−1 hemin and 1 mg l−1 vitamin K  were performed by Genewiz. Paired-end sequence data in FASTQ file
+(BHI3). Single colonies were picked, transferred to 96-well plates con-   format were aligned to the transcripts of CP053098.1 (A. baumannii
+taining liquid BHI3 and grown for 24 h at 37 °C. Antibiotics (ampicillin,  ATCC 17978 chromosome), CP053099.1 (A. baumannii ATCC 17978
+Sigma-Aldrich; ciprofloxacin, Sigma-Aldrich; abaucin; Supplementary   plasmid 1) and CP053100.1 (A. baumannii ATCC 17978 plasmid 2). mRNA
+Note) were arrayed in BHI3 broth at twofold the final desired concen-  abundances were then quantified as transcripts per million using the
+trations, and prereduced in an anaerobic environment overnight.   kallisto (version 0.46.2)45 ‘quant’ function, and the parameter ‘-b 100’
+Liquid bacterial cultures were standardized to twofold the desired   with paired-end reads. All downstream analyses were performed using
+optical density (OD600 = 0.02). The twofold concentrated cultures  R (version 4.1.0)46. Expression differences between abaucin-treated
+were then inoculated into 96-well plates (50 µl) containing twofold   samples and nontreated controls were quantified using the DESeq2
+concentrated antibiotics (50 µl). The final antibiotic concentrations   pipeline (version 1.34.0)47. We defined a cutoff of log2(FC) ≥ 1.5 and
+were ampicillin (128 µg ml−1), ciprofloxacin (0.25 µg ml−1) and abaucin   padj ≤ 0.01 to identify differentially expressed genes. For GO enrich-
+(2 µg ml−1, 20 µg ml−1 and 40 µg ml−1). The final culture volume was   ment, differentially expressed A. baumannii transcripts for which no
+100 µl. After inoculation, plates were sealed with breathable mem-  gene name was identified in CP053098.1, CP053099.1 or CP053100.1
+branes (Breathe-Easy) and incubated at 37 °C without shaking for 24 h.  were subject to blastp analysis against E. coli MG1655 (https://blast.
+After incubation, the plates were read at 600 nm using Biotek Synergy   ncbi.nlm.nih.gov/). A. baumannii proteins with E values < 10−50, percent
+H1 plate reader. All bacterial strains were grown and incubated in a   identify >40% and query coverage >80% to annotated E. coli proteins
+Coy Laboratory Vinyl Anaerobic Chamber (5% CO2, 2% H2 and 93% N2).   were binned and GO-enriched with EcoCyc Pathway Tools48–50 using the
+All media was prereduced under anaerobic conditions for at least 4 h   Fisher exact test for statistical significance of GO enrichment.
+before use.
+    For analysis of commensal skin species in aerobic conditions,  CRISPRi LolE knockdown
+strains were grown from frozen on BHI3 agar and incubated at 37 °C for   Three independent 20 base pair sgRNAs targeting lolE (sgRNAlolE-1:
+24 h. Single colonies were picked and transferred to 96-well plates con-  5′-TAAACGTAAGCCAAGCGAAT-3′; sgRNAlolE-2: 5′-CAAATTCTTCAC
+taining liquid BHI3, which were then incubated at 37 °C without shaking   AATGTCAT-3′; sgRNAlolE-3: 5′-TTTAAGTGAGTCGAGGCTAC-3′) were
+for 24 h. Liquid cultures were then standardized to OD600 = 0.02 (two-   designed using predictive software51 to maximize on-target activity
+fold the final OD). Antibiotics (ampicillin, ciprofloxacin and abaucin)  and minimize off-target binding in A. baumannii ATCC 17978. sgRNAs
+were arrayed in BHI3 broth at twofold the final concentrations (the final   were then cloned into pFD152 (Addgene plasmid 125546; provided by D.
+antibiotic concentrations were ampicillin (128 µg ml−1), ciprofloxa-   Bikard) using a single-step golden gate assembly reaction, as described
+cin (0.25 µg ml−1) and abaucin (2 µg ml−1, 20 µg ml−1 and 40 µg ml−1)).   previously52. sgRNA sequences were verified using Sanger sequenc-
+The twofold concentrated cultures (50 µl) were then inoculated into   ing and constructs were transformed into A. baumannii ATCC 17978.
+96-well plates containing the twofold concentrated antibiotics (50 µl)  pFD152 was selected in A. baumannii using spectinomycin (250 μg ml−1
+to achieve a final volume of 100 µl. Plates were sealed with breathable   in liquid media and 500 μg ml−1 on solid media; Sigma-Aldrich).
+membranes (Breathe-Easy) and incubated at 37 °C without shaking for  To determine whether LolE knockdown enhanced the growth inhibi-
+48 h under 5% CO2. After incubation, plates were read at 600 nm using   tory potency of abaucin, A. baumannii ATCC 17978 harboring pFD152,
+a Biotek Synergy H1 plate reader.                                    pFD152-sgRNAlolE-1, pFD152-sgRNAlolE-2 or pFD152-sgRNAlolE-3 were
+                                                      grown overnight in LB medium, diluted 1/10,000 into fresh LB, and
+Suppressor mutant evolution and sequencing                grown mid-log phase (OD ~ 0.2) at 37 °C. Anhydrotetracycline (aTc;
+A. baumannii ATCC 17978 was grown in 2 ml LB medium overnight at   Sigma-Aldrich) was added to the subcultures at a final concentration
+37 °C with shaking. ~108 CFU in 100 µl liquid LB was deposited onto   of 1 μg ml−1 to induce knockdown of lolE expression and cultures were
+solid LB plates supplemented with abaucin at varying concentrations   incubated for an additional 2.5 h at 37 °C with shaking. Following this
+ranging from 2 µg ml−1 to 10 µg ml−1. Plates were incubated at 37 °C   induction period, cultures were back diluted to the equivalent OD
+and monitored every 24 h for the emergence of abaucin mutants. On   of 1/10,000 of a dense culture and introduced to varying concentra-
+the emergence of colonies, these were purified by restreaking onto   tions of abaucin and 0.5 μg ml−1 of aTc. MICs were then determined as
+solid LB and solid LB supplemented with abaucin at the same con-   described above.
+centration from which the colonies were originally collected. Four
+independent abaucin-resistant strains were subsequently selected for   Quantitative reverse transcription (qRT)–PCR
+whole-genome sequencing. Chromosomal DNA from each mutant and   Wild-type A. baumannii ATCC 17978 and the resistant mutants were
+wild-type A. baumannii ATCC 17978 was purified using a Gentra Pure-  grown in 3 ml LB medium overnight at 37 °C with shaking. Cells were
+gene DNA isolation kit (Qiagen). DNA (chromosomal and plasmid) was   diluted 1/10,000 into 15 ml fresh LB and grown to mid-log at 37 °C
+sequenced on an Illumina MiSeq platform and reads were aligned to the   with shaking, at which time cells were pelleted by centrifugation at
+reference A. baumannii ATCC 17978 genome (CP053098.1, CP053099.1  4,000g for 15 min at 4 °C and frozen for ~2 h. Cells were lysed in 100 µl
+and CP053100.1) using Breseq44. For frequency of resistance quanti-   of 1 mg ml−1 lysozyme and incubated at room temperature for 10 min.
+fication, 1.1 × 108 CFU of A. baumannii ATCC 17978 in 100 µl liquid LB  RNA was isolated using the RNEasy Mini Kit (Qiagen), with some modi-
+was deposited onto solid LB plates supplemented with abaucin at the   fications. Briefly, to each sample, 3.5 µl of 2-mercaptoethanol, 250 µl
+noted concentrations. After 24 h, 48 h and 72 h of incubation at 37 °C,   of RLT buffer and 250 µl of 95% ethanol was added. Seven hundred
+colonies were counted, and these values were divided by 1.1 × 108 to   microliters of each sample was then loaded onto a spin column and
+quantify the frequency of resistance.                               incubated at room temperature for 5 min. The sample was centrifuged
+                                                                       at 8,000g for 1 min. The column was washed with 700 µl RW1 buffer
+Transcriptomic analysis                                  and centrifuged at 8,000g for 1 min. The column was washed with
+A. baumannii ATCC 17978 was grown in 2 ml LB medium overnight at   700 µl RPE buffer and centrifuged at 8,000g for 2 min. The column
+37 °C with shaking. Cells were diluted 1/10,000 into 50 ml fresh LB and  was washed again with 500 µl RPE buffer and centrifuged at 8,000g
+grown to mid-log at 37 °C with shaking, at which time cultures were sup-   for 2 min. The column was transferred to a new collection tube and
+plemented with 5× MIC (10 µg ml−1) abaucin or no drug and grown for an   incubated at room temperature for 5 min. The empty column was
+
+Nature Chemical Biology
+
+
+[PDF physical page 12]
+Article                                                                               https://doi.org/10.1038/s41589-023-01349-8
+
+centrifuged at 13,000g for 2 min and incubated at room temperature   final volumes of 100 µl. Plates were grown to mid-exponential phase
+for 5 min. The column was then placed into a fresh 1.5 ml microcentri-   in a Biotek Epoch 2 plate reader with shaking at 37 °C. Cell suspensions
+fuge tube and 45 µl of RNase-free water was added to the center of the   were transferred to a poly-lysine coated 0.17 mm glass-bottom imag-
+column and incubated at room temperature for 5 min. To elute RNA,   ing plate (Brooks Scientific) and incubated with FM 4-64 (1 μg ml−1
+the column was centrifuged at 8,000g for 2 min. RNA was subject   final concentration; Invitrogen) and DAPI (0.2 μg ml−1 final concentra-
+to DNase I treatment for 10 min at room temperature. The resulting   tion; Invitrogen) probes for 10 min in the dark. Samples were imaged
+RNA was quantified using a Nanodrop. Next, the RNA integrity was   using a Nikon Eclipse Ti inverted microscope at ×100 magnification,
+assessed through agarose gel electrophoresis. For cDNA synthesis, the  and cell widths were assessed using Nikon Elements software. Cell
+High-Capacity cDNA Reverse Transcription Kit (Applied Biosystems)   widths for each sample were summarized in R using the density func-
+was used as specified by the manufacturer’s instructions. The cDNA   tion to explore population shifts in morphology as a function of drug
+was then amplified with iTaq Universal SYBR Green Supermix (Bio-Rad)   concentration.
+via a Bio-Rad CFX96 (Bio-Rad) following the manufacturer’s instruc-
+tions. The target amplification efficiency was evaluated by generating  Animal models
+a standard curve with dilutions of cDNA (>95% amplification efficiency  Mouse model experiments were conducted according to the guide-
+for each primer pair). Primers lolE195F + lolE195R were used to amplify   lines set by the Canadian Council on Animal Care, using protocols
+lolE; rpoD182F + rpoD182R, glt188F + glt188R and gyrB196F + gyrB196R  approved by the Animal Review Ethics Board and McMaster Univer-
+were used to amplify the housekeeping genes rpoD, gltA and gyrB.   sity under Animal Use Protocol 20-12-41. Before infection, mice were
+Triple technical replicates were examined per biological sample, with   relocated at random from housing cages to single-occupancy control
+controls omitting reverse-transcriptase to verify a lack of genomic DNA   or treatment cages. No animals were excluded from the analysis,
+contamination, and cDNA to verify the absence of external nucleic acid  and blinding was considered unnecessary. Six- to eight-week-old
+contamination and primer dimer formation. Transcript level of lolE   female C57BL/6N mice were pretreated with 150 mg kg−1 (day T-4)
+from each mutant was evaluated using the comparative 2−ΔΔCt method  and 100 mg kg−1 (day T-1) of cyclophosphamide to render mice neu-
+to the wild-type strain, normalizing to the 2−ΔΔCt value of housekeep-   tropenic. On day T-0, mice were anesthetized using isoflurane and
+ing genes.                                                      administered buprenorphine as an analgesic at 0.1 mg kg−1 intraperi-
+    lolE195F—5′-CAGCTGGAGATGGAGTCGCT-3′                       toneally. A 2 cm2 abrasion on the dorsal surface of the mouse was
+    lolE195R—5′-TGGTGACGGGTATTGACCCT-3′                        inflicted through tape-stripping to the basal layer of the epidermis
+    rpoD182F—5′-ACATGGCCGTAATAGCCCTGA-3′                   using approximately 30–35 pieces of autoclave tape. Mice were imme-
+    rpoD182F—5′-CCATACGGCCACGACGTACT-3′                      diately infected with ~6.5 × 106 CFU A. baumannii ATCC 17978 directly
+    glt188F—5′-GCGACAGCTTCATGCGAGTC-3′                      pipetted onto the wound bed. The infection was left to establish for
+    glt188R—5′-TGAGCACGAACTTTCGCATCG-3′                         1 h before the first treatment with Glaxal Base supplemented with
+    gyrB196F—5′-ATTAGTGCTGATGCGCCTGC-3′                     vehicle (1.65% DMSO) or abaucin (4% wt/vol). Mice (n = 5 or 6) were
+    gyrB196R—5′-CTTGATCCGCCCATTGCTGG-3′                     treated 1, 2, 3, 4, 6, 10, 21 and 24 h postinfection with ~10 to 20 µl Glaxal
+                                                            Base with abaucin (treatment) or DMSO (control). Mice were killed
+Structural protein prediction                                       at experimental endpoint (25 h postinfection) and wound tissue was
+We aligned the wild-type A. baumannii protein sequence of inter-   collected, homogenized in phosphate-buffered saline and plated on
+est against the UniProt/SwissProt database53 using blastp (version   solid LB medium supplemented with chloramphenicol to quantify
+2.13.0+)54,55 through the NCBI blast platform (https://blast.ncbi.   bacterial load. For chemical preparation, abaucin was weighed and
+nlm.nih.gov/) and obtained a multiple-sequence alignment. This   solubilized in 1.65% DMSO and then added to a predetermined amount
+alignment identified the E. coli K12 LolE protein as a homolog with   of Glaxal Base to a final concentration of 4% w/v. The solution was
+E value = 6 × 10−88. Next, we aligned the E. coli LolE protein, the A. bauman-  mixed thoroughly to ensure an even distribution of the compound in
+nii wild-type LolE protein and the A. baumannii abaucin-resistant A362T   the carrier. For control groups, the same amount of vehicle (DMSO)
+variant LolE protein using Geneious Prime software (version 2021.2.2;  was measured and mixed through Glaxal Base.
+https://www.geneious.com); we applied a ‘global alignment with free
+end gaps’ as the alignment type and ‘blosum62’ as the cost matrix, with  Reporting summary
+parameters gap open penalty = 12; gap extension penalty = 3 and refine-   Further information on research design is available in the Nature Port-
+ment iterations = 2. We then predicted the structure of the wild-type   folio Reporting Summary linked to this article.
+A. baumannii LolE protein and A362T variant protein sequences with
+RoseTTAfold30 through the Robetta platform (https://robetta.baker-  Data Availability
+lab.org/). We did not provide a multiple-sequence alignment for this  GenBank accession numbers for sequencing of abaucin-resistant
+computation. We obtained the protein structure of the wild-type E. coli  mutants are BankIt2629921 – OP677864, OP677865, OP677866
+LolCDE in complex with a lipoprotein from ref. 17, Protein Data Bank:  and OP677867. GEO accession numbers for RNA sequencing data-
+7ARH. We then aligned the structures of the wild-type A. baumannii LolE   sets are GSE214305 – GSM6603484, GSM6603485, GSM6603486,
+protein and the LolCDE complex with Maestro (version 12.9.137) from  GSM6603487, GSM6603488, GSM6603489 and GSM6603490. Source
+Schrödinger and ChimeraX (version 1.3rc202112020528)56,57. In Maestro,   data are provided with this paper.
+we used the default structural alignment parameters. With ChimeraX,
+we used the ‘Needleman-Wunsch’ alignment algorithm with ‘blosum62’  Code Availability
+as the similarity matrix, with parameters ‘bb’ as chain pairing; 0.3 as SS   All custom code used for antibiotic prediction is open source and can
+fraction; 1 as gap extend; 18/18/6 as gap open (HH/SS/other); and 2 as  be accessed without restriction at https://github.com/chemprop/
+iteration cutoff. Final figures of structural alignments were generated   chemprop. A cloned snapshot used for this paper is available at https://
+with ChimeraX (version 1.3rc202112020528)56,57.                     github.com/GaryLiu152/chemprop_abaucin. All commercial software
+                                                            used is described in Methods. Source data are provided with this paper.
+Quantitative microscopy
+A. baumannii ATCC 17978 was grown overnight in 2 ml LB medium and  References
+diluted 1/10,000 into fresh LB. In 96-well flat-bottom plates, cells were   43. Pedregosa, F. et al. Scikit-learn: machine learning in Python.
+then introduced to the compound at the indicated concentrations, in           J. Mach. Learn. Res. 12, 2825–2830 (2011).
+
+Nature Chemical Biology
+
+
+[PDF physical page 13]
+Article                                                                               https://doi.org/10.1038/s41589-023-01349-8
+
+44. Deatherage, D. E. & Barrick, J. E. Identification of mutations in        Project (to J.J.C. and J.M.S.); the C3.ai Digital Transformation Institute
+    laboratory-evolved microbes from next-generation sequencing      (to R.B.); the Abdul Latif Jameel Clinic for Machine Learning in Health
+    data using breseq. Methods Mol. Biol. 1151, 165–188 (2014).            (to R.B.); the DTRA Discovery of Medical Countermeasures Against
+45.  Bray, N. L., Pimentel, H., Melsted, P. & Pachter, L. Near-optimal     New and Emerging (DOMANE) threats program (to R.B.); the DARPA
+     probabilistic RNA-seq quantification. Nat. Biotechnol. 34,           Accelerated Molecular Discovery program (to R.B.); the Canadian
+    525–527 (2016).                                                         Institutes of Health Research (FRN-156361 to B.K.C.); Genome Canada
+46. Ihaka, R. & Gentleman, R. R: a language for data analysis and      GAPP (OGI-146 to M.G.S.); the Canadian Institutes of Health Research
+     graphics. J. Comput. Graph. Stat. 5, 299–314 (1996).                (FRN-148713 to M.G.S.); the Faculty of Health Sciences of McMaster
+47.  Love, M. I., Huber, W. & Anders, S. Moderated estimation of fold      University (to J.M.); the Boris Family (to J.M.); a Marshall Scholarship
+    change and dispersion for RNA-seq data with DESeq2. Genome       (to K.S.); and the DOE BER (DE-FG02-02ER63445 to A.C-P.).
+     Biol. 15, 550 (2014).
+48. Karp, P. D. Pathway databases: a case study in computational     Author contributions
+    symbolic theories. Science 293, 2040–2044 (2001).                  J.M.S. and J.J.C. conceptualized the study; J.M.S., G.L., K.S. and
+49.  Keseler, I. M. et al. EcoCyc: fusing model organism databases with   W.J. performed model building and training; J.M.S., D.B.C., K.R. and
+    systems biology. Nucleic Acids Res. 41, D605–D612 (2013).           A.C-P. performed mechanistic investigations; J.M.S., K.R. and S.A.S.
+50. Karp, P. D. et al. Pathway tools version 19.0 update: software        performed spectrum of activity experiments; J.C.M. conducted mouse
+     for pathway/genome informatics and systems biology. Brief.       model experiments; M.F. performed chemical synthesis; J.M.S. and
+     Bioinform. 17, 877–890 (2016).                                                J.J.C. wrote the paper; J.M.S., J.J.C., R.B., T.J., M.G.S., B.K.C. and J.M.
+51.  Calvo-Villamañán, A. et al. On-target activity predictions enable     supervised the research.
+    improved CRISPR–dCas9 screens in bacteria. Nucleic Acids Res.
+    48, e64 (2020).                              Competing interests
+52. Depardieu, F. & Bikard, D. Gene silencing with CRISPRi in bacteria    J.M.S. is cofounder and scientific director of Phare Bio. J.J.C. is
+    and optimization of dCas9 expression levels. Methods 172,         cofounder and scientific advisory board chair of Phare Bio. J.J.C. is
+    61–75 (2020).                                                cofounder and scientific advisory board chair of Enbiotix. The other
+53. UniProt Consortium. UniProt: the universal protein knowledgebase   authors declare no competing interests.
+     in 2021. Nucleic Acids Res. 49, D480–D489 (2021).
+54.  Altschul, S. F. et al. Gapped BLAST and PSI-BLAST: a new        Additional information
+    generation of protein database search programs. Nucleic Acids     Extended data is available for this paper at
+     Res. 25, 3389–3402 (1997).                                        https://doi.org/10.1038/s41589-023-01349-8.
+55.  Altschul, S. F. et al. Protein database searches using
+    compositionally adjusted substitution matrices. FEBS J. 272,       Supplementary information The online version
+    5101–5109 (2005).                                               contains supplementary material available at
+56. Goddard, T. D. et al. UCSF ChimeraX: meeting modern challenges   https://doi.org/10.1038/s41589-023-01349-8.
+     in visualization and analysis. Protein Sci. 27, 14–25 (2018).
+57.  Pettersen, E. F. et al. UCSF ChimeraX: structure visualization        Correspondence and requests for materials should be addressed to
+     for researchers, educators, and developers. Protein Sci. 30,        James J. Collins or Jonathan M. Stokes.
+    70–82 (2021).
+                                                              Peer review information Nature Chemical Biology thanks Jean
+Acknowledgements                                           Francois Collet and the other, anonymous reviewers for their
+We thank S. French from McMaster University for technical assistance    contribution to the peer review of this work.
+with fluorescence microscopy experiments. This work was supported
+by the David Braley Centre for Antibiotic Discovery (to J.M.S.); the        Reprints and permissions information is available at
+Weston Family Foundation (POP and Catalyst to J.M.S.); the Audacious   www.nature.com/reprints.
+
+
+
+
+
+Nature Chemical Biology
+
+
+[PDF physical page 14]
+Article                                                                               https://doi.org/10.1038/s41589-023-01349-8
+
+
+
+
+
+Extended Data Fig. 1 | Model training data and prediction. (a) Replicate plot     means connected are plotted. Dashed horizontal line represents the stringent
+showing primary screening data of 7,684 small molecules for those that inhibited     hit cut-off of >80% growth inhibition at 50 µM. (c) Growth inhibition of A.
+the growth of A. baumannii ATCC 17978 in LB medium at 50 µM. (b) Rank-ordered   baumannii by abaucin (blue) and serdemetan (red) in LB medium. Experiments
+growth inhibition data of the prioritized 240 molecules from our prediction set     were conducted in biological duplicate. Individual replicates with means
+that were selected for empirical validation (top); rank-ordered growth inhibition    connected are plotted. The structure of serdemetan is shown. (d) Growth kinetics
+data of the 240 predicted molecules with the lowest prediction score (middle);      of A. baumannii cells after treatment with abaucin at varying concentrations
+rank-ordered growth inhibition data of the 240 predicted molecules with the        for 6 hours. Experiments were conducted in biological duplicate. Individual
+highest prediction score that were not found in the training dataset (bottom).        replicates with means connected are plotted.
+Experiments were conducted in biological duplicate. Individual replicates with
+
+
+
+
+
+Nature Chemical Biology
+
+
+[PDF physical page 15]
+Article                                                                               https://doi.org/10.1038/s41589-023-01349-8
+
+
+
+
+
+Extended Data Fig. 2 | Antibacterial activity of abaucin against human          conducted in biological duplicate. (c) Growth inhibition of B. longum by abaucin.
+commensal species. (a) Growth inhibition of A. baumannii ATCC 17978 by         Experiments were conducted in biological duplicate. Individual replicates with
+ampicillin (blue) and ciprofloxacin (red) in LB medium. Experiments were         means connected are plotted. (d) Non-validated (see Fig. 2e) growth inhibition
+conducted in biological duplicate. Individual replicates with means connected      of E. lenta by abaucin. Experiments were conducted in biological duplicate.
+are plotted. (b) Growth inhibition of B. breve by abaucin. Experiments were          Individual replicates with means connected are plotted.
+
+
+
+
+
+Nature Chemical Biology
+
+
+[PDF physical page 16]
+Article                                                                               https://doi.org/10.1038/s41589-023-01349-8
+
+
+
+
+
+Extended Data Fig. 3 | See next page for caption.
+
+
+
+
+
+Nature Chemical Biology
+
+
+[PDF physical page 17]
+Article                                                                               https://doi.org/10.1038/s41589-023-01349-8
+
+
+Extended Data Fig. 3 | Abaucin mechanism of action. (a–h) Growth inhibition     abundance is normalized to no-drug control cultures grown in identical
+of wildtype A. baumannii (WT) and the four independent abaucin-resistant          conditions. Vertical black lines show statistical significance cut-off values. Note
+mutants by a collection of diverse antibiotics. From left to right for each plot,        the highly significant downregulation of genes involved in the electron transport
+the mutants are: A362T variant 1, Y394F, intergenic, and A362T variant 2.            chain and transmembrane ion transport. (l) Growth inhibition of A. baumannii
+Experiments were conducted in biological duplicate. Note that the abaucin-        harboring an empty CRISPRi vector (red), or three distinct sgRNAs targeting lolE
+resistant mutants do not display cross-resistance to other antibiotics. (i)             (blue, teal, and green). All strains were grown in LB medium without induction.
+Structural prediction of wildtype A. baumannii LolE using RoseTTAFold            Experiments were conducted in biological duplicate. Individual replicates
+(bottom), with the structural error estimate of each amino acid (top). Position       with means connected are plotted. (m) qPCR quantifying the expression of
+362 is highlighted orange and resides in a disordered region of the protein. (j)         lolE relative to the housekeeping gene gltA (left) and gyrB (right) in all four
+same as (i), except with the Y362T abaucin-resistant mutant of LolE. (k) RNA        abaucin resistant mutants, normalized to wildtype A. baumannii. Experiments
+sequencing of wildtype A. baumannii treated with 5x MIC abaucin for 4.5 hr        were conducted in biological duplicate with technical triplicates. Bar height
+(top) or 6 hr (bottom). Data are the mean of biological duplicates. Transcript        represents mean expression.
+
+
+
+
+
+Nature Chemical Biology
+
+
+[PDF physical page 18]
+
+
+
+[PDF physical page 19]
+
+
+
+[PDF physical page 20]
+˚

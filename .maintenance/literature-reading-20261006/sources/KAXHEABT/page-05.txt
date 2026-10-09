@@ -1,0 +1,58 @@
+Genetica (2009) 135:123–135                                                                                         127
+
+
+molecular partitions and on the combined data. ML anal-    constrained to be B1 to a selection model where a class of
+ysis and bootstrapping were performed using GARLI 0.951     sites has x [ 1 (Yang et al. 2000). As neutral models are
+(Zwickl 2006). GARLI searches relied on the GTR + G,    nested within the corresponding selection models, a like-
+HKY + G,  and GTR + I  models,  which  ModelTest    lihood ratio test (LRT) can be used to compare them. The
+selected as the best ﬁtting models for unpartitioned TS     test statistic -2DlnL (DlnL = the difference in log likeli-
+exons 1–4, DBAT, and ITS data, respectively. MP analysis    hoods of the 2 models) follows a x2 distribution with
+was performed using PAUP* 4.0b10 (Swofford 2002).    degrees of freedom (df) equal to the difference in number
+Heuristic searches were performed using tree bisection–    of parameters between models. In the speciﬁc models
+reconnection (TBR)  branch-swapping  and 10 random    implemented, x varies between codons as a beta distribu-
+sequence  addition  replicates.  All  sites  were  equally    tion (neutral: M7, M8a; selection: M8). We implemented
+weighted and gaps were treated as missing characters.    models M7, M8a, and M8 with the codeml program in
+Strong support for individual nodes is deﬁned as nodes   PAML4 (Yang 2007). Because Yang models are based on
+with Bayesian posterior probabilities (PP) C 0.95 or non-    theoretical assumptions and ignore the empirical observa-
+parametric  bootstrap  (BP) C 80.  Strongly  supported    tion that distinct amino acids differ in their replacement
+conﬂicting  relationships were  recovered from TS and     rates, we also implemented MEC (Mechanistic Empirical
+DBAT datasets, so they were not combined for phylo-    Combination) model (Doron-Faigenboim and Pupko 2007)
+genetic analyses. The data sets were also analyzed with     that takes into account not only the transition–transversion
+MrBayes 3.1.2 (Ronquist and Huelsenbeck 2003). The    bias and the nonsynonymous/synonymous ratio, but also
+analyses of TS exons 1–4, DBAT, and ITS data utilized    the  different amino  acid  replacement  probabilities  as
+one (with outgroup Abies grandis, abietadiene synthase    speciﬁed in empirical amino acid matrices. Because the
+gene),  three  (partitioned by codon  position), and one   LRT is applicable only when two models are nested and
+(with  outgroup  Austrotaxus  spicata) model  partitions,    thus is not suitable for comparing MEC and M8a models,
+respectively. Two independent runs with one cold and    the second-order Akaike information criterion (AICc) was
+three  heated Markov  chains  each  per  analysis  were    used  for  comparisons  (Doron-Faigenboim  and Pupko
+performed  simultaneously  until  the  average  standard    2007). Those sites that are most likely to be in the positive
+deviation  of  split  frequencies  between  the two  runs    selection class (x [ 1) are identiﬁed as likely targets of
+dropped below 0.01. Analyses were run twice to check    selection.
+for consistency of results. We ran two simultaneous runs      Although the Yang models allow for variation in the
+for 1.8 9 106  generations and sampled trees every 500   nonsynonymous substitution rate, the synonymous rate is
+generations.  Topology  and  branch-length  information   ﬁxed across the sequence. Recently, several methods for
+were summarized in 50% majority rule consensus trees;    detecting  positive  selection  that allow  for  variation  in
+samples obtained before  stationarity of –ln likelihoods   synonymous rate have been proposed. These methods are
+against generations had been reached were discarded as   new implementations of the 3 general classes of previous
+burn-in. For TS, the closely related abietadiene synthase    models, counting methods, ﬁxed  effects methods, and
+of Abies grandis was used as the reference for the rooted   random effects methods. Counting methods map changes
+tree  reconstruction. The ITS sequence  of  Austrotaxus    onto the phylogeny to estimate x on a site-by-site basis.
+spicata was used as the reference, as A. spicata is basal   Kosakovsky Pond and Frost (2005a) propose a version
+to the genus Taxus and  is a species within the family    called  the  single-likelihood  ancestor  counting (SLAC)
+Taxaceae (Cheng et al. 2000).                            method, which calculates the number of nonsynonymous
+                                                     and synonymous substitutions that have occurred at each
+Detection of positive selection and purifying selection,         site  using ML  reconstructions  of  ancestral  sequences.
+data analysis                                         Kosakovsky Pond and Frost additionally introduce a ver-
+                                                             sion of a ﬁxed effect approach, which estimates x on a site-
+We tested for evidence of positive selection by comparing    by-site basis. Their ﬁxed effect likelihood (FEL) method
+the nonsynonymous substitution rate (dN) to the synony-    uses ML estimation and treats shared parameters (branch
+mous substitution rate (dS). If a gene is evolving neutrally,    lengths, tree topology, and nucleotide substitution rates) as
+x = dN/dS is expected to equal one, whereas x greater    ﬁxed. The random  effects likelihood (REL) method  is
+than one is considered strong evidence that a gene expe-    similar to the Yang model M3; however, both nonsyn-
+riences positive selection. We used several ML approaches   onymous  and  synonymous   rates  vary   as  gamma
+to test for evidence of positive selection on these taxol    distributions with 3 rate classes (Kosakovsky Pond and
+biosynthetic enzymes. The ﬁrst approach, developed by    Frost 2005a). The SLAC, REL, and FEL methods were
+Yang et al. (hereafter referred to as Yang models), involves    implemented using the web interface DATAMONKEY
+comparisons of a neutral codon substitution model with x    (Kosakovsky Pond and Frost 2005b).
+
+                                  123

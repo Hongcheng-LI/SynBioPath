@@ -1,0 +1,797 @@
+
+[PDF physical page 1]
+   H
+
+
+        OH    OH  metabolites
+
+
+
+Article
+Developing a Yeast Platform Strain for an Enhanced Taxadiene
+Biosynthesis by CRISPR/Cas9
+
+Joseph C. Utomo 1    , Fabio C. Chaves 2    , Philippe Bauchart 3,†    , Vincent J. J. Martin 3 and Dae-Kyun Ro 1,*
+
+
+                                            1  Department of Biological Science, University of Calgary, Calgary, AB T2N1N4, Canada;
+                                     joseph.utomo1@ucalgary.ca
+                                            2  Programa de Pós-graduação em Ciência e Tecnologia de Alimentos, Departamento de Ciência e Tecnologia
+                                        Agroindustrial, Faculdade de Agronomia Eliseu Maciel, Universidade Federal de Pelotas, Caixa Postal 354,
+                                        Pelotas CEP 96010-900, Brazil; fabio.chaves@ufpel.edu.br
+                                            3  Department of Biology, Centre for Applied Synthetic Biology, Concordia University,
+                                      Montréal, QC H4B1R6, Canada; pbauchart@lallemand.com (P.B.); vincent.martin@concordia.ca (V.J.J.M.)
+                                     *   Correspondence: daekyun.ro@ucalgary.ca
+                                 †  Current address: Lallemand Specialty Cultures, 77260 La Ferté-sous-Jouarre, France.
+
+
+                                Abstract: Paclitaxel is an important diterpenoid commonly used as an anticancer drug. Although the
+                                  paclitaxel biosynthetic pathway has been mostly revealed, some steps remain to be elucidated. The
+                                   difﬁculties in plant transformations and the scarcity of the precursor of paclitaxel, (+)-taxa-4(5), 11(12)-
+                               diene (taxadiene), have hindered the full comprehension of paclitaxel biochemistry and, therefore, its
+                              production by biotechnological approaches. One solution is to use the budding yeast, Saccharomyces
+                                       cerevisiae, as a platform to elucidate the paclitaxel biosynthesis. As taxadiene is a diterpenoid, its
+                      common precursor, geranylgeranyl pyrophosphate (GGPP), needs to be increased in yeast. In this
+                                 study, we screened various GGPP synthases (GGPPS) to ﬁnd the most suitable GGPPS for taxadiene
+                              production in yeast. We also optimized the taxadiene production by increasing the ﬂux toward theCitation: Utomo, J.C.; Chaves, F.C.;
+Bauchart, P.; Martin, V.J.J.; Ro, D.-K.     terpenoid pathway. Finally, to remove selection markers, we integrated the required genes using
+Developing a Yeast Platform Strain     a CRISPR/Cas9 system in the yeast genome. Our result showed that a titer of 2.02 ± 0.40 mg/L
+for an Enhanced Taxadiene           (plasmid) and 0.41 ± 0.06 mg/L (integrated) can be achieved using these strategies. This platform
+Biosynthesis by CRISPR/Cas9.          strain can be used to readily test the gene candidates for microbial paclitaxel biosynthesis in the future.
+
+Metabolites 2021, 11, 147. https://
+
+doi.org/10.3390/metabo11030147      Keywords: paclitaxel; taxadiene; S. cerevisiae; metabolic engineering; diterpenoids
+
+
+Academic Editors: Edward Baidoo,
+
+Aymerick Eudes and Bashar Amer
+
+                                   1. Introduction
+Received: 15 January 2021
+                               Global cancer cases are increasing with an estimation of more than 18 million cases
+Accepted: 1 March 2021
+                       and almost 10 million deaths in 2018 [1]. The ever-increasing cases of cancer necessitate aPublished: 3 March 2021
+                                 reliable and inexpensive supply of anticancer drugs. One of the most prescribed anticancer
+                          drugs is paclitaxel or commonly known as its commercial brand, Taxol. It acts by stabilizingPublisher’s Note: MDPI stays neutral
+with regard to jurisdictional claims in   tubulin and inducing cytokines that cause mitosis prevention and cell growth inhibition in
+published maps and institutional afﬁl-   cancer cells [2–4]. Due to its selective and potent mechanism of action, paclitaxel-based
+iations.                     drugs have been used in chemotherapy to treat various cancers, including breast, lung,
+                             ovarian, and sarcoma [2,5]. This potent compound is naturally produced in the bark of
+                            the Paciﬁc yew tree in minute quantities [3]. Commercially, there are two approaches to
+                            achieve the supply of paclitaxel, chemical (semi-) synthesis [6,7] and plant cell cultivation,
+                               of which the latter is more popular due to the economic viability of cell culture [8]. Despite
+Copyright: © 2021 by the authors.
+                             these commercial advances, the tools to improve paclitaxel bio-production are limited. TheLicensee MDPI,  Basel,  Switzerland.
+This article is an open access article   major hurdles limiting the improvement of paclitaxel yield are the unreliability of Taxus
+distributed  under  the  terms  and   spp. transformation [9] and incomplete understandings of paclitaxel biosynthesis at the
+conditions of the Creative Commons   molecular level. These limitations hamper the cost-effective supply of paclitaxel through a
+Attribution (CC BY) license (https://   biotechnological means [10].
+creativecommons.org/licenses/by/          Paclitaxel is classiﬁed as a diterpene, 20-carbon molecule derived from acetyl-CoA via
+4.0/).                         the terpenoid pathway (Figure 1). As all diterpenoids, paclitaxel is synthesized from the uni-
+
+
+
+
+
+Metabolites 2021, 11, 147. https://doi.org/10.3390/metabo11030147                              https://www.mdpi.com/journal/metabolites
+
+
+[PDF physical page 2]
+Metabolites 2021, 11, 147                                                                                                         2 of 15
+
+
+
+                              versal diterpene precursor, geranylgeranyl diphosphate (GGPP), followed by decorations
+                              of the backbones by cytochromes P450 monooxygenases (P450s) and transferases [11]. The
+                              ﬁrst step in paclitaxel biosynthesis is the conversion of GGPP into its diterpene backbone,
+                              (+)-taxa-4(5),11(12)-diene or taxadiene, by an enzyme called taxadiene synthase (TS) [12].
+                            This step is followed by at least 18 enzymatic steps of P450s and transferases [11,12]. Most
+                             steps in the paclitaxel biosynthetic pathway have been described previously, the majority
+                             of which was brilliantly conducted by the Croteau lab. However, several steps remain
+                           missing and unclear [13]. For example, steps between taxadiene-5α,10β-diol 5-acetate and
+                          2-debenzoyl taxane have not been determined, while the ones that had been proposed
+                           could not be placed accurately between these two intermediates [13–15]. A similar question
+                          can be raised for an enzyme called taxoid 13α-hydroxylase, which has been characterized
+                          but cannot be precisely placed in the pathway [16]. Additionally, recent studies based on
+                           heterologous expression data question the appointed ﬁrst enzymatic step after taxadiene,
+                              originally discovered by the Croteau group, who characterized the enzyme involved in
+                            the ﬁrst oxygenation of taxadiene [17–19]. To shed light on this divergence and to further
+                             elucidate the paclitaxel biosynthesis pathway, a more comprehensive study needs to be
+                           performed. Unfortunately, taxadiene is not available commercially and its synthesis is im-
+                                 practical. One solution for this issue is utilizing a microbial platform to study the paclitaxel
+                             biosynthetic pathway.
+
+
+
+
+
+     Figure 1. A schematic diagram of the taxadiene-producing yeast construction in S. cerevisiae. The overexpressed genes are
+    shown in blue. The heterologous taxadiene synthase is shown in red. The endogenous genes without any modiﬁcation are
+    shown in grey.
+
+
+[PDF physical page 3]
+Metabolites 2021, 11, 147                                                                                                         3 of 15
+
+
+
+
+                                Several microbial platforms have been developed to produce taxadiene. Expect-
+                               edly, the ﬁrst attempt was in the prokaryote workhorse, E. coli [20,21]. Although the
+                          production of taxadiene in E. coli is promising, it is not an ideal system for studying the
+                                paclitaxel biosynthetic pathway because many steps in the paclitaxel biosynthetic pathway
+                             are catalyzed by P450s, which require endoplasmic reticulum anchoring, unavailable in
+                           prokaryotes [13,20,21]. Nonetheless, some attempts to follow the ﬁrst step have been
+                         conducted in E. coli with a great success, producing more than 500 mg/L of taxane. This
+                      was achieved by swapping the N-terminus of P450 with an eight-residue peptide (8RP)
+                        from bovine as demonstrated by Biggs et al. [21,22]. Despite this success, the manda-
+                            tory modiﬁcations of the heterologous P450s enzymes for expression in E. coli will add
+                           complications for studying the ambiguous paclitaxel biosynthetic pathway. Therefore,
+                           using the budding yeast (Saccharomyces cerevisiae) as a platform to investigate the paclitaxel
+                             biosynthetic pathway might be more reliable and advantageous over E. coli.
+                              Production of taxadiene in S. cerevisiae has been previously attempted [23–26]. The
+                               ﬁrst attempt was performed by the Croteau lab and successfully yielded 1 mg/L taxadiene.
+                             Currently, the highest reported titer of taxadiene production is ~57 mg/L, which was
+                           achieved by optimizing TS expression and providing multi-copies of TS in the genome [26].
+                             Since S. cerevisiae does not synthesize diterpenoid-derived metabolites, one essential modi-
+                            ﬁcation is enhancing the production of GGPP [27]. Previous studies utilized characterized
+                           geranylgeranyl diphosphate synthase (GGPPS) from Taxus spp., archaea, and carotenoid-
+                          producing bacteria (Escherichia vulneris) [24–26]. However, different GGPPSs have not been
+                           comparatively examined to enhance taxadiene production in yeast.
+                                 In this study, our goal was to build a taxadiene-producing yeast strain that can be
+                         used as a microbial platform to elucidate the remaining steps of the paclitaxel biosynthetic
+                           pathway. To achieve this, we screened various GGPPS overexpression impacts on taxadiene
+                                    titer in yeast and integrated necessary genes to make an efﬁcient taxadiene-producing
+                            yeast strain without plasmid transformations. By achieving this goal, the subsequent
+                       enzymes in the paclitaxel biosynthesis pathway can be studied with greater efﬁciency
+                          without involving selection markers for the yeast plasmids.
+
+                                   2. Results and Discussion
+                                   2.1. pIPP Construction to Increase the Flux towards Terpenoid Pathway
+
+                             To build a taxadiene-producing yeast strain, the endogenous yeast mevalonate (MVA)
+                       pathway needs to be enhanced (Figure 1).  It has been shown that the truncated and
+                             soluble version of 3-hydroxy-3-methylglutaryl-CoA reductase (tHMGR) can improve the
+                          production of terpenoid in yeast as it is a rate-limiting and a key regulatory enzyme in
+                            the MVA pathway [28,29]. However, the overexpression of one rate-limiting enzyme
+                         might not be sufﬁcient for the overall ﬂux increase in the MVA pathway as shown in the
+                               glycolytic pathway [30,31]. To increase the overall ﬂux toward the terpenoid pathway, we
+                          decided to ﬁrst overexpress the four-middle genes in the MVA pathway (ERG13, tHMGR,
+                        ERG12, and ERG8) using a plasmid. We utilized the DNA assembler method [32] to
+                             construct the pIPP plasmid that contains these genes under constitutive promoters with
+                          a CEN6/ARS4 origin of replication (Figure 2). To test the expression of these genes in
+                               yeast, the quantitative polymerase chain reaction (qPCR) was performed. The transcript
+                         abundance of these genes in transgenic yeast, relative to those in wild-type yeast, showed
+                              that the transformation of these genes into yeast indeed increased their transcript levels
+                           ranging from 2- to 5-fold (Figure 2). This result indicated that pIPP can be used to increase
+                       ﬂux towards taxadiene production.
+
+
+[PDF physical page 4]
+Metabolites 2021, 11, 147                                                                                                         4 of 15
+
+
+
+
+
+                              Figure 2. (A) A schematic diagram of the in vivo construction of pIPP plasmid encoding four middle
+                              genes in the MVA pathway. Abbreviations: p: promoter; t: terminator; PDC: pyruvate decarboxylase;
+                      ADH: alcohol dehydrogenase; PYK: pyruvate kinase; PGI: phosphoglucose isomerase; TPI: triose
+                             phosphate isomerise; FBA: fructose 1,6-bisphosphate aldolase; CYC: cytochrome c; tHMGR: truncated
+                             3-hydroxy-3-methylglutaryl-CoA reductase. (B) The transcript abundance of the four genes were
+                          measured in both non-transgenic yeast (control) and transgenic yeast by quantitative PCR. Fold
+                                 increases in each transcript in transgenic yeast, relative to those from control yeast, were calculated
+                                     after the transcript levels from the control yeast were set to one. In all transcripts, differences of gene
+                               expression in transgenic and control yeasts were statistically signiﬁcant (p-value < 0.01).
+
+                                   2.2. Various GGPPS Overexpression
+
+                                 Yeast produces only a small amount of GGPP, which is endogenously used for pro-
+                               tein prenylations, while no secondary diterpene metabolites are produced in yeast [27].
+                             Therefore, overexpression of a GGPPS is essential to enhance GGPP (C20) production.
+                             Generally, there are two types of substrate speciﬁcity in different GGPPSs. Some GGPPSs
+                        have a higher afﬁnity towards one FPP (C15) and one IPP (C5) utilization to synthesize
+                       GGPP, whereas others have a higher afﬁnity towards one DMAPP (C5) and three IPPs (C5)
+
+
+[PDF physical page 5]
+Metabolites 2021, 11, 147                                                                                                         5 of 15
+
+
+
+
+                              to synthesize GGPP [33]. To get a clear conclusion on the most suitable GGPPS for the
+                           production of taxadiene in yeast, we screened GGPPS from various sources: yeast (BTS1),
+                             algae (CrGGPPS), pepper (CaGGPPS), modiﬁed yeast FPP synthase (mERG20) [34], and ar-
+                           chaea (SaGGPPS). Two of those (mERG20 and SaGGPPS) were used to increase diterpenoid
+                           production in yeast, but their impacts on diterpene production relative to each other have
+                            not been reported [24,34], while the others have not been studied for diterpene production
+                              in yeast. These genes were codon-optimized for yeast and overexpressed simultaneously
+                         with TS in the same plasmid, together with pIPP, to assess the effect of these genes on
+                           taxadiene production. Expression of all GGPPSs was checked by immunoblot analysis
+                             (Figure S1).
+                            Most of the previous studies on improving taxadiene production in yeast did not use
+                       BTS1 overexpression since BTS1, like human GGPPS, is active only when FPP is present
+                        and may compete with squalene synthase for the common substrate, FPP [24–27]. However,
+                    we had overexpressed BTS1 to enhance diterpenes production in yeast and a signiﬁcant
+                             increase in diterpene production was observed [35]. Therefore, we included BTS1 to
+                            evaluate its impacts on taxadiene production in comparison to other GGPPSs. The second
+                     GGPPS is from thermoacidophilic archaea, Sulfolobus acidocaldarius (SaGGPPS). This GGPPS
+                          has been previously used to improve taxadiene production in yeast [24]. Different from
+                         BTS1, it shows a higher activity when utilizing DMAPP, although some activity is still
+                          observed when FPP is present [36]. The third GGPPS is from pepper, Capsicum annum
+                         (CaGGPPS). There is no kinetic velocity data for CaGGPPS, but it has been shown that
+                      CaGGPPS has a slightly higher afﬁnity towards DMAPP compared to FPP [37]. Meanwhile,
+                            algae (Chlamydomonas reinhardtii) GGPPS activity has not been tested since its discovery,
+                        which was identiﬁed solely based on comparative genomics in the studies of carotenoid
+                             biosynthetic genes in C. reinhardtii [38]. To the best of our knowledge, this is the ﬁrst
+                           study to examine CrGGPPS functionality to increase diterpene production in yeast. Finally,
+                            the yeast FPPS (ERG20) with a single mutation (mERG20) was included as it had been
+                            previously shown to improve GGPP production of diterpenoids in yeast [34].
+                               Here, we compared the effects of various GGPPS expression toward the production
+                              of taxadiene when they were transformed simultaneously with TS and pIPP. Our results
+                      showed that overexpression of endogenous yeast GGPPS (BTS1) led to the highest taxa-
+                          diene production with 782 ± 14 µg/L, almost an 80-fold increase compared to the yeast
+                          without GGPPS overexpression (Figure 3). BTS1 overexpression also showed a four-fold
+                             increase in taxadiene titer, compared to the yeast overexpressing SaGGPPS, which was
+                         used in a previous study [24]. Taxadiene production using the BTS1 overexpression was
+                             also 80-fold higher than using mERG20. These data are contradictory to the report that
+                       showed overexpression of mERG20 in yeast resulted in an over 80-fold increase in diterpene
+                          production compared to the BTS1 overexpression [34]. The difference between our study
+                        and the previous one regarding BTS1 and mERG20 impacts on taxadiene titer could be due
+                              to a difference in the expression strategy. In the Ignea et al. study, they used a constitutive
+                          promoter for the diterpene synthase and a galactose inducible promoter for GGPPS in two
+                                different plasmids [34]. Meanwhile, we used the galactose inducible promoters for both TS
+                       and GGPPS in a single plasmid (pESC). The expression of both genes in a single plasmid,
+                            as we employed in this study, should lead to a more synchronized gene expression of
+                           diterpene synthase and GGPPS. Thus, additional factors such as differences in plasmid
+                        copy numbers can be eliminated, and the taxadiene titer differences between BTS1 and
+                    mERG20 overexpression are caused by their internal characteristics.
+                            Another intriguing result is from the C. reinhardtii GGPPS (CrGGPPS). C. reinhardtii
+                                    is a model organism to study microalgae and photosynthesis [38]. However, its GGPPS
+                               activity has not been evaluated. There is an indication from the sequence alignment
+                          with cyanobacteria GGPPS that C. reinhardtii may encode a preprotein (CrGGPPS), and a
+                           mature, truncated version of GGPPS (Cr-trGGPPS) is produced from the preprotein [38].
+                           Thus, both versions were tested to examine their effects on taxadiene production in yeast.
+                            Figure 3 shows that indeed overexpression of the mature version (Cr-trGGPPS) resulted in
+
+
+[PDF physical page 6]
+Metabolites 2021, 11, 147                                                                                                         6 of 15
+
+
+
+
+                          a higher level of taxadiene production by almost 80% compared to the preprotein version
+                         (CrGGPPS). This result strongly suggested that C. reinhardtii GGPPS has a transit peptide
+                              that enables plastid-targeting, similar to other GGPPS in terrestrial plants [38], but its
+                            preprotein version still retains GGPPS activity. It is interesting to note that overexpression
+                              of the preprotein version of CrGGPPS resulted in a similar level of taxadiene production
+                          with both SaGGPPS and mERG20 in yeast.
+
+
+
+
+
+                              Figure 3. Taxadiene production titer using S. cerevisiae transformed with Tm-TS and pIPP with
+                               overexpression of different geranylgeranyl pyrophosphate synthases (GGPPSs) from various species.
+                          The asterisks indicate no signiﬁcant differences between the data (p value > 0.05). The bars without
+                                  asterisk have signiﬁcant different between them (p value < 0.01). Abbreviations: WT, Saccharomyces
+                                     cerevisiae strain BY4742 without overexpression of GGPPS; BTS1, Saccharomyces cerevisiae GGPPS;
+                                  Cr, Chlamydomonas reinhardtii GGPPS; Cr-tr, truncated Cr; Ca, Capsicum annuum GGPPS; mERG20,
+                           mutant of yeast FPPS; Sa, Sulfolobus acidocaldarius GGPPS.
+
+                           The second highest taxadiene production was achieved when CaGGPPS was over-
+                          expressed (Figure 3). CaGGPPS is one of the ﬁrst plant GGPPS that was puriﬁed and
+                           identiﬁed while investigating carotenoid biosynthesis [37,39].  It is localized in pepper
+                               plastids and has a transit peptide [39]. We synthesized and overexpressed the mature form
+                               of CaGGPPS. The difference between CaGGPPS and BTS1 impacts on taxadiene production
+                    may be explained by the differences in substrate speciﬁcity of these two enzymes. While
+                      CaGGPPS is more promiscuous with a slight preference towards DMAPP [37], BTS1 strictly
+                              prefers FPP as the substrate [27]. Due to the strong activity exerted by yeast FPPS (ERG20),
+                       more FPP is available in yeast than DMAPP [40]. Hence, the BTS1 can readily use FPP,
+                          while DMAPP availability could be limited for CaGGPPS and other GGPPS that prefer
+                  DMAPP as a priming molecule. As different GGPPSs have different substrate preference,
+                       BTS1 might show the highest activity in yeast due to availability of the priming substrate
+                              (FPP), rather than its superior catalytic activity over other GGPPSs which use DMAPP and
+                          IPP as substrates. We presume that true activities of other GGPPSs need to be re-evaluated
+                              in the yeast engineered to produce abundant DMAPP to draw a fair conclusion regarding
+                               their catalytic activities. Nonetheless, our results here demonstrated that native BTS1
+                          performs best with respect to in vivo production of taxadiene in yeast.
+
+
+[PDF physical page 7]
+Metabolites 2021, 11, 147                                                                                                         7 of 15
+
+
+
+
+                                   2.3. Optimization of Taxadiene Production
+
+                           Once we determined that BTS1 is the most suitable GGPPS to be used to produce taxa-
+                              diene, we decided to use BTS1 to optimize the taxadiene production in yeast. The summary
+                             of this optimization, respective chromatogram, and the strains created in this study are
+                      shown in Figures 4 and 5, and Table 1, respectively. When wild-type yeast (BY4742) was
+                          transformed with a plasmid containing a mature version (60 amino acids truncation [23])
+                              of Taxus media TS (TXD1 strain), it produced 1.1 ± 0.1 µg/L of taxadiene. When TXD1 was
+                          transformed with pIPP (TXD2 strain), the production of taxadiene increased about nine-
+                             fold to 10.2 ± 0.7 µg/L. This result indicated that increasing the expression of metabolic
+                          genes in the MVA pathway can increase taxadiene production in yeast by providing more
+                             precursors, i.e., IPP and DMAPP. However, TXD2 strain is still limited by endogenous
+                    GGPPS activity, as shown by TXD3 strain. In TXD3 strain, when overexpressing TS and
+                       BTS1 only without pIPP plasmid, i.e., without increasing any ﬂux towards the MVA path-
+                         way, the taxadiene production was increased by 47-fold to 50.2 ± 4.7 µg/L compared to
+                             wild-type. This result conﬁrmed that endogenous GGPPS activity is a critically important
+                              rate-limiting step for taxadiene production in yeast. By increasing the ﬂux towards the
+                 MVA pathway and overexpressing BTS1, we created TXD4 strain which increased the
+                          production of taxadiene to 782 ± 14 µg/L, representing a 726-fold increase. This result is
+                            higher than that obtained with the strain created in a previous study when TS, GGPPS, and
+                    tHMGR were overexpressed [24]. Few possible differences can affect these results. First, we
+                         used TS from different species (T. media vs. T. chinensis) which may have different kinetic
+                               properties. Second, our study used galactose inducible promoters for TS and GGPPS while
+                             the previous study used constitutive promoters for all genes, which can lead to differences
+                               in gene stability and expression. Third, as mentioned before we used BTS1 as GGPPS, while
+                             others used SaGGPPS, and our study showed that overexpressing BTS1 has a larger impact
+                       on taxadiene production than SaGGPPS. Lastly, we overexpressed four middle enzymes
+                         (ERG8, ERG12, ERG13, and tHMGR) in the MVA pathway, while they only overexpressed
+                     tHMGR. Although tHMGR is a rate-limiting enzyme in the MVA pathway [28], increasing
+                             the expression of three other enzymes (ERG13, ERG12, and ERG8) in the MVA pathway in
+                            addition to tHMGR, can have signiﬁcant effects on terpenoid production [41].
+
+
+
+
+
+                              Figure 4. Taxadiene titers from the constructed yeast strains (Table 1). The asterisk shows signiﬁcant
+                                 differences (p-value < 0.01) on taxadiene titer of TXD6 with other strains. The alphabet ‘a, b, and
+                                        c’ show no signiﬁcant differences (p-value > 0.05) between the data with same alphabet (e.g., no
+                                signiﬁcant differences between TXD4 and TXD7; and no signiﬁcant differences between TXD4 and
+                           TXD8). Other data without symbol or alphabet have signiﬁcant differences with other data with
+                                p-values at least less than 0.05 (most of them has p-values < 0.01).
+
+
+[PDF physical page 8]
+Metabolites 2021, 11, 147                                                                                                         8 of 15
+
+
+
+
+
+                              Figure 5. GC-MS analysis: (A) selected ion chromatogram and (B) their respective mass spectra of
+                               taxadiene standard and hexane extract from recombinant yeast (retention time 13.1 min).
+
+
+                             Table 1. Yeast strains built in this study.
+
+                                Yeast Strain                    Description 1
+
+                        TXD1                      pESC-URA: Tm-TS
+                        TXD2                      pESC-URA: Tm-TS; pIPP
+                        TXD3                      pESC-URA: Tm-TS//Sc-BTS1
+                        TXD4                      pESC-URA: Tm-TS//Sc-BTS1; pIPP
+                        TXD5                      pESC-URA: Opt Tm-TS//Sc-BTS1; pIPP
+                        TXD6                      pESC-URA: Opt Tm-TS~MBP//Sc-BTS1; pIPP
+                                                     pESC-URA: Opt Tm-TS~MBP//Sc-BTS1
+                                                                      Integrated:
+                        TXD7
+                                                      iADH1: pPYK1-ERG13; pPDC1-tHMGR
+                                                           iPDC1: pTPI1-ERG8; pFBA1-ERG12
+                                                     pESC-URA: Opt Tm-TS~MBP//Sc-BTS1
+                                                                      Integrated:
+                        TXD8                       iADH1: pPYK1-ERG13; pPDC1-tHMGR
+                                                           iPDC1: pTPI1-ERG8; pFBA1-ERG12
+                                                           iPGK1: pTDH3-ERG10; pTEF1-ERG19
+                                                                    All integrated:
+                                                      iADH1: pPYK1-ERG13; pPDC1-tHMGR
+                        TXD9                         iPDC1: pTPI1-ERG8; pFBA1-ERG12
+                                                           iPGK1: pTDH3-ERG10; pTEF1-ERG19
+                                                                 iTEF2: pGAL1,10-Opt Tm-TS~MBP-ScBTS1
+                                            1 Abbreviation: Tm-TS, mature Taxus media taxadiene synthase; Sc-BTS1, Saccharomyces cerevisiae geranylgeranyl
+
+                                pyrophosphate synthase; Opt Tm-TS, codon-optimized taxadiene synthase for yeast; Opt Tm-TS~MBP, opt Tm-TS
+                                 tagged in C terminus with maltose-binding protein; pGAL1,10, GAL1 and GAL10 bidirectional yeast promoters;
+
+                              pPYK1, pPDC1, pTPI1, and pFBA1, constitutive promoters that were used for pIPP (Figure 2); pTEF1 and pTDH3,
+                                promoter of yeast TEF1 and TDH3 genes (constitutive); iADH1, iPDC1, iPGK1, iTEF2, previously characterized
+                                     intergenic loci of ADH1, PDC1, PGK1, and TEF2.
+
+
+[PDF physical page 9]
+Metabolites 2021, 11, 147                                                                                                         9 of 15
+
+
+
+
+                             To further increase the efﬁciency of taxadiene production in yeast, we optimized the
+                            expression of taxadiene synthase (TS) by codon-optimization for yeast expression, which
+                                    is a common strategy that has been used in previous studies [24,42]. Unfortunately, this
+                              strategy (TXD5 strain) only increased taxadiene production by 1.4-fold (1.07 ± 0.04 mg/L)
+                       compared to native TS. We suspected that TS activity could be regulated not only by
+                              translation efﬁciency but also by protein stability at the post-translational level. Indeed,
+                        Apel et al. reported that TS enzyme in yeast has a low solubility, which can be increased
+                       by tagging a maltose-binding protein (MBP) in the C-terminus of TS [25]. Combining
+                                this strategy with our previous metabolic engineering resulted in TXD6 strain, in which
+                            taxadiene production increased to 2.02 ± 0.40 mg/L, nearly twice more than TXD5 (without
+                     MBP) and 1900-fold when compared to TXD1 (base strain).
+
+                                   2.4. CRISPR-Mediated Gene Integration
+
+                              Taxadiene is the ﬁrst committed precursor of the paclitaxel biosynthesis pathway
+                       and subsequent steps are predominantly catalyzed by cytochrome P450 enzymes. Since
+                           plasmid-based gene expression is limited by available selection markers and the stability of
+                            plasmids, generating yeast strains with stable gene integration in the genome can beneﬁt
+                             the studies of downstream candidate genes. Therefore, we sought to integrate the genes of
+                               interest into the yeast genome. Recently, we have identiﬁed several loci for strong gene
+                           expression and high integration rates by CRISPR-Cas9 [43]. We utilized four of these
+                                 loci (iADH1, iPDC1, iPGK1, and iTEF2) to integrate genes in pIPP, BTS1, and optimized
+                     TS-MBP into the yeast genome (Figure 6).
+
+
+
+
+
+                              Figure 6. Schematic diagram of the MVA pathway genes, BTS1, and TS-MBP integration into yeast
+                        genome to create TXD7, TXD8, and TXD9. The label on the left indicates the intergenic loci of
+                                 respective genes, e.g., iTEF2 means intergenic locus ﬂanking the TEF2 gene. The location of the loci in
+                                the genome was also indicated here. To produce taxadiene, a pESC-Ura plasmid containing TS-MBP
+                         and BTS1 was transformed into TXD7 and TXD8. TXD9 is capable to produce taxadiene without
+                              plasmid. The promoters that were used were listed in Table 1.
+
+
+[PDF physical page 10]
+Metabolites 2021, 11, 147                                                                                                        10 of 15
+
+
+
+
+                                          First, we integrated the genes expressed from the pIPP plasmid into the yeast genome
+                       and transformed this strain with a plasmid containing TS-MBP and BTS1, creating the
+                    TXD7 strain (Figure 6).  Taxadiene production in this strain was reduced by 57% to
+                              1.18 ± 0.20 mg/L compared to TXD6. This observation can be in part explained by pIPP
+                          plasmid copy number in TXD6. A previous study showed that CEN6/ARS4-based plasmid
+                         copy number (used in pIPP) can be varied between 2–5 copies [44]. When genes in the pIPP
+                             are integrated into the genome, the total additional copy for each gene to the endogenous
+                           genes is only one. Therefore, a 57% decrease in taxadiene production by TXD7 compared to
+                     TXD6 might have been caused by the reduced copies of the MVA pathway genes in TXD7.
+                         One investigation on the MVA pathway genes showed that ERG19 (mevalonate diphos-
+                              phate decarboxylase; see Figure 1) can be overexpressed to increase isoprenoid precursors
+                           while reducing sterol accumulation in yeast [45]. Another study on ERG10 (acetoacetyl-CoA
+                               synthase; see Figure 1) indicated that overexpressing ERG10 plays a role in increasing the
+                      ﬂux towards IPP and DMAPP in yeast [46]. Therefore, we presumed that it might be
+                            necessary to overexpress all six genes in the MVA pathway, including ERG10 and ERG19,
+                              to improve taxadiene production in yeast. Strain TXD8 was created by integrating these
+                             additional two genes into the yeast genome (Figure 6). However, no statistical differences
+                              (p-value ≥0.05) in taxadiene production between TXD8 (1.12 ± 0.18 mg/L) and TXD7 were
+                            observed. This result indicates that ERG10 and ERG19 overexpression has an insigniﬁcant
+                          impact on the ﬂux through the MVA pathway.
+                                     Lastly, we integrated TS-MBP and BTS1 into the yeast genome of the strain TXD8,
+                              resulting in the strain TXD9 (Figure 6). This strain can be grown in rich media with a high
+                                   cell density to produce taxadiene. However, taxadiene production in this strain was lower
+                               (0.41 ± 0.06 mg/L) than the TXD6, which indicates that plasmid copy number, and thus
+                         gene expression levels of TS-MBP and BTS1 in TXD6, play an important role in enhancing
+                           taxadiene production in yeast. As TS-MBP and BTS1 were expressed from the high copy
+                          2 µ plasmid, their single-copy genomic integration resulted in a more severe reduction
+                              in taxadiene compared to the integration of the MVA, which were expressed from a low
+                        copy CEN/ARS plasmid. The highest taxadiene-producing yeast reported so far used
+                        ﬁve copies of GGPPS from bacteria (Escherichia vulneris) and three copies of TS fused with
+                               different tags, which resulted in 57 mg/L taxadiene titers [26]. This strategy showed that
+                             the main bottleneck for taxadiene production in yeast is the activity of TS and GGPPS. As
+                    we integrated a single copy of TS and BTS in this work, we expect the titer of taxadiene can
+                          be further increased in our strain as we optimize the proper levels of gene expressions.
+                             To examine the stability of transgenes in TXD9 genome, we genotyped the TXD9 strain
+                                 after successive subcultures. Four independent colonies of TXD9 were grown in YP media
+                         with galactose. Then, 5% of the culture was taken and moved to fresh media every day
+                              for four days. The doubling time of BY4742 in minimal media with galactose is around
+                          2 h [47], and thus at least 48 generations of yeast were reached in four days. After four
+                            days, genomic DNA from the four colonies were genotyped, which demonstrated that all
+                            the integrated genes are still present in the genome (Figure S2A). The production titers of
+                            taxadiene in the colonies were also measured on the ﬁrst and last (4th) day, and their titers
+                        were compared (Figure S2B). The results showed that there are no signiﬁcant differences
+                              (p-value > 0.05) in the titers between the culture from the fourth day and that from the ﬁrst
+                             day, indicating that gene expressions are stable after 48 generations.
+                         Our study shows a promising use of BTS1 overexpression in the yeast system for
+                           taxadiene production. The TXD9 strain also provides a stable and invaluable host to
+                             further investigate the downstream pathway of the paclitaxel biosynthesis. The TXD9
+                               strain taxadiene titer can be enhanced further by providing more copy numbers in the
+                      genome and optimizing the stability of TS and BTS1.
+
+
+[PDF physical page 11]
+Metabolites 2021, 11, 147                                                                                                        11 of 15
+
+
+
+
+                                   3. Materials and Methods
+                                   3.1. Yeast and Bacterial Strains
+                                Saccharomyces cerevisiae strain BY4742 (MATα; his3∆1; leu2∆0; lys2∆0; ura3∆0) was
+                         used for transforming all taxadiene-related plasmids. Escherichia coli strains TOP10 were
+                          purchased from Invitrogen (Carlsbad, CA, USA) and used for cloning procedures.
+
+                                   3.2. Plasmid and Synthetic DNA Construction
+
+                           The pIPP plasmid was constructed using the DNA assembler method [32]. The dif-
+                              ferent DNA parts were ampliﬁed by PCR using Phusion High-Fidelity DNA polymerase
+                        (Thermo Fisher Scientiﬁc, Waltham, MA, USA), resolved by gel electrophoresis, and in-
+                            dividually puriﬁed using Qiagen Gel Puriﬁcation kit (Valencia, CA, USA). DNA parts
+                             (promoter, gene, terminator) with overlapping homologous sequences were pooled with a
+                              linearized plasmid and transformed into the appropriate auxotrophic yeast strain using the
+                            Gietz method [47]. Assembled plasmids were selected by growth on minimal medium and
+                            the resulting plasmids were recovered from yeast and transformed into E. coli for mainte-
+                           nance. Sanger sequencing conﬁrmed the correct assembly of each construct. Promoters
+                       and terminators required for assembly were ampliﬁed from S. cerevisiae CEN.PK genomic
+                    DNA. Yeast mevalonate pathway genes ERG8, ERG12, ERG13, and a truncated HMGR
+                       (tHMGR) were also ampliﬁed from S. cerevisiae CEN.PK genomic DNA and assembled into
+                          a centromeric plasmid derived from pGREG505 [48].
+                          TS and GGPPS expression plasmid were based on the pESC-URA plasmid (Agilent
+                              Technologies). TS and its modiﬁcations were cloned into MCS1 using the Gibson assembly
+                       method between NotI and SpeI sites (New England BioLabs, Ipswich, MA, USA). Mean-
+                            while, all GGPPS were cloned into MCS2 using the Gibson assembly method between
+                       XmaI and SalI sites. Tags (FLAG and c-Myc, respectively) in both MCS were retained
+                               for detecting the gene expression. Synthetic genes were codon-optimized for S. cerevisiae
+                           expression by GeneArt (Thermo Fisher Scientiﬁc, Waltham, MA, USA). The linker and
+                  MBP sequences from Apel et al. were used for tagging TS with MBP [25].
+
+                                   3.3. RNA Isolation, cDNA Synthesis, and qPCR Analysis
+
+                                 Yeast cells were lysed with 1 mL of Trizol (Invitrogen, Carlsbad, CA, USA). Total
+                 RNA was extracted based on the manufacturer’s protocol. First-strand synthesis of cDNA
+                      was performed using 1 µg of extracted total RNA as templated mixed with the M-MulV
+                            reverse transcriptase (New England BioLabs, Ipswich, MA, USA) and anchored oligo
+                          dT22 (IDT, Coralville, IA, USA). The synthesis of cDNA was performed according to the
+                           manufacturer’s protocol.
+                              For qPCR analysis, the reaction mixture was as follows: 5 µL Power SYBR Green
+                         Master Mix (Thermo Fisher Scientiﬁc, Waltham, MA, USA), 0.6 µL each of forward and
+                            reverse primers (3.35 pmol/µL), 1 µL cDNA template (250 ng/µL), and 2.8 µL of sterile
+                       H2O. ROX was used as a passive reference dye in our qPCR. qPCR was then performed
+                          using a StepOne Real-Time PCR machine (Applied Biosystems, Foster City, CA, USA).
+                         Thermocycling parameters used for qPCR were 95 ◦C for 10 min, 95 ◦C for 15 s, and a
+                         combined extension and annealing step of 60 ◦C for 1 min with a total of 40 cycles. Relative
+                               transcript abundance was calculated using the efﬁciency corrected 2−∆∆CT method based
+                       on actin as the reference gene.
+
+                                   3.4. Yeast Expression and Cultivation
+
+                                 Yeast was transformed using the Gietz method [49] with selection on synthetic com-
+                              plete (SC) medium (6.7 g/L yeast nitrogen base without amino acids, 1.4 g/L appropriate
+                              synthetic drop-out mix for SC-URA, and SC-URA-LEU, and 20 g/L glucose). For taxadiene
+                            production, yeast colonies were cultivated overnight in an appropriate liquid medium at
+                           30 ◦C, 200 rpm. Then, 0.6 mL of overnight culture were transferred into 30 mL medium (SC
+                      medium same as above except with 0.2 g/L glucose, 1.8 g/L galactose, and 10 mM HEPES),
+                        and were grown at 30◦C, 200 rpm for 3 days. For TXD9, the colonies were grown in YPDA
+
+
+[PDF physical page 12]
+Metabolites 2021, 11, 147                                                                                                        12 of 15
+
+
+
+
+                     medium (10 g/L yeast extract, 20 g/L peptone, 40 mg/L adenine hemisulfate, 20 g/L
+                              dextrose, 0.2 g/L glucose, 1.8 g/L galactose, and 10 mM HEPES) at the same conditions as
+                            the other strains.
+
+                                   3.5. Immunoblot
+
+                                  Yeast cells from 30 mL three-days grown culture were harvested. Yeast crude proteins
+                        were extracted using glass beads in lysis buffer [50 mM Tris-HCl pH 7.5, 50 mM NaCl,
+                          1 mM PMSF, protease inhibitor cocktail Complete Mini tablets (Roche Applied Science,
+                        Mannheim, Germany), and 3 µg/mL pepstatin]. Total extract was centrifuged at 14,000 rpm
+                                at 4 ◦C and the supernatant was collected. The concentration of total soluble protein was
+                              tested using the Bradford assay. The total soluble protein was used to run 12% SDS-PAGE
+                           followed by transfer to nitrocellulose membrane (Hybond ECL, GE Healthcare, Chicago,
+                                 IL, USA) using a Tris-glycine-methanol buffer system (25 mM Tris-base, 192 mM glycine,
+                      20% methanol). The membrane was blocked with 5% skim milk in TBST (50 mM Tris-base
+                  pH 7.6, 150 mM NaCl, and 0.05% Tween 20) for one hour at room temperature before it
+                      was incubated overnight at 4 ◦C with appropriate (monoclonal anti-cMyc and anti-PGK1)
+                          primary antibody (Santa Cruz Biotechnology, Dallas, TX, USA), which was diluted at 1:2000
+                         with 5% skim milk in TBST. Subsequently, the membrane was incubated for one hour at
+                      room temperature with HRP-conjugated anti-mouse IgG secondary antibody (Santa Cruz
+                             Biotechnology, Dallas, TX, USA), which was diluted at 1:10,000 with 5% skim milk in TBST.
+                        The membrane was washed with TBST three times before it was visualized with Amersham
+                         Imager 600 (GE Healthcare, Chicago, IL, USA).
+
+                                   3.6. Yeast Metabolites Extraction and Analysis
+
+                                  Yeast grown in an appropriate liquid medium for three days was harvested by centrifu-
+                             gation at 3000 rpm for 5 min. Five milliliters of hexane were used to extract the metabolites
+                        from the yeast cells. One milliliter of the extract was obtained and analyzed using the
+                     GC-MS system with an Agilent 6890N gas chromatograph and an Agilent 5975B mass spec-
+                              trometer. One microliter of the extract was injected into a DB-5MS column (30 m × 0.25 µm
+                            inner diameter × 0.25 µm ﬁlm thickness) using helium as the gas carrier. Metabolites
+                             separation was programmed with an injector temperature of 280 ◦C and initial temperature
+                               at 100 ◦C, followed by increasing temperature to 300 ◦C at 10 ◦C/min and 20 ◦C/min to
+                           320 ◦C, and the ﬁnal temperature was held for 2 min. Mass detection was programmed as
+                            previously described by Engels [24]. Taxadiene standard was kindly provided by Dr. Phil
+                         Baran from the Scripps Research Institute.
+
+                                   3.7. Genes Integration
+
+                                 Characterized intergenic sites and the CRISPR-Cas9 platform were chosen as described
+                           previously [42]. The genes of interest were ampliﬁed and cloned into the donor DNA
+                            plasmid. Four characterized intergenic sites (iADH1, iPDC1, iTEF2, and iPGK1) were used
+                            as genome integration targets. The appropriate plasmid (with URA3 marker) containing
+                        Cas9 genes and guide RNA (gRNA) that was speciﬁc to those sites was transformed
+                            concurrently with 1-µg linear donor DNA into yeast cells. The successful integration was
+                       conﬁrmed with PCR from genomic DNA and the Cas9-containing plasmid was removed
+                           using 5-FOA counter-selection. The appropriate medium was used to measure taxadiene
+                           production from the genome-edited yeast strain.
+
+                                   4. Conclusions
+
+                                 In this study, we screened various GGPPS to enhance the production of taxadiene in
+                               yeast, including GGPPS from Chlamydomonas reinhardtii. Our results showed that overex-
+                             pression of endogenous yeast GGPPS (BTS1) showed the highest impact on the production
+                              of taxadiene in yeast. The production of taxadiene was also optimized by boosting the ﬂux
+                         towards the MVA pathway and by enhancing the stability and solubility of TS through
+                   MBP fusion, which resulted in up to 2.05 mg/L taxadiene. Finally, we constructed plasmid-
+
+
+[PDF physical page 13]
+Metabolites 2021, 11, 147                                                                                                        13 of 15
+
+
+
+
+                               free taxadiene-producing yeast strains by integrating the required taxadiene-producing
+                          genes in the yeast genome. Further optimizations, such as increasing copy numbers of TS
+                       and BTS1, fusing the GGPPS and FPPS [26,50], and reducing the ﬂux towards squalene
+                               (ergosterol pathway) to increase the FPP pool [24] could be further carried out to enhance
+                            taxadiene production. The strain developed here can be used as a platform to elucidate the
+                        downstream genes in the paclitaxel biosynthesis pathway.
+
+
+                           Supplementary Materials: The following are available online at https://www.mdpi.com/2218-198
+                             9/11/3/147/s1, Figure S1: immunoblot data, Table S1: primers list.
+
+                           Author Contributions: Conceptualization, J.C.U., P.B. and D.-K.R.; methodology, J.C.U., F.C.C., P.B.,
+                                    V.J.J.M. and D.-K.R.; validation, J.C.U. and D.-K.R.; formal analysis, J.C.U. and P.B.; investigation,
+                                    J.C.U.; resources, D.-K.R.; writing—original draft preparation, J.C.U. and D.-K.R.; writing—review
+                          and editing, J.C.U. and D.-K.R.; visualization, J.C.U. and D.-K.R.; supervision, D.-K.R.; project admin-
+                                     istration, D.-K.R.; funding acquisition, D.-K.R. All authors have read and agreed to the published
+                               version of the manuscript.
+
+                            Funding: This research was funded by the Natural Sciences and Engineering Research Council of
+                          Canada (NSERC), Genome Canada, Genome Quebec, and Genome Alberta to D.-K.R. and V.J.J.M.,
+                                 F.C.C. received funding from CAPES (programa Pós-doutorado no Exterior-99999.005831/2015-06).
+
+                                 Institutional Review Board Statement: Not applicable.
+
+                           Informed Consent Statement: Not applicable.
+
+                           Data Availability Statement: The data presented in this study are available in article and supple-
+                            mentary material.
+
+                          Acknowledgments: We would like to thank Phil Baran (Scripps Institute, San Diego, CA, USA) for
+                              providing the authentic taxadiene standard.
+
+                             Conﬂicts of Interest: The authors declare no conﬂict of interest.
+
+References
+
+1.    Bray, F.; Ferlay, J.; Soerjomataram, I.; Siegel, R.L.; Torre, L.A.; Jemal, A. Global cancer statistics 2018: GLOBOCAN estimates of
+     incidence and mortality worldwide for 36 cancers in 185 countries. CA Cancer J. Clin. 2018, 68, 394–424. [CrossRef]
+2.   Khanna, C.; Rosenberg, M.; Vail, D.M. A Review of Paclitaxel and Novel Formulations Including Those Suitable for Use in Dogs.
+        J. Vet. Intern. Med. 2015, 29, 1006–1012. [CrossRef]
+3.   Weaver, B.A. How Taxol/paclitaxel kills cancer cells. Mol. Biol. Cell 2014, 25, 2677–2681. [CrossRef]
+4.   Bernabeu, E.; Cagel, M.; Lagomarsino, E.; Moretton, M.; Chiappetta, D.A. Paclitaxel: What has been done and the challenges
+     remain ahead. Int. J. Pharm. 2017, 526, 474–495. [CrossRef] [PubMed]
+5.   Kampan, N.C.; Madondo, M.T.; McNally, O.M.; Quinn, M.; Plebanski, M. Paclitaxel and Its Evolving Role in the Management of
+     Ovarian Cancer. Biomed. Res. Int. 2015, 2015, 413076. [CrossRef] [PubMed]
+6.    Li, Y.; Zhang, G.; Pfeifer, B.A. Current and Emerging Options for Taxol Production. In Biotechnology of Isoprenoids; Schrader, J.,
+    Bohlmann, J., Eds.; Springer International Publishing: Cham, Switzerland, 2015; pp. 405–425.
+7.   Yuzuru, K.; Hugh, N.; Shigenobu, U.; Ravi Kumar, P.; Venkata Ramana Murthy, A.; Gopi Krishna, G.; Bheema Rao, P.; Phil, B.
+    Two-Phase Synthesis of Taxol. J. Am. Chem. Soc. 2020, 142, 10526–10533.
+8.   Wilson, S.A.; Roberts, S.C. Recent advances towards development and commercialization of plant cell culture processes for
+     synthesis of biomolecules. Plant. Biotechnol. J. 2012, 10, 249–268. [CrossRef] [PubMed]
+9.   Cusido, R.M.; Onrubia, M.; Sabater-Jara, A.B.; Moyano, E.; Bonﬁll, M.; Goossens, A.; Angeles Pedreno, M.; Palazon, J. A rational
+     approach to improving the biotechnological production of taxanes in plant cell cultures of Taxus spp. Biotechnol. Adv. 2014, 32,
+     1157–1167. [CrossRef] [PubMed]
+10.  Schwab, C.L.; English, D.P.; Roque, D.M.; Santin, A.D. Taxanes: Their Impact on Gynecologic Malignancy. Anticancer Drugs 2014,
+      25, 522–535. [CrossRef]
+11.  Jennewein, S.; Wildung, M.R.; Chau, M.; Walker, K.; Croteau, R. Random sequencing of an induced Taxus cell cDNA library for
+     identiﬁcation of clones involved in Taxol biosynthesis. Proc. Natl. Acad. Sci. USA 2004, 101, 9149–9154. [CrossRef]
+12.  Wildung, M.R.; Croteau, R. A cDNA clone for taxadiene synthase, the diterpene cyclase that catalyzes the committed step of taxol
+     biosynthesis. J. Biol. Chem. 1996, 271, 9201–9204. [CrossRef] [PubMed]
+13.  Jennewein, S.; Croteau, R. Taxol: Biosynthesis, molecular genetics, and biotechnological applications. Appl. Microbiol. Biotechnol.
+     2001, 57, 13–19. [PubMed]
+14.  Chau, M.; Croteau, R. Molecular cloning and characterization of a cytochrome P450 taxoid 2alpha-hydroxylase involved in Taxol
+     biosynthesis. Arch. BioChem. Biophys. 2004, 427, 48–57. [CrossRef] [PubMed]
+
+
+[PDF physical page 14]
+Metabolites 2021, 11, 147                                                                                                        14 of 15
+
+
+
+
+15.  Chau, M.; Jennewein, S.; Walker, K.; Croteau, R. Taxol biosynthesis: Molecular cloning and characterization of a cytochrome P450
+     taxoid 7 beta-hydroxylase. Chem. Biol. 2004, 11, 663–672. [PubMed]
+16.  Jennewein, S.; Rithner, C.D.; Williams, R.M.; Croteau, R.B. Taxol biosynthesis: Taxane 13 alpha-hydroxylase is a cytochrome
+     P450-dependent monooxygenase. Proc. Natl. Acad. Sci. USA 2001, 98, 13595–13600. [CrossRef]
+17.  Hefner, J.; Rubenstein, S.M.; Ketchum, R.E.; Gibson, D.M.; Williams, R.M.; Croteau, R. Cytochrome P450-catalyzed hydroxylation
+     of taxa-4(5),11(12)-diene to taxa-4(20),11(12)-dien-5alpha-ol: The ﬁrst oxygenation step in taxol biosynthesis. Chem. Biol. 1996, 3,
+     479–489. [CrossRef]
+18.  Rontein, D.; Onillon, S.; Herbette, G.; Lesot, A.; Werck-Reichhart, D.; Sallaud, C.; Tissier, A. CYP725A4 from yew catalyzes
+    complex structural rearrangement of taxa-4(5),11(12)-diene into the cyclic ether 5(12)-oxa-3(11)-cyclotaxane. J. Biol. Chem. 2008,
+     283, 6067–6075. [CrossRef]
+19.  Edgar, S.; Zhou, K.; Qiao, K.; King, J.R.; Simpson, J.H.; Stephanopoulos, G. Mechanistic Insights into Taxadiene Epoxidation by
+     Taxadiene-5alpha-Hydroxylase. ACS Chem. Biol. 2016, 11, 460–469. [CrossRef]
+20.  Huang, Q.; Roessner, C.A.; Croteau, R.; Scott, A.I. Engineering Escherichia coli for the synthesis of taxadiene, a key intermediate
+     in the biosynthesis of taxol. Bioorg. Med. Chem. 2001, 9, 2237–2242. [CrossRef]
+21.  Ajikumar, P.K.; Xiao, W.H.; Tyo, K.E.; Wang, Y.; Simeon, F.; Leonard, E.; Mucha, O.; Phon, T.H.; Pfeifer, B.; Stephanopoulos, G.
+     Isoprenoid pathway optimization for Taxol precursor overproduction in Escherichia coli. Science 2010, 330, 70–74. [CrossRef]
+22.   Biggs, B.W.; Lim, C.G.; Sagliani, K.; Shankar, S.; Stephanopoulos, G.; De Mey, M.; Ajikumar, P.K. Overcoming heterologous
+     protein interdependency to optimize P450-mediated Taxol precursor synthesis in Escherichia coli. Proc. Natl. Acad. Sci. USA 2016,
+     113, 3209–3214. [CrossRef]
+23.  Dejong, J.M.; Liu, Y.; Bollon, A.P.; Long, R.M.; Jennewein, S.; Williams, D.; Croteau, R.B. Genetic engineering of taxol biosynthetic
+     genes in Saccharomyces cerevisiae. Biotechnol. Bioeng. 2006, 93, 212–224. [CrossRef]
+24.  Engels, B.; Dahm, P.; Jennewein, S. Metabolic engineering of taxadiene biosynthesis in yeast as a ﬁrst step towards Taxol
+      (Paclitaxel) production. Metab. Eng. 2008, 10, 201–206. [CrossRef]
+25.  Apel, A.R.; d’Espaux, L.; Wehrs, M.; Sachs, D.; Li, R.A.; Tong, G.J.; Garber, M.; Nnadi, O.; Zhuang, W.; Hillson, N.J.; et al. A
+     Cas9-based toolkit to program gene expression in Saccharomyces cerevisiae. Nucleic Acids Res. 2017, 45, 496–508.
+26.  Nowrouzi, B.; Li, R.A.; Walls, L.E.; d’Espaux, L.; Malci, K.; Liang, L.; Jonguitud-Borrego, N.; Lerma-Escalera, A.I.; Morones-
+     Ramirez, J.R.; Keasling, J.D.; et al. Enhanced production of taxadiene in Saccharomyces cerevisiae. Microb. Cell Fact. 2020, 19, 200.
+     [CrossRef] [PubMed]
+27.   Jiang, Y.; Proteau, P.; Poulter, D.; Ferro-Novick, S. BTS1 Encodes a Geranylgeranyl Diphosphate Synthase in Saccharomyces
+      cerevisiae. J. Biol. Chem. 1995, 270, 21793–21799. [CrossRef]
+28.  Ro, D.K.; Paradise, E.M.; Ouellet, M.; Fisher, K.J.; Newman, K.L.; Ndungu, J.M.; Ho, K.A.; Eachus, R.A.; Ham, T.S.; Kirby, J.;
+      et al. Production of the antimalarial drug precursor artemisinic acid in engineered yeast. Nature 2006, 440, 940–943. [CrossRef]
+    [PubMed]
+29.  Donald, K.A.; Hampton, R.Y.; Fritz, I.B. Effects of overproduction of the catalytic domain of 3-hydroxy-3-methylglutaryl coenzyme
+   A reductase on squalene synthesis in Saccharomyces cerevisiae. Appl. Environ. Microbiol. 1997, 63, 3341–3344. [CrossRef] [PubMed]
+30.  Moreno-Sánchez, R.; Saavedra, E.; Rodríguez-Enríquez, S.; Olín-Sandoval, V. Metabolic Control Analysis: A Tool for Designing
+      Strategies to Manipulate Metabolic Pathways. J. Biomed. Biotechnol. 2008, 2008, 597913. [CrossRef] [PubMed]
+31.  Tanner, L.B.; Goglia, A.G.; Wei, M.H.; Sehgal, T.; Parsons, L.R.; Park, J.O.; White, E.; Toettcher, J.E.; Rabinowitz, J.D. Four Key
+     Steps Control Glycolytic Flux in Mammalian Cells. Cell Syst. 2018, 7, 49–62.e48. [CrossRef]
+32.  Shao, Z.; Zhao, H. DNA assembler, an in vivo genetic method for rapid construction of biochemical pathways. Nucleic Acids Res.
+     2009, 37, e16. [CrossRef] [PubMed]
+33.  Hefner, J.; Ketchum, R.E.; Croteau, R. Cloning and functional expression of a cDNA encoding geranylgeranyl diphosphate
+     synthase from Taxus canadensis and assessment of the role of this prenyltransferase in cells induced for taxol production. Arch.
+     BioChem. Biophys. 1998, 360, 62–74. [CrossRef]
+34.   Ignea, C.; Trikka, F.A.; Nikolaidis, A.K.; Georgantea, P.; Ioannou, E.; Loupassaki, S.; Kefalas, P.; Kanellis, A.K.; Roussis, V.;
+     Makris, A.M.; et al. Efﬁcient diterpene production in yeast by engineering Erg20p into a geranylgeranyl diphosphate synthase.
+     Metab. Eng. 2015, 27, 65–75. [CrossRef]
+35.   Pelot, K.A.; Mitchell, R.; Kwon, M.; Hagelthorn, D.M.; Wardman, J.F.; Chiang, A.; Bohlmann, J.; Ro, D.K.; Zerbe, P. Biosynthesis of
+     the psychotropic plant diterpene salvinorin A: Discovery and characterization of the Salvia divinorum clerodienyl diphosphate
+     synthase. Plant. J. 2017, 89, 885–897. [CrossRef]
+36.  Ohnuma, S.; Suzuki, M.; Nishino, T. Archaebacterial ether-linked lipid biosynthetic gene. Expression cloning, sequencing, and
+     characterization of geranylgeranyl-diphosphate synthase. J. Biol. Chem. 1994, 269, 14792–14797. [CrossRef]
+37.  Dogbo, O.; Camara, B. Puriﬁcation of isopentenyl pyrophosphate isomerase and geranylgeranyl pyrophosphate synthase from
+    Capsicum chromoplasts by afﬁnity chromatography. Biochim. Biophys. Acta Lipids Lipid Metab. 1987, 920, 140–148. [CrossRef]
+38.  Lohr, M.; Im, C.S.; Grossman, A.R. Genome-based examination of chlorophyll and carotenoid biosynthesis in Chlamydomonas
+      reinhardtii. Plant. Physiol. 2005, 138, 490–515. [CrossRef] [PubMed]
+39.  Kuntz, M.; Romer, S.; Suire, C.; Hugueney, P.; Weil, J.H.; Schantz, R.; Camara, B. Identiﬁcation of a cDNA for the plastid-located
+     geranylgeranyl pyrophosphate synthase from Capsicum annuum: Correlative increase in enzyme activity and transcript level
+     during fruit ripening. Plant. J. 1992, 2, 25–34.
+
+
+[PDF physical page 15]
+Metabolites 2021, 11, 147                                                                                                        15 of 15
+
+
+
+
+40.   Grabi´nska, K.; Palamarczyk, G. Dolichol biosynthesis in the yeast Saccharomyces cerevisiae: An insight into the regulatory role of
+     farnesyl diphosphate synthase. FEMS Yeast Res. 2002, 2, 259–265.
+41.  Yuan, J.; Ching, C.B. Combinatorial engineering of mevalonate pathway for improved amorpha-4,11-diene production in budding
+      yeast. Biotechnol. Bioeng. 2014, 111, 608–617. [CrossRef] [PubMed]
+42.   Siddiqui, M.S.; Thodey, K.; Trenchard, I.; Smolke, C.D. Advancing secondary metabolite biosynthesis in yeast with synthetic
+     biology tools. FEMS Yeast Res. 2012, 12, 144–170. [CrossRef]
+43.  Baek, S.; Utomo, J.; Lee, J.Y.; Dalal, K.; Yoon, Y.J.; Ro, D.K. The yeast platform engineered for synthetic gRNA-landing pads
+     enables multiple gene integrations by a single gRNA/Cas9 system. Metab. Eng. 2021, 64, 111–121. [CrossRef]
+44.  Karim, A.S.; Curran, K.A.; Alper, H.S. Characterization of plasmid burden and copy number in Saccharomyces cerevisiae for
+     optimization of metabolic engineering applications. FEMS Yeast Res. 2013, 13, 107–116. [CrossRef] [PubMed]
+45.  Berges, T.; Guyonnet, D.; Karst, F. The Saccharomyces cerevisiae mevalonate diphosphate decarboxylase is essential for viability,
+    and a single Leu-to-Pro mutation in a conserved sequence leads to thermosensitivity. J. Bacteriol. 1997, 179, 4664–4670. [CrossRef]
+46.  Dimster-Denk, D.; Rine, J. Transcriptional regulation of a sterol-biosynthetic enzyme by sterol levels in Saccharomyces cerevisiae.
+     Mol. Cell Biol. 1996, 16, 3981–3989. [CrossRef]
+47.  Paulo, J.A.; O’Connell, J.D.; Gaun, A.; Gygi, S.P. Proteome-wide quantitative multiplexed proﬁling of protein expression:
+     Carbon-source dependency in Saccharomyces cerevisiae. Mol. Biol. Cell 2015, 26, 4063–4074. [CrossRef] [PubMed]
+48.   Jansen, G.; Wu, C.; Schade, B.; Thomas, D.Y.; Whiteway, M. Drag & Drop cloning in yeast. Gene 2005, 344, 43–51. [PubMed]
+49.   Gietz, R.D.; Schiestl, R.H. High-efﬁciency yeast transformation using the LiAc/SS carrier DNA/PEG method. Nat. Protoc. 2007, 2,
+     31–34. [CrossRef] [PubMed]
+50.  Dong, H.; Chen, S.; Zhu, J.; Gao, K.; Zha, W.; Lin, P.; Zi, J. Enhance production of diterpenoids in yeast by overexpression of the
+     fused enzyme of ERG20 and its mutant mERG20. J. Biotechnol. 2020, 307, 29–34. [CrossRef]

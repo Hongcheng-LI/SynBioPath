@@ -1,0 +1,1024 @@
+
+[PDF physical page 1]
+                                                                                                         REVIEW
+                                                                                                                                       published: 05 February 2021
+                                                                                                                                                  doi: 10.3389/fbioe.2021.632269
+
+
+
+
+
+           Recent Advances in Metabolic
+             Engineering, Protein Engineering,
+           and Transcriptome-Guided Insights
+           Toward Synthetic Production of Taxol
+
+                             Ishmael Mutanda1, Jianhua Li1, Fanglin Xu1,2,3 and Yong Wang1*
+
+                                                            1 Key Laboratory of Synthetic Biology, CAS Center for Excellence in Molecular Plant Sciences, Institute of Plant Physiology
+                                   and Ecology, Chinese Academy of Sciences, Shanghai, China, 2 University of Chinese Academy of Sciences, Beijing, China,
+                                                            3 Key Laboratory of Plant Stress Biology, State Key Laboratory of Cotton Biology, School of Life Sciences, He’nan University,
+                                           Kaifeng, China
+
+
+                         The diterpenoid paclitaxel (Taxol R⃝) is a blockbuster anticancer agent that was originally
+                                isolated from the Paciﬁc yew (Taxus brevifolia) ﬁve decades ago. Despite the wealth of
+                      Edited by:    information gained over the years on Taxol research, there still remains supply issues
+                    Jingwen Zhou,    to meet increasing clinical demand. Although alternative Taxol production methods
+          Jiangnan University, China
+                          have been developed, they still face several drawbacks that cause supply shortages
+                 Reviewed by:
+                 Kohsuke Honda,   and high production costs. It is highly desired to develop biotechnological production
+           Osaka University, Japan    platforms for Taxol, however, there are still gaps in our understanding of the biosynthetic
+               Leonardo Rios Solis,
+                            pathway, catalytic enzymes, regulatory and control mechanisms that hamper production               University of Edinburgh,
+                    United Kingdom    of this critical drug by synthetic biology approaches. Over the past 5 years, signiﬁcant
+              *Correspondence:   advances were made in metabolic engineering and optimization of the Taxol pathway
+                     Yong Wang     in different hosts, leading to accumulation of taxane intermediates. Computational and
+          yongwang@cemps.ac.cn
+                             experimental approaches were leveraged to gain mechanistic insights into the catalytic
+                Specialty section:    cycle of pathway enzymes and guide rational protein engineering efforts to improve
+         This article was submitted to     catalytic ﬁtness and substrate/product speciﬁcity, especially of the cytochrome P450s
+                    Synthetic Biology,
+             a section of the journal    (CYP450s). Notable breakthroughs were also realized in engineering the pathway in
+       Frontiers in Bioengineering and    plant hosts that are more promising in addressing the challenging CYP450 chemistry.
+                      Biotechnology
+                             Here, we review these recent advances and  in  addition, we summarize recent
+      Received: 22 November 2020
+       Accepted: 11 January 2021    transcriptomic data sets of Taxus species and elicited culture cells, and give a bird’s-
+       Published: 05 February 2021    eye view of the information that can be gleaned from these publicly available resources.
+                           Citation:    Recent mining of transcriptome data sets led to discovery of two putative pathway
+    Mutanda I, Li J, Xu F and Wang Y    enzymes, provided many lead candidates for the missing steps and provided new
+ (2021) Recent Advances in Metabolic
+     Engineering, Protein Engineering,    insights on the regulatory mechanisms governing Taxol biosynthesis. All these inferences
+  and Transcriptome-Guided Insights    are relevant to future biotechnological production of Taxol.
+Toward Synthetic Production of Taxol.
+ Front. Bioeng. Biotechnol. 9:632269.     Keywords:  Taxol,  protein  engineering,  transcriptome,  paclitaxel,  taxadien-5α-ol,  taxane-5α-hydroxylase,
+      doi: 10.3389/fbioe.2021.632269     metabolic engineering
+
+
+
+
+Frontiers in Bioengineering and Biotechnology | www.frontiersin.org             1                                      February 2021 | Volume 9 | Article 632269
+
+
+[PDF physical page 2]
+Mutanda et al.                                                                                            Advances in Taxol Metabolic Engineering
+
+
+INTRODUCTION                                                       is long and complicated, involving 19 expected steps from
+                                                                geranylgeranyl diphosphate (GGPP) the universal precursor
+The blockbuster antitumor drug paclitaxel (Taxol R⃝) is a highly   of diterpenoids (Figure 1) and there are  still many gaps in
+functionalized plant diterpenoid discovered in the late 1960s in   our understanding of Taxol biosynthesis and  its regulatory
+paciﬁc yew (Taxus brevifolia) plants. Though it went through a   mechanisms. Several cytochrome P450 (CYP450) hydroxylases
+long developmental phase, it later became the most successful  and an epoxidase remain missing (Figure 1). Even for the
+plant natural product in use  as an eﬀective chemotherapy   steps with known enzymes, expression of functional pathway
+drug since  its  initial Food and Drug Administration (FDA)   enzymes in heterologous hosts, especially the CYP450s is proving
+approval in 1992 (Wani et al., 1971; Wani and Horwitz, 2014).   to be non-trivial.
+Taxol was initially approved for treatment of refractory ovarian      In this review, we discuss various strategies conducted in
+cancer and breast carcinomas, but over the years it has found   the  last 5 years to develop heterologous systems for Taxol
+expanded  clinical uses in treatment of non-small  cell lung   biosynthesis. Building from the breakthrough strategy 10 years
+carcinoma, Kaposi’s sarcoma and cancers of the lung, breast,   ago (Ajikumar et al., 2010), recent advances in synthetic biology
+bladder, prostate, esophagus and pancreas when used alone or in   have been  applied  in  several  studies  to optimize pathway
+combination therapies with other antineoplastic agents.            expression, develop enzyme screening platforms and engineer
+   Original production process involved direct isolation from   pathway enzymes  to  get  variants  with improved  catalytic
+the bark of yew plants, but the process  is very destructive   performance and higher speciﬁcity. We also highlight the use
+and ineﬃcient, requiring three trees (∼12 kg bark material) to   of computational tools that were leveraged in gaining insights
+produce 1 g pure Taxol or ca. 3,000 yew trees to produce only   in the  catalytic mechanisms of  several enzymes and  lastly,
+1 kg of the drug (Malik et al., 2011; McElroy and Jennewein,  we summarize recent Taxol-related transcriptomes and how
+2017). To add to this, Taxol is produced as a complex mixture   this publicly available resource was recently used in inferring
+with hundreds of other taxanes in Taxus plant tissue, making the   regulatory mechanisms, mining the missing genes and providing
+puriﬁcation of this highly hydrophobic compound very laborious  many lead candidates for missing steps. In the coming years,
+and environmentally damaging due to use of organic solvents  we expect  this knowledge to be pivotal in development of
+(Wani and Horwitz, 2014). Total chemical synthesis routes to   biotechnological systems for production of this critical drug.
+Taxol were developed (Holton et al., 1994; Nicolaou et al., 1994),
+but are not commercially viable owing to the many steps required
+and cost considerations. Inspired by the success of Taxol, and
+                                CHALLENGES WITH METABOLIC
+the need to address supply and ecological challenges, alternative
+production platforms have been developed:  (i) extraction of  ENGINEERING OF TAXOL PATHWAY
+10-deacetylbaccatin III (10-DAB) or baccatin III (BIII) from
+                                                             Metabolic engineering of the Taxol pathway in heterologousrenewable twigs of Taxus species, that can be semi-synthetically
+                                                                 hosts is highly desirable as  it will establish a versatile, directmodiﬁed  to  Taxol, and  (ii)  plant  cell fermentation (PCF)
+                                                                route to the critical anticancer drug. Biosynthetic productioninvolving use of Taxus cell suspension cultures (Fett-Netto et al.,
+                                                             systems are expected to improve supply of Taxol, as well as1992; Mountford, 2010; Malik et al., 2011).
+                                                             lower the production costs through improved eﬃciency and use   Despite several optimization eﬀorts to improve these methods,
+                                                                    of inexpensive sugars as starting material in microbial factories.they still suﬀer from several drawbacks that limit their capacity
+                                                        Another potential avenue under exploration is production inand also drive the price of Taxol high; (i) production from twigs
+                                                                  cheaper, high biomass and fast-growing plants  like tobaccois still dependent on yew trees, thus is susceptible to weather and
+                                                                     that can be engineered for high-level production of non-nativeenvironmental factors, (ii) long maturity time of the trees and (iii)
+                                                                 metabolites using carbon resources from photosynthesis. Beforeextraction process still involves use of organic solvents. The PCF
+                                                                       realizing this dream, there are several challenges with Taxolroute presents obvious advantages over direct extraction from
+                                                                  biosynthesis that should be addressed.ﬁeld-grown Taxus twigs, but it suﬀers from its own shortcomings;
+(i)  instability of  cell lines in the long fermentation periods
+(ii) use of endogenous biosynthetic pathways, thus no genetic  The Missing Pathway Enzymes
+engineering targets to improve ﬂux toward Taxol and (iii) poor   Taxol is derived from the C5 terpenoid universal precursors,
+Taxol yields in the fermenters, even with elicitors (Choi et al.,   dimethylallyl   diphosphate  (DMAPP)   and   isopentenyl
+2000; Ketchum and Croteau, 2006).                            pyrophosphate  (IPP)  through  geranylgeranyl  diphosphate
+   For  these  reasons,   it   is  highly  desirable  to  establish  (GGDP), the C20 universal precursor of all diterpenoids. The
+biotechnological production systems for Taxol production that   structure of the Taxol molecule is complex and likewise, the
+will address most of these issues. Production in more amenable,   biosynthetic pathway  is equally complex; ﬁve decades  after
+fast-growing heterologous hosts oﬀers more advantages in terms    its discovery, the pathway  is not yet fully understood, with
+of control and manipulation of metabolic ﬂux by improving   several steps still undeﬁned, and several enzymes still missing.
+enzyme expression, pathway regulation, availability of cofactors   These gaps in our understanding of the biosynthetic pathway
+and  engineering  competing  pathways.  However,  there  are   deprive us  of  the  critical framework  to manipulate Taxol
+challenges  that prevent development  of  desired  sustainable   biosynthesis and develop  heterologous production  systems.
+Taxol  biotechnological  platforms:  the  biosynthetic pathway  The pathway is hypothesized to involve 19 steps from GGPP
+
+
+
+
+Frontiers in Bioengineering and Biotechnology | www.frontiersin.org             2                                      February 2021 | Volume 9 | Article 632269
+
+
+[PDF physical page 3]
+Mutanda et al.                                                                                            Advances in Taxol Metabolic Engineering
+
+
+
+
+
+ FIGURE 1 | Taxol biosynthetic pathway from geranylgeranyl diphosphate, showing carbon positions. Enzymes in red are not yet characterized and steps in red
+  dotted arrows are not yet fully elucidated. Blue arrows—genes encoding putative PCL and T2′αH were recently isolated, though not yet applied in metabolic
+  engineering designs. Enzyme abbreviations: TXS, taxadiene synthase; T5αH, taxane-5α-hydroxylase; TAT, taxane-5α-ol-O-acetyltransferase; T10βH,
+  taxane-10β-hydroxylase; T13αH, taxane-13α-hydroxylase; T1βH, taxane 1β-hydroxylase; T9αH, taxane 9α-hydroxylase; T9αO, taxane 9α-dioxygenase; T2αH,
+  taxane 2α-hydroxylase; T7βH, taxane 7β-hydroxylase; C4-C20, C4-C20 epoxidase; TBT, taxane-2α-O-benzoyl transferase; DBAT, 10-deacetylbaccatin
+  III-10-O-acetyltransferase; PAM, phenylalanine aminomutase; PCL, phenylalanine-CoA ligase; BAPT, C-13 phenylpropanoyl-CoA transferase; T2′αH, taxane
+  2′α-hydroxylase; DBTNBT, Debenzoyl taxol N-benzoyl transferase. Products of T5aH—OCT, 5(12)-oxa-3 (11)-cyclotaxane and iso-OCT,
+  5(13)-oxa-3(11)-cyclotaxane, ACT, acyl-CoA transferase.
+
+
+
+(Figure 1), involving terpene cyclization, 9 cytochrome P450-   taxol N-benzoyl  transferase (DBTNBT)] and  phenylalanine
+catalyzed  hydroxylations, 3  acylations,  acetylations, oxetane   aminomutase (PAM).
+ring formation, benzoylations, and phenylisoserine side chain    A   putative  ACT   that   activates  β-phenylalanine   to
+attachment. Exceptional work in the last 25 years has contributed   β-phenylalanine-CoA  was  isolated  from  T.  baccata   cell
+genes and enzymes of up to 14 steps; from taxadiene synthase   cultures (Ramírez-Estrada  et  al.,  2016), and was identiﬁed
+(TXS) that catalyzes the ﬁrst and committed step to cyclize   as   β-phenylalanine-CoA   ligase  (PCL)   after   functional
+GGPPS to taxadiene (Hezari et al., 1995; Wildung and Croteau,   characterization.  However,  a  recently  isolated homolog  of
+1996), ﬁve CYP450s [taxane 5α-hydroxylase (T5αH), taxane   this PCL displaying 99% sequence identity showed no detectable
+2α-hydroxylase (T2αH), taxane 7β-hydroxylase (T7βH), taxane   activity  against both β-phenylalanine and  3-phenylisoserine
+10β-hydroxylase (T10βH) and taxane 13α-hydroxylase (T13αH)]   in vitro (Srividya et al., 2020), thus, the suitability of this clone
+(Hefner et al., 1996; Jennewein et al., 2001; Kaspera and Croteau,   for heterologous expression in other hosts might remain an open
+2006; Schoendorf et al., 2001; Walker et al., 2000; Walker and   question. Other still missing enzymes are the CYP450s taxane
+Croteau, 2001), ﬁve acyl CoA transferases (ACTs) [taxane-5α-ol-   1β-hydroxylase (T1βH), taxane 9α-hydroxylase (T9αH), taxane
+O-acetyltransferase  (TAT),  taxane-2α-O-benzoyl  transferase   9α-oxidase (T9αO), and C4,5 epoxidase (Figure  1). Taxane
+(TBT), 10-deacetylbaccatin III-10-O-acetyltransferase (DBAT),   2′α-hydroxylase (T2′αH) was recently isolated from mining
+C-13 phenylpropanoyl-CoA transferase (BAPT) and Debenzoyl   T. baccata transcriptome (Sanchez-Muñoz et al., 2020), and the
+
+
+
+
+Frontiers in Bioengineering and Biotechnology | www.frontiersin.org             3                                      February 2021 | Volume 9 | Article 632269
+
+
+[PDF physical page 4]
+Mutanda et al.                                                                                            Advances in Taxol Metabolic Engineering
+
+
+
+details are reviewed in the section on transcriptomes below. The   of T5αH (Ajikumar et al., 2010). Recent studies corroborated
+missing enzymes, together with other challenges outlined below   lack of selectivity and product promiscuity of T5αH in vitro and
+need to be resolved before successful production of Taxol by   in several heterologous hosts like E. coli, S. cerevisiae, Yarrowia
+synthetic biology systems. Other enzymes have been identiﬁed    lipolytica, and Nicotiana benthamiana, showing a product proﬁle
+that channel ﬂux toward oﬀ-pathway intermediates that do not   dominated by OCT and  its close isomer, iso-OCT, with T-
+lead to Taxol, such as the taxane 14β-hydroxylase (T14βH),   5α-ol and several other monooxygenated diterpenes as minor
+the recently discovered ACTs that attach diﬀerent groups to  compounds (Yadav, 2014; Biggs et al., 2016a,b; Edgar et al., 2016;
+3′-N-debenzoyltaxol (Srividya  et  al., 2020) and many more   Sagwan-Barkdoll and Anterola, 2017; Li et al., 2019). A number of
+that are expected considering the chemical diversity of taxanes   optimization and engineering strategies that leveraged advances
+in plant tissues.                                                    in synthetic biology have been applied to overcome the T5αH
+                                                                 bottleneck as discussed in the sections below.
+
+Poor Expression of Functional Enzymes                                      Poor Pathway Flux and the Branched
+and Challenges in CYP450 Chemistry                                        Nature of the Pathway
+Oxygenation chemistry of Taxol presents a formidable barrier                                                               Despite that much of the Taxol pathway enzymes and genes
+to both pathway elucidation and metabolic engineering eﬀorts,                                                           have been identiﬁed, success in engineering at least the known
+starting with the ﬁrst hydroxylation of the C5 position of                                                          segments of the pathway in heterologous systems have been
+taxadiene by T5αH (Hefner et al., 1996; Jennewein et al., 2004).                                                           mainly hampered by inherent poor enzyme catalysis, protein
+All Taxus CYP450s identiﬁed and functionally characterized                                                             interdependency issues and product promiscuity of key enzymes
+for  activity  in  Taxol  biosynthesis  are from  the CYP725A                                                                     that lead to a highly branched pathway. Carbon ﬂux is channeled
+subfamily, including T5αH (CYP725A4). T5αH accepts both                                                          toward  oﬀ-target  products  by  the  promiscuous  enzymes,
+taxa-4(5),11(12) diene (taxadiene, T) and its close alternative                                                                presenting a formidable challenge to synthetic biologists that
+isomer taxa-4(20),11(12) diene (isotaxadiene, T1), that are both                                                           cannot be solved by simple redirection of IPP and DMAPP
+products of TXS to form taxadiene-5α-ol (T-5α-ol) (Figure 1).                                                                   precursors. The ﬁrst enzyme, TXS  is now known to have a
+This CYP450 presents several challenges due to the fact that                                                          broad substrate proﬁle including verticillenes and reports of
+it accepts both T and T1 as substrates,  its inherent product                                                       cembrene A, in addition to T and T1, as discussed below.
+promiscuity, poor expression in heterologous hosts and low                                                    The T5αH- catalyzed second step  splits T into many other
+catalytic activity (it has been shown to convert less than 10%                                                                 products, dominated by OCT and its isomer, iso-OCT, branching
+of taxadiene to T-5α-ol). Most research eﬀorts in the past                                                                the pathway into many directions. Several other downstream
+5 years were focused on T5αH, and more synthetic biology                                                       enzymes also accept diﬀerent substrates and have broad product
+tools have been dedicated to T5αH than any other pathway                                                                    proﬁles, which present an emerging picture of a highly branched
+enzyme to overcome this bottleneck on the second step of                                                            pathway. This lack of linearity is at the core of the problems
+the pathway, thus, this review also has more comprehensive                                                             with the pathway that has not only slowed metabolic engineering
+discussions on this enzyme.                                                                advances, but has even prevented pathway elucidation and
+  To understand the origin of T5αH bottleneck, we present its                                                                  identiﬁcation of key downstream intermediates. Not surprisingly,
+history in heterologous expression in diﬀerent hosts. Following                                                                 recent work has focused on improving the catalytic eﬃciency and
+successful cloning, functional expression and characterization                                                                            selectivity of pathway enzymes through experimental methods
+of eight enzymes of the upper segment of the Taxol pathway,                                                            supported by computational tools to improve our mechanistic
+DeJong et al. (2006) sought to construct the ﬁrst ﬁve sequential                                                            understanding of catalysis, as covered in the next sections.
+steps of the pathway leading to taxadien-5α-acetoxy-10β-ol in
+yeast (Saccharomyces cerevisiae). Expression and enzyme kinetics
+                                     Lack of Knowledge on the Regulatory
+of T5αH in this construct was the lowest compared to other
+enzymes, leading to the ﬁrst detection of a bottleneck at this  Mechanisms and in planta Transport
+ﬁrst oxygenation step that restricted ﬂux toward downstream  Mechanisms
+steps. Two years later, an attempt to introduce TXS and T5αH  Not much is known on the regulation of the Taxol pathway at
+in wild tobacco (Nicotiana sylvestris), targeting trichomes after   transcription, translation and post-translational levels. Elicitors
+knocking down production of cembratrien-diols similarly failed   like methyl jasmonate (MeJA) have been used for a relatively
+to produce the desired T-5α-ol, but instead led to production   long time in improving secondary metabolism in Taxus cell
+of a cyclic ether, 5(12)-oxa-3(11)-cyclotaxane (OCT) (Rontein   suspension cultures, but the mechanisms through which MeJA
+et al., 2008) (summary of these metabolic engineering constructs   activates Taxol biosynthesis have not been elucidated in detail.
+are  in Table  1). Intrigued by  this observation, T5αH was   Knowledge of the regulatory mechanisms, identiﬁcation of key
+expressed in yeast in the same study, and again OCT was   transcription factors and any feedback loops in the pathway
+observed. The bottleneck was again encountered in a carefully    is critical in informing metabolic engineering eﬀorts. Likewise,
+optimized Escherichia  coli  strain that was engineered via a   there are also many gaps in our understanding of the transport
+multivariate modular metabolic engineering (MMME) approach   mechanisms of taxane intermediates in plant cells. This wealth of
+that achieved a 15,000-fold increase in taxadiene production   information will be very vital in designing a biosynthetic route to
+(titers of ∼1 g/L) but lost optimality and titers on introduction   Taxol especially in plant cells.
+
+
+
+
+Frontiers in Bioengineering and Biotechnology | www.frontiersin.org             4                                      February 2021 | Volume 9 | Article 632269
+
+
+[PDF physical page 5]
+Mutanda et al.                                                                                            Advances in Taxol Metabolic Engineering
+
+
+
+
+TABLE 1 | Heterologous production of early taxane metabolites in different platforms.
+
+
+Host                         Details                                        Achievements                                   References
+
+E. coli                          Multivariate-modular metabolic engineering (MMME)       Taxadiene accumulation to 1 g/L. Introduction of           Ajikumar et al.,
+                           approach to optimize the MEP pathway and            T5αH-CPR disrupted taxadiene balance and achieved     2010
+                       GGPP-TXS as two operons under inducible promoters    ∼58 mg/L taxadiene-5α-ol and equal amounts of
+                                                                                         5(12)-oxa-3(11)-cyclotaxane (OCT)
+
+E. coli                   TXS and elaborately optimized T5αH and CYP450        Oxygenated taxanes (570 mg/L) was achieved in a        Biggs et al.,
+                             reductase partner optimizations through N-terminal         bioreactor                                       2016a
+                              modiﬁcations, fusion linked chimera protein expression,
+                         and controlled promoter strength.
+
+E. coli                       Co-expression of dxs, idi, GGPPS, and TXS               Taxadiene (1.3 mg/L) in shake ﬂask                   Huang et al.,
+                                                                                                                      2001
+
+E. coli and S. cerevisiae      A synthetic consortium was designed and genes for      33 mg/L oxygenated taxanes were achieved with TXS     Zhou et al.,
+                               taxadiene-5α-10β-diol-acetate production were          and T5αH, and adding T10βH and TAT achieved         2015
+                            designed in 2 modules, taxadiene module in E. coli and    1.0 mg/L of the target monoacylated, dioxygenated
+                                 acetylation and CYP450-oxygenation chemistry in         taxane
+                              S. cerevisiae for a stable co-culture fermentation using
+                               xylose as carbon source
+
+Bacillus subtilis               Overexpression of all MEP pathway genes (dxs, ispD,      Taxadiene accumulated to 1.98 mg/L/OD600              Abdallah et al.,
+                                  ispF, ispH, ispC, ispE, ispG) together with ispA, GGPPS    (17.8 mg/L) in shake ﬂask                           2019
+                         and TXS
+
+S. cerevisiae                    Multi-step pathway construction of 5 taxoid                     All 5 recombinant proteins were successfully expressed    DeJong et al.,
+                                biosynthetic genes (GGPPS, TXS, T5αH, TAT, and        and had measurable activity. Only Taxadiene (1 mg/L)     2006
+                           T10βH) to attempt taxadiene-5α-acetoxy-10β-ol          and trace amounts of taxadiene-5α-ol (∼25 µg/L) was
+                               production.                                              detected. No advanced metabolites were detected
+
+S. cerevisiae                  Heterologous expression of a truncated                  Taxadiene (8.7 mg/L) and geranylgeraniol (33 mg/L)        Engels et al.,
+                               3-hydroxyl-3-methylglutaryl-CoA reductase (tHMGR), a    accumulated in shake ﬂasks after 48 h fermentations      2008
+                           mutant regulatory protein, UPC2-1, GGPPS from
+                               Sulfolobus acidocaldarius and TXS
+
+S. cerevisiae                  Heterologous TXS and GGPPS (from Taxus cuspidate      Taxadiene accumulated to 72.8 mg/L                    Ding et al.,
+                  × Taxus baccata) and overexpression of erg20 and                                                     2014
+                     tHMGR
+
+S. cerevisiae             A CRISPR/Cas 9 toolkit was tested on TXS expression     Taxadiene titer of 20 mg/L was achieved                  Apel et al.,
+                                optimization in yeast. 10 protein tags and 5 promoters                                                   2017
+                                  of different strengths were tested. Fusion of TXS to
+                   MBP under the strong GAL1 promoter achieved highest
+                                           titer
+
+S. cerevisiae              TXS-ERG20 fusion protein was constructed with MBP     High taxadiene titer in yeast of 129 mg/L was achieved    Nowrouzi et al.,
+                              tag for improved solubility, together with promoter            in a bioreactor                                   2020
+                               strength and growth temperature optimization
+A. thaliana                    Chimeric TXS cDNA constitutively expressed in            Taxadiene (∼20 ng/g DW) in seedlings and leaves, but    Besumbes
+                              A. thaliana                                         however observed stunted growth and reduced             et al., 2004
+                                                                                       photosynthetic pigments. Induction with the synthetic
+                                                                                            glucocorticoid (dexamethasone) improved yields to 600
+                                                                                ng/g DW
+
+Tobacco (Nicotiana          TSX and T5αH were stably expressed in tobacco          Taxadiene (no reported yield) was detected while          Rontein et al.,
+sylvestris)                     trichome cells                                        expected taxadiene-5α-ol was not detected in leaf        2008
+                                                                                                extracts. Instead, only OCT was detected. Yeast
+                                                                           microsomes also produced OCT only
+
+Tomato fruits              TXS was stably transformed into a yellow-fruited         160 mg/kg from freeze-dried tomatoes                 Kovacs et al.,
+                           tomato line which lacks a functional phytoene synthase                                                  2007
+
+Tobacco (Nicotiana           TXS, truncated T5αH and cytochrome P450 reductase    Taxadiene—56.6 µg/g FW and Taxadiene-5α-ol was         Li et al., 2019
+benthamiana)               were inserted into the chloroplast compartment and       detected for the ﬁrst time in a heterologous plant
+                              precursor pathway was overexpressed                     platform at 1.3 µg/g fresh weight
+
+Ginseng (Panax ginseng)       Stable transformation of TXS from Taxus brevifolia into     TXS-transgenic ginseng accumulated 9.1 µg/g DW.      Cha et al., 2012
+roots                        ginseng roots                                          Methyl jasmonate treatment improved yields to
+                                                                                 14.6–15.9 µg/g DW
+
+Physcomitrella patens          Stable constitutive expression of TXS using a ubiquitin     Taxadiene accumulated to 0.05% FW of plant tissue.       Anterola et al.,
+(moss)                      promoter                                   No adverse effects on growth were noted              2009
+
+Alternaria alternata            Co-overexpression of isopentenyl diphosphate (idi),        Detection of 61.9 µg/L taxadiene after 14 days of          Bian et al.,
+(endophytic fungus)            truncated 3-hydroxy-3-methylglutaryl-CoA reductase       fermentation                                     2017
+                           (tHMG1) and TXS under different promoter strengths
+
+
+
+
+
+Frontiers in Bioengineering and Biotechnology | www.frontiersin.org             5                                      February 2021 | Volume 9 | Article 632269
+
+
+[PDF physical page 6]
+Mutanda et al.                                                                                            Advances in Taxol Metabolic Engineering
+
+
+ADVANCES IN METABOLIC                    more recent work focused on building closed, active models of
+ENGINEERING, PROTEIN ENGINEERING       the protein. Two groups have so far successfully used homology
+                                                         modeling and loop modeling based on the closed structure of
+AND MECHANISTIC INSIGHTS ON                                                              bornyl diphosphate synthases (BPPS) as a template to model
+TAXOL RELATED EZYMES                           the missing N-terminal residues and build catalytically active
+                                                        models that can be used in docking the productive substrate,
+Synthetic biology tools have been widely applied in advancing                                           GGPP (Schrepfer et al., 2016; Freud et al., 2017). Such structural
+Taxol biosynthesis research from gene discovery to pathway                                                      model based molecular mechanics calculations have the potential
+designs and construction in heterologous hosts, resulting in                                                                   to inform enzyme engineering strategies to generate pathway
+successes in detection and accumulation of taxane intermediates.                                                     enzyme variants with improved catalytic eﬃciency, less product
+Recent  metabolic  engineering  strategies  and  achievements                                                              promiscuity or  tailored product proﬁle  to  enable  selective
+in  diﬀerent  hosts  are  summarized  in  Table  1,  together                                                                 attenuation of the carbocation products. For example, closed
+with  approaches  used  in  previous  years,  for  comparison.                                              TXS model construction and molecular mechanics by Schrepfer
+Computational tools are an enabling technology that has also                                                                           et  al. (2016) led to identiﬁcation of a conserved amino acid
+been  at the forefront in unraveling mechanistic insights of                                                         network responsible for an extended hydrogen (H) bonding
+key enzymes to guide protein engineering strategies for use in                                                                  (water- and amino-acid mediated) involving the PPi and R754,
+metabolic engineering constructs, thus we discuss these advances                                                           R768, Y835, R580, and N-terminal Y89 in the closed TXS-GGPP
+together in this section.                                                            complex. Targeted mutagenesis of these ﬁve residues lead to
+                                                                         loss of activity (Table 2), and the W753 residue was identiﬁed
+Quantum Mechanics/Molecular                     as a key deprotonating base for the Cation B (cembren-15-yl
+                                                                   cation) that resulted in cembrene A formation when mutated
+Mechanics (QM/MM) and Computational
+                                                                   to a histidine (W753H) or in a double mutant (W753H/C830A)
+Modeling of a Catalytically Active TXS to       (Table 2; Ansbacher et al., 2018; Schrepfer et al., 2016). In fact,
+Enable Enzyme Engineering                         the biotechnological application of these TXS-derived mutants
+The class 1 terpene cyclase taxadiene synthase (TXS) is the ﬁrst   was demonstrated, with W753H yielding 8 mg/L cembrene A and
+and rate-limiting enzyme of the Taxol biosynthesis pathway.  V584M yielding 11 mg/L verticilla-3,7,12(13)-triene in 30 L batch
+It  accepts  the  acyclic C20  diterpenoid  precursor,  (E,E,E)-   fermentations (Schrepfer et al., 2016).
+geranylgeranyl diphosphate (GGPP) and  cyclizes  it  to  the     Using the TXS model constructed by Freud et al. (2017), the
+endocyclic diterpene oleﬁn taxa-4(5),11(12)-diene (taxadiene,   crucial role of W753 and the analogous Y841 in controlling highly
+T) and four other minor products: taxa-4(20), 11(12)-diene   charged carbocations in the hydrophobic TXS active site were
+(isotaxadiene,   T1),   verticillia-3(4),7(8),12(13)-triene   (V),   highlighted in simulations by Ansbacher et al. (2018). However,
+verticillia-   4(20),7(8),11(12)-triene   (V1)  and    verticillia-   recent molecular dynamics (MD) and QM/MM calculations
+3(4),7(8),11(12)-triene (V2) (Koepp  et  al., 1995; Lin  et  al.,   place more emphasis on the role of the reactive carbocations,
+1996; Schrepfer et al., 2016; Li et al., 2019) and also the isomer   the retained PPi and active site water molecules in controlling
+taxa-3(4),11(12)-diene (Williams et al., 2000b; Li et al., 2019).   carbocation cascades and product distribution, rather than the
+Though the X-ray crystal structure of TXS was solved almost a  TXS residues (Escorcia et al., 2018; van Rijn et al., 2019). The
+decade ago (Köksal et al., 2011), it lacks N-terminal residues and   calculations corroborate the critical role of R580 in deprotonation
+is in an open, catalytically inactive form, which does not provide   of carbocation C, but suggest this  is through water-assisted
+much clues relevant to the mechanism and intricate architecture   deprotonation via one or two water bridges, rather than direct
+of the active form. In addition, the reported structure is bound to   interaction with PPi and closure of the active site (as a part of
+the ﬂuorinated substrate, 2-ﬂuoro-geranylgeranyl diphosphate   the RXR motif of terpene synthases) as suggested by Freud et al.
+(2-F-GGPP) in a non-productive orientation (Hong and Tantillo,   (2017). Another interesting take from these computational and
+2011; Schrepfer et al., 2016).                                    experimental data sets was the manipulation of the taxadiene
+   Consequently, labeling and computational tools have been  and iso-taxadiene product percentage, as this has been shown
+used to get insights on the energetics of proton transfer and   to be important in determining the selectivity of the subsequent
+carbocation formation in the TXS active  site. The generally   CYP450-catalyzed step as described below. C830S yielded the
+agreed mechanism  follows  TXS-catalyzed  cleavage  of  the   highest iso-taxadiene without much reduction in overall activity
+pyrophosphate moiety  (PPi) from GGPP  to form charged   (Table 2), and such a mutant can be leveraged for improving
+carbocations followed by subsequent cyclizations and proton   the selectivity of T5αH as demonstrated by Edgar et al. (2017)
+transfer, leading to the mixed product proﬁle stated above   (described below).
+(Williams  et   al.,  2000a;  Köksal  et   al.,  2011).  Using QM
+calculations, an indirect, two-step protein transfer sequence was
+                                            Strategies Toward Overcoming the T5αHproposed (Gutta and Tantillo, 2007; Hong and Tantillo, 2011).
+However, these gas phase calculations assumed a passive role  Bottleneck
+of the TXS protein and placed much emphasis on substrate  Optimization of Oxygenation Chemistry
+reactivity. To improve on this prior computational work and   Realizing the magnitude of the bottleneck posed by T5αH,
+identify the role of the deprotonating bases in the TXS active site,   Biggs et al. (2016a) carried out an extensive study to optimize
+
+
+
+
+Frontiers in Bioengineering and Biotechnology | www.frontiersin.org             6                                      February 2021 | Volume 9 | Article 632269
+
+
+[PDF physical page 7]
+Mutanda et al.                                                                                            Advances in Taxol Metabolic Engineering
+
+
+
+
+TABLE 2 | Mutagenesis of enzymes of the Taxol pathway to manipulate catalytic ﬁtness, activity and product distribution proﬁle.
+
+
+Target       Mutation      % Activity     Taxadiene (T)      Iso-taxadiene (T1)      Verticillenes     Cembrene A     References
+
+TXS
+
+TXS           Wild type          100                 93.2                  4.7                   2.1             N.D           Schrepfer et al., 2016
+
+Y89          Y89A/E/F            Lost activity*
+
+R580        R580A/E/H          Lost activity
+
+R754        R754A/E/H          Lost activity
+
+R768        R768A/E/H          Lost activity
+
+Y835        Y835A/F/W          Lost activity
+
+V584        V584K/L/M         89–92            14–30                  0.6               70–85.6
+
+             V584N/S/P/R        Lost activity
+
+S587         S587D/Y/K/L/G      Lost activity
+
+            S587A              21.8                 8.9                N.D                 32.2              58.9
+
+Y609        Y609G             N.A               N.D               N.D               100             N.A          Edgar et al., 2017
+
+V610         V610H/S/F/A         Lost Activity                                                                                       Schrepfer et al., 2016
+
+S713        S713T              97.4                92.7                  5.1                2              N.D           Schrepfer et al., 2016
+
+             S713A/L             Lost activity                                                                                       Schrepfer et al., 2016
+
+V714         V714A/I             8.7–10.4           94                 5.7–5.9             N.D             N.D
+
+             V714T/G/P           Lost activity
+
+G715        G715A/S            Lost Activity
+
+S713        S713T              97.4              N.D               N.D               N.D             100
+
+             S713A/L             Lost activity
+
+W753      W753H             51.3              N.D               N.D               N.D             100           Schrepfer et al., 2016;
+                                                                                                                        Ansbacher et al., 2018
+
+           W753H/C830A      48.5              N.D               N.D               N.D             100           Schrepfer et al., 2016
+
+             W753A/C/E/L/V      Lost activity
+
+C830       C830A              88.5                93.1                  4.8                   2.1             N.D
+
+           C830S              92.4                79.3                  7.3                 13.4            N.D
+
+F834        F834A/G            25.6–28.3         38–87               6.1–6.5
+
+Y835        Y835F               3.5               100               N.D               N.D             N.D
+
+            Y835A/W            Lost activity
+
+Y841        Y841F              41.3              N.D               N.D                 43.6              56.4
+
+             Y841A/T             Lost activity
+Y688¶       Y688L                 2.4-fold increase in T1, and corresponding increase in T-5α-ol                                     Edgar et al., 2017
+
+T5αH
+
+T380        T380S             Produced a dihydroxylated product—5(12)-oxa-3(11)-cyclo-taxan-10-ol                             Edgar et al., 2017
+
+K131        K131R             Improved turnover but lost selectivity compared to wild type                                         Yadav, 2014
+
+V374        V374L              Improved selectivity at the expense of turnover
+
+S302        S302A               Lost activity and no change in fold-change
+
+DBAT
+
+G38        G38R                 2.15-fold increase in baccatin III                                                                                        Li et al., 2017
+
+H162       H162A              Lost activity                                                                                                                Li et al., 2017
+
+            H162A/R63H         3-fold increase in catalytic activity compared to wild type                                       You et al., 2018
+
+R363        R363A               Lost activity                                                                                                                Li et al., 2017
+
+           R363H               26-fold increase in catalytic activity compared to wild type                                      You et al., 2018
+
+G361       G361A              Lost activity                                                                                                                Li et al., 2017
+
+I164          I164A                Lost activity                                                                                                                Li et al., 2017
+
+D166       D166H               15-fold increase in catalytic activity compared to wild type                                      You et al., 2018
+
+            D166H/R363H        60-fold increase in catalytic activity compared to wild type                                      You et al., 2018
+
+I43/D390     I43S/D380R           3.3-fold increase in catalytic efﬁciency using vinyl acetate and 3-fold using acetyl CoA                     Lin et al., 2018
+
+*Enzyme activity in comparison to the wild type TXS. Activity of 0–2% was qualiﬁed as “lost activity”. N.D., Not detectable; N.A., Not assayed. ¶ These mutants led to
+corresponding increases in taxadiene-5α-ol after introduction of T5αH-CPR.
+
+
+P450 chemistry in E. coli as a proof of concept and achieved   built from the MMME breakthrough (Ajikumar et  al., 2010)
+a ﬁvefold increase in oxygenated taxanes, reaching the highest  and aimed to optimize downstream P450 chemistry through
+oxygenated diterpene  titer to date (∼570 mg/L). The work  chromosomal integration of the upstream pathways and use
+
+
+
+
+Frontiers in Bioengineering and Biotechnology | www.frontiersin.org             7                                      February 2021 | Volume 9 | Article 632269
+
+
+[PDF physical page 8]
+Mutanda et al.                                                                                            Advances in Taxol Metabolic Engineering
+
+
+
+of diﬀerent strategies to optimize T5αH and cytochrome P450   downstream gene (Figure 2B). Working with the best optimized
+reductase (CPR) partner interactions. A protein interdependency   strain from Biggs et al. (2016a), this rSFP tool was used to screen
+of  the  oxidative module and  the upstream modules was  membrane envelope stress-response promoter library with the
+uncovered through targeted proteomics, and was determined   goal to create a promoter that is responsive to the stress caused by
+as a key obstacle of T5αH expression and to be responsible   introduction of T5αH/CPR to the upper pathways. Optimization
+for  reduction  of upstream  metabolites on  introduction  of   of the timing and expression magnitude of T5αH/CPR with
+T5αH. Strategies used to uncouple this interdependency and   rSFP in this way resulted in a notable improvement of 2.4-fold
+optimize the pathway proteins were varying promoter strength,   (25.4 mg/L) in oxygenated taxanes and 3.6-fold (39.0 mg/L)
+N-terminal modiﬁcations, gene copy number optimization and   increase in total taxanes (Glasscock et al., 2019).
+optimization of CPR interactions (Figure 2A). Construction of     CRSIPR/Cas9 technology is a fast and precise enabling tool
+the T5αH-CPR module as an operon resulted in higher titers   that is increasingly being used in synthetic biology applications.
+compared to a linked, chimera construct; and a weaker Trc   This technology was applied to build a cloning—free screening
+promoter demonstrated overall higher yields compared to a   toolkit for promoter strength and solubility tag optimization
+stronger T7 promoter. These results suggested the need for a   in S. cerevisiae (Apel et al., 2017) to enable quick exploration
+lowered CPR expression as evidenced by the beneﬁts of an   of diﬀerent constructs. As a proof of concept, the toolkit was
+operon construction and Trc promoter. To address the solubility   applied to build an expression context library for TXS to explore
+issue that  is common with P450 enzymes, truncation of the   localization tags, solubility tags and promoter strength. The fast
+hydrophobic, membrane-targeting N-termini of both T5αH and   toolkit identiﬁed a solubility problem with TXS in yeast as the
+CPR was undertaken, and three leader peptides of diﬀerent   major cause of poor catalysis, and identiﬁed the best optimized
+solubilities (8RP, MA, and 2B1) were attached for N-terminal   construction of TXS with MBP solubility tag and a strong
+modiﬁcations. Despite the signiﬁcant improvement in solubility  GAL1 promoter that increased titers 25-fold compared to an
+of the expressed respective proteins that was noted, there were   optimized strain.
+no beneﬁts of these modiﬁcations on T5αH performance, in
+fact, increased hydrophilicity (2B1-T5αH/2B1-CPR) resulted in  T5αH Protein Engineering
+accumulation of taxadiene that was not converted to oxidized   While all the above tools are promising for optimizing T5αH
+taxanes.  Ultimately,  this work  developed  a  strain  with  a   expression, it is important to note that the improvements are
+chromosomally integrated MMME module and T5aH-CPR in   in titers of “oxygenated taxanes”, a term describing a mixture
+an operon construct in a low copy plasmid under a weak   of diﬀerent mono- and doubly oxygenated taxanes monitored
+Trc promoter as the most optimal that achieved ∼570 mg/L   at m/z 288 and m/z 304 in the GC-MS chromatograms. The
+oxygenated taxanes in a benchtop bioreactor.                     only product of T5αH that has been shown to lead to Taxol is
+  As demonstrated by Biggs et al. (2016a), optimizing promoter   T-5α-ol, thus, though increases in total oxygenated taxanes are
+strength to strike a balanced expression of pathway enzymes or   promising, it is highly desired to address product promiscuity
+achieving dynamic expression is a very powerful tool in metabolic   of the enzyme, and devise ways to improve only the desired
+engineering and synthetic biology. In the context of the Taxol   product (i.e., T-5α-ol). Protein engineering is an eﬀective tool
+pathway, this tool was recently exploited to ﬁnely tune expression   that has already been harnessed to address the T5αH bottleneck,
+of TXS and GGPPS using bidirectional promoters (BDPs) in the  and to improve other enzymes of the Taxol pathway (Figure 3).
+yeast Pichia pastoris (Vogl et al., 2018). BDPs allow not only   Notwithstanding major advancements in directed evolution as a
+diﬀerential expression of genes utilizing diﬀerences in promoter   subﬁeld that recently won a Nobel price, the major challenges
+strength, but can be used to explore constitutive and inducible   with leveraging this tool in engineering T5αH and other P450s
+promoters, and for timing where one gene needs to be expressed   of the Taxol pathway is the dearth of mechanistic knowledge
+after another (Figure 2B). When GGPPS was expressed under   of catalysis and the lack of high throughput screening assays to
+a constitutive promoter, no taxadiene was detected, but when   quickly screen the large number of generated mutants. Assuming
+GGPPS was under a depressed promoter and TXS under a   that the experimentally observed product promiscuity of T5αH
+diﬀerent promoter, taxadiene titers increased by nearly 60-fold   was due to competing regiospeciﬁc proton abstraction by the
+(Vogl et al., 2018). Though this strategy was not extended to   oxyferryl species of the P450 enzyme on taxadiene as proposed
+T5αH, the same study already provided a promising example   previously (Hefner  et  al., 1996; Jennewein  et  al., 2004), a
+with a human P450 and  its CPR partner that improved by   computational method was developed to guide mutagenesis and
+ﬁvefold under an optimal BDP. Another example of the versatility   improve catalytic eﬃciency and selectivity (Yadav, 2014). A total
+of manipulating promoters for dynamic pathway expression   of 53 mutants were designed targeting amino acids residues
+to overcome the T5αH bottleneck  is a recent report using   around the active site of the enzyme, basing on an energy-
+riboregulated switchable feedback promoters (rSFPs) (Glasscock   minimized homology model of T5αH that was developed using
+et  al., 2019). These novel rSFPs are created through using a   six P450 structures as template. Assessment of the mutant library
+natural, stress-response promoter in conjunction with a target   identiﬁed six variants (5 single and 1 triple mutant) that improved
+sequence that is inserted between the promoter and the gene.   both in turnover and T-5α-ol selectivity, though the identities of
+A separate  trans-acting  regulator,  called small transcription   the mutants were not clearly stated and the mechanistic basis
+activating RNA (STAR) is introduced in a second plasmid to bind   of the improvements was not discussed. Three mutants from
+and activate the rSFP, creating a gated ON/OFF switch for the   the study were however used to infer mechanistic basis on the
+
+
+
+
+Frontiers in Bioengineering and Biotechnology | www.frontiersin.org             8                                      February 2021 | Volume 9 | Article 632269
+
+
+[PDF physical page 9]
+Mutanda et al.                                                                                            Advances in Taxol Metabolic Engineering
+
+
+
+
+
+ FIGURE 2 | Tools and strategies used to overcome the T5αH bottleneck. (A) Optimization of the P450 module in a previously optimized E. coli strain with
+  chromosomally integrated MEP and TG modules was achieved using several approaches (see Biggs et al., 2016a). Top panel—A high copy number plasmid (P10)
+  was compared to a low copy number (P5), and expression strength was explored using a strong T7 promoter and a weak (Trc) promoter; Middle panel—Using a low
+  copy P5 plasmid and weak Trc promoter, interactions of the P450 and its reductase partner CPR were explored using a linked chimera construct (L) or an unlinked
+  operon design (O); Lower panel—N-terminal modiﬁcations were tested on truncated versions of T5αH and CPR to enhance solubility using three leader
+  peptides—2B1, MA an 8RP; 17α was also used in another study (Rouck et al., 2017). Right panel—Further optimizations including targeted proteomics and
+  optimization of media and fermentation conditions led to highest titers of oxygenated taxanes. (B) Targeting promoters for dynamic regulation of T5αH catalysis.
+  Top—Bidirectional promoters (BDPs) that differ in inducibility and strength can be used for ﬁne-tuning and timing of expression of proteins in the Taxol pathway. Vogl
+  et al. (2018) tested this concept and achieved a 50x-improvement in taxadiene titers. Lower—Glasscock et al. (2019) introduced riboregulated Switchable feedback
+  promoter (rSFP) that uses a natural stress-response promoter (SRP) in combination with a second plasmid containing a small transcription activating RNA (STAR)
+  that can be induced by an inducer like anhydrotetracycline (ATc) to create an external ON/OFF gate that achieved a 2.4-fold increase in oxygenated taxanes
+  compared to Biggs et al. (2016a). (C) Compartmentalized engineering in plant tissue (N. benthamiana) targeting chloroplasts (Li et al., 2019) and cytosol (De La Peña
+  and Sattely, 2020) was conducted. Plastid—chloroplastic targeting (blue arrows) resulted in production of T-5α-ol for the ﬁrst time, while cytosolic targeting (red
+  arrows) resulted in 10-fold increase in taxadiene. Purple arrows—upregulation of HMGR without cytosol-targeted tcTXS-tcGGPPS led to 80x increase in an
+  unidentiﬁed compound that co-eluted with taxadiene. Black arrows—introduction of DXS and TXS-GGPPS without chloroplastic targeted chlT5αH-chlCPR results in
+  detection of OCT only. Red dotted arrow, cytosolic engineering of taxadiene with further introduction of T5αH-CPR has not yet been attempted.
+
+
+
+observed changes; S302A, K131R, and V374L (Table 2). Product   chemical synthesis study provided direct evidence that indeed
+promiscuity was slightly improved in the identiﬁed mutants, but  T can be epoxidized in a regio- and diastereoselective manner
+T-5α-ol remained a minor product while OCT and iso-OCT   to yield the intermediate taxadiene-4(5)-epoxide that can be
+dominated the product proﬁle.                                     further rearranged into T-5α-ol, OCT, and iso-OCT (Barton
+  A  diﬀerent  T5αH  mechanism  involving  an  epoxide   et  al., 2016). These observations are signiﬁcant, and support
+intermediate, as opposed to an exclusive radical intermediate,   that T5αH  catalysis  is substrate-driven, and that the broad
+was suggested by the Stephanopoulos group (Edgar et al., 2016).   product proﬁle is a result of non-selective epoxide degradation
+Under this proposal, the two main products of TXS (T and T1)   rather than T5αH non-selectivity as previously assumed. Based
+undergo catalysis through diﬀerent transition states en-route to  on this alternative mechanistic proposal, three targets can be
+T-5α-ol; T1 follows the radical-rebound mechanism (abstraction   manipulated for enhancing selectivity of T5αH hydroxylation;
+at the C20- position), while T follows epoxidation route to an    (i) manipulating TXS selectivity to enhance T1 in the product
+unstable epoxide intermediate that decomposes non-selectively   proﬁle,  (ii) engineering T5αH to improve turnover and  (iii)
+to several products like OCT, iso-OCT, and T-5α-ol (Figure 3A).   searching for an epoxidase enzyme to improve selectivity of
+The proposal was supported by several lines of evidence, and it   the hypothesized epoxidase intermediate (Figure 3B). All three
+was experimentally determined that incubating taxadiene with   approaches were conducted and TXS engineering to enhance T1
+TXS leads to several products, but incubating with iso-taxadiene    titers resulted in variants that displayed 2.4-fold improvement in
+produced  a  single peak  of T-5α-H. Another  independent  T1 leading to a 2.4-fold improvement in T-5α-ol titers in E. coli
+
+
+
+
+Frontiers in Bioengineering and Biotechnology | www.frontiersin.org             9                                      February 2021 | Volume 9 | Article 632269
+
+
+[PDF physical page 10]
+Mutanda et al.                                                                                            Advances in Taxol Metabolic Engineering
+
+
+
+
+
+ FIGURE 3 | Improving T5αH catalysis through mechanism—informed protein engineering strategies (based on Edgar et al., 2016, 2017). (A) A novel mechanism of
+  T5αH catalysis was proposed, via an unstable epoxidase intermediate. Under this proposal, the mechanism of T5αH catalysis is substrate controlled. Taxadiene (T)
+  undergoes catalysis through the proposed epoxide (red arrows), leading to several products like OCT, T-5α-ol and iso-OCT, while iso-taxadiene (T1) follows the
+  radical rebound mechanism (black arrows) that exclusively leads to the desired T-5α-ol product and ultimately to Taxol. (B) Exploring engineering targets to improve
+  T5αH catalytic speciﬁcity toward T-5α-ol. Three strategies: (i) TXS engineering to improve iso-taxadiene yield, (ii) T5αH engineering to improve catalytic efﬁciency and
+  speciﬁcity and (iii) mining for an epoxide that could convert the epoxidase to T-5α-ol. Engineered TXS with improved T1 percentage improved T-5α-ol yield 2.5-fold.
+
+
+after reconstituting T5αH-CPR (Edgar et al., 2017). A total of   mutants were identiﬁed that yield verticillines (Q609G), or other
+14 residues consisting of polar residues near the TXS active site,   unidentiﬁed compounds, most likely cembrene A (Table 2).
+residues closer to PPi, and two residues in the N-terminus that
+caps the active site were investigated by saturation mutagenesis,  Semi-Rational Designing of DBAT
+and the most successful mutant was Y688L. In fact, in addition   Besides the ﬁrst two enzymes of the Taxol pathway, other
+to the  critical PPi  assisted abstraction, docking simulations   downstream enzymes have also been targeted for engineering
+also identiﬁed Y688 as a critical residue for abstraction of the   enhanced catalysis. For example, DBAT was engineered with
+hydrogen on C-5 position. Mutation of N-terminal residues   the  aid  of  a computational  semi-rational  strategy,  leading
+led to a loss of activity, a result that was in agreement with   to a double mutant (I43S/D390R)  that not only improved
+Schrepfer et al. (2016). Mutagenesis of the P450 enzyme and   catalytic eﬃciency  but  could more  eﬃciently  utilize  vinyl
+mining of a novel T-4(5)-epoxidase were not successful, but   acetate, a cheaper alternative acyl donor compared to acetyl
+with the increasing amount of Taxus transcriptome datasets  CoA (Lin  et  al., 2018). Compared to the wild type DBAT,
+and the substrate synthesis methodology reported by Barton   the double mutant improved  catalytic eﬃciency by 3.3-fold
+and colleagues, further querying, in vitro screening and activity-  when using  vinyl  acetate, and  2.99-fold when using  acetyl
+guided fractionation are promising methods in searching for this  CoA (Table 2). Employing a similar computationally guided
+enzyme. In addition to T-5α-ol-enhancing mutations, other TXS   semi-rational  design,  Li  et  al.  (2017) employed  structure
+
+
+
+
+Frontiers in Bioengineering and Biotechnology | www.frontiersin.org            10                                     February 2021 | Volume 9 | Article 632269
+
+
+[PDF physical page 11]
+Mutanda et al.                                                                                            Advances in Taxol Metabolic Engineering
+
+
+
+modeling, molecular docking, alanine scanning and saturation  (HMGR) and observed a 10-fold improvement in taxadiene
+mutagenesis  to engineer DBAT  for  acetylation  of the C10   yields in N. benthamiana leaves (De La Peña and Sattely, 2020).
+position of 10-deacetyltaxol (DT) with the aim to utilize the   Given the robustness of the mevalonate pathway compared
+C7-gylcosylated Taxol analog (7-β-xylosyl-10-deacetyltaxol) for   to  the MEP pathway,  cytosolic  targeting could  potentially
+Taxol biosynthesis. The double mutant engineered in the study   open new avenues for engineering taxanes in plant  cells.  It
+(G38R/F301V) demonstrated 6-fold improvement in catalytic   remains to be  tested  if  this  cytosolic compartmentalization
+eﬃciency (acetylation of DT to Taxol) compared to wild type   strategy could be  leveraged  for  engineering production  of
+DBAT, and in addition, a mutant (G38R) was identiﬁed with   oxygenated taxanes.
+2.15-fold improved catalytic eﬃciency in converting the native
+substate (10-deacetyl baccatin) to baccatin III. Molecular docking
+                                NOVEL CANDIDATE GENES ANDalso revealed the  critical  catalytic role of His162 in DBAT
+catalysis, and alanine scanning identiﬁed 4 residues that led to  INSIGHTS FROM RECENT
+a complete loss of activity when mutated to alanine (H162A, TRANSCRIPTOME DATA
+R363A, G361A, and I164A). Two  of these residues (H162
+and R363) and an additional active site residue (D166) were   Advances in sequencing technology in the last decade opened
+further investigated by another group by a similar computational   avenues for gene discovery and pathway elucidation of Taxol
+strategy supported by  site directed mutagenesis (You et  al.,   biosynthesis. Almost  all novel genes identiﬁed in the early
+2018). Postulating the beneﬁts of histidine residues in the DBAT   days  were  discovered  through  leveraging  homology-based
+catalytic pocket, these residues were mutated to histidine, leading   cloning, random sequencing of cDNA libraries from MeJA-
+to D166H, R363H, H162A/R363H, and D166H/R363H that   elicited Taxus cell cultures, diﬀerential display of mRNA-reverse
+demonstrated superior catalytic activities (15-, 26-, 3-, and 60-   transcription-PCR,  screening  of EST  libraries and  use  of
+times improvements compared to wild type DBAT, respectively)   available substrates and surrogate substrates (see reviews by
+(Table 2).                                               Walker and Croteau, 2001; Kaspera et  al., 2006). The advent
+   Computational tools are increasingly becoming useful in   of high throughput RNA sequencing technologies presented
+gaining mechanistic insights on the catalysis cycles of Taxol   a very powerful tool that enabled transcriptome and genome
+pathway enzymes. The above examples highlight how versatile   sequencing,  generating a huge amount  of  data  that  often
+and powerful  the  tool was  leveraged  for  several  proteins.    is  challenging  to  analyze and  infer  meaningful  biological
+Cytochrome  P450s  are  very  sensitive  to  mutations,  thus   relevance. To  date, powerful sequencing technologies using
+computational and phylogenetically guided mutagenesis studies   next-generation  sequencing  (NGS)  and   third-generation
+of T5αH have so far not yet identiﬁed signiﬁcantly improved   sequencing (TGS) platforms have been applied in transcriptomic
+mutants for solving  this bottleneck. Nevertheless, given the   studies of Taxus tissues and cell suspension cultures. Recent
+lack of a X-ray crystal structure of T5αH or any CYP450 of   years  have  witnessed an  increased  interest  in  sequencing
+the Taxol pathway, homology modeling and molecular docking   Taxol-related transcriptomes, revealing unprecedented insights
+have thus far provided three models (Edgar et al., 2017; Rouck   into  regulatory  mechanisms  of  the  pathway,  unraveling
+et  al., 2017; Yadav, 2014) that can guide semi-rational design   mechanistic  links  to  plant  hormone  signal  transduction
+strategies.  Several  residues were  identiﬁed  in  the  resulting   pathways  and  providing  several  lead  candidates  for  the
+docking conformations that are potentially involved in stabilizing   missing pathway genes—with some  that have already been
+the hydrophobic taxadiene, reaction intermediates and the heme  conﬁrmed functional.
+that could shed light on the mechanism of catalysis.           A  transcriptome  study  was  conducted  with  MeJA-
+                                                                           elicited  T.  baccata suspension  cells using high throughput
+Metabolic Engineering in Plant Hosts                   complementary DNA-ampliﬁed fragment length polymorphism
+Plant hosts are expected to oﬀer a more favorable environment  (cDNA-AFLP) that provided a total of 15 candidate transcripts
+for the challenging functional expression of plant CYP540 that   identiﬁed as potential lead candidate genes encoding the six
+currently frustrates engineering of the pathway in microbial   remaining enzymes (PCL, T1βH, T9O, C4-C20  epoxidase,
+hosts. Taxol pathway genes are located in diﬀerent organelles in   T2′αH, and oxomutase)  of  the Taxol pathway.  Functional
+the plant cell (cytosol, endoplasmic reticulum membranes, and   characterization of these candidates led to the isolation of PCL
+chloroplasts) but the nature of the exchange of intermediates   (Ramírez-Estrada  et  al.,  2016). A combined transcriptomic
+among these diﬀerent locations is not known. We considered   assembly  of  Taxus  chinensis  cultured  cells  and  in  silico
+inter-organellar transport of taxane intermediates to be the   mining of publicly available transcriptome data sets covered a
+major barrier blocking access of endoplasmic reticulum-localized   comprehensive list of CYP450 genes, creating a valuable resource
+CYP450s to their diterpenoid substrate produced in the plastid   for searching the missing enzymes and for ﬁnding alternative
+in  plant  cells and  used  a  compartmentalized  engineering   P450s for bottleneck enzymes like T5αH (Liao et  al., 2017).
+strategy that led to production of T-5α-ol in a heterologous  A total of 118 full length and 175 partial length T. chinensis P450s
+plant host  for the  ﬁrst time  (Li  et  al., 2019; Figure 2C).   were identiﬁed, including the ﬁve known P450s of the pathway
+A  very  recent  report  similarly  targeted TXS and GGPPS  (CYP725A1—T10βH;   CYP725A2—T13αH;   CYP725A4—
+in  the  cytosol and  overexpressed  the mevalonate pathway  T5αH,  CYP725A5—T7βH,  CYP725A6—T2αH)  and   six
+rate limiting enzyme 3-hydroxy-3-methylglutaryl-CoA reductase   novel CYP725A  subfamily  genes (CYP725A9, CYP725A11,
+
+
+
+
+Frontiers in Bioengineering and Biotechnology | www.frontiersin.org            11                                     February 2021 | Volume 9 | Article 632269
+
+
+[PDF physical page 12]
+Mutanda et al.                                                                                            Advances in Taxol Metabolic Engineering
+
+
+
+CYP725A16, CYP725A20, CYP725A22, CYP725A23). The same   yeast-two-hybrid and in vitro assays and revealed TcMYC2a
+three  sets of publicly  available transcriptome datasets from   as  a  positive  regulator  of TXS  in  JA  signaling  (Zhang
+T. chinensis cultured cells were mined for WRKY transcription   et  al., 2018b).  It  relays  its  positive  signal through binding
+factors leading to identiﬁcation of 61 transcripts of TcWRKY  JAZ  proteins, and  interacting  with  promoters  of  ERF15,
+of which  six selected genes were  all upregulated by MeJA   ERF12, and TXS through the T/G-box, G-box, and E-box in
+(Zhang et al., 2018a).                                                 their promoters.
+   Other recent Taxol-related transcriptomes covered a taxol-
+producing endophytic fungi Cladosporium cladosporioides MD2
+(Miao et al., 2018), proﬁling of time-series reprogramming of  PERSPECTIVES AND CONCLUDING
+Taxus x media genes following MeJA treatment (Mao et al., 2018), REMARKS
+comparison of wild type T. yunnanensis with a high Taxol and
+10-DAB—yielding new cultivar (He et al., 2018), comparative  Most genes of the Taxol pathway were isolated and their encoded
+transcriptomes of T. media, T. marei, and T. cuspidata that diﬀer   proteins were functionally characterized  is diﬀerent systems.
+in Taxol content (Zhou et al., 2019) and Iso-Seq of T. cuspidata   However, successes in functional expression of individual genes
+tissues (Kuang et al., 2019). The Iso-Seq transcriptome identiﬁed   were not replicated when sequential genes were constructed
+nine CYP450s and seven acyl transferases (ACTs) as possible lead   into a pathway to synthesize intermediates. The most successful
+candidates for Taxol biosynthesis. The utility of transcriptome   heterologous production of a taxane intermediate was 1 g/L
+data sets in novel gene discovery, unraveling of biosynthetic and   achieved 10  years ago through an MMME approach, but
+regulatory mechanisms was demonstrated in numerous examples   introduction of T5αH that catalyzes the second step to the
+discussed above. An in-depth computational and experimental   strain led to a dramatic loss of both optimality and titers. The
+analysis of the cDNA-AFLP dataset previously analyzed by   past 5 years witnessed a signiﬁcant increase in application of
+Ramírez-Estrada et  al. (2016) was recently conducted by the   synthetic biology tools together with the emerging enabling
+same group, leading to identiﬁcation of transcript TB506 as a   technologies  for gene assemblies  in enzyme discovery and
+putative Taxane 2′a hydroxylase (T2′αH) (Sanchez-Muñoz et al.,   metabolic engineering of taxane intermediates. Several synthetic
+2020). Molecular docking was conducted to conﬁrm binding   biology tools have been leveraged to optimize T5αH expression
+of such a huge substrate as 3′N-dehydroxydebenzoyltaxol and  and  activity,  including  truncations, promoter  optimization,
+possible conformations were achieved. Functional expression  CPR  optimization  and  compartmentalized  engineering  in
+and characterization of T2′αH activity was conﬁrmed in Pisum   plant organelles and use of riboregulated switchable feedback
+sativum protoplasts, opening a biotechnological route to Taxol   promoters (rSFPs). Computational and experimental approaches
+from its available intermediates 10-DAB and BIII.               were used  to improve our understanding  of  the  catalytic
+   In  another  recent  study  relevant  to  biotechnological  mechanism of TXS and T5αH, shedding more light on the
+production of Taxol, a  library of 17 acyl CoA transferases   transition states governing the observed product proﬁle. Models
+(ACTs) was mined from three publicly available RNA-Seq data   of the closed TXS and those of T5αH and DBAT were also built
+sets (from MeJA-elicited T. media suspension  cell cultures)   that provided intricate details of the active site architecture to
+and  screened  for  activation  of  diﬀerent  organic  acids  for   guide semi-rational protein engineering strategies to improve
+N-substitution  of  3-phenylisoserine  side  chain  of  taxoids   catalytic activity and alter product proﬁle.
+(Srividya et al., 2020). In addition to identiﬁcation of a candidate     As highlighted throughout this review, most strategies in
+ACT with high speciﬁcity for generating CoA ester of benzoic   the past 5 years were focused on T5αH. This is because this
+acid (leading to Taxol formation) the study identiﬁed and  enzyme catalyzes the most important bottleneck of the pathway.
+functionally characterized several ACTs responsible for inserting  With a taxadiene conversion rate of  less than 10%, and a
+diﬀerent groups on this position, leading to several observed   product proﬁle comprising several monooxygenated and few
+taxoids like Taxol B (insertion of a hexanoic acid), Taxol C   dioxygenated taxanes, it’s not surprising that strategies that aimed
+(tiglic acid) and Taxol D (butyric acid). An ACT clone with   to increase supply of precursors, or those aiming to improve
+99%  identity  to the one described above (Ramírez-Estrada   catalytic  activity did not achieve much improvements since
+et  al., 2016) was isolated, but activity screening of the clone,   this is a major branching point of the pathway that splits ﬂux
+and  all other candidates by Srividya  et  al. (2020) did not   into several oﬀ-target taxanes. The successes recorded through
+yield a positive hit.                                            optimized expression (operon constructs, use of low strength
+   Biochemical  assays  have  been  used  to conﬁrm  several   promoters and low copy plasmids), a clever approach to couple
+regulatory mechanisms inferred from deep sequencing studies.   expression of the protein to cell envelope stress through rSFPs,
+Using a GUS reporter assay with promoters of seven pathway   compartmentalized engineering in chloroplasts of plant cells and
+genes from  Taxus  cuspidata  cells,  three  basic  helix-loop-   engineering of TXS to favor iso-taxadiene product that proved to
+helix  (bHLH)  transcription   factors  (TcMYC1,  TcMYC2,   exclusively lead to T-5α-ol are approaches that we expect to be
+and TcMYC4)  were  identiﬁed  as  negative  regulators  of   further developed in the near future, utilizing such enabling tools
+MeJA-induced  Taxol  biosynthesis through  their  interaction   as the CRISPR/Cas9 toolkit developed for S. cerevisiae. Nicotiana
+with  E-boxes  in  the  promoters  of  Taxol  pathway  genes   benthamiana, a high biomass plant with available technologies
+(Lenka  et  al.,  2015). A more recent  study, however, used   for DNA manipulation and agrobacterium-mediated transient
+GUS reporter assays in combination with yeast-one-hybrid,   expression systems is very promising as a chassis for heterologous
+
+
+
+
+Frontiers in Bioengineering and Biotechnology | www.frontiersin.org            12                                     February 2021 | Volume 9 | Article 632269
+
+
+[PDF physical page 13]
+Mutanda et al.                                                                                            Advances in Taxol Metabolic Engineering
+
+
+expression of the Taxol pathway and is increasingly being favored AUTHOR CONTRIBUTIONS
+for production of many other terpenoids. The Taxol pathway that
+comprises nine CYP450s that trigger membrane envelope stress  IM and JL drafted the manuscript with support from FX. IM,
+on their expression in host cells as demonstrated with T5αH, is a   JL, FX, and YW revised the manuscript. YW supervised this
+very good candidate for expression in N. benthamiana.            work. All authors contributed to the article and approved the
+  Advances is high throughput sequencing technologies have   submitted version.
+enabled generation of several Taxol-related transcriptomes, and
+recent mining of these publicly available resources have led
+to isolation of two missing genes, PCL and T2′αH, though  FUNDING
+wide testing of PCL in diﬀerent heterologous hosts is yet to
+be conclusive. Dozens of lead candidate genes for the missing   This work was funded by the National Key R&D Program
+steps were identiﬁed through mining transcriptomes, and with   of China (2018YFA0900600),  the  National  Natural  Science
+more screening platforms being established, we anticipate full   Foundation of China (Grant nos. 22077129, 31670099, 31700261,
+elucidation of the pathway in the near future. Furthermore,  and 41876084) and Research Program of State Key Laboratory
+we anticipate gas phase QM/MM calculations and experimental   of Bioreactor Engineering, the Tianjin Synthetic Biotechnology
+methods to reveal the mechanism of catalysis of T5αH that   Innovation Capacity Improvement  Project (TSBICIP-KJGG-
+will guide protein engineering to overcome the bottleneck,   002-15), the Program of Shanghai Academic Research Leader
+as was done for TXS and DBAT. As sequencing technology   (20XD1404400),  the  Strategic  Priority  Research  Program
+advances in the coming years, we also expect a high-resolution   “Molecular mechanism of Plant Growth and Development” of
+genome of Taxus species to be assembled that will complement  CAS (XDB27020202 and XDB27020103), the Construction of the
+transcriptome data sets and accelerate gene discovery of the   Registry and Database of Bioparts for Synthetic Biology of the
+remaining CYP450s, PCL, and an epoxidase. Synthetic biology   Chinese Academy of Sciences (No. ZSYS-016), the International
+tools are expected to play an increasingly important role in   Partnership Program of Chinese Academy of Sciences (No.
+enzyme discovery, construction and optimization of the pathway   153D31KYSB20170121), and the National Key Laboratory of
+in diﬀerent chassis and silencing of competing pathways.           Plant Molecular Genetics, SIPPE, CAS.
+
+
+REFERENCES                                                           Biggs, B. W., Rouck, J. E., Kambalyal, A., Arnold, W., Lim, C. G., De Mey, M., et al.
+                                                                                     (2016b). Orthogonal assays clarify the oxidative biochemistry of Taxol P450
+Abdallah, I. I., Pramastya, H., Van Merkerk, R., and Sukrasno Quax, W. J. (2019).     CYP725A4. ACS Chem. Biol. 11, 1445–1451. doi: 10.1021/acschembio.5b00968
+   Metabolic engineering of Bacillus subtilis toward taxadiene biosynthesis as the   Cha, M., Shim, S. H., Kim, S. H., Kim, O. T., Lee, S. W., Kwon, S. Y., et al.
+   ﬁrst committed step for taxol production. Front. Microbiol. 10:218. doi: 10.3389/       (2012). Production of taxadiene from cultured ginseng roots transformed with
+   fmicb.2019.00218                                                             Taxadiene synthase gene. BMB Rep. 45, 589–594. doi: 10.5483/BMBRep.2012.
+Ajikumar, P. K., Xiao, W. H., Tyo, K. E. J., Wang, Y., Simeon, F., Leonard, E., et al.       45.10.085
+   (2010). Isoprenoid pathway optimization for Taxol precursor overproduction   Choi, H. K., Kim, S. I., Son, J. S., Hong, S. S., Lee, H. S., and Lee, H. J. (2000).
+   in Escherichia coli. Science 330, 70–74. doi: 10.1126/science.1191652               Enhancement of paclitaxel production by temperature shift in suspension
+Ansbacher, T., Freud, Y., and Major, D. T. (2018). Slow-starter enzymes: role of       culture of Taxus chinensis. Enzyme Microb. Technol. 27, 593–598. doi: 10.1016/
+    active-site architecture in the catalytic control of the biosynthesis of taxadiene      S0141-0229(00)00255-6
+   by Taxadiene synthase. Biochemistry 57, 3773–3779. doi: 10.1021/acs.biochem.   De La Peña, R., and Sattely, E. S. (2020). Rerouting plant terpene biosynthesis
+   8b00452                                                                          enables momilactone pathway elucidation. Nat. Chem. Biol. 17, 205–212. doi:
+Anterola, A., Shanle, E., Perroud, P. F., and Quatrano, R. (2009). Production of      10.1038/s41589-020-00669-3
+   taxa-4(5),11(12)-diene by transgenic Physcomitrella patens. Transgen. Res. 18,   DeJong, J. H. M., Liu, Y., Bollon, A. P., Long, R. M., Jennewein, S., Williams, D.,
+   655–660. doi: 10.1007/s11248-009-9252-5                                                et al. (2006). Genetic engineering of taxol biosynthetic genes in Saccharomyces
+Apel, A. R., Espaux, L., Wehrs, M., Sachs, D., Li, A., Tong, G. J., et al. (2017).        cerevisiae. Biotechnol. Bioeng. 93, 212–224. doi: 10.1002/bit.20694
+  A Cas9-based toolkit to program gene expression in Saccharomyces cerevisiae.   Ding, M.  Z., Yan, H.  F.,  Li,  L.  F., Zhai,  F., Shang,  L. Q., Yin,  Z.,  et  al.
+   Nucleic Acids Res. 45, 496–508. doi: 10.1093/nar/gkw1023                            (2014). Biosynthesis of taxadiene in Saccharomyces cerevisiae: selection of
+Barton, N. A., Marsh, B. J., Lewis, W., Narraidoo, N., Seymour, G. B., Fray, R., et al.       geranylgeranyl diphosphate synthase directed by a computer-aided docking
+   (2016). Accessing low-oxidation state taxanes: is taxadiene-4(5)-epoxide on the        strategy. PLoS One 9:e0109348. doi: 10.1371/journal.pone.0109348
+   Taxol biosynthetic pathway? Chem. Sci. 7, 3102–3107. doi: 10.1039/c5sc03463a    Edgar,  S.,  Li, F.  S., Qiao, K., Weng,  J. K., and Stephanopoulos, G. (2017).
+Besumbes, Ó,  Sauret-Güeto,  S.,  Phillips, M.  A.,  Imperial,  S.,  Rodríguez-      Engineering of Taxadiene synthase for improved selectivity and yield of a key
+   Concepción, M., and Boronat, A. (2004). Metabolic engineering of isoprenoid       taxol biosynthetic intermediate. ACS Synth. Biol. 6, 201–205. doi: 10.1021/
+   biosynthesis in Arabidopsis for the production of taxadiene, the ﬁrst committed      acssynbio.6b00206
+   precursor of taxol. Biotechnol. Bioeng. 88, 168–175. doi: 10.1002/bit.20237         Edgar, S., Zhou, K., Qiao, K., King, J. R., Simpson, J. H., and Stephanopoulos,
+Bian, G., Yuan, Y., Tao, H., Shi, X., Zhong, X., Han, Y., et al. (2017). Production      G. (2016). Mechanistic insights into Taxadiene epoxidation by taxadiene-5α-
+   of taxadiene by engineering of mevalonate pathway in Escherichia coli and       hydroxylase. ACS Chem. Biol. 11, 460–469. doi: 10.1021/acschembio.5b00767
+   endophytic fungus Alternaria alternata TPF6. Biotechnol. J. 12, 1–11. doi: 10.    Engels, B., Dahm, P., and Jennewein, S. (2008). Metabolic engineering of taxadiene
+   1002/biot.201600697                                                               biosynthesis in yeast as a ﬁrst step towards Taxol (Paclitaxel) production. Metab.
+Biggs, B. W., Lim, C. G., Sagliani, K., Shankar, S., Stephanopoulos, G., De Mey, M.,       Eng. 10, 201–206. doi: 10.1016/j.ymben.2008.03.001
+    et al. (2016a). Overcoming heterologous protein interdependency to optimize    Escorcia, A. M., van Rijn, J. P. M., Cheng, G. J., Schrepfer, P., Brück, T. B., and
+   P450-mediated Taxol precursor synthesis in Escherichia coli. Proc. Natl. Acad.       Thiel, W. (2018). Molecular dynamics study of Taxadiene synthase catalysis.
+    Sci. U.S.A. 113, 3209–3214. doi: 10.1073/pnas.1515826113                                         J. Comput. Chem. 39, 1215–1225. doi: 10.1002/jcc.25184
+
+
+
+
+
+Frontiers in Bioengineering and Biotechnology | www.frontiersin.org            13                                     February 2021 | Volume 9 | Article 632269
+
+
+[PDF physical page 14]
+Mutanda et al.                                                                                            Advances in Taxol Metabolic Engineering
+
+
+
+
+Fett-Netto, A. G., DiCosmo, F., Reynolds, W. F., and Sakata, K. (1992). Cell culture    Li, B. J., Wang, H., Gong, T., Chen, J. J., Chen, T. J., Yang, J. L., et al. (2017).
+   of Taxus as a source of the antineoplastic drug taxol and related taxanes. Nat. B      Improving 10-deacetylbaccatin III-10-β-O-acetyltransferase catalytic ﬁtness for
+   10, 1572–1575. doi: 10.1038/nbt1292-1572                                        Taxol production. Nat. Commun. 8, 1–13. doi: 10.1038/ncomms15544
+Freud, Y., Ansbacher, T., and Major, D. T. (2017). Catalytic control in the facile    Li, J., Mutanda, I., Wang, K., Yang, L., Wang, J., and Wang, Y. (2019). Chloroplastic
+   proton transfer in Taxadiene synthase. ACS Catal. 7, 7653–7657. doi: 10.1021/      metabolic  engineering  coupled  with  isoprenoid  pool  enhancement  for
+   acscatal.7b02824                                                         committed taxanes biosynthesis in Nicotiana benthamiana. Nat. Commun. 10,
+Glasscock, C. J., Lazar, J. T., Biggs, B. W., Arnold, J. H., Kang, M. K., Tullman-ercek,      1–12. doi: 10.1038/s41467-019-12879-y
+   D., et al. (2019). Dynamic control of pathway expression with riboregulated    Liao, W., Zhao,  S., Zhang, M., Dong,  K., Chen,  Y., Fu,  C.,  et  al. (2017).
+   switchable feedback promoters. bioRxiv [Preprint]. doi: 10.1101/529180             Transcriptome assembly and systematic identiﬁcation of novel cytochrome
+Gutta,  P., and  Tantillo, D.  J.  (2007). A promiscuous proton  in taxadiene      P450s in Taxus chinensis. Front. Plant Sci. 8:1468. doi: 10.3389/fpls.2017.01468
+   biosynthesis? Org. Lett. 9, 1069–1071. doi: 10.1021/ol070007m                     Lin, S. L., Wei, T., Lin,  J. F., Guo, L. Q., Wu, G. P., Wei,  J., et  al. (2018).
+He, C. T., Li, Z. L., Zhou, Q., Shen, C., Huang, Y. Y., Mubeen, S., et al. (2018).      Bio-production of Baccatin III, an important precursor of paclitaxel by a cost-
+   Transcriptome proﬁling reveals speciﬁc patterns of paclitaxel synthesis in a new       eﬀective approach. Mol. Biotechnol. 60, 492–505. doi: 10.1007/s12033-018-
+   Taxus yunnanensis cultivar. Plant Physiol. Biochem. 122, 10–18. doi: 10.1016/j.      0090-7
+   plaphy.2017.10.028                                                                Lin, X., Hezari, M., Koepp, A. E., Floss, H. G., and Croteau, R. (1996). Mechanism
+Hefner, J., Rubenstein, S. M., Ketchum, R. E. B., Gibson, D. M., Williams, R. M.,       of taxadiene synthase, a diterpene cyclase that catalyzes the ﬁrst step of
+   and Croteau, R. (1996). Cytochrome P450-catalyzed hydroxylation of taxa-       taxol biosynthesis in Paciﬁc yew. Biochemistry 35, 2968–2977. doi: 10.1021/
+   4(5),11(12)-diene to taxa-4(20),11(12)-dien-5a-o1: the ﬁrst oxygenation step in      bi9526239
+   taxol biosynthesis. Chem. Biol. 3, 479–489. doi: 10.1016/S1074-5521(96)90096-    Malik, S., Cusidó, R. M., Mirjalili, M. H., Moyano, E., Palazón, J., and Bonﬁll, M.
+   4                                                                                    (2011). Production of the anticancer drug taxol in Taxus baccata suspension
+Hezari, M., Lewis, N. G., and Croteau, R. (1995). Puriﬁcation and Characterization       cultures: a review. Process Biochem. 46, 23–34. doi: 10.1016/j.procbio.2010.09.
+   of Taxa-4(5),11(12)-diene synthase from Paciﬁc yew (Taxus brevifolia) that      004
+   catalyzes the ﬁrst committed step of Taxol biosynthesis. Arch. Biochem. Biophys.   Mao, R., Chen, J., Chen, Y., and Guo, Z. (2018). Identiﬁcation of early jasmonate-
+   322, 437–444.                                                                    responsive genes in Taxus × media cells by analyzing time series digital gene
+Holton, R. A., Somoza, C., Kim, H. B., Liang, F., Biediger, R. J., Boatman, P. D.,       expression data. Physiol. Mol. Biol. Plants 24, 715–727. doi: 10.1007/s12298-
+    et al. (1994). First total synthesis of taxol. 1. Functionalization of the B ring.      018-0527-2
+     J. Am. Chem. Soc. 116, 1597–1598. doi: 10.1021/ja00083a066                   McElroy, C., and Jennewein, S. (2017). “TaxolR⃝biosynthesis and production: from
+Hong, Y. J., and Tantillo, D. J. (2011). The taxadiene-forming carbocation cascade.        forests to fermenters,” in Biotechnology of Natural Products, eds W. Schwab,
+     J. Am. Chem. Soc. 133, 18249–18256. doi: 10.1021/ja2055929                         B. Lange, and M. Wüst (Cham: Springer), 145–185. doi: 10.1007/978-3-319-
+Huang, Q., Roessner, C. A., Croteaul, R., Scott, A. I., Huang, Q. L., and Roessner,      67903-7_7
+   C. (2001). Engineering Escherichia coli for the synthesis of taxadiene. Bioorgan.   Miao, L. Y., Mo, X. C., Xi, X. Y., Zhou, L., De, G., Ke, Y.  S., et  al. (2018).
+   Med. Chem. 9, 2237–2242.                                                    Transcriptome analysis of a taxol-producing endophytic fungus Cladosporium
+Jennewein, S., Long, R. M., Williams, R. M., and Croteau, R. (2004). Cytochrome       cladosporioides MD2. AMB Express 8:41. doi: 10.1186/s13568-018-0567-6
+   P450 taxadiene 5a-hydroxylase, a mechanistically unusual monooxygenase   Mountford, P. G. (2010). “The Taxol R⃝story - development of a green synthesis
+   catalyzing the ﬁrst oxygenation step of taxol biosynthesis. Chem. Biol. 11,       via plant,” in Green Chemistry in the Pharmaceutical Industry, eds P. J. Dunn,
+   379–387. doi: 10.1016/j                                                       A. S. Wells, and M. T. Williams (Weinheim: Wiley-VCH Verlag GmbH & Co),
+Jennewein, S., Rithner, C. D., Williams, R. M., and Croteau, R. B. (2001). Taxol      145–160.
+   biosynthesis: taxane 13 alpha-hydroxylase is a cytochrome P450-dependent   Nicolaou, K. C., Yang, Z., Liu, J. J., Ueno, H., Nantermet, P. G., Guy, R. K., et al.
+   monooxygenase. Proc. Natl. Acad. Sci. U.S.A. 98, 13595–13600. doi: 10.1073/       (1994). Total synthesis of taxol. Nature 367, 630–634. doi: 10.1038/367630a0
+   pnas.251539398                                                        Nowrouzi, B., Li, R., Walls, L. E., D’Espaux, L., Malci, K., Lungang, L., et al. (2020).
+Kaspera,  R., and Croteau, R. (2006). Cytochrome P450 oxygenases of taxol      Enhanced production of taxadiene in Saccharomyces cerevisiae. Microb. Cell
+   biosynthesis. Phytochem. Rev. 5, 433–444. doi: 10.1007/s11101-006-9006-4           Fact 19:200.
+Kaspera, R., Croteau, R., Rodney, C., and Kaspera, R. (2006). Cytochrome P450   Ramírez-Estrada, K., Altabella, T., Onrubia, M., Moyano, E., Notredame, C.,
+   oxygenases of taxol biosynthesis. Phytochem. Rev. 5, 433–444.                     Osuna, L., et al. (2016). Transcript proﬁling of jasmonate-elicited Taxus cells
+Ketchum, R. E.  B., and Croteau, R. B. (2006). The Taxus metabolome and       reveals a β-phenylalanine-CoA ligase. Plant Biotechnol. J. 14, 85–96. doi: 10.
+   the  elucidation  of  the  taxolR⃝biosynthetic pathway  in  cell  suspension      1111/pbi.12359
+   cultures.  Biotechnol.  Agric.  Forest  57,  291–309.  doi:  10.1007/3-540-297    Rontein, D., Onillon, S., Herbette, G., Lesot, A., Werck-Reichhart, D., Sallaud, C.,
+   82-0_21                                                                                     et al. (2008). CYP725A4 from yew catalyzes complex structural rearrangement
+Koepp, A. E., Hezari, M., Zajicek, J., Vogel, B. S., LaFever, R. E., Lewis, N. G., et al.       of taxa-4(5),11(12)-diene into the cyclic ether 5(12)-oxa-3(11)-cyclotaxane.
+   (1995). Cyclization of geranylgeranyl diphosphate to taxa-4(5),11(12)-diene is          J. Biol. Chem. 283, 6067–6075. doi: 10.1074/jbc.M708950200
+   the committed step of taxol biosynthesis in Paciﬁc yew. J. Biol. Chem. 270,   Rouck, J. E., Biggs, B. W., Kambalyal, A., Arnold, W. R., De Mey, M., Ajikumar,
+   8686–8690. doi: 10.1074/JBC.270.15.8686                                             P. K., et  al. (2017). Heterologous expression and characterization of plant
+Köksal, M., Jin, Y., Coates, R. M., Croteau, R., and Christianson, D. W. (2011).      Taxadiene-5α-Hydroxylase (CYP725A4) in Escherichia coli. Protein Expr. Purif.
+   Taxadiene synthase structure and evolution of modular architecture in terpene       132, 60–67. doi: 10.1016/j.pep.2017.01.008
+   biosynthesis. Nature 469, 116–122. doi: 10.1038/nature09628                    Sagwan-Barkdoll, L., and Anterola, A. M. (2017). Taxadiene-5α-ol is a minor
+Kovacs, K., Zhang, L., Linforth, R. S. T., Whittaker, B., Hayes, C. J., and Fray, R. G.      product of CYP725A4 when expressed in Escherichia coli. Biotechnol. Appl.
+   (2007). Redirection of carotenoid metabolism for the eﬃcient production of      Biochem. 65, 294–305. doi: 10.1002/bab.1606
+   taxadiene [taxa-4(5),11(12)-diene] in transgenic tomato fruit. Transgen. Res. 16,   Sanchez-Muñoz, R., Perez-Mata, E., Almagro, L., Cusido, R. M., Bonﬁll, M.,
+   121–126. doi: 10.1007/s11248-006-9039-x                                          Palazon, J., et al. (2020). A novel hydroxylation step in the Taxane biosynthetic
+Kuang, X., Sun, S., Wei,  J., Li, Y., and Sun, C. (2019). Iso-Seq analysis of the      pathway: a new approach to Paclitaxel production by synthetic biology. Front.
+   Taxus cuspidata transcriptome reveals the complexity of Taxol biosynthesis.       Bioeng. Biotechnol. 8:410. doi: 10.3389/fbioe.2020.00410
+  BMC Plant Biol. 19:210. doi: 10.1186/s12870-019-1809-8                       Schoendorf, A., Rithner, C. D., Williams, R. M., and Croteau, R. B. (2001).
+Lenka, S. K., Nims, N. E., Vongpaseuth, K., Boshar, R. A., Roberts, S. C., and      Molecular cloning of a cytochrome P450 taxane 10β-hydroxylase cDNA from
+   Walker, E. L. (2015). Jasmonate-responsive expression of paclitaxel biosynthesis      Taxus and functional expression in yeast. Proc. Natl. Acad. Sci. U.S.A. 98,
+   genes in Taxus cuspidata cultured cells is negatively regulated by the bHLH      1501–1506. doi: 10.1073/pnas.98.4.1501
+   transcription factors TcJAMYC1, TcJAMYC2, and TcJAMYC4. Front. Plant Sci.    Schrepfer, P., Buettner, A., Goerner, C., Hertel, M., Rijn,  J., Van Wallrapp, F.,
+   6:115. doi: 10.3389/fpls.2015.00115                                                        et al. (2016). Identiﬁcation of amino acid networks governing catalysis in the
+
+
+
+
+
+Frontiers in Bioengineering and Biotechnology | www.frontiersin.org            14                                     February 2021 | Volume 9 | Article 632269
+
+
+[PDF physical page 15]
+Mutanda et al.                                                                                            Advances in Taxol Metabolic Engineering
+
+
+
+
+   closed complex of class I Terpene synthases. Proc. Natl. Acad. Sci. U.S.A. 113,       biosynthesis and evaluation of a potential intermediate and inhibitors of the
+   E958–E967. doi: 10.1073/pnas.1519680113                                        Multistep Diterpene Cyclization reaction. Arch. Biochem. Biophys. 379, 137–
+Srividya, N., Lange, I., Hartmann, M., Li, Q., Mirzaei, M., and Lange, B. M. (2020).       146. doi: 10.1006/abbi.2000.1865
+   Biochemical characterization of acyl activating enzymes for side chain moieties    Yadav, V. G. (2014). Unraveling the multispeciﬁcity and catalytic promiscuity of
+   of Taxol and its analogs. J. Biol. Chem. 295, 4963–4973. doi: 10.1074/jbc.RA120.       taxadiene monooxygenase. J. Mol. Catal. B Enzym. 110, 154–164. doi: 10.1016/
+   012663                                                                            j.molcatb.2014.10.004
+van Rijn, J. P. M., Escorcia, A. M., and Thiel, W. (2019). QM/MM study of the   You, L. F., Huang, J. J., Wei, T., Lin, S. L., Jiang, B. H., Guo, L. Q., et al. (2018).
+   Taxadiene synthase mechanism. J. Comput. Chem. 40, 1902–1910. doi: 10.1002/      Enhanced catalytic activities and modiﬁed substrate preferences for taxoid
+   jcc.25846                                                                      10β-O-acetyl transferase mutants by engineering catalytic histidine residues.
+Vogl, T., Kickenweiz, T., Pitzer, J., Sturmberger, L., Weninger, A., Biggs, B. W.,       Biotechnol. Lett. 40, 1245–1251. doi: 10.1007/s10529-018-2573-9
+    et  al. (2018). Engineered bidirectional promoters enable rapid multi-gene   Zhang, M., Chen,  Y., Nie,  L.,  Jin,  X.,  Liao, W., Zhao,  S.,  et  al. (2018a).
+   co-expression optimization. Nat. Commun. 9:3589. doi: 10.1038/s41467-018-      Transcriptome-wide identiﬁcation and screening of WRKY factors involved
+   05915-w                                                                            in the regulation of taxol biosynthesis in Taxus chinensis. Sci. Rep. 8, 1–12.
+Walker, K., and Croteau, R. (2001). Taxol biosynthetic genes. Phytochemistry 58,       doi: 10.1038/s41598-018-23558-1
+   1–7. doi: 10.1016/S0031-9422(01)00160-1                                   Zhang, M., Jin, X., Chen, Y., Wei, M., Liao, W., Zhao, S., et al. (2018b). TcMYC2a, a
+Walker, K., Schoendorf, A., and Croteau, R. (2000). Molecular cloning of a taxa-       basic helix-loop-helix transcription factor, transduces JA-signals and regulates
+   4(20),11(12)-dien-5α-ol-O-acetyl transferase cDNA from Taxus and functional       taxol biosynthesis in Taxus chinensis. Front. Plant Sci. 9:863. doi: 10.3389/fpls.
+   expression in Escherichia coli. Arch. Biochem. Biophys. 374, 371–380. doi: 10.      2018.00863
+   1006/abbi.1999.1609                                                    Zhou, K., Qiao, K., Edgar,  S., and Stephanopoulos, G. (2015). Distributing a
+Wani, M. C., and Horwitz, S. B. (2014). Nature as a remarkable chemist: a personal      metabolic pathway among a microbial consortium enhances production of
+   story of the discovery and development of Taxol. Anticancer. Drugs 25, 482–487.       natural products. Nat. Biotechnol. 33, 377–383. doi: 10.1038/nbt.3095
+   doi: 10.1097/CAD.0000000000000063                                     Zhou,  T.,  Luo,  X.,  Yu,  C.,  Zhang,  C.,  Zhang,  L.,  Song,  Y.  B.,  et  al.
+Wani, M. C., Taylor, H. L., Wall, M. E., Coggon, P., and Mcphail, A. T. (1971). Plant       (2019). Transcriptome analyses provide insights into the expression pattern
+   antitumor agents.VI. The isolation and structure of Taxol, a novel antileukemic      and  sequence  similarity  of  several  taxol  biosynthesis-related  genes  in
+   and antitumor agent from Taxus brevifolia2. J. Am. Chem. Soc. 93, 2325–2327.       three  Taxus  species. BMC  Plant  Biol.  19:33.  doi:  10.1186/s12870-019-
+   doi: 10.1021/ja00738a045                                                     1645-x
+Wildung, M. R., and Croteau, R. (1996). A cDNA clone for taxadiene synthase, the
+   diterpene cyclase that catalyzes the committed step of taxol biosynthesis. J. Biol.   Conﬂict of Interest: The authors declare that the research was conducted in the
+   Chem. 271, 9201–9204. doi: 10.1074/jbc.271.16.9201                           absence of any commercial or ﬁnancial relationships that could be construed as a
+Williams, D. C., Carroll, B.  J.,  Jin, Q., Rithner, C. D., Lenger,  S. R., Floss,    potential conﬂict of interest.
+   H. G., et  al. (2000a). Intramolecular proton transfer in the cyclization of
+   geranylgeranyl diphosphate to the taxadiene precursor of taxol catalyzed by   Copyright © 2021 Mutanda, Li, Xu and Wang. This  is an open-access article
+   recombinant Taxadiene synthase. Chem. Biol. 7, 969–977. doi: 10.1016/S1074-    distributed under the terms of the Creative Commons Attribution License (CC BY).
+   5521(00)00046-6                                                    The use, distribution or reproduction in other forums is permitted, provided the
+Williams, D. C., Wildung, M. R., Jin, A. Q., Dalal, D., Oliver,  J.  S., Coates,    original author(s) and the copyright owner(s) are credited and that the original
+   R. M.,  et  al. (2000b). Heterologous expression and characterization of a    publication in this journal is cited, in accordance with accepted academic practice. No
+   “Pseudomature” form of Taxadiene synthase involved in paclitaxel (Taxol)    use, distribution or reproduction is permitted which does not comply with these terms.
+
+
+
+
+
+Frontiers in Bioengineering and Biotechnology | www.frontiersin.org            15                                     February 2021 | Volume 9 | Article 632269

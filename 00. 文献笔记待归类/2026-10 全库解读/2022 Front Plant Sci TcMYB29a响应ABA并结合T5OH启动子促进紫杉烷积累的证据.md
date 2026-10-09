@@ -1,0 +1,205 @@
+---
+type: literature-reading
+zotero_key: 4MEWB9MD
+doi: "10.3389/fpls.2022.804593"
+paper_type: research
+classification_status: pending
+reading_status: main-text-and-figures-read
+review_status: codex-source-checked
+human_full_paper_review: false
+source_attachment: XTL24RY4
+source_sha256: ffdd3ab5ccb2962bf7a2911a811250ade1a480772077d989a9d75f4a4a68c822
+created: 2026-10-08
+---
+
+> 原文来源：[Zotero 条目](zotero://select/library/items/4MEWB9MD)；[DOI](https://doi.org/10.3389/fpls.2022.804593)；由当前 Codex 读取原始主文并核对图表，尚未经人工逐项复核。 来源限制：All16mainpagesreadandviewed11mainFigurescomplete;actualSIFig1to4Table1unreadrawchromatogramsnotverifiedreferencesnotindependentlyread；10DAB.06to.1432.383fold138.3percentincrease baccatin.04to.164fold300percentincrease taxol.313to1.314.185fold318.5percentincrease authors238400419endpercentnotincrement；10DABOEplusminus.31inbodyincompatibleploterror retainunresolvednotrepairto.031;rawreplicatesnoexactPnoCI；RNAiauthorreportnonsignificantmetaboliteSIunreadnotnecessity;BAPTChIP14.41Y1Hnegative andqPCRnonsignificant preserveconflict TSTFbindingnotshown；Y1HpABAiABAabbreviationmisuseAbAselectionnotabscisichormone;Fig10OElegendversushormonetextconflict;NtabacumlocalizationNbenthamianareportermethodsdistinct；EMSAFigure7lane2labeledWTplusunlabeledmutantcompetitor retainedshift supportsselectivitynotmutantbinding doseunclear reporterCCGTTAtoTACCdeletionnotEMSAidenticalmutant B1affinitynotmeasured；ABREAERBpredictionminus313to319SIunreadnonecessityexperiment;ABA6h8.75MeJA12h8.97downnotcompletepathwayorthogonality；ChIP3.23relativeCDSnotactivationoverexpressedGFPnativebindingnecessitynotproved;noinventedfigurenumerics；TrolliusyunnanensisbodyTaxusyunnanensisreferenceconflict;LgMYB3bodyLgMYB7figureconflictTcMYB29a98.87identitynotnewgenelocusproof；UnitugpergDWnotmgLproductionratebatches;fungal3.26foldfrompriorworknotthisOE。
+
+# 文献基本信息
+
+**标题：** TcMYB29a, an ABA-Responsive R2R3-MYB Transcriptional Factor, Upregulates Taxol Biosynthesis in Taxus chinensis。**中文题名：** ABA响应型TcMYB29a结合TcT5OH启动子并促进红豆杉愈伤组织紫杉烷积累。
+
+**作者：** Xiaoying Cao、Lingxia Xu、Ludan Li、Wen Wan、Jihong Jiang；前两位共同第一作者，后两位通讯作者。单位为江苏师范大学生命科学学院、江苏省药用植物生物技术重点实验室。**期刊：** Frontiers in Plant Science，2022，13:804593；2022年3月4日发表。**DOI：** 10.3389/fpls.2022.804593。**类型：** 原始研究。
+
+**来源与范围：** 已读取本地原始主文PDF全部16页，并查看Figure 1–11完整原图及图注。Supplementary Figures 1–4、Supplementary Table 1实际文件未读取；引物、完整突变序列、RNAi效率、原始色谱及完整原始数据未独立核查。参考文献仅按本篇引述理解，没有把其全文标为已读。来源标识及PDF哈希随笔记记录；所有新笔记先暂存，待全库解读完成后统一分类。
+
+**核心结论：** TcMYB29a在所测红豆杉愈伤组织中具有促进紫杉烷积累的过表达效应，多种实验支持其结合TcT5OH启动子B1区域并提高报告活性。ABA诱导、MeJA抑制其转录，但完整“ABA—TcMYB29a—T5OH—增产”因果链及内源必要性尚未得到充分证明。
+
+# 研究背景
+
+紫杉醇合成涉及二萜骨架形成、多次氧化和酰基转移、侧链装配等反应。植物细胞培养的产物积累不仅取决于酶基因转录，还受底物供给、细胞状态、区室、降解和生长变化影响。因此，转录因子可能提供多基因协调调控，但某一基因上调不能直接推断通量控制权或工业产量。
+
+已有研究以JA/MeJA响应型WRKY、MYC和ERF为主要线索，ABA相关调控相对缺少明确的靶基因证据。作者此前在内生真菌诱导研究中筛到与紫杉醇积累相关的MYB候选，本研究继续鉴定其序列、组织表达、激素响应和靶启动子。此前真菌处理的3.26倍积累来自另一篇研究，不是本文TcMYB29a过表达的效果。
+
+Figure 1展示已有的紫杉醇途径及TF调控关系，属于研究背景，不代表本文验证了图中所有酶或上游信号。论文将候选命名为TcMYB29a，与此前TcMYB29序列高度相似，但相似性不能自动确认两者是不同基因、等位变体或同一位点的实验版本。
+
+
+![Figure 1 原文第 3 页](https://synbiopath.online/4MEWB9MD-Figure-1-p3-complete-30cc2216f696910b.png)
+
+*Figure 1：原文 Figure 1：完整图表及图注（原文 PDF 截图）。*
+
+
+# 研究思路
+
+研究从“候选MYB是否具有转录因子特征”开始，经组织表达和核定位检查后，筛选四类通路基因启动子中的MYB recognition element，简称MRE。随后先用红豆杉过表达细胞的ChIP定位候选结合区域，再以Y1H、EMSA和异源启动子报告实验检验结合与激活。
+
+另一条证据线将TcMYB29a过表达与紫杉烷含量、通路转录变化联系起来，并观察ABA和MeJA对TcMYB29a表达的不同影响。两条线共同提出激素响应型正调控模型，但研究没有在同一个遗传背景中依次阻断ABA响应、TcMYB29a、B1位点和T5OH并做救援，所以只能支持模型中的部分连接。
+
+特别需要区分三个命题：过表达足以产生表型、内源TcMYB29a对表型必需、ABA诱导表型依赖该因子。本文主要支持第一个，对第二个的RNAi结果没有显著代谢表型，对第三个缺少直接中介验证。
+
+# 研究方法
+
+组织表达使用五年生中国红豆杉的针叶、茎表皮、韧皮部、木质部和根，取自三株植物；培养及转化材料为红豆杉愈伤组织。TcMYB29a过表达和RNAi构建分别与空载体比较。本文把愈伤组织、悬浮细胞和烟草不同体系结合使用，不能将烟草报告活性等同于原生红豆杉启动子的内源必要性。
+
+qRT-PCR使用TcGAPDH归一化及2⁻ΔΔCt方法，多数图注注明三个生物重复。序列分析包括BLAST、结构域预测、ClustalW比对及MEGA11的Neighbor-Joining树，bootstrap为1000。预测分子量及pI是序列计算结果，不是蛋白质实验测量。核定位将GFP融合表达与游离GFP、DAPI核染色比较。
+
+ChIP使用35S:GFP-TcMYB29a过表达红豆杉细胞和anti-GFP抗体，检测四类启动子R-1至R-9区域，并以对应基因CDS区作比较。正文没有充分给出所有免疫沉淀阴性控制及内源蛋白丰度校准，富集倍数也不是启动子激活倍数。
+
+Y1H使用Y1HGold、pABAi报告体系，比较TcT5OH的Y1/B1和Y2/B2区、TcBAPT的Y3/P5区以及三重复B1及其突变体。正文和图中把筛选试剂写为“ABA”，但该pABAi选择体系中的AbA指aureobasidin A抗生素；它与激素处理章节的abscisic acid不是同一用途。记录原文缩写混用，不能把酵母筛选描述为ABA激素诱导证据。此术语区别另核对了[Takara的pAbAi/AUR1-C体系说明](https://catalog.takara-bio.co.jp/PDFS/200905_12.pdf)，属于外部技术说明，不替代本篇实验来源。
+
+EMSA使用GST融合TcMYB29a和B1探针，包含GST对照、突变探针和未标记竞争探针。Dual-LUC使用烟草异源瞬时体系，比较原启动子、B1修改启动子与TcMYB29a或空效应载体。方法写Nicotiana benthamiana，定位图注写Nicotiana tabacum，不能无核对地将全部烟草实验统一为同一种。
+
+LC-MS检测细胞内10-DAB、baccatin III及taxol，按干重归一化，过表达和空载体各选三个独立转基因系。ABA和MeJA处理分别为20 µmol/L及50 µmol/L，以等体积乙醇作对照，两个时间序列取点不同。统计主要为Student’s t-test，图注提供P值阈值而非精确P值；没有原始重复数据，不能重算置信区间或检查全部分布前提、多重比较。
+
+# 实验设计及结果分析
+
+### 1. 蛋白身份、定位及组织表达：支持TF特征，不证明所有功能
+
+TcMYB29a编码527 aa，预测分子量60.18 kDa、pI 7.95，N端具有R2和R3重复；与TcMYB29蛋白QHG11457.1相似性98.87%。未发现常见EAR/TLLLFR抑制基序，只能作为序列观察，不意味着任何条件下都不存在抑制功能。Figure 2的树与比对支持R2R3-MYB归属，亲缘接近也不能替代靶标验证。正文称Larix MYB3，图注和树标为LgMYB7，应保留名称差异。
+
+
+![Figure 2 原文第 6 页](https://synbiopath.online/4MEWB9MD-Figure-2-p6-complete-427d04f158e886f5.png)
+
+*Figure 2：原文 Figure 2：完整图表及图注（原文 PDF 截图）。*
+
+
+Figure 3在红豆杉细胞和烟草细胞中显示融合蛋白信号与核染色重合，而游离GFP分布较广，支持这些体系下的核定位。GFP标签、过表达和观察时间仍限制其对内源蛋白动态分布的推断。
+
+
+![Figure 3 原文第 7 页](https://synbiopath.online/4MEWB9MD-Figure-3-p7-complete-0bfddf6c48aecaa9.png)
+
+*Figure 3：原文 Figure 3：完整图表及图注（原文 PDF 截图）。*
+
+
+Figure 4显示针叶和根表达较高，韧皮部和木质部较低，茎表皮处于中间。纵轴为相对TcGAPDH的表达，不是不同组织紫杉醇浓度，也不是严格测得的蛋白丰度。三个植物提供组织采样依据，但图中没有报告所有组织之间的精确统计结果，不能仅凭柱高宣称每一两两差异均显著。
+
+
+![Figure 4 原文第 7 页](https://synbiopath.online/4MEWB9MD-Figure-4-p7-complete-b8abe61a665348ec.png)
+
+*Figure 4：原文 Figure 4：完整图表及图注（原文 PDF 截图）。*
+
+
+### 2. ChIP与Y1H筛选：T5OH支持较一致，BAPT存在证据分歧
+
+作者在TcT5OH、TcTS、TcBAPT及TcDBTNBT启动子中预测到12个MRE，分别为2、3、5、2个。序列中存在MRE并不证明MYB29a结合，更不证明这些启动子都被直接激活。Figure 5的ChIP中，TcT5OH的R-3约为对应CDS的3.23倍，TcBAPT的R-7为14.41倍；其余区域没有表现同等富集。
+
+
+![Figure 5 原文第 8 页](https://synbiopath.online/4MEWB9MD-Figure-5-p8-complete-69257a39a2eb68cb.png)
+
+*Figure 5：原文 Figure 5：完整图表及图注（原文 PDF 截图）。*
+
+
+Figure 6的Y1H支持TcT5OH的Y1/B1区，而不支持Y2/B2区及所测TcBAPT的Y3/P5区。三重复B1支持酵母生长，修改B1降低生长。人工重复基序提高了可检测性，但不是内源启动子构型。ChIP对BAPT的富集与Y1H不结合不能简单抹去：可能涉及间接复合物、局部环境、实验背景或技术差异，本文没有区分原因。
+
+
+![Figure 6 原文第 9 页](https://synbiopath.online/4MEWB9MD-Figure-6-p9-complete-0856e95c2321f81f.png)
+
+*Figure 6：原文 Figure 6：完整图表及图注（原文 PDF 截图）。*
+
+
+因此，TcT5OH是跨实验支持更一致的靶标，TcBAPT只能记录为ChIP候选联系而非已确认直接靶标。TcTS虽然在过表达中上调，但所测启动子ChIP没有相应结合，支持其可能经其他因子间接调节；不等于已经找到了这个中介，也不排除其他未检测区域。
+
+### 3. EMSA与启动子报告：结合和激活可支持，位点特异性仍需谨慎
+
+Figure 7的融合蛋白+B1探针出现迁移改变，GST对照及竞争实验提供直接结合的体外证据。20倍和100倍未标记野生型竞争探针降低相应信号，支持配对存在竞争性。第二泳道同时含有标记B1和未标记突变竞争探针，保留迁移带说明该突变竞争探针未有效阻断标记B1的结合，支持序列选择性；不能将该泳道误读为突变探针独立产生迁移带。图中未清楚列出突变竞争探针的同等摩尔梯度，不能由此量化其亲和力差异，或宣称任意B1修改都会完全消除结合。
+
+
+![Figure 7 原文第 10 页](https://synbiopath.online/4MEWB9MD-Figure-7-p10-complete-ccae254da4db4f02.png)
+
+*Figure 7：原文 Figure 7：完整图表及图注（原文 PDF 截图）。*
+
+
+Figure 8中，TcMYB29a与原始TcT5OH启动子共表达产生较高报告活性，修改B1后活性降低，但图中仍有残余信号。图注称CCGTTA修改为TACC，并提及两核苷酸缺失，而EMSA图中突变探针的标示并非完全相同；不同实验的突变构型不应当成同一序列。补充表尚未读取，完整构型暂未独立确认。
+
+
+![Figure 8 原文第 11 页](https://synbiopath.online/4MEWB9MD-Figure-8-p11-complete-4a639cffc600b816.png)
+
+*Figure 8：原文 Figure 8：完整图表及图注（原文 PDF 截图）。*
+
+
+图中结果支持B1附近对TcMYB29a相关报告增强的重要性，但突变/缺失同时改变局部序列长度或结构，因此不能将其直接等同于红豆杉内源B1的必要性。方法称Dual-LUC，主图展示相对活性而未充分交代全部归一化计算细节；笔记不从柱高估算精确倍数、标准差或P值。
+
+### 4. 紫杉烷积累与转录变化：重新核算倍数，保留RNAi阴性结果
+
+Figure 9A及正文给出10-DAB从0.06±0.006变为0.143±0.31 µg/g DW，baccatin III从0.04±0.017变为0.16±0.006 µg/g DW，taxol从0.313±0.111变为1.31±0.111 µg/g DW。原文将这些写成“rose by 238%、400%、419%”，但由均值计算分别是对照的约2.383、4.000、4.185倍；相对增加分别约138.3%、300.0%、318.5%。作者百分数实际接近终值/初值×100%，不能再加一倍得到更大的效应。
+
+
+![Figure 9 原文第 12 页](https://synbiopath.online/4MEWB9MD-Figure-9-p12-complete-bfcabf7af3eb3a3f.png)
+
+*Figure 9：原文 Figure 9：完整图表及图注（原文 PDF 截图）。*
+
+
+10-DAB过表达误差±0.31大于均值0.143，且与Figure 9短误差棒不一致，属于原文数值冲突。不能擅改为±0.031或其他更合理数字；保留原文并标为待核查，避免基于该误差构造置信区间。作者对代谢比较报告P<0.01，未提供精确P；独立系数为3，不能仅凭均值和不明误差类型自行复算统计。
+
+这些单位表示单位干重细胞内积累，不是mg/L培养液滴度、生产速率或总过程产率。未同时给出生物量、培养体积、分泌比例、时间归一化和长期稳定性，不能推出工业生产性能。绝对taxol值1.31 µg/g DW也不能与其他论文不同体系的高含量直接比优劣。
+
+Figure 9B中TS、T5OH、T7OH、DBTNBT、T10OH、T2OH和PAM上调，BAPT未显著改变。多基因响应说明过表达影响网络，不能把全部基因都认定为直接靶标。作者还报告RNAi对紫杉醇合成没有显著影响，相关图在未读补充材料中；这一阴性结果必须保留，不能称正反向干预都证明必要性。网络补偿是作者解释之一，RNAi效率、残余蛋白和统计功效尚未独立核验。
+
+### 5. ABA与MeJA响应及最终模型：响应不同不等于通路完全独立
+
+Figure 10A显示ABA处理后6小时TcMYB29a表达约为对照8.75倍，24小时降低，72小时接近初始水平。Figure 10B显示MeJA初期仅弱变化，3小时后下降，12小时作者称8.97-fold downregulation。按对照/处理理解，处理水平约为对照0.1115、降低约88.85%；这是一种对作者文字的数学解释，并非新的原始测量。两个序列取点不同，不能横向当作相同动力学采样。
+
+
+![Figure 10 原文第 13 页](https://synbiopath.online/4MEWB9MD-Figure-10-p13-complete-652547dc7320a2c7.png)
+
+*Figure 10：原文 Figure 10：完整图表及图注（原文 PDF 截图）。*
+
+
+Figure 10图例将处理组标为TcMYB29a-OE，但方法、图注和正文讨论激素处理下的表达，不清楚是否与过表达细胞一致。笔记不把该图自动并入过表达因果实验。摘要称启动子-313至-319的“AERB”位点为关键ABA响应元件，而主文主要是序列预测和激素qPCR，位点信息引用Supplementary Figure 1；没有主文展示该位点删除/突变或上游因子结合验证，不能称其功能必要性已证明。
+
+
+![Figure 11 原文第 14 页](https://synbiopath.online/4MEWB9MD-Figure-11-p14-complete-1a81358a1802a8b0.png)
+
+*Figure 11：原文 Figure 11：完整图表及图注（原文 PDF 截图）。*
+
+
+Figure 11把真菌诱导、ABA、TcMYB29a和T5OH串联为模型。真菌诱导来自前篇研究，ABA诱导本篇qPCR，TcMYB29a结合T5OH来自本篇多实验；把不同实验的连接画在同一图上并不能证明真菌作用经ABA、或ABA增产必须依赖MYB29a。MeJA抑制MYB29a可与MeJA总体促进紫杉醇积累同时成立，因为网络存在多个正负节点；但尚不能证明ABA与JA绝无串扰。
+
+# 总体结论
+
+本研究较有力地支持TcMYB29a是所测体系中的核定位R2R3-MYB，过表达可提高红豆杉愈伤组织中紫杉烷积累，并通过TcT5OH启动子B1区域产生结合和报告增强效应。TcTS等上调更适合作为间接网络响应理解，TcBAPT的ChIP富集与Y1H阴性需要并列保留。
+
+ABA与MeJA的不同转录响应扩展了紫杉醇调控视角，但未完成完整激素中介机制或工业增产验证。最稳妥的知识点是“TcMYB29a—T5OH候选直接调控及过表达积累效应”，而非“已建立ABA专属完整增产通路”。
+
+# 论文评价
+
+**优点：** 将序列、定位、ChIP、Y1H、EMSA、报告基因与代谢物读数结合，对单纯表达相关证据形成提升；使用空载体、CDS区域、野生型/突变位点和竞争探针等比较；保留了BAPT与RNAi不支持主要预期的结果，有助于认识调控网络复杂性。
+
+**限制：** 过表达占比较大，缺少内源启动子位点的必要性与救援实验；补充材料和原始色谱未在本次核查范围内；缺少把ABA响应与紫杉醇代谢终点通过同一中介阻断相连接的实验。不能因多种实验都使用同一候选蛋白就认为所有误差来源相互独立。
+
+**需复核的问题：** 百分比增幅与对照倍数混用；10-DAB误差±0.31与图形不符；Y1H的ABA/AbA缩写混淆；Figure 10处理组图例与文字不一致；EMSA和报告实验的B1修改方式及探针标记信息不够一致。正文将Trollius yunnanensis写入紫杉醇细胞培养背景，而参考题名为Taxus yunnanensis，属于引用物种名称冲突；不据此引入新宿主证据。
+
+**数据边界：** 没有原始重复数据和精确P值，本笔记只核算正文均值的比值，不重分析作者统计。原文数据可用性声明指向正文及补充材料，并无完整数据下载验证。资助为31770613及KC21028，作者声明无商业或财务利益冲突。主文与图表核对不是独立专家科学复审。
+
+# 关键问题及回答
+
+**问题1：taxol增加419%应该怎么读？**
+
+按正文均值，1.31/0.313≈4.185，即终值约为对照418.5%，相对增加约318.5%。不能读成终值5.19倍，也不能丢掉单位µg/g DW。
+
+**问题2：直接靶标包括TS和BAPT吗？**
+
+本篇对T5OH的跨实验支持更一致。TS转录上调但所测启动子区域未见ChIP结合；BAPT的ChIP阳性与Y1H阴性冲突。二者不能直接与T5OH并列为已确认直接靶标。
+
+**问题3：RNAi没有显著代谢表型是否否定过表达结果？**
+
+不会自动否定，但它限制了内源必要性结论。增量过表达与减量干预可因补偿、效率和功效呈现不同结果，本文没有充分区分这些原因。
+
+**问题4：ABA响应位点已经被功能证明了吗？**
+
+主文展示序列预测及ABA诱导qPCR，没有该预测位点的完整必要性验证。摘要的“关键元件”措辞应保留为作者结论，不能提高为独立确认的机制事实。
+
+**问题5：这些结果可以直接用于判断细胞工厂增产策略吗？**
+
+可以提供有实验支持的候选因子，但还需核对精确序列、体系、内源作用、整体生长和代谢终点。本文没有体积滴度、长期稳定性或规模放大数据，不能仅由干重含量倍数评价工业可行性。
+
+> 分类状态：待全部文献笔记完成后统一分类归档。

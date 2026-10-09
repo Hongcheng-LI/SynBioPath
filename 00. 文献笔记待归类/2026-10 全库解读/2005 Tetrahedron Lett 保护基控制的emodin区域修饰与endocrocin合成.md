@@ -1,0 +1,145 @@
+---
+type: literature-reading
+zotero_key: W8HZP738
+doi: "10.1016/j.tetlet.2005.02.061"
+paper_type: research
+classification_status: pending
+reading_status: main-text-and-figures-read
+review_status: codex-source-checked
+human_full_paper_review: false
+source_attachment: 5UVVBNH2
+source_sha256: ecbcc43a6ae8e874df2a156bed612add534dd17b01bc75503c6755703f9b4a9d
+created: 2026-10-09
+---
+
+> 原文来源：[Zotero 条目](zotero://select/library/items/W8HZP738)；[DOI](https://doi.org/10.1016/j.tetlet.2005.02.061)；由当前 Codex 读取原始主文并核对图表，尚未经人工逐项复核。 来源限制：Four complete main pages text and original pages read/viewed; Figure1 and complete Scheme1 allstructures allarrows conditions andcaption; no main tables no separate SI or raw spectra fulloperationrecord；Automated titlematchfalse overridden by actual printed complete title DOI authors46:2377-2380 correspondingHeinzFalk fiveauthorsJKULinz liveZotero200；ReceivedDec282004 revisedFeb7acceptedFeb142005 ZoteroApr4 no printedonline date; allrightsreserved FWF P16969 P15380 no explicit competinginterests statement；Authors arbitraryanthraquinone numberingNote1; naturalendocrocin-emodin relationship citationsnot currentbiosynthetic assays；Protection guidesC2 Marschalk target63percent isolatedyieldnotregioisomerratio no crudequant rawcompletebyproduct data; quinonemethide explanatory notdetected；Scheme b minus5to25 verifiedoriginal negative signs recovered from extractedtext; old minus70 background no matchedyieldtable；Poor directoxidation7 notquantified freephenolcause authors hypothesis; reprotected8 then aldehyde4 acid9 distinct endpoints notsameoxidationcomparison；Calculatedshownintegerstep product4 44.95845percent author45; endocrocin2 31.43991 vs32; cinnalutein3 34.26144vs35 precision unresolved notsilentlycorrected;10 29.02145 calculatedonly；EndocrocinNote18 C9 C10a COOHnotobserved insolubility; OHlabel3-OH conflicts1,6,8; compound10 duplicateC10aC3 labels not silently fixed；IR UVvis MS NMR selectedvalues plusauthorsHSQC HMBC NOESY reports no actual2Dplots independentlyverified; posnegadduct retained；Aldehyde4 potentialhypericinsynthon no newhypericindimer redshift or photodynamic bioassays; UV4max405notfinalredshiftproof；No independent replicates massscale detailed workup dosage materialbalance costs or industrialvalidation; classificationdeferred humanfalse refs18 includesextendedspectralnote not18independentstudies。
+
+# 文献基本信息
+
+**英文题名：** An efficient regioselective synthesis of endocrocin and structural related natural anthraquinones starting from emodin。**中文题名：** 从 emodin 出发区域选择性合成 endocrocin 及相关天然蒽醌。
+
+**作者与机构：** Mario Waser、Bernd Lackner、Joachim Zuschrader、Norbert Müller、Heinz Falk，通讯作者 Heinz Falk；Institute of Organic Chemistry，Johannes Kepler University Linz，Austria。**期刊：** Tetrahedron Letters，46（2005）：2377–2380；DOI：10.1016/j.tetlet.2005.02.061。收稿 2004-12-28，修回 2005-02-07，接收 2005-02-14；Zotero 日期 2005-04-04，正文未列在线日期，不能将接收日当在线日。
+
+**文献类型与来源：** 原创有机合成短文，4 页主文。Zotero W8HZP738，附件 5UVVBNH2。本次读取全部正文、Scheme 1、Figure 1、参考文献及 Note 18 的光谱条目。自动库存曾将标题匹配标为 false，但 PDF 首页完整题名、五位作者、期刊页码及 DOI 与条目一致，实际确认是目标主文。无正文 Table，未取得独立 SI、原始光谱或完整操作记录。
+
+**资助：** Austrian Science Fund FWF P16969；低温 500 MHz probe 购置来自 P15380。作者感谢质谱测试人员。主文未提供独立利益冲突声明，不补写“无利益冲突”。本文版权页为 Elsevier all rights reserved，笔记保存本地已有 PDF 的原始图表出处。
+
+# 研究背景
+
+Emodin 与 endocrocin 为蒽醌色素，作者以本文自己的编号描述前者为 1,6,8-trihydroxy-3-methyl anthraquinone，后者多一个 C2 羧基。Note 1 明确该编号为便于呈现区域选择性而选定；与其他数据库的取代位编号比较时需要结构对应，不能只依据名称中的数字判断为不同化合物。
+
+
+![Figure 1 原文第 1 页](https://synbiopath.online/W8HZP738-Figure-1-p1-complete-8b5d4df39a11d7d8.png)
+
+*Figure 1：原文 Figure 1：完整结构、图示及图注（原文 PDF 截图）。*
+
+
+**Figure 1 解读：** 两个完整结构显示 emodin（1）和 endocrocin（2）的取代差异。图中共享蒽醌骨架，不证明一个在生物体内直接变成另一个。引言关于 endocrocin 不是 emodin 生物合成前体，以及蒽醌酸脱羧与 anthrone 阶段不同的说法来自所引历史研究，本篇进行化学合成，没有做同位素、基因或酶验证。
+
+研究问题是如何在已有 emodin 骨架上可靠修饰 C2。常规亲电取代受蒽醌电子性质和多个酚基影响，作者此前的 Friedel–Crafts 方案区域选择性不足。本文选择利用 Marschalk 型羟甲基化，再将所引入的侧链氧化为醛或羧酸，避免从头重建整个三环骨架。
+
+# 研究思路
+
+关键并不是直接将 emodin 任意位点羧化，而是先控制酚羟基保护状态，使反应集中于希望的邻位。作者将 emodin 三个酚基甲基化后，选择性脱去 1-O-methyl，得到只保留 1-OH 的 6；用 Marschalk 型反应安装 C2–CH2OH，随后重新保护游离酚，再分支氧化和去保护。
+
+这套思路同时连接三个目标：endocrocin（2）、保留一个甲氧基的 cinnalutein（3），以及 tri-O-methyl emodin-2-carbaldehyde（4）。它们共享中间体 8 或 9，因此属于从已知天然骨架出发的分支化学转化，不是本文构建的生物合成路径。
+
+
+![Scheme 1 原文第 2 页](https://synbiopath.online/W8HZP738-Scheme-1-p2-complete-b9406f7bdba04062.png)
+
+*Scheme 1：原文 Scheme 1：完整结构、图示及图注（原文 PDF 截图）。*
+
+
+**Scheme 1 总览解读：** 完整原图保留 1、5、6、7、8、9、2、3、10、4 及 a–i 的全部箭头与图注。1→5→6→7→8 为公共路线；8→4 形成醛，8→9 形成保护羧酸，9 的不同去保护给出 2、3 或 10。图有不同箭头分支，不能把 a–i 九项全部相乘作为任一单产物的线性总收率。
+
+作者提出醛 4 可作为延展 hypericin 共轭体系的 synthon。这是用途设想，本文没有实际合成新 hypericin 衍生物、完成二聚或测试光动力活性；必须将已经获得的醛与未来药效及红移目标分开。
+
+# 研究方法
+
+主文使用已有 emodin 作为出发骨架，结合酚羟基甲基化、选择性醚裂解、Marschalk 型羟甲基化、氧化与选择性去保护。Scheme 1 给出分步试剂、条件与百分比，本文没有完整实验部分，缺投料规模、每步分离质量、详细工作处理和原始记录；不能将图注整理成无缺项的可直接复现 SOP。
+
+关键产物经作者报告的 IR、UV–vis、MS、NMR 表征，文字特别提及 HSQC、HMBC 和 NOESY。Note 18 给出 2、3、4、6、7、8、9、10 的选定性质和数值，5 则与先前文献比较。实际原始二维谱及关联表没有展示，本次核对的是条目而不是重新完成全部结构解析。
+
+不同 NMR 条目使用 DMSO-d6 或 CDCl3、不同温度，不应把化学位移微小差异都解释为结构改变。MS 记录正、负离子模式也不同，必须保留 [M+H]+ 或 [M−H]−；不能将各条目的 m/z 数值直接当同一种离子进行差值比较。
+
+# 实验设计及结果分析
+
+### 1. 保护状态将区域选择性问题转成局部反应控制
+
+1→5 的全酚甲基化作者报告 98%，5→6 的选择性去保护为 93%。6 保留 1-OH，而 6、8 两位置被甲基保护，使下一步反应的邻位指向与本文 C2 目标相容。这个策略的核心是改变反应底物状态，而不是声称 emodin 本身在任何条件下都仅发生 C2 取代。
+
+作者将选择性裂解描述为改进 Hassall 的方法，正文说从 −5 °C 而不是 −70 °C 开始提高收率；PDF 原图的负号可确认，而自动文本存在负号丢失，不能把它转写成正温起点。具体收率提升相对旧法的数字没有本文对照表，不补造旧条件的结果或显著性。
+
+6 的谱条目有保留的芳香 H2，以及 1-OH 信号约 δH 13.09 和两个 OCH3。它们与作者的保护位置赋值相容，但只靠酚 OH 位移不能独立定位全部甲氧基；真正位置关联还依赖所称二维 NMR。本次不把未见的 HMBC 交叉峰写成实测结果。
+
+### 2. Marschalk 型引入羟甲基是关键步骤，但副产物未完整量化
+
+6→7 作者报告 63%，并说经柱层析纯化、分离副产物。7 的选定数据有 CH2 信号 δH 4.60（2H）和耦合 OH δH 4.92，δC 53.1，并且不再列底物的 H2，这与新引入羟甲基相容。结构身份仍依据多谱学与作者赋值综合判断，不能单凭一个峰确定绝对位点。
+
+作者用 ortho-quinone methide 的高反应性解释较短时间和较低温度需求。这是文中机理解释，没有捕获该中间体的图谱、动力学或计算研究；笔记不把它写成本文直接观察到的物种，也不增加不存在的速率常数和定量机理证据。
+
+“区域选择性”得到目标产物结构支持，但主文没有给异构体比例、粗产物积分和全部副产物结构，因此不能标为 100% regioselectivity。63% 分离收率也不是区域选择性百分比，损失可能包括转化、纯化和其他副反应，本文没有区分各自贡献。
+
+### 3. 重新保护酚基是氧化路线的重要取舍
+
+作者先尝试将未完全保护的 7 直接氧化为醛或羧酸，称选择性不足、收率低，羧酸分支尤其明显；没有公布各失败条件的数值。作者推测游离酚可能造成影响，因此将 7 的酚选择性甲基化得到 8，报告 90%，并保留苄醇功能。
+
+8 的谱中出现三个 OCH3，同时仍保留 CH2OH 相关信号；这支持酚重新保护没有把目标苄醇全部甲基化的产物赋值。可是主文没有失败分支的产物分布，不能断言所有损失都来自游离酚氧化，或把推测的副反应写成已经确认的唯一根因。
+
+从 8 进行 PCC 氧化到醛 4 的报告收率为 87%，另一分支的 Jones 氧化到保护羧酸 9 为 78%。这两个百分比是各自以 8 为起点的单步指标，不是从 emodin 得到两种产品的总收率；也不说明 PCC 与 Jones 在完全相同终点上进行性能比较。
+
+醛 4 有 δH 10.65 的 CHO、δC 192.9，以及正离子 m/z 341；9 有羧酸相关信号、δC 167.6 和负离子 m/z 355。氧化目标不同，前者保留可继续构建共轭结构的醛，后者为去保护形成天然蒽醌酸的中间体。
+
+### 4. 三种去保护终点支持分支可控，不等于任意条件都稳定
+
+保护羧酸 9 的不同裂解给出全酚去保护 endocrocin（2）、保留 6-OCH3 的 cinnalutein（3），以及保留 6、8 两个 OCH3 的 10。相应单步报告收率为 78%、85%、72%。其中完整去保护比局部去保护更难，作者讨论了破坏、脱羧或残留甲醚等失败情况。
+
+本文观察的是所测试路线的化学表现。“所找到唯一能给合理收率的办法”不能推广为全世界不存在其他方法，也不能当作不同设备、规模和后处理条件下的稳定工艺。主文无重复批次、收率范围或放大数据，不能补写克级可靠性或长期稳定性。
+
+引言说常规蒽醌酸脱羧困难，后文又讨论苛刻去保护中的脱羧，两者属于不同反应背景，不应摘录一处就宣称任何条件下完全不脱羧。获得 2 说明这条路线能够保留羧基形成目标物，尚不等于用定量物料衡算证实所有中间体都没有旁路损失。
+
+### 5. 总收率算术与结构数据需要保留原文限度
+
+按 Scheme 1 显示的整数收率顺序相乘，1→4 为 0.98×0.93×0.63×0.90×0.87＝约 44.96%，与作者报告五步 45%相符。1→2 走 a、b、c、d、f、i，乘积约 31.44%，原文给六步 32%；1→3 的相应乘积约 34.26%，原文给 35%。它们存在不到一个百分点的差异，可能受分步数值四舍五入或原始精度影响，但原始投料与质量未展示，不能确认为哪一种原因，也不擅自修改作者总值。
+
+同样计算到 10 得到约 29.02%，这只是本笔记按显示值的算术估算，原文没有将它报告为实测整体收率。单步相乘不是独立连续批次的验证；跨不同批次的比例可能不同，本文也没有原料回收或完整物料平衡。
+
+Note 18 对 endocrocin 明确说明 C9、C10a 和羧基碳因溶解性不足未观察到，不能因正文说“fully characterized”就把其 13C 列表写成全部碳均检测。2 的 OH 条目写“3-OH”，与本文结构定义中的 1、6、8 羟基编号不一致；10 的 13C 标签中还出现 C10a、C3 重复及位点列表疑点。当前保留原始赋值边界，不替作者补写缺失峰或自行改名。
+
+没有原始二维谱时，可确认作者的结构结论、报告的特征峰与质谱离子，而不能独立复现所有关联赋值。m/z 313（2 的负离子）及 327（3 的负离子）的差异与一个甲基保护差异相容，但并不能独立判定甲氧基必须在 C6，位置仍需二维关联。
+
+### 6. 醛的 synthon 价值与实际光学、药效证据应分开
+
+醛 4 的制备是本文实际成果，作者将其视为更高代 hypericin 衍生物的潜在出发物。本文未制备这些最终二聚衍生物，也没有测光毒性、肿瘤细胞活性、量子产率或新的 hypericin 长波吸收。因此“可用于产生红移光动力分子”应记为作者展望，而不是已完成的性能验证。
+
+4 的 UV–vis 条目最长波峰为约 405 nm，2 和 3 则约 443、442 nm，其他保护状态也不同。不能把不同单体的这些峰硬拼成未来 hypericin 衍生物已发生红移的证据。溶剂、酚基保护、共轭长度与最终二聚结构均会影响光谱，本文只提供当前产物的选定数据。
+
+# 总体结论
+
+作者以保护基控制结合 Marschalk 型反应，在 emodin 的本文 C2 位引入羟甲基，再分支获得醛、保护蒽醌酸和不同去保护程度的天然色素。报告五步醛 4 总收率 45%、六步 endocrocin 32%、cinnalutein 35%，各自对应不同路线。
+
+研究证据支持一条实用的骨架后期化学修饰思路，但不包含天然生物合成关系、新 hypericin 成品或光动力性能的验证。结构表征有多谱学依据，原始谱和部分碳信号缺失仍需明确保留，不将作者“完全表征”提高为本次独立重解析全部结构。
+
+# 论文评价
+
+优点是用简单天然骨架解决明确的 C2 修饰问题，保护基既引导安装位点，又适配后续氧化和分支产物。完整 Scheme 能说明额外保护步骤的作用，报告失败方向也帮助理解为何不直接氧化游离酚底物。Note 18 在短文中提供较丰富的实际表征数值，便于进行结构线索核对。
+
+限制在于未报告区域异构体定量、失败路线具体数据、重复与放大、完整实验步骤及原始二维光谱。整体收率与图示整数乘积略有差异，部分谱图赋值标签存在疑点。有效率的路线不等于已有规模制造评价，本文没有成本、废物或环境比较。
+
+知识库可将其作为 emodin 区域修饰和保护状态影响反应结果的参考，比较酶法时保持“化学反应”“酶功能”“天然路径”三种证据不同。当前笔记统一暂存，全部解读后再归类；后续独立复核宜寻找完整原始谱与实验记录，而不从摘要推导可复现性。
+
+# 关键问题及回答
+
+**问题 1：本文证明 endocrocin 是 emodin 的天然前体吗？** 没有。本文从 emodin 做化学转化，天然关系的引言来自历史引用，未做生物合成验证。
+
+**问题 2：63% 是 C2 区域选择性吗？** 是目标产物步骤的报告收率，不是异构体比例；粗产物比例与副产物分布未完整给出。
+
+**问题 3：为何多一次重新保护？** 作者观察 7 直接氧化表现差，重新保护酚后由 8 完成醛或酸分支。游离酚是推测原因之一，本文没有量化全部失效机制。
+
+**问题 4：32% 能从显示收率精确得到吗？** 显示整数相乘约 31.44%，原文 32%；保留两者，原始精度和连续批次记录不足以解释差异。
+
+**问题 5：endocrocin 所有 13C 峰都观察到了吗？** 没有。Note 18 明确 C9、C10a、COOH 因溶解性不足未观察到，本笔记不填补它们。
+
+**问题 6：新 hypericin 红移和光动力性能是否实测？** 未实测。制得的是潜在醛 synthon 4，最终衍生物的构建与性能仍为展望。
+
+> 分类状态：待全部文献笔记完成后统一分类归档。

@@ -1,0 +1,1587 @@
+
+[PDF physical page 1]
+                                      Reviews
+
+
+
+
+          Strategies to access biosynthetic
+          novelty in bacterial genomes for
+        drug discovery
+                      Franziska Hemmerling and Jörn Piel     ✉
+                        Abstract | Bacteria provide a rich source of natural products with potential therapeutic applications,
+                     such as novel antibiotic classes or anticancer drugs. Bioactivity-guided screening of bacterial
+                         extracts and characterization of biosynthetic pathways for drug discovery is now complemented
+                     by the availability of large (meta)genomic collections, placing researchers into the postgenomic,
+                       big-data era. The progress in next-generation sequencing and the rise of powerful computational
+                         tools provide unprecedented insights into unexplored taxa, ecological niches and ‘biosynthetic
+                      dark matter’, revealing diverse and chemically distinct natural products in previously unstudied
+                          bacteria. In this Review, we discuss such sources of new chemical entities and the implications
+                          for drug discovery with a particular focus on the strategies that have emerged in recent years
+                       to identify and access novelty.
+
+                           Bacteria thrive in remarkably diverse habitats on earth.      In the past two decades, new omics technologiesDereplication
+The process of recognizing      These include soil and aquatic environments, host-  and accompanying computational developments have
+already known biosynthetic      associated microbiomes and the extreme conditions of   transformed NP research in groundbreaking ways.
+gene clusters (BGCs) or          abyssal ocean zones or deserts. Key to the extraordinary  The ability to sequence genomes at unprecedented
+compounds and eliminating      adaptability of bacteria is a metabolism that can be diver-   speed and scale, combined with detailed knowledge on
+them     from downstream          sified by mutation and genetic exchange. Some of the  many biosynthetic enzyme families, now enables sci-analysis.
+                      most impressive diversification occurs for bacterial spe-   entists to computationally predict metabolic pathways
+Biosynthetic gene clusters     cialized metabolism, which has evolved chemical scaf-   and, thus, perform compound dereplication in silico.
+(BGCs). Gene loci encoding       folds at an astounding scope. For many decades, these  Genome analyses have revealed a tremendous diver-
+proteins involved in natural      natural products (NPs) represented a treasure trove for    sity of biosynthetic gene clusters (BGCs) (Fig. 1a) — thatproduct (NP) biosynthesis,
+resistance and regulation.       therapeutic applications, starting with streptomycin1 as    is, groups of NP biosynthetic genes — that far exceeds
+                          the first bacteria-derived antibiotic.                     the number of known substances. The BGC richness
+                      Due to their roles in various ecological contexts, bac-   of bacteria dramatically contrasts with the high redis-
+                                terial NPs have privileged structures that were optimized   covery rates mentioned above2. On the other hand, the
+                        over long evolutionary periods to selectively bind to   overwhelming BGC numbers identified in many data
+                             cellular targets. From the ‘Golden Age of Antibiotics’   sets require careful decisions about the most promising
+                       (1940–1960) to modern drug discovery programmes,   avenues to invest resources in.
+                      most bacteria-derived therapeutics have been developed      In this Review, we address three larger questions:
+                      from a limited number of easily accessible, soil-derived  how computational tools are applied to predict chemical
+                              taxa, such as filamentous actinomycetes. These organisms   novelty and guide NP isolation; how taxonomy-based
+                            often combine attractive features: multiple NP biosynthetic   or ecosystem-based strategies can aid drug discovery
+                       pathways that increase hit rates in bioactivity screens,  from cultivated bacteria; and how to mine uncultivated
+                         ready growth in the laboratory and relative ease of genetic   bacteria as a virtually untapped resource.
+                         manipulation. Over the years, extract screens of only a
+                        few bacterial lineages have yielded a plethora of valuable  Computational tools for genome mining
+Institute of Microbiology,      drug precursors. Concomitant with their long-term  BGC mining has become a key technology to search for
+Eidgenössische               Technische
+Hochschule (ETH)                   Zürich,       exploration, however, the frequency of new chemical   chemical novelty3. A common workflow of genome-
+Zürich, Switzerland.             entities greatly declined, requiring increasing resources   driven NP discovery involves the steps shown in Fig. 1b
+✉e-mail: jpiel@ethz.ch          allocated to dereplication. This is a particularly concern-   and the software examples listed in Table 1 that allow for
+https://doi.org/10.1038/         ing situation for antibacterial drugs, where widespread  BGC detection of known or unprecedented classes, pri-
+s41573-022-00414-6           resistance demands a continuous pipeline of novel leads.   oritization or dereplication based on BGC features and
+
+
+NaTure RevIewS   | DRuG DiSCovERy                                                         volume 21   | May 2022   | 359
+
+                                                         0123456789();:
+
+
+[PDF physical page 2]
+Reviews
+
+
+                       genome-guided compound isolation. Genome-guided   peptide synthetases (NRPSs) and ribosomally syn-
+                    compound isolation requires the application of algo-   thesized and post-translationally modified peptides
+                         rithms for NP structure prediction from BGC sequences,   (RiPPs), as well as biosynthetic enzymes producing alka-
+                         a functionality that is included in many recently devel-   loids, terpenes, carbohydrates, nucleoside/nucleotide
+                      oped tools. Finally, dedicated software tools match met-   analogues and hybrid forms. Accessory enzymes that
+                            abolic data on bacterial extracts, for example, from mass   further diversify scaffolds, for example oxygenases, are
+                         spectrometry (MS) measurements to predicted molecu-  much less conserved within one NP class but, neverthe-
+                               lar features, enabling researchers to isolate compounds    less, form groups of homologous proteins found in multi­
+                           in a targeted way and to link genes to compounds.        ple pathways. The growing knowledge on biosynthetic
+                                                                       enzymology permits the detection and functional assign-
+                 BGC identification                              ment of new BGCs in increasingly refined ways. Being
+                       Although most specialized metabolites are produced by   of enormous value for NP research, BGC identification
+                           diverse reactions involving multiple enzymes, the bio-   algorithms reveal potentially encoded metabolic nov-
+                            synthetic machineries can be grouped into relatively few   elty and, thus, aid in dereplication. In addition, they can
+                        major classes that can be detected by sequence similarity   reveal underexplored talented producers with multiple
+                           searches: polyketide synthases (PKSs), non-ribosomal  BGCs among the massive diversity of bacterial life.
+
+a
+             Hydroxylation                                                                             Sugar biosynthesis
+Resistance                Methylation                   Biosynthetic core genes                           and attachment         Regulation
+
+
+
+b                                                       c     S O  OH                                                                               H
+                                                                               N   NH2                                                                      N BGC       identiﬁcation                                                                                                     O                                                                                                              O                                                                      H                                                                                                                                   NH2 H                                                                                NH  General                                                                                                                      P                                                                                                                        OH                                                                                                                   N           tools:                  Specialized tools (for RiPPs):               N  O
+  BLAST search, antiSMASH,     BAGEL, BOA, RiPPquest,                                                        HO OH          NH
+  RODEO, NaPDoS, DoBiscuit,    RiPP-PRISM, RiPPMiner, RiPPER,          HN                                            O        O
+  PRISM, GNP, EvoMining,        NeuRiPP, NLPprecursor               O     Thiovarsolin A (2)    O      H  O          Phosphonoalamide A (7)
+                                                                                                                                     Antibiotic                                                                                              N  MetaBGC,             EFI-EST, ARTS,                                                     Cytotoxic                                                                                         N                                                                                               OH                                                                                         S                                                                                         H  molecular networking                                                                                      O                                                                                     N                                                                                                              OH
+                                                                                 H   O  O                              O                                                                                 S      N          H                                                                                   NH       N
+                                                                                       N                                                                                                 NH                      OH                                                                            N                                                                                       H                  Dereplication                                                             O                   O
+                                                                                        O                                                                                   N                                                                      HN                  MIBiG,                     antiSMASH database, IMG-ABC,                                                                                                                    OH                                                                                  O                                                                                           OH                                                                     O     S                                                              HO                                                                                                   NH             O                                                                                                                O               BARLEY                                                                                                                     N                                                                                           N
+                                                                                                                     H                                                                 O          HN   O                                                                   HN                                                                                                             Lugdunomycin                                                                                                                                                                                  (6)
+                                                                             S                                                                                            S                              Antibiotic                                                                                N                                                                            H
+  Structure prediction                                                   N    N                OH                                                                                       S
+  For multiple NP classes:   Specialized tools:                                 O           Saalfelduracin A (1)          HO2C  HO2C OH                                                                                                       O                                                                                                                O  antiSMASH,             PRISM,                            trans-AT                                   PKSs: TransATor                                                                                                                     H                                                                                                        Antibiotic                                                                          OH                                                                                                                     N                                                                            OH  homology to           known                             RiPPs: RIPPMiner,                                           RIPPER, RIPP-PRISM                                                                                                                N                                                                                                                          N                                                                                                        CO2H
+  BGCs, MS2LDA,          NRPSs: NRPSpredictor2,                                                         O  NH H  O  O
+  MESSAR, SIRIUS       SANDPUMA                                                  H      H  O      H  O
+                                                                                   N      N         N                  HN
+                                                                                               N         N
+                                                                                               H         H                                                                            O     O        O        O  O
+                                                                      Cadaside A (3)                                 O  H HN  O                 Dereplication                                                                                          N                                                                                  Antibiotic                                 OH N                  Substructure search, Natural Products Atlas,                                                                              OH                                 O                Super                          Natural, COCONUT, DEREPLICATOR+,                                                                         O          HN            OH              OH   CO2H              ChemGPS-NP
+                                                                                                                                CO2H
+                                                                      O        O                                                                              H         H      O
+                                                               O                                                                              N                                                                                         N
+                                                                         N                                                                                   N                                                                                              N    H     O  Linking        genomic                  to analytical                             data                                                                                   H                                                                                              H    N                                                                                                        O                                                                          O                                                                                    O                                                                                                        N  GNPS, molecular                  networking,                           GNP,                                   (RiPP-)PRISM, RiPPquest,           HO2C  HN HN   H                                                                                                        H                                                                                                                  O                                                                                             O  pep2path, MS2LDA, MetaMiner, MolNetEnhancer                                              O                                                               O
+  Guided by:                                                                 HO                                                         HO                                                                     HO OH            OH    OH                       N    OH  Molecular formula, isotope pattern (e.g. feeded precursor),                                                                OH                                       OH O  OH
+ MS/MS fragmentation, IDBac, crude NMR spectra, SMART, BGC
+                                                                              Corbomycin A (4)                       Pyxidicycline A (8)  knockout, heterologous expression, RiPP baiting, etc.
+                                                                                                Antibiotic                              Antibiotic
+Fig. 1 | Mining bacterial genomes for new NPs. a | In bacterial genomes,  BGC expression in a heterologous host. b | Drug discovery workflow
+biosynthetic genes are usually located side by side in one locus, named a   consists of three major steps: BGC identification, NP structure prediction and
+biosynthetic gene cluster (BGC). BGC representation shown resembles the   linkage of genomic to analytical data. Based on whether a certain NP class is
+erythromycin BGC. A BGC is typically composed of biosynthetic core genes   targeted or a universal analysis is intended, general and specialized bio­
+(dark blue) that encode the biosynthetic machinery assembling the natural   informatics tools exist for each step. Between workflow steps, BGCs and NPs
+product (NP) scaffold, and additional biosynthetic genes (dark pink) such as   can be checked for their novelty and discarded if they represent already known
+methyltransferases or glycosyltransferases that further modify the scaffold or   compounds, a process called dereplication. c | Small selection of example com-
+synthesize precursors. In addition, self-resistance genes (green, for antibiotics),  pounds (and their respective bioactivities) discovered by bacterial
+regulatory elements (pale pink) and hypothetical genes (pale blue) are usually  genome mining. AT, acyltransferase; MS/MS, tandem mass spectrometry;
+co-localized. Proximity of these genes allows their efficient detection through   NRPS, non-ribosomal peptide synthetase; PKS, polyketide synthase; RiPP,
+homology searches and simplifies downstream discovery processes such as   ribosomally synthesized and post-translationally modified peptide.
+
+
+360  | May 2022   | volume 21                                                                                      www.nature.com/nrd
+
+                                                            0123456789();:
+
+
+[PDF physical page 3]
+                                      Reviews
+
+
+
+                           Table 1 | Computational tools for genome mining
+                   Name         Key features and applications                                                          Ref.
+                          General tools for BGC identification and structure prediction
+                        antiSMASH 5      Identifies BGCs for all major NP classes (PKSs, NRPSs, RiPPs, alkaloids, terpenes,                             4
+                                               carbohydrates, nucleoside/nucleotide analogues and hybrid forms); the integrated
+                                                  ClusterBlast searches for related BGCs in other organisms to find congeners or
+                                                   alternative NP producers; predicts core structures for many BGC types and works
+                                                well for aromatic or complex polyketides and non-ribosomal peptides
+                       PRISM 3         Recognizes clusters for 22 NP classes and features encoding antimicrobial                                  5
+                                                   resistance; creates a virtual combinatorial compound library for structure
+                                                  prediction, which is compared with a NP structure database
+                      MetaBGC        Detects BGCs in sequence data of bacterial communities without prior genome                          6
+                                           assembly
+                            Specialized tools for RiPP BGC identification and structure prediction
+                      BAGEL 4           Identifies and visualizes RiPPs and bacteriocin BGCs, based on core peptide                                8
+                                           database and HMMs
+                           RRE-Finder        Identifies RiPP BGCs by detecting RiPP recognition elements                                                   10
+                          RiPPMiner       Uses machine learning algorithm for BGC identification and is incorporated                               11
+                                                    in RiPPMiner-Genome15; predicts the leader cleavage site, azoles, maturation
+                                       and macrocyclization patterns in various RiPP classes
+                   RODEO            Identifies homologues of query proteins and evaluates the genomic                                          13
+                                         neighbourhood
+                        DeepRiPP        Uses a machine learning algorithm for BGC identification and the NLPPrecursor                          16
+                                         package can identify as yet unknown RiPP families; includes BARLEY for
+                                                dereplication
+                        NeuRiPP         Uses a trained neural network for BGC identification                                                               17
+                         RiPPER         Combines RODEO with sequence similarity network analysis and was designed                          18
+                                              to discover as yet unknown RiPP families
+                         RiPP-PRISM        Identifies RiPP BGCs and predicts molecular structures, thus aiding the detection                        20
+                                                of new compounds from LC–MS/MS data
+                            Specialized tools for NP structure prediction
+                          NRPSpredictor2  Uses HMMs to predict amino acid specificities of A domains in NRPSs                                        26
+                   SANDPUMA      Also predicts novel amino acid specificities of A domains in NRPSs; trains                                   23
+                                      on user-deposited data
+                            TransATor        Phylogeny-based structure prediction for products of trans-AT PKSs                                          31
+                         Databases of experimentally verified BGCs
+                        MIBiG 2.0      A community-built database of characterized BGCs that are connected to their                          36
+                                                respective NPs
+                        antiSMASH       Contains automatic annotations for >140,000 BGCs from bacterial, archaeal                               37
+                          database v.3     and fungal genomes
+                      IMG-ABC v.5.0     Toolset for the analysis of experimentally verified or predicted BGCs                                          38
+                        BiG-FAM      BGC families database, with predicted BGCs from publicly available microbial                             39
+                                       and metagenome-assembled genomes
+                      Open access NP structure databases
+                        The Natural       Currently contains >25,000 compounds                                                                               40
+                           Products Atlas
+                         Super Natural II   Includes toxicity and degradation data                                                                                 41
+                   COCONUT      Combines 50 NP collections and includes >400,000 compounds                                               42
+                     NP-MRD      NMR spectra database for NPs                                                http://www.np-
+                                                                                                                            mrd.org
+                             Tools for linking genes to compounds
+
+                         IDBac             Bioinformatics platform to compare metabolic differences of bacteria                                       43
+                                                that integrates MALDI-TOF MS data sampled directly from agar colonies
+                     SMART 2.0      NMR-based machine learning tool, with bioassay information and MS/MS-based                         44
+                                            molecular networking for the automated characterization of new NPs
+                    GNP            Metabolomics platform for discovery of complex polyketides, non-ribosomal                              47
+                                             peptides and deoxysugar-containing metabolites using DNA sequences and
+                                   LC–MS/MS data of microbial extracts
+
+
+
+NaTure RevIewS   | DRuG DiSCovERy                                                         volume 21   | May 2022   | 361
+
+                                                         0123456789();:
+
+
+[PDF physical page 4]
+Reviews
+
+
+
+                           Table 1 (cont.) | Computational tools for genome mining
+                   Name         Key features and applications                                                          Ref.
+                             Tools for linking genes to compounds (cont.)
+                           RiPPquest        Aids in the detection of lanthipeptides from metabolomics data                                               51
+                         MetaMiner       Detects various RiPPs and enables the search for RiPPs with unknown modifications                       52
+                       GARLIC           In combination with GRAPE, can relate BGCs to known or predicted polyketides                          53
+                                       and NRPSs
+                     GNPS            Molecular networking platform for sharing, analysing and annotating MS/MS                             56
+                                           data through the MassIVE data repository; contains DEREPLICATOR+57
+                         MolNetEnhancer  Combines outputs for MS molecular networking, substructure discovery, in silico                         61
+                                             annotation tools and automated chemical classification
+                             Paired Omics     Community resource for paired (meta)genomic and metabolomic data as well as                         62
+                         Data Platform     experimental metadata
+                             Tools for mining the unknown
+                             ClusterFinder    HMM-based algorithm to identify known and new BGC types in bacterial                                   63
+                                      genomes
+                     DeepBGC        Uses a machine learning algorithm to identify new BGC types; additionally groups                       64
+                                      them by potential chemical activity of the produced compound
+                        BiG-SCAPE        Visualizes protein sequence similarities by interactive networks for new BGCs                             65
+                                             predicted by antiSMASH or those deposited in MIBiG
+                          BiG-SLiCE        Like BiG-SCAPE, but analyses large BGC numbers in parallel; integrates bacterial                         67
+                                       and fungal data sets
+                            EFI-EST          Creates sequence similarity networks and uses Cytoscape70 for visualization                               69
+                     CO-ED           Analyses unusual co-occurring domains in multi-domain proteins in (meta)                                 72
+                                      genomes
+                       ARTS 2.0       Web tool for BGC searches based on resistance genes                                                             75
+                          EvoMining         Identifies new biosynthetic enzymes due to similarity to ancestors from central                           76
+                                          metabolism
+                                    AT, acyltransferase; BGC, biosynthetic gene cluster; HMM, hidden Markov model; LC–MS/MS, liquid chromatography with tandem
+                           mass spectrometry; MALDI-TOF, matrix-assisted laser desorption/ionization time of flight; MS, mass spectrometry; NP, natural
+                               product; NRPS, non-ribosomal peptide synthetase; PKS, polyketide synthase; RiPP, ribosomally synthesized and
+                                  post-translationally modified peptide.
+
+                 A commonly used computational pipeline is the   biosynthetic superfamily that poses challenges to BGC
+                          Antibiotics & Secondary Metabolite Analysis SHell   identification, as the short genes encoding the peptide
+                     (antiSMASH 5)4 that identifies BGCs for all major NP   precursors frequently lack generally conserved fea-
+                            classes mentioned above as well as for many others.   tures, and maturation enzymes vary depending on the
+                     The integrated ClusterBlast module searches for related  RiPP type7. The Bayesian Analysis of Gene Essentiality
+                  BGCs in other organisms, and thus aids dereplication  (BAGEL 4)8 web server identifies and visualizes RiPP and
+                         or the search for new congeners. For matches to unchar-   bacteriocin BGCs based on a core peptide database
+                           acterized clusters, knowledge on orthologous BGCs can  and hidden Markov model (HMM) motifs present in
+                               assist in finding alternative producers if an organism is   maturases and other features of the BGCs. BAGEL 4
+                        not available or does not produce the target compound.   was, for example, applied in the discovery of the bac-
+                       Another general BGC detection software is Prediction   tericidal lanthipeptide antibiotic homicorcin from a
+                           Informatics for Secondary Metabolomes (PRISM 3)5 that   jute plant endophyte Staphylococcus strain9. The RiPP
+                          recognizes clusters for 22 NP classes as well as features   Recognition Element Finder (RRE-Finder)10 helps
+                       encoding antimicrobial resistance. Besides BGC detec-   identify BGCs by detecting RiPP recognition elements,
+                              tion, both antiSMASH and PRISM contain components   a common component mediating precursor–maturase
+Congeners
+Structurally related            that translate the genetic information into chemical   interactions in many RiPP families. In one application,
+compounds with overall         scaffolds. The metagenomics identifier of biosynthetic   RRE-Finder, together with RiPPMiner11 mentioned
+high similarity.              gene clusters (MetaBGC)6 can be used to detect BGCs   below, was used to discover the nocathioamides, a novel
+                           in sequence data of bacterial communities without prior   class of chimeric lanthipeptides in Nocardia12. The Rapid
+Metagenomics           genome assembly. From a set of homologous BGCs of  ORF Description and Evaluation Online (RODEO)13Methods that explore mixed
+communities at the DNA level.    interest, probabilistic models are built that identify these   algorithm identifies homologues of query proteins and
+                  BGCs in large metagenomic data sets. MetaBGC was   evaluates the encoding genes for their genomic neigh-
+Maturases                 applied to discover new type II PKS products from the   bourhood. In one RODEO application, a query of dis-
+Enzymes modifying         human microbiome — a NP class that is poorly known   tantly related [4 + 2]-cycloaddition enzymes (catalysing
+ribosomally            synthesized                   and     outside actinomycetes.                                a conserved modification in thiopeptide RiPPs) led topost-translationally                  modified
+peptide (RiPP) precursors        More specialized detection algorithms exist that are tai-   the discovery of NP 1 with anti-Gram-positive antibiotic
+or proteins.                  lored to individual NP classes. RiPPs are a heterogeneous    activity14 (Fig. 1c).
+
+
+362  | May 2022   | volume 21                                                                                      www.nature.com/nrd
+
+                                                            0123456789();:
+
+
+[PDF physical page 5]
+                                      Reviews
+
+
+                          RiPPMiner11 (now incorporated into the platform     For NRPSs, active-site patterns in adenylation (A)
+                        RiPPMiner-Genome)15, DeepRiPP16 and Neural Network  domains suggest which amino acid is incorporated by
+                             identification of RiPPs (NeuRiPP)17 use machine learn-   each module24,25. Algorithms such as NRPSpredictor2
+                         ing algorithms for BGC identification. NeuRiPP, the    (ref.26) (integrated into antiSMASH and PRISM) use
+                      NLPPrecursor package from DeepRiPP, and the RiPP  HMMs for such patterns to suggest an overall peptide
+                         Precursor Peptide Enhanced Recognition (RiPPER)18   structure. With NRPSpredictor2, 157 peptide structures
+                           software do not require information on the RiPP precur-   were predicted from 96 bacterial NRPS BGCs, which
+                           sor peptide and were designed to aid the discovery of as   were chemically synthesized as ‘synthetic-bioinformatic
+                            yet unknown families, making them promising tools to   NPs’ and tested for their bioactivities. This entirely skips
+                             identify new peptide lead structures. RiPPER combines   the cultivation and isolation steps, and yielded nine
+                RODEO analysis with a peptide similarity network analy­  new antibiotics with activities against ESKAPE patho-
+                                 sis (Box 1), and was applied in the discovery of the new   gens and Mycobacterium tuberculosis27. The Specificity
+                        thioamidated NP 2 (ref.18) (Fig. 1c) and streptamidine19.   of AdenylatioN Domain Prediction Using Multiple
+                        RiPP-PRISM20 identifies RiPP BGCs and predicts molecu-   Algorithms (SANDPUMA)23 application trains on
+                                lar structures, thus aiding the detection of new compounds   user-deposited BGC data to also predict novel substrate
+                      from liquid chromatography with tandem mass spectro­   specificities. It was applied to the discovery of the soil
+                       metry (LC–MS/MS) data. The platform was applied to   metagenome-derived lipopeptide 3 with activity against
+                           discover aurantizolicin, a member of a rare RiPP family,   multiresistant Staphylococcus aureus strains28 (Fig. 1c).
+                      and to visualize the ‘chemical space’ of RiPPs20.             Multimodular PKSs fall into two main families,
+                                                                                 the cis-acyltransferase (cis-AT) and trans-AT PKSs. The
+                         Structural prediction of NPs                            prediction of core structures generated by cis-AT PKSs
+                        Aiding NP identification, antiSMASH and PRISM can    is well integrated into antiSMASH and PRISM. The
+                        propose chemical core structures for some orphan BGC   trans-AT family is common in underexplored bacteria
+                            types. Prediction works particularly well for aromatic21  and follows complex biosynthetic rules that frequently
+                         or complex22 polyketides, for non-ribosomal peptides23   diverge from PKS collinearity principles29,30. For these
+                          and, to some extent, for RiPPs20. Complex polyketides and   enzymes, the TransATor31 web application was devel-
+                       non-ribosomal peptides are usually predicted on the  oped and used in discovering, for example, the cyto-
+                           principle that their structure closely mirrors the archi-   toxin lacunalide A32 and the antibiotic macrobrevin33
+                            tecture of the multimodular biosynthetic enzymes, as the  from plant-associated bacteria. RiPPMiner11, men-
+                       modular order and domain composition is collinear with   tioned above, predicts the leader cleavage site and
+                          the succession of moieties along the carbon chain.       maturation patterns in (methyl)lanthionine bridges of
+
+ Box 1 | Molecular network analysis
+
+ Molecular network analysis is a method that can rapidly reveal shared     DNA sequences from an environmental sample or analytical data
+ features in analytical or sequence data. It visualizes relationships between    sets from organic extracts. Next, common features (for example, GCFs
+ different data sets (such as tandem mass spectrometry (MS/MS) spectra),     or chemical substructures) are compared by an algorithm and grouped
+ for example by the software Cytoscape70. The approach allows for global     together in a network visualization. Each data point is shown as a node
+ analysis of metabolic potential in large data sets and is useful to assign        in the network and correlations to other data points are represented
+ unknown gene cluster families (GCFs) that are hypothesized to produce      as connecting lines (edges). In this way, related compounds or related
+ compounds similar or identical to known natural products (NPs).             biosynthetic gene clusters (BGCs) can be detected as groups of
+ Molecular network analyses can be applied in NP discovery (see the figure).    nodes, for example to identify congeners in an extract or a group
+ In a first step, the input data are generated, which can be metagenomic      of organisms.
+
+ a Input data generation                b Data processing and network       c Data interpretation and downstream applications
+                                                       visualization
+                                                                                        Related BGCs
+
+
+
+
+                                                                Shared features,
+                                                                                      e.g. GCF
+    Ecological sample    Sequence data, e.g.                           or chemical                            Correlation
+                     metagenomic DNA      Comparative         substructure
+                                                 algorithm
+                                                                                       Related compounds                O
+                                                                                                                                 OH                                                                                                                      O                                                                                                                                                  NH                                                                                                               NH                                                                                                                                  N                                                                                                                         OH                                                                                                                                   O                                                                                                   O                                                                                                                                                   H                                                                                                                H                                                                                                                                                   N  CO2H                                                                                                                N                                                                                                                               CO2H                                                                                                                                              N                                                                                                            N                                                                                                                                              H                                                                                                            H                                                                                                                               O  N                                                                                                                                             OH                                                                                                                                  OH                                                                                                                                           O                                                                                                                                N                                                                                               O  N                                                                                                       O                                                                                                 OH                                                                                                                                                                                           Cl                                                                                                                OH
+
+                                           Edge                                                          Cl     N                                         Cl     NH
+                                                                                                JBIR-126 (5)           JBIR-126
+                                           Node                                        Antiproliferative      congeners
+
+
+  Organic extracts of      Analytical data, e.g.                                                           Cross-reference with databases,
+  bacterial cultures      MS/MS spectra                                                                             e.g. with DEREPLICATOR+ software
+
+
+NaTure RevIewS   | DRuG DiSCovERy                                                         volume 21   | May 2022   | 363
+
+                                                         0123456789();:
+
+
+[PDF physical page 6]
+Reviews
+
+
+                           lanthipeptides. It also identifies macrocyclization pat-   fragmentation patterns. The bioinformatics platform
+                          terns and azoles in cyanobactins, lasso peptides and   IDBac43 integrates matrix-assisted laser desorption/
+                           thiopeptides, and enables searching for RiPPs that have   ionization time of flight (MALDI-TOF) MS data from
+                            similar sequences or chemical structures.                protein and metabolite spectra sampled directly from
+                     PRISM 3 features structure prediction capabilities for   agar colonies, to compare metabolic differences of bac-
+                    many NP classes5. It creates a virtual combinatorial com-    teria. Crude NMR spectra can reveal predicted moieties
+                    pound library from predicted enzymatic conversions    if these generate characteristic signals. The NMR-based
+                      and compares this with a database of real NP structures.  machine learning tool Small Molecule Accurate
+                        In combination with antiSMASH 4.0, PRISM 3 was   Recognition Technology (SMART 2.0)44 was applied for
+                        used to identify the new Pseudomonas lipodepsipeptide   the automated characterization of new NPs, together
+                       gacamide A34.                                       with bioassays and MS/MS-based molecular network-
+                    An alternative strategy to de novo chemical predic-   ing (Box 1), resulting in a new swinholide-like macrolide
+                          tion is the comparison of gene clusters with databases  from cyanobacterial extracts. More involved methods
+                           of experimentally verified BGCs. The advantage of this   include feeding of isotopically labelled biosynthetic pre-
+                     method is that prediction is possible independent of the   cursors, comparing wild-type with BGC knockout or
+                 NP class, but it does not provide structural information   heterologous expression strains, RiPP baiting45 and the
+                     on novel BGCs. This strategy was used to identify new   synthetic-bioinformatic NP strategy46 mentioned above
+                    members of pharmacologically important compound   that omits sample analysis altogether.
+                           families such as the glycopeptide antibiotic 4 (ref.35)     To accelerate compound identification, several
+                        with a novel mode of action. A valuable BGC resource   integrative methods have been developed that compu-
+                                   is the Minimum Information about a Biosynthetic Gene   tationally link bacterial BGCs with metabolomic data.
+                            cluster (MIBiG 2.0)36 repository, a community-built   Genomes-to-Natural Products (GNP)47 is a widely appli-
+                         database of characterized BGCs that are connected to   cable open source metabolomics platform that guides
+                            their respective NPs, thus streamlining dereplication.   the discovery of complex polyketides, non-ribosomal
+                       Furthermore, in the antiSMASH database version 3,   peptides and deoxysugar-containing metabolites using
+                         automatic annotations for >140,000 high-quality BGC  DNA sequences and LC–MS/MS data of microbial
+                         regions from bacterial, archaeal and fungal genomes   extracts. It generates a virtual combinatorial library con-
+                       were deposited37. The Integrated Microbial Genomes   taining hypothetical structures of predicted compounds,
+                           Atlas of Biosynthetic gene Clusters (IMG-ABC 5.0)38 is   which are fragmented by simulated MS/MS in silico and
+                        another toolset for the analysis of both experimentally   compared with real data from crude microbial extracts.
+                             verified and predicted BGCs. Recently, the biosynthetic   Several tools and strategies exist for the automated
+                       gene cluster family (GCF) database BiG-FAM39 was   matching of mass spectra to genomic data (for exam-
+                           reported, which includes nearly 30,000 GCFs from more   ple, peptidogenomics48,49 or glycogenomics50 for pep-
+                        than a million BGCs predicted from publicly available   tides or glycosylated NPs, respectively). For example,
+                          microbial and metagenome-assembled genomes.         the lanthipeptide mining tool RiPPquest51 was used to
+                                                                                         identify the Streptomyces-derived class III lanthipeptide
+                         Linking genes to compounds                           informatipeptin. MetaMiner52 detects lanthipeptides,
+                         Considering that the biosynthetic genes for many charac-   lassopeptides and linear azole-containing peptides, lin-
+                            terized NPs are unknown, it is possible that a prioritized   aridins, glycocins, cyanobactins and proteusins, and ena-
+                 BGC belongs to a known NP even if MIBiG or other BGC-   bles the search for RiPPs with unknown modifications.
+                       matching tools do not return hits. Dereplication should   For polyketides and NRPS products, the Generalized
+                           therefore be complemented with NP database queries,   Retrobiosynthetic Assembly Prediction Engine (GRAPE)
+                            for example by conducting substructure or similarity   together with the Global Alignment for Natural Products
+                         searches using the predicted chemical structures. In   Cheminformatics (GARLIC) tool can relate BGCs to
+                          addition to commercial databases, increasingly compre-  known molecules or predict new structures53.
+                          hensive open access repositories for NPs exist including    A method that can rapidly reveal shared features in
+                     The Natural Products Atlas40 (currently >25,000 com-   analytical or sequence data is molecular networking
+                         pounds), the Super Natural II database41, which includes   (Box 1). An application of molecular networking is in the
+                             toxicity and degradation data, the Collection of Open    field of metabologenomics54, which correlates genomic
+                          Natural products (COCONUT)42, which combines 50 NP   and metabolomic data from a larger set of strains. Similar
+                          collections and includes >400,000 compounds, and  BGCs present in several strains are identified and this
+                    The Natural Product Magnetic Resonance Database   occurrence pattern is compared with MS data from the
+                           Project (NP-MRD). A specialized tool for RiPPs is Basic  same organisms. Shared MS features suggest candidates
+                      Alignment of Ribosomal Encoded Products Locally   for products of the BCGs. This strategy was first applied
+                      (BARLEY), which is incorporated into the DeepRiPP16   to the discovery of NP 5 (ref.55) (Box 1), which features a
+                         platform mentioned above.                              previously unknown pyrrolidine-containing amino acid
+                           Following dereplication, the in silico data can guide  and shows antiproliferative activity against cancerous
+                    compound isolation in various ways. A common strat-  human B and T cell lines54.
+                       egy is to match predicted molecular features with MS      Several computational tools have been introduced that
+                         or NMR data of culture extracts or crude fractions. In   streamline dereplication and assignment of metab­olomic
+                MS studies, these features can be the molecular formu-   data. The Global Natural Products Social Molecular
+                                lae, isotope patterns of halogens and sulfur or MS/MS   Networking (GNPS)56 platform was introduced to fuel
+
+
+364  | May 2022   | volume 21                                                                                      www.nature.com/nrd
+
+                                                            0123456789();:
+
+
+[PDF physical page 7]
+                                      Reviews
+
+
+                            collaborative efforts by sharing, analysing and annotat-   comparisons. With integrated bacterial and fungal data
+                          ing MS/MS data between researchers through a public    sets, a newly sequenced BGC can be readily placed in
+                          data repository. The deposited reference libraries are then    its GCF, bringing it into context with already explored
+                       used as ‘living data’ for dereplication, for example with   biosynthetic space. Variants of this strategy can be based
+                          the DEREPLICATOR+57 algorithm. GNPS can be used  on remote unassigned subfamilies of individual biosyn-
+                           to integrate assigned spectra in molecular networking   thetic enzymes or on bioactivity profiles68. The Enzyme
+                          data for compound identification. Examples for its utility   Function Initiative-Enzyme Similarity Tool (EFI-EST)69
+                           are the discovery of a new cyanobacterial microviridin   also creates sequence similarity networks and uses
+                          congener, the chymotrypsin inhibitor microviridin 1777   Cytoscape70 for visualization. EFI-EST aided in the dis-
+                                   (ref.58) or NP 6 (ref.59) (Fig. 1c), an angucycline-derived   covery of non-ribosomal peptides such as brevicidin71,
+                          polyketide with a novel core structure. Using the GNPS   active against Gram-negative pathogens. The software
+                       workflow and the GNPS-MassIVE data repository, stud-   tool CO-ED72 can pinpoint unusual co-occurring
+                               ies of entire microbiomes become possible, as was show-  domains in multi-domain proteins for the discov-
+                        cased in a study revealing the microbiome’s effect on   ery of new chemistry. Using (meta)genomes as input,
+                           metabolites produced in mice60.                 CO-ED generates interactive networks that highlight
+                        MetaMiner (mentioned above) was used to screen  domain pairs already found in databases (for example,
+                         millions of deposited spectra against thousands of   in MIBiG), or as yet uncharacterized ones. CO-ED anal-
+                      (meta)genomes for RiPPs with previously unknown   ysis of the Pseudoalteromonas rubra genome identified
+                            post-translational modifications, resulting in 31 known   an unusual nitroreductase–ThiF domain pair, leading to
+                     and 7 new RiPPs from 8 genomic and metagenomic   the discovery of oxazolone metabolites.
+                         data sets52. The workflow of MolNetEnhancer61 com-      Several mining strategies are independent of NP
+                          bines outputs for MS molecular networking, substruc-   class or biosynthetic enzyme homologies and, therefore,
+                           ture discovery, in silico annotation tools and automated   can potentially access cryptic BGCs for ‘true’ chemical
+                        chemical classification. The workflow detected previ-   novelty. Many antibiotic BGCs encode versions of the
+                          ously unreported tryptophan-based NPs in Salinispora   cellular targets that confer resistance against produced
+                      and Streptomyces extracts, and xenoamycin-related NPs  compounds. Identifying such BGCs can therefore
+                           in Xenorhabdus and Photorhabdus. Recently, the Paired   uncover antibiotics independent of the NP type73. For
+                    Omics Data Platform62 was introduced, a community   example, knowledge about a pentapeptide repeat protein
+                         resource for paired (meta)genomic and metabolomic   conferring self-resistance against a topoisomerase inhib-
+                          data and experimental metadata on, for example, growth   itor was leveraged to identify the new myxobacterial
+                      media or extraction protocols.                              antibiotic 8 (ref.74) (Fig. 1c). With the Antibiotic Resistant
+                                                                                  Target Seeker (ARTS 2.0)75 web tool, BGC searches can
+                 How to mine for the unknown?                      be performed for a wide range of resistance genes. For
+                     The genome mining tools listed above perform well in the  known antibiotic BGC families, the absence of discern-
+                          search for new NPs from already reported classes but are   ible resistance genes can serve as a handle to discover
+                               less suited to discover unprecedented biosynthetic fea-  new congeners with unknown modes of action, as exem-
+                              tures. When targeting homologues, the novelty usually   plified by the discovery of NP 4 (ref.35) (Fig. 1c), a new
+                            increases for sequences distant from characterized mem-   glycopeptide that inhibits peptidoglycan remodelling,
+                             bers. The HMM-based ClusterFinder63 and the machine   mentioned above.
+                         learning-approach DeepBGC64 can identify new BGC     EvoMining follows the rationale that many enzymes
+                          types in bacterial genomes. With DeepBGC, BGCs can  from central metabolism have been evolutionarily
+                        even be grouped by their potential chemical activity.      repurposed for specialized metabolism by gene dupli-
+                     The computational framework Biosynthetic   cation and diversification76. By searching Streptomyces
+                    Gene Similarity Clustering and Prospecting Engine  genomes for such duplicates, an unprecedented pathway
+                        (BiG-SCAPE)65 uses new BGCs predicted by antiSMASH   for arseno-organic metabolites was identified76,77.
+                         or deposited in MIBiG to visualize protein sequence     The discovery strategies in this computational sec-
+                             similarities by interactive networks. When maximiz-   tion complement extraction-based approaches in pow-
+                         ing novelty is the project goal, it is most promising to   erful ways. For future directions, improved crosstalk
+                             target network groups without characterized members.   between different web applications, further integration
+                        This strategy yielded a new phosphonopeptide family   of machine learning approaches78 and automation of
+                         including the antibiotic 7 (ref.66) (Fig. 1c). As biosyn-   workflows that incorporate big data would further
+                             thesis of all previously known phosphonates shares an   streamline discovery. In addition, structural prediction
+                     enzyme installing the phosphonate moiety, the authors   for compounds such as terpenoids, RiPPs and alkaloids
+                      combined a homology search for this protein with the   remains challenging and the development of suitable
+                       absence of known downstream enzymes to discover   bioinformatics tools for such purposes is a true need
+                          the family in a sequence network66. Sequence similarity  and will probably fuel many exciting future discoveries.
+                       networks can also visualize the potential for chemical
+                          novelty in one or even many organisms, such as plant  Mining cultivated bacteria for novelty
+                              leaf microbiomes33. With the new Biosynthetic Genes  The classic bacterial NP discovery workflow involves
+                        Super-Linear Clustering Engine (BiG-SLiCE)67, large   microbial cultivation, extraction of culture supernatants
+                 BGC numbers are handled in parallel and, subsequently,   with organic solvents, fractionation and activity testing,
+                          visualized in geometric space instead of as pairwise   and, finally, compound isolation and characterization.
+
+
+NaTure RevIewS   | DRuG DiSCovERy                                                         volume 21   | May 2022   | 365
+
+                                                         0123456789();:
+
+
+[PDF physical page 8]
+Reviews
+
+
+                       Although NPs are easily accessible this way, the redis-   demonstrated for the myxobacterial order Myxococcales,
+                        covery of already known structures remains a major   with genus-specific and strain-specific chemistry90.
+                       problem. Therefore, a widely pursued strategy is the   Applying these insights to chemically unexplored mem-
+                         exploration of as yet unexplored bacterial groups in   bers of Sorangium spp., data sets yielded the new com-
+                       taxonomy-guided approaches. Alternatively, unique NPs  pound rowithocin A. Species-correlated BGCs and lateral
+                   may be discovered from bacteria occupying exclusive   transfer were also observed for the three actinomycete
+                           ecological niches or be the result of specific microbial   genera Streptomyces91, Amycolatopsis92 and Salinispora93,
+                            interactions with their environment.                     as well as for members of the genera Xenorhabdus and
+                                                                                   Photorhabdus94.
+                      Taxonomy-guided discovery strategies                  These examples suggest that the potential for chem-
+                    The majority of the currently known bacterial NPs   ical novelty, including new NP families, is higher in
+                          derive from only a few lineages in a vast space of bac-   chemically unexplored deep-branching taxa. This con-
+                               terial diversity. Producers that have been the focus of   cept is comprehensively supported by a chemoinfor-
+                          extraction-based screens are filamentous actinomycetes,   matic study on >50,000 published microbial and marine
+                              Bacillus, Pseudomonas and, more recently, myxobacteria  NPs using Tanimoto scores as a measure of structural
+                      and cyanobacteria79. All of these are so-called ‘talented’   similarity95. As not all bacterial groups are equally rich
+                         or ‘gifted’ taxa that feature organisms with large BGC  NP sources, genome mining can reveal organisms with
+                     numbers per genome and high NP variability between  many unassigned BGCs as potentially new gifted taxa79.
+                               strains. Filamentous actinomycetes account for approxi-     Xenorhabdus and Photorhabdus (Gammaproteo­
+                         mately two thirds of all NP-derived antibiotics in clinical   bacteria) are gifted NP producer genera, of which many
+                        use (as of 2015), and for numerous other therapeu-   strains establish symbioses with arthropod-killing
+                                 tics, insecticides and herbicides80. Many Streptomyces   nematodes96. Various NPs had been reported from these
+                          spp. harbour >25 BGCs per genome and the genus   organisms in pre-genomics times, but their full potential
+                                 is predicted to produce about 100,000 antimicrobial  became obvious when dozens of BGCs were detected in
+                        compounds81, with, for example, Streptomyces rapamy-   sequenced genomes94. The NPs cover a wide range of
+                            cinicus harbouring >50 BGCs, corresponding to >20%    activities, including antibacterial and antifungal agents
+                           of the genome dedicated to specialized metabolism82.   such as NP 9 (ref.97) (Fig. 2), as well as inhibitors of the
+                BGC numbers from other gifted taxa include Bacillus   insect immune system such as isopropylstilbene98. Many
+                      pseudomycoides (16 BGCs)83, the myxobacterium  members of the Gammaproteobacteria genus Lysobacter
+                       Archangium gephyra (39 BGCs)82 and the cyanobacterial   harbour 12–15 BGCs per genome99. So far, mostly anti-
+                        genus Moorea (38 BGCs on average)84.                    bacterial peptide NPs have been reported from such
+                       The potential for chemical novelty in actinomycetes   strains including cephebacin100 with activity against
+                     and the above-mentioned taxa remains high, but in   β-lactamase-producing clinical isolates, lysobactin101
+                         order to lower rediscovery rates, the investigation of as   interfering with peptidoglycan biosynthesis and NP 10
+                            yet unexplored bacterial groups emerged as a promising    (ref.102) with anti-multiresistant S. aureus activity (Fig. 2).
+                              strategy. Does this rationale increase the likelihood for      Likewise, genomic analyses suggested high chemical
+                             novelty, considering that BGCs are dispersed efficiently   richness in the genus Burkholderia (Betaproteobacteria),
+                      by widespread horizontal gene transfer even across   which harbours pathogenic strains as well as mutualists.
+                     phylum borders? Phylogenomic and metabolic studies  Among the first genomics-derived NPs was NP 11
+                             collectively reveal complex patterns of pathway distri-    (ref.30) (Fig. 2) from Burkholderia thailandensis, a fatty
+                           bution, suggesting that some compounds freely disperse   acid biosynthesis-inhibiting antibiotic103. Further note-
+                    among diverse taxa, whereas others, including entire NP   worthy compounds are thailandepsin A that inhibits
+                              families, are highly correlated with bacterial phylogeny.   histone deacetylases as promising targets in anticancer
+                  An intriguing example is type II PKS-derived aromatic    therapy104,105, and terphenyls with antibiotic, antifungal
+                            polyketides, including the anticancer agent daunorubicin  and phosphodiesterase-inhibiting activity106. These and
+                            that diversified mainly within actinomycetes with little   other Burkholderia studies also showcase diverse methods
+                BGC transfer to other taxa85. Transfer barriers also exist   that can provide access to NPs (Fig. 2). Examples are a pre-
+                            for actinobacterial type I PKSs, which often incorporate   diction for trans-AT PKS-derived polyketides30, promoter
+                        methylmalonyl-CoA-derived units into polyketides such   exchange107, manipulating the quorum-sensing system108,
+                            as erythromycin A, and therefore rely on the this building   phenotype-guided transposon mutagenesis109, correlat-
+                         block that is absent in many bacterial groups86. Further   ing BGC distribution with metabolomic data110, develop-
+                           taxon-specific NP families exist, including the tetronate   ing a high-throughput screen for activators of secondary
+                          polyketides abyssomicins87 from mostly actinomycetes,   metabolism111, overexpressing transcription factors105,
+                     and the cyanobactin RiPPs such as patellamide A88   genetic BGC inactivation and comparison of metabolic
+                      from cyanobacteria. Many RiPP families, in particular,    profiles104, and heterologous expression of orphan BGCs106.
+                            correlate well with bacterial lineages and represent an     For the genus Paenibacillus (Firmicutes), high BGC
+Siderophores             enormous resource of untapped chemical diversity20.     numbers (16 BGCs) were reported in Paenibacillus muci-
+Compounds able to complex        Phylogeny-correlated chemistry also exists within   laginosus 3016 (ref.112). Another genome mining study
+iron with high affinity.           lower-level bacterial groups. In actinomycetes, corre-   revealed >200 lanthipeptide BGCs in 127 Paenibacillus
+Mutualists                   lations were observed for most NP classes except for   strains, using BAGEL and antiSMASH113. Examples for
+Members of a beneficial       NRPS-independent siderophores89. Using a metabolom-   isolated NPs include polymyxin E114, an antibiotic of
+symbiosis.                      ics approach, lineage-dependent chemical profiles were    last resort against Gram-negative bacteria, and several
+
+
+366  | May 2022   | volume 21                                                                                      www.nature.com/nrd
+
+                                                            0123456789();:
+
+
+[PDF physical page 9]
+                                       Reviews
+
+
+a BGC inactivation                           b Overexpression of                c BGC activation by           Native promoter
+   (targeted or by transposon mutagenesis)                      transcription factors                   promoter exchange
+
+
+
+                                                                                                                                     Inducible promoter
+
+
+
+f Quorum-sensing                                                                    d
+  manipulation                                                                                                           Heterologous
+                                                                                                                                 expression of
+                                                                                                                   orphan BGCs
+                             g Comparison of metabolic proﬁles or phenotypes,
+                                                 correlation with BGC distribution
+
+
+
+                                                                                        eh Structure prediction in silico
+
+
+
+
+
+                                                                                                                  Screening for
+                                                                                    BGC activators
+                                                Isolation and structure elucidation
+
+
+ H3CO                                                                         O   OH                  O   O
+                                                                  H
+                                                                  N
+          OH                                                                                                   OH
+ O
+                                                 OH          O
+    N                  O   OH  OH   HO                                                                                   Thailandamide A (11), panels b, d, e, h
+                                                                                           Burkholderia                           O
+                                                                                              Antibacterial
+               O     OH         OH  O
+          O
+                     OCH3                O       OH   NH2           H3CO
+                                            H                H                            OH
+                                                                                                                 NH   Chivosazol A (21), panels a, h                   N                N    NH2                                                                                               H2N   NH   Sorangium                                                                         O        HN
+   Antifungal, cytotoxic                          O   OH           NH                                                                                    HN                       O
+                                                                                             O O   N
+                                                                                                         H
+                                   Xenocoumacin I (9), panels c, d, h                                      NH          HN                              NH2                                      Xenorhabdus and Photorhabdus                                HN
+                  O                 Antibacterial, antifungal          O                             O
+               H                                                                      O
+          O   N                          O                                                               N                                                                                               6                      N                                                               H      O          O   NH                    O   O                      H                                                                 S
+                         HN                                                   O      S      NH              HO              7                                                                               N
+      O   NH           NH
+                                                               N                               OH
+                           O    N                                                    O     H   O                O           O   H  HN   O                                  HO
+           NH                   HN   O                                  Sunshinamide (13), panel h             HN     N     N               H
+  OH           N                                                Gynuella                                  H
+        O                                                        Cytotoxic                           O           O NH
+                O                    S        S        S             S        S        S
+                                                                                                         N    NH2
+                                       N        N        N        N        N        N                      H
+   HO                                 H        H        H        H        H        H
+                                                                                                         WBP-29479A1 (10),                          HO                                                             OH Paenilipoheptin (12), panels d, h                                    Closthioamide (14), panels c, g, f, h                          panels c, d, g, h
+ Paenibacillus                                                         Clostridium                                                   Lysobacter
+ Unknown bioactivity                                                    Antibiotic                                                       Antibacterial
+
+
+
+                               Fig. 2 | Experimental strategies to functionally link BGCs with their respective NPs. Methods applied in discovery
+                          processes of the displayed example compounds isolated from non-classical, talented bacterial natural product (NP)
+                         producers (bioactivities listed after compound name): biosynthetic gene cluster (BGC) inactivation, a classical
+                            strategy to yield producing and non-producing strains (panel a); expression of inactive (silent) BGCs can be induced
+                        by overexpression of transcription factors (panel b), native promoter exchange to an inducible promoter (panel c),
+                   BGC expression in a heterologous host (panel d), addition of BGC activators (panel e) or quorum-sensing manipulation
+                           (panel f); all strategies aim for a comparison of metabolic profiles or phenotypes to correlate the presence of a BGC
+                          with a produced NP (panel g); and comparison can be further informed by substructure prediction in vitro to guide
+                    NP isolation and structure elucidation (panel h).
+
+
+NaTure RevIewS   | DRuG DiSCovERy                                                         volume 21   | May 2022   | 367
+
+                                                          0123456789();:
+
+
+[PDF physical page 10]
+Reviews
+
+
+                          synthetic-bioinformatic NPs such as paenimucilin A46   Thus, ecology is a powerful driving force that shapes
+                             that were inspired by NRPS sequences from Paenibacillus   metab­olism regardless of taxon borders, and ecosystem-
+                       genomes. Genome mining and structure elucidation   guided strategies have been applied successfully in
+                       by advanced MS methods led to the discovery of the   bacterial genome mining for new NPs.
+                           lipopeptide 12 (ref.115) (Fig. 2) in Paenibacillus polymyxa     Rhizoxin and congeners from the fungus Rhizopus
+                         E681.                                                microsporus are pathogenicity factors of rice blast dis-
+                           Besides these better-explored bacteria, the genus   ease biosynthesized by an intracellular Burkholderia sp.
+                        Herpetosiphon (Chloroflexi) shows promise, exem-   symbiont126. Virtually identical compounds were iso-
+                             plified by Herpetosiphon aurantiacus with 14 orphan   lated from plant-protective Pseudomonas spp. from rhiz-
+                   BGCs mostly comprising multimodular NRPS and PKS/   ospheres, where they contribute to protect the plants
+                  NRPS systems, but also an enediyne cluster79,116. The first   against insects and pathogenic fungi127,128. Two distantly
+                          reported metabolite is siphonazole117 from an unclassified   related rhizoxin producers thus benefit very different
+                          Herpetosiphon sp. with cytotoxicity against various cancer   hosts with metabolites directed against other eukaryotes.
+                                   cells118. The chlorinated amide auriculamide119 and the  Members of the syrbactin family are potent eukaryotic
+                         diterpenoid (+)-O-methyl-kolavelool120 were obtained   host proteasome inhibitors isolated from diverse plant
+                      from H. aurantiacus, but so far their activities remain  and animal pathogens of the genera Pseudomonas,
+                     unknown. Another interesting Chloroflexi group is the   Burkholderia, Schlegelella and Photorhabdus, where they
+                             class Ktedonobacteria, as sequencing of Ktedonobacter   contribute to producer virulence129–132. Another notewor-
+                         racemifer SOSP1-21T suggested more than 200 NP   thy case of extreme BGC dispersal exists for the cyto-
+                           biosynthetic genes in the giant 13 Mb genome121.           toxic polyketides of the pederin (15) family (Fig. 3a) that
+                 A bioinformatics screen for high BGC counts in   occur in a remarkable range of host–symbiont systems
+                        unusual taxa identified the Oceanospirillales bacterium   and involve bacterial producers from at least five phyla133.
+                       Gynuella sunshinyii, a marine microorganism from   This includes pederin134 from beetles, diaphorin135 from
+                          roots of halophilic sedges and grasses32. Among the    psyllids, nosperin136 from lichen, and mycalamide A137,138
+                       16 BGCs are 6 trans-AT PKS clusters, the highest num-  and further compounds from various marine sponges.
+                         ber known to date from an organism. Culture extracts   Although further congeners were recently discovered
+                      from G. sunshinyii yielded various compounds, including   in free-living bacteria139,140, the widespread occurrence
+                          the cytotoxic NPs 13 (Fig. 2) and lobatamide A32,122.      among diverse symbiotic systems independent of host
+                               Finally, various anaerobic bacterial groups were  and bacterial phylogeny suggests a common benefit in
+                        recognized as a major untapped source of distinctive   symbioses, such as host defence.
+                       NPs, based on rich sets of BGCs in some genera and      Evolution may select for different structural proper-
+                         the unusual structures of the few published metab­    ties and molecular targets, depending on whether NPs
+                                 olites. For Clostridium spp., these include the structur-   benefit the producer or the host, mediate interaction with
+                              ally intriguing thioamide antibiotic 14 (ref.123) (Fig. 2).   other organisms, trigger developmental changes, defend
+                      Examples of NPs from non-clostridial anaerobes are   nutrient resources, protect against being consumed, kill
+                         the NRPS–PKS hybrid barnesin A124 with antimicro-   prey or enhance virulence. Ecological diversification
+                             bial and cysteine protease-inhibiting activity from an   has therefore been recognized as a sound rationale to
+                         Epsilonproteobacteria sp. and the cytotoxic ammoni-   detect new BGCs from environmental DNA141 and, thus,
+                               ficin C125 from a Thermovibrio sp., sampled in a deep-sea   maximize chemical novelty in drug discovery.
+                        hydrothermal vent.
+                         Taken together, biosynthetic evidence, BGC surveys   Oligotrophic habitats. Nutrient limitation creates chal-
+                      and chemical data suggest that the tremendous diver-   lenging competition spaces that may represent rich evo-
+                                sity of chemically unexplored bacterial life harbours not   lutionary grounds for defensive metabolites. The most
+                         only new lead structures but diverse unique NP families.   abundant oligotrophic habitat on earth is open ocean
+                                   It is intriguing to speculate that, for example, tetracy-   water. Here, pelagic photosynthetic microbes such as
+                             cline antibiotics and numerous other bioactive aromatic   cyanobacteria represent primary producers of organic
+                          polyketides would be unknown today if type II PKSs   matter that commonly employ toxins142. In work on
+                      had evolved in an elusive uncultivated bacterial lineage   marine heterotrophic bacteria, interaction screens showed
+                           rather than in actinomycetes. Taxonomy-based mining   a high incidence of antagonistic interactions, in particu-
+                              strategies, aided by novel sequencing technologies and   lar in the groups Vibrionales and Alteromonadales143.
+                           biosynthetic prediction tools, will help to identify such  The chemistry of the marine pelagic zone remains
+                       hidden chemical treasures.                             poorly studied but has become explorable at the genetic
+                                                                                            level through the Open Gene Atlas144 web service that
+                       Ecosystem-guided NP discovery                        incorporates large sequencing data from the Tara Oceans
+                     Whereas some of the NP types discussed above show  and Global Ocean Sampling initiatives. On land, plant
+                        narrower taxonomic distribution, others are subject to   foliage is another enormous, largely unexplored oligo­
+                           horizontal gene transfer that can disperse BGCs widely   trophic habitat. For example, a study on the Arabidopsis
+                   among distantly related bacteria. These clusters are   phyllosphere microbiome showed that of more than
+                          usually metabolically undemanding in that they uti-   1,000 BGCs identified in 224 genomes, 73% were pre-
+                               lize universal biosynthetic building blocks and often   dicted to encode for putative novelty, suggesting a
+                          confer related ecological benefits to symbiotic hosts or   significant discovery resource33. Pairwise interaction
+                         enable adaptation to a specific ecological niche (Fig. 3).   screens and genome mining resulted in the discovery
+
+
+368  | May 2022   | volume 21                                                                                      www.nature.com/nrd
+
+                                                            0123456789();:
+
+
+[PDF physical page 11]
+                                      Reviews
+
+
+                     a Various symbotic hosts                              b Oligotrophic leaf surface
+
+                                                                       OMe
+                                                                                                    OH     OH                                                                          OMe
+
+                                Diaphorin          Pederin                                                         OH     O                                                        MeO     H
+                                                    O      N
+                                                                      OH
+                                                                                OH            O  O   OH                                                         O   OMe
+
+                                                                       Pederin (15)
+                                                                   Contact poison
+                            Mycalamide A      Nosperin                                                 Macrobrevin (16)
+                                                                                                                         Antibiotic
+
+                       c Marine sediments            d Defensive      e Insect egg protection
+                                                              symbosis
+
+                                        H
+                                    HO                         N                                  O     H                O                                          N                                                                     O         O                                          O                              Cl                             H           O
+                                   O                                                         N
+                                                                          O      N                O
+                                                                  O                H
+                                                              N                           OH  O
+                                                                      Cl               H                                         HO
+                                         Salinosporamide A (17)     Streptochlorin (18)                         Lagriamide (19)
+                                         Anticancer drug            Antibiotic, antifungal                        Antifungal         O
+
+                             f Human nose microbiome          g Myxobacterial predation                  h Protection of
+                                                                                                                        fungal gardens
+
+
+
+
+                              NH
+                                                                     O   OH
+                               O                                                                     OH
+                                      O                                                                                                          OH                                                                                           H                                   N                                                           OH                                                                                           N  O                                   H                                                                     O  O                                                                                                 O                                        HN                         O   NH                                                                                                                                NH2                                                                                      O
+                                           O                                                       O
+                                                                A (22)                               NH                                          HN                    Corallopyronin                                                                                                   HO                                   H                                                                                                           O                                                                                             Filariasis treatment                                   N     H
+                           O          N
+                                                                                                                  NH
+                                      S       O
+                                      Lugdunin (20)                                                                Macrotermycin A (23)
+                                              Antibiotic                                                                                   Antibiotic, antifungal
+
+                               Fig. 3 | Examples of ecology-guided approaches and compounds discovered by them. Pederin-type natural products
+                            (NPs) have been isolated from various symbiotic hosts, including psyllids, marine sponges, beetles and lichen (part a).
+                        Other NPs have only been isolated from unique ecological niches such as oligotrophic leaf surfaces (part b) or marine
+                         sediments (part c). Bioactive NPs might also play an important role in insect–microorganism interactions, mediating,
+                              for example, defensive symbioses of beewolf digger wasps that harbour antibiotic-producing Streptomyces spp.
+                               in their antennae (part d) or protection of insect eggs (part e). Complex interactions observed for bacterial members
+                            of microbiomes from, for example, the human nose have also proven a rich source for new antibiotics (part f). Another
+                          important ecology-guided NP discovery approach lies in exploiting predation and protection against being consumed;
+                        examples include corallopyronin that originates in myxobacterial predation (part g) or termite fungal gardens that
+                           protect against microbial predators (part h). The bioactivities are listed after the compound name.
+
+                           of the antibiotic 16 (Fig. 3b). Discovery campaigns in     Marine microbial bioprospecting focused mainly on
+                         other extreme habitats have, for example, yielded the   sediments, plankton, bacterial mats and colonizers of
+                           antibacterial chaxamycin A145 from Atacama Desert   macroorganisms, yielding a plethora of producers and
+                          actinomycetes.                                 compounds unknown from terrestrial habitats. Notable
+                                                                   BGC-rich organisms isolated from sediments are the
+                      Marine ecosystems. Marine NP discovery is an active   obligate marine actinomycete genus Salinispora148, pro-
+                          research field pursued since the late 1960s. The oceans   ducing the anticancer drug candidate 17 (Fig. 3c), the
+                            offer a vast diversity of unique, interaction-rich and   actinomycete Verrucosispora maris from a deep-sea
+                       chemically underexplored biomes. Global ocean   sample as a source of abyssomycin antibiotics149 and
+                        sequencing data from the Tara Oceans initiative showed  marine myxobacteria such as Enhygromyxa salina,
+                           that >80% of microbial genes were only known from   a producer of the antibiotic salimyxin A150. Studies on
+                         the marine collections146. At the chemical level, >70%   mats harbouring filamentous cyanobacteria continue
+                           of scaffolds in NP databases were unique to the marine   to yield exceptional bioactives, such as the JAK/STAT
+                              sources147, lending strong support for marine ecosystems   inhibitor apratoxin A151,152 or the HDAC inhibitor
+                           as a vast resource of metabolic novelty.                      largazole153.
+
+
+NaTure RevIewS   | DRuG DiSCovERy                                                         volume 21   | May 2022   | 369
+
+                                                         0123456789();:
+
+
+[PDF physical page 12]
+Reviews
+
+
+                    Among the chemically prolific genera are Lyngbya,   active against Klebsiella pneumonia was discovered using
+                         Moorea84, Symploca and the recently described genus   a co-culture device for fungal–bacterial and actinomycete–
+                            Adonisia154 harbouring a large number of PKS and NRPS   actinomycete interactions, and a Micromonospora–
+                              clusters. Grazing deterrence and resource competition   Rhodococcus co-cultivation yielded the anthracycline
+                           in the densely populated benthic habitats are among the   keyicin167 with activity against Gram-positive bacteria. An
+                           ecological factors that may have shaped the extraordi-   example from the human microbiome is the cyclic peptide
+                        nary chemistry of these organisms. Pseudoalteromonas155  20 (ref.168) (Fig. 3f) isolated from Staphylococcus lugdunen-
+                      and Aquimarina strains156, culturable transient commen­    sis colonizing the nose. As 20 was shown to stimulate the
+                              sals or pathogens of animals and algae, are particularly   innate immune response and provide synergistic effects
+                     undermined but contain large BGC numbers. Repre­   with other antibiotics against S. aureus infections, it was
+                            sentative compounds from Pseudoalteromonas are the   suggested as a drug lead169.
+                           cytotoxic alterochromides157 and the antibiotic thioma-
+                             rinol A158. Among the few cultured symbiotic producers   Predation. Several laboratories investigated predator
+                           in marine invertebrates are Teredinibacter spp., cellulo-   defences as a strategy for the targeted identification of
+                               lytic BGC-rich symbionts of wood-boring shipworms  new antimicrobials, for example via co-cultivation
+                    shown to produce tartrolones with broad-spectrum   of predators and prey164. Predatory bacteria can be found
+                             antibacterial activity that might suppress other bacteria   in several bacterial lineages including Myxobacteria,
+                           colonizing the host159.                                 Chloroflexi and Lysobacter170. Myxobacteria have a
+                                                                                     striking potential for the production of diverse com-
+                         Insect–microorganism interactions. Interactions between   pounds that can serve as predatory weapons to kill other
+                            insects and microbes have been the focus of several NP    bacteria171. Noteworthy antibiotics include gulmirecin A172
+                             studies. In pairing experiments of Streptomyces strains   with anti-Gram-positive activity, the broad-spectrum
+                           against a panel of clinically relevant microbes, insect-   cystobactamid 919-2 (ref.173) active against Acinetobacter
+                           associated Streptomyces spp. inhibited a higher number   baumannii, the antifungal 21 (refs174,175) (Fig. 2) and
+                           of resistant species than soil or plant-associated strep­  NP 22 (ref.176) (Fig. 3g), which is currently in preclinical
+                             tomycetes160. A new NP identified in this work is cypho­   development for the treatment of filariasis.
+                      mycin with activity against multidrug-resistant fungi.     Another NP discovery strategy focuses on micro-
+                A defensive symbiosis based on antibiosis was described   bial strategies to escape predation. A Pseudomonas sp.
+                            for beewolf digger wasps that harbour toxin-producing  from the fruiting bodies of the amoeba Dictyostelium
+                         Streptomyces spp. in their antennae. The compounds,   discoideum produced the new cyclic lipopeptide jesseni-
+                           including NP 18 (Fig. 3d), protect the wasp larvae and their   peptin, contributing to protection against ingestion by the
+                        food against saprophytes and pathogens161.              amoeba. The compound showed a broad range of inhib­
+                             Several studies revealed bioactive compounds pro-   ition against a panel of Gram-positive bacteria and acted
+                      duced by defensive symbionts that protect arthropod   synergistically against Bacillus subtilis and multiresistant
+                        eggs from predation162. Besides pederin mentioned    S. aureus together with the known antibiotic mupirocin
+                          above, which females of the beetle host distribute among   encoded by an adjacent BGC177. Protective metabolites
+                          the eggs163, Lagria beetle eggs were found to be protected  from actinomycetes associated with insects cultivat-
+                      by NP 19 (Fig. 3e), and other antifungal compounds   ing fungal food sources include the polyene peroxide
+                      produced by uncultured Burkholderia symbionts164.   mycangimycin178 for the southern pine beetle, a range of
+                        Considering the staggering number of arthropod spe-  compounds utilized by leaf-cutting ants179 and the termite
+                                 cies, egg-defensive symbiosis might offer a larger discov-   symbiont-derived NP 23 (ref.180) (Fig. 3h). In all of these
+                          ery resource for bacterial NPs even if it is used by only a   fascinating cases, the compounds were shown to inhibited
+                            fraction of the animal diversity.                          fungal parasites or competitors of the cultivated fungi.
+                          Xenorhabdus and Photorhabdus, as mentioned above,      In summary, ecology-guided approaches offer vari­
+                           are part of an insecticidal symbiosis with nematodes. In   ous drug discovery avenues, from accessing novel,
+                           these bacteria, ecology seems to have fostered a particu-   chemically distinct producers to using co-cultivation as
+                               larly impressive metabolic richness and specialization,   a means of pathway activation. A better understanding
+                           as comprehensively shown in a study on the distribu-   of natural functions of bacterial NPs, which is currently
+                           tion of BGCs and metabolomes across genus members94.   very limited, will be important to target novel chemistry
+                         This work also revealed widespread as well as mutually   in a more rational way.
+                           exclusive BGC types, suggesting important activities.
+                      Such ecological considerations aid in the discovery of  NPs from ‘microbial dark matter’
+                            alternative chemical scaffolds for key metabolites that   Uncultivated prokaryotes comprise a vast portion of
+                       might be functionally related.                          microbial life, with massive cell numbers and broad
+                                                                             phylogenetic coverage. Currently, 88 of the 131 bac-
+                          Inter-microbial interactions. Many pathways for NPs    terial phyla listed in the Genome Taxonomy Database
+                           are only expressed in the presence of other organisms or   (GTDB)181 lack cultivated members with uncultivated
+                             their environmental cues165, supporting a role in micro-   taxa present in all phyla. Sequence-based and functional
+Microbial dark matter         bial interactions. Co-cultivation or interspecies challenge   studies show that microbial dark matter comprises a virtu-
+The    large        and as yet                   poorly      experiments are therefore useful genome mining strategies    ally untapped resource of unprecedented chemistry thatexplored         portion                 of microbial
+diversity that has eluded        to activate silent pathways or increase compound concen-   includes drug candidates137,182, new NP families183 and
+laboratory cultivation.            trations. For example, a novel diphenylether antibiotic166   metabolically gifted producers184,185.
+
+
+370  | May 2022   | volume 21                                                                                      www.nature.com/nrd
+
+                                                            0123456789();:
+
+
+[PDF physical page 13]
+                                      Reviews
+
+
+                          Cultivation of uncultured bacteria                    a mixed microbial lake community during a cyanobac-
+                  Many uncultured bacteria metabolically depend on    terial bloom196. By contrast, metagenomic and single-cell
+                          other species and will likely remain uncultivated as pure   methods explore mixed uncultivated communities at the
+                        organisms due to loss of essential genes. Among these  DNA level (Fig. 4).
+                           are symbiotic, intracellular NP sources with minimalistic
+                        genomes, such as the psyllid-associated producer of dia-   Metagenomic libraries. In library-based methods, frag-
+                         phorin mentioned above and several bacterial NP sources  ments of metagenomic DNA isolated from environ-
+                          in marine invertebrates. In other cases, however, the   mental samples (eDNA) are cloned into large-insert
+                      genomes do not differ significantly from those of cultur-   vectors, such as cosmids or artificial chromosomes, and
+                            able bacteria, suggesting that cultivation is possible under   introduced into a suitable bacterial host for propagation
+                         conditions that sufficiently mimic the environment.    (Fig. 4). A common host choice is Escherichia coli because
+                         Various marine planktonic bacteria that do not grow in   of its fast growth, genetic tractability and ease to generate
+                         standard marine media have been successfully cultivated   sufficiently large clone numbers. Millions of clones in
+                      under diluted, low-nutrient conditions186, and similar   these libraries can be screened in two ways: functional
+                          observations were made for soil bacteria187. It was also   screens detect phenotypes conferred by eDNA genes and
+                     shown that a medium containing methanolic soil extracts   require no knowledge about the BGC type or homology
+                         increased cultivation rates for soil bacteria by almost   of a given enzyme, thus also accessing chemical novelty;
+                   50% compared with no additives188. In a study guided    or, in contrast, sequence-based screens search for clones
+                       by IDBac, insoluble fibre in isolation media increased   harbouring biosynthetic genes and do not need meta-
+                         the number of cultivable microbes from zebrafish gut   bolic outputs but are typically limited to homologues of
+                        samples and altered the metabolite pattern189.             already known enzymes, such as PKSs or NRPSs.
+                            Cultivation successes can be improved by paral-     Example readouts for functional screens include
+                                 lel cultivation in multiple different conditions. For   pigmentation, inhibition zones or new features in chro-
+                   human gut microbiome samples, such ‘culturomics’   matographic profiles197,198. A recently developed droplet
+                     combined with rapid MALDI-MS analyses and 16S   microfluidics approach combines eDNA library gener-
+                  rRNA sequencing for strain identification resulted in   ation with an integrated delivery of compounds into a
+                    many newly cultivated members, including almost 200  mammalian cell model by using an invasive E. coli host199.
+                           potentially new species, making them also accessible   Hit frequencies in E. coli hosts have been reported as 1 in
+                            for drug discovery190. If the genome of a target organ-   20,000–100,000 clones for soil DNA200, suggesting that
+                       ism is available, metabolic pathway reconstructions can  many BGCs do not express well in E. coli, either because
+                        guide the design of media providing missing metab­   cluster portions are missing or due to intrinsic produc-
+                              olites or suggest selection strategies191. An interesting   tion blocks such as promotor or codon incompatibility,
+                           variation used antibodies raised against heterologously   missing precursors or protein misfolding201.
+                      produced surface proteins of target bacteria to cap-      Alternative hosts developed to improve expres-
+                              ture, fluorescence-activated cell sort and, subsequently,    sion197,202 have significantly broadened the NP diversity.
+                             cultivate members of the human oral microbiome192.      Libraries are often first established in E. coli, and BGCs
+                             Miniaturization of culture vessels is an approach to   identified by sequence screens are introduced into spe-
+                           increase the throughput or permit placement into nat-   cialized hosts, such as actinomycetes. In a systematic
+                           ural habitats. An example is the iChip, a multichannel   comparison of 39 Streptomyces hosts using a range of
+                          device harbouring single soil bacterial cells enclosed in   environmental type II PKS BGCs, only 4 hosts showed
+                        semipermeable membranes, which are placed back into   production based on product pigmentation, with a
+                          the habitat for cultivation in situ193. Its application to soil  maximum of expressed BGCs from Streptomyces albus,
+                      communities led to the discovery of teixobactin from   ultimately yielding the new NP 24 (ref.203) (Fig. 4). This
+                             Eleftheria terrae belonging to a novel Betaproteobacteria   result underlines the importance of identifying ‘gifted’
+                              genus194. Teixobactin was the first member of a new anti-   expression hosts, in analogy to gifted NP producer
+                             biotics class and exhibits a previously unknown mode   taxa mentioned above, for maximizing metabolic nov-
+                            of action.                                                     elty from eDNA. To identify functional PKS or NRPS
+                                Finally, for orphan BGCs or known but rare NPs  BGCs that contain a 4ʹ-phosphopantetheinyl transferase
+                      from uncultured bacteria it can be worthwhile to search   (PPTase) gene for enzyme activation, a Streptomyces
+                            for related gene clusters in culturable organisms, using   host was reported that carries a PPTase-dependent blue
+                          the computational tools described above. This approach   pigment synthase reporter gene, allowing for expres-
+                           yielded a range of metabolites previously not accessible   sion screens for non-pigmented BGC products with a
+                       by cultivation, for example luminaolide195 from a marine   coloured readout202.
+                       sponge symbiont.                                       Sequence-based screens commonly utilize degenerate
+                                                       PCR primers141 that target library clones encoding spe-
+                        Cultivation-independent discovery                         cific biosynthetic enzyme families, such as A domains
+                        In cultivation-independent NP discovery, either the   of NRPSs, KS domains of PKSs or chromopyrrolic acid
+                              total community in a habitat or mechanically isolated   synthase for indolocarbazole alkaloids204. A DNA source
+                           single cells are analysed. The most straightforward   can yield thousands of homologous amplicons205 that
+                    method is bulk extraction of environmental samples  may be prioritized by phylogenetic grouping to identify
+                           that contain the bacteria. In this way, the cardiotoxic   pathway types of interest. For example, phylogenetic
+                          cyanobufalin A and congeners were isolated directly from   clades predicting type II PKS cyclization patterns guided
+
+
+NaTure RevIewS   | DRuG DiSCovERy                                                         volume 21   | May 2022   | 371
+
+                                                         0123456789();:
+
+
+[PDF physical page 14]
+Reviews
+
+
+
+
+
+                                                           Environmental sample
+              Metagenomic library
+
+                                                                                                                           Single-cell
+                                                                                                       sequencing
+
+
+
+
+
+                                                                               Direct metagenome
+                                                                       sequencing
+
+
+
+              Sequence-based              Function-based
+                  library screening                 library screening                                              Contig assembly,
+                                                                                                             binning
+
+
+
+                                                         Optionally: BGC assembly and host transfer
+
+
+
+
+          NPs isolated after screening metagenomic libraries                  NPs isolated using a direct metagenomic sequencing approach
+
+
+                 O                                            O   O                                                     O
+ HO                                                                                                 O
+                                            O
+   O                                    O                              O   OMe            O
+                                                                                                       H          O                                  OH      O                            H
+                                     O                                O                               N
+                                                                            OH                      N
+           O                                               HO            OH  O         O
+                                                                            HO               O       OH
+                 NH2                 OH  O                             MeO                OMe            O                               OH
+    Metatricycloene (24)                      Arixanthomycin A (25)                            OH              O                                                     Antiproliferative,   Unknown bioactivity                     O   N   O                                               anticancer activity
+                                                                                           Peloruside A (27)               Renieramycin E (28)
+                             OH                                                  Antimitotic agent                Antimicrobial, cytotoxic                         H
+                         O             HO
+                                                N                 OH  O
+                 HO                OH
+   O           O           O           O  O O            H            H            H                                       OH
+            N            N            N           HN   O            OH
+HO                N            N
+                  H            H
+      NH2  O           O           O                                                                    OH
+           HO                       O   NH      HN                OH          O
+                                               H                                              S            O
+                                               N                                      N             O
+                      OH  O   OH                  O       O                   O      O
+                                                                       O                                         O                                                              O
+                        Omnipeptin (26)   O    NH2          NH                 O
+                      Unknown bioactivity
+                                                                                             OH  O   OH
+                                                                                                Patellazole A (29)              Metamycin D (30)
+                                                                                       Cytotoxic                        Antibiotic                                                                                  Cl
+
+
+
+Fig. 4 | Bacterial dark matter is a prolific source of new NPs. Metagenomic   reads into contigs, biosynthetic gene clusters (BGCs) are obtained and
+DNA is isolated from an environmental sample, subcloned into a   sequences belonging to the same organism are grouped together in a
+metagenomic library and subjected to sequence-based screening (for   computational process called ‘binning’ (for metagenomics). After optional
+example, for a biosynthetic gene of interest) or function-based screening  BGC assembly (for example, by yeast recombination), subcloning and
+(for example, bacterial growth inhibition or pigmentation). Alternatively,   metabolite production in a heterologous host, natural products (NPs) can be
+metagenomic DNA is sequenced without a subcloning step, or single cells are    isolated, following the discovery process in Fig. 2. The bioactivities of example
+isolated and sequenced independently. After assembly of shorter sequencing   NPs obtained by these methods are listed after the compound name.
+
+
+372  | May 2022   | volume 21                                                                                      www.nature.com/nrd
+
+                                                            0123456789();:
+
+
+[PDF physical page 15]
+                                      Reviews
+
+
+
+                           Table 2 | NP sources from novel bacterial dark matter lineages
+                        Source          Candidatus name                  Produced compounds                        Refs
+                                Soil               Angelobacter                            Multiple (based on unassigned BGCs)                        185
+                                                  Eelbacter                               Multiple (based on unassigned BGCs)                        185
+                        Green algae       Endobryopsis kahalalidefaciens           Kahalalides                                                          182
+                        Sponges           ‘Entotheonella’ members                Multiple                                                               184,215,238
+                                               Endohaliclona renieramycinifaciens       Renieramycin                                                       216
+
+                                               Patea custodiens                       Pateamines                                                            137,138
+                                            Entomycale ignis                     Mycalamides                                                          137,138
+                                             Caria hoplita                       Gananamides                                                         137,138
+                          Bryozoans        Endobugula sertula                       Bryostatins                                                           214
+                             Tunicates          Endoecteinascidia frumentensis           Trabectedin                                                          217
+                                                Endolissoclinum faulkneri                  Patellazoles                                                          213
+                               Insects               Profftella                             Diaphorin                                                            135
+                          BGC, biosynthetic gene cluster; NP, natural product.
+
+                         the isolation of new pentangular polyphenols such as   widespread, novel biosynthetic pathways211 and talented
+                 NP 25 (ref.206) (Fig. 4). In addition, phylogenetic studies   producer taxa with high BGC numbers, indicating that a
+                     showed that a single urban park soil sample harbours   considerable portion of the chemical diversity resides in
+                        genes of many clinically important NP families previ-   poorly characterized dark matter organisms184,185.
+                          ously obtained from international drug discovery cam-      In soil, high biosynthetic potential beyond the estab-
+                           paigns, suggesting that geographic diversification is not   lished taxa exists in Acidobacteria, Verrucomicrobia
+                            necessarily key to maximizing chemical diversity205.     and Rokubacteria, including BGC-rich Acidobacterial
+                    Many large multimodular PKS or NRPS BGCs   candidate genera185. An eclectic array of novel producers
+                          require specialized cloning techniques such as Red/ET   were discovered in microbiomes of marine sponges212,
+                         or transformation-associated recombination207 cloning.   tunicates213, bryozoans214 and macroalgae182 (Table 2).
+                       Another challenge can be the low target DNA abundance  Remarkably few of these bacteria belong to already
+                           in a sample. Besides protocols for enriching the DNA of  known NP-producing groups.
+                          host-associated microbiomes or isolating clones from    A prolific producer taxon is the sponge-associated
+                        pooled libraries208, the targeted sequencing workflow of   candidate genus ‘Entotheonella’ from the uncultivated
+                        co-occurrence network analysis of targeted sequences  phylum ‘Tectomicrobia’. ‘Entotheonella’ members inhabit
+                    (CONKAT-seq) can identify and access rare DNA loci   various sponges and were found to generate many to all
+                        with co-occurring biosynthetic gene features209. The  NPs previously identified from their hosts184,215. In con-
+                        study showed that low-frequency BGCs account for    trast, a sponge microbiome of multiple phylogeneti-
+                   much of the biosynthetic diversity in soil metagenomes   cally diverse producers was found to jointly produce
+                      and yielded the novel depsipeptide 26 after heterologous   a cytotoxin cocktail containing mycalamide A and
+                          expression in S. albus.                      NP 27 (Fig. 4), in addition to further compounds137,138.
+                                                                                           Intracellular bacterial producers with reduced genomes
+                      Metagenomic sequencing. This technique subjects all   have also been reported, such as for NPs 28 and 29 (Fig. 4)
+                      genomes in an environmental sample to next-generation   in a sponge216 and a tunicate213, respectively. Several
+                        sequencing (Fig. 4). Subsequently, individual sequence  known or suspected symbiont metabolites have attracted
+                         reads are computationally assembled via overlapping   interest from pharmaceutical companies, including
+                           regions to longer units termed contigs. For low-abundance  ET-743 that is an approved chemotherapeutic217, bry-
+                       organisms or more complex metagenomes, retrieving   ostatin 1 and kahalalide F that have reached clinical
+                           larger contiguous genome regions harbouring com-    trials218,219 or the tubulin-stabilizing 27 with a binding
+                            plete BGCs is often challenging. Long-range methods    site distinct from paclitaxel220. This brings renewable
+                       such as nanopore and PacBio sequencing technology   production into reach by methods such as targeted
+                       can greatly improve the assembly. Some samples, such    cultivation126 or heterologous gene expression, as demon-
+Contigs                     as host-associated microbiomes, allow for a mechanical   strated for patellamides and other peptides from tunicate
+Sets of overlapping DNA        separation of cell types that reduces the DNA complexity.   symbionts198,221. An illustrative example is the cyanobac-
+sequencing reads from the      Although DNA isolation destroys the physical associa-    terial peptide divamide A with potent anti-HIV activity,same genomic source.
+                           tion with an organism, contigs with shared properties —   detected in a small tunicate sample222. Production was
+Binning                     for example, nucleotide composition and abundance   achieved by combined biological, chemical and enzy-
+The computational grouping  — can be sorted by binning and associated with one or   matic transformations yielding sufficient material for
+of contigs with shared DNA      several organisms210. As it is possible to link BGCs to   pharmacological assays.
+properties,          such               as sequence   NP producers in this way, metagenomic sequencing is     Meta-omic and molecular strategies have also revealedcoverage or            oligonucleotide
+frequency, after metagenome    a key technology to understand the metabolic potential   considerable BGC diversity in human and other mamma-
+sequencing.                  of uncultivated bacterial lineages. Such analyses reveal   lian microbiomes211. A BGC family detected in several
+
+
+NaTure RevIewS   | DRuG DiSCovERy                                                         volume 21   | May 2022   | 373
+
+                                                         0123456789();:
+
+
+[PDF physical page 16]
+Reviews
+
+
+                   human microbiota is the thiopeptide RiPPs. For one   well characterized usually harbour far more BGCs per
+                           of the BGCs, the new antibiotic lactocillin was isolated  genome than isolated NP types.
+                      from a cultivated vaginal strain211. Type II PKS BGCs in      Bacterial NPs have consistently been an important
+                   human metagenomes were studied using metagenomics,   drug development resource. Although antiviral drugs
+                         metatranscriptomics and the computational algorithm   based on bacterial metabolites are rare, diverse therapeu-
+                    MetaBGC6 mentioned above. By expressing synthetic    tics for the treatment of cancer, infections and metabolic
+                BGC versions in a S. albus host, several new polyke­   diseases document the immense translational potential
+                             tides were generated including NP 30 with antibacterial   of the untapped bacterial metabolome227. Considering
+                                activities against members of the same oral microbiome.   that bacterial NPs are the basis of most clinical antibi-
+                           Similar to other areas in this section, the study of human   otics, their continued study is especially important in
+                        microbiome-derived small molecules is still in its infancy   light of the growing threat of antibiotic-resistant patho-
+                     and will foreseeably reveal diverse bacterial roles in   gens that cause severe public health issues. With newer
+                           health and disease, such as colonization success, pathogen   research on NPs increasingly interrogating the global
+                            inhibition and direct host–microbiome interactions.       potential of entire taxa, strain collections or habitats,
+                                                                             a valuable knowledge base exists to estimate how much
+                             Single-cell methods. Single-cell genomics (Fig. 4) per-   of the chemical diversity has been tapped already. In
+                       mit the analysis of individual bacteria without prior   a meta-analysis encompassing ∼50,000 microbial and
+                               cultivation223. An advantage of single-cell methods is the   marine-based NPs95, numbers of known compound
+                        connection of genetic or metabolic features to a specific   classes were found to grow among newly reported NPs,
+                         bacterium, which can be challenging for metagenom-   but the chemical novelty tended to increase when new
+                                  ics. The first report of a BGC assignment by single-cell   biological sources were exploited.
+                       genomics linked apratoxin A production to the marine      Analyses at the BGC level support a high proportion
+                       cyanobacterium Lyngbya bouillonii224, which carries   of as yet unknown chemistry even in readily cultivated
+                         various heterotrophic bacteria in its cell envelope. In  and commonly studied bacteria63,89,228. The IMG-ABC38
+                            this and other single-cell genomics applications, the   database contains close to 400,000 sequenced BGCs
+               DNA from mechanically isolated cells is amplified with  from bacteria at the time of writing. For the exten-
+                         a highly processive polymerase prior to sequencing.   sively mined actinomycetes, extrapolation from >800
+                    The quality of the initially obtained genomes can be   sequenced genomes predicts considerable novelty of
+                       improved by including metagenomic sequencing data.  GCFs, roughly corresponding to distinct NP scaffolds89.
+                         In contrast to metagenomics, single-cell methods can   Rarefaction analyses suggested >17,000 GCFs for
+                            also access genomes of low-abundance bacteria, assign   6 analysed NP classes, which would encompass com-
+                   BGCs on plasmids and disentangle individual contribu-  pounds in the order of 105, far exceeding the number
+                            tions of closely related cohabitants. For various members   of known compounds. The study also predicted that the
+                            of the chemically talented taxon ‘Entotheonella’, some of  GCF diversity would be largely covered by sequencing of
+                      which coexist in the same sponge specimens, single-cell   ∼15,000 phylogenetically distinct actinomycete genomes.
+                           analysis in combination with metagenomics was cru-  A GCF study on actinomycete-derived phosphonates,
+                               cial in assigning the large BGC numbers to individual   a NP family with a high commercialization rate, con-
+                                bacteria184,215. The integration of single-cell genomics   cluded that <15% of the chemical diversity had been
+                          into workflows containing additional methods, such   identified229. For the ubiquitous superfamily of RiPPs,
+                          as Raman microscopy that permits destruction-free   the degree of novelty is likely much higher16 with many
+                             single-bacterial analysis at the metabolic level225,226, will  GCFs currently eluding detection by genome analy­
+                              likely further streamline NP studies of environmental    sis tools. The large number of uncharacterized BGCs
+                             bacteria.                                          seems to contrast with chemical screens that mostly yield
+                         Taken together, cultivation-independent strategies  known compounds for some of the BGC-rich taxa. This
+                   now allow a plethora of novel environmental bacteria to   raises several questions about the significance of these
+                       be studied for NP discovery. Efficient utilization of this as   data for drug development, outlined below.
+                            yet largely untapped resource will benefit from improved
+                            cultivation and synthetic biology methodology to make  Are many BGCs evolutionary relics that have lost
+                         experimental outcomes more predictable.               function?
+                                                                  Although genetically eroded clusters do occur230,
+                      Conclusion and outlook                              these are relatively rare, indicating that non-functional
+                    The strategies and examples covered in this Review   genes are rapidly eliminated from most bacterial
+                       emphasize the potential of bacterial genome mining,   genomes. Most pathways are therefore likely active but
+                        ecology-driven NP research and methods accessing   either not expressed under standard cultivation condi-
+                       untapped microbial dark matter for the discovery of bio-   tions or produce low NP titres. To mine the compounds
+                             active compounds. Bacterial genomics has had a tremen-   at higher throughput, individually tailored BGC acti-
+                       dous impact on NP discovery. Key insights gained from   vation methods are less suitable. A more general and
+                       such studies were that bacterial diversity far exceeds   efficient strategy could be to screen multiple strains
+                      what had been previously observed by classical cultiva-   containing the same orphan BGCs with multipronged
+                             tion; most genomes contain at least one BGC; multiple   methods, such as principal component analysis, bioin-
+                  BGCs per genome occur in diverse chemically unex-   formatic prediction of MS features and analytical data
+                         plored taxa; and producers that appeared chemically   of known NPs. For this approach, integrated discovery
+
+
+374  | May 2022   | volume 21                                                                                      www.nature.com/nrd
+
+                                                            0123456789();:
+
+
+[PDF physical page 17]
+                                      Reviews
+
+
+                            suites will be essential that link databases and analy-   of highly specialized roles in chemical communication;
+                               sis pipelines at the biological, genetic, biosynthetic  BGC families for which most characterized NPs have
+                      and chemical levels47. Likewise important are publicly   related activities (this can be exploited to find ana-
+                           available microbiological data resources, an example   logues with modulated pharmacological properties or
+                        being the Earth Microbiome Project initiated in 2010   decreased resistance35 and, furthermore, this informa-
+                            that seeks to sample and characterize microbes and the   tion can be used to train machine learning algorithms
+                       composition of microbiota from diverse habitats on   for functional prediction directly from biosynthetic
+                               earth231. Currently, every fifth published metagenome is   genes234); and orphan clusters located beside BGCs for
+                        not publicly shared, which limits the benefit of a wealth   characterized bioactive NPs, which might encode the
+                           of information232.                                    production of natural ‘combination drugs’ with related
+                                                                                   functions. Examples of such genomically co-localized
+                  Do metabolites elude detection because their functions   synergistic components are virginiamycin-type anti-
+                        are unrelated to pharmaceutical applications?            biotics235 and actinoplanic acid A associated with the
+                   Many compounds excite in terms of structural novelty,   immunosuppressant rapamycin pair236.
+                        but their functions are elusive or unsuitable for drug
+                       development. Out of all ~300,000 compounds docu-  Where are the drugs generated by (meta)genome
+                      mented in the Dictionary of Natural Products in 2019,   mining?
+                              bioactivities were reported for only 1,006 (ref.233). Indeed,    It takes more than a decade from NP discovery to entry
+                         a shortcoming of genome-based discovery, unless based   into the clinic. For example, salinosporamide A was iso-
+                     on resistance genes or characterized NP families, is the   lated in the early 2000s from a marine actinomycete and
+                           limited information on bioactivities. However, the large   did not enter phase III clinical trials for the treatment
+                     number of genome-discovered NPs with cytotoxic, anti-   of newly diagnosed glioblastoma until 2020 (ref.237). As
+                             biotic or antiviral properties shows that a considerable  genome mining and metagenomics are relatively young
+                        portion of the bacterial orphan metabolome has rich   sciences that benefit from new sequencing, DNA syn-
+                       drug potential.                                             thesis and synthetic biology technologies, their impact
+                                                                 on translational pharmacology will only be visible in the
+                    Which BGCs to prioritize for drug development?       coming years to decades. In addition to the rich orphan
+                      Considering the abundance of uncharacterized,   metabolomes revealed in seemingly well-explored bac-
+                          novel-looking pathways, prioritization can be a daunting   teria, the study of neglected taxa and underexplored
+                              task. The following guidelines, among other strategies,   ecological niches, aided by tools and methods described
+                      might increase the likelihood that novel compounds   here, should provide valuable leads for new therapeutics.
+                           exhibit pharmaceutically relevant activities: bioactiv-   Besides important academic questions (for example, the
+                               ity screens of bacterial groups with high numbers of   ecological significance of NPs or methodology develop-
+                       unassigned BGCs; resistance gene mining to detect   ment), drug discovery and development remain key
+                   BGCs encoding resistant copies of antibiotic targets; the   drivers of NP research.
+                         presence of similar BGCs in distantly related bacteria,
+                          suggesting general importance and decreased likelihood   Published online 16 March 2022
+
+
+1.   Carter, H. E. et al. Isolation and purification of                    for deciphering chemical structures of RiPPs based       20.  Skinnider, M. A. et al. Genomic charting of ribosomally
+     streptomycin. J. Biol. Chem. 160, 337–342 (1945).         on prediction of cleavage and cross-links. Nucleic               synthesized natural product chemical space facilitates
+2.   Davies, J. & Ryan, K. S. Introducing the parvome:              Acids Res. 45, W80–W88 (2017).                            targeted mining. Proc. Natl Acad. Sci. USA 113,
+     bioactive compounds in the microbial world.             12.  Saad, H. et al. Nocathioamides, uncovered by a            E6343–E6351 (2016).
+    ACS Chem. Biol. 7, 252–259 (2012).                         tunable metabologenomic approach, define a novel       21.  Villebro, R., Shaw, S., Blin, K. & Weber, T. Sequence-
+3.  Medema, M. H. & Fischbach, M. A. Computational              class of chimeric lanthipeptides. Angew. Chem. Int. Ed.        based classification of type II polyketide synthase
+     approaches to natural product discovery. Nat. Chem.          60, 16472–16479 (2021).                                    biosynthetic gene clusters for antiSMASH. J. Ind.
+      Biol. 11, 639–648 (2015).                            13.  Tietz, J. I. et al. A new genome-mining tool redefines            Microbiol. Biotechnol. 46, 469–475 (2019).
+4.    Blin, K. et al. antiSMASH 5.0: updates to the                  the lasso peptide biosynthetic landscape. Nat. Chem.     22.  Weber, T. et al. antiSMASH 3.0 — a comprehensive
+     secondary metabolite genome mining pipeline.                    Biol. 13, 470–478 (2017).                                  resource for the genome mining of biosynthetic gene
+     Nucleic Acids Res. 47, W81–W87 (2019).               14.  Schwalen, C. J., Hudson, G. A., Kille, B. & Mitchell, D. A.           clusters. Nucleic Acids Res. 43, W237–W243 (2015).
+5.   Skinnider, M. A., Merwin, N. J., Johnston, C. W. &              Bioinformatic expansion and discovery of thiopeptide      23.  Chevrette, M. G., Aicheler, F., Kohlbacher, O.,
+     Magarvey, N. A. PRISM 3: expanded prediction of                antibiotics. J. Am. Chem. Soc. 140, 9494–9501                  Currie, C. R. & Medema, M. H. SANDPUMA: ensemble
+     natural product chemical structures from microbial             (2018).                                                         predictions of nonribosomal peptide chemistry reveal
+     genomes. Nucleic Acids Res. 45, W49–W54 (2017).      15.  Agrawal, P., Amir, S., Deepak, Barua, D. & Mohanty, D.          biosynthetic diversity across Actinobacteria.
+6.   Sugimoto, Y. et al. A metagenomic strategy for               RiPPMiner-Genome: a web resource for automated             Bioinformatics 33, 3202–3210 (2017).
+     harnessing the chemical repertoire of the human                prediction of crosslinked chemical structures of RiPPs     24.  Stachelhaus, T., Mootz, H. D. & Marahiel, M. A.
+     microbiome. Science 366, 1332 (2019).                    by genome mining. J. Mol. Biol. 433, 166887               The specificity-conferring code of adenylation domains
+7.    Russell, A. H. & Truman, A. W. Genome mining                 (2021).                                                              in nonribosomal peptide synthetases. Chem. Biol. 6,
+      strategies for ribosomally synthesised and post-          16.  Merwin, N. J. et al. DeepRiPP integrates multiomics         493–505 (1999).
+      translationally modified peptides. Comput. Struct.             data to automate discovery of novel ribosomally          25.  Challis, G. L., Ravel, J. & Townsend, C. A. Predictive,
+     Biotechnol. J. 18, 1838–1851 (2020).                        synthesized natural products. Proc. Natl Acad. Sci.             structure-based model of amino acid recognition
+8.   van Heel, A. J. et al. BAGEL4: a user-friendly web           USA 117, 371–380 (2020).                              by nonribosomal peptide synthetase adenylation
+     server to thoroughly mine RiPPs and bacteriocins.        17.  de Los Santos, E. L. C. NeuRiPP: neural network              domains. Chem. Biol. 7, 211–224 (2000).
+     Nucleic Acids Res. 46, W278–W281 (2018).                     identification of RiPP precursor peptides. Sci. Rep. 9,     26.  Röttig, M. et al. NRPSpredictor2 — a web server
+9.   Uddin, M. A. et al. A plant endophyte Staphylococcus        13406 (2019).                                                     for predicting NRPS adenylation domain specificity.
+     hominis strain MBL_AB63 produces a novel lantibiotic,    18.  Santos-Aberturas, J. et al. Uncovering the unexplored          Nucleic Acids Res. 39, W362–W367 (2011).
+     homicorcin and a position one variant. Sci. Rep. 11,              diversity of thioamidated ribosomal peptides in          27.  Chu, J. et al. Synthetic-bioinformatic natural product
+    11211 (2021).                                                Actinobacteria using the RiPPER genome mining tool.           antibiotics with diverse modes of action. J. Am. Chem.
+10.  Kloosterman, A. M., Shelton, K. E., van Wezel, G. P.,            Nucleic Acids Res. 47, 4624–4637 (2019).                   Soc. 142, 14158–14168 (2020).
+    Medema, M. H. & Mitchell, D. A. RRE-Finder:            19.  Russell, A. H., Vior, N. M., Hems, E. S., Lacret, R. &       28.  Wu, C., Shang, Z., Lemetre, C., Ternei, M. A. &
+    a genome-mining tool for class-independent RiPP             Truman, A. W. Discovery and characterisation of an            Brady, S. F. Cadasides, calcium-dependent acidic
+      discovery. mSystems 5, e00267 (2020).                      amidine-containing ribosomally-synthesised peptide            lipopeptides from the soil metagenome that are
+11.  Agrawal, P., Khater, S., Gupta, M., Sain, N. &                   that is widely distributed in nature. Chem. Sci. 12,               active against multidrug-resistant bacteria. J. Am.
+     Mohanty, D. RiPPMiner: a bioinformatics resource          11769–11778 (2021).                                 Chem. Soc. 141, 3910–3919 (2019).
+
+
+NaTure RevIewS   | DRuG DiSCovERy                                                         volume 21   | May 2022   | 375
+
+                                                         0123456789();:
+
+
+[PDF physical page 18]
+Reviews
+
+
+
+29.  Helfrich, E. J. N. & Piel, J. Biosynthesis of polyketides     54.  Goering, A. W. et al. Metabologenomics: correlation      78.  Prihoda, D. et al. The application potential of machine
+     by trans-AT polyketide synthases. Nat. Prod. Rep. 33,           of microbial gene clusters with metabolites drives               learning and genomics for understanding natural
+    231–316 (2016).                                             discovery of a nonribosomal peptide with an unusual          product diversity, chemistry, and therapeutic
+30.  Nguyen, T. et al. Exploiting the mosaic structure             amino acid monomer. ACS Cent. Sci. 2, 99–108                  translatability. Nat. Product. Rep. 38, 1100–1108
+      of trans-acyltransferase polyketide synthases for               (2016).                                                     (2021).
+     natural product discovery and pathway dissection.        55.  Izumikawa, M. et al. Pyrrolidine-containing peptides,      79.  Baltz, R. H. Gifted microbes for genome mining and
+     Nat. Biotechnol. 26, 225–233 (2008).                      JBIR-126,-148, and-149, from Streptomyces sp.               natural product discovery. J. Ind. Microbiol. Biotechnol.
+31.  Helfrich, E. J. N. et al. Automated structure prediction       NBRC 111228. Tetrahedron Lett. 56, 5333–5336           44, 573–588 (2017).
+      of trans-acyltransferase polyketide synthase products.          (2015).                                             80.  Barka, E. A. et al. Taxonomy, physiology, and natural
+     Nat. Chem. Biol. 15, 813–821 (2019).                 56.  Wang, M. et al. Sharing and community curation of            products of actinobacteria. Microbiol. Mol. Biol. Rev.
+32.  Ueoka, R. et al. Genome-based identification               mass spectrometry data with Global Natural Products         80, 1–43 (2016).
+      of a plant-associated marine bacterium as a rich                Social Molecular Networking. Nat. Biotechnol. 34,        81.  Watve, M. G., Tickoo, R., Jog, M. M. & Bhole, B. D.
+     natural product source. Angew. Chem. Int. Ed. 57,          828–837 (2016).                               How many antibiotics are produced by the genus
+    14519–14523 (2018).                               57.  Mohimani, H. et al. Dereplication of microbial                Streptomyces? Arch. Microbiol. 176, 386–390 (2001).
+33.  Helfrich, E. J. N. et al. Bipartite interactions, antibiotic           metabolites through database search of mass            82.  Baltz, R. H. Natural product drug discovery in the
+     production and biosynthetic potential of the Arabidopsis          spectra. Nat. Commun. 9, 4035 (2018).                    genomic era: realities, conjectures, misconceptions,
+      leaf microbiome. Nat. Microbiol. 3, 909–919 (2018).      58.  Sieber, S., Grendelmeier, S. M., Harris, L. A.,                and opportunities. J. Ind. Microbiol. Biotechnol. 46,
+34.  Jahanshah, G. et al. Discovery of the cyclic lipopeptide           Mitchell, D. A. & Gademann, K. Microviridin 1777:         281–299 (2019).
+     gacamide A by genome mining and repair of the             a toxic chymotrypsin inhibitor discovered by a           83.  Grubbs, K. J. et al. Large-scale bioinformatics analysis
+     defective GacA regulator in Pseudomonas fluorescens         metabologenomic approach. J. Nat. Prod. 83,                   of bacillus genomes uncovers conserved roles of
+     Pf0-1. J. Nat. Prod. 82, 301–308 (2019).               438–446 (2020).                                             natural products in bacterial physiology. mSystems 2,
+35.  Culp, E. J. et al. Evolution-guided discovery of            59.  Wu, C. et al. Lugdunomycin, an angucycline-derived         e00040 (2017).
+      antibiotics that inhibit peptidoglycan remodelling.             molecule with unprecedented chemical. Architecture.     84.  Leao, T. et al. Comparative genomics uncovers
+     Nature 578, 582–587 (2020).                            Angew. Chem. Int. Ed. 58, 2809–2814 (2019).                the prolific and distinctive metabolic potential of the
+36.  Kautsar, S. A. et al. MIBiG 2.0: a repository for           60.  Quinn, R. A. et al. Global chemical effects of the                cyanobacterial genus Moorea. Proc. Natl Acad.
+     biosynthetic gene clusters of known function.                microbiome include new bile-acid conjugations.                   Sci. USA 114, 3198–3203 (2017).
+     Nucleic Acids Res. 48, D454–D458 (2020).                 Nature 579, 123–129 (2020).                        85.  Hillenmeyer, M. E., Vandova, G. A., Berlew, E. E. &
+37.  Blin, K., Shaw, S., Kautsar, S. A., Medema, M. H.         61.  Ernst, M. et al. MolNetEnhancer: enhanced molecular         Charkoudian, L. K. Evolution of chemical diversity
+   & Weber, T. The antiSMASH database version 3:              networks by integrating metabolome mining and             by coordinated gene swaps in type II polyketide
+     increased taxonomic coverage and new query                 annotation tools. Metabolites 9, 144 (2019).                gene clusters. Proc. Natl Acad. Sci. USA 112,
+     features for modular enzymes. Nucleic Acids Res. 49,     62.  Schorn, M. A. et al. A community resource for paired        13952–13957 (2015).
+    D639–D643 (2021).                                    genomic and metabolomic data mining. Nat. Chem.       86.  Pfeifer, B. A., Admiraal, S. J., Gramajo, H., Cane, D. E.
+38.  Palaniappan, K. et al. IMG-ABC v.5.0: an update                  Biol. 17, 363–368 (2021).                     & Khosla, C. Biosynthesis of complex polyketides
+     to the IMG/Atlas of biosynthetic gene clusters            63.  Cimermancic, P. et al. Insights into secondary                     in a metabolically engineered strain of E. coli. Science
+     knowledgebase. Nucleic Acids Res. 48, D422–D430          metabolism from a global analysis of prokaryotic             291, 1790–1792 (2001).
+     (2020).                                                        biosynthetic gene clusters. Cell 158, 412–421 (2014).    87.  Vieweg, L., Reichau, S., Schobert, R., Leadlay, P. F. &
+39.  Kautsar, S. A., Blin, K., Shaw, S., Weber, T. &             64.  Hannigan, G. D. et al. A deep learning genome-mining         Sussmuth, R. D. Recent advances in the field of bioactive
+    Medema, M. H. BiG-FAM: the biosynthetic gene                strategy for biosynthetic gene cluster prediction.                tetronates. Nat. Prod. Rep. 31, 1554–1584 (2014).
+      cluster families database. Nucleic Acids Res. 49,               Nucleic Acids Res. 47, e110 (2019).                    88.  Leikoski, N. et al. Genome mining expands the
+    D490–D497 (2021).                                 65.  Navarro-Munoz, J. C. et al. A computational                   chemical diversity of the cyanobactin family to include
+40.  van Santen, J. A. et al. The Natural Products Atlas:           framework to explore large-scale biosynthetic                   highly modified linear peptides. Chem. Biol. 20,
+    an open access knowledge base for microbial natural             diversity. Nat. Chem. Biol. 16, 60–68 (2020).             1033–1043 (2013).
+     products discovery. ACS Cent. Sci. 5, 1824–1833        66.  Kayrouz, C. M., Zhang, Y., Pham, T. M. & Ju, K. S.        89.  Doroghazi, J. R. et al. A roadmap for natural
+     (2019).                                         Genome mining reveals the phosphonoalamide                product discovery based on large-scale genomics and
+41.  Banerjee, P. et al. Super Natural II — a database of             natural products and a new route in phosphonic               metabolomics. Nat. Chem. Biol. 10, 963–968 (2014).
+     natural products. Nucleic Acids Res. 43, D935–D939          acid biosynthesis. ACS Chem. Biol. 15, 1921–1929      90.  Hoffmann, T. et al. Correlating chemical diversity with
+     (2015).                                                    (2020).                                                 taxonomic distance for discovery of natural products
+42.  Sorokina, M. & Steinbeck, C. Review on natural          67.  Kautsar, S. A., van der Hooft, J. J. J., de Ridder, D. &             in myxobacteria. Nat. Commun. 9, 803 (2018).
+     products databases: where to find data in 2020.            Medema, M. H. BiG-SLiCE: a highly scalable tool maps    91.  Antony-Babu, S. et al. Multiple Streptomyces species
+      J. Cheminform 12, 20 (2020).                               the diversity of 1.2 million biosynthetic gene clusters.           with distinct secondary metabolomes have identical
+43.  Clark, C. M., Costa, M. S., Sanchez, L. M. &                   Gigascience 10, 1–17 (2021).                        16S rRNA gene sequences. Sci. Rep. 7, 11089 (2017).
+     Murphy, B. T. Coupling MALDI-TOF mass spectrometry    68.  Nothias, L. F. et al. Bioactivity-based molecular          92.  Adamek, M. et al. Comparative genomics reveals
+     protein and specialized metabolite analyses to rapidly          networking for the discovery of drug leads in natural            phylogenetic distribution patterns of secondary
+     discriminate bacterial function. Proc. Natl Acad.               product bioassay-guided fractionation. J. Nat. Prod.            metabolites in Amycolatopsis species. BMC Genomics
+      Sci. USA 115, 4981–4986 (2018).                         81, 758–767 (2018).                                   19, 426 (2018).
+44.  Reher, R. et al. A convolutional neural network-based     69.  Gerlt, J. A. et al. Enzyme Function Initiative-Enzyme      93.  Ziemert, N. et al. Diversity and evolution of secondary
+     approach for the rapid annotation of molecularly                 Similarity Tool (EFI-EST): a web tool for generating            metabolism in the marine actinomycete genus
+     diverse natural products. J. Am. Chem. Soc. 142,               protein sequence similarity networks. Biochim.                  Salinispora. Proc. Natl Acad. Sci. USA 111,
+    4114–4120 (2020).                                        Biophys. Acta 1854, 1019–1037 (2015).                E1130–E1139 (2014).
+45.  Bhushan, A., Egli, P. J., Peters, E. E., Freeman, M. F. &    70.  Shannon, P. et al. Cytoscape: a software environment     94.  Tobias, N. J. et al. Natural product diversity associated
+      Piel, J. Genome mining- and synthetic biology-enabled           for integrated models of biomolecular interaction              with the nematode symbionts Photorhabdus and
+     production of hypermodified peptides. Nat. Chem. 11,          networks. Genome Res. 13, 2498–2504 (2003).             Xenorhabdus. Nat. Microbiol. 2, 1676–1685 (2017).
+    931–939 (2019).                                     71.   Li, Y. X., Zhong, Z., Zhang, W. P. & Qian, P. Y.             95.  Pye, C. R., Bertin, M. J., Lokey, R. S., Gerwick, W. H.
+46.  Vila-Farres, X. et al. Antimicrobials inspired by                 Discovery of cationic nonribosomal peptides as          & Linington, R. G. Retrospective analysis of natural
+     nonribosomal peptide synthetase gene clusters.               Gram-negative antibiotics through global genome             products provides insights for future discovery trends.
+      J. Am. Chem. Soc. 139, 1404–1407 (2017).                  mining. Nat. Commun. 9, 3273 (2018).                        Proc. Natl Acad. Sci. USA 114, 5601–5606 (2017).
+47.  Johnston, C. W. et al. An automated Genomes-to-        72.  de Rond, T., Asay, J. E. & Moore, B. S. Co-occurrence      96.  Goodrich-Blair, H. & Clarke, D. J. Mutualism and
+     Natural Products platform (GNP) for the discovery               of enzyme domains guides the discovery of an                 pathogenesis in Xenorhabdus and Photorhabdus:
+      of modular natural products. Nat. Commun. 6, 8421           oxazolone synthetase. Nat. Chem. Biol. 17, 794–799         two roads to the same destination. Mol. Microbiol.
+     (2015).                                                     (2021).                                               64, 260–268 (2007).
+48.  Kersten, R. D. et al. A mass spectrometry-guided         73.  Thaker, M. N., Waglechner, N. & Wright, G. D.           97.  Reimer, D., Luxenburger, E., Brachmann, A. O. &
+    genome mining approach for natural product                    Antibiotic resistance-mediated isolation of scaffold-            Bode, H. B. A new type of pyrrolidine biosynthesis is
+     peptidogenomics. Nat. Chem. Biol. 7, 794–802                  specific natural product producers. Nat. Protoc. 9,              involved in the late steps of xenocoumacin production
+     (2011).                                        1469–1479 (2014).                                               in Xenorhabdus nematophila. Chembiochem 10,
+49. Medema, M. H. et al. Pep2Path: automated mass        74.  Panter, F., Krug, D., Baumann, S. & Müller, R.             1997–2001 (2009).
+     spectrometry-guided genome mining of peptidic                 Self-resistance guided genome mining uncovers          98.  Eleftherianos, I. et al. An antibiotic produced by an
+     natural products. PLoS Comput. Biol. 10, e1003822         new topoisomerase inhibitors from myxobacteria.              insect-pathogenic bacterium suppresses host defenses
+     (2014).                                             Chem. Sci. 9, 4898–4908 (2018).                          through phenoloxidase inhibition. Proc. Natl Acad.
+50.  Kersten, R. D. et al. Glycogenomics as a mass            75.  Mungan, M. D. et al. ARTS 2.0: feature updates and             Sci. USA 104, 2419–2424 (2007).
+     spectrometry-guided genome-mining method for              expansion of the Antibiotic Resistant Target Seeker       99.  Panthee, S., Hamamoto, H., Paudel, A. & Sekimizu, K.
+     microbial glycosylated molecules. Proc. Natl Acad.               for comparative genome mining. Nucleic Acids Res.            Lysobacter species: a potential source of novel
+      Sci. USA 110, E4407–E4416 (2013).                      48, W546–W552 (2020).                                         antibiotics. Arch. Microbiol. 198, 839–845 (2016).
+51.  Mohimani, H. et al. Automated genome mining of        76.  Cruz-Morales, P. et al. Phylogenomic analysis of          100. Nozaki, Y. et al. Cephabacins, new cephem antibiotics
+     ribosomal peptide natural products. ACS Chem. Biol.           natural products biosynthetic gene clusters allows               of bacterial origin. IV. Antibacterial activities, stability
+     9, 1545–1551 (2014).                                       discovery of arseno-organic metabolites in model               to β-lactamases and mode of action. J. Antibiot. 37,
+52.  Cao, L. et al. MetaMiner: a scalable peptidogenomics          streptomycetes. Genome Biol. Evol. 8, 1906–1916         1555–1565 (1984).
+     approach for discovery of ribosomal peptide natural            (2016).                                             101. Lee, W. et al. The mechanism of action of lysobactin.
+     products with blind modifications from microbial         77.  Selem-Mojica, N., Aguilar, C., Gutierrez-Garcia, K.,                J. Am. Chem. Soc. 138, 100–103 (2016).
+     communities. Cell Syst. 9, 600–608 (2019).                  Martinez-Guerrero, C. E. & Barona-Gomez, F.            102. Sang, M. et al. Identification of an anti-MRSA cyclic
+53.  Dejong, C. A. et al. Polyketide and nonribosomal             EvoMining reveals the origin and fate of natural                 lipodepsipeptide, WBP-29479A1, by genome mining
+     peptide retro-biosynthesis and global gene cluster             product biosynthetic enzymes. Micro. Genom. 5,                of Lysobacter antibioticus. Org. Lett. 21, 6432–6436
+     matching. Nat. Chem. Biol. 12, 1007–1014 (2016).         e000260 (2019).                                           (2019).
+
+
+376  | May 2022   | volume 21                                                                                      www.nature.com/nrd
+
+                                                            0123456789();:
+
+
+[PDF physical page 19]
+                                      Reviews
+
+
+
+
+103. Wu, Y. & Seyedsayamdost, M. R. The polyene                   cultured marine hydrothermal vent bacterium,                  obligate marine myxobacterium Enhygromyxa salina.
+     natural product thailandamide A inhibits fatty acid            Thermovibrio ammonificans. Mar. Drugs 10,               Chembiochem 14, 1363–1371 (2013).
+     biosynthesis in Gram-positive and Gram-negative           2300–2311 (2012).                                 151. Luesch, H., Yoshida, W. Y., Moore, R. E., Paul, V. J.
+      bacteria. Biochemistry 57, 4247–4251 (2018).         126. Partida-Martinez, L. P. & Hertweck, C. Pathogenic        & Corbett, T. H. Total structure determination of
+104. Wang, C. et al. Thailandepsins: bacterial products             fungus harbours endosymbiotic bacteria for toxin              apratoxin A, a potent novel cytotoxin from the marine
+     with potent histone deacetylase inhibitory activities            production. Nature 437, 884–888 (2005).                  cyanobacterium Lyngbya majuscula. J. Am. Chem. Soc.
+    and broad-spectrum antiproliferative activities.          127. Takeuchi, K. et al. Rhizoxin analogs contribute to the          123, 5418–5423 (2001).
+      J. Nat. Prod. 74, 2031–2038 (2011).                          biocontrol activity of a newly isolated Pseudomonas      152. Liu, Y., Law, B. K. & Luesch, H. Apratoxin a reversibly
+105. Biggins, J. B., Gleber, C. D. & Brady, S. F.                          strain. Mol. Plant. Microbe Interact. 28, 333–342               inhibits the secretory pathway by preventing
+     Acyldepsipeptide HDAC inhibitor production                   (2015).                                                         cotranslational translocation. Mol. Pharmacol. 76,
+     induced in Burkholderia thailandensis. Org. Lett.        128. Loper, J. E. et al. Rhizoxin analogs, orfamide A and          91–104 (2009).
+     13, 1536–1539 (2011).                                        chitinase production contribute to the toxicity of         153. Hong, J. & Luesch, H. Largazole: from discovery
+106. Biggins, J. B., Liu, X., Feng, Z. & Brady, S. F.                Pseudomonas protegens strain Pf-5 to Drosophila              to broad-spectrum therapy. Nat. Prod. Rep. 29,
+     Metabolites from the induced expression of cryptic            melanogaster. Environ. Microbiol. 18, 3509–3521         449–456 (2012).
+      single operons found in the genome of Burkholderia            (2016).                                           154. Walter, J. M. et al. Ecogenomics of the marine benthic
+     pseudomallei. J. Am. Chem. Soc. 133, 1638–1641      129. Dudler, R. The role of bacterial phytotoxins in inhibiting         filamentous Cyanobacterium adonisia. Microb. Ecol.
+     (2011).                                                     the eukaryotic proteasome. Trends Microbiol. 22,             80, 249–265 (2020).
+107. Franke, J., Ishida, K. & Hertweck, C. Genomics-driven        28–35 (2014).                                    155. Offret, C. et al. Spotlight on antimicrobial metabolites
+     discovery of burkholderic acid, a noncanonical, cryptic    130. Schellenberg, B., Bigler, L. & Dudler, R. Identification          from the marine bacteria Pseudoalteromonas:
+     polyketide from human pathogenic Burkholderia                of genes involved in the biosynthesis of the cytotoxic           chemodiversity and ecological significance. Mar. Drugs
+      species. Angew. Chem. Int. Ed. 51, 11611–11615           compound glidobactin from a soil bacterium.                14, 129 (2016).
+     (2012).                                                        Environ. Microbiol. 9, 1640–1650 (2007).             156. Silva, S. G., Blom, J., Keller-Costa, T. & Costa, R.
+108. Seyedsayamdost, M. R. et al. Quorum-sensing-          131. Stein, M. L. et al. One-shot NMR analysis of microbial          Comparative genomics reveals complex natural
+     regulated bactobolin production by Burkholderia               secretions identifies highly potent proteasome inhibitor.         product biosynthesis capacities and carbon
+     thailandensis E264. Org. Lett. 12, 716–719 (2010).           Proc. Natl Acad. Sci. USA 109, 18367–18371 (2012).         metabolism across host-associated and free-living
+109. Park, J. D. et al. Thailandenes, cryptic polyene natural    132. Waspi, U., Blanc, D., Winkler, T., Ruedi, P. & Dudler, R.         Aquimarina (Bacteroidetes, Flavobacteriaceae)
+     products isolated from Burkholderia thailandensis               Syringolin, a novel peptide elicitor from Pseudomonas           species. Environ. Microbiol. 21, 4002–4019 (2019).
+     using phenotype-guided transposon mutagenesis.             syringae pv. syringae that induces resistance to          157. Sobolevskaya, M. P. et al. Controlling production of
+    ACS Chem. Biol. 15, 1195–1203 (2020).                       Pyricularia oryzae in rice. Mol. Plant. Microbe 11,            brominated cyclic depsipeptides by Pseudoalteromonas
+110. Mullins, A. J. et al. Genome mining identifies cepacin        727–733 (1998).                                              maricaloris KMM 636T. Lett. Appl. Microbiol. 40,
+     as a plant-protective metabolite of the biopesticidal      133. Piel, J. et al. Exploring the chemistry of uncultivated         243–248 (2005).
+     bacterium Burkholderia ambifaria. Nat. Microbiol. 4,           bacterial symbionts: antitumor polyketides of the        158. Shiozawa, H. et al. Thiomarinol, a new hybrid
+    996–1005 (2019).                                         pederin family. J. Nat. Prod. 68, 472–479 (2005).             antimicrobial antibiotic produced by a marine
+111. Xu, F. et al. A genetics-free method for high-throughput    134. Piel, J. A polyketide synthase–peptide synthetase             bacterium fermentation, isolation, structure, and
+     discovery of cryptic microbial metabolites. Nat. Chem.         gene cluster from an uncultured bacterial symbiont             antimicrobial activity. J. Antibiot. 46, 1834–1842
+      Biol. 15, 161–168 (2019).                                       of Paederus beetles. Proc. Natl Acad. Sci. USA 99,             (1993).
+112. Ma, M. et al. Complete genome sequence of              14002–14007 (2002).                             159. Elshahawi, S. I. et al. Boronated tartrolon antibiotic
+     Paenibacillus mucilaginosus 3016, a bacterium         135. Nakabachi, A. et al. Defensive bacteriome symbiont           produced by symbiotic cellulose-degrading bacteria
+      functional as microbial fertilizer. J. Bacteriol. 194,             with a drastically reduced genome. Curr. Biol. 23,                in shipworm gills. Proc. Natl Acad. Sci. USA 110,
+    2777–2778 (2012).                              1478–1484 (2013).                               E295–E304 (2013).
+113. Baindara, P., Nayudu, N. & Korpole, S. Whole genome    136. Kampa, A. et al. Metagenomic natural product          160. Chevrette, M. G. et al. The antimicrobial potential of
+     mining reveals a diverse repertoire of lanthionine               discovery in lichen provides evidence for a family              Streptomyces from insect microbiomes. Nat. Commun.
+     synthetases and lanthipeptides among the genus                of biosynthetic pathways in diverse symbioses.                10, 516 (2019).
+     Paenibacillus. J. Appl. Microbiol. 128, 473–490               Proc. Natl Acad. Sci. USA 110, E3129–E3137 (2013).    161. Kroiss, J. et al. Symbiotic Streptomycetes provide
+     (2020).                                           137. Rust, M. et al. A multiproducer microbiome                      antibiotic combination prophylaxis for wasp offspring.
+114. Velkov, T., Thompson, P. E., Nation, R. L. & Li, J.               generates chemical diversity in the marine sponge             Nat. Chem. Biol. 6, 261–263 (2010).
+     Structure–activity relationships of polymyxin                Mycale hentscheli. Proc. Natl Acad. Sci. USA 117,       162. Nyholm, S. V. In the beginning: egg–microbe
+      antibiotics. J. Med. Chem. 53, 1898–1916 (2010).         9508–9518 (2020).                                            interactions and consequences for animal hosts.
+115. Vater, J. et al. Genome mining of the lipopeptide         138. Storey, M. A. et al. Metagenomic exploration of the               Phil. Trans. R. Soc. B 375, 20190593 (2020).
+     biosynthesis of Paenibacillus polymyxa E681 in              marine sponge Mycale hentscheli uncovers multiple      163. Kador, M., Horn, M. A. & Dettner, K. Novel
+     combination with mass spectrometry: discovery of              polyketide-producing bacterial symbionts. mBio 11,            oligonucleotide probes for in situ detection of
+     the lipoheptapeptide paenilipoheptin. Chembiochem         e02997 (2020).                                            pederin-producing endosymbionts of Paederus
+     19, 744–753 (2018).                               139. Schleissner, C. et al. Bacterial production of a pederin            riparius rove beetles (Coleoptera: Staphylinidae).
+116. Kiss, H. et al. Complete genome sequence of                  analogue by a free-living marine Alphaproteobacterium.       FEMS Microbiol. Lett. 319, 73–81 (2011).
+     the filamentous gliding predatory bacterium                        J. Nat. Prod. 80, 2170–2173 (2017).                  164. Florez, L. V., Biedermann, P. H., Engl, T. &
+     Herpetosiphon aurantiacus type strain (114-95T).        140. Kust, A. et al. Discovery of a pederin family compound          Kaltenpoth, M. Defensive symbioses of animals
+     Stand. Genomic Sci. 5, 356–370 (2011).                         in a nonsymbiotic bloom-forming cyanobacterium.             with prokaryotic and eukaryotic microorganisms.
+117. Nett, M. et al. Siphonazole, an unusual metabolite           ACS Chem. Biol. 13, 1123–1129 (2018).                     Nat. Prod. Rep. 32, 904–936 (2015).
+     from Herpetosiphon sp. Angew. Chem. Int. Ed. 45,        141. Chen, R., Wong, H. L. & Burns, B. P. New approaches      165. Daniel-Ivad, M., Pimentel-Elardo, S. & Nodwell, J. R.
+    3863–3867 (2006).                                           to detect biosynthetic gene clusters in the environment.         Control of specialized metabolism by signaling and
+118. Zhang, J., Polishchuk, E. A., Chen, J. & Ciufolini, M. A.         Medicines 6, 32 (2019).                                         transcriptional regulation: opportunities for new
+     Development of an oxazole conjunctive reagent and      142. Dittmann, E., Gugger, M., Sivonen, K. & Fewer, D. P.            platforms for drug discovery? Annu. Rev. Microbiol.
+     application to the total synthesis of siphonazoles.              Natural product biosynthetic diversity and comparative        72, 25–48 (2018).
+      J. Org. Chem. 74, 9140–9151 (2009).                     genomics of the cyanobacteria. Trends Microbiol. 23,     166. Shi, Y. et al. Synthetic multispecies microbial
+119. Schieferdecker, S. et al. Structure and absolute            642–652 (2015).                                        communities reveals shifts in secondary metabolism
+     configuration of auriculamide, a natural product from     143. Long, R. A. & Azam, F. Antagonistic interactions             and facilitates cryptic natural product discovery.
+     the predatory bacterium Herpetosiphon aurantiacus.        among marine pelagic bacteria. Appl. Environ.                  Environ. Microbiol. 19, 3606–3618 (2017).
+      Eur. J. Org. Chem. 2015, 3057–3062 (2015).                 Microbiol. 67, 4975–4983 (2001).                   167. Adnani, N. et al. Coculture of marine invertebrate-
+120. Nakano, C., Oshima, M., Kurashima, N. & Hoshino, T.    144. Villar, E. et al. The Ocean Gene Atlas: exploring the             associated bacteria and interdisciplinary technologies
+      Identification of a new diterpene biosynthetic                biogeography of plankton genes online. Nucleic Acids          enable biosynthesis and discovery of a new antibiotic,
+    gene cluster that produces O-methylkolavelool                Res. 46, W289–W295 (2018).                                    keyicin. ACS Chem. Biol. 12, 3093–3102 (2017).
+      in Herpetosiphon aurantiacus. Chembiochem 16,        145. Rateb, M. E. et al. Chaxamycins A–D, bioactive          168. Zipperer, A. et al. Human commensals producing a
+    772–781 (2015).                                        ansamycins from a hyper-arid desert Streptomyces             novel antibiotic impair pathogen colonization. Nature
+121. Chang, Y. J. et al. Non-contiguous finished genome              sp. J. Nat. Prod. 74, 1491–1499 (2011).                  535, 511–516 (2016).
+     sequence and contextual data of the filamentous soil     146. Sunagawa, S. et al. Ocean plankton. Structure and       169. Bitschar, K. et al. Lugdunin amplifies innate immune
+     bacterium Ktedonobacter racemifer type strain                 function of the global ocean microbiome. Science 348,         responses in the skin in synergy with host- and
+     (SOSP1-21). Stand. Genom. Sci. 5, 97–111 (2011).         1261359 (2015).                                            microbiota-derived factors. Nat. Commun. 10, 2730
+122. Ueoka, R. et al. Genome mining of oxidation modules     147. Kong, D. X., Jiang, Y. Y. & Zhang, H. Y. Marine natural          (2019).
+      in trans-acyltransferase polyketide synthases reveals           products as sources of novel scaffolds: achievement      170. Korp, J., Vela Gurovic, M. S. & Nett, M. Antibiotics
+    a culturable source for lobatamides. Angew. Chem.           and concern. Drug Discov. Today 15, 884–886              from predatory bacteria. Beilstein J. Org. Chem. 12,
+       Int. Ed. 59, 7761–7765 (2020).                              (2010).                                        594–607 (2016).
+123. Lincke, T., Behnken, S., Ishida, K., Roth, M. &           148. Jensen, P. R., Moore, B. S. & Fenical, W. The marine      171. Xiao, Y., Wei, X., Ebright, R. & Wall, D. Antibiotic
+     Hertweck, C. Closthioamide: an unprecedented                actinomycete genus Salinispora: a model organism            production by myxobacteria plays a role in predation.
+     polythioamide antibiotic from the strictly anaerobic              for secondary metabolite discovery. Nat. Prod. Rep.               J. Bacteriol. 193, 4626–4633 (2011).
+     bacterium Clostridium cellulolyticum. Angew. Chem.          32, 738–751 (2015).                              172. Schieferdecker, S. et al. Structure and biosynthetic
+       Int. Ed. 49, 2011–2013 (2010).                      149. Bister, B. et al. Abyssomicin C-A polycyclic antibiotic           assembly of gulmirecins, macrolide antibiotics
+124. Rischer, M. et al. Biosynthesis, synthesis, and activities        from a marine Verrucosispora strain as an inhibitor of         from the predatory bacterium Pyxidicoccus fallax.
+      of barnesin A, a NRPS–PKS hybrid produced by an            the p-aminobenzoic acid/tetrahydrofolate biosynthesis         Chemistry 20, 15933–15940 (2014).
+     anaerobic Epsilonproteobacterium. ACS Chem. Biol.           pathway. Angew. Chem. Int. Ed. 43, 2574–2576        173. Baumann, S. et al. Cystobactamids: myxobacterial
+     13, 1990–1995 (2018).                                    (2004).                                                  topoisomerase inhibitors exhibiting potent
+125. Andrianasolo, E. H. et al. Ammonificins C and D,         150. Felder, S. et al. Salimyxins and enhygrolides:                    antibacterial activity. Angew. Chem. Int. Ed. 53,
+     hydroxyethylamine chromene derivatives from a                  antibiotic, sponge-related metabolites from the            14605–14609 (2014).
+
+
+NaTure RevIewS   | DRuG DiSCovERy                                                         volume 21   | May 2022   | 377
+
+                                                         0123456789();:
+
+
+[PDF physical page 20]
+Reviews
+
+
+
+174. Jansen, R., Irschik, H., Reichenbach, H. & Hofle, G.       199. Theodorou, E., Scanga, R., Twardowski, M.,             222. Smith, T. E. et al. Accessing chemical diversity from
+      Antibiotics from gliding bacteria, LXXX. Chivosazoles           Snyder, M. P. & Brouzes, E. A droplet microfluidics             the uncultivated symbionts of small marine animals.
+     A–F: novel antifungal and cytotoxic macrolides from          based platform for mining metagenomic libraries for           Nat. Chem. Biol. 14, 179–185 (2018).
+     Sorangium cellulosum (myxobacteria). Liebigs Ann.             natural compounds. Micromachines 8, 230 (2017).      223. Piel, J. & Cahn, J. Opening up the single-cell toolbox
+     Recl. 1997, 1725–1732 (1997).                     200. Brady, S. F. Construction of soil environmental DNA              for microbial natural products research. Angew. Chem.
+175. Rachid, S., Gerth, K., Kochems, I. & Müller, R.                cosmid libraries and screening for clones that produce            Int. Ed. Engl. 60, 18412–18428 (2019).
+     Deciphering regulatory mechanisms for secondary               biologically active small molecules. Nat. Protoc. 2,       224. Grindberg, R. V. et al. Single cell genome amplification
+     metabolite production in the myxobacterium              1297–1305 (2007).                                          accelerates identification of the apratoxin biosynthetic
+     Sorangium cellulosum So ce56. Mol. Microbiol. 63,      201. Huo, L. et al. Heterologous expression of bacterial            pathway from a complex microbial assemblage.
+    1783–1796 (2007).                                           natural product biosynthetic pathways. Nat. Prod. Rep.        PLoS ONE 6, e18565 (2011).
+176. Schiefer, A. et al. Corallopyronin A for short-course             36, 1412–1436 (2019).                            225. Miyaoka, R. et al. In situ detection of antibiotic
+      anti-wolbachial, macrofilaricidal treatment of filarial       202. Bitok, J. K., Lemetre, C., Ternei, M. A. & Brady, S. F.            amphotericin B produced in Streptomyces nodosus
+      infections. PLoS Negl. Trop. Dis. 14, e0008930 (2020).           Identification of biosynthetic gene clusters from                using Raman microspectroscopy. Mar. Drugs 12,
+177. Arp, J. et al. Synergistic activity of cosecreted natural         metagenomic libraries using PPTase complementation       2827–2839 (2014).
+     products from amoebae-associated bacteria. Proc. Natl           in a Streptomyces host. FEMS Microbiol. Lett. 364,      226. Lee, K. S. et al. An automated Raman-based platform
+     Acad. Sci. USA 115, 3758–3763 (2018).                   fnx155 (2017).                                                     for the sorting of live cells by functional properties.
+178. Oh, D. C., Scott, J. J., Currie, C. R. & Clardy, J.           203. Iqbal, H. A., Low-Beinart, L., Obiajulu, J. U. &                 Nat. Microbiol. 4, 1035–1048 (2019).
+     Mycangimycin, a polyene peroxide from a mutualist            Brady, S. F. Natural product discovery through           227. Newman, D. J. & Cragg, G. M. Natural products as
+     Streptomyces sp. Org. Lett. 11, 633–636 (2009).            improved functional metagenomics in Streptomyces.           sources of new drugs over the nearly four decades
+179. Van Arnam, E. B., Ruzzini, A. C., Sit, C. S., Currie, C. R.            J. Am. Chem. Soc. 138, 9341–9344 (2016).                from 01/1981 to 09/2019. J. Nat. Prod. 83,
+   & Clardy, J. A rebeccamycin analog provides            204. Chang, F. Y., Ternei, M. A., Calle, P. Y. & Brady, S. F.          770–803 (2020).
+     plasmid-encoded niche defense. J. Am. Chem. Soc.             Targeted metagenomics: finding rare tryptophan         228. Elfeki, M., Alanjary, M., Green, S. J., Ziemert, N. &
+    137, 14272–14274 (2015).                              dimer natural products in the environment.                  Murphy, B. T. Assessing the efficiency of cultivation
+180. Beemelmanns, C. et al. Macrotermycins A–D,                      J. Am. Chem. Soc. 137, 6044–6052 (2015).                  techniques to recover natural product biosynthetic
+     glycosylated macrolactams from a termite-associated     205. Charlop-Powers, Z. et al. Urban park soil microbiomes          gene populations from sediment. ACS Chem. Biol. 13,
+     Amycolatopsis sp. M39. Org. Lett. 19, 1000–1003           are a rich reservoir of natural product biosynthetic           2074–2081 (2018).
+     (2017).                                                                  diversity. Proc. Natl Acad. Sci. USA 113, 14811–14816    229. Ju, K. S. et al. Discovery of phosphonic acid natural
+181. Parks, D. H. et al. A standardized bacterial taxonomy           (2016).                                                    products by mining the genomes of 10,000
+    based on genome phylogeny substantially revises the     206. Kang, H. S. & Brady, S. F. Arixanthomycins A–C:               actinomycetes. Proc. Natl Acad. Sci. USA 112,
+     tree of life. Nat. Biotechnol. 36, 996–1004 (2018).            phylogeny-guided discovery of biologically active           12175–12180 (2015).
+182. Zan, J. et al. A microbial factory for defensive                 eDNA-derived pentangular polyphenols. ACS Chem.      230. Letzel, A. C. et al. Genomic insights into specialized
+     kahalalides in a tripartite marine symbiosis. Science              Biol. 9, 1267–1272 (2014).                              metabolism in the marine actinomycete Salinispora.
+    364, eaaw6732 (2019).                              207. Kim, J. H. et al. Cloning large natural product gene               Environ. Microbiol. 19, 3660–3673 (2017).
+183. Freeman, M. F. et al. Metagenome mining reveals                clusters from the environment: piecing environmental      231. Gilbert, J. A., Jansson, J. K. & Knight, R. The Earth
+     polytheonamides as posttranslationally modified          DNA gene clusters back together with TAR. Biopolymers        Microbiome Project: successes and aspirations.
+     ribosomal peptides. Science 338, 387–390 (2012).          93, 833–844 (2010).                          BMC Biol. 12, 69 (2014).
+184. Wilson, M. C. et al. An environmental bacterial taxon     208. Hrvatin, S. & Piel, J. Rapid isolation of rare clones        232. Eckert, E. M. et al. Every fifth published metagenome
+     with a large and distinct metabolic repertoire. Nature          from highly complex DNA libraries by PCR analysis of               is not available to science. PLoS Biol. 18, e3000698
+    506, 58–62 (2014).                                                liquid gel pools. J. Microbiol. Methods 68, 434–436           (2020).
+185. Crits-Christoph, A., Diamond, S., Butterfield, C. N.,             (2007).                                           233. Chassagne, F., Cabanac, G., Hubert, G., David, B. &
+    Thomas, B. C. & Banfield, J. F. Novel soil bacteria        209. Libis, V. et al. Uncovering the biosynthetic potential of          Marti, G. The landscape of natural product diversity
+     possess diverse genes for secondary metabolite                rare metagenomic DNA using co-occurrence network         and their pharmacological relevance from a focus on
+     biosynthesis. Nature 558, 440–444 (2018).                    analysis of targeted sequences. Nat. Commun. 10,             the Dictionary of Natural Products®. Phytochem. Rev.
+186. Rappe, M. S., Connon, S. A., Vergin, K. L. &               3848 (2019).                                          18, 601–622 (2019).
+     Giovannoni, S. J. Cultivation of the ubiquitous            210. Saeed, I., Tang, S. L. & Halgamuge, S. K. Unsupervised    234. Walker, A. S. & Clardy, J. A machine learning
+    SAR11 marine bacterioplankton clade. Nature 418,            discovery of microbial population structure within               bioinformatics method to predict biological activity
+    630–633 (2002).                                    metagenomes using nucleotide base composition.            from biosynthetic gene clusters. J. Chem. Inf. Model.
+187. Janssen, P. H., Yates, P. S., Grinton, B. E., Taylor, P. M.           Nucleic Acids Res. 40, e34 (2012).                         61, 2560–2571 (2021).
+   & Sait, M. Improved culturability of soil bacteria and       211. Donia, M. S. et al. A systematic analysis of              235. Mast, Y. et al. Characterization of the ‘pristinamycin
+      isolation in pure culture of novel members of the                 biosynthetic gene clusters in the human microbiome            supercluster’ of Streptomyces pristinaespiralis.
+      divisions Acidobacteria, Actinobacteria, Proteobacteria,          reveals a common family of antibiotics. Cell 158,              Microb. Biotechnol. 4, 192–206 (2011).
+    and Verrucomicrobia. Appl. Environ. Microbiol. 68,          1402–1414 (2014).                                236. Mrak, P. et al. Discovery of the actinoplanic acid
+    2391–2396 (2002).                                 212. Agarwal, V. et al. Metagenomic discovery of                 pathway in Streptomyces rapamycinicus reveals
+188. Nguyen, T. M. et al. Effective soil extraction method           polybrominated diphenyl ether biosynthesis by marine        a genetically conserved synergism with rapamycin.
+      for cultivating previously uncultured soil bacteria.              sponges. Nat. Chem. Biol. 13, 537–543 (2017).                  J. Biol. Chem. 293, 19982–19995 (2018).
+     Appl. Environ. Microbiol. 84, e01145 (2018).           213. Kwan, J. C. et al. Genome streamlining and chemical      237. McCauley, E. P. et al. Highlights of marine natural
+189. Condren, A. R. et al. Addition of insoluble fiber to               defense in a coral reef symbiosis. Proc. Natl Acad.             products having parallel scaffolds found from
+      isolation media allows for increased metabolite diversity           Sci. USA 109, 20655–20660 (2012).                        marine-derived bacteria, sponges, and tunicates.
+      of lab-cultivable microbes derived from zebrafish gut      214. Sudek, S. et al. Identification of the putative bryostatin           J. Antibiot. 73, 504–525 (2020).
+     samples. Gut Microbes 11, 1064–1076 (2020).                polyketide synthase gene cluster from “Candidatus       238. Wakimoto, T. et al. Calyculin biogenesis from a
+190. Lagier, J. C. et al. Culture of previously uncultured            Endobugula sertula”, the uncultivated microbial              pyrophosphate protoxin produced by a sponge
+    members of the human gut microbiota by culturomics.         symbiont of the marine bryozoan Bugula neritina.             symbiont. Nat. Chem. Biol. 10, 648–655 (2014).
+     Nat. Microbiol. 1, 16203 (2016).                                    J. Nat. Prod. 70, 67–74 (2007).
+191. Tyson, G. W. et al. Genome-directed isolation of the       215. Mori, T. et al. Single-bacterial genomics validates rich    Acknowledgements
+     key nitrogen fixer Leptospirillum ferrodiazotrophum          and varied specialized metabolism of uncultivated           J.P. acknowledges funding by the European Research Council
+     sp. nov. from an acidophilic microbial community.              Entotheonella sponge symbionts. Proc. Natl Acad.        (ERC) under the European Union’s Horizon 2020 research and
+     Appl. Environ. Microbiol. 71, 6319–6324 (2005).               Sci. USA 115, 1718–1723 (2018).                      innovation programme (grant agreement No. 742739), the
+192. Cross, K. L. et al. Targeted isolation and cultivation       216. Tianero, M. D., Balaich, J. N. & Donia, M. S. Localized    Gordon and Betty Moore Foundation (#9204, https://doi.
+      of uncultivated bacteria by reverse genomics.                  production of defence chemicals by intracellular         org/10.37807/GBMF9204), the Swiss National Science
+     Nat. Biotechnol. 37, 1314 (2019).                          symbionts of Haliclona sponges. Nat. Microbiol. 4,       Foundation (205320_185077 and NRP 72 ‘Antimicrobial
+193. Nichols, D. et al. Use of ichip for high-throughput           1149–1159 (2019).                                           resistance’, 407240_167051), the Helmut Horten Foundation
+      in situ cultivation of “uncultivable” microbial species.      217. Schofield, M. M., Jain, S., Porat, D., Dick, G. J. &        and the Promedica Foundation.
+     Appl. Environ. Microbiol. 76, 2445–2450 (2010).           Sherman, D. H. Identification and analysis of the        Author contributions
+194. Ling, L. L. et al. A new antibiotic kills pathogens without          bacterial endosymbiont specialized for production                                                                                                        The authors contributed equally to all aspects of the article.
+     detectable resistance. Nature 517, 455 (2015).                  of the chemotherapeutic natural product ET-743.
+195. Ueoka, R. et al. Metabolic and evolutionary origin              Environ. Microbiol. 17, 3964–3975 (2015).          Competing interests
+      of actin-binding polyketides from diverse organisms.      218. Sun, M. K. & Alkon, D. L. Bryostatin-1: pharmacology    The authors declare no competing interests.
+     Nat. Chem. Biol. 11, 705–712 (2015).                    and therapeutic potential as a CNS drug. CNS Drug
+196. He, H. et al. Cyanobufalins: cardioactive toxins from            Rev. 12, 1–8 (2006).                            Peer review information
+     cyanobacterial blooms. J. Nat. Prod. 81, 2576–2581    219. Miguel-Lillo, B., Valenzuela, B., Peris-Ribera, J. E.,        Nature Reviews Drug Discovery thanks Ronald Quinn and
+     (2018).                                                   Soto-Matos, A. & Perez-Ruixo, J. J. Population            other anonymous reviewers for their contribution to the peer
+197. Craig, J. W., Chang, F. Y., Kim, J. H., Obiajulu, S. C.            pharmacokinetics of kahalalide F in advanced             review of this work.
+   & Brady, S. F. Expanding small-molecule functional            cancer patients. Cancer Chemother. Pharmacol. 76,
+     metagenomics through parallel screening of              365–374 (2015).                                    Publisher’s note
+     broad-host-range cosmid environmental DNA libraries    220. Gaitanos, T. N. et al. Peloruside A does not bind          Springer Nature remains neutral with regard to jurisdictional
+      in diverse proteobacteria. Appl. Environ. Microbiol.             to the taxoid site on β-tubulin and retains its activity       claims in published maps and institutional affiliations.
+     76, 1633–1641 (2010).                                           in multidrug-resistant cell lines. Cancer Res. 64,
+198. Long, P. F., Dunlap, W. C., Battershill, C. N. &              5063–5067 (2004).                          Related links
+     Jaspars, M. Shotgun cloning and heterologous           221. Schmidt, E. W. et al. Patellamide A and C biosynthesis      The Natural Product Magnetic Resonance Database Project:
+     expression of the patellamide gene cluster as a              by a microcin-like pathway in Prochloron didemni,           http://www.np-mrd.org
+     strategy to achieving sustained metabolite production.         the cyanobacterial symbiont of Lissoclinum patella.
+    Chembiochem 6, 1760–1765 (2005).                         Proc. Natl Acad. Sci. USA 102, 7315–7320 (2005).    © Springer Nature Limited 2022
+
+
+378  | May 2022   | volume 21                                                                                      www.nature.com/nrd
+
+                                                            0123456789();:

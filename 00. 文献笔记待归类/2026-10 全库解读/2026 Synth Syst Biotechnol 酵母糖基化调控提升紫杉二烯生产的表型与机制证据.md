@@ -1,0 +1,167 @@
+---
+type: literature-reading
+zotero_key: UYD57A42
+doi: "10.1016/j.synbio.2025.12.012"
+paper_type: research
+classification_status: pending
+reading_status: main-text-and-figures-read
+review_status: codex-source-checked
+human_full_paper_review: false
+source_attachment: HNX9873L
+source_sha256: 7e2f4c6eb84e3b01ec19b8211efdb0cdca7bd754f9ceb9de3902abe4f18c7973
+created: 2026-10-08
+---
+
+> 原文来源：[Zotero 条目](zotero://select/library/items/UYD57A42)；[DOI](https://doi.org/10.1016/j.synbio.2025.12.012)；由当前 Codex 读取原始主文并核对图表，尚未经人工逐项复核。 来源限制：All9mainpages read and visually viewed;6Figures1Table all7complete crops noGA;SIunavailableunreadS1to9TablesS1to3；Authors14first3equal2corrDOI2025acceptedDec17 issue2026vol12284292 matchedmainPDF；Taxadiene notpaclitaxel endpoint protein glycosylationnotuserexcluded sugarimmunity；Q41594source accession notlivefetchedoptimizedsequenceunread;TSHisatbothends GAPDHinternalref;Table1codingstrains tracked；TSglycositeglycanoccupancylocalization directTSdeglycosylationcausalnotshown;global modifiedpeptide changesnotsole totalprotein abundance;no proteomicmultipleFDRreported；Figure3Dgray1177/2764ratio2.348343increase134.834% vsbody126%normalizedS6unreadno silentlyadjust；113.5/32.7=3.4709 vsbody5.73basedy105;113.5/5.73~19.81oldcontrol;abstractmore3fold preserved；Figure4relative14.2%68.9%ratio4.852increase385.2%vsbodyincreased485%;captionliteralaction vsGAPDH method;bothy105and143mnn11 backgrounds despiteDaxisControlDelta；420.4/113.5ratio3.7048 netincrease2.7048 vs2.69 increase phrase distinguishtotal/net；1260/420.4ratio2.997 vs4.3fold source;63foldinitialdifferentcondition integratedmanychanges notmnn11alone；Table1y146G418200 vs143to145400 andBST1 vsBTS1Figure5/source inconsistent no guessed sequencecorrection；Figure6n3biolSDonlythatfig notautomaticall;5Lreactor2Linitial;methods32h switchvs46resultglucose5vs<1gLdefinedmediavslegendYPDgalactosecaption vsGAL80no clearinduction;notunifiedprotocol；Membranepermeabilitytransporttoxicity model no directassay intracelloutsidebalance;ODlowernotyieldquantified drybiomass；SIcalibrationGCMSqPCR9copy claimedunreadnotindependentlyverified;GCMSthresholdsLOQLOD recoveryisomers notfullyprovided；Highestallheterologoushostsclaimauthornotindependentlyprioritysearched;noindustrialcostLCA downstreamTaxol reconstruction measured。
+
+# 一、文献基本信息
+
+**题目**：Regulating protein glycosylation modification enhances the synthesis of taxadiene in Saccharomyces cerevisiae。中文：调控蛋白糖基化修饰提高酿酒酵母紫杉二烯合成。
+
+**作者**：Chenglong Zhang、Jia Wang、Longfei Zhao、Nan Wu、Yi Shi、Xia Li、Changqiang Ke、Jia Liu、Yang Ye、Ying Wang、Bingzhi Li、Wenhai Xiao、Mingdong Yao、Yingjin Yuan。前三位共同贡献，Wenhai Xiao 和 Mingdong Yao 为通讯作者。机构包括天津大学、河南科技学院、中国科学院上海药物研究所等。**出处**：Synthetic and Systems Biotechnology，2026，12，284–292。**DOI**：[10.1016/j.synbio.2025.12.012](https://doi.org/10.1016/j.synbio.2025.12.012)。正文记录接收日期 2025 年 12 月 17 日；DOI 中 2025 与刊期 2026 对应不同出版信息。
+
+**研究类型**：原始研究，涉及酵母底盘改造、糖蛋白组学、蛋白检测及紫杉二烯生产。这里的 glycosylation 是蛋白修饰，与本次用户排除的糖免疫文献不同。**读取范围**：本地主文 PDF 九页均已读文字和查看原始页面；Figure 1–6、Table 1 完整嵌入。SI 在本地来源中未提供，未读取 Figure S1–S9 和 Table S1–S3。序列 Q41594 是论文报告的 TS 来源编号，未独立下载或校验优化序列。本次核对由 Codex 完成，不代表人工全文复核。
+
+# 二、研究背景
+
+紫杉二烯是紫杉醇骨架途径的重要前体，但提高紫杉二烯产量并不等于完成紫杉醇生物合成。本文只研究前体生产，未重构全部后续 P450、酰基转移与侧链步骤。因此最终 1.26 g/L 应写为 taxadiene 滴度，而不是 paclitaxel 滴度。
+
+作者关注酵母与异源蛋白的相容性。已有策略改善 TS 表达、溶解性和 GGPP 供给；本文提出蛋白糖基化体系也可能影响异源酶的稳定表达。由其他重组蛋白的研究出发，作者比较 ALG3、ALG6、MNN11、OCH1 四个宿主糖基化相关基因的扰动。这里需要避免从“其他分泌或糖蛋白曾受影响”直接推断“本系统的 TS 必然被直接过度 N-糖基化”。是否直接修饰 TS、哪些位点及糖链占有率如何，须有专门证据。
+
+作者的核心假设是宿主糖基化相关调控可以改善 TS 表达及产物形成，并可能伴随全局蛋白稳态和细胞表面变化。其后再增加 TS 表达能力与前体供应，检验能否把初步增益转化为较高生产水平。这一逻辑把宿主改造、蛋白数量和代谢供给连在一起，但也使最终总增幅不能全部归因于 MNN11。
+
+# 三、研究思路
+
+Figure 1 将路线分成糖基化适应、TS 多拷贝表达、前体模块增加及发酵调节四部分。先在具有既有 GGPP 工程背景的菌株中比较四种单基因扰动，以生产终点筛选；随后对 Δmnn11 与对照进行 N-glycosylation proteomics 和 Western blot，尝试解释宿主改变如何影响关键蛋白。
+
+
+![Figure 1 原文第 3 页](https://synbiopath.online/UYD57A42-Figure-1-p3-complete-676a86c97d4a88f2.png)
+
+*Figure 1：原文 Figure 1：完整图表、数据与图注（原文 PDF 截图）。*
+
+
+第二阶段在 Δmnn11 背景上引入 TS 多拷贝整合并筛选，再逐步增强 GGPP 相关模块，最后在反应器中测量时间过程。每一层的对照基准不同：32.7 mg/L 对应最初糖基化基因比较；113.5 mg/L 对应后续 TS 表达工程；420.4 mg/L 是前体模块增强后的摇瓶结果；1.26 g/L 是该工程菌在补料体系的终点。把这些数值放在同一条路径有助于理解叠加策略，但比较时必须保留菌株和培养条件。
+
+研究思路中仍有未闭合的机制环节：糖蛋白组学和完整 TS 条带增加可以支持宿主状态变化与蛋白积累相关，却尚未独立证明特定糖链直接导致 TS 降解；有机相中产物提高也可能受生成、释放、分配及回收影响。作者自己指出这是一种全局调节方式，且未解决 TS 裂解问题。
+
+# 四、研究方法
+
+**宿主与构建证据**：背景为 S. cerevisiae CEN.PK2–1C；TOP10、DH5α 仅用于重组 DNA 操作，不是紫杉二烯生产宿主。TS 使用作者报告的 Q41594 来源、密码子优化序列及端部 His 标签。Table 1 列出基础株 yZCL078、生产对照 yZCL080、各糖基化相关改造株及后续多拷贝与前体模块株。pZCL106、pZCL116 的完整构建与序列需 SI 才能独立确认，不能因主文有名字就视为构建细节全部核实。
+
+
+![Table 1 原文第 4 页](https://synbiopath.online/UYD57A42-Table-1-p4-complete-d97d4082efd250d2.png)
+
+*Table 1：原文 Table 1：完整图表、数据与图注（原文 PDF 截图）。*
+
+
+**蛋白检测**：Western blot 用 anti-His 检测 TS，GAPDH 为内参，ImageJ 分析条带。重点是标示为完整 TS 的条带，而非把全部低分子信号都算作功能酶。主文没有提供脉冲追踪的半衰期、完整酶单位活性或每个裂解片段的身份。
+
+**组学**：使用 Orbitrap Fusion Lumos、MaxQuant/Andromeda 进行鉴定与定量，比较 Δmnn11 yZCL105 和对照 yZCL080；Welch's t-test，筛选标准写为 FC≥1.5、P≤0.05。主文没有完整说明糖肽富集、脱糖鉴定位点、位点定位概率、总蛋白丰度校正与糖基化占有率计算，也没有明确报告蛋白组筛选的多重比较 FDR。不能把差异修饰肽信号一律解释为总蛋白表达量改变。
+
+**产品检测**：通过 GC–MS、作者取得的 taxadiene 标准及标定曲线定量；正文报告对应保留时间和特征离子，原始标准曲线及完整谱图在未读 SI。主文未提供足以独立复算的回收率、所有异构体分离结果、LOD、LOQ。两相体系测量有机相，滴度的完整相体积和培养液归一化计算过程还需原始数据。
+
+**统计与培养层级**：若干图注给 Student's t-test 星号阈值，没有精确 P 值；Figure 6 明确误差为三次生物学重复的均值±标准差，但不可把该说明自动推广到所有组学和条带实验。菌株比较的独立重复数、效应区间及完整检验前提未在主文逐项说明。正文结果与方法中的补料时间、培养基和碳源控制存在差别，后文按原值列出而不编成统一操作方案。
+
+# 五、实验设计及结果分析
+
+### 5.1 单个糖基化相关基因改变是否普遍有效？
+
+Figure 2 将 yZCL080 与 Δalg3、Δalg6、Δmnn11、Δoch1 株比较，同时显示 taxadiene、GGOH 和 OD600。作者报告 Δmnn11 yZCL105 为 32.7 mg/L，比对照增加 65.2%。ALG3、ALG6 改变未显著提高这一生产终点，说明其他蛋白体系中的先例不能直接泛化到 TS 生产。图中 OCH1 改变也未呈现作者强调的 MNN11 收益，不从柱高估算具体百分比。
+
+
+![Figure 2 原文第 5 页](https://synbiopath.online/UYD57A42-Figure-2-p5-complete-24191c3d01e909d5.png)
+
+*Figure 2：原文 Figure 2：完整图表、数据与图注（原文 PDF 截图）。*
+
+
+Δmnn11 的 OD600 低于对照，提示生产改善伴随生长代价。OD 不是干细胞质量，未给完整比产量、摄糖和活细胞信息，因而不能直接宣布每单位生物量碳效率增加多少。由 32.7/1.652 反推的对照约 19.8 mg/L 只是根据作者报告均值与比例的算术推导，不是额外的原始测量。
+
+这一组提供基因扰动与生产表型的直接比较，但主文没有展示 MNN11 回补救援和多个独立编辑株的全部结果，也没有孤立出 LEU2 标记及相关宿主状态的贡献。合理结论是该研究所用工程背景下 Δmnn11 与增产相关并支持策略有效，而非所有酵母底盘删除该基因都会获得相同效果。
+
+### 5.2 组学和完整 TS 条带能否确认直接糖基化机制？
+
+Figure 3 报告差异糖蛋白相关信号为十四项上调、二十一项下调。作者将上调部分与蛋白折叠、代谢及能量相关过程联系，将下调部分与细胞膜或细胞表面功能联系。PDI、MPD2 等被用来解释蛋白稳态的可能变化，但功能注释不是在本系统对每个蛋白的必要性验证；正文对 ATP 或氧化还原作用的解释也没有对应直接 ATP、NAD(P)H 或通量测量。
+
+
+![Figure 3 原文第 5 页](https://synbiopath.online/UYD57A42-Figure-3-p5-complete-6d0c4aca9f496d29.png)
+
+*Figure 3：原文 Figure 3：完整图表、数据与图注（原文 PDF 截图）。*
+
+
+图中的 Q41594_TASY 提示 TS 出现在分析列表中，但主文没有展示其具体糖位点、糖链结构、丰度校正后的占有率或是否进入相关修饰区室。即使测到与 TS 相关的信号，也不能在缺少这些信息时断言 TS 本体去糖基化就是条带增加的唯一原因。广泛的宿主应激、折叠、降解和培养状态变化仍是可能解释。
+
+Figure 3D 中完整 TS 原始灰度表为 1177 和 2764，直接均值比约 2.35，按这两个数字计算增幅约 134.8%；正文称完整 TS 增加 126%，并指向未读 Figure S6。原始灰度与可能归一化结果不同，因此保留两项记录，不静默改成一致，也不把灰度换成活性倍数。该图仍有多个低分子条带，不能认定裂解已经消失。
+
+作者提出膜通透性改变使 taxadiene 更易进入有机相、减少细胞内累积和毒性。但本地主文没有直接膜通透性、胞内外质量平衡、分配系数或毒性指标。组学中膜相关条目和 OD 变化可以为模型提供线索，尚不能直接证明运输和毒性路径已被验证。
+
+### 5.3 TS 多拷贝提高多少，比较基准是否正确？
+
+Figure 4 比较 Δmnn11 生产株与其后续 TS 整合筛选株。作者报告 yZCL143 达 113.5 mg/L，并在 SI 中用 qPCR 支持约九个拷贝；本次未读取该原始 qPCR 材料，所以不把整合位点、九拷贝或长期遗传稳定性视为已独立验证。图中最高选择压力对应的生长与产物表现很差，说明筛选压力与最终产量并非单调关系，不能简化成“越高越好”。
+
+
+![Figure 4 原文第 7 页](https://synbiopath.online/UYD57A42-Figure-4-p7-complete-76cd36b842277593.png)
+
+*Figure 4：原文 Figure 4：完整图表、数据与图注（原文 PDF 截图）。*
+
+
+正文称 113.5 mg/L 是相对 yZCL105 的 5.73-fold increase，然而用前文 yZCL105 的 32.7 mg/L 相除得到 3.47 倍；113.5/5.73≈19.81 mg/L 更接近最初对照。摘要则使用超过三倍的表述。这个分母冲突应明确记录，不能把 5.73 直接用为 Δmnn11 背景上 TS 整合的独立增幅。
+
+图注明确列出完整 TS 相对量 14.2% 和 68.9%，相除为约 4.85 倍，对应增加约 385.2%；正文称增加 485%，可能混用了“相对对照百分数”与“增加百分数”。图注又写 intact TS/action，而方法和条带内参为 GAPDH；Figure 4D 横轴 Control、Δmnn11 容易误导，实际 4C 和正文比较的是 yZCL105 与 yZCL143，两者都处于 Δmnn11 背景。笔记按菌株追踪，不能把这组图再当作一次有无 mnn11 的比较。
+
+### 5.4 前体模块增强是否与 TS 增量严格分离？
+
+Figure 5 示意已有 Delta22 模块及后续位点的前体路径增强，报告 taxadiene 从 113.5 增至 420.4 mg/L。直接比值约 3.70 倍；净增加量除以起始值约 2.704，即增加约 270.4%。正文及摘要的 2.69-fold increase 需与这一“总量倍数”和“净增加倍数”区别，不应写成最终仅为原来的 2.69 倍。
+
+
+![Figure 5 原文第 7 页](https://synbiopath.online/UYD57A42-Figure-5-p7-complete-ce7f934ce7d592e9.png)
+
+*Figure 5：原文 Figure 5：完整图表、数据与图注（原文 PDF 截图）。*
+
+
+主文、Figure 1、Table 1 的 BST1 拼写与 Figure 5 的 BTS1、正文引用的 BTS1 不一致，后者亦见前人文献讨论。此处保留原图与来源差异，不凭文字相似性修正优化序列。Table 1 还把 yZCL146 的筛选记为 G418-200，而其前序 yZCL143–145 记为 G418-400；在缺 SI 时，不能保证这一序列只是逐步增加 GGPP 模块、其他条件严格一致。
+
+前体模块与 taxadiene 提升相伴，支持工程组合的功能收益，但未直接测量 GGPP 的胞内池与通量，也没有完整的各模块交互作用设计。GGOH 是相关读数，不能自动等价为 GGPP 供应量。本组应表述为增强相关模块的工程菌提高了终点滴度，而非每个插入单独贡献已被定量拆分。
+
+### 5.5 补料发酵结果是否支持完整紫杉醇或工业优势？
+
+Figure 6 给出 taxadiene、OD600、葡萄糖与乙醇的时间过程，作者报告 180 h 达 1.26 g/L。设备为 5 L 反应器，初始工作液 2 L；不能把设备标称容积当成实际体积。图注明确三次生物学重复的均值±SD，但主文没有单批原始曲线及每个终点的精确数值和区间。这个结果是 taxadiene 生产验证，不是后续 baccatin III 或 paclitaxel 的滴度。
+
+
+![Figure 6 原文第 8 页](https://synbiopath.online/UYD57A42-Figure-6-p8-complete-8aefd1a17b1e2344.png)
+
+*Figure 6：原文 Figure 6：完整图表、数据与图注（原文 PDF 截图）。*
+
+
+1.26 g/L 即 1260 mg/L，与 420.4 mg/L 摇瓶终点相除约 3.00 倍，不能直接复现正文称摇瓶相比提高 4.3 倍的说法。摘要和结论称相对初始株约六十三倍，与约二十 mg/L 量级的起点算术上接近，但跨摇瓶和补料体系的总提升混合了宿主、TS、前体与培养改变，不能归因于一个基因。
+
+方法把第一阶段结束写为 32 h，结果写乙醇切换为 46 h；方法维持葡萄糖约 5 g/L，结果说低于 1 g/L；方法提供限定配方，Figure 6 图注则称 YPD。图注还称黑箭头表示十二烷及 galactose 加入，正文强调 GAL80 删除和葡萄糖解除抑制，未给清楚的 galactose 加入方案。OD 在 38 h 约 160、终点约 156，也不支持原文“逐步增加至 156”的字面单调叙述。这些差别需要原始运行记录解释，本次不拼凑统一参数。
+
+# 六、总体结论
+
+本文直接提供了特定 Δmnn11 工程底盘的生产表型、完整 TS 条带改善、全局糖蛋白相关变化，以及随后组合工程和补料发酵的 taxadiene 滴度结果。最佳报告终点为摇瓶 420.4 mg/L、补料 1.26 g/L，须保留所对应系统与时间。
+
+“TS 直接去糖基化导致增产”“膜通透性变化减少毒性”等是尚需特异验证的机制解释；当前不能用组学注释替代直接位点和因果证据。关键倍数存在分母、总量与净增量、归一化方式冲突，因此笔记保存原值与实际算术核对，不将多个不一致比例包装成一条精确的归因链。
+
+# 七、论文评价
+
+**优势**：把宿主修饰系统作为途径表达的变量，比较多个候选基因，再连接蛋白、组学和生产终点。负结果与生长代价均呈现，且继续检验组合工程后的反应器表现，形成比仅看条带更完整的应用证据。
+
+**限制**：主文不足以确认 TS 位点级糖基化和直接机制，缺少回补与全局扰动拆解；组学丰度和修饰占有率的关系不清楚，多重检验与独立重复层级未完全报告。多处倍数、内参名称、菌株标记和发酵描述存在不一致。SI 未读使谱图、标准曲线、qPCR 和序列核对保持未完成。
+
+**解读者进一步分析**：值得学习的是“宿主相容性与表达、前体供给共同限制生产”的问题框架，而不是把糖基化基因扰动变成通用增产公式。若后续用于机制论证，需要分别核查糖肽证据、TS 丰度与活性、胞内外产品回收，并控制同一背景的对照。作者的“最高异源宿主滴度”是原文宣称，本次未进行完整领域优先权检索，不能当作已验证当前纪录；也未测量工业成本、资源保护和环境收益。
+
+# 八、关键问题及回答
+
+### 问题一：敲除 mnn11 是否证明 TS 的 N-糖基化导致其降解？
+
+尚不能。基因改变、差异糖蛋白相关信号及完整 TS 条带增加相互支持，但主文没有明确的 TS 糖位点、占有率、定位及直接去糖或位点改变因果比较。全局蛋白稳态与细胞状态变化仍可能参与，应把机制模型与生产表型分开。
+
+### 问题二：可以直接引用 5.73、2.69、4.3 这几个倍数吗？
+
+必须先说明分母与含义。113.5/32.7≈3.47，420.4/113.5≈3.70，1260/420.4≈3.00，与原文若干倍数不一致。笔记保留原文表述，同时标注由报告数值计算的结果；不能凭猜测更换未报告的基线或补成统一数据。
+
+### 问题三：1.26 g/L 能否说明紫杉醇生产已经实现？
+
+不能。该数值对应 taxadiene，后续多步氧化、酰化及侧链装配并未在本研究完成。即使前体滴度较高，也不能直接推出终产物滴度、通路效率或产业可行性。本研究提供前体平台证据，完整紫杉醇仍需自己的产物与生产验证。
+
+> 分类状态：待全部文献笔记完成后统一分类归档。

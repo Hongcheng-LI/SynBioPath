@@ -1,0 +1,1188 @@
+
+[PDF physical page 1]
+Engineering an Artificial Taxol Biosynthetic Pathway from Baccatin
+III in Yeast
+Yuanwei Gou, Bin Jiang, Xiaojing Jiang, Yiwei Zhang, Binbin Chen, Jiaojiao Zhang, Dongfang Li,
+Yajie Wang, Jianbin Yan,* and Jiazhang Lian*
+Cite This: https://doi.org/10.1021/acssynbio.6c00148
+Read Online
+ACCESS
+Metrics & More
+Article Recommendations
+*
+sı
+Supporting Information
+ABSTRACT: Paclitaxel (Taxol) is among the most successful
+natural anticancer agents, yet its manufacturing still relies on
+expensive semisynthetic methods carried out under harsh alkaline
+conditions. Deciphering the entire Taxol biosynthetic pathway has
+been a longstanding challenge for over 50 years because of its
+complex regulatory network, but it has only recently been
+understood. Differences between plant and microbial systems
+render current knowledge insufficient for scalable biotechnological
+production, necessitating systematic metabolic engineering to
+overcome multiple bottlenecks. Artificial pathways can compensate
+for an incomplete understanding of native biosynthesis and offer an
+alternative strategy to alleviate supply constraints. Here, we report
+the construction of an artificial pathway in yeast that uses (2R,3S)-3-phenylisoserine as the substrate and requires only three
+enzymatic steps to convert baccatin III to Taxol, demonstrating the broad substrate scope of β-phenylalanoyl-CoA ligases (PCLs).
+Structure−activity analysis of Baccatin III:3-amino-3-phenylpropanoyltransferase (BAPT) is further employed to enhance its
+catalytic efficiency toward non-natural substrates. This work offers a practical strategy for the first step of sustainable production of
+Taxol using synthetic biology.
+KEYWORDS: Taxol, artificial pathway design, protein engineering, CRISPR/Cas9, Saccharomyces cerevisiae
+■INTRODUCTION
+Plants have evolved a diverse repertoire of biologically active
+secondary metabolites.1−3 Among them, the diterpenoid
+alkaloid paclitaxel (Taxol) stands out for its complex 6/8/6-
+taxane skeleton, distinctive oxetane ring motif, and phenyl-
+isoserine side chain.4,5 Taxol exerts anticancer activity by
+stabilizing microtubules and arresting cell-cycle progression,6,7
+and it was approved by the U.S. FDA in 1992 for the treatment
+of several solid tumors, including ovarian, breast, and lung
+cancers.8,9 Taxol and its related taxane analogues (e.g.,
+docetaxel) are among the most successful natural anticancer
+therapeutics, with global annual sales exceeding USD 15.8
+billion.10,11 Current medical production relies primarily on
+semisynthesis from baccatin III or 10-deacetylbaccatin III
+isolated from yew needles.12,13 These processes require
+protection and deprotection of the C7 hydroxyl group under
+strongly basic conditions, as well as incorporation of a
+protected phenylpropanoid side chain. Commercial production
+has also been implemented using plant cell cultures derived
+from various Taxus species.14 Nevertheless, the high
+production cost underscores the need for deeper insight into
+the Taxol biosynthetic pathway or for the development of
+alternative strategies capable of alleviating persistent supply
+constraints.15
+Although more than 60 research groups worldwide have
+reported 12 total syntheses of Taxol,16−18 these routes remain
+economically impractical. Fully elucidating the biosynthetic
+pathway has been a long-standing goal in plant natural product
+research. Early efforts beginning in the late 1990s19 stalled for
+nearly two decades due to limited comprehensive genomic and
+transcriptomic resources. Recently, chromosome-level assem-
+blies of the large genomes of Taxus wallichiana,20Taxus
+chinensis var. mairei,21 and Taxus yunnanensis22 have provided
+critical insights into Taxol biosynthesis. Through cumulative
+contributions from several influential studies,23−27 the pathway
+has now been largely delineated, revealing far greater
+enzymatic and regulatory complexity than previously antici-
+pated (Supplementary Figure S1).28 Yet, as with many other
+representative natural products, including vinblastine,29,30
+cannabinoids,31 opioids,32 and scopolamine,33 pathway eluci-
+dation provides a foundation but is insufficient for scalable
+Received:
+February 18, 2026
+Revised:
+May 6, 2026
+Accepted:
+May 21, 2026
+Research Article
+pubs.acs.org/synthbio
+© XXXX American Chemical Society
+A
+https://doi.org/10.1021/acssynbio.6c00148
+ACS Synth. Biol. XXXX, XXX, XXX−XXX
+See https
+ articles.
+
+
+
+[PDF physical page 2]
+production.34,35 Metabolic engineering and heterologous
+reconstruction of the Taxol pathway still face major bottle-
+necks, including insufficient taxadiene precursor supply,36−40
+extensive cytochrome P450 promiscuity,41−43 and persistent
+challenges in achieving functional expression,26,27 all of which
+will require substantial effort to overcome.
+Artificial biosynthetic pathways can not only compensate for
+our limited understanding of native metabolic pathways but
+also frequently exhibit higher conversion efficiencies due to
+more streamlined reaction sequences.44 A representative
+example is the identification of p-aminobenzoic acid
+monooxygenase and p-aminophenol N-acetyltransferase,
+which enabled efficient biosynthesis of the widely used
+analgesic and antipyretic drug acetaminophen in Escherichia
+coli using glycerol as the carbon source.45 Another illustrative
+case combined retrosynthetic analysis, engineering of the
+bacterial nucleoside salvage pathway, and directed evolution of
+five enzymes to establish an in vitro biocatalytic cascade for the
+investigational HIV drug islatravir, reducing the number of
+catalytic steps by half relative to previous routes.46 Structure−
+activity relationship studies have shown that the anticancer
+activity of Taxol critically depends on its phenylisoserine side
+chain.47−49 However, at the outset of this study, the molecular
+mechanisms underlying baccatin III side-chain modification
+remained poorly understood, particularly the oxidation of the
+β-phenylalanine side chain at C2′ by a taxane 2′α-hydroxylase
+(T2′αΗ), for which direct biological evidence was lacking.50
+Motivated by the substrate plasticity of pathway enzymes, we
+envision an artificial pathway that bypasses the C2′ oxidation
+Figure 1. Natural and artificial pathways from baccatin III to Taxol. (a) The native pathway converts baccatin III to Taxol through five enzymatic
+reactions, in which PAM activity is barely detectable in yeast. (b) The hypothesized artificial pathway bypasses the C2′ oxidation and β-
+phenylalanine isomerization steps and requires only three enzymatic reactions. Abbreviations not already defined in the text are as follows: PAM,
+phenylalanine aminomutase; PCL, β-phenylalanoyl-CoA ligase; BAPT, baccatin III:3-amino-3-phenylpropanoyltransferase; T2′OGD, taxoid-2′-
+oxoglutarate-dependent dioxygenase; T3′NBT, taxoid-3′-N-benzoyltransferase; AAE4, benzoyl-CoA ligase.
+ACS Synthetic Biology
+pubs.acs.org/synthbio
+Research Article
+https://doi.org/10.1021/acssynbio.6c00148
+ACS Synth. Biol. XXXX, XXX, XXX−XXX
+B
+
+
+
+[PDF physical page 3]
+step, providing a viable strategy for the production of Taxol
+and its derivatives.
+Here, we sought to reconstruct the biosynthetic pathway
+from baccatin III to Taxol in Saccharomyces cerevisiae. Under
+the conditions tested in this study, phenylalanine amino-
+mutases (PAMs) exhibited low apparent activity in yeast,
+despite their activities having been validated in vitro51 and in
+Nicotiana benthamiana.26,27 Consequently, we devised an
+alternative biosynthetic route employing (2R,3S)-3-phenyl-
+isoserine, a readily available chemical, as the substrate (Figure
+1). Together with the recently characterized taxoid-3′-N-
+benzoyltransferase (T3′NBT),27 this strategy enabled Taxol
+production in the absence of PAM and T2′αΗ, providing
+evidence that β-phenylalanoyl-CoA ligase (PCL) can catalyze
+diverse non-native substrates. Protein engineering of baccatin
+III:3-amino-3-phenylpropanoyltransferase (BAPT) further in-
+creased its catalytic efficiency toward (2R,3S)-3-phenylisoser-
+inoyl-CoA, thereby enhancing overall pathway productivity.
+■RESULTS
+Low Activity of PAMs in the Yeast Chassis
+The native Taxol assembly pathway has long been proposed to
+involve five enzymatic steps converting baccatin III to Taxol
+(Figure 1a).27 In the first step, α-phenylalanine is isomerized to
+β-phenylalanine by PAM, which is subsequently activated to β-
+phenylalanoyl-CoA by PCL in the presence of acetyl-CoA.
+BAPT then installs the phenylpropanoid side chain to the C13
+position of baccatin III to generate 3′-N-debenzoyl-2′-
+deoxytaxol. Hydroxylation at the C2′ position produces 3′-
+N-debenzoyltaxol, which is finally converted to Taxol via
+benzoylation at the 3′-N position by a selective N-
+benzoyltransferase using benzoyl-CoA as the acyl donor.
+As the initial and committed step of side-chain assembly,
+two PAMs have been identified: TcaPAM from Taxus
+canadensis (GenBank accession no. AAT47186.1) and
+TchPAM from Taxus chinensis (GenBank accession no.
+AAU01183.1) (Supplementary Figure S2).51 We individually
+expressed these two enzymes in S. cerevisiae strains harboring
+the downstream pathway genes, generating strains BTP2-2 and
+BTP2-3, respectively (Table 1 and Supplementary Figure S3).
+We then assessed their enzymatic activity by quantifying the
+accumulation of the intermediate 3′-N-debenzoyl-2′-deoxytax-
+ol following supplementation with either L-phenylalanine or β-
+phenylalanine in the presence of baccatin III. Unexpectedly, we
+only observed substantial accumulation of 3′-N-debenzoyl-2′-
+deoxytaxol in the presence of β-phenylalanine (Figure 2a).
+With the supplementation of L-phenylalanine as the substrate,
+strain BTP2-2 expressing TcaPAM showed no detectable
+accumulation of the intermediate 3′-N-debenzoyl-2′-deoxytax-
+ol, whereas strain BTP2-3 expressing TchPAM produced only
+trace amounts, markedly lower than those obtained with β-
+phenylalanine feeding. These results indicate that PAMs
+exhibit marginal activity under the current experimental
+conditions in yeast, in contrast to their reported functionality
+in N. benthamiana.26,27 This discrepancy may arise from
+multiple factors, including but not limited to insufficient
+expression levels, improper protein folding, limitations in
+cofactor availability within the microbial host, and/or potential
+interference from endogenous yeast metabolism.
+Table 1. Yeast Strains Used in This Study
+Strain
+Genotype
+Source
+CEN.PK2
+S. cerevisiae CEN.PK2-1C
+EUROSCARF
+BTP0
+CEN.PK2-△GAL80::CrCPR-CrCYB5
+This study
+BTP1a
+BTP0-IntG15::ΤmeBAPT-IntG26::TchPCL
+This study
+BTP2
+BTP1a-IntS14::TchT3′NBT-
+IntS11::TmeAAE4
+This study
+BTP2-1
+BTP2-IntG16::TchT2′OGD
+This study
+BTP2-2
+BTP2-1-IntS4::TcaPAM
+This study
+BTP2-3
+BTP2-1-IntS4::TchPAM
+This study
+BTP1b
+BTP0-IntG15::ΤmeBAPT-
+IntG26::PrPCL_A312G
+This study
+BTP1a-M1
+BTP0-IntG15::ΤmeBAPTQ386E-
+IntG26::TchPCL
+This study
+BTP1a-M2
+BTP0-IntG15::ΤmeBAPTQ386D-
+IntG26::TchPCL
+This study
+BTP1a-M3
+BTP0-IntG15::ΤmeBAPTQ386N-
+IntG26::TchPCL
+This study
+BTP1a-M4
+BTP0-IntG15::ΤmeBAPTQ376E-
+IntG26::TchPCL
+This study
+BTP1a-M5
+BTP0-IntG15::ΤmeBAPTQ387D-
+IntG26::TchPCL
+This study
+BTP1a-M6
+BTP0-IntG15::ΤmeBAPTQ387N-
+IntG26::TchPCL
+This study
+BTP1a-M7
+BTP0-IntG15::ΤmeBAPTQ388E-
+IntG26::TchPCL
+This study
+BTP1a-M8
+BTP0-IntG15::ΤmeBAPTQ388D-
+IntG26::TchPCL
+This study
+BTP1a-M9
+BTP0-IntG15::ΤmeBAPTQ388N-
+IntG26::TchPCL
+This study
+BTP1a-
+M10
+BTP0-IntG15::ΤmeBAPTQ386D_Q387D-
+IntG26::TchPCL
+This study
+BTP1a-
+M11
+BTP0-IntG15::ΤmeBAPTQ386D_Q387E-
+IntG26::TchPCL
+This study
+BTP1a-
+M12
+BTP0-IntG15::ΤmeBAPTQ386D_Q388D-
+IntG26::TchPCL
+This study
+BTP1a-
+M13
+BTP0-IntG15::ΤmeBAPTQ386E_Q387E-
+IntG26::TchPCL
+This study
+BTP1a-
+M14
+BTP0-IntG15::ΤmeBAPTQ386E_Q388D-
+IntG26::TchPCL
+This study
+BTP1a-
+M15
+BTP0-IntG15::ΤmeBAPTQ386E_Q387D-
+IntG26::TchPCL
+This study
+BTP1a-
+M16
+BTP0-IntG15::ΤmeBAPTQ386D_Q387D_Q388D-
+IntG26::TchPCL
+This study
+BTP1a-
+M17
+BTP0-IntG15::ΤmeBAPTQ386E_Q387D_Q388D-
+IntG26::TchPCL
+This study
+BTP1b-M1
+BTP0-IntG15::ΤmeBAPTQ386E-
+IntG26::PrPCL_A312G
+This study
+BTP3
+BTP1b-M1-IntS14::TchT3′NBT-
+IntS11::TmeAAE4
+This study
+BTP4
+BTP1a-M1-IntS14::TcaDBTNBT-
+IntS11::TmeAAE4
+This study
+BTP5
+BTP1a-M1-IntS14::TchT3′NBT-
+IntS11::TmeAAE4
+This study
+BTP6
+BTP1b-IntS14::TchT3′NBT-
+IntS11::TmeAAE4
+This study
+BTP6-1
+BTP6-IntG16::TchT2′OGD
+This study
+BTP7
+BTP1a-IntS14::TcaDBTNBT-
+IntS11::TmeAAE4
+This study
+BTP7-1
+BTP7-IntG16::TchT2′OGD
+This study
+BTP1c
+BTP0-IntG10::TcaDBTNBT-
+IntG11::TmeAAE4
+This study
+BTP8
+BTP1c-IntG15::ΤmeBAPT-
+IntG26::PrPCL_A312G
+This study
+BTP9
+BTP1c-IntG15::ΤmeBAPT-IntG26::TchPCL
+This study
+BTP2-4
+BTP2-IntG16::TchT2′OGD-ePTS1
+This study
+ACS Synthetic Biology
+pubs.acs.org/synthbio
+Research Article
+https://doi.org/10.1021/acssynbio.6c00148
+ACS Synth. Biol. XXXX, XXX, XXX−XXX
+C
+
+
+
+[PDF physical page 4]
+Design of an Artificial Pathway for Baccatin III Side-Chain
+Modification
+The low apparent activity of PAMs under the current
+experimental conditions in yeast, together with the absence
+of conclusive evidence for the C2′-oxidase at the onset of this
+work, posed significant barriers to heterologous Taxol
+production. In vitro studies by the Walker group found that
+the adenylation (A) and thiolation (T) domains of the
+nonribosomal peptide synthetase tyrocidine synthetase A
+(PheAT) function as a CoA ligase, producing α- and β-
+phenylalanoyl-CoA as well as (2R,3S)-3-phenylisoserinoyl-
+CoA from the corresponding amino acids, CoA, and N-
+acetylcysteamine.52,53 Following thioesterification by PheAT,
+these CoA thioesters could serve as acyl donors for baccatin III
+modification by a 13-O-acyltransferase, enabling the synthesis
+of Taxol analogs with improved therapeutic potential.54 These
+findings demonstrated the feasibility of BAPT-catalyzed
+utilization of (2R,3S)-3-phenylisoserinoyl-CoA, providing
+both conceptual inspiration and a feasibility basis for our
+design of an artificial pathway using (2R,3S)-3-phenylisoserine
+as the upstream substrate. However, the CoA ligase activity of
+PheAT depends on relatively high concentrations of CoA due
+to competition effects, which limits its applicability in vivo.55
+Here, we proposed an artificial pathway that bypasses the
+need for the C2′ hydroxylase and PAM, requiring only three
+enzymatic steps (Figure 1b). In this pathway, the native
+substrate L-phenylalanine is replaced with (2R,3S)-3-phenyl-
+isoserine, which is activated by a CoA ligase with robust in vivo
+activity. The resulting CoA thioester is then transferred to the
+C13 position of baccatin III by BAPT, generating the 3′-N-
+debenzoyltaxol intermediate that already contains the correctly
+configured C2′-hydroxyl group characteristic of Taxol. Finally,
+as in the native pathway, T3′NBT catalyzes benzoylation at the
+3′-N position, completing whole-cell conversion of baccatin III
+to Taxol.
+Activity Characterization of PCLs toward Non-Natural
+Substrates
+PrPCL from Penicillium chrysogenum and its activity-enhanced
+mutant PrPCLA321G have previously been shown to accept
+aromatic amino acids, such as α-phenylalanine, α-tyrosine, and
+β-phenylalanine, prompting us to hypothesize that they might
+also activate (2R,3S)-3-phenylisoserine through thioesterifica-
+tion.56 In addition, a recently identified PCL from Taxus
+chinensis (TchPCL) was expected to confer advantages over
+microbial-derived PCLs (Supplementary Figure S4).26 To
+evaluate substrate specificity in vivo, we individually integrated
+TmeBAPT from Taxus × media and each PCL into the genome
+of the chassis strain BTP0, generating strains BTP1a and
+BTP1b, respectively (Table 1 and Supplementary Figure S3).
+We then quantified the accumulation of 3′-N-debenzoyl-2′-
+deoxytaxol or 3′-N-debenzoyltaxol following the supplementa-
+tion of β-phenylalanine or (2R,3S)-3-phenylisoserine in the
+presence of baccatin III. Notably, we detected trace amounts of
+Taxol in commercial baccatin III standards obtained from
+multiple suppliers; therefore, we further purified the standards
+by chromatography to eliminate interference during product
+quantification (Supplementary Figure S5). Our results
+demonstrated that both PrPCLA321G and TchPCL exhibited
+CoA ligase activity toward β-phenylalanine and (2R,3S)-3-
+phenylisoserine, with TchPCL displaying substantially higher
+activity than PrPCLA321G (Figure 2b). Upon β-phenylalanine
+supplementation, strain BTP1a expressing TchPCL accumu-
+lated 3′-N-debenzoyl-2′-deoxytaxol at 8.1-fold higher than that
+of strain BTP1b expressing PrPCLA321G. Strikingly, with the
+supply of (2R,3S)-3-phenylisoserine, BTP1a accumulated 3′-
+N-debenzoyltaxol at 134.8-fold that of BTP1b. Nevertheless,
+the accumulation of 3′-N-debenzoyl-2′-deoxytaxol consistently
+exceeded that of 3′-N-debenzoyltaxol, indicating a strong
+preference of both PCLs toward the native substrate β-
+phenylalanine.
+Figure 2. Functional characterization of key enzymes PAMs and PCLs in yeast. (a) PAMs were individually expressed in yeast strain BTP2-1
+harboring the downstream pathway genes, and their enzymatic activities were evaluated by monitoring the accumulation of 3′-N-debenzoyl-2′-
+deoxytaxol following feeding with β-phenylalanine or L-phenylalanine. (b) Catalytic activities of PCLs from different species toward the native
+substrate β-phenylalanine or the non-native substrate (2R,3S)-3-phenylisoserine were assessed by coexpression with BAPT and quantification of the
+accumulation of 3′-N-debenzoyl-2′-deoxytaxol or 3′-N-debenzoyltaxol. Different colors denote distinct taxane products: yellow, 3′-N-debenzoyl-2′-
+deoxytaxol; green, 3′-N-debenzoyltaxol. Data are presented as mean ± s.d. (n = 3 biologically independent samples).
+ACS Synthetic Biology
+pubs.acs.org/synthbio
+Research Article
+https://doi.org/10.1021/acssynbio.6c00148
+ACS Synth. Biol. XXXX, XXX, XXX−XXX
+D
+
+
+
+[PDF physical page 5]
+Protein Engineering of TmeBAPT with Better Performance
+Previous studies reported that TmeBAPT fused to an MBP
+solubility tag exhibits decreased substrate affinity (KM) and
+catalytic efficiency (kcat) toward the non-native substrate
+(2R,3S)-3-phenylisoserinoyl-CoA compared with β-phenyl-
+alanoyl-CoA (Supplementary Table 1).54 We therefore
+hypothesize that the intrinsically low activity of TmeBAPT
+toward (2R,3S)-3-phenylisoserinoyl-CoA constitutes a major
+rate-limiting step in the artificial pathway and that engineering
+TmeBAPT to enhance this activity could relieve this bottle-
+neck.
+As no crystal structure or close homologue was identified
+using Foldseek,57 we first predicted the structure of TmeBAPT
+using AlphaFold 3.0.58 The resulting model showed high
+confidence, with a predicted template modeling (pTM) score
+of 0.9 (Supplementary Figure S6). We then sequentially
+docked β-phenylalanoyl-CoA and baccatin III into the
+predicted active pocket using qvina and selected the most
+plausible conformations (Supplementary Figure S7).59 The
+elongated substrate channel likely accommodates the CoA
+moiety, whereas a larger cavity at one end positions the β-
+phenylalanoyl side chain such that its carbonyl group can be
+attacked by the C13 hydroxyl group of baccatin III to enable
+acyl transfer. To identify positions that may influence catalytic
+activity toward (2R,3S)-3-phenylisoserinoyl-CoA, we analyzed
+residues located within 4 Å of the β-phenylalanoyl side chain,
+including F43, M384, L385, Q386, Q387, L394, P395, Y397,
+and F416 (Figure 3a). Among these, Q386 lies closest to the
+carbonyl and amino groups of the β-phenylalanoyl moiety and
+may form hydrogen bonds with the substrate, suggesting a
+direct catalytic role. Given the flexibility of loops surrounding
+the active site, neighboring residues Q387 and Q388 also lie
+near the substrate and could engage in similar interactions; we
+therefore incorporated these positions into our engineering
+efforts (Figure 3b).
+We constructed variants in which glutamine residues were
+substituted with glutamate or aspartate to introduce carbox-
+ylate groups capable of forming stronger hydrogen-bonding or
+electrostatic interactions. In parallel, we generated glutamine-
+to-asparagine substitutions to examine whether shortening the
+side chain could provide additional space to accommodate the
+non-native substrate, which contains an extra hydroxyl group.
+We integrated genes encoding TmeBAPT mutants at positions
+Q386, Q387, and Q388 into the genome of the BTP0 chassis
+strain together with TchPCL and evaluated their activities
+toward (2R,3S)-3-phenylisoserinoyl-CoA by quantifying 3′-N-
+debenzoyltaxol production. As anticipated, substitution of
+these residues with glutamate or aspartate consistently
+increased catalytic activity, likely because the introduced
+carboxylate groups enhance substrate stabilization via stronger
+hydrogen-bonding interactions (Figure 3c). Notably, the
+Figure 3. Favorable binding poses ofTmeBAPT with the substrates β-phenylalanoyl-CoA and baccatin III and protein engineering to enhance
+activity toward the non-native substrate (2R,3S)-3-phenylisoserinoyl-CoA. (a) Schematic representation of residues located within 4 Å of the β-
+phenylalanoyl side chain, including F43, M384, L385, Q386, Q387, L394, P395, Y397, and F416, shown in pink, with Q386 highlighted in purple.
+(b) Q386 and neighboring residues Q387 and Q388 are positioned close to the carbonyl and amino groups of the β-phenylalanoyl moiety in
+TmeBAPT and may form hydrogen bonds with the substrate. The surfaces of residues Q386, Q387, and Q388 are highlighted in cyan. β-
+Phenylalanoyl-CoA is shown in green, and the structure of TmeBAPT is shown in gray. (c) Activities of TmeBAPT mutants at positions Q386,
+Q387, and Q388 toward the non-native substrate (2R,3S)-3-phenylisoserinoyl-CoA were characterized by coexpression with TchPCL in yeast and
+quantification of 3′-N-debenzoyltaxol production. (d) Combination mutants of Q386, Q387, and Q388 were further evaluated using the same
+approach; however, none outperformed the Q386E single mutant. Data are presented as mean ± s.d. (n = 3 biologically independent samples).
+Statistical significance was assessed using one-way ANOVA followed by Tukey’s multiple-comparisons test.
+ACS Synthetic Biology
+pubs.acs.org/synthbio
+Research Article
+https://doi.org/10.1021/acssynbio.6c00148
+ACS Synth. Biol. XXXX, XXX, XXX−XXX
+E
+
+
+
+[PDF physical page 6]
+Q386E variant increased 3′-N-debenzoyltaxol accumulation by
+4.31-fold relative to the wild-type TmeBAPT. In contrast, most
+asparagine substitutions resulted in little or no improvement,
+indicating that enlargement of the binding pocket is not the
+primary limitation for accommodating the flexible, loop-
+enclosed non-native substrate.
+We also evaluated the combinatorial mutants, but none
+outperformed the Q386E single mutant (Figure 3D).
+Simultaneous mutation of Q386 and Q387 produced the
+most pronounced loss of activity, whereas the Q386−Q388
+combination had a comparatively smaller negative effect. The
+triple mutant similarly exhibited poor activity, comparable to
+that of the Q386-Q387 double mutant. This decrease in
+activity likely arises from the introduction of multiple
+carboxylate groups, which generate excessive negative charges,
+leading to electrostatic repulsion and a diminished catalytic
+efficiency. Accordingly, we selected TmeBAPTQ386E for
+incorporation into the artificial pathway for the subsequent
+investigations.
+Whole-Cell Conversion of Baccatin III to Taxol
+Taxol is formed through benzoylation of the 3′-N position of
+the intermediate 3′-N-debenzoyltaxol. Using the surrogate
+substrate 3′-N-debenzoyl-2′-deoxytaxol, Walker et al. identified
+an N-benzoyltransferase from Taxus canadensis (TcaDBTNBT,
+GenBank accession no. AAM75818.1) as the enzyme
+responsible for the terminal acylation step in Taxol biosyn-
+thesis.60 More recently, however, Liang et al. reported a
+distinct 3′-N-benzoyltransferase from Taxus chinensis
+(TchT3′NBT, GenBank accession no. XCT47277.1) to
+efficiently catalyze the conversion of 3′-N-debenzoyltaxol to
+Taxol (Supplementary Figure S8).27 To evaluate their roles in
+the artificial pathway, we further integrated genes encoding
+TchT3′NBT or TcaDBTNBT, together with the T. media
+benzoyl-CoA ligase TmeAAE4 (GenBank accession no.
+QID19982.1), into the BTP1a-M1 and BTP1b-M1 strains
+expressing the high-activity BAPTQ386E variant, yielding strains
+BTP3, BTP4, and BTP5 (Table 1 and Supplementary Figure
+S3).61 In the presence of (2R,3S)-3-phenylisoserine, we
+detected Taxol exclusively in the fermentation broth of strain
+BTP5 expressing TchT3′NBT and TchPCL, confirming the role
+of TchT3′NBT in catalyzing the conversion of 3′-N-
+debenzoyltaxol to Taxol and demonstrating the feasibility of
+the proposed artificial pathway that bypasses the native C2′-
+oxidation step (Figure 4a and 4b). In contrast, we failed to
+detect any Taxol in strain BTP3 expressing TchT3′NBT and
+PrPCLA312G, indicating that the low catalytic activity of
+PrPCLA312G is insufficient to support downstream reactions.
+Moreover, we observed no Taxol accumulation in strain BTP4
+Figure 4. Whole-cell conversion of baccatin III to Taxol. (a) Representative chromatograms of heterologous Taxol production in strains harboring
+either the artificial pathway or the native pathway genes, validating the functions of TcaDBTNBT and TchT3′NBT. (b) Quantification of Taxol
+accumulation in strains carrying the artificial or native pathway, determined by LC−QQQ MS analysis. (c) Representative chromatograms showing
+the accumulation of 2′-deoxytaxol in native-pathway strains lacking T2′OGD, in order to define the substrate scope of TcaDBTNBT. (d)
+Quantification of 2′-deoxytaxol accumulation in native-pathway strains lacking T2′OGD, determined by LC−QQQ MS analysis. Different colors
+denote distinct taxane products: purple, 2′-deoxytaxol and pink, Taxol. Data are presented as mean ± s.d. (n = 3 biologically independent samples).
+ACS Synthetic Biology
+pubs.acs.org/synthbio
+Research Article
+https://doi.org/10.1021/acssynbio.6c00148
+ACS Synth. Biol. XXXX, XXX, XXX−XXX
+F
+
+
+
+[PDF physical page 7]
+expressing TcaDBTNBT and TchPCL, suggesting that
+TcaDBTNBT is unlikely to function as the enzyme responsible
+for the terminal 3′-N benzoylation step in Taxol biosynthesis.
+We next evaluated these enzymes in the native baccatin III
+to Taxol pathway. In chassis strains BTP1a and BTP1b
+expressing wild-type TmeBAPT, we cointegrated either
+TchT3′NBT or TcaDBTNBT together with TmeAAE4 and
+T2′OGD, yielding strains BTP2-1, BTP6-1, and BTP7-1,
+respectively (Table 1 and Supplementary Figure S3). Upon
+supplementation with β-phenylalanine, Taxol production was
+detected in strains BTP2-1 and BTP6-1 expressing
+TchT3′NBT, with the Taxol titer in BTP2-1 being 5.2-fold
+higher than that in BTP6-1, highlighting the critical role of the
+highly active Taxus-derived TchPCL in this pathway.
+Consistent with results from the artificial pathway, no Taxol
+accumulation was observed in strain BTP7-1 expressing
+TcaDBTNBT. Given previous reports that TcaDBTNBT can
+catalyze the conversion of the pathway intermediate 3′-N-
+debenzoyl-2′-deoxytaxol, we omitted T2′OGD and integrated
+TcaDBTNBT and TmeAAE4 into the chassis strains BTP0 to
+generate BTP1c. We then introduced either PrPCLA312G or
+TchPCL together with TmeBAPT, yielding strains BTP8 and
+BTP9, respectively. In the presence of β-phenylalanine, 2′-
+deoxytaxol was detected in strains BTP8 and BTP9 expressing
+TcaDBTNBT, whereas no accumulation of 2′-deoxytaxol was
+observed in strain BTP2 expressing TchT3′NBT (Figures 4c
+and 4d). These results demonstrate that both TcaDBTNBT
+and TchT3′NBT are capable of catalyzing 3′-N benzoylation
+but exhibit distinct and highly specific substrate preferences
+(Supplementary Figure S9).
+In addition, we compared the conversion efficiencies of the
+artificial and native pathways from baccatin III to Taxol. As
+shown in Figure 4b, strain BTP5 produced 1.47 ng L−1 Taxol,
+corresponding to a significantly higher conversion efficiency
+than that of the native pathway initiated from L-phenylalanine.
+Nevertheless, this titer represented only 18.7% of that achieved
+by strain BTP2-1 when supplied with β-phenylalanine,
+indicating that the current artificial pathway remains far from
+optimal. It requires further improvements in enzyme
+expression levels, catalytic performance, and pathway flux
+balancing to fully capitalize on the theoretical advantages of the
+streamlined biosynthetic route. Notably, all three enzymes
+constituting the artificial pathway (TmeBAPT, TchPCL, and
+TchT3′NBT) harbor a canonical C-terminal peroxisomal
+targeting signal (SKL or SRL). Fluorescence confocal
+microscopy further confirmed the peroxisomal localization of
+these enzymes in yeast, underscoring the key role of
+peroxisomes in mediating baccatin III side-chain modifications
+(Supplementary Figure S10).
+■DISCUSSION
+Leveraging the substrate plasticity of pathway enzymes, we
+establish an artificial biosynthetic pathway that employs
+(2R,3S)-3-phenylisoserine, a readily accessible compound, as
+the acyl donor, thereby bypassing the native phenylalanine
+isomerization and C2′ α-hydroxylation step. With only three
+enzymatic reactions, this pathway enables whole-cell con-
+version of baccatin III to Taxol in yeast, providing a potentially
+sustainable alternative strategy for producing this clinically
+important anticancer agent.
+Although Taxol titer achieved via the artificial pathway
+remains lower than that of the native pathway supplied with β-
+phenylalanine, this limitation does not preclude its broader
+significance. The decreased number of catalytic steps is
+expected to minimize intermediate loss and improve
+theoretical conversion efficiency. Meanwhile, the limited
+activity of pathway enzymes toward non-native substrates
+reflects an early stage of optimization; further mechanistic
+insights and protein engineering are anticipated to enhance
+overall flux.62,63 Notably, confocal microscopy revealed that all
+three enzymes in the artificial pathway (PCL, BAPT, and
+T3′NBT) are colocalized within the peroxisome, whereas PAM
+and T2′OGD lack peroxisomal targeting signals. Introducing a
+C-terminal ePTS1-tagged T2′OGD into the native pathway did
+not improve Taxol production upon β-phenylalanine supple-
+mentation (Supplementary Figure S11), suggesting that the
+C2′ hydroxylation step may be incompatible with the
+peroxisomal environment. These observations highlight a
+potential advantage of the artificial pathway in enabling
+effective subcellular cocompartmentalization.64−66 In addition,
+the artificial route expands substrate flexibility. Our results
+demonstrate that PCL exhibits activity toward substrates
+beyond its native β-phenylalanine, indicating a broader
+substrate scope than previously recognized. This property
+opens opportunities for generating Taxol analogs with diverse
+aromatic amino acid-derived side chains, which may display
+improved pharmacological properties.
+At present, the artificial pathway remains at a proof-of-
+concept stage, with relatively low conversion efficiency. Several
+bottlenecks require further optimization, including substrate
+uptake, enzyme catalytic performance, pathway flux, and
+cofactor availability. The poor membrane permeability of
+substrates such as baccatin III limits cellular uptake and often
+necessitates the use of toxic cosolvents such as dimethyl
+sulfoxide (DMSO), which can compromise cell viability.
+Reconstruction of de novo baccatin III biosynthesis or
+identification of dedicated transporters may alleviate this
+limitation. Although protein modeling and substrate docking
+have improved the catalytic efficiency of TmeBAPT toward the
+non-native substrate, other enzymes, such as TchPCL, have not
+yet been engineered for altered substrate specificity, constrain-
+ing (2R,3S)-3-phenylisoserine activation. Furthermore, con-
+focal microscopy suggests relatively low expression levels of
+pathway enzymes in yeast, indicating that transcriptional and
+translational optimization could enhance functional expression.
+Importantly, peroxisomal PCL requires coenzyme A (CoA) as
+an essential cosubstrate, whereas CoA biosynthesis primarily
+occurs in the cytosol and mitochondria. In the absence of
+efficient CoA transport systems in eukaryotic microorganisms,
+the peroxisomal CoA pool relies largely on recycling during β-
+oxidation. This competition may perturb β-oxidation and
+cellular energy homeostasis, thereby introducing an additional
+metabolic constraint that must be addressed to achieve
+efficient heterologous Taxol production.
+In summary, we successfully establish an alternative artificial
+pathway for converting baccatin III to Taxol in yeast, offering a
+promising framework for sustainable production. Despite its
+currently lower efficiency compared to the native pathway
+supplemented with β-phenylalanine, the artificial route
+provides distinct advantages in pathway simplification,
+subcellular cocompartmentalization, and structural diversifica-
+tion potential, warranting further optimization and develop-
+ment.
+ACS Synthetic Biology
+pubs.acs.org/synthbio
+Research Article
+https://doi.org/10.1021/acssynbio.6c00148
+ACS Synth. Biol. XXXX, XXX, XXX−XXX
+G
+
+
+
+[PDF physical page 8]
+■MATERIALS AND METHODS
+Chemicals and Reagents
+Polyethylene glycol (PEG) and salmon sperm DNA sodium salt
+(ssDNA) were purchased from Sigma-Aldrich (St. Louis, Missouri,
+USA). The DNA PCR Purification Kit was obtained from Thermo
+Fisher Scientific (Shanghai, China). Baccatin III and Taxol standards
+were purchased from Chengdu DeSiTe Biological Technology Co.,
+Ltd. (Chengdu, China). Phanta Max Super-Fidelity DNA Polymerase
+and ClonExpress II One Step Cloning Kit were purchased from
+Vazyme (Nanjing, China). All restriction enzymes and T4 DNA ligase
+were purchased from New England Biolabs (Beijing, China). Unless
+otherwise specified, all chemicals were obtained from Sigma-Aldrich.
+Strains and Growth Media
+Yeast strains used in this study were listed in Table 1. Escherichia coli
+DH5α (Tsingke Biotech, China) was used for plasmid construction,
+propagation, and maintenance. Recombinant E. coli strains were
+cultured in Luria−Bertani (LB) medium supplemented with
+ampicillin (100 mg L−1). Yeast strains were routinely cultivated in
+yeast extract−peptone−dextrose (YPD) medium containing 10 g L−1
+yeast extract, 20 g L−1 peptone, and 20 g L−1 glucose at 30 °C with
+shaking at 250 r.p.m. When required, G418 sulfate (Sangon Biotech,
+Shanghai, China) was added to a final concentration of 100 mg L−1.
+Plasmid Construction
+The Cas9 expression plasmid pRS41K-iCas9 and gRNA helper
+plasmids pRS423-SpSgH and pRS426-SpSgH were constructed in our
+previous studies.67,68 Guide RNAs (gRNAs) were designed using the
+Benchling CRISPR tool (https://benchling.com) and cloned into
+BsaI-digested pRS423-SpSgH or pRS426-SpSgH. For construction of
+multi-gRNA expression plasmids, individual gRNA expression
+cassettes were amplified by PCR and assembled using Golden Gate
+assembly. Site-directed mutagenesis of ΤmeBAPT was performed by
+overlap extension PCR. Genes hypothesized to be involved in Taxol
+production via baccatin III side-chain modification (TcaPAM,
+TchPAM,
+PrPCLA312G,
+TchPCL,
+ΤmeBAPT,
+TchT2′OGD,
+TcaDBTNBT, TchT3′NBT, and TmeAAE4) expression were synthe-
+sized by GenScript Biotech (Nanjing, China). These genes were
+cloned into the multiple cloning sites (MCSs) of pESC-series vectors
+(pESC-URA, pESC-LEU, pESC-TRP, and pESC-HIS) using either
+restriction digestion and ligation (MCS1: BamHI/XhoI; MCS2: NotI/
+SacI) or Gibson Assembly. Oligonucleotide synthesis and DNA
+sequencing were performed by Tsingke Biotech (Hangzhou, China).
+Plasmids were extracted from E. coli using the AxyPrep Plasmid
+Miniprep Kit (Axygen, Shanghai, China).
+Yeast Transformation and Strain Construction
+All genetic modifications in yeast were performed using CRISPR/
+Cas9-mediated genome editing.69,70 Heterologous gene expression
+cassettes were amplified by PCR with 40 bp homology arms
+corresponding to the target chromosomal loci and cotransformed,
+together with the appropriate sgRNA plasmids, into Cas9-expressing
+yeast strains using the lithium acetate/single-stranded DNA/poly-
+ethylene glycol (LiAc/ssDNA/PEG) method.71 Unless otherwise
+specified, 600 ng of gRNA plasmid and 600 ng of each donor DNA
+fragment were used per transformation. All sgRNA plasmids for
+genome integration used in this study are listed in Supporting
+Information Table S2.
+In Vivo Feeding Assays
+Three colonies were picked from fresh YPD agar plates and
+inoculated into 3 mL YPD medium. After cultivation for 24 h at 30
+°C with shaking at 250 rpm, 30 μL of the seed culture was transferred
+to 24-well plates containing 3 mL of fresh YPD medium and grown
+under identical conditions for an additional 48 h. Cells were harvested
+by centrifugation at 4000 rpm for 5 min and resuspended in 3 mL of
+fresh YPG medium containing 20 g L−1 galactose. Cultures were
+supplemented with 50 μM baccatin III and 500 μM β-phenylalanine
+or (2R,3S)-3-phenylisoserine. Benzoic acid was additionally supplied
+when a benzoyl-CoA ligase was expressed. To prevent precipitation
+and improve substrate availability, DMSO was added to a final
+concentration of 3% (v/v). Cultures were subsequently incubated at
+30 °C with shaking at 250 rpm for 48 h.
+Qualitative and Quantitative Analysis of Taxane
+Metabolites were extracted from the fermentation broth containing
+cells and culture broth. The culture was mixed with an equal volume
+of ethyl acetate and vigorously shaken to disrupt yeast cells, followed
+by extraction at low speed for 4 h. Phase separation was achieved by
+centrifugation at 12,000 rpm for 10 min. The organic phase was
+transferred to a fresh tube and concentrated to dryness under vacuum
+to remove residual solvent. After evaporation, the residue was
+redissolved in methanol, filtered through a 0.22 μm membrane filter,
+and analyzed by LC−MS.
+For the separation and analysis of the treated samples, 2 μL was
+injected into a 1290 Infinity II LC system (Agilent Technologies)
+equipped with a Zorbax Rapid Resolution HT C18 column
+(30 × 2.1 mm, 1.8 μm; Agilent Technologies). Metabolites were
+separated using the following gradient: from 5% B to 95% B from 0 to
+10 min (0.3 mL min−1), held at 95% B from 10 to 13 min
+(0.3 mL min−1), and held at 5% B from 13 to 16 min (0.3 mL min−1).
+Solvent A was 0.1% formic acid in water, and solvent B was 0.1%
+formic acid in 100% methanol. The eluent from the LC system was
+injected into a 6470 triple quadrupole LC/MS system (Agilent
+Technologies) equipped with an ESI ion source. The resolution,
+capillary voltage, and source temperature were set to 100,000, 4 kV,
+and 350 °C, respectively. The UPLC−MS data were processed and
+analyzed using MassHunter software (Agilent Technologies). LC−
+MS multiple reaction monitoring (MRM) mode was employed for the
+quantitative analysis of Taxol and its intermediates, and detailed
+parameters are listed in Supplementary Table S3.
+Confocal Microscopy
+The EGFP was fused to the N-terminus of target proteins based on
+structural features. The corresponding coding sequences were
+genomically integrated into the wild-type yeast strain and verified
+by colony PCR. The gene encoding PEX3, used as a peroxisomal
+marker, was amplified from the yeast genome, fused to mCherry at the
+C-terminus, and integrated into strains expressing EGFP fusion
+proteins using previously described methods. Yeast strains were
+cultivated in YPD medium for 18 h, harvested, and washed twice with
+10 mM phosphate-buffered saline (PBS). Subsequently, 2.5 μL of cell
+suspension was applied to a microscope slide, covered with a
+coverslip, and imaged immediately. Confocal images were acquired
+using a Nikon Ti microscope equipped with a 100× Plan Apo oil-
+immersion objective (NA 1.49) and four diode lasers (405, 488, 561,
+and 639 nm). Samples were illuminated using highly inclined
+laminated optical sheet (HILO) total internal reflection fluorescence
+(TIRF) illumination with 488 and 561 nm lasers and corresponding
+filter cubes (Chroma). EGFP fluorescence was collected over an
+emission range of 503−541 nm with a line time of 0.39 μs and a gain
+of 600−1,000. mCherry fluorescence was collected over an emission
+range of 571−625 nm using identical acquisition settings. A line
+averaging factor of 4 was applied to both channels. Image processing
+and analysis were performed using NIS-Elements (version 2.0).
+Statistics and Reproducibility
+All experimental data were at least in triplicate and expressed as mean
+± standard error. All data analyses were performed by GraphPad
+Prism 8 (GraphPad Software, USA).
+■ASSOCIATED CONTENT
+Data Availability Statement
+The data involved in the research are included in the
+manuscript and Supporting Information. All the protein
+structures are obtained from AlphaFold 3.0.
+*
+sı Supporting Information
+The Supporting Information is available free of charge at
+https://pubs.acs.org/doi/10.1021/acssynbio.6c00148.
+ACS Synthetic Biology
+pubs.acs.org/synthbio
+Research Article
+https://doi.org/10.1021/acssynbio.6c00148
+ACS Synth. Biol. XXXX, XXX, XXX−XXX
+H
+
+
+
+[PDF physical page 9]
+Additional experimental details, including materials and
+methods; schematic illustration of the biosynthetic
+pathway to baccatin III (Figure S1); comparative
+analysis of the protein sequences and predicted
+structures of PAM (Figure S2), PCL (Figure S4), and
+3′-N-benzoyltransferase (Figure S8); schematic over-
+view of yeast strain construction (Figure S3);
+purification of the baccatin III standard (Figure S5);
+AlphaFold 3.0−predicted structure of TmeBAPT (Figure
+S6); predicted binding poses of β-phenylalanoyl-CoA
+and baccatin III in TmeBAPT based on qvina docking
+(Figure S7); biosynthetic pathway catalyzed by
+TcaDBTNBT (Figure S9); subcellular localization of
+PCL, BAPT, and T3′NBT (Figure S10); quantification
+of Taxol accumulation in strains expressing the
+T2′OGD-ePTS1 variant (Figure S11); kinetic constants
+of MBP-BAPT (Table S1); plasmid information (Table
+S2); and LC−QQQ MS detection parameters (Table
+S3) (PDF)
+■AUTHOR INFORMATION
+Corresponding Authors
+Jianbin Yan −Shenzhen Branch, Guangdong Laboratory for
+Lingnan Modern Agriculture, Key Laboratory of Synthetic
+Biology, Ministry of Agriculture and Rural Affairs, Advanced
+Synthetic Biology Institute at Hohhot, Agricultural Genomics
+Institute at Shenzhen, Chinese Academy of Agricultural
+Sciences, Shenzhen 518120, China;
+orcid.org/0000-
+0001-7934-8808; Email: jianbinlab@caas.cn
+Jiazhang Lian −Key Laboratory of Biomass Chemical
+Engineering of Ministry of Education, College of Chemical
+and Biological Engineering, Zhejiang University, Hangzhou,
+Zhejiang 310027, China; ZJU-Hangzhou Global Scientific
+and Technological Innovation Center, Zhejiang University,
+Hangzhou, Zhejiang 311215, China;
+orcid.org/0000-
+0001-9784-9876; Email: jzlian@zju.edu.cn
+Authors
+Yuanwei Gou −Key Laboratory of Biomass Chemical
+Engineering of Ministry of Education, College of Chemical
+and Biological Engineering, Zhejiang University, Hangzhou,
+Zhejiang 310027, China; ZJU-Hangzhou Global Scientific
+and Technological Innovation Center, Zhejiang University,
+Hangzhou, Zhejiang 311215, China;
+orcid.org/0000-
+0003-4472-1822
+Bin Jiang −Shenzhen Branch, Guangdong Laboratory for
+Lingnan Modern Agriculture, Key Laboratory of Synthetic
+Biology, Ministry of Agriculture and Rural Affairs, Advanced
+Synthetic Biology Institute at Hohhot, Agricultural Genomics
+Institute at Shenzhen, Chinese Academy of Agricultural
+Sciences, Shenzhen 518120, China
+Xiaojing Jiang −Key Laboratory of Biomass Chemical
+Engineering of Ministry of Education, College of Chemical
+and Biological Engineering, Zhejiang University, Hangzhou,
+Zhejiang 310027, China; ZJU-Hangzhou Global Scientific
+and Technological Innovation Center, Zhejiang University,
+Hangzhou, Zhejiang 311215, China
+Yiwei Zhang −ZJU-Hangzhou Global Scientific and
+Technological Innovation Center, Zhejiang University,
+Hangzhou, Zhejiang 311215, China
+Binbin Chen −School of Engineering, Westlake University,
+Hangzhou, Zhejiang 310014, China; Westlake Center of
+Synthetic Biology and Integrated Bioengineering, Westlake
+University, Hangzhou, Zhejiang 310014, China
+Jiaojiao Zhang −ZJU-Hangzhou Global Scientific and
+Technological Innovation Center, Zhejiang University,
+Hangzhou, Zhejiang 311215, China; Xianghu Laboratory,
+Hangzhou, Zhejiang 311231, China
+Dongfang Li −ZJU-Hangzhou Global Scientific and
+Technological Innovation Center, Zhejiang University,
+Hangzhou, Zhejiang 311215, China
+Yajie Wang −School of Engineering, Westlake University,
+Hangzhou, Zhejiang 310014, China; Westlake Center of
+Synthetic Biology and Integrated Bioengineering, Westlake
+University, Hangzhou, Zhejiang 310014, China;
+orcid.org/0000-0002-6216-791X
+Complete contact information is available at:
+https://pubs.acs.org/10.1021/acssynbio.6c00148
+Author Contributions
+J.L. and J.Y. conceptualized and supervised the study. Y.G. and
+B.J. designed the artificial pathway. Y.G. performed the
+experiments, analyzed data, and drafted the manuscript. Y.G.,
+X.J., and J.L. revised the manuscript. Y.G. and J.Z. performed
+fluorescence microscopy. Y.G., B.C., and Y.W. performed
+structural analysis of the BAPT docking model. Y.G., Y.Z., and
+D. L. performed the establishment of qualitative and
+quantitative analytical methods for taxanes. All authors
+approved the manuscript.
+Notes
+The authors declare no competing financial interest.
+■ACKNOWLEDGMENTS
+This work was supported by the National Key Research and
+Development Program of China (2024YFA0918000), the
+National Natural Science Foundation of China (22278361 and
+22478341), the Fundamental Research Funds for the Central
+Universities (226-2025-00044), the Beijing Life Science
+Academy (BLSA, 2024200CA0020), and the Agricultural
+Science and Technology Innovation Program (ASTIP,
+CAAS-CSIAF-202302).
+■REFERENCES
+(1) Chopra, B.; Dhingra, A. K. Natural products: A lead for drug
+discovery and development. Phytother. Res. 2021, 35, 4660−4702.
+(2) Nett, R. S.; Sattely, E. S. Total biosynthesis of the tubulin-
+binding alkaloid colchicine. J. Am. Chem. Soc. 2021, 143, 19454−
+19465.
+(3) Hong, B.; et al. Biosynthesis of strychnine. Nature 2022, 607,
+617−622.
+(4) Lange, B. M.; Conner, C. F. Taxanes and taxoids of the genus
+Taxus - A comprehensive inventory of chemical diversity.
+Phytochemistry 2021, 190, 112829.
+(5) Fu, Y.; et al. Medicinal chemistry of paclitaxel and its analogues.
+Curr. Med. Chem. 2009, 16, 3966−3985.
+(6) Schiff, P. B.; Horwitz, S. B. Taxol stabilizes microtubules in
+mouse fibroblast cells. Proc. Natl. Acad. Sci. U. S. A. 1980, 77, 1561−
+1565.
+(7) Jordan, M. A.; Wilson, L. Microtubules as a target for anticancer
+drugs. Nat. Rev. Cancer 2004, 4, 253−265.
+(8) Ahmed Khalil, A.; et al. Recent developments and anticancer
+therapeutics of paclitaxel: An update. Curr. Pharm. Des. 2022, 28,
+3363−3373.
+(9) Cragg, G. M. Paclitaxel (Taxol®): A success story with valuable
+lessons for natural product drug discovery and development. Med. Res.
+Rev. 1998, 18, 315−331.
+ACS Synthetic Biology
+pubs.acs.org/synthbio
+Research Article
+https://doi.org/10.1021/acssynbio.6c00148
+ACS Synth. Biol. XXXX, XXX, XXX−XXX
+I
+
+
+
+[PDF physical page 10]
+(10) Sofias, A. M.; Dunne, M.; Storm, G.; Allen, C. The battle of
+“nano” paclitaxel. Adv. Drug Delivery Rev. 2017, 122, 20−30.
+(11) Fernie, A. R.; Liu, F.; Zhang, Y. Post-genomic illumination of
+paclitaxel biosynthesis. Nat. Plants 2024, 10, 1875−1885.
+(12) Gibson, F. S. Synthesis of paclitaxel from baccatin III by protection
+of the 7-hydroxyl of baccatin III using a strong base and an electrophile.
+US 6,307,071 B1. (2001).
+(13) Denis, J. N.; et al. Highly efficient, practical approach to natural
+taxol. J. Am. Chem. Soc. 1988, 110, 5917−5919.
+(14) Han, K.; et al. Genetic transformation of mature Taxus: An
+approach to genetically control the in vitro production of the
+anticancer drug, taxol. Plant Sci. 1994, 95, 187−196.
+(15) Xie, X.; Zhai, Y.; Cheng, H.; Wei, W. H.; Ren, M. From Taxus
+to paclitaxel: Opportunities and challenges for urban agriculture to
+promote human health. Plant Physiol. Biochem. 2025, 220, 109502.
+(16) Min, L.; et al. Strategies and lessons learned from total synthesis
+of Taxol. Chem. Rev. 2023, 123, 4934−4971.
+(17) Imamura, Y.; Takaoka, K.; Komori, Y.; Nagatomo, M.; Inoue,
+M. Total synthesis of Taxol enabled by inter- and intramolecular
+radical coupling reactions. Angew. Chem., Int. Ed. 2023, 62,
+No. e202219114.
+(18) Watanabe, T.; Oga, K.; Matoba, H.; Nagatomo, M.; Inoue, M.
+Total synthesis of Taxol enabled by intermolecular radical coupling
+and Pd-catalyzed cyclization. J. Am. Chem. Soc. 2023, 145, 25894−
+25902.
+(19) Wildung, M. R.; Croteau, R. A cDNA clone for taxadiene
+synthase, the diterpene cyclase that catalyzes the committed step of
+Taxol biosynthesis. J. Biol. Chem. 1996, 271, 9201−9204.
+(20) Cheng, J.; et al. Chromosome-level genome of Himalayan yew
+provides insights into the origin and evolution of the paclitaxel
+biosynthetic pathway. Mol. Plant 2021, 14, 1199−1209.
+(21) Xiong, X.; et al. The Taxus genome provides insights into
+paclitaxel biosynthesis. Nat. Plants 2021, 7, 1026−1036.
+(22) Song, C.; Fu, F.; Yang, L.; Niu, Y.; Tian, Z.; He, X.; Yang, X.;
+Chen, J.; Sun, W.; Wan, T.; et al. Taxus yunnanensis genome offers
+insights into gymnosperm phylogeny and Taxol production. Commun.
+Biol. 2021, 4, 1203.
+(23) Zhang, Y.; et al. Synthetic biology identifies the minimal gene
+set required for paclitaxel biosynthesis in a plant chassis. Mol. Plant
+2023, 16, 1951−1961.
+(24) Jiang, B.; et al. Characterization and heterologous recon-
+stitution of Taxus biosynthetic enzymes leading to baccatin III. Science
+2024, 383, 622−629.
+(25) Yang, C.; Wang, Y.; Su, Z.; Xiong, L.; Wang, P.; Lei, W.; Yan,
+X.; Ma, D.; Zhao, G.; Zhou, Z.; et al. Biosynthesis of the highly
+oxygenated tetracyclic core skeleton of Taxol. Nat. Commun. 2024,
+15, 2339.
+(26) McClune, C. J.; et al. Discovery of FoTO1 and Taxol genes
+enables biosynthesis of baccatin III. Nature 2025, 643, 582−592.
+(27) Liang, F.; et al. Elucidation of the final steps in Taxol
+biosynthesis and its biotechnological production. Nat. Synth. 2025, 4,
+1212−1222.
+(28) Gou, Y.; Jiang, X.; Lian, J. Intricate Metabolic Network for
+Paclitaxel Biosynthesis. Biodes Res. 2024, 6, 0035.
+(29) Zhang, J.; et al. A microbial supply chain for production of the
+anti-cancer drug vinblastine. Nature 2022, 609, 341−347.
+(30) Gao, D.; et al. De novo biosynthesis of vindoline and
+catharanthine in Saccharomyces cerevisiae. Biodes Res. 2022, 2022,
+0002.
+(31) Luo, X.; et al. Complete biosynthesis of cannabinoids and their
+unnatural analogues in yeast. Nature 2019, 567, 123−126.
+(32) Galanie, S.; Thodey, K.; Trenchard, I. J.; Filsinger Interrante,
+M.; Smolke, C. D. Complete biosynthesis of opioids in yeast. Science
+2015, 349, 1095−1100.
+(33) Srinivasan, P.; Smolke, C. D. Biosynthesis of medicinal tropane
+alkaloids in yeast. Nature 2020, 585, 614−619.
+(34) Gao, J.; Gou, Y.; Huang, L.; Lian, J. Reconstitution and
+optimization of complex plant natural product biosynthetic pathways
+in microbial expression systems. Curr. Opin. Biotechnol. 2024, 87,
+103136.
+(35) Liu, T.; et al. Construction of ajmalicine and sanguinarine de
+novo biosynthetic pathways using stable integration sites in yeast.
+Biotechnol. Bioeng. 2022, 119, 1314−1326.
+(36) Ajikumar, P. K.; et al. Isoprenoid pathway optimization for
+Taxol precursor overproduction in Escherichia coli. Science 2010, 330,
+70−74.
+(37) Biggs, B. W.; et al. Overcoming heterologous protein
+interdependency to optimize P450-mediated Taxol precursor syn-
+thesis in Escherichia coli. Proc. Natl. Acad. Sci. U. S. A. 2016, 113,
+3209−3214.
+(38) Nowrouzi, B.; Li, R. A.; Walls, L. E.; d’Espaux, L.; Malcı, K.;
+Liang, L.; Jonguitud-Borrego, N.; Lerma-Escalera, A. I.; Morones-
+Ramirez, J. R.; Keasling, J. D.; et al. Enhanced production of taxadiene
+in Saccharomyces cerevisiae. Microb. Cell Fact 2020, 19, 200.
+(39) Walls, L. E.; et al. Optimizing the biosynthesis of oxygenated
+and acetylated Taxol precursors in Saccharomyces cerevisiae using
+advanced bioprocessing strategies. Biotechnol. Bioeng. 2021, 118, 279−
+293.
+(40) Reider Apel, A.; et al. A Cas9-based toolkit to program gene
+expression in Saccharomyces cerevisiae. Nucleic Acids Res. 2017, 45,
+496−508.
+(41) Liu, J. C.; De La Pena, R.; Tocol, C.; Sattely, E. S.
+Reconstitution of early paclitaxel biosynthetic network. Nat. Commun.
+2024, 15, 1419.
+(42) Zhao, Y.; et al. Oxetane ring formation in Taxol biosynthesis is
+catalyzed by a bifunctional cytochrome P450 enzyme. J. Am. Chem.
+Soc. 2024, 146, 801−810.
+(43) Song, X.; et al. Unraveling the catalytic mechanism of
+taxadiene-5α-hydroxylase from crystallography and computational
+analyses. ACS Catal 2024, 14, 3912−3925.
+(44) Chen, X.; T, R.; Esque, J.; Zhang, C.; Shukal, S.; Lim, C. C.;
+Ong, L.; Smith, D.; André, I.; et al. Total enzymatic synthesis of cis-α-
+irone from a simple carbon source. Nat. Commun. 2022, 13, 7421.
+(45) Shen, X.; et al. Design and construction of an artificial pathway
+for biosynthesis of acetaminophen in Escherichia coli. Metab. Eng.
+2021, 68, 26−33.
+(46) Huffman, M. A.; et al. Design of an in vitro biocatalytic cascade
+for the manufacture of islatravir. Science 2019, 366, 1255−1259.
+(47) Dubois, J. Recent progress in the development of docetaxel and
+paclitaxel analogues. Expert Opin. Ther. Pat. 2006, 16, 1481−1496.
+(48) Ishiyama, T.; et al. New highly active taxoids from 9β-
+dihydrobaccatin-9,10-acetals. Part 2. Bioorg. Med. Chem. Lett. 2002,
+12, 2815−2819.
+(49) Takeda, Y.; et al. New highly active taxoids from 9β-
+dihydrobaccatin-9,10-acetals. Part 4. Bioorg. Med. Chem. 2003, 11,
+4431−4447.
+(50) Sanchez-Munoz, R.; et al. A novel hydroxylation step in the
+taxane biosynthetic pathway: A new approach to paclitaxel production
+by synthetic biology. Front. Bioeng. Biotechnol. 2020, 8, 410.
+(51) Walker, K. D.; Klettke, K.; Akiyama, T.; Croteau, R. Cloning,
+heterologous expression, and characterization of a phenylalanine
+aminomutase involved in Taxol biosynthesis. J. Biol. Chem. 2004, 279,
+53947−53954.
+(52) Muchiri, R.; Walker, K. D. Taxol biosynthesis: tyrocidine
+synthetase A catalyzes the production of phenylisoserinyl CoA and
+other amino phenylpropanoyl thioesters. Chem. Biol. 2012, 19, 679−
+685.
+(53) Muchiri, R.; Walker, K. D. Paclitaxel biosynthesis: Adenylation
+and thiolation domains of an NRPS TycA PheAT module produce
+various arylisoserine CoA thioesters. Biochemistry 2017, 56, 1415−
+1425.
+(54) Thornburg, C. K.; Walter, T.; Walker, K. D. Biocatalysis of a
+paclitaxel analogue: conversion of baccatin III to N-debenzoyl-N-(2-
+furoyl)paclitaxel and characterization of an amino phenylpropanoyl
+CoA transferase. Biochemistry 2017, 56, 5920−5930.
+ACS Synthetic Biology
+pubs.acs.org/synthbio
+Research Article
+https://doi.org/10.1021/acssynbio.6c00148
+ACS Synth. Biol. XXXX, XXX, XXX−XXX
+J
+
+
+
+[PDF physical page 11]
+(55) Luo, L.; Burkart, M. D.; Stachelhaus, T.; Walsh, C. T. Substrate
+recognition and selection by the initiation module PheATE of
+gramicidin S synthetase. J. Am. Chem. Soc. 2001, 123, 11208−11218.
+(56) Koetsier, M. J.; Jekel, P. A.; Wijma, H. J.; Bovenberg, R. A.;
+Janssen, D. B. Aminoacyl-coenzyme A synthesis catalyzed by a CoA
+ligase from Penicillium chrysogenum. FEBS Lett. 2011, 585, 893−898.
+(57) van Kempen, M.; et al. Fast and accurate protein structure
+search with Foldseek. Nat. Biotechnol. 2024, 42, 243−246.
+(58) Abramson, J.; et al. Accurate structure prediction of
+biomolecular interactions with AlphaFold 3. Nature 2024, 630,
+493−500.
+(59) Alhossary, A.; Handoko, S. D.; Mu, Y.; Kwoh, C. K. Fast,
+accurate, and reliable molecular docking with QuickVina 2.
+Bioinformatics 2015, 31, 2214−2216.
+(60) Walker, K.; Long, R.; Croteau, R. The final acylation step in
+Taxol biosynthesis: Cloning of the taxoid C13-side-chain N-
+benzoyltransferase from Taxus. Proc. Natl. Acad. Sci. U. S. A. 2002,
+99, 9166−9171.
+(61) Srividya, N.; et al. Biochemical characterization of acyl
+activating enzymes for side chain moieties of Taxol and its analogs.
+J. Biol. Chem. 2020, 295, 4963−4973.
+(62) Gou, Y.; Li, D.; Zhao, M.; Li, M.; Zhang, J.; Zhou, Y.; Xiao, F.;
+Liu, G.; Ding, H.; Sun, C.; Ye, C.; et al. Intein-mediated temperature
+control for complete biosynthesis of sanguinarine and its halogenated
+derivatives in yeast. Nat. Commun. 2024, 15, 5238.
+(63) Teng, X.; Gou, Y.; Ding, X.; Zhang, Y.; Gao, D.; Pan, Y.; Shen,
+X.; Lian, J.; Li, C.; Fu, J.; et al. An expanded library of 76 integration
+sites for gene expression in Saccharomyces cerevisiae. AIChE J. 2025,
+71, No. e18818.
+(64) Ye, C.; et al. Peroxisome engineering in yeast: Advances,
+challenges, and prospects. Biotechnol. Adv. 2026, 86, 108747.
+(65) Song, S.; et al. Peroxisome-based metabolic engineering for
+biomanufacturing and agriculture. Trends Biotechnol. 2024, 42, 1161−
+1176.
+(66) Gou, Y.; Jiang, X.; Lian, J. A peroxisomal membrane protein
+hub. Nat. Chem. Biol. 2025, 21, 1478−1480.
+(67) Lian, J.; HamediRad, M.; Hu, S.; Zhao, H. Combinatorial
+metabolic engineering using an orthogonal tri-functional CRISPR
+system. Nat. Commun. 2017, 8, 1688.
+(68) Lian, J.; Schultz, C.; Cao, M.; HamediRad, M.; Zhao, H. Multi-
+functional genome-wide CRISPR system for high throughput
+genotype−phenotype mapping. Nat. Commun. 2019, 10, 5794.
+(69) Lian, J.; Mishra, S.; Zhao, H. Recent advances in metabolic
+engineering of Saccharomyces cerevisiae: New tools and their
+applications. Metab. Eng. 2018, 50, 85−108.
+(70) Lian, J.; HamediRad, M.; Zhao, H. Advancing metabolic
+engineering of Saccharomyces cerevisiae using the CRISPR/Cas system.
+Biotechnol. J. 2018, 13, No. e1700601.
+(71) Gietz, R. D.; Schiestl, R. H. High-efficiency yeast trans-
+formation using the LiAc/SS carrier DNA/PEG method. Nat. Protoc.
+2007, 2, 31−34.
+ACS Synthetic Biology
+pubs.acs.org/synthbio
+Research Article
+https://doi.org/10.1021/acssynbio.6c00148
+ACS Synth. Biol. XXXX, XXX, XXX−XXX
+K

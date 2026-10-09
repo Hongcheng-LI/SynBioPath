@@ -1,0 +1,993 @@
+
+[PDF physical page 1]
+Review
+Toward Sustainable Paclitaxel Bioproduction: Plant Biology,
+Biosynthesis and Platform Engineering
+
+Meng Zhang 1,2, Xing Xing 2 and Hongliang Zhu 1,2,*
+
+
+                                            1   Sichuan Advanced Agricultural & Industrial Institute, China Agricultural University, Chengdu 611430, China;
+                                  zhang_meng@cau.edu.cn
+                                            2   College of Food Science & Nutritional Engineering, China Agricultural University, Beijing 100083, China;
+                                     s20243061286@cau.edu.cn
+                                     *   Correspondence: hlzhu@cau.edu.cn; Tel./Fax: +86-010-62737571
+
+
+                           Abstract
+
+                              Paclitaxel (Taxol), a taxane diterpenoid from Taxus species, is a clinically important
+                             microtubule-stabilizing anticancer agent widely used in chemotherapy. However, its
+                          supply remains limited by precursor scarcity and the molecule’s structural complexity. The
+                             biosynthetic pathway from geranylgeranyl diphosphate (GGPP) to paclitaxel is estimated
+                              to involve 19 to 23 enzymatic steps. Recent multi-omics approaches have substantially
+                            elucidated this pathway, yet key mechanistic questions persist, notably the formation
+                             of the oxetane ring. Complete heterologous biosynthesis is further hampered by poor
+                         cytochrome P450 (CYP) expression in non-native hosts and insufficient metabolic flux.
+                           This review synthesizes advances across four themes: (1) progressive elucidation of the
+                             biosynthetic pathway, with emphasis on the CYP-mediated oxygenation cascade and oxe-
+                           tane ring formation; (2) genomic and regulatory insights from Taxus genome assemblies,
+                              transcription factor networks, and spatial multi-omics; (3) metabolic engineering in micro-
+                                bial hosts, including Escherichia coli, Saccharomyces cerevisiae, and non-conventional chassis;
+                       and (4) plant-based heterologous production platforms. Critical bottlenecks are identified,
+                            including unresolved enzymatic steps, CYP functional expression, flux partitioning, and
+                            bioprocess scale-up. Strategies to overcome these challenges are discussed.
+
+
+                         Keywords: paclitaxel; taxadiene synthase; cytochrome P450; baccatin III; metabolic engineering
+
+
+
+                             1. Introduction
+
+                             Cancer accounted for an estimated 20 million new diagnoses and 9.7 million deaths
+                        worldwide in 2022 [1]. Among chemotherapeutic agents deployed against this burden,
+                               paclitaxel occupies a distinctive niche: it binds β-tubulin subunits, stabilizes microtubule
+Academic Editor: Hazem Salaheldin    polymers, and arrests mitosis at the G2/M phase, displaying broad efficacy against ovarian,
+Elshafie
+                               breast, non-small-cell lung, and pancreatic carcinomas [2]. Originally isolated from the
+Received: 28 April 2026            bark of the Pacific yew (Taxus brevifolia) in the 1960s, paclitaxel has remained among the
+Revised: 17 May 2026
+                             highest-grossing oncology drugs for over three decades.
+Accepted: 1 June 2026
+Published: 4 June 2026                  Yet the supply of paclitaxel has been fraught with difficulty from the outset. Bark
+Copyright: © 2026 by the authors.      stripping of wild T. brevifolia was ecologically destructive—approximately 10,000 kg of bark
+Licensee MDPI, Basel, Switzerland.     yielded merely 1 kg of product—and this supply crisis catalyzed the search for alternative
+This article is an open access article     production routes. Current commercial manufacturing depends mainly on two strategies:
+distributed under the terms and       semi-synthesis from 10-deacetylbaccatin III (10-DAB III) obtained from renewable Taxus
+conditions of the Creative Commons   biomass and biotechnological production using Taxus cell suspension cultures [3–5]. The
+Attribution (CC BY) license.
+
+
+
+Plants 2026, 15, 1741                                                                                 https://doi.org/10.3390/plants15111741
+
+
+[PDF physical page 2]
+Plants 2026, 15, 1741                                                                                                            2 of 16
+
+
+
+                                  latter has become an established industrial bioproduction route because Taxus cells retain
+                             the native enzymatic, regulatory, and subcellular machinery required for taxane biosynthe-
+                                   sis and can be cultivated under controlled bioreactor conditions [6]. Plant cell fermentation
+                              also reduces dependence on destructive bark harvesting and avoids seasonal or geograph-
+                                  ical constraints associated with field-grown Taxus biomass. Nevertheless, this platform
+                           remains limited by slow cell growth, cell-line-dependent productivity, elicitation sensitivity,
+                           long cultivation cycles, and high production costs, which continue to motivate the develop-
+                        ment of complementary heterologous and synthetic biology-based production strategies [7].
+                      More broadly, both semi-synthesis and cell-culture-based production still face constraints
+                               in scalability, process stability, and cost efficiency. Total chemical synthesis, although accom-
+                            plished through multiple elegant routes, remains commercially impractical owing to the
+                            molecule’s formidable structural complexity: a 6–8–6–4 tetracyclic (ABC–D ring) skeleton
+                           bearing eleven stereocenters, an oxetane D-ring, and an N-benzoylphenylisoserine side
+                           chain [8]. In this review, sustainable paclitaxel supply refers to production strategies that
+                          reduce pressure on natural Taxus resources, minimize ecological disturbance, improve
+                              reproducibility and scalability, and increase the economic feasibility of paclitaxel manufac-
+                            turing [9]. This concept includes not only replacing destructive bark harvesting, but also
+                         improving the productivity and stability of Taxus cell cultures, developing microbial or
+                           photosynthetic chassis for taxane precursor production, and using plant-based systems
+                              to support CYP-dependent oxidative tailoring [5]. From this perspective, sustainability
+                          should be evaluated by both biological performance and process-level criteria, including
+                       pathway completeness, host compatibility, production stability, energy or resource input,
+                        downstream purification, and scalability [7,10].
+                             These supply limitations have driven sustained efforts to reconstitute the complete
+                               paclitaxel pathway in heterologous hosts via metabolic engineering and synthetic biology.
+                       The pathway encompasses ~19 enzymatic transformations: cyclization of the universal
+                           diterpene precursor GGPP by taxadiene synthase (TXS); a multi-step oxygenation cas-
+                         cade catalyzed by CYP725-family cytochrome P450 monooxygenases; acyl-group trans-
+                                fers by BAHD-family acyltransferases; and a distinctive oxetane ring formation [2,11].
+                       The oxygenation cascade alone involves at least eight CYP-mediated hydroxylation and
+                           epoxidation steps, each requiring electron delivery from NADPH via cytochrome P450
+                           reductase (CPR)—a degree of CYP pathway complexity that is exceptional even among
+                            plant specialized metabolites. For much of the past two decades, only a subset of these
+                        enzymes—predominantly those catalyzing the early and late steps—had been functionally
+                              characterized, while the identities of several middle-pathway CYPs and the enzymatic logic
+                              of oxetane assembly remained unresolved. This knowledge gap constituted the principal
+                               barrier to heterologous reconstitution.
+                                Several recent reviews have summarized paclitaxel biosynthesis, Taxus genomic re-
+                             sources, regulatory mechanisms, and synthetic biology-based production [3,12,13]. The
+                             present mini-review differs from these studies by focusing specifically on the acceleration of
+                             the field since 2021, when chromosome-level Taxus genomes, spatial multi-omics, structural
+                          enzymology, and combinatorial pathway reconstitution began to close long-standing gaps
+                              in the paclitaxel pathway [14–18]. Rather than providing a broad historical survey, we
+                         emphasize newly resolved enzymatic steps, revised pathway models, recent reconstitution
+                             studies leading to baccatin III and paclitaxel, and the remaining bottlenecks that constrain
+                          commercially viable heterologous production [7,17]. We further discuss how microbial,
+                            plant-based, photosynthetic, and Taxus cell culture platforms differ in their bottlenecks,
+                               sustainability relevance, and development priorities [10,19].
+
+
+
+
+
+                                                                                                    https://doi.org/10.3390/plants15111741
+
+
+[PDF physical page 3]
+Plants 2026, 15, 1741                                                                                                            3 of 16
+
+
+                             2. Elucidation of the Paclitaxel Biosynthetic Pathway
+
+                                   2.1. The First Committed Step: Cyclization of GGPP by Taxadiene Synthase
+
+                                    Paclitaxel biosynthesis is initiated by TXS, a class II/I bifunctional diterpene cyclase
+                              that converts GGPP to taxa-4(5),11(12)-diene (taxadiene) via an ionization-dependent
+                              cyclization cascade involving intramolecular proton transfer and two sequential C–C ring
+                             closures (Figure 1). GGPP is supplied primarily by the plastid-localized methylerythritol
+                          phosphate (MEP) pathway, with potential supplementation from the cytosolic mevalonate
+                      (MVA) pathway via intercompartmental IPP/DMAPP exchange [20]. As the first committed
+                               step, TXS has been subject to extensive mechanistic investigation. Molecular dynamics
+                           simulations and mutability landscape analyses have delineated the active-site residues
+                          governing substrate orientation, product fidelity, and the inherent catalytic promiscuity of
+                                this enzyme—the latter manifesting as the formation of minor verticillene- and cembrene-
+                          type by-products [21]. These insights directly inform efforts to enhance TXS catalytic
+                               efficiency and soluble expression in heterologous hosts.
+
+
+
+
+
+                             Figure 1. Biosynthesis pathway of paclitaxel. Paclitaxel biosynthesis begins with TXS-catalyzed
+                                 cyclization of GGPP to taxadiene, followed by CYP725-mediated oxygenation, acyltransferase-
+                                catalyzed decoration, oxetane ring formation, baccatin III formation, side-chain attachment by BAPT,
+                          and N-benzoylation by DBTNBT. Enzyme labels indicate characterized or proposed catalytic steps,
+                          and arrows denote the reaction direction. A late taxane intermediate is benzoylated by TBT to form
+                                10-deacetylbaccatin III, which is subsequently acetylated at C10 by DBAT to generate baccatin III.
+
+                                   2.2. The CYP725-Mediated Oxygenation Cascade and Acyl-Group Decoration
+
+                         From taxadiene onward, the pathway traverses an extensive oxygenation cascade
+                             catalyzed by CYP725-family P450 monooxygenases, each requiring electron delivery from a
+                           cognate NADPH–cytochrome P450 reductase (Figure 1). The first oxygenation is mediated
+                       by taxadiene 5α-hydroxylase (CYP725A4/T5αH), which catalyzes C-5 hydroxylation of
+                            taxadiene to yield taxadien-5α-ol, with concomitant generation of a minor rearrangement
+
+
+
+                                                                                                    https://doi.org/10.3390/plants15111741
+
+
+[PDF physical page 4]
+Plants 2026, 15, 1741                                                                                                            4 of 16
+
+
+
+                            by-product, 5(12)-oxa-3(11)-cyclotaxane (OCT). CYP725A4 has long constituted the most
+                                recalcitrant bottleneck in heterologous reconstitution: its low catalytic turnover, propensity
+                              for misfolding in non-native membranes, and strict dependence on a compatible CPR
+                            partner collectively constrain oxygenated taxane titers [22,23]. The recent crystal structure
+                           determination of T5αH, complemented by quantum mechanics/molecular mechanics
+                   (QM/MM) modelling, has elucidated the active-site architecture responsible for its regio-
+                       and stereoselectivity, furnishing a structural template for rational redesign [24].  In a
+                         complementary approach, ancestral sequence reconstruction has been employed to generate
+                          hydroxylase variants with enhanced catalytic parameters [25], underscoring the utility of
+                            evolutionary enzyme engineering for this challenging target.
+                             Subsequent C-13 hydroxylation is catalyzed by taxane 13α-hydroxylase, another
+                      CYP725 family member characterized as a P450-dependent monooxygenase [26]. Down-
+                          stream oxygenation steps progressively introduce hydroxyl groups at the C-2, C-7, C-9,
+                       and C-10 positions of the taxane core, interspersed with acylation reactions mediated by
+                        BAHD-family acyltransferases. Three such enzymes have been biochemically characterized:
+                    DBAT (10-deacetylbaccatin III 10-O-acetyltransferase), which acetylates the C-10 hydroxyl
+                              to yield baccatin III; BAPT (baccatin III 3-amino-3-phenylpropanoyltransferase), which in-
+                                    stalls the β-phenylalanine-derived side chain; and DBTNBT (3′-N-debenzoyl-2′-deoxytaxol
+                            N-benzoyltransferase), which completes the N-benzoylation [11]. A mechanistically dis-
+                               tinctive reaction in this pathway is the formation of the D-ring oxetane, a strained four-
+                      membered cyclic ether essential for paclitaxel’s tubulin-binding activity. A long-debated
+                            question was resolved by the demonstration that a single bifunctional CYP catalyzes both
+                          C-4β,C-20 epoxidation and the subsequent intramolecular ring closure to generate the
+                             oxetane, rather than two discrete enzymes as previously postulated [15].
+
+                                   2.3. Reconstitution of the Baccatin III Pathway and Beyond
+
+                                 In previous studies, roughly half of the enzymatic steps from taxadiene to paclitaxel
+                            lacked assigned enzymes, particularly those governing the middle-pathway oxygenations
+                        between taxadien-5α-ol and 10-DAB III. This impasse was broken by several convergent
+                              studies. A combination of transcriptomic co-expression analysis, heterologous enzyme
+                              reconstitution, and in vitro biochemistry identified multiple previously uncharacterized
+                      CYPs and acyltransferases, achieving the stepwise reconstitution of the pathway to baccatin
+                           III—the first heterologous production of this key tetracyclic intermediate (~50 ng/g) in
+                         N. benthamiana [17]. Independently, the enzymatic assembly of the highly oxygenated
+                            taxane core was elucidated through a convergent experimental strategy, corroborating and
+                           extending these findings [27].
+                            At the early-pathway level, reconstitution of the biosynthetic network downstream of
+                      TXS uncovered unexpected pathway branching, demonstrating that the early oxygenation
+                             steps generate a broader spectrum of taxane scaffolds than the canonical linear model
+                       had predicted [28]. This finding carries direct implications for metabolic engineering:
+                            unless flux is precisely channelled toward the productive branch, off-pathway shunt
+                          products will accumulate and erode yield. The minimal gene set required for specific
+                            taxane intermediate biosynthesis was defined in Nicotiana benthamiana, thereby establishing
+                          a modular framework for stepwise pathway extension [29].
+                           The final remaining gaps were closed through the identification of FoTO1, an NTF2-
+                                like scaffold protein that forms complexes with TXS and T5αOH to boost early pathway
+                             yields by 10–17-fold and additional pathway genes enabling baccatin III production at
+                          10–30 µg/g dry weight [30], and the subsequent elucidation of the terminal enzymatic
+                          steps—including side-chain conjugation and N-benzoylation—which demonstrated the
+                          complete biotechnological production of paclitaxel [31]. Collectively, these achievements
+
+
+
+
+
+                                                                                                    https://doi.org/10.3390/plants15111741
+
+
+[PDF physical page 5]
+Plants 2026, 15, 1741                                                                                                            5 of 16
+
+
+
+                         have transformed the paclitaxel pathway from a partially mapped route into a nearly fully
+                            defined enzymatic sequence, marking the onset of what has been described as a new era in
+                           taxane biochemistry [12,32].
+
+                             3. Genomic and Regulatory Insights
+
+                                   3.1. Taxus Genome Assemblies and Genomics
+
+                         From a plant biology perspective, paclitaxel biosynthesis represents an exceptional
+                         example of lineage-specific specialized metabolism [14,16]. Its formation requires the coor-
+                             dination of plastid-derived diterpene precursors, ER-localized CYP725-mediated oxidative
+                                tailoring, BAHD acyltransferase activity, hormone-responsive transcriptional regulation,
+                        and tissue- or cell-type-specific metabolic organization [33–35]. Gene discovery in the pacli-
+                                taxel pathway has been critically enabled by the assembly of high-quality Taxus genomes—a
+                               technically demanding feat given the large (~10 Gb), repetitive gymnosperm genome archi-
+                               tecture (Figure 2a). The first reference-grade Taxus chinensis genome revealed the clustered
+                         genomic organization of CYP725 and acyltransferase gene families and provided a system-
+                                  atic candidate gene catalogue for functional screening [16]. A subsequent chromosome-level
+                          assembly of the Himalayan yew (Taxus wallichiana var. chinensis) enabled reconstruction of
+                             the evolutionary trajectory of the biosynthetic pathway, demonstrating that key CYP725 par-
+                            alogs arose through tandem duplication followed by neofunctionalization [14]. The Taxus
+                           yunnanensis genome further expanded the phylogenomic framework [36]. Collectively,
+                            these assemblies revealed that the Taxus CYP725 gene family has undergone extensive
+                               lineage-specific expansion, with many paralogs organized in tandem arrays on the same
+                      chromosome—a genomic signature consistent with recent, iterative duplication events that
+                           generated the enzymatic diversity required for the complex oxygenation cascade.
+                            Comparative genomics with non-producing relatives has proven particularly illu-
+                           minating. Analysis of the Pseudotaxus chienii genome—a closely related genus that accu-
+                          mulates taxane precursors but does not produce paclitaxel—pinpointed the specific gene
+                            duplication and neofunctionalization events required for the assembly of the complete
+                             biosynthetic pathway [37]. Together, these genomic resources have fundamentally ex-
+                       panded the functional genomic toolkit available for Taxus research [38] and continue to
+                         underpin the discovery of new biosynthetic and regulatory genes.
+
+                                   3.2. Transcriptional and Post-Transcriptional Regulation
+
+                                   Paclitaxel biosynthesis is governed by a multi-tiered regulatory network that trans-
+                         duces phytohormone signals into transcriptional output at biosynthetic gene promoters
+                             (Figure 2b). Jasmonate (JA) signalling serves as the principal elicitor of the pathway, consis-
+                               tent with its well-established role in activating plant specialized metabolism in response to
+                                 biotic stress. The TcJAV3–TcWRKY26 transcriptional cascade was identified as a previously
+                           uncharacterized regulatory module linking JA perception to transcriptional activation
+                             of DBAT [39]. This cascade operates downstream of the canonical JAZ–MYC signalling
+                         module, providing an additional amplification layer specific to taxane metabolism. The
+                           discovery of this cascade illustrates the pathway-specific elaboration of JA signalling that
+                          has evolved in Taxus to coordinate the expression of taxane biosynthetic genes.
+                         R2R3-MYB transcription factors function as integrative nodes that converge hormonal
+                            inputs onto biosynthetic gene promoters. TcMYB29a, an ABA-responsive activator, directly
+                          binds promoter elements of multiple pathway genes to upregulate their expression [40].
+                        TcMYB73, responsive to salicylic acid, activates the pathway through both direct promoter
+                          binding and indirect modulation of downstream transcription factor activity, revealing a
+                         dual-mode regulatory mechanism [41]. A further stratum of specificity is conferred by the
+                     MYB39–bHLH13 complex in Taxus media, whose female-predominant expression underlies
+
+
+
+
+
+                                                                                                    https://doi.org/10.3390/plants15111741
+
+
+[PDF physical page 6]
+Plants 2026, 15, 1741                                                                                                            6 of 16
+
+
+
+                            the sexually dimorphic accumulation of paclitaxel—an unexpected intersection between
+                             sex-biased transcription and specialized metabolism [42]. Post-transcriptionally, regulatory
+                      microRNAs and phased small interfering RNAs (phasiRNAs) fine-tune the steady-state
+                        abundance of biosynthetic gene transcripts, adding yet another layer to this regulatory
+                              architecture [43].
+
+
+
+
+
+                              Figure 2. Multi-omics strategies for studying paclitaxel biosynthesis in Taxus spp. (a) Taxus genome
+                               assemblies for identifying candidate CYP725 and acyltransferase genes; (b) transcriptional and post-
+                                 transcriptional regulatory networks involving hormone-responsive transcription factors, miRNAs,
+                         and phasiRNAs; and (c) single-cell transcriptomics and mass spectrometry imaging for resolving
+                                   cell-type-specific taxane biosynthesis and transport.
+
+
+
+
+
+                                                                                                    https://doi.org/10.3390/plants15111741
+
+
+[PDF physical page 7]
+Plants 2026, 15, 1741                                                                                                            7 of 16
+
+
+
+                                   3.3. Spatial Compartmentalization Revealed by Single-Cell and Imaging Approaches
+
+                                 Bulk-tissue transcriptomics and metabolomics yield population-averaged data that
+                      mask the cell-type-specific organization of taxane metabolism (Figure 2c). Two recent
+                              studies have applied spatial multi-omics to resolve this heterogeneity at cellular resolution.
+                             Integration of matrix-assisted laser desorption/ionization mass spectrometry imaging
+                       (MALDI–MSI) with single-cell RNA sequencing in Taxus mairei stems revealed that discrete
+                                  cell populations contribute to distinct pathway segments and that intercellular taxoid
+                             transport is essential for the spatial distribution of end products [34]. Analogous approaches
+                           applied to Taxus leaves identified tissue-specific regulatory circuits that coordinate taxane
+                            biosynthesis with leaf development [35]. Beyond fundamental insight, these spatial data
+                          expose intercellular bottlenecks—such as transport limitations and cell-type-restricted CYP
+                          expression—that must be considered when designing heterologous production strategies.
+                             Notably, the finding that biosynthetic and accumulation sites are spatially separated within
+                           Taxus tissues implies that successful heterologous reconstitution may require not only
+                            the core biosynthetic enzymes themselves but also the transporter proteins that mediate
+                                intercellular and subcellular taxoid trafficking.
+
+                             4. Metabolic Engineering in Microbial Hosts
+
+                                   4.1. Escherichia coli
+
+                                     Escherichia coli served as the first microbial chassis for taxadiene biosynthesis (Table 1).
+                       The initial proof of concept was established by co-expressing TXS with a heterologous
+                   GGPP synthase (GGPPS) [44]. A pivotal subsequent advance was the introduction of a
+                              synthetic MVA pathway into E. coli, which dramatically enhanced IPP/DMAPP availability
+                        by decoupling precursor supply from native MEP regulation [45]. Compared with relying
+                              solely on the native MEP pathway of E. coli, introducing a heterologous MVA pathway
+                           provides a more modular and tunable route for increasing isoprenoid precursor supply. This
+                              strategy increases the availability of IPP and DMAPP, thereby supporting GGPP formation,
+                            the direct precursor of taxadiene [45,46]. Taxadiene titers have since been progressively
+                        improved through iterative optimization of promoter strength, ribosome binding site
+                               architecture, codon harmonization, and fed-batch fermentation [47,48]. The construction
+                              of a TXS–GGPPS fusion protein was shown to enhance substrate channelling and reduce
+                    GGPP pool diversion, thereby mitigating the spatial disconnect between sequential catalytic
+                             steps [48].
+                              Extending the pathway beyond taxadiene in E. coli requires functional expression of
+                             eukaryotic CYP enzymes—a challenge compounded by the absence of an endoplasmic retic-
+                      ulum in this host. The Taxus CYP725 oxygenases are type II microsomal P450s that depend
+                       on ER membrane insertion for proper folding and catalytic competence, rendering their
+                           expression in a prokaryote inherently problematic. This barrier was partially overcome
+                         through systematic optimization of CYP725A4–CPR protein stoichiometry, N-terminal
+                        membrane-anchor truncation, and co-translational folding, achieving a fivefold increase
+                              in oxygenated taxane titers to ~570 ± 45 mg/L [22]. Subsequent integration of enzyme
+                           engineering with metabolic balancing reconstructed the early-stage pathway, producing
+                           multiple early oxygenated intermediates [19]. Notwithstanding these advances, the in-
+                                 trinsic absence of endomembrane compartments in E. coli fundamentally constrains the
+                              functional co-expression of the numerous ER-associated CYPs required for the downstream
+                          oxygenation cascade, positioning this host as best suited for early-pathway intermediate
+                           production rather than full pathway reconstitution.
+
+
+
+
+
+                                                                                                    https://doi.org/10.3390/plants15111741
+
+
+[PDF physical page 8]
+Plants 2026, 15, 1741                                                                                                            8 of 16
+
+
+
+                             Table 1. Taxane biosynthesis in engineered chassis.
+
+
+             Chassis                   Product              Yield                       Approach                     References
+
+                                                                                Systematic optimization of CYP725A4–CPR
+                                   Oxygenated                                   protein stoichiometry, N-terminal
+                     Escherichia coli                         570 ± 45 mg/L                                                                 [22]
+                                          taxanes                               membrane-anchor truncation, and
+                                                                                                  co-translational folding
+
+                       Alternaria                                                Co-overexpression of IDI, tHMGR, and TXS in
+                                       Taxadiene         61.9 ± 6.3 µg/L                                                                 [47]
+                         alternata                                                         Taxus-associated endophytic fungus
+
+                                                                             Co-expression of tHMG, mutant regulatory protein
+                                       Taxadiene             8.7 mg/L           UPC2-1, GGPPS, and codon-optimized             [49]
+                                                                                                                T. chinensis TXS
+
+                                                                          Multi-copy chromosomal integration of TXS fused
+                                                                        with solubility tags, combined with MVA pathway
+                                       Taxadiene        129 ± 15 mg/L                                                                 [50]
+                                                                                   upregulation and low-temperature
+                                                                                                  (20 ◦C) cultivation
+
+                   Saccharomyces     Oxygenated and                     Two-phase fermentation with dodecane overlay to
+   Microbial                                           ~78 mg/L                                                                    [51]
+                          cerevisiae        acetylated taxanes                              enhance product partitioning
+
+                                                                       Genome-scale metabolic modelling coupled with
+                                       Taxadiene         ~215 mg/L       combinatorial pathway engineering to identify         [52]
+                                                                                                     flux-limiting nodes
+
+                                                                                      Elimination of enzyme catalysis
+                                       Taxadiene           184.2 mg/L       compartmentalization via a GGPPS–TXS fusion         [53]
+                                                                  enzyme in fed-batch bioreactor cultivation
+
+                                                                          Overexpression of MEP pathway genes, GGPPS,
+                     Bacillus subtilis        Taxadiene           17.8 mg/L                                                                    [54]
+                                                                                 and TXS
+
+                                                                      Improving TXS solubility via fusion solubilizing
+                  Yarrowia lipolytica       Taxadiene           101.4 mg/L                tags and iterative multi-copy                   [55]
+                                                                             chromosomal integration
+
+                                                                           Co-expression of heterologous GGPPS and TXS in
+                     Synechocystis       Taxadien-5α-ol         4.32 mg/L           a high-density cultivation system with              [56]
+                                                                          membrane-mediated CO2 supply
+
+                                                                                  Transient expression of TOT, T9αH, and seven                       Nicotiana
+                                         Baccatin III         ~50 ng/g        other known pathway genes (TXS, T5αH, T13αH,        [17]                    benthamiana
+                                                                              T2αH, T7βH, TAT, TBT)
+
+                                                                                  Transgene expression using a
+                      Arabidopsis
+                                       Taxadiene          ~600 ng/g         glucocorticoid-mediated system; redirecting           [57]
+                         thaliana
+  Plant-Based                                                                                  plastidial GGPP flux toward TXS
+
+                                                                                Chloroplast-targeted TXS expression to co-localize
+                  Nicotiana tabacum       Taxadiene         56.6 ± 3.2 µg/g     with the MEP-derived GGPP pool, minimizing         [58]
+                                                                                               substrate competition
+
+                                                                           Overexpression of late-pathway acyltransferase
+                   Taxus baccata           Paclitaxel         ~4-fold increase                                                                 [59]
+                                                                           genes BAPT and DBTNBT in vitro cultures
+
+                              TXS: taxadiene synthase; T5αH: taxadiene 5α-hydroxylase; TAT: taxadien-5α-ol O-acetyltransferase; DBAT: 10-
+                                    deacetylbaccatin III-10-O-acetyltransferase; BAPT: baccatin III 3-amino, 3-phenylpropanoyltransferase; DBTNBT:
+                                  3′-N-debenzoyl-2-deoxytaxol N-benzoyltransferase; GGPPS: geranylgeranyl diphosphate synthase; IDI: isopen-
+                                    tenyl diphosphate isomerase; DXS: 1-deoxy-D-xylulose-5-phosphate synthase; DXR: 1-deoxy-D-xylulose-5-
+                                phosphate reductoisomerase; HMGR: 3-hydroxy-3-methylglutaryl-CoA reductase; ERG20: farnesyl diphosphate
+                                    synthase; ERG9: squalene synthase.
+
+
+                                   4.2. Saccharomyces cerevisiae
+
+                                 Saccharomyces cerevisiae offers three compelling advantages over E. coli for paclitaxel
+                        pathway assembly: an endoplasmic reticulum for microsomal CYP folding, a native MVA
+                         pathway, and a mature genetic toolkit for multi-gene pathway engineering. Early work
+                          demonstrated the expression of multiple taxol pathway genes in yeast [60] and established
+                            the initial taxadiene-producing strains with a titer of ~8.7 mg/L [49]. Taxadiene titers
+                        were subsequently raised to 129 ± 15 mg/L through multi-copy chromosomal integration
+                             of TXS fused with solubility tags, combined with MVA pathway upregulation and low-
+                           temperature (20 ◦C) cultivation (Table 1) [50].
+
+
+
+
+
+                                                                                                    https://doi.org/10.3390/plants15111741
+
+
+[PDF physical page 9]
+Plants 2026, 15, 1741                                                                                                            9 of 16
+
+
+
+                    A central focus has been alleviating the CYP725A4 bottleneck. CPR partner compati-
+                                     bility, lipid membrane composition, and haem cofactor availability have been evaluated
+                            as determinants of CYP725A4 activity in yeast [23]. Oxygenated and acetylated taxane
+                           precursor titers were improved through two-phase fermentation with dodecane overlay,
+                         enhancing product partitioning and achieving up to ~78 mg/L oxygenated taxanes [51].
+                         Genome-scale metabolic modelling coupled with combinatorial pathway engineering
+                              identified flux-limiting nodes and achieved a taxadiene titer of ~215 mg/L [52], while
+                           subsequent work achieved further taxadiene titer gains [61]. Additional strategies have tar-
+                           geted TXS expression via promoter and copy-number optimization [62] and elimination of
+                       enzyme catalysis compartmentalization via a GGPPS-TXS fusion enzyme, which increased
+                            the taxadiene titer by 54% and ultimately reached 184.2 mg/L in fed-batch bioreactor
+                               cultivation [53]. Despite this considerable progress, heterologous production of baccatin III
+                             or more advanced intermediates in yeast has not yet been demonstrated, owing principally
+                              to the difficulty of functionally co-expressing the full suite of Taxus CYPs with matched
+                    CPR partners and achieving coordinated electron transfer.
+
+                                   4.3. Non-Conventional Microbial Chassis
+
+                                  Several alternative microbial hosts address specific limitations of E. coli and S. cerevisiae.
+                                Bacillus subtilis—a Gram-positive, GRAS-status organism with robust protein secretion
+                         capacity—has been engineered for taxadiene production, achieving a titer of 17.8 mg/L
+                             (Table 1) [54]. The oleaginous yeast Yarrowia lipolytica, endowed with a high native flux
+                          through acetyl-CoA and tolerance to hydrophobic terpenoids, has also attracted attention
+                            as an alternative chassis. A taxadiene titer of 101.4 mg/L was achieved in this host by
+                          improving TXS solubility via fusion solubilizing tags and iterative multi-copy chromosomal
+                             integration [55], while peroxisome-targeted pathway engineering in this host established
+                               strategies potentially transferable to taxane biosynthesis [63].
+                                Photoautotrophic chassis offer the distinctive advantage of coupling terpenoid biosyn-
+                               thesis directly to photosynthetic carbon fixation. Photosynthetic electron transport in the
+                          cyanobacterium Synechocystis sp. PCC 6803 was shown to power CYP-catalyzed oxygena-
+                              tion reactions, bypassing the need for exogenous NADPH regeneration systems [64]. This
+                           concept was extended by engineering cyanobacterial strains that produce taxadien-5α-ol at
+                               4.32 mg/L directly from CO2, thereby integrating natural product biosynthesis with carbon
+                            capture [56]. In a distinct approach, taxadiene production was demonstrated in the Taxus-
+                            associated endophytic fungus Alternaria alternata TPF6 by engineering the mevalonate
+                       pathway and introducing taxadiene synthase, yielding 61.9 ± 6.3 µg/L taxadiene in the
+                          engineered strain GB127. This study established an endophytic fungal chassis for early
+                           taxane precursor production [47].
+
+                             5. Plant-Based Heterologous Production
+
+                                   5.1. Model Plant Chassis for Taxane Pathway Reconstitution
+
+                                 Plant expression systems provide a cellular environment intrinsically compatible
+                         with plant-derived biosynthetic machinery, including plastidial and ER compartments,
+                            appropriate membrane lipid compositions, and native CYP–CPR redox coupling. Taxadiene
+                          accumulation was first demonstrated in transgenic Arabidopsis thaliana by redirecting
+                                plastidial GGPP flux toward TXS, achieving ~600 ng/g dry weight (Table 1) [57]. Taxadiene
+                          production was subsequently achieved in the moss Physcomitrella patens, establishing an
+                               alternative genetically tractable platform [65].
+                           The most substantial advances have exploited Nicotiana species as chassis. The
+                            amenability of N. benthamiana to Agrobacterium-mediated transient expression allows rapid
+                            combinatorial testing of multi-gene pathway modules without stable transformation, sub-
+
+
+
+
+
+                                                                                                    https://doi.org/10.3390/plants15111741
+
+
+[PDF physical page 10]
+Plants 2026, 15, 1741                                                                                                           10 of 16
+
+
+
+                                stantially accelerating the design–build–test cycle. Committed taxane biosynthesis was
+                         demonstrated in N. benthamiana by co-engineering the chloroplastic MEP pathway to
+                         enhance GGPP supply while simultaneously expressing downstream taxane-modifying
+                       enzymes [33]. Chloroplast-targeted TXS expression markedly increased taxadiene accu-
+                          mulation to 56.6 ± 3.2 µg/g fresh weight in tobacco, consistent with the hypothesis that
+                               co-localizing TXS with the MEP-derived GGPP pool minimizes substrate competition with
+                        endogenous diterpene pathways [58]. A modular synthetic biology strategy was then
+                          adopted, systematically co-expressing defined gene combinations in N. benthamiana to
+                               identify the minimal gene set sufficient for the production of key taxane intermediates [29].
+                          Recent studies have identified multiple missing pathway genes and achieved baccatin III
+                            biosynthesis in N. benthamiana [17,30]. These advances establish plant chassis as realis-
+                                    tic platforms for producing advanced taxane intermediates and may ultimately support
+                               paclitaxel biosynthesis itself [31].
+
+                                   5.2. Taxus Cell Culture Optimization and in Planta Engineering
+
+                                Taxus cell suspension cultures represent the most mature plant-based bioproduction
+                           platform for paclitaxel because they retain the complete native biosynthetic machinery, in-
+                            cluding pathway enzymes, regulatory circuits, and intracellular compartmentation. Unlike
+                           heterologous systems, Taxus cells do not require complete reconstruction of the pathway
+                        from individual genes, and their productivity can instead be improved through cell-line
+                               selection, elicitation, precursor feeding, culture optimization, and targeted metabolic or
+                             regulatory engineering [5]. Complementing heterologous approaches, targeted engineering
+                               of native Taxus cell cultures—which natively harbour the complete biosynthetic machinery—
+                               offers a more immediate route to improved paclitaxel titers (Table 1). Overexpression of
+                    BAPT and DBTNBT in Taxus baccata in vitro cultures enhanced paclitaxel accumulation
+                        under dual elicitation with coronatine and randomly methylated-β-cyclodextrins. The
+                         DBTNBT-overexpressing line produced 310 mg/L paclitaxel compared with 71.01 mg/L in
+                            the wild-type line, while the BAPT-overexpressing line produced 135 mg/L [59]. An or-
+                           thogonal genome-level strategy generated T. baccata tetraploid lines via colchicine-induced
+                          polyploidy [66]. These native-host strategies circumvent the challenges of heterologous
+                    CYP expression and are deployable with existing cell culture infrastructure [3]. Critically,
+                             the regulatory insights discussed furnish actionable engineering targets: overexpression of
+                           JA-responsive activators such as TcMYB29a, or manipulation of the TcJAV3–TcWRKY26
+                             cascade, could synergize with gene overexpression approaches to further elevate yields in
+                           Taxus cell lines.
+
+                             6. Current Challenges and Future Perspectives
+
+                                Despite the extraordinary progress documented above, three principal challenges must
+                          be addressed before heterologous paclitaxel production can be realized at commercial scale.
+                          Because these challenges differ substantially among production platforms, a platform-level
+                         comparison is necessary to clarify which systems are most suitable for near-term produc-
+                                tion, pathway discovery, or long-term sustainable biomanufacturing. As summarized in
+                            Table 2, Taxus cell suspension cultures remain the most mature near-term platform because
+                           they retain the native taxane biosynthetic machinery and are compatible with bioreactor-
+                         based production, although their performance is still limited by slow growth, variable
+                             productivity, and high production costs [5]. Microbial hosts such as Escherichia coli and
+                             Saccharomyces cerevisiae offer rapid engineering cycles and fermentation scalability, but their
+                          use is currently strongest for early taxane intermediates because complete pathway recon-
+                              struction is constrained by ER-type CYP expression, CPR compatibility, electron transfer,
+                        pathway branching, and taxane toxicity [22,50]. Plant-based systems, particularly Nicotiana
+
+
+
+
+
+                                                                                                    https://doi.org/10.3390/plants15111741
+
+
+[PDF physical page 11]
+Plants 2026, 15, 1741                                                                                                           11 of 16
+
+
+
+                              benthamiana, provide a more compatible cellular environment for CYP-dependent oxidative
+                               tailoring and are powerful for pathway validation, whereas photosynthetic chassis repre-
+                              sent a longer-term concept for CO2-linked production [17,18,56]. This comparison indicates
+                              that sustainable paclitaxel bioproduction will probably require a staged or hybrid strat-
+                        egy rather than reliance on a single universal chassis [5,7]. First and foremost, functional
+                           heterologous expression of the CYP725-family oxygenases remains the central technical
+                             bottleneck. These ER-localized enzymes exhibit low catalytic turnover, poor folding effi-
+                             ciency outside their native membrane environment, and stringent requirements for cognate
+                    CPR electron donors [22,23]. Promising mitigation strategies include rational active-site
+                           redesign guided by crystal structures [24], ancestral sequence reconstruction to access
+                           thermostable variants [21,25], optimization of CYP:CPR stoichiometry through ribosome
+                           binding site tuning, and lipid membrane engineering to improve CYP insertion and folding.
+                             Nevertheless, the coordinated functional expression of multiple CYPs within a single host
+                          cell—each requiring matched electron transfer—remains a formidable unsolved problem.
+                                Second, pathway flux partitioning presents an equally critical challenge. The paclitaxel
+                             biosynthetic network is not a simple linear sequence but a branched metabolic grid that
+                             generates numerous taxane shunt products at multiple pathway nodes [20,28]. Channelling
+                              flux selectively through the productive branch while suppressing off-pathway diversions
+                      demands sophisticated control mechanisms, including dynamic gene expression circuits
+                                (for example, biosensor-actuated feedback loops), spatial enzyme co-localization via syn-
+                                thetic protein scaffolds or organelle targeting, and computational flux balance analysis to
+                              identify and relieve stoichiometric constraints.
+                                  Third, the transition from laboratory demonstration to industrial bioprocess introduces
+                             challenges in strain genetic stability, fermentation scalability, product toxicity management,
+                       and downstream purification. In microbial hosts, the intracellular accumulation of hy-
+                          drophobic taxane intermediates can compromise membrane integrity and exert cytotoxic
+                                  effects, necessitating countermeasures such as in situ product removal (ISPR), two-phase
+                               extractive fermentation, or engineering of efflux transporters. In plant cell culture systems,
+                           maintaining consistent productivity across prolonged cultivation cycles and in scaled-up
+                              bioreactors remains challenging. These bioprocess engineering dimensions have received
+                           comparatively less attention but will be indispensable for commercial translation.
+                                  Several converging technological developments are poised to accelerate progress. The
+                         comprehensive collection of Taxus genomes now available [14,16,36], including compara-
+                                tive analyses with non-producing relatives [37], provides a complete biosynthetic parts list.
+                                Single-cell transcriptomics and spatial metabolomics [34,35] continue to uncover cell-type-
+                                specific regulatory logic and candidate transport genes. Machine learning-guided enzyme
+                             design, high-throughput combinatorial pathway assembly, and cell-free biosynthesis plat-
+                         forms offer powerful tools for compressing the design–build–test–learn cycle. Looking
+                              further ahead, hybrid production strategies—coupling the high isoprenoid precursor flux
+                             achievable in microbial hosts with the enzymatic compatibility of plant expression systems
+                               for complex CYP-dependent transformations—may represent the most pragmatic route to
+                          commercially viable paclitaxel biosynthesis.
+
+
+
+
+
+                                                                                                    https://doi.org/10.3390/plants15111741
+
+
+[PDF physical page 12]
+Plants 2026, 15, 1741                                                                                                                                                                         12 of 16
+
+
+
+                             Table 2. Comparison of paclitaxel production platforms, bottlenecks and sustainability relevance.
+
+                                     Representative                                                                                           Sustainability            Development
+   Production Platform                                        Main Contribution              Key Limitation                                                                References
+                                         Progress                                                                                      Relevance                     Priority
+
+                          Taxus cell suspension cultures provide        Most mature near-term           Slow growth, variable        Reduces destructive bark
+                                                                                                                                                         Near-term improvement
+   Taxus cell suspension       an industrially relevant plant-cell        plant-based production route;          productivity, elicitation         harvesting and supports
+                                                                                                                                                                                    of current industrial           [4,5]
+          culture             platform retaining the native taxane     does not require full heterologous     dependence, high cost, and         controlled bioreactor-
+                                                                                                                                                                           bioproduction.
+                                     biosynthetic pathway.              pathway reconstruction.         long-term culture instability.         based production.
+
+                           Modular isoprenoid pathway                                          Poor compatibility with           Useful for scalable
+                                                                             Fast growth, low-cost
+                               optimization enabled high-level                                           ER-localized plant CYPs; lacks    production of early taxane
+                                                                          fermentation, and highly                                                                 Early-pathway precursor
+       Escherichia coli         taxadiene production; P450-mediated                                             native endomembrane         intermediates rather than                                      [22,46]
+                                                                   developed metabolic                                                             and taxadiene production.
+                              Taxol precursor synthesis has also                                                 structures for complex               complete
+                                                                          engineering tools.
+                                   been optimized.                                                         oxidative tailoring.             paclitaxel biosynthesis.
+
+                            Engineered yeast strains produced          Eukaryotic host with ER
+                                                                                                  Coordinated expression of          Provides a scalable
+                           taxadiene at 129 ± 15 mg/L; oxygenated     membranes and native MVA                                                            Mid-term extension from
+                                                                                                       multiple CYP725 enzymes, CPR    fermentation platform for
+  Saccharomyces cerevisiae    and acetylated Taxol precursors have     pathway; more compatible with                                                                      taxadiene to oxy-           [50,51]
+                                                                                                   matching, and electron transfer          oxygenated
+                                  been improved by                    plant CYP expression                                                                    genated intermediates.
+                                                                                                    remain difficult.             taxane intermediates.
+                              advanced bioprocessing.                   than bacteria.
+
+                                                                  Oleaginous yeast with high
+                              Taxadiene production reached                                       Taxane pathway reconstruction        Potential chassis for
+                                                                    acetyl-CoA flux, lipid-rich                                                                    Platform development for
+                                101.4 mg/L after improving TXS                                                          is less developed than in S.      hydrophobic diterpenoid
+     Yarrowia lipolytica                                                       intracellular environment, and                                                                        taxane and              [55,67]
+                                  solubility, copy number, and fed-batch                                                    cerevisiae; downstream CYP           and taxane
+                                                                                  tolerance to                                                                            terpenoid biosynthesis.
+                                  fermentation conditions.                                        modules remain underexplored.     intermediate production.
+                                                                   hydrophobic products.
+
+                                                                          Low titers, slow growth, and
+                                                                     Photosynthetic chassis linking                                    Long-term potential for      Long-term sustainable
+                           Engineered Synechocystis produced                                           limited capacity for complex
+      Cyanobacteria                                                 taxane precursor biosynthesis                                  CO2-based and light-driven         route for early              [56]
+                             Taxol precursors directly from CO2.                                                 multi-step taxane                                                                     with carbon fixation.                                              biomanufacturing.         oxygenated taxanes.
+                                                                                            pathway assembly.
+
+                              Chloroplastic engineering supported                                                                      Powerful platform for
+                                                                       Plant cellular context supports
+                            committed taxane biosynthesis;                                             Transient expression scale-up,   enzyme discovery, pathway
+   Nicotiana benthamiana                                            plastid/ER compartmentation and                                                        Pathway validation and
+                             heterologous reconstitution enabled                                        product recovery, and yield          reconstruction, and                                          [17,31]
+    transient expression                                               CYP-dependent                                                                modular reconstruction.
+                           production of baccatin III or advanced                                                 stability remain challenging.          plant-compatible
+                                                                             oxidative tailoring.
+                                   taxane intermediates.                                                              CYP testing.
+
+                              Transgenic Arabidopsis thaliana                                    Long transformation cycle,
+                                                              Renewable biomass-based                                                               Long-term engineering
+                                expressing taxadiene synthase                                            regulatory complexity, product   Long-term renewable plant
+    Stable plant chassis                                              production with native plant                                                                          rather than near-term          [57]
+                         demonstrated taxadiene production by                                       recovery issues, and potential    biomanufacturing concept.
+                                                                        compartmentalization.                                                                               industrial production.
+                                 redirecting plastidial GGPP flux.                                           growth penalties.
+
+
+
+
+
+                                                                                                                                                                     https://doi.org/10.3390/plants15111741
+
+
+[PDF physical page 13]
+Plants 2026, 15, 1741                                                                                                           13 of 16
+
+
+                             7. Conclusions
+
+                               Recent years of research have reshaped the landscape of paclitaxel biosynthesis studies.
+                        The near-complete elucidation of the enzymatic pathway—underpinned by chromosome-
+                                level Taxus genomes and propelled by advances in functional genomics, structural enzymol-
+                             ogy, and synthetic biology—has brought the long-sought goal of heterologous paclitaxel
+                          production within realistic reach. Metabolic engineering campaigns across diverse host
+                             platforms, from E. coli and S. cerevisiae to N. benthamiana and cyanobacteria, have achieved
+                             progressively more complex pathway reconstitutions, while multi-layered regulatory stud-
+                                  ies have illuminated how taxane flux is controlled. Critical challenges persist—most notably
+                              in CYP functional expression, pathway flux partitioning, and bioprocess scale-up—but
+                            the rapid pace of discovery and the growing power of synthetic biology tools provide a
+                          compelling basis for optimism. A diversified production strategy, leveraging microbial
+                             hosts for high-flux precursor supply, plant platforms for CYP-dependent tailoring reactions,
+                        and engineered Taxus cell cultures for near-term yield gains, is likely the most effective path
+                            forward. Beyond resolving the supply problem, the successful heterologous production of
+                               paclitaxel would enable the biosynthesis of novel taxane analogs with tailored pharmaco-
+                                logical profiles, potentially broadening the therapeutic impact of this extraordinary class of
+                             plant specialized metabolites. As the convergence of genomics, enzymology, and synthetic
+                           biology continues to accelerate, the prospect of a sustainable, scalable, and economically
+                             viable bioproduction of paclitaxel appears within reach.
+
+
+                          Author Contributions: H.Z. proposed this review and revised the manuscript. M.Z. organized the
+                                  figures and wrote the manuscript. X.X. organized the table. All authors have read and agreed to the
+                              published version of the manuscript.
+
+                            Funding: The financial support received from the Natural Science Foundation of Sichuan Province
+                             (2024NSFSC0393), National Natural Science Foundation of China (32472803), and the Food Synthesis
+                              Biology Technology Innovation Project at the College of Food Science, China Agricultural University.
+
+                           Data Availability Statement: No new data were created for the production of this manuscript. All of
+                                the data discussed and presented here are available in the relevant references cited and listed.
+
+                           Acknowledgments: ChatGPT-5.1 (San Francisco, CA, USA) was used during manuscript preparation
+                                  to assist with language polishing. Part of the figure content is created using biorender.com (Toronto,
+                       ON, Canada).
+
+                                Conflicts of Interest: The authors declare no competing interests.
+
+References
+
+1.    Bray, F.; Laversanne, M.; Sung, H.; Ferlay, J.; Siegel, R.L.; Soerjomataram, I.; Jemal, A. Global cancer statistics 2022: GLOBOCAN
+     estimates of incidence and mortality worldwide for 36 cancers in 185 countries. CA Cancer J. Clin. 2024, 74, 229–263. [CrossRef]
+2.   Croteau, R.; Ketchum, R.E.; Long, R.M.; Kaspera, R.; Wildung, M.R. Taxol biosynthesis and molecular genetics. Phytochem. Rev.
+     2006, 5, 75–97. [CrossRef]
+3.   Coombe-Tennant, T.; Zhu, X.; Wu, S.; Loake, G.J. Recent advances in paclitaxel biosynthesis and regulation. J. Exp. Bot. 2025, 76,
+     124–133. [CrossRef]
+4.    Tabata, H. Paclitaxel production by plant-cell-culture technology. Adv. Biochem. Eng. Biotechnol. 2004, 87, 1–23.
+5.    Yin, J.Y.; Lai, M.; Yu, X.Y.; Su, D.D.; Xiong, X.Y.; Li, Y.L. Comprehensive strategies for paclitaxel production: Insights from plant
+      cell culture, endophytic microorganisms, and synthetic biology. Hortic. Res. 2025, 12, uhae346. [CrossRef]
+6.   Xu, J.; Ge, X.; Dolan, M.C. Towards high-yield production of pharmaceutical proteins with plant cell suspension cultures.
+      Biotechnol. Adv. 2011, 29, 278–299. [CrossRef]
+7.   Tan, C.L.; Yu, X.; Feng, H.C.; Gershenzon, J.; Liu, Y.; Li, S.H. A synthetic biology roadmap for sustainable production of the
+     plant-originated anti-cancer drug paclitaxel. Trends Biotechnol. 2026, in press. [CrossRef] [PubMed]
+8.   Min, L.; Han, J.C.; Zhang, W.; Gu, C.C.; Zou, Y.P.; Li, C.C. Strategies and lessons learned from total synthesis of Taxol. Chem. Rev.
+     2023, 123, 4934–4971. [CrossRef]
+
+
+
+
+
+                                                                                                    https://doi.org/10.3390/plants15111741
+
+
+[PDF physical page 14]
+Plants 2026, 15, 1741                                                                                                           14 of 16
+
+
+
+9.   Zerbe, P. Plants against cancer: Towards green Taxol production through pathway discovery and metabolic engineering.
+    aBIOTECH 2024, 5, 394–402. [CrossRef]
+10.   Xie, X.; Zhai, Y.; Cheng, H.; Wei, W.H.; Ren, M. From Taxus to paclitaxel: Opportunities and challenges for urban agriculture to
+    promote human health. Plant Physiol. Biochem. 2025, 220, 109502. [CrossRef] [PubMed]
+11.  Wang, T.; Li, L.; Zhuang, W.; Zhang, F.; Shu, X.; Wang, N.; Wang, Z. Recent research progress in Taxol biosynthetic pathway and
+     acylation reactions mediated by Taxus acyltransferases. Molecules 2021, 26, 2855. [CrossRef] [PubMed]
+12.   Fernie, A.R.; Liu, F.; Zhang, Y. Post-genomic illumination of paclitaxel biosynthesis. Nat. Plants 2024, 10, 1875–1885. [CrossRef]
+13.  Chen, Q.; Xin, Q.; Dong, S.; Ge, X.; Men, X.; Zhang, H. Recent advances and perspectives in biosynthesis of paclitaxel: Key
+    enzymes and intermediates. Int. J. Biol. Macromol. 2025, 331, 148049. [CrossRef] [PubMed]
+14.  Cheng, J.; Wang, X.; Liu, X.; Zhu, X.; Li, Z.; Chu, H.; Wang, Q.; Ma, Y. Chromosome-level genome of Himalayan yew provides
+      insights into the origin and evolution of the paclitaxel biosynthetic pathway. Mol. Plant 2021, 14, 1199–1209. [CrossRef]
+15.  Zhao, Y.; Liang, F.; Xie, Y.; Duan, Y.T.; Andreadelli, A.; Pateraki, I.; Makris, A.M.; Pomorski, T.G.; Staerk, D.; Kampranis, S.C.
+     Oxetane ring formation in Taxol biosynthesis is catalyzed by a bifunctional cytochrome P450 enzyme. J. Am. Chem. Soc. 2024, 146,
+     801–810. [CrossRef] [PubMed]
+16.  Xiong, X.; Gou, J.; Liao, Q.; Li, Y.; Zhou, Q.; Bi, G.; Li, C.; Du, R.; Wang, X.; Sun, T.; et al. The Taxus genome provides insights into
+      paclitaxel biosynthesis. Nat. Plants 2021, 7, 1026–1036. [CrossRef]
+17.   Jiang, B.; Gao, L.; Wang, H.; Sun, Y.; Zhang, X.; Ke, H.; Liu, S.; Ma, P.; Liao, Q.; Wang, Y.; et al. Characterization and heterologous
+      reconstitution of Taxus biosynthetic enzymes leading to baccatin III. Science 2024, 383, 622–629. [CrossRef]
+18.   Shi, J.; Zhang, C.; Deng, R.; Fernie, A.R.; Chen, M.; Zhang, Y. The biosynthesis and diversity of taxanes: From pathway elucidation
+      to engineering and synthetic biology. Plant Commun. 2025, 6, 101460. [CrossRef]
+19.   Xie, W.L.; Sun, C.Y.; Li, C.X.; Zheng, G.W.; Xu, J.H. Reconstruction of the early stage paclitaxel biosynthesis pathway in Escherichia
+       coli by integrating enzyme and metabolic engineering approaches. ACS Sustain. Chem. Eng. 2026, advance online publication.
+     [CrossRef]
+20.  Gou, Y.; Jiang, X.; Lian, J. Intricate metabolic network for paclitaxel biosynthesis. BioDesign Res. 2024, 6, 0035. [CrossRef]
+21.  He, S.; Abdallah, I.I.; van Merkerk, R.; Quax, W.J. Insights into taxadiene synthase catalysis and promiscuity facilitated by
+     mutability landscape and molecular dynamics. Planta 2024, 259, 87. [CrossRef]
+22.   Biggs, B.W.; Lim, C.G.; Sagliani, K.; Shankar, S.; Stephanopoulos, G.; De Mey, M.; Ajikumar, P.K. Overcoming heterologous
+     protein interdependency to optimize P450-mediated Taxol precursor synthesis in Escherichia coli. Proc. Natl. Acad. Sci. USA 2016,
+     113, 3209–3214. [CrossRef]
+23.  Nowrouzi, B.; Lungang, L.; Rios-Solis, L. Exploring optimal Taxol CYP725A4 activity in Saccharomyces cerevisiae. Microb. Cell Fact.
+     2022, 21, 197. [CrossRef] [PubMed]
+24.  Song, X.; Wang, Q.; Zhu, X.; Fang, W.; Liu, X.; Shi, C.; Chang, Z.; Jiang, H.; Wang, B. Unraveling the catalytic mechanism of
+     taxadiene-5α-hydroxylase from crystallography and computational analyses. ACS Catal. 2024, 14, 3912–3925. [CrossRef]
+25.  Zhang, Y.; Wiese, L.; Fang, H.; Alseekh, S.; Perez de Souza, L.; Scossa, F.; Molloy, J.J.; Christmann, M.; Fernie, A.R. Synthetic
+     biology identifies the minimal gene set required for paclitaxel biosynthesis in a plant chassis. Mol. Plant 2023, 16, 1951–1961.
+     [CrossRef]
+26.  Jennewein, S.; Rithner, C.D.; Williams, R.M.; Croteau, R.B. Taxol biosynthesis: Taxane 13α-hydroxylase is a cytochrome P450-
+     dependent monooxygenase. Proc. Natl. Acad. Sci. USA 2001, 98, 13595–13600. [CrossRef]
+27.  Yang, C.; Wang, Y.; Su, Z.; Xiong, L.; Wang, P.; Lei, W.; Yan, X.; Ma, D.; Zhao, G.; Zhou, Z. Biosynthesis of the highly oxygenated
+      tetracyclic core skeleton of Taxol. Nat. Commun. 2024, 15, 2339. [CrossRef]
+28.   Liu, J.C.T.; De La Peña, R.; Tocol, C.; Sattely, E.S. Reconstitution of early paclitaxel biosynthetic network. Nat. Commun. 2024,
+      15, 1419. [CrossRef]
+29.  Zhang, C.; Chen, W.; Dong, T. Elimination of enzyme catalysis compartmentalization enhancing taxadiene production in
+     Saccharomyces cerevisiae. Front. Bioeng. Biotechnol. 2023, 11, 1141272. [CrossRef] [PubMed]
+30.  McClune, C.J.; Liu, J.C.-T.; Wick, C.; De La Peña, R.; Lange, B.M.; Fordyce, P.M.; Sattely, E.S. Discovery of FoTO1 and Taxol genes
+     enables biosynthesis of baccatin III. Nature 2025, 643, 582–592. [CrossRef] [PubMed]
+31.  Liang, F.; Xie, Y.; Zhang, C.; Zhao, Y.; Motawia, M.S.; Kampranis, S.C. Elucidation of the final steps in Taxol biosynthesis and its
+     biotechnological production. Nat. Synth. 2025, 4, 1212–1222. [CrossRef]
+32.   Liu, X.; Zhu, X.; Cheng, J.; Jiang, H. A new era for paclitaxel biosynthesis is coming. Mol. Plant 2024, 17, 370–371. [CrossRef]
+33.   Li, J.; Mutanda, I.; Wang, K.; Yang, L.; Wang, J.; Wang, Y. Chloroplastic metabolic engineering coupled with isoprenoid pool
+     enhancement for committed taxanes biosynthesis in Nicotiana benthamiana. Nat. Commun. 2019, 10, 4850. [CrossRef]
+34.  Yu, C.; Hou, K.; Zhang, H.; Liang, X.; Chen, C.; Wang, Z.; Wu, Q.; Chen, G.; He, J.; Bai, E. Integrated mass spectrometry imaging
+    and single-cell transcriptome atlas strategies provide novel insights into taxoid biosynthesis and transport in Taxus mairei stems.
+     Plant J. 2023, 115, 1243–1260. [CrossRef]
+
+
+
+
+
+                                                                                                    https://doi.org/10.3390/plants15111741
+
+
+[PDF physical page 15]
+Plants 2026, 15, 1741                                                                                                           15 of 16
+
+
+
+35.  Zhan, X.; Qiu, T.; Zhang, H. Mass spectrometry imaging and single-cell transcriptional profiling reveal the tissue-specific
+     regulation of bioactive ingredient biosynthesis in Taxus leaves. Plant Commun. 2023, 4, 100561. [CrossRef] [PubMed]
+36.  Song, C.; Fu, F.; Yang, L. Taxus yunnanensis genome offers insights into gymnosperm phylogeny and taxol production. Commun.
+      Biol. 2021, 4, 1203. [CrossRef] [PubMed]
+37.  Wang, M.; Ma, R.; Fang, Z.; Zhang, L.; Zhang, Y.; Zheng, M.; Bai, E.; Lin, W.; Pei, Y.; Zang, Y.; et al. Analysis genome of Pseudotaxus
+      chienii reveals insights into the origin and evolution of taxane biosynthesis. Nat. Commun. 2026, 17, 1088. [CrossRef] [PubMed]
+38.  Kui, L.; Majeed, A.; Dong, Y. Reference-grade Taxus genome unleashes its pharmacological potential. Trends Plant Sci. 2022, 27,
+     10–12. [CrossRef]
+39.  Chen, L.; Wu, L.; Yang, L.; Yu, H.; Huang, P.; Wang, Y. TcJAV3-TcWRKY26 cascade is a missing link in the jasmonate-activated
+     expression of taxol biosynthesis gene DBAT in Taxus chinensis. Int. J. Mol. Sci. 2022, 23, 13194. [CrossRef]
+40.  Cao, X.; Xu, L.; Li, L. TcMYB29a, an ABA-responsive R2R3-MYB transcriptional factor, upregulates taxol biosynthesis in Taxus
+      chinensis. Front. Plant Sci. 2022, 13, 804593. [CrossRef]
+41.  Ren, Y.; Liu, D.; Zhao, W.; Wang, X.; Cao, X.; Wan, W. TcMYB73, a salicylic acid-responsive R2R3-MYB transcription factor,
+      positively regulates paclitaxel biosynthesis in Taxus chinensis in direct and indirect ways. BMC Plant Biol. 2025, 25, 723. [CrossRef]
+42.  Yu, C.; Huang, J.; Wu, Q. Role of female-predominant MYB39-bHLH13 complex in sexually dimorphic accumulation of taxol in
+     Taxus media. Hortic. Res. 2022, 9, uhac062. [CrossRef]
+43.  Sun, M.-S.; Jia, Y.; Chen, X.Y.; Chen, J.S.; Guo, Y.; Fu, F.F.; Xue, L.J. Regulatory microRNAs and phasiRNAs of paclitaxel
+     biosynthesis in Taxus chinensis. Front. Plant Sci. 2024, 15, 1403060. [CrossRef]
+44.  Huang, Q.; Roessner, C.A.; Croteau, R.; Scott, A.I. Engineering Escherichia coli for the synthesis of taxadiene, a key intermediate in
+     the biosynthesis of taxol. Bioorg. Med. Chem. 2001, 9, 2237–2242. [CrossRef]
+45.  Martin, V.J.J.; Pitera, D.J.; Withers, S.T.; Newman, J.D.; Keasling, J.D. Engineering a mevalonate pathway in Escherichia coli for
+     production of terpenoids. Nat. Biotechnol. 2003, 21, 796–802. [CrossRef]
+46.  Ajikumar, P.K.; Xiao, W.H.; Tyo, K.E.J.; Wang, Y.; Simeon, F.; Leonard, E.; Mucha, O.; Phon, T.H.; Pfeifer, B.; Stephanopoulos, G.
+     Isoprenoid pathway optimization for Taxol precursor overproduction in Escherichia coli. Science 2010, 330, 70–74. [CrossRef]
+47.   Bian, G.; Yuan, Y.; Tao, H.; Shi, X.; Zhong, X.; Han, Y.; Fu, S.; Fang, C.; Deng, Z.; Liu, T. Production of taxadiene by engineering of
+     mevalonate pathway in Escherichia coli and endophytic fungus Alternaria alternata TPF6. Biotechnol. J. 2017, 12, 1600697. [CrossRef]
+48.  Wang, J.Y.; Huang, Z.Y.; Wu, Q.Y.; Pan, J.; Li, C.X.; Xu, J.H. Facile biosynthesis of taxadiene by a newly constructed Escherichia
+       coli strain fusing enzymes taxadiene synthase and geranylgeranyl pyrophosphate synthase. Process Biochem. 2022, 122, 129–136.
+     [CrossRef]
+49.  Engels, B.; Dahm, P.; Jennewein, S. Metabolic engineering of taxadiene biosynthesis in yeast as a first step towards Taxol
+      (paclitaxel) production. Metab. Eng. 2008, 10, 201–206. [CrossRef]
+50.  Nowrouzi, B.; Li, R.A.; Walls, L.E.; d’Espaux, L.; Malci, K.; Liang, L.; Jonguitud-Borrego, N.; Lerma-Escalera, A.I.; Morones-
+     Ramirez, J.R.; Keasling, J.D.; et al. Enhanced production of taxadiene in Saccharomyces cerevisiae. Microb. Cell Fact. 2020, 19, 200.
+     [CrossRef]
+51.   Walls, L.E.; Malci, K.; Nowrouzi, B.; Li, R.A.; d’Espaux, L.; Wong, J.; Dennis, J.A.; Semião, A.J.C.; Wallace, S.; Martinez, J.L.;
+      et al. Optimizing the biosynthesis of oxygenated and acetylated Taxol precursors in Saccharomyces cerevisiae using advanced
+     bioprocessing strategies. Biotechnol. Bioeng. 2021, 118, 279–293. [CrossRef]
+52.  Malci, K.; Santibanes, R.; Jonguitud-Borrego, N.; Santoyo-Garcia, J.H.; Kerkhoven, E.J.; Rios-Solis, L. Improved production of
+     Taxol precursors in Saccharomyces cerevisiae using combinatorial in silico design and metabolic engineering. Microb. Cell Fact. 2023,
+      22, 243. [CrossRef]
+53.  Zhang, Z.; Huang, L.; Zhang, Z.J.; Xu, J.H.; Yu, H.L. Rational design of taxadiene hydroxylase by ancestral enzyme construction
+    and the elucidation of key amino acids. Biochemistry 2023, 62, 3214–3221. [CrossRef]
+54.  Abdallah, I.I.; Pramastya, H.; van Merkerk, R.; Sukrasno; Quax, W.J. Metabolic engineering of Bacillus subtilis toward taxadiene
+     biosynthesis as the first committed step for taxol production. Front. Microbiol. 2019, 10, 218. [CrossRef]
+55.  Xu, M.; Xie, W.; Luo, Z.; Li, C.X.; Hua, Q.; Xu, J.H. Improving solubility and copy number of taxadiene synthase to enhance the
+       titer of taxadiene in Yarrowia lipolytica. Synth. Syst. Biotechnol. 2023, 8, 331–338. [CrossRef]
+56.  Zhong, J.; Wang, Y.; Chen, Z.; Yalikun, Y.; He, L.; Liu, T.; Ma, G. Engineering cyanobacteria as a new platform for producing taxol
+     precursors directly from carbon dioxide. Biotechnol. Biofuels Bioprod. 2024, 17, 99. [CrossRef]
+57.  Besumbes, O.; Sauret-Güeto, S.; Phillips, M.A.; Imperial, S.; Rodríguez-Concepción, M.; Boronat, A. Metabolic engineering of
+     isoprenoid biosynthesis in Arabidopsis for the production of taxadiene, the first committed precursor of Taxol. Biotechnol. Bioeng.
+     2004, 88, 168–175. [CrossRef]
+58.  Fu, J.; Xu, W.; Huang, W.; Wang, B.; Li, S.; Zhang, J.; Chang, L. Importation of taxadiene synthase into chloroplast improves
+     taxadiene production in tobacco. Planta 2021, 253, 107. [CrossRef]
+59.  Perez-Matas, E.; Hidalgo-Martinez, D.; Moyano, E.; Palazon, J.; Bonfill, M. Overexpression of BAPT and DBTNBT genes in Taxus
+      baccata in vitro cultures to enhance the biotechnological production of paclitaxel. Plant Biotechnol. J. 2024, 22, 233–247. [CrossRef]
+
+
+
+
+                                                                                                    https://doi.org/10.3390/plants15111741
+
+
+[PDF physical page 16]
+Plants 2026, 15, 1741                                                                                                           16 of 16
+
+
+
+60.  DeJong, J.M.; Liu, Y.; Bollon, A.P.; Long, R.M.; Jennewein, S.; Williams, D.; Croteau, R.B. Genetic engineering of taxol biosynthetic
+     genes in Saccharomyces cerevisiae. Biotechnol. Bioeng. 2006, 93, 212–224. [CrossRef]
+61.  Karaca, H.; Kaya, M.; Kapkac, H.A.; Levent, S.; Ozkay, Y.; Ozan, S.D.; Nielsen, J.; Krivoruchko, A. Metabolic engineering of
+     Saccharomyces cerevisiae for enhanced taxadiene production. Microb. Cell Fact. 2024, 23, 241. [CrossRef]
+62.  Zhang, C.; Wang, J.; Shi, Y.; Wu, N.; Li, X.; Wang, Y.; Li, B.; Xiao, W.; Yao, M.; Yuan, Y. Improving the expression of taxadiene
+     synthase to enhance the titer of taxadiene in Saccharomyces cerevisiae. Green Chem. 2024, 26, 10604–10616. [CrossRef]
+63.  Ma, Y.; Shang, Y.; Stephanopoulos, G. Engineering peroxisomal biosynthetic pathways for maximization of triterpene production
+      in Yarrowia lipolytica. Proc. Natl. Acad. Sci. USA 2024, 121, e2314798121. [CrossRef]
+64.  Wlodarczyk, A.; Gnanasekaran, T.; Nielsen, A.Z.; Zulu, N.N.; Mellor, S.B.; Luckner, M.; Thøfner, J.F.B.; Olsen, C.E.; Burow, M.
+     Metabolic engineering of light-driven cytochrome P450-dependent pathways into Synechocystis sp. PCC 6803. Metab. Eng. 2016,
+      33, 1–11. [CrossRef]
+65.  Anterola, A.; Shanle, E.; Perroud, P.F.; Quatrano, R. Production of taxa-4(5),11(12)-diene by transgenic Physcomitrella patens.
+     Transgenic Res. 2009, 18, 655–660. [CrossRef]
+66.   Escrich, A.; Hidalgo, D.; Bonfill, M. Polyploidy as a strategy to increase taxane production in yew cell cultures: Obtaining and
+     characterizing a Taxus baccata tetraploid cell line. Plant Sci. 2023, 334, 111776. [CrossRef]
+67.   Park, Y.K.; Nicaud, J.M.; Ledesma-Amaro, R. What makes Yarrowia lipolytica well suited for industry? Trends Biotechnol. 2023, 41,
+     242–254. [CrossRef]
+
+
+Disclaimer/Publisher’s Note: The statements, opinions and data contained in all publications are solely those of the individual
+author(s) and contributor(s) and not of MDPI and/or the editor(s). MDPI and/or the editor(s) disclaim responsibility for any injury to
+people or property resulting from any ideas, methods, instructions or products referred to in the content.
+
+
+
+
+
+                                                                                                    https://doi.org/10.3390/plants15111741

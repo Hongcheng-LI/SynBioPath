@@ -1,0 +1,59 @@
+W362–W367  Nucleic Acids Research, 2011, Vol. 39, Web Server issue                  Published online 9 May 2011
+doi:10.1093/nar/gkr323
+
+NRPSpredictor2—a web server for predicting
+NRPS adenylation domain specificity
+
+Marc Ro¨ ttig1,*, Marnix H. Medema2,3, Kai Blin4, Tilmann Weber4, Christian Rausch5 and
+Oliver Kohlbacher1
+
+1Applied Bioinformatics, Center for Bioinformatics, Department of Computer Science, University of Tu¨ bingen,
+Sand 14, 72076 Tu¨ bingen, Germany, 2Department of Microbial Physiology, 3Groningen Bioinformatics Center,
+Groningen Biomolecular Sciences and Biotechnology Institute, University of Groningen, Nijenborgh 7, 9747AG
+Groningen, The Netherlands, 4Interfaculty Institute of Microbiology and Infection Medicine, University of
+Tu¨bingen, Auf der Morgenstelle 28 and 5Algorithms in Bioinformatics Group, Center for Bioinformatics/
+Department of Computer Science, University of Tu¨ bingen, Sand 14, 72076 Tu¨ bingen, Germany                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          Downloaded
+Received March 15, 2011; Revised April 12, 2011; Accepted April 20, 2011                                                                                                                                       from
+
+
+ABSTRACT                                 INTRODUCTION
+The products of many bacterial non-ribosomal pep-    Non-ribosomally synthesized peptides are a class of highly
+tide synthetases (NRPS) are highly important sec-    important metabolites in the secondary metabolisms of
+                                                               bacteria and fungi  (1,2). Important representatives ofondary metabolites, including vancomycin and other
+                                                                      this family are mostly antibiotics like penicillin or vanco-antibiotics. The ability to predict substrate specificity
+                                                    mycin but also the immunosuppressant cyclosporin. The
+of newly detected NRPS Adenylation (A-) domains by
+                                                           precursor peptides of these compounds are synthesized by
+genome sequencing efforts is of great importance to                                                       non-ribosomal peptide synthetases (NRPSs), which are
+identify and annotate new gene clusters that produce                                                        multi-modular megasynthetases with molecular weights
+secondary  metabolites.  Prediction  of A-domain    up to 2.3 MDa (tex1 NRPS from Trichoderma virens).
+specificity based on the sequence alone can be   NRPSs act as an assembly line that produces the ﬁnal
+achieved through sequence signatures  or, more    peptide by a chain of reactions occuring along that line.
+accurately, through machine learning methods. We    The primary sequence of the peptide product  is deter-
+present an improved predictor, based on previous    mined by the sequential arrangement of minimal repetitive
+work (NRPSpredictor), that predicts A-domain speci-    modules of an NRPS. The minimal module consists of
+                                                              three domains termed adenylation domain (A-domain),ficity using Support Vector Machines on four hier-
+                                                              peptidyl carrier domain (PCP-domain) and condensationarchical levels, ranging from gross physicochemical                                                  domain (C-domain). The A-domain is responsible for the                                                                                                                                                                                                                                               https://academic.oup.com/nar/article/39/suppl_2/W362/2506164properties of an A-domain’s substrates down to
+                                                            recruitment of the amino acid monomers that are to be        bysingle amino acid substrates. The three more gen-                                                          incorporated into the ﬁnal product. Several hundred dif-
+eral levels are predicted with an F-measure better                                                                 ferent A-domain substrate speciﬁcities have been biochem-                    guest
+than  0.89 and the most  detailed  level with an     ically characterized and each A-domain recruits a speciﬁc        on
+average F-measure of 0.80. We also modeled the    amino  acid as monomer. Accordingly,  the  sequential        31
+applicability domain of our predictor to estimate    order of A-domains along the assembly line determines
+for new A-domains whether they lie in the applicabil-     (in the majority of cases) the primary sequence of theity domain. Finally, since there are also NRPS that    ﬁnal peptide product. A comprehensive source of NRPS                            October
+                                                          and                                                           monomers                                                                                                                    is                                                                                         the                                                          NORINE                                                                                                  databaseplay an important role in natural products chemistry     peptides                                                                                                                            as-                2025                                                                                                 et                                                                                                                al.                                                      sembled                                                           by Caboche                                                                                which                                                                                                      currently                                                                                                                   featuresof fungi, such as peptaibols and cephalosporins,
+                                                         over 1000 peptide products and over 500 monomers (3) .we added a predictor for fungal A-domains, which
+                                                 The cross linking between each adjacent monomer  is
+predicts gross physicochemical properties with an
+                                                               carried out by the help of the other two domains that
+F-measure of 0.84. The service is available at http://                                                              synthesize the peptide bond between these monomers.
+nrps.informatik.uni-tuebingen.de/.                                                 The minimal module  is often equipped with additional
+
+
+
+
+
+*To whom correspondence should be addressed. Tel: +49 7071 29 70464; Fax: +49 7071 29 5152; Email: roettig@informatik.uni-tuebingen.de
+
+  The Author(s) 2011. Published by Oxford University Press.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/
+by-nc/3.0), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.

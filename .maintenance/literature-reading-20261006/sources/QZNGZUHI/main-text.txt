@@ -1,0 +1,1369 @@
+
+[PDF physical page 1]
+nature biotechnology
+
+
+Article                                                                                 https://doi.org/10.1038/s41587-025-02762-1
+Scalable secondary metabolite production in
+Streptomyces using a plug-and-play system
+
+
+
+Received: 17 March 2025             Bowen Yang1,2,11, Zilong Li2,3,11, Jingyu Zhang1,11, Shiwen Qiu2, Xueting Liu        1,
+                                     Zonglin Liang2, Hao Yan2, Yanyan Zhang4, Lihong Liu5, Bing Xia5, Lianqun Bao5,
+Accepted: 2 July 2025                                 Defeng Li        2, Shanshan Zhou2, Christophe Corre       6, Chengyu Zhang1,2,
+Published online: xx xx xxxx                Yinhua Lu7, Gao-Yi Tan        1, Xuekui Xia8, Shanshan Li        4    , Lixin Zhang1,9  &
+                                 Weishan Wang       1,2,3,10 
+  Check for updates
+
+                                   Streptomyces species are producers of bioactive secondary metabolites
+                                   with clinical, agricultural and biotechnological applications. To scale
+                                    these strains for industrial production, a plug-and-play system that
+                                     orchestrates multitarget engineering for maximizing cellular contributions
+                                    to secondary metabolites is needed. Building on the discovery that distinct
+                                 quorum-sensing receptors within the Streptomyces genus can recognize an
+                                        identical DNA-binding site, we build a quorum-sensing-triggered promoter
+                                     applicable across various Streptomyces. Integrating this promoter with a
+                                          stabilizer and a multiplexer module, we develop a Streptomyces multiplexed
+                                               artificial control system (SMARTS) that converts the transient signals of
+                                     diverse quorum sensing into stable and multiplexed on or off outputs with
+                                    varying strengths. We build a redesigned native Streptomyces avermitilis
+                                       for specialized production of the nematicide baiweimectin and a de novo
+                             programmed Streptomyces venezuelae for heterologous production
+                                     of the semisynthesized antitumor drug epidoxorubicin. Notably, the
+                                   baiweimectin-producing strain was scaled up to a 120-m3 industrial-scale
+                                   fermentation with a titer of 8.4 g L−1, underscoring the robustness of the
+                               SMARTS-based program.
+
+
+Streptomyces species have garnered as attention for being natural  used for the industrial production of these structurally complex sec-
+producers of clinically and industrially valuable secondary metabo-  ondary metabolites in fermenters5,7–9. Furthermore, Streptomyces
+lites1. These secondary metabolites encompass two thirds of all clinical    is the largest genus of bacteria, comprising over 900 species10,
+antibiotics2, along with numerous anticancer drugs such as bleomy-  and it harbors an extensive untapped repertoire of cryptic biosyn-
+cin and mitomycin, immunosuppressants such as tacrolimus and   thetic gene clusters (BGCs) responsible for secondary metabolites
+rapamycin, agricultural insecticides such as avermectin and milbe-   synthesis11. However, developing a universal and efficient engi-
+mycin and plant growth promoters such as guvermectin3–6. Beyond   neering framework to unlock the potential of this genus remains
+serving as a source for drug discovery, Streptomyces strains are also   challenging.
+
+1State Key Laboratory of Bioreactor Engineering, and School of Biotechnology, East China University of Science and Technology (ECUST), Shanghai,
+China. 2State Key Laboratory of Microbial Diversity and Innovative Utilization, Institute of Microbiology, Chinese Academy of Sciences, Beijing, China.
+3Beijing Key Laboratory of Genetic Element Biosourcing & Intelligent Design for Biomanufacturing, Beijing, China. 4State Key Laboratory for Biology of
+Plant Diseases and Insect Pests, Institute of Plant Protection, Chinese Academy of Agricultural Sciences, Beijing, China. 5Hebei Xingbai Agrochem Group
+Company, Ltd, Shijiazhuang, China. 6School of Life Sciences, University of Warwick, Coventry, UK. 7College of Life Sciences, Shanghai Normal University,
+Shanghai, China. 8Biology Institute, Qilu University of Technology (Shandong Academy of Sciences), Jinan, China. 9Shanghai Collaborative Innovation
+Center for Biomanufacturing Technology (SCIBT), Shanghai, China. 10University of Chinese Academy of Sciences, Beijing, China. 11These authors
+contributed equally: Bowen Yang, Zilong Li, Jingyu Zhang.     e-mail: ssli@ippcaas.cn; lxzhang@ecust.edu.cn; wangws@im.ac.cn
+
+Nature Biotechnology
+
+
+[PDF physical page 2]
+Article                                                                                 https://doi.org/10.1038/s41587-025-02762-1
+
+   Dynamic synchronicity of the genes or pathways associated   fermenters in industrial setting, achieving an unprecedented titer of
+with secondary metabolites ensures optimal cellular contribution   8.40 g L−1 and showcasing excellent robustness. These accomplish-
+to their biosynthesis, thereby avoiding resource wastage that would  ments underscore the potential of our SMARTS-based engineering
+otherwise arise from physiological adaptation or overgrowth12,13.  paradigm for secondary metabolite overproduction in Streptomyces.
+A natural synchronous switch occurred during the shift from cell
+growth to secondary metabolite production in Strepotomyces5,14.  Results
+However, this switch primarily serves to produce a tiny amount of  Overview of an engineering system with multitarget dynamic
+secondary metabolites for their own competitive benefits, rather   synchronicity
+than promoting overproduction6,15. Consequently, this natural switch  We sought to develop a broadly applicable and orthogonal artifi-
+in Streptomyces does not fully coordinate multiple factors that are   cial dynamic control system for diverse Streptomyces species, and
+essential for optimizing production efficiency. These factors include   subsequently established a multitarget optimization framework for
+the BGCs, genes or pathways responsible for precursor and cofac-   production enhancement of various secondary metabolites (Fig. 1).
+tor supply and nutrient uptake, as well as genes regulating specific   In our design, we emphasized the compatibility and robustness to
+physiological conditions conducive to the production of secondary   qualify the scale-up process and accommodate various fermentation
+metabolites13,16,17. Achieving the synergistic reprogramming of these  modes. Specifically, by understanding the common characteristics of
+multiple targets to enable the automatic regulation of the desired   diverse Streptomyces quorum sensing, we initially developed a port-
+physiological and metabolic shifts in parallel could maximize microbial   able SMARTS comprising three interconnected modules: the universal
+yields while minimizing the need for human supervision in the fermen-   trigger module senses diverse quorum-sensing signals, the orthogonal
+tation process. To date, no fully autonomous and orthogonal dynamic   stabilizer module then converts the triggered transient signal into
+control system capable of reprogramming multiplex targets has been   stable output and the fine-tuning multiplexer module finally trans-
+developed, especially one that meets the criteria for industrial applica-   forms the stable output into multichannel on and off states with varying
+bility in Streptomyces. Moreover, the diversity of Streptomyces species   strengths. Using SMARTS, we subsequently established a synergistic
+and secondary metabolite structures necessitate the development of   multiobjective optimization framework through classification and
+a plug-and-play and intervention-free dynamic control system. Such a  combination of multiple targets, which is applicable to various sec-
+system would facilitate the establishment of a standardized, pipelined  ondary metabolites. Ultimately, we developed the high-yield strains
+multiobjective optimization framework, enabling dynamic synchroni-   using this SMARTS-based reprogramming strategy and evaluated their
+zation of multiple targets across various Streptomyces species.        performance in scale-up processes and production scenarios (Fig. 1).
+   Quorum sensing functions to synchronize the cell-population-
+dependent behaviors in bacteria and has been applied for the  Development of a universal quorum-sensing-triggered
+dynamic allocation of cellular resources18, control of specific path-  promoter
+way expression19 and regulation of population size20,21. These applica-   Streptomyces species sense distinct quorum-sensing signaling mole-
+tions highlight the advantageous autoregulatory characteristics of   cules through their cognate receptors, which are members of TetR fam-
+quorum-sensing systems in engineering artificial biological systems.    ily regulators23. These receptors consist of an effector-binding domain
+However, the extensively studied acyl-homoserine lactone-based   (EBD) for signaling molecule recognition and a DNA-binding domain
+quorum-sensing systems failed to be applied in the Streptomyces  (DBD) for interacting with regulated promoters23. Initially, we investi-
+genus because of the presence of numerous enzymes that degrade   gated the shared characteristics of the four previously identified recep-
+acyl-homoserine lactone (lactonases and acylases)22. On the other   tors types mediated by γ-butyrolactone (GBL), 4-alkylbutenoic acid
+hand, Streptomyces possesses unique quorum-sensing systems that   lactone (AB), 2-alkyl-4-hydroxy-3-methylbutenoic acid lactone (AHMB)
+differ from those found in Gram-positive and Gram-negative bacteria22.  and 2-alkyl-4-hydroxy-methylfuran-3-carboxylic acid (AHFCA)25–28
+The structure of the signaling molecules varies among Streptomyces   (Fig. 2a). We observed that the EBDs of these receptors were clustered
+species23, with only four types identified to date24, indicating that our   separately (Fig. 2b), suggesting that the evolutionary divergence in
+understanding of quorum-sensing systems in most Streptomyces spe-  EBD may be driven by their specificity toward the diverse signaling
+cies remains limited. We, therefore, turned to elucidating the evolution-   molecules. Conversely, we found nearly identical DNA-binding sites
+ary divergence and convergence of Streptomyces quorum sensing and  among the promoters regulated by these receptors (Extended Data
+subsequently developed a universal and multiplexed dynamic control   Fig. 1), indicating that the DBD of these receptors may be conserved to
+system. We show that this system can be used to reprogram multiple   facilitate direct interaction with this DNA-binding site. We, therefore,
+targets across diverse Streptomyces strains while avoiding interference   aligned the classical helix–turn–helix (HTH) motif of DBDs29 in the four
+with native regulatory networks and guaranteeing stable, reproducible   types of receptors with identical DNA-binding sites (Supplementary
+performance in industrial applications.                            Table 4). As anticipated, we observed that the amino acid sequence
+   We conducted an in-depth analysis of the diversity of Streptomyces   of helix α3 in the HTH motif, which functions as the recognition helix
+quorum sensing in this study and found that the distinct receptors can   for direct DNA interaction29, exhibited high conservation across all
+recognize an identical DNA-binding site. Leveraging this insight, we   receptors (Fig. 2c).
+built a universal quorum-sensing-triggered promoter across diverse      Given the high conservation of both the DNA-binding sites in
+Streptomyces. We further integrated this promoter with a stabilizer   the regulated promoters and the DNA recognition helix in the recep-
+module and a multiplexer module to develop a Streptomyces multi-   tors, we hypothesized that the diverse quorum-sensing signals in
+plexed artificial control system (SMARTS) that can convert the transient   Streptomyces species may be transduced to an artificial promoter
+signals of diverse quorum sensing into stable and multiplexed on or off   with the conserved DNA-binding site. We, therefore, devised an arti-
+outputs with varying strengths. Using SMARTS, we subsequently estab-    ficial promoter Ptrig by fusing the constitutive kasO* promoter30 with
+lished a multitarget fine-tuning framework for synergistic optimization   the perfectly symmetrical DNA-binding site (Fig. 2d). Then, we purified
+for secondary metabolite production. Ultimately, we demonstrated the   representative receptors of the four types (Extended Data Fig. 2a) and
+application of this SMARTS-based optimization strategy to develop   characterized their interactions with Ptrig in vitro. Electrophoretic
+high-yield strains including a Streptomyces avermitilis for producing   mobility shift assay (EMSA) and biolayer interferometry (BLI) both
+the nematicide baiweimectin and a Streptomyces venezuelae for heter-   yielded a dissociation constant KD of approximately 10 nM between
+ologously producing semisynthetic anticancer drug epidoxorubicin.    Ptrig and the tested receptors (Fig. 2e and Extended Data Fig. 2c–f),
+Notably, the baiweimectin-producing strain was scaled up to 120-m3   indicating that these receptors can recognize the same DNA-binding
+
+Nature Biotechnology
+
+
+[PDF physical page 3]
+Article                                                                                 https://doi.org/10.1038/s41587-025-02762-1
+
+
+
+                                                SMARTS development
+
+   Streptomyces
+      genus
+
+                       Trigger                                   Stabilizer                                Multiplexer                                                                            Output                                                                                 Output                                                                                   Output                                          Output
+
+    ……
+     Diverse                           Transient signal                          Stable signal
+                                                                                                                                    Multiplex on and oﬀ quorum sensing
+
+                     Universality                                  Stability                                Fine-tuning
+
+
+                                                                                                                Output
+
+                     R2                   R1              R2                      ECF
+                          Ptrig                                  P2      P1                               P1           …           R3             Output
+
+
+                  Trigger module                Stabilizer module                                                Multiplexer module
+
+                                                         SMARTS-
+                                                                 based
+                                                               program
+                         Optimization framework                                                                  Industrial application
+
+
+                                                                                                                                                                                                                                                  OH
+
+                                                                                                                                                                                                                            O         O
+                                                                                                                                                                                                                    O     O              O
+                                                                                                                                                                                                                                      O      O  OH     O                                                                                                                                                                                                                                           OH                Growth                                                                                                                                                                        HO   O O      O          O                                                                                                                                                                                                                               OH
+                                                                                                                                                                                                                           OH
+                                                                                                                                                                                                                                             OH
+                                                                                                                                                                                                       O  O  OH O                                                                  Titer = f(x1, x2, x3, • • •)                                                                         HO   H OHH N  OH O
+                                                                   Target 1                                                                                                        NH2       HO     O
+                                                                   Target 2                                                                       OH O  OHOHO  O                   NH2
+                 Multitarget         Secondary                      Target 3                Streptomyces                     Secondary metabolites
+                                   metabolite              …
+                                                Multiobjective fine-tuning                           Scale-up fermentation of SMARTS-based program
+
+
+
+
+                                                                                 Titer
+
+
+          Growth                                      Production                   Quorum sensing
+          phase                                        phase
+
+
+                    Dynamic synchronicity for production                                                              Stability and robustness
+
+
+Fig. 1 | Overview of the engineering paradigm with dynamic synchronicity        Within the optimization framework, a SMARTS-based principle and a streamlined
+for multiple targets. SMARTS was developed by integrating a universal trigger     workflow for multiobjective fine-tuning was developed for synchronized
+module, an orthogonal stabilizer module and a fine-tuning multiplexer module,     coordination of multiplex targets contributing to production. Lastly, the
+thereby enabling the conversion of transient signals from diverse quorum          robustness and controllability of the SMARTS-based program was demonstrated
+sensing into stable and multiplexed on or off outputs with varying strengths.         in industrial application.
+
+
+site with high affinity. To further evaluate Ptrig in vivo, we placed the      To assess the broad applicability of Ptrig in Streptomyces with diverse
+reporter gene gfpmut3.1 under the control of Ptrig and introduced this   quorum-sensing systems, we curated a dataset of 521 quorum-sensing
+construct into Streptomyces harboring different quorum-sensing sys-   receptors from the representative genomes and subjected them to
+tems (Fig. 2f). We observed that the fluorescence output increased to   phylogenetic analyses (Fig. 2i). In addition to the four known types of
+a peak and quickly declined thereafter, which was in correlation with   quorum-sensing receptors (clades I to IV), we identified six additional
+the concentration trends of signaling molecules SCB1 and MMF1 in   clades (V to X) that diverged from the known types. We then extracted
+Streptomyces coelicolor and avenolide in S. avermitilis (Fig. 2g,h and   the DBDs of these previously unidentified receptors and performed
+Extended Data Fig. 3a). Additionally, we introduced this construct   multiple-sequence alignments. The analysis revealed a conserved
+into a signaling molecule mutant strain (S. coelicolor ΔscbA, unable to  amino acid motif in the recognition helix α3, identical to the four estab-
+produce SCB1) and a receptor mutant strain (S. coelicolor ΔscbR). We   lished types (Fig. 2j). Next, we selected one representative receptor
+found that fluorescence was not triggered in ΔscbA, whereas it was  from each of the six newly identified clades (Fig. 2i and Extended Data
+constantly expressed in ΔscbR (Extended Data Fig. 3b). These results   Fig. 2b) and evaluated their interaction with Ptrig using BLI. The KD val-
+confirmed that the artificial promoter Ptrig can interact with diverse   ues of the six tested receptors were comparable to those determined
+quorum-sensing receptors both in vitro and in vivo, responding to   earlier (Extended Data Fig. 4), confirming that Ptrig is indeed recognized
+their quorum-sensing signals.                                 by these receptors. Furthermore, we conducted an in vivo assay in
+
+Nature Biotechnology
+
+
+[PDF physical page 4]
+Article                                                                                 https://doi.org/10.1038/s41587-025-02762-1
+
+Streptomyces rimosus and Streptomyces scabiei, in which the cognate   fused tetrameric domains CI (ref. 35) and CI434 (ref. 36) with CebR and
+signal receptors belong to clades X and VIII, respectively (Fig. 2k). Our  CymR, respectively (Extended Data Fig. 5d). The tetramer repressors
+observation showed that Ptrig exhibited transient up-regulation trends   can recognize two DNA-binding sites synergistically, thereby reduc-
+with increasing cell density, indicating its ability to receive allosteric   ing the leakage expression and enhancing the repression efficiency
+signals from these quorum-sensing receptors. To further elucidate the   (Extended Data Fig. 5e–g). To match the activity of the two promoters,
+interaction, we selected two representatives from each of the ten clades  we modified the nonoperator regions of the relatively weak promoter
+for homology modeling using CprB31 as a reference and subsequently    PcebR to generate variants with different strengths and induced ranges
+docked these structures with Ptrig. The result demonstrated that the   (Extended Data Fig. 5h and Supplementary Table 5). This allowed us to
+DBDs of these receptors were highly overlapping, particularly in the   select a mutant PcebR*-2 that exhibited nearly identical behavior to PcymR
+specific amino acids of helix α3 that interact with the DNA-binding site   to construct the bistable circuit (Extended Data Fig. 5h). As expected,
+of Ptrig (Fig. 2l). Therefore, we concluded that our artificial promoter  we achieved reliable toggling (Extended Data Fig. 5i).
+Ptrig can be used across various Streptomyces species to respond to their      Having built the bistable circuit, we subsequently assessed its
+diverse native quorum-sensing systems.                          performance by introducing the quorum-sensing-triggered promoter
+                                                                                                           Ptrig. We maintained the bistable circuit in the off state by inducing on an
+Development of an orthogonal stabilizer module                       initial cellobiose-containing solid plate. The stability of the off state was
+Different from traditional bacterial quorum sensing, the concentra-   confirmed by monitoring the output in a signaling molecule mutant
+tion of signaling molecules in Streptomyces reaches the threshold   strain (S. coelicolor ΔscbA) in the medium without cellobiose inducer
+only within a narrow time window32. As a result, the response of Ptrig   (Fig. 3d). Subsequently, we proved that the on state could be triggered
+exhibited a transient output (Fig. 2g,h). This transient behavior does  by transient quorum-sensing signal and then maintained stably in
+not satisfy the engineering requirement for stable output. To trans-   S. coelicolor (Fig. 3e). During large-scale industrial fermentation, a
+form this momentary output into a stable one, we coupled Ptrig with   substantial inoculum volume is usually prepared in the progressively
+a stabilizer module that incorporated a bistable circuit (Fig. 3a). The   larger fermenters. Our bistable circuit should be maintained in the
+bistable circuit comprises two mutually inhibitory repression systems,   off state throughout the inoculum preparation phase by adding the
+ensuring that the initial off state (promoter P2 is on while P1 is off) can   inducer cellobiose, despite the occurrence of quorum sensing. In the
+be toggled to an on state (promoter P1 is on while P2 is off) through the   simulation test where the strain was passed to a medium containing cel-
+quorum-sensing-triggered promoter Ptrig. Once switched to the on   lobiose, we observed that, although Ptrig turns on during the transition
+state, it remains constant regardless of any subsequent fluctuations   period, the stabilizer module remains in the off state (Fig. 3f). When
+in the concentration of quorum-sensing signaling molecules (Fig. 3a).   the inoculum culture was subsequently transferred to the medium
+    To construct the bistable circuit, we evaluated the response curve   without the inducer for production, Ptrig promptly switched the bistable
+of four repression systems by gradually increasing inducers in S. coeli-   circuit to the on state (Fig. 3f). These results demonstrate the potential
+color (Fig. 3b and Extended Data Fig. 5a). On the basis of their dynamic   applicability of this system in multistage industrial processes.
+ranges, CymR33 and CebR34 repression systems were selected (Fig. 3c).      To package the bistable circuit-based stabilizer module, we
+We used PcymR to derive the expression of cebR and gfpmut3.1 genes as  removed the two reporter genes that were cotranscribed with the
+the on state and PcebR to derive the expression of cymR and mCherry   repressors CebR and CymR and introduced an additional PcymR* pro-
+as the off state (Fig. 3c). Theoretically, when CebR was derepressed by  moter to specifically drive the target output (Fig. 3a). This packaged
+adding inducer cellobiose at the initial incubation (for example, on   stabilizer module converted the transient signal of the quorum-
+solid plate), the circuit would maintain the off state during subsequent   sensing-triggered Ptrig into a more stable signal at both the transcrip-
+passages independent of inducer cellobiose; until the strains were   tional and translational levels (Fig. 3g and Extended Data Fig. 6a).
+transferred to fresh medium containing another inducer cumate,  Because the repressors and promoters in this module were meticu-
+the circuit would toggle to the on state. However, our bistable circuit   lously designed to avoid any homologous sequences within the native
+only oscillated twice and lost its toggle function to off state (Extended   Streptomyces system, our evaluations demonstrated the broad appli-
+Data Fig. 5b and Supplementary Table 5), indicating that the strength   cability and orthogonality when using the stabilizer across different
+of PcebR induced by cellobiose was insufficient to express adequate   Streptomyces species (Fig. 3h,i).
+levels of CymR to repress PcymR (Extended Data Fig. 5b). Additionally,
+we observed the consistent on state in cultures without any inducers  Development of a fine-tuning multiplexer module
+(Extended Data Fig. 5c). These unexpected results suggested that the  To convert the single output into multiple ones, we introduced a
+leaky expression and unequal transcriptional activity between the two   multiplexer module that included an amplifier-coupled promoter
+promoters occurred in our construction. To avoid leaky expression, we   library to generate on states of varying strengths and an inverter to
+
+
+
+Fig. 2 | Development of a universal trigger module. a, Four types of quorum-        intracellular quorum-sensing signaling molecules in S. coelicolor M145 (g) and
+sensing systems currently known in Streptomyces. The representative signaling       S. avermitilis MA-4680 (h). FL, fluorescence; OD, optical density. i, Phylogenetic
+molecules and receptors are from S. coelicolor M145, S. avermitilis MA-4680,         analysis of receptors in Streptomyces genus. Receptor clades are labeled using
+S. ansochromogenes 7100 and S. coelicolor A3(2). The conserved DNA-binding      roman numerals (V to X). The receptors used for the interaction tests are
+site is indicated as a sequence logo. b, Phylogenetic tree of the EBDs from the        highlighted with red stars: WP_067441803.1 (clade V) from S. lincolnensis NRRL
+four type receptors. Receptor clades are labeled with roman numerals: I, GBL;       2936, WP_205368416.1 (clade VI) from S. noursei A-2-1, WP_185944307.1 (clade VII)
+II, AB; III, AHMB; IV, AHFCA. The receptors used for the interaction tests are        from S. mobaraensis DSM 40587, WP_012999107.1 (clade VIII) from S. scabiei
+highlighted with red stars: ScbR (clade I) from S. coelicolor M145, AvaR1 (clade II)      87.22, WP_242709678.1 (clade IX) from S. spinosisporus 7R016, WP_226048631.1
+from S. avermitilis MA-4680, SabR1 (clade III) from S. ansochromogenes 7100        (clade X) from S. rimosus ATCC 10970. j, Consensus HTH sequence of receptors
+and MmfR (clade IV) from S. coelicolor A3(2). c, Amino acid alignment of DBD         in Streptomyces genus. The conserved amino acids of the helix domain are
+from 18 well-characterized receptors. Conserved (>70% identity) and completely   marked with asterisks. k, Fluorescence curves triggered by Ptrig in S. rimosus and
+conserved amino acids are marked in pink and with asterisks, respectively. d, The     S. scabies. l, Interaction models between receptors and Ptrig. CprB monomer
+sequence of the artificial promoter Ptrig. Conserved DNA-binding site, −35 and      (PDB 4PXI) was used as reference for homology modeling. Highly conserved
+−10 regions, transcription start site and putative ribosome-binding site (RBS) are    amino acids and DNA bases are marked. In g,h,k, values are shown as the
+marked. e, Interaction between Ptrig and representative receptors determined        mean ± s.d. from three independent biological replicates.
+by BLI. f, In vivo evaluation of Ptrig. g,h, Temporal profiles of fluorescence and
+
+Nature Biotechnology
+
+
+[PDF physical page 5]
+Article                                                                                 https://doi.org/10.1038/s41587-025-02762-1
+
+a                               b                                   c
+                                                                                                                                      Helix α2  Turn    Helix α3            OH                 O       HO           HO
+                                                      O                                                                IV     O                                      O                 R                                                 R    HO
+                     O            OH
+      O H OH                                                            R                  O                                                 O                                       O   OH                                                                                                                                 *  * * ***                                                                                                 ScbR  TITE ILKVA GV TK GA LY FH F
+     GBLs       ABs      AHMBs     AHFCAs                                                                           III                    ArpA  A ISE ILRRAKV TK GA LY FH F
+                                                                                                               FarA  TVAE ILS RASV TK GA MY FH F
+                                                                                                            BarA  TVAE ILS RASV TK GA MY FH F
+                                                                                                          JadR3 TIGE ILV RA GV TK GA LY FH F
+                                                                                                                    SrrA  TVA D ILKVA GL TK GA LY FH F
+                                                                                                          SabR1 S IA QILDRA QV TR GA LY FH F
+    ScbR       AvaR1  ……  SabR1     MmfR                                                               AvaR1 TIS DV LK RS GV TK GA LY FH F
+                                                                                       MmfR SVK DVAE RV G MTK GAVY FH F
+                                                                                                SgnR  TL QDVAE RAE MTK GAVY FHY
+                                                                                                                                                                                                         II       TylP  TIAE ILK RS GV TK GA LY FH F
+                                      Target                                                                          AlpZ  TIGE ILRRA GV TK GA LY FH F
+                                                                                                                     BulR1 TIGE ILA RA GV TK GA LY FH F
+              2                                                                                          ScgR  TIAEV LE RA GV TK GA LY FH F
+                                                                                                                         Lct13  TIVE IHS RAKV TK GA LY FH F
+                Bits  1                                                                                        SpbR TISE ILK RS GL TK GA LY FH F
+                                                                                                              StcB  TITE IIGIA GV TK GA LY FH F
+           0                                                                                                                                                          I                              SfbR  T MSE IL GRS GV TK GA LY FH F
+                5’ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 3’
+                     Conserved binding site
+d
+  Ptrig TGTTCACATTCGAACGGTCTCTGCTTTGAC AAACCGGCTAGCCGGTTT GTAAAGTCGTGGCCAGGAGAATACGACAGCGTGCAGGACTGGGGGAGTT
+                                         –35         Binding site            –10               +1                                  Putative RBS
+e  2.0                                         2.0                                        2.0                                         2.0        ScbR KD = 12.54 nM                  AvaR1 KD = 12.85 nM                SabR1 KD = 14.82 nM              MmfR KD = 14.64 nM        32 nM
+                                                                                                                                              64 nM
+                                                                                                                                                                         128 nM(nm)   1.5                                             (nm)   1.5                                            (nm)   1.5                                             (nm)   1.5
+Binding  0.51.0                                                                              Binding  0.51.0                                                                              Binding  0.51.0                                                                              Binding  0.51.0
+
+     0                               0                               0                               0
+       0     200    400    600           0     200    400    600          0     200    400    600          0     200    400    600
+               Time (s)                          Time (s)                          Time (s)                          Time (s)
+ f                          g                              h
+                                                            1,200       GFP                           21,000            1,200       GFP                           21,000
+      S. coelicolor               Output                        SCB1                                                           Avanolide
+                                         Ptrig
+                                                                                                           (a.u.)  800                                      14,000  SCB1    (a.u.)  800                                      14,000     S. avermitilis                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                Avenolide
+                                                                                         FL/OD                                                400                                     7,000     (a.u.)   FL/OD     S. venezuelae                                                                                                  400                                     7,000    (a.u.)                                                               Output
+      ……
+                                                 0                               0                0                               0   Diverse quorum-                               Universal output             0    12   24  36  48  60   72                       0    12   24  36  48  60   72    sensing signals
+                                                              Time (h)                                          Time (h)
+ i                    IV                                               j       Helix α2     Turn       Helix α3      k  800         S. rimosus
+                                                                                                                                                                   S. scabiei
+
+                                                                             4                                                                                  * * * * * * * * *         (a.u.) 600     V                                                                               3                                                                                                       400
+                                                                                      2                                                                                                             Bits                      X       IX                                                                                                                        1                                                           VIII              III                                                                                                                                                                                                           FL/OD 200                                                                      0
+                                                                   N1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 C
+                                                                                                      0
+                                                                                                         0    12   24   36  48  60   72
+                                                              l                                                           Time (h)
+
+
+
+
+                                                                                                                                                                    F20
+                                                                                                                                                                               H19
+
+                                                                                                                                                                                           A15
+                                                                                                                                                                                                L16           F18
+                                                                                                                                                                                     K13         T12
+                                                                                                                                                                            G14
+                                                                     VII                                                                                                  G15Y17
+                                                                                                                                                               G14          T16
+                                                                                                                                                                                                                  T17
+                                                                                          II                                                                                                                                     T18
+                                                                                      I
+                                         VI
+
+
+
+
+
+Nature Biotechnology
+
+
+[PDF physical page 6]
+Article                                                                                 https://doi.org/10.1038/s41587-025-02762-1
+
+a                               b                            c                        Oﬀ   On  Stable on                                                                  10,000                                                              Cellobiose
+                                                                     CymR/cuO
+                       Stabilizer                                                                         CebR/cebO   Output                                                        Output                                   7,500       TetR/tetO
+                                                                                                                                   (a.u.)               OtrR/otrO
+                                                                 5,000                                      mCherry   cymR           cebR    gfp
+   Momentary output                Stable output                                                                                          PcebR PcymR                                                                                                             FL/OD                                                                     2,500
+             R2              Output
+             Ptrig                   P1
+                                                           0                                                                                                                           –2           –1        0              1          2         3                      Cumate                                                                            10     10     10     10     10     10
+                  R1             R2                                          Inducer (µM)
+                          P2    P1
+
+         Oﬀ state        On state
+                                                                                        f                       Passage
+d                       e
+    4,000                                              6,000      GFP                          27,000          6,000         + Cellobiose                            27,000              GFP
+                                                                                                          GFP
+               mCherry                                   mCherry
+    3,000                                                                                                         mCherry
+(a.u.)                                                                                     (a.u.) 4,000                                     18,000  SCB1     (a.u.) 4,000                                                18,000  SCB1
+    2,000
+FL/OD                                                                       FL/OD 2,000                                   9,000    (a.u.)     FL/OD 2,000                                             9,000    (a.u.)     1,000
+
+       0                                   0                              0                0                                       0
+         0     24    48     72    96             0     24     48     72     96                       0     24    48     72    96    120    144
+                      Time (h)                                      Time (h)                                               Time (h)
+g                           h                                                            i
+                                                                                                               5
+    3,000        Trigger–stabilizer                         4,000        S. venezuelae
+                  Trigger                                                          S. avermitilis                     of    4
+                                                       3,000        S. rimosus                                                                       (log10)(a.u.) 2,000                                                                                                   3                                                                                                              (a.u.)                                                        2,000                                                                                                  numberreads  2FL/OD     1,000                                                                                            FL/OD                                                                                                                                                                    1                        gfpGFP                                                           1,000                                                                                                                  TriggermRNA
+       0                                           0                                            0
+         0      24     48      72     96                 0      24     48      72     96                   0        1      2      3     4      5
+                   Time (h)                                      Time (h)                                               Trigger–stabilizer
+                                                                                            Number of mRNA reads (log10)
+
+Fig. 3 | Development of an orthogonal stabilizer module. a, Principle of the        passaged to the medium without the inducer after 48-h culture. g, Performance
+stabilizer module. b, Response curve of the four repression systems. c, Reporter     of the packaged stabilizer module in S. coelicolor M145. h, Performance
+design for characterization of the bistable genetic circuit. d, Assessment of          of the stabilizer module across S. avermitilis, S. venezuelae and S. rimosus.
+the stable off state in S. coelicolor Δ scbA. e, Assessment of the stable on state              i, Orthogonality of the stabilizer module. Transcriptomes of S. coelicolor M145
+in S. coelicolor M145. f, Performance of the bistable genetic circuit in simulated      with and without trigger and stabilizer modules were compared. In b,d–h, values
+inoculum preparation and subsequent production stages. The inoculum was        are shown as the mean ± s.d. from three independent biological replicates.
+
+
+
+transform these multiplexed on states into off states (Fig. 4a). We first      To convert the amplified signal into multiplexed outputs, we next
+constructed an orthogonal amplifier to achieve higher output levels.   introduced mutations between the −35 and −10 regions of the PON pro-
+To ensure broad applicability across diverse Streptomyces species   moter to generate a random library (Fig. 4a). This library was then trans-
+while minimizing endogenous interference, we selected native but   ferred into S. venezuelae and screened using a flow-cytometry-based
+rare extracytoplasmic function σ factors (ECFs) that only specifically   quantitative method39 to identify promoters with varying strengths
+activate their cognate target promoters (Fig. 4b). These rare ECFs have   while ensuring recognition by the amplifier σantA (Fig. 4e and Extended
+evolved to recognize unique −35 and −10 regions of their promoters,   Data Fig. 6c,d). We selected 50 promoters (P1–P50), whose relative
+thereby avoiding crosstalk with the native ones37. From a total of 5,982   output strength ranged from 0.41% to 219.53%, for detailed charac-
+ECFs across 122 representative Streptomyces genomes, we identified   terization at translation level (Fig. 4f and Supplementary Table 7).
+1,079 rare ECFs with less than 5% sequence conservation (Fig. 4b and   Furthermore, we confirmed that the observed variations in output were
+Supplementary Table 6). Among these, σantA from Streptomyces albido-   attributable to different transcriptional activation by the amplifier σantA
+flavus, which has well-characterized −35 and −10 regions38, was chosen  by analyzing the correlation between expression and transcription lev-
+as a proof of concept. We confirmed that the expression of σantA had   els (Extended Data Fig. 6c), thereby validating these amplifier-coupled
+no notable influence on the transcriptome (Fig. 4c) and then quanti-  on outputs. To evaluate the universality, we tested 10 promoters across
+fied its amplification effect in S. coelicolor. Compared to the control,   three Streptomyces species and observed consistent trends (Fig. 4g).
+the output of PON amplified by σantA increased 9-fold at the translation      To further convert multiplexed on outputs into multiplexed off
+level and 85-fold at the transcription level (Fig. 4d and Extended Data   outputs, we designed an inverter that used the multiplexed on out-
+Fig. 6b). In the absence of the quorum-sensing signal, no output was   puts to drive a repressor, which subsequently repressed the activity
+observed (Fig. 4d). These results indicated that the rare ECF qualified   of target promoters to varying degrees (Fig. 4a). We selected CRISPR
+as an amplifier with interference-free characteristics in Streptomyces.   interference as the inverter and used the multiplexed on promoters
+
+Nature Biotechnology
+
+
+[PDF physical page 7]
+Article                                                                                 https://doi.org/10.1038/s41587-025-02762-1
+
+ a
+
+                           PON
+                       antA              Output                                   Output                            gRNA              Output          Output                                                                                                Output                                                                              Output                                                                                                                 Output
+                                             …                      …
+           Stable                                   Orthogonal    Promoter                 Multilevel                                                Multilevel                              Amplifier                                                                                           Inverter          output                                       amplification     library                 on                                          oﬀ
+
+                                Amplification                                                                      Multiplexed oﬀ outputs
+                                                                    Multiplexed on outputs
+
+ b                                         1,079 rare ECF     c                           d                         9-fold
+         Rare ECF                          < 5% conservation           5                                                 70,000                                                                                                                ∆scbA       106-fold       sigma factors
+                                                                                                                        50,000     M145                                                of(log10) 4                                       4,903 rare ECF                                                                       3                                                                                                                        30,000                                   >5% conservation                                                                                                                                                 number                                                                                                            (a.u.)                                                                                                                                                  13-fold                                                                                                                             reads 2                                                   10,000
+                                                  Output                                                                                                                                                                                                                        FL/OD   1,000                                                                                                            1                         gfp                                      PON                                                                                                                                                                          ControlmRNA                   –35    –10                                                                                                                 500
+                                                               0                 antA
+                     Orthogonal                                                                                 0
+                          amplifier           Pnative                          0        1      2      3     4      5                       Control      Amplifier
+                          ……                                             Amplifier
+                                                              Number of mRNA reads (log10)
+ e                                                            TSS
+                                                                                         Construction                   Conjugation
+      PON                                                                                    sfgfp
+                    –35                               –10          +1
+                                                                                                 Promoter library                 Promoter library in
+                                                                                                                                  Streptomyces host
+
+         Fermentation              Lysozyme                FACS                      Test                            Identification
+
+
+
+                 Coenocytic mycelium        Single protoplast        Fluorescence screening          Promoter strength             Promoter sequence
+                                                                                                          determination                       identification
+ f                                                       g                                                                                  4
+       250                                                                                                                                                S. venezuelae   3 × 10
+                                                                                                                                                            S. coelicolor     2 × 104
+    (%) 200                                                                                                                                                                                                                                    4                                                                                                                                                            S. avermitilis      1 × 10
+
+                                                                                                                                          P2  P8  P15  P21  P26 P33 P38 P43 P48 P50       100   Relativefluorescence  150                                                                                                                                                S. rimosus      0        50
+                                                                                                                         i                              gfp
+        0
+        P1P2P3P4P5P6P7P8P9P10P11P12P13P14P15P16P17P18P19kasO*P20P21P22P23P24P25P26P27P28P29P30P31P32P33P34P35P36P37P38PONP39P40P41P42P43P44P45P46P47P48P49P50              antA
+ h                                                                                                                   gRNA         mCherry
+       100                                                                                                                    mCherry                                                                                                                  P2
+    (%)                                                                                                                                         4
+         75                                                                                                                      P15                                       2
+
+       50                                                                                                                        0   Relative                                                                                                                  P26                                                                                                                   GFP               fluorescence  25
+                                                                                                                    P38                                   4
+        0                                                                                                                                                    2
+                                                                                                                                 0                                  ControlP1P2P3P4P5P6P7P8P9P10P11P12P13P14P15P16P17P18P19kasO*P20P21P22P23P24P25P26P27P28P29P30P31P32P33P34P35P36P37P38PONP39P40P41P42P43P44P45P46P47P48P49P50        P48                                                                                                                       P2     P15    P26   P38   P48
+
+Fig. 4 | Development of a fine-tuning multiplexer module. a, Illustration of the     with varying strengths. The activity of PON was assigned to 100%. The constitutive
+multiplexer module. It integrated three functional units: an amplification unit,      promoter kasO* was used as a reference. g, Evaluation of ten selected PON
+a multiplexed on unit and a multiplexed off unit. b, Rare ECFs as an orthogonal      mutants with increasing strength in S. venezuelae, S. coelicolor, S. avermitilis and
+amplifier in Streptomyces. c, Orthogonality of σantA. Data were determined            S. rimosus. h, Repression efficiency of the inverter. The fluorescence of strains
+through RNA-seq of S. coelicolor with and without σantA. d, Amplification effect       without the invertor was set as control and normalized to 100%. i, Independent
+of ECF σantA. Fluorescence levels were measured in both strains with and without     outputs of the multiplexer. GFP and mCherry were simultaneously under
+quorum-sensing signaling molecule. e, Workflow of screening and identifying       the control of multiplexed on and off, respectively. The combinations of five
+PON mutants with varying strengths. Random sequences are marked in red;         promoters with increasing strength were tested. In d,f,h, values are shown as the
+−35 and −10 regions are highlighted in pink. f, Characterization of PON mutants       mean ± s.d. from three independent biological replicates.
+
+
+Nature Biotechnology
+
+
+[PDF physical page 8]
+Article                                                                                 https://doi.org/10.1038/s41587-025-02762-1
+
+with varying strengths to control guide RNA (gRNA), while dCas9 was   avtAB42 (Fig. 5e). We first determined that the strength range of pro-
+constitutively expressed. This configuration yielded a series of repres-   moters was sufficient to cover the optimized interval for each target
+sion outputs with a range from 2.82% to 99.51% (Fig. 4h). Finally, we  by central composite design (Extended Data Fig. 9a–c). Then, we chose
+evaluated the independent on and off outputs of the multiplexer by   the appropriate promoter combinations and their corresponding titers
+simultaneously fine-tuning activation and repression using five distinct   as inputs (Supplementary Table 8) to construct a response surface
+promoters (Fig. 4i), demonstrating the multiplexer’s capability to syn-  model (Fig. 5f). On the basis of this model, the predicted optimal pro-
+chronously autoregulate multiple targets in Streptomyces. Collectively,  moter combination of P48, P46 and P46 was used to drive meiC, aveR and
+by integrating the trigger, stabilizer and multiplexer modules (Fig. 1a   avtAB, respectively, resulting in the final dynamically reprogrammed
+and Extended Data Fig. 7), our SMARTS enables dynamic, orthogo-   strain AveB21. This strain achieved a titer of 6.90 g L−1 in shake-flask
+nal and predictable fine-tuning of multiple targets across diverse   fermentation, representing a 61.6% increase compared to the parent
+Streptomyces strains.                                                    strain AveB20 (Fig. 5g).
+                                                                Subsequently, we fine-tuned three independent pathways
+SMARTS-based optimization framework and its application      in group II: (1) enhancement of triacylglycerol (TAG) degrada-
+Overproduction of secondary metabolites in Streptomyces results from   tion by targeting fadD (acyl-CoA synthetase)5; (2) introducing
+the precise reprogramming, either activation or repression, of multi-   CO2-concentrating genes bicA and ecaA43 for efficient carboxylation;
+plex targets6. We, therefore, developed a multiobjective optimization  and (3) repression of the competing pathway by reducing sucCD44
+framework by leveraging SMARTS to fine-tune the dynamic expression   (Fig. 5h). The predicted optimal promoters for controlling these
+levels of these targets. We categorized the genes and pathways involved   targets were determined by central composite design (Extended Data
+in secondary metabolite production into two groups on the basis of   Fig. 9d–f) and response surface analysis (Fig. 5i and Supplementary
+their hierarchical roles for sequential optimization (Fig. 5a). Group I   Table 9). To practically determine the best promoter combination, we
+included genes that are specifically involved in secondary metabolite   tested three promoter combinations around the predicted optimal
+biosynthesis, transportation and cluster-situated regulation. These   point to dynamically control fadD, bicA–ecaA and sucCD, resulting in
+targets are integral components for the biosynthetic machinery that   strains AveB22 (P26, P30 and P32), AveB23 (P26, P30 and P31) and AveB24
+performs sequential reactions to convert the precursors to final prod-    (P27, P30 and P32). Strain AveB22 achieved the highest baiweimectin titer
+ucts, thus necessitating fine coordination for highly efficient produc-   of 9.22 g L−1 in shake-flask fermentation (Fig. 5j). Through sequential
+tion without bottlenecks, particularly when integrating heterologous   coordination of group I and II multiplex targets, our results demon-
+enzymes with the native biosynthetic machinery. Group II comprised   strated that the SMARTS-based framework achieved progressive titer
+the independent genes or pathways that support secondary metabo-  improvement of baiweimectin.
+lite biosynthesis (Fig. 5a). These targets influence precursor supply,
+competitive pathways, cofactor balance, maintenance of specific pro-  SMARTS-based reprogramming for epidoxorubicin
+duction morphology, etc. Given that these targets also participate in  overproduction
+a myriad of cellular processes beyond secondary metabolism13, our  To extend the SMARTS-based optimization framework to other
+combined dynamic reprogramming of these targets after optimizing   Streptomyces species, we implemented the dynamic synchroniza-
+group I enables a strategic trade-off toward the maximum production   tion of multiplex targets in a heterologous host S. venezuelae for the
+goals (Fig. 5a).                                                   biosynthesis of the anticancer drug epidoxorubicin, which is cur-
+    Using this framework, we orchestrated the production of baiwe-   rently produced by chemical semisynthesis from doxorubicin (Fig. 5k).
+imectin in the native host S. avermitilis. Baiweimectin, specifically  A previous study reported that epidoxorubicin could be biosynthe-
+the B2a component of avermectins, has been developed by Xingbai   sized in the doxorubicin-producing strain Streptomyces peucetius by
+Pharmaceutical Group as a novel nematicide with superior activity   knocking out the native dnmV and simultaneously introducing a heter-
+compared to the widely used fosthiazate (Fig. 5b and Extended Data   ologous TDP-4-ketohexose reductase such as avrE from S. avermitilis45.
+Fig. 8). However, the current producing strain synthesizes multiple   However, the titer obtained was quite low45. Therefore, we aimed to
+components of avermectins simultaneously (Fig. 5c). To develop a   fine-tune the related genes and pathways involved in epidoxorubicin
+strain that exclusively produces baiweimectin, we deleted aveCD   biosynthesis in the heterologous host S. venezuelae to achieve a higher
+and introduced the heterologous meiC gene at an ectopic site. This   titer (Fig. 5k).
+modification specifically catalyzes the C2–C7 spiroketal forma-     We initially introduced the doxorubicin BGC from S. peucetius
+tion of the dihydroxyketone polyketide intermediate without the   into S. venezuelae (strain EPI0) and coordinated the expression of
+C22–C23 dehydration40, thereby eliminating the synthesis of unwanted   the redesigned biosynthetic machinery, including the positive reg-
+B1 components (strain AveB20; Fig. 5d). Subsequently, we optimized   ulators dnrIN46, the gene avrE from S. avermitilis, the rate-limiting
+the expression of the synthetic machinery, including the heterologous   glycosylation gene dnrSQ47 and the byproduct synthesis inhibitor
+gene meiC, the positive regulator gene aveR41 and the exporter gene   dnrH48 (Extended Data Fig. 10a). Using four-objective optimization
+
+
+Fig. 5 | SMARTS-based optimization framework. a, Principle of the SMARTS-       are annotated. Suc-CoA, succinyl-CoA. i, Fine-tuning the strength of targets
+based multiobjective optimization framework for secondary metabolite             in group II. j, Effects on titer improvement of baiweimectin. k, Pathways of
+overproduction. The targets were categorized into two groups for consecutive      epidoxorubicin production. l, Combinational optimization effects on titer
+collaborative optimization. Targets involved in synthetic machinery (group I)      improvement of epidoxorubicin. m, Comparation of the genome-scale
+are represented by gears, while independent pathways are indicated by solid         transcriptional profile between EPI3 and EPI0. The time-course-relative
+circles. b, Chemical structure of baiweimectin. c, Native and redesigned             transcriptional profiles were clustered and the 84 SMARTS-associated targets
+biosynthetic pathway of avermectins. MeiC was cloned from S. nanchangensis.      (highlighted in red) formed a distinct clade among the 5,364 genes. Right,
+d, Determination of the products of the engineered strains. The peak of              details of this clade, with targets directly controlled by SMARTS highlighted in
+avermectin B2a is highlighted in red; the peaks of other avermectin components     green. n, Performance optimized by SMARTS and the constitutive promoters.
+are marked in gray. e, Group I targets coordinated for baiweimectin production.      o, Temporal transcriptional levels of the targets regulated by SMARTS and the
+Sources and the corresponding reactions of the targets are annotated. PK,           constitutive promoters. In g,j,l,n,o, values are shown as the mean ± s.d. from
+polyketide. f, Determination of the transcription strength of the three targets in     three independent biological replicates. The statistical analysis was based on a
+group I. g, Baiweimectin titer of the resulting strain. h, Independent targets in        two-tailed unpaired Student’s t-test.
+group II for baiweimectin production. Sources and the corresponding reactions
+
+Nature Biotechnology
+
+
+[PDF physical page 9]
+Article                                                                                 https://doi.org/10.1038/s41587-025-02762-1
+
+         a
+                                                      SMARTS-based optimization framework
+                               Group I targets:                                             Group II targets:
+                                                          1         Regulator                3        Branch pathway                1      Precursor           3      Morphological target
+                                          2         Biosynthetic pathway    4         Transporter                2      Cofactor           4      Competitive pathway
+
+                                   Glucose                                                        Glucose
+
+                                                   SMARTS                                SMARTS
+
+
+                                         Group II                                                     Group II
+                                                          Group I                                                    Group I
+
+                                                                      Secondary metabolite                                          Secondary metabolite
+
+         b                                                          OH   c                                                           d             B2a          B1a
+                                                                                            HO         O X Y              HO         O X Y                                           O         O                                                                                                              Avermectins                                                                                                                                   O                                                                                                      O                                                        O                                                                                                                                        A2a                                         O
+                                   O                                                                                                                                                                     A1a
+                                       O                                                                                                                            O  O                                                  O                                                     O                                                                                                O                                                                                                   O                                                                          AveEFD                                                                                                                                                          X–Y                                                                                                                                                                    R1                                O                                                                                                                        WT                                                   OH                                                                                                                                 OH                           HO                                                                                                   OH                                                                                                                                                        A1a                                                                                                                                           CH=CH                                                                                                                                                      CH3                              O
+                                                                                                                                                        A2a                                                                                                                                                CH2–CHOH                                                                                                                                                      CH3                                                O                                                                                                                          O
+                                                                                                                                                        B1a                                                                                                                                 H                                                                                                                                           CH=CH
+                                                                                                                                                         OR1                                                                                         OH AveC         H O                                                                                                                                                        B2a                                                                                                                                 H                                                     OH              HO         OH                                Baiweimectin                    O  HO                                                                       CH2–CHOH                                   ∆aveD
+                                (nematocide)                 O  O                             OH                           OH
+                                                                                  OH
+                                                                                            HO         O                 HO         O
+                                                                                                       O                                                                                                                                O                                                                                                                                           ∆aveDC                                                                                     H O     MeiC        O                                                                                                    O
+                                                                                                    OH                                                                                                            Avermectin B2a                                                                             AveEF        OHO  O                                                                                                                                            ∆aveDC/meiC
+                                                                                                                        O                                                                                                                                                                                                       (strain AveB20)
+                                                                                                        H O                                                                                                                                OH
+                                                                                                                                                              10       15     20     25     30
+
+
+
+                                                                                                                                                         6.86                                                             g         e             Group I: synthetic machinery              f                       0  1.00                                                                                                                                                      8       AveB20                                                                                                                                                    6.60                             Pa1                         AVM BGC
+                                                                                                                                                                            AveB21
+                                                    L                           aveR
+                                                                                                        (g  6                                             Regulator    AVM BGC                                                                                                                   0.25           0.75  Pa2               6.336.07        –1)                          S. avermitilis
+                                                 mRNA
+                                                                                                                                                                             5.81             4                           Pa2                                        Intracellular                                                                                                               strength0.50                   0.50                              avtA     avtB                                 Pa3                                 strength         5.54
+                          S. avermitilis     ABC transporter   Extracellular                                                                                                                                                                     2                                                                                                            0.75                             0.25            5.28                                                                                                                                                                       5.01                                    Baiweimectin                          Pa3                                                  PK chain
+                         meiC
+                         S. nanchangensis                                                  Spiroketal   B2a intermediate             1.00                             0          4.75           0 0        4        8          12
+                                              formation                             0      0.25     0.50     0.75     1.00                                Time (days)
+                                                                                                                                  Pa1 strength
+         h           Group II: independent pathways                 i                 0                                 9.10       j
+                                                                                                                                  1.00                                               12                                                                                                                                                                          8.91                   P = 7.0 × 10–5
+                            Pa4                                                                                                                                           –1)                                               TAG                                                                                                                                                                     8.72                                                                                                                   0.25                                                    L  9                                                                                                       (g                             fadD                                                                                                                                     0.75  Pa5                                                                                                                                                            8.53
+                          S. coelicolor       TAG degradation   Fatty acids
+                                                                                                                                                          8.34                                                                                                                                                   6                            Pa5                                                                                                               strength0.50                    0.50                                                                                                                                                    strength                                                                                                                                                                             8.15                                                                         Intracellular CO2       Pi1                              bicA     ecaA
+                                                                                                                                                       3                   Synechococcus/Anabaena CO2 recycle     Bicarbonate                 0.75                              0.25           7.96                                  Baiweimectin
+                                                                                                                                                                               7.77
+                                    Pi1                                                      Suc-CoA                                                                                                                                                                   7.58           0                                                                                                        1.00                        gRNA      sucCD                                                                                                                0
+                          S. avermitilis    Competitive pathway    Succinate              0      0.25     0.50     0.75     1.00                                                                                                                                    AveB21AveB22 AveB23 AveB24                                                                                                                     Pa4 strength
+         k             Currently in production                                                l
+                                                                                                                                          120                                                                                                                                                           P = 2.6 × 10–3                                          S.                                        peucetius                                                                                              O                                                                                                     OH                                                                                                        O
+
+                                                                                                                   –1)                                                                                                                                                P = 1.6 × 10–6                                           L
+                                                                                                     O                                                                                           O                                                                                              O                                                                                                     OH                                       Biosynthesis                                                                Chemical
+                                                                                                  O                                                                                                                    90                       dox BGC                                                                                                            OH OH       synthesis                                                                                                                         NH2                                                                                           O  OH     O                                                                                                 HO                                                                                                                                (mg
+                                                  Doxorubicin                                   OH OH
+                           Our reprogrammed strain                            O  O  OH O                           60
+                                         S. venezuelae                                     HO     O
+                                         dox BGC                                            NH2                              30                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Epidoxorubicin
+                   SMARTS             Eﬀicient BGC                        Epidoxorubicin
+                                                                                                                0                                        Coordinated pathways     Biosynthesis                               WT   EPI0   EPI1   EPI2   EPI3   EPI4
+
+      m                                  n                 o         EPI-C         EPI3
+                                                                                                                     120     P = 1.8 × 10–4                       dnrI                                20
+                                                                                                 –1)L
+                                                                                                                         dnrN
+                                                                   Group II            (mg  90                                   avrE
+                                                                                                   60                             dnrQ                                     10
+                                                                                                                              dnrS
+                                                                                                    30                             panK                                                                   Group I                                                             Epidoxorubicin                                    acc
+                                                                                               0                               bldD                             0                                                                                                            EPI-C    EPI3                                                    h                                                     h                                                       h                                                        h                                                         h                                                           h                                                            h                                                             h               h             h              h                h                                                                                       72                                                                                               72                                                                                        24                                                                                48                                                                                        48                                                                                   96                                                                                           96                                                                –6   –3  0   3   6                                     24                       72                   24                    48                       96
+
+
+
+Nature Biotechnology
+
+
+[PDF physical page 10]
+Article                                                                                 https://doi.org/10.1038/s41587-025-02762-1
+
+        a
+                                                   0.16 m3                                4 m3
+
+                     + 300 µM
+                        cellulose                                          3 days                                3 days
+
+                    First-stage seed (0.2-m3 fermenter)        Second-stage seed (5-m3 fermenter)              Production stage (120-m3 fermenter)
+                     Oﬀ state                        On state                                      Stable On state
+        b                        c                      d
+                     2.0      meiC               24,000         20     meiC               24,000          3      meiC                       24,000
+                            fadD                                         fadD                                          fadD
+                          1.5                          18,000            15                          18,000                                                18,000
+                                                                                                              2                                                  expression  1.0                          12,000                      expression  10                          12,000                         expression                                      12,000                                                                                                                                                                           Avenolide                                                                                                                                 Avenolide                                                                                                                                                              Avenolide
+                                                                                                                                                          1
+                    0.5                         6,000     (a.u.)       5                         6,000    (a.u.)                                         6,000    (a.u.)                                        Relative                                                                                                                     Relative                                                                                                                      Relative
+                 0                     0             0                     0             0                             0
+                         24     48      72                          24     48      72                          24    72    108   168    216
+                         Time (h)                              Time (h)                                  Time (h)
+        e                                                  f                       g
+                 60           Cell growth           Titer         10                100
+                                                                               (%)
+                (%) 45                                    8                   75
+                                                       6
+                 30                                                    50                                growth                                       4         Baiweimectin                          eﬀiciency
+                     Cell  15                                        2  (g             25                 Baiweimectin
+                                                                                                                  Fosthiazate                                                                                  L−1)                   Control
+                 0                                0                0
+                   0   48   96   144   192  240  288                     0      1,000    2,000    3,000
+                                                                                                                      Treated     Control
+                               Time (h)                                     Dose (g ha–1)
+
+Fig. 6 | SMARTS-based program in industrial-scale fermentation. a, Schematic     24 h were arbitrarily assigned to 1. e, Curves of baiweimectin titer and cell growth
+diagram of baiweimectin production process. The off state was kept in the 0.2-m3    of strain AveB22 during the production process in a 120-m3 fermenter. f, Activity
+fermenters, while the on state was triggered in the 5-m3 fermenters and remained    of the produced baiweimectin. Commercially available fosthiazate was used as
+in the 120-m3 fermenters. b–d, Characterization of the SMARTS-based program      control. g, Crop and root treated with baiweimectin in field trials. For b–f, values
+in the whole fermentation process. Relative transcriptional levels of meiC and       are shown as the mean ± s.d. from three independent biological replicates.
+fadD were determined by RT–qPCR. The relative values for gene expression at
+
+
+modeling, we identified the optimal promoter combination (P39, P42,   multiplex targets between the two control systems (Fig. 5o). Constitu-
+P46 and P37) (Extended Data Fig. 10c–f and Supplementary Table 10)   tive promoters exhibited unstable expression patterns, likely because
+and constructed the engineered strain EPI1, which reached a titer of   of their dependence on the declining abundance of housekeeping
+73.61 mg L−1 in shake-flask fermentation (Fig. 5l). Subsequently, we opti-   sigma factors during the stationary phase30. Therefore, we emphasized
+mized three independent group II targets including panK (pantothen-   the faithful plug-and-play capability of SMARTS-based optimization
+ate kinase for increasing the coenzyme A (CoA) pool)49, acc (acetyl-CoA   framework for orchestrating multiplex targets in diverse Streptomyces.
+carboxylase for enhancing the acetyl-CoA pool by targeting)50 and bldD
+(regulator for maintaining production-associated cell morphology)17  Robustness of SMARTS-based program in industrial setting
+(Extended Data Fig. 10b). Following a similar optimization approach  The SMARTS-based program was designed to promise stable and
+used for baiweimectin improvement, we determined three optimal   reproducible applications in industrial processes. To evaluate the
+promoter combinations (Extended Data Fig. 10g–i and Supplementary   robustness in varying and complex industrial environments, we
+Table 11). Using these promoter combinations, we constructed the  conducted a scale-up of baiweimectin production using gradually
+engineered strains EPI2 (P26, P30 and P27), EPI3 (P27, P30 and P27) and EPI4   increased fermenter volumes. Specifically, two-stage inoculum prepa-
+(P27, P30 and P26), with EPI3 achieving a higher epidoxorubicin produc-   ration using 0.2-m3 and 5-m3 fermenters was implemented to support
+tion of 101.23 mg L−1 (Fig. 5l). This titer was 1.81-fold higher than that   the final fermentation in 120-m3 fermenters (Fig. 6a). Given that the
+of the previously engineered strain in doxorubicin-producing host45.   objective of this step is producing a sufficient volume of vegetative
+    Further comparative transcriptome analysis revealed that, com-   inoculum rather than optimize production efficiency, we maintained
+pared to the parental strain, only the SMARTS-controlled targets and   the cellobiose-induced off state in 0.2-m3 fermenters. In contrast, we
+their associated downstream genes exhibited changes (Fig. 5m). These   omitted the use of inducers in the 5-m3 and final 120-m3 fermenters.
+altered genes displayed consistent trends across different time points,   Consequently, the quorum-sensing signal triggered the transition of
+with variations only in the extent of activation or repression (Fig. 5m   the SMARTS-based program from the off to the on state, which was
+and Supplementary Table 12). These results demonstrated the effec-   then maintained throughout the entire fermentation process (Fig. 6a).
+tiveness of our SMARTS-based optimization framework in enhancing     We analyzed the transcriptional profiles of strains in the first-stage
+secondary metabolite titer in a heterologous Streptomyces. To further  and second-stage inoculum preparation, as well as in the final pro-
+evaluate the advantage of SMARTS-based program, we selected consti-   duction fermenters. In the first-stage 0.2-m3 fermenters, despite
+tutive promoters39 with similar strengths to those of SMARTS outputs   the presence of quorum-sensing signaling molecule avenolide, the
+used in EPI3 to construct strain EPI-C. This strain exhibited a lower titer   SMARTS-regulated targets remained inactive (Fig. 6b), confirming that
+of epidoxorubicin compared to EPI3 (Fig. 5n). Comparative transcrip-   the off state was maintained by the inducer. In the second-stage 5-m3
+tional profile revealed distinct temporal expression patterns of the   fermenters, with the accumulation of avenolide, the multiplex targets
+
+Nature Biotechnology
+
+
+[PDF physical page 11]
+Article                                                                                 https://doi.org/10.1038/s41587-025-02762-1
+
+transitioned from the off to the on state, enabling precise expression of   signal into a sustained one (Fig. 3). More importantly, this bistable
+these coordinated genes and pathways for baiweimectin production   genetic circuit can also be externally controlled in industrial settings
+(Fig. 6c). In the 120-m3 production fermenters, the SMARTS-based  when preparing inoculum in the scale-up process. For example, the
+program consistently maintained the on state throughout the entire  SMARTS-based program could remain inactive during the inoculum
+batch fermentation process (Fig. 6d). Our observations revealed that   preparation while being activated ‘just in time’ during the production
+the SMARTS-based program sustained stable operation over a 13-day   stage (Fig. 6).
+fermentation period, achieving a stable production mode and generat-       Crosstalk between the artificial control system and the host’s
+ing a final titer of 8.4 g L−1 (Fig. 6e). These findings demonstrated that   native regulatory network often leads to dysregulation, thereby
+SMARTS can be reliably scaled up and consistently fine-tuned during  compromising the performance and reusability of the engineered
+the production process.                                                         strains55,56. Our design avoided the interference with the native sys-
+    After demonstrating the reliability and scalability of THE  tem and vice versa. Beyond incorporating orthogonal promoters and
+SMARTS-based program under industrial settings, we purified baiwe-   repressors in the stabilizer module (Fig. 3), we emphasize the use of
+imectin and conducted field trials across multiple regions in China,   the rare ECF for development of the fine-tuning multiplexer (Fig. 4).
+including Hebei, Hunan and Shandong provinces. Compared to the   This design ensures that the native promoters and regulators cannot
+chemical nematicide fosthiazate, baiweimectin exhibited superior   interact with our final outputs. Specifically, the absence of rare ECF
+activity in controlling root-knot nematodes (Fig. 6f). Furthermore,  homologs and their cognate target promoters in most Streptomyces
+we developed baiweimectin tablets (5% active ingredient) to improve   species guarantees absolute orthogonality. The specific −10 and −35
+the precision and convenience of application. The application of these   regions recognized by rare ECFs have evolved differences from those of
+tablets led to a marked reduction in root-knot incidence in watermelon   other sigma factors, making rare ECFs ideal components for construct-
+fields (Fig. 6g). These results underscore the potential of our produced   ing an orthogonal system in Streptomyces.
+baiweimectin.                                                     Developing a universal engineering paradigm for redirecting cel-
+                                                                            lular resources toward the production of desired secondary metabo-
+Discussion                                                                  lites through dynamic and global synchronization of multiple targets
+Streptomyces is an industrially prominent genus known for the largest   remains challenging6. Current dynamic regulation strategies mainly
+bacterial sources of antibiotics and other biologically active secondary   offer localized control of metabolic flux and fail to effectively redistrib-
+metabolites51. However, enhancing the yield of these secondary metab-   ute the overall allocation of cellular subsystems and states13. By lever-
+olites in this genus has posed substantial technical challenges over the   aging the dynamic fine-tuning capability of SMARTS, we established a
+past decades12,52,53. We here developed a SMARTS-based dynamic system   mutiobjective optimization principle for titer improvement of diverse
+for overproducing secondary metabolites in Streptomyces. SMARTS   secondary metabolites in Streptomyces (Fig. 5). Initially, we optimized
+can be used in a plug-and-play manner across different Streptomyces   the coordination of biosynthetic machinery for secondary metabolites
+species, responding to their diverse quorum sensing and automodulat-   (group I), ensuring appropriate concentrations of multiple enzymes
+ing multiple targets simultaneously. Our SMARTS-based optimization   that catalyze the sequential generation and exportation of the final
+framework can be used for combinational dynamic reprogramming   product. With an efficient biosynthetic machine established, we
+of multiple targets for engineering various secondary metabolites.   then concurrently reprogrammed multiple independent targets in
+Our work culminated in engineering high-yield strains for producing  group II. Because these pathways not only contribute to production
+nematicide baiweimectin and anticancer drug epidoxorubicin, show-   but also participate in numerous cellular processes, our combinato-
+casing the robustness of the SMARTS-based program under various    rial optimization approach provides the strain with an optimal match
+industrial conditions.                                              to maximize production efficiency. This principle of multiobjective
+   The unique quorum-sensing systems within the Streptomyces   optimization is applicable to accurately reprogramming the produc-
+genus present an opportunity to develop a universal artificial control   tion of diverse secondary metabolites in Streptomyces with minimal
+system24. However, on the basis of the limited available information,   upfront effort.
+quorum-sensing mechanisms in Streptomyces exhibit considerable      Our work establishes a dynamic reprogramming system that facili-
+diversity in terms of the types of signals and corresponding signal   tates the development of Streptomyces strains. The broad application of
+transduction pathways22,23. How can we artificially design an artificial   our SMARTS, together with its associated optimization framework, was
+dynamic control system that responds to the diverse quorum-sensing   demonstrated by developing two Streptomyces strains with high titers,
+signals across different Streptomyces species? We here delved into the   as well as the successful scaling-up of one strain for stable industrial
+evolutionary divergence and convergence to understand the under-   production. Our work facilitates the development of Streptomyces as
+lying mechanism of diverse quorum-sensing systems. Our analysis   important strains for future work on secondary metabolite and drug
+revealed that, while quorum-sensing receptors display divergent   production.
+evolution in the EBD domain responsible for signal recognition, they
+consistently exhibit a consensus sequence in the DBD domain, which  Online content
+contributes to the interaction with the same DNA-binding site in the  Any methods, additional references, Nature Portfolio reporting sum-
+regulated promoters (Fig. 2). By leveraging this naturally evolved com-   maries, source data, extended data, supplementary information,
+monality, we designed a universal quorum-sensing-triggered artificial  acknowledgements, peer review information; details of author con-
+promoter to configure the trigger module in SMARTS.                 tributions and competing interests; and statements of data and code
+    Synthetic genetic circuits are fine-tuned for product synthesis   availability are available at https://doi.org/10.1038/s41587-025-02762-1.
+and often fail to translate from the laboratory to industrial settings19,54.
+Our SMARTS design consistently prioritizes stability and robustness to  References
+ensure successful implementation in final industrial production envi-    1.   Chater, K. F. Streptomyces inside-out: a new perspective on the
+ronments. In Streptomyces, reaching the threshold concentration of        bacteria that provide us with antibiotics. Philos. Trans. R. Soc.
+quorum-sensing signaling molecules occurs within a very narrow time       Lond. B Biol. Sci. 361, 761–768 (2006).
+window. This transient output pattern differed from the well-studied   2.   Hutchings, M. I., Truman, A. W. & Wilkinson, B. Antibiotics: past,
+quorum sensing in other bacteria32 and contradicted the requirement       present and future. Curr. Opin. Microbiol. 51, 72–80 (2019).
+of steady-state production. We addressed this issue by introducing a   3.  Zhang, L. & Demain, A. L. (eds) Natural Products: Drug Discovery
+bistable genetic circuit-based stabilizer module to convert the transient      and Therapeutic Medicine. (Humana Press, 2005).
+
+Nature Biotechnology
+
+
+[PDF physical page 12]
+Article                                                                                 https://doi.org/10.1038/s41587-025-02762-1
+
+4.    Li, S. et al. Polyketide pesticides from actinomycetes.                  27.  Kitani, S. et al. Avenolide, a Streptomyces hormone controlling
+     Curr. Opin. Biotechnol. 69, 299–307 (2021).                                antibiotic production in Streptomyces avermitilis. Proc. Natl Acad.
+5.  Wang, W. et al. Harnessing the intracellular triacylglycerols                Sci. USA 108, 16410–16415 (2011).
+     for titer improvement of polyketides in Streptomyces.                28. Wang, W. et al. Identification of a butenolide signaling system that
+     Nat. Biotechnol. 38, 76–83 (2020).                                      regulates nikkomycin biosynthesis in Streptomyces. J. Biol. Chem.
+6.   Yan, H., Li, S. & Wang, W. Reprogramming naturally evolved             293, 20029–20040 (2018).
+    switches for Streptomyces chassis development. Trends             29. Cuthbertson, L. & Nodwell, J. R. The TetR family of regulators.
+     Biotechnol. 43, 12–15 (2025).                                             Microbiol. Mol. Biol. Rev. 77, 440–475 (2013).
+7.   Zhang, Y. X. et al. Genome shuffling leads to rapid phenotypic       30. Wang, W. et al. An engineered strong promoter for Streptomycetes.
+    improvement in bacteria. Nature 415, 644–646 (2002).                  Appl. Environ. Microbiol. 79, 4484–4492 (2013).
+8.    Li, J. et al. A non-carboxylative route for the efficient synthesis        31.  Bhukya, H., Bhujbalrao, R., Bitra, A. & Anand, R. Structural and
+     of central metabolite malonyl-CoA and its derived products.             functional basis of transcriptional regulation by TetR family
+     Nat. Catal. 7, 361–374 (2024).                                           protein CprB from S. coelicolor A3(2). Nucleic Acids Res. 42,
+9.   Thaker, M. N. et al. Identifying producers of antibacterial                10122–10133 (2014).
+   compounds by screening for antibiotic resistance.                  32. Wang, J. et al. A novel role of ‘pseudo’γ-butyrolactone receptors
+     Nat. Biotechnol. 31, 922–927 (2013).                                         in controlling γ-butyrolactone biosynthesis in Streptomyces.
+10.  Barka, E. A. et al. Taxonomy, physiology, and natural products of         Mol. Microbiol. 82, 236–250 (2011).
+     actinobacteria. Microbiol. Mol. Biol. Rev. 80, 1–43 (2016).            33. Horbal, L., Fedorenko, V. & Luzhetskyy, A. Novel and tightly
+11.  Nett, M., Ikeda, H. & Moore, B. S. Genomic basis for natural              regulated resorcinol and cumate-inducible expression systems
+    product biosynthetic diversity in the actinomycetes. Nat. Prod.            for Streptomyces and other actinobacteria. Appl. Microbiol.
+    Rep. 26, 1362–1384 (2009).                                              Biotechnol. 98, 8641–8655 (2014).
+12.  Miethke, M. et al. Towards the sustainable discovery and           34. Wang, X., Fu, Y., Wang, M. & Niu, G. Synthetic cellobiose-inducible
+    development of new antibiotics. Nat. Rev. Chem. 5, 726–749 (2021).        regulatory systems allow tight and dynamic controls of gene
+13.  Montano Lopez, J., Duran, L. & Avalos, J. L. Physiological                expression in Streptomyces. ACS Synth. Biol. 10, 1956–1965
+     limitations and opportunities in microbial metabolic engineering.         (2021).
+     Nat. Rev. Microbiol. 20, 35–48 (2022).                               35. Hou, J. et al. Engineering the ultrasensitive transcription factors
+14.  Wang, W. et al. Angucyclines as signals modulate the behaviors of      by fusing a modular oligomerization domain. ACS Synth. Biol. 7,
+    Streptomyces coelicolor. Proc. Natl Acad. Sci. USA 111, 5688–5693        1188–1194 (2018).
+     (2014).                                                          36. Lou, C. et al. Synthesizing a novel genetic sequential logic circuit:
+15.  van Wezel, G. P. & McDowall, K. J. The regulation of the secondary       a push‐on push‐off switch. Mol. Syst. Biol. 6, 350 (2010).
+    metabolism of Streptomyces: new links and experimental             37.  Mascher, T. Past, present, and future of extracytoplasmic function
+    advances. Nat. Prod. Rep. 28, 1311–1333 (2011).                    σ factors: distribution and regulatory diversity of the third pillar of
+16.   Li, S., Li, Z., Pang, S., Xiang, W. & Wang, W. Coordinating                   bacterial signal transduction. Annu. Rev. Microbiol. 77, 625–644
+    precursor supply for pharmaceutical polyketide production in            (2023).
+    Streptomyces. Curr. Opin. Biotechnol. 69, 26–34 (2021).             38. Seipke, R. F., Patrick, E. & Hutchings, M. I. Regulation of antimycin
+17.  Qiu, S. et al. Building a highly efficient Streptomyces super-chassis         biosynthesis by the orphan ECF RNA polymerase sigma factor
+     for secondary metabolite production by reprogramming naturally-           σAntA. PeerJ 2, e253 (2014).
+    evolved multifaceted shifts. Metab. Eng. 81, 210–226 (2023).          39.  Bai, C. et al. Exploiting a precise design of universal synthetic
+18.  Wu, J. et al. Developing a pathway-independent and full-              modular regulatory elements to unlock the microbial natural
+    autonomous global resource allocation strategy to dynamically         products in Streptomyces. Proc. Natl Acad. Sci. USA 112,
+    switching phenotypic states. Nat. Commun. 11, 5521 (2020).             12181–12186 (2015).
+19.  Gupta, A., Reizman, I. M., Reisch, C. R. & Prather, K. L. Dynamic       40. Sun, P. et al. Spiroketal formation and modification in avermectin
+     regulation of metabolic flux in engineered bacteria using a               biosynthesis involves a dual activity of AveC. J. Am. Chem. Soc.
+    pathway-independent quorum-sensing circuit. Nat. Biotechnol.          135, 1540–1548 (2013).
+    35, 273–279 (2017).                                                      41.  Kitani, S., Ikeda, H., Sakamoto, T., Noguchi, S. & Nihira, T.
+20.  Din, M. O. et al. Synchronized cycles of bacterial lysis for in vivo          Characterization of a regulatory gene, aveR, for the biosynthesis
+     delivery. Nature 536, 81–85 (2016).                                      of avermectin in Streptomyces avermitilis. Appl. Microbiol.
+21.  Alnahhas, R. N. et al. Majority sensing in synthetic microbial              Biotechnol. 82, 1089–1096 (2009).
+     consortia. Nat. Commun. 11, 3659 (2020).                           42. Qiu, J. et al. Overexpression of the ABC transporter AvtAB
+22.  Polkade, A. V., Mantri, S. S., Patwekar, U. J. & Jangid, K. Quorum           increases avermectin production in Streptomyces avermitilis.
+    sensing: an under-explored phenomenon in the phylum                 Appl. Microbiol. Biotechnol. 92, 337–345 (2011).
+     actinobacteria. Front. Microbiol. 7, 131 (2016).                      43. Hao, Y. et al. Avermectin B1a production in Streptomyces
+23.  Biarnes-Carrera, M., Breitling, R. & Takano, E. Butyrolactone                avermitilis is enhanced by engineering aveC and precursor supply
+     signalling circuits for synthetic biology. Curr. Opin. Chem. Biol.          genes. Appl. Microbiol. Biotechnol. 106, 2191–2205 (2022).
+    28, 91–98 (2015).                                                44. Yang, M., Hao, Y., Liu, G. & Wen, Y. Enhancement of acyl-CoA
+24. Zhou, S. et al. Molecular basis for control of antibiotic production        precursor supply for increased avermectin B1a production by
+    by a bacterial hormone. Nature 590, 463–467 (2021).                   engineering meilingmycin polyketide synthase and key primary
+25.  Takano, E., Chakraburtty, R., Nihira, T., Yamada, Y. & Bibb, M. J.           metabolic pathway genes. Microb. Biotechnol. 17, e14470 (2024).
+   A complex role for the gamma-butyrolactone SCB1 in regulating     45. Madduri, K. et al. Production of the antitumor drug epirubicin
+     antibiotic production in Streptomyces coelicolor A3(2).                   (4′-epidoxorubicin) and its precursor by a genetically engineered
+    Mol. Microbiol. 41, 1015–1028 (2001).                                        strain of Streptomyces peucetius. Nat. Biotechnol. 16, 69–74
+26.  Corre, C., Song, L., O’Rourke, S., Chater, K. F. & Challis, G. L. 2-Alkyl-         (1998).
+    4-hydroxymethylfuran-3-carboxylic acids, antibiotic production      46. Malla, S., Niraula, N. P., Liou, K. & Sohng, J. K. Improvement in
+    inducers discovered by Streptomyces coelicolor genome mining.         doxorubicin productivity by overexpression of regulatory genes in
+     Proc. Natl Acad. Sci. USA 105, 17510–17515 (2008).                      Streptomyces peucetius. Res. Microbiol. 161, 109–117 (2010).
+
+Nature Biotechnology
+
+
+[PDF physical page 13]
+Article                                                                                 https://doi.org/10.1038/s41587-025-02762-1
+
+47.  Malla, S., Niraula, N. P., Liou, K. & Sohng, J. K. Enhancement          54. Moser, F. et al. Genetic circuit performance under conditions
+     of doxorubicin production by expression of structural sugar              relevant for industrial bioreactors. ACS Synth. Biol. 1, 555–564
+    biosynthesis and glycosyltransferase genes in Streptomyces              (2012).
+     peucetius. J. Biosci. Bioeng. 108, 92–98 (2009).                      55.  Trosset, J. Y. & Carbonell, P. Synergistic synthetic biology: units in
+48.  Scotti, C. & Hutchinson, C. R. Enhanced antibiotic production            concert. Front. Bioeng. Biotechnol. 1, 11 (2013).
+    by manipulation of the Streptomyces peucetius dnrH and dnmT      56.  Xia, P. F., Ling, H., Foo, J. L. & Chang, M. W. Synthetic
+    genes involved in doxorubicin (adriamycin) biosynthesis.                genetic circuits for programmable biological functionalities.
+       J. Bacteriol. 178, 7316–7321 (1996).                                       Biotechnol. Adv. 37, 107393 (2019).
+49. Song, E. et al. Proteomic approach to enhance doxorubicin
+    production in panK-integrated Streptomyces peucetius ATCC        Publisher’s note Springer Nature remains neutral with regard to
+    27952. J. Ind. Microbiol. Biotechnol. 38, 1245–1253 (2011).              jurisdictional claims in published maps and institutional affiliations.
+50. Ryu, Y. G., Butler, M. J., Chater, K. F. & Lee, K. J. Engineering of
+    primary carbohydrate metabolism for increased production of      Springer Nature or its licensor (e.g. a society or other partner)
+    actinorhodin in Streptomyces coelicolor. Appl. Environ. Microbiol.    holds exclusive rights to this article under a publishing
+     72, 7132–7139 (2006).                                       agreement with the author(s) or other rightsholder(s); author
+51.  Alam, K. et al. Streptomyces: the biofactory of secondary             self-archiving of the accepted manuscript version of this article is
+    metabolites. Front. Microbiol. 13, 968053 (2022).                    solely governed by the terms of such publishing agreement and
+52.  Breitling, R. et al. Synthetic biology approaches to actinomycete     applicable law.
+     strain improvement. FEMS Microbiol. Lett. 368, fnab060 (2021).
+53.  Breitling, R. & Takano, E. Synthetic biology of natural products.    © The Author(s), under exclusive licence to Springer Nature America,
+    Cold Spring Harb. Perspect. Biol. 8, a023994 (2016).                   Inc. 2025
+
+
+
+
+
+Nature Biotechnology
+
+
+[PDF physical page 14]
+Article                                                                                 https://doi.org/10.1038/s41587-025-02762-1
+
+Methods                                                were obtained from CRISPy-web61. To construct the invertor, prim-
+Strains and cultivation                                            ers containing gRNA sequences were annealed and assembled with
+All strains used in this study are listed with genotype in Supplemen-   BsaI-digested pSETdCas9Rg-2 (ref. 62), whereas promoter J23119
+tary Table 1. All plasmids were propagated in Escherichia coli JM109  was replaced by PON or PON mutants. To construct the multiplexer,
+(Tsingke) cultured in Luria–Bertani (LB) medium with apramycin   the purified fragment containing ermE*, dCas9, PON mutants and the
+(50 μg ml−1), kanamycin (50 μg ml−1) or hygromycin (80 μg ml−1) at  gRNA scaffold was assembled with an EcoRI-digested linear frag-
+37 °C. E. coli ET12567/pUZ8002 was used for conjugation, grown in LB  ment of pSET152-TSA to generate pSET152-TSA-dCas9. To simplify
+at 37 °C with appropriate antibiotics. To prepare spores, Streptomyces   the plasmid construction process, the invariable trigger, stabilizer
+was grown on mannitol–soya flour57 agar plates at 28 °C for 2 days  and multiplexer without PON mutants constituted pSET152-SMARTS.
+(S. venezuelae), 3 days (S. coelicolor) or 4 days (S. avermiltilis, S. rimosus   Amplification genes or gRNAs targeting repression genes controlled
+and S. scabies).                                            by different strengths of PON mutants were assembled to generate
+     All fermentations were conducted in 250-ml shaken flasks with  pSOK616 derivates.
+a working volume of 50 ml at 28 °C. For S. venezuelae strains, seed      The gene sequence of meiC was cloned from Streptomyces nan-
+cultures were first prepared by inoculating spores into maltose–yeast   changensis, the gene sequence of avrE was amplified from S. avermitilis
+extract–malt extract (MYM) and incubated at 220 rpm for 20 h. Then,  MA-4680, gene sequences of acc and fadD were amplified from
+seed cultures (4%) were inoculated into MYM and cultured for 6 days.   S. coelicolor M145, gene sequences of bldD were amplified from
+For S. avermitilis strains, seed cultures were prepared by inoculating of   S. venezuelae ATCC 10712 and gene sequences of bicA, ecaA and panK
+spores into seed medium (3% soluble starch, 0.4% yeast extract, 0.2%   were synthesized and codon-optimized; the remaining overexpression
+soy peptide and 5 ml of 1 g L−1 CoCl2∙6H2O per liter of medium) and culti-   genes were amplified from the plasmids containing respective gene
+vated at 220 rpm for 48 h. Then, seed cultures (4%) were inoculated into   clusters. When needed, the purified target sequences were assembled
+fermentation medium (7% corn starch, 1.5% soybean, 1% yeast extract,   with the appropriate linear fragment of PON mutant promoters.
+0.05% K2HPO4∙3H2O, 0.05% MgSO4∙7H2O, 0.1% CaCO3 and 5 ml of 1 g L−1
+CoCl2∙6H2O) and cultured at 250 rpm for 12 days.                    Protein overproduction and purification
+                                                       The proteins used for the in vitro binding assay were overexpressed
+Genetic manipulation for construction of plasmids                 in pET28a in E. coli BL21 (DE3). Cells were cultured in LB medium con-
+Plasmids were constructed using Gibson assembly and verified by   taining 100 μg ml−1 kanamycin at 37 °C to an optical density at 600 nm
+sequencing (listed in Supplementary Table 2). The primers used are   of ~0.6. Protein expression was induced with 0.2 mM IPTG and was
+shown in Supplementary Table 3. Gene sequences of scbR, mmfR,   cultured at 16 °C overnight. Cells were harvested by centrifugation,
+sabR1 and avaR1 were amplified from the genomes of S. coelicolor   resuspended in lysis buffer containing 300 mM NaCl, 50 mM NaH2PO4
+A3(2), S. ansochromogenes 7100 (ref. 58) and S. avermitilis MA-4680.  and 10 mM imidazole, lysed by sonication (3-s sonication with 5-s inter-
+Gene sequences of receptors in the six other clades were synthesized.   val in 15 min) and clarified by centrifugation for 30 min at 4 °C. The
+The purified fragments were assembled with a NcoI–XhoI-digested   supernatant was loaded onto a HisTrap FF column (GE Healthcare)
+linear fragment of pET28a to generate recombinant protein expres-   charged with nickel and equilibrated in lysis buffer. The column was
+sion plasmids. To construct trigger module, Ptrig and gfpmut3.1were  washed with a gradient of imidazole concentrations63. Eluted pro-
+synthesized and the purified fragments were assembled with a BamHI–   tein was confirmed by SDS–PAGE and desalted through dialysis. The
+XbaI-digested linear fragment of pSET152 to generate pSET152-Ptrig-gfp.   fractions were concentrated using a centrifugal concentrator with a
+To construct knockout strains, fragments 1,500 bp upstream and down-   molecular weight cutoff of 10,000 kDa (Merck), frozen in aliquots of
+stream were amplified and assembled with a HindIII-digested linear   50 μl in liquid nitrogen and stored at −80 °C.
+fragment of pKC1139 to generate gene-knockout plasmids.
+    Gene sequences of cebR34, cymR33 and tetR59 were synthesized and  EMSA
+codon-optimized, whereas the gene sequence of otrR60 was ampli-  The 97-bp DNA sequences containing the proposed binding site were
+fied from the genome of S. rimosus ATCC 10970. Gene sequences of   amplified with corresponding primers (Supplementary Table 3). The
+sfgfp and mCherry were synthesized and codon-optimized; the puri-   generated fragments were verified by agarose gel electrophoresis and
+fied fragments of fluorescent proteins and promoters with different   quantified using a NanoDrop Onec Spectrophotometer (Thermo). DNA
+operons were assembled with a BamHI–XbaI-digested linear fragment   probes (100 nM) with different amounts (ranging from 0 to 320 nM)
+of pSET152. To construct the toggle circuit, gfpmut3.1 and cebR were   of receptors were mixed in binding buffer containing 20 mM HEPES,
+controlled by PcymR while mCherry and cymR were controlled by PcebR;  30 mM KCl, 10 mM (NH4)2SO4, 1 mM dithiothreitol and 1% (v/v) Tween-
+the purified fragments were assembled with a BamHI–XbaI-digested  20 in a total volume of 20 μl, followed by incubation at 28 °C for 45 min.
+linear fragment of pSET152. To demonstrate the ultrasensitivity of   After addition of 5 μl of loading buffer24, the mixtures were separated
+repressors, the repressor generator plasmid and the promoter tester   with a prerun 7% (v/v) polyacrylamide gel in 0.5× TBE buffer containing
+plasmid were constructed using PTAC to drive the input signal and Ptest  45 mM Tris, 45 mM H3BO3 and 5 mM EDTA (pH 8.0) at 120 V at 4 °C for
+to drive the output signal35.To construct the packaged stabilizer, the   60 min. After electrophoresis, the gels were stained with SYBR gold
+toggle circuit without gfpmut3.1 and mCherry was amplified and assem-   nucleic acid gel stain (Invitrogen) for 20 min in 0.5× TBE buffer with
+bled with a EcoRI–XbaI-digested linear fragment of pSET152-Toggle*   agitation and then visualized on an ultraviolet transilluminator.
+to generate pSET152-Toggle*(−); then, purified fragment containing
+another PcymR* and gfpmut3.1 was assembled with an EcoRI-digested  BLI assay
+linear fragment of pSET152-Toggle*(−) to generate pSET152-Stabilizer.  The 5′-terminal biotin-labeled forward primer Ptrig_F was annealed
+To combine the trigger and stabilizer module, purified fragment con-   with the reverse primer Ptrig_R. The primer annealing was performed
+taining Ptrig and cebR* was assembled with an EcoRI-digested fragment  by heating at 95 °C for 5 min, followed by slowly cooling to 25 °C. The
+of pSET152-Stabilizer to generate pSET152-TS.                       generated bio-DNA fragments were diluted to 200 nM by Tris buffer
+    Gene sequences of σantA and PON were amplified from the genome of   containing 10 mM Tris-HCl (pH 7.5), 80 mM NaCl, 1 mM EDTA (pH 8.0)
+S. albidoflavus J1074. To construct the amplifier, the purified fragments  and 0.005% (v/v) Tween-20. Receptors were diluted to 32 nM, 64 nM
+of PcymR*, σantA, PON and sfgfp were assembled with a BamHI–SpeI-digested  and 128 nM by Tris buffer. Kinetics between receptors and Ptrig were
+linear fragment of pSET152-TS to generate pSET152-TSA-sfgfp. The   determined by BLI assay using an Octet RED96 system (FortéBio) in five
+promoter library of PON was synthesized. All 20-nt sequences of gRNA   steps: balance, DNA loading, rebalance, association and dissociation64.
+
+Nature Biotechnology
+
+
+[PDF physical page 15]
+Article                                                                                 https://doi.org/10.1038/s41587-025-02762-1
+
+The kon, koff and KD (KD = koff/kon) values were calculated by fitting the  Flow cytometry assay
+processed data (baseline correction and normalization) with a 1:1  The protoplasts were analyzed using a BD FACSCalibur flow cytometer
+model using the Octet Analysis System 21 CFR Part 11 (version 9.0). The   with a 488-nm excitation laser and the FL1 (530/30-nm bandpass filter)
+regression coefficients (R2 values) and error values were used to assess   detector. The wild-type S. venezuelae was set as the negative population
+the quality of the fits to the data.                                    to determine noise. FSC and SSC parameters were used to determine
+                                                                         single cells (thresholds: FSC-H, 207 to 1,800; FSC-W, 12,000 to 100,000;
+Fluorescence assay                                            SSC-H, 214 to 5,200; SSC-W, 46,000 to 71,000). Cells were sorted on
+The E. coli strains harboring GFP were cultured in M9 medium with   the basis of GFP fluorescence intensity. Each sample collected 30,000
+appropriate antibiotics and grown overnight at 37 °C. When needed,   events and the data were further acquired using BD FACSuite software
+IPTG was added into the medium with a final concentration of 0.2 mM.  and analyzed by FlowJo 10.6.2 software (Tree Star).
+The Streptomyces strains with the fluorescent protein were cultured
+in supplemented minimal medium (SMM)57. When needed, cumate   Liquid chromatography (LC)–tandem mass spectrometry
+or cellulose was added into the medium with a final concentration of  (MS/MS) and ultrahigh-performance LC (UPLC)–MS analysis
+30 μM or 300 μM. Cells were washed and resuspended with 1 ml of PBS.  The culture broths of S. coelicolor and S. avermitilis were extracted with
+Lastly, the fluorescence of cell suspension was detected by a Multimode   ethyl acetate and the extracts were concentrated by rotary evapora-
+Plate Reader (EnSpire). The excitation and emission wavelengths of   tion and dissolved in methanol. Qualitative and quantitative analyses
+GFP were set at 480 ± 10 nm and 510 ± 10 nm, respectively. The excita-   of SCB1 and MMF1 were generated using an LC–MS/MS platform,
+tion and emission wavelengths of mCherry were set at 587 ± 10 nm and   consisting of a 1260/6460 triple-quadrupole LC–MS/MS instrument
+610 ± 10 nm, respectively.                                              (Agilent) with a Zorbax SB-Aq column (2.1 × 100 mm, 3.5 μm; Agilent).
+                                                     The molecules were analyzed at a flow rate of 0.25 ml min−1, using
+Real-time qPCR analysis                                       a gradient comprising water with 0.1% formic acid (solvent A) and
+To identify the scbA and scbR transcriptional profile, total RNA was   acetonitrile (solvent B). Elution was initiated with 5% solvent B for
+isolated from every 12-h sampling fermentation culture of S. coelicolor   1 min, then increased linearly to 40% in 9 min, then increased linearly
+M145. To compare the transcriptional profile of the strain containing   to 95% in 5 min, was maintained for 5 min, subsequently decreased
+trigger module with or without stabilizer module, total RNA was iso-   to 5% in 2 min and was maintained for 12 min. The source parameters
+lated from every 12-h sampling fermentation culture of the correspond-  were as follows: capillary voltage, 4,000 V; gas temperature, 350 °C;
+ing strains. To demonstrate the correlation between transcriptional   nebulizer pressure, 20 psi; drying gas flow rate, 6 L min−1. Quanti-
+and translational profile of synthesized promoters, total RNA was   fication was carried out in multiple reaction monitoring mode in
+isolated from 60-h fermentation cultures of S. venezuelae. To com-  MS/MS using a positive mode to detect the parent ion to the daughter
+pare the transcriptional profile of epidoxorubicin targets driven by   ion (m/z parent > m/z daughter) for SCB1 (245.17 > 227.17) and MMF1
+SMARTS or constitutive promoters, total RNA was isolated from every   (199.09 > 181.09).
+24-h sampling fermentation culture of EPI3 and EPI-C. To demonstrate        Qualitative and quantitative analyses of avenolide were generated
+the stability of scale-up fermentation, total RNA was isolated from   using a UPLC–MS platform, consisting of an Acquity 2D I-Class PLUS/
+two-stage inoculum cultures and fermentation cultures. After RNA  Xevo G2-XS time-of-flight MS instrument (Waters) with an Acquity
+extraction, quality examination and complementary DNA synthesis,  UPLC BEH C18 column (2.1 × 100 mm, 1.7 μm; Waters). The molecules
+reverse transcription (RT)–qPCR experiments were implemented on  were analyzed at a flow rate of 0.4 ml min−1, using a gradient compris-
+a 7500 real-time PCR system (Applied Biosystems) using SYBR green   ing water with 0.1% formic acid (solvent A) and acetonitrile (solvent
+master mix (Tsingke). The related primers are listed in Supplemen-   B). Elution was initiated with 5% solvent B for 0.5 min, then increased
+tary Table 3. Relative transcript levels were quantified using the 2−ΔΔCt   linearly to 100% in 9.5 min, maintained for 3.5 min and subsequently
+method65 and are shown as relative fold changes.                     decreased to 5% in 1.5 min. Analysis was carried out using positive mode
+                                                                  to detect avenolide (241.14).
+RNA sequencing (RNA-seq) analysis
+To demonstrate the orthogonality of stabilizer and amplifier module,  HPLC analysis
+engineered S. coelicolor strains were harvested after 60-h culture in   Avermectin and epidoxorubicin were analyzed using a Zorbax SB-C18
+SMM. To evaluate the effects of SMARTS, EPI3 and EPI0 strains were  column (250 × 4.6 mm, 5 µm, Agilent). Avermectin was analyzed using
+harvested every 24-h sampling in MYM. RNA-seq was performed by   water (85%) and methanol (15%) at a constant flow rate of 0.5 ml min−1.
+Novogene Bioinformatics Technology. The number of mRNA reads of   Epidoxorubicin was analyzed using the same elution protocol as dox-
+each gene was logarithmized and compared. Gene expression levels   orubicin17. The flow rate was 0.8 ml min−1; the gradient of solvent B
+were calculated using the expected number of fragments per kilo-   started with 20%, increased to 25% in 5 min, increased to 40% in 15 min,
+base of transcript sequence per millions base pairs sequenced. The   increased to 70% in 3 min, was maintained for 5 min, subsequently
+P-value threshold was determined using the false discovery rate in   increased to 100% at 4 min, was maintained for 2 min, then decreased
+multiple testing. The significantly differentially expressed genes were   to 20% in 1 min and was maintained for 5 min.
+selected on the basis of |log2(fold change)| > 1 and P value < 0.05. Anno-
+tation classification and enrichment analysis were performed using  Response surface design
+the Kyoto Encyclopedia of Genes and Genomes and Gene Ontology   Central composite design was carried out to evaluate the strength
+public databases.                                             range of PON mutant promoters, sufficient to cover the optimized
+                                                                      interval for each target. Briefly, each target was driven by increas-
+Protoplasts preparation                                         ing strengths of promoters, determining the variation of respective
+The S. venezuelae strains were cultured in yeast extract–malt extract   titer of secondary metabolites. Appropriate promoter combinations
+(YEME)57 medium supplemented with 0.5% (w/v) glycine for 48 h. The  were chosen to control all the optimized targets of groups I and II
+mycelia were isolated by centrifugation, then washed with 10% (w/v)   simultaneously. The mixed design of the experiment was determined
+sucrose and resuspended in 5 ml of P buffer57 supplemented with   using the Design-Expert 13.0 software through the calculation of
+5 mg ml−1 lysozyme. After incubation at 37 °C for 1 h, protoplasts were   three-dimensional response surface and analysis of variance. This
+washed and resuspended in 5 ml of P buffer and filtered through cotton   study used a simplex lattice mixture design to optimize three com-
+wool to remove the mycelia.                                   ponents and at least 19 simple points were obtained. The sum of
+
+Nature Biotechnology
+
+
+[PDF physical page 16]
+Article                                                                                 https://doi.org/10.1038/s41587-025-02762-1
+
+the three components was always 100%66. The three independent  Data availability
+variables in the mixture design consisted of the promoter strength  The primary data supporting the findings of this study are accessible
+of three different targets. Each titer was applied as a dependent vari-   within the paper and Supplementary Information. Additional data can
+able for the analysis and simulation of the respondent model. Data  be obtained from the corresponding author upon reasonable request.
+were fitted using multiple linear regressions. After the regression   Source data are provided with this paper.
+analysis, the model was used to simulate the optimized ratio of the
+components.                                      References
+                                                                                 57.  Kieser, T., Bibb, M. J., Buttner, M. J., Chater, K. F. & Hopwood, D. A.
+Nematocidal effect assay                                                     Practical Streptomyces Genetics (The John Innes Foundation,
+The antinematode activity of baiweimectin was assayed using Meloido-       2000).
+gyne incognita in liquid culture, with fosthiazate as control. M. incog-   58. Wang, W. X. et al. Identification of a butenolide signaling
+nita cells were harvested from infected tomato roots and incubated on       system that regulates nikkomycin biosynthesis in Streptomyces.
+moist filter paper at room temperature to obtain age-stage-consistent           J. Biol. Chem. 293, 20029–20040 (2018).
+second-stage juveniles (J2s). After centrifuging at 200g for 2 min, J2s   59.  Rodriguez-Garcia, A., Combes, P., Perez-Redondo, R., Smith, M. C. &
+were suspended in water to a density of ~100 individuals per milliliter.       Smith, M. C.Natural and synthetic tetracycline-inducible
+Baiweimectin and fosthiazate were gradient-diluted with water con-       promoters for use in the antibiotic-producing bacteria
+taining 0.1% (v/v) Tween-80. The diluted pesticide was mixed with the       Streptomyces. Nucleic. Acids Res. 33, e87 (2005).
+J2 suspension, using equivalent liquor without pesticide as a blank   60. Wang, W. et al. Development of a synthetic oxytetracycline-
+control; then, total individuals (N) were evaluated in each treatment.       inducible expression system for Streptomycetes using de novo
+The mixtures were incubated at room temperature for 48 h, calculating       characterized genetic parts. ACS Synth. Biol. 5, 765–773 (2016).
+the number of dead individuals (K) as those failing to respond to prod-   61.  Blin, K., Pedersen, L. E., Weber, T. & Lee, S. Y. CRISPy-web:
+ding with a small dissection needle. The mortality (P) in each treatment      an online resource to design sgRNAs for CRISPR applications.
+was calculated using the formula P = K/N × 100%.                            Synth. Syst. Biotechnol. 1, 118–121 (2016).
+    Simultaneously, the mortality of the blank control (P0) was deter-   62. Yan, H. et al. A rational multi-target combination strategy for
+mined and survival (S) was calculated using the formula S = (1 − P)/        synergistic improvement of non-ribosomal peptide production.
+(1 − P0) × 100%.                                                               Nat. Commun. 16, 1883 (2025).
+                                                                    63. Chen, H. H. et al. High-yield porphyrin production through
+Field trial experiment                                               metabolic engineering and biocatalysis. Nat. Biotechnol.
+To demonstrate the nematocidal control efficiency of baiweimectin,        https://doi.org/10.1038/s41587-024-02267-3 (2024).
+field trials were conducted in Hunan and Hubei province. The test   64. Cao, J. et al. Harnessing a previously unidentified capability of
+pesticide was 5% baiweimectin emulsifiable concentrate, using 75%        bacterial allosteric transcription factors for sensing diverse small
+fosthiazate as a control. Baiweimectin (ranging from 200 g ha−1 to       molecules in vitro. Sci. Adv. 4, eaau4602 (2018).
+300 g ha−1 active ingredient) and fosthiazate (ranging from 750 g ha−1   65.  Livak, K. J. & Schmittgen, T. D. Analysis of relative gene expression
+to 2,800 g ha−1 active ingredient) were applied as root-filling treatments       data using real-time quantitative PCR and the 2−ΔΔCt method.
+with water, using equivalent water without pesticide as a blank control.      Methods 25, 402–408 (2001).
+Each treatment was arranged randomly in different cells for four rep-   66. Zhou, H. et al. Systematic development of a highly efficient cell
+licates. A five-point sampling method was used to investigate ten plants        factory for 5-aminolevulinic acid production. Trends Biotechnol.
+in each cell after 45 days of treatment and the gall index (GI) was       42, 1479–1502 (2024).
+recorded. Root galling was indexed on a scale of 0–7. The disease index
+(I) was calculated using the formula: I = ∑GI/70              Acknowledgements
+    Simultaneously, the disease index of the blank control (I0) was   This work was supported by the National Natural Science
+determined and the control efficiency (E) was calculated using the   Foundation of China (W2411016 and 32170095 to W.W. and
+formula E = (I0 − I)/I0.                                           32121005 and 32327801 to L.Z.), the National Key Research and
+   The greenhouse experiment took place in Shandong province.   Development Program of China (2020YFA0907800 to L.Z. and
+The test crop was seedless watermelon with a density of 6,720 plants  2022YFC2105400 to C.Z.), the Agricultural Science and
+per hectare, separated into 300 plants per cell with protection lines.   Technology Innovation Program of Chinese Academy of Agricultural
+The test pesticide was baiweimectin effervescent tablet, using 75%   Sciences (CAAS-CSCB-202401 to S.L.), the Youth Innovation
+fosthiazate as a control. Baiweimectin (one tablet per plant, 1 g per   Promotion Association CAS (Y202027 to W.W.) and the 111 Project
+tablet, containing 5% baiweimectin) and fosthiazate (3,000 g ha−1 active   (B18022 to L.Z). We would like to thank Z. Fan, G. Ai, E. Li and T. Zhao
+ingredient) were applied with water during watermelon transplanta-   from IMCAS for the BLI assay, LC–MS/MS analysis, UPLC–MS analysis
+tion, using equivalent water without pesticide as a blank control. Each  and flow cytometry assay, respectively.
+treatment was arranged randomly in different cells for three replicates.
+The method of sampling and calculating control efficiency was the  Author contributions
+same as for tomato field trials.                                       W.W., Z. Li, S.L. and L.Z. conceptualized and supervised
+                                                                  the project. B.Y. and S.Q. designed and performed the main
+Statistical analysis                                               experiments. B.X., L.L. and L.B. performed the large-scale
+All experiments were performed independently with at least three   fermentations and field trials. S.Q. and D.L. performed the molecular
+biological replicates and data were presented as the mean val-   docking analysis. Y.L. conducted the response surface analysis.
+ues ± s.d. A two-tailed Student’s t-test was used to demonstrate sta-   Z. Liang, C.Z. and Y.L. participated in the experiments. W.W., B.Y.
+tistical significance; P < 0.05 was used as the threshold for statistical  and Z. Li wrote the manuscript. J.Z., S.Z., C.C., X.X. and L.Z. edited
+significance.                                                      the manuscript.
+
+Reporting summary                             Competing interests
+Further information on research design is available in the Nature   W.W., B.Y. and Z.L. have filed provisional patents for this work
+Portfolio Reporting Summary linked to this article.                     to the China National Intellectual Property Administration
+
+Nature Biotechnology
+
+
+[PDF physical page 17]
+Article                                                                                 https://doi.org/10.1038/s41587-025-02762-1
+
+(CN 202510569133.9 and CN 202510569134.3). The remaining authors   Correspondence and requests for materials should be addressed to
+declare no competing interests.                                  Shanshan Li, Lixin Zhang or Weishan Wang.
+
+Additional information                                  Peer review information Nature Biotechnology thanks Shuguang
+Extended data is available for this paper at                        Zhang and the other, anonymous, reviewer(s) for their contribution to
+https://doi.org/10.1038/s41587-025-02762-1.                           the peer review of this work.
+
+Supplementary information The online version contains supplementary   Reprints and permissions information is available at
+material available at https://doi.org/10.1038/s41587-025-02762-1.          www.nature.com/reprints.
+
+
+
+
+
+Nature Biotechnology
+
+
+[PDF physical page 18]
+Article                                                                                 https://doi.org/10.1038/s41587-025-02762-1
+
+
+
+
+
+Extended Data Fig. 1 | DNA alignment of identified binding sites of the promoters regulated by quorum sensing receptors. The sequences were aligned using
+MUSCLE, the conserved palindromic sequences (identity > 70%) were highlighted in yellow, the completely conserved DNA bases were marked with asterisks.
+
+
+
+
+
+Nature Biotechnology
+
+
+[PDF physical page 19]
+Article                                                                                 https://doi.org/10.1038/s41587-025-02762-1
+
+
+
+
+
+Extended Data Fig. 2 | Determination of interaction between Ptrig and             lane 4: His6-WP_012999107.1 (24.3 kDa), lane 5: His6-WP_242709678.1 (26.9 kDa),
+receptors in vitro. a, Purification of known quorum sensing signalling molecule     lane 6: His6-WP_226048631.1 (23.5 kDa). c, d, e and f, Interaction between Ptrig and
+receptors. The purity was confirmed by SDS-PAGE analysis. Lane 1: His6-ScbR        representative receptors determined by EMSA. KasO* intergenic region (97 bp)
+(24.9 kDa), lane 2: His6-AvaR1 (26.9 kDa), lane 3: His6-SabR1 (25.5 kDa), lane 4:       was used as negative control (lane 1). The concentration of both kasO* and Ptrig
+His6-MmfR (25.1 kDa). b, Purification of putative quorum sensing signaling       DNA fragments used was 1 pmol. Lanes 2 to 6 show the addition of increasing
+molecule receptors. The purity of the putative receptors was also confirmed       amounts of receptors (0, 0.8, 1.6, 2.4, 3.2 pmol respectively) to the protein–DNA
+by SDS-PAGE analysis. Lane 1: His6-WP_067441803.1 (24.4 kDa), Lane 2:             complexes. The SDS-PAGE and the EMSA assay were performed three times
+His6-WP_205368416.1 (26.7 kDa), lane 3: His6-WP_185944307.1 (26.2 kDa),               (n = 3; replicates are shown in Source Data files).
+
+
+
+
+
+Nature Biotechnology
+
+
+[PDF physical page 20]
+Article                                                                                 https://doi.org/10.1038/s41587-025-02762-1
+
+
+
+
+
+Extended Data Fig. 3 | Determination of Ptrig response to native quorum           A3(2) Δ scbA. b, Temporal profiles of fluorescence in quorum sensing mutant
+sensing systems. a, Temporal profiles of fluorescence intensity and intracellular     strains Δ scbR and Δ scbA, respectively. Values are shown as mean ± s.d. from three
+MMF1 quorum sensing signaling molecule concentration in S. coelicolor               (n = 3) independent biological replicates.
+
+
+
+
+
+Nature Biotechnology
+
+
+[PDF physical page 21]
+Article                                                                                 https://doi.org/10.1038/s41587-025-02762-1
+
+
+
+
+
+Extended Data Fig. 4 | Interaction between Ptrig and representative receptors from cluster V to X. The curves were fitted by the data determined by BLI.
+a, WP_067441803.1 in cluster V. b, WP_205368416.1 in cluster VI. c, WP_185944307.1 in cluster VII. d, WP_012999107.1 in cluster VIII. e, WP_242709678.1 in cluster IX.
+f, WP_226048631.1 in cluster X.
+
+
+
+
+
+Nature Biotechnology
+
+
+[PDF physical page 22]
+Article                                                                                 https://doi.org/10.1038/s41587-025-02762-1
+
+
+
+
+
+Extended Data Fig. 5 | Characterization and optimization of repression          optimized repressor was driven by the PTAC promoter which is induced by IPTG.
+systems. a, Determination of leakage in four inducible systems by evaluating       The input promoter activity was measured by the same sfgfp gene, and the IPTG
+the fluorescence without inducers. b, Evaluation of the toggle effect of bistable      inducer was employed to induce the input promoter via deactivating to the
+genetic circuit. Medium with cumate or cellulose was refreshed every 18 h.           LacI repressor. f, and g, Dose−response curves of the native dimer and artificial
+c, Temporal variation of fluorescence without inducers in the strain harboring       tetramer CymR*/CebR*. h, Evaluation of four variants of PcebR. i, Evaluation of
+unoptimized bistable circuit. d, Schematic illustration of the tetramer design       the toggle effect of redesigned bistable gene circuit. Medium with cumate or
+of the repressors. e, Schematic of genetic circuits used for evaluating the             cellulose was changed every 18 h. For a, b, c, f, g, h and i, values are shown as mean
+regulatory behavior of the optimized repressors. The output promoter activity     ± s.d. from three (n = 3) independent biological replicates.
+was indicated by fluorescence of sfgfp reporter, while the expression of the
+
+
+
+
+
+Nature Biotechnology
+
+
+[PDF physical page 23]
+Article                                                                                 https://doi.org/10.1038/s41587-025-02762-1
+
+
+
+
+
+Extended Data Fig. 6 | Performance of stabilizer and amplifier module on         flow cytometry. d, Fluorescence activated cell sorting to obtain S. venezuelae
+transcriptional level. a, Quantification of gene expression outputs from           with varying strength of PON mutants. Gating strategy was based on GFP
+strains with or without packaged stabilizer module. The expression levels were      fluorescence intensity. e, Correlation between transcriptional and translational
+measured by RT-qPCR. Relative expression values at 12 hours were normalized       profiles of 10 selected mutant promoters derived from PON. The transcriptional
+to a value of one. b, Characterization the amplification effect by comparing the       profile was evaluated by quantitative analysis of sfgfp driven by these promoters,
+relative transcriptional levels in the strains with and without amplifier module.      while translational efficiency was evaluated based on the fluorescence
+c, Comparison of the GFP fluorescence intensity between S. venezuelae wild type     intensity of sfGFP. For a and b, values are shown as mean ± s.d. from three (n = 3)
+(left) and engineering strain harboring sfgfp driven by PON mutants (right) using     independent biological replicates.
+
+
+
+
+
+Nature Biotechnology
+
+
+[PDF physical page 24]
+Article                                                                                 https://doi.org/10.1038/s41587-025-02762-1
+
+
+
+
+
+Extended Data Fig. 7 | Comparison of native quorum sensing system and          multiplexer module, the artificial control system SMARTS can response to
+artificial control system SMARTS. A quorum sensing signal transduction           diverse quorum sensing, and consequently convert the transient quorum
+pathway in Streptomyces griseus was selected as a representative to elucidate        sensing signals into stable, multiplexed outputs with adjustable strength in
+the native regulatory mechanism. This signal transduction pathway can be           different Streptomyces strains. Furthermore, after responding to the quorum
+divided into three stages: recognition, transduction and output. The native         sensing signal, SMARTS is independently regulated and demonstrates complete
+quorum sensing system was adapted for dynamic physiological regulation          orthogonality with the endogenous regulatory system.
+in Streptomyces species. In contrast, by integrating trigger, stabilizer and
+
+
+
+
+
+Nature Biotechnology
+
+
+[PDF physical page 25]
+Article                                                                                 https://doi.org/10.1038/s41587-025-02762-1
+
+
+
+
+
+Extended Data Fig. 8 | Baiweimectin activity against soil parasitic nematodes. a, Survival curve of nematodes treated with baiweimectin compared to commercially
+available fosthiazate. b, LC50 and LC90 values derived from the survival curve. For a, values are shown as mean ± s.d. from four (n = 4) independent biological replicates.
+
+
+
+
+
+Nature Biotechnology
+
+
+[PDF physical page 26]
+Article                                                                                 https://doi.org/10.1038/s41587-025-02762-1
+
+
+
+
+
+Extended Data Fig. 9 | Central composite design of baiweimectin optimization targets. a, aveR. b, avtAB. c, meiC. d, fadD. e, ecaA-bicA. f, gRNA targeting sucCD.
+Values are shown as mean ± s.d. from four (n = 3) independent biological replicates. The statistical analysis is based on two-tailed unpaired Student’s t-test.
+
+
+
+
+
+Nature Biotechnology
+
+
+[PDF physical page 27]
+Article                                                                                 https://doi.org/10.1038/s41587-025-02762-1
+
+
+
+
+
+Extended Data Fig. 10 | Optimization the production of epidoxorubicin.         corresponding enzymatic reactions. Ac-CoA, acetyl-CoA; M-CoA, malonyl-CoA
+a, Group I targets for enhancing epidoxorubicin production. Sources and the        bldD. c-i, Central composite design of epidoxorubicin optimization targets.
+corresponding reactions of the targets were annotated. DOX, doxorubicin; Epi,       c, dnrIN. d, avtE. e, dnrSQ. f, gRNA targeting dnrH. g, panK. h, acc. i, bldD.
+epidoxorubicin; ε-RHO, ε-rhodomycinone; RHOD, rhodomycin D. b, Group II        For c-i, values are shown as mean ± s.d. from four (n = 3) independent biological
+targets for enhancing epidoxorubicin production with annotated sources and        replicates. The statistical analysis is based on two-tailed unpaired Student’s t-test.
+
+
+
+
+
+Nature Biotechnology
+
+
+[PDF physical page 28]
+
+
+
+[PDF physical page 29]
+
+
+
+[PDF physical page 30]
+
+
+
+[PDF physical page 31]

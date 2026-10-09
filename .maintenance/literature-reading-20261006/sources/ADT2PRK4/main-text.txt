@@ -1,0 +1,650 @@
+
+[PDF physical page 1]
+Planta (2024) 259:87
+https://doi.org/10.1007/s00425-024-04363-9
+
+ ORIGINAL ARTICLE
+
+
+Insights into taxadiene synthase catalysis and promiscuity facilitated
+by mutability landscape and molecular dynamics
+
+Siqi He1 · Ingy I. Abdallah1,2 · Ronald van Merkerk1 · Wim J. Quax1 
+
+
+Received: 13 November 2023 / Accepted: 7 February 2024 / Published online: 9 March 2024
+© The Author(s) 2024
+
+Abstract
+Main conclusion  Protein modeling, carbocation docking, and molecular dynamics along with structure-based muta-
+bility landscapes provided insight into taxadiene synthase catalysis (first step of the anticancer Taxol biosynthesis),
+protein structure–function correlations, and promiscuity.
+
+Abstract  Plant terpenes belong to one of the largest and most diverse classes of natural products. This diversity is driven
+by the terpene synthase enzyme family which comprises numerous different synthases, several of which are promiscuous.
+Taxadiene synthase (TXS) is a class I diterpene synthase that catalyzes the first step in the biosynthesis pathway of the
+diterpene Taxol, an anticancer natural product produced by the Taxus plant. Exploring the molecular basis of TXS catalysis
+and its promiscuous potential garnered interest as a necessary means for understanding enzyme evolution and engineer-
+ing possibilities to improve Taxol biosynthesis. A catalytically active closed conformation TXS model was designed using
+the artificial intelligence system, AlphaFold, accompanied by docking and molecular dynamics simulations. In addition,
+a mutability landscape of TXS including 14 residues was created to probe for structure–function relations. The mutability
+landscape revealed no mutants with improved catalytic activity compared to wild-type TXS. However, mutations of residues
+V584, Q609, V610, and Y688 showed high degree of promiscuity producing cembranoid-type and/or verticillene-type major
+products instead of taxanes. Mechanistic insights into V610F, V584M, Q609A, and Y688C mutants compared to the wild
+type revealed the trigger(s) for product profile change. Several mutants spanning residues V584, Q609, Y688, Y762, Q770,
+and F834 increased production of taxa-4(20),11(12)-diene which is a more favorable substrate for Taxol production compared
+to taxa-4(5),11(12)-diene. Finally, molecular dynamics simulations of the TXS reaction cascade revealed residues involved
+in ionization, carbocation stabilization, and cyclization ushering deeper understanding of the enzyme catalysis mechanism.
+
+
+
+
+
+Communicated by Dorothea Bartels.
+
+Siqi He and Ingy I. Abdallah should be considered joint first author.
+
+* Wim J. Quax
+    w.j.quax@rug.nl
+1   Department of Chemical and Pharmaceutical Biology,
+    Groningen Research Institute of Pharmacy, University
+    of Groningen, Antonius Deusinglaan 1, 9713 AV Groningen,
+   The Netherlands
+2   Department of Pharmacognosy, Faculty of Pharmacy,
+    Alexandria University, Alexandria, Egypt
+
+
+                                                                                                                                      Vol.:(0123456789)
+
+
+[PDF physical page 2]
+87   Page 2 of 14                                                                                                            Planta (2024) 259:87
+
+Graphical abstract
+
+
+
+
+
+Keywords  AlphaFold model · Catalytic activity · Mutagenesis · Product profile · Terpenoid
+
+Abbreviations                                        and Zerbe 2019; Jia et al. 2022). Terpenes are characterized
+GGPP            Geranylgeranyl pyrophosphate          by their complex structures as they all originate from com-
+MD              Molecular dynamics               mon isoprenyl building blocks. The reaction cascades by
+PPi              Pyrophosphate                       which terpenes are synthesized are based on elongation of
+Taxa-4(5)-diene    Taxa-4(5),11(12)-diene                    acyclic poly-isoprenyl precursors accompanied with the hall-
+Taxa-4(20)-diene  Taxa-4(20),11(12)-diene               mark carbocationic-driven cyclization and/or rearrangement
+TXS             Taxadiene synthase                    which is the main cause of the complexity of their structures.
+V                   Verticillia-3(4),7(8),12(13)-triene       The basic structures of all these different terpenes are deter-
+V1                 Verticillia-4(20),7(8),11(12)-triene       mined by the involved terpene synthase enzymes. Terpene
+V2                  Verticillia-3(4),7(8),11(12)-triene          diversity is mainly attributed to the numerous diverse ter-
+                                                     pene synthases involved in their biosynthesis, in addition
+                                                                to the promiscuity of some terpene synthases producing
+Introduction                                             multiple products (Bohlmann et al. 1998; Degenhardt et al.
+                                                        2009; Gao et al. 2012; Christianson 2017). Hence, research
+Terpenes constitute the largest class among the myriad of    into enzyme structure–function relationships of terpene syn-
+small molecule natural products that are broadly spread    thases underlying their complex mechanism cascade gar-
+through all domains of life. Plants yield considerably the    nered increased interest.
+greatest array of diverse terpenoid structures, in the scores     The enzyme taxadiene synthase (TXS), a class I diter-
+of tens of thousands, with various roles. Terpene synthase   pene synthase, is responsible for the catalysis of the first
+enzymes are pivotal players affecting terpene diversity.   committed step toward the biosynthesis of the diterpene
+Unraveling the metabolic enzymes that create terpene chem-    Taxol, a well-known anticancer plant natural product pro-
+ical diversity became a long standing research concern due   duced by the Taxus plant. Diterpene synthases comprise
+to the biological and economic importance of terpenes. In    both class I and class II enzymes. The structure of diterpene
+addition, understanding the function and development of the    synthases is composed of three domains designated αβγ.
+terpene synthase family can give insight into plant evolution    Reactions by class I diterpene synthases occur solely in the
+(Chen et al. 2011; Pichersky and Raguso 2018; Karunanithi   α domain, while those by class II enzymes take place at the
+
+
+[PDF physical page 3]
+Planta (2024) 259:87                                                                                            Page 3 of 14  87
+
+interface of the β and γ domains. TXS, as a class I diter-   (CYP725A4) reacts differently toward the two isomers;
+pene synthase, catalyzes the cyclization of geranylgeranyl    taxa-4(5)-diene and taxa-4(20)-diene. Taxa-4(5)-diene is
+pyrophosphate (GGPP), the universal diterpene precursor, to    transformed to 5(12)-oxa-3(11)-cyclotaxane (OCT) as the
+taxa-4(5),11(12)-diene (taxa-4(5)-diene) as a major product    major product with minor amount of taxa-4(20),11(12)-dien-
+in the α domain of the enzyme. Full length TXS consists    5α-ol, the desired product for Taxol biosynthesis, while taxa-
+of 862 residues, including an N-terminal plastid target-    4(20)-diene is exclusively hydroxylated with a high degree
+ing sequence of ≈ 80 residues which is usually deleted to    of specificity to taxa-4(20),11(12)-dien-5α-ol. Based on lit-
+express a pseudo mature form of TXS. Assembled into three     erature, a proposed reaction cascade of TXS catalysis toward
+α-helical domains, the active site of TXS is positioned in    Taxol biosynthesis is shown in Fig. 1 (Lin et al. 1996; Jin
+the C-terminal domain (S553-V862) comprising the metal-     et al. 2005; Koksal et al. 2011; Hong and Tantillo 2011;
+binding motifs ­D613DMAD617 and ­N757DTKT761YQAE765    Schrepfer et al. 2016; Edgar et al. 2017; Ansbacher et al.
+that coordinate three ­Mg+2 ions, typical to a class I terpene    2018; Escorcia et al. 2018).
+synthase (Koksal et al. 2011; Gao et al. 2012; Pemberton    TXS enzyme controls and guides the reaction cascade
+et al. 2017).                                             through the unstable intermediate carbocations toward its
+  Being a class I terpene synthase, TXS reaction cascade    product taxadiene while attempting to minimize side reac-
+(Fig. 1) starts with metal-triggered ionization of the sub-     tions. Understanding the molecular basis of TXS catalysis
+strate (GGPP) pyrophosphate (PPi) group. This leads to the    and its promiscuous potential is of great interest as an essen-
+creation of the highly reactive geranylgeranyl carbocation     tial tool for unraveling enzyme evolution and possible engi-
+followed by multistep rearrangements, proton transfers,    neering to further improve the biosynthesis process of Taxol.
+and cyclizations of the resulting carbocations leading to the   The aim of the current study is to gain a more comprehen-
+production of the major product taxa-4(5)-diene with other    sive understanding of TXS catalysis and the active site resi-
+minor products along the reaction cascade namely; taxa-    dues involved in its reaction cascade. A mutability landscape
+4(20),11(12)-diene (taxa-4(20)-diene), cembrene A, verticil-    of selected active site residues of TXS was created to explore
+lia-3(4),7(8),12(13)-triene (V), verticillia-4(20),7(8),11(12)-     their role in TXS mechanism and the impact of their muta-
+triene (V1), and verticillia-3(4),7(8),11(12)-triene (V2).    tion on activity and product profile. It was revealed that
+This is the first committed step toward the production of    the promiscuity of TXS, as several terpene synthases, was
+Taxol. Following that, cytochrome p450s are responsible    amplified by some mutations. This research provides further
+for oxygenation of the taxadiene skeleton at multiple loca-    insight into the mechanistic structure–function relationships
+tions, in addition to acylation via acyltransferases to syn-    of the enzyme and its promiscuous nature pinpointing essen-
+thesize Taxol. Cytochrome p450 taxadiene-5α-hydroxylase     tial active site residues for TXS reaction cascade, in addition
+
+
+
+
+
+Fig. 1   Proposed  reaction cascade of taxadiene synthase  catalysis     triene; V2: verticillia-3(4),7(8),11(12)-triene; Taxa-4(5)-diene: taxa-
+toward Taxol biosynthesis. GGPP: geranylgeranyl pyrophosphate; V:     4(5),11(12)-diene; Taxa-4(20)-diene: taxa-4(20),11(12)-diene
+verticillia-3(4),7(8),12(13)-triene; V1:  verticillia-4(20),7(8),11(12)-
+
+
+[PDF physical page 4]
+87   Page 4 of 14                                                                                                            Planta (2024) 259:87
+
+to, residues that can alter the major product of TXS in favor    the first steps of the reaction cascade. Similarly, interesting
+of one of its minor side products. It also contributes to the   TXS mutant models were created and examined.
+efforts of engineering TXS as a means of overcoming bottle
+necks in the Taxol biosynthesis process.                   Creation of TXS mutant library
+
+                                   A truncated txs gene from the plant Taxus baccata (Gen-
+Materials and methods                        eBank/NCBI accession number AY424738) cloned in
+                                                      frame with the N-terminal histidine tag of pET15b vector
+Creation of TXS model and selection of residues        was utilized as the template. Randomization of each resi-
+for mutation                                        due was performed through the small-intelligent strategy
+                                                      (Tang et al. 2012; Abdallah et al. 2018) where a mixture of
+AlphaFold2 Colab was employed to predict the structure    four pairs of complementary primers (Eurofins, Ebersberg,
+of TXS from its amino acid sequence (Jumper et al. 2021;   Germany) with the degenerate codons/codons NDT, VMA,
+Varadi et al. 2022) followed by an extra relaxation step with   ATG, and TGG was used at a ratio of 12:6:1:1, respectively.
+AMBER to ensure accurate location of the side chains of   The library was generated using Quikchange method where
+the residues. AlphaFill was used to enrich the TXS Alpha-   PCR reactions (50 μl) with the primer mixture were executed
+Fold model with magnesium ions and pyrophosphate group    using Phusion high fidelity DNA polymerase and Phusion
+based on what have been experimentally detected in homolo-  GC buffer followed by digestion with DpnI and transfor-
+gous protein structures (Hekkelman et al. 2023). Quantum    mation into competent E. coli XL1-blue. The generated
+mechanical/molecular mechanical (QM/MM) method was    colonies per residue were sequenced by GATC Biotech.
+used to obtain more accurate atomic charges of ligands for    Following sequencing, each chosen colony was individu-
+docking calculations by considering the polarization effects     ally grown in Luria − Bertani (LB) broth supplemented with
+of enzymes on ligands. Gaussian09 software was applied for   100 μg/ml ampicillin. Through the NucleoSpin 96 Plasmid
+restrained electrostatic potential (RESP) charge for quan-   Core Kit (BIOKÉ, Leiden, The Netherlands), each plasmid
+tum mechanics optimization of the partial charges of the    containing a distinct mutant TXS gene was isolated from
+different carbocation intermediates in preparation for their     its corresponding culture. After that, the isolated plasmids
+docking (Bayly et al. 1993; Frisch et al. 2009; Delgado-   were separately transformed into chemically competent E.
+Arciniega et al. 2023). AutoDockVina was utilized for dock-    coli BL21 (DE3). The mutant library consisting of E. coli
+ing GGPP and the intermediate carbocations in the active   BL21 transformants, each harboring a pET15b vector with a
+site of the generated TXS model (Trott and Olson 2010;    unique TXS gene, was stored at -80 ºC till later use.
+Eberhardt et al. 2021). Finally, 20 ns molecular dynamics
+(MD) simulations (Wijma et al. 2014) were performed using    Expression, purification, and quantitation of the TXS
+YASARA (version 23.5.19; YASARA Biosciences). The   mutant library
+molecular dynamics simulation study was conducted with
+the YASARA dynamics software package (Land and Hum-   The E. coli BL21 (DE3) strains retaining TXS mutant genes
+ble 2018) with the aid of the YAMBER3 force field. The   were inoculated into 1 ml LB medium supplemented with
+enzyme–substrate complexes were initially cleaned and min-   100 μg/ml ampicillin and incubated at 37 °C overnight. The
+imized, and placed within a rectangular simulation cell. The    overnight cultures were diluted, in 15 ml auto-induction
+distances between the protein and the periodic boundaries   medium [phosphate buffer (pH 7.2), 0.5% yeast extract, 2%
+of the cell were maintained at a minimum of 7.5 Å (Wijma    tryptone, 1% NaCl, 0.6% glycerol, 0.05% glucose and 0.2%
+et al. 2014). MD simulations were employing a leapfrog    lactose] containing 100 μg/ml ampicillin, to ­OD600 of 0.05.
+integration scheme and a Berendsen thermostat (Berendsen   The cultures were incubated at 37 ℃, 250 rpm till reach-
+et al. 1984; Krieger et al. 2004) under pressure control. The    ing ­OD600 of 0.7. Then they were grown overnight at 20 ℃,
+physiological conditions of the simulation cells were set as   190 rpm. The following day, the cultures were centrifuged
+298 K, pH 7.4, and 0.9% NaCl. The temperature was gradu-    for 10 min at 2100 g, 4 ℃ to collect the cell pellets. Then
+ally increased from 5 to 298 K during 30 ps, after which    the cell pellets were subjected to three cycles of freezing
+the simulation was allowed to equilibrate for 70 ps before    and thawing followed by resuspension in 1.5 ml lysis buffer
+the production phase simulation of 20,000 ps. Snapshots    [50 mM Tris–HCl, pH 7.5–8.0, 100 mM NaCl, 10 mM
+were obtained every 25 ps. The active site of the TXS model    β-mercaptoethanol, cOmplete™ EDTA-free protease inhibi-
+with docked GGPP was examined using YASARA to detect     tor cocktail tablet (one tablet per 50 ml), 1 mg/ml lysozyme
+interactions and select candidate residues for mutation. In   and 10 µg/ml DNase] and 30 min. incubation at 20 ℃,
+addition, MD simulations of the docked geranylgeranyl,   250 rpm for cell lysis. Centrifugation for 10 min at 2100 g
+cembren-15-yl and verticillen-12-yl cations gave insight into   was performed to collect the soluble protein fractions.
+
+
+[PDF physical page 5]
+Planta (2024) 259:87                                                                                            Page 5 of 14  87
+
+Finally, protein purification was executed through using   250 °C; the oven initial temperature was adjusted to 50 °C
+His MultiTrap™ Fast Flow GE Healthcare 96-well plates    with an increase of 5 °C/min till 180 °C and then an incre-
+with binding and wash buffer (20 mM Tris–HCl, 10 mM   ment of 10 °C/min till 300 °C. The solvent cut-off was
+­MgCl2, 150 mM NaCl, 1 mM DTT and 20 mM imidazole,   5 min. The product profile of all reactions was compared
+pH 7.4–8), and addition of 10% glycerol and 250 mM imi-    to that of wild-type TXS. The NIST (National Institute
+dazole for the elution buffer. SDS gels were used to visualize    of Standards and Technology, Gaithersburg, MD, USA)
+the purified protein library. After that, the concentrations   and other libraries were used for identification of different
+of the mutants were determined using Thermo Scientific    products by comparing their mass spectra to those of the
+NanoDrop 1000 spectrophotometer and calculated based     libraries. The peak areas were estimated using the integra-
+on molecular weight and extinction coefficient.                 tion tools in GCMSsolution 1.20 software (Shimadzu, Den
+                                                     Bosch, The Netherlands) and corrected by means of the
+Bioluminescent PPiLight™ inorganic pyrophosphate    peak corresponding to the internal standard tetradecane.
+assay for TXS catalytic activity
+
+The quantity of PPi produced from the conversion of the
+GGPP substrate to taxadiene by TXS is the measure used   Results
+in this assay, where AMP is converted to ATP (by the pro-
+duced PPi) which then reacts with luciferase enzyme releas-   Closed conformation TXS model provides more
+ing light (Eriksson et al. 2001). High-throughput screening   dynamic insight compared to open conformation
+of the library was facilitated using Perkin Elmer JANUS    crystal structure
+8-tip Varispan Automated Liquid Handling Workstation.
+In opaque white wall flat bottom 96-well microtiter plates   The currently published X-ray crystal structure of TXS
+(Greiner LUMITRAC™ 600 microplates), 60 μl reactions    (Koksal et al. 2011) is an open catalytically inactive form
+were prepared by mixing 0.15 μM TXS protein and 37 μM    of the enzyme owing to the absence of the N-terminal
+GGPP in 10 mM Tris–HCl buffer (pH 7.4), 10 mM ­MgCl2,    residues, (80–110), that would both close the active site
+2 mM DTT with 20 μl Lonza PPiLight™ converting and   and keep a nearby loop in a place that caps the entrance of
+detection reagent mixture. The plates were instantaneously    the active site so as to prevent the premature quenching of
+incubated in a 30 ºC preheated chamber of FLUOstar Omega    the reactive carbocations by the bulk solvent. Hence, the
+Microplate Reader with moderate shaking. The lumines-     artificial intelligence system, AlphaFold, was employed
+cence signal was measured continually for 2 h and expressed    to predict a closed catalytically active structure of TXS
+as Relative Light Units (RLUs). RLUs/s was reported as the   where the active site in the generated TXS model is capped
+measure of the catalytic rate of reaction of each mutant and   by the N-terminal residues (80–110) and three loops; the
+compared to that of the wild type.                        J-K loop (K836-D850), the A-C loop (S569-V581) and
+                                               H-α1 loop (R768-S773) (Fig. 2a) (Schrepfer et al. 2016;
+GC–MS assay for evaluation of the TXS mutant          Freud et al. 2017; Escorcia et al. 2018). Our model is simi-
+library product profile                                          lar to the previously published Freud model (Freud et al.
+                                                     2017) in the position and role of R578 and R580, that are
+The product profiles of the TXS mutants were determined   known to be highly conserved among terpene synthases of
+through an in vitro GC–MS assay. Purified enzymes    class I, where R578 directly interacts with the pyrophos-
+(1 µM) in 10 mM Tris–HCl buffer (pH 7.4), containing    phate moiety, while R580 caps the active site by interact-
+10 mM ­MgCl2, 2 mM DTT, were assayed in 0.5 ml reac-    ing with neighboring loops. Notably, this is different from
+tions with 20 μM GGPP substrate. The reactions were    the Schrepfer model (Schrepfer et al. 2016) where R580
+overlaid with 200 µl hexane containing tetradecane inter-     is the residue interacting with the pyrophosphate moiety.
+nal standard and incubated for 1.5 h at 30 ºC. Then the   The generated closed conformation TXS model was used
+reactions were stopped by addition of 0.5 ml stop buffer    for docking of the substrate and intermediate carboca-
+(0.2 M KOH and 0.1 M EDTA). A Shimadzu GCMS-    tions. Docking carbocations into the active site of terpene
+QP2010SE system equipped with a GC-2010 Plus high-    synthases is challenging (O’Brien et al. 2018; Raz et al.
+performance gas chromatograph was used for the assay.    2020). Docking produced poses with various orientations
+Two microliters of each n-hexane extract was injected    relative to the active site. These poses were clustered, and
+splitless on a HP-5MS (5%-phenyl)-methylpolysiloxane    then accurate substrate folding and correct stereochemistry
+column (Agilent J&W 0.25 mm inner diameter, 0.25 µm    of the carbocations were considered. Molecular dynamics
+thickness, 30 m length) using helium carrier gas and ana-   (MD) simulations were performed to reflect the natural
+lyzed in total ion scan. The injector temperature was set to   TXS reaction cascade as closely as possible.
+
+
+[PDF physical page 6]
+87   Page 6 of 14                                                                                                            Planta (2024) 259:87
+
+
+
+
+
+Fig. 2   a TXS model showing N-terminal residues (80–110), the J-K loop (K836-D850), the A-C loop (S569-V581), and H-α1 loop (R768-S773)
+capping the active site. b The docked GGPP substrate and the active site residues selected for mutation
+
+Selection of residues for site‑directed mutagenesis     These choices were based on educated assumptions; never-
+                                                                  theless, other residues influencing enzyme activity maybe
+The active site residues in the created TXS model with    discovered in the future and some of the weeded out resi-
+docked GGPP substrate were examined to choose can-   dues may later prove to be worthy of further research.
+didate residues for mutation. Important residues can be    Focusing the sequence alignments on the selected residues
+located at any position in the enzyme structure; however,    (Fig. S2) revealed that F602, Y688, Y706, Y762, and F834
+they are usually found inside or near the active site. Resi-    are mainly conserved as aromatic, basic or strongly simi-
+dues within 10 Å in the vicinity of the active site were ini-     lar residue with few exceptions. S713, V714, T761, and
+tially considered, numbering around 84 residues. However,   Q770 tend to be conserved as identical or strongly similar
+that radius included residues further from the substrate so    residues with some exceptions. Unlike TXS, in the major-
+these were eliminated bringing the number down to 58     ity of the aligned sequences, V584 is mainly conserved
+residues within 7 Å radius. This number was narrowed    as cysteine while S587 is conserved as tryptophan. G606,
+down after considering predicted ligand–residue inter-   Q609, V610 are not conserved.
+actions, reports of important TXS residues in literature
+and sequence alignment with several terpene synthases
+to reveal conserved residues. Several conserved resi-   Creation of TXS mutant library
+dues belonging to the two metal ion binding motifs were
+excluded. Also, residues that are mostly conserved among  A variety of TXS genes encoding different variants of the
+terpene synthases or were previously proven to be essential    selected residues were created to express the mutability
+for activity (i.e., their mutation causes loss of activity)    landscape of TXS. The “small-intelligent” strategy was
+were excluded, such as R578, R580, W753, Y835, and    utilized instead of the typical NNN or NNS(K) degenerate
+Y841. Finally, the remaining residues were evaluated for    codons for site-directed mutagenesis. The “small-intelligent”
+their prospects based on TXS literature and the importance    strategy uses a set of four codons; NDT, VMA, ATG, and
+of the corresponding residues in other terpene synthases.  TGG allowing the exclusion of E. coli rare codons and pre-
+Also, FireProt and Hotspot Wizard 3.0, in silico tools for    venting stop codons generation and amino acid biases. This
+automated and reliable design of thermostable mutant pro-   method increases the quality of the mutant library produced
+teins depending on information about sequence, structure,    (Tang et al. 2012; Abdallah et al. 2018). A mutant library
+and evolution, were used for computational predictions.    of 266 variants was generated. The library was expressed in
+Finally, 14 residues were selected for mutation (Fig. S1),    E. coli and purified based on the N-terminal his-tag of the
+namely V584, S587, F602, G606, Q609, V610, Y688,    proteins. The purified proteins were visualized on SDS gel
+Y706, S713, V714, T761, Y762, Q770, and F834 (Fig. 2b).    to confirm expression and purity (Fig. S3).
+
+
+[PDF physical page 7]
+Planta (2024) 259:87                                                                                            Page 7 of 14  87
+
+Mutability landscape of TXS for catalytic activity        of activity while mutants indicated with yellow color has
+                                                                activity comparable to the wild type and mutants show-
+TXS transforms the substrate GGPP to taxa-4(5)-diene and    ing shades of red color would indicate increase of activity
+some minor side products, releasing inorganic PPi dur-    relative to the wild type.
+ing the process. A mutability landscape for the catalytic     The mutability landscape discovered no mutants with
+activity of TXS mutant library was created based on the   improved activity compared to wild-type TXS. It was also
+fact that the amount of products created by TXS is equal    revealed that most mutants of residues S587, F602, G606,
+to the amount of pyrophosphate released. Throughout the   Y706, S713, V714, T761, and F834 showed almost no
+in vitro TXS reaction with GGPP, the quantity of pyroph-    enzymatic activity with some exceptions. Residue F602
+osphate released was continuously measured by a rapid    retained comparable activity to wild-type TXS when
+bioluminescent assay and represented as Relative Light    mutated to tyrosine, tryptophan or histidine. Similar occur-
+Units (RLUs). The quantity of PPi released throughout    rence was observed when mutating residue Y706 to trypto-
+the reaction is directly proportional to the quantity of light    phan, phenylalanine or histidine. Mutant of S713 showed
+produced (Eriksson et al. 2001). Utilizing similar concen-    similar activity when changed to threonine. Residue F834
+tration of protein and GGPP, a curve of RLUs versus time    retained activity similar to wild type when replaced by
+was generated for all mutants in conjunction with wild-    tryptophan or arginine. Numerous mutants of residues
+type TXS and the slope of the linear part was calculated   V584, Q609, V610, Y688, Y762 and Q770 showed activ-
+to express the catalytic rate of reaction as RLUs/s (Abdal-     ity comparable to or slightly lower than wild-type TXS
+lah et al. 2018). Based on the calculated slopes, a muta-    with some of their mutants losing activity. It should be
+bility landscape of the catalytic activity of the wild type    stressed that the landscape reflects only the pyrophos-
+compared to the mutants was created (Fig. 3). Mutants in    phate release. Further investigation of the enzyme activ-
+the blue color range in the landscape showed decrease in     ity in relation to the product profile of the mutants will be
+enzyme activity relative to the wild type till complete loss    discussed.
+
+Fig. 3   Mutability landscape
+of TXS for catalytic activity
+using bioluminescent assay.
+The vertical axis depicts the 20
+possible amino acid residues.
+Bold squares highlight the
+wild-type amino acid residue at
+each position and variants that
+are absent from the library are
+represented by white squares.
+The color characterizes the
+catalytic rate of reaction (V)
+where blue range squares point
+to decreased catalytic activity
+while red range squares point
+to increased catalytic activity
+compared to the wild type and
+yellow squares represent activ-
+ity similar to the wild type. The
+demonstrated data are an aver-
+age of two isolated experiments
+(n = 2)
+
+
+[PDF physical page 8]
+87   Page 8 of 14                                                                                                            Planta (2024) 259:87
+
+Assessment of the product profile of the TXS library    was lower than that of wild-type TXS. This is probably due
+using GC–MS                                                  to their lower enzymatic activity compared to the wild type.
+                                               To take advantage of the increased percentage of taxa-4(20)-
+As a follow-up to the TXS library screening for catalytic    diene by these mutants, additional mutations might have to
+activity, the GC–MS product profile of the mutants was    be performed to improve enzymatic activity and boost the
+assessed in comparison to that of wild-type TXS. The    absolute production of taxa-4(20)-diene. Mutants V584I,
+GC–MS chromatogram of wild-type TXS showed taxa-   Q609N, Y688L, and F834N exhibited higher absolute pro-
+4(5)-diene as a major product with a ratio of approximately    duction of taxa-4(20)-diene where V584I and Y688L pro-
+90% relative to other minor products; taxa-4(20)-diene (≈   duced ≈1.5 and 2 times higher amounts compared to the
+6%), cembranoid-type and verticillene-type compounds (≈    wild type, respectively. Although, Y688L depicted high
+4%) (Fig. S4). The GC chromatograms of inactive mutants    production of taxa-4(20)-diene compared to wild type, it
+showed no products at all which corresponds with their   showed much lower total production of both taxa-4(5)-diene
+catalytic inactivity revealed by the bioluminescent assay.    and taxa-4(20)-diene (55% versus 96% of the wild type and
+GC–MS chromatograms were evaluated for mutants with    almost half the absolute amount produced) (Fig. 4c and 4d).
+increased production of taxa-4(20)-diene relative to the wild    Other Y688 mutants displayed a similar pattern of low total
+type which is considered a favorable isomer toward higher    production of taxa-4(5)-diene and taxa-4(20)-diene (Fig. 4)
+specificity for the final production of Taxol (Fig. 1) (Edgar   which can be attributed to increased production of other
+et al. 2017). Also, product profiles were assessed for mutants    minor cembranoid-type and verticillene-type compounds.
+showing higher production of cembranoid-type and verti-    This pattern can have further impact on final production
+cillene-type compounds compared to the wild type where it    levels of Taxol.
+was revealed that for some mutants, taxa-4(5)-diene was no
+longer the major product in favor of one of these compounds.   Mutants with increased production of cembrene A
+The product profiles of the TXS library varied where several
+mutants resembled the wild-type profile with equivalent or    In the TXS library, some mutants displayed significantly
+reduced activity. Moreover, a number of mutants showed    increased production of the minor product cembrene A
+diverse product profiles clustered around a mixture of taxa-    (Fig. 5) which was an undetectable minor product in the GC
+4(20)-diene, cembrene A, V, V1, V2 and an unknown prod-   chromatogram of wild-type TXS. V584T showed decreased
+uct with mass spectrum and retention time closely related to    production of taxa-4(5)-diene (25%) with increased produc-
+V2 so identified as an isomer of V2 (Fig. S5–S11).             tion of cembrene A (39%) and V (36%). V610F, V610S,
+                                                    and V610T stopped producing taxa-4(5)-diene completely
+Mutants with increased production                   where cembrene A became the major product of V610F
+of taxa‑4(20)‑diene                                  (68%) along with minor production of V and V1 (Fig. S12).
+                                                               Similarly, V610S and V610T showed cembrene A and V
+The library was screened for mutants with increased pro-    as the major products along with minor production of V2.
+duction of taxa-4(20)-diene compared to wild-type TXS.
+Based on GC–MS chromatogram, wild-type TXS produced   Mutants with increased production
+approximately 90% taxa-4(5)-diene and 6% taxa-4(20)-    of verticillene‑type compounds
+diene. Mutants showing taxa-4(20)-diene of 6% and higher
+(Fig. 4a) were evaluated. Mutants V584I, V584H, F602Y,   The product profile of the TXS library was further assessed
+F602W, G606E, Q609T, Q609M, Q609N, V610W, Y688M,    for mutants showing increased production of verticillene-
+Y688Q, Y688T, Y688V, Y762H, Y762W, Q770H, Q770I,    type compounds (Fig. 5). Several mutants showed higher
+Q77OM, Q770T, Q770V, Q770W, Q770S, Q770Y, and    percentage of produced V, V1, and V2 compared to the wild
+F834W produced 6–10% taxa-4(20)-diene relative to their    type. Also, the GC chromatogram of some mutants showed a
+total products. Mutants Y688E, Y688G, Y688L, Y688H,    peak, at ≈ 20.85 min, of an unidentified product (Fig. S13).
+Y688F, Y762F, F834V, and F834N displayed higher taxa-    Since the mass spectrum (Fig. S11) correlated to that peak
+4(20)-diene production up to 14% where Y688E, Y688G,   and its retention time are closely related to V2, it is sug-
+Y688L, and Y688H produced 12.4%, 13.5%, 13.4%, and    gested that the unidentified product is an isomer of V2. This
+13.7%, respectively. In addition, the absolute amount pro-    increase in production of verticillene-type compounds is
+duced of taxa-4(20)-diene (Fig. 4b) was taken into consid-    accompanied with decreased production of the major prod-
+eration, represented by calculated peak area, and not only    uct taxa-4(5)-diene. V became the major product of mutants
+its percentage relative to the total products of each mutant.   V584M (Fig. S14), Q609A (Fig. S15), V610S, V610T,
+Although several mutants showed higher % of taxa-4(20)-   Y688C (Fig. S16), Y688E, Y688G, Y688M, Y688T and
+diene, the absolute amount produced based on peak area   Y688V with significantly reduced to almost no production
+
+
+[PDF physical page 9]
+Planta (2024) 259:87                                                                                            Page 9 of 14  87
+
+
+
+
+
+Fig. 4   a Production of taxa-4(20)-diene by selected mutants depicted    and taxa-4(20)-diene relative to the total % of products of the mutant.
+as % of taxa-4(20)-diene relative to the total % of products of the    d Absolute amount of produced taxa-4(5)-diene and taxa-4(20)-diene
+mutant. b Absolute amount of produced taxa-4(20)-diene represented     represented by their calculated peak areas. Note that the total % of
+by its calculated peak area. c Total production of taxa-4(5)-diene and     products (100%) consists of the sum of % of taxa-4(5)-diene, taxa-
+taxa-4(20)-diene by selected mutants depicted as % of taxa-4(5)-diene     4(20)-diene, cembranoid-type and verticillene-type compounds
+
+
+[PDF physical page 10]
+87   Page 10 of 14                                                                                                           Planta (2024) 259:87
+
+
+
+
+
+Fig. 5   a Production of cembrene A and verticillene-type compounds    sum of % of taxa-4(5)-diene, taxa-4(20)-diene, cembranoid-type and
+by selected mutants demonstrated as % relative to the total % of prod-     verticillene-type compounds. The demonstrated data are an average
+ucts of the mutant. b Spotlight on mutants with high cembrene A     of three separate experiments (n = 3)
+production. Note that the total % of products (100%) consists of the
+
+of taxa-4(5)-diene. The newly identified V2 isomer was pre-    sensor R768 forms hydrogen bonds with the oxygen atoms
+sented as the major product of mutants V610M and V610L.    of GGPP. It appears that the linker D617 has hydrogen bond
+It is noteworthy that the residues from the TXS library that    interaction with the sensor R768 while D613 has interaction
+displayed the highest degree of promiscuity when mutated    with C2 of GGPP. The ionization of GGPP leads to the for-
+are V584, Q609, V610 and Y688. This can indicate that    mation of the geranylgeranyl cation and the release of PPi in
+they play a crucial role in the catalytic mechanism of TXS.    the active site. Secondly, the acyclic geranylgeranyl cation
+                                                      undergoes ring closure to form the monocyclic cembren-
+                                                            15-yl cation. It is revealed that W753, Y835 and Y841 are
+Discussion                                                  stabilizing the geranylgeranyl cation through π-π interac-
+                                                                tions (Fig. 6b) while V714, L716 and W753 are showing
+Terpene synthases control complex multistep carbocation    hydrophobic interactions with C1 and C2 suggesting their
+cascades with stereo- and regio-chemical specificity produc-    involvement in C1-C2 ring closure (Fig. 6c). Meanwhile,
+ing numerous structurally diverse terpenes. In-depth struc-    as previously published, the ionized PPi is retained in the
+ture–function studies utilizing protein modeling, carbocation    active site forming an R-PPi motif (Schrepfer et al. 2016;
+docking and molecular dynamics along with structure-based    Freud et al. 2017). In our model, we observe the possibil-
+mutability landscapes provide more precise functional pre-     ity of an R578-PPi-R754 motif (Fig. 6d) as a candidate
+diction of terpene synthase catalysis and promiscuity (Karu-    for the active site base that can be involved in deprotona-
+nanithi and Zerbe 2019). In the present study, we utilized    tion steps along with water-assisted proton transfer to PPi.
+protein modeling, carbocation docking, molecular dynamics   The cembren-15-yl cation is associated by π-π interactions
+simulations and mutability landscape to gain deeper insight    with W753, F834, Y835 and Y841 and is rapidly converted
+into the catalysis, protein structure–function associations    to the bicyclic verticillen-12-yl cation which is showing
+and promiscuity of the interesting diterpene synthase, taxa-    π-π interactions with W753 only (Fig. 6e). This reduced
+diene synthase. TXS reaction cascade starts with trinuclear    π-interactions might be one of reasons for the promiscuous
+­Mg+2 triggered ionization of GGPP which was suggested to    production of verticillene-type compounds. Also, cation–π
+be aided by an effector triad of the PPi sensor R768 on helix    interaction is observed between C3–C4 double bond and the
+H, the linker D617, and the effector V714-O in an induced-    positively charged C12 which in turn show ionic interaction
+fit mechanism aided by D613 for positioning of the substrate    with D613 (Fig. 6f). These interactions probably contrib-
+(Fig. 6a) (Baer et al. 2014; Schrepfer et al. 2016). The PPi    ute to the formation of the next carbocation in the cascade,
+
+
+[PDF physical page 11]
+Planta (2024) 259:87                                                                                           Page 11 of 14  87
+
+
+
+
+
+Fig. 6   Close-up view of wild-type TXS active  site with different     motif. e π–π interactions of W753, F834, Y835, and Y841 with the
+docked ligands. a GGPP substrate surrounded by the effector triad    cembren-15-yl cation and π–π interactions of W753 with the verticil-
+of the PPi sensor R768, the linker D617, and the effector V714-O. b     len-12-yl cation. f Verticillen-12-yl cation–π interaction between C3–
+π–π interactions of W753, Y835, and Y841 with the geranylgeranyl   C4 double bond and the positively charged C12 which in turn show
+cation. c Hydrophobic interactions of V714, L716, and W753 with     ionic interaction with D613
+C1 and C2 of the geranylgeranyl cation. d Suggested R578-PPi-R754
+
+verticillen-4-yl cation (Fig. 1). We limited our focus on the    hydrophobic interaction with C17 of the cembren-15-yl
+mechanistic insight into the first half of the TXS reaction    cation (Fig. 7a). In addition, D613 has ionic interaction
+cascade.                                                with the positively charged C15 (Fig. 7b), probably hin-
+  A closer look into selected mutants that produce either    dering deprotonation toward formation of cembrene A and
+cembrene A or V as the major product was warranted.    allowing transition to the next carbocation in the reaction
+V610F produced cembrene A as the major product (68%)    cascade. However, the MD simulation of the V610F mutant
+with minor production of V (5.3%) and V1 (8.54%) while    with cembren-15-yl cation showed that the F610 residue no
+taxa-4(5)-diene and taxa-4(20)-diene are no longer pro-    longer interacts with C17 of the cation freeing its methyl-
+duced. To better understand the deprotonation event of the    hydrogens taking away the obstruction to form cembrene A.
+cembren-15-yl cation leading to the formation of cembrene   F610 instead interacts with C13 and C18 (Fig. 7c) and along
+A, MD simulation comparison of the docked cembren-15-yl    with the fact that the phenylalanine residue is aromatic, it
+cation in both wild-type TXS and V610F mutant was per-    contributes to the already existing stabilizing π–π interac-
+formed. In wild-type TXS, the V610 residue is showing    tions of the cembren-15-yl cation. Also, D613 and C15
+
+
+[PDF physical page 12]
+87   Page 12 of 14                                                                                                           Planta (2024) 259:87
+
+
+
+
+
+Fig. 7   Docked cembren-15-yl cation in wild-type TXS (a, b) and V610F mutant (c), and docked verticillen-12-yl cation in wild type and
+V584M (d), Q609A (e), and Y688C (f)
+
+are no longer interacting, combined with the now free C17    interactions. In V584M, the cation–π interaction between
+methyl-hydrogens that are shifted by ≈ 1 Å in closer prox-   C3–C4 double bond and the positively charged C12 which
+imity to the R578-PPi-R754 motif (Fig. 7c) which allows    in turn shows ionic interaction with D613, observed in
+easier deprotonation of the cation compared to the wild type.    wild type, is no longer present (Fig. 7d). The distance from
+In addition, sequence alignment with cembrene A synthase   R578-PPi-R754 motif did not change significantly; however,
+revealed an aromatic tyrosine residue in this position (Fig.    restrictions present on the cation were reduced allowing
+S2). Hence, V610F showed much higher production of cem-    deprotonation at C13, whether by the motif or water-assisted
+brene A relative to the wild type where it was undetectable.    deprotonation, and production of V in high amounts. As for
+This premature interruption of the reaction cascade explains   Q609, hydrophobic interactions with C20, in addition to the
+why no taxadiene products are formed.                       previously discussed interactions, hold the verticillen-12-yl
+  As for mutants with verticillia-3(4),7(8),12(13)-triene (V)    cation in position and prevent it from flipping. Q609A lacks
+as the major product, V584M, Q609A, and Y688C showed    interaction with C20, in addition to the disappearance of
+marked decrease in the production of taxa-4(5)-diene with    the cation–π interaction between C3–C4 double bond and
+increased proportion of V; 89%, 77% and 69%, respectively.    the positively charged C12. The less bulky alanine residue
+MD simulation comparison of the docked verticillen-12-yl    allows more free movement of the cation where at certain
+cation in both wild-type TXS, V584M, Q609A and Y688C    points of the MD simulation, the hydrogens of C13 shift
+mutants was performed. V584 is in close proximity of    closer to the R578-PPi-R754 motif facilitating deprotonation
+the verticillen-12-yl cation showing several hydrophobic    and formation of V (Fig. 7e). Finally, Y688 residue does not
+
+
+[PDF physical page 13]
+Planta (2024) 259:87                                                                                           Page 13 of 14  87
+
+interact directly with the cation but with neighboring amino   TXS. Hence, future engineering to improve their catalytic
+acid residues. All Y688 mutants showed high degrees of    activity should be considered to boost the amount of taxa-
+promiscuity indicating that its mutation affects the environ-    4(20)-diene produced. Mutants with good catalytic activ-
+ment surrounding the cation. Among them, Y688C produced     ity and higher production of taxa-4(20)-diene should be
+the highest amount of V as the major product. Similar to    carefully examined for increased production of other minor
+the previously discussed mutants, the cation–π interaction    cembranoid-type and verticillene-type compounds as these
+between C3–C4 double bond and the positively charged C12   compounds do not contribute to the production of Taxol.
+which in turn shows ionic interaction with D613 is not pre-    Thus, we suggest that the best candidates would be mutants
+sent in Y688C. Also, the C13 hydrogens shifted by ≈ 2 Å    displaying higher production of taxa-4(20)-diene while sus-
+closer to the R578-PPi-R754 motif assisting deprotonation    taining high total production with taxa-4(5)-diene or mutants
+and formation of V (Fig. 7f).                                     that produce taxa-4(20)-diene as the major product in a high
+   Creating higher order mutants to improve catalytic activ-    proportion.
+ity is usually considered. Double mutants to increase the
+                                                              Supplementary Information  The online version contains supplemen-yield of the desired product, taxa-4(20)-diene, cembrene                                                                            tary material available at https://​doi.​org/​10.​1007/​s00425-​024-​04363-9.
+A or verticillia-3(4),7(8),12(13)-triene (V), by improving
+TXS activity were attempted. For example, a double mutant    Acknowledgements  We are grateful to Prof. Dan T. Major for pro-
+of Y688L and Y762F was created to attempt to improve     viding us with the Freud model and insight into their modeling pro-
+                                                                              cess. We also appreciate Dr. Hein J. Wijma’s assistance with quantumproduction of taxa-4(20)-diene. However, the preliminary                                                              mechanics optimization of the ligands. We would like to thank the
+results showed no increase in catalytic activity compared    master students Omar Alhashimi and Eli Z. Popova for their contribu-
+to the single mutants. Future research can include trials     tion. S.H. is a recipient of a scholarship from the China Scholarship
+of double and triple mutants incorporating the discussed    Council (No. 201806300121).
+residues. The challenge would be discovering a successful    Author contributions  SH and IIA: should be considered joint first
+mutant combination to achieve the desired effect especially     author. The experiments were conceptualized by SH, IIA, RV, and
+that improving TXS activity is not easily attained.           WJQ. Experiments were performed by SH and IIA. Modeling and
+                                                                    molecular dynamic simulations were carried out and interpreted by SH,
+                                                                         IIA, and RV. The data were validated by SH, IIA, RV, and WJQ. The
+                                                                   manuscript was written by IIA and revised by all authors. All authorsConclusion                                                                 have approved the final version of the manuscript.
+Mechanistic insight into the catalysis cascade of TXS was    Data availability  All the data supporting the findings of this study are
+                                                                    included in this article/Supplementary information. Inquiries aboutachieved. TXS reaction cascade starts with ionization of                                                                         the data generated and analyzed can be directed to the corresponding
+GGPP through induced-fit mechanism via an effector triad     author.
+of the PPi sensor R768, the linker D617, and the effector
+V714-O. Following the initial ionization of GGPP, the gera-    Declarations 
+nylgeranyl cation and PPi are both separated and correlated
+                                                                             Conflict of interest  The authors have no conflict of interest associatedto residues in the active site. The geranylgeranyl cation and                                                                   with the article.
+cembren-15-yl cation are engaged in π–π interactions with
+several aromatic residues in the active site while π interac-    Open Access  This article is licensed under a Creative Commons Attri-
+tions are reduced with the verticillen-12-yl cation. Single     bution 4.0 International License, which permits use, sharing, adapta-
+                                                                                  tion, distribution and reproduction in any medium or format, as longamino acid substitution can lead to premature interruption of                                                                        as you give appropriate credit to the original author(s) and the source,
+the reaction cascade reducing or abolishing the production     provide a link to the Creative Commons licence, and indicate if changes
+of taxanes in favor of cembranoid-type and/or verticillene-    were made. The images or other third party material in this article are
+type side products which is in direct relation to the prom-     included in the article’s Creative Commons licence, unless indicated
+                                                                    otherwise in a credit line to the material. If material is not included iniscuity of TXS. The mutability landscape has allowed us                                                                        the article’s Creative Commons licence and your intended use is not
+to unravel that residues V584, Q609, V610, and Y688 are     permitted by statutory regulation or exceeds the permitted use, you will
+most important for selectivity, and mutants in these positions    need to obtain permission directly from the copyright holder. To view a
+play a crucial role in premature termination of the reaction    copy of this licence, visit http://creativecommons.org/licenses/by/4.0/.
+cascade.
+  From a perspective of high yield (in microbial cell fac-
+tories), mutants with increased production of taxa-4(20)-
+                                           Referencesdiene may be beneficial for improved production of Taxol.
+However, increased percentage of taxa-4(20)-diene relative
+                                                                 Abdallah II, Van Merkerk R, Klumpenaar E, Quax WJ (2018) Cataly-to taxa-4(5)-diene was accompanied by reduced catalytic                                                                                         sis of amorpha-4,11-diene synthase unraveled and improved by
+activity of several of these mutants compared to wild-type
+
+
+[PDF physical page 14]
+87   Page 14 of 14                                                                                                           Planta (2024) 259:87
+
+     mutability landscape guided engineering. Sci Rep 8:1–11. https://​     Jin Y, Williams DC, Croteau R, Coates RM (2005) Taxadiene synthase-
+     doi.​org/​10.​1038/​s41598-​018-​28177-4                                  catalyzed cyclization of 6-fluorogeranylgeranyl diphosphate to
+Ansbacher T, Freud Y, Major DT (2018) Slow-starter enzymes: Role of          7-fluoroverticillenes. J Am Chem Soc 127:7834–7842. https://​
+     active-site architecture in the catalytic control of the biosynthesis           doi.​org/​10.​1021/​ja050​592r
+     of taxadiene by taxadiene synthase. Biochemistry 57:3773–3779.    Jumper J, Evans R, Pritzel A et al (2021) Highly accurate protein struc-
+      https://​doi.​org/​10.​1021/​acs.​bioch​em.​8b004​52                              ture prediction with AlphaFold. Nature 596:583–589. https://​doi.​
+Baer P, Rabe P, Fischer K et al (2014) Induced-fit mechanism in class I          org/​10.​1038/​s41586-​021-​03819-2
+     terpene cyclases. Angew Chem Int Ed Engl 53:7652–7656. https://​    Karunanithi PS, Zerbe P (2019) Terpene synthases as metabolic gate-
+     doi.​org/​10.​1002/​anie.​20140​3648                                     keepers in the evolution of plant terpenoid chemical diversity.
+Bayly CI, Cieplak P, Cornell W, Kollman PA (1993) A well-behaved         Front Plant Sci 10:1166
+     electrostatic potential based method using charge restraints    Koksal M, Jin Y, Coates RM et al (2011) Taxadiene synthase structure
+     for deriving atomic charges: the RESP model. J Phys Chem        and evolution of modular architecture in terpene biosynthesis.
+    97:10269–10280. https://​doi.​org/​10.​1021/​j1001​42a004                 Nature 469:116–120. https://​doi.​org/​10.​1038/​natur​e09628
+Berendsen HJC, Postma JPM, van Gunsteren WF et al (1984) Molec-     Krieger E, Darden T, Nabuurs SB et al (2004) Making optimal use of
+     ular dynamics with coupling to an external bath. J Chem Phys          empirical energy functions: Force-field parameterization in crystal
+    81:3684–3690. https://​doi.​org/​10.​1063/1.​448118                         space. Proteins Struct Funct Bioinforma. 57:678–683. https://​doi.​
+Bohlmann J, Meyer-Gauen G, Croteau R (1998) Plant terpenoid syn-           org/​10.​1002/​prot.​20251
+     thases : Molecular biology and phylogenetic analysis. Proc Natl    Land H, Humble MS (2018) YASARA: a tool to obtain structural guid-
+    Acad Sci USA 95:4126–4133                                       ance in biocatalytic investigations. Methods Mol Biol 1685:43–
+Chen F, Tholl D, Bohlmann J, Pichersky E (2011) The family of ter-          67. https://​doi.​org/​10.​1007/​978-1-​4939-​7366-8_4
+    pene synthases in plants: a mid-size family of genes for special-    Lin X, Hezari M, Koepp AE et al (1996) Mechanism of taxadiene
+     ized metabolism that is highly diversified throughout the kingdom.          synthase, a diterpene cyclase that catalyzes the first step of Taxol
+     Plant J. 66:212–229. https://​doi.​org/​10.​1111/j.​1365-​313X.​2011.​         biosynthesis in Pacific Yew. Biochemistry 35:2968–2977. https://​
+    04520.x                                                                         doi.​org/​10.​1021/​bi952​6239
+Christianson DW (2017) Structural and chemical biology of terpenoid    O’Brien TE, Bertolani SJ, Zhang Y et al (2018) Predicting productive
+     cyclases. Chem Rev 117:11570–11648. https://​doi.​org/​10.​1021/​        binding modes for substrates and carbocation intermediates in
+     acs.​chemr​ev.​7b002​87                                                  terpene synthases—bornyl diphosphate synthase as a representa-
+Degenhardt J, Köllner TG, Gershenzon J (2009) Monoterpene and ses-           tive case. ACS Catal 8:3322–3330. https://​doi.​org/​10.​1021/​acsca​
+     quiterpene synthases and the origin of terpene skeletal diversity in           tal.​8b003​42
+     plants. Phytochemistry 70:1621–1637. https://​doi.​org/​10.​1016/j.​    Pemberton TA, Chen M, Harris GG et al (2017) Exploring the influ-
+     phyto​chem.​2009.​07.​030                                            ence of domain architecture on the catalytic function of diterpene
+Delgado-Arciniega E, Wijma HJ, Hummel C, Janssen DB (2023) Com-          synthases. Biochemistry 56:2010–2023. https://​doi.​org/​10.​1021/​
+     putationally supported inversion of ketoreductase stereoselectiv-          acs.​bioch​em.​7b001​37
+       ity. ChemBioChem. 24:e202300032. https://​doi.​org/​10.​1002/​cbic.​    Pichersky E, Raguso RA (2018) Why do plants produce so many ter-
+    20230​0032                                                       penoid compounds? New Phytol. 220:692–702. https://​doi.​org/​
+Eberhardt J, Santos-Martins D, Tillack AF, Forli S (2021) AutoDock          10.​1111/​nph.​14178
+    Vina 1.2.0: new docking methods, expanded force field, and    Raz K, Levi S, Gupta PK, Major DT (2020) Enzymatic control of
+    python bindings. J Chem Inf Model 61:3891–3898. https://​doi.​         product distribution in terpene synthases: insights from multiscale
+      org/​10.​1021/​acs.​jcim.​1c002​03                                           simulations. Curr Opin Biotechnol. 65:248–258. https://​doi.​org/​
+Edgar S, Li F, Qiao K et al (2017) Engineering of taxadiene synthase           10.​1016/j.​copbio.​2020.​06.​002
+     for improved selectivity and yield of a key Taxol biosynthetic     Schrepfer P, Buettner A, Goerner C et al (2016) Identification of amino
+     intermediate. ACS Synth Biol 6:201–205. https://​doi.​org/​10.​1021/​         acid networks governing catalysis in the closed complex of class
+     acssy​nbio.​6b002​06                                                                   I terpene synthases. Proc Natl Acad Sci USA 113:E958–E967.
+Eriksson J, Karamohamed S, Nyrén P (2001) Method for real-time           https://​doi.​org/​10.​1073/​pnas.​15196​80113
+     detection of inorganic pyrophosphatase activity. Anal Biochem.    Tang L, Gao H, Zhu X et al (2012) Construction of “small-intelligent”
+    293:67–70. https://​doi.​org/​10.​1006/​abio.​2001.​5106                     focused mutagenesis libraries using well-designed combinatorial
+Escorcia AM, Van Rijn, JPM, Cheng G et al (2018) Molecular         degenerate primers. Biotechniques 52:149–158. https://​doi.​org/​
+    dynamics study of taxadiene synthase catalysis. J Comput Chem          10.​2144/​00011​3820
+    39:1215–1225. https://​doi.​org/​10.​1002/​jcc.​25184                    Trott O, Olson AJ (2010) AutoDock Vina: improving the speed and
+Freud Y, Ansbacher T, Major DT (2017) Catalytic control in the facile         accuracy of docking with a new scoring function, efficient optimi-
+     proton transfer in taxadiene synthase. ACS Catal 7:7653–7657.          zation, and multithreading. J Comput Chem 31:455–461. https://​
+      https://​doi.​org/​10.​1021/​acsca​tal.​7b028​24                                      doi.​org/​10.​1002/​jcc.​21334
+Frisch MJ, Trucks GW, Schlegel HB et al (2009) Gaussian09. Gauss-    Varadi M, Anyango S, Deshpande M et al (2022) AlphaFold Protein
+     ian, Inc., Wallingford                                                    Structure Database: massively expanding the structural coverage
+Gao Y, Honzatko RB, Peters RJ (2012) Terpenoid synthase structures:         of protein-sequence space with high-accuracy models. Nucleic
+     a so far incomplete view of complex catalysis. Nat Prod Rep         Acids Res 50:D439–D444. https://​doi.​org/​10.​1093/​nar/​gkab1​061
+    29:1153–1175. https://​doi.​org/​10.​1039/​c2np2​0059g             Wijma HJ, Marrink SJ, Janssen DB (2014) Computationally efficient
+Hekkelman ML, de Vries I, Joosten RP, Perrakis A (2023) AlphaFill:        and accurate enantioselectivity modeling by clusters of molecular
+     enriching AlphaFold models with ligands and cofactors. Nat Meth-        dynamics simulations. J Chem Inf Model 54:2079–2092. https://​
+    ods 20:205–213. https://​doi.​org/​10.​1038/​s41592-​022-​01685-y              doi.​org/​10.​1021/​ci500​126x
+Hong YJ, Tantillo DJ (2011) The taxadiene-forming carbocation cas-
+     cade. J Am Chem Soc 133:18249–18256. https://​doi.​org/​10.​1021/​    Publisher's Note  Springer Nature remains  neutral with regard  to
+     ja205​5929                                                               jurisdictional claims in published maps and institutional affiliations.
+Jia Q, Brown R, Köllner TG et al (2022) Origin and early evolution
+     of the plant terpene synthase family. Proc Natl Acad Sci USA
+    119:e2100361119. https://​doi.​org/​10.​1073/​pnas.​21003​61119

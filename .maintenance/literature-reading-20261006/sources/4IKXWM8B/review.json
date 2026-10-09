@@ -1,0 +1,108 @@
+{
+  "review": {
+    "pass": true,
+    "major_issues": [],
+    "minor_issues": [
+      {
+        "issue": "化合物 1/2 的连接基（linker）描述略有出入：草稿多处描述为'–CH₂–C(=O)–O–(2,4-二氯苯基)'，多了一个 C=O；但 Fig. 3f/Extended Data Fig. 7a/Extended Data Fig. 10a 中所示的连接基为 –C(=O)–N(CH₃)–CH(R)–O–(2,4-二氯苯基)，N 与 O 之间仅有一个 CH(R)，并无第二个羰基。建议将连接基描述更正为'N-甲基-N-(α-取代基-2,4-二氯苯氧甲基)-1H-吲哚-2-甲酰胺'。",
+        "source_locator": "草稿报告正文多处（'化合物 1 与 2…'、'G2…'、'结构类发现'、'化合物 1 与 2 在 G2 中的核心' 等），原图 Fig. 3f (PDF p.4) / Extended Data Fig. 7a (PDF p.25) / Extended Data Fig. 10a (PDF p.28)",
+        "correction": "将连接基部分统一改为'–C(=O)–N(CH₃)–CH(R)–O–(2,4-二氯苯基)'或'–CO–N(Me)–CH(R)–O–Ar'；草稿'5-卤代-1H-吲哚-2-甲酰胺骨架'的总称保留。"
+      },
+      {
+        "issue": "草稿仅引用 21/241 (8.7%) 总体工作真发现率，未引用正文 p.5 同时给出的 7.4%（与含 rationale 的结构新颖 hits 对应）这一补充数字。",
+        "source_locator": "原 PDF p.5 正文段落：'The working true discovery rates associated with all tested structurally novel hits with rationales (7.4%) and across all tested structurally novel hits (8.7%) were higher…'",
+        "correction": "在'(三) 基于图 rationale 的结构类发现'段落补一句：'含 rationale 的结构新颖 hits 工作真发现率为 7.4%，与 8.7% 一并高于训练集 1.3% 基线。'"
+      },
+      {
+        "issue": "SAR 段落对化合物 3、5 活性'与化合物 1、2 相当'的表述稍弱。Extended Data Fig. 10b 中化合物 3、5 对 S. aureus RN4220 与 USA300 的 MIC 均为 16 μg/mL，弱于化合物 1/2 (2 与 4 μg/mL)，但仍属活性范畴。",
+        "source_locator": "原 PDF p.28 Extended Data Fig. 10b；草稿'（五）毒理性质与体内疗效'段落",
+        "correction": "改为'化合物 3、5、7 对 S. aureus RN4220 与 USA300 MIC 为 2–16 μg/mL（化合物 7 与 1/2 活性相当为 2、4 μg/mL；化合物 3、5 为 16、16 μg/mL，弱于 1/2 但仍属活性）；化合物 4、6 MIC 升至 64 μg/mL'。"
+      }
+    ],
+    "figure_coverage": {
+      "expected_labels": [
+        "Figure 1",
+        "Figure 2",
+        "Figure 3",
+        "Figure 4",
+        "Figure 5",
+        "Extended Data Figure 1",
+        "Extended Data Figure 2",
+        "Extended Data Figure 3",
+        "Extended Data Figure 4",
+        "Extended Data Figure 5",
+        "Extended Data Figure 6",
+        "Extended Data Figure 7",
+        "Extended Data Figure 8",
+        "Extended Data Figure 9",
+        "Extended Data Figure 10"
+      ],
+      "covered_labels": [
+        "Figure 1",
+        "Figure 2",
+        "Figure 3",
+        "Figure 4",
+        "Figure 5",
+        "Extended Data Figure 1",
+        "Extended Data Figure 2",
+        "Extended Data Figure 3",
+        "Extended Data Figure 4",
+        "Extended Data Figure 5",
+        "Extended Data Figure 6",
+        "Extended Data Figure 7",
+        "Extended Data Figure 8",
+        "Extended Data Figure 9",
+        "Extended Data Figure 10"
+      ],
+      "missing_panels": [],
+      "missing_pages": []
+    },
+    "verified_claims": [
+      {
+        "claim": "训练集 39,312 个化合物、512 个活性（1.3%）；虚拟筛选化合物数 12,076,365（= Mcule 11,277,225 + Broad 799,140）。",
+        "source_locator": "原 PDF p.1 摘要、p.2 左栏正文、p.3 Fig. 2a 漏斗",
+        "evidence": "'We determined the antibiotic activities and human cell cytotoxicity profiles of 39,312 compounds…applied ensembles of graph neural networks to predict antibiotic activity and cytotoxicity for 12,076,365 compounds.'"
+      },
+      {
+        "claim": "抑菌活性 10 模型 Chemprop+RDKit 集成的 AUPRC = 0.364（95% CI [0.359, 0.379]）；三种毒性模型 AUPRC = 0.176 / 0.168 / 0.335。",
+        "source_locator": "原 PDF p.2 Fig. 1c/e/g/i 内嵌文字",
+        "evidence": "'AUC: 0.364, 95% CI: [0.359, 0.379]'; 'AUC: 0.176, 95% CI: [0.174, 0.179]'; 'AUC: 0.168, 95% CI: [0.167, 0.175]'; 'AUC: 0.335, 95% CI: [0.334, 0.341]'"
+      },
+      {
+        "claim": "筛选漏斗：12,076,365 → 10,310 → 3,646 → 2,209 → 1,261；含 1,261 中 186 个含 rationale、5 个 scaffold 组（G1–G5）覆盖 16 个 hits（8.6%）；最终测试 283 个化合物。",
+        "source_locator": "原 PDF p.3 Fig. 2a 漏斗 + p.4 Fig. 3d,e",
+        "evidence": "'We filtered chemical compounds of interest…1,210 compounds from the Mcule purchasable database and 2,436 from the Broad Institute database…structural novelty yields a final set of 1,261 hits'; '16 of 186 hits with rationales (8.6%) could be grouped using five scaffolds—G1–G5'; 'resulted in a set of 283 compounds'"
+      },
+      {
+        "claim": "化合物 1 与 2 对 S. aureus RN4220 MIC = 2 μg/mL、MRSA USA300 MIC = 4 μg/mL；HepG2/HSkMC/IMR-90 IC50 ≥128 μg/mL；治疗窗 ≥64 倍；10% 血清 MIC 升至 16 μg/mL。",
+        "source_locator": "原 PDF p.5 Fig. 3g 与图注、p.7 Fig. 4g 综述；Extended Data Fig. 7b",
+        "evidence": "'compounds 1 and 2 exhibited half-maximal inhibitory concentration (IC50) values ≥128 μg ml−1 for all cell types, indicating robust selectivity against S. aureus'; 'MRSA USA300 exhibits at least 16-fold increased MICs relative to the methicillin-susceptible strain for ampicillin, ciprofloxacin and tetracycline but exhibits only twofold increased MICs for compounds 1 and 2'; 'MICs of compounds 1 and 2 increased 4- to 8-fold to 16 μg ml−1'"
+      },
+      {
+        "claim": "小鼠 MRSA CDC 563 皮肤模型（n=5/组，化合物 1 1% 局部给药）和小鼠 MRSA CDC 706 大腿模型（n=6/组，化合物 1 80 mg/kg 单次腹腔）均使平均细菌载量下降约 1.2 log₁₀；皮肤模型 **P=0.01（化合物 1）/**P=0.004（夫西地酸）；大腿模型 **P=0.01（化合物 1）/**P=0.001（万古霉素）；均为单侧双样本置换检验。",
+        "source_locator": "原 PDF p.7 Fig. 5a,b 图内文字与图注",
+        "evidence": "'n = 5 mice were used in each group'; 'n = 6 mice were used in each treatment group'; '**P = 0.004'; '**P = 0.01'; '**P = 0.001'; 'One-sided, two-sample permutation test compared to vehicle treatment'"
+      },
+      {
+        "claim": "5/17 (29.4%) working true discovery rate for the SAR structural class（17 个市售类似物，Fig. 10b 列出 7 个代表结构）。",
+        "source_locator": "原 PDF p.28 Extended Data Fig. 10b 内嵌数字",
+        "evidence": "'5/17 (29.4%) working true discovery rate for compounds in structural class'"
+      }
+    ],
+    "identity_matches": true,
+    "classification_supported": true,
+    "crop_complete": true
+  },
+  "usage": {
+    "total_tokens": 147649,
+    "total_characters": 0,
+    "prompt_tokens": 138443,
+    "completion_tokens": 9206,
+    "completion_tokens_details": {
+      "reasoning_tokens": 7086
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 128
+    }
+  }
+}

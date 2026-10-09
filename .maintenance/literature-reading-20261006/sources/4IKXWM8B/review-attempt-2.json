@@ -1,0 +1,131 @@
+{
+  "pass": false,
+  "major_issues": [
+    {
+      "issue": "ZINC15 化合物库规模描述为 '10⁷'（约 10 million），原文明确 'approximately 107 million molecules in the ZINC15 library'（约 1.07×10⁸），数量差约 10 倍",
+      "source_locator": "原文 PDF p. 1 Introduction：'approximately 107 million molecules in the ZINC15 library18'",
+      "correction": "应改为'ZINC15 数据库约 107 million（约 1.07×10⁸）个化合物'"
+    },
+    {
+      "issue": "化合物 1 与 2 的 MIC 被分别表述为 '2 μg/mL 与 1 μg/mL'，但 Extended Data Fig. 7b（PDF p. 25）显示两化合物对 S. aureus RN4220 MIC 均为 2 μg/mL、对 MRSA USA300 均为 4 μg/mL；具体数值不一致",
+      "source_locator": "Extended Data Fig. 7b, PDF p. 25",
+      "correction": "两化合物 MIC 实际一致：S. aureus RN4220 = 2 μg/mL、MRSA USA300 = 4 μg/mL（仅 2 倍升高，论文正文明确指出 'exhibits only twofold increased MICs for compounds 1 and 2'）；保守表述应为'化合物 1 与 2 MIC 相同'"
+    }
+  ],
+  "minor_issues": [
+    {
+      "issue": "草稿 source_gaps 声明 Extended Data Fig. 7 与 9 '本轮未提供原始裁剪图'，但用户实际已提供这两图完整裁剪",
+      "source_locator": "草稿 source_gaps 字段",
+      "correction": "更新或删除该 source_gaps 条目"
+    },
+    {
+      "issue": "未提及 Fig. 3e 中的 33/253 真阳性总命中率（仅提及 30/30 真阴性与 12/12 阳性对照）",
+      "source_locator": "Fig. 3e, PDF p. 4",
+      "correction": "可补充 'True positives: 33/253' 与 'Working true discovery rate for all structurally novel hits: 21/241 (8.7%)' 两条信息"
+    },
+    {
+      "issue": "'Drug Repurposing Hub' 译为'复方库'，'复方' 在中文语境特指中药复方",
+      "source_locator": "草稿第二节研究背景",
+      "correction": "建议译为'药物再利用中心'或保留英文"
+    }
+  ],
+  "figure_coverage": {
+    "expected_labels": [
+      "Figure 1",
+      "Figure 2",
+      "Figure 3",
+      "Figure 4",
+      "Figure 5",
+      "Extended Data Fig. 1",
+      "Extended Data Fig. 2",
+      "Extended Data Fig. 3",
+      "Extended Data Fig. 4",
+      "Extended Data Fig. 5",
+      "Extended Data Fig. 6",
+      "Extended Data Fig. 7",
+      "Extended Data Fig. 8",
+      "Extended Data Fig. 9",
+      "Extended Data Fig. 10"
+    ],
+    "covered_labels": [
+      "Figure 1",
+      "Figure 2",
+      "Figure 3",
+      "Figure 4",
+      "Figure 5",
+      "Extended Data Fig. 1",
+      "Extended Data Fig. 5",
+      "Extended Data Fig. 6",
+      "Extended Data Fig. 8",
+      "Extended Data Fig. 9",
+      "Extended Data Fig. 10"
+    ],
+    "missing_panels": [
+      "Extended Data Fig. 2 (无 RDKit 特征 Chemprop 与随机森林的 PRC 对比)",
+      "Extended Data Fig. 3 (三株细胞毒性模型对比)",
+      "Extended Data Fig. 4 (不同预测分数阈值的 t-SNE)",
+      "Extended Data Fig. 7 (G1-G5 最近活性训练集类似物与选择性)"
+    ],
+    "missing_pages": []
+  },
+  "verified_claims": [
+    {
+      "claim": "39,312 化合物 50 μM 下 S. aureus RN4220 筛选得 512 个活性化合物（1.3%）",
+      "source_locator": "Fig. 1b, PDF p. 2",
+      "evidence": "'Active (512), Inactive (38,800), 39,312 compounds total'"
+    },
+    {
+      "claim": "10 模型集成 AUPRC = 0.364, 95% CI [0.359,0.379]",
+      "source_locator": "Fig. 1c, PDF p. 2",
+      "evidence": "'AUC: 0.364, 95% CI: [0.359,0.379]'"
+    },
+    {
+      "claim": "三株细胞毒性 AUPRC：HepG2 = 0.176, HSkMC = 0.168, IMR-90 = 0.335",
+      "source_locator": "Fig. 1e,g,i, PDF p. 2",
+      "evidence": "Fig. 1e 'AUC: 0.176, 95% CI: [0.174,0.179]'; Fig. 1g 'AUC: 0.168, 95% CI: [0.167,0.175]'; Fig. 1i 'AUC: 0.335, 95% CI: [0.334,0.341]'"
+    },
+    {
+      "claim": "12,076,365 → 10,310 → 3,646 → 2,209 → 1,261 → 283 级联过滤各阶段数字",
+      "source_locator": "Fig. 2a, PDF p. 3",
+      "evidence": "Fig. 2a 标注 11,277,225+799,140 → 3,004+7,306 → 1,210+2,436 → 721+1,488 → 162+1,099 + 283 个测试"
+    },
+    {
+      "claim": "5 个 rationale groups (G1-G5) 覆盖 16/186 个有 rationale 的 hits (8.6%)，3 个含氯",
+      "source_locator": "Fig. 3d 与 PDF p. 5",
+      "evidence": "'16 of the 186 hits with rationales (8.6%) could be grouped using 5 distinct scaffolds... three of the five scaffolds were chlorine-containing'"
+    },
+    {
+      "claim": "G1-G5 9 个命中 4 个 (44%) 对 S. aureus 有活性；30/30 真阴性；12/12 头孢/喹诺酮阳性对照",
+      "source_locator": "Fig. 3e 与 PDF p. 5",
+      "evidence": "'4 out of the 9 procured hits (44%)... 30/30... 12/12 (100%)'"
+    },
+    {
+      "claim": "化合物 1 与 2 对 MRSA USA300 仅 2 倍 MIC 升高",
+      "source_locator": "PDF p. 6, Extended Data Fig. 8a",
+      "evidence": "'MRSA USA300... exhibits only twofold increased MICs for compounds 1 and 2'"
+    },
+    {
+      "claim": "30 天连续传代：化合物 1/2 MIC 几乎不变，环丙沙星 MIC 升高 ≥64 倍；4× MIC 抗药突变频率 ~10⁻⁸",
+      "source_locator": "Fig. 4b,c 与 PDF p. 6",
+      "evidence": "'MICs remained essentially unchanged after 30 days... at least 64-fold increased MICs to ciprofloxacin... frequency of resistance at 4× MIC, ~10⁻⁸'"
+    },
+    {
+      "claim": "40 株 CDC MRSA/VRE：化合物 1/2 MIC 中位数 4 与 3 μg/mL，范围 2–16 μg/mL",
+      "source_locator": "Fig. 4g 与 PDF p. 7",
+      "evidence": "'the median MICs for compounds 1 and 2 were 4 and 3 μg/mL, respectively, and both compounds exhibited MIC ranges of 2 to 16 μg/mL'"
+    },
+    {
+      "claim": "SAR 17 类似物 5/17 (29.4%) 工作真发现率",
+      "source_locator": "Extended Data Fig. 10, PDF p. 28",
+      "evidence": "'5/17 (29.4%) working true discovery rate for compounds in structural class'"
+    },
+    {
+      "claim": "Fig. 5 P 值：Fusidic acid **P=0.004、Compound 1 皮肤 **P=0.01；Vancomycin **P=0.001、Compound 1 大腿 **P=0.01",
+      "source_locator": "Fig. 5a,b, PDF p. 7",
+      "evidence": "图内标注 '**P=0.004', '**P=0.01', '**P=0.001', '**P=0.01'"
+    }
+  ],
+  "identity_matches": true,
+  "classification_supported": true,
+  "crop_complete": true
+}

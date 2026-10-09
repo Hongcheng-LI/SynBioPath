@@ -1,0 +1,1083 @@
+
+[PDF physical page 1]
+Malcı et al. Microbial Cell Factories    (2023) 22:243                                    Microbial Cell Factories
+https://doi.org/10.1186/s12934-023-02251-7
+
+
+ RESEARCH                                          Open Access
+Improved production of ­Taxol® precursors
+in S. cerevisiae using combinatorial in silico
+design and metabolic engineering
+Koray Malcı1,2,9*, Rodrigo Santibáñez3, Nestor Jonguitud‑Borrego1,2, Jorge H. Santoyo‑Garcia1,2,
+Eduard J. Kerkhoven4,5,6 and Leonardo Rios‑Solis1,2,7,8* 
+
+
+
+ Abstract 
+ Background  Integrated metabolic engineering approaches that combine system and synthetic biology tools enable
+ the efficient design of microbial cell factories for synthesizing high-value products. In this study, we utilized in silico
+ design algorithms on the yeast genome-scale model to predict genomic modifications that could enhance the pro‑ duction of early-step ­Taxol® in engineered Saccharomyces cerevisiae cells.
+  Results  Using constraint-based reconstruction and analysis (COBRA) methods, we narrowed down the solution
+  set of genomic modification candidates. We screened 17 genomic modifications, including nine gene deletions
+ and eight gene overexpressions, through wet-lab studies to determine their impact on taxadiene production, the first metabolite in the ­Taxol® biosynthetic pathway. Under different cultivation conditions, most single genomic modi‑
+  fications resulted in increased taxadiene production. The strain named KM32, which contained four overexpressed
+ genes (ILV2, TRR1, ADE13, and ECM31) involved in branched-chain amino acid biosynthesis, the thioredoxin system, de
+ novo purine synthesis, and the pantothenate pathway, respectively, exhibited the best performance. KM32 achieved
+ a 50% increase in taxadiene production, reaching 215 mg/L. Furthermore, KM32 produced the highest reported
+  yields of taxa-4(20),11-dien-5α-ol (T5α-ol) at 43.65 mg/L and taxa-4(20),11-dien-5-α-yl acetate (T5αAc) at 26.2 mg/L among early-step ­Taxol® metabolites in S. cerevisiae.
+ Conclusions  This study highlights the effectiveness of computational and integrated approaches in identifying
+ promising genomic modifications that can enhance the performance of yeast cell factories. By employing in silico
+ design algorithms and wet-lab screening, we successfully improved taxadiene production in engineered S. cerevisiae
+  strains. The best-performing strain, KM32, achieved substantial increases in taxadiene as well as production of T5α-ol
+ and T5αAc. These findings emphasize the importance of using systematic and integrated strategies to develop
+  efficient yeast cell factories, providing potential implications for the industrial production of high-value isoprenoids  like ­Taxol®.
+ Keywords  Computational metabolic engineering, Genome-scale modelling, in silico design, Synthetic biology,
+ Systems biology, Mevalonate pathway, Saccharomyces cerevisiae, Taxadiene, Taxol
+
+
+
+
+*Correspondence:
+Koray Malcı
+k.malci@imperial.ac.uk
+Leonardo Rios‑Solis
+leo.rios@ucl.ac.uk
+Full list of author information is available at the end of the article
+
+
+                          © The Author(s) 2023. Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which
+                                           permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the
+                                                  original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or
+                                           other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line
+                                            to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory
+                                              regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this
+                                                  licence, visit http://​creat​iveco​mmons.​org/​licen​ses/​by/4.​0/. The Creative Commons Public Domain Dedication waiver (http://​creat​iveco​
+                                                  mmons.​org/​publi​cdoma​in/​zero/1.​0/) applies to the data made available in this article, unless otherwise stated in a credit line to the data.
+
+
+[PDF physical page 2]
+Malcı et al. Microbial Cell Factories    (2023) 22:243                                                                   Page 2 of 22
+
+
+
+Introduction                                      enhancements of S. cerevisiae GEMs have been devel-
+Microbial chassis have been extensively investigated for   oped by adding and connecting more genes, reactions,
+the sustainable and economically viable production of   and compartments [25–27]. The latest consensus yeast
+industrially important compounds, including pharma-  GEM, yeast 8 [27], serves as the basis for constructing
+ceuticals [1], biofuels [2], enzymes [3] and polymers [4]   more refined and up-to-date versions that better mimic
+in sustainable and economically attractive ways. Among   yeast metabolism. Among the yeast 8 derivatives, yeast
+these microbial hosts, Saccharomyces cerevisiae, com-    8.5.0 comprises 4055 reactions, 2742 metabolites, and
+monly known as baker’s yeast, has emerged as the most   1151 genes in 14 cellular compartments [28]. Leverag-
+widely studied eukaryotic synthetic biology chassis [5].   ing yeast GEMs as a bottom-up systems biology tool,
+S. cerevisiae offers advantages such as high biomass pro-   they have been employed in diverse applications, from
+duction in cost-effective media [6] and efficient control   designing yeast cell factories to optimizing culture con-
+and scalability of fermentation processes [7]. Further-    ditions [29]. In recent years, the coupling of GEMs and
+more, the development of numerous synthetic biology   constraint-based reconstruction and analysis (COBRA)
+tools and well-characterized genetic parts have acceler-   methods [30] has found widespread usage in biological
+ated the design of engineered yeast strains with improved    applications. COBRA is an integrative analysis frame-
+performance and reliability [8, 9].                      work that can be applied to biochemical systems to dem-
+  S. cerevisiae has been harnessed as a platform to pro-   onstrate and predict the connections from phenotype
+duce  high-value  biopharmaceuticals,  ranging  from   to genotype by imposing constraints considering factors
+recombinant  therapeutic  proteins  to  plant-derived   such as physicochemical laws, environmental conditions,
+natural products [10–14]. By integrating heterologous   and genetic information [31, 32].plant-derived  genes,  early-step  precursors  of  ­Taxol®     Several strain optimization algorithms and programs
+(paclitaxel), a leading anticancer drug with a market size   have been developed  utilising COBRA methods and
+over billions of USD [15], have been produced by yeast   mathematical modelling [33]. For example, OptKnockcell factories [16–20]. The biosynthesis of ­Taxol® initi-   [34] employs bilevel mixed-integer optimisation to pre-
+ates with the conversion of geranylgeranyl diphosphate    dict gene deletions and elimination of reactions from the
+(GGPP), a product of the yeast mevalonate pathway, into    host’s metabolism, thereby enhancing the production
+taxadiene (taxa-4(5),11(12)-diene) catalyzed by taxadi-    of target compounds. Another tool, OptGene [35], uti-
+ene synthase [21]. Subsequently, taxadiene undergoes    lises genetic algorithms [36] to identify gene knockouts
+hydroxylation by a class II cytochrome P450 hydroxylase,   with the aim of improving bio-production yields. Lev-
+taxadiene-5α-hydroxylase (T5αOH) with the assistance   eraging bilevel programming, Ranganathan et al. (2010)
+of cytochrome P450 reductase (CPR), and an acylation   introduced the OptForce framework to identify a set of
+catalyzed by taxadiene-5α-ol-O-acetyltransferase (TAT)   reactions where fluxes need to be modified to achieve
+[15]. Although these enzymes have been expressed, and   overproduction  of the  target compound  [37]. These
+their products have been successfully produced in yeast   modifications can involve zeroing (deletion), decreas-
+[22, 23], there is still room to improve their titers for eco-   ing (downregulation), or increasing (upregulation) of thenomically feasible production of the subsequent ­Taxol®    fluxes associated with the target reactions, thus exploring
+precursors. Figure 1 illustrates the biochemical reactions    all possible modifications [37].in the mevalonate and ­Taxol® pathways.                       Previously, we reported the production of early-step As omics  technologies  are  evolving and sequenc-    ­Taxol® precursors through the improved mevalonate
+ing platforms are becoming more accessible, the recon-   pathway using our engineered yeast strains [22, 23]. In
+struction of genome-scale metabolic models (GEMs)   the present study, we used a combinatorial in silico sys-
+for  various organisms has  gained momentum,  ena-   tem biology approach to further improve the flux towards
+bling the conversion of integrated omics data into valu-  GGPP in the mevalonate pathway to enhance the titersable system-level information [24]. Since the first yeast    of the taxadiene and the next precursors in the Taxol®
+GEM was reconstructed in 2003, several iterations and   pathway. We utilised three strain design frameworks,
+
+
+
+  (See figure on next page.)
+  Fig. 1  A The native biochemical reactions in the mevalonate pathway leading to the production of GGPP in yeast. B The Taxol® biosynthesis
+  from GGPP in yew trees. HMG-CoA: hydroxymethylglutaryl-CoA, mevalonate-P: R-5-hosphomevalonate, mevalonate-PP: R-5 diphosphomevalonate,
+  IPP: isopentenyl diphosphate, DMAPP: dimethylallyl diphosphate, GPP: geranyl diphosphate, FPP: farnesyl diphosphate, GGPP: geranylgeranyl
+  diphosphate, T5α-ol: taxa-4(20),11-dien-5α-ol, T5αAc: taxa-4(20),11-dien-5-α-yl acetate. The dashed arrows represent naturally occurring multiple
+  steps
+
+
+[PDF physical page 3]
+Malcı et al. Microbial Cell Factories    (2023) 22:243                                                                   Page 3 of 22
+
+
+
+
+
+  Fig. 1  (See legend on previous page.)
+
+
+[PDF physical page 4]
+Malcı et al. Microbial Cell Factories    (2023) 22:243                                                                   Page 4 of 22
+
+
+
+namely OptKnock, OptGene and OptForce in conjunc-   Cluster (Eddie), the University of Edinburgh’s research
+tion with yeast GEM, to predict gene and reaction can-   computing cluster, was employed to find to run Opt-
+didates for knockout or overexpression. The genomic   Force. Escher [40] was used on the iMM904 yeast model
+modifications determined by  in  silico  analyses were   to visualize the metabolic maps since Yeast 8 does not
+implemented using the CRISPR-based ACtivE toolkit   have a compatible Escher map.
+[38] to design yeast strains. Overall, we tested the knock-
+out of nine genes and the overexpression of eight genes,   Oligonucleotides and Reagents
+both individually and in various combinations. Follow-    All primers used in the study are listed in Additional
+ing the screening of the strains, the best-performing one     file 1: Table S1 and Table S3. The primers were ordered
+was also evaluated in 250 mL in a mini-scale bench-top   from Integrated DNA Technologies (IDT)  as stand-
+bioreactor. We achieved a 50% increase in taxadiene   ard DNA oligos. Synthetic gRNA cassettes (Additional
+yield compared to the parent strain when four reactions     file 1: Table S2) were ordered from Twist Bioscience.
+were upregulated by integrating an extra copy of ILV2,   Phusion Flash High-Fidelity PCR Master Mix (ThermoTRR1, ADE13 and ECM31 genes driven by a galactose-    Scientific™) and PrimeSTAR​® GXL DNA Polymerase
+inducible promoter. Using a micro-scale high-through-   (TaKaRa) were used for PCR reactions to produce the
+put bioreactor platform, i.e. BioLector, we achieved the  DNA parts for genome modifications. GeneJET PCRdetection of 215 mg/L of taxadiene, 35.4 mg/L of T5α-ol    Purification Kit (Thermo Scientific™) was used for PCR
+and 26.2 mg/L of T5αAc in complete synthetic media   clean-up. DreamTaq Green PCR Master Mix (Thermo(CSM). These are the highest titers reported until now    Scientific™) was used for colony PCR.
+in S. cerevisiae. Our findings highlight the applicability
+of the genomic modifications employed in this study to    Strains and Media
+enhance the metabolic flux towards the yeast mevalonate   The original S. cerevisiae strain used in this study is a
+pathway for the production of high-value terpenoids.       CEN.PK2-1C-originated  yeast  strain,  LRS6  (MATa,
+                                                              leu2-3,       112::HIS3MX6-GAL1p-ERG19/GAL10p-
+Materials & methods                              ERG8;     ura3-52::URA3-GAL1p-MvaSA110G/GAL10p-
+in silico design and analyses                          MvaE;  his3Δ1::hphMX4-GAL1p-ERG12/GAL10p-IDI1;
+In three design algorithms, OptKnock, OptGene and   trp1-289::TRP1_GAL1p-CrtE (X. dendrorhous)/GAL10p
+OptForce,  cytosolic  acetyl-CoA  and  geranylgeranyl   ERG20;   YPRCdelta15::NatMX-GAL1p-CrtE/GAL10p-
+diphosphate (GGPP) were separately selected as  tar-   CrtE; ARS1014::GAL1p-TASY-GFP; ARS1622b::GAL1p-
+get metabolites to increase production in glucose or   MBP-TASY-ERG20;    ARS1114a::TDH3p-MBP-TASY-
+galactose-containing media. During simulations, uptake   ERG20;         ARS511b::GAL1p-T5αOH/GAL3-CPR;
+routes for key molecules such as inorganic phosphate,   RKC3::GAL1-TAT​) [23]. Briefly, the original strain con-
+sulphate, ammonia, and oxygen were unconstrained,    tains additional copies of native and heterologous genes
+while secretion routes for acetate, carbon dioxide, etha-    in the mevalonate pathway to improve GGPP produc-
+nol, glycolaldehyde, diphosphate, water, and glycerol and    tion, along with codon-optimized heterologous genes
+acetaldehyde were enabled. When galactose exchange   encoding the enzymes responsible for early steps inwas enabled, glucose exchange was constrained or vice    ­Taxol® biosynthesis (Figs. 1, 3A). An additional GAL1
+versa. While S. cerevisiae cultivations (see below) used   promoter-driven TAT​ gene was integrated to the RKC4
+complete synthetic medium (CSM, Additional  file  1:   location into the LRS6 genome, which was used as the
+Table S6 and Table S7), it was decided not to allow for in   parent strain in the subsequent studies. The other strains
+silico amino acid uptake, due to the difficulties to provide   derived from the parent strain are shown in Additional
+realistic constraints for these nutrients.                            file 1: Table S4.
+  The design algorithms underwent up to five iterative    Complete  synthetic medium (CSM)  consisting  of
+runs to generate a set of predictions, each containing a   0.67% (w/v) yeast nitrogen base without amino acidsmaximum of three candidates. Subsequently, we pooled    (Alfa ­Aesar™), 0.08% (w/v) complete supplement mixtureall recommended genomic modification candidates and  (MP Biomedicals™) and 2% (w/v) glucose (Alfa ­Aesar™)through various approaches we prioritized high-potential   or 2% (w/v) galactose (ACROS Organics™) was used for
+modifications from this collective pool, as described in   the cultivations. The compositions of the yeast nitrogen
+the Additional file 1.                                    base and the complete supplement mixture are given
+  The COBRA Toolbox v3.0 [32, 39] was used in MAT-    in Additional file 1: Table S6 and Table S7, respectively.
+LAB R2019a for in silico studies, with Gurobi Optimizer   Pre-cultures were grown in standard rich medium, YPD(9.5.0) as the solver. Yeast GEM 8.5.0 [28] was used to   medium, 1% (w/v) yeast extract (Fisher ­BioReagents™),represent yeast metabolism. The ECDF Linux Compute  2% (w/v) peptone (Merck, ­Millipore®), 2% (w/v) glucose.
+
+
+[PDF physical page 5]
+Malcı et al. Microbial Cell Factories    (2023) 22:243                                                                   Page 5 of 22
+
+
+
+To select the positive transformants, selective media,     Before  the  cultivations, URA3  containing CRISPR
+CSM-URA, 0.67% (w/v) yeast nitrogen base without   plasmids were removed using the 5-Fluoroorotic Acid
+amino acids, 0.077% (w/v) complete supplement mixture   (5-FOA) (Thermo  Fisher  Scientific)  counter-selectionwithout uracil, 2% glucose, 2% agar (ACROS Organics™)   method with a synthetic defined medium supplemented
+was used.                                              with 0.1% (w/v) 5-FOA.
+
+Yeast transformation and strain construction                High‑throughput strain screening
+The chemicals and reagents were obtained from Sigma-   To determine the best producers of the ­Taxol® precur-
+Aldrich unless otherwise stated. Transformations were    sors, the strains containing single genomic modifications
+carried out according to LiAc/PEG heat-shock method    (integration or deletion) were screened using V-shaped,[41]. Briefly, fresh cultures were prepared to obtain the   24-deep  well-plates  ­(Axygen™). A  20%  dodecanecells in the exponential phase following an overnight  (ACROS ­Organics™) overlay was added to set a working
+culture. The cells were then washed using sterile water   volume of 2 ml in each well, and CSM with glucose or
+and were pelleted by centrifugation. The transformation   galactose was used for the cultivations. The initial ­OD600
+mix, 240 µL PEG (50%(w/v)), 36 µL 1.0 M lithium acetate   was set to 1.0 for each well by diluting pre-cultures. The
+(LiAc) and 50 µL single-stranded carrier DNA (2.0 mg/    plates were incubated with shaking at 350 rpm at 30 °C
+mL, herring sperm DNA, Promega), was added onto    for 72 h on thermomixers. Gas permeable adhesive platethe cell pellet. Following this, DNA fragments and water    seals (Thermo ­Scientific™) ensured oxygen transfer. The
+were added until the volume was made up to 360 µL.    total biomass in each well was measured at 600 nm wave-After homogenous transformation mixes were obtained,   length using the ­Nanodrop™ 2000c spectrophotometerthe cells were incubated for 45 min at 42 °C. Finally, the   (Thermo ­Scientific™).
+transformation mix was removed, the cells were plated     In  the  second-level  screening,  the  best  perform-
+onto the selective media, and the plates were incubated   ing strains with single genomic modifications and the
+for 2–3 days at 30 °C.                                          strains containing multiple modifications were screened Genomic modifications, gene integrations or deletions,   employing a BioLector Pro (mp2‐labs) microbioreactor‐
+were carried out using the modular ACtivE toolkit and   screening platform. A flower-shaped, transparent bottommethod that was recently developed by our group [38].   48 well-plate (mp2‐labs) containing pH and dissolved
+Additional file 1: Figure S1, S2 outline the overall work-   oxygen (DO) optodotes was used for online monitor-
+ing principle of the ACtivE method. Briefly, 50 fmol   ing of biomass, pH and DO. Similar to the first screen-
+equivalent molarity of each plasmid module was used to    ing, glucose or galactose-containing CSM was used as
+assemble a single all-in-one CRISPR plasmid. Four plas-   the medium, the initial ­OD600 was set to 1.0, and a 20%
+mid modules, Cas9 cassette, selection marker (URA3),   dodecane overlay was used in 1 mL working volume. The
+storage part (bacteria ORI and AmpR) and yeast origin    plate was covered using a gas-permeable sealing foil withof replication (2 µ) were combined with the correspond-   an evaporation reduction layer (mp2‐labs), and the tem-
+ing gRNA cassettes according to the ACtivE method   perature was maintained at 30 °C under the agitation of
+[38]. ARS209, ARS306, ARS727, ARS1531 and ARS1603   1000 rpm. Biomass absorbance units were measured with
+were used as integration sites for the genomic integra-   the gain = 6.
+tions [38]. 500 ng–1000 ng from each donor DNA part     After cultivations in the plates, dodecane layers were
+containing overlapping fragments with their neighbor   collected following a centrifuge step, and the taxane (tax-
+parts was used. The upstream homology arm (UHA),   adiene and derivatives) production was analysed via gas
+promoter, coding sequence (with terminator) and down-   chromatography-mass spectrometry (GC–MS).
+stream homology arm (DHA) were designed for inte-
+grations, whereas only UHA and DHA were used for   Bioreactor cultivation
+deletions. The potential crRNA sequences on each region   MiniBio500 bioreactor (Applikon Biotechnology) was
+were scored using CRISPOR [42]  (http://​crisp​or.​tefor.​  used for larger scale cultivation for the best producer
+net), an online gRNA selection tool giving sequence-    strain. 250 mL total reaction volume containing a 20%
+based scores using sequence prediction algorithms.        dodecane layer was used for the cultivations. Similar to
+  The colonies were first screened using colony PCR to   the other cultivations, the initial ­OD600 was adjusted to
+detect the genomic modifications. Genomic DNAs of the    1.0 by diluting overnight cultures. The same medium
+positive transformants were extracted using Pierce Yeast   compositions  as the previous experiments,  galactoseDNA Extraction Reagent Kit (Thermo ­Scientific™). The   containing CSM, were used. To mitigate the foam forma-
+target regions were confirmed by Sanger sequencing per-    tion, polypropylene glycol P2000 0.01% (v/v) (Alfa Aesar),
+formed at GENEWIZ, Inc (Leipzig, Germany).           was used in the medium as anti-foam. pH, DO, and
+
+
+[PDF physical page 6]
+Malcı et al. Microbial Cell Factories    (2023) 22:243                                                                   Page 6 of 22
+
+
+
+
+
+  Fig. 2  The workflow followed in this study from in silico design to lab bench scale production. Three design algorithms, OptKnock, OptGene
+ and OptForce, were used on Yeast 8.5.0 to find gene candidates (Additional file 1: Table S5). 17 of these gene candidates were prioritised
+  through further in silico predictions (Figs. 4, 5). After selecting the gene candidates, the yeast strains containing single genomic modifications
+  were designed (Table 1). To engineer the yeast genome, the ACtivE Toolkit was used. The strains were then screened in deep-well plates
+  to detect the good performance genomic modifications (Fig. 6). These modifications were then combined to design second-level yeast strains
+  containing multiple genomic modifications (Table 2). The best-performing strains were then screened in the Biolector platform with real-time pH,
+ DO and biomass monitoring (Fig. 7 and Fig. 8). Finally, the best-producer was used for the productions a lab bench scale bioreactor (Fig. 9)
+
+temperature were measured online using the my‐control  GC column, was used. The mass spectra of 50–650 m/zsystem (Applikon Biotechnology). Temperature was set   were recorded on an ISQ™ Series Single Quadrupoleto 30 °C. A setpoint 70% saturation of dissolved oxygen  MS (Thermo Scientific™) using EI ionization mode and
+(DO) was applied, an air sparger was used automatically   a scan time of 0.204 s. The GC–MS data were processedto maintain ­O2 level. pH was maintained in a particular   using the Xcalibur™ software. Pure taxadiene provided
+range (5.0 < pH < 6.5) and 1 M of NaOH was added when   by the Baran Lab (The Scripps Research Institute) and
+the pH was below the threshold. Biomass was measured  GGOH (Sigma Aldrich) were used as standards. The con-
+online using the Optura system with a BE2100 OD sen-   centrations of the additional compounds were calculated
+sor (BugLab). Samples were taken daily for offline bio-    relative to the taxadiene standard.
+mass measurement and quantification of the metabolite
+concentrations.                                                    Statistical analysis
+ An inverted microscope  (Leica Microsystems) was   Strain screening experiments were conducted in at least
+used following all cultures in this study to detect if there   three replicates. The well layouts in both 24-well plates
+was microbial contamination. The cells were monitored   and 48 well-plate were randomized to mitigate the plate
+under 100X lens with immersion oil (Nikon).                 effects and possible errors. The error bars represent the
+                                                       standard deviations of different experiments. The one-
+Metabolite identification and quantification              way analysis of variance (ANOVA) was used to determine
+The dodecane layer collected at the end of the culti-     if there was a statistically significant difference between
+vations was analyzed by GC–MS as described previ-   the samples or experiments. The null hypothesis consid-ously [22]. A GC system, ­Trace™ 1300 Series (Thermo   ered no significant difference between the samples/runs;­Scientific™),  equipped  with  ­TraceGOLD™ TG-SQC   the null hypothesis was rejected if the p-value ≤ 0.05.
+
+
+[PDF physical page 7]
+Malcı et al. Microbial Cell Factories    (2023) 22:243                                                                   Page 7 of 22
+
+
+
+
+  A)          mvaE            mvaS         HMG1 or           B)                         C)
+               ERG10            ERG13         HMG2                                A-CoA
+        A-CoA              AA-CoA           HMG-CoA           MEV
+                                                                                     HFA1
+                                                        ERG12            mitochondria      Mal-CoA                           CoA                       Citrate     ACO1
+                                         ERG8                      MVD1
+                                   MEV-PP                        IPP                                                      MEV-P                              MCT1                     A-CoA              Citrate         cytoplasm
+              IDI1          ERG20                                                            Mal-ACP                                           CIT2                                   Isocitrate
+                                                                                                             OAA              peroxisome
+                                 ERG20                                     CEM1                                                                                         ICL1      DMAPP                GPP                 FPP
+                                                                  CrtE (x3)               3-KA-ACP
+                                DPP1               BTS1                                                   MDH3                                                                                                                                                                                                       Glyoxylate    Succinate
+                                                                   OAR1                                           LPP1
+                                                                                               3-HA-ACP                                     Malate  MLS1  Glyoxylate
+                                   FOH                 GGPP                                            X
+                                                                           HTD2
+                            Taxol Biosynthesis                 TASY (x3)                                    t2-E-ACP                             CoA        A-CoA
+                        T5αAc                       TXN                                       ETR1
+                       TAT (x2)      T5α-ol    T5αOH/CPR                                     Acyl-ACP           Taxol®
+
+
+  D)                                                   2-DHP                                  E)
+                       2             cytoplasm                    PAN5
+                 Pyruvate                                                                                                                                    ADE5,7                                                                                                   ADE4                                                                                                                                  ADE8
+                                                                       Pantoate                                          PRPP                                                                                                              PRAm                                                                                                                                    GAR                                                                                                                                              FGAm
+                ILV2
+                              mitochondria                                       β-Alanine
+                                                             PAN6                                                                                ADE6
+                  2-A-Lac                                         Pnto                                                          ADE2             ADE5,7
+                                                                                                                                         5AIZC                 AIR             FPRAm
+                 ILV5                                      CAB1                       Spermidine
+                                                                                                                               Putrescine                    ADE1                                                                                                                                                          ADE16                                                                                                                                                                                                                        or                                                                                                                          ADE13                                                                                   SPE3                              2-DHP                P-Pan                                                                                                                                                                ADE17               diOH-M-B                                                                                                                                                                                AICar                                                                                                                                                                                             FPRICa                                                                                                                                                25AICS
+                                                                                                Ad-Met-Am                                              CAB2
+                  ILV3          ECM1                           P-Pan-Cys                                 SPE2                                                                 ADE16 or
+                                                                                                                                                                         ADE17
+                                                       CAB3
+                                                                                                 Ad-Met                                                        IMP             3MOB       MlTHF
+                                                                      Pan-4P                 SAM1 or
+                     BAT2                                                     SAM2                                                 ADE12
+                                                           CAB4                      L-Met                                L-Val                                                         DP-CoA                                                   dATP            AMP               AdSucc               dGTP
+                                                                                                                           ADE13
+                                                    CAB5
+          L-Leu
+                             L-Val                       CoA
+
+  Fig. 3  The pathways, genes and reactions modified in this study. A) The mevalonate pathway. The additional copies of native genes (blue
+  shaded) and the heterologous genes (orange shaded) integrated in a previous study to construct the parent strain LRS6 [23] are highlighted. B
+  Fatty acid biosynthesis in mitochondria C Glyoxylate cycle D Connected pathways; branched-chain amino acid biosynthesis (from two pyruvate
+  molecules to L-valine or L-leucine), pantothenate pathway (from 3-methyl-2-oxobutanoate a 5,10-methylenetetrahydrofolate to pantothenate)
+ and the spermidine biosynthesis (from S-adenosyl-L-methionine to spermidine) E de novo purine biosynthesis. The red crosses indicate
+  corresponding gene deletions suggested by the design algorithms; thick arrows highlighted with green colour indicate the corresponding
+  overexpressed genes suggested by the design algorithms. The arrows show the direction of the fluxes. Dashed arrows indicate multiple reactions.
+  A-CoA: acetyl-CoA, AA-CoA: acetoacetyl-CoA, HMG-CoA: hydroxymethylglutaryl-CoA, MEV: mevalonate, MEV-P: R-5 phosphomevalonate,
+  MEV-PP: R-5-diphosphomevalonate, IPP: isopentenyl diphosphate, DMAPP: dimethylallyl diphosphate, GPP: geranyl diphosphate, FPP: farnesyl
+  diphosphate, FOH: farnesol, GGPP: geranylgeranyl diphosphate, TXN: taxadiene, T5α-ol: taxa-4(20),11-dien-5α-ol, T5αAc: taxa-4(20),11-dien-5-α-yl
+  acetate, Mal-CoA: malonyl-CoA, Mal-ACP: malonyl-ACP, 3-KA-ACP: 3-ketoacyl-ACP, 3-hydroxyacyl-ACP, t2-E-ACP: trans-2-enoyl-ACP, OAA: oxaloacetic
+  acid, 2-A-Lac: 2-acetolactate, diOH-M-B: 2,3-dihydroxy-3 methylbutanoate, 3MOB: 3-methyl-2-oxobutanoate, 2-DHP: 2-dehydropantoate, Pnto:
+  R-pantothenate, P-Pan: R- 4’ phosphopantothenate, P-Pan-Cys: R- 4’ phosphopantothenoyl-L-cysteine, Pan-4P: 4’-phosphopantetheine, DP-CoA:
+  3’-dephospho-CoA, PRPP: 5-Phospho-alpha-D-ribose 1-diphosphate, PRAm: 5-Phospho-beta-D-ribosylamine, GAR: N1-(5-Phospho-D-ribosyl)
+  glycinamide, FGAm: N2-Formyl-N1-(5-phospho-D-ribosyl) glycinamide, FPRAm: 2-(Formamido)-N1-(5-phospho-D-ribosyl) acetamidine,
+  AIR: 5-amino-1-(5-phospho-D-ribosyl)imidazole, 5AIZC: 5-amino-1-(5-phospho-D-ribosyl) imidazole-4-carboxylate, 25AICS: (S)-2-[5-Amin
+  o-1-(5-phospho-D-ribosyl) imidazole-4-carboxamido]succinate, AICar: 5-Amino-1-(5-Phospho-D-ribosyl)imidazole-4-carboxamide, FPRICa:
+  5-Formamido-1-(5-phospho-D-ribosyl)imidazole-4-carboxamide
+
+
+Results & discussion                                        identify potential genomic modifications that would be
+The main objective of the study was to improve metabolic    difficult to determine intuitively. Strain design algorithms
+fluxes towards the mevalonate pathway, thus, towards   were used on yeast GEM 8.5.0. The gene deletion or inte-
+GGPP which is a common precursor of diterpenes [43],   gration candidates were simulated using COBRA tools.to enhance the production of the early step Taxol® pre-   The  strains  containing  single genomic  modifications
+cursors synthesized by our engineered yeast strains. To   were then designed using the ACtivE toolkit and were
+this end, computer-aided design was used to predict/   screened in V-shaped deep-well plates. The promising
+
+
+[PDF physical page 8]
+Malcı et al. Microbial Cell Factories    (2023) 22:243                                                                   Page 8 of 22
+
+
+
+
+Table 1  Selected gene candidates predicted by different design algorithms in various media conditions
+
+Target Gene               Design algorithm               Target compound           Carbon source                Intervention
+
+DPP1 (YDR284C)            OptGene                        Acetyl-CoA                   Glucose                       Knock-out
+OAR1 (YKL055C)            OptGene                   GGPP                         Galactose                     Knock-out
+MDH3 (YDL078C)            OptKnock & OptForce            Acetyl-CoA                   Glucose                       Knock-out
+ACH1 (YBL015W)             OptKnock & OptGene             Acetyl-CoA                   Glucose                       Knock-out
+MLS1 (YNL117W)            OptKnock                       Acetyl-CoA                    Galactose                     Knock-out
+DIT1 (YDR403W)            OptGene                        Acetyl-CoA                   Glucose                       Knock-out
+LPP1 (YDR503C)             OptGene                   GGPP                        Glucose & galactose            Knock-out
+ISC1 (YER019W)             OptGene                        Acetyl-CoA                    Galactose                     Knock-out
+DTR1 (YBR180W)            OptGene                   GGPP                        Glucose                       Knock-out
+ILV2 (YMR108W)              OptForce                        Acetyl-CoA                    Galactose                      Overexpression
+TRR1 (YDR353W)              OptForce                        Acetyl-CoA                    Galactose                      Overexpression
+ADE4 (YMR300C)              OptForce                        Acetyl-CoA                   Glucose & galactose             Overexpression
+ADE5,7 (YGL234W)            OptForce                        Acetyl-CoA                   Glucose & galactose             Overexpression
+ADE13 (YLR359W)             OptForce                        Acetyl-CoA                   Glucose & galactose             Overexpression
+ECM31 (YBR176W)            OptForce                        Acetyl-CoA                   Glucose & galactose             Overexpression
+CAB1 (YDR531W)             OptForce                        Acetyl-CoA                   Glucose & galactose             Overexpression
+SPE2 (YOL052C)              OptForce                        Acetyl-CoA                   Glucose & galactose             Overexpression
+
+
+single genomic modifications and their combinations    this study prioritise growth-coupled solutions, all solu-
+were tested in a BioLector microbioreactor system. Fol-   tions taken into account were growth-coupled. Table 1
+lowing this, the best producer was also tested in a lab   compiles the selected target genes and corresponding
+bench bioreactor. Figure 2 demonstrates the whole pro-   design algorithms.
+cess explained here.                                     Using different conditions and design algorithms as
+                                                           highlighted above, various gene and reaction candidates
+in silico design                                       were found for either acetyl-CoA or GGPP overproduc-
+Our combinatorial approach benefited from three design    tion. We intended to use these in silico predicted targets
+algorithms, OptKnock, OptGene and OptForce on yeast   to implement in vivo by constructing relatively simple
+GEM 8.5.0. Due to the incomplete knowledge on the   single-mutation strains. To therefore prioritize the most
+Taxol biosynthetic pathway, including the exact reac-   promising ones among the predicted genomic modifica-
+tions that are catalysed by its enzymes, we focused on   tions (Additional file 1: Table S5), we employed in silico
+acetyl-CoA and GGPP as production targets (after addi-   simulations to validate their effect. In these simulations,
+tion of their respective exchange reactions), which are   the lower bound of the biomass function was set to a
+the first and last metabolites in the mevalonate pathway,   value of 0.1, to ensure that the optimised model would
+respectively (Fig. 3A).Since the S. cerevisiae strain used     still have active fluxes toward the biomass reaction. Then,
+for genomic modifications employed inducible galactose   by going through one candidate reaction at a time, ini-
+promoters, the simulations were carried out with galac-    tial flux of these reactions were first fixed to an arbitrary
+tose or glucose as carbon source, separately. Nonessential   value of 0.01 in an initial simulation, while in a subse-
+reactions and genes were first determined for OptKnock   quent simulation of a mutant strain the fluxes were fixed
+and OptGene using flux balance analysis (FBA) [44].   to either 0 or 0.02 to mimic deletion (reaction knock-
+Minimum growth  rate was  set to 50% of wild-type   out) and overexpression (gene integration), respectively.
+growth when targeting acetyl-CoA for OptKnock dele-   Then, in each of the model variants, the maximum pro-
+tions, however, it was set to 20% for GGPP as OptKnock   duction fluxes of acetyl-CoA, GGPP and biomass were
+could not predict potential gene deletions in favour of   determined, and the effect of the genomic modification
+GGPP maintaining higher growth rate. OptGene was    relative to the initial simulation was plotted (Fig. 4). The
+run over 500 and 1000 generations, and all predictions   genes that showed the largest increase in maximum flux
+were considered. The genomic modifications suggested   values were prioritized for further analysis and wet-lab
+by both the first “MUST set” and the second “MUST set”   experiments.
+of OptForce runs [37] were considered. Since the design     Although clear increases were found with approxi-
+algorithms, OptKnock, OptGene and OptForce, used in   mately two-fold overproduction  in acetyl-CoA when
+
+
+[PDF physical page 9]
+Malcı et al. Microbial Cell Factories    (2023) 22:243                                                                   Page 9 of 22
+
+
+
+
+
+  Fig. 4  Comparison of maximum in silico fluxes for corresponding objectives, acetyl-CoA, GGPP and biomass reactions. For simplicity, the initial
+  state (flux value was 0.01) was referred to as wild-type, while the final state (flux value is 0.00 for deletion and 0.02 for integration) was referred
+  to as modification. A, C were simulated in galactose containing CSM, B, D were simulated in glucose-containing CSM. ∆; gene deletion,:; gene
+  integration
+
+
+[PDF physical page 10]
+Malcı et al. Microbial Cell Factories    (2023) 22:243                                                                  Page 10 of 22
+
+
+
+
+
+                                                                  Metabolite Interaction Map of the Mevalonate Pathway
+                                                                               Wild Type Model
+
+
+
+
+
+   Metabolites                              s_0685: ethyl acetate
+    Mavalonate Pathway Metabolites          s_0692: farnesyl diphosphate
+    A-CoA: acetyl-CoA                          s_0739: GDP
+    AA-CoA: acetoacetyl-CoA                    s_0785: GTP
+    MEV: mevalonate                           s_0794: H+
+    MEV-P: 5-phosphomevalonic acid             s_0803: H2O
+    MEV-PP: 5-diphosphomevalonic acid          s_0927: isoamyl acetate
+    GGPP: geranylgeranyl diphosphate            s_0935: isobutyl acetate
+    FPP: farnesyl diphosphate                   s_0945: isopentenyl diphosphate
+    HMG-CoA: 3-hydroxy-3-methylglutaryl-CoA     s_0952: L-2-amino-3-oxobutanoate
+    GPP: geranyl diphosphate                    s_1101: malonyl-CoA
+    HxPr-PP: hexaprenyl diphosphate             s_1180: N(1)-acetylspermidine
+                                               s_1181:                                                          N(1)-acetylspermine     IPP:         isopentenyl                   diphosphate
+                                                         N-acetyl-D-glucosamine                                                                            6-phosphate        Metabolite Interaction Map of the Mevalonate Pathway    PnPr-PP:             pentaprenyl                        diphosphate            s_1190:
+    DMAPP: Dimethylallyl pyrophosphate (prenyl   s_1198: NAD                                Knock-out Strain with DTR1 Deletion
+    diphosphate)                               s_1207: NADP(+)
+                                               s_1212: NADPH
+    Interacting Metabolites                    s_1233: O-acetyl-L-homoserine
+    s_0029: (R)-mevalonate                      s_1234: O-acetyl-L-serine
+    s_0066: (S)-malate                          s_1235: O-acetylcarnitine
+    s_0162: 2-isopropylmalate                   s_1302: palmitoyl-CoA
+    s_0172: 2-methylbutyl acetate                s_1313: pentaprenyl diphosphate
+    s_0191: farnesyl diphosphate                 s_1316: phenethyl acetate
+    s_0216: 3-hexaprenyl-4-hydroxybenzoic acid   s_1322: phosphate
+    s_0221: 3-hydroxy-3-methylglutaryl-CoA       s_1447: squalene
+    s_0362: acetate                             s_1454: stearoyl-CoA
+    s_0377: acetyl-CoA                          s_1538: UDP
+    s_0394: ADP                               s_1559: UTP
+    s_0434: ATP                                s_4033: [protein]-N(6)-acetyl-L-lysine
+    s_0456: carbon dioxide                      s_4110: N-acetyl-L-cysteine
+    s_0467: CDP                               s_4132: acetoacetate
+    s_0529: coenzyme A                        s_4184: 3-oxopropanoate
+    s_0539: CTP                                s_4254: tyrosyl acetate
+    s_0633: diphosphate                        s_4256: methionyl acetate
+    s_0636: diphosphate                        s_4258: propyl acetate
+                               Compartments
+                                                                    [c] : cytoplasm        [m] : mitochondrion
+                                                                [e] : extracellular       [n] : nucleus
+                                                                      [lp] : lipid particle
+
+
+
+
+
+  Fig. 5  Metabolite interactions with corresponding fluxes in the mevalonate pathway in the wild-type model and the DTR1 deleted knock-out
+  model. Metabolite interactions were constructed using metabolite-metabolite interaction network in COBRA Toolbox [45, 46]
+
+
+[PDF physical page 11]
+Malcı et al. Microbial Cell Factories    (2023) 22:243                                                                  Page 11 of 22
+
+
+
+
+
+  Fig. 6  Comparison of biomass and production of early step ­Taxol® precursors and side products. A KM1-derived strains in the galactose-containing
+  CSM. B EJ1-derived strains in the glucose-containing CSM. Relative values are shown considering 100% baseline (dashed line) of the parent strains,
+ KM1 or EJ1. Error bars indicate standard deviations between three replicates. ∆; gene deletion, gene integration
+
+
+particular genes were overexpressed in silico, the over-   pathway were determined with their fluxes, as shown
+production rates were relatively low in gene deletions    in Fig. 5. The acetyl-CoA-centered and GGPP-centered
+except for DPP1, OAR1 and MDH3 that showed ~ 40%   interactions were also investigated from this map (Addi-
+increase (Fig. 4). To understand the lower increases bet-    tional file 1: Figure S3–S9), and flux differences between
+ter, metabolite interaction maps were constructed for the   the wild-type and knock-out models were compared
+gene deletions including ACH1, MLS1, DIT1, LPP1, ISC1    (Fig. 5). We could not detect flux increase towards GGPP
+and DTR1 to investigate the effects of these gene knock-    in any of the knock-out models even though the objective
+outs. First, wild-type and knock-out models were opti-   functions were removed, as explained in the methodol-
+mised by FBA in glucose or galactose containing media,   ogy section. Therefore, only acetyl-CoA increases were
+then  the  metabolite  interactions  in  the mevalonate   considered. The gene deletions that were predicted to
+
+
+[PDF physical page 12]
+Malcı et al. Microbial Cell Factories    (2023) 22:243                                                                  Page 12 of 22
+
+
+
+increase the possible maximum fluxes (Fig. 4A & B) and   deletions or integrations were cultured for three days in
+in metabolite interaction maps (Fig. 5, Additional file 1:   galactose or glucose-containing CSM media as simu-Figure S3–S9) were selected for the strain construction.      lated previously. In addition to the Taxol® precursors,
+  For overexpressions, only the reactions that increased   some side compounds such as verticillene, iso-taxadiene,
+the fluxes towards acetyl-CoA production were consid-   geranylgeraniol (GGOH),  5(12)-oxa-3(11)-cyclotaxane
+ered (Table 1). This was because OptForce suggested to   (OCT), iso-OCT, and additional diterpenes were also
+upregulate particular reactions in the mevalonate path-   detected by GC/MS analyses as previously reported in
+way (Additional file 1: Table S5) for GGPP overproduc-   more detail [23]. Among them, GGOH and OCT were
+tion, and these were already improved in our engineered    also quantified to compare the production of these sidestrain, LRS6. Therefore, the initial metabolic state in the   products. Two Taxol® precursors (taxadiene and T5α-ol),
+parent strain was as if OptForce’s predictions were imple-   two side-products (GGOH and OCT) and biomass were
+mented in the mevalonate pathway. OptForce did not   considered in a micro-scale screening in 2 mL cultures
+find upregulation of early step reactions (the reactions of   to characterize the modified strains. Figure 6 shows the
+ERG10 and ERG13 genes) useful in the mevalonate path-   comparison of the production of these metabolites and
+way; the possible maximum flux of the GGPP production   biomass between the parent strains and designed strains.
+did not change compared to the initial state. It was a con-     Differences in production between galactose-contain-
+sistent result found by in silico simulations as a previous   ing (CSM w/ galactose) and glucose-containing (CSM w/
+experimental study reported that early step mevalonate   glucose) media were detected. Taxadien-5α-ol produc-
+pathway genes of S. cerevisiae did not show efficient pro-   tions varying from ~ 4 mg/L to ~ 8 mg/L were observed
+duction of mevalonate compared to bacterial-sourced    in galactose-containing media with KM1-derived strains;
+equivalents [47]. OptForce did not suggest any reaction   however, only weak peaks were seen in the gas chromato-
+in other pathways to be upregulated to enhance GGPP   gram for T5α-ol when the glucose-containing media was
+production.                                          used with EJ1-derived strains that did not contain the
+                                          GAL80 gene. This was most probably because the expres-
+Strain construction and screening of the single genomic      sion rates of the galactose-inducible promoters were
+modifications                                                                 still higher in galactose-containing media, even though
+As our engineered yeast strains contained additional   EJ1-derived strains could produce taxadiene under glu-
+genes (Fig. 3) driven by galactose-inducible promoters,   cose only conditions (Fig. 6). Additional regulatory ele-
+the parent strain KM1 (Additional file 1: Table S4), was   ments might have had an impact on the activation of
+not able to induce the integrated mevalonate pathway   galactose-inducible promoters in the presence of glucose.
+genes using glucose as sole carbon source. Therefore,   In the galactose-containing CSM media, mainly integra-
+we first deleted the GAL80 gene yielding with EJ1 strain    tions increased the downstream production from GGPP,
+(Additional file 1: Table S4) to allow glucose utilization   whereas most of the deletions and integrations showed
+as Gal80 protein inhibits the transcription of the galac-    positive impacts on the production of the precursors in
+tose-inducible genes in the absence of galactose [48].   glucose-containing media.
+These two strains were then designed to incorporate the    DPP1    and   LPP1    genes,    encode    two
+genomic modifications, single-gene deletion or integra-   ­Mg+2-independent phosphatidate phosphatases found
+tion (overexpression), predicted by the design algorithms.   in yeast [50]. Deletion of these genes might result in
+When the additional copies of native yeast genes were   higher farnesyl diphosphate (FPP) and GGPP titers as
+integrated  for overexpression, native promoters were   these enzymes are also responsible for converting FPP
+simply changed with GAL1 promoter using the ACtivE   to farnesol (Fig. 3A). However, in the galactose-con-
+method (Additional  file 1: Figure S2) [38] to enhance   taining medium, both single deletions showed a similar
+their expression rates [22, 49]. Additional copies were   pattern with lower average (p > 0.05) taxadiene pro-
+integrated into an intergenic region close to the autono-   duction (Fig. 6A). On the other hand, a ~ 20% increase
+mously replication sequence (ARS) 1603 [38] in each    (p < 0.05) in taxadiene production with DPP1 dele-
+strain to screen the effect of single gene overexpression.     tion was observed in the glucose-containing medium
+  In this study, nine gene knock-outs and eight gene    (Fig. 6B), while LPP1 deletion resulted in almost the
+overexpressions were tested to determine whether these   same  taxadiene  production  (p > 0.05). No  signifi-
+modifications affect biomass and the production of early   cant growth phenotype was observed in any condi-steps Taxol® precursors, taxadiene, taxa-4(20),11-dien-   tion (Fig. 6). in silico simulations suggested that DPP1
+5α-ol  (T5α-ol), and  taxa-4(20),11-dien-5-α-yl  acetate   deletion could lead to acetyl-CoA overproduction in a
+(T5αAc), via the mevalonate pathway. To screen single   glucose-containing medium (Table 1 and Fig. 4B), and
+genomic modifications, the strains containing single gene   experimental results (Fig. 6B) supported this.
+
+
+[PDF physical page 13]
+Malcı et al. Microbial Cell Factories    (2023) 22:243                                                                  Page 13 of 22
+
+
+
+  The protein encoded by OAR1 is an NADPH-depend-  KM14 and KMRJ14 strains (Fig. 6), taxadiene concentra-
+ent  3-oxoacyl-(acyl-carrier-protein)  reductase,  which   tions were comparable with the reference strains, indicat-is involved in fatty acid biosynthesis in yeast [51, 52] (as   ing that production of Taxol® precursors was improved
+illustrated in Fig. 3B). OAR1 deficient yeast strains could   per OD with ACH1 deletion even if the total production
+survive on fermentable carbon sources like glucose but   could not be enhanced.
+not on non-fermentable carbon sources such as glyc-     Perhaps, the most surprising findings of OptGene were
+erol [51, 52]. Approximately 30% reduction in biomass   the deletions of DIT1 and DTR1 genes that take part in
+was observed in the glucose-containing and the galac-   the sporulation process [59, 60]. Dit1 plays a role in form-
+tose-containing CSMs (Fig. 6). Also, the production rate   ing the dityrosine layer of the spore wall, and its expres-of the ­Taxol® precursors obtained from KM12 was less   sion rate increases during spore wall maturation [61].
+than 40% of the parent strain. In contrast, more than 40%   Dit1 expression might be active in vegetative cells; yet,
+increase was noted in glucose-containing CSM using    its cellular activities of are not fully elucidated [62]. DTR1
+KMJR12 (Fig. 6B).                                                      is a member of the gene network controlling the assem-
+  Both OptKnock and OptForce found MDH3 as a good   bly of the spore wall [63]. Dtr1 protein can also increase
+target to increase acetyl-CoA (Table 1). MDH3 encodes   the resistance against some growth inhibitors in vegeta-
+a peroxisomal malate dehydrogenase [53] responsible    tive yeast cells [60]. The deletions of these genes did not
+for the interconversion of malate and oxaloacetate using   show a significant decrease in biomass in either glucose-
+­NAD+ or NADH depending on the reaction in the gly-   containing or galactose-containing CSM (Fig. 6). How-
+oxylate cycle (Fig. 3C) [54, 55]. OptKnock also suggested    ever, DIT1 deletion in KM16 caused a dramatically lower
+deleting the MLS1 gene that encodes another enzyme,   production of the Taxol precursors in the galactose-con-
+malate synthase, involved in the glyoxylate cycle [54].   taining medium. In contrast, DTR1 deletion increased
+Malate synthase catalyses the formation of malate from   taxadiene  concentration  in  the  glucose-containing
+glyoxylate and acetyl-CoA in either cytosol or peroxi-   medium. It is very likely that deletion of these sporula-
+some, depending on the carbon source (Fig. 3C) [56].    tion-specific genes directly makes an impact on GGPP
+Cytosolic and peroxisomal acetyl-CoA  is an essential   concentration, as  it was reported that geranylgeranyl
+compound in the glyoxylate cycle. However, the glyoxy-   diphosphate synthase has a critical role in the sporulation
+late cycle is activated when two-carbon compounds such   process in fission yeast, and related genes have functional
+as ethanol and acetate are used as the sole carbon sources    similarity with S. cerevisiae [64].
+or β-oxidation of fatty acids is enabled [56]. Although    ISC1 encodes inositol phosphosphingolipase C that
+we used only six-carbon sources, galactose or glucose,   hydrolyses sphingolipids to produce ceramide, a com-
+we detected significant effects of MDH3 or MLS1 dele-   pound involved in regulations of cell growth, death and
+tions in our study, as shown in Fig. 6. MLS1 deleted    stress response [65]. There is no direct relation between
+strain KMRJ15 produced less biomass, ~ 60% of the ref-   ISC1 and acetyl-CoA or GGPP, and it was shown that
+erence  strain,  in glucose-containing CSM. A  similar   ISC1 deletion might lead to a higher budding pattern
+growth trend was previously reported [57]. On the other   than the wild-type strains [66]. Consistently, ISC1 dele-
+hand, KM13 (MDH3∆) showed a significant increase   tions resulted in higher average biomass in galactose or
+with ~ 40% in taxadiene production when galactose was   glucose-containing media (Fig. 6). OptGene suggested
+used as carbon source even though it was unexpected as   ISC1 deletion to increase acetyl-CoA concentration in a
+MDH3 might not be functional in the galactose-contain-   galactose-containing CSM. Parallel to this, we obtained a
+ing medium. In contrast, MLS1 deletion resulted in ~ 30%   higher average production for the target metabolites with
+lower taxadiene in KM15. These  results might indi-   a ~ 6% increase in average in taxadiene and T5α-ol in the
+cate that the glyoxylate cycle genes might still be func-   galactose-containing medium, although it was not statis-
+tional under different carbon sources, and that blocking    tically significant (p > 0.05).
+particular reactions in this cycle can affect cytosolic     Majority of the OptForce predictions were involved in
+acetyl-CoA synthesis even if the carbon source is not a   the biosynthesis of metabolic precursors in yeast. ILV2
+two-carbon compound or fatty acid.                     encodes acetolactate synthase that catalyses the con-
+  In mitochondria, acetyl-CoA hydrolase (Ach1) encoded   version of two pyruvate molecules to 2-acetolactate in
+by ACH1 can catalyse the conversion of acetyl-CoA into   isoleucine and valine biosynthesis pathways [67]. From
+acetate and CoA. Ach1 can also reversibly transfer CoA   3-methyl-2-oxobutanoate produced in valine biosynthe-
+from succinyl-CoA to acetate [58]. OptKnock and Opt-    sis, coenzyme-A precursors are produced in the phos-
+Gene proposed ACH1 deletion to increase acetyl-CoA   phopantothenate biosynthetic pathway, where ECM31
+concentration  in glucose-containing media. Although   and CAB1 catalyse the first and fourth steps, respec-
+we detected significantly lower biomass (p < 0.05) in both    tively [68]. The product of SPE2 plays a critical role in
+
+
+[PDF physical page 14]
+Malcı et al. Microbial Cell Factories    (2023) 22:243                                                                  Page 14 of 22
+
+
+
+spermidine biosynthesis [69]. Although, these genes and   modifications, such as the deletions of the LPP1 and
+pathways might look irrelevant and independent from  DPP1 genes, may appear  intuitively predictable,  it  is
+each other, connecting the intermediate or final prod-   important to note that a significant portion of these
+ucts in these pathways (as shown in Fig. 3D) reveals their   genomic  alterations, including those not depicted in
+direct impacts on CoA production and possibly enhanced    Fig. 3, such as DTR1 and DIT1 deletions, or TRR1 over-
+acetyl-CoA production. ADE4, ADE5,7 and ADE13 are   expression, are considerably challenging to anticipate.
+responsible for five reactions in de novo purine synthesis   These findings show that mathematical modelling and
+as shown in Fig. 3E [70]. while TRR1 regulates the thiore-   optimization of the microbial systems can be beneficial
+doxin system, protecting yeast against oxidative stress    in finding useful genomic modifications that are very dif-
+[71].                                                                 ficult to be intuitively predicted. Indeed, detecting small
+  Integration of ADE5,7 encoding a bifunctional protein   changes using a relatively low number of replicates is
+responsible for the second and fifth reaction in de novo   quite challenging as the noise deviations can make the
+purine synthesis pathway resulted in lower taxediene   screening and evaluations harder. Nevertheless, statisti-
+production (~ 23% decrease, p < 0.05) in galactose-con-    cally significant impacts of the genomic alterations were
+taining CSM with strain KM24. In contrast, taxediene   detected when single modifications were tested. Here, we
+production was significantly higher in the glucose-con-   coupled the native genes with strong galactose-inducible
+taining medium. Apart from  this, overexpression  of   promoters. Therefore,  alternative approaches such as
+the CAB1 gene could not increase the production even   protein engineering or integrating heterologous genes
+though an increased flux in the phosphopantothenate   encoding higher performance enzymes for the target
+pathway could potentially increase acetyl-CoA concen-   reaction could also be used to enhance the fluxes in the
+tration. Olzhausen et al. (2021) reported that the native   pathways of interest.
+CAB1 is relatively inefficient for the production of coen-
+zyme A compared to other phosphopantothenate path-   Next level screening using high‑throughput microscale
+way genes, and the researchers dramatically increased   bioreactor system
+coenzyme A titer using mutant CAB1 W331R [72]. This   To investigate the impact of multiple modifications on
+might be the reason behind non-effective taxane produc-   taxane production, we incorporated the empirical find-
+tion when CAB1 was overexpressed. OptForce suggested   ings from the first screening experiments and strategi-
+upregulation of early-stage and mid-stage reactions in de    cally combined the most promising modifications to
+novo purine synthesis that have relatively lower fluxes   engineer  next-level  strains.  For  galactose-containing
+than the late-stage reactions, as shown in Additional  CSM, five genomic integrations and one gene deletion
+file 1: Figure S11 that seems like an effective strategy to   were combined to construct different combinations of
+enhance the flux towards the downstream part of the   KM1-derived strains, while three gene deletions and two
+pathway. Still, the relation of de novo purine synthesis   genomic integrations were used to produce EJ1-derived
+pathway and thioredoxin system with acetyl-CoA should    strains to be used in glucose-containing CSM, as shown
+be further investigated as increased fluxes in these sys-    in Table 2.
+tems can potentially increase acetyl-CoA concentration    The  first-level  strain  screening  revealed promising
+or the fluxes in the mevalonate pathway towards GGPP.    genomic  modifications  enhancing GGPP  and  taxa-
+  In Fig. 3, we have highlighted genomic modifications   diene productions, as discussed above. However, thespanning  various metabolic pathways. While  certain   next compound, T5α-ol, in the Taxol® pathway could
+
+
+Table 2  The strains containing multiple modifications
+
+Strain                                                      Genotype
+
+KM31                                                             KM1, ARS1603::ILV2, ARS209::TRR1
+KM32                                                             KM1, ARS1603::ILV2, ARS209::TRR1, ARS306::ADE13, ARS727::ECM31
+KM33                                                             KM1, ARS1603::ILV2, ARS209::TRR1, ARS306::ADE13, ARS727::ECM31, MDH3Δ
+KM34                                                             KM1, ARS1603::ILV2, ARS209::TRR1, ARS306::ADE13, ARS727::ECM31,
+                                                                              ARS1531::SPE2, MDH3Δ
+KMRJ31                                                                             EJ1, OAR1Δ, DTR1Δ
+KMRJ32                                                                             EJ1, OAR1Δ, DTR1Δ, ARS1603::ADE5,7
+KMRJ33                                                                             EJ1, OAR1Δ, DTR1Δ, ARS1603::ADE5,7, DPP1Δ
+KMRJ34                                                                             EJ1, OAR1Δ, DTR1Δ, ARS1603::ADE5,7, DPP1Δ, ARS1531::SPE2
+
+
+[PDF physical page 15]
+Malcı et al. Microbial Cell Factories    (2023) 22:243                                                                  Page 15 of 22
+
+
+
+not be effectively detected, and only KM25 and KM28  maximum of only 8 mg/L compared to taxadiene, which
+showed a significant increase (p-value < 0.05) in T5α-ol   reached a maximum of 95 mg/L. For the galactose-
+titer compared to the parent strain (Fig. 6). In addi-   containing medium, the three best taxadiene producer
+tion, KMRJ strains could not form a clear T5α-ol peak    strains containing single modifications (KM21, KM25
+in the GC chromatogram when they were used in glu-   and KM13) and four strains containing multiple modifi-
+cose-containing media. The reason behind it was prob-   cations (KM31, KM32, KM33 and KM34) were screened
+ably the limited agitation and air transfer in deep-well   while biomass, pH and DO were monitored in real-time
+plates because of the shape of the wells and the shaking   using the BioLector. Interestingly, all multiple modifica-
+frequency (350 rpm) as it was proven that oxygen sup-   tion strains resulted in higher biomass compared to the
+ply is critical for oxygenation reactions for T5α-ol syn-   parent strain, KM1, after three days. It seems increas-
+thesis [23]. Therefore, in the second-level screening, the   ing fluxes in particular reactions and pathways ended inBioLector Pro microbioreactor‐screening platform was   favor of biomass rather than a metabolic burden on the
+utilized with a flower-shaped plate and a higher shaking    cell although overexpression of ILV2 (KM21) or deletion
+frequency of 1000 rpm to ensure sufficient oxygen trans-    of MDH3 (KM13) led to lower biomass compared to the
+fer since the flower shape geometry can provide a better   parent strain KM1. Most of the strains showed a similar
+oxygen supply [73].                                        pattern for pH change during three days of cultivation.
+ To this end, we primarily considered taxadiene yields,   The initial pH between 5.50 and 5.75 dropped to ~ 5.0 and
+as it is the direct product derived from GGPP. In con-    slightly increased to around 5.25, as shown in Fig. 7B. S.
+trast, T5α-ol titers were significantly lower, reaching a    cerevisiae tends to acidify the culture pH [74], therefore
+
+
+
+
+
+  Fig. 7  Performances of the selected KM1-derived strains in galactose-containing CSM in the high-throughput microbioreactor system. A Biomass
+  trend B Change in culture pH C Production of the target molecules and side-products Error bars represent the standard deviation of three replicates
+
+
+[PDF physical page 16]
+Malcı et al. Microbial Cell Factories    (2023) 22:243                                                                  Page 16 of 22
+
+
+
+it was an expected behavior. However, KM31 contain-   T5α-ol and T5αAc production reported so far using S.
+ing overexpressed ILV2 and TRR1 genes showed a higher    cerevisiae as a cell factory. It is noteworthy that the previ-
+pH between 20 and 50 h of culture. To further elucidate   ous study conducted in E. coli achieved a T5α-ol produc-
+the reason behind this, the pH pattern of KM22 cultures   tion of 23 mg/L without the expression of the subsequent
+should also be tested.                                      gene, TAT, in the pathway [75]. In addition, this E. coli
+  Although KM21, KM25 and KM13 strains increased    strain was unable to accumulate taxadiene, as mentioned
+taxadiene production by 35%–40% in the deep well-plates    earlier. Taking these findings into account, it is antici-
+compared to KM1 (Fig. 6A), taxadiene concentration was   pated that further enhancements will lead to an increased
+only enhanced by ~ 15% (p-value < 0.05) by these strains   metabolic flux towards T5αAc in our S. cerevisiae strains.
+in the BioLector (Fig. 7C). However, the highest taxadi-     In the glucose-containing CSM, KMRJ12, KMRJ19
+ene concentration was ~ 110 mg/L in deep-well plates   and KMRJ24  strains were used with multi-modifica-
+and it was doubled in the BioLector system as ~ 215 mg/L   tion strains KMRJ31, KMRJ32, KMRJ33, and KMRJ34
+production was recorded with KM32. This is a remark-   (Table 2) in the BioLector platform. In parallel to the
+able improvement  as  approximately  1.6-fold  higher   deep-well plates, all strains with the OAR1Δ genotype
+production was achieved than the previously reported   produced less biomass in the BioLector system as shown
+maximum, which was 137 mg/L in S. cerevisiae cell fac-    in Fig. 8A. A correlation was also observed between pH
+tories [23]. It is worth noting that previous studies on   change and biomass and/or OAR1Δ (Fig. 8B). Like in the
+taxadiene synthesis used richer media, which likely con-   galactose-containing medium, after a sharp drop, the
+tributed to higher production yields. In this study, com-  pH reached around 5.25 for the strains expressing the
+plete synthetic defined media were used, as all in silico  OAR1 gene (EJ1, KMRJ19, KMRJ24). The pH stabilised at
+illustrations were conducted using defined media. While   around 5.0 for the other strains, this might be because of
+E. coli achieved higher taxadiene production at 1 g/L in   lower biomass or the OAR1 deletion.
+a previous attempt [75], the expression of the next step     Another interesting finding with OAR1 deletion was
+enzymes, T5αOH and CPR, completely abolished taxadi-   the dramatic reductions in the titers of the oxygenated
+ene synthesis in E. coli [75]. In contrast, KM32 increased   product, T5α-ol, and naturally, the next product T5αAc
+taxadiene production while also expressing the down-   as seen in Fig. 8C. Also, GGOH production dropped
+stream genes responsible for the second and third steps,    at  least twofold in  all OAR1-deleted  strains. GGOH
+namely T5αOH, CPR, and TAT.                                     is indeed a valuable compound that can be used in the
+  Dissolved  oxygen (DO)  was  maintained  between   pharmaceutical and cosmetic industries. Metabolic engi-
+75%–100% for all the strains used in the BioLector sys-   neering studies have been carried out to improve GGOH
+tem (Additional file 1: Figure S12 and S13). Accordingly,   production in S. cerevisiae [76, 77]. Although the GGOH
+greater T5α-ol was  synthesized by  all KM1-derived   synthesis  is not fully identified in yeast, native phos-
+strains with at least 23 mg/L concentration in KM33   phatases are thought to be involved in GGOH synthesis
+(Fig. 7C). This production was almost three-fold higher   from GGPP. Considering its chemical structure, oxygena-
+than the maximum T5α-ol production observed in deep-   tion reactions should also take a part in GGOH synthe-
+well plates, proving that oxygen supply was the critical    sis [78]. Taking the reductions in T5α-ol and GGOH into
+factor for T5α-ol production. Also, the acetylated precur-   consideration, it is likely that OAR1 deletion affected the
+sor, T5αAc, was detected in all KM1-derived strains with   oxygenation capability of S. cerevisiae, and it might also
+concentrations ranging from 15 to 26 mg/L. Neverthe-   be one of the reasons behind the decrease in cell fitness.
+less, all multi-modification strains KM31, KM32, KM33  On the other hand, still, the strains with the OAR1Δ gen-
+and KM34, produced less T5αAc (p-value < 0.05) than the   otype showed greater taxadiene production than the ref-
+parent strain as shown in Fig. 7C even though a signifi-   erence strain (Fig. 8C), meaning that OAR1 deletion led
+cant increase (p-value < 0.05) was observed in taxadiene   to the highest taxadiene production per OD. However, it
+production in KM32, KM33 and KM34 and single-mod-   should be also noted that GGOH reduction might have
+ification strains (KM21, KM25, KM13). This indicates   improved the taxadiene concentration.
+that to enhance the yield of T5α-ol and the following    The combination of OAR1Δ and DTR1Δ in KMRJ31
+compound, T5αAc, further improvement in the second   resulted  in  the maximum  taxadiene  production  of
+reaction catalyzed by T5αOH and CPR is a necessity.   128 mg/L, which is still a remarkable titer for taxadiene
+KM25 was the best producer of T5α-ol and T5αAc with   considering the similar studies reported previously [22,
+35.4 mg/L and 26.2 mg/L, respectively. Yet, no statisti-    79]. On the other hand, even if OAR1Δ genotypes were
+cally significant difference (p-value > 0.05) was observed   excluded, KMRJ strains produced ~ 7 mg/L of T5α-ol
+for T5αAc titer between KM1, KM21, KM25 and KM13.   from each 100 mg/L taxadiene on average (7% yield),
+In addition to taxadiene, these are the highest yields for   whereas this amount was ~ 18 mg/L for KM strains (18%
+
+
+[PDF physical page 17]
+Malcı et al. Microbial Cell Factories    (2023) 22:243                                                                  Page 17 of 22
+
+
+
+
+
+  Fig. 8  Performances of the selected EJ1-derived strains in glucose-containing CSM in the high-throughput microbioreactor system. A Biomass
+  trend B Change in culture pH C Production of the target molecules and side-products Error bars represent the standard deviation of three replicates
+
+
+yield). This is probably because the galactose-inducible   deeper insights into their potential contributions to the
+promoters could not express T5αOH in glucose-contain-    overall process. Therefore, future experiments focusing
+ing CSM as efficiently as in galactose-containing CSM,   on these candidates could provide valuable data to com-
+even though the GAL80 was deleted.                     plement and enrich our current findings.  In addition to ­Taxol® precursors, KMRJ19 with DTR1deletion produced the highest GGOH with 221 mg/L   Scale‑up of the production of the Taxol® precursors using
+among all the strains used in this study, it was followed by   the best strain
+KMRJ24 and KM31in the galactose-containing medium    Finally, the production was scaled-up using the best
+with the 219 mg/L (p-value > 0.05). These production   taxadiene producer, KM32, in a 2% (w/v) galactose-con-
+yields of GGOH are comparable with those in similar   taining CSM medium in 250 mL reaction volume in a
+studies [76, 77]. For this reason, the related modifica-   mini-scale bioreactor. To maintain similar conditions as
+tions, DTR1 deletion, ADE 5,7 overexpression or simul-    in the BioLector system and to mimic the in silico sim-
+taneous overexpression of ILV2 and TRR1, are promising   ulations where the oxygen was not a limiting factor, the
+genomic modifications to increase GGOH production.    minimum %DO was set to 75% and ­O2 was supplied with
+  While we have tested three single modifications in the    air when it was below the threshold. Yet, it is important
+Biolector platform, there are several other promising   to note that in an industrial-scale setting, the availabil-
+candidates, such as KM28, KM26, and KM23, which war-    ity of oxygen can potentially act as a limiting factor that
+rant further investigation in well-controlled conditions.  may impact production yields. Likewise, the pH was set
+Specifically, understanding the impact of overexpress-   to 6.0 as it is a suitable pH considering both yeast growthing the SPE2, ECM31, and ADE4 genes is crucial to gain   and the enzymatic activities in the ­Taxol® pathway [23].
+
+
+[PDF physical page 18]
+Malcı et al. Microbial Cell Factories    (2023) 22:243                                                                  Page 18 of 22
+
+A 1 M NaOH was added as needed when the pH was less   production of Taxol® precursors during the five days of
+than 6.0. Figure 9 shows the reactor parameters and the    cultivation.
+
+
+
+
+
+  Fig. 9  A The trends of the bioreactor parameters in KM32 culture B Metabolite concentrations during five days of cultivation. Error bars represent
+  the standard deviation of two measurements taken each time. Total working volume was set to 250 mL: 200 mL of the culture and 50 mL
+  of the dodecane layer
+
+
+[PDF physical page 19]
+Malcı et al. Microbial Cell Factories    (2023) 22:243                                                                  Page 19 of 22
+
+
+
+  Considering the first three days, the growth showed a    contrast, this deletion decreased GGPP concentration
+similar pattern as a decrease was observed towards the   and probably acetyl-CoA concentration in the galactose-
+third day and then dramatically dropped down (Fig. 9A).   containing medium and could not make any difference
+Although this decrease was expected, the sharp drop   in glucose-containing CSM (Fig. 6). The other deletions
+between ­72nd and ­80th hours was probably a temporary a   showed either predicted results with overproductions
+sensor problem. On the other hand, the production yield   or similar production  yields to the reference  strainswas relatively low for the ­Taxol® precursors in the first    (p-value > 0.05). It is also possible that more replicates
+three days. In 72 h, 182.5 mg/L taxadiene, 35.8 mg/L of   could have given more precise results and could have
+T5α-ol and 19.2 mg/L of T5αAc were produced. These   mitigated the analytic measurement deviations.
+reached to 236.7, 47.1 and 31.2 mg/L, respectively on the     Based on these findings, the in silico predictions pro-
+fifth day (Fig. 9B). Although the total titers of the target   vided a refined set of solutions, taking into account the
+molecules were higher at the end of cultivation, on the   comprehensive genomic context of the host organism.
+fifth day, the yield on the third day was lower compared  We further refined our selection process by detecting the
+to the BioLector system.                                    possible maximum fluxes in conjunction with metabolite
+  In  contrast, the concentration  of GGOH was  sig-   interaction maps, enabling us to prioritize single genomic
+nificantly higher than that of taxadiene (Fig. 9B). The   modifications from an initial pool of over 60 predictions
+accumulation of GGOH is primarily attributed to the   (Additional file 1: Table S5). It is worth to notion that
+promiscuous activity of TASY enzymes, as previously   the three algorithms are able to predict sets of genomic
+reported [19]. While adjusting the media composition   modifications that together have a beneficial effect. Both
+and conditions can reduce the synthesis of this unde-    in silico and experimental validation of single genomic
+sired side product [19], it appears necessary to engineer   modifications from these sets can therefore lead to some-
+the TASY enzymes to enhance their specificity in order   what false negatives, as some of these modifications are
+to mitigate GGOH accumulation and improve taxadiene   only beneficial in combination with others. Regardless,
+titer.                                                             this strategy was designed to match our desire to experi-
+ pH and DO showed more fluctuations in the bioreac-   mentally validate single genomic modifications, and this
+tor-scale. This might be the reason behind the decrease    prioritization strategy indeed resulted in a strain with
+in production yield. Consequently, optimising the bio-   improved taxadiene productions.
+process conditions and implementing better pH and
+DO­Taxol®controlprecursorsmeasureson largermay furtherscales. enhance the titers of   ConclusionComputational tools, in silico design frameworks and
+                                                    genome-scale models were used to rationally design
+Comparison of the in silico predictions and wet‑lab results    yeast cell factories in a way that intuitive estimations
+The genome-scale model utilised in this study, yeast   are very difficult. In specific, in this study, a combina-
+8.5.0, represents a significant advancement in S. cerevi-    torial design approach was used with three in silico
+siae S288C’s metabolic understanding [27]. While it is   algorithms, OptKnock, OptGene and OptForce, on the
+important to acknowledge that certain discrepancies may   yeast-GEM 8.5.0. A set of 17 genomic modifications
+arise due to the specific genotype of the parent strain   were predicted by the simulations (nine gene knock-
+employed in our research, we observed enhancements   outs, eight gene overexpressions and their combina-
+in taxadiene production, and by extension, the likely   tions via extra copies and strong promoters) and testedincrease in GGPP production, meaning that our wet-lab    for the increased production  of Taxol® precursors,
+validations clearly demonstrated the potency of mathe-   through GGPP overproduction. Therefore, this study is
+matical models and computational frameworks in identi-   one of the most comprehensive studies reported until
+fying valuable targets that may elude intuitive prediction.  now in terms of the amount and the variability of the
+Considering Table 1, Fig. 4, and the experimental results,   genomic manipulations. Without a doubt, the ACtivE
+however, there are also exceptions. OAR1 deletion was    toolkit and method  facilitated this process with an
+predicted to increase GGPP concentration in the galac-   accelerated genome editing process. The findings of
+tose-containing CSM, and MDH3 deletion was suggested    this work showed that simultaneous overexpression of
+to increase acetyl-CoA production in the cytosol in the   four genes, ILV2, TRR1, ADE13 and ECM31, related to
+glucose-containing medium. Nevertheless, these dele-   upregulations in the pantothenate pathway, branched-
+tions showed higher productions in the opposite carbon   amino acid biosynthesis pathways and de novo purine
+source (Fig. 6). According to the in silico predictions,   synthesis pathway, could enhance taxadiene production
+MLS1 deletion should have increased the acetyl-CoA   by ~ 50% through GGPP overproduction. Also, single
+production in the galactose-containing medium, but in
+
+
+[PDF physical page 20]
+Malcı et al. Microbial Cell Factories    (2023) 22:243                                                                  Page 20 of 22
+
+
+
+modifications could increase taxadiene yield from 15    Acknowledgements
+to 40% depending on the cultivation conditions and   We would like to thank Mr Stuart Martin, Mr Mark Lauchlan and Miss Katalin
+carbon source. As the oxygen supply is crucial for the     Kis at the School of Engineering, University of Edinburgh, UK for their technical
+                                                                         support                                                                                  with                                                                      GC-MS                                                                                                             analysis and                                                                                                                 laboratory                                                                                                                              operations.                                                                                       We would                                                                                                                                                                                  like tosecond step in the Taxol® biosynthesis pathway, higher                                                                         thank Dr                                                                                David                                                                             Gomez-Cabeza                                                                                                                       at                                                                                                         the School                                                                                                                                 of Engineering,                                                                                                                                                 University                                                                                                                                                           of
+yields in T5α-ol and T5αAc productions were reported    Edinburgh, UK for their kind assistance with the inverted microscope.
+with the conditions allowing  better oxygen  access.     This work was supported by the YLSY program of the Ministry of National Edu‑
+Using the best-performing  strain KM32 containing     cationNationalof CouncilTurkey, thefor ScienceMexicanandgovernment’sTechnology)dependenceCVU:675492CONACyTand CVU:(Mexican537962,
+additional copies of the above-mentioned four genes,    Novo Nordisk Foundation (Grant Number NNF20CC0035580), the Engineering
+we achieved 215 mg/L of taxadiene, 43.65 mg/L of    and Physical Sciences Research Council (Grant number EP/R513209/1), the
+T5α-ol and 26.2 mg/L of T5αAc titers that are the high-    RoyalNumber:Society527429894).(Grant Number RSG\R1\180345) and the British Council (Grant
+est production yields reported until now in S. cerevisiae.
+The genomic modifications reporting higher GGPP    Author contributions
+synthesis can be also used to increase the production    KM:Writing—OriginalConceptualization,Draft.Methodology,RS: Methodology,Software,Software,FormalWriting—ReviewingAnalysis, Investigation,and
+of other high-value isoprenoids through the same pre-     Editing. NJ-B: Investigation, Resources. JS-G: Investigation. EJK: Supervision,
+cursor. In addition to the mevalonate pathway, similar    Writing—Reviewing and Editing. LR-S: Conceptualization, Supervision, Writ‑
+integrated approaches combining different design algo-    ing—Reviewing and Editing, Project administration.
+rithms, genome engineering and bioprocessing studies     Availability of data and materials
+can be used for enhancing metabolic fluxes towards the   MATLAB scripts are available on https://​github.​com/​kmalci/​yeast_​model​ling.
+target native or heterologous pathways in S. cerevisiae.    Plasmids and other data will be made available on request.
+Developing alternative in silico prediction and design                                                            Declarations
+tools, constructing more accurate genome-scale models
+would improve the efficiency of this process.               Competing interests
+                                                                         Authors declare that they have no competing interests.
+Supplementary Information                                                                 Author details
+The online version contains supplementary material available at https://​doi.​         1 Institute for Bioengineering, School of Engineering, University of Edinburgh,
+org/​10.​1186/​s12934-​023-​02251-7.                                                    King’s Buildings, Edinburgh EH9 3BF, UK. 2 Centre for Engineering Biology,
+                                                                                    University of Edinburgh, King’s Buildings, Edinburgh EH9 3BF, UK. 3 Depart‑
+  Additional file 1: Table S1. The primer list used to produce the donor        ment of Pediatrics, University of California, San Diego, 9500 Gilman Drive, La
+ DNA parts for the gene deletions. Table S2. crRNA sequences used to tar‑         Jolla, CA 92093‑0760, USA. 4 Department of Life Sciences, Chalmers University
+  get the corresponding genes for deletions. Table S3. The primer list used        of Technology, Kemivägen 10, SE‑412 96, Gothenburg, Sweden. 5 SciLifeLab,
+  to produce the donor DNA parts for the genomic integrations. Table S4.       Chalmers University of Technology, SE‑412 96, Gothenburg, Sweden. 6 Novo
+  The yeast strains used in the study. Table S5. The gene candidates              Nordisk Foundation Center for Biosustainability, Technical University of Den‑
+  predicted by the design algorithms. Table S6. The components of the          mark, 2800 Kgs, Lyngby, Denmark. 7 School of Natural and Environmental
+  yeast nitrogen base used in the study. Table S7. The components of the         Sciences, Molecular Biology and Biotechnology Division, Newcastle University,
+  complete supplement mixture used in the study. Figure S1. The ACtivE         Newcastle Upon Tyne NE1 7RU, UK. 8 Department of Biochemical Engineering,
+ method for gene deletion. Figure S2. The ACtivE method for genomic         The Advanced Centre for Biochemical Engineering, University College London,
+  integration. Figure S3. Acetyl-CoA-centred sub-metabolite interaction        Gower Street, London WC1E 6BT, UK. 9 Present Address: Department of Bioen‑
+ map of the wild-type model. Figure S4. Acetyl-CoA-centred sub-metab‑         gineering, Imperial College London, London SW7 2AZ, UK.
+  olite interaction map of DTR1 deleted model. Figure S5. Acetyl-CoA-
+  centred sub-metabolite interaction map of ACH1 deleted model. Figure        Received: 15 June 2023 Accepted: 14 November 2023
+  S6. Acetyl-CoA-centred sub-metabolite interaction map of MLS1 deleted
+  model. Figure S7. Acetyl-CoA-centred sub-metabolite interaction map
+  of DIT1 deleted model. Figure S8. Acetyl-CoA-centred sub-metabolite
+  interaction map of LPP1 deleted model. Figure S9. Acetyl-CoA-centred
+  sub-metabolite interaction map of ISC1 deleted model. Figure S10. de         References
+  novo purine nucleotide biosynthesis pathway. Figure S11. Phospho‑               1.  Wong J, Rios-Solis L, Keasling JD. Microbial production of isoprenoids.
+  pantothenate biosynthesis pathway. Figure S12. Dissolved oxygen (DO)            consequences microb interact with hydrocarb oils. Lipids Prod Fuels
+  concentrations of three-day cultures of KM1-derived strains measured by          Chem. 2017. https://​doi.​org/​10.​1007/​978-3-​319-​50436-0_​219.
+  the BioLector microbioreactor system in the galactose-containing CSM.            2.   Walls LE, Otoupal P, Ledesma-Amaro R, et al. Bioconversion of cellulose
+  Figure S13. Dissolved oxygen (DO) concentrations of three-day cultures              into bisabolene using Ruminococcus flavefaciens and Rhodosporidium
+  of EJ1-derived strains measured by the BioLector microbioreactor system               toruloides. Bioresour Technol. 2023;368:128216. https://​doi.​org/​10.​1016/J.​
+  in the glucose-containing CSM. Figure S14. Gas chromatography shows              BIORT​ECH.​2022.​128216.
+  the compounds’ peaks produced by KM32 and the mass spectrum of               3.   Malcı K, Kurt-Gür G, Tamerler C, Yazgan-Karatas A. Combinatorial decol‑
+  taxadiene. Figure S15. Gas chromatography shows the compounds’                  orization performance of Pycnoporus sanguineus MUCL 38531 sourced
+  peaks produced by KM32 and the mass spectrum of T5α-ol. The retention           recombinant laccase/mediator systems on toxic textile dyes. Int J Environ
+  time of the T5α-ol peak was at 8.20th minutes. Figure S16. Gas chroma‑               Sci Technol. 2022. https://​doi.​org/​10.​1007/​S13762-​022-​04080-4.
+  tography shows the compounds’ peaks produced by KM32 and the mass          4.  Jung YK, Kim TY, Park SJ, Lee SY. Metabolic engineering of Escherichia
+  spectrum of T5αAc. The retention time of the T5αAc peak was at 8.61st                   coli for the production of polylactic acid and its copolymers. Biotechnol
+  minutes.                                                                         Bioeng. 2010;105:161–71. https://​doi.​org/​10.​1002/​BIT.​22548.
+
+
+[PDF physical page 21]
+Malcı et al. Microbial Cell Factories    (2023) 22:243                                                                  Page 21 of 22
+
+
+
+
+
+5.   Malcı K, Watts E, Roberts TM, et al. Standardization of synthetic biology         26. Oftadeh O, Salvy P, Masid M, et al. (2021) A genome-scale metabolic
+     tools and assembly methods for Saccharomyces cerevisiae and emerging        model of Saccharomyces cerevisiae that integrates expression con‑
+     yeast species. ACS Synth Biol. 2022;11:2527–47. https://​doi.​org/​10.​1021/​            straints and reaction thermodynamics. Nat Commun. 2021;121(12):1–
+     ACSSY​NBIO.                                                                        10. https://​doi.​org/​10.​1038/​s41467-​021-​25158-6.
+6.   Gómez-Pastor R, Pérez-Torrado R, Garre E, Matallana E. Recent advances in     27. Lu H, Li F, Sánchez BJ, et al. A consensus S. cerevisiae metabolic
+     yeast biomass production. Biomass Detect Prod Usage. 2011. https://​doi.​        model Yeast8 and its ecosystem for comprehensively probing
+     org/​10.​5772/​19458.                                                                     cellular metabolism. Nat Commun. 2019. https://​doi.​org/​10.​1038/​
+7.   Teworte S, Malcı K, Walls LE, et al. Recent advances in fed-batch micro‑             s41467-​019-​11581-3.
+     scale bioreactor design. Biotechnol Adv. 2022;55:107888. https://​doi.​org/​      28. Sánchez B, Kerkhoven E, et al. SysBioChalmers/yeast-GEM: yeast. 2021.
+     10.​1016/J.​BIOTE​CHADV.​2021.​107888.                                                 https://​doi.​org/​10.​5281/​ZENODO.​50626​15.
+8.   Jensen MK, Keasling JD. Recent applications of synthetic biology tools for      29. Chen Y, Li F, Nielsen J. Genome-scale modeling of yeast metabolism:
+     yeast metabolic engineering. FEMS Yeast Res. 2014. https://​doi.​org/​10.​            retrospectives and perspectives. FEMS Yeast Res. 2022;22:1–9. https://​
+     1111/​1567-​1364.​12185.                                                             doi.​org/​10.​1093/​FEMSYR/​FOAC0​03.
+9.   Malcı K, Walls LE, Rios-Solis L. Multiplex genome engineering methods         30.  Palsson BØ. Systems biology constraint-based reconstruction and
+      for yeast cell factory development. Front Bioeng Biotechnol. 2020;8:1264.           analysis. Cambridge University Press; 2015.
+      https://​doi.​org/​10.​3389/​FBIOE.​2020.​589468.                                   31.  O’Brien EJ, Monk JM, Palsson BO. Using genome-scale models to
+10. Wong J, de Rond T, d’Espaux L, et al. High-titer production of lathyrane             predict biological capabilities. Cell. 2015;161:971. https://​doi.​org/​10.​
+     diterpenoids from sugar by engineered Saccharomyces cerevisiae. Metab           1016/J.​CELL.​2015.​05.​019.
+     Eng. 2018;45:142–8. https://​doi.​org/​10.​1016/J.​YMBEN.​2017.​12.​007.             32.  Heirendt L, Arreckx S, Pfau T, et al. Creation and analysis of biochemical
+11.  Kulagina N, Besseau S, Godon C, et al. Yeasts as biopharmaceutical                constraint-based models using the COBRA Toolbox v.3.0. Nat Protoc.
+    production platforms. Front Fungal Biol. 2021. https://​doi.​org/​10.​3389/​           2019;14:639–702. https://​doi.​org/​10.​1038/​s41596-​018-​0098-2.
+     FFUNB.​2021.​733492.                                                           33. Fernández-Castané A, Fehér T, Carbonell P, et al. Computer-aided
+12. Cao X, Yu W, Chen Y, et al. Engineering yeast for high-level production            design for metabolic engineering. J Biotechnol. 2014. https://​doi.​org/​
+     of diterpenoid sclareol. Metab Eng. 2023;75:19–28. https://​doi.​org/​10.​               10.​1016/J.​JBIOT​EC.​2014.​03.​029.
+     1016/J.​YMBEN.​2022.​11.​002.                                                    34. Burgard AP, Pharkya P, Maranas CD. Optknock: A bilevel programming
+13. Zhou YJ, Gao W, Rong Q, et al. Modular pathway engineering of diterpe‑         framework for identifying gene knockout strategies for microbial strain
+    noid synthases and the mevalonic acid pathway for miltiradiene produc‑          optimization. Biotechnol Bioeng. 2003;84:647–57. https://​doi.​org/​10.​
+      tion. J Am Chem Soc. 2012;134:3234–41. https://​doi.​org/​10.​1021/​JA211​            1002/​BIT.​10803.
+    4486                                                                          35.  Patil KR, Rocha I, Förster J, Nielsen J. Evolutionary programming as
+14. Zhang C, Ju H, Lu CZ, et al. High-titer production of 13R-manoyl oxide            a platform for in silico metabolic engineering. BMC Bioinformatics.
+     in metabolically engineered Saccharomyces cerevisiae. Microb Cell Fact.           2005;6:1–12. https://​doi.​org/​10.​1186/​1471-​2105-6-​308
+     2019;18:1–9. https://​doi.​org/​10.​1186/​S12934-​019-​1123-Z                      36. Yang X-S. Genetic algorithms. Nature-Inspired Optim Algorithms. 2021.15.  McElroy C, Jennewein S. ­Taxol® biosynthesis and production: from                   https://​doi.​org/​10.​1016/​B978-0-​12-​821986-​7.​00013-5.
+     forests to fermenters. Biotechnol Nat Prod. 2017. https://​doi.​org/​10.​1007/​     37. Ranganathan S, Suthers PF, Maranas CD. OptForce: an optimization
+     978-3-​319-​67903-7_7                                                    procedure for identifying all genetic manipulations leading to targeted16. Nowrouzi B, Lungang L, Rios-Solis L. Exploring optimal ­taxol® CYP725A4           overproductions. PLOS Comput Biol. 2010;6: e1000744. https://​doi.​org/​
+      activity in Saccharomyces cerevisiae. Microb Cell Fact. 2022;21:1–24.                 10.​1371/​JOURN​AL.​PCBI.​10007​44.
+      https://​doi.​org/​10.​1186/​S12934-​022-​01922-1                                  38.  Malcı K, Jonguitud-Borrego N, Van Der Straten WH, et al. ACtivE: assem‑
+17.  Walls LE, Martinez JL, del Rio Chanona EA, Rios-Solis L. Definitive screen‑           bly and crispr-targeted in vivo editing for yeast genome engineering
+     ing accelerates taxol biosynthetic pathway optimization and scale up in          using minimum reagents and time. ACS Synth Biol. 2022;2022:3629–43.
+    Saccharomyces cerevisiae cell factories. Biotechnol J. 2022. https://​doi.​              https://​doi.​org/​10.​1021/​acssy​nbio.​2c001​75.
+     org/​10.​1002/​BIOT.​20210​0414.                                                  39. openCOBRA Home Page—The COBRA Toolbox. https://​openc​obra.​
+18.  Walls LE, Martinez JL, Rios-Solis L. Enhancing Saccharomyces cerevisiae               github.​io/​cobra​toolb​ox/​stable/​index.​html. Accessed 26 Feb 2023
+    taxane biosynthesis and overcoming nutritional stress-induced pseudo‑       40. King ZA, Dräger A, Ebrahim A, et al. Escher: a web application for
+    hyphal Growth. Microorganisms. 2022. https://​doi.​org/​10.​3390/​MICRO​             building, sharing, and embedding data-rich visualizations of biological
+     ORGAN​ISMS1​00101​63/​S1.                                                  pathways. PLOS Comput Biol. 2015;11:e1004321. https://​doi.​org/​10.​
+19.  Santoyo-Garcia JH, Walls LE, Valdivia-Cabrera M, et al. The synergetic                1371/​JOURN​AL.​PCBI.​10043​21.
+     effect from the combination of different adsorption resins in batch and        41.  Gietz RD, Schiestl RH. High-efficiency yeast transformation using the
+    semi-continuous cultivations of S. cerevisiae cell factories to produce              LiAc/SS carrier DNA/PEG method. Nat Protoc. 2007;2:31–4. https://​doi.​
+     acetylated Taxanes precursors of the anticancer drug Taxol. Biotechnol               org/​10.​1038/​nprot.​2007.​13.
+     Bioeng. 2023. https://​doi.​org/​10.​1002/​bit.​28487                                42. Concordet J-P, Haeussler M. CRISPOR: intuitive guide selection for
+20. Nowrouzi B, Torres-Montero P, Kerkhoven EJ, et al. Rewiring Saccharomy‑         CRISPR/Cas9 genome editing experiments and screens. Nucleic Acids     ces cerevisiae metabolism for optimised ­Taxol® precursors production.             Res. 2018;46:W242–5. https://​doi.​org/​10.​1093/​NAR/​GKY354.
+      Biorxiv. 2023. https://​doi.​org/​10.​1101/​2023.​06.​03.​543533.                      43. Toyomasu T, Sassa T. Diterpenes. Compr Nat Prod II Chem Biol.
+21.  Köksal M, Jin Y, Coates RM, et al. (2010) Taxadiene synthase structure              2010;1:643–72. https://​doi.​org/​10.​1016/​B978-​00804​5382-8.​00006-X.
+    and evolution of modular architecture in terpene biosynthesis. Nat.            44. Orth JD, Thiele I. Palsson BO (2010) What is flux balance analysis? Nat
+     2010;4697328(469):116–20. https://​doi.​org/​10.​1038/​natur​e09628.                 Biotechnol. 2010;283(28):245–8. https://​doi.​org/​10.​1038/​nbt.​1614.
+22. Nowrouzi B, Li RA, Walls LE, et al. (2020) Enhanced production of taxadi‑        45. Kocabaş K, Arif A, Uddin R, Çakır T. Dual transcriptome based recon‑
+    ene in Saccharomyces cerevisiae. Microb Cell Factories. 2020;191(19):1–12.          struction of Salmonella-human integrated metabolic network to
+      https://​doi.​org/​10.​1186/​S12934-​020-​01458-2.                                  screen potential drug targets. PLoS ONE. 2022. https://​doi.​org/​10.​1371/​
+23.  Walls LE, Malcı K, Nowrouzi B, et al. Optimizing the biosynthesis of                 JOURN​AL.​PONE.​02688​89.
+    oxygenated and acetylated Taxol precursors in Saccharomyces cer‑            46. openCOBRA - createMetIntrcNetwork COBRA.tutorials/visualization/
+     evisiae using advanced bioprocessing strategies. Biotechnol Bioeng.              createMetIntrcNetworkTutorial at master · opencobra/COBRA.tutorials
+     2020;118:279–93. https://​doi.​org/​10.​1002/​BIT.​27569.                                                  · GitHub. https://​github.​com/​openc​obra/​COBRA.​tutor​ials/​tree/​master/​
+24. Gu C, Kim GB, Kim WJ, et al. Current status and applications of genome-              visua​lizat​ion/​creat​eMetI​ntrcN​etwor​kTuto​rial. Accessed 26 Feb 2023
+     scale metabolic models. Genome Biol. 2019. https://​doi.​org/​10.​1186/​          47. Yoon SH, Lee SH, Das A, et al. Combinatorial expression of bacterial
+     S13059-​019-​1730-3.                                                  whole mevalonate pathway for the production of beta-carotene in E.
+25.  Lopes H, Rocha I. Genome-scale modeling of yeast: chronology, applica‑              coli. J Biotechnol. 2009;140:218–26. https://​doi.​org/​10.​1016/J.​JBIOT​EC.​
+     tions and critical perspectives. FEMS Yeast Res. 2017;17:50. https://​doi.​               2009.​01.​008.
+     org/​10.​1093/​FEMSYR/​FOX050.
+
+
+[PDF physical page 22]
+Malcı et al. Microbial Cell Factories    (2023) 22:243                                                                  Page 22 of 22
+
+
+
+
+
+48.  Pilauri V, Bewley M, Diep C, Hopper J. Gal80 dimerization and the yeast          production with the yeast Saccharomyces cerevisiae. Biotechnol Biofuels.
+    GAL gene switch. Genetics. 2005;169:1903. https://​doi.​org/​10.​1534/​             2012;5:1–16. https://​doi.​org/​10.​1186/​1754-​6834-5-​65
+     GENET​ICS.​104.​036723.                                                          68.  Olzhausen J, Schübbe S, Schüller HJ. Genetic analysis of coenzyme A
+49.  Lee ME, DeLoache WC, Cervantes B, Dueber JE. A highly characterized             biosynthesis in the yeast Saccharomyces cerevisiae: Identification of a
+     yeast toolkit for modular, multipart assembly. ACS Synth Biol. 2015;4:975–          conditional mutation in the pantothenate kinase gene CAB1. Curr Genet.
+     86. https://​doi.​org/​10.​1021/​sb500​366v.                                         2009;55:163–73. https://​doi.​org/​10.​1007/​S00294-​009-​0234-1
+50. George CM. Discoveries of the phosphatidate phosphatase genes in           69.  Balasundaram D, Dinman JD, Tabor CW, Tabor H. SPE1 and SPE2: two
+     yeast published in the journal of biological chemistry. J Biol Chem. 2019.            essential genes in the biosynthesis of polyamines that modulate
+      https://​doi.​org/​10.​1074/​jbc.​TM118.​004159.                            +1 ribosomal frameshifting in Saccharomyces cerevisiae. J Bacteriol.
+51.  Schneider R, Brors B, Bürger F, et al. (1997) Two genes of the putative               1994;176:7126. https://​doi.​org/​10.​1128/​JB.​176.​22.​7126-​7128.​1994.
+     mitochondrial fatty acid synthase in the genome of Saccharomyces            70.  Rébora K, Laloo B, Daignan-Fornier B. Revisiting purine-histidine cross-
+      cerevisiae. Curr Genet. 1997;326(32):384–8. https://​doi.​org/​10.​1007/​S0029​        pathway regulation in Saccharomyces cerevisiae: a central role for a small
+     40050​292.                                                                   molecule. Genetics. 2005;170:61. https://​doi.​org/​10.​1534/​GENET​ICS.​104.​
+52.  Venkatesan R, Sah-Teli SK, Awoniyi LO, et al. (2014) Insights into mito‑             039396.
+     chondrial fatty acid synthesis from the structure of heterotetrameric           71.  Trotter EW, Grant CM. Thioredoxins are required for protection against
+     3-ketoacyl-ACP reductase/3R-hydroxyacyl-CoA dehydrogenase. Nat              a reductive stress in the yeast Saccharomyces cerevisiae. Mol Microbiol.
+    Commun. 2014;51(5):1–12. https://​doi.​org/​10.​1038/​ncomm​s5805.                2002;46:869–78. https://​doi.​org/​10.​1046/J.​1365-​2958.​2002.​03216.X.
+53.  Steffan JS, McAlister-Henn L. Isolation and characterization of the yeast        72.  Olzhausen J, Grigat M, Seifert L, et al. Increased biosynthesis of acetyl-CoA
+    gene encoding the MDH3 isozyme of malate dehydrogenase. J Biol                 in the yeast Saccharomyces cerevisiae by overexpression of a deregulated
+    Chem. 1992;267:24708–15. https://​doi.​org/​10.​1016/​S0021-​9258(18)​              pantothenate kinase gene and engineering of the coenzyme a biosyn‑
+     35822-8.                                                                              thetic pathway. Appl Microbiol Biotechnol. 2021;105:7321. https://​doi.​
+54. Kunze M, Pracharoenwattana I, Smith SM, Hartig A. A central role for the             org/​10.​1007/​S00253-​021-​11523-4.
+     peroxisomal membrane in glyoxylate cycle function. Biochim Biophys         73. Funke M, Diederichs S, Kensy F, et al. The baffled microtiter plate:
+    Acta - Mol Cell Res. 2006;1763:1441–52. https://​doi.​org/​10.​1016/J.​                Increased oxygen transfer and improved online monitoring in small scale
+     BBAMCR.​2006.​09.​009.                                                            fermentations. Biotechnol Bioeng. 2009;103:1118–28. https://​doi.​org/​10.​
+55.  Rottensteiner H, Theodoulou FL. The ins and outs of peroxisomes:                   1002/​BIT.​22341.
+     co-ordination of membrane transport and peroxisomal metabolism.           74.  Walker GM, Stewart GG. (2016) Saccharomyces cerevisiae in the Produc‑
+    Biochim Biophys Acta - Mol Cell Res. 2006;1763:1527–40. https://​doi.​org/​          tion of Fermented Beverages. Beverages 2016, Vol 2, Page 30 2:30. https://​
+     10.​1016/J.​BBAMCR.​2006.​08.​012.                                                     doi.​org/​10.​3390/​BEVER​AGES2​040030
+56. Kunze M, Hartig A. Permeability of the peroxisomal membrane: lessons        75.  Ajikumar PK, Xiao W-H, Tyo KEJ, et al. Isoprenoid pathway optimization for
+    from the glyoxylate cycle. Front Physiol. 2013. https://​doi.​org/​10.​3389/​             Taxol precursor overproduction in Escherichia coli. Science. 2010;330:70–
+     FPHYS.​2013.​00204.                                                                             4. https://​doi.​org/​10.​1126/​scien​ce.​11916​52.
+57. Chen Y, Siewers V, Nielsen J. Profiling of cytosolic and peroxisomal Acetyl-      76. Song TQ, Ding MZ, Zhai F, et al. (2017) Engineering Saccharomyces cer-
+    CoA metabolism in Saccharomyces cerevisiae. PLoS ONE. 2012;7: e42475.             evisiae for geranylgeraniol overproduction by combinatorial design. Sci
+      https://​doi.​org/​10.​1371/​JOURN​AL.​PONE.​00424​75.                                 Reports. 2017;71(7):1–11. https://​doi.​org/​10.​1038/​s41598-​017-​15005-4.
+58. Chen Y, Zhang Y, Siewers V, Nielsen J. Ach1 is involved in shuttling              77.  Tokuhiro K, Muramatsu M, Ohto C, et al. Overproduction of geranylgeran‑
+     mitochondrial acetyl units for cytosolic C2 provision in Saccharomyces                iol by metabolically engineered Saccharomyces cerevisiae. Appl Environ
+     cerevisiae lacking pyruvate decarboxylase. FEMS Yeast Res. 2015;15:1–8.            Microbiol. 2009;75:5536. https://​doi.​org/​10.​1128/​AEM.​00277-​09.
+     https://​doi.​org/​10.​1093/​FEMSYR/​FOV015.                                       78.  Paz JL, Rodrigues JAR. Preparation of aromatic geraniol analogues via
+59.  Friesen H, Hepworth SR, Segall J. An Ssn6-Tup1-dependent negative             a Cu(I)-mediated grignard coupling. J Braz Chem Soc. 2003;14:975–81.
+     regulatory element controls sporulation-specific expression of DIT1 and             https://​doi.​org/​10.​1590/​S0103-​50532​00300​06000​14.
+    DIT2 in Saccharomyces cerevisiae. Mol Cell Biol. 1997;17:123–34. https://​       79.  Santoyo-Garcia JH, Walls LE, Nowrouzi B, et al. In situ solid-liquid extrac‑
+      doi.​org/​10.​1128/​MCB.​17.1.​123.                                                     tion enhances recovery of taxadiene from engineered Saccharomyces
+60.  Felder T, Bogengruber E, Tenreiro S, et al. Dtr1p, a multidrug resistance               cerevisiae cell factories. Sep Purif Technol. 2022;290:120880. https://​doi.​
+     transporter of the major facilitator superfamily, plays an essential role               org/​10.​1016/J.​SEPPUR.​2022.​120880.
+     in spore wall maturation in Saccharomyces cerevisiae. Eukaryot Cell.
+     2002;1:799–810.                          https://​doi.​org/​10.​1128/​EC.1.​5.​799-​810.
+61.     Briza P, Eckerstorfert                     M, Breitenbach M. The sporulation-specific enzymes    Publisher’s Note
+    encoded by the DITI and DIT2 genes catalyze a two-step reaction leading     Springer Nature remains neutral with regard to jurisdictional claims in pub‑
+     to a soluble LL-dityrosine-containing precursor of the yeast spore wall         lished maps and institutional affiliations.
+     (Saccharomyces cereviuiae/epimerlzation). Genetics. 1994;91:4524–8.
+62.  Basiony M, Yang Y, Liu G, et al. Studies on the properties of the sporulation
+     specific protein dit1 and its product formyl tyrosine. J Fungi. 2020;6:1–15.
+      https://​doi.​org/​10.​3390/​JOF60​20077.
+63.  Lin CPC, Kim C, Smith SO, Neiman AM. A highly redundant gene network
+     controls assembly of the outer spore wall in S cerevisiae. PLoS Genet.
+     2013;9:1003700. https://​doi.​org/​10.​1371/​JOURN​AL.​PGEN.​10037​00.
+                                                                       ReadyReady toto submitsubmit youryour researchresearch?? ChooseChoose BMCBMC andand benefitbenefit from:from:64.  Ye Y, Fujii M, Hirata A, et al. Geranylgeranyl diphosphate synthase in
+      fission yeast is a heteromer of farnesyl diphosphate synthase (FPS), Fps1,                                                                                                 •  fast, convenient online submission    and an FPS-like protein, Spo9, essential for sporulation. Mol Biol Cell.
+     2007;18:3568–81. https://​doi.​org/​10.​1091/​MBC.​E07-​02-​0112                           • thorough peer review by experienced researchers in your ﬁeld
+65.  Matmati N, Hannun YA. Thematic review series: sphingolipids ISC1                    • rapid publication on acceptance
+      (inositol phosphosphingolipid-phospholipase C), the yeast homologue              • support for research data, including large and complex data types
+     of neutral sphingomyelinases. J Lipid Res. 2008;49:922. https://​doi.​org/​10.​
+     1194/​JLR.​R8000​04-​JLR200.                                                               • gold Open Access which fosters wider collaboration and increased citations
+66.  Matmati N, Hassan BH, Ren J, et al. Yeast sphingolipid phospholipase                 • maximum visibility for your research: over 100M website views per year
+    gene ISC1 regulates the spindle checkpoint by a CDC55-dependent
+    mechanism. Mol Cell Biol. 2020. https://​doi.​org/​10.​1128/​MCB.​00340-​19.         At BMC, research is always in progress.
+67.  Brat D, Weber C, Lorenzen W, et al. Cytosolic re-localization and optimiza‑
+     tion of valine synthesis and catabolism enables inseased isobutanol            Learn more biomedcentral.com/submissions

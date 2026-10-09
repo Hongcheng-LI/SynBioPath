@@ -1,0 +1,984 @@
+
+[PDF physical page 1]
+Plant Communications                                                                                                                                                                                  llll
+Research article
+
+Mass spectrometry imaging and single-cell
+transcriptional proﬁling reveal the tissue-speciﬁc
+regulation of bioactive ingredient biosynthesis in
+Taxus leaves
+
+Xiaori Zhan1,2, Tian Qiu1,2, Hongshan Zhang1,2,3, Kailin Hou1,2, Xueshuang Liang1,2,
+Cheng Chen4, Zhijing Wang4, Qicong Wu1,2, Xiaojia Wang1, Xiao-lin Li5, Mingshuang Wang1,2,
+Shangguo Feng1,2, Houqing Zeng1,3, Chunna Yu1,2, Huizhong Wang1,2,* and Chenjia Shen1,2,3,*
+1College of Life and Environmental Sciences, Hangzhou Normal University, Hangzhou 311121, China
+2Zhejiang Provincial Key Laboratory for Genetic Improvement and Quality Control of Medicinal Plants, Hangzhou Normal University, Hangzhou 311121, China
+3Kharkiv Institute, Hangzhou Normal University, Hangzhou 311121, China
+4College of Pharmacy, Hangzhou Normal University, Hangzhou 311121, China
+5State Key Laboratory Breeding Base of Dao-di Herbs, National Resource Center for Chinese Materia Medica, China Academy of Chinese Medical Sciences, Beijing
+100700, China
+
+*Correspondence: Huizhong Wang (whz62@163.com), Chenjia Shen (shencj@hznu.edu.cn)
+
+https://doi.org/10.1016/j.xplc.2023.100630
+
+
+ABSTRACT
+
+Taxus leaves provide the raw industrial materials for taxol, a natural antineoplastic drug widely used in the
+treatment of various cancers. However, the precise distribution, biosynthesis, and transcriptional regula-
+tion of taxoids and other active components in Taxus leaves remain unknown. Matrix-assisted laser
+desorption/ionization–mass spectrometry imaging analysis was used to visualize various secondary me-
+tabolites in leaf sections of Taxus mairei, conﬁrming the tissue-speciﬁc accumulation of different active
+metabolites. Single-cell sequencing was used to produce expression proﬁles of 8846 cells, with a median
+of 2352 genes per cell. Based on a series of cluster-speciﬁc markers, cells were grouped into 15 clusters,
+suggesting a high degree of cell heterogeneity in T. mairei leaves. Our data were used to create the ﬁrst
+Taxus leaf metabolic single-cell atlas and to reveal spatial and temporal expression patterns of several sec-
+ondary metabolic pathways. According to the cell-type annotation, most taxol biosynthesis genes are ex-
+pressed mainly in leaf mesophyll cells; phenolic acid and ﬂavonoid biosynthesis genes are highly expressed
+in leaf epidermal cells (including the stomatal complex and guard cells); and terpenoid and steroid biosyn-
+thesis genes are expressed speciﬁcally in leaf mesophyll cells. A number of novel and cell-speciﬁc tran-
+scription factors involved  in secondary metabolite biosynthesis were identiﬁed, including MYB17,
+WRKY12, WRKY31, ERF13, GT_2, and bHLH46. Our research establishes the transcriptional landscape of
+major cell types in T. mairei leaves at a single-cell resolution and provides valuable resources for studying
+the basic principles of cell-type-speciﬁc regulation of secondary metabolism.
+
+Key words: scRNA-seq, taxol biosynthesis, Taxus mairei, secondary metabolism, transcription regulation
+
+Zhan X., Qiu T., Zhang H., Hou K., Liang X., Chen C., Wang Z., Wu Q., Wang X., Li X.-l., Wang M., Feng S., Zeng
+H., Yu C., Wang H., and Shen C. (2023). Mass spectrometry imaging and single-cell transcriptional proﬁling reveal
+the tissue-speciﬁc regulation of bioactive ingredient biosynthesis in Taxus leaves. Plant Comm. 4, 100630.
+
+INTRODUCTION                                         the stem  bark, bark  stripping  is a  destructive production
+                                                         method. As the commercial value of taxol increases, so does
+Taxol, a tetracyclic diterpenoid ﬁrst isolated from Taxus brevifolia,
+is reported to be one of the most effective antitumor drugs (Wani
+et al., 1971). However, the slow growth of wild yew and the low
+                                                                           Published by the Plant Communications Shanghai Editorial Ofﬁce in
+taxol content of plant tissues cause shortages of taxol (Dang     association with Cell Press, an imprint of Elsevier Inc., on behalf of CSPB and
+et al., 2017). Although the highest levels of taxoids are found in    CEMPS, CAS.
+
+                                                        Plant Communications 4, 100630, September 11 2023 ª 2023 The Author(s).    1
+                 This is an open access article under the CC BY-NC-ND license (http://creativecommons.org/licenses/by-nc-nd/4.0/).
+
+
+[PDF physical page 2]
+Plant Communications                                        Single-cell transcriptome atlas of the Taxus leaf
+
+the destruction of Taxus trees (Yu et al., 2018). Taxus wallichiana     different tissues (Kalve et al., 2014). Because different cell types
+var. mairei  (T. mairei)  is an evergreen tree from the family    carry   nearly   identical  genetic   information,   variations   in
+Taxaceae that is widely distributed in Southeast Asia (Wang    metabolism are controlled by transcriptional regulation during the
+et  al., 2019b). Leaves and twigs of T. mairei are used  for    process  of  cell  differentiation (Wang  et  al.,  2021). Newly
+industrial  extraction  of  taxol because  they have  sufﬁcient    developed single-cell RNA-sequencing (scRNA-seq) techniques
+biomass and are renewable.                                    enable the transcriptome proﬁles of individual cells to be charac-
+                                                                           terized. In plants, the application of scRNA-seq has been limited
+The production of taxol involves a complex, 20-step biosynthetic    to a few plant species, depending on the protoplast preparation
+pathway that begins with a diterpenoid precursor (Croteau et al.,   and  availability of the genome sequence  (Liu  et  al., 2022).
+2006; Yu et al., 2018). The ﬁrst discrete process in the biogenesis   scRNA-seq provides a transcriptomic  atlas, deﬁning various
+of taxol is the construction of the taxane skeleton by taxadiene    developmental processes, including inﬂorescence development,
+synthase (TS), which is a key, but not rate-limiting, enzyme in the    mesophyll  cell development, and xylem formation  (Li et  al.,
+pathway (Kui et al., 2022). Baccatin  III is produced during the    2021a; Tao et al., 2022; Zong et al., 2022). Recently, scRNA-seq
+second part of the pathway and involves a series of cytochrome    techniques  have  been  used  to  uncover  novel  secondary
+P450 taxoid hydroxylases, including 2a-, 5a-, 7b-, 9a-, 10b-, 13a-,    metabolite  biosynthetic pathways. For example, scRNA-seq
+and 14b-hydroxylases and 10-deacetylbaccatin III-10-O-acetyl-    revealed the biosynthetic pathway of a ﬂoral scent in Nicotiana
+transferase (DBAT) (Kaspera and Croteau, 2006). Then, baccatin    attenuata corolla cells and a novel metabolic pathway of catechin
+III-3-amino,3-phenylpropanoyltransferase (BAPT) catalyzes the    esters in tea leaves (Wang et al., 2022a; Kang et al., 2022). Thus,
+connection of a phenylalanine-derived C13 side chain to baccatin   scRNA-seq can be used extensively to reveal distinct gene expres-
+III, producing 30-N-debenzoyl-20-deoxytaxol. Finally, 30-N-deben-    sion patterns within heterogeneous cell populations.
+zoyl-20-deoxytaxol is converted to paclitaxel by 30-N-debenzoyl-
+20-deoxytaxol-N-benzoyl transferase (DBTNBT) in the last step of   Mass spectrometry (MS) imaging and scRNA-seq were per-
+taxol biosynthesis (Long et al., 2008).                           formed in this study to clarify the cell-type speciﬁcity of second-
+                                                                  ary metabolite biosynthesis and accumulation. Matrix-assisted
+Transcriptionfactors(TFs)playimportantrolesinthetranscriptional    laser desorption/ionization (MALDI) imaging MS analysis was
+regulation  of  taxol  biosynthesis.  Several MYB (TmMYB39,   used to visualize various secondary metabolites in leaf sections,
+TcMYB29a, and TmMYB3), WRKY (TcWKRY33, TcWKRY8, and    conﬁrming the tissue-speciﬁc accumulation of different active
+TcWKRY47), ERF (TcERF12 and TcERF15), and MYC (TcMYC2a)    metabolites. scRNA-seq analysis can provide a metabolic proﬁle
+family members and their taxol biosynthesis–related target genes    of T. mairei leaves at the single-cell level. The identiﬁcation of cell-
+have been functionally identiﬁed in various Taxus species (Zhang    type-speciﬁc TFs may strengthen our understanding of the tran-
+et al., 2015, 2018; Yu et al., 2020, 2022; Chen et al., 2021; Cao    scriptional regulation of secondary metabolism  in T. mairei
+et al., 2022). Mining novel TFs is therefore an effective way to    leaves. Our study provides novel insights into the tissue-speciﬁc
+accelerate the genetic improvement of Taxus trees.                accumulation and regulation of secondary metabolites in medic-
+                                                                                inal plants.
+During the past decade, a number of taxoids have been isolated
+and identiﬁed from Taxus leaves. New taxane diterpenoids such
+as 9,13-diacetyltaxumairol W, 10,13-dibenzoyltaxacustin, 7,13-  RESULTS
+diacetylwallifoliol,  7,13-dibenzoylwallifoliol,  and  7,9-dibenzoyl
+taxumairol P, have been isolated from Taxus sumatrana leaves   Overview of leaf data from timsTOF ﬂeX MALDI-2
+(Shen et al., 2002). Three novel taxanes, namely baccatin VIII,   timsTOF ﬂeX MALDI-2 was performed to detect the accumulation
+baccatin IX, and baccatin X, were isolated from the leaves of    pattern of active ingredients in T. mairei leaves (Figure 1A and
+Taxus yunnanensis (Hai et  al., 2014). Seven taxanes, taxinine,    Supplemental  Figure  1). The raw MS imaging data were
+taxinine A, taxinine B, 2-deacetoxytaxinine B, taxacin, taxchinin    imported into a SCiLS Lab workstation for MS feature process-
+B, and taxol, were isolated as antiplatelet components from the     ing, including baseline deduction, peak alignment, data smooth-
+leaves of Taxus cuspidata (Kim and Yun-Choi, 2010).                  ing, and normalization (Supplemental Table 1). Segmentation
+                                                                    analysis showed that all detected features were located on a
+Recently, the spatial distribution of active components in medic-    colored leaf map with 3510 points. The map separated the
+inal plants has been a research focus. For example, the spatial    features  into  different  locations, suggesting  that the active
+distribution of alkaloid components of sacred lotus leaves has    ingredients accumulated in tissue-speciﬁc patterns (Figure 1B).
+been  investigated  (Liu  et  al.,  2021b).  In  Arabidopsis,  the     All detected features were further separated into four principal
+distributions  of ﬂavonol  glycosides,  fatty  acids,  fatty  acid   components (PCs) associated with different known leaf tissues:
+esters, galactolipids, and glycosphingolipids vary signiﬁcantly   phloem and spongy mesophyll cells (SM, PC1), epidermal cells
+between different leaf substructures (Hieta et  al., 2021). The    (EP,  PC2),  bundle  sheath  cells  (BS,  PC3), and  palisade
+spatial distribution of active alkaloids, coumarins, sugars, and    mesophyll cells (PM, PC4) (Figure 1C).
+organic acids has been visualized in Clausena lansium leaves
+(Tang et al., 2021). Data on the spatial distribution of secondary   The loading intensities of all features were displayed using a heat-
+metabolites  provide  guidance  for  sampling  and  help  to   map (Figure 1D and Supplemental Table  2). MeV clustering
+reveal the roles of metabolites in plant leaves.                       analysis grouped all features into six clusters. Cluster I contained
+                                                        974 features highly accumulated in PM cells; Clusters  II and  III
+In vascular plants, leaves, the primary sites of light acquisition and    contained 717 and 485 features signiﬁcantly accumulated in SM
+carbon ﬁxation, harbor a number of cell types organized into     cells; Cluster IV contained 411 features mainly accumulated in
+
+2     Plant Communications 4, 100630, September 11 2023 ª 2023 The Author(s).
+
+
+[PDF physical page 3]
+Single-cell transcriptome atlas of the Taxus leaf                                Plant Communications
+
+      A                                       B
+
+
+
+
+
+      C                     D                     E
+
+
+
+
+
+Figure 1. Analysis of data from timsTOF ﬂeX MALDI-2.
+(A) Sampling and sectioning strategy for spatial metabolomic analysis.
+(B) Segmentation analysis produced a colored map with different data points.
+(C) PCA of all detected metabolites in T. mairei leaves. Four PCs indicate different accumulation patterns of detected metabolites in leaves.
+(D) Heatmap showing the relative accumulation levels of each detected metabolite in four PCs. The heatmap scale ranges from  2 to +2 on a log2 scale.
+(E) Clustering analysis grouped all the detected MS features into six clusters.
+
+
+EP  cells;  Cluster V  contained 636  features  predominantly   and theaﬂavin were detected only  in BS  cells; procyanidin
+accumulated in BS cells; and Cluster VI contained 283 features    accumulated to high levels in SM and BS cells, and xenognosin
+highly accumulated in both EP and BS cells (Figure 1E).         A accumulated to signiﬁcant levels in SM cells. The terpenes
+                                                                   carnosol, kahweol, and lactaroviolin were mainly distributed in
+Visualization of active ingredient locations in the T.      SM cells, whereas squalene was mostly distributed in PM cells.
+mairei leaf                                             The glycosides chrysoeriol 7-O-neohesperidoside and glyvenol
+We detected numerous active ingredients, including heterocy-    accumulated  to high  levels  in PM  cells, and  digitalin and
+cles, steroids, coumarins, phenolics, terpenes, glycosides, and    pseudojervine accumulated evenly in BS, SM, and PM cells.
+taxoids, in the leaves of T. mairei. Four typical active compounds   The taxoids 10-deacetyl cephalomannine, 10-deacetyl pacli-
+from each  major  class were  visualized  with  color maps     taxel, baccatin  III, and 10-deacetyl baccatin  III accumulated
+(Figure 2A). The ﬂavonoids ginkgetin, quercetin, and rutin were    mainly in SM cells (Figure 2B). Detailed location information for
+mainly distributed in EP cells, and (R)-glabridin accumulated    selected active ingredients in the T. mairei leaf is provided in
+uniformly in the four tissue groups. The steroids crustecdysone,    Supplemental Table 3.
+cortisol, and ponasterone A were mainly distributed in BS cells,
+and schottenol accumulated to a high level in BS and PM cells.   scRNA-seq of T. mairei leaves
+Four selected coumarin metabolites, bergaptol, coumestan,    Leaf protoplasts were isolated to produce single cells (Figure 3A).
+coumesterol, and dicumarol, were detected at high levels in EP    Approximately 1500 protoplasts/ml were isolated from the leaves
+cells but rarely in BS and PM cells. The phenolics (  )-gossypol    of T. mairei. The basic experimental procedures  for  library
+
+                                                        Plant Communications 4, 100630, September 11 2023 ª 2023 The Author(s).    3
+
+
+[PDF physical page 4]
+Plant Communications                                        Single-cell transcriptome atlas of the Taxus leaf
+
+  A
+
+
+
+
+
+  B
+
+
+
+
+
+Figure 2. Visualization of taxoid accumulation in T. mairei leaves.
+(A) The tissue-speciﬁc distribution of various typical metabolites, including four ﬂavonoids, four steroids, four coumarins, four phenolics, four terpenes,
+four glycosides, and four taxoids, was detected by MALDI–imaging MS analysis. The color scale ranges from 0% to 100%.
+(B) The proportions of various typical metabolites in different leaf tissues, including spongy mesophyll cells, epidermal cells, bundle sheath cells, and
+palisade mesophyll cells.
+
+
+
+construction and scRNA-seq are shown in Figure 3B. The puriﬁed    (Figure 3E). Expression data for 36 808 genes were imported
+protoplasts were processed using a commercial 103 Chromium     into Seurat Loupe software, and a total of 15 552 cluster-
+platform. The number of effective cells was evaluated using    enriched genes were identiﬁed (Supplemental Table 4). On the
+barcodes  and  unique  molecular  identiﬁer  (UMI)  counts    basis of cluster-enriched genes, all cells were grouped into 15
+(Figure 3C). scRNA-seq data were produced from a pool of    clusters with uneven cell numbers (Supplemental Figure 2A).
+8846 cells with an average of 35 874 reads and 2352 genes per    Cluster 0 contained the largest number of cells (1180 cells), and
+cell (Figure 3D). t-distributed stochastic neighbor embedding (t-    Cluster 14  contained  the  fewest  (90  cells)  (Supplemental
+SNE) projections of cells are shown as colored UMI counts    Figure 2B). The t-SNE projection of cells from each cluster is
+
+4     Plant Communications 4, 100630, September 11 2023 ª 2023 The Author(s).
+
+
+[PDF physical page 5]
+Single-cell transcriptome atlas of the Taxus leaf                                Plant Communications
+
+ A                      B
+
+
+
+
+
+ C             D                 E                  G
+
+
+
+
+
+ F                                                   H
+
+
+
+
+
+Figure 3. scRNA-seq and cell clustering of T. mairei leaves.
+(A) Isolation of protoplasts from leaf tissues.
+(B) Workﬂow for scRNA-seq of T. mairei leaves. Protoplasts isolated from leaves were loaded into a 103 Genomics Chromium controller.
+(C) The number of effective cells was quantiﬁed using barcodes and UMI counts.
+(D) Numbers of cells, reads, and genes.
+(E) t-SNE projection of cells colored by UMI counts.
+(F) Expression patterns of three representative cluster-enriched genes from each cluster. Dot diameter represents the proportion of cluster cells that
+expressed a given gene.
+(G) Expression patterns of 11 leaf tissue–speciﬁc marker genes in 15 different clusters.
+(H) Visualization of 15 cell clusters using the t-SNE method. Dots indicate individual cells, and colors indicate different cell clusters.
+
+
+shown in Supplemental Figure 2C. Three representative cluster-    (LHCB6, ctg18492_gene.1) and CHLOROPHYLL A/B BINDING
+enriched genes for each cell cluster are shown in Figure 3F.      PROTEIN 3 (CAB3, ctg8753_gene.1), expressed speciﬁcally in
+                                                                              leaf  mesophyll  cells, were  enriched  in  Clusters 6 and  7;
+                                             FOUR  LIPS  (FLP,  ctg9019_gene.2) and GLABRA 2  (GL2,
+Cell-type markers and cluster annotation of leaf cells        ctg9664_gene.1),  expressed  speciﬁcally   in   leaf  stomatal
+A number of cell-type marker genes for the leaf have been identi-   complex cells, were enriched in Clusters 8 and 12; PHLOEM
+ﬁed in model plants (Liu et al., 2022). By sequence alignment,   INTERCALATED WITH XYLEM (PXY, ctg3593_gene.5), expressed
+several Arabidopsis leaf cell-type marker genes were used to    speciﬁcally in vascular/procambium cells, was enriched in Cluster
+annotate the cell types (Supplemental Table 5). Here, 11 cell-     9; ALTERED PHLOEM DEVELOPMENT (APL, ctg8447_gene.3),
+type marker genes were used to annotate the T. mairei leaf    expressed speciﬁcally in phloem cells, was enriched in Cluster
+cell  types: 1-AMINO-CYCLOPROPANE-1-CARBOXYLIC ACID    14; MAP KINASE 9 (MAPK9, ctg4435_gene.11), expressed specif-
+OXIDASE 3 (ACO3,  ctg2007-gene.6), expressed  speciﬁcally     ically in leaf guard cells, was enriched in Clusters 8 and 12;
+in BS and  vein  cells, was  enriched  in  Cluster  3; LIGHT   SMALLER TRICHOMES WITH VARIABLE BRANCHES 2 (SVB2,
+HARVESTING COMPLEX  PHOTOSYSTEM    II  SUBUNIT  6    ctg4709_gene.1) and ECERIFERUM 3 (CER3, ctg560_gene.1),
+
+                                                        Plant Communications 4, 100630, September 11 2023 ª 2023 The Author(s).    5
+
+
+[PDF physical page 6]
+Plant Communications                                        Single-cell transcriptome atlas of the Taxus leaf
+
+expressed speciﬁcally in leaf epidermal cells, were enriched in   Main population of cells involved in taxol biosynthesis
+Cluster 12; and RIBULOSE BISPHOSPHATE CARBOXYLASE                                                       Because most taxol biosynthesis-related genes were expressed
+SMALL CHAIN 1A (RBCS1A, ctg596-gene.10), expressed specif-                                                                               in the leaf mesophyll cells (Clusters 6 and 7) on the basis of spe-
+ically in leaf pavement cells, was enriched in Cluster 13 (Figure 3G).                                                                          ciﬁcally expressed marker genes, all of the leaf mesophyll cells
+Our data revealed the high degree of cell heterogeneity in T. mairei                                                        were re-clustered into four subclasses, A to D (Supplemental
+leaves.                                                                  Figure  4A). There were 168  cells  in  subclass  A, 109  in
+                                                              subclass  B, 103  in  subclass  C, and 79  in  subclass D
+On the basis of the cell-type marker genes, most of the cell                                                              (Supplemental   Figure   4B).  UMAP   visualization   of  the
+clusters were annotated. Cluster 3 contained BS cells and                                                               expression patterns of genes in subclasses A–D is shown in
+vein cells; Clusters 6 and 7 contained leaf mesophyll cells; Clus-                                                           Supplemental  Figure  4C.  Interestingly, most  of  the  taxol
+ters 8 and 12 contained leaf stomatal complex cells, guard cells,                                                                  biosynthesis pathway genes were expressed  in  cells from
+and EP cells; Cluster 9 contained vascular cells and procam-                                                             subclasses C and D (Figure 4F). Cells in subclasses A and B
+bium  cells; and  Cluster 13 contained  leaf pavement  cells                                                        were associated with young leaf mesophyll tissue and those in
+(Figure 3H).                                                             subclasses C and D with mature leaf mesophyll tissue. Thus,
+                                                 scRNA data indicated that taxol biosynthesis occurred in a
+                                                          mature population of mesophyll cells, subclasses C and D, in
+Cell-type speciﬁcity of taxol biosynthesis in T. mairei
+                                                                  Clusters 6/7.
+leaves
+
+A number of key enzymes are reported to participate in the taxol                                                             Enrichment analysis grouped the genes speciﬁcally expressed in
+biosynthesis pathway  (Croteau  et  al.,  2006). The scRNA-                                                                   Clusters 6/7 into different Gene Ontology (GO) and Kyoto Encyclo-
+seq analysis detected many taxol biosynthesis–related genes,                                                              pedia of Genes and Genomes (KEGG) terms. Two taxol biosyn-
+including three TS genes, four T5OH genes, four T13OH genes,                                                                      thesis–related  terms,  ‘‘paclitaxel  metabolic  process’’  (GO:
+seven TAT genes, four T10OH genes, ﬁve TBT genes, six DBBT                                                            0042616, P = 1.75E  34) and ‘‘taxoid 14-beta-hydroxylase activity’’
+genes, two BAPT genes, one DBAT gene, three DBTNBT                                                            (GO: 0036203, P = 3.04E  32), were identiﬁed as signiﬁcantly en-
+genes, three PAL genes, three T7OH genes, and one T14OH                                                                   riched GO terms (Supplemental Figure 4D). One term related
+gene  (Figure  4A). The  cell  coverage  of gene  expression                                                                     to  terpenoid  precursor  biosynthesis,  ‘‘terpenoid  backbone
+was calculated to identify the major genes. Of the TS genes,                                                                        biosynthesis’’ (map00900, P = 2.80E  7), was identiﬁed as a
+ctg6088_gene.1 displayed the largest cell coverage (7.85%); of                                                                       signiﬁcantly enriched KEGG term (Supplemental Figure 4E).
+the T5OH genes, ctg7747_gene.2 was expressed in more than
+5%  of  cells (8.17%);  of the T13OH genes, ctg593_gene.6                                                          Cell-speciﬁc expression pattern of the CYP superfamily
+had the  largest  cell coverage (5.37%);  of the TAT genes,
+                                                     As a part of the classic taxol biosynthesis pathway, CYP-mediatedctg195_gene.31 showed the largest cell coverage (13.48%); of
+                                                              oxygenation is required for modiﬁcation of the taxane skeletonthe T10OH genes, ctg2120_gene.5 displayed the largest cell
+                                                             (Jennewein et al., 2003). On the basis of the public T. maireicoverage (5.51%); of the TBT genes, ctg6463_gene.2 showed
+                                                       genome, 487 CYP genes were identiﬁed, including 74 from thethe  largest  cell  coverage  (6.67%);  of  the DBBT  genes,
+                                                  CYP725 subfamily (Supplemental Table 6). Notably, the CYP725ctg12512_gene.2 had the largest cell coverage (12.47%); of the
+                                                                 subfamily genes were enriched in Clusters 6/7 (Figure 5A). Re-BAPT  genes,  ctg5183_gene.4  displayed  the  largest  cell
+                                                                       clustering analysis showed that most of the CYP725 subfamilycoverage  (3.96%);  of  the DBTNBT genes, ctg887_gene.16
+                                                         genes were expressed in cells from subclasses C and D of Clustersshowed the largest cell coverage (22.48%); of the PAL genes,
+                                                                        6/7. The expression pattern of CYP725 subfamily genes showedctg965_gene.9 showed the largest cell coverage (15.0%); and
+                                                                 high similarity to that of taxol biosynthesis–related genes at theof the T7OH genes, ctg2120_gene.2 showed the largest cell
+                                                                            single-cell  level  (Figure  5B).  For  example,  ctg7747_gene.4,coverage (4.79%) (Figure 4B).
+                                                                 ctg7598_gene.6,ctg7598_gene.5,ctg11883_gene.1,ctg6028_gene.1,
+                                                      and ctg7747_gene.3 are Cluster 7–speciﬁc CYP725 genes,Expression analysis showed that most of the taxol biosynthesis–
+                                                                  providing  several candidate genes  for improving the  taxolrelated genes were expressed in the leaf mesophyll cells (Clus-
+                                                                  synthesis pathway (Figure 5C and 5D). A pseudotime trajectoryters 6 and 7). However, expression of T10OH (ctg2120_gene.5),
+                                                                    analysis showed  that most  of  the CYP725  genes  wereTBT (ctg6463_gene.2), DBBT (ctg4356_gene.1), and DBTNB
+                                                           expressed  in  the  later  stage  of  leaf  mesophyll  tissue(ctg887_gene.16) was detected in the BS and vein cells (Cluster
+                                                          development (Figure 5E).3) (Figure 4C). Uniform manifold approximation and projection
+(UMAP) visualization of the expression patterns of 12 major
+taxol-related genes  is shown in Supplemental Figure 3. The    Cell-type speciﬁcity for terpenoid and steroid
+successive differentiation trajectory was calculated to reveal   metabolism
+the gene expression pattern during the development of leaf    For terpenoid and steroid metabolism, three DXS genes, two DXR
+mesophyll   tissue.  The  pseudotime   trajectory  has  ﬁve    genes, one CMK gene, three MDS genes, two HDS genes, four
+branchpoints, dividing  all cells into six branches (Figure 4D).   GPPS genes, six GGPPS genes, one SQLE gene, two CYP51
+Our  data  suggested  that most  of  the  taxol  biosynthesis    genes, one EBP gene, and three DWF1 genes were identiﬁed by
+pathway–related  genes, such as DBAT  (ctg10533_gene.2),   scRNA-seq (Supplemental Figure 5A and Supplemental Table 7).
+T10OH (ctg2120_gene.10 and ctg5026_gene.32), TAT (ctg195_    Expression  of ctg7293_gene.1  (DXS),  ctg895_gene.1  (DXR),
+gene.31), and TS (ctg6088_gene.1), were expressed in mature    ctg10290_gene.1 and ctg739_gene.2 (MDSs), ctg1206_gene.2
+leaf mesophyll cells. Only one gene, T14OH (ctg8816_gene.2),    (GPPS), ctg1119_gene.5 (CYP51), and ctg5554_gene.1 (DWF1)
+was expressed in young leaf mesophyll cells (Figure 4E).         was  detected  in more  than 10%  of  cells  (Supplemental
+
+6     Plant Communications 4, 100630, September 11 2023 ª 2023 The Author(s).
+
+
+[PDF physical page 7]
+Single-cell transcriptome atlas of the Taxus leaf                                Plant Communications
+
+ A                       B                             C
+
+
+
+
+
+                    D                 E
+
+
+
+
+
+                        F
+
+
+
+
+
+Figure 4. Cell-type speciﬁcity of taxol biosynthesis in T. mairei leaves.
+(A) Overview of the paclitaxel biosynthesis pathway, including enzymes and metabolites.
+(B) Cell coverage of taxol biosynthesis pathway–related genes. Each key enzyme is encoded by at least one gene.
+(C) Cell-speciﬁc expression analysis of taxol biosynthesis–related genes. Clusters 6 and 7 contain mesophyll cells.
+(D) Successive differentiation trajectory during the process of mesophyll tissue development.
+(E) Heatmap showing expression levels of taxol-related genes during the mesophyll tissue development process. The heatmap scale ranges from +3
+to  3 on a log2 scale.
+(F) All leaf mesophyll cells were re-clustered into four subclasses, A to D. The red color indicates the expression level, and the dot size indicates the cell
+percentage.
+
+
+
+
+
+                                                        Plant Communications 4, 100630, September 11 2023 ª 2023 The Author(s).    7
+
+
+[PDF physical page 8]
+Plant Communications                                        Single-cell transcriptome atlas of the Taxus leaf
+
+ A                                B           C
+
+
+
+
+
+                                              D
+
+
+
+
+
+ E
+
+
+
+
+
+Figure 5. Expression patterns of the CYP superfamily.
+(A) Cell-speciﬁc expression analysis of CYP family genes at the single-cell level by scRNA-seq. The blue box indicates that the CYP725 subfamily
+members were enriched in cells from Clusters 6 and 7.
+(B) All leaf mesophyll cells were re-clustered into four subclasses, A to D. The red color indicates expression level, and the dot size indicates cell percentage.
+(C) UMAP visualization of expression patterns of six selected CYP725 family members in T. mairei leaves.
+(D) Violin plot of expression patterns of six selected CYP725 family members in T. mairei leaves.
+(E) KEGG enrichment analysis of genes signiﬁcantly expressed in Clusters 6 and 7.
+
+
+Figure 5B). Most of the terpenoid and steroid biosynthesis–related    Clusters 6 and 7. According to the annotation information, terpe-
+genes were detected in Cluster 7 cells (Supplemental Figure 5C).    noid and steroid biosynthesis–related genes might be expressed
+                                                                               in leaf mesophyll cells. The successive differentiation trajectory
+Expression analysis showed that most of the terpenoid and ste-    during the development of leaf mesophyll tissue is shown in
+roid biosynthesis pathway genes were expressed in cells from    Supplemental Figure 5D and 5E. Some terpenoid and steroid
+
+8     Plant Communications 4, 100630, September 11 2023 ª 2023 The Author(s).
+
+
+[PDF physical page 9]
+Single-cell transcriptome atlas of the Taxus leaf                                Plant Communications
+
+biosynthesis–related  genes, such as ctg10290_gene.1 and    gene.1, ctg458_gene.1, and ctg183_gene.1), ﬁve WRKY genes
+ctg1119_gene.7, were expressed in young leaf mesophyll tissue,    (ctg3845_gene.3,ctg8684_gene.3, ctg3000_gene.1,and ctg1880_
+whereas others, such as ctg2545_gene.5 and ctg6176_gene.1,    gene.5), and three ERF genes (ctg996_gene.4, ctg4461_gene.2,
+were expressed in mature leaf mesophyll tissue (Supplemental   and ctg505_gene.15) were identiﬁed as  potential  regulators.
+Figure 5F).                                                      Furthermore, a number of TFs were predicted to participate in
+                                                                   various secondary metabolism pathways, and the regulatory
+Cell-type speciﬁcity of phenolic acid and ﬂavonoid          network is shown in Figure 6C.
+metabolism
+
+For phenolic acid metabolism, scRNA-seq detected several    Veriﬁcation of the binding of TFs to their potential
+genes encoding three key enzymes, including three C4H genes,    targets
+nine C3H genes, and six COMT genes (Supplemental Table 8).    Six  TFs,  including  MYB17  (ctg21726_gene.1),  WRKY12
+The cell coverage was calculated to identify the major genes    (ctg8684_gene.3), WRKY31 (ctg3845_gene.3), ERF13 (ctg996_
+involved  in phenolic acid metabolism. Of the C4H genes,    gene.4), GT_2  (ctg3435_gene.2),  and bHLH46  (ctg18566_
+ctg2905_gene.4 displayed the largest cell coverage (14.84%);    gene.1), were randomly selected to verify the binding of cell-
+of the C3H genes, ctg6560_gene.3 showed the largest  cell    speciﬁc TFs to their target sites. The full-length sequences of
+coverage (2.78%); and of the COMT genes, ctg15240_gene.2    these six TF genes were cloned and inserted into vectors. Elec-
+showed  the  largest  cell  coverage  (8.70%).  For  ﬂavonoid    trophoretic  mobility   shift  assay  (EMSA)  results  showed
+metabolism, scRNA-seq detected three 4CL genes, eight CHS    that MYB17 bound directly to the MBE element in the TS pro-
+genes, one CHI gene, two F3H genes, and six FLS genes. Of    moter, WRKY12 bound directly to the W box  in the DBAT
+the CHS genes, ctg3517_gene.14 had the largest cell coverage    promoter, WRKY31 bound directly to the W box in the SQE pro-
+(4.66%); of the F3H genes, ctg17092_gene.1 displayed the    moter, ERF13 bound  directly to the GCC box  in the C3H
+largest  cell  coverage  (4.51%);  and  of  the  FLS  genes,    promoter, GT_2 bound directly to the GT element in the CHS pro-
+ctg2147_gene.1 showed  the  largest  cell coverage (6.01%)    moter, and bHLH46 bound directly to the ABRE element in the
+(Supplemental Figure 6A).                           GGPPS promoter (Figure 7A–7F).
+
+Expression analysis showed that most of the phenolic acid and   To determine the transcriptional activities of MYB17, WRKY12,
+ﬂavonoid biosynthesis pathway genes were expressed in cells   WRKY31, ERF13, GT_2, and bHLH46, a dual-luciferase (LUC) re-
+from Clusters 8, 11, and 12. According to their annotation infor-    porter assay was performed using a tobacco transient expression
+mation, phenolic acid and ﬂavonoid biosynthesis–related genes    system (Figure 7G). The results showed that WRKY12, WRKY31,
+may be expressed in leaf EP cells, stomatal complex cells, and    GT_2, and ERF13 signiﬁcantly activated the expression of their
+guard cells (Supplemental Figure 6B).                         downstream target genes (DBAT, SQE, CHS, and C3H, respec-
+                                                                                      tively), whereas MYB17 and bHLH46 signiﬁcantly inhibited the
+Discovery of cell-speciﬁc TFs involved in the regulation     expression of their downstream target genes (TS and GGPPS,
+of secondary metabolism                                         respectively) (Figure 7H).
+
+Although a number of TFs have been identiﬁed in Taxus species,
+information on the transcriptional regulation of secondary meta-  DISCUSSION
+bolism at the single-cell level is limited. The expression levels of
+all TF genes are  listed  in Supplemental Table  9. Because   The complexity of biochemical processes in plant tissue is not
+mesophyll tissue and  leaf EP tissue are the main  sites of    only programmed by genetic information but also affected by
+secondary  metabolism,  several   cell-cluster-speciﬁc  TFs,    the chemical’s localization. Thousands of secondary metabolites,
+including six MYB genes, ﬁve bHLH genes, four GT_2 genes,    including ﬂavonoids, taxoids, polysaccharides, and abietane di-
+ﬁve ERF genes, and seven WRKY genes, were selected using    terpenoids, have been detected in T. mairei leaves (Monacelli
+the  criteria  log2(target  cluster/other  clusters) >  0.26 and    et al., 2002; Yang et al., 2016; Hao et al., 2017; Wang et al.,
+P < 0.01 (Supplemental Table 10). The expression patterns of    2019a). However, the precise locations of different types of
+the above TF genes in  all annotated clusters are shown in    secondary metabolites in T. mairei leaves are largely unknown.
+Figure 6A. To  identify  potential TFs involved  in secondary
+metabolism,  the  2000-bp  promoter  regions  of 24  taxoid    High-throughput MALDI-2 imaging is a recently developed tool
+biosynthesis–related  genes, 6  phenolic  acid  biosynthesis–   used to explore the spatial distribution patterns of chemicals in
+related genes, 6 ﬂavonoid metabolism–related genes, 13 terpe-    plant tissues (Bien et al., 2022). Mesophyll tissue is the main
+noid biosynthesis–related genes, and 5 steroid biosynthesis–     site  of  photosynthesis,  which  provides  energy  and  raw
+related genes were extracted from the public T. mairei genome.    materials  for  the  biosynthesis  of  primary and  secondary
+Distributions of various cis-elements, such as MBE, GT element,    metabolites  (Allahverdiyeva  et  al.,  2015).  Statistical  results
+W box, ABRE, and GCC box, in all selected promoters are shown   showed that the largest numbers of metabolites were enriched
+in Figure 6B.                                                                in SM (1202 metabolites) and PM (947 metabolites), suggesting
+                                                                       that T. mairei mesophyll cell–related tissues are the main sites
+Two criteria, similar expression patterns and matched binding ele-    of active compound biosynthesis. Because of their different
+ments, were used to screen the cell-speciﬁc TFs. For taxol biosyn-    biological functions, various types of metabolites preferentially
+thesis, two MYB genes (ctg21726_gene.1 and ctg2891_gene.5),    accumulated  in speciﬁc tissues. For example, three classic
+four GT_2 genes (ctg2396_gene.1, ctg3435_gene.2, ctg3885_    ﬂavonoids,  ginkgetin,  quercetin,  and   rutin,   preferentially
+gene.7, and ctg21853_gene.2), three bHLH genes (ctg18566_    accumulated  in EP  cells,  consistent  with  their  roles  in
+
+                                                        Plant Communications 4, 100630, September 11 2023 ª 2023 The Author(s).    9
+
+
+[PDF physical page 10]
+Plant Communications                                        Single-cell transcriptome atlas of the Taxus leaf
+
+      A                                   B
+
+
+
+
+
+      C
+
+
+
+
+
+Figure 6. Discovery of cell-speciﬁc TFs involved in secondary metabolism in T. mairei leaves.
+(A) Cell-speciﬁc expression analysis of TFs at the single-cell level by scRNA-seq. The proportions of the expression levels of each TF in eight metabolism-
+related clusters are shown.
+(B) Identiﬁcation of TF-binding elements in the promoter regions of secondary metabolism–related genes. Triangles indicate the different TF-binding
+elements, including MBE (light blue), GT-element (pink), GCC-box (red), W-box (yellow), and ABRE (purple).
+(C) Prediction of transcriptional regulation networks according to the cell-type-speciﬁc expression pattern.
+
+
+
+protecting plants against exposure to UV radiation and high light    information for different types of active compounds to promote
+conditions (Ferreyra  et  al., 2021). MALDI-2 imaging  further    the comprehensive utilization of Taxus leaves.
+showed that several coumarins, including bergaptol and coume-
+stan, accumulated at high levels in leaf EP cells. EP cell–accumu-    T. mairei leaves are an important, renewable resource for the
+lated coumarins play an important  role  in the response to     industrial extraction of active ingredients, especially taxoids
+nutrient-deﬁcient conditions (Robe et al., 2021). Furthermore,     (Li  et   al.,  2021b).  MALDI-2  imaging  results  conﬁrmed
+most  of  the  detected  steroids,  phenolics,  and  terpenes     distinct accumulation patterns of active ingredients in different
+accumulated  at high  levels  in SM  cells, and most  of the     cell types of the T. mairei leaf. The revolutionary application of
+detected  glycosides and  taxoids accumulated  in SM and   103 Genomics technology in plant scRNA-seq has enhanced
+PM  cells. Our data provide  detailed and  precise  location    the ability to analyze heterogeneity of gene expression at the
+
+10    Plant Communications 4, 100630, September 11 2023 ª 2023 The Author(s).
+
+
+[PDF physical page 11]
+Single-cell transcriptome atlas of the Taxus leaf                                Plant Communications
+
+ A                  B                  G
+
+
+
+
+
+ C                  D                   H
+
+
+
+
+
+ E                     F
+
+
+
+
+
+     I                                               J
+
+
+
+
+
+  K                                          L
+
+
+
+
+
+Figure 7. Veriﬁcation of the binding of TFs to their potential targets.
+(A–F) The GST-only or TF–GST fusion protein was incubated with probes containing the binding element derived from the promoters.  and + represent
+absence and presence, respectively, and 203 or 2003 show increasing amounts of probes for competition.
+(G) Overview of constructs prepared for dual-luciferase reporter assays. The promoter fragments were ligated to the pGreenII 0800-LUC vector to
+produce the reporters. The effectors were produced by inserting the TF genes into the pGreenII-62-SK vector.
+(H) Dual-luciferase assays in tobacco leaves showed that co-transformation of TFs affected the target promoters.
+(I) The cell-type locations in T. mairei leaves.
+(J) The location of taxol biosynthesis–related genes.
+(K) The location of terpenoid and steroid metabolism–related genes.
+(L) The location of phenolic acid and ﬂavonoid metabolism–related genes.
+
+
+                                                        Plant Communications 4, 100630, September 11 2023 ª 2023 The Author(s).   11
+
+
+[PDF physical page 12]
+Plant Communications                                        Single-cell transcriptome atlas of the Taxus leaf
+
+single-cell level (Liu et al., 2022). To date, leaf single-cell tran-   gene expression is also the leaf mesophyll cells, guaranteeing a
+scriptional  proﬁles have been  reported  for  several  plants,    supply of precursors for taxol synthesis (Soliman and Tang,
+including Nepeta tenuifolia, Arabidopsis, rice, peanut, Brassica    2015). Carbon ﬂux to steroid biosynthesis  is a competitive
+rapa, and tea (Liu et al., 2021a; Lopez-Anido et al., 2021; Wang   pathway with terpenoid biosynthesis (Syklowska-Baranek et al.,
+et al., 2021, 2022a; Zhou et al., 2022a). Although the number of    2022). Clustering analysis showed that the main expression
+captured cells varied among these different experiments, the     site for steroid biosynthesis–related genes was similar to that
+median number of genes per cell was less than 2000. In the     for terpenoid biosynthesis genes. Downregulation of terpenoid
+present study, the median number of genes per cell was 2352,    biosynthesis genes has been shown to be a useful approach to
+suggesting that sequencing depth was sufﬁcient to screen    improving the production of taxol (Oksman-Caldentey and Inze,
+valuable genes.                                                   2004). Flavonoids and phenolic acid derivatives are important
+                                                                 photo-protective compounds and antioxidants (Casanova et al.,
+All T. mairei leaf cells were grouped into a number of cell clusters.    2020). Signiﬁcantly, phenolic acid and ﬂavonoid metabolism–
+Cell cluster annotation is difﬁcult in medicinal plants owing to a    related genes are speciﬁcally expressed in leaf EP cells and
+lack of marker genes. In model plants, many cell-type marker    stomatal complex cells. The accumulation of phenolic acids
+genes have been conﬁrmed by in situ hybridization and reporter   and ﬂavonoids in leaf EP cells might play a role in protection
+systems. For example,  in  situ  hybridization conﬁrmed  that    against  the  invasion  of  pathogenic  microorganisms  and
+OsDEF7 (LOC_Os02g41904) is highly expressed in inner meso-   damaging UV light on the front line (Schafer and Wink, 2009).
+phyll cells and OsENOD93 (LOC_Os06g05000)  is highly ex-
+pressed  in mature mesophyll  cells (Wang  et  al., 2021); a    Plant secondary metabolism is coordinated by a complex TF
+reporter  system  conﬁrmed   that  PbZIP9   is  expressed    network (Chen et al., 2020; Yu et al., 2020, 2021, 2022; Zhan
+speciﬁcally in leaf vasculature cells (Kim et al., 2021); and a    et al., 2022; Feng et al., 2023). To date, several TFs, including
+GFP ﬂuorescence system conﬁrmed that AtMYS1 (AT2G38300)    stimulus-responsive TFs (such as TcERF12 and TcERF15),
+is speciﬁcally expressed in guard cells (Zhang et  al., 2021).    tissue-speciﬁc  TFs  (such  as  TmMYB3),  and  species-
+According to known markers (PCMDB database), 11 cluster-    speciﬁc TFs  (such as TmMYB39), have been  functionally
+speciﬁc genes were used to annotate cell types covering the ma-    identiﬁed in various Taxus species (Zhang et al., 2015; Zhou
+jor tissues in T. mairei leaves. Because of a lack of reliable marker    et  al., 2019; Yu et al., 2020, 2022). After a search of the T.
+genes, several large clusters could not be annotated with known    mairei genome, a large number of TFs were annotated in the
+marker genes. Establishing a rapid genetic transformation sys-   scRNA-seq dataset (Xiong et al., 2021). To screen novel TFs at
+tem and in situ hybridization system will be essential for improving   a single-cell resolution, we proposed two screening criteria: cis-
+cell annotation in T. mairei in the future.                         element-based  potential  physical  binding  capability  and
+                                                      matched spatiotemporal expression patterns between the TF
+The biosynthesis of endogenous active components involves a   and its targets.
+number of rate-limiting enzymes, which are encoded by multiple
+genes (Zhou et al., 2022b). In the present study, differences in the   On the basis of these criteria, six MYBs, ﬁve bHLHs, four GT_2s,
+cell  coverage  of  different  encoding genes were  carefully    ﬁve ERFs, and seven WRKYs were predicted to participate in a
+evaluated. TS catalyzes the formation of taxadiene, the ﬁrst    regulatory network of secondary metabolism in T. mairei leaves.
+committed precursor of taxol (Croteau et al., 2006). Among the   Our previous studies identiﬁed two MYB family members and
+three TS genes, ctg5306_gene.4 and ctg7747_gene.1 were     their  target genes. TmMYB39, a predominantly female-ex-
+silent  in most  leaf  cells. The  important  taxol  rate-limiting    pressed TF, regulates the taxol biosynthesis pathway by target-
+enzyme BAPT  is encoded by two genes (ctg5183_gene.3    ing T10OH, T13OH, and TBT genes (Yu et al., 2022). TmMYB3,
+and  ctg5183_gene.4).  Interestingly,  the  cell  coverage  of   a phloem-speciﬁc TF, enhances taxol biosynthesis by binding
+ctg5183_gene.4 was about 50-fold that of ctg5183_gene.3.    to the promoters of TBT, DBTNBT, and TS (Yu et al., 2020).
+TBT, which transforms the debenzoyl intermediate to 10-DAB,   Our  results suggested a new TcMYB17–TS  pair, enriching
+is another important rate-limiting enzyme involved in chemical    our understanding  of the  role  of the MYB  family  in  taxol
+modiﬁcation of the taxoid core structure (Walker and Croteau,    biosynthesis. In T. mairei, jasmonate-induced WRKY26 and sali-
+2000). Among the ﬁve TBT genes, only ctg6463_gene.2 was     cylic acid–induced WRKY33 activated the expression of a DBAT
+expressed in more than 5% of leaf cells. Similarly, numerous   gene by binding to the W box in its promoter region (Chen et al.,
+silenced genes involved in the terpenoid, steroid, phenolic acid,    2021, 2022). In our study, WRKY12 was also identiﬁed as a regu-
+and ﬂavonoid metabolic pathways were identiﬁed. Increasing     lator of DBAT expression, indicating that WRKY12 might be an
+the cell coverage of the silenced genes is a potential way to    important target of phytohormone-induced taxol biosynthesis.
+promote efﬁciency in active compound biosynthesis.
+                                                                           In Taxus species, TFs involved in secondary metabolism other
+Genetic improvement of medicinal plants requires the spatial    than taxol biosynthesis are largely unknown. SQE acts as a
+screening of key metabolic genes (Wang et al., 2022b). Most     rate-limiting enzyme in the biosynthesis of steroidal compounds.
+taxol biosynthesis–related genes were expressed in the leaf    Recently, two Asparagus racemosus bZIP family TFs (TGA1 and
+mesophyll cells, and re-clustering analysis focused them into   TGA2) and two Panax notoginseng AP2/ERF family TFs (ERF2
+subclasses C and D of Clusters 6/7, suggesting that there is a   and ERF3) were considered to participate in the regulation of
+speciﬁc cell group for taxol biosynthesis within the mesophyll   SQE expression (Lin et al., 2020; Upadhyay et al., 2020). In T.
+cells.  The  terpenoid  biosynthesis  pathway  provides  the    mairei, SQE (ctg680_gene.8) is highly expressed in mesophyll
+precursor GGPP for taxol synthesis in Taxus species (Croteau   and  stomatal  complex  cells,  and   its  promoter  contains
+et al., 2006). The main site of terpenoid biosynthetic pathway    multiple cis-elements, such as MBE, ABRE, and W box. Thus,
+
+12    Plant Communications 4, 100630, September 11 2023 ª 2023 The Author(s).
+
+
+[PDF physical page 13]
+Single-cell transcriptome atlas of the Taxus leaf                                Plant Communications
+
+mesophyll and stomatal complex cell–speciﬁc MYB, bHLH, and   The resulting data were searched against the Bruker Library MS
+WRKY  family TFs  are  potential  regulators  of  the  steroid    Metabase 3.0 database (https://www.bruker.com/en/products-and-
+biosynthesis pathway.  In bean,  the  silencer  region  of  the    solutions/mass-spectrometry/ms-software/metabolomics-spectral-
+CHS15 promoter contains multiple binding sites for SBF1, a     libraries.html). Molecular mass error was set to <10 ppm. Principal-
+GT_1  like  factor  (Harrison  et  al.,  1991).  In  T.  mairei,  the   component analysis (PCA) was used to analyze the distribution of
+promoter of the CHS gene (ctg13079_gene.1) contains multiple    ion features on the imaging.
+GT_2 binding sites. In vitro and in vivo assays conﬁrmed the
+role  of  epidermis-speciﬁc GT_2  in  the  activation  of CHS    Preparation of Taxus leaf protoplasts
+expression, leading to the accumulation of ﬂavonoids in EPs.
+                                                          About 20 tender leaves of T. mairei were harvested and cut into
+The gene expression patterns were largely consistent with the
+                                                                   small pieces. The leaf samples were treated with enzymolysis so-
+location of compounds from each category.
+                                                                             lution (cellulase R-10, isolation enzyme P, mannitol, KCl, and
+                                           MES [pH 5.7]) in a triangular ﬂask and vacuum inﬁltrated for
+Our research establishes a transcriptional landscape of the major
+                                                       10 min. The leaf samples were incubated in darkness for 4–5 h
+cell types in T. mairei leaves at a single-cell resolution and
+                                                                       at 28 C to isolate protoplasts. After reaching a certain number of
+provides a valuable resource for studying the basic principles
+                                                                      protoplasts, the enzymolysis solution was removed. The isolated
+of  cell-type-speciﬁc  regulation  of  secondary  metabolism
+                                                                    protoplasts were washed with 8% mannitol solution three times
+(Figure 7I–7K).
+                                                       and ﬁltered with a 40-mm cell sifter. Protoplast cell activity was de-
+                                                                 tected by trypan blue staining. The dead cells were removed using
+METHODS                                           a Miltenyi Dead Cell Removal Kit (MACS 130-090-101).
+
+Plant materials and genome data
+                                                scRNA-seq library construction and raw data
+Five-year-old T. mairei trees were grown in an open ﬁeld in the
+                                                      processing
+Cangqian campus of Hangzhou Normal University, Hangzhou,
+China. Leaves of young twigs were harvested for microsection    For library construction, single-cell suspensions were loaded
+and protoplasting. The T. mairei reference genome was down-    onto 103 Chromium according to the manufacturer’s instructions
+loaded from the Genome Sequence Archive at the National Ge-    of the 103 Genomics Chromium Single-Cell 3 kit (V3). Libraries
+nomics Data Center (Xiong et al., 2021).                       were sequenced on the Illumina NovaSeq 6000 sequencing sys-
+                                                     tem by LC-BioTechnology (Hangzhou, China) with a minimum
+                                                           depth of 20 000 reads per cell. The paired-end multiplexing runSample preparation and MS imaging
+                                                   was set to 150 bp.
+Young leaves of T. mairei were frozen and cut into 20-mm sections
+using a Leica CM1950 freezing microtome. The sections were
+                                                         Sequencing results were downloaded and converted to FASTQ
+transferred onto the MALDI-2 special conductive glass slide, vac-
+                                                               format using Illumina bcl2fastq software (v.2.20). Sample demul-
+uum dried under a stable stream of nitrogen, and transferred to                                                                            tiplexing, barcode processing, and single-cell 30 gene counting
+ 80 Cforsealedstorage.MALDI-2specialmatrixsolutioncontain-
+                                                        were performed with the Cell Ranger pipeline (v.6.1.1). scRNA-
+ing 2,5-dihydroxybenzoic acid and 2,5-dihydroxyacetophenone
+                                                        seq data were aligned to the T. mairei reference genome. Quality
+was evenly sprayed on the slide with the leaf sections.
+                                                                     control parameters such as Q30, median UMI, and gene number
+                                                              per cell were determined using Cell Ranger (v.3.0.0) software and
+The coated conductive slide was placed on the target plate of the
+                                                                 the Seurat software package (v.2.3.4). To remove low-quality
+timsTOF ﬂeX MALDI-2 system, and the detection area was
+                                                                               cells, the data were ﬁltered according to the average number of
+screened using Bruker data imaging software. After setting the im-
+                                                        genes detected in a single cell. Speciﬁcally, cells with detected
+aging resolution, the detection area was divided into several two-
+                                                        genes <500 and >5000, mitochondrial reads >5%, and mitochon-
+dimensional points according to the section size. The leaf section
+                                                                                drial reads >20% were considered to be doublets and were
+was scanned by laser radiation to detect the released ionized mol-
+                                                      removed with DoubletFinder software (v.2.0.2).
+ecules at the target site. Details of the experimental setup and data
+processing are as follows: detection range of metabolite charge ra-
+                                                               Cell visualization and clusteringtio, 150–1200 Da; ion detection mode, positive; MADLI-2, on; ion
+mobility, on; rise time, 300 ms; 1/K0 range, 0.6–1.7 V s/cm2; imag-   To visualize the data, the dimensionality of all remaining cells was
+ing resolution, 20 mm; laser frequency, 1000 Hz; laser energy, 44%;    reduced into 2D space using Seurat software. The expression
+and acquisition times per pixel, 50.                                    levels of genes in each cell were calculated using the ‘‘Normaliza-
+                                                                                    tion’’ function in Seurat. The normalized expression values were
+MS imaging data processing                             used for PCA, and the top 10 PCs were used for clustering and
+                                                         t-SNE analysis with a weighted graph-based clustering method.
+The MS data were loaded into SCiLS Lab MVS software (v.2021a
+                                                       The marker genes for each cell cluster were selected using the
+Pro; Bruker Daltonics) to generate MS images. A reduced mass
+                                                                       ‘‘FindAllMarkers’’ function in Seurat software with the Wilcoxon
+list of all peaks was stored in imzML format for further processing.
+                                                         rank-sum test and likelihood-ratio test.
+The imaging pixels in the target area were clustered using the un-
+supervised spatial clustering analysis function of SCiLS software.
+Regions with similar accumulation patterns were marked with the   Tissue-speciﬁc marker genes and leaf cell-type
+same color to intuitively classify the slices from the molecular    identiﬁcation
+level. For metabolite annotation, MS spectrum data were ex-    Orthologous gene alignments of reported leaf-related marker
+tracted and quantiﬁed with a Bruker Metaboscape workstation.   genes from the model plant Arabidopsis were used to identify
+
+                                                        Plant Communications 4, 100630, September 11 2023 ª 2023 The Author(s).   13
+
+
+[PDF physical page 14]
+Plant Communications                                        Single-cell transcriptome atlas of the Taxus leaf
+
+cell-type-speciﬁc markers. The detailed sequences of Arabidop-    which was determined using a dual-LUC assay kit (Promega, Bei-
+sis marker genes were downloaded from the Plant Cell Marker     jing, China).
+DataBase (http://www.tobaccodb.org/pcmdb/) (Jin et al., 2022).
+Using the Arabidopsis marker genes as query sequences,    Bioinformatics and statistical analysis
+homologous T. mairei genes were identiﬁed using the BLASTP                                        GO and KEGG enrichment of genes with cell-speciﬁc expression
+function in TBtools software. The top scoring hits were selected                                                   was  analyzed  using  the Blast2GO program  (https://www.
+and annotated as corresponding T. mairei cell-type-speciﬁc                                                                 blast2go.com/). Statistical analysis was performed using SPSS
+genes.                                                               software v.19.0 (SPSS, Chicago,  IL, USA). Signiﬁcance was
+                                                            determined at P < 0.05 by analysis of variance followed by Dun-
+Pseudotime trajectory analysis                               can’s least signiﬁcant difference test. For hierarchical clustering
+To visualize the trajectory in a reduced dimensional space, all   and visualization, all data were Z-score normalized by Euclidean
+cells were ordered using Monocle software (v.3.0) with a matrix    distance using MeV software. Two biological replicates were
+of cells and gene expression proﬁles. For pseudotime analysis,   used for the MS imaging analysis, three technical replicates for
+the sequence count was ﬁrst converted into the ‘‘CellDataSet’’    the EMSA experiment, and three biological replicates for the
+with the ‘‘importCDS’’ function in Monocle 2. Then, we used the    dual-LUC assay.
+‘‘estimateSizeFactors’’ and ‘‘estimateDispersions’’ functions to
+precalculate several parameters. The ‘‘Differential GeneTest’’   DATA AVAILABILITY
+module in Monocle software was used to identify differentially ex-    The T. mairei reference genome was downloaded from the NCBI database
+pressed genes between different groups of cells. Dimensional    (NCBI: PRJNA730337). scRNA-seq data are available at the NCBI data-
+reduction clustering analysis was performed using the ‘‘reduce-    base (BioProject: PRJNA909435). The datasets generated and analyzed
+Dimension’’ function with default parameters. Then, gene expres-      in the current study are available at Baidu Netdisk (https://pan.baidu.
+                                                            com/s/1hXL8X9bCF5ZLi4UGKXRlHQ [password: tjhg]).
+sion was plotted to track changes during pseudotime according
+to a previously published method (Liu et al., 2022).
+                                          SUPPLEMENTAL INFORMATION
+                                                                   Supplemental information is available at Plant Communications Online.
+Electrophoretic mobility shift assay
+The 2000-bp promoter sequences of various secondary meta-   FUNDING
+bolism–related genes were extracted from the T. mairei genome     This work was funded by the National Natural Science Foundation of
+(Xiong et al., 2021). The promoter sequences were uploaded and    China (32271905 and 32270382); the Zhejiang Provincial Natural Science
+scanned using the PlantCARE program  (http://bioinformatics.    Foundation  of  China  under  grants  LY23C160001,  LY18C050005,
+psb.ugent.be/webtools/plantcare/html/).                          LY19C150005, and LY19C160001; the Opening Project of Zhejiang Pro-
+                                                                                      vincial Key Laboratory of Forest Aromatic Plant-Based Healthcare Func-
+                                                                                tions (2022E10008); the Open Foundation of State Key Laboratory of Sub-The cDNAs of MYB17, WRKY12, WRKY31, ERF13, GT_2, and
+                                                                                   tropical  Silviculture, Zhejiang A&F University (KF201708); the Major
+bHLH46 were cloned and inserted into the pGEX4-T vector.
+                                                                        Increase or Decrease Program  in The Central Finance Level (grant
+The  resulting vector was transformed  into Escherichia  coli
+                                                                      2060302); and Zhejiang Provincial Key Research & Development Project
+(DE3) cells to produce recombinant TF-His tag protein. The re-     grants (2017C02011, 2018C02030).
+combinant protein induced by 1 mM isopropyl-beta-D-thiogalac-
+topyranoside (IPTG) was puriﬁed with His60 Ni Superﬂow resin                                        AUTHOR CONTRIBUTIONS
+(Clontech, Beijing, China). The puriﬁed His fusion proteins were     X.Z., S.F., H. Zeng, and C.S. conceptualized the  initial study; C.S.,
+isolated by 12% SDS–PAGE and used for the EMSA experiment.    H. Zhang, M.W., and Q.W. were involved in the experimental layout;
+                                                                     H. Zhang, Q.W., T.Q., K.H., Z.W., C.C., X.W., X.L., and X.-l.L. performed
+EMSA was performed according to the protocol of the Light Shift     the lab experiments; S.F., H.W., C.Y., and C.S. drafted the initial article;
+Chemiluminescent EMSA   kit  (Beyotime,  Shanghai,  China)       all authors discussed the results, reviewed the article, and approved the
+(Yu et  al., 2020). Two MYB binding elements (CAGTTG and     ﬁnal article.
+CAACTG), two bHLH binding elements (CACGT and CACGTG),
+one WKRY binding element (TTGACC), two GT_2 binding ele-  ACKNOWLEDGMENTS
+ments (GGTAATT and GGTAAAT), and two ERF binding elements   We are grateful to LC Sciences Co. (Hangzhou, China) for transcriptomic
+                                                                                analysis. We are also grateful to Professor Jianbin Yan (Agricultural Geno-
+(GCCGCC and CCGAC) were used to design probes. Potential TF
+                                                                 mics Institute at Shenzhen, Chinese Academy of Agricultural Sciences,
+binding elements derived from the downstream promoters were
+                                                                  Shenzhen, China) for genomic analysis. No conﬂict of interest is declared.
+labeled with 50 6-FAM ﬂuorescent dye. Unlabeled sequences
+were  used  as  competitive  probes,  and  sequences  with    Received: December 29, 2022
+CCCGGG were used as mutated probes.                            Revised: March 31, 2023
+                                                                    Accepted: May 22, 2023
+Dual-luciferase reporter assays                                   Published: May 25, 2023
+The cDNAs of several selected TF genes were cloned into the   REFERENCES
+pGreenII62-SK vector as effectors, and the downstream pro-    Allahverdiyeva, Y., Suorsa, M., Tikkanen, M., and Aro, E.M. (2015).
+moter sequences were cloned into the pGreenII0800-LUC vector       Photoprotection of photosystems in ﬂuctuating light intensities. J.
+as reporters. The completed constructs were co-expressed in to-       Exp. Bot. 66:2427–2436. https://doi.org/10.1093/jxb/eru463.
+bacco leaves via Agrobacterium tumefaciens GV3101–mediated    Bien, T., Koerfer, K., Schwenzfeier, J., Dreisewerd, K., and Soltwisch,
+transient transformation. The binding activities of TFs to the        J.  (2022).  Mass  spectrometry  imaging  to  explore  molecular
+selected promoters were calculated from the LUC/REN ratio,       heterogeneity in cell culture. Proceedings of the National Academy of
+
+14    Plant Communications 4, 100630, September 11 2023 ª 2023 The Author(s).
+
+
+[PDF physical page 15]
+Single-cell transcriptome atlas of the Taxus leaf                                Plant Communications
+
+   Sciences of the USA 119, e2114365119. https://doi.org/10.1073/pnas.    Jennewein, S., Rithner, C.D., Williams, R.M., and Croteau, R. (2003).
+   2114365119.                                                          Taxoid metabolism: taxoid 14beta-hydroxylase is a cytochrome P450-
+                                                                    dependent monooxygenase. Arch. Biochem. Biophys. 413:262–270.
+Cao, X., Xu, L., Li, L., Wan, W., and Jiang, J. (2022). TcMYB29a, an ABA-
+                                                                              https://doi.org/10.1016/s0003-9861(03)00090-0.
+   responsive R2R3-MYB  transcriptional  factor,  upregulates  Taxol
+   biosynthesis in Taxus chinensis. Front. Plant Sci. 13, 804593. https://     Jin, J., Lu, P., Xu, Y., Tao, J., Li, Z., Wang, S., Yu, S., Wang, C., Xie, X.,
+   doi.org/10.3389/fpls.2022.804593.                                  Gao, J., et al. (2022). PCMDB: a curated and comprehensive resource
+                                                                                   of plant cell markers. Nucleic Acids Res. 50:D1448–D1455. https://doi.
+Casanova, J.M., Dos Santos Nascimento, L.B., Casanova, L.M., Leal-
+                                                                          org/10.1093/nar/gkab949.
+   Costa, M.V., Costa, S.S., and Tavares, E.S. (2020).  Differential
+   distribution of ﬂavonoids and phenolic acids in leaves of kalanchoe    Kalve, S., De Vos, D., and Beemster, G.T.S. (2014). Leaf development: a
+   delagoensis Ecklon & Zeyher (Crassulaceae). Microsc. Microanal.         cellular perspective. Front. Plant Sci. 5:362. https://doi.org/10.3389/
+   26:1061–1068. https://doi.org/10.1017/S1431927620024344.                fpls.2014.00362.
+
+Chen, L., Wu, L., Yang, L., Yu, H., Huang, P., Wang, Y., Yao, R., and    Kang, M., Choi, Y., Kim, H., and Kim, S.G. (2022). Single-cell RNA-
+  Zhang, M. (2022). TcJAV3-TcWRKY26 cascade is a missing link in       sequencing  of  Nicotiana  attenuata  corolla   cells  reveals  the
+   the  jasmonate-activated  expression  of  Taxol  biosynthesis gene        biosynthetic pathway of a ﬂoral scent. New Phytol. 234:527–544.
+  DBAT in Taxus chinensis. Int. J. Mol. Sci. 23:13194.                         https://doi.org/10.1111/nph.17992.
+Chen, Y., Zhang, M., Jin, X., Tao, H., Wang, Y., Peng, B., Fu, C., and Yu,    Kaspera, R., and Croteau, R. (2006). Cytochrome P450 oxygenases of
+   L.  (2020).  Transcriptional reprogramming  strategies and miRNA-       Taxol  biosynthesis.  Phytochemistry  reviews.  Phytochem.  Rev.
+   mediated regulation networks of Taxus media induced into callus       5:433–444. https://doi.org/10.1007/s11101-006-9006-4.
+   cells from tissues. BMC Genom. 21:168. https://doi.org/10.1186/    Kim,  J.Y., Symeonidi,  E., Pang,  T.Y., Denyer,  T., Weidauer, D.,
+   s12864-020-6576-2.                                                  Bezrutczyk, M., Miras, M., Z€ollner, N., Hartwig, T., Wudick, M.M.,
+Chen, Y., Zhang, H., Zhang, M., Zhang, W., Ou, Z., Peng, Z., Fu, C.,       et al. (2021). Distinct identities of leaf phloem cells revealed by single
+  Zhao,  C., and  Yu,  L.  (2021).  Salicylic  acid-responsive  factor         cell transcriptomics. Plant Cell 33:511–530. https://doi.org/10.1093/
+  TcWRKY33 positively regulates Taxol biosynthesis in Taxus chinensis        plcell/koaa060.
+   in direct and indirect ways. Front. Plant Sci. 12, 697476. https://doi.    Kim,  S.Y.,  and  Yun-Choi,  H.S.  (2010). A  comparative  optical
+   org/10.3389/fpls.2021.697476.                                        aggregometry study of antiplatelet activity of taxanes from Taxus
+                                                                              cuspidata. Thromb. Res. 125:e281–e284. https://doi.org/10.1016/j.Croteau, R., Ketchum, R.E.B., Long, R.M., Kaspera, R., and Wildung,
+  M.R. (2006). Taxol biosynthesis and molecular genetics. Phytochem.       thromres.2009.12.024.
+   Rev. 5:75–97. https://doi.org/10.1007/s11101-005-3748-2.               Kui, L., Majeed, A., and Dong, Y. (2022). Reference-grade Taxus genome
+                                                                        unleashes its pharmacological potential. Trends Plant Sci. 27:10–12.Dang, P.H., Nguyen, H.X., Duong, T.T.T., Tran, T.K.T., Nguyen, P.T.,
+                                                                                 https://doi.org/10.1016/j.tplants.2021.10.010.   Vu, T.K.T., Vuong, H.C., Phan, N.H.T., Nguyen, M.T.T., Nguyen,
+   N.T., and  Awale,  S.  (2017).  alpha-Glucosidase  inhibitory and      Li, H., Dai, X., Huang, X., Xu, M., Wang, Q., Yan, X., Sederoff, R.R., and
+   cytotoxic  taxane  diterpenoids  from  the  stem  bark  of  Taxus         Li, Q. (2021a). Single-cell RNA sequencing reveals a high-resolution
+   wallichiana. J. Nat. Prod. 80:1087–1095. https://doi.org/10.1021/acs.         cell atlas of xylem in Populus. J. Integr. Plant Biol. 63:1906–1921.
+   jnatprod.7b00006.                                                           https://doi.org/10.1111/jipb.13159.
+
+Feng, S., Kailin, H., Zhang, H., Chen, C., Huang, J., Wu, Q., Zhang, Z.,      Li, L., Chen, Y., Ma, Y., Wang, Z., Wang, T., and Xie, Y. (2021b).
+  Gao, Y., Wu, X., Wang, H., and Shen, C. (2023). Investigation of the       Optimization of Taxol extraction process using response surface
+   role of TmMYB16/123 and their targets (TmMTP1/11) in the tolerance       methodology and investigation of temporal and spatial distribution of
+   of Taxus media to cadmium. Tree Physiol.tpad019 https://doi.org/10.       Taxol in Taxus mairei. Molecules 26:5485.
+   1093/treephys/tpad019.                                                    Lin, T., Du, J., Zheng, X., Zhou, P., Li, P., and Lu, X. (2020). Comparative
+Ferreyra, M.L.F., Serra, P., and Casati, P. (2021). Recent advances on       transcriptome analysis of MeJA-responsive AP2/ERF transcription
+   the roles of ﬂavonoids as plant protective molecules after UV and        factors involved in notoginsenosides biosynthesis. 3 Biotech 10:290.
+   high light exposure. Physiol. Plant. 173:736–749. https://doi.org/10.       https://doi.org/10.1007/s13205-020-02246-w.
+   1111/ppl.13543.                                                            Liu, H., Hu, D., Du, P., Wang, L., Liang, X., Li, H., Lu, Q., Li, S., Liu, H.,
+Hai, P., Wen, S.Z., Li, Y., Gao, Y., Jiang, X.J., and Wang, F. (2014). New      Chen,  X.,  et  al.  (2021a).  Single-cell RNA-seq  describes  the
+   taxane diterpenoids from Taxus yunnanensis. Nat. Prod. Bioprospect.       transcriptome landscape and identiﬁes critical transcription factors in
+   4:47–51. https://doi.org/10.1007/s13659-014-0003-9.                       the leaf blade of the allotetraploid peanut (Arachis hypogaea  L.).
+                                                                               Plant Biotechnol. J. 19:2261–2276. https://doi.org/10.1111/pbi.13656.
+Hao, J., Guo, H., Shi, X., Wang, Y., Wan, Q., Song, Y.B., Zhang, L.,
+  Dong, M., and Shen, C. (2017). Comparative proteomic analyses of     Liu, J., Shi, K., Shi, J., Feng, Y., Hao, C., Peng, J., and Chen, S. (2021b).
+  two Taxus species  (Taxus 3 media and Taxus  mairei)  reveals     A simple strategy to monitor the temporal and spatial distribution of
+   variations in the metabolisms associated with paclitaxel and other        alkaloids  in  sacred  lotus  leaves.  Biosci.  Biotechnol.  Biochem.
+   metabolites.  Plant  Cell  Physiol. 58:1878–1890.  https://doi.org/10.       85:1332–1340. https://doi.org/10.1093/bbb/zbab038.
+   1093/pcp/pcx128.                                                          Liu, Z., Yu, X., Qin, A., Zhao, Z., Liu, Y., Sun, S., Liu, H., Guo, C., Wu, R.,
+Harrison, M.J., Lawton, M.A., Lamb, C.J., and Dixon, R.A. (1991).      Yang,   J.,  et   al.  (2022).  Research  strategies  for  single-cell
+   Characterization of a nuclear protein that binds to three elements       transcriptome analysis in plant leaves. Plant J. 112:27–37. https://
+   within  the  silencer  region  of a bean  chalcone  synthase gene        doi.org/10.1111/tpj.15927.
+   promoter. Proc. Natl. Acad. Sci. USA 88:2515–2519. https://doi.org/    Long, R.M., Lagisetti, C., Coates, R.M., and Croteau, R.B. (2008).
+   10.1073/pnas.88.6.2515.                                                  Speciﬁcity of the N-benzoyl transferase responsible for the last step
+                                                                                   of Taxol biosynthesis. Arch. Biochem. Biophys. 477:384–389. https://Hieta, J.P., Sipari, N., R€aikk€onen, H., Kein€anen, M., and Kostiainen, R.
+                                                                             doi.org/10.1016/j.abb.2008.06.021.   (2021). Mass spectrometry imaging of Arabidopsis thaliana leaves at
+   the single-cell level by infrared laser ablation atmospheric pressure    Lopez-Anido, C.B., Vate´ n, A., Smoot, N.K., Sharma, N., Guo, V., Gong,
+   photoionization (LAAPPI). J. Am. Soc. Mass Spectrom. 32:2895–        Y., Anleu Gil, M.X., Weimer, A.K., and Bergmann, D.C. (2021).
+   2903. https://doi.org/10.1021/jasms.1c00295.                                 Single-cell  resolution  of  lineage  trajectories  in  the  Arabidopsis
+
+                                                        Plant Communications 4, 100630, September 11 2023 ª 2023 The Author(s).   15
+
+
+[PDF physical page 16]
+Plant Communications                                        Single-cell transcriptome atlas of the Taxus leaf
+
+   stomatal lineage and developing leaf. Dev. Cell 56:1043–1055.e4.    Wang, Y., Huan, Q., Li, K., and Qian, W. (2021). Single-cell transcriptome
+   https://doi.org/10.1016/j.devcel.2021.03.014.                                  atlas of the  leaf and root of  rice seedlings. J Genet Genomics
+                                                                        48:881–898. https://doi.org/10.1016/j.jgg.2021.06.001.Monacelli, B., Pasqua, G., Botta, B., Vinciguerra, V., Gacs-Baitz, E.,
+  and Monache, G.D.  (2002).  Abietane  diterpenoids from  callus    Wang, Y., Gui, C., Wu, J., Gao, X., Huang, T., Cui, F., Liu, H., and
+   cultures of Taxus baccata. Planta Med. 68:764–766. https://doi.org/       Sethupathy,  S.  (2022b).  Spatio-temporal  modiﬁcation  of  lignin
+   10.1055/s-2002-33802.                                                    biosynthesis  in  plants:  a  promising  strategy  for  lignocellulose
+Oksman-Caldentey, K.M., and Inze´ , D. (2004). Plant cell factories in the      improvement and lignin valorization. Front. Bioeng. Biotechnol. 10,
+   post-genomic  era: new ways  to  produce  designer  secondary       917459. https://doi.org/10.3389/fbioe.2022.917459.
+   metabolites. Trends Plant Sci. 9:433–440. https://doi.org/10.1016/j.    Wani, M.C., Taylor, H.L., Wall, M.E., Coggon, P., and McPhail, A.T.
+   tplants.2004.07.006.                                                            (1971). Plant antitumor agents. VI. The isolation and structure of taxol,
+Robe, K., Conejero, G., Gao, F., Lefebvre-Legendre, L., Sylvestre-      a novel antileukemic and antitumor agent from Taxus brevifolia. J. Am.
+  Gonon,  E., Roﬁdal,  V., Hem,  S., Rouhier,  N., Barberon, M.,      Chem. Soc. 93:2325–2327. https://doi.org/10.1021/ja00738a045.
+   Hecker, A., et al. (2021). Coumarin accumulation and trafﬁcking in                                                                    Xiong, X., Gou, J., Liao, Q., Li, Y., Zhou, Q., Bi, G., Li, C., Du, R., Wang,
+   Arabidopsis thaliana: a complex and dynamic process. New Phytol.                                                                                        X., Sun, T., et al. (2021). The Taxus genome provides insights into
+   229:2062–2079. https://doi.org/10.1111/nph.17090.                                                                                    paclitaxel biosynthesis. Nat. Plants 7:1026–1036. https://doi.org/10.
+Sch€afer, H., and Wink, M. (2009). Medicinally important secondary       1038/s41477-021-00963-5.
+   metabolites in recombinant microorganisms or plants: progress in
+                                                               Yang, L., Zheng, Z.S., Cheng, F., Ruan, X., Jiang, D.A., Pan, C.D., and
+   alkaloid biosynthesis. Biotechnol. J. 4:1684–1703. https://doi.org/10.
+                                                            Wang, Q. (2016). Seasonal dynamics of metabolites in needles of
+   1002/biot.200900229.
+                                                                     Taxus wallichiana var. mairei. Molecules 21:1403.
+Shen, Y.C., Wang, S.S., Pan, Y.L., Lo, K.L., Chakraborty, R., Chien,
+                                                                   Yu, C., Luo, X., Zhan, X., Hao, J., Zhang, L., L Song, Y.B., Shen, C., and
+   C.T., Kuo, Y.H., and Lin, Y.C. (2002). New taxane diterpenoids from
+                                                               Dong, M. (2018). Comparative metabolomics reveals the metabolic
+   the leaves and twigs of Taxus sumatrana. J. Nat. Prod. 65:1848–
+                                                                                   variations between two endangered Taxus species  (T. fuana and
+   1852. https://doi.org/10.1021/np0202273.
+                                                                                    T. yunnanensis) in the Himalayas. BMC Plant Biol. 18:197. https://doi.
+Soliman, S., and Tang, Y. (2015). Natural and engineered production of       org/10.1186/s12870-018-1412-4.
+   taxadiene with taxadiene synthase. Biotechnol. Bioeng. 112:229–235.
+                                                                  Yu, C., Zhang, C., Xu, X., Huang, J., Chen, Y., Luo, X., Wang, H.,
+   https://doi.org/10.1002/bit.25468.
+                                                            and Shen, C. (2021). Omic analysis of the endangered Taxaceae
+Syklowska-Baranek, K., Kaminska, M., Paczkowski, C., Pietrosiuk,       species  Pseudotaxus   chienii   revealed   the   differences   in
+   A., and Szakiel, A. (2022). Metabolic modiﬁcations in terpenoid and        taxol  biosynthesis  pathway  between  Pseudotaxus and  Taxus
+   steroid pathways triggered by methyl jasmonate in Taxus 3 media       yunnanensis  trees. BMC  Plant  Biol.  21:104.  https://doi.org/10.
+   hairy roots. Plants 11. https://doi.org/10.3390/plants11091120.            1186/s12870-021-02883-0.
+Tang, X., Zhao, M., Chen, Z., Huang, J., Chen, Y., Wang, F., and Wan,
+                                                                   Yu, C., Huang, J., Wu, Q., Zhang, C., Li, X.L., Xu, X., Feng, S., Zhan, X.,
+   K. (2021). Visualizing the spatial distribution of metabolites in Clausena                                                                 Chen, Z., Wang, H., and Shen, C. (2022). Role of female-predominant
+   lansium (Lour.) skeels using matrix-assisted laser desorption/ionization                                                          MYB39-bHLH13 complex in sexually dimorphic accumulation of taxol
+  mass spectrometry imaging. Phytochemistry 192, 112930. https://doi.                                                                                             in Taxus media. Hortic. Res. 9:uhac062. https://doi.org/10.1093/hr/
+   org/10.1016/j.phytochem.2021.112930.                                                                     uhac062.
+Tao, S., Liu, P., Shi, Y., Feng, Y., Gao, J., Chen, L., Zhang, A., Cheng,
+                                                                   Yu, C., Luo, X., Zhang, C., Xu, X., Huang, J., Chen, Y., Feng, S., Zhan,
+   X.,  Wei,  H.,  Zhang,  T., and  Zhang, W.  (2022).  Single-cell
+                                                                                        X., Zhang, L., Yuan, H., et al. (2020). Tissue-speciﬁc study across the
+   transcriptome and network analyses unveil key transcription factors
+                                                                 stem of Taxus media identiﬁes a phloem-speciﬁc TmMYB3 involved in
+   regulating mesophyll  cell development  in Maize. Genes 13, 374.
+                                                                             the  transcriptional  regulation  of  paclitaxel  biosynthesis. Plant  J.
+   https://doi.org/10.3390/genes13020374.
+                                                                        103:95–110. https://doi.org/10.1111/tpj.14710.
+Upadhyay,  S., Jeena, G.S., Kumar,  S., and Shukla, R.K. (2020).
+                                                                Zhan, X., Chen, Z., Chen, R., and Shen, C. (2022). Environmental and
+   Asparagus racemosus bZIP transcription factor-regulated squalene
+                                                                             genetic factors involved  in plant protection-associated secondary
+   epoxidase  (ArSQE)  promotes  germination  and  abiotic  stress
+                                                                            metabolite biosynthesis pathways.  Front. Plant  Sci. 13, 877304.
+   tolerance in transgenic tobacco. Plant Sci. 290, 110291. https://doi.
+                                                                               https://doi.org/10.3389/fpls.2022.877304.
+   org/10.1016/j.plantsci.2019.110291.
+                                                               Zhang, M., Li, S., Nie, L., Chen, Q., Xu, X., Yu, L., and Fu, C. (2015). TwoWalker, K., and Croteau, R. (2000). Taxol biosynthesis: molecular cloning
+                                                                         jasmonate-responsive factors, TcERF12 and TcERF15, respectively   of a benzoyl-CoA:taxane 2alpha-O-benzoyltransferase cDNA from
+                                                                             act as repressor and activator of tasy gene of taxol biosynthesis in   Taxus and functional expression in Escherichia coli. Proc. Natl. Acad.
+                                                                     Taxus  chinensis.  Plant Mol.  Biol. 89:463–473.  https://doi.org/10.   Sci. USA 97:13591–13596. https://doi.org/10.1073/pnas.250491997.
+                                                                       1007/s11103-015-0382-2.
+Wang, Q., Wu, Y., Peng, A., Cui, J., Zhao, M., Pan, Y., Zhang, M., Tian,
+   K., Schwab, W., and Song, C. (2022a). Single-cell transcriptome atlas    Zhang, M., Jin, X., Chen, Y., Wei, M., Liao, W., Zhao, S., Fu, C., and Yu,
+   reveals developmental trajectories and a novel metabolic pathway of        L. (2018). TcMYC2a, a basic helix-loop-helix transcription factor,
+   catechin esters in tea leaves. Plant Biotechnol. J. 20:2089–2106.       transduces JA-signals and regulates taxol biosynthesis  in Taxus
+   https://doi.org/10.1111/pbi.13891.                                           chinensis. Front. Plant Sci. 9:863. https://doi.org/10.3389/fpls.2018.
+                                                                       00863.
+Wang, T., Zhang, F., Zhuang, W., Shu, X., and Wang, Z. (2019a).
+   Metabolic variations of ﬂavonoids in leaves of T. media and T. mairei    Zhang, T.Q., Chen, Y., and Wang, J.W. (2021). A single-cell analysis of
+   obtained by UPLC-ESI-MS/MS. Molecules 24.  https://doi.org/10.       the Arabidopsis vegetative shoot apex. Dev. Cell 56:1056–1074.e8.
+   3390/molecules24183323.                                                   https://doi.org/10.1016/j.devcel.2021.02.021.
+
+Wang, T., Chen, Y., Zhuang, W., Zhang, F., Shu, X., Wang, Z., and    Zhou, P., Chen, H., Dang, J., Shi, Z., Shao, Y., Liu, C., Fan, L., and Wu,
+   Yang, Q.  (2019b). Transcriptome sequencing  reveals  regulatory       Q. (2022a). Single-cell transcriptome of Nepeta tenuifolia leaves reveal
+  mechanisms of Taxol synthesis in Taxus wallichiana var. mairei. Int.         differentiation trajectories in glandular trichomes. Front. Plant Sci. 13,
+   J. Genomics 2019, 1596895. https://doi.org/10.1155/2019/1596895.        988594. https://doi.org/10.3389/fpls.2022.988594.
+
+16    Plant Communications 4, 100630, September 11 2023 ª 2023 The Author(s).
+
+
+[PDF physical page 17]
+Single-cell transcriptome atlas of the Taxus leaf                                Plant Communications
+
+Zhou, T., Luo, X., Yu, C., Zhang, C., Zhang, L., Song, Y.B., Dong, M.,       carotenoid biosynthesis  in  plants.  Front. Plant  Sci. 13, 884720.
+  and Shen, C. (2019). Transcriptome analyses provide insights into        https://doi.org/10.3389/fpls.2022.884720.
+   the expression pattern and sequence  similarity  of several  taxol    Zong, J., Wang, L., Zhu, L., Bian, L., Zhang, B., Chen, X., Huang, G.,
+   biosynthesis-related genes in three Taxus species. BMC Plant Biol.      Zhang,  X., Fan,  J., Cao,  L.,  et  al.  (2022). A  rice  single  cell
+   19:33. https://doi.org/10.1186/s12870-019-1645-x.                         transcriptomic atlas deﬁnes the developmental trajectories of rice
+Zhou, X., Rao, S., Wrightstone, E., Sun, T., Lui, A.C.W., Welsch, R., and        ﬂoret and  inﬂorescence  meristems. New  Phytol.  234:494–512.
+    Li, L. (2022b). Phytoene synthase: the key rate-limiting enzyme of        https://doi.org/10.1111/nph.18008.
+
+
+
+
+
+                                                        Plant Communications 4, 100630, September 11 2023 ª 2023 The Author(s).   17

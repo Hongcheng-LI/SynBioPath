@@ -1,0 +1,1033 @@
+
+[PDF physical page 1]
+    Natural Product
+    Reports
+
+     REVIEW                                                               ViewView JournalArticle Online
+
+                    Chemical language models for natural product
+                      discovery        Licence.      Cite this: DOI: 10.1039/d6np00002a
+AM.                           Koh Sakano,    Kairi Furui,   Apakorn Kengkanna,   Yuta Kikuchi
+                               and Masahito Ohue   *        Unported8:59:30   3.0
+
+
+                                            Covering: up to 20266/11/2026on Attribution                                        Natural products are an important source of medicines, yet their discovery can be a slow and laborious
+
+                                              process. The recent development of chemical language models (CLMs), which process string-based
+                                          molecular representations, is reshaping the ﬁeld of natural product science. This review provides an       Commons
+                                          overview of the role of CLMs in natural product drug discovery, tracing their evolution from early neuralDownloaded
+2026. Creative                                    networkstimelines byto predictingmodern large-scalebioactivity, Transformers.biosynthetic pathways,We describeand spectralhow thesedata.modelsFurthermore,acceleratewe coverdiscoverytheir
+May a     Received 12th January 2026         use  in proposing  novel,  natural-product-like scaﬀolds  that expand the computationally explored
+                                          chemical space. The review also addresses persistent challenges, including the limited availability of12 under
+          DOI: 10.1039/d6np00002a
+on                                             natural product data and the need for model interpretability.  Finally, we discuss future directions,
+               rsc.li/npr                             outlining the current status and prospects for CLM-enabled natural product science.        licensed
+  isPublished
+         1        Introduction                                            4.2     Data processing and splitting pipeline       article
+         2       Fundamentals of chemical language models          5       Future perspectivesArticle. This          2.1      Molecular string representations                        5.1      Natural-product-specialized   CLMs    and   3D
+           2.1.1    IUPAC nomenclature                                           representationsAccess
+           2.1.2    SMILES                                                 5.2     Multimodal CLMs integrating BGC sequences, MS/
+Open        2.1.3    DeepSMILES                               NMR spectra, textual metadata
+           2.1.4    SELFIES                                                 5.3      Explainable and uncertainty-aware CLMs
+          2.2      Tokenizing diverse chemical modalities                 5.4       Interdisciplinary collaboration
+          2.3      Neural network architectures                       6       Conclusions
+           2.3.1   RNN                                                          7.       Author contributions
+           2.3.2    Transformer                                                 8.       Conicts of interest
+           2.3.2.1   Encoder-only                                                9.       Data availability
+           2.3.2.2   Decoder-only                                            10.     Acknowledgements
+           2.3.2.3  Encoder–decoder
+         3        Applications of language models in natural product
+                   discovery                            1  Introduction
+          3.1      Exploration in genome mining and screening
+                                                                       Natural products, owing to their unique diversity of chemical
+           3.1.1   BGC identication and representation learning
+                                                                            architectures and distinctive biological activities, have long
+           3.1.2    Extract-based prioritization
+                                                                underpinned medicinal and agrochemical discovery as one of
+          3.2      Structure elucidation
+                                                                       the most important sources for screening. Indeed, among the
+          3.3       Activity and property prediction
+                                                                      small-molecule drugs approved between 1981 and 2019, 32%
+          3.4     De novo design
+                                                                          are natural products or their derivatives, and when restricted to
+          3.5     Case studies
+                                                                                   anti-infectives, the proportion exceeds one half.1 Many break-
+         4       Data resources and curation for CLMs
+                                                                  through therapeutics, exemplied by penicillins, originate from
+          4.1     Major natural product databases
+                                                                         natural products that bear complex ring systems and numerous
+                                                                             stereocenters, which are diﬃcult to access by synthetic chem-
+            Department of Computer Science, School of Computing, Institute of Science Tokyo,    istry. Such distinctive architectures continue to serve as fertile
+           Kanagawa, Japan. E-mail: ohue@comp.isct.ac.jp                            sources of novel drug seeds.2 However, conventional natural
+
+
+
+           This journal is © The Royal Society of Chemistry 2026                                                                      Nat. Prod. Rep.
+
+
+[PDF physical page 2]
+                                                                                                                                        View Article Online
+
+         Natural Product Reports                                                                    Review
+
+
+         product discovery still faces many challenges. The sequential     As a promising response to these challenges, machine
+         processes from microbial isolation and cultivation, isolation of   learning (ML) and deep learning (DL) have recently come to the
+          bioactive compounds,  to complex  structure determination   fore and are transforming pharmaceutical research. While
+          require considerable time and eﬀort.3 Consequently, there is   traditionally experts would select molecular descriptors and
+         a growing need for new technologies that can reshape tradi-   analyze their relationships with  activity, deep learning has
+          tional approaches in natural products chemistry, eﬃciently   enabled the automatic discovery of features important for
+          explore uncharted chemical space, and accelerate the drug   activity directly from molecular structure data itself. Among
+          discovery pipeline.                                             these methods, chemical language models (CLMs), which treat
+                                                                    molecular structures as a form of language and apply tech-
+                                                                    niques from natural language processing (NLP), open new        Licence.                             Koh Sakano is a PhD student in   avenues for exploring chemical space. CLMs learn from one-
+AM.                                        the Ohue Lab at the Department   dimensional  molecular  representations  such  as  SMILES
+                                               of Computer Science, School of
+                                                                              strings  by  interpreting  them  analogously  to  sentences        Unported                                 Computing, Institute of Science8:59:30                                                         composed of tokens. In doing so, they can infer the grammar of
+   3.0                                   Tokyo,  and  a  JSPS  Research
+                                                                      chemistry (rules governing atomic connectivity) and the context
+                                         Fellow   (DC1).  His   research
+                                                                             (properties arising from combinations of functional groups)
+                                            focuses  on  chemical  language6/11/2026                                                                               directly from data, and they are capable of predicting biologicalon Attribution                                 models and generative modeling   activities and physicochemical properties with high accuracy.4
+                                               for   molecular   design,   with
+                                                                                Architecturally, CLMs have evolved from early sequence models
+                                            particular  interest  in  natural
+                                                                such as recurrent neural networks (RNNs)5 to Transformers       Commons                                     product-inspired     compound
+                                                                 equipped with self-attention mechanisms that capture globalDownloaded                                       generation  and   data-eﬃcient
+                                             learning. He works on represen-2026. Creative            Koh Sakano
+ a                                       tation  learning  for  molecular                               Yuta Kikuchi received his PhD in
+May                                            strings to support exploration of                                        Life   Science   from   Kitasato12 under
+                                            natural-product-like    chemical                                    University  in  2024  and  wason
+                                           space.                                                         appointed as a Specially Appoin-        licensed                                                                                                              ted  Assistant  Professor  at  the
+  isPublished                                         Kairi Furui is a PhD student in                               Graduate  School  of  Infection
+       article                                     the Ohue Lab at the Department                                  Control     Science,    Kitasato
+                                               of Computer Science, School of                                      University, where he conductedArticle. This
+                                      Computing, Institute of Science                                   research  on   microbial  drug
+                                        Tokyo,  and  a  JSPS  Research                                    discovery at the ¯Omura SatoshiAccess
+                                         Fellow (DC1). He is interested in                              Memorial Institute. Since 2025,
+Open                                       AI  and  computer  simulation                               he has been a Specially Appoin-
+                                          techniques  for  designing  anti-                                   ted  Assistant  Professor  at  the
+                                                                                  Yuta Kikuchi
+                                         bodies and small-molecule drugs.                                 School of Computing, Institute of
+                                       His   research   explores  how   Science Tokyo. His research focuses on natural product drug
+                                       language models and molecular   discovery by integrating cheminformatics and bioinformatics with
+                                          simulations can be combined to   experimental natural product chemistry.
+                                         support optimization and priori-                               Masahito Ohue received his PhD                       Kairi Furui
+                                              tization in drug discovery.                                            in Computer Science from Tokyo
+                                                                                                                          Institute of Technology in 2014
+                                     Apakorn Kengkanna  is a PhD                             and is now an Associate Professor
+                                          student in the Ohue Lab at the                                    at  the  School  of  Computing,
+                                     Department of Computer Science,                                       Institute of Science Tokyo. His
+                                        School of Computing, Institute of                                   research      integrates       bi-
+                                           Science  Tokyo,  supported  by                                   oinformatics    and     super-
+                                   a Japanese Government (MEXT)                                 computing,          particularly
+                                           Scholarship. He is interested in                                 computational methods for pre-
+                                            AI-driven prediction of molecular                                     dicting   protein–protein/ligand/
+                                            properties and catalyst design for                                   peptide/antibody    interactions.
+                                        chemical  reactions.  His  work                          He  has  been a  JST FOREST
+                                                                                    Masahito Ohue
+                                            focuses  on  machine  learning                                    researcher since 2022 and has
+                                     models   for  structure–property   received awards including the JSPS Ikushi Prize (2014), the MEXT
+                                            relationships   and    reaction-  Young Scientist Award (2019), and the IPSJ MicrosoFaculty
+               Apakorn Kengkanna
+                                            related tasks.                  Award (2024).
+
+
+
+           Nat. Prod. Rep.                                                                     This journal is © The Royal Society of Chemistry 2026
+
+
+[PDF physical page 3]
+                                                                                                                                        View Article Online
+
+       Review                                                                               Natural Product Reports
+
+
+           context.6 This has led to the construction of foundation models7   analyses, we outline future directions to guide the next gener-
+          that have learned chemical knowledge from large-scale known   ation of natural products science empowered by AI.
+       compound datasets. They can achieve high performance on      Fig. 1 provides a visual overview of how CLMs integrate into
+         specic chemical tasks through ne-tuning that adapts the   the natural product discovery pipeline across various stages.
+        model to particular downstream tasks.                       These applications, detailed in subsequent sections, demon-
+            In this review, we focus specically on language models   strate how CLMs accelerate each stage of the discovery process
+       among the many AI techniques and provide a comprehensive   while maintaining the chemical validity essential for natural
+         overview from their theoretical underpinnings to applications   product research.
+          in natural product discovery. Whereas existing reviews of AI in
+          natural products research oen survey AI/ML methods broadly        Licence.    covering QSAR, docking, virtual screening, omics integration, 2  Fundamentals of chemical
+AM.      and synthetic-biology workows and tend to treat language                                         language models
+        models as just one among many tools, our article is diﬀerenti-        Unported8:59:30       ated by making language models the central theme. We provide  To understand how CLMs operate, it is rst necessary to grasp   3.0
+        an in-depth technical exploration of their principles, architec-   the evolution of language models and their position within deep
+           tures, molecular representations, and tokenization methods,   learning. Language models  originally developed as a core6/11/2026       while systematically discussing language models' applications   technology in NLP, aiming to describe sequences of words oron Attribution     specically tailored to natural products. Specically, we rst   sentences probabilistically and to predict the next word or
+          explain how language models operate and how CLMs learn   sentence.8 Early language models were based on n-grams and
+         molecular structures to function as predictors of biological   related statistical techniques, leveraging word co-occurrence       Commons
+            activity,  target  proteins, and ADMET  properties. We then   frequencies to capture sentence structure; however, they strug-Downloaded
+          synthesize cross-disciplinary applications, including predicting   gled to model long-range contextual dependencies in extended2026. Creative    the structures and functions of compounds produced from   texts.9 From the mid-2000s onward, neural language models
+May a     biosynthetic gene cluster (BGC) sequences and annotating  emerged,  and  distributed  word  representations  such  as
+          structures directly from spectral data such as mass spectrom-   word2vec10  and  GloVe11  became  widespread,  embedding12 under
+on        etry (MS) and nuclear magnetic resonance (NMR). In parallel,   semantic distances between words into low-dimensional vector
+        we discuss the potential of CLMs as generative models for de   spaces.8,12        licensed
+  is    novo compound design, assessing both their strengths and     With the advancement of deep learning, language modelPublished        limitations. Finally, we highlight practical challenges, including   architectures have improved their accuracy by incorporating
+       article    the quantity and quality of available natural product datasets   structures suitable for sequential data, including recurrent
+        and the interpretability of model predictions. Through these   neural networks (RNNs),12 long short-term memory (LSTM),13,14Article. This
+Access                                                                         turesand gatedstill recurrentsuﬀered unitsfrom (GRUs).15,16vanishing/explodingHowever, thesegradientsarchitec-and
+Open                                                                  diﬃcultyTransformer,capturingproposedlong-distancein 2017, introduceddependencies.17,18self-attentionTheto
+                                                                          learn dependencies across entire sequences in parallel, accel-
+                                                                           erating the development of large language models such as
+                                                                 BERT19 and GPT.20 The Transformer's simultaneous improve-
+                                                             ments in both accuracy and training speed, combined with its
+                                                                  adherence to scaling laws,21 whereby performance increases
+                                                                     with more training data and parameters, have ushered in the
+                                                                          era of foundation models. These models undergo pretraining
+                                                           on massive text corpora and can be ne-tuned for diverse
+                                                             downstream tasks.
+                                                                          In chemistry, language model techniques have been adapted
+                                                                  by representing molecules as text sequences, most prominently
+             Fig.  1  Overview  of how CLMs  interface  with  natural product   via SMILES.22 Casting molecules as strings makes the learning
+           discovery.  (A) Genome- and metabolome-based  prioritization,  in  problem formally analogous to sentence modeling, enabling
+         which CLMs take biosynthetic gene cluster sequences and/or MS-
+                                                                               direct transfer of NLP methods. This idea spread rapidly in the
+         based proﬁles as input to suggest plausible metabolite structures. (B)
+                                                                                    late 2010s and early work employed RNNs/LSTMs for molecular           Structure elucidation from spectral data, where CLMs map MS/MS or
+       NMR spectra to candidate molecular structures that can be validated   generation and prediction.5,23 Subsequently, Transformer-based
+           experimentally.  (C)  Activity and  property  prediction,  with CLMs  CLMs were developed, leveraging self-attention for long-range
+         encoding natural product structures alone or jointly with protein   structural  dependencies and  large-scale  pretraining,  with
+         sequences to predict bioactivity, target proﬁles, and ADMET-relevant
+                                                                          applications expanding to molecular design, property predic-
+           properties.  (D) De novo design and  optimization, where CLMs
+                                                                                  tion, and reaction pathway prediction.4,24–27          generate  novel,  natural-product-like  molecules  conditioned on
+           desired properties and iteratively reﬁne them under multi-objective    CLMs do more than memorize strings. They internalize
+            constraints.                                                                statistical regularities and grammatical constraints of chemical
+
+
+
+           This journal is © The Royal Society of Chemistry 2026                                                                      Nat. Prod. Rep.
+
+
+[PDF physical page 4]
+                                                                                                                                        View Article Online
+
+         Natural Product Reports                                                                    Review
+
+
+          space, enabling high-validity prediction and generation for      2.1.4  SELFIES. SELF-referencIng Embedded Strings (SELF-
+        unseen structures. Recently released large-scale CLMs trained   IES), proposed by Krenn and colleagues, guarantees that any
+        on extensive datasets26–28 are rapidly increasing their utility in   string decodes to a chemically valid molecule, i.e., 100% val-
+         drug discovery and natural products research. Moreover, the    idity.31 Whereas SMILES can violate grammar or chemical
+         scope of CLMs has expanded beyond molecular strings to   constraints such as valence, SELFIES enforces both syntactic
+        encompass diverse chemical and biological data modalities,  and semantic validity via a state-transition scheme. Its robust-
+         including BGCs, protein sequences, mass spectrometry data,   ness benets VAEs and CLM-based generation, although some
+      NMR spectra, and textual metadata, all of which can be toke-   studies note limitations in reproducing certain aspects of
+         nized and processed using language modeling techniques. This   chemical  diversity, including aromatic systems,  potentially
+          section  reviews  the molecular  string  representations  that  making   it  harder  to  reect  training  data  distributions        Licence.    underpin CLMs, explores how language modeling approaches    faithfully.32,33
+AM.       are being extended to these broader data types, and examines     In practice, SMILES remains the dominant representation
+         the neural network architectures used to learn from them.       across CLM use cases such as generation, property prediction,        Unported8:59:30                                                          and reaction prediction. DeepSMILES  is used in scenarios   3.0
+                                                                                 prioritizing reduced syntax  errors during generation, with
+          2.1  Molecular string representations                                                                           reports of benets in some settings. SELFIES is particularly6/11/2026      With CLM applications in mind, we introduce major string-   attractive where generation robustness and chemical validityon Attribution    based molecular representations and summarize their advan-   are crucial. IUPAC names are highly readable for humans but
+          tages and challenges for CLM usage. Fig. 2 illustrates how the   are not commonly adopted as the primary learning represen-
+        same molecular structure can be encoded using diﬀerent string   tation for CLMs.       Commons
+          representations, each with distinct advantages and limitationsDownloaded
+           for CLM applications.2026. Creative        2.1.1  IUPAC  nomenclature.  IUPAC  nomenclature   is a                                                                       2.2  Tokenizing diverse chemical modalities
+May       a human-readable, systematic naming scheme dened by  While most chemical language modeling research focuses on        IUPAC and widely used in research articles and patents. Some12 under
+                                                           SMILES or SELFIES representations, various data types essential
+on       reports have shown better performance than SMILES for certain
+                                                                             to natural product discovery can be tokenized and processed          generative and property-prediction tasks,29 but IUPAC names        licensed                                                                using language modeling techniques. This approach treats each
+  is    are generally long and complex, making them cumbersome to
+                                                                     modality as a token sequence and uses standard pretrainingPublished       learn and generate directly as token sequences.
+                                                                                objectives,  including  masked  modeling,  denoising,  and       article        2.1.2  SMILES.  Simplied  Molecular  Input  Line  Entry
+                                                                             contrastive alignment to develop useful representations. Fig. 3         System (SMILES)22 is a concise representation developed in theArticle. This                                                                                    illustrates how heterogeneous data types relevant to natural
+Access       1980s.de factoIt isstandardrelativelyforinterpretableCLMs. However,to humanslong-rangeand has syntacticbeen the
+Open      dependenciesgrammatical  errors(e.g., branchingand  learningand diﬃcultiesring closures)for cansequencecause
+         models.  Non-uniqueness and  variation  in  stereochemical
+         annotation also introduce representation instability.
+              2.1.3  DeepSMILES. DeepSMILES aims to mitigate some
+          syntactic shortcomings of SMILES by, for example, representing
+          ring closures with a single symbol and using only right paren-
+          theses for branching, thereby reducing the incidence of syntax
+          errors in generation.30 It oen suppresses syntactically invalid
+         outputs in generative models, though at some cost to human
+          readability and compatibility with existing tooling.
+
+
+
+
+
+                                                                                                     Fig. 3  Multimodal tokenization for chemical language models. (A)
+                                                                                  Biosynthetic gene clusters tokenized at the Pfam protein-domain
+                                                                                                  level, where each domain is treated as a single token and the sequence
+                                                                               preserves cluster organization. (B) Protein sequences tokenized at the
+                                                                             single-amino-acid level. (C) MS/MS spectra serialized as ordered peak
+                                                                                 tokens, here shown as rounded or binned m/z values. (D) One-
+             Fig. 2  Comparison of molecular string representations for salicylic   dimensional 1H NMR spectra summarized as sequences of peak
+            acid. The same molecular structure is shown with its IUPAC nomen-   descriptors combining chemical shift, multiplicity, and proton count.
+            clature, SMILES, DeepSMILES with simpliﬁed branching and  ring    (E) Textual metadata such as assay descriptions processed with
+           notation, and SELFIES with guaranteed chemical validity.              wordpiece tokenization. (F) Molecules represented as SMILES strings.
+
+
+
+           Nat. Prod. Rep.                                                                     This journal is © The Royal Society of Chemistry 2026
+
+
+[PDF physical page 5]
+                                                                                                                                        View Article Online
+
+       Review                                                                               Natural Product Reports
+
+
+         product discovery can be converted into token sequences for     During the formative years of CLMs, many LSTM/GRU-based
+         chemical language modeling.                                  generators were proposed, valued for producing syntactically
+            For BGC, these structures are represented as sequences of   valid molecules even with limited  data.5,41,42 However, their
+          functional domain tokens arranged according to their cluster   inherently  sequential computation  hinders  parallelization,
+          organization, with the option of including module boundaries  making large-scale training  less eﬃcient than with Trans-
+        and  tailoring  enzyme  annotations.34,35  Applying  masked   formers, and very long contexts remain challenging.
+         language modeling techniques to these domain sequences      2.3.2  Transformer. The  Transformer6  centers on  self-
+         produces  encoders  that  capture  long-range  biosynthetic   attention, enabling parallel learning of relationships among
+         dependencies, while taxonomic or environmental context can    all tokens in a sequence. Unlike RNNs, which process inputs
+        be added through additional token representations. Protein   stepwise in one direction, Transformers compute pairwise        Licence.    sequences use standard amino acid tokenization, and their   token aﬃnities in a single pass, facilitating capture of long-
+AM.      embeddings  are  aligned  with  molecular  representations   range dependencies and eﬃcient large-scale pretraining.
+         through contrastive objectives or cross-attention mechanisms     For CLMs, molecular strings are tokenized and augmented        Unported8:59:30       to enable cross-modality reasoning.36                          with positional encodings, then processed by stacked layers of   3.0
+          Mass spectrometry data, specically MS/MS spectra, are   self-attention and feedforward networks.4,24–27 This architecture
+        encoded as ordered sequences of peaks indexed along the mass-   excels at modeling complex, molecule-spanning dependencies6/11/2026       to-charge axis, with intensity values represented either as cate-  such as branching and ring systems. However, it is important toon Attribution     gorical bins or as scalar features.37,38 The pretraining method   note  that  self-attention  has  computational and memory
+           typically combines masked peak  recovery  with  denoising   complexity of O(n2) with respect to sequence length n, which can
+         procedures applied to modied or perturbed spectra, along with  be a bottleneck for long SMILES typical of natural products with       Commons
+          contrastive objectives designed to associate spectra from the   multiple rings or glycosylations.Downloaded
+        same compound measured under diﬀerent conditions. NMR     Transformer architectures can be broadly classied into2026. Creative    data are serialized diﬀerently based on dimensionality, with   three  categories:  encoder-only,  decoder-only, and encoder-
+May a    one-dimensional experiments represented as binned chemical   decoder models. While  all fundamentally  utilize attention
+        shisequences and two-dimensional experiments encoded as  mechanisms, they diﬀer in their training methods and appli-12 under
+on      sequences of peak coordinate pairs, including solvent and   cations. Below, we provide a detailed description of each
+         temperature information as conditioning tokens.39               architecture.        licensed
+  is        Additionally, textual metadata, including organism names,      2.3.2.1  Encoder-only. Encoder-only models, exemplied byPublished       occurrence information, assay descriptions, and bibliographic   BERT,19 process entire input sequences jointly, allowing each
+       article     context, are processed using standard natural language pro-   token to attend bidirectionally to every position. Pretraining
+          cessing  tokenization  methods and  then  integrated  with   typically uses masked language modeling (MLM), predictingArticle. This
+Access       molecularAcross theseencoders.28,40modalities, a consistent design pattern appears  randomlylearn statisticalmaskedandtokenssyntacticfromfeatures.their surroundingThe resultingcontextrepresen-to
+Open       thatnizationrst schemedenes witha chemicallyexplicit contextor biologicallytokens,meaningfulfollowed bytoke-pre-   tationssequencetransferlabeling.eﬀectively to classication, regression, and
+          training procedures using masking, denoising, and contrastive      In chemistry, applying MLM to SMILES enables models to
+          losses to develop robust encoder architectures capable  of   learn  grammatical  constraints  and  chemical  knowledge.
+          learning useful representations from the data.                  Encoder-only CLMs are adept at capturing correspondences
+                                                                such as ring closures and branch boundaries. Models such as
+                                                      ChemBERTa  leverage such  pretrained  representations  for
+          2.3  Neural network architectures                                                             downstream tasks, including molecular classication, property
+        The  neural  architectures  powering CLMs  have  evolved   prediction, and similarity search, oen surpassing descriptor-
+           substantially. Here we outline the main families, including  based baselines.25,26
+       RNNs and Transformers, their characteristics, and typical use      2.3.2.2  Decoder-only.  Decoder-only  models  are  autore-
+          cases.                                                             gressive language models that generate entire sequences by
+              2.3.1  RNN. As noted above, RNN-based architectures were   repeatedly predicting the next token while referring only to
+          widely used in early CLMs, ingesting molecular strings token by   preceding context through causal masking at each step. GPT20 is
+         token while maintaining a latent state for context. Vanilla RNNs   a representative example, achieving strong generative coher-
+        work well on shorter sequences but suﬀer from vanishing/   ence and promptability aer large-scale pretraining. At infer-
+         exploding gradients on long sequences.17,18                      ence, decoding strategies include greedy and beam search as
+         LSTM and GRU introduce gating mechanisms to mitigate   well as stochastic schemes such as top-k and nucleus (top-p)
+          these issues, dynamically deciding how much information to   sampling, which trade oﬀdiversity and quality.43 Lightweight
+          retain or forget and thereby stabilizing long-range dependen-   adaptation methods, such as prompt design, prex/prompt
+           cies. For SMILES, models must track relations between distant   tuning, and adapters, further ease task transfer.
+          positions (e.g., the correspondence of branch delimiters or ring     In CLMs, SMILES/SELFIES are treated as token sequences for
+          indices across tens of characters), and LSTMs/GRUs can capture   de novo molecular generation. Conditional generation supplies
+         such dependencies to a degree.                                    targets such as desired properties (e.g., logP, QED, synthetic
+
+
+
+           This journal is © The Royal Society of Chemistry 2026                                                                      Nat. Prod. Rep.
+
+
+[PDF physical page 6]
+                                                                                                                                        View Article Online
+
+         Natural Product Reports                                                                    Review
+
+
+           Table 1  Comparison of CLM architectures and their suitability for natural product discovery tasks
+
+
+            Architecture                                Training objective                                       Typical NP tasks
+
+           Encoder-only                          Masked language modeling                             Property prediction, BGC classication
+           Decoder-only                                 Autoregressive LM                                De novo generation, scaﬀold exploration
+          Encoder-decoder                             Denoising/inlling                                 Spectrum / structure, conditional
+                                                                                                      molecule generation, retrosynthesis
+
+
+
+           accessibility), functional groups, or scaﬀolds to bias outputs.44,45      3.1.1  BGC identication and representation learning. For        Licence.    Reinforcement  learning can  also guide generators toward  genome-based exploration, approaches that treat BGCs as token
+AM.        objectives like predicted activity or docking scores.46–48          sequences and learn context with sequence models are eﬀective.
+             2.3.2.3  Encoder–decoder.  Encoder–decoder  models  pair  DeepBGC maps Pfam domain sequences to word2vec-derived        Unported8:59:30       a bidirectional encoder that builds a sequence representation   distributed representations (pfam2vec), detects BGC bound-   3.0
+         with an autoregressive decoder that generates outputs condi-   aries with a bidirectional LSTM (BiLSTM), and further assists
+         tioned on that representation. They suit text-to-text mappings   product-class classication with a random forest, improving6/11/2026      such as  translation and summarization. Pretraining oen  both recall of known classes and recovery of putative novelon Attribution    employs self-supervised tasks like text inlling or span corrup-   classes.55 BiGCARP introduces BERT-style self-supervised pre-
+          tion (e.g., BART, T5).49,50 While they typically require sizable,   training. It tokenizes Pfam domains, learns representations via
+          high-quality paired data, they tend to be stable and straight-  masked language modeling, and transfers them to BGC detec-       Commons         forward to train for text-to-text generation tasks.                 tion and product classication, boosting accuracy and robust-Downloaded
+            In chemistry, SMILES-to-SMILES mappings are widely used   ness.34 BGC-Prophet, centered on a Transformer encoder,2026. Creative     for forward/reaction prediction, retrosynthesis-like molecular   leverages  self-attention  to  capture  long-range  positional
+May a    optimization, and related tasks.24,27,51 Encoder-decoder models   dependencies and enables eﬃcient scanning at whole-genome
+          also support cross-modality translation (e.g., generating candi-  and metagenome scales, surpassing prior methods in both12 under
+         date  structures  directly  from MS/MS  or NMR  spectral   sensitivity and throughput.35 Predicted novelty scores andon
+             features).38,39,52–54                                            product classes from these models guide target selection, i.e.,        licensed           As  each  architecture  has  distinct  strengths,  Table  1  which BGCs to route to the bench rst.
+  isPublished      summarizes which types of natural product discovery tasks each      3.1.2  Extract-based     prioritization.    Complementing
+       article      is best suited for.                                        genome-based  methods,  extract-level  approaches  leverage
+                                                                     physicochemical and spectral signatures to prioritize samples.Article. This
+     3  Applications of language models in   In extract-based exploration, properties exhibited by culture
+                                                                      broths or extracts (activity, physicochemical signatures, spectralAccess
+      natural product discovery                        data) can be used to avoid rediscovering known compounds
+Open                                                                    while prioritizing samples or fractions with high novelty. When
+         This chapter organizes how language models are integrated into
+                                                                          leveraging MS/MS, one can achieve more reliable structure
+           practical workows in natural product drug discovery and how
+                                                                          prediction and library search than with MS alone. Representa-
+          they concretely shorten bottlenecks on the path to discovery. We
+                                                                           tion learning that captures semantic similarity between spectra
+           detail which CLM types and applications suit each stage of the
+                                                                                           is well-suited for this prioritization. Spec2Vec learns word2vec-
+          research ow  (exploration,  structure  elucidation,  activity/
+                                                                                     style embeddings from large spectral corpora using peak co-
+          property assessment, and design). Table 2 summarizes the
+                                                                     occurrence patterns and shows better alignment with struc-
+        models covered in this chapter by domain and model family.
+                                                                                tural similarity than cosine scores that have long been used.37
+         While this chapter primarily focuses on language model-based
+                                                                    Complementarily,  MS2DeepScore  uses  a  Siamese  neural
+         approaches, we briey reference some non-language model-
+                                                                  network to directly predict the Tanimoto similarity between
+         based methods, such as graph-based models, where relevant.
+                                                                    molecular ngerprints from a pair of spectra, bridging the gap
+         Although these fall outside our main scope, they are mentioned
+                                                                between spectral similarity and structural similarity.57 Both
+          sparingly to provide context for understanding language model
+                                                                             integrate well with molecular networking,72 enabling one to
+          applications.
+                                                                          distinguish  clusters  enriched  for known  versus unknown
+                                                                      chemistry and to allocate isolation and structure-elucidation
+          3.1  Exploration in genome mining and screening              resources preferentially to the latter.
+          At the outset of exploration, one must decide which genomes or
+         samples to prioritize given limited experimental resources. We
+                                                                             3.2  Structure elucidation          rst discuss genome-based approaches that identify and learn
+          representations  of  secondary-metabolite BGCs  to  estimate   Correct structural assignment is essential for understanding
+         product classes and novelty for targeting. We then describe   the properties and functions of isolated compounds. While our
+          extract-based approaches that select samples or fractions with   focus is on language models, in this section, we briey reference
+         high novelty based on MS/MS or activity data.                  graph-based  Transformers  that  currently  lead  forward
+
+
+
+           Nat. Prod. Rep.                                                                     This journal is © The Royal Society of Chemistry 2026
+
+
+[PDF physical page 7]
+                                                                                                                                        View Article Online
+
+       Review                                                                               Natural Product Reports
+
+
+           Table 2  Models available for natural product drug discovery
+
+
+        Name                         Domain                                           Model family
+
+         DeepBGC55                    Genome mining                               LSTM + random forest
+         BiGCARP34                     Genome mining                                        Transformer (encoder)
+          BGC-Prophet35                  Genome mining                                        Transformer (encoder)
+          BioNavi-NP56                          Retrobiosynthesis                                       Transformer (single-step) + AND-OR search
+          Spec2Vec37                             Spectral similarity                                      Other (word2vec embedding)
+          MS2DeepScore57                       Spectral similarity                                      Other (Siamese DNN)
+          Spec2Mol38                            Structure elucidation (MS/MS / SMILES)             GRU
+          MassGenie53                           Structure elucidation (fragments / SMILES)               Transformer (decoder)        Licence.     MSNovelist52,58                        Structure elucidation (FP-guided)                  RNN + constraints
+AM.      CFM-ID 4.059                 MS forward model                                      Other (learnable fragmentation model)
+          MassFormer60                MS forward model                                   Graph transformer        Unported    GT-NMR61                 NMR forward model                                 Graph transformer8:59:30        Alberts et al.39               NMR de novo                                           Transformer (encoder-decoder)   3.0
+         ChemBERTa25                       Activity/ADMET                                         Transformer (encoder)
+         ChemBERTa-2 (ref. 26)               Activity/ADMET                                         Transformer (encoder)
+         SMILES-Mamba62                    Activity/ADMET                                         Other (Mamba)6/11/2026
+          TransformerCPI63                   DTI/CPI                                               Transformer (encoder)on Attribution
+         T-ALPHA64                         DTI/CPI                                               Transformer (encoder, encoder-decoder)
+          MolTrans65                         DTI/CPI                                               Transformer (encoder)
+          DrugCLIP66                             Virtual screening                                      Dual encoder       Commons          Graphormer67                    QSAR/physchem                                    Graph transformerDownloaded         MolBART24                       De novo design                                         Transformer (encoder-decoder)
+2026. Creative    Chemformer27                    De novo design                                         Transformer (encoder-decoder) a    BARTSmiles68                     De novo design                                         Transformer (encoder-decoder)
+         MolT5 (ref. 28)                       Text-molecule                                          Transformer (encoder-decoder)May
+        REINVENT (v1-3)46–48             RL optimization                                LSTM12 under
+          Tay et al.69                            NP-like molecule generation                       LSTMon
+         NPGPT70                              NP-like molecule generation                             Transformer (decoder)        licensed    NP-VAE71                             NP-like molecule generation                         VAE
+  isPublished
+       article    prediction of spectrum (MassFormer, GT-NMR).60,61 In structure   of  tokenization  designs  for  treating  spectra  as  language,
+          elucidation from extracts, databases oen lack the molecules   including  discretization  of encodings and choices  of binArticle. This
+Access     commonencountered,integratedmakingworkowpure libraryuses tandemmatchingmassinsuﬃcient.spectrometryA   width.73
+Open      (MS/MS)nuclear magneticto broadlyresonancepropose(NMR).candidatesNaturalandproductsveries arethemoenby
+           structurally complex, and elucidation can be challenging, so, in
+          recent years, modeling through machine learning and deep
+          learning has advanced for both MS/MS and NMR. Fig. 4 shows
+          three diﬀerent approaches for structure elucidation using MS/
+      MS data.
+            In methods that generate structures directly from MS/MS,
+         the core is an encoder-decoder that encodes spectra, either as
+         continuous sequences or sets of peaks, and autoregressively
+         decodes SMILES. Spec2Mol embeds multi-collision-energy MS/
+      MS spectra with an encoder and generates SMILES using
+         a GRU-based decoder in an end-to-end scheme, proposing
+         candidate structures even when not present in databases.38
+        Spec2Mol was not trained on a natural-product-specic dataset,
+         but the general chemistry databases used for training (Pub-
+                                                                                                     Fig. 4  Structure  elucidation workﬂows combining MS/MS  with
+        Chem, ZINC-12) and the NIST20 MS/MS library are likely to
+                                                                    machine learning models. (A) Direct MS/MS to SMILES generation,
+         contain natural-product-related molecules indirectly, such as   where an encoder-decoder model maps tandem mass spectra to
+         metabolites and plant-derived compounds. MassGenie formu-   candidate molecular  structures.  (B)  Fingerprint-based two-stage
+           lates the problem as translation from fragment information to   approach that ﬁrst predicts molecular ﬁngerprints from MS/MS and
+        SMILES, pretraining a Transformer largely on synthetic spectra   then uses a conditional generator to sample structures consistent with
+                                                                             the predicted ﬁngerprint. (C) Forward-prediction-based re-scoring, in
+        and showing that scaling to millions of structure-fragment pairs
+                                                                     which candidate structures are passed to MS/MS forward predictors
+            is eﬀective.53 More recently, BART-style pretraining has been   and ranked according to the agreement between predicted and
+         adopted in generators such as MS2Mol, prompting discussion   experimental spectra.
+
+
+
+           This journal is © The Royal Society of Chemistry 2026                                                                      Nat. Prod. Rep.
+
+
+[PDF physical page 8]
+                                                                                                                                        View Article Online
+
+         Natural Product Reports                                                                    Review
+
+
+            Two-stage methods that rst infer molecular ngerprints   Transformers) to SMILES sequences, showing strengths on
+        from MS/MS spectra and then generate structures consistent   several ADMET tasks under large-scale pretraining.62
+         with those ngerprints have also been proposed. MSNovelist    When  target proteins must be considered, multimodal
+          stacks a language-model-based generator atop CSI:FingerID,  models that integrate protein sequences with molecular repre-
+        which predicts ngerprints from spectra, achieving high top-k   sentations are eﬀective. TransformerCPI applies self-attention
+          identication rates for complex isomers while enabling de novo   to both protein sequences and molecular structure informa-
+         proposals beyond the database.52,58                                 tion, improving target–compound interaction prediction and
+            For candidate re-scoring, forward predictors of spectra from   oﬀering interpretability via attention weight visualization of
+          structures play a key role. Predicted spectra are compared with   interaction regions.63 Although its training data from ChEMBL
+         observed spectra to re-rank candidates by physical plausibility.  and BindingDB may include some natural products, these        Licence.    CFM-ID 4.0 renes the competitive fragmentation model by   databases are not natural-product-focused. MolTrans extracts
+AM.       introducing learnable, topology–aware parameters, achieving   substructure  patterns  from  SMILES  and  from  protein
+          accurate MS/MS spectra prediction.59 MassFormer uses a Graph   sequences, then encodes them using Transformer encoders to        Unported8:59:30      Transformer with self-attention to capture long-range correla-   predict drug–target interactions (DTIs) with high accuracy.65 Its   3.0
+          tions on molecular graphs and reports state-of-the-art accuracy   training data similarly cover broad drug-like chemical space. It
+           for collision-energy-dependent spectra.60 Such forward models   also supports semi-supervised learning with unlabeled mole-6/11/2026        stabilize top-ranked results by re-evaluating candidate sets   cules. More recently,  retrieval-style  virtual screening alignson Attribution    proposed by direct generation or ngerprint-guided models   binding-pocket and molecular representations via contrastive
+          against the observed spectra.                                     learning. For example, DrugCLIP is pretrained on large sets of
+            For NMR, both high-accuracy chemical-shiprediction and  compound–protein–pocket pairs without explicit aﬃnity labels       Commons
+          structure prediction from spectra have advanced. GT-NMR uses  and  achieves  fast,  accurate  screening.66  Recent  advancesDownloaded
+         a Graph Transformer that inputs molecular graphs to predict   include T-ALPHA, which employs a hierarchical Transformer2026. Creative    chemical shis, achieving state-of-the-art mean absolute errors  framework integrating multimodal representations through
+May a    on nmrshidb2 and on natural product benchmarks.61 In   three distinct channels (protein, ligand, and protein-ligand
+           parallel, models that predict SMILES directly from NMR spectra   complex), demonstrating  state-of-the-art performance even12 under
+on       are being trained: Alberts et al. pretrain an encoder-decoder  when using predicted structures instead of crystal structures.64
+         Transformer on synthetic spectra and, using combined 1H   For chemical spaces like natural products (oen out of distri-        licensed
+  is    and 13C data, achieve 67% top-1 structural accuracy.39 Multi-   bution  relative  to standard  drug-like  corpora), combiningPublished      modal Transformers that jointly ingest MS and NMR (and in   sequence-language-model representations on the target side
+       article   some cases IR or 2D NMR) are also under investigation,   with CLM representations on the ligand side is advantageous
+        showing advantages in diﬃcult cases such as distinguishing   for target identication and matching to known targets.Article. This
+Access        structuralmentary informationisomers, especiallysources.74regioisomers, by fusing comple-   substructuralCare must changesbe takenproducewith  activitylarge activitycliﬀs, diﬀerences.in which smallSuch
+Open                                                                          pairsactivities)(compoundsoen degradewith similarthe performancestructures yetof traditionalmarkedly diﬀerentML and
+          3.3  Activity and property prediction                                                    DL models. MoleculeACE provides a benchmark platform to
+        Once structures are determined, it is crucial to estimate bio-   quantify  activity  cliﬀs and  systematically  evaluate model
+           logical activities and ADMET properties rapidly and consistently   performance.76 Robust activity prediction is especially impor-
+          to concentrate limited experimental resources on promising   tant for natural products, which oen feature diverse functional
+          candidates. Encoder-style CLMs that take SMILES as input are   groups and high stereochemical complexity.
+          widely used  at this stage. ChemBERTa demonstrated that    CLMs that take SMILES as input oen compete closely with
+         Transformer-based molecular representation learning is eﬀec-  graph   neural  networks  (GNNs).  For  example,   while
+           tive for QSAR/ADMET by showing competitive performance  ChemBERTa-2 outperforms Chemprop (a model based on the
+        under low-label regimes  via self-supervised pretraining on  D-MPNN variant of GNNs) on multiple MoleculeNet tasks,26 D-
+         approximately 10 million SMILES from PubChem, which covers  MPNN and Graphormer remain strong for quantum and phys-
+         a broad range of compounds including both synthetic and   icochemical properties.67,77 Hybridization is an active direction.
+          natural-origin entries.25 ChemBERTa-2 redesigns the training  MolPROP integrates CLM embeddings with GNNs, and UniMAP
+        scheme and data scale, improving across multiple benchmarks,   fuses  SMILES  and  graph  embeddings,  both  reporting
+         including  MoleculeNet,  and  clarifying  the  direction  of   improvements.78,79
+         foundation-model-based  representation  learning  in chem-     Across Sections 2.2 and 3.3, most of the models introduced
+             istry.26  In  parallel,  BERT-family encoder models such  as  have been developed and validated on general chemical data-
+        SMILES-BERT and Mol-BERT have been proposed, rening   sets rather than those focused specically on natural products.
+          contextual representations of functional groups and substruc-  However,  these approaches  are  highly  exible, and  with
+          tures  via masked language modeling and  tasks such  as   domain-specic  ne-tuning  or  adaptation  using  natural
+          canonical-equivalence prediction across diﬀerent SMILES for   product datasets, they hold strong potential to capture the
+         the  same  molecule.4,75  Recently,  SMILES-Mamba  applies  unique  structural  complexity,  molecular  size  ranges, and
+         a selective state-space model (computationally lighter than   stereochemical diversity characteristic of natural products.
+
+
+
+           Nat. Prod. Rep.                                                                     This journal is © The Royal Society of Chemistry 2026
+
+
+[PDF physical page 9]
+                                                                                                                                        View Article Online
+
+       Review                                                                               Natural Product Reports
+
+
+          3.4  De novo design                                           generators oﬀers a promising workow. De novo generated
+                                                                      candidates can be ltered or ranked by the feasibility of their
+         This section surveys how de novo molecular design with CLMs
+                                                                        predicted biosynthetic routes, thereby focusing experimental
+         can help open previously unexplored regions of natural product
+                                                                      eﬀort on structures for which plausible pathways exist.
+          chemistry. Although slightly apart from in-the-trenches CLM
+                                                                     Another important consideration is whether CLMs generate         usage in discovery workows, we summarize eﬀorts to generate
+                                                                                structurally diverse compounds rather than close analogs of
+         novel compounds.
+                                                                               training-set members. Encouragingly, recent studies suggest
+           Within the encoder-decoder models, BARTSmiles is a repre-
+                                                                            that CLMs biased toward natural products can produce diverse          sentative example. Aer pretraining with masked language
+                                                                         outputs.   It  has  been  reported  that  natural-product-like         modeling, it undergoes ne-tuning on toxicity and chemical
+                                                          compounds generated by CLMs trained on the structures of
+          reaction datasets, demonstrating state-of-the-art performance        Licence.                                                                    natural products are distributed in a broader physicochemical
+AM.       across many tasks.68 Such models have the advantage that   space than the training data.69 Nevertheless, generative models
+         encoder embeddings can power prediction tasks while the
+                                                                can exhibit mode collapse, and practitioners should routinely        Unported    decoder enables generation. In practice, BARTSmiles handles8:59:30                                                                        report  diversity and  novelty metrics such as the  Fr´echet   3.0    property prediction on MoleculeNet and supports generation
+                                                        ChemNet  Distance  (FCD),  internal  diversity, and scaﬀold
+          tasks such as retrosynthesis and reaction prediction. MolT5
+                                                                                    diversity, as standardized in benchmarks  like MOSES and         enables bidirectional translation between text and molecular6/11/2026                                                                         GuacaMol.83,84 Systematic use of these metrics will help the          representations, opening the door to natural-language-drivenon Attribution                                                            community assess whether CLMs are  truly expanding the
+         molecular  design  via  captioning and  conditional  text-to-
+                                                                       explored chemical space.         molecule generation.28
+Downloaded Commons    trainedTo biason generationnatural producttowarddatathehavenaturalbeenproductexplored.space,TayCLMset al.   3.5  Case studies
+2026. Creative    trained an LSTM on natural product structures and generated  The practical impact of CLMs is perhaps best illustrated by
+ a    approximately 67 million natural-product-like compounds.69   studies in which language-model predictions were followed by
+May     NPGPT ne-tunes a pretrained GPT on natural product data,   experimental validation. A notable example on the discovery
+12 under    bringing the generation distribution closer to natural products   side is a recent Transformer-based platform for BGC prediction
+on licensed    andWhileyieldingthis reviewcandidatesprimarilywithfocusespromisingon languagedrug-likemodels,potential.70it is  andof biosyntheticdesign.85 In domains,this work,allowingBGCs werea RoBERTa-basedrepresented as sequencesmodel to
+  is    worth noting that other deep learning approaches have also   learn domain co-occurrence and positional relationships inPublished
+        been developed for natural product generation. For instance,   a language-like manner. Beyond benchmarking on known       article
+        NP-VAE employs graph-based VAE architectures to handle large  BGCs, the authors used the cyclooctatin pathway as a case studyArticle. This    molecular structures with 3D complexity, including chirality.71   for model-guided BGC engineering. A model trained on whole
+            For controllability, conditional Transformers have been widely  genomes proposed several domains that were absent from theAccess       studied  for multi-objective optimization. By conditioning on   original cluster and from the predictions of a BGC-only model.
+           targets such as protein sequences or pocket descriptors, property  To test one such prediction experimentally, the authors locatedOpen
+           vectors, or scaﬀolds, autoregressive generation can be steered.80–82   a gene encoding the predicted domain in a related Streptomyces
+         Such conditional generation is useful for obtaining compounds  genome and co-expressed it with the cyclooctatin biosynthetic
+          that satisfy desired properties while retaining natural-product-like   genes in Streptomyces albus, which led to the production of an
+           characteristics and scaﬀold diversity.                      unknown cyclooctatin derivative.
+          To explore chemical space under explicit objectives, rein-    A complementary example comes from de novo design. In
+         forcement learning (RL) is commonly combined with genera-   a study on retinoid X receptor (RXR) modulation, an RNN-based
+           tors. REINVENT updates the policy of an RNN-based generator  CLM was pretrained on bioactive compounds and then ne-
+         using rewards derived from  objective functions (predicted  tuned using a small set of natural product templates with
+            activity, docking scores,  etc.).46–48 For example, by supplying  known RXR activity.86 The resulting model generated natural-
+         a natural-product-likeness objective, one can train a model to   product-inspired mimetics that were prioritized, synthesized,
+         generate natural-product-like compounds. REINVENT has seen  and  experimentally  tested.  Two  of  the  four  designed
+          continual renement and widespread application.            compounds showed RXR modulatory  activity that was  iso-
+          A critical question for de novo design in the natural product   functional with that of the natural product templates, illus-
+         space is whether a generated compound is synthetically acces-   trating how CLMs can translate natural product bioactivity
+           sible. BioNavi-NP addresses this by combining a Transformer-   patterns into experimentally validated design hypotheses.
+         based single-step retrobiosynthesis model with AND-OR tree
+         search (Retro*), trained on datasets including general organic
+                                    4  Data resources and curation for        and biosynthetic reactions, to propose biologically plausible
+          multi-step biosynthetic routes.56 In internal tests, it proposed CLMs
+          routes for 90.2% of 368 cases, with a building-block hit rate of
+                                                            The performance of CLMs depends critically on which data are        56.0% (72.8% when user-dened building blocks were speci-
+                                                                            selected and how they are preprocessed. In this chapter, we rst          ed). Coupling such retrobiosynthesis tools with CLM-based
+                                                                       organize the available natural product databases. We then
+
+
+
+           This journal is © The Royal Society of Chemistry 2026                                                                      Nat. Prod. Rep.
+
+
+[PDF physical page 10]
+                                                                                                                                        View Article Online
+
+         Natural Product Reports                                                                    Review
+
+
+          describe the procedures required to prepare retrieved records as   learning methods will be crucial for realizing the full potential
+         model-ready training data, outlining the end-to-end pipeline   of CLMs in natural product discovery.
+        from preprocessing through dataset splitting.                   Beyond scale, data quality and consistency present addi-
+                                                                              tional challenges. Among these, incomplete and inconsistent
+                                                                       stereochemical annotations stand out as a critical issue for
+                                                                         natural product databases. Natural products frequently possess
+          4.1  Major natural product databases                                                            numerous stereocenters, making stereochemical information
+       When using natural product databases as training resources for   important, yet database entries vary widely. Some include fully
+        CLMs, it is essential to understand, for each resource, whether  determined congurations, while others report stereochemistry
+          structures are rigorously determined, whether annotations are   with  undetermined  centers.  Community-driven  curation        Licence.     consistent, and how accessible the data are. Here, we focus on   initiatives and standardized natural-product-focused bench-
+AM.       four representative databases (COCONUT  2.0, The Natural   marks, similar to MoleculeNet94 for general chemistry, would
+         Products  Atlas  3.0,  LOTUS,  and  SuperNatural  3.0)  and   help address these issues by providing shared, high-quality        Unported8:59:30      summarize their characteristics and recommended uses for   evaluation resources and encouraging consistent data prac-   3.0
+      CLM pretraining and evaluation.87–90                                tices across the eld.
+         COCONUT 2.0 aggregates publicly available natural product6/11/2026       data and supports community-driven curation.87 The data can
+                                                                             4.2  Data processing and splitting pipelineon Attribution    be obtained via bulk download or API, facilitating ML applica-
+          tions and pretraining. It integrates diverse sources and contains   This subsection explains the sequence of steps from acquisition
+         roughly 700 000 unique structures, although some non-natural   to CLM-ready  datasets, covering standardization  of  string       Commons
+          entries are known to be present and warrant caution.            representations, data augmentation, tokenization, and datasetDownloaded
+          The Natural Products  Atlas  3.0 focuses on  microbially   splitting.2026. Creative    derived compounds and employs literature-based curation with     The rst step is to standardize string representations such as
+May a   human verication in the workow.88 The latest release incor-  SMILES. RDKit and MolVS are commonly used tools for this
+          porates structural corrections, improving overall accuracy. With   purpose.95,96 Standard procedures include normalization, reio-12 under
+on      36 545 natural products,  it is especially valuable as a high-   nization, cleavage of metal coordination, and exclusion of
+        condence set for evaluation.                                   mixtures, which are applied in a prescribed order. Harmonizing        licensed
+  is     LOTUS  publishes  occurrence  information  (compound,   representations across heterogeneous sources  is crucial forPublished       organism, and literature) as a knowledge graph and provides  smooth CLM training.
+       article     rich, reusable metadata such as classications and synonyms.89      Quality control should proceed in parallel with standardi-
+         Although led by the same group as COCONUT, LOTUS oﬀers   zation. For natural product datasets, in addition to detectingArticle. This
+Access      moregraphiccomprehensivecontext. For CLMs,annotationsthis supportsfor organismalthe designandofbiblio-hard   obviousimportantvalenceto computeviolationsdiagnosticand metricsring  inconsistencies,(e.g., the NP-likenessit  is
+Open       negatives,integrationassessmentwith textualofinformation.phylogenetic or reporting biases, and   biases.score97) to  identify  outliers and characterize distributional
+            SuperNatural 3.0 covers natural products and derivatives    A particularly important quality-control decision concerns
+          broadly, and alongside structural data  it includes predicted   the  treatment  of  incomplete  stereochemical  assignments,
+          properties,  toxicity-related information, and supplier meta-  which are common in natural product databases. Three main
+           data.90 With approximately 450 000 compounds, it is convenient   approaches are available. The rst option is (1) to exclude
+           for training, but annotations are tiered into two condence   molecules with incomplete stereochemistry, yielding a cleaner
+            levels, so reliability is not uniform. Compared with COCONUT,   but smaller dataset suited for tasks where stereochemical
+         the explicit condence indicators in SuperNatural 3.0 make it   correctness is essential. The second option is (2) to retain
+          easier  to exclude dubious  entries, which  is  useful when   molecules  as-is, because SMILES can represent undened
+         balancing data volume against annotation quality.               stereocenters alongside dened ones. This preserves data
+            Despite these valuable resources, the scale of available  volume while accepting partial stereochemical information.
+          natural  product  data  remains  considerably  smaller  than  The third option is (3) to strip all stereochemical annotations
+          synthetic or drug-like compound collections. ZINC 22 (ref. 91)   entirely to reduce token complexity and sequence length, which
+         contains several billion commercially available compounds,  can simplify training at the cost of discarding stereochemical
+        and ChEMBL92 includes approximately 2.5 million bioactive   knowledge. In practice, option (3) is oen chosen for large-scale
+         molecules. Recent CLMs like MolFormer93 have been pretrained   pretraining where reducing training cost is a priority, whereas
+        on over 1 billion compounds from these large-scale databases.   option (1) is preferred when the task explicitly requires stereo-
+         In contrast, the largest natural product database, COCONUT   chemically complete structures. Reporting which strategy was
+           2.0, contains roughly 700 000 structures. The limited dataset  adopted and  its eﬀect on dataset size  is recommended to
+           size constrains model training, and the structural complexity of   facilitate reproducibility.
+          natural products means that existing databases provide sparse     For data augmentation, enumerated SMILES are commonly
+         coverage of the chemical space. Addressing this data gap   employed.98 Because a single molecule admits multiple valid
+         through continued curation and development of data-eﬃcient  SMILES, this approach increases the eﬀective dataset  size.
+
+
+
+           Nat. Prod. Rep.                                                                     This journal is © The Royal Society of Chemistry 2026
+
+
+[PDF physical page 11]
+                                                                                                                                        View Article Online
+
+       Review                                                                               Natural Product Reports
+
+
+         Generating multiple SMILES per molecule during training    A practical training strategy is to pretrain on large, diverse
+          generally improves model robustness.                          general chemistry datasets to acquire chemical grammar and
+             Several  tokenization  strategies  are  available.  Subword  broad  knowledge,  followed  by  continued  pretraining on
+         segmentation via byte pair encoding (BPE), widely used in NLP,   comparatively smaller natural product datasets. This down-
+         tends to reduce sequence length but may not align tokens with   stream domain adaptation shis the exploration bias toward
+         chemically meaningful units, potentially making substructure   the  natural  product  space by  imprinting domain-specic
+          recognition by CLMs more diﬃcult. Given that chemistry has   structural regularities. In turn, one can expect improvements
+         a relatively small vocabulary of atomic symbols compared with   in activity and property prediction for natural products, better
+          natural  language  words,  atom-level  tokenization  is  also   re-ranking of candidates with unfamiliar scaﬀolds, and richer
+       common. In addition, chemistry-specic tokenizers such as   scaﬀold diversity in de novo generation.        Licence.    SMILES  Pair  Encoding  and  atom-in-SMILES  have  been     However, transferring representations pretrained on general
+AM.        proposed.99,100                                                chemistry can suﬀer from distribution shi, leading to negative
+            Dataset splitting has a direct impact on the assessment of   transfer or catastrophic forgetting.104 Parameter-eﬃcient ne-        Unported8:59:30       generalization. A widely adopted principle is scaﬀold splitting   tuning (PEFT) has therefore attracted attention. A representa-   3.0
+         based on Bemis-Murcko frameworks, which ensures that the   tive approach, LoRA, adjusts only a small subset of parameters
+        same scaﬀold does not appear across training and evaluation   atop a frozen backbone, enabling eﬀective adaptation under6/11/2026          sets.94,101 By requiring that evaluation sets contain novel scaf-   limited data.105on Attribution     folds, this strategy tests whether the model generalizes to     Insuﬃcient stereochemical awareness in CLMs is another
+        unseen  chemistry. When  feasible,  scaﬀold  splits can be   key  challenge. Compared with  typical  screening  libraries,
+        combined with temporal splits based on publication or depo-   natural products oen have numerous stereocenters, high 3D       Commons
+           sition year to create a more rigorous learning setup.             complexity and conformational  exibility. Natural productsDownloaded
+            In  practical  use,  performance on unseen  scaﬀolds  is  span a wide range of exibility, from rigid macrocyclic peptides2026. Creative    important. Although scaﬀold splits are stricter than random  and polyketides to highly exible glycosylated or acyclic terpe-
+May a     splits, they can still overestimate performance because closely   noid  structures. While  this enhances complementarity  to
+          related but scaﬀold-distinct molecules may be mixed.102 Split-   binding pockets, string-based CLMs do not always capture12 under
+on       ting based on chemical similarity (e.g., using UMAP or related   stereochemistry or conformational preferences reliably. Indeed,
+         approaches to partition the chemical space) has been recom-   in Transformer training on SMILES, substructural patterns are        licensed
+  is   mended to obtain more realistic estimates.                     learned early, whereas the acquisition of chirality lags until laterPublished                                                                                  stages.106 Such tendencies are particularly problematic for sets
+       article                                                            dense in stereocenters, as in natural products. Further advances
+                                                                          in stereochemical representation and learning are thereforeArticle. This  5  Future perspectives
+
+        The use of CLMs is expanding and transitioning into technol-     Beyond optimization of training recipes and ne-tuningAccess                                                                            crucial to extract more value from CLMs in this domain.
+          ogies that can be embedded into day-to-day natural product   strategies, a complementary direction is to rene the under-
+Open        discovery. Nevertheless, the natural product chemical space   lying tokenization and representation schemes so that three-
+         diﬀers from drug-like small molecules in its statistical proper-   dimensional  and  conformational  information  can  be
+           ties and stereochemical complexity, and conventional model   expressed directly at the sequence level. Most current CLMs
+         designs and evaluation protocols may not always be appro-   operate on SMILES/SELFIES-based sequences and, at best,
+           priate. This chapter discusses prospects for CLMs in natural   incorporate static stereochemical annotations.22,26,31 This design
+         product discovery under these domain-specic conditions.       implicitly treats conformation as something to be recovered
+                                                             downstream by separate 3D models rather than as part of the
+                                                                    primary representation.
+          5.1  Natural-product-specialized CLMs and 3D                                                                      Recent work on conformation-aware line notations and 3D-
+          representations                                                                 aware   tokenization   suggests   one   pathway   forward.
+      We anticipate increasing demand for CLMs specialized in   Conformation-specic SMILES  variants  such  as CSMILES
+          natural products. The natural product chemical space diﬀers  encode a particular conformer by decorating SMILES atoms or
+        from typical drugs dened by the “Rule of Five”,103 yet it yields  bonds with additional chiral, dihedral, or distance labels.107
+         scaﬀolds of importance for drug discovery and contains many  TokenMol  instead  represents  a  molecule  as an  ordered
+          structures with aﬃnity for biological targets. Historically, it has  sequence of discretized torsion angles along its backbone, so
+         provided numerous leads with novel mechanisms of action and   that a CLM can model conformational preferences explicitly as
+           activity against diﬃcult targets.1 Models trained on general   a sequence prediction problem.108 These methods make  it
+         chemical corpora tend to undervalue stereochemically rich and   possible for CLMs to treat conformations as tokens rather than
+          highly functionalized scaﬀolds typical of natural products,   as  information  reconstructed  solely by  a  separate  three-
+        which can misalign prioritization and generation with real-   dimensional module.
+         world discovery value. Accordingly, to fully leverage CLMs for     For natural products, such conformation-aware tokenization
+          natural product discovery, representations and priors adapted   is particularly attractive. Natural product activity oen depends
+          to this domain are essential.                             on   local   conformational   preferences,   stereochemical
+
+
+
+           This journal is © The Royal Society of Chemistry 2026                                                                      Nat. Prod. Rep.
+
+
+[PDF physical page 12]
+                                                                                                                                        View Article Online
+
+         Natural Product Reports                                                                    Review
+
+
+          orientation of pharmacophores, or macrocycle rigidity, features   in performance. Benchmarking for multimodal models is also
+          that are only indirectly encoded in standard SMILES.109–111   underdeveloped. Standardizing datasets and evaluation metrics
+       CLMs trained on conformation-augmented sequences can learn   will make model comparison possible and should catalyze
+          distributions over three-dimensional motifs rather than only   progress.
+          over two-dimensional  connectivity  patterns.108,112 Moreover,
+         conformational tokens oﬀer a natural interface between string-   5.3  Explainable and uncertainty-aware CLMs
+         based CLMs and SE(3)-equivariant models, enabling hybrid
+                                                                    For CLMs in natural product discovery, high average accuracy
+          architectures in which language models capture global scaﬀold
+                                                                     alone is insuﬃcient. Decisions about which samples to deepen,
+        and substitution patterns while equivariant networks rene
+                                                               which candidates to synthesize, and which to scrutinize are
+           local geometries.
+                                                       made under limited experimental budgets, blending expert        Licence.       Realizing these possibilities will likely depend on data and
+AM.       evaluation. For natural products, curated three-dimensional  judgment with occasional ML predictions. If models output not
+                                                                        only predictions but also scientic rationales and uncertainty
+         information  remains  fragmentary. Most  public  resources        Unported                                                                      estimates, the evidential basis becomes clearer and decision-8:59:30       provide only 2D structures or a single low-energy conformer,   3.0                                                        making becomes easier. In particular, when activity cliﬀs or
+        and even 3D-focused databases cover at most tens of thousands
+                                                             measurement  noise  contribute  to  uncertainty,  numerical
+          of metabolites.113 As research into conformation-aware repre-
+                                                               condence is essential to trust predictions. Explainability and6/11/2026       sentations advances, the demand for corresponding 3D struc-
+                                                                          uncertainty estimation for CLMs remain nascent and warranton Attribution     tural data is expected to increase, highlighting the need for
+                                                                            further development.
+          greater availability of such datasets in the future. In parallel,
+                                                                       For explainability, methods such as XSMILES, which visu-
+        benchmarks  for  conformation-aware CLMs  should move       Commons                                                                             alize token attributions and attention weights from SMILES-
+        beyond 2D property prediction to tasks that evaluate theDownloaded                                                               based models onto molecular graphs, provide foundations for
+          recovery of conformational ensembles and property prediction2026. Creative    from 3D structures, so that competing representations and   chemists' decisions.117 However, it should be noted that atten-
+ a                                                                      tion weights do not constitute direct explanations. Interpreta-
+May       training objectives can be compared on questions that matter   tion consistency should be enhanced by combining multiple
+           for natural product discovery.12 under                                                                       explanation methods and providing counterexamples where
+on                                                                                 slight modications change activity.
+        licensed     5.2  Multimodal CLMs integrating BGC sequences, MS/NMR       For uncertainty, ensemble modeling can quantify predictive
+  is     spectra, textual metadata                                        dispersion. For activity prediction and related tasks, conformalPublished
+                                                                          prediction can endow outputs with top-k candidate sets and       article    Natural product  discovery spans multiple  steps  (structure
+                                                                      guarantees on condence. Such frameworks are particularly
+          elucidation,  prioritization,  and  evaluation)  and  involvesArticle. This                                                                      benecial for compounds with natural-product-specic features
+          multiple modalities. A single modality is oen insuﬃcient to
+                                                                            that are underrepresented in generic small-molecule corpora.Access       reduce uncertainty. Recent tools like MultiT2 demonstrate the
+
+                                                                             5.4  Interdisciplinary collaborationOpen       valueproducts,of connectingspecicallyfragmentedfor  bacterialmultimodalaromaticdatapolyketides,in natural
+         through causal inference approaches.114 Rather than treating  A practical challenge in applying CLMs to natural product
+          structure, BGC sequence, MS/NMR spectra, and  literature/   discovery is the gap between computational and experimental
+         database text as independent features to be fused post hoc,  communities. For computational scientists, obtaining high-
+         multimodal CLMs map them into a shared latent space and,   quality experimental data, such as bioassay results, annotated
+       when  needed,  train  encoder-decoder models  to  translate   spectra, and veried structures, remains diﬃcult because these
+         between modalities. Such models can accelerate both the   data are oen generated in small batches and dispersed across
+          identication of unknown compounds and the focusing of   laboratories. Conversely, for natural product chemists, the
+          resources on candidates with high discovery value. As noted   overhead required to train, validate, and deploy CLMs can be
+          above, self-supervised representation learning for BGCs,34,35,55   prohibitive   without   dedicated   computational   support.
+          structure  prediction from  spectra,38,53,73 and  text-structure  Advancing   interdisciplinary   collaboration,  where   both
+           translation28,115  are  already  feasible.  Recently,  this  text-  communities develop a shared vocabulary and mutual under-
+          structure multimodality has been further advanced by models   standing of each other's needs and constraints, will be essential
+           like mCLM, which tokenizes molecules as functional building   for CLMs to become routine tools in natural product discovery.
+          blocks, enabling  direct and  bilingual  translation between  Through such collaboration, the learning and evaluation cycle
+          natural  language  functional  descriptions  and  makeable   of CLMs can be accelerated, thereby increasing the maturity and
+         molecular structures.116 We expect the development of CLMs   utility of these models as practical tools for researchers.
+          that jointly handle these diverse modalities to accelerate.
+          A  persistent  obstacle  to  higher-performing multimodal 6  Conclusions
+        models is data scarcity. Large, high-condence datasets that
+          systematically link BGCs, metabolites, and text do not yet exist.   This review provides a comprehensive overview of CLMs for
+       When relying on low-condence associations, learning may   natural product design and discovery, ranging from funda-
+        become dependent on inferred links or weak labels and degrade  mental  concepts  and  model  architectures  to  practical
+
+
+
+           Nat. Prod. Rep.                                                                     This journal is © The Royal Society of Chemistry 2026
+
+
+[PDF physical page 13]
+                                                                                                                                        View Article Online
+
+       Review                                                                               Natural Product Reports
+
+
+          applications and future perspectives. The number of tools  Agency for Medical Research and Development Basis for Sup-
+          readily applicable to natural product drug discovery research is   porting Innovative Drug Discovery and Life Science Research
+          increasing, and their introduction at appropriate times can   (Grant No. JP25ama121026).
+          contribute to resolving bottlenecks. Recent CLM development
+         has embraced  large-scale  pretraining  centered on  Trans-
+          formers, shiing emphasis from single-task models to more  References
+          general foundation models. Large chemical foundation models
+          are now available, and continued progress in CLM research is    1 D. J. Newman and G. M. Cragg, J. Nat. Prod., 2020, 83, 770–
+          expected.                                                          803.
+        We summarize four priority directions. The rst  is the    2 A. G. Atanasov, S. B. Zotchev, V. M. Dirsch, International        Licence.    establishment of natural-product-specialized CLMs. By biasing      Natural Product Sciences Taskforce and C. T. Supuran,
+AM.      models toward the natural product space, domain-specic tasks       Nat. Rev. Drug Discovery, 2021, 20, 200–216.
+         can be optimized. The second is the development of multi-    3 K. L. Kurita and R. G. Linington, J. Nat. Prod., 2015, 78, 587–        Unported8:59:30      modal models that treat BGC sequences, MS/NMR, structures,       596.   3.0
+        and textual literature within a shared latent space. The third is    4 S. Wang, Y. Guo, Y. Wang, H. Sun and J. Huang, Proceedings
+         the integration of explainability and uncertainty estimation as        of the 10th ACM International Conference on Bioinformatics,6/11/2026       standard features, so that model predictions are accompanied      Computational Biology and Health Informatics, 2019, pp.on Attribution    by rationale and condence to better support expert decision-      429–436.
+         making. The fourth is the reduction of barriers to adoption    5 M. H. S. Segler, T. Kogej, C. Tyrchan and M. P. Waller, ACS
+         through interdisciplinary collaboration between computational       Cent. Sci., 2018, 4, 120–131.       Commons
+        and experimental groups.                                    6 A. Vaswani, N. Shazeer, N. Parmar, J. Uszkoreit, L. Jones,Downloaded
+           Underpinning all four directions, foundational work on data       A. N. Gomez, u. Kaiser and I. Polosukhin, Adv. Neural Inf.2026. Creative     quality  and  reproducibility  is  indispensable.  Addressing       Process. Syst., 2017.
+May a     inconsistent stereochemical annotations, incomplete metadata,    7 R. Bommasani, D. A. Hudson, E. Adeli, R. Altman, S. Arora,
+        and the absence of standardized natural product benchmarks        S. von Arx, M. S. Bernstein, J. Bohg, A. Bosselut, E. Brunskill,12 under
+on        will strengthen the datasets on which CLMs depend. Publishing       E. Brynjolfsson, S. Buch, D. Card, R. Castellon, N. Chatterji,
+          pre-processing  pipelines,  covering  structure  normalization,       A. Chen, K. Creel, J. Q. Davis, D. Demszky, C. Donahue,        licensed
+  is     quality  control, data augmentation, and  dataset  splitting,     M. Doumbouya, E. Durmus, S. Ermon,  J. Etchemendy,Published       together  with  training and  evaluation  code,  will  enable       K. Ethayarajh, L. Fei-Fei, C. Finn, T. Gale, L. Gillespie,
+       article    comparison and portability of results. As such shared infra-       K.   Goel,  N.  Goodman,   S.  Grossman,  N.  Guha,
+          structure matures, CLMs are poised to become a practical,       T. Hashimoto, P. Henderson, J. Hewitt, D. E. Ho, J. Hong,Article. This
+Access       consistentproduct discovery.decision-support  technology throughout  natural       K.S. Hsu,Karamcheti,J. Huang, G.T. Icard,Keeling,S. Jain,F. D.Khani,Jurafsky,O. P.Khattab,Kalluri,
+Open                                                                                 P.F. W.Ladhak,Koh, M.M. Krass,Lee, T.R.Lee,Krishna,J. Leskovec,R. Kuditipudi,I. Levent,A. X.Kumar,L. Li,       7.  Author contributions
+                                                                                X. Li, T. Ma, A. Malik, C. D. Manning, S. Mirchandani,
+         KS, KF, AK, YK, and MO designed the study and wrote the       E.   Mitchell,   Z.  Munyikwa,   S.   Nair,   A.  Narayan,
+         manuscript.  All  authors  read  and  approved  the  nal      D.  Narayanan,  B.  Newman,  A.  Nie,   J.  C.  Niebles,
+         manuscript.                                                 H.   Nilforoshan,    J.   Nyarko,   G.   Ogut,   L.   Orr,
+                                                                                                                   I.  Papadimitriou,  J.  S.  Park,  C.  Piech,  E.  Portelance,
+       8.  Conﬂicts of interest                              C. Potts, A. Raghunathan, R. Reich, H. Ren, F. Rong,
+                                                                                  Y. Roohani, C. Ruiz, J. Ryan, C. R´e, D. Sadigh, S. Sagawa,
+         There are no conicts to declare.                                   K. Santhanam, A. Shih, K. Srinivasan, A. Tamkin, R. Taori,
+                                                                                  A. W. Thomas, F. Tram`er, R. E. Wang, W. Wang, B. Wu,
+       9.  Data availability                                                       J. Wu, Y. Wu, S. M. Xie, M. Yasunaga, J. You, M. Zaharia,
+                                                             M. Zhang,  T. Zhang,  X. Zhang,  Y. Zhang,  L. Zheng,
+       No primary research  results, soware or code have been       K.  Zhou  and   P.   Liang,   arXiv,   2021,   preprint,
+         included and no new data were generated or analysed as part of       arXiv:2108.07258, DOI: 10.48550/arXiv.2108.07258.
+           this review.                                                8 Y. Bengio, R. Ducharme, P. Vincent and C. Janvin, J. Mach.
+                                                                                Learn. Res., 2003, 3, 932–938.
+      10.  Acknowledgements                       9 R. Rosenfeld, Proc. IEEE Inst. Electr. Electron. Eng., 2000, 88,
+                                                                        1270–1278.
+         This work was nancially supported by the Japan Science and   10 T. Mikolov, K. Chen, G. Corrado and J. Dean, International
+         Technology Agency FOREST (Grant No. JPMJFR216J), Japan       Conference on Learning Representations (ICLR 2013), 2013.
+         Science and Technology Agency ACT-X (Grant No. JPMJAX25LB),   11 J. Pennington, R. Socher and others, Proceedings of the 2014
+         Japan Society for the Promotion of Science KAKENHI (Grant No.       Conference on  Empirical Methods  in  Natural  Language
+         JP23H04880, JP23H04887, JP23K28186, JP24KJ1091), and Japan       Processing (EMNLP), 2014, pp. 1532–1543.
+
+
+
+           This journal is © The Royal Society of Chemistry 2026                                                                      Nat. Prod. Rep.
+
+
+[PDF physical page 14]
+                                                                                                                                        View Article Online
+
+         Natural Product Reports                                                                    Review
+
+         12 T.  Mikolov, M.  Kara´at,  L.  Burget,  J.  ˇCernock´y and   37 F. Huber, L. Ridder, S. Verhoeven, J. H. Spaaks, F. Diblen,
+                S. Khudanpur, Conf Int Speech Commun Assoc, 2010, 1045–        S. Rogers and J. J. J. van der Hoo, PLoS Comput. Biol.,
+             1048.                                                         2021, 17, e1008724.
+         13 S. Hochreiter and J. Schmidhuber, Neural Comput., 1997, 9,   38 E. Litsa, V. Chenthamarakshan, P. Das and L. Kavraki,
+             1735–1780.                                         Commun. Chem., 2023, 6, 132.
+         14 F.  A. Gers,  J. Schmidhuber and  F. Cummins, Neural   39 M. Alberts, F. Zipoli and A. C. Vaucher, AI for Accelerated
+             Comput., 2000, 12, 2451–2471.                                   Materials Design-NeurIPS 2023 Workshop, 2023.
+         15 K. Cho, B. Van Merri¨enboer, Ç. Gulçehre, D. Bahdanau,   40 S. Liu, W. Nie, C. Wang, J. Lu, Z. Qiao, L. Liu, J. Tang, C. Xiao
+               F. Bougares, H. Schwenk and Y. Bengio, EMNLP, 2014, pp.      and A. Anandkumar, Nat. Mach. Intell., 2023, 5, 1447–1457.
+             1724–1734.                                            41 E.  J. Bjerrum and R.  Threlfall,  arXiv, 2017,  preprint,        Licence.     16 J. Chung, C. Gulcehre, K. Cho and Y. Bengio, arXiv, 2014,       arXiv:1705.04612, DOI: 10.48550/arXiv.1705.04612.
+AM.            preprint, arXiv:1412.3555, DOI: 10.48550/arXiv.1412.3555.    42 J. Ar´us-Pous, S. V. Johansson, O. Prykhodko, E. J. Bjerrum,
+         17 Y. Bengio, P. Simard and P. Frasconi, IEEE Trans. Neural       C. Tyrchan, J.-L. Reymond, H. Chen and O. Engkvist,  J.        Unported8:59:30            Netw., 1994, 5, 157–166.                                       Cheminform., 2019, 11, 71.   3.0
+         18 R. Pascanu, T. Mikolov and Y. Bengio, ICML, 2012, 28,   43 A. Holtzman, J. Buys, L. Du, M. Forbes and Y. Choi, arXiv,
+             1310–1318.                                                   2019,   preprint,   arXiv:1904.09751,   DOI:   10.48550/6/11/2026       19 J. Devlin, M.-W. Chang, K. Lee and K. Toutanova, NAACL,       arXiv.1904.09751.on Attribution        Stroudsburg, PA, USA, 2019, pp. 4171–4186.                44 Y. Yang, S. Zheng, S. Su, C. Zhao, J. Xu and H. Chen, Chem.
+         20 A. Radford,  J. Wu, R. Child, D. Luan, D. Amodei and         Sci., 2020, 11, 8312–8322.
+                     I. Sutskever, OpenAI Blog, 2019.                           45 V.  Fialkov´a,   J.  Zhao,  K.  Papadopoulos,  O.  Engkvist,       Commons
+         21 J. Kaplan,  S. McCandlish, T. Henighan,  T. B. Brown,       E.  J. Bjerrum, T. Kogej and A. Patronov,  J. Chem.  Inf.Downloaded
+              B. Chess,  R.  Child,  S.  Gray,  A. Radford,  J. Wu and       Model., 2022, 62, 2046–2063.2026. Creative        D. Amodei, arXiv, 2020, preprint, arXiv:2001.08361, DOI:   46 M. Olivecrona, T. Blaschke, O. Engkvist and H. Chen,  J.
+May a        10.48550/arXiv.2001.08361.                                    Cheminform., 2017, 9, 48.
+         22 D. Weininger, J. Chem. Inf. Comput. Sci., 1988, 28, 31–36.     47 T.  Blaschke,   J.  Ar´us-Pous,  H.  Chen,  C.  Margreitter,12 under
+on       23 A. Gupta, A. T. Müller, B.  J. H. Huisman,  J. A. Fuchs,       C.   Tyrchan,  O.   Engkvist,   K.  Papadopoulos  and
+               P. Schneider and G. Schneider, Mol. Inform., 2018, 37,       A. Patronov, J. Chem. Inf. Model., 2020, 60, 5918–5922.        licensed
+  is        1700111.                                              48 H. H. Loeﬄer,  J. He, A. Tibo,  J. P. Janet, A. Voronov,Published       24 P. Schwaller, T. Laino, T. Gaudin, P. Bolgar, C. A. Hunter,        L. H. Mervin and O. Engkvist, J. Cheminform., 2024, 16, 20.
+       article        C. Bekas and A. A. Lee, ACS Cent. Sci., 2019, 5, 1572–1583.    49 M. Lewis, Y. Liu, N. Goyal, M. Ghazvininejad, A. Mohamed,
+         25 S. Chithrananda, G. Grand and B. Ramsundar, arXiv, 2020,      O. Levy, V. Stoyanov and L. Zettlemoyer, Proceedings of theArticle. This
+Access           arXiv.2010.09885.preprint,      arXiv:2010.09885,     DOI:      10.48550/       58thLinguistics,AnnualStroudsburg,Meeting of thePA, USA,Association2020, pp.for 7871–7880.Computational
+Open       26 W.B.  Ahmad,Ramsundar,E. Simon,arXiv, S. 2022,Chithrananda,arXiv:2209.01712,G. Grand DOI:and   50 M.C. Matena,Raﬀel, N.Y. Shazeer,Zhou, W. A.Li Roberts,and P. J. K.Liu,Lee,J. Mach.S. Narang,Learn.
+              10.48550/arXiv.2209.01712.                                            Res., 2020, 21, 5485–5551.
+         27 R. Irwin, S. Dimitriadis,  J. He and E.  J. Bjerrum, Mach.   51 J. He, E. Nittinger, C. Tyrchan, W. Czechtizky, A. Patronov,
+               Learn.: Sci. Technol., 2022, 3, 015022.                              E. J. Bjerrum and O. Engkvist, J. Cheminform., 2022, 14, 18.
+         28 C. Edwards, T. Lai, K. Ros, G. Honke and others, EMNLP,   52 M. A. Stravs, K. Dührkop, S. Böcker and N. Zamboni, Nat.
+             2022, pp. 375–413.                                           Methods, 2021, 19, 865–870.
+         29 J. Mao, T. Sui, K.-H. Cho, K. T. No, J. Wang and D. Shan,   53 A. D. Shrivastava, N. Swainston, S. Samanta,  I. Roberts,
+             Mol. Divers., 2026, 30(2), 1913–1921.                      M. Wright Muelas and D. B. Kell, Biomolecules, 2021, 11,
+         30 N. O'Boyle and A. Dalke, ChemRxiv, 2018, DOI: 10.26434/       1793.
+             chemrxiv.7097960.v1.                                   54 F. Hu, M. S. Chen, G. M. Rotskoﬀ, M. W. Kanan and
+         31 M. Krenn, F. H¨ase, A. Nigam, P. Friederich and A. Aspuru-       T. E. Markland, ACS Cent. Sci., 2024, 10, 2162–2170.
+             Guzik, Mach. Learn.: Sci. Technol., 2020, 1, 045024.          55 G.  D. Hannigan,  D.  Prihoda,  A.  Palicka,  J. Soukup,
+         32 A. H. Cheng, A. Cai, S. Miret, G. Malkomes, M. Phielipp and      O. Klempir, L. Rampula, J. Durcak, M. Wurst, J. Kotowski,
+               A. Aspuru-Guzik, Digit. Discov., 2023, 2, 748–758.               D. Chang, R. Wang, G. Piizzi, G. Temesi, D.  J. Hazuda,
+         33 S. Piao, J. Choi, S. Seo and S. Park, Appl. Intell., 2023, 53,       C. H. Woelk and D. A. Bitton, Nucleic Acids Res., 2019, 47,
+             25868–25880.                                                  e110.
+         34 C. Rios-Martinez, N. Bhattacharya, A. P. Amini, L. Crawford   56 S. Zheng, T. Zeng, C. Li, B. Chen, C. W. Coley, Y. Yang and
+           and K. K. Yang, PLoS Comput. Biol., 2023, 19, e1011162.          R. Wu, Nat. Commun., 2022, 13, 3342.
+         35 Q. Lai, S. Yao, Y. Zha, H. Zhang, H. Zhang, Y. Ye, Y. Zhang,   57 F. Huber, S. van der Burg,  J.  J.  J. van der Hooand
+            H. Bai and K. Ning, Nucleic Acids Res., 2025, 53, gkaf305.          L. Ridder, J. Cheminform., 2021, 13, 84.
+         36 R. Singh, S. Sledzieski, B. Bryson, L. Cowen and B. Berger,   58 K. Dührkop, H. Shen, M. Meusel, J. Rousu and S. Böcker,
+               Proc. Natl. Acad. Sci. U. S. A., 2023, 120, e2220778120.             Proc. Natl. Acad. Sci. U. S. A., 2015, 112, 12580–12585.
+
+
+
+
+           Nat. Prod. Rep.                                                                     This journal is © The Royal Society of Chemistry 2026
+
+
+[PDF physical page 15]
+                                                                                                                                        View Article Online
+
+       Review                                                                               Natural Product Reports
+
+
+         59 F. Wang,  J. Liigand, S. Tian, D. Arndt, R. Greiner and       P.-M.  Allard,  P. Phapale,  L.-F. Nothias, T. Alexandrov,
+             D. S. Wishart, Anal. Chem., 2021, 93, 11692–11700.           M. Litaudon,  J.-L. Wolfender,  J.  E.  Kyle,  T. O. Metz,
+         60 A. Young, H. L. Röst and B. Wang, Nat. Mach. Intell., 2024, 6,       T. Peryea, D.-T. Nguyen, D. VanLeer, P. Shinn, A. Jadhav,
+             404–416.                                                       R.  Müller,  K. M. Waters, W.  Shi,  X.  Liu,  L. Zhang,
+         61 H. Chen, T. Liang, K. Tan, A. Wu and X. Lu, J. Cheminform.,       R. Knight,  P.  R.  Jensen,  B. O.  Palsson, K. Pogliano,
+             2024, 16, 132.                                                  R. G. Linington, M. Guti´errez, N. P. Lopes, W. H. Gerwick,
+         62 B. Xu, Y. Lu, C. Li, L. Yue, X. Wang, N. Hao, T. Fu and       B.  S. Moore,  P. C. Dorrestein and N. Bandeira, Nat.
+                     J. Chen,  arXiv, 2024,  preprint,  arXiv:2408.05696, DOI:        Biotechnol., 2016, 34, 828–837.
+              10.48550/arXiv.2408.05696.                              73 T. Butler, A. Frandsen, R. Lightheart, B. Bargh, B. Kerby,
+         63 L. Chen, X. Tan, D. Wang, F. Zhong, X. Liu, T. Yang, X. Luo,       K. West, J. Davison, J. Taylor, C. Krettler, T. J. Bollerman,        Licence.        K. Chen, H. Jiang and M. Zheng, Bioinformatics, 2020, 36,      G. Voronov, K. Moon, T. Kind, P. Dorrestein, A. Allen,
+AM.          4406–4414.                                                       V. Colluru and D. Healey, ChemRxiv, 2023, DOI: 10.26434/
+         64 G. W. Kyro, A. M. Smaldone, Y. Shee, C. Xu and V. S. Batista,       chemrxiv-2023-vsmpx-v4.        Unported8:59:30                 J. Chem. Inf. Model., 2025, 65, 2395–2415.                  74 M.  Priessner,  R.  Lewis,   J.  P.  Janet,   I.  Lemurell,   3.0
+         65 K. Huang, C. Xiao, L. Glass and J. Sun, Bioinformatics, 2020,     M. Johansson,  J. Goodman and A. Tomberg, ChemRxiv,
+               37, 830–836.                                                  2024, DOI: 10.26434/chemrxiv-2024-zmmnw-v2.6/11/2026       66 B. Gao, B. Qiang, H. Tan, M. Ren, Y. Jia, M. Lu, J. Liu,   75 J. Li and X. Jiang, Wirel. Commun. Mob. Comput., 2021,on Attribution        W.-Y. Ma and Y. Lan, Adv. Neural Inf. Process. Syst., 2023,      181815, 1–7.
+             44595–44614.                                          76 D. van Tilborg, A. Alenicheva and F. Grisoni, J. Chem. Inf.
+         67 C. Ying, T. Cai, S. Luo, S. Zheng, G. Ke, D. He, Y. Shen and       Model., 2022, 62, 5938–5951.       Commons
+                T.-Y. Liu, Adv. Neural Inf. Process. Syst., 2021, 28877–28888.   77 K. Yang, K. Swanson, W. Jin, C. Coley, P. Eiden, H. Gao,Downloaded
+         68 G. Chilingaryan, H. Tamoyan, A. Tevosyan, N. Babayan,       A.  Guzman-Perez,  T.  Hopper,  B.  Kelley, M.  Mathea,2026. Creative        K.  Hambardzumyan,   Z.  Navoyan,   A.  Aghajanyan,       A.  Palmer,  V.  Settels,  T.  Jaakkola,  K.  Jensen  and
+May a       H. Khachatrian and L. Khondkaryan, J. Chem. Inf. Model.,       R. Barzilay, J. Chem. Inf. Model., 2019, 59, 3370–3388.
+             2024, 64, 5832–5843.                                    78 Z. A. Rollins, A. C. Cheng and E. Metwally, J. Cheminform.,12 under
+on       69 D. W. P. Tay, N. Z. X. Yeo, K. Adaikkappan, Y. H. Lim and       2024, 16, 56.
+                S. J. Ang, Sci. Data, 2023, 10, 296.                         79 S. Feng, L. Yang, Y. Huang, Y. Ni, W. Ma and Y. Lan, arXiv,        licensed
+  is     70 K. Sakano, K. Furui and M. Ohue, J. Supercomput., 2025, 81,       2023,   preprint,   arXiv:2310.14216,   DOI:   10.48550/Published           352.                                                            arXiv.2310.14216.
+       article     71 T. Ochiai, T. Inukai, M. Akiyama, K. Furui, M. Ohue,   80 M. Yang, H. Sun, X. Liu, X. Xue, Y. Deng and X. Wang, Brief.
+             N.  Matsumori,  S.  Inuki,  M.  Uesugi,  T.  Sunazuka,       Bioinform., 2023, 24, bbad185.Article. This
+Access           2023,K. Kikuchi,6, 249.H. Kakeya and Y. Sakakibara, Commun. Chem.,   81 2023,Y. Wang,28, 4430.H. Zhao, S. Sciabola and W. Wang, Molecules,
+Open       72 M.Y. Wang,Peng,  J.D.J. Carver,D.  Nguyen,V. V. Phelan,J.  Watrous,L. M. Sanchez,C.  A. Kapono,N. Garg,   82 L.L. Yang,Yang, Phys.C. Jin,Chem.G. Yang,Chem.Z.Phys.,Bing,2023,L. Huang,25, 2377–2385.Y. Niu and
+               T. Luzzatto-Knaan, C. Porto, A. Bouslimani, A. V. Melnik,   83 D.  Polykovskiy,   A.  Zhebrak,  B.  Sanchez-Lengeling,
+           M. J. Meehan, W.-T. Liu, M. Crüsemann, P. D. Boudreau,        S.  Golovanov,  O.  Tatanov,  S.  Belyaev,  R.  Kurbanov,
+               E.  Esquenazi, M.  Sandoval-Calder´on,  R.  D.  Kersten,       A. Artamonov,  V.  Aladinskiy, M.  Veselov,  A. Kadurin,
+               L.  A.  Pace,  R.  A. Quinn,  K.  R. Duncan,  C.-C. Hsu,        S. Johansson, H. Chen, S. Nikolenko, A. Aspuru-Guzik and
+             D.  J. Floros, R. G. Gavilan, K. Kleigrewe, T. Northen,       A. Zhavoronkov, Front. Pharmacol, 2020, 11, 565644.
+              R.   J.  Dutton,  D.  Parrot,  E.  E.  Carlson,  B.  Aigle,   84 N. Brown, M. Fiscato, M. H. S. Segler and A. C. Vaucher, J.
+              C. F. Michelsen, L. Jelsbak, C. Sohlenkamp, P. Pevzner,      Chem. Inf. Model., 2019, 59, 1096–1108.
+               A. Edlund, J. McLean, J. Piel, B. T. Murphy, L. Gerwick,   85 T. Kawano, T. Shiraishi, T. Kuzuyama and M. Umemura,
+               C.-C.  Liaw,  Y.-L.  Yang,  H.-U. Humpf, M. Maansson,      PLoS Comput. Biol., 2026, 22, e1013181.
+              R.   A.   Keyzers,   A.   C.   Sims,   A.   R.   Johnson,   86 D. Merk,  F.  Grisoni,  L.  Friedrich and  G.  Schneider,
+               A. M. Sidebottom, B. E. Sedio, A. Klitgaard, C. B. Larson,     Commun. Chem., 2018, 1, 68.
+              C. A. B. P, D. Torres-Mendoza, D. J. Gonzalez, D. B. Silva,   87 V. Chandrasekhar, K. Rajan, S. R. S. Kanakam, N. Sharma,
+               L. M. Marques, D. P. Demarque, E. Pociute, E. C. O'Neill,       V. Weißenborn, J. Schaub and C. Steinbeck, Nucleic Acids
+               E. Briand, E. J. N. Helfrich, E. A. Granatosky, E. Glukhov,        Res., 2025, 53, D634–D643.
+               F.  Ryﬀel, H. Houson, H. Mohimani,  J.  J. Kharbush,   88 E. F. Poynton, J. A. van Santen, M. Pin, M. M. Contreras,
+               Y.  Zeng,  J.  A.  Vorholt,  K.  L.  Kurita,  P.  Charusanti,       E.  McMann,    J.  Parra,  B.  Showalter,   L.  Zaroubi,
+              K.  L.  McPhail,  K.  F.  Nielsen,  L.  Vuong, M.  Elfeki,       K. R. Duncan and R. G. Linington, Nucleic Acids Res.,
+           M.  F.  Traxler, N. Engene, N. Koyama, O.  B.  Vining,       2025, 53, D691–D699.
+              R. Baric, R. R. Silva, S. J. Mascuch, S. Tomasi, S. Jenkins,   89 A.  Rutz,  M.  Sorokina,   J.  Galgonek,  D.  Mietchen,
+              V. Macherla, T. Hoﬀman, V. Agarwal, P. G. Williams,       E. Willighagen, A. Gaudry,  J. G. Graham, R. Stephan,
+                     J. Dai, R. Neupane, J. Gurr, A. M. C. Rodr´ıguez, A. Lamsa,       R.  Page,   J.  Vondr´aˇsek,  C.  Steinbeck,  G.  F.  Pauli,
+              C. Zhang,  K.  Dorrestein,  B. M. Duggan,  J.  Almaliti,
+
+
+
+           This journal is © The Royal Society of Chemistry 2026                                                                      Nat. Prod. Rep.
+
+
+[PDF physical page 16]
+                                                                                                                                        View Article Online
+
+         Natural Product Reports                                                                    Review
+
+
+                  J.-L. Wolfender, J. Bisson and P.-M. Allard, eLife, 2022, 11,  103 C. A. Lipinski, F. Lombardo, B. W. Dominy and P. J. Feeney,
+             e70780.                                                         Adv. Drug Delivery Rev., 1997, 23, 3–25.
+         90 K. Gallo, E. Kemmler, A. Goede, F. Becker, M. Dunkel,  104 X. Chen, S. Wang, B. Fu, M. Long and J. Wang, Adv. Neural
+              R. Preissner and P. Banerjee, Nucleic Acids Res., 2023, 51,         Inf. Process. Syst., 2019, pp. 1906–1916.
+            D654–D659.                                          105 E. J. Hu, yelong shen, P. Wallis, Z. Allen-Zhu, Y. Li, S. Wang,
+         91 B.  I. Tingle, K. G. Tang, M. Castanon,  J.  J. Gutierrez,        L. Wang and W. Chen, International Conference on Learning
+           M. Khurelbaatar, C. Dandarchuluun, Y.  S. Moroz and       Representations (ICLR 2022), 2022.
+                     J. J. Irwin, J. Chem. Inf. Model., 2023, 63, 1166–1176.        106 Y. Yoshikai, T. Mizuno, S. Nemoto and H. Kusuhara, Nat.
+         92 B. Zdrazil, E. Felix, F. Hunter, E. J. Manners, J. Blackshaw,      Commun., 2024, 15, 1197.
+                S.  Corbett, M. de  Veij, H.  Ioannidis,  D. M.  Lopez,  107 J. W. Furness, K. B. Moore 3rd and A. Bochevarov, J. Chem.        Licence.             J.  F. Mosquera, M.  P. Magarinos, N. Bosc, R.  Arcila,         Inf. Model., 2025, 65, 10289–10310.
+AM.            T.  Kizilören,  A. Gaulton,  A.  P. Bento, M.  F. Adasme,  108 J. Wang, R. Qin, M. Wang, M. Fang, Y. Zhang, Y. Zhu, Q. Su,
+               P. Monecke, G. A. Landrum and A. R. Leach, Nucleic Acids       Q. Gou, C. Shen, O. Zhang, Z. Wu, D. Jiang, X. Zhang,        Unported8:59:30             Res., 2024, 52, D1180–D1192.                               H. Zhao, J. Ge, Z. Wu, Y. Kang, C.-Y. Hsieh and T. Hou,   3.0
+         93 J. Ross, B. Belgodere, V. Chenthamarakshan,  I. Padhi,       Nat. Commun., 2025, 16, 4416.
+               Y.  Mroueh  and   P.  Das,   arXiv,   2021,   preprint,  109 R. E. Taylor, Y. Chen, G. M. Galvin and P. K. Pabba, Org.6/11/2026           arXiv:2106.09553, DOI: 10.48550/arXiv.2106.09553.               Biomol. Chem., 2004, 2, 127–132.on Attribution     94 Z. Wu,  B.  Ramsundar,  E.  N.  Feinberg,   J.  Gomes,  110 M. Reese, V. M. S´anchez-Pedregal, K. Kubicek, J. Meiler,
+              C. Geniesse, A. S. Pappu and V. Pande, Chem. Sci., 2018,      M.  J.  J. Blommers, C. Griesinger and T. Carlomagno,
+                9, 513–530.                                             Angew Chem. Int. Ed. Engl., 2007, 46, 1864–1868.       Commons
+         95 RDKit:    Open-source    cheminformatics,      https://  111 D. W. Carney, K. R. Schmitz, J. V. Truong, R. T. Sauer andDownloaded
+              www.rdkit.org.                                                                          J. K. Sello, J. Am. Chem. Soc., 2014, 136, 1922–1929.2026. Creative     96 M. Swain, MolVS: Molecule Validation and Standardization,  112 M. Bedrosian and H. Khachatrian, ICML 2025 Generative AI
+May a        https://github.com/mcs07/MolVS, 2018, Accessed: 2024-1-      and Biology (GenBio) Workshop, 2025.
+              15.                                                  113 M. H. Maeda and K. Kondo, J. Chem. Inf. Model., 2013, 53,12 under
+on       97 P. Ertl, S. Roggo and A. Schuﬀenhauer, J. Chem. Inf. Model.,       527–533.
+             2008, 48, 68–74.                                       114 L. Ge, Q. Gao, J. He, X. Wang, J. Huang, H. Zhang and        licensed
+  is     98 E. J. Bjerrum, arXiv, 2017, preprint, arXiv:1703.07076, DOI:        Z. Qin, ACS Omega, 2025, 10, 5105–5110.Published           10.48550/arXiv.1703.07076.                             115 Z. Liu, W. Zhang, Y. Xia, L. Wu, S. Xie, T. Qin, M. Zhang and
+       article     99 X. Li and D. Fourches, J. Chem. Inf. Model., 2021, 61, 1560–        T.-Y. Liu, Proceedings of the 61st Annual Meeting of the,
+             1569.                                                          Association  for  Computational  Linguistics,  2023,  pp.Article. This
+Access      100 U.2023,V. 15,Ucak,55. I. Ashyrmamatov and J. Lee, J. Cheminform.,  116 C.1606–1616.Edwards, C. Han, G. Lee, T. Nguyen,  S. Szymku´c,
+Open      101 G.2887–2893.W. Bemis and M. A. Murcko, J. Med. Chem., 1996, 39,       C.B. A.K. Grzybowski,Prasad, B. Jin,M. J.D.Han,BurkeY. andDiao,H.G.Ji,Liu,arXiv,H. Peng,2026,
+         102 Q. Guo, S. Hernandez-Hernandez and P. J. Ballester, 33rd       preprint,      arXiv:2505.12565,     DOI:      10.48550/
+               International  Conference  on  Articial  Neural  Networks       arXiv.2505.12565.
+            (ICANN 2024), Lecture Notes in Computer Science, 2024, vol.  117 H. Heberle, L. Zhao, S. Schmidt, T. Wolf and J. Heinrich, J.
+             15025, pp. 58–72.                                             Cheminform., 2023, 15, 2.
+
+
+
+
+
+           Nat. Prod. Rep.                                                                     This journal is © The Royal Society of Chemistry 2026

@@ -1,0 +1,1151 @@
+
+[PDF physical page 1]
+                                                       Metabolic Engineering 81 (2024) 123–143
+
+                                                 Contents lists available at ScienceDirect
+                            Metabolic Engineering
+
+
+                                          journal homepage: www.elsevier.com/locate/meteng
+
+
+Systems metabolic engineering of the primary and secondary metabolism of
+Streptomyces albidoflavus enhances production of the reverse antibiotic
+nybomycin against multi-resistant Staphylococcus aureus
+Julian Stegmüller a, Marta Rodríguez Est´evez b, Wei Shu a, Lars Gl¨aser a, Maksym Myronovskyi b,
+Christian Rückert-Reed c, J¨orn Kalinowski c, Andriy Luzhetskyy b, Christoph Wittmann a,*
+a Institute of Systems Biotechnology, Saarland University, Saarbrücken, Germany
+b Department of Pharmaceutical Biotechnology, Saarland University, Saarbrücken, Germany
+c Center for Biotechnology, Bielefeld University, Bielefeld, Germany
+
+
+A R T I C L E  I N F O                  A B S T R A C T
+
+Keywords:                                  Nybomycin is an antibiotic compound with proven activity against multi-resistant Staphylococcus aureus, making
+Streptomyces albidoflavus                                        it an interesting candidate for combating these globally threatening pathogens. For exploring its potential,
+Streptomyces albus                                      sufficient amounts of nybomycin and its derivatives must be synthetized to fully study its effectiveness, safetyStaphylococcus aureus                                                          profile, and clinical applications. As native isolates only accumulate low amounts of the compound, superiorAntibiotic                                               producers are needed. The heterologous cell factory S. albidoflavus 4N24, previously derived from the cluster-freeMRSA
+RNA sequencing                                      chassis S. albidoflavus Del14, produced 860 μg L−1 of nybomycin, mainly in the stationary phase. A first round of
+Pentose phosphate pathway                            strain development modulated expression of genes involved in supply of nybomycin precursors under control of
+Shikimic acid pathway                              the common Perm* promoter in 4N24, but without any effect. Subsequent studies with mCherry reporter strains
+Export                                           revealed that Perm* failed to drive expression during the product synthesis phase but that use of two synthetic
+Transcriptional regulation                         promoters (PkasOP* and P41) enabled strong constitutive expression during the entire process. Using PkasOP*,
+mCherry                                            several rounds of metabolic engineering successively streamlined expression of genes involved in the pentose
+Reporter strain                                  phosphate pathway, the shikimic acid pathway, supply of CoA esters, and nybomycin biosynthesis and export,Mannitol                                          which more than doubled the nybomycin titer to 1.7 mg L−1 in the sixth-generation strain NYB-6B. In addition,Fluoroquinolone
+Methicillin                             we identified the minimal set of nyb genes needed to synthetize the molecule using single-gene-deletion strains.
+Gyrase                                           Subsequently, deletion of the regulator nybW enabled nybomycin production to begin during the growth phase,
+                                                    further boosting the titer and productivity. Based on RNA sequencing along the created strain genealogy, we
+                                                discovered that the nyb gene cluster was unfavorably downregulated in all advanced producers. This inspired
+                                            removal of a part and the entire set of the four regulatory genes at the 3′-end nyb of the cluster. The corre­
+                                              sponding mutants NYB-8 and NYB-9 exhibited marked further improvement in production, and the deregulated
+                                                      cluster was combined with all beneficial targets from primary metabolism. The best strain, S. albidoflavus NYB-
+                                                 11, accumulated up to 12 mg L−1 nybomycin, fifteenfold more than the basic strain. The absence of native gene
+                                                       clusters in the host and use of a lean minimal medium contributed to a selective production process, providing an
+                                               important next step toward further development of nybomycin.
+
+
+1. Introduction                                                              antibiotic to a serine residue of the gyrA subunit of the protein via a
+                                                                    hydrated magnesium ion bridge (Blower et al., 2016). However, the
+   Fluoroquinolones are among the most frequently prescribed antibi­     prevalence of and increase in fluoroquinolone resistance (FQR) are
+otics. These compounds target bacterial DNA gyrase, which is involved     significant concerns (Parkinson et al., 2015b). Prominent pathogens
+in DNA replication, by binding the enzyme-DNA complex and blocking     acquire FQR through mutation of the gyrA gene that replaces a serine
+subsequent ligation of double-strand breaks (Aldred et al., 2014; Drlica     residue,  including FQR  methicillin-resistant  Staphylococcus  aureus
+et al., 2009). Typically, the mode of action involves binding of the     (S84L) (Hiramatsu et al., 2012), Bacillus anthracis (S85L) (Price et al.,
+
+ * Corresponding author.
+    E-mail address: christoph.wittmann@uni-saarland.de (C. Wittmann).
+https://doi.org/10.1016/j.ymben.2023.12.004
+Received 11 August 2023; Received in revised form 17 November 2023; Accepted 1 December 2023
+Available online 9 December 2023
+1096-7176/© 2023 The Authors. Published by Elsevier Inc. on behalf of International Metabolic Engineering Society. This is an open access article under the CC
+BY license (http://creativecommons.org/licenses/by/4.0/).
+
+
+[PDF physical page 2]
+J. Stegmüller et al.                                                                                                                           Metabolic Engineering 81 (2024) 123–143
+
+2003), E. coli (S83L) (Vila et al., 1994), Acinetobacter baumannii (S83L)     involves integration of precursors from multiple metabolic pathways,
+(Vila  et  al.,  1995),  vancomycin-resistant  Enterococcus (S83I/R/Y)     including the Emden-Meyerhof-Parnas (EMP), pentose phosphate (PP),
+(Werner et al., 2010), and Klebsiella pneumoniae (S8F/Y) (Deguchi et al.,     ethyl-malonyl-CoA, and shikimic acid (SA) pathways. These converge in
+1997). Remarkably, compounds from the nybomycin (nybomycin,    a complex, nine-step assembly line, culminating in formation of the
+deoxynybomycins, and derivatives) class of natural products display     active nybomycin molecule (Fig. 1B). Research indicates that an abun­
+potent  efficacy  against FQR  methicillin-resistant  S.  aureus  and     dant supply of product precursors is a critical aspect of highly productive
+vancomycin-resistant enterococci in mouse models, and they effectively      cell factories (Kind et al., 2014; Pauli et al., 2023; Rohles et al., 2018,
+inhibit mutated DNA gyrase (S84L) in vitro (Parkinson et al., 2015b). It    2022; Weiland et al., 2023), suggesting that enhancing related pathways
+has been reported that a majority of FQR methicillin-resistant S. aureus     in primary metabolism may be a key strategy for boosting nybomycin
+was eliminated in mice when they were exposed to nybomycins.     production. Hence, nybomycin is an interesting model case from the
+Sequence analysis of the few survivors revealed a backmutation in the     metabolic engineering viewpoint, given the various supporting path­
+gyrA gene that rendered the mutants susceptible to fluoroquinolones    ways involved.
+again. This feature led to the creation of the term ‘reverse antibiotic’        In  this  study,  our  objective  was  to  metabolically  engineer
+(Hiramatsu et al., 2012, 2015; Parkinson et al., 2015a). In addition to      S. albidoflavus 4N24 to augment nybomycin production. Initially, we
+nybomycin, apigenin, a compound from the flavone class, shows such     thoroughly analyzed the nyb gene cluster and, via a series of targeted
+‘reverse antibiotic’ activity against FQR methicillin-resistant S. aureus    gene deletions, pinpointed essential genes for biosynthesis of the com­
+(Morimoto et al., 2015). It has been concluded that concurrent appli­    pound. After identifying the most effective promoters for high-level,
+cation of nybomycins and fluoroquinolones might counteract resistance    dynamic gene expression in the host, we embarked on multiple rounds
+in these pathogens and restore fluoroquinolone efficacy to fight against     of metabolic engineering. This process involved strategic modifications
+them (Bardell-Cox et al., 2019). Additionally, nybomycins exhibit anti­     to key genes within the pentose phosphate (PP) pathway, shikimic acid
+biotic effectiveness against dormant Mycobacterium tuberculosis, along     (SA) pathway, CoA ester supply, and pathways for nybomycin biosyn­
+with a variety of other gram-positive and gram-negative bacteria (Arai     thesis and export. These alterations successively enhanced the produc­
+et  al., 2015; Strelitz et al., 1955). Further studies revealed activity     tion yield from 0.9 mg L−1 in the original 4N24 strain to 1.8 mg L−1 in
+against different cancer cell lines, including A549 (human lung), VA13     the  sixth-generation  variant  S.  albidoflavus NYB-6B. Furthermore,
+(lung fibroblast) (Zakalyukina et al., 2019), Saos-2 (human osteoblastic     comparative transcriptomic analyses across different producing strains
+sarcoma), TMK-1 (gastric cancer) and THP-1 (monocytic leukemia),     revealed an unexpected reduction in nyb cluster expression during peak
+though survival of normal human fibroblasts was not affected (Egawa     production. This insight led to development of the synthetic mutants
+et al., 2000). The remaining challenges of nybomycins include low    NYB-8 and NYB-9, which harbored partial or complete deletions of the
+aqueous solubility and selectivity issues regarding human topoisomer­    nyb regulatory genes, namely, ΔnybWX and ΔnybWXYZ, respectively,
+ase isoforms (Hergenrother and Leys, 2018). Notably, medicinal chem­     resulting in extended synthesis periods. The culmination of these efforts
+istry has provided nybomycin derivatives with increased bioavailability    was  generation   of   the  advanced  genome-engineered   strains
+and novel activity against relevant gram-negative pathogens (Richter      S. albidoflavus NYB-10 and NYB-11, which integrate all favorable mod­
+et al., 2017). Further drug optimization studies may overcome these      ifications  to both primary and secondary metabolism,  ultimately
+issues and advance this class of antibiotics into clinical trials (Bardell-­     achieving a nybomycin titer of 12 mg L−1.
+Cox et al., 2019). Such important research, in turn, requires a sufficient
+supply of compounds.                                                     2. Materials and methods
+   In this regard, researchers recently discovered natural producers of
+nybomycins, including Streptomyces sp. AD-3-6 (Wang et al., 2019),     2.1.  Strains
+Streptomyces hyalinum (Komaki et al., 2020), and S. albus subsp. chlorinus
+NRRL B-24108 (Rodriguez Estevez et al., 2018). Streptomyces sp. AD-3-6         S. albidoflavus Del14, formerly known as S. albus Del14, and its de­
+was found to produce nybomycin at a concentration of 2.5 mg L−1     rivative 4N24 were obtained from previous work (Rodriguez Estevez
+(Wang et al., 2019); S. albus subsp. chlorinus NRRL B-24108, currently     et al., 2018). Streptomyces sp. GBA 94–10 (Ian et al., 2014) served as
+the most productive natural isolate, yielded a concentration of 15 mg    donor of genomic DNA. E. coli DH10B was used for general cloning
+L−1 (Kuhl et al., 2021). However, strain NRRL B-24108 showed genetic     purposes (Thermo  Fisher  Scientific,  Karlsruhe, Germany).  E.  coli
+inaccessibility in subsequent studies (Myronovskyi et al., 2020), hin­    ET12567/pUZ8002 served as a donor for intergenic conjugation (Kieser
+dering its optimization through metabolic engineering. Despite these     et al., 2000). All strains and plasmids used in this study are listed in
+discoveries, fermentative production of nybomycin remains inefficient,     Table 1.
+with reports indicating that 1000 L of fermentation yields only 200–350
+mg of nybomycin (Bardell-Cox et al., 2019). Conversely, while total     2.2. Media
+synthesis of nybomycin has been achieved, it is hampered by low overall
+yields, recorded at 0.84% (Bardell-Cox et al., 2019; Forbis and Rinehart,         E. coli strains were cultured in liquid Lucia-Bertani (LB) medium.
+1970, 1971, 1973), 11% (Parkinson et al., 2015b), and 13% (Nussbaum     Solid LB medium was obtained by adding 20 g L−1 agar (Becton Dick­
+et al., 2009).                                                               inson, Heidelberg, Germany). For sporulation, S. albidoflavus was grown
+   Considering the constraints of both chemical synthesis and biosyn­    on MS agar containing 20 g of D-mannitol (Sigma Aldrich, Taufkirchen,
+thesis in natural sources, development of nybomycin through heterolo­    Germany), 20 g of soy flour (Schoenenberger Hensel, Magstadt, Ger­
+gous production  in engineered recombinant  hosts  is a promising    many), and 20 g of agar (Becton Dickinson) per liter. When needed,
+approach at this stage. In this regard, recent successful transfer and    kanamycin (50 μg mL−1), hygromycin B (50 μg mL−1 for Streptomyces,
+expression of the 35 kb nyb biosynthesis-related gene cluster from    100 μg mL−1 for E. coli), and apramycin (50 μg mL−1) were added for
+S.  albus subsp.  chlorinus NRRL B-24108  (Fig. 1A)  into the  well-     selection. When using suicide vectors for in-frame deletion of genes of
+established production host S. albidoflavus Del14 (formerly known as      interest,   5-bromo-4-chloro-1H-indol-3-yl   β-D-glucopyranosiduronic
+S. albus Del14) marks a significant advancement (Rodriguez Estevez     acid (X-Gluc, 40 μg mL−1) was added to the LB plate medium for blue‒
+et  al., 2018). This development led to creation of the derivative     white screening. For nybomycin production, strains were precultured in
+S. albidoflavus 4N24, facilitating the  first instance of heterologous     liquid ISP medium (pH 7.2) containing 3 g of yeast extract (Beckton
+nybomycin production (Rodriguez Estevez et al., 2018). The deciphered     Dickinson) and 5 g of tryptone (Beckton Dickinson) per liter. For sec­
+biosynthetic pathway, as inferred from the predicted functions of nyb    ondary  metabolite  expression  and  nyb  cluster  characterization,
+genes, presents a multifaceted process. Synthesis of the antibiotic      S. albidoflavus strains were grown in liquid DNPM medium (40 g L−1
+
+                                                                       124
+
+
+[PDF physical page 3]
+J. Stegmüller et al.                                                                                                                           Metabolic Engineering 81 (2024) 123–143
+
+
+
+
+
+Fig. 1. Genetics and biochemistry of nybomycin biosynthesis in Streptomyces. The data show the nyb encoding gene cluster from S. albus subsp. chlorinus NRRL
+B-24108 (Rodriguez Estevez et al., 2018) (A) and the suggested biosynthetic pathway (B). For the latter, erythrose 4-phosphate (E4P) and phosphoenolpyruvate
+(PEP) are supplied from the PP and EMP pathways to yield shikimic acid and chorismic acid, mainly via endogenous aromatic amino acid biosynthesis (AroABCEKQ)
+(Euverink, 1995; Parthasarathy et al., 2018). Further conversion into 2,6-diaminophenol via 4-aminoanthranilic acid is encoded by the genes nybC, nybD, nybE, nybL
+and nybP. Next, the aromatic ring is extended by the attachment of two acetoacetyl-CoA residues, followed by closure of the pyridine rings and methylation of the two
+nitrogen atoms. The subsequent formation of an oxazoline ring provides deoxy-nybomycin, which is ultimately hydroxylated to yield nybomycin (Rodriguez Estevez
+et al., 2018).
+
+
+
+                                                                       125
+
+
+[PDF physical page 4]
+J. Stegmüller et al.                                                                                                                           Metabolic Engineering 81 (2024) 123–143
+
+Table 1                                                                 Table 1 (continued)
+Strains and plasmids.                                                                                             Strains/Plasmids      Description                               Reference
+  Strains/Plasmids      Description                               Reference                                                                                              24108 and zwf2 (B591 RS24345) from
+  Strains                                                                                                                           S. albidoflavus sp. GBA 94–10 under
+  E. coli                                                                                                              control of PkasOP*
+ DH10B             F– mcrA Δ(mrr-hsdRMS-mcrBC)          Thermo Fisher          NYB-4C           4N24 expressing nybF (FM076 RS29120)    This work
+                   φ80lacZΔM15 ΔlacX74 recA1 endA1         Scientific                                  from S. albus subsp. chlorinus NRRL B-
+                    araD139 Δ (ara-leu)7697 galU galK λ–                                             24108 and tkt (B591 RS24355) from
+                       rpsL (StrR) nupG                                                                            Streptomyces sp. GBA 94–10 under control
+  ET12567/           Nonmethylating ET12567 containing        Kieser et al.                                       of PkasOP*
+   pUZ8002           nontransmissible RP4 derivative plasmid    (2000)                NYB-4D           4N24 expressing nybF (FM076 RS29120)    This work
+                    pUZ8002, CmR, KanR                                                              from S. albus subsp. chlorinus NRRL B-
+                                                                                                       24108, tkt (B591 RS24355), and zwf2
+                                                                                                   (B591 RS24345) from Streptomyces sp.
+  Streptomyces sp.     Donor of genomic DNA for cloning          Ian et al. (2014)                       GBA 94–10 under control of PkasOP*
+                      purposes                                                  NYB-5            4N24 with in-frame deletion of nybW       This work
+ GBA 94–10                                                                NYB-6A           NYB-5 expressing tkt (B591 RS24355)       This work
+                                                                                                 and zwf2 (B591 RS24345) from
+  S. albidoflavus                                                                                                     Streptomyces sp. GBA 94–10 under control
+  4N24                   S. albidoflavus Del14, formerly S. albus      Rodriguez                                         of PkasOP*
+                       Del14, expressing BAC 4N24 for            Estevez et al.           NYB-6B           NYB-5 expressing nybF (FM076 RS29120)    This work
+                       heterologous nybomycin production        (2018)                                    from S. albus subsp. chlorinus NRRL B-
+  4N24 Δorf-07       4N24 with in-frame deletion of orf-07       This work                                24108 and zwf2 (B591 RS24345) from
+  4N24 Δorf-06       4N24 with in-frame deletion of orf-06       This work                                       Streptomyces sp. GBA 94–10 under control
+  4N24 Δorf-05       4N24 with in-frame deletion of orf-05       This work                                         of PkasOP*
+  4N24 Δorf-04       4N24 with in-frame deletion of orf-04       This work              NYB-6C           NYB-5 expressing nybF (FM076 RS29120)    This work
+  4N24 Δorf-03       4N24 with in-frame deletion of orf-03       This work                                  from S. albus subsp. chlorinus NRRL B-
+  4N24 Δorf-02       4N24 with in-frame deletion of orf-02       This work                                24108 and tkt (B591 RS24355) from
+  4N24 Δorf-01       4N24 with in-frame deletion of orf-01       This work                                       Streptomyces sp. GBA 94–10 under control
+  4N24 ΔnybA       4N24 with in-frame deletion of nybA        This work                                         of PkasOP*
+  4N24 ΔnybB       4N24 with in-frame deletion of nybB        This work              NYB-7             NYB-5 expressing nybF                     This work
+  4N24 ΔnybC       4N24 with in-frame deletion of nybC        This work                                 (FM076_RS29120) from S. albus subsp.
+  4N24 ΔnybT        4N24 with in-frame deletion of nybT        This work                                          chlorinus NRRL B-24108, and tkt
+  4N24 ΔnybU       4N24 with in-frame deletion of nybU        This work                                  (B591_RS24355) and zwf2
+  4N24 ΔnybV       4N24 with in-frame deletion of nybV        This work                                  (B591_RS24345) from Streptomyces sp.
+  4N24 ΔnybX       4N24 with in-frame deletion of nybX        This work                           GBA 94–10 under control of PkasOP*
+  4N24 ΔnybY       4N24 with in-frame deletion of nybY        This work              NYB-8            4N24 with in-frame deletion of nybWX      This work
+  4N24 ΔnybZ        4N24 with in-frame deletion of nybZ        This work              NYB-9            4N24 with in-frame deletion of nybWXYZ    This work
+  NYB-1A           4N24 expressing tkt (B591 RS24355)        This work              NYB-10            NYB-8 expressing nybF (FM076 RS29120)    This work
+                     from Streptomyces sp. GBA 94–10 under                                               from S. albus subsp. chlorinus NRRL B-
+                        control of PermE*                                                              24108 and zwf2 (B591 RS24345) from
+  NYB-1B           4N24 expressing zwf2 (B591 RS24345)      This work                                       Streptomyces sp. GBA 94–10 under control
+                     from Streptomyces sp. GBA 94–10 under                                                         of PkasOP*
+                        control of PermE*                                            NYB-11            NYB-9 expressing nybF (FM076 RS29120)    This work
+  NYB-1C           4N24 expressing aroI (NCgl0950) with      This work                                  from S. albus subsp. chlorinus NRRL B-
+                       the amino acid exchange S187C from                                             24108 and zwf2 (B591 RS24345) from
+                        C. glutamicum ATCC 13032 under control                                                     Streptomyces sp. GBA 94–10 under control
+                         of PermE*                                                                                        of PkasOP*
+  NYB-2A           4N24 expressing tkt (B591_RS24355)        This work               RFP-1            4N24 expressing mCherry under control     This work
+                     from Streptomyces sp. GBA 94–10 under                                                         of PermE*
+                        control of PkasOP*                                               RFP-2            4N24 expressing mCherry under control     This work
+  NYB-2B           4N24 expressing zwf2 (B591_RS24345)      This work                                         of PtipA
+                     from Streptomyces sp. GBA 94–10 under                            RFP-3            4N24 expressing mCherry under control     This work
+                        control of PkasOP*                                                                                of PSF14
+  NYB-2C           4N24 with in-frame deletion of ppc (XNR,    This work               RFP-4            4N24 expressing mCherry under control     This work
+                     2069)                                                                                           of P21
+  NYB-2D           4N24 expressing aroG (P0AB91) with the    This work               RFP-5            4N24 expressing mCherry under control     This work
+                    amino acid exchange D146N from E. coli                                                       of PSP43
+                   K12 under control of PkasOP*                                     RFP-6            4N24 expressing mCherry under control     This work
+  NYB-2E           4N24 expressing aroI (NCgl0950) with      This work                                         of PSP44
+                       the amino acid exchange S187C from                             RFP-7            4N24 expressing mCherry under control     This work
+                        C. glutamicum ATCC 13032 under control                                                       of PkasOP*
+                         of PkasOP*                                                     RFP-8            4N24 expressing mCherry under control     This work
+  NYB-2F           4N24 expressing nybF (FM076 RS29120)    This work                                         of PSP41
+                     from S. albus subsp. chlorinus NRRL B-                              Plasmids/BACs
+                   24108 under control of PkasOP*                               4N24            BAC containing the nybomycin            Rodriguez
+  NYB-3A           4N24 expressing nybM (FM076 RS29150)    This work                                        biosynthetic gene cluster                   Estevez et al.
+                     from S. albus subsp. chlorinus NRRL B-                                                                                          (2018)
+                   24108 under control of PkasOP*                               4N24 ΔnybW       4N24 with in-frame replacement of nybW    This work
+  NYB-3B           4N24 expressing nybV (FM076 RS2919)     This work                               (FM076 RS29200) by KanR
+                     from S. albus subsp. chlorinus NRRL B-                         4N24 ΔnybWX      4N24 with in-frame replacement of nybW    This work
+                   24108 under control of PkasOP*                                                 (FM076 RS29200), nybX
+  NYB-4A           4N24 expressing tkt (B591 RS24355) and    This work                                 (FM076_RS29205) by KanR
+                      zwf2 (B591 RS24345) from Streptomyces                        4N24 ΔnybWXYZ    4N24 with in-frame replacement of nybW    This work
+                          sp. GBA 94–10 under control of PkasOP*                                           (FM076 RS29200), nybX
+  NYB-4B           4N24 expressing nybF (FM076 RS29120)    This work                                  (FM076_RS29205), nybY
+                     from S. albus subsp. chlorinus NRRL B-                                                (FM076_RS29210), and nybZ
+                                                                                                 (FM076_RS29215) by KanR
+                                                                                                                                                              (continued on next page)
+
+                                                                       126
+
+
+[PDF physical page 5]
+J. Stegmüller et al.                                                                                                                           Metabolic Engineering 81 (2024) 123–143
+
+Table 1 (continued)                                                              2.3. Molecular biology and genetic engineering
+  Strains/Plasmids      Description                               Reference
+                                                                SnapGene software (GSL Biotech LLC, San Diego, CA, USA) was used
+  pRT801               Integrative plasmid containing oriT, attP,    Gregory et al.          for strain, plasmid, and primer design. Selected gene deletions were                              int phiBT1, and aac3(IV)                  (2003)
+  pKG1132             Suicide vector for genome-based           Barton et al.          introduced into BAC 4N24 in E. coli using RedET cloning (Myronovskyi
+                       modification of actinobacteria,             (2018)                et al., 2018). DNA fragments of interest were amplified by PCR (2 ×
+                      comprising ori for E. coli, and AmR and                      Phusion High-Fidelity PCR Master Mix with GC Buffer, Thermo Scien­
+                      gusA as selection markers                                                tific, Waltham, MA, USA) using sequence-specific primers (Supple­  pKG1132hyg         Suicide vector for genome-based              Gl¨aser et al.
+                       modification of actinobacteria,            (2021b)           mentary File 1, Table S1). Prior to assembly, the amplified fragments
+                      comprising ori for E. coli, and AmR and                     were extended with 20 bp overhangs at their 5′-end. Afterward, they
+                      gusA as selection markers                              were purified (Wizard SV Gel, PCR Clean-Up System, Promega, Man­
+  pDppc4              Suicide vector derivative of pKG1132hyg    This work           nheim, Germany) and assembled in vitro with the linearized vector. The
+                          for in-frame deletion of XNR 2069 in                              latter was obtained by treatment with endonucleases (EcoRV, SnaBI,                  4N24
+  pBT1H                Integrative plasmid containing oriT, attP,    This work             PvuII) and alkaline phosphatase. The reaction mixture contained 157.5
+                              int phiBT1, hph,                       mM Tris⋅HCl (pH 7.5), 15.75 mM MgCl2, 15.75 mM DTT, 42 mg μL−1
+  pBT1HP              Integrative plasmid containing oriT, attP,    This work           PEG-800, 0.6 mg μL−1 NAD, 25 mU μL−1 Phusion High-Fidelity DNA
+                              int phiBT1, hph, PermE*, tfd                               Polymerase (Thermo Fisher Scientific), 7.5 mU μL−1 T5 exonuclease  pBT1H tkt1           integrative plasmid containing PermE* tkt,    This work
+                   HygR                                                     (Epicentre, Madison, WI, USA), 4 U μL−1 Taq Ligase (Thermo Fisher
+  pBT1H zwf2          integrative plasmid containing PermE*        This work              Scientific), and 0.3 mM dNTPs. The assembled plasmids were trans­
+                        zwf2, HygR                                                ferred into E. coli DH10B cells by heat shock (Sambrook and Russell,
+  pBT1HP aroIfbr       integrative plasmid containing PermE*        This work           2001), followed by selection. Subsequently, the plasmids were multi­                           aroIfbr, HygR                                                                            plied in the cloning host, isolated (QIAprep Spin MiniPrep Kit, Qiagen,  pBT1HP              integrative plasmid containing PermE*        This work
+    ermCherry         mCherry, HygR                                           Hilden, Germany), verified for correctness by PCR, subjected to re­
+  pBT1H-kasOP*        integrative plasmid containing PkasOP*       This work              striction digestion and sequencing (Genewiz Germany GmbH, Leipzig,
+   mCherry           mCherry, HygR                                      Germany), transferred into the methylation-deficient donor E.  coli
+  pBT1H–P21           integrative plasmid containing P21          This work          ET12567/pUZ8002 for amplification, and subsequently transferred into   mCherry           mCherry, HygR
+  pBT1H-PtipA         integrative plasmid containing PtipA         This work              S. albidoflavus by intergenic conjugation (Kieser et al., 2000). In short,
+   mCherry           mCherry, HygR                                           spores obtained from four-day-old mannitol soy (MS) agar plates were
+  pBT1H-SF14P         integrative plasmid containing PSF14        This work          washed off using sterile water, mixed with E. coli ET12567/pUZ8002
+   mCherry           mCherry, HygR                                           (containing the recombinant plasmid of interest) and plated on fresh MS
+  pBT1H-SP41          integrative plasmid containing PSP41        This work             agar. After incubation for 16 h at 30 ◦C, the plates were overlaid with   mCherry           mCherry, HygR
+  pBT1H-SP43          integrative plasmid containing PSP43        This work          phosphomycin (200 μg mL−1) and hygromycin (50 μg mL−1). Exconju­
+   mCherry           mCherry, HygR                                          gants were passaged on fresh MS plates containing phosphomycin and
+  pBT1H-SP44          integrative plasmid containing PSP44        This work           hygromycin. The desired genomic integration was verified by PCR and
+   mCherry           mCherry, HygR                                          sequencing. Integrase-mediated site-specific recombination involving  pBT1H-kasOP* tkt    integrative plasmid containing PkasOP* tkt,    This work
+                   HygR                                              phiBT1 integrase and its associated attP attachment site was used to
+  pBT1H-kasOP*        integrative plasmid containing PkasOP*       This work             integrate expression plasmids into the genomic locus XNR_3921 (inte­
+    zwf2               zwf2, HygR                                                 gral membrane protein) of S. albidoflavus (Gregory et al., 2003). When
+  pBT1H-kasOP*        integrative plasmid containing PkasOP*       This work            using suicide plasmids for in-frame gene deletion, 3 μL X-Gluc (100 mg
+   nybV              nybV, HygR                                      mL−1) was sprinkled onto spores. After 20–30 min of incubation at  pBT1H-kasOP*        integrative plasmid containing PkasOP*       This work
+   nybM            nybM, HygR                                     30 ◦C, the spores were evaluated for blue coloration. Blue-stained
+  pBT1H-               integrative plasmid containing PkasOP*       This work            exconjugants that had undergone a single crossover were passaged on
+   pkasOP*nybF       nybF, HygR                              MS agar without selection pressure, washed off, diluted serially, and
+  pBT1H-kasOP*-       integrative plasmid containing PkasOP*       This work            plated on MS agar supplemented with X-Gluc (40 μg mL−1) to screen for    aroGfbr            aroGfbr, HygR
+  pBT1H-kasOP*-       integrative plasmid containing PkasOP*       This work           white colonies that had undergone the second crossover. White colonies
+    aroIfbr               aroIfbr, HygR                                      were analyzed by PCR to differentiate between the desired mutant and
+  pBT1H-kasOP*-       integrative plasmid containing PkasOP*       This work            reverted wildtype. For gene deletion within the nybomycin cluster, the
+   nybF zwf2         nybF, zwf2, HygR                                     gene to be removed was individually replaced via Red/ET recombin­
+  pBT1H-kasOP*-       integrative plasmid containing PkasOP*       This work            eering by a resistance marker that was later removed. The resulting   nybF tkt           nybF, tkt, HygR
+  pBT1H-kasOP*-       integrative plasmid containing PkasOP* tkt,    This work           knockout BAC variants were introduced into S. albidoflavus Del14 via
+     tkt zwf2            zwf, HygR                                               conjugation.
+  pBT1H kasOP*        integrative plasmid containing PkasOP*       This work
+   nybF tkt zwf2      nybF, tkt, zwf2, HygR                                          2.4.  Cultivation in shake flasks for nybomycin production
+
+dextrin, 7.5 g L−1 soytone, 5 g L−1 yeast extract, and 21 g L−1 MOPS, pH        Liquid cultures were incubated in 500 mL baffled shake flasks filled
+6.8). The main cultures for production of nybomycin were grown in     with 50 mL of medium and 30 g of glass beads (soda-lime glass, 5 mm,
+chemically defined medium containing the following per liter: 10 g of D-    Sigma‒Aldrich) on an orbital shaker (230 rpm, 75% relative humidity,
+mannitol, 15 g of (NH4)2SO4, 20.9 g of MOPS, 0.5 g of K2HPO4, 1 g of    28 ◦C, 5 cm shaking diameter, Multitron, Infors AG, Bottmingen,
+NaCl, 0.55 g of CaCl2, 0.2 g of MgSO4⋅7H2O, 0.02 g of FeSO4⋅7H2O, 2 mg     Switzerland). Spores from a single colony of a plate culture were har­
+of FeCl3⋅6H2O, 2 mg of MnSO4⋅H2O, 0.5 mg of ZnSO4⋅H2O, 0.5 mg of     vested and inoculated into the first preculture on ISP medium, which
+CuCl2⋅2H2O,  0.2  mg  of  Na2B4O7⋅10H2O,  0.1  mg  of  (NH4)    was incubated overnight. Then, the cells were collected (5000×g, 25 ◦C,
+6Mo7O24⋅4H2O, 1 mg of nicotinamide, 1 mg of riboflavin, 0.5 mg of    6 min) and resuspended in minimal or complex medium for a second
+thiamine hydrochloride, 0.5 mg of pyridoxine hydrochloride, 0.2 mg of     preculture, followed by incubation overnight. Afterward, the cells were
+biotin, and 0.1 mg of p-aminobenzoic acid.                                 collected (5000×g, 25 ◦C, 6 min) and used to inoculate the main culture
+                                                                              in minimal or complex medium, as described below. All growth and
+                                                                      production experiments were conducted in biological triplicates.
+
+                                                                       127
+
+
+[PDF physical page 6]
+J. Stegmüller et al.                                                                                                                           Metabolic Engineering 81 (2024) 123–143
+
+2.5.  Cultivation at the miniaturized scale for promoter screening              extraction step. Afterward, the two organic fractions were collected, and
+                                                                        the solvent was removed by freeze drying. The obtained solid was dis­
+   The first and second precultures were performed in shake flasks, as     solved in a mixture of methanol and DMSO (1:1) and clarified from
+described above. The screening experiments were conducted in a     debris (20,000×g, 10 min, 4 ◦C). Quantification of nybomycin was
+microplate-based microbioreactor (Biolector I, Beckman Coulter GmbH,    conducted by LC‒ESI‒MS/MS using an HPLC system (Agilent Infinity,
+Baesweiler, Germany) using 48-well flower plates filled with 1 mL of    1290 System, Santa Clara, CA, USA) coupled to a triple quadrupole mass
+minimal mannitol medium each and incubated at 1300 rpm, 28 ◦C, and     spectrometer (QTRAP 6500+, AB Sciex, Darmstadt, Germany) (Gl¨aser
+80% relative humidity (Becker et al., 2018; Christmann et al., 2023).     et al., 2021a). Separation was conducted using a C18 column (Vision HT
+The cultures were monitored online using photometric measurement of    C18  HighLoad,  100 mm ×  2  mm,  1.5  μm,  Dr.  Maisch,
+the optical density at 620 nm (OD620) and fluorescence-based quantifi­    Ammerbuch-Entringen, Germany) at 45 ◦C, applying a linear gradient
+cation of expression of mCherry (Kohlstedt et al., 2018). All experiments    (0–7 min, 10% B to 90% B) of eluent B (0.1% formic acid in acetonitrile)
+were conducted in triplicate.                                               against eluent A (0.1% formic acid in water) at a flow rate of 500 μL
+                                                                    min−1. Nybomycin was detected in the positive mode using selected ion
+2.6. Quantification of cell concentration                                  monitoring of the [M + H]+ adduct (m/z 299.1) (Rodriguez Estevez
+                                                                                 et al., 2018). Quantification was based on external standards (Cayman
+    Cells from cultures on minimal medium with 10 g L−1 mannitol were     Chemical, Ann Arbor, USA).
+collected by centrifugation (5000×g, 4 ◦C, 6 min) and washed twice with
+0.9% NaCl. Subsequently, the pellets were freeze-dried, and the cell dry     2.10. Transcriptomics
+weight (CDW) was gravimetrically measured (HB43–S, Mettler-Toledo,
+Columbus, OH, USA) (Kuhl et al., 2020). In addition, the cell concen­       Sample preparation and RNA sequencing were performed as previ­
+tration was analyzed by measuring the optical density (OD600) at 600     ously described (Gl¨aser et al., 2021a; Kuhl et al., 2020, 2021). In short,
+nm. Measurements were conducted in triplicate. Systematic analysis of      cells (1 mL broth) were collected by centrifugation (20,000×g, 4 ◦C, 1
+S. albidoflavus 4N24 cultures yielded a linear correlation between CDW    min) and immediately frozen in liquid nitrogen. RNA was extracted with
+and OD600, which was valid for the entire cultivation: CDW [g L−1] =     the Qiagen RNA Mini kit (Qiagen, Hilden, Germany) according to the
+0.438 × OD600 (Supplementary  file 1,  Fig. S1). The correlation     manufacturer’s instructions. Residual DNA was removed by digestion
+revealed that OD600 readings for the shake flask cultures provided a     with 10 U RNase-free DNase I (Thermo Scientific) for 1 h in the presence
+rough estimate of CDW (Kuhl et al., 2020).                                  of RiboLock RNase inhibitor (Thermo Scientific). After DNA digestion,
+                                                                        the RNA was again purified with the same kit. The RNA quality was
+2.7. Quantification of sugars and inorganic ions                          checked by Trinean Xpose (Trinean NV, Gentbrugge, Belgium) and
+                                                                          Agilent RNA 6000 Nano Kit with an Agilent 2100 Bioanalyzer (Agilent
+   Mannitol was quantified by isocratic HPLC (Agilent Series 1260 In­     Technologies,  B¨oblingen, Germany). Ribosomal RNA (rRNA) was
+finity, Agilent) using an Aminex HPX-87H column (300 × 7.8 mm 9 μm,    removed from total RNA with Ribo-Zero rRNA Removal Kit (Illumina,
+Bio-Rad, Hercules, CA, USA) at 65 ◦C as the stationary phase and 3 mM    San Diego, CA, USA), and removal of rRNA was checked using Agilent
+H2SO4 as the mobile phase at a flow rate of 0.5 mL min−1 (Hoffmann   RNA 6000 Pico Kit and an Agilent 2100 Bioanalyzer (Agilent Technol­
+et  al., 2018). Detection and quantification were accomplished by     ogies). cDNA libraries were prepared with TruSeq Stranded mRNA Li­
+refractive index measurement using external standards. Phosphate was     brary Prep Kit (Illumina), and the resulting cDNA was paired-end
+quantified by HPIC (Dionex Integrion, Thermo Fisher Scientific), as    sequenced using an Illumina HiSeq 1500 system with a 2 × 75 bp read
+previously described (Kuhl et al., 2020). Ammonium was analyzed by     length. Reads were mapped to the  S.  albidoflavus J1074 genome
+HPIC (Dionex Integrion, Thermo Fisher Scientific) using a Dionex IonPac    sequence (CP059254.1) with Bowtie2 using standard settings (Lang­
+CS16-4 μm column (2 × 250 mm, Thermo Fisher Scientific), 30 mM    mead and Salzberg, 2012), except for increasing the maximal allowed
+methanesulfonic acid as the mobile phase (40 ◦C, 0.16 mL min−1)     distance for paired reads to 600 bases. For visualization of read align­
+(Jovanovic Gasovic  et  al., 2023), and conductivity measurement.    ments and raw read count calculation, ReadXplorer 2.2.3 was used
+External standards were used for quantification.                            (Hilker et al., 2014). For the resulting data, DESeq2 (Love et al., 2014)
+                                                            was used to QC the datasets via, for example, calculation of the
+2.8. Secondary metabolite extraction and characterization                   sample-to-sample distances (Supplementary file 1, Fig. S2) and PCA
+                                                                   (Supplementary file 1, Fig. S3). In addition, DESeq2 was employed to
+   Metabolites were extracted from the culture supernatant using n-     calculate DGE datasets. The raw datasets (sequenced reads) as well as
+butanol, evaporated, and dissolved in methanol. A sample of 1 μL was     processed datasets (input matrix & normalized read counts from
+then separated using a Dionex Ultimate 3000 UPLC (Thermo Fisher    DESeq2) are available from GEO (GSE240471). For statistical analysis,
+Scientific), a reversed-phase column (ACQUITY UPLC BEH C18 column,     Student’s t-test was carried out, and the data were filtered for genes with
+100 mm, 1.7 μm, Waters, Milford, MA, USA), and a linear gradient of    a log2-fold change ≥1 (p value ≤0.05). Hierarchical clustering was
+0.1% formic acid in acetonitrile against 0.1% formic acid in water (5%–    conducted using the software package gplots (R core Team, 2014;
+95% in 18 min) at a flow rate of 0.6 mL min−1. The analytes were    Warnes et al., 2016). RNA extraction and sequencing were conducted in
+detected and characterized for fragmentation patterns and accurate     biological triplicate.
+masses using an amaZon speed MS ion trap (Bruker, Billerica, MA, USA)
+and a maXis high-resolution LC-QTOF, respectively (Bruker). Data were     3. Results and discussion
+collected and analyzed using Bruker Compass Data Analysis software
+(version 4.1, Bruker).                                                          3.1. Characterization of the nybomycin gene cluster through targeted gene
+                                                                                   inactivation identified all essential genetic elements for biosynthesis
+2.9. Quantification of nybomycin
+                                                                  As recently shown, transfer of the bacterial artificial chromosome
+   Nybomycin was extracted from culture broth using n-butanol. In    (BAC) 4N24 containing the nybomycin gene cluster from S. albidoflavus
+short, 200 μL of broth was mixed with 600 μL of n-butanol and incubated     subsp. chlorinus into the host S. albidoflavus Del14 enabled heterologous
+for 15 min (1400 rpm, 23 ◦C, Thermomixer F1.5 Eppendorf, Wesseling,     production of the compound in the new derivative S. albidoflavus 4N24
+Germany). The organic phase was collected (20,000×g, 5 min, 4 ◦C), and     (Rodriguez Estevez et  al., 2018). To elucidate which of the genes
+400 μL of n-butanol was mixed with the aqueous phase for a second    encoded in the transferred BAC 4N24  (Fig. 1A) are essential for
+
+                                                                       128
+
+
+[PDF physical page 7]
+J. Stegmüller et al.                                                                                                                           Metabolic Engineering 81 (2024) 123–143
+
+nybomycin biosynthesis, we performed a series of single gene deletions.     exhibit sequences homologous to the streptonigrin biosynthetic stn gene
+    First, we individually deleted the genes orf-01 to orf-07 in strain     cluster (Rodriguez Estevez et al., 2018). Although the corresponding
+4N24. The sequences of orf-01, orf-02, orf-03, orf-04, and orf-06 are    homologous stn genes presumably participate in streptonigrin biosyn­
+predicted to encode hypothetical proteins, while orf-05 putatively codes      thesis, their specific function in this process remains unknown. To study
+for an ATP-binding protein and orf-07 for a streptomycin resistance     the role of the three nyb genes, we inactivated their function. Nybomycin
+protein (Rodriguez Estevez et al., 2018). We hypothesized that none of    was not detected in extracts of 4N24 ΔnybA and 4N24 ΔnybC, con­
+these seven genes participate in nybomycin biosynthesis. While this was     firming that the encoded 3-carboxy-cis, cis-muconate cycloisomerase
+confirmed for most of them, LC/MS analysis unexpectedly revealed that    and NADPH: quinone reductase activities, respectively, are both essen­
+deletion  of  orf-02  abolished  production,  indicating an important      tial (Fig. 2A). In contrast, deletion of nybB, encoding an FAD-binding
+contribution of this gene to the biosynthetic pathway (Fig. 2A). BLAST     protein, did not affect production, though reduced levels were detec­
+analysis of the encoded protein sequence revealed 50% similarity to a     ted (Fig. 2A). Further downstream, five genes are predicted to be
+putative transposase (A0A2T0GVF8) and, furthermore, the presence of     nonessential: nybV, which putatively encodes a transporter of the major
+an endonuclease domain (Pfam: PF13546), suggesting interaction of the      facilitator superfamily (MFS), nybW, nybX, and nybZ, predicted to
+Orf-02 protein with DNA structures. In conclusion, orf-02 displays the    encode transcriptional regulators, and nybY, encoding a hypothetical
+new left boundary of the minimal cluster (Fig. 2B). In addition to orf-01,     protein (Rodriguez Estevez et al., 2018). After individual gene inacti­
+the next genes downstream of orf-02 are nybA, nybB, and nybC, which     vation, production of nybomycin was massively reduced in strains 4N24
+
+
+
+
+
+Fig. 2. Elucidation of gene function and identification of the minimal gene cluster for nybomycin biosynthesis in S. albidoflavus 4N24 using single gene
+deletion mutants. The data display LC‒MS spectra of cultivation extract from S. albidoflavus 4N24 (WT) and the single gene deletion mutants Δorf-02, ΔnybA,
+ΔnybB, ΔnybC, ΔnybW, ΔnybT, and ΔnybU. The data represent the extracted ion chromatogram for m/z 299.10 ± 0.1 Da (nybomycin) and m/z 285.1 ± 0.1 Da
+(intermediate) (A). In addition, the newly identified minimal nybomycin gene cluster is shown (B). The genes from orf-02 to nybT, except for orf-01, are essential for
+nybomycin biosynthesis.
+
+                                                                       129
+
+
+[PDF physical page 8]
+J. Stegmüller et al.                                                                                                                           Metabolic Engineering 81 (2024) 123–143
+
+ΔnybV, 4N24 ΔnybX, 4N24 ΔnybY, and 4N24 ΔnybZ (Supplementary file
+1, Fig. S4). In contrast, the 4N24 ΔnybW mutant produced slightly more
+nybomycin (Fig. 2A). Next, nybU and nybT were chosen for inactivation.
+The protein sequences of the two genes revealed high similarity (83%),
+and the encoded proteins were supposed to close the oxazoline ring
+during nybomycin biosynthesis (Fig. 1B). Both genes were predicted to
+code for isopenicillin N synthases (IPNS) which catalyze a chemically
+related thiazolidine ring closure during the synthesis of β-lactam anti­
+biotics (Rodriguez Estevez et al., 2018). We observed weak production
+in both single-gene-deletion mutants (Fig. 2A). Interestingly, strain
+4N24 ΔnybT accumulated a new derivative in addition to nybomycin.
+High-resolution LC-ESI/MS and UV analysis of the extracted culture
+supernatant indicated that the compound might be nybomycin D (Sup­
+plementary file 1, Fig. S5), a derivative that has been recently copurified
+from the culture broth of a Streptomyces coal mine isolate (Wang et al.,
+2019). The obvious homology between NybT and NybU suggest that
+inactivation of either IPNS function is complemented by the presence of
+the    other,   enabling    biosynthesis    in   the   corresponding
+single-gene-deletion mutants. This hypothesis was confirmed by the fact
+that a double-deletion mutant lacking both nybT and nybU no longer
+produced nybomycin (data not shown). Based on previous sequence
+analysis, it has been suggested that the genes from nybA to nybZ might
+constitute the nybomycin gene cluster (Rodriguez Estevez et al., 2018).
+Our experimental data allowed us to curate this picture. As shown,
+nybomycin synthesis requires the genes from orf-02 to nybT, except for
+orf-01 (Fig. 2B).
+3.2. Mannitol-grown S. albidoflavus 4N24 accumulated up to 860 μg L−1
+nybomycin
+
+   As the starting point for strain development, we quantified nybo­
+mycin production in the original producer S. albidoflavus (albus) 4N24,
+which has been studied only qualitatively for production (Rodriguez
+Estevez et al., 2018). We used a minimal medium because it contains
+only one defined source of carbon, avoiding unresolvable cellular re­
+sponses that would likely result from undefined complex medium in­
+gredients (Schwechheimer  et  al., 2018a, 2018b) and  facilitating
+elucidation of the planned metabolic engineering efforts (Gl¨aser et al.,
+2021a).
+   Mannitol was chosen as the substrate because it enabled significantly
+higher product levels than glucose (Supplementary file 1, Fig. S6A,                                                                                     Fig. 3. Growth and nybomycin production in S. albidoflavus 4N24. TheFig. S6B), as observed in recent studies on oxytetracycline-producing                                                                              data comprise the cultivation profile in shake flasks on minimal mannitol me­S. rimosus (Beganovic et al., 2023). S. albidoflavus 4N24 formed 860                                                                  dium (A) and the activity of the heterologous PermE* promoter over time,
+μg L−1 nybomycin over 275 h (Fig. 3A). Once inoculated, the cells     assessed via a fluorescent reporter strain (S. albidoflavus 4N24 PermE* mCherry)
+started to grow exponentially while consuming mannitol, ammonium,     and online fluorescence monitoring using a miniaturized plate-based bioreactor
+and phosphate. Within 24 h, the supplemented phosphate was depleted.      (B). n = 3.
+The cell concentration increased further until mannitol was exhausted
+after 32 h, which then caused growth to stop. Interestingly, nybomycin    phosphate dehydrogenase in the oxidative branch) (Fig. 4A). Over­
+was detectable during the growth phase, unlike most secondary me­     expression of each gene had previously proven to be efficient in (i)
+tabolites, which are exclusively produced in the stationary phase (Kuhl     increasing the PP pathway flux in the actinobacterium C. glutamicum
+et al., 2020; Ruiz et al., 2010; Seyedsayamdost, 2019). The start of     (Becker et al., 2007, 2011) and (ii) formation of PP pathway-based
+production was likely triggered by the simultaneously occurring phos­     natural products, including violacein and deoxyviolacein in E.  coli
+phate limitation (Gl¨aser et al., 2021b). Taken together, 20% nybomycin     (Rodrigues et al., 2013) and FK506 in S. tsukubaensis (Huang et al.,
+was produced during the growth phase, though the stationary phase was     2013). In the present study, we separately integrated each gene under
+the major phase of production (80%) (Fig. 3A).                            control of the constitutive promotor PermE* (Garcia-Gutierrez et  al.,
+                                                                2020) into the chromosome of S. albidoflavus 4N24, leading to strains
+3.3. PermE* failed to drive nybomycin biosynthesis in engineered           NYB-1A (4N24 PermE* tkt) and NYB-1B (4N24 PermE* zwf2) (Fig. 4B).
+S. albidoflavus 4N24 due to a temporal mismatch between overexpressed      Neither of the two mutants, however, showed improved production: a
+target genes and product formation                                   nybomycin titer of 760 μg L−1 for NYB-1A and 860 μg L−1 r for NYB-1B
+                                                                                   (Fig. 5A).
+   The PP pathway and, further downstream, the SA pathway supply all        Next, we aimed to improve the flux through the SA pathway. To this
+carbon to form 2,6-diaminophenol, the centrepiece of nybomycin     end, we selected the aroIS187C gene from C. glutamicum for heterologous
+(Fig. 1B). In the first metabolic engineering step, we explored the po­     expression (Fig. 4A). The gene encodes a feedback-resistant DAHP
+tential of enhancing the precursor supply via the PP pathway. Two     synthase (aro type-I DS) from the SA pathway, which has been suc­
+native PP pathway genes were selected for overexpression: tkt (encoding     cessfully used to increase aromatic amino acid biosynthesis (Liao et al.,
+transketolase An in the reversible branch) and zwf2 (encoding glucose 6-
+
+                                                                       130
+
+
+[PDF physical page 9]
+J. Stegmüller et al.                                                                                                                           Metabolic Engineering 81 (2024) 123–143
+
+
+
+
+
+                                                                                                                                                 (caption on next page)
+
+
+
+                                                                       131
+
+
+[PDF physical page 10]
+J. Stegmüller et al.                                                                                                                           Metabolic Engineering 81 (2024) 123–143
+
+Fig. 4. Metabolic pathway design to produce nybomycin in Streptomyces albidoflavus Del 14. The overview illustrates the targets of the stepwise metabolic
+engineering in primary and secondary metabolism (A) and the genetic layout of the NYB strain family over eleven generations of development created in this work
+(B). For each producer, we show the genetic changes. These comprised modifications to fuel precursor supply, i. e. the overexpression of native transketolase (tkt) and
+native glucose 6-phosphate dehydrogenase (zwf2) in the PP pathway, the deletion of phosphoenolpyruvate carboxylase (ppc) in the EMP pathway, the overexpression
+of heterologous DHAP synthase variants (aroG, aroI, nybF) in the shikimic acid pathway, and the overexpression of heterologous acetoacetyl-CoA synthase (nybF). In
+addition, the changes aimed to enhance assembly and export of the nybomycin molecule. These included overexpression of nybM and nybV as well as deletion of the
+regulator genes nybW, nybX, nybY, and nybZ. Promoters without labels refer to native promoters and genes already present in the genome. All changes were
+implemented stepwise into the chromosome of the basic nybomycin producer S. albidoflavus 4N24 that had been previously derived upon heterologous expression of
+the nybomycin gene cluster from S. albus subsp. chlorinus NRRL B-24108 (Rodriguez Estevez et al., 2018). It should be noticed that the best strain designs did not
+overexpress nybM and nybV, as these changes were detrimental to nybomycin production. Enlarged versions of the strain layouts are provided in Fig. S7 (strain
+generations 1 to 4) and Fig. S8 (strain generations 5 to 11) (Supplementary file 1). Further details on the genotype of the created strains are provided in Table 1.
+
+
+
+
+
+Fig. 5. Systems metabolic engineering of Streptomyces albidoflavus Del 14 for nybomycin production. During strain development, the production performance
+of the created producers was evaluated on minimal medium with 10 g L−1 mannitol as the sole source of carbon. The data display the final nybomycin titre (A),
+whereby the fraction of product synthetized during the growth phase (pale orange) and the stationary phase (bright orange) is indicated. In addition, the maximum
+volumetric nybomycin productivity observed during the process is shown (B). n = 3.
+
+2001). The constructed strain NYB-1C (4N24 PermE* aroIS187C) (Fig. 4B),     3.4. Time-resolved fluorescence analysis revealed differences in promoter
+however, did not differ in nybomycin production (data not shown).     dynamics and identified PkasOP* and PSP41 as optimal synthetic control
+There are two possibilities to explain the somewhat surprising lack of     elements
+improvement in the three strains: (i) the target genes were insufficiently
+expressed and/or (ii) nybomycin formation was not limited by precursor        In the next step, we searched for superior promotors to drive
+supply. PermE* represents a well-known promotor that has been suc­     production-coupled gene expression. Seven alternative promotors were
+cessfully used many times to drive gene expression in Streptomyces (Chen     selected: the thiostrepton-inducible promotor PtipA conferring substan­
+et al., 2012; Huo et al., 2012; Kallifidas et al., 2018; Lu et al., 2016; Ma      tial uninduced  activity (Myronovskyi and Luzhetskyy, 2016), the
+et al., 2020; Mo et al., 2019; van Wezel et al., 2000). However, as pro­    mutagenized PermE* derivative P21 (Siegl et al., 2013), the constitutive
+moters can vary in strength depending on the conditions and appro­     phage-derived promotor PSF14 (Labes et al., 1997) and the deregulated
+priate promoter functionality is crucial for successful strain engineering,    promotor variant PkasOP* and its synthetic derivatives PSP41, PSP43, and
+we experimentally benchmarked PermE*.                                    PSP44 (Bai et al., 2015) (Fig. 7A). Each promotor was cloned in front of
+   For this purpose, we constructed the reporter strain S. albidoflavus    mCherry,  and  the  respective  plasmids  were  integrated  into
+RFP-1 (4N24 PermE* mCherry) (Table 1, Fig. 7A). The construct was in­      S. albidoflavus, yielding the reporter strains RFP-2 to RFP-8 (Fig. 7A,
+tegrated  into the chromosome using the phiBT1  integration  site,     Table 1). The promotors differed strongly in their dynamic expression
+resulting in expression of mCherry under control of PermE*. For integra­     pattern (Fig. 7B and C). PtipA appeared inactive throughout the entire
+tion, we used the same locus as for the genetic targets shown above.     culture, indicating that its uninduced activity was not significant, in
+Most previous studies on promoter strength in Streptomyces have relied     contrast to previous observations (Myronovskyi and Luzhetskyy, 2016).
+on endpoint measurement of expression (Bibb et al., 1994; Seghezzi     PSF14 was found to be weaker than PermE*, the opposite of what had been
+et al., 2011; Siegl et al., 2013). However, as S. albidoflavus exhibited     observed in S. lividans (Labes et al., 1997), underlining the importance of
+distinct dynamics in nybomycin production (Fig. 3A), we decided to     case-specific evaluation. P21 was as strong as PermE*. The activity of P21
+measure gene expression dynamically. The obtained reporter strain was    and PSF14 was almost entirely restricted to the growth phase. None of
+therefore analyzed online for growth and fluorescence (Kohlstedt et al.,     these alternative promotors appeared useful to drive precursor supply
+2018). Interestingly, mCherry was exclusively expressed during the first     for nybomycin production.
+40 h of cultivation, the growth phase (Figs. 3B, 7B and 7C). The fluo­        This picture completely changed when analyzing the four PkasOP*-
+rescence signal remained unchanged during the entire stationary phase,    based promotors. The two variants PSP43 and PSP44 were found to be
+revealing a previously overlooked dependence of PermE* activity on the     threefold more active than PermE* based on final fluorescence (Fig. 7B
+growth status of S. albidoflavus (Myronovskyi and Luzhetskyy, 2016). In    and C). PkasOP* and its synthetic derivative PSP41 were the two best
+terms of nybomycin production, the dynamics of PermE* activity were     promotors, exhibiting the highest overall activity (sevenfold higher than
+highly unfavorable. Use of this promoter did not allow the desired     PermE*) and, importantly, consistently high expression throughout the
+overexpression of target genes during the major phase of production, in     culture process, including the stationary phase, during which most
+which the encoded activity would be needed.                         nybomycin was produced.
+
+
+
+                                                                       132
+
+
+[PDF physical page 11]
+J. Stegmüller et al.                                                                                                                           Metabolic Engineering 81 (2024) 123–143
+
+3.5. Second-generation producers with increased flux through the PP and       carboxylase, phosphoenolpyruvate carboxylase, pyruvate kinase, phos­
+SA pathways exhibited up to 50% increased nybomycin productivity          phoenolpyruvate carboxykinase, and malic enzyme, offering the same
+                                                                         options to redirect fluxes upon genetic perturbation (Becker et al., 2008;
+   The best promotor, PkasOP*, was used to overexpress tkt and zwf2 to    Meza et al., 2012; Huang et al., 2013). A possible explanation for the
+enhance the supply of the PP pathway intermediate E4P (Fig. 4B).     different behavior is the carbon sources used, i.e., mannitol on the one
+Encouragingly, the two mutants NYB-2A (4N24 PkasOP* tkt) and NYB-2B    hand (this work) and glucose on the other (Peters-Wendisch et al.,
+(4N24 PkasOP* zwf2) accumulated 29% and 31% more nybomycin than     1993). Mannitol-grown actinobacteria exhibit a highly different intra­
+the parent strain, i.e., 1070 and 1095 μg L−1, respectively (Fig. 5A). At     cellular flux distribution from glucose-grown actinobacteria (Hoffmann
+the same time, the maximum specific nybomycin production rate was     et al., 2018, 2021) and, therefore, might respond differently to the
+increased up to 50% (Fig. 5B). This improvement is important in two     absence of ppc. Indeed, NYB-2C produced 15% more nybomycin than its
+aspects: it revealed that synthesis of nybomycin was limited by the     parent strain 4N24 when grown on glucose (Supplementary  file 1,
+supply of its central carbon moiety and indicated the high value of      Figs. S6C and S6D), showing the opposite effect of mannitol-grown cells.
+PkasOP* for tailormade gene expression of production-supporting genes.    However, none of the glucose-based cultures reached the nybomycin
+   Next, DAHP synthase (DS) emerged as a relevant point of control     level achieved by 4N24 on mannitol. More work is needed in the future
+(Fig. 1B) (Sander et al., 2019), given its impact on formation of SA     to better understand these substrate-related effects.
+pathway-based products, such as salvianic acid (Yao et al., 2013), vio­
+lacein (Rodrigues et al., 2013), caffeic acid (Zhang and Stephanopoulos,     3.6.  Selective metabolic engineering of different steps of the nybomycin
+2013), and avenanthramides (Eudes et al., 2013). To overcome a po­    pathway resulted in strains with poor growth and low production
+tential limitation at this step, we used PkasOP* to express genes from two
+different donors that encoded feedback-resistant variants of the enzyme:        Next, we focused on the nybomycin biosynthetic pathway. Inspired
+aroGD146N from  E.  coli (Kikuchi  et  al., 1997) and  aroIS187C from    by the fact that nybomycin production could be driven by enhanced
+C. glutamicum (Liao et al., 2001) (Fig. 4B). Beneficially, a 20% higher     precursor supply (Fig. 5A and B), we overexpressed nybM, a gene
+nybomycin titer (Fig. 5A) and a 15% increased productivity (Fig. 5B)    encoding acetoacetyl-CoA synthase, which supplies two acetoacetyl-
+were achieved in the new mutants NYB-2D (4N24 aroGD146N) and    CoA residues to assemble the nybomycin core (Figs. 1B and 4A). The
+NYB-2E (4N24 aroIS187C).                                                created strain NYB-3A (4N24 PkasOP* nybM), however, produced only
+    Interestingly, the nyb cluster itself also comprises a DS-encoding    300 μg L−1 of the antibiotic, almost threefold less than the natural
+gene, namely, nybF. Overexpressing this gene resulted in a further     producer (Fig. 5A). Furthermore, the mutant was heavily impaired in
+increased titer (1160 μg L−1) in the new strain NYB-2F (Fig. 5A).      vitality  (Supplementary   file  1,  Fig.  S10B).  Overexpression  of
+Moreover, volumetric productivity was increased by 40% (Fig. 5B). The     acetoacetyl-CoA synthase in Saccaromyces cerevisiae results in a similar
+exact reason for the additional improvement is not clear. Eventually, the     phenotype, as the mutation did not increase (acetoacetyl-CoA-based)
+GC-rich nybF gene (75%) enabled increased expression due to its more     sesquiterpene production, and  it was concluded that the advanced
+suitable codon usage (Rohles et al., 2022; Weiland et al., 2023) and/or     supply of acetoacetyl-CoA stimulated its thiolysis and resulted in a futile
+the NybF protein exhibited superior kinetics, but more work is needed to     cycle (Tippmann et al., 2017). In this regard, acetoacetyl-CoA synthase
+explore this issue further.                                                overexpression in NYB-3A might have affected the  availability of
+   Obviously, NybF  differs  substantially from the other enzymes.    malonyl-CoA, a key precursor of native fatty acid biosynthesis that re­
+Aligned amino acid sequences revealed 52% identity between AroG and     quires fine-tuned balancing to avoid limiting and even toxic effects
+Aro I (95% coverage), with almost no conserved regions detected in     (Pizer et al., 2000).
+NybF (Supplementary file 1, Fig. S9A). C. glutamicum possesses another        Furthermore, the nybomycin cluster contains nybV, encoding a pu­
+DAHP synthase, denoted Aro II (NCgl 2098) (Ikeda, 2006), a plant-like     tative transporter. As shown, deletion of this gene reduced nybomycin
+type II DAHP synthase (Walker et al., 1996). NybF revealed 37% simi­     formation in S. albidoflavus 4N24 (Fig. 2A). Therefore, we aimed to
+larity to Aro II (91% coverage) (Supplementary file 1, Fig. S9B). To date,    enhance product export. To this end, the nybV-overexpressing strain
+metabolic engineering for production of aromatic amino acids and    NYB-3B was generated (4N24 PkasOP* nybV). However, the transporter
+related  derivatives  has  commonly  involved  recruiting  type   I    mutant showed weak growth (Supplementary file 1, Fig. S10C) and low
+feedback-resistant enzyme variants from E. coli (AroG, AroF, AroH) or    nybomycin production (Fig. 5A). This finding differed from previous
+C. glutamicum (Aro I) (Rodriguez et al., 2014), whereas it seems that type     results that achieved increased production of tetracycline (Yin et al.,
+II enzymes have been largely neglected. Based on our findings, however,     2017), pristinamycin (Jin et al., 2010), and avermectin (Qiu et al., 2011)
+type II DAHP synthases seem to deserve a closer look for future meta­     in strains with increased export capacity.
+bolic and enzyme engineering to overproduce aromatic amino acids and
+related derivatives.                                                            3.7. The combination of beneficial targets streamlined precursor supply
+   Next, we aimed to redirect PEP from the EMP pathway toward    and provided fourth-generation cell factories with elevated nybomycin
+nybomycin (Fig. 1B). To this end, the gene ppc, coding for PEP-       titers
+consuming phosphoenolpyruvate carboxylase, was deleted in frame,
+resulting in strain NYB-2C (4N24 Δppc). The deletion strain, however,        Individual overexpression of the native genes tkt and zwf2 and the
+needed almost 100 h to reach the maximum cell concentration (Sup­     heterologous genes aroGD146N (E. coli), aroIS187C (C. glutamicum), and
+plementary  file 1, Fig. S10A) while producing almost twofold less    nybF (S. albidoflavus subsp. chlorinus) enhanced nybomycin production.
+nybomycin (470 μg L−1) (Fig. 5A). When NYB-2C was grown in complex   We hypothesized that a combination of beneficial targets might enable
+DNPM medium, the growth retardation was partially recovered, but     further improvement. We focused on complementary combinations of
+nybomycin production remained far below that of the parent strain      tkt, zwf2, and nybF and created double and triple combinations, yielding
+(Supplementary file 1, Fig. S11). It has been reported that a Δppc mutant     strains NYB-4A (PkasOP* tkt zwf2), NYB-4B (PkasOP* nybF zwf2), NYB-4C
+of Corynebacterium glutamicum is affected in growth on minimal medium     (PkasOP* nybF tkt), and NYB-4D (PkasOP* nybF tkt zwf2) (Fig. 4B). The
+(Peters-Wendisch et  al., 1993). In addition, the deletion of ppc in     double-combination mutants exhibited improvements in titer and pro­
+S. tsukubaensis affects growth on complex medium only slightly (Huang     ductivity. Coexpression of nybF with a PP pathway gene was most suc­
+et al., 2013) but enables increased production of FK506 (built from      cessful, resulting in almost twofold more nybomycin in strains NYB-4B
+chorismic acid as a precursor) (Huang et al., 2013).                     (1644 μg L−1) and NYB-4C (1638 μg L−1) compared to the basic pro­
+   Genetically, the three strains, like other microbes, comprise the same     ducer (Fig. 5A). The corresponding increase in maximum productivity
+set  of  enzymes  around  the  pyruvate  node,  namely,  pyruvate    was threefold (NYB–4B) and fourfold (NYB–4C) (Fig. 5B). Notably, the
+
+                                                                       133
+
+
+[PDF physical page 12]
+J. Stegmüller et al.                                                                                                                           Metabolic Engineering 81 (2024) 123–143
+
+combinatorial effects for the two strains were more than additive. For     producer, though its growth was unchanged. Evidently, the combined
+example, the titer increase for the NYB-4B strain was more than 50%      effects were too strong and caused an imbalance in metabolism. Simi­
+higher (+779 μg L−1) than the sum of the increase observed for the      larly, previous metabolic engineering efforts have caused unforeseen
+single overexpression strains (+511 μg L−1). Surprisingly, the triple      effects on antibiotic formation and sporulation in S. lividans due to high
+mutant (NYB-4D) that overexpressed nybF, tkt and zwf2 revealed weak     intracellular NADPH levels (Jin et al., 2017).
+performance  (Fig. 5A) and was even  less  efficient than the basic
+
+
+
+
+
+Fig. 6. Growth and nybomycin production in advanced nybomycin cell factories. The data comprise the cultivation profiles of strains Streptomyces albidoflavus
+NYB-5 (A), NYB-6B (B), NYB-6C (C), NYB-7 (D), NYB-8 (E), NYB-9 (F), NYB-10 (G), and NYB-11 (H). For comparison, the orange dotted line in each plot shows the
+maximum titer of the basic producer 4N24 (Fig. 3A). All strains were grown in shake flasks on minimal mannitol medium. The corresponding genetic layouts are
+given in Fig. 4 and Table 1. n = 3.
+
+                                                                       134
+
+
+[PDF physical page 13]
+J. Stegmüller et al.                                                                                                                           Metabolic Engineering 81 (2024) 123–143
+
+3.8. Deletion of nybW decoupled production from the growth state of         overproducing daptomycin (Mao et al., 2017) and chromomycin (Sun
+S. albidoflavus and boosted volumetric productivity in fifth- and sixth-          et al., 2018).
+generation strains                                                      Based on sequence homology, nybW has been suggested as a poten­
+                                                                                             tial regulatory element of the nybomycin pathway (Rodriguez Estevez
+   Metabolic engineering efforts directed to individual steps of the     et al., 2018). Interestingly, deletion of nybW slightly improved nybo­
+terminal assembly of nybomycin failed to provide higher levels of the    mycin production during qualitative inspection for functional charac­
+product (Figs. 2, Fig. 4, Fig. 5). We hypothesized that the nybomycin     terization of the cluster (Fig. 2A). Therefore, we decided to construct the
+pathway might require balanced expression of its different genes to     regulator-deficient  mutant  S.  albidoflavus NYB-5  (4N24 ΔnybW)
+achieve increased flux, as previously observed during metabolic engi­      (Fig. 4B). When grown on minimal mannitol medium, strain NYB-5
+neering of other microbial biosynthetic routes (Giesselmann et al., 2019;    produced a nybomycin titer of 1418 μg L−1, 70% more than the basic
+Jones et al., 2015; Schwentner et al., 2019). For coordinated activation,     strain (Figs. 5A and 6A). It also grew well, indicating that the genetic
+biosynthesis-related gene clusters for natural products typically contain     modification did not interfere with vitality. The greatest change in the
+specific regulator genes (Bednarz et al., 2019; Liu et al., 2013), and     mutant, however, was accelerated production. Nybomycin formation
+removal of such regulatory elements has been found to be helpful in    began  earlier, while the  cells were  still growing,  resulting  in a
+
+
+
+
+
+Fig. 7. Evaluation of heterologous promotors for expression efficiency in S. albidoflavus 4N24. Each promoter was benchmarked using a fluorescent reporter
+strain and online sensing of fluorescence. A set of eight promotors was tested, including four native and four synthetic variants. MCherry was used as reporter protein
+in each case (A). Each reporter strain was studied for the dynamics of expression on minimal mannitol medium in a miniaturized plate-based bioreactor with online
+fluorescence sensing (B). The dashed vertical line indicates the end of the growth phase and the beginning of the stationary phase (B). The two phases were identified
+from the growth behavior of the strains. The data were used to infer the relative expression strength during growth (pale red colour) and the stationary phase (strong
+red colour) (C). n = 3.
+
+                                                                       135
+
+
+[PDF physical page 14]
+J. Stegmüller et al.                                                                                                                           Metabolic Engineering 81 (2024) 123–143
+
+production rate higher than that of all other strains (Fig. 5B). While the     0.05), with 868 genes downregulated and 1176 genes upregulated.
+basic strain produced nybomycin mainly in the stationary phase, the       Regarding the high-flux pathways of carbon core metabolism, pre­
+regulator mutant accumulated the product in both phases, regardless of     cursor supply, and nybomycin biosynthesis, the analysis provided
+the growth state (Fig. 6A). The maximum titer could therefore be     important insights (Fig. 8). As predicted from depletion of mannitol and
+reached after 125 h, shortening the overall process.                        cessation of growth, genes encoding mannitol import and metabo­
+   Subsequently, the ΔnybW mutation was combined with the other     lization (up to log2-fold 5.7), the EMP pathway, and most TCA cycle
+beneficial targets. A set of sixth-generation producers was constructed,    enzymes were downregulated during the stationary phase. This picture
+comprising three-target combinations, i.e., NYB-6A (4N24 ΔnybW Pka­    matches those of related strains (Hwang et al., 2019; Lee et al., 2022).
+sOP* nybF zwf2), NYB-6B (4N24 ΔnybW PkasOP* nybF tkt), and NYB-6C    An interesting exception was upregulation of genes encoding succinate
+(ΔnybW PkasOP* tkt zwf2). The ΔnybW modification modestly increased    dehydrogenase complex II (5662, 5663, and 5664) and upstream con­
+productivity in all strains, revealing beneficial synergetic effects of the     version of L-glutamate to succinate. The succinate dehydrogenase com­
+targets (Fig. 5B). Thus, strains NYB-6B and NYB-6C achieved the highest     plex has a unique dual function in that it converts succinate to fumarate
+titers (Figs. 5A, 6B and 6C). All three mutants showed a favorable     in the TCA cycle and channels electrons to the respiratory chain (Huang
+growth state-decoupled production phenotype. We also constructed a    and Millar, 2013; Park et al., 1995), thereby preventing production of
+quadruple mutant, namely, NYB-7 (4N24 ΔnybW PkasOP* nybF tkt zwf2).     superoxide anion (O2−), a reactive oxygen species (Dalla Pozza et al.,
+Nybomycin production in this strain, however, was almost eliminated    2020; Hwang et al., 2014). Ultimately, its upregulation is linked to
+(70 μg L−1) (Fig. 6D). Obviously, the growth deficiency of the parent     protection. Furthermore, the cells activated catabolic routes for degra­
+strain NYB-4D could not be rescued by deletion of the regulator. Taken     dation of branched-chain amino acids (L-valine, L-leucine, L-isoleucine)
+together, systems metabolic engineering of S. albidoflavus 4N24 through    and lipids (log2-fold up to 5.7), eventually mobilizing internal carbon
+several cycles of optimization substantially enhanced nybomycin pro­      (Gl¨aser et al., 2021a) (Fig. 8, Supplementary file 1, Fig. S14). Notably,
+duction. In comparison to the basic strain, the two best producers, NYB-     these pathways yielded acetyl-CoA as a central intermediate (Fujita
+6B and NYB-6C, produced the reverse antibiotic at an almost twofold     et al., 2007; Kaiser and Heinrichs, 2018; Massey et al., 1976; Pavoncello
+higher titer and up to sevenfold higher productivity.                         et al., 2022). In addition, the cells showed upregulation of routes to
+                                                                           synthetize acetoacetyl-CoA from acetyl-CoA. Nybomycin biosynthesis
+3.9. In an optimized process, S. albidoflavus NYB-6B formed up to 7.2       needed CoA-based carbon such that, overall, the activated acetyl-CoA
+mg L−1 nybomycin                                                     supply appeared favorable and was ultimately sufficient. This at least
+                                                                          explains why overexpression of nybM did not provide any improvement
+    S. albidoflavus NYB-6B was chosen to benchmark the achieved per­     in production. In terms of precursor supply, however, genes encoding
+formance.  First, we used dextrin-based DNPM medium, a complex    enzymes of the PP pathway and the shikimate and chorismate routes
+mixture that  is commonly chosen for natural product formation in    showed reduced expression during the production phase (Fig. 8), pre­
+Streptomyces (Ahmed et al., 2020; Estevez et al., 2020; Paulus et al.,    sumably limiting the supply of 4-aminoanthranilate for nybomycin
+2022), including production of nybomycin in S. albidoflavus 4N24     biosynthesis (Fig. 1B). In this regard, overexpression of zwf and tkt, as
+(Rodriguez Estevez et al., 2018). When grown on a formulation with 40     well as the DAHP-encoding variants aroGD146N, aroIS187C, and nybF,
+g L−1 dextrin (DPNM 40), the NYB-6B overproducer produced 4.1 mg     respectively, appeared to be a good choice to overcome the naturally
+L−1 nybomycin, almost 60% more than the basic strain (Supplementary     occurring downregulation.
+file 1, Fig. S12). Interestingly, production mainly occurred during the       The  expression  pattern  of  the nybomycin  cluster, which was
+initial growth phase. Use of an increased dextrin level (75 g L−1) resulted     inspected next, was very surprising. The cluster was highly expressed
+in prolonged production and a final nybomycin titer of 5.5 mg L−1. Next,     during the growth phase and greatly downregulated during the major
+we studied the  strain on the minimal medium formulation with    nybomycin production phase. During the major production phase,
+increased initial mannitol (25 g L−1, 50 g L−1, 75 g L−1) and phosphate     almost all cluster genes showed reduced expression (log2-fold changes
+(1.0 g L−1, 2.0 g L−1, 3.0 g L−1) levels (Supplementary file 1, Fig. S13).    up to −3.4), except for nybV, encoding the nybomycin exporter, and the
+The recombinant strain performed well in all setups and produced a final     putative regulators nybX, nybZ, and nybY. This behavior appeared
+nybomycin titer of 7.2 mg L−1 (7185 μg L−1) for the highest substrate     extremely unfavorable in terms of production performance. Typically,
+level tested, reflecting an overall 8.3-fold improvement in production.    BGCs are activated when cells enter the stationary phase and begin
+The higher the initial concentration of mannitol was, the longer nybo­     producing natural products, which is regarded as an important feature
+mycin production was sustained and the higher the final titer was. As the     for high-level production (Bobek et al., 2021; Gramajo et al., 1993; Holt
+growth of the cells was slightly delayed when using 75 g L−1 mannitol,     et al., 1992; Kormanec et al., 2014; Novakova et al., 2022; Zhu et al.,
+production required approximately 200 h. At 25 and 50 g L−1 mannitol,     2022). Regarding global regulation, genes encoding sigma factors and
+growth was not affected, and biomass was built up quickly until the    presumed  regulators revealed complex changes over  time, which
+mannitol was completely consumed. Accordingly, the maximum titer     mirrored the picture observed for other S. albidoflavus Del14 derivatives
+was reached earlier, resulting in a substantially higher maximum pro­    when shifting from growth to the stationary phase (Supplementary file
+ductivity. Notably, in all cases, the product was formed in the presence     1, Table S2).
+of phosphate; thus, deregulated cluster expression enabled this superior
+production phenotype.                                                     3.11. Advanced producers exhibited an even stronger transcriptional
+                                                                          downregulation of the nybomycin pathway during the stationary phase
+3.10. During the production phase, S. albidoflavus 4N24 upregulated
+various routes for acetyl-CoA supply but downregulated shikimate and            Next, we compared the transcriptomes of different producers to trace
+nybomycin biosynthesis                                                   the effects that resulted from successive rounds of strain engineering
+                                                                                   (Fig. 9). To this end, we analyzed three differently performing zwf-based
+   Next, we conducted RNA sequencing of S. albidoflavus 4N24 to shed     mutants: NYB-2B (zwf), NYB-4B (nybF zwf), and NYB-6B (ΔnybW nybF
+light on the changes related to the shift from growth (13 h) to nybo­     zwf). We also examined the tkt-based derivative NYB-6C (ΔnybW nybF
+mycin production (70 h) (Fig. 3A), given the highly informative value of      tkt), but it was almost identical to NYB-6B, except for the two differently
+transcriptomic data in evaluating genetically and environmentally per­     engineered genes. In general, targeted genes (nybF, zwf and tkt) were
+turbed strains (Kohlstedt et al., 2014, 2022; Schilling et al., 2007).    found to be strongly overexpressed during the growth and production
+Expression of 2044 of 5790 encoded genes (35.3%) significantly differed     phases, revealing that (i) the PkasOP* promotor reliably enabled increased
+between the growth and production phases (log2-fold change ≥1, p ≤     expression  and   (ii)  the  genetic  modifications  indeed  increased
+
+                                                                       136
+
+
+[PDF physical page 15]
+J. Stegmüller et al.                                                                                                                           Metabolic Engineering 81 (2024) 123–143
+
+
+
+
+
+Fig. 8. Dynamic gene expression changes in the basic nybomycin producer S. albidoflavus 4N24. The data reflect expression differences between the growth
+phase (13 h, used as reference) and the major nybomycin production phase (70 h) and include genes encoding enzymes of major catabolic and anabolic pathways,
+nybomycin biosynthesis, and precursor supply. Enzymes were assigned to certain reactions based on KEGG pathway maps and gene annotations obtained during RNA
+sequencing. The numbers in the boxes correspond to the locus tags in the sequence of the chromosome of Streptomyces albidoflavus J1074 D14 4N24 (Accession no.
+CP113229). For all samples, the biological replicates clustered closely, indicating excellent data quality (Supplementary file 1, Fig. S2, Fig. S3). n = 3.
+
+nybomycin production. Based on these findings, we recommend the      (Fig. 1A). Considering that the regulators are presumably repressors,
+synthetic PkasOP* promotor and its derivatives (Fig. 7) for metabolic     their upregulation might have indeed caused the observed down­
+engineering efforts in S. albidoflavus and related strains (Ahmed et al.,     regulation of most of the cluster genes, i.e., all genes that were not
+2020), which require growth-independent constitutive overexpression     controlled by nybW. Interestingly, the single-gene-deletion strains nybX,
+of target genes.                                                       nybY, and nybZ exhibited reduced nybomycin titers, which initially
+   Notably, deletion of nybW increased expression of several upstream    seemed to rule out elimination of the regulatory genes as a target for
+cluster genes, namely, nybQRSTUV, though the increase for nybUV was     optimization (Supplementary file 1, Fig. S4). The expression dynamics,
+much higher than that of the other genes (Fig. 9B). Within the cluster,    however, indicated that the regulators acted together or depended on
+the nybQRSTUV genes are transcribed in the same direction (Fig. 1A),    each other, such that the remaining repressor genes in the single-gene-
+and we conclude their expression to be under control of the NybW     deletion mutants could still repress the cluster.
+repressor.                                                On the other hand, the genetic modifications of primary metabolism
+   However, the expression data of the other 18 cluster genes during the     affected expression of the correspondingly chosen target gene rather
+major production phase were surprising. Compared to the basic pro­     locally but did not cause broader effects, e.g., within the EMP and PP
+ducer, the  strains NYB-4B, NYB-6B, and NYB-6C exhibited strong     pathways, the TCA cycle, and related routes (Fig. 9C, D, Fig. 9E and F).
+downregulation of these genes. This change indicated a serious bottle­     This observation implies that genes encoding enzymes upstream or
+neck, limiting production. All advanced strains, for unknown reasons,    downstream of the modified step in the corresponding pathway were
+exhibited slightly elevated expression of nybXYZ, encoding two regula­     sufficiently expressed to enable increased flux.
+tors (nybX, nybZ) and a small protein (87 AA) of unknown function
+
+                                                                       137
+
+
+[PDF physical page 16]
+J. Stegmüller et al.                                                                                                                           Metabolic Engineering 81 (2024) 123–143
+
+
+
+
+
+Fig. 9. Gene expression in different mutants of S. albidoflavus 4N24, metabolically engineered for nybomycin overproduction. The data reflect differences
+between strains 4N24, NYB-2B, NYB-4B, NYM-6B, and NYB-6C during the growth phase (13 h) and the major nybomycin production phase (70 h). The data for the
+basic producer 4N24, analyzed after 13 h, are used as a reference. The displayed genes include nybomycin biosynthesis (A, D), the Emden-Meyerhof-Parnas (EMP),
+the pentose phosphate (PP), and the shikimic acid (SA) pathways (B, E), as well as the TCA cycle and the reactions linked to the metabolism of CoA thioesters (C, F).
+Enzymes were assigned to certain reactions based on KEGG pathway maps and gene annotations obtained during RNA sequencing. One should note that (in the
+corresponding strains NYB6B and NYB-6C) nybW was only partially deleted without affecting its promotor region to exclude neighbouring effects. The detected nybW
+expression in NYB-6B and NYB-6C therefore proved the sustained activity of the promoter but did not reflect the expression of a functional NybW protein. n = 3.
+
+3.12. The combinatorial engineering of primary and secondary              optimized primary metabolic pathway layout with the optimized layout
+metabolism maximized nybomycin production in tenth- and eleventh-           of the nybomycin biosynthetic pathway. To this end, the deregulated
+generation strains                                                              cluster mutants NYB-8 and NYB-9 were equipped with the best targets
+                                                                from primary metabolism. Transformation of NYB-8 and NYB-9 with the
+   To elucidate control of the cluster, we decided to engineer its regu­     integrative plasmid pBT1H-kasOP*-nybF-zwf2 resulted  in the new
+latory part in strain 4N24. Therefore, we replaced the genes nybWX and     strains NYB-10 (4N24 ΔnybWX PkasOP* nybF zwf2) and NYB-11 (4N24
+nybWXYZ with a kanamycin resistance gene. The new strains NYB-8    ΔnybWXYZ PkasOP* nybF zwf2), respectively. Favorably, both cell fac­
+(4N24 ΔnybWX) and NYB-9 (4N24 ΔnybWXYZ) were grown  in     tories produced more nybomycin than any other strain created (Fig. 6G
+mannitol minimal medium after verifying the correctness of the intro­    and H). When tested in batch cultures, NYB-10 accumulated 2510 μg L−1
+duced mutations by PCR and sequencing. NYB-8 accumulated 1990 μg    nybomycin, while NYB-11 accumulated 3570 μg L−1, more than fourfold
+L−1 nybomycin (Fig. 6E), while NYB-9 formed 2530 μg L−1 (Fig. 6F), up    more than 4N24 (Fig. 5A). The time to reach the peak  titer was
+to threefold more than the basic strain 4N24 (Fig. 5A). Importantly, the     approximately 200 h for both strains, compared to 275 h for the basic
+data revealed that several regulators synergistically cooperated to con­     strain 4N24 (Fig. 3A).
+trol expression of the cluster. The regulator NybW controlled expression         Finally, we benchmarked the strains NYB-8, NYB-9, NYB-10, and
+of nybQRSTUV, while the regulators encoding nybXYZ modulated tran­    NYB-11 on minimal medium with 50 g L−1 mannitol (Fig. 10). All mu­
+scription of cluster genes further upstream. Therefore, combined elim­     tants exhibited excellent production performance, with strain NYB-11
+ination of nybW plus nybX or nybW plus nybXYZ was needed to override     performing best during both culture phases and achieving the highest
+the natural control and release the cluster from repression, whereas      final nybomycin titer of 12 mg L−1. Overall, systems metabolic engi­
+single deletion of nybW, nybX, nybY, or nybZ was not sufficient. Bacterial     neering and a superior bioprocess at high initial substrate levels enabled
+gene clusters often contain several cluster-situated regulatory elements    an almost fifteen-fold increase in production of nybomycin from the
+(Novakova et al., 2022; Sun et al., 2018; Zhu et al., 2017). The encoded     original strain. S. albidoflavus NYB-11 approached the performance of
+multifunctional regulators can form a complex intricate regulatory     the best producer known thus far (Kuhl et al., 2021).
+network (Tsypik et al., 2021), as also observed in our study.
+   Merging  all the obtained knowledge, we  finally combined the
+
+
+                                                                       138
+
+
+[PDF physical page 17]
+J. Stegmüller et al.                                                                                                                           Metabolic Engineering 81 (2024) 123–143
+
+
+
+
+
+Fig. 10. Benchmarking the created Streptomyces albidoflavus nybomycin producers in batch processes. The data show the growth and production profiles of
+the strains NYB-8 (A), NYB-9 (B), NYB-10 (C), and NYB-11 (D) on minimal medium with 50 g L−1 of mannitol. In addition, the achieved final titre (E) and the
+maximum volumetric productivity (F) are shown for different mutants (4N24, NYB-6B, NYB-8, NYB-9, NYB-10, and NYB-11). For comparison, the orange dotted line
+in each plot shows the maximum titer of the basic producer 4N24 (Fig. 3A). The strains were grown on complex medium with 40 g L−1 dextrin (DNP40) and on
+minimal medium with 10 g L−1 (Mtl10), 25 g L−1 (Mtl25), and 50 g L−1 (Mtl50) of mannitol, respectively. n = 3.
+
+4. Conclusions                                                    mainly in the late growth or stationary phase (Ferraiuolo et al., 2021);
+                                                                              thus, industrial processes using Streptomyces are usually very long and
+   As shown, we  metabolically  engineered  S.  albidoflavus 4N24     suffer from low productivities (Pereira et al., 2008).
+(Rodriguez Estevez et  al., 2018) into a cell factory to overproduce       The chosen host and the established process both supported selective
+nybomycin. Several rounds of metabolic engineering provided strains     production of nybomycin, which should facilitate purification in the
+with successively improved nybomycin titers. Notably, deregulation of     future. All producers of the NYB family created in this work were based
+nyb cluster expression through elimination of the regulator gene nybW    on the pre-engineered cluster-free chassis S. albidoflavus Del14, elimi­
+enabled efficient production during the growth phase as well as the     nating potential interference from native natural products of the host
+stationary phase, substantially shortening the production process. The    (Myronovskyi et al., 2018). In addition, use of a lean, minimal medium,
+acceleration appeared useful, as secondary metabolites are produced     as shown herein, prevented the typical impurities that result from use of
+
+
+                                                                       139
+
+
+[PDF physical page 18]
+J. Stegmüller et al.                                                                                                                           Metabolic Engineering 81 (2024) 123–143
+
+complex ingredients.                                          Acknowledgments
+   Conceptually, we aimed at systems-wide strain engineering because
+this approach has proven to be most successful in overproducing amino        Christoph Wittmann, Andriy Luzhetskyy, and  J¨orn Kalinowski
+acids and organic acids, typically demanding a set of different cellular    acknowledge financial support by the Federal Ministry of Education and
+precursors, at very high titers and yields (Becker et al., 2011; Kind et al.,     Research (BMBF) through the grants Explomare (FK 031B0866) and
+2013, 2014; Rohles et al., 2016). Similarly, synthesis of the nybomycin    MyBio (FK 031B0344). Christoph Wittmann further acknowledges
+molecule needed precursors from various routes (Fig. 1B). The best     funding from the German Research Foundation through grant INST 256/
+strain, NYB-11, produced 12 mg L−1 nybomycin, fifteenfold more than    418–1.
+the basic producer used as a starting point. This improvement was
+enabled by the combination of targets from primary and secondary    Appendix A. Supplementary data
+metabolism, which synergistically contributed to enhanced production.
+The achieved performance reached the level of the best producers       Supplementary data to this article can be found online at https://doi.
+known thus far and displays an important and encouraging step to     org/10.1016/j.ymben.2023.12.004.
+explore nybomycin further. However, elevated amounts will be needed
+for drug optimization through medicinal chemistry, activity and sta­    References
+bility testing, toxicity screening, and mode-of-action studies to explore
+the compound further, requiring more efficient cell factories in the     Ahmed, Y., Rebets, Y., Estevez, M.R., Zapp, J., Myronovskyi, M., Luzhetskyy, A., 2020.                                                                                           Engineering of Streptomyces lividans for heterologous expression of secondary
+future. To this end, additional rounds of metabolic engineering of          metabolite gene clusters. Microb. Cell Factories 19, 5.
+S. albidoflavus NYB-11 appear to be promising to further improve pro­      Aldred, K.J., Kerns, R.J., Osheroff, N., 2014. Mechanism of quinolone action and
+duction efficiency. Additionally, random mutagenesis might be added as           resistance. Biochemistry 53, 1565–1574.
+a complementary strategy to strain development regarding the largely       Arai,Han,M., Kamiya,C., Shin, K.,D., Pruksakorn,Kobayashi, M.,P., Sumii,2015. Anti-dormantY., Kotoku, N.,mycobacterialJoubert, J.P.,activityMoodley,andP.,
+unexplored nybomycin pathway. In addition, it might be worth testing           target analysis of nybomycin produced by a marine-derived Streptomyces sp. Bioorg.
+other genetically accessible Streptomyces hosts for heterologous nybo­        Med. Chem. 23, 3534–3541.
+mycin production, as engineered strains have different efficiencies in       Bai, C., Zhang, Y., Zhao, X., Hu, Y., Xiang, S., Miao, J., Lou, C., Zhang, L., 2015.                                                                                                 Exploiting a precise design of universal synthetic modular regulatory elements to
+accumulating nybomycin (Myronovskyi et al., 2020).                             unlock the microbial natural products in Streptomyces. Proc. Natl. Acad. Sci. U. S. A.
+   Beyond nybomycin, it appears straightforward to apply similar sys­          112, 12181–12186.
+tems metabolic engineering approaches to improve other S. albidoflavus-      Bardell-Cox, O.A., White, A.J.P., Aragon, L., Fuchter, M.J., 2019. Synthetic studies on the                                                                                                 reverse antibiotic natural products, the nybomycins. Medchemcomm 10,
+based producers created by heterologous cluster expression (Estevez         1438–1444.
+et al., 2020; Myronovskyi et al., 2018). Based on our findings, the syn­      Barton, N., Horbal, L., Starck, S., Kohlstedt, M., Luzhetskyy, A., Wittmann, C., 2018.
+thetic promoter derivatives applied herein can be recommended for          Enabling the valorization of guaiacol-based lignin: integrated chemical and                                                                                          biochemical production of cis,cis-muconic acid using metabolically engineered
+broader use, given their constitutive nature, while care should be taken          Amycolatopsis sp. ATCC 39116. Metab. Eng. 45, 200–210.
+regarding use of PermE*. While other genetic backgrounds or production      Becker, J., Klopprogge, C., Herold, A., Zelder, O., Bolten, C.J., Wittmann, C., 2007.
+media might change the picture observed in this work, we suggest          Metabolic flux engineering of L-lysine production in Corynebacterium glutamicum–                                                                                          over expression and modification of G6P dehydrogenase. J. Biotechnol. 132, 99–109.
+additional  case-specific  tests  with  online  recording  of  promoter      Becker, J., Klopprogge, C., Wittmann, C., 2008. Metabolic responses to pyruvate kinase
+dynamics.                                                                                      deletion in lysine producing Corynebacterium glutamicum. Microb. Cell Factories 7, 8.
+                                                                                           Becker, J., Kuhl, M., Kohlstedt, M., Starck, S., Wittmann, C., 2018. Metabolic engineering
+Credit authorship contribution statement                                            ofMicrob.CorynebacteriumCell Factoriesglutamicum17, 115.for the production of cis, cis-muconic acid from lignin.
+                                                                                           Becker, J., Zelder, O., Haefner, S., Schr¨oder, H., Wittmann, C., 2011. From zero to hero-
+    J.S:  Conceptualization,  Methodology,  Validation,  Investigation,          Design-based systems metabolic engineering of Corynebacterium glutamicum for L-
+Writing - original draft, Writing - review & editing.                                    lysine production. Metab. Eng. 13, 159–168.                                                                                       Bednarz, B., Kotowska, M., Pawlik, K.J., 2019. Multi-level regulation of coelimycin
+   M. R. E.: Conceptualization, Methodology, Validation, Investigation,           synthesis in Streptomyces coelicolor A3(2). Appl. Microbiol. Biotechnol. 103,
+Writing - review & editing.                                                       6423–6434.
+  W. S.: Investigation, Writing - review & editing.                             Beganovic, S., Rückert-Reed, C., Sucipto, H., Shu, W., Glaser, L., Patschkowski, T.,                                                                                                   Struck, B., Kalinowski, J., Luzhetskyy, A., Wittmann, C., 2023. Systems biology of
+    L. G.: Investigation, Writing - review & editing.                                      industrial oxytetracycline production in Streptomyces rimosus: the secrets of a
+   M.M. Methodology, Validation, Investigation, Writing - review &         mutagenized hyperproducer. Microb. Cell Factories 22, 222.
+editing.                                                                                   Bibb, M.J., White, J., Ward, J.M., Janssen, G.R., 1994. The mRNA for the 23S rRNA                                                                                         methylase encoded by the ermE gene of Saccharopolyspora erythraea is translated in
+    C.R.: Methodology, Validation, Investigation, Writing  - review &          the absence of a conventional ribosome-binding site. Mol. Microbiol. 14, 533–545.
+editing.                                                                              Blower, T.R., Williamson, B.H., Kerns, R.J., Berger, J.M., 2016. Crystal structure and
+    J.K.: Funding acquisition, Validation, Formal analysis, Writing - re­            stability of gyrase–fluoroquinolone cleaved complexes from Mycobacterium                                                                                                               tuberculosis. Proc. Natl. Acad. Sci. U. S. A. 113, 1706–1713.
+view & editing.                                                                   Bobek, J., Mikulov´a, A., ˇSetinov´a, D., Elliot, M., ˇCih´ak, M., 2021. 6S-Like scr3559 RNA
+    A.L.: Conceptualization, Funding acquisition, Methodology, Valida­           affects development and antibiotic production in Streptomyces coelicolor.
+tion, Formal analysis, Supervision, Writing - review & editing.                   Microorganisms 9.
+   C. W: Conceptualization, Funding acquisition, Methodology, Vali­      Chen,StreptomycesD., Zhang, Q.,tsukubaensisCen, P., Xu,by geneticZ., Liu, W.,enhancement2012. Improvementof the supplyof FK506of unusualproduction in
+dation, Formal analysis, Supervision, Writing - original draft, Writing -          polyketide extender units via utilization of two distinct site-specific recombination
+Writing - review & editing.                                                               systems. Appl. Environ. Microbiol. 78, 5093–5103.
+                                                                                      Christmann, J., Cao, P., Becker, J., Desiderato, C.K., Goldbeck, O., Riedel, C.U.,
+                                                                                                   Kohlstedt, M., Wittmann, C., 2023. High-efficiency production of the antimicrobial
+Conflicts of interest                                                                    peptide pediocin PA-1 in metabolically engineered Corynebacterium glutamicum using
+                                                                                       a microaerobic process at acidic pH and elevated levels of bivalent calcium ions.
+   There are no conflicts of interest to declare.                                     Microb. Cell Factories 22, 41.                                                                                           Dalla Pozza, E., Dando, I., Pacchiana, R., Liboi, E., Scupoli, M.T., Donadelli, M.,
+                                                                                                   Palmieri, M., 2020. Regulation of succinate dehydrogenase and role of succinate in
+Data availability                                                                           cancer. Semin. Cell Dev. Biol. 98, 4–14.
+                                                                                      Deguchi, T., Fukuoka, A., Yasuda, M., Nakano, M., Ozeki, S., Kanematsu, E., Nishino, Y.,
+                                                                                                       Ishihara, S., Ban, Y., Kawada, Y., 1997. Alterations in the GyrA subunit of DNA
+   Data will be made available on request.                                           gyrase and the ParC subunit of topoisomerase IV in quinolone-resistant clinical
+                                                                                                            isolates of Klebsiella pneumoniae. Antimicrob. Agents Chemother. 41, 699–701.
+                                                                                                    Drlica, K., Hiasa, H., Kerns, R., Malik, M., Mustaev, A., Zhao, X., 2009. Quinolones:
+                                                                                                 action and resistance updated. Curr. Top. Med. Chem. 9, 981–998.
+
+
+                                                                       140
+
+
+[PDF physical page 19]
+J. Stegmüller et al.                                                                                                                           Metabolic Engineering 81 (2024) 123–143
+
+Egawa, K., Yamori, T., Nosaka, C., Kunimoto, S., Takeuchi, T., Nos, K., 2000.                   Jin, X.M., Chang, Y.K., Lee, J.H., Hong, S.K., 2017. Effects of increased NADPH
+   Deoxynybomycin is a selective anti-tumor agent inducing apoptosis and inhibiting           concentration by metabolic engineering of the pentose phosphate pathway on
+    topoisomerase I. Biol. Pharm. Bull. 23, 1036–1040.                                              antibiotic production and sporulation in streptomyces lividans TK24. J. Microbiol.
+Estevez, M.R., Gummerlich, N., Myronovskyi, M., Zapp, J., Luzhetskyy, A., 2020.                 Biotechnol. 27, 1867–1876.
+    Benzanthric acid, a novel metabolite from Streptomyces albus Del14 expressing the         Jin, Z., Jin, X., Jin, Q., 2010. Conjugal transferring of resistance gene ptr for
+   nybomycin gene cluster. Front. Chem. 7.                                             improvement of pristinamycin-producing Streptomyces pristinaespiralis. Appl.
+Eudes, A., Juminaga, D., Baidoo, E.E., Collins, F.W., Keasling, J.D., Loque, D., 2013.            Biochem. Biotechnol. 160, 1853–1864.
+    Production of hydroxycinnamoyl anthranilates from glucose in Escherichia coli.           Jones, J.A., Vernacchio, V.R., Lachance, D.M., Lebovich, M., Fu, L., Shirke, A.N.,
+    Microb. Cell Factories 12, 62.                                                                  Schultz, V.L., Cress, B., Linhardt, R.J., Koffas, M.A., 2015. ePathOptimize: a
+Euverink, G.-J., 1995. Aromatic Amino Acid Biosynthesis in Actinomycetes.                     combinatorial approach for transcriptional balancing of metabolic pathways. Sci.
+Ferraiuolo, S.B., Cammarota, M., Schiraldi, C., Restaino, O.F., 2021. Streptomycetes as           Rep. 5, 11301.
+    platform for biotechnological production processes of drugs. Appl. Microbiol.            Jovanovic Gasovic, S., Dietrich, D., Gl¨aser, L., Cao, P., Kohlstedt, M., Wittmann, C., 2023.
+    Biotechnol. 105, 551–568.                                                               Multi-omics view of recombinant Yarrowia lipolytica: enhanced ketogenic amino
+Forbis, R.M., Rinehart Jr., K.L., 1970. Nybomycin. IV. Total synthesis of                          acid catabolism increases polyketide-synthase-driven docosahexaenoic production to
+    deoxynybomycin. J. Am. Chem. Soc. 92, 6995–6996.                                     high selectivity at the gram scale. Metab. Eng. 80, 45–65.
+Forbis, R.M., Rinehart Jr., K.L., 1971. Nybomycin. V. Total synthesis of nybomycin.           Kaiser, J.C., Heinrichs, D.E., 2018. Branching out: alterations in bacterial physiology and
+     J. Antibiot. (Tokyo) 24, 326–327.                                                           virulence due to branched-chain amino acid deprivation. mBio 9.
+Forbis, R.M., Rinehart Jr., K.L., 1973. Nybomycin. VII. Preparative routes to nybomycin        Kallifidas, D., Jiang, G., Ding, Y., Luesch, H., 2018. Rational engineering of Streptomyces
+   and deoxynybomycin. J. Am. Chem. Soc. 95, 5003–5013.                                      albus J1074 for the overexpression of secondary metabolite gene clusters. Microb.
+Fujita, Y., Matsuoka, H., Hirooka, K., 2007. Regulation of fatty acid metabolism in                Cell Factories 17, 25.
+    bacteria. Mol. Microbiol. 66, 829–839.                                                      Kieser, T., Bibb, M.J., Buttner, M.J., Chater, K.F., Hopwood, D.A., 2000. Practical
+Garcia-Gutierrez, C., Aparicio, T., Torres-Sanchez, L., Martinez-Garcia, E., de Lorenzo, V.,           Streptomyces Genetics. The John Innes Foundation, Norwich, UK.
+     Villar, C.J., Lombo, F., 2020. Multifunctional SEVA shuttle vectors for actinomycetes       Kikuchi, Y., Tsujimoto, K., Kurahashi, O., 1997. Mutational analysis of the feedback sites
+   and Gram-negative bacteria. Microbiol. 9, 1135–1149.                                         of phenylalanine-sensitive 3-deoxy-D-arabino-heptulosonate-7-phosphate synthase
+Giesselmann, G., Dietrich, D., Jungmann, L., Kohlstedt, M., Jeon, E.J., Yim, S.S.,                   of Escherichia coli. Appl. Environ. Microbiol. 63, 761–762.
+   Sommer, F., Zimmer, D., Muhlhaus, T., Schroda, M., Jeong, K.J., Becker, J.,              Kind, S., Becker, J., Wittmann, C., 2013. Increased lysine production by flux coupling of
+    Wittmann, C., 2019. Metabolic engineering of Corynebacterium glutamicum for high-           the tricarboxylic acid cycle and the lysine biosynthetic pathway -metabolic
+    level ectoine production: design, combinatorial assembly, and implementation of a           engineering of the availability of succinyl-CoA in Corynebacterium glutamicum.
+    transcriptionally balanced heterologous ectoine pathway. Biotechnol. J. 14,                 Metab. Eng. 15, 184–195.
+    e1800417.                                                                            Kind, S., Neubauer, S., Becker, J., Yamamoto, M., V¨olkert, M., Abendroth, G.V.,
+Gl¨aser, L., Kuhl, M., Stegmuller, J., Ruckert, C., Myronovskyi, M., Kalinowski, J.,                  Zelder, O., Wittmann, C., 2014. From zero to hero - production of bio-based nylon
+    Luzhetskyy, A., Wittmann, C., 2021a. Superior production of heavy pamamycin            from renewable resources using engineered Corynebacterium glutamicum. Metab. Eng.
+    derivatives using a bkdR deletion mutant of Streptomyces albus J1074/R2. Microb.           25, 113–123.
+    Cell Factories 20, 111.                                                                    Kohlstedt, M., Sappa, P.K., Meyer, H., Maass, S., Zaprasis, A., Hoffmann, T., Becker, J.,
+Gl¨aser, L., Kuhl, M., Stegmüller, J., Rückert, C., Myronovskyi, M., Kalinowski, J.,                     Steil, L., Hecker, M., van Dijl, J.M., Lalk, M., Mader, U., Stülke, J., Bremer, E.,
+    Luzhetskyy, A., Wittmann, C., 2021b. Superior production of heavy pamamycin                V¨olker, U., Wittmann, C., 2014. Adaptation of Bacillus subtilis carbon core
+    derivatives using a bkdR deletion mutant of Streptomyces albus J1074/R2. Microb.          metabolism to simultaneous nutrient limitation and osmotic challenge: a multi-
+    Cell Factories 20, 111.                                                               omics perspective. Environ. Microbiol. 16, 1898–1917.
+Gramajo, H.C., Takano, E., Bibb, M.J., 1993. Stationary-phase production of the              Kohlstedt, M., Starck, S., Barton, N., Stolzenberger, J., Selzer, M., Mehlmann, K.,
+    antibiotic actinorhodin in Streptomyces coelicolor A3(2) is transcriptionally regulated.           Schneider, R., Pleissner, D., Rinkel, J., Dickschat, J.S., Venus, J., van Duuren, J.B.J.
+    Mol. Microbiol. 7, 837–845.                                                                    H., Wittmann, C., 2018. From lignin to nylon: cascaded chemical and biochemical
+Gregory, M.A., Till, R., Smith, M.C., 2003. Integration site for Streptomyces phage phiBT1          conversion using metabolically engineered Pseudomonas putida. Metab. Eng. 47,
+   and development of site-specific integrating vectors. J. Bacteriol. 185, 5320–5323.          279–293.
+Hergenrother, P.J., Leys, D., 2018. Topoisomerase inhibitors with antibacterial and           Kohlstedt, M., Weimer, A., Weiland, F., Stolzenberger, J., Selzer, M., Sanz, M.,
+    anticancer properties. US Patent 11274106.                                            Kramps, L., Wittmann, C., 2022. Biobased PET from lignin using an engineered cis,
+Hilker, R., Stadermann, K.B., Doppmeier, D., Kalinowski, J., Stoye, J., Straube, J.,               cis-muconate-producing Pseudomonas putida strain with superior robustness,
+    Winnebald, J., Goesmann, A., 2014. ReadXplorer—visualization and analysis of             energy and redox properties. Metab. Eng. 72, 337–352.
+   mapped sequences. Bioinformatics 30, 2247–2254.                                  Komaki, H., Hosoyama, A., Kimura, A., Ichikawa, N., Igarashi, Y., Tamura, T., 2020.
+Hiramatsu, K., Igarashi, M., Morimoto, Y., Baba, T., Umekita, M., Akamatsu, Y., 2012.             Classification of ‘Streptomyces hyalinum’ Hamada and Yokoyama as Embleya hyalina
+    Curing bacteria of antibiotic resistance: reverse antibiotics, a novel class of                     sp. nov., the second species in the genus Embleya, and emendation of the genus
+    antibiotics in nature. Int. J. Antimicrob. Agents 39, 478–485.                               Embleya. Int. J. Syst. Evol. Microbiol. 70, 1591–1595.
+Hiramatsu, K., Sasaki, T., Morimoto, Y., 2015. Future chemotherapy preventing            Kormanec, J., Novakova, R., Mingyar, E., Feckova, L., 2014. Intriguing properties of the
+    emergence of multi-antibiotic resistance. Juntendo Medical Journal 61, 249–256.            angucycline antibiotic auricin and complex regulation of its biosynthesis. Appl.
+Hoffmann, S.L., Jungmann, L., Schiefelbein, S., Peyriga, L., Cahoreau, E., Portais, J.C.,            Microbiol. Biotechnol. 98, 45–60.
+    Becker, J., Wittmann, C., 2018. Lysine production from the sugar alcohol mannitol:       Kuhl, M., Gl¨aser, L., Rebets, Y., Rückert, C., Sarkar, N., Hartsch, T., Kalinowski, J.,
+    design of the cell factory Corynebacterium glutamicum SEA-3 through integrated              Luzhetskyy, A., Wittmann, C., 2020. Microparticles globally reprogram Streptomyces
+    analysis and engineering of metabolic pathway fluxes. Metab. Eng. 47, 475–487.              albus toward accelerated morphogenesis, streamlined carbon core metabolism, and
+Hoffmann, S.L., Kohlstedt, M., Jungmann, L., Hutter, M., Poblete-Castro, I., Becker, J.,          enhanced production of the antituberculosis polyketide pamamycin. Biotechnol.
+    Wittmann, C., 2021. Cascaded valorization of brown seaweed to produce l-lysine and           Bioeng. 117, 3858–3875.
+    value-added products using Corynebacterium glutamicum streamlined by systems          Kuhl, M., Ruckert, C., Glaser, L., Beganovic, S., Luzhetskyy, A., Kalinowski, J.,
+    metabolic engineering. Metab. Eng. 67, 293–307.                                       Wittmann, C., 2021. Microparticles enhance the formation of seven major classes of
+Holt, T.G., Chang, C., Laurent-Winter, C., Murakami, T., Garrels, J.I., Davies, J.E.,                natural products in native and metabolically engineered actinobacteria through
+   Thompson, C.J., 1992. Global changes in gene expression related to antibiotic                accelerated morphological development. Biotechnol. Bioeng. 118, 3076–3093.
+    synthesis in Streptomyces hygroscopicus. Mol. Microbiol. 6, 969–980.                      Labes, G., Bibb, M., Wohlleben, W., 1997. Isolation and characterization of a strong
+Huang, D., Li, S., Xia, M., Wen, J., Jia, X., 2013. Genome-scale metabolic network guided          promoter element from the Streptomyces ghanaensis phage I19 using the gentamicin
+    engineering of Streptomyces tsukubaensis for FK506 production improvement.                  resistance gene (aacC1) of Tn 1696 as reporter. Microbiology 143 (Pt 5), 1503–1512.
+    Microb. Cell Factories 12, 52.                                                  Langmead, B., Salzberg, S.L., 2012. Fast gapped-read alignment with Bowtie 2. Nat.
+Huang, S., Millar, A.H., 2013. Succinate dehydrogenase: the complex roles of a simple          Methods 9, 357.
+    enzyme. Curr. Opin. Plant Biol. 16, 344–349.                                             Lee, Y., Lee, N., Hwang, S., Kim, W., Cho, S., Palsson, B.O., Cho, B.K., 2022. Genome-
+Huo, L., Rachid, S., Stadler, M., Wenzel, S.C., Muller, R., 2012. Synthetic biotechnology            scale analysis of genetic regulatory elements in Streptomyces avermitilis MA-4680
+    to study and engineer ribosomal bottromycin biosynthesis. Chem. Biol. 19,                  using transcript boundary information. BMC Genom. 23, 68.
+    1278–1287.                                                                                 Liao, H.F., Lin, L.L., Chien, H.R., Hsu, W.H., 2001. Serine 187 is a crucial residue for
+Hwang, M.-S., Rohlena, J., Dong, L.-F., Neuzil, J., Grimm, S., 2014. Powerhouse down:             allosteric regulation of Corynebacterium glutamicum 3-deoxy-D-arabino-heptuloso­
+    complex II dissociation in the respiratory chain. Mitochondrion 19, 20–28.                  nate-7-phosphate synthase. FEMS Microbiol. Lett. 194, 59–64.
+Hwang, S., Lee, N., Jeong, Y., Lee, Y., Kim, W., Cho, S., Palsson, B.O., Cho, B.K., 2019.        Liu, G., Chater, K.F., Chandra, G., Niu, G., Tan, H., 2013. Molecular regulation of
+    Primary transcriptome and translatome analysis determines transcriptional and                antibiotic biosynthesis in streptomyces. Microbiol. Mol. Biol. Rev. 77, 112–143.
+    translational regulatory elements encoded in the Streptomyces clavuligerus genome.       Love, M.I., Huber, W., Anders, S., 2014. Moderated estimation of fold change and
+    Nucleic Acids Res. 47, 6114–6129.                                                           dispersion for RNA-seq data with DESeq2. Genome Biol. 15, 550.
+Ian, E., Malko, D.B., Sekurova, O.N., Bredholt, H., Ruckert, C., Borisova, M.E.,                Lu, C., Zhang, X., Jiang, M., Bai, L., 2016. Enhanced salinomycin production by adjusting
+    Albersmeier, A., Kalinowski, J., Gelfand, M.S., Zotchev, S.B., 2014. Genomics of              the supply of polyketide extender units in Streptomyces albus. Metab. Eng. 35,
+    sponge-associated Streptomyces spp. closely related to Streptomyces albus J1074:            129–137.
+    insights into marine adaptation and secondary metabolite biosynthesis potential.        Ma, Z., Hu, Y., Liao, Z., Xu, J., Xu, X., Bechthold, A., Yu, X., 2020. Cloning and
+   PLoS One 9, e96719.                                                                      overexpression of the toy cluster for titer improvement of toyocamycin in
+Ikeda, M., 2006. Towards bacterial strains overproducing L-tryptophan and other                 Streptomyces diastatochromogenes. Front. Microbiol. 11, 2074.
+    aromatics by metabolic engineering. Appl. Microbiol. Biotechnol. 69, 615–626.
+
+
+                                                                       141
+
+
+[PDF physical page 20]
+J. Stegmüller et al.                                                                                                                           Metabolic Engineering 81 (2024) 123–143
+
+Mao, X.M., Luo, S., Li, Y.Q., 2017. Negative regulation of daptomycin production by         Rohles, C.M., Giesselmann, G., Kohlstedt, M., Wittmann, C., Becker, J., 2016. Systems
+   DepR2, an ArsR-family transcriptional factor. J. Ind. Microbiol. Biotechnol. 44,              metabolic engineering of Corynebacterium glutamicum for the production of the
+    1653–1658.                                                                           carbon-5 platform chemicals 5-aminovalerate and glutarate. Microb. Cell Factories
+Massey, L.K., Sokatch, J.R., Conrad, R.S., 1976. Branched-chain amino acid catabolism in           15, 154.
+    bacteria. Bacteriol. Rev. 40, 42–54.                                                     Rohles, C.M., Gl¨aser, L., Kohlstedt, M., Gießelmann, G., Pearson, S., del Campo, A.,
+Meza, E., Becker, J., Bolivar, F., Gosset, G., Wittmann, C., 2012. Consequences of                Becker, J., Wittmann, C., 2018. A bio-based route to the carbon-5 chemical glutaric
+    phosphoenolpyruvate:sugar phosphotranferase system and pyruvate kinase isozymes           acid and to bionylon-6,5 using metabolically engineered Corynebacterium
+    inactivation in central carbon metabolism flux distribution in Escherichia coli.                glutamicum. Green Chem. 20, 4662–4674.
+    Microb. Cell Factories 11, 127.                                                           Ruiz, B., Chavez, A., Forero, A., Garcia-Huante, Y., Romero, A., Sanchez, M., Rocha, D.,
+Mo, J., Wang, S., Zhang, W., Li, C., Deng, Z., Zhang, L., Qu, X., 2019. Efficient editing           Sanchez, B., Rodriguez-Sanoja, R., Sanchez, S., Langley, E., 2010. Production of
+   DNA regions with high sequence identity in actinomycetal genomes by a CRISPR-            microbial secondary metabolites: regulation by the carbon source. Crit. Rev.
+    Cas9 system. Synthetic and systems biotechnology 4, 86–91.                                 Microbiol. 36, 146–167.
+Morimoto, Y., Baba, T., Sasaki, T., Hiramatsu, K., 2015. Apigenin as an anti-quinolone-      Sambrook, J.F., Russell, D.W., 2001. Molecular Cloning: A Laboratory Manual, third ed.
+    resistance antibiotic. Int. J. Antimicrob. Agents 46, 666–673.                             Cold Spring Harbor Laboratory Press. 1,2 and 3.
+Myronovskyi, M., Luzhetskyy, A., 2016. Native and engineered promoters in natural         Sander, T., Farke, N., Diehl, C., Kuntz, M., Glatter, T., Link, H., 2019. Allosteric feedback
+    product discovery. Nat. Prod. Rep. 33, 1006–1019.                                            inhibition enables robust amino acid biosynthesis in E. coli by enforcing enzyme
+Myronovskyi, M., Rosenkranzer, B., Nadmid, S., Pujic, P., Normand, P., Luzhetskyy, A.,          overabundance. Cell Syst 8, 66–75 e8.
+    2018. Generation of a cluster-free Streptomyces albus chassis strains for improved          Schilling, O., Frick, O., Herzberg, C., Ehrenreich, A., Heinzle, E., Wittmann, C., Stülke, J.,
+    heterologous expression of secondary metabolite clusters. Metab. Eng. 49, 316–324.          2007. Transcriptional and metabolic responses of Bacillus subtilis to the availability
+Myronovskyi, M., Rosenkranzer, B., Stierhof, M., Petzke, L., Seiser, T., Luzhetskyy, A.,             of organic acids: transcription regulation is important but not sufficient to account
+    2020. Identification and heterologous expression of the albucidin gene cluster from            for metabolic adaptation. Appl. Environ. Microbiol. 73, 499–507.
+    the marine strain Streptomyces albus subsp. chlorinus NRRL B-24108.                  Schwechheimer, S.K., Becker, J., Peyriga, L., Portais, J.C., Sauer, D., Muller, R., Hoff, B.,
+    Microorganisms 8.                                                                        Haefner, S., Schroder, H., Zelder, O., Wittmann, C., 2018a. Improved riboflavin
+Novakova, R., Mingyar, E., Feckova, L., Homerova, D., Csolleiova, D., Rezuchova, B.,            production with Ashbya gossypii from vegetable oil based on (13)C metabolic
+    Sevcikova, B., Javorova, R., Kormanec, J., 2022. A new family of transcriptional            network analysis with combined labeling analysis by GC/MS, LC/MS, 1D, and 2D
+    regulators activating biosynthetic gene clusters for secondary metabolites. Int. J.          NMR. Metab. Eng. 47, 357–373.
+    Mol. Sci. 23.                                                                   Schwechheimer, S.K., Becker, J., Peyriga, L., Portais, J.C., Wittmann, C., 2018b.
+Nussbaum, F., Ebbinghaus, A., Mayer-Bartschmid, A., Zitzmann, W., Wiese, W.B.,                Metabolic flux analysis in Ashbya gossypii using (13)C-labeled yeast extract:
+    Stadler, M., Anlauf, S., 2009. CDC25 Inhibitors. EP Patent 2,130,831.                          industrial riboflavin production under complex nutrient conditions. Microb. Cell
+Park, S.J., Tseng, C.P., Gunsalus, R.P., 1995. Regulation of succinate dehydrogenase              Factories 17, 162.
+   (sdhCDAB) operon expression in Escherichia coli in response to carbon supply and        Schwentner, A., Feith, A., Munch, E., Stiefelmaier, J., Lauer, I., Favilli, L., Massner, C.,
+    anaerobiosis: role of ArcA and Fnr. Mol. Microbiol. 15, 473–482.                             Ohrlein, J., Grund, B., Huser, A., Takors, R., Blombach, B., 2019. Modular systems
+Parkinson, E.I., Bair, J.S., Nakamura, B.A., Lee, H.Y., Kuttab, H.I., Southgate, E.H.,               metabolic engineering enables balancing of relevant pathways for l-histidine
+    Lezmi, S., Lau, G.W., Hergenrother, P.J., 2015a. Deoxynybomycins inhibit mutant           production with Corynebacterium glutamicum. Biotechnol. Biofuels 12, 65.
+   DNA gyrase and rescue mice infected with fluoroquinolone-resistant bacteria. Nat.        Seghezzi, N., Amar, P., Koebmann, B., Jensen, P.R., Virolle, M.J., 2011. The construction
+   Commun. 6, 6947.                                                                              of a library of synthetic promoters revealed some specific features of strong
+Parkinson, E.I., Bair, J.S., Nakamura, B.A., Lee, H.Y., Kuttab, H.I., Southgate, E.H.,                Streptomyces promoters. Appl. Microbiol. Biotechnol. 90, 615–623.
+    Lezmi, S., Lau, G.W., Hergenrother, P.J., 2015b. Deoxynybomycins inhibit mutant       Seyedsayamdost, M.R., 2019. Toward a global picture of bacterial secondary
+   DNA gyrase and rescue mice infected with fluoroquinolone-resistant bacteria. Nat.           metabolism. J. Ind. Microbiol. Biotechnol. 46, 301–311.
+   Commun. 6, 6947.                                                                               Siegl, T., Tokovenko, B., Myronovskyi, M., Luzhetskyy, A., 2013. Design, construction
+Parthasarathy, A., Cross, P.J., Dobson, R.C.J., Adams, L.E., Savka, M.A., Hudson, A.O.,          and characterisation of a synthetic promoter library for fine-tuned gene expression in
+    2018. A three-ring circus: metabolism of the three proteogenic aromatic amino acids           actinomycetes. Metab. Eng. 19, 98–106.
+   and their role in the health of plants and animals. Front. Mol. Biosci. 5, 29.                 Strelitz, F., Flon, H., Asheshov, I.N., 1955. Nybomycin, a new antibiotic with antiphage
+Pauli, S., Kohlstedt, M., Lamber, J., Weiland, F., Becker, J., Wittmann, C., 2023. Systems         and antibacterial properties. Proc. Natl. Acad. Sci. U. S. A. 41, 620–624.
+    metabolic engineering upgrades Corynebacterium glutamicum for selective high-level      Sun, L., Zeng, J., Cui, P., Wang, W., Yu, D., Zhan, J., 2018. Manipulation of two
+    production of the chiral drug precursor and cell-protective extremolyte L-pipecolic           regulatory genes for efficient production of chromomycins in Streptomyces
+    acid. Metab. Eng. 77, 100–117.                                                                          reseiscleroticus. J. Biol. Eng. 12, 9.
+Paulus, C., Myronovskyi, M., Zapp, J., Rodriguez Estevez, M., Lopatniuk, M.,              Team, R.C., 2014. R: A Language and Environment for Statistical Computing. R
+    Rosenkranzer, B., Palusczak, A., Luzhetskyy, A., 2022. Miramides A-D: identification          Foundation for Statistical Computing, Vienna, Austria.
+    of detoxin-like depsipeptides after heterologous expression of a hybrid NRPS-PKS       Tippmann, S., Ferreira, R., Siewers, V., Nielsen, J., Chen, Y., 2017. Effects of acetoacetyl-
+    gene cluster from Streptomyces mirabilis Lu17588. Microorganisms 10.                  CoA synthase expression on production of farnesene in Saccharomyces cerevisiae.
+Pavoncello, V., Barras, F., Bouveret, E., 2022. Degradation of exogenous fatty acids in              J. Ind. Microbiol. Biotechnol. 44, 911–922.
+    Escherichia coli. Biomolecules 12.                                                        Tsypik, O., Makitrynskyy, R., Yan, X., Koch, H.G., Paululat, T., Bechthold, A., 2021.
+Pereira, T., Nikodinovic, J., Nakazono, C., Dennis, G.R., Barrow, K.D., Chuck, J.A., 2008.          Regulatory control of rishirilide(s) biosynthesis in Streptomyces bottropensis.
+   Community structure and antibiotic production of Streptomyces nodosus bioreactors          Microorganisms 9.
+    cultured in liquid environments. Microb. Biotechnol. 1, 373–381.                     van Wezel, G.P., van der Meulen, J., Kawamoto, S., Luiten, R.G., Koerten, H.K., Kraal, B.,
+Peters-Wendisch, P.G., Eikmanns, B.J., Thierbach, G., Bachmann, B., Sahm, H., 1993.            2000. ssgA is essential for sporulation of Streptomyces coelicolor A3(2) and affects
+    Phosphoenolpyruvate carboxylase in Corynebacterium glutamicum is dispensable for          hyphal development by stimulating septum formation. J. Bacteriol. 182, 5653–5662.
+    growth and lysine production. FEMS Microbiol. Lett. 112, 269–274.                        Vila, J., Ruiz, J., Goni, P., Marcos, A., Jimenez de Anta, T., 1995. Mutation in the gyrA
+Pizer, E.S., Thupari, J., Han, W.F., Pinn, M.L., Chrest, F.J., Frehywot, G.L., Townsend, C.          gene of quinolone-resistant clinical isolates of Acinetobacter baumannii. Antimicrob.
+     A., Kuhajda, F.P., 2000. Malonyl-coenzyme-A is a potential mediator of cytotoxicity          Agents Chemother. 39, 1201–1203.
+    induced by fatty-acid synthase inhibition in human breast cancer cells and                 Vila, J., Ruiz, J., Marco, F., Barcelo, A., Goni, P., Giralt, E., Jimenez de Anta, T., 1994.
+    xenografts. Cancer Res. 60, 213–218.                                                        Association between double mutation in gyrA gene of ciprofloxacin-resistant clinical
+Price, L.B., Vogler, A., Pearson, T., Busch, J.D., Schupp, J.M., Keim, P., 2003. In vitro              isolates of Escherichia coli and MICs. Antimicrob. Agents Chemother. 38, 2477–2479.
+    selection and characterization of Bacillus anthracis mutants with high-level resistance      Walker, G.E., Dunbar, B., Hunter, I.S., Nimmo, H.G., Coggins, J.R., 1996. Evidence for a
+    to ciprofloxacin. Antimicrob. Agents Chemother. 47, 2362–2365.                           novel class of microbial 3-deoxy-D-arabino-heptulosonate-7-phosphate synthase in
+Qiu, J., Zhuo, Y., Zhu, D., Zhou, X., Zhang, L., Bai, L., Deng, Z., 2011. Overexpression of           Streptomyces coelicolor A3(2), Streptomyces rimosus and Neurospora crassa.
+    the ABC transporter AvtAB increases avermectin production in Streptomyces                 Microbiology 142 (Pt 8), 1973–1982.
+     avermitilis. Appl. Microbiol. Biotechnol. 92, 337–345.                             Wang, X., Elshahawi, S.I., Ponomareva, L.V., Ye, Q., Liu, Y., Copley, G.C., Hower, J.C.,
+Richter, M.F., Drown, B.S., Riley, A.P., Garcia, A., Shirai, T., Svec, R.L., Hergenrother, P.           Hatcher, B.E., Kharel, M.K., Van Lanen, S.G., She, Q.B., Voss, S.R., Thorson, J.S.,
+     J., 2017. Predictive compound accumulation rules yield a broad-spectrum antibiotic.          Shaaban, K.A., 2019. Structure determination, functional characterization, and
+    Nature 545, 299–304.                                                                        biosynthetic implications of nybomycin metabolites from a mining reclamation site-
+Rodrigues, A.L., Trachtmann, N., Becker, J., Lohanatha, A.F., Blotenberg, J., Bolten, C.J.,           associated streptomyces. J. Nat. Prod. 82, 3469–3476.
+    Korneli, C., de Souza Lima, A.O., Porto, L.M., Sprenger, G.A., Wittmann, C., 2013.       Warnes, M.G.R., Bolker, B., Bonebakker, L., Gentleman, R., 2016. Package ‘gplots’.
+    Systems metabolic engineering of Escherichia coli for production of the antitumor            Various R Programming Tools for Plotting Data.
+    drugs violacein and deoxyviolacein. Metab. Eng. 20, 29–41.                           Weiland, F., Barton, N., Kohlstedt, M., Becker, J., Wittmann, C., 2023. Systems metabolic
+Rodriguez, A., Martinez, J.A., Flores, N., Escalante, A., Gosset, G., Bolivar, F., 2014.              engineering upgrades Corynebacterium glutamicum to high-efficiency cis, cis-muconic
+    Engineering Escherichia coli to overproduce aromatic amino acids and derived                acid production from lignin-based aromatics. Metab. Eng. 75, 153–169.
+    compounds. Microb. Cell Factories 13, 126.                                         Werner, G., Fleige, C., Ewert, B., Laverde-Gomez, J.A., Klare, I., Witte, W., 2010. High-
+Rodriguez Estevez, M., Myronovskyi, M., Gummerlich, N., Nadmid, S., Luzhetskyy, A.,             level ciprofloxacin resistance among hospital-adapted Enterococcus faecium (CC17).
+    2018. Heterologous expression of the nybomycin gene cluster from the marine strain             Int. J. Antimicrob. Agents 35, 119–125.
+    Streptomyces albus subsp. chlorinus NRRL B-24108. Mar. Drugs 16.                      Yao, Y.F., Wang, C.S., Qiao, J., Zhao, G.R., 2013. Metabolic engineering of Escherichia coli
+Rohles, C., Pauli, S., Giesselmann, G., Kohlstedt, M., Becker, J., Wittmann, C., 2022.               for production of salvianic acid A via an artificial biosynthetic pathway. Metab. Eng.
+    Systems metabolic engineering of Corynebacterium glutamicum eliminates all by-              19, 79–87.
+    products for selective and high-yield production of the platform chemical 5-              Yin, S., Wang, X., Shi, M., Yuan, F., Wang, H., Jia, X., Sun, J., Liu, T., Yang, K., Zhang, Y.,
+    aminovalerate. Metab. Eng. 73, 168–181.                                                  Fan, K., Li, Z., 2017. Improvement of oxytetracycline production mediated via
+
+                                                                       142
+
+
+[PDF physical page 21]
+J. Stegmüller et al.                                                                                                                           Metabolic Engineering 81 (2024) 123–143
+
+    cooperation of resistance genes in Streptomyces rimosus. Sci. China Life Sci. 60,          Zhu, M., Zhang, F., Gan, T., Lin, J., Duan, Y., Zhu, X., 2022. Deciphering the pathway-
+    992–999.                                                                                            specific regulatory network for production of ten-membered enediyne Tiancimycins
+Zakalyukina, Y.V., Birykov, M.V., Lukianov, D.A., Shiriaev, D.I., Komarova, E.S.,                  in Streptomyces sp. CB03234-S. Microb. Cell Factories 21, 188.
+    Skvortsov, D.A., Kostyukevich, Y., Tashlitsky, V.N., Polshakov, V.I., Nikolaev, E.,        Zhu, Z., Li, H., Yu, P., Guo, Y., Luo, S., Chen, Z., Mao, X., Guan, W., Li, Y., 2017. SlnR is a
+    Sergiev, P.V., Osterman, I.A., 2019. Nybomycin-producing Streptomyces isolated               positive pathway-specific regulator for salinomycin biosynthesis in Streptomyces
+    from carpenter ant Camponotus vagus. Biochimie 160, 93–99.                                 albus. Appl. Microbiol. Biotechnol. 101, 1547–1557.
+Zhang, H., Stephanopoulos, G., 2013. Engineering E. coli for caffeic acid biosynthesis
+    from renewable sugars. Appl. Microbiol. Biotechnol. 97, 3333–3341.
+
+
+
+
+
+                                                                       143

@@ -1,0 +1,696 @@
+
+[PDF physical page 1]
+                                                         Fungal Genetics and Biology 89 (2016) 18–28
+
+
+                                            Contents lists available at ScienceDirect
+
+                      Fungal Genetics and Biology
+
+
+                              journal homepage: www.elsevier.com/locate/yfgbi
+
+
+
+Comprehensive curation and analysis of fungal biosynthetic gene
+clusters of published natural products
+
+Yong Fuga Li a,f, Kathleen J.S. Tsai b, Colin J.B. Harvey a, James Jian Li a, Beatrice E. Ary c, Erin E. Berlew b,
+Brenna L. Boehman b, David M. Findley b, Alexandra G. Friant c, Christopher A. Gardner d,
+Michael P. Gould b, Jae H. Ha c, Brenna K. Lilley d, Emily L. McKinstry b, Saadia Nawal b, Robert C. Parry b,
+Kristina W. Rothchild b, Samantha D. Silbert c, Michael D. Tentilucci b, Alana M. Thurston b,
+Rebecca B. Wai b, Yongjin Yoon b, Raeka S. Aiyar a, Marnix H. Medema e, Maureen E. Hillenmeyer a,⇑,
+                             b,⇑Louise K. Charkoudian
+
+a Stanford Genome Technology Center, Stanford University, Palo Alto, CA, United States
+b Department of Chemistry, Haverford College, Haverford, PA, United States
+c Department of Chemistry, Bryn Mawr College, Bryn Mawr, PA, United States
+d Department of Biology, Haverford College, Haverford, PA, United States
+e Bioinformatics Group, Wageningen University, The Netherlands
+f Department of Bioengineering, Stanford University, Stanford, CA, United States
+
+
+a r t i c l e    i n f o              a b s t r a c t
+
+
+Article history:                               Microorganisms produce a wide range of natural products (NPs) with clinically and agriculturally rele-
+Received 15 September 2015                    vant biological activities. In bacteria and fungi, genes encoding successive steps in a biosynthetic pathway
+Revised 20 January 2016                       tend to be clustered on the chromosome as biosynthetic gene clusters (BGCs). Historically, ‘‘activity-
+Accepted 21 January 2016
+                                            guided” approaches to NP discovery have focused on bioactivity screening of NPs produced by culturable
+Available online 22 January 2016
+                                             microbes. In contrast, recent ‘‘genome mining” approaches ﬁrst identify candidate BGCs, express these
+                                               biosynthetic genes using synthetic biology methods, and ﬁnally test for the production of NPs. Fungal
+Keywords:
+                                    genome mining efforts and the exploration of novel sequence and NP space are limited, however, by
+Natural product
+                                             the lack of a comprehensive catalog of BGCs encoding experimentally-validated products. In this study,
+Biosynthetic gene cluster
+Manual curation                       we generated a comprehensive reference set of fungal NPs whose biosynthetic gene clusters are
+Genome mining                                described in the published literature. To generate this dataset, we ﬁrst identiﬁed NCBI records that
+Fungal metabolites                             included both a peer-reviewed article and an associated nucleotide record. We ﬁltered these records
+                                       by text and homology criteria to identify putative NP-related articles and BGCs. Next, we manually
+                                             curated the resulting articles, chemical structures, and protein sequences. The resulting catalog contains
+                                      197 unique NP compounds covering several major classes of fungal NPs, including polyketides, non-
+                                            ribosomal peptides, terpenoids, and alkaloids. The distribution of articles published per compound shows
+                                           a bias toward the study of certain popular compounds, such as the aﬂatoxins. Phylogenetic analysis of
+                                               biosynthetic genes suggests that much chemical and enzymatic diversity remains to be discovered in
+                                                   fungi. Our  catalog was  incorporated  into  the  recently  launched Minimum  Information  about
+                                               Biosynthetic Gene cluster (MIBiG) repository to create the largest known set of fungal BGCs and associ-
+                                            ated NPs, a resource that we anticipate will guide future genome mining and synthetic biology efforts
+                                        toward discovering novel fungal enzymes and metabolites.
+                                                                                            2016 Elsevier Inc. All rights reserved.
+
+
+
+                                                                              1. Introduction
+
+    Abbreviations: ACE, abundance-based coverage estimators; BGC, biosynthetic
+gene cluster; CI, conﬁdence interval; CID, Compound Identiﬁers; FAS, fatty acid       Microorganisms produce natural products (NPs) with a remark-
+synthase; InChI, International Chemical Identiﬁer; KS, ketosynthase; MIBiG, Min-     able range of structures and bioactivities. Fungi produce NPs with
+imum Information about Biosynthetic Gene cluster; NP, natural product; NRPS,     particularly diverse properties, including antibiotics  (e.g., peni-
+non-ribosomal peptide synthetase; PKS, polyketide synthase; SMILES, Simpliﬁed
+Molecular-Input Line-Entry System.                                                    cillin) and  toxins  (e.g., aﬂatoxins) (Amare and  Keller, 2014;
+ ⇑Corresponding authors.                                              Hoffmeister and Keller, 2007; Newman and Cragg, 2007). NPs are
+    E-mail  addresses:  maureenh@stanford.edu  (M.E.  Hillenmeyer),  lcharkou@     often biosynthesized by multi-enzyme pathways, and the proteins
+haverford.edu (L.K. Charkoudian).
+
+
+http://dx.doi.org/10.1016/j.fgb.2016.01.012
+1087-1845/  2016 Elsevier Inc. All rights reserved.
+
+
+[PDF physical page 2]
+                                                                      Y.F. Li et al. / Fungal Genetics and Biology 89 (2016) 18–28                                            19
+
+
+comprising one pathway are often encoded within a clustered set     publications from the PubMed database, each of which was linked
+of genes, termed a biosynthetic gene cluster (BGC) (Cimermancic     to a fungal nucleotide record in GenBank. We then employed the
+et al., 2014; Keller et al., 2005; Medema et al., 2011). Many putative    ‘‘many hands make light work” approach to annotate the fungal
+BGCs remain ‘‘cryptic” or ‘‘orphan”, meaning their encoded pro-    NPs described, by integrating this research challenge into the class-
+teins and resulting chemicals are not expressed under standard    room. Under the close guidance of NP experts, trained undergrad-
+conditions and are currently uncharacterized. The chemicals pro-    uate students curated those publications that experimentally
+duced by these silent gene clusters represent untapped chemical    veriﬁed biosynthesis of fungal NPs. The resulting catalog includes
+diversity that could hold pharmacological and agricultural value    197 unique fungal NPs from 217 peer-reviewed articles, and 779
+(Walsh and Fischbach, 2010).                                        nucleotide records. Here we present a systematic analysis of the
+   Researchers employ various approaches to determine the prod-     resulting articles, chemical structures, and protein sequences. We
+ucts encoded by cryptic fungal gene clusters (Wiemann and Keller,     contextualize our results within the framework of the recent MIBiG
+2014). Synthetic biology and genetic engineering efforts include    (Minimum Information about a Biosynthetic Gene cluster) effort, a
+activation  of  transcriptionally  silent  clusters in natural hosts     parallel large-scale community annotation project (Medema et al.,
+(Bouhired et al., 2007; Mao et al., 2015; Mattern et al., 2015) and     2015). The information from our study is expected to guide the
+expression  of  uncharacterized  clusters  in heterologous  hosts     exploration and engineering of fungal systems for the biosynthesis
+(Chang et al., 2013; Heneghan et al., 2010; Kealey et al., 1998;     of novel NPs. Furthermore, the signiﬁcance of our ﬁndings extends
+Pel et al., 2007; Richter et al., 2014; Sakai et al., 2012, 2008; Yin     into pedagogical space, as the student-led curation represents a
+et al., 2013). The synthetic biology toolset continues to expand    unique educational process with direct beneﬁts to the NP and syn-
+with new methods, such as gene cluster refactoring (Shao et al.,     thetic biology research communities.
+2013) and the expression of multi-gene pathways (Unkles et al.,
+2014).
+                                                                              2. Materials and methods
+   In the modern era of BGC research that beneﬁts from the con-
+tinuous ﬂood of new sequencing data, computational approaches
+                                                                                    2.1. Identiﬁcation of NP-related articles in PubMed linked to nucleotide
+play a critical role in the discovery of NPs from uncharacterized
+                                                                        records
+BGCs. BGCs can be computationally identiﬁed by homology and
+other techniques, and their chemical product can sometimes be
+                                                             To identify a preliminary set of NP-related peer-reviewed arti-
+predicted based on the enzymes they encode (Donia et al., 2014;
+                                                                           cles for manual curation, we employed an automated search of
+Medema and Fischbach, 2015; O’Brien et al., 2014; Pi et al., 2015;
+                                                          NCBI PubMed for articles with deposited nucleotide records. We
+Throckmorton et al., 2015). These studies have revealed that fungal
+                                                                           refer to these as ‘‘article-nucleotide” pairs, since they have both a
+genomes encode several classes of BGCs capable of producing valu-
+                                                    PubMed article (with a PubMed ID or PMID) and a NCBI nucleotide
+able, diverse NPs, including polyketides, non-ribosomal peptides,
+                                                                  record ID.
+terpenoids, alkaloids, and others. Many of the basic biosynthetic
+                                                              As the ﬁrst step in this process, we identiﬁed articles related to
+mechanisms for producing the major classes of fungal NPs are well
+                                                   NP biosynthesis using three automated searches for: (a) nucleotide
+characterized, and new BGCs can therefore be detected in fungal
+                                                                   records with homology to known core enzymes, according to
+genomic sequences via homology to core biosynthetic enzymes
+                                                                   searches using antiSMASH 2.0 (Blin et al., 2013), (b) nucleotide
+(Cimermancic  et  al., 2014;  Inglis  et  al., 2013; Medema and
+                                                                   records identiﬁed by text queries on full records or record titles
+Fischbach, 2015). The number of fungal BGCs yet to be discovered
+                                                                         in the NCBI nucleotide database, and (c) published articles identi-
+is vast, as a single fungal genome can house 40–80 gene clusters
+                                                         ﬁed by text queries of articles in the PubMed database. The text
+with homology to major BGC classes (Inglis et al., 2013). With rapid
+                                                                    queries were composed of a list of compound classes, names of sec-
+advancements in sequencing technologies,  it  is expected that
+                                                             ondary metabolites, and keywords indicative of NP gene clusters.
+within a decade, millions of bacterial and fungal sequences will
+                                                                             Full queries used in the searches are listed in Supplementary Mate-
+be available to the public (Medema and Fischbach, 2015), which
+                                                                                   rials Section 1.1. From the candidate nucleotide records (a and b),
+will be invaluable for NP genome mining efforts.
+                                                we retained only those with linked PubMed abstracts or PubMed
+   Given the wealth of genomic discovery opportunities at our dis-
+                                                                     Central full text articles. From the candidate PubMed articles (c),
+posal, the future of fungal NP research relies in part on our ability
+                                                                 only those with linked nucleotide records were retained.
+to make relevant information about BGCs accessible to the com-
+                                            We identiﬁed 2449 articles linked to nucleotide records of fun-
+munity (Medema and Fischbach, 2015; Medema et al., 2015). Large
+                                                                        gal origin, 1652 articles with nucleotide records of plant origin, and
+numbers of BGCs and NP structures have been characterized over
+                                                         5904 articles linked to nucleotide records of bacterial origin. Man-
+decades of fungal NP research (Lim et  al., 2012; Walsh and
+                                                                     ual examination of a subset of the fungal articles revealed that
+Fischbach, 2010), but these published  results have not been
+                                                         most were not relevant to this study: for example, some describe
+curated and made available in a standardized format. A compre-
+                                                               a fungal genome sequence with no mention of NPs, and some
+hensive catalog of fungal NPs with experimentally characterized
+                                                                    describe a non-biosynthetic gene. To remove such articles, we
+biosynthetic genes would be of great value to the community.
+                                                              developed an automated  ‘‘NP-ﬁlter”, the details of which are
+While many catalogs related to fungal genetics and metabolism
+                                                                   described in Supplementary Materials Section 1.2.
+exist, they either focus on primary metabolism (Cerqueira et al.,
+2014; Stajich et  al., 2012), or do not directly link secondary
+metabolite structures to the encoding BGCs (Degtyarenko et al.,      2.2. Manual curation of NPs described in peer-reviewed articles
+2008; Gaulton et  al., 2012; Pence and Williams, 2010; Wang
+et al., 2009). DoBISCUIT (Ichikawa et al., 2013) and ClusterMine360      The ‘‘NP-ﬁlter” step reduced the number of fungal articles to
+(Conway and Boddy, 2013)  link molecular structure to DNA    960, but only decreased the coverage of ‘‘gold standard” entries,
+sequence, but focus on bacterial NPs.                                                   i.e., the bacteria or fungal entries present in either DoBISCUIT or
+   The need for a fungal NP reference catalog inspired us to per-    ClusterMine360, by 1% (Supplementary Materials, Section 1.3 and
+form a comprehensive curation of published articles describing    Table S1). Each of the 960 articles linked to fungal nucleotide
+fungal NPs and associated biosynthetic genes. To identify all possi-    records was assigned a score from 1 to 8.5 based on the types of
+ble published articles related to fungal NP biosynthesis, we devel-    supporting query strategies, with higher scores indicating stronger
+oped  an  automated  search  strategy  to  extract  NP-related    supporting evidence (see Supplementary Materials, Section 1.4).
+
+
+[PDF physical page 3]
+20                                                                   Y.F. Li et al. / Fungal Genetics and Biology 89 (2016) 18–28
+
+
+We observed a strong enrichment of ClusterMine360 entries in the    compounds and all were retained; for example, aﬂaquinolone F
+highest-scoring articles. The 349 articles with scores >2 covered    and aﬂaquinolone G.
+92% of the fungal ‘‘gold standard articles” (38 articles associated
+with the fungal entries in ClusterMine360).                                 2.4. Chemical informatics analysis of compounds
+   The titles of the 960 articles were manually examined by two
+experts and assigned to three categories based on how likely the       For a given molecule, multiple valid SMILES strings can accu-
+articles were to describe NP gene clusters: ‘‘Yes” (high likelihood,     rately represent the chemical structure. To ensure the uniqueness
+251 articles), ‘‘Maybe” (99 articles), ‘‘No” (low likelihood, 610 arti-     of each compound in our dataset, we converted all SMILES to the
+cles). Among those marked ‘‘No”, 264 were noted as single enzyme     canonical SMILES string, which is a unique SMILES string among
+papers,  i.e. those that described a single, possibly NP-related,    the many possible strings and is generated by the normalization
+enzyme (such as a cytochrome P450). Other examples of articles     (canonicalization) algorithm. We then used the canonical SMILES
+marked ‘‘No” include whole-genome sequence articles that men-     to generate compound ﬁngerprints using the Chemistry Develop-
+tioned a NP in the article text but did not describe a BGC. We    ment Kit (Guha, 2007; Steinbeck et al., 2003). The ﬁngerprint of a
+observed strong enrichment of ClusterMine360 articles in the    compound is represented as a bit vector indicating the presence
+‘‘Yes” category (79.0%), while the ‘‘Maybe,” ‘‘Single Enzyme,” and     of substructures in the compound. The similarity between two
+‘‘not Single Enzyme” categories covered 2.6%, 5.3%, and 13.2% of    compounds is measured by the Tanimoto coefﬁcient (Nikolova
+ClusterMine360, respectively. We selected 275 articles with score    and Jaworska, 2003), deﬁned  as, T = a  b/[1   (1   a)  (1   b)],
+>3 across all categories, or in the ‘‘Yes” category with a score >2    where a b is the dot product between two ﬁngerprint bit vectors
+for further full-text curation.                                     a and b for the two compounds. The Tanimoto coefﬁcient is inter-
+   The ﬁrst-pass curation of the 275 articles was conducted by 19    preted as the ratio of shared bits (substructures) to the total bits
+undergraduate students (junior and senior chemistry and biology     (substructures) in two compounds. We performed hierarchical
+majors at Haverford and Bryn Mawr colleges) with aid from the     clustering of the compounds using the neighbor-joining algorithm
+Pubtator (Wei et  al., 2013) text-mining tool (http://www.ncbi.    with 1  T as the distance  metric. Compound  clusters were
+nlm.nih.gov/CBBresearch/Lu/Demo/PubTator/).    Articles   were    obtained with a cutoff 0.75 for Tanimoto coefﬁcient. Based on
+assigned at random, with each article being assigned to two differ-    our manual inspection, this provides a proper resolution that
+ent students. Curators used a standardized workﬂow to ensure    groups most compound analogs and intermediates (compounds
+consistent methodologies. Curators ﬁrst read the abstract and arti-    from the same BGC) together (Table S2).
+cle to identify all relevant NPs linked to the nucleotide record(s) of     We compared the chemical similarity and performed hierarchi-
+interest. For each NP, curators catalogued the name, molecular     cal clustering of curated compounds together with other fungal
+structure (as a Simpliﬁed Molecular-Input Line-Entry System or    NPs, which are represented by the ChEBI chemicals under ontology
+SMILES  string),  chemical  resource  IDs  (found on PubChem,    term ChEBI: 76946 (fungal metabolite) (Degtyarenko et al., 2008).
+ChEMBL, and ChemSpider), and NP classiﬁcation (non-ribosomal   An NP in ChEBI with a Tanimoto coefﬁcient of similarity P0.75 to
+peptide synthetase or NRPS, terpene, polyketide synthase or PKS,    any compound in our catalog was considered covered by our
+hybrid, or other). When a compound was not available in existing     catalog.
+databases, curators drew the compound structure in ChemDraw
+software and extracted the SMILES string (Weininger, 1988). Cura-
+                                                                                    2.5. AntiSMASH annotation and phylogenetic analysis of biosynthetic
+tors also identiﬁed experimental evidence from the article con-
+                                                                   genes
+ﬁrming an association between the NP(s) and gene cluster(s). If
+the NP was a non-ribosomal peptide, curators identiﬁed adenyla-
+                                                                        Certain types of core enzymes are known to biosynthesize the
+tion domain substrate speciﬁcities. The link between nucleotide
+                                                            major classes of fungal NPs, and these enzymes can be readily
+records and NPs was conﬁrmed by searching for the associated
+                                                                   identiﬁed by homology. We identiﬁed core enzymes in the nucleo-
+nucleotide accession numbers in PubMed. An entry supported by
+                                                                         tide records from the curated catalog using the set deﬁned by anti-
+two independent curators was viewed as conﬁrmed. The remain-
+                                                 SMASH 2.0 (Blin et al., 2013). In an analogous fashion, we identiﬁed
+ing entries were examined by experts in a separate round of cura-
+                                                                   core enzymes in 581 annotated fungal genomes in GenBank. For
+tion and were marked as either conﬁrmed or rejected.
+                                                                  phylogenetic analyses of these enzymes (or selected domains
+                                                                           therein), we ﬁrst performed multiple sequence alignment using
+                                                    MAFFT  (Katoh,  2002),  followed by  approximate maximum-
+2.3. Conﬁrmation of unique compound names and structures
+                                                                        likelihood phylogenic inference using FastTree (Price et al., 2010).
+                                                                   Phylogenetic trees were visualized in R using the APE package.
+   To obtain the best-matched PubChem Compound Identiﬁers
+                                                          The PKS tree was rooted at the common ancestor of the mitochon-
+(CIDs), we converted each SMILES string to the International
+                                                                             drial ketosynthase (KS) and type  I  fatty acid synthase (FAS)
+Chemical Identiﬁer (InChI) key (Heller et al., 2013), and searched
+                                                                         proteins.
+for the InChI key in PubChem. If an exact match of the isomeric
+SMILES (SMILES with isotopic and/or chiral speciﬁcations) was
+located in PubChem, we used the corresponding PubChem CID.     3. Results
+Otherwise, we converted isomeric SMILES to non-isomeric canon-
+ical SMILES and used the corresponding PubChem CID. We cross-      3.1. High-quality curation of articles that link fungal nucleotide
+checked the compound names from the student curators with     sequences to natural products
+the synonyms from each PubChem entry and resolved conﬂict by
+manually re-examining the associated articles. For conﬂicting iso-      To identify publications that link fungal nucleotide sequences to
+meric SMILES or CIDs of the same connectivity and compound    NPs, we combined multiple query strategies on PubMed article and
+name, we manually examined the chemical structures and retained    NCBI nucleotide databases (Fig. 1). We identiﬁed 960 NP-related
+only the SMILES with the most complete stereochemical informa-     articles that were linked to one or more nucleotide records of fun-
+tion. Errors in structure or missing stereochemistry were corrected.     gal origin. Of these, we selected 275 articles with a high probability
+Multiple conﬂicting isomeric SMILES bearing different compound     of linking gene sequences to NPs (see Methods for details). Under-
+names  in a  single research  article were viewed as  different    graduate students manually curated these 275 full-text articles as
+
+
+[PDF physical page 4]
+                                                                      Y.F. Li et al. / Fungal Genetics and Biology 89 (2016) 18–28                                            21
+
+
+
+
+
+                   Fig. 1. Workﬂow of article identiﬁcation and curation for experimentally veriﬁed BGCs. NT refers to the nucleotide records in GenBank.
+
+
+part of a class assignment. Each student recorded the NP com-    and were marked as either conﬁrmed or rejected. 453 (75%) entries
+pound name(s) associated with each article, or ‘‘no compound” in    were conﬁrmed, while 155 (25%) were rejected. Among the 453
+cases where there was none. Structures of NPs were recorded as    conﬁrmed entries, 393 had SMILES entered, corresponding to 217
+SMILES strings (Weininger, 1988).                                         articles (see Fig. S1 for details). The 155 rejected entries spanned
+   To ensure quality of curation, we randomly assigned each of the    83 articles, most of which were articles that also contained a con-
+275 articles to two independent student curators (see Methods).    ﬁrmed entry. These tended to be compounds assigned by one cura-
+An ‘‘entry” was deﬁned as an article-compound pair (or article-     tor because they had been mentioned in the article, but ultimately
+no-compound pair if there was no compound). The student cura-     rejected because their biosynthesis was not deﬁnitively veriﬁed.
+tion resulted in 608 unique entries. An entry supported by two       Stereochemistry is a vital consideration when looking at NP
+independent curators was marked as conﬁrmed. The remaining     structure, with stereoisomers often possessing distinct biological
+entries were examined by experts in a separate round of curation,      activities. In some cases, multiple stereoisomers naturally co-occur
+
+
+
+
+
+Fig. 2. Overlaps between curated articles and nucleotide records in this study versus those in the ClusterMine360 database (CM360). The ﬁrst row (A and B) represents the
+overlaps at the article level, while the second row (C and D) represents the overlaps at the nucleotide entry level. ‘‘Initial Set” (in A and C) includes the 275 articles and
+associated nucleotide records obtained by semi-automated selection. The ‘‘Final curation” set (in B and D) includes the conﬁrmed article-nucleotide pairs from 217 articles,
+which are annotated with at least one compound.
+
+
+[PDF physical page 5]
+22                                                                   Y.F. Li et al. / Fungal Genetics and Biology 89 (2016) 18–28
+
+
+and  are  assigned  distinct names,  e.g.,  solanapyrone A and     (Crutcher et al., 2013). The former article (Mukherjee et al., 2006)
+solanapyrone D. To distinguish such compounds, we obtained    was detected by our text-mining pipeline, and subsequently man-
+isomeric SMILES when possible.                                        ually curated as describing viridiol/viridin. Such errors are a conse-
+  We compared collated gene clusters in various stages of our    quence of the evolving research.
+pipeline with those in the ClusterMine360 (Conway and Boddy,     We identiﬁed 10 NPs (5.1% of our catalog) that are currently not
+2013), a crowd sourced BGC database that was the largest online    covered by PubChem. Among those NPs in PubChem, there are sev-
+resource for fungal BGCs available at the study outset. Our original     eral cases where PubChem entries are incomplete or inaccurate,
+list of 960 articles covers all 38 articles that are linked to 26 fungal     generally containing the compound structures but lacking the
+nucleotides in ClusterMine360. Subsequent ﬁltering dramatically    compound names. We also observed two cases where the struc-
+reduced the total number of articles while retaining the majority     tures provided in the original articles contained errors, and three
+of NP-related articles in this database. The set of 275 articles we     cases where the PubChem entries provided the wrong structures.
+selected for full text curation covered 33 of the 38 articles in Clus-    Our ﬁnal catalog contains 217 articles for 197 unique compounds,
+terMine360 (87%, Fig. 2A) and 25 of their 26 fungal BGCs (96%,    which are linked to 779 nucleotide records from 174 species.
+Fig. 2C), while our ﬁnal curation covers 29 (76%) of  articles
+(Fig. 2B), and 23 (88%) of the BGCs (Fig. 2D).                               3.2. Literature bias toward certain compound families and fungal
+   Although we adopted a strict procedure to ensure curation    genera
+quality, we still observed errors during manual post-processing,
+some resulting from errors in the literature itself. For example,      To create a global view of existing literature on BGCs, we visu-
+curators included a gene cluster for viridiol and viridin from Tricho-     alized the annotated article-compound relationships as a network
+derma virens (Mukherjee et al., 2006) based on gene expression evi-    between articles and compounds (Fig. 3A). The nodes in the graph
+dence, but later research suggested that the BGC is responsible for    represent articles or compounds, and the edges represent con-
+the synthesis of structurally distinct volatile terpene compounds    ﬁrmed article-compound relationships in our catalog.
+
+
+
+
+
+Fig. 3. Global network view of conﬁrmed article-compound relationships. A. An overview of the network between the articles and compounds. The network contains 393
+article compound pairs between 217 articles (purple nodes) and 197 compounds (green nodes). B. The node degree distributions of the article nodes and compound nodes
+both follow the power-law distributions. C. The sub-network (a connected component) containing T-2 Toxin. D. The sub-network containing aﬂatoxins.
+
+
+[PDF physical page 6]
+                                                                      Y.F. Li et al. / Fungal Genetics and Biology 89 (2016) 18–28                                            23
+
+
+   Plotting the node degrees in the log-scale revealed that both the    metabolites in general. For comparison of chemical structures,
+number of compounds per article and the number of research arti-   we converted each compound to a chemical ﬁngerprint represent-
+cles per compound follow power-law distributions with exponents     ing the presence or absence of a string of substructures (O’Boyle
+approximately equal to two (Fig. 3B). According to theories in net-     et  al., 2011). The Tanimoto coefﬁcient of two such ﬁngerprints
+work biology, such a power-law distribution indicates a ‘rich-get-     reﬂects the chemical similarity between two compounds. Cluster-
+richer’ circumstance (Barabási, 1999). The power-law distribution     ing compounds by these ﬁngerprints revealed products and inter-
+of articles per compound suggests a preferential attachment of    mediate compounds from identical and related BGCs (Table S2).
+research activities around popular compounds. For example, the    For example, one compound cluster includes aﬂatoxin B1, B2, G1,
+top 15 (11.7%) compound families are described by 38.2% of the    and G2, and a second compound cluster includes fumonisin C1–
+articles. Fig. 4A shows the most frequently studied compounds.     C3, B1–B4, fumonisin C1–OH, and isofumonisin C1.
+Aﬂatoxins alone are the focus of 31 BGC-associated research arti-      To compare the compounds in our catalog to known fungal
+cles (14.3%).                                                          metabolites, we used the chemical database ChEBI, which contains
+   Similarly, we found that certain fungal genera are dispropor-    a repository of 685 fungal metabolites (Degtyarenko et al., 2008).
+tionally represented in the literature. For example, 51 of 197 com-    These include both primary metabolites (such as amino acids)
+pounds are reported from Aspergilli (26% of the compound set)    and NPs. We clustered this set of 685 compounds together with
+(Fig. 4B). At the class level, only 9 out of 46 fungal classes are cov-    compounds in our catalog according to their substructure ﬁnger-
+ered, while the majority of compounds are produced by the Sordar-     prints (Fig. 5 and Supplemental Fig. S5). The NPs in our catalog
+iomycetes,  Eurotiomycetes,  Dothideomycetes,  and  Leotiomycetes     are spread fairly evenly across the larger set of fungal metabolites.
+classes (Fig. 4C). We observed a correlation between the number    Clades not represented in our catalog include many primary
+of articles per compound and the number of species producing    metabolites as well as fungal NPs for which the encoding biosyn-
+the compound (Pearson correlation = 0.43, p-value 4  10 10 for     thetic pathways have not been characterized. For example, the
+individual  compounds;  Pearson   correlation = 0.72,   p-value    genes encoding the strobilurin fungicides (Clough, 1993) do not
+5  10 22 for compound families). Presence of a BGC in multiple    appear in our literature-based catalog; these compounds originate
+species could explain why a compound would be studied more,    from the understudied Basidiomycete phylum of fungi. Overall, 26%
+although the reverse could also be true (those more extensively     of the 685 fungal metabolites are similar to at least one compound
+studied tend to be discovered in more species).                        in our catalog at a Tanimoto similarity cutoff of 0.75. We note that
+                                                             ChEBI focuses on high quality curation rather than completeness,
+3.3. Chemical diversity of natural products in the curated catalog        so not all structurally characterized fungal NPs are present.
+                                                             To further examine the relationship between compound struc-
+  We sought to understand the chemical diversity of compounds     tures and biosynthetic genes, we compared the core enzyme anno-
+in our curated catalog, compared with a larger set of fungal     tation (from antiSMASH 2.0) with the chemical structure-based
+
+
+
+
+
+Fig. 4. The 15 most frequently studied compounds (A), and the most frequently studied fungal genera (B) and classes (C) associated with compounds in the curated set of
+experimentally veriﬁed natural product gene clusters. For (A), Closely related compounds are manually merged into compound families. # Articles: number of unique articles
+covering one or more compounds in each family. # Species: number of unique species origins of the nucleotides associated with these articles.
+
+
+[PDF physical page 7]
+24                                                                   Y.F. Li et al. / Fungal Genetics and Biology 89 (2016) 18–28
+
+
+
+
+
+Fig. 5. Hierarchical clustering of 685 fungal metabolites in ChEBI and 197 compounds in our catalog (marked yellow). (For interpretation of the references to colour in this
+ﬁgure legend, the reader is referred to the web version of this article.)
+
+
+clustering of compounds (Fig. S2). As expected, we observe a strong      3.4. Phyla of origin of nucleotide sequences
+clustering of compounds according to the associated core-enzyme
+types. Speciﬁcally, compounds synthesized by single types of core       Nucleotides in our reference catalog originate primarily from
+enzymes (PKS, NRPS, or terpene cyclase) form separate clusters,    Ascomycetes,  especially from  the Pezizomycotina subphylum
+while the compounds produced by multiple types of core enzymes     (98%), which contains the ﬁlamentous fungi such as Aspergilli. This
+(‘‘hybrids”) tend to be more scattered.                                 bias was expected, as most fungal NPs characterized to date have
+
+
+[PDF physical page 8]
+                                                                      Y.F. Li et al. / Fungal Genetics and Biology 89 (2016) 18–28                                            25
+
+
+been identiﬁed in ﬁlamentous fungi. The bias highlights an oppor-    revealed that proteins generally group by phylum of origin (Fig. 6
+tunity for identifying novel NPs and enzyme activities in more    and Supplemental Fig. S6). While many of the major Ascomycete
+diverse species, particularly those that are uncultivable.              clades harbor at least one characterized enzyme, there are numer-
+   Fungal genome sequencing projects are rapidly expanding our    ous sub-clades that are ‘‘orphans,” or harbor no curated enzyme
+knowledge of fungal genetic diversity (Grigoriev et al., 2014). Gen-    from our catalog. Similar trends were observed in the phylogenies
+Bank currently harbors 581 annotated fungal genomes (genomics     of the other classes of core enzymes (Fig. S3): homologs from the
+set), comprising 338 unique species (accessed July 2015). We com-     Basidiomycete phylum tend to represent uncharacterized clades,
+pared the phylogenetic diversity in our curated catalog with that in    and enzymes from these clades may therefore encode novel com-
+the genomics set, ﬁnding that the public genomes were more    pounds. Basidiomycetes are underrepresented in the genomics
+evenly distributed across phyla and subphyla than our catalog,     set (Table 1). As more genomes are sequenced, we anticipate that
+though they were still biased toward Ascomycetes (Table 1).         the Basidiomycete clades on the phylogenies (Fig. 6) will become
+                                                                       better resolved.
+
+3.5. Natural product biosynthetic core enzymes in curated catalog
+versus genomic sequences                                                       3.6. Integration with the MIBiG repository
+
+
+  Many known fungal NPs are biosynthesized in part by a core      The MIBiG repository, a community annotation of published,
+enzyme(s) that can be readily identiﬁed by homology, such as    experimentally characterized BGCs, was a parallel effort to our cat-
+the polyketide synthase (PKS) for polyketide pathways and the     alog (Medema et al., 2015). Comparison of the two datasets indi-
+non-ribosomal peptide synthetase (NRPS) for non-ribosomal pep-     cates they  are complementary,  as  different  article  selection
+tide pathways. Alkaloid and terpenoid classes are broader, but     criteria were used. The fungal entries in MIBiG correspond to 110
+their subclasses also share certain biosynthetic enzymes.               articles in total, 65 of which were included in the 275 articles of
+  We searched for core enzymes in the curated set of nucleotide    our  ﬁnal  set,  leaving 210  articles  unique  to  our  curation
+sequences using antiSMASH2.0, and identiﬁed ﬁve classes of com-      (Fig. S4A). The remaining 45 MIBiG articles were not included in
+mon core enzymes: PKSs, NRPSs, dimethyl allyl tryptophan syn-     this study either because they did not have a deposited nucleotide
+thases (DMATSs, involved in the biosynthesis of certain ergot    record (required for our initial searches) or because they were
+alkaloids), trichodiene synthases (involved in biosynthesis of a     linked  with  full genome  sequences.  Such  clusters  require
+type of terpenoid), and geranylgeranyl pyrophosphate synthases    software-based cluster predictions to locate in genome sequences,
+(GGPPSs, also terpenoid). To evaluate the potential prevalence of    and hence are excluded from the curation pipeline by our ﬁltering
+these core enzymes across fungal species, we searched for proteins     strategies. At the biosynthetic gene level (which corresponds to
+bearing homology to these ﬁve types of core enzymes in the 581    MIBiG entries), 76 BGCs (106 compounds) overlapped between
+fungal genome sequences in GenBank. We identiﬁed 326 instances    our catalog and MIBiG, including two MIBiG entries that were
+of these ﬁve enzymes in our curated set, and 8879 instances in the    updated based on our catalog (Fig. S4B). 45 BGCs (69 compounds)
+genomics set (Table 2). The large number of enzyme homologs for    were unique to our catalog. The remaining 22 entries in our catalog
+which the NPs are not known suggests undiscovered chemical    were mostly partial genes or non-core enzyme genes, not included
+diversity.                                                               in the MIBiG repository. There are 44 BGCs (46 compounds) in the
+   The  large number  of  uncharacterized  biosynthetic  genes    MIBiG repository that are not in our catalog. 33 of these were
+(Table 2) prompted us to investigate the phylogenetic distribution     linked  to whole genome/chromosome sequence  records, and
+of characterized vs. uncharacterized core enzymes (Figs. 6 and S3).    hence did not meet our inclusion criteria for article-nucleotide
+Alignment of the ketosynthase (KS) domains of all PKS proteins     pairs. Nine of the 44 BGCs were not linked with published articles
+
+
+
+Table 1
+Taxonomy origins of nucleotide records in curated set and in genomic set. Taxonomy is based on NCBI taxonomy levels 5 and 7 starting from level 1 Eukaryota.
+
+  Taxonomy                                                              Fungal nucleotide records in curated set                Fungal genomes in GenBank
+
+  Ascomycetes                  Pezizomycotina (ﬁlamentous)              765 (98%)                                      253 (43.5%)
+                                Schizosaccharomycetes                   0                                             4 (.7%)
+                               Saccharomycotina                       1 (.1%)                                        182 (31.3%)
+
+   Basidiomycetes               Agaricomycetes (mushrooms)              9 (1.2%)                                       55 (9.5%)
+                                 Ustilaginomycetes                       3 (.4%)                                         10 (1.7%)
+                               Tremellomycetes                        0                                             24 (4.1%)
+                               Malasseziomycetes                      1 (.1%)                                        2 (.3%)
+
+  Other                                                            0                                             51 (8.8%)
+
+   Total                                                           779                                           581
+
+
+
+
+Table 2
+Types of core enzymes identiﬁed in curated nucleotides in the catalog and in 581 fungal genomes in GenBank. Published Clusters: the experimentally veriﬁed clusters curated in
+this study. Predicted clusters: number of clusters predicted based on 581 fungal genomes in GenBank, majority of which are not experimentally veriﬁed.
+
+  Core enzyme type                                       No. core enzymes in published clusters                       No. core enzymes in predicted clusters
+
+   Ketosynthase-containing (PKS, FAS)                     127                                                 4984
+   Condensation-containing (NRPS)                        81                                                 2983
+  DMATS (alkaloid)                                    44                                                  550
+   Trichodiene synthase (terpene)                            49a                                                   26
+  GGPPS (terpene)                                     25                                                  336
+
+   Total                                             326                                                 8879
+
+  a The number is biased by one article that sequenced 39 homologous gene clusters.
+
+
+[PDF physical page 9]
+26                                                                   Y.F. Li et al. / Fungal Genetics and Biology 89 (2016) 18–28
+
+
+
+
+
+Fig. 6. Phylogenetic tree constructed using the KS domains of the PKS core enzymes identiﬁed by homology in sequenced fungal genomes from GenBank. Characterized PKSs
+from this study are highlighted with yellow diamonds. The numerical values associated with the internal nodes are estimated reliability values for the splits generated by the
+Shimodaira–Hasegawa test.
+
+
+
+(or were linked with articles not indexed by PubMed). One was     biosynthetic genes published in peer-reviewed articles thus far.
+linked to an article published after we ﬁnalized the article list. Only    Given the scope of the cataloging process and the large number
+one BGC was truly missed by our standards (see Table S3 for details).     of potential peer-reviewed articles to be curated, we developed a
+  We converted our catalog into the minimal format of MIBiG and    unique approach that involved the computational identiﬁcation
+submitted it to the MIBiG repository (see Table S3 for the full list).     of articles that both (1) discuss fungal metabolite biosynthesis
+The combination  of  this  literature-based  catalog and MIBiG    and (2) contain a nucleotide record deposited in NCBI, linked to
+resulted in 165 unique fungal BGCs with at least one core enzyme    the article by the authors. We then leveraged the abilities and
+fully sequenced. To our knowledge, this represents the largest col-     interests of motivated undergraduate students and experts to col-
+lection of experimentally validated fungal NP gene clusters to date.     late a comprehensive list of fungal NPs each with at least one asso-
+The complete resulting reference set of fungal BGCs is available     ciated gene sequence, and further integrated  this  list into a
+from the MIBiG web page (http://mibig.secondarymetabolites.    community repository. We note that our automated article priori-
+org) in GenBank, FASTA, and JSON formats.                             tization pipeline was designed to retain only the most promising
+                                                                              articles in order to minimize the workload for manual annotation.
+                                                              Although some true BGCs may be missed due to the stringent cut-
+4. Discussion
+                                                                                          off, our ﬁnal curation covers over 88% of the fungal nucleotide
+                                                                        entries in ClusterMine360 (see Section 3.1) and virtually all of
+   For natural product discovery and research to fully beneﬁt from
+                                                                  the fungal BGCs in MIBiG that are linked with non-full genome
+the genomic revolution, it is imperative that existing ﬁndings be
+                                                             sequence records in GenBank and articles in indexed in PubMed
+straightforward to access and analyze in a systematic manner.
+                                                                       (see Section 3.6). In addition, our approach successfully retrieved
+Recent calls to the community to systematically catalog NP biosyn-
+                                                               a large number of BGCs otherwise missed by MIBiG.
+thetic gene-associated metadata  will  facilitate the systematic
+                                                             The success of our approach is highlighted by the fact that we
+deposition of newly-characterized NP gene clusters into databases
+                                                                        disclose 197 fungal NPs associated with sequenced genes and iden-
+(Medema et al., 2015). However, there remains a wealth of infor-
+                                                                                    tify new areas ripe for investigation. We observed certain biases in
+mation spread out over the past few decades of scientiﬁc literature
+                                                               experiments on fungal metabolite biosynthesis. First, we noted
+that will not be captured by these future efforts. Our work here
+                                                                      that certain molecules, such as aﬂatoxins, dominate the literature,
+addresses this challenge, by generating an extensive list of fungal
+
+
+[PDF physical page 10]
+                                                                      Y.F. Li et al. / Fungal Genetics and Biology 89 (2016) 18–28                                            27
+
+
+with >10% of articles focused on this single class. Second, certain         boundaries using the transcriptional regulator LaeA. Fungal Genet. Biol. 44,
+fungal genera are disproportionally studied, with compounds from        1134–1145. http://dx.doi.org/10.1016/j.fgb.2006.12.010.
+                                                                                        Cerqueira, G.C., Arnaud, M.B., Inglis, D.O., Skrzypek, M.S., Binkley, G., Simison, M.,
+Aspergilli alone comprising 25% of the compound set; by contrast,         Miyasato, S.R., Binkley, J., Orvis, J., Shah, P., Wymore, F., Sherlock, G., Wortman, J.
+only 3.4% (20/581) of sequenced fungal genomes are from Asper-             R.,  2014. The  Aspergillus Genome  Database:  multispecies  curation and
+gilli. Third, researchers have only sampled a small portion of the         incorporation  of RNA-Seq  data  to improve  structural gene  annotations.
+                                                                                        Nucleic Acids Res. 42, D705–W710. http://dx.doi.org/10.1093/nar/gkt1029.
+sequence diversity of important core enzymes such as PKSs. There     Chang, S.-L., Chiang, Y.-M., Yeh, H.-H., Wu, T.-K., Wang, C.C.C., 2013. Reconstitution
+are certain species and clades (e.g., Basidiomycete; Figs. 6 and S3)          of the early steps of gliotoxin biosynthesis in Aspergillus nidulans reveals the role
+that remain completely uncharacterized and may therefore repre-          of the monooxygenase GliC. Bioorg. Med. Chem. Lett. 23, 2155–2157. http://dx.
+                                                                                          doi.org/10.1016/j.bmcl.2013.01.099.
+sent untapped chemical diversity.                                         Cimermancic,  P., Medema, M.H., Claesen,   J.,  Kurita,  K., Wieland Brown,  L.C.,
+  Our methods can be applied more generally to collate gene        Mavrommatis, K., Pati, A., Godfrey, P.A., Koehrsen, M., Clardy,  J., Birren, B.W.,
+information for secondary metabolites produced by other microor-         Takano, E., Sali, A., Linington, R.G., Fischbach, M.A., 2014. Insights into secondary
+                                                                               metabolism from a global analysis of prokaryotic biosynthetic gene clusters.
+ganisms, such as plants and bacteria. Only the initial queries (text           Cell 158, 412–421. http://dx.doi.org/10.1016/j.cell.2014.06.034.
+and homology) require adjustment; subsequent steps can be      Clough, J.M., 1993. The strobilurins, oudemansins, and myxothiazols, fungicidal
+directly employed. By including undergraduate students in the          derivatives of B-methoxyacrylic acid. Nat. Prod. Rep. 10, 565–574. http://dx.doi.
+curation process, we were able to make rapid progress while also         org/10.1039/np9931000565.
+                                                                         Conway, K.R., Boddy, C.N., 2013. ClusterMine360: a database of microbial PKS/NRPS
+providing students with a unique opportunity to contribute original          biosynthesis. Nucleic Acids Res. 41, 402–407. http://dx.doi.org/10.1093/nar/
+research to the biosynthetic community. Notably, this challenge         gks993.
+inspired several students to pursue postgraduate opportunities in      Crutcher, F.K., Parich, A., Schuhmacher, R., Mukherjee, P.K., Zeilinger, S., Kenerley, C.
+                                                                                            M., 2013. A putative terpene cyclase, vir4, is responsible for the biosynthesis of
+natural product research. Our efforts to curate the history of           volatile terpene compounds in the biocontrol fungus Trichoderma virens. Fungal
+research on fungal gene-molecule connections thus also helped to         Genet. Biol. 56, 67–77. http://dx.doi.org/10.1016/j.fgb.2013.05.003.
+cultivate the future of the ﬁeld. By sharing our positive experience     Degtyarenko, K., de Matos, P., Ennis, M., Hastings,  J., Zbinden, M., McNaught, A.,
+                                                                                             Alcántara, R., Darsow, M., Guedj, M., Ashburner, M., 2008. ChEBI: a database and
+with the community, we hope to inspire others to consider inte-         ontology for chemical entities of biological interest. Nucleic Acids Res. 36,
+grating original research challenges into the classroom.                   D344–D350. http://dx.doi.org/10.1093/nar/gkm791.
+  Our collaborative effort yielded a reference catalog linking fun-      Donia, M.S., Cimermancic, P., Schulze, C.J., Wieland Brown, L.C., Martin, J., Mitreva,
+                                                                                            M., Clardy,  J., Linington, R.G., Fischbach, M.A., 2014. A systematic analysis
+gal  nucleotide sequence  to NP chemical  structure,  enabling          of biosynthetic gene clusters in the human microbiome reveals a common
+researchers to more efﬁciently exploit past information to guide         family of  antibiotics.  Cell 158, 1402–1414.  http://dx.doi.org/10.1016/j.cell.
+future research and discovery. By integrating new entries into         2014.08.032.
+                                                                                    Gaulton, A., Bellis, L.J., Bento, A.P., Chambers,  J., Davies, M., Hersey, A., Light, Y.,
+the MIBiG data repository in several standardized formats, our data         McGlinchey, S., Michalovich, D., Al-Lazikani, B., Overington, J.P., 2012. ChEMBL:
+can be readily retrieved and analyzed by others (Medema et al.,         a large-scale bioactivity database for drug discovery. Nucleic Acids Res. 40,
+2015). Modern genomic approaches  to  biosynthesis research        D1100–D1107. http://dx.doi.org/10.1093/nar/gkr777.
+require a systematic understanding of characterized molecules      Grigoriev, I.V., Nikitin, R., Haridas, S., Kuo, A., Ohm, R., Otillar, R., Riley, R., Salamov,
+                                                                                                                   A., Zhao, X., Korzeniewski, F., Smirnova, T., Nordberg, H., Dubchak, I., Shabalov,
+and  biosynthetic  genes,  particularly  in  synthetic  biology                  I., 2014. MycoCosm portal: gearing up for 1000 fungal genomes. Nucleic Acids
+approaches involving comparative analyses of gene sequences.          Res. 42, D699–D704. http://dx.doi.org/10.1093/nar/gkt1183.
+Such efforts include mining genomic DNA for new classes of mole-     Guha, R., 2007. Chemical informatics functionality in R.  J. Stat. Softw. 18, 1–16.
+                                                                                         http://dx.doi.org/10.1109/LPT.2009.2020494.
+cules, testing putative NP gene clusters through heterologous      Heller, S., McNaught, A., Stein, S., Tchekhovskoi, D., Pletnev,  I., 2013. InChI – the
+expression, and rationally designing hybrid synthases to produce        worldwide chemical structure identiﬁer standard. J. Cheminform. 5, 1,7. http://
+‘‘unnatural natural products”. In the era of synthetic biology, that         dx.doi.org/10.1186/1758-2946-5-7.
+                                                                            Heneghan, M.N., Yakasai, A.A., Halo, L.M., Song, Z., Bailey, A.M., Simpson, T.J., Cox, R.
+efforts like ours, combined with future MIBiG standard-compliant                  J.,  Lazarus,  C.M., 2010.  First heterologous  reconstruction  of a complete
+data, will provide fertile ground for future developments in fungal          functional fungal biosynthetic multigene cluster. ChemBioChem 11, 1508–
+natural product research.                                                       1512. http://dx.doi.org/10.1002/cbic.201000259.
+                                                                                      Hoffmeister, D., Keller, N.P., 2007. Natural products of ﬁlamentous fungi: enzymes,
+                                                                                          genes, and their regulation. Nat. Prod. Rep. 24, 393–416. http://dx.doi.org/
+Acknowledgments                                                              10.1039/b603084j.
+                                                                                     Ichikawa, N., Sasagawa, M., Yamamoto, M., Komaki, H., Yoshida, Y., Yamazaki, S.,
+                                                                                                          Fujita, N., 2013. DoBISCUIT: a database of secondary metabolite biosynthetic
+  We thank Yi Tang and Mancheng Tang for helpful discussions.        gene clusters. Nucleic Acids Res. 41, D408–D414. http://dx.doi.org/10.1093/nar/
+We gratefully acknowledge support from Haverford College, the         gks1177.
+Research Corporation for Science Advancement Cottrell College       Inglis, D.O., Binkley,  J., Skrzypek, M.S., Arnaud, M.B., Cerqueira, G.C., Shah,  P.,
+                                                                       Wymore, F., Wortman, J.R., Sherlock, G., 2013. Comprehensive annotation of
+Scholars Award (L.K.C), and NIH grant U01 GM110706 (Y.F.L., M.         secondary metabolite biosynthetic genes and gene  clusters  of  Aspergillus
+E.H, C.J.B.H).                                                                                 nidulans, A. fumigatus, A. niger and A. oryzae. BMC Microbiol. 13, 91. http://dx.
+                                                                                     doi.org/10.1186/1471-2180-13-91.
+                                                                                    Katoh, K., 2002. MAFFT: a novel method for rapid multiple sequence alignment
+Appendix A. Supplementary material                                      based on fast Fourier transform. Nucleic Acids Res. 30, 3059–3066. http://dx.
+                                                                                          doi.org/10.1093/nar/gkf436.
+                                                                                       Kealey,  J.T., Liu,  L., Santi, D.V., Betlach, M.C., Barr,  P.J., 1998. Production of a
+   Supplementary data associated with this article can be found, in         polyketide  natural  product  in  nonpolyketide-producing  prokaryotic and
+the online version, at http://dx.doi.org/10.1016/j.fgb.2016.01.012.          eukaryotic hosts. Proc. Natl. Acad. Sci. USA 95, 505–509. http://dx.doi.org/
+                                                                                        10.1073/pnas.95.2.505.
+                                                                                                  Keller, N.P., Turner, G., Bennett, J.W., 2005. Fungal secondary metabolism – from
+References                                                                        biochemistry to genomics. Nat. Rev. Microbiol. 3, 937–947. http://dx.doi.org/
+                                                                                   10.1038/nrmicro1286.
+Amare,  M.G.,  Keller,  N.P., 2014. Molecular mechanisms  of  Aspergillus ﬂavus      Lim, F.Y., Sanchez, J.F., Wang, C.C.C., Keller, N.P., 2012. Toward awakening cryptic
+    secondary metabolism and development. Fungal Genet.  Biol.  66, 11–18.         secondary metabolite gene clusters in ﬁlamentous fungi.  In: Methods in
+    http://dx.doi.org/10.1016/j.fgb.2014.02.008.                                       Enzymology,  ﬁrst ed. Elsevier Inc., pp. 303–324. http://dx.doi.org/10.1016/
+Barabási, A., 1999. Emergence of scaling in random networks. Science 286 (80),         B978-0-12-404634-4.00015-2.
+   509–512. http://dx.doi.org/10.1126/science.286.5439.509.                      Mao, X.-M., Xu, W., Li, D., Yin, W.-B., Chooi, Y.-H., Li, Y.-Q., Tang, Y., Hu, Y., 2015.
+Blin, K., Medema, M.H., Kazempour, D., Fischbach, M.a., Breitling, R., Takano, E.,          Epigenetic genome mining of an endophytic fungus leads to the pleiotropic
+   Weber, T., 2013. AntiSMASH 2.0–a versatile platform for genome mining of          biosynthesis of natural products. Angew. Chem. 127, 7702–7706. http://dx.doi.
+    secondary metabolite producers. Nucleic Acids Res. 41, W204–W212. http://dx.         org/10.1002/ange.201502452.
+    doi.org/10.1093/nar/gkt449.                                                     Mattern, D.J., Valiante, V., Unkles, S.E., Brakhage, A.A., 2015. Synthetic biology of
+Bouhired,  S., Weber, M., Kempf-Sontag,  A., Keller, N.P., Hoffmeister, D., 2007.         fungal natural products. Front. Microbiol. 6, 775. http://dx.doi.org/10.3389/
+    Accurate prediction  of the  Aspergillus nidulans terrequinone gene  cluster         fmicb.2015.00775.
+
+
+[PDF physical page 11]
+28                                                                   Y.F. Li et al. / Fungal Genetics and Biology 89 (2016) 18–28
+
+
+Medema, M.H., Blin, K., Cimermancic, P., de Jager, V., Zakrzewski, P., Fischbach, M.a.,         Roubos, J.A., Sagt, C.M.J., Schmoll, M., Sun, J., Ussery, D., Varga, J., Vervecken, W.,
+   Weber,  T., Takano,  E., Breitling,  R., 2011. antiSMASH: rapid identiﬁcation,        van de Vondervoort, P.J.J., Wedler, H., Wösten, H.A.B., Zeng, A.-P., van Ooyen, A.J.
+    annotation and analysis of secondary metabolite biosynthesis gene clusters in                  J., Visser, J., Stam, H., 2007. Genome sequencing and analysis of the versatile cell
+    bacterial and fungal genome sequences. Nucleic Acids Res. 39, W339–W346.          factory Aspergillus niger CBS 513.88. Nat. Biotechnol. 25, 221–231. http://dx.doi.
+    http://dx.doi.org/10.1093/nar/gkr466.                                               org/10.1038/nbt1282.
+Medema, M.H., Fischbach, M.A., 2015. Computational approaches to natural product      Pence,  H.E., Williams,  A., 2010. ChemSpider: an online chemical information
+    discovery.   Nat.  Chem.   Biol.   11,  639–648.   http://dx.doi.org/10.1038/          resource. J. Chem. Educ. 87, 1123–1124. http://dx.doi.org/10.1021/ed100697w.
+   nchembio.1884.                                                                                       Pi, B., Yu, D., Dai, F., Song, X., Zhu, C., Li, H., Yu, Y., 2015. A genomics based discovery
+Medema, M.H., Kottmann, R., Yilmaz, P., Cummings, M., Biggins, J.B., Blin, K., de          of secondary metabolite biosynthetic gene clusters in Aspergillus ustus. PLoS
+    Bruijn,  I., Chooi, Y.H., Claesen,  J., Coates, R.C., Cruz-Morales, P., Duddela,  S.,       ONE 10, e0116089. http://dx.doi.org/10.1371/journal.pone.0116089.
+    Düsterhus, S., Edwards, D.J., Fewer, D.P., Garg, N., Geiger, C., Gomez-Escribano, J.       Price, M.N., Dehal, P.S., Arkin, A.P., 2010. FastTree 2–approximately maximum-
+     P., Greule, A., Hadjithomas, M., Haines, A.S., Helfrich, E.J.N., Hillwig, M.L., Ishida,          likelihood trees for large alignments. PLoS ONE 5, e9490. http://dx.doi.org/
+     K., Jones, A.C., Jones, C.S., Jungmann, K., Kegler, C., Kim, H.U., Kötter, P., Krug, D.,         10.1371/journal.pone.0009490.
+    Masschelein, J., Melnik, A.V., Mantovani, S.M., Monroe, E.A., Moore, M., Moss, N.,      Richter, L., Wanka, F., Boecker, S., Storm, D., Kurt, T., Vural, Ö., Süßmuth, R., Meyer,
+   Nützmann, H.-W., Pan, G., Pati, A., Petras, D., Reen, F.J., Rosconi, F., Rui, Z., Tian,            V., 2014. Engineering of Aspergillus niger for the production of secondary
+     Z., Tobias, N.J., Tsunematsu, Y., Wiemann, P., Wyckoff, E., Yan, X., Yim, G., Yu, F.,          metabolites. Fungal Biol. Biotechnol. 1, 1–13. http://dx.doi.org/10.1186/s40694-
+    Xie,  Y.,  Aigle,  B., Apel,  A.K.,  Balibar,  C.J., Balskus,  E.P., Barona-Gómez,  F.,         014-0004-9.
+    Bechthold, A., Bode, H.B., Borriss, R., Brady,  S.F., Brakhage, A.A., Caffrey,  P.,      Sakai,  K., Kinoshita,  H.,  Nihira,  T., 2012. Heterologous expression system  in
+    Cheng, Y.-Q., Clardy,  J., Cox, R.J., De Mot, R., Donadio, S., Donia, M.S., van der           Aspergillus  oryzae  for  fungal  biosynthetic  gene  clusters  of  secondary
+   Donk, W.A., Dorrestein, P.C., Doyle, S., Driessen, A.J.M., Ehling-Schulz, M., Entian,          metabolites. Appl. Microbiol. Biotechnol. 93, 2011–2022. http://dx.doi.org/
+    K.-D., Fischbach, M.A., Gerwick, L., Gerwick, W.H., Gross, H., Gust, B., Hertweck,         10.1007/s00253-011-3657-9.
+     C., Höfte, M., Jensen, S.E., Ju,  J., Katz, L., Kaysser, L., Klassen, J.L., Keller, N.P.,      Sakai, K., Kinoshita, H., Shimizu, T., Nihira, T., 2008. Construction of a citrinin gene
+   Kormanec, J., Kuipers, O.P., Kuzuyama, T., Kyrpides, N.C., Kwon, H.-J., Lautru, S.,          cluster expression system in heterologous Aspergillus oryzae. J. Biosci. Bioeng.
+    Lavigne, R., Lee, C.Y., Linquan, B., Liu, X., Liu, W., Luzhetskyy, A., Mahmud, T.,         106, 466–472. http://dx.doi.org/10.1263/jbb.106.466.
+    Mast, Y., Méndez, C., Metsä-Ketelä, M., Mickleﬁeld, J., Mitchell, D.A., Moore, B.S.,      Shao,  Z., Rao, G.,  Li,  C., Abil,  Z., Luo, Y., Zhao, H., 2013. Refactoring the silent
+    Moreira, L.M., Müller, R., Neilan, B.A., Nett, M., Nielsen, J., O’Gara, F., Oikawa, H.,          spectinabilin gene cluster using a plug-and-play scaffold. ACS Synth. Biol. 2,
+    Osbourn, A., Osburne, M.S., Ostash, B., Payne, S.M., Pernodet, J.-L., Petricek, M.,        662–669. http://dx.doi.org/10.1021/sb400058n.
+     Piel, J., Ploux, O., Raaijmakers, J.M., Salas, J.A., Schmitt, E.K., Scott, B., Seipke, R.F.,       Stajich, J.E., Harris, T., Brunk, B.P., Brestelli, J., Fischer, S., Harb, O.S., Kissinger, J.C., Li,
+    Shen, B., Sherman, D.H., Sivonen, K., Smanski, M.J., Sosio, M., Stegmann, E.,         W., Nayak,  V., Pinney,  D.F., Stoeckert,  C.J., Roos,  D.S., 2012. FungiDB: an
+   Süssmuth, R.D., Tahlan, K., Thomas, C.M., Tang, Y., Truman, A.W., Viaud, M.,          integrated functional genomics database for fungi. Nucleic Acids Res. 40, D675–
+    Walton, J.D., Walsh, C.T., Weber, T., van Wezel, G.P., Wilkinson, B., Willey, J.M.,        D681. http://dx.doi.org/10.1093/nar/gkr918.
+   Wohlleben, W., Wright, G.D., Ziemert, N., Zhang, C., Zotchev, S.B., Breitling, R.,      Steinbeck, C., Han, Y., Kuhn, S., Horlacher, O., Luttmann, E., Willighagen, E., 2003.
+    Takano, E., Glöckner, F.O., 2015. Minimum Information about a Biosynthetic        The Chemistry Development Kit (CDK): an open-source Java library for chemo-
+   Gene  cluster.  Nat.  Chem.  Biol.  11,  625–631.  http://dx.doi.org/10.1038/        and bioinformatics.  J. Chem. Inf. Comput. Sci. 43, 493–500. http://dx.doi.org/
+   nchembio.1890.                                                                  10.1021/ci025584y.
+Mukherjee, M., Horwitz, B.A., Sherkhane, P.D., Hadar, R., Mukherjee, P.K., 2006. A     Throckmorton, K., Wiemann, P., Keller, N.P., 2015. Evolution of chemical diversity in
+    secondary metabolite biosynthesis cluster in Trichoderma virens: evidence from         a group of non-reduced polyketide gene clusters: using phylogenetics to inform
+    analysis of genes underexpressed in a mutant defective in morphogenesis and         the search for novel fungal natural products. Toxins (Basel) 7, 3572–3607.
+    antibiotic production. Curr. Genet. 50, 193–202. http://dx.doi.org/10.1007/          http://dx.doi.org/10.3390/toxins7093572.
+   s00294-006-0075-0.                                                              Unkles, S.E., Valiante, V., Mattern, D.J., Brakhage, A.A., 2014. Synthetic biology tools
+Newman, D.J., Cragg, G.M., 2007. Natural products as sources of new drugs over the           for bioprospecting of natural products in eukaryotes. Chem. Biol. 21, 502–508.
+    last 25 years. J. Nat. Prod. 70, 461–477. http://dx.doi.org/10.1021/np068054v.           http://dx.doi.org/10.1016/j.chembiol.2014.02.010.
+Nikolova, N., Jaworska,  J., 2003. Approaches to measure chemical similarity– a     Walsh, C.T., Fischbach, M.A., 2010. Natural products version 2.0: connecting genes
+    review.  QSAR  Comb.   Sci.   22,  1006–1026.   http://dx.doi.org/10.1002/          to  molecules.    J.  Am.  Chem.  Soc.  132,  2469–2493.  http://dx.doi.org/
+    qsar.200330831.                                                                  10.1021/ja909118a.
+O’Boyle, N.M., Banck, M., James, C.A., Morley, C., Vandermeersch, T., Hutchison, G.R.,     Wang, Y., Xiao,  J., Suzek, T.O., Zhang,  J., Wang,  J., Bryant, S.H., 2009. PubChem: a
+    2011. Open Babel: an open chemical toolbox. J. Cheminform. 3, 33. http://dx.          public information system  for analyzing  bioactivities of small molecules.
+    doi.org/10.1186/1758-2946-3-33.                                                    Nucleic Acids Res. 37, W623–W633. http://dx.doi.org/10.1093/nar/gkp456.
+O’Brien,  R.V., Davis, R.W., Khosla,  C., Hillenmeyer, M.E., 2014. Computational     Wei, C.H., Kao, H.Y., Lu,  Z., 2013. PubTator: a web-based text mining tool for
+    identiﬁcation and analysis of orphan assembly-line polyketide synthases.  J.          assisting biocuration. Nucleic Acids Res. 41, W518–W522. http://dx.doi.org/
+    Antibiot. 67, 89–97. http://dx.doi.org/10.1038/ja.2013.125 (in Tokyo).                  10.1093/nar/gkt441.
+Pel, H.J., de Winde, J.H., Archer, D.B., Dyer, P.S., Hofmann, G., Schaap, P.J., Turner, G.,     Weininger, D., 1988. SMILES, a chemical language and information system. 1.
+   de Vries, R.P., Albang, R., Albermann, K., Andersen, M.R., Bendtsen, J.D., Benen, J.         Introduction to methodology and encoding rules. J. Chem. Inf. Model. 28, 31–36.
+     A.E., van den Berg, M., Breestraat, S., Caddick, M.X., Contreras, R., Cornell, M.,          http://dx.doi.org/10.1021/ci00057a005.
+    Coutinho, P.M., Danchin, E.G.J., Debets, A.J.M., Dekker, P., van Dijck, P.W.M., van     Wiemann, P., Keller, N.P., 2014. Strategies for mining fungal natural products. J. Ind.
+    Dijk, A., Dijkhuizen,  L., Driessen, A.J.M., d’Enfert, C., Geysens, S., Goosen, C.,          Microbiol.  Biotechnol.  41, 301–313.  http://dx.doi.org/10.1007/s10295-013-
+    Groot, G.S.P., de Groot, P.W.J., Guillemette, T., Henrissat, B., Herweijer, M., van         1366-3.
+   den Hombergh, J.P.T.W., van den Hondel, C.A.M.J.J., van der Heijden, R.T.J.M., van      Yin, W.-B., Chooi, Y.H., Smith, A.R., Cacho, R.A., Hu, Y., White, T.C., Tang, Y., 2013.
+    der Kaaij, R.M., Klis, F.M., Kools, H.J., Kubicek, C.P., van Kuyk, P.A., Lauber, J., Lu,         Discovery  of  cryptic  polyketide  metabolites  from  dermatophytes  using
+     X., van der Maarel, M.J.E.C., Meulenberg, R., Menke, H., Mortimer, M.A., Nielsen,         heterologous expression in Aspergillus nidulans. ACS Synth. Biol. 2, 629–634.
+       J., Oliver, S.G., Olsthoorn, M., Pal, K., van Peij, N.N.M.E., Ram, A.F.J., Rinas, U.,         http://dx.doi.org/10.1021/sb400048b.
