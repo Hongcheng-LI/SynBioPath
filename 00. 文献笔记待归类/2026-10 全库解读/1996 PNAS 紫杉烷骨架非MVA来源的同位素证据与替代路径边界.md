@@ -1,0 +1,149 @@
+---
+type: literature-reading
+zotero_key: XUCXLM84
+doi: "10.1073/pnas.93.13.6431"
+paper_type: research
+classification_status: pending
+reading_status: main-text-and-figures-read
+review_status: codex-source-checked
+human_full_paper_review: false
+source_attachment: 2S77SGI5
+source_sha256: 436fbcc1009475bd7d6ca2859518a1a682d25de0ea04beac4ea41572d31ab2d8
+created: 2026-10-09
+---
+
+> 原文来源：[Zotero 条目](zotero://select/library/items/XUCXLM84)；[DOI](https://doi.org/10.1073/pnas.93.13.6431)；由当前 Codex 读取原始主文并核对图表，尚未经人工逐项复核。 来源限制：All six original mainpages read and viewed Figures1-4 Table1 complete including colored structural panels spectral axes and tablefootnotes; no originalFID rawNMR independentculture replicates SI available；Identity fiveauthors printedtitle PNAS93 pp6431-6436 liveZoteroDOI10.1073/pnas.93.13.6431 date1996Jun25 vs contributedMar4 notpublication; sourceTaxuschinensiscellculture taxuyunnanineC notTaxolitself；Acetatelowcarbonringlabel alone explicitly insufficienttoexcludeMVA becausecompartmentaccess; glucosepatterns andpreservedthreecarbon information maincomplementarydiscrimination；U13Cinput99percent stock diluted1to20 naturalaverage~5.76percent author~6;1position99percentstock1to1 nominal50.05percent author~50; originalsourceculture44days14plus30 notproductivitydirect；2.6percentdryweight vs2.2mgpergwet vs68mgL isolatedrecovery differentdenominators no pairedmassbalance moisturecarbonconversioninferred；Acetatering1.12plusminus.05percent near1.1natural; acetylcouplings internalpositivecontrol notallacetatezerolabel; Table1overlapaverages notindependent resolvedpeakvalues；Figure4C averaged IPPpositions2 4 5=1.33plusminus.07 2.38plusminus.15 8.69plusminus.32percent contradictequalMVA methylsources Figure4D; SDfourbiosyntheticallyequivalentmodules notn4 independentcultures；U13C ringmean4.22plusminus.18percent vs~40percent selectedtripleisotopomer authorsapproximation notsubstrateyield;Table1coupledfractions conditionalcarbon satellite share nottotalculture percent；LongrangeINADEQUATEsignals andpassivespins evidenceconnectivity changes notreactionenzymeidentified; rawpeakprocessingunavailable notclaimed reproducedNMR；UltimateIPPprecursors explicitlyunknown; specificRohmermodelnotallpredictionsmet no directDXP MEP DXS DXRcompletepath demonstrated; oldbiomassrecycling30percentacetyl dilution hypothesisonly；Othermonoterpenes higherplantsgeneralization citesunpublished data notdirectlyvalidated; MVA source conclusionstudiedtaxanering notallplantmetabolism orallconditions；All references notindependentlyverified historicalprioritynotchecked humanreviewfalse classificationdeferred noexplicitmodernCOI datarepo inferred。
+
+# 文献基本信息
+
+**题目**：Studies on the biosynthesis of taxol: The taxane carbon skeleton is not of mevalonoid origin。中文：紫杉醇生物合成研究：紫杉烷碳骨架并非来自甲羟戊酸途径。
+
+**作者与发表**：Wolfgang Eisenreich、Birgitta Menhard、Peter J. Hylands、Meinhart H. Zenk、Adelbert Bacher；原文标示 Bacher 为重印请求联系人。机构为 Technische Universität München 有机化学与生物化学研究所及 Ludwig-Maximilians-Universität München 药学生物学研究所。研究论文，Proceedings of the National Academy of Sciences of the USA，1996，93(13)，6431–6436；DOI：10.1073/pnas.93.13.6431。Zotero 日期为 1996-06-25；原文另列 Contributed by Meinhart H. Zenk, March 4, 1996，此日期不等同于期刊发表日期。
+
+**核查范围**：Zotero key 为 XUCXLM84，实时记录与原文题目、五位作者、卷页相符。已阅读全文六页及所有原始页面，保留 Figure 1–4、Table 1 的完整彩图、谱图与脚注。直接研究对象为 Taxus chinensis 悬浮细胞产生的 taxuyunnanine C，不是纯化紫杉醇本身，也不是大肠杆菌工程体系。未取得原始 NMR 数据、独立培养重复记录或未发表资料，本笔记尚未经人工复审；分类留待全库解读结束后统一进行。
+
+# 研究背景
+
+本文讨论高等植物异戊二烯前体的碳来源。在当时，经典甲羟戊酸（MVA）路径常被用于解释植物萜类形成，但外源乙酸与甲羟戊酸在许多单萜、二萜中的掺入较低。低掺入可以有多种解释，如摄取、转运、区室可达性、前体稀释和代谢扰动，因此不能单凭未观察到乙酸标记就判定某条路径不存在。作者注意到部分细菌存在替代异戊二烯生成方式，转而利用原子连接关系检验植物二萜的碳来源。
+
+T. chinensis 细胞中主要 taxoid 为 taxuyunnanine C，即 2α,5α,10β,14β-tetra-acetoxy-4(20),11-taxadiene。该分子有 20 个骨架碳和四个乙酰基，乙酰部分可作为同分子内部的碳来源参照。若外源标记能进入乙酰基而不能进入骨架，摄取失败的简单解释受到限制；但仍需进一步判断是否存在区室差异。研究选择非光合、可用葡萄糖生长的细胞体系，减少季节和光合碳输入变化的影响，并不代表所有红豆杉组织均具有同样代谢状态。
+
+论文标题使用 Taxol 作为生物合成领域名称，实际以共享紫杉烷骨架的衍生物追踪上游来源。阅读时必须分开骨架前体来源、骨架环化与乙酰化步骤。本文没有发现新的 Taxol 全合成菌株、没有解析完整后续修饰顺序，也没有直接测出 IPP 或 DMAP 的胞内浓度。
+
+# 研究思路
+
+作者以三种互补标记底物提出路径检验：双碳标记乙酸用于追踪完整乙酰单元；均匀标记葡萄糖用于判断哪些相邻碳或较远碳来自同一原始片段；单位置标记葡萄糖用于揭示不同骨架碳的富集差异。核心证据从“整体产物被标记”提升为“具体碳位置及其连接关系符合哪个路径模型”。天然丰度样品提供谱图与积分参照，四个乙酰基提供分子内部参照。
+
+竞争解释包括经典 MVA 来源、外源前体无法到达骨架合成区室，以及包含三碳与二碳片段、并发生骨架重排的替代路线。经典路径对等价碳来源及标记关系作出具体预测。实验若同时显示完整三碳信息和经典等价碳间明显不一致，就比仅观察乙酸掺入低更有区分力。替代模型能解释部分模式，仍需检查哪些模式不符合其更具体预测，不能把“排除一个模型”当作“完整确认另一个模型”。
+
+# 研究方法
+
+细胞经克隆筛选获得稳定生产亚克隆，在改良 B5 培养基中用葡萄糖供碳。原文给出初始培养 14 天、再补充底物后继续 30 天的示踪安排，总历时为 44 天；这属于示踪培养时间，不能与其他论文短期发酵产率直接比较。均匀标记葡萄糖与未标记葡萄糖按 1:20 混合，单位置标记葡萄糖按 1:1 混合，标记原料丰度为 99%。因此“原料 99% 标记”不等于“全部培养碳源 99% 标记”，也不等于“每个产物碳 99% 富集”。
+
+作者分别提取细胞与培养液、合并提取物，再经色谱分离获得 taxuyunnanine C。方法报告约 68 mg/L 培养体积分母下的回收量，结果另述约 2.2 mg/g 湿细胞质量，摘要列 2.6% 干重。三者分母不同，不能把 2.6% 写为葡萄糖转化率，也不能将湿重与干重相互替换；本文未提供足够配对数据建立严格物料平衡或三种指标的统一换算。
+
+¹H、¹³C 及二维 NMR 用于归属信号、追踪标记连接。作者将同条件下标记与天然丰度样品的碳信号积分比较，利用 H-10 在 6.01 ppm 的碳耦合卫星峰标定绝对丰度，再将该标定用于其他碳。Table 1 同时列 %¹³C、%¹³C–¹³C、耦合常数及耦合对象，后者为相关碳信号内的耦合卫星比例，不能当作整个培养物的总标记比例。重叠信号以平均强度处理并有脚注，不能伪装为逐碳独立精确测定。
+
+
+![Table 1 原文第 3 页](https://synbiopath.online/XUCXLM84-Table-1-p3-complete-0159d6a472a50b32.png)
+
+*Table 1：原文 Table 1：完整图表及图注、脚注（原文 PDF 截图）。*
+
+
+# 实验设计及结果分析
+
+### 1. 双碳乙酸：内部阳性参照增强证据，区室解释仍未被单独排除
+
+加入 [1,2-¹³C₂]acetate 后，骨架碳平均绝对丰度为 1.12 ± 0.05%，接近天然丰度约 1.1%。四个乙酰基可观察到完整双碳单元对应的耦合卫星，骨架缺少相同模式。Figure 1B 以彩线示意乙酰部分的双标记，Figure 2B 保留天然丰度背景与实际卫星差异。不能把天然丰度小卫星认成外源完整双碳片段进入骨架，也不能把低掺入粗略称为所有碳均为零标记。
+
+Table 1 提供各位置数据及峰重叠说明。乙酰基中不同双标记比例差异较大，作者提出乙酰化可能发生于不同区室；这是一种解释，并无直接成像、酶定位或乙酰辅酶 A 池测量支持。更关键的是作者明确承认：乙酸未进入骨架的结果本身不足以决定性排除 MVA，因为外源乙酸仍可能无法到达骨架前体所在区室。笔记保留这一限制，避免把正文的谨慎推理压缩为“乙酸不掺入，所以 MVA 不存在”。
+
+
+![Figure 1 原文第 2 页](https://synbiopath.online/XUCXLM84-Figure-1-p2-complete-b0f4647e73ff978a.png)
+
+*Figure 1：原文 Figure 1：完整图表及图注、脚注（原文 PDF 截图）。*
+
+
+### 2. 均匀标记葡萄糖：相邻碳及长程耦合揭示保留的三碳信息
+
+均匀标记葡萄糖实验中，骨架平均 ¹³C 丰度报告为 4.22 ± 0.18%。Figure 1C 表示观察到的相邻双标记与长程耦合；作者在二维谱中辨识 12 对相邻标记碳，其中四对还与另一碳发生两键或三键范围的长程耦合。相关证据支持多个三碳片段整体进入前体形成过程，随后其原始连接关系发生改变。Figure 1D 据此拆分出四个异戊二烯模块。
+
+以 [2,3,5-¹³C₃]taxuyunnanine C 为例，作者指出其存在得到二维数据支持，并对对应三标记模式作约 40% 的近似量化。该比例描述标记同位素体关系，不是三碳原料利用率、细胞转化率或全产物分子中三标记纯度的任意替代值。这里的推断依赖标记输入、原子连接及异戊二烯模块归属，不能只见长程交叉峰就认定某个已命名酶或具体中间体被直接观察到。
+
+
+![Figure 2 原文第 4 页](https://synbiopath.online/XUCXLM84-Figure-2-p4-complete-c39ac617efac244c.png)
+
+*Figure 2：原文 Figure 2：完整图表及图注、脚注（原文 PDF 截图）。*
+
+
+### 3. INADEQUATE 的作用：建立连接证据，避免把峰强度解释成路径通量
+
+Figure 3 展示部分二维 INADEQUATE 谱，作者采用较长混合时间以增强较小 ¹³C–¹³C 耦合常数的磁化转移，从而检查相邻碳之外的连接。完整保留谱图坐标、标号和图注，可把碳位置对应回 Table 1。论文也说明观察到被动自旋信息作为三碳片段判断的额外支持，图中的交叉信号需按实验类型理解，不能全部机械视作一键连接。
+
+这一证据层回答的是标记碳在同位素体中的关联，而不是瞬时碳流量。原文未提供 FID 或可重处理谱图文件，本次不能独立重算每个耦合峰积分、噪声、重叠拟合或长程峰显著性。保留原文定量和可见图证足以解释作者推理，但不将“已核查原图”写成“已独立重做谱学分析”。
+
+
+![Figure 3 原文第 4 页](https://synbiopath.online/XUCXLM84-Figure-3-p4-complete-556d1539a8338fc6.png)
+
+*Figure 3：原文 Figure 3：完整图表及图注、脚注（原文 PDF 截图）。*
+
+
+### 4. 单位置葡萄糖与等价碳预测：经典 MVA 模型面临具体矛盾
+
+[1-¹³C]glucose 实验的骨架不同位置丰度从近天然水平到约 9.5% 明显不均一。作者按四个异戊二烯模块对生物合成等价位置取平均，得到 Figure 4C 的 IPP 模式。MVA 模型预期来自乙酸甲基的 IPP C-2、C-4、C-5 具有相同来源模式；实际分别为 1.33 ± 0.07%、2.38 ± 0.15%、8.69 ± 0.32%，不能用一个均一等价来源模式解释。
+
+与此相互加强的是均匀标记葡萄糖所揭示的保留三碳信息：作者认为以二碳乙酸单元构建的经典 MVA 模型无法解释这一组合。结论建立在多个可检验预测的矛盾上，而非单一缺标记观察。Figure 4A 为编号，B、C 为推断模式，D 为经典模型预测，E 为当时替代模型预测，必须区分观察数据与模型示意。
+
+Figure 4 中标准差反映对四个生物合成等价模块的标记模式分析，不能自动改写为四个独立培养重复。论文没有明确提供独立培养样本量、假设检验、精确 P 值或置信区间，本次不补造。图上误差较小支持模块模式相近，但不能扩展为已精确估计所有组织条件下的 MVA 贡献上限。
+
+
+![Figure 4 原文第 5 页](https://synbiopath.online/XUCXLM84-Figure-4-p5-complete-7fd72907cfa11d6e.png)
+
+*Figure 4：原文 Figure 4：完整图表及图注、脚注（原文 PDF 截图）。*
+
+
+### 5. 替代路线的符合与不符合：排除经典来源并未确定全部前体
+
+作者认为“三碳加二碳、并重排”的构型与当时细菌替代路径具有共同特征。但更具体的预测并未全部满足：如果二碳片段来自同一个三碳磷酸池经丙酮酸形成，其标记应与三碳片段相应位置一致，实际单位置葡萄糖实验的部分丰度不同。原文最后明确表示该体系异戊二烯单元的最终前体仍未知，并讨论线性或支链中间体等可能性。
+
+因此不能把本文写作直接鉴定 DXP、MEP、DXS、DXR 或现代整套酶路径。本文的历史价值是高等植物紫杉烷骨架非经典 MVA 来源的同位素证据及骨架重排线索。现代术语可用于跨笔记导航，但需要来自后续文献的独立证据，不能反向填入作者当时未完成的研究。
+
+### 6. 乙酰部分稀释与代谢时间：合理解释仍需额外测量
+
+均匀标记葡萄糖实验中，乙酰基绝对丰度和双标记比例较骨架约低 30%。作者提出示踪期生物量只增加约两倍，乙酰部分可能利用既有生物量的回收碳，而骨架较多由新加入葡萄糖形成。这个解释可调和稀释差异，但没有时间序列或前体池标记测量直接确认，不能写成已证明的生物量回收机制。
+
+原文提出不同培养时程及初级代谢物标记比较为下一步方向。本文没有真正完成这些后续工作。末页对其他植物单萜来源的推广提及 unpublished data，也不能当作已在本文展示并经过同样审查的跨物种验证证据。
+
+# 总体结论
+
+在所研究的 T. chinensis 悬浮细胞条件下，taxuyunnanine C 的紫杉烷骨架标记模式不支持经典 MVA 路径来源。重要证据是乙酸标记主要进入乙酰基、均匀标记葡萄糖揭示整体三碳信息及重排、单位置葡萄糖标记违背经典等价碳预测。四个异戊二烯模块的模式相近，支持共享前体来源的解释。
+
+这项研究将路径判断从“前体能否掺入”推进到“原子模式是否符合机制预测”。其证据不能替代对具体前体结构、酶、区室、其他组织或其他培养条件的验证。本文测的是共享骨架衍生物，既不等于直接追踪每个紫杉醇分子的全部碳，也不否定 MVA 在细胞其他异戊二烯代谢中的作用。
+
+# 论文评价
+
+**优势**：同一分子的骨架与乙酰基构成有用内部参照；不同标记输入、绝对丰度与连接关系形成互补证据；作者把乙酸结果单独不足以排除 MVA 的原因写明，再用葡萄糖实验检验竞争模型。对替代模型的部分不符合也未隐去，这使结论强度与模型完整性保持分离。
+
+**局限**：产品谱学归属及四模块平均仍依赖反生物合成解释；没有直接检测最终前体或催化酶。长时间示踪可能受旧生物量回收、标记池稀释和区室变化影响，独立培养重复信息不足，原始数据不能本次重算。高产亚克隆亦不自动代表完整植株或所有红豆杉细胞系，不能用本文给出普遍定量贡献比例。
+
+**阅读启发**：区分模型时，关键是找到各模型对碳位点和连接关系的不同预测，并为摄取、稀释和区室解释保留检验空间。后续研究可关注初级代谢物与产物的标记关联、时间变化及具体前体结构；这些属于读者提出的证据需求，未在本文得到完成。资助包括 Deutsche Forschungsgemeinschaft 的 SFB 369 及 Fonds der Chemischen Industrie；未见现代数据仓库或明确利益冲突声明，不据此宣称“全部数据公开”或“无利益冲突”。
+
+# 关键问题及回答
+
+**问题一：为什么只看乙酸不掺入还不够？** 外源乙酸可能无法到达骨架形成区室，作者明确承认该替代解释；需要葡萄糖碳模式进一步区分。
+
+**问题二：研究直接测量的化合物是 Taxol 吗？** 不是，是 taxuyunnanine C。作者据共享骨架研究上游来源，不能把标题替代具体样品身份。
+
+**问题三：为何耦合关系比整体富集更有信息？** 整体富集只表明标记进入产物；耦合及碳位点还能表明原始碳片段如何保留、断连和重排，检验模型的结构预测。
+
+**问题四：本文是否已经确认现代 MEP 路径所有步骤？** 没有。替代模型有定性符合但存在不符合，作者明确说最终前体仍未知。
+
+**问题五：4.22 ± 0.18% 与约 40% 是否同一个量？** 不是。前者为骨架碳丰度平均，后者为相关三标记模式的近似量化，不能与原料配比或产率互换。
+
+**问题六：Figure 4 的标准差代表独立培养 n=4 吗？** 不能这样认定。它来自四个生物合成等价模块的模式分析，独立培养重复数未明确报告。
+
+**问题七：2.6% 干重可以换写为底物转化率吗？** 不可以。干重分母、湿重分母和培养体积分母不同，且缺乏对应碳平衡与回收数据。
+
+**问题八：这项结论能否推广为所有植物不使用 MVA？** 不能。本文限定于该细胞体系与目标骨架，其他组织、产物和条件需要另外验证。
+
+> 分类状态：待全部文献笔记完成后统一分类归档。
