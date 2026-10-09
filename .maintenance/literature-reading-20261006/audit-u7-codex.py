@@ -1,0 +1,15 @@
+import json,hashlib,re,datetime
+from pathlib import Path
+import worker as w
+w.GRAPHIC_PATTERN=r'(?:(?:Extended Data )?(?:Figure|Table|Scheme|Chart) (?:S?\d+|[IVXLCDM]+)|Graphical Abstract|Unnumbered Structure Graphic(?: \d+)?)'
+d=w.ROOT/'sources'/'U7HI9RTR';rec=json.loads((d/'prepared.json').read_text(encoding='utf-8'));pub=json.loads((d/'publication.json').read_text(encoding='utf-8'));draft=json.loads((d/'codex-draft.json').read_text(encoding='utf-8'))['draft'];note=Path(pub['note']);body=note.read_text(encoding='utf-8');w.validate_structure(draft);si=json.loads((d/'codex-supplement-provenance.json').read_text(encoding='utf-8'))
+checks={'source_pdf_unchanged':hashlib.sha256(Path(rec['main_pdf']).read_bytes()).hexdigest()==rec['main_pdf_sha256'],'supplement_pdf_unchanged':hashlib.sha256(Path(si['path']).read_bytes()).hexdigest()==si['sha256'],'eight_research_chapters':len(re.findall(r'^# ',body,re.M))==8,'no_unresolved_figure_markers':'<!--FIGURE:' not in body,'all_image_urls_embedded':all(x['url'] in body for x in pub['images']),'all_local_crops_intact':all(hashlib.sha256(Path(x['file']).read_bytes()).hexdigest()==x['sha256'] for x in pub['images']),'actual_image_embed_count':len(re.findall(r'!\[[^\]]*\]\(https://',body))==11,'main_image_count':sum(x['source_kind']=='main' for x in pub['images'])==5,'supplement_image_count':sum(x['source_kind']=='SI' for x in pub['images'])==6,'S18_correct_single_page':[(x['page'],x['source_kind']) for x in pub['images'] if x['label']=='Figure S18']==[(36,'SI')],'source_review_pass':pub['source_review']['pass'],'deferred_directory':'文献笔记待归类' in str(note),'microstep_limit_retained':'C10 上的氢' in body and 'EPR' in body,'time_limit_retained':'不能直接排序' in body}
+assert all(checks.values()),checks
+baseline=json.loads((w.ROOT/'existing-note-hashes.json').read_text(encoding='utf-8'));changed=[]
+for item in baseline:
+ p=w.VAULT/item['path']
+ if not p.exists() or hashlib.sha256(p.read_bytes()).hexdigest()!=item['sha256']:changed.append(item['path'])
+pubs=[json.loads(p.read_text(encoding='utf-8')) for p in (w.ROOT/'sources').glob('*/publication.json')];inv=json.loads((w.ROOT/'prepared-inventory.json').read_text(encoding='utf-8'))
+result={'time':datetime.datetime.now().isoformat(),'new_notes':[{'key':rec['key'],'note':str(note),'images':len(pub['images']),'checks':checks}],'existing_baseline_files':len(baseline),'existing_baseline_unchanged':len(baseline)-len(changed),'existing_baseline_changed':changed,'remote_verification':'publish uses PicGo and GET content SHA256 per image','excluded_heptose_paper_has_no_publication':not(w.ROOT/'sources'/'2E5UEWNP'/'publication.json').exists(),'published_notes_total':len(pubs),'images_total':sum(len(x['images']) for x in pubs),'remaining_ready':sum(x.get('status')=='ready' and not(w.ROOT/'sources'/x['key']/'publication.json').exists() for x in inv['records'])}
+assert not changed and result['excluded_heptose_paper_has_no_publication'],result
+w.write_json(w.ROOT/'codex-paper-integrity-u7-20261009.json',result);print(json.dumps(result,ensure_ascii=False))
