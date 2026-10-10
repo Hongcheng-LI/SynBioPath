@@ -12,7 +12,7 @@ source_sha256: 09d16d4dd6ed76f7fd686344e03ee77000bffc43cac0e79c52c548872f9035a3
 created: 2026-10-10
 ---
 
-> 原文来源：[Zotero 条目](zotero://select/library/items/EYHR26TJ)；[DOI](https://doi.org/10.64898/2026.03.21.713420)；主文与图表已按来源进行模型交叉核对，尚未经人工逐项复核。 来源限制：正文未报告补充材料 Supporting Information 的具体图表编号与数值，Supplementary Fig 1–17、Supplementary Table 1–3 的内容仅有片段被引用；分析仅依赖正文中明确引用的信息；Figure 2c 的统计学为 nine independent experiments，但正文未给出每个独立生物重复的 taxadien-5α-ol 绝对峰面积，仅以 log2 倍数变化呈现，无法据此估算绝对产量；Figure 3c 的表格原文明确列出所有浸润蛋白及其显著富集状态，但具体 fold enrichment 数值与 −log10 p-value 未在正文中逐条列出，无法在报告中给出每一个蛋白的具体数字；Figure 3b 火山图中各点坐标亦未以数值公布；Figure 4b 给出 chlTDS、cytTDS、cytTDS(high OD) 三组对照下 FoTO1-D149A 的 log2 倍数变化，并标注显著性（***p ≤ 0.001 在 chlTDS 组、*p ≤ 0.05 在 cytTDS high OD 组），但未提供精确的均值与误差棒数值；Figure 5 各子图仅以散点展示 log2 fold change 和组间显著性（*/**/***），正文中未报告每个产物的绝对浓度或产量数据，无法将倍数差异外推为绝对产量；FoTO1 同源物在其它植物中的功能、生化数据未提供，仅基于 N. benthamiana 中 FoTO1 或其拟南芥同源物的过表达结果推断；TurboID 距离阈值（~10 nm）以及 BiFC 信号阈值的定义在 Methods 中给出，但未给出每个 P450 的 log2 fold change 及 p-value 完整数值，因此仅能基于文本描述的「显著富集」进行定性判断；Figure 6 为无标准子图标签的工作模型示意图（紫杉醇代谢通道与 FoTO1 多功能整合），不含可量化数据；为保留全部图版与图注，截图采用原文整页。
+> 原文来源：[Zotero 条目](zotero://select/library/items/EYHR26TJ)；[DOI](https://doi.org/10.64898/2026.03.21.713420)；主文与图表已按来源进行模型交叉核对，尚未经人工逐项复核。 来源限制：正文未报告补充材料 Supporting Information 的具体图表编号与数值，Supplementary Fig 1–17、Supplementary Table 1–3 的内容仅有片段被引用；分析仅依赖正文中明确引用的信息；Figure 2c 的统计学为 nine independent experiments，但正文未给出每个独立生物重复的 taxadien-5α-ol 绝对峰面积，仅以 log2 倍数变化呈现，无法据此估算绝对产量；Figure 3c 的表格原文明确列出所有浸润蛋白及其显著富集状态，但具体 fold enrichment 数值与 −log10 p-value 未在正文中逐条列出，无法在报告中给出每一个蛋白的具体数字；Figure 3b 火山图中各点坐标亦未以数值公布；Figure 4b 给出 chlTDS、cytTDS、cytTDS(high OD) 三组对照下 FoTO1-D149A 的 log2 倍数变化，并标注显著性（***p ≤ 0.001 在 chlTDS 组、*p ≤ 0.05 在 cytTDS high OD 组），但未提供精确的均值与误差棒数值；Figure 5 各子图仅以散点展示 log2 fold change 和组间显著性（*/**/***），正文中未报告每个产物的绝对浓度或产量数据，无法将倍数差异外推为绝对产量；FoTO1 同源物在其它植物中的功能、生化数据未提供，仅基于 N. benthamiana 中 FoTO1 或其拟南芥同源物的过表达结果推断；TurboID 距离阈值（~10 nm）以及 BiFC 信号阈值的定义在 Methods 中给出，但未给出每个 P450 的 log2 fold change 及 p-value 完整数值，因此仅能基于文本描述的「显著富集」进行定性判断；Figure 6 为无标准子图标签的工作模型示意图（紫杉醇代谢通道与 FoTO1 多功能整合），不含可量化数据。
 
 # 一、基本信息
 
@@ -112,7 +112,7 @@ AlphaFold3 预测的 FoTO1 结构与 LEH（PDB 来自 *R. erythropolis*）和 Mo
 
 ![Figure 2 原文第 14 页](https://synbiopath.online/EYHR26TJ-Figure-2-p14-1-1a221ea9286392f1.png)
 
-![Figure 2 原文第 15 页](https://synbiopath.online/EYHR26TJ-Figure-2-p15-2-4e867eb40a55808b.png)
+![Figure 2 原文第 15 页](https://synbiopath.online/EYHR26TJ-Figure-2-p15-manual-b544db752d796ae0.png)
 
 *Figure 2：FoTO1 关键位点点突变在体外失活后仍可在植物中保留部分活性（原文 PDF 截图）。*
 
@@ -146,7 +146,7 @@ co-IP 与 MST 只能验证「持续、稳定」互作；而代谢通道或支架
 
 ![Figure 3 原文第 16 页](https://synbiopath.online/EYHR26TJ-Figure-3-p16-1-c8204c2d6b2ecba8.png)
 
-![Figure 3 原文第 17 页](https://synbiopath.online/EYHR26TJ-Figure-3-p17-2-758728ad301c67c7.png)
+![Figure 3 原文第 17 页](https://synbiopath.online/EYHR26TJ-Figure-3-p17-manual-474862e2c7e82ab7.png)
 
 *Figure 3：TurboID 与免疫共沉淀显示 FoTO1 与多种 P450 相互作用（原文 PDF 截图）。*
 
@@ -184,7 +184,7 @@ TurboID 提示 FoTO1 常在 ER 附近，但其序列中却没有典型的跨膜�
 
 ![Figure 4 原文第 18 页](https://synbiopath.online/EYHR26TJ-Figure-4-p18-1-1983654ccf6702ef.png)
 
-![Figure 4 原文第 19 页](https://synbiopath.online/EYHR26TJ-Figure-4-p19-2-f41bf7bcdc9b0391.png)
+![Figure 4 原文第 19 页](https://synbiopath.online/EYHR26TJ-Figure-4-p19-manual-e6d94b300d4f1dc8.png)
 
 *Figure 4：双分子荧光互补解析 FoTO1 在植物体内的定位（原文 PDF 截图）。*
 
