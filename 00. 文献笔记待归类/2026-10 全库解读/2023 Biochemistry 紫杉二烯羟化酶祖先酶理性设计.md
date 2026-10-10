@@ -12,7 +12,7 @@ source_sha256: fada62dbc4162c08b761629cbf0260991da39af89b1992329319554cd3a112f6
 created: 2026-10-10
 ---
 
-> 原文来源：[Zotero 条目](zotero://select/library/items/SPVR5GSH)；[DOI](https://doi.org/10.1021/acs.biochem.3c00411)；主文与图表已按来源进行模型交叉核对，尚未经人工逐项复核。 来源限制：论文提及 Figure S1 (祖先酶 GC 与质谱)、Figure S2 (野生型与突变体 SDS-PAGE/Western blot)、Table S1 (菌株、质粒与 DNA 序列)，但 SI 未随正文提供，相关原始电泳图、质谱图与序列一致性表无法核实；蛋白纯化'仍在进行中'，作者未提供 T5αOH 野生型与 V124I/S127A 突变体的体外动力学参数 (K<sub>m</sub>、k<sub>cat</sub>) 或热稳定性数据，活性差异的酶学机制只能停留在推论层级；同源建模使用 AlphaFold2 预测结构，论文未提供模型质量评估 (如 Ramachandran 分布、pLDDT 分数) 的明确数值，α-helix6 与血红素空间距离的量化数据缺失。
+> 原文来源：[Zotero 条目](zotero://select/library/items/SPVR5GSH)；[DOI](https://doi.org/10.1021/acs.biochem.3c00411)；主文与图表已按来源进行模型交叉核对，尚未经人工逐项复核。 来源限制：论文提及 Figure S1 (祖先酶 GC 与质谱)、Figure S2 (野生型与突变体 SDS-PAGE/Western blot)、Table S1 (菌株、质粒与 DNA 序列)，但 SI 未随正文提供，相关原始电泳图、质谱图与序列一致性表无法核实；蛋白纯化'仍在进行中'，作者未提供 T5αOH 野生型与 V124I/S127A 突变体的体外动力学参数 (K<sub>m</sub>、k<sub>cat</sub>) 或热稳定性数据，活性差异的酶学机制只能停留在推论层级；Figure 4B 中 WT 的绝对比活未在正文以数值报告，比较结论仅为 V124I 与 S127A 突变体分别较 WT 提高 3 倍以上，本报告不据柱图估读 WT 绝对基线；同源建模使用 AlphaFold2 预测结构，论文未提供模型质量评估 (如 Ramachandran 分布、pLDDT 分数) 的明确数值，α-helix6 与血红素空间距离的量化数据缺失。
 
 # 一、基本信息
 
@@ -107,7 +107,7 @@ GC-MS 结果 (Figure 2A) 表明，所有四个祖先酶均能催化 taxadiene �
 
 AlphaFold2 同源建模 (Figure 4A) 显示，α-helix6 (黄色) 位于血红素辅因子 (蓝色) 附近，立体空间接近潜在底物结合位点，使该区域成为功能相关候选区。两个有效位点 V124 与 S127A 以红色显示，紧贴血红素。作者针对 α-helix6 上的 7 个位点构建单点突变，将每个位点的氨基酸突变为对应祖先残基 (D121E、I123R、V124I、M125I、S127A、G131R、F133L)，形成一个仅 7 个突变体的小型"智能"突变库。
 
-50 mL 摇瓶发酵结果显示 (Figure 4B)，**突变体 V124I 和 S127A 表现出显著提升的体内活性**：总单氧化产物比活分别达到 10.6 ± 4.8 和 12.6 ± 1.6 mg/gDCW，taxadiene-5α-ol 比活分别为 2.3 ± 1.0 和 2.8 ± 0.5 mg/gDCW，约为 T5αOH 野生型 (约 3.0 mg/gDCW 总产物、约 0.7 mg/gDCW 主产物) 的 **3 倍以上** (p < 0.01)。其余 5 个突变体 (D121E、I123R、M125I、G131R、F133L) 与野生型无显著差异。两个有效位点 (V124I、S127A) 在空间上距离很近，作者据此推测**两者可能存在协同效应**。
+50 mL 摇瓶发酵结果显示 (Figure 4B)，**突变体 V124I 和 S127A 表现出显著提升的体内活性**：总单氧化产物比活分别达到 10.6 ± 4.8 和 12.6 ± 1.6 mg/gDCW，taxadiene-5α-ol 比活分别为 2.3 ± 1.0 和 2.8 ± 0.5 mg/gDCW，相对 T5αOH 野生型均提升 **3 倍以上** (p < 0.01)。原文正文未给出 WT 的精确比活数值，因此这里不从 Figure 4B 柱高估算绝对基线。其余 5 个突变体 (D121E、I123R、M125I、G131R、F133L) 与野生型无显著差异。两个有效位点 (V124I、S127A) 在空间上距离很近，作者据此推测**两者可能存在协同效应**。
 
 
 ![Figure 4 原文第 5 页](https://synbiopath.online/SPVR5GSH-Figure-4-p5-1-c18e8ca7749a722c.png)
