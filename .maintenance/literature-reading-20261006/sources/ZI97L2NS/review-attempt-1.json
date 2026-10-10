@@ -1,0 +1,147 @@
+{
+  "pass": false,
+  "major_issues": [
+    {
+      "issue": "Figure 1 实际裁剪图下边界超出图注，包含 'factories. State of the art micro and minibioreactor tools were subsequently employed...' 等正文段落文字，违反\"仅含图表本体与图注\"原则",
+      "source_locator": "正文 Figure 1 / PDF p.4",
+      "correction": "需将下边界收紧到图注末尾，建议 normalized bbox ≈ [0.31, 0.07, 0.99, 0.55]，切除'factories...'起的正文段落"
+    },
+    {
+      "issue": "Table 1 实际裁剪图下边界超出表格与图注，包含 'overlay was also added to each well giving a total working volume of 1 ml...' 等 2.3 节正文",
+      "source_locator": "正文 Table 1 / PDF p.5",
+      "correction": "需将下边界收紧到表注，normalized bbox ≈ [0.52, 0.07, 0.99, 0.42]，切除'overlay was also added...'起的正文"
+    },
+    {
+      "issue": "Figure 2 实际裁剪图下边界超出图注与基因型文本（'MvaSA110G/GAL10p-MvaE [codon optimized]; his3Δ1::hphMX4-GAL1p-ERG12/GAL10p-IDI1; ...' 等菌株基因型延伸），超出图注范围",
+      "source_locator": "正文 Figure 2 / PDF p.6",
+      "correction": "需将下边界收紧到图注结束，normalized bbox ≈ [0.05, 0.58, 0.99, 0.85]"
+    },
+    {
+      "issue": "Figure 3 实际裁剪图仅显示顶端部分 x 轴类目标签碎片与下方正文片段（'Biomass accumulation by LRS6 reached a final OD600 of' / 'peaks at m/z 55, 105, 138, 273, and 288 (Figure S6)'），生物量曲线 (a) 与紫杉烷柱状图 (b) 的主体面板数据未能完整呈现",
+      "source_locator": "正文 Figure 3 / PDF p.7",
+      "correction": "需重新裁剪至完整包含 (a) Biomass(OD600) 曲线与 (b) Concentration 柱状图两子图，normalized bbox ≈ [0.05, 0.06, 0.99, 0.45]"
+    },
+    {
+      "issue": "Figure 4 实际裁剪图仅显示 (a–f) 面板底端/轴标签碎片与下方图注，六个子图的曲线数据未在裁剪图中完整呈现",
+      "source_locator": "正文 Figure 4 / PDF p.8",
+      "correction": "需重新裁剪至完整包含六个子图（a/b biomass、c/d pH、e/f DO），normalized bbox ≈ [0.05, 0.45, 0.99, 0.85]"
+    },
+    {
+      "issue": "Figure 6 实际裁剪图仅显示 'Time (hours) Time (hours)' 轴标签与图注，MiniBio 500 在线监测曲线 (a) 与紫杉烷动力学 (b) 面板未在裁剪图中呈现",
+      "source_locator": "正文 Figure 6 / PDF p.10",
+      "correction": "需重新裁剪至完整包含 (a) Biomass/DO/pH/Temperature 与 (b) Taxane 浓度两子图，normalized bbox ≈ [0.05, 0.06, 0.99, 0.40]"
+    },
+    {
+      "issue": "Figure 7 实际裁剪图仅显示顶端坐标轴标签碎片 + 图注，四个子图（a 微规模生物量/pH、b 微规模紫杉烷、c MiniBio 在线监测、d MiniBio 紫杉烷）主体未呈现",
+      "source_locator": "正文 Figure 7 / PDF p.11",
+      "correction": "需重新裁剪至完整包含 a/b/c/d 四子图，normalized bbox ≈ [0.05, 0.05, 0.99, 0.50]"
+    },
+    {
+      "issue": "Figure 8 实际裁剪图仅显示 x 轴类目标签碎片（Vertic..., Diterpe..., Taxad..., GGOH 等）与下方图注，4 个子图（a 生物量与代谢物、b 紫杉烷动力学汇总、c 尾气分析、d 终态柱状图）主体未呈现",
+      "source_locator": "正文 Figure 8 / PDF p.13",
+      "correction": "需重新裁剪至完整包含 a/b/c/d 四子图，normalized bbox ≈ [0.05, 0.05, 0.99, 0.50]"
+    },
+    {
+      "issue": "Figure 9 实际裁剪图仅显示 'pH control pH control' 标签碎片与图注，a/b/c 三个子图（产物百分比堆叠、非氧化/氧化柱状对比、关键紫杉烷中间体柱）主体未呈现",
+      "source_locator": "正文 Figure 9 / PDF p.14",
+      "correction": "需重新裁剪至完整包含 a/b/c 三子图，normalized bbox ≈ [0.05, 0.05, 0.99, 0.45]"
+    },
+    {
+      "issue": "审核范围要求下,'total oxygenated taxane titers were improved twofold to 78 mg/L (Conclusion p.14)' vs 摘要中'2.7-fold to 78 mg/L'存在原文内部不一致；草稿在结论部分以'2.4–2.7 倍提升'同时呈现两数，但正文别处反复仅引'78 mg/L（2.4 倍）'或'78 mg/L（2.7 倍）'，未一贯注明这是原文自相矛盾",
+      "source_locator": "Abstract p.2 'Total oxygenated taxane titers were improved 2.7-fold at this scale to 78 mg/L' vs Conclusion p.14 'Total oxygenated taxane titers were improved twofold to 78 mg/L ... oxygenated taxane titer was also improved 2.4-fold to 78 mg/L'",
+      "correction": "在六、总体结论中应明确指出原文内部对'78 mg/L vs Zhou 2015 (33 mg/L)'的倍数提法不一致（2.4 倍 / 2.7 倍），并标注差异源自原文"
+    }
+  ],
+  "minor_issues": [
+    {
+      "issue": "报告中'作者据此推测该 P450 在真核膜环境下的构象或底物通道与原核体系存在差异，但缺乏结构生物学证据'为解读者推断，原文仅说'when expressed in E. coli, OCT and iso-OCT were previously found to be the major products of CYP725A4 (Edgar et al., 2016)... however, a novel oxygenated diterpenoid... was the major product'，未直接提出构象/底物通道差异",
+      "source_locator": "正文 3.2 节 / Results and Discussion",
+      "correction": "应改为'作者将该差异归因于宿主环境，但未提供机制层面证据'，删除'构象或底物通道'的推断性表述"
+    },
+    {
+      "issue": "'1.06 和 2.5-fold 提升' 后单位沿用原文 '137 ± 5  g/L' (原文摘要/Conclusion), 显然应为 mg/L 但原刊未改",
+      "source_locator": "Abstract p.2 与 Conclusion p.14",
+      "correction": "可保留原文表述但建议加注'原文摘要与结论中单位标作 g/L，按 Figure 5 与 Nowrouzi 比较应为 mg/L'"
+    }
+  ],
+  "figure_coverage": {
+    "expected_labels": [
+      "Figure 1",
+      "Table 1",
+      "Figure 2",
+      "Figure 3",
+      "Figure 4",
+      "Figure 5",
+      "Figure 6",
+      "Figure 7",
+      "Figure 8",
+      "Figure 9"
+    ],
+    "covered_labels": [
+      "Figure 1",
+      "Table 1",
+      "Figure 2",
+      "Figure 3",
+      "Figure 4",
+      "Figure 5",
+      "Figure 6",
+      "Figure 7",
+      "Figure 8",
+      "Figure 9"
+    ],
+    "missing_panels": [
+      "Figure 3 (a) 完整生物量曲线与 (b) 紫杉烷柱状图主体",
+      "Figure 4 (a-f) 六个子图曲线主体",
+      "Figure 6 (a) 在线监测多曲线与 (b) 紫杉烷动力学主体",
+      "Figure 7 (a-d) 四子图主体",
+      "Figure 8 (a-d) 四子图主体",
+      "Figure 9 (a-c) 三子图主体"
+    ],
+    "missing_pages": []
+  },
+  "verified_claims": [
+    {
+      "claim": "微规模高通量优化将总氧化紫杉烷滴度提高至 39.0 ± 5.7 mg/L",
+      "source_locator": "Abstract / PDF p.2",
+      "evidence": "原文：'High‐throughput microscale optimization enhanced total oxygenated taxane titer to 39.0 ± 5.7 mg/L'"
+    },
+    {
+      "claim": "微规模与 minibioreactor 总紫杉烷滴度高度可比 95.4 ± 18.0 与 98.9 mg/L",
+      "source_locator": "Abstract / PDF p.2",
+      "evidence": "原文：'total taxane product titers were comparable at micro and minibioreactor scale at 95.4 ± 18.0 and 98.9 mg/L, respectively'"
+    },
+    {
+      "claim": "pH 控制后潜在 T5αol 异构体滴度提高至 19.2 mg/L，与微规模 23.8 ± 3.7 mg/L 接近",
+      "source_locator": "Abstract / PDF p.2",
+      "evidence": "原文：'enhancing the potential taxadien‐5α‐ol isomer titer to 19.2 mg/L, comparable with the 23.8 ± 3.7 mg/L achieved at microscale'"
+    },
+    {
+      "claim": "1 L BIOSTAT 中 T5αAc 滴度 3.7 mg/L，相比 Zhou et al. (2015) 跨界共培养体系实现 4 倍提升",
+      "source_locator": "Results 3.4.3 / PDF p.13",
+      "evidence": "原文：'final T5αAc titer was 3.7 mg/L, representing a fourfold improvement in acetylated taxadiene in S. cerevisiae in comparison with the previous literature (Zhou et al., 2015)'"
+    },
+    {
+      "claim": "1 L BIOSTAT 工艺总氧化紫杉烷滴度提高 2.7-fold 至 78 mg/L（截至发表时酿酒酵母单底盘最高）",
+      "source_locator": "Abstract / PDF p.2",
+      "evidence": "原文：'Total oxygenated taxane titers were improved 2.7‐fold at this scale to 78 mg/L, the highest reported titer in yeast'"
+    },
+    {
+      "claim": "微规模 BioLector 4% 半乳糖下 LRS6 总氧化紫杉烷最高 51 mg/L，比 Zhou 2015 跨界体系 33 mg/L 高 1.5 倍",
+      "source_locator": "Results 3.3.2 / PDF p.10",
+      "evidence": "原文：'The highest concentration of oxygenated taxanes was also achieved for LRS6 grown in the 4% galactose (100:0) medium at 51 mg/L, representing a 1.5‐fold increase compared with the highest concentration reached using the E. coli/S. cerevisiae consortium system (Zhou et al., 2015)'"
+    },
+    {
+      "claim": "LRS6 摇瓶终 OD600 = 22.0 ± 1.6（71 h），亲本 LRS5 为 36.0 ± 1.8（48 h）",
+      "source_locator": "Results 3.2 / PDF p.7",
+      "evidence": "原文：'Biomass accumulation by LRS6 reached a final OD600 of 22.0 ± 1.6 after 71 h of culture, cultivation of the parent LRS5 strain under the same experimental conditions resulted in a substantially higher OD600 of 36.0 ± 1.8 in just 48 h'"
+    },
+    {
+      "claim": "CYP725A4 微尺度与 pH 控制 MiniBio 滴度相关性 Pearson r = .8916（无控） / .9625（pH 控）",
+      "source_locator": "Results 3.4.1 与 3.4.2 / PDF p.12",
+      "evidence": "原文：'a strong positive correlation between OD600 and taxane titer (Pearson's r = .8916)' 与 'strong positive correlation between total taxane concentration and OD600 in the pH‐controlled bioreactor (Pearson's r = .9625)'"
+    }
+  ],
+  "identity_matches": true,
+  "classification_supported": true,
+  "crop_complete": false
+}

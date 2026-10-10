@@ -1,0 +1,78 @@
+{
+  "pass": false,
+  "major_issues": [
+    {
+      "issue": "Figure 1 裁剪图错误：用户提供的所谓 'Figure 1' 裁剪图实际是 PDF 第 2 页正文段落（两栏文字），并非 Figure 1 本身的紫杉醇生物合成途径示意（含 DMAPP/GGPP/Taxa-4(5),11(12)-diene/Taxadiene-5α-ol 等化学结构式及反应箭头）。该 Figure 1 是本研究的核心理论框架图，必须正确裁剪。",
+      "source_locator": "原文物理页 2（PDF p2，Fig. 1 化学结构示意位于页面下半部分）",
+      "correction": "重新裁剪 Figure 1，建议 normalized bbox [0.07, 0.55, 0.93, 0.87]，覆盖化学结构主体与图注；当前提供的 'Figure 1' 图像应删除。"
+    }
+  ],
+  "minor_issues": [
+    {
+      "issue": "Figure 3 裁剪图左侧 panel 标签（tp(TS)/GFP、TS/GFP、tp(T5αH)/GFP、T5αH/GFP、tp(TS)/trT5αH/trCPR/CFP 旋转文字）部分被裁掉，仅显示部分字母。",
+      "source_locator": "原文物理页 4（PDF p4，Fig. 3 左侧绿色标签列）",
+      "correction": "将左侧边界向左扩展约 0.04 归一化单位，建议 bbox 改为 [0.03, 0.04, 0.50, 0.84]，完整保留旋转标签。"
+    },
+    {
+      "issue": "Figure 6 裁剪图未包含图注 (Fig. 6 caption)。",
+      "source_locator": "原文物理页 8（PDF p8，Fig. 6 caption 位于面板下方）",
+      "correction": "将下边界向下扩展至覆盖完整图注，建议 bbox 改为 [0.07, 0.03, 0.93, 0.55]。"
+    }
+  ],
+  "figure_coverage": {
+    "expected_labels": [
+      "Figure 1",
+      "Figure 2",
+      "Figure 3",
+      "Figure 4",
+      "Figure 5",
+      "Figure 6"
+    ],
+    "covered_labels": [
+      "Figure 2",
+      "Figure 3",
+      "Figure 4",
+      "Figure 5",
+      "Figure 6"
+    ],
+    "missing_panels": [
+      "Figure 1（提供的裁剪图为正文段落，非化学结构示意）"
+    ],
+    "missing_pages": []
+  },
+  "verified_claims": [
+    {
+      "claim": "taxadiene 56.6 ± 3.2 μg g⁻¹ FW, taxadiene-5α-ol 1.3 ± 0.5 μg g⁻¹ FW",
+      "source_locator": "p7 Results（56.6 ± 3.2 μg g⁻¹ FW）；p9 Discussion（1.3 ± 0.5 μg g⁻¹ FW）；摘要",
+      "evidence": "yield was up to 56.6 ± 3.2 μg g⁻¹ FW... taxadiene-5α-ol accumulation to 1.3 μg g⁻¹ FW... successful accumulation of taxadiene-5α-ol (1.3 ± 0.5 μg g⁻¹ FW)"
+    },
+    {
+      "claim": "TS 单基因 5 dpi 表达 15.7 ± 4.7 μg g⁻¹ FW，时间曲线 2 dpi ~0.8、4 dpi 5.6 ± 1.3 μg g⁻¹ FW",
+      "source_locator": "p3 Results / Fig. 2c",
+      "evidence": "about 0.8 μg g⁻¹... 5.6 ± 1.3 μg g⁻¹ at 4 dpi, and to 15.7 ± 4.7 μg g⁻¹ at 5 dpi"
+    },
+    {
+      "claim": "DXS+TS 提升 taxadiene 至 45.9 μg g⁻¹ FW（>8 倍）；GGPPS+TS 至 24.5 μg g⁻¹ FW（4 倍）",
+      "source_locator": "p7 Results",
+      "evidence": "DXS increased taxadiene production by more than 8-folds, up to 45.9 μg g⁻¹ FW... GGPPS also increased taxadiene production by 4-folds (24.5 μg g⁻¹ FW)"
+    },
+    {
+      "claim": "叶绿体区室化 TS-tp(TS)/trT5αH/trCPR 使 taxadiene 升至 9.9 μg g⁻¹ FW（约 2.0 倍），taxadiene-5α-ol 至 0.90 μg g⁻¹ FW（约 4.3 倍）；胞质形式仅 0.21 μg g⁻¹ FW",
+      "source_locator": "p4–p5 Results / Fig. 4b,c",
+      "evidence": "taxadiene to 9.9 μg g⁻¹ FW (about 2.0-fold higher)... taxadiene-5α-ol... to 0.90 μg g⁻¹ FW (almost 4.3-fold increase)... low level of 0.21 μg g⁻¹ FW"
+    },
+    {
+      "claim": "fosmidomycin (150 μM) 完全阻断 taxadiene；lovastatin (10 μM) 使 NTS1-T2 由 15.7 ± 3.2 降至 9.7 ± 2.4 μg g⁻¹ FW (40.1%)",
+      "source_locator": "p7–p8 Results / Fig. 6a",
+      "evidence": "Inhibition of the MEP pathway by fosmidomycin totally suppressed taxadiene biosynthesis... 15.7 ± 3.2 μg g⁻¹ FW while the MVA-inhibited plants decreased taxadiene production by 40.1% to the level of 9.7 ± 2.4 μg g⁻¹ FW... Lovastatin (10 μM) and Fosmidomycin (150 μM)"
+    },
+    {
+      "claim": "taxadiene-5α-ol : OCT : iso-OCT 比值：叶绿体形式 1:5:1.5（Fig. 4b）；组合工程后 1:4:1.6（Fig. 6 比例描述）",
+      "source_locator": "p5 Results 与 p7 Results",
+      "evidence": "ratio of taxadiene-5α-ol to OCT and iso-OCT were relatively unchanged at 1:5:1.5... The ratio of taxadiene-5α-ol:OCT:iso-OCT in chloroplast-engineered lines (1:4:1.6)"
+    }
+  ],
+  "identity_matches": true,
+  "classification_supported": true,
+  "crop_complete": false
+}

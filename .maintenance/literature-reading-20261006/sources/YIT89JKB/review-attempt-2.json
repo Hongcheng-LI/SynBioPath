@@ -1,0 +1,88 @@
+{
+  "pass": false,
+  "major_issues": [
+    {
+      "issue": "提供的 5 张裁剪图均严重截断，仅呈现图注文字与底部小段图像，缺失各图主要 panel 主体。Figure 1 裁剪仅含 panel b 下部色谱与图注起始段，缺失 panel a 紫杉醇生物合成途径示意及 paclitaxel 化学结构（含红/蓝色高亮、6/8/6 粗键骨架）；Figure 2 裁剪仅含 panel c 下排 6/7/8 结构与图注，缺失 panel a 合成路线、b 质谱比对、d 喂饲实验、e TAT 共表达色谱；Figure 3 裁剪几乎仅含 35S/UBQ10/NOS 标签与图注首句，缺失 panel a TIC 三条轨迹、b/c 柱状图与图例；Figure 4 裁剪仅含底部线性途径结构与图注，缺失 GCMS TIC 6 条叠加轨迹与 LCMS EIC（m/z 425.2304）；Figure 5 裁剪仅含下半部代谢网络结构与图注，缺失 GCMS TIC 9 条 exp.# 及 LCMS EIC 五通道（327.2300/325.2143/367.2249/383.2198/425.2304）。裁剪明显不全，判 crop_complete=false。",
+      "source_locator": "原文 PDF 第 2 页 Fig. 1、第 3 页 Fig. 2、第 4 页 Fig. 3、第 5 页 Fig. 4、第 6 页 Fig. 5",
+      "correction": "建议用以下 normalized bbox 重裁（含完整图表本体 + 图注、剔除正文段落与页眉页脚；PDF 页面尺寸 595.3×790.9 pt）：第 2 页 Figure 1 ≈ [0.04, 0.03, 0.96, 0.78]；第 3 页 Figure 2 ≈ [0.04, 0.55, 0.96, 0.99]；第 4 页 Figure 3 ≈ [0.04, 0.42, 0.96, 0.99]；第 5 页 Figure 4 ≈ [0.04, 0.45, 0.96, 0.99]；第 6 页 Figure 5 ≈ [0.04, 0.36, 0.96, 0.99]。裁剪图应只含图表与图注，不得含两侧正文段落。"
+    },
+    {
+      "issue": "草稿 JSON figures 列表中 Figure 4 与 Figure 5 的 panels 字段为空数组，未列出子图要素。",
+      "source_locator": "草稿 figures[3].panels 与 figures[4].panels",
+      "correction": "Figure 4 建议 panels：['GCMS TIC（6 条按基因叠加顺序）','LCMS EIC m/z 425.2304','线性途径结构 1→2→11→12→13→14→15（T5αH/TAT/T10βH/DBAT/T13αH 五色编码）']。Figure 5 建议 panels：['GCMS TIC（exp.#1–9）','LCMS EIC（5 通道 327.2300/325.2143/367.2249/383.2198/425.2304）','代谢网络结构（2→11→12→13 路线、2→16→18→20 汇合于 14，及 C-13 酮 17/19/21/15）']。"
+    }
+  ],
+  "minor_issues": [
+    {
+      "issue": "草稿 Q1 将原文'T13αH 是否直接以 13 为底物生成 14 仍待进一步研究'（Page 7）扩展为'T13αH 在天然 *Taxus* 中是否作用于 13'；原文未在 Taxus 原生宿主语境讨论此点。属轻微过度外推。",
+      "source_locator": "草稿第八章 Q1 与 A1",
+      "correction": "建议将 Q1 收紧为'异源重构体系下 14 是否可经由 13 直接生成'，对应原文 'Whether 13 is a direct substrate for T13αH to make 14 awaits further study'。"
+    },
+    {
+      "issue": "正文 Fig. 3c 注明 'n = 5 (NOS) or 6 (UBQ10 and NOS)' 表述含歧义（疑似原刊排版错漏 35S 组样本数），草稿照引未注。",
+      "source_locator": "PDF 第 4 页 Fig. 3c 注",
+      "correction": "如需引用建议保留原文表述并注明'原文 n 标注存在歧义'；不影响主结论。"
+    }
+  ],
+  "figure_coverage": {
+    "expected_labels": [
+      "Figure 1",
+      "Figure 2",
+      "Figure 3",
+      "Figure 4",
+      "Figure 5"
+    ],
+    "covered_labels": [
+      "Figure 1",
+      "Figure 2",
+      "Figure 3",
+      "Figure 4",
+      "Figure 5"
+    ],
+    "missing_panels": [
+      "Figure 4 panels（GCMS TIC、LCMS EIC、线性途径结构）",
+      "Figure 5 panels（GCMS TIC exp.#1–9、LCMS EIC 5 通道、代谢网络）"
+    ],
+    "missing_pages": []
+  },
+  "verified_claims": [
+    {
+      "claim": "紫杉醇在 *Taxus* 树皮中天然丰度约 0.004%",
+      "source_locator": "PDF Page 1 'low natural abundance (~0.004% in Taxus bark)'",
+      "evidence": "原文短摘录见第 1 页左栏第二段。"
+    },
+    {
+      "claim": "35S 启动子驱动 T5αH 在 *N. benthamiana* 中产生至少 36 个氧化 taxadiene 产物",
+      "source_locator": "PDF Page 2 'At least 36 oxidized products were observed by gas chromatography mass spectrometry'",
+      "evidence": "原文 Page 2 第二栏 'Results' 首段。"
+    },
+    {
+      "claim": "TS + T5αH 在 *S. cerevisiae* 中染色体整合共表达产生 21 个氧化 taxadiene",
+      "source_locator": "PDF Page 3 'we observed 21 oxidized taxadienes when TS and T5αH were chromosomally integrated and co-expressed in S. cerevisiae'",
+      "evidence": "原文 Page 3 第一栏 'Characterization of T5αH product profile' 段。"
+    },
+    {
+      "claim": "T5αH 启动子由 35S 替换为 UBQ10/NOS 后，多官能团化产物占比由 68% → 37%/25%，taxadien-5α-ol 绝对量提升约 3 倍（Welch's t, P = 0.00022）",
+      "source_locator": "PDF Page 4 'decreased significantly from 68% to 37% and 25% with UBQ10 or NOS promoters… three-fold increase in the absolute level of taxadien-5α-ol (2)'；Fig. 3c 标注 '~3x increase / P = 0.00022'",
+      "evidence": "Page 4 第一栏末段与 Figure 3c 柱状图内嵌文本。"
+    },
+    {
+      "claim": "化合物 14 与 15 的大规模分离产率分别为 63 μg/g DW 和 42 μg/g DW",
+      "source_locator": "PDF Page 6 'yield 14 and 15 in 63 ug/g dry weight (DW) and 42 ug/g DW yield, respectively'",
+      "evidence": "Page 6 第一栏倒数第二段 NMR 分析前导句。"
+    },
+    {
+      "claim": "化合物 15（C-13 酮）为 *N. benthamiana* 内源酶对 14 的进一步氧化产物，而非 T13αH 直接产物",
+      "source_locator": "PDF Page 6 'When 14 was fed into control *N. benthamiana* expressing GFP, it was partially oxidized to 15 (Supplementary Fig. 10). Therefore, we concluded that 15 results from oxidation by endogenous *N. benthamiana* enzymes rather than oxidation by T13αH.'",
+      "evidence": "Page 6 第一栏末段。"
+    },
+    {
+      "claim": "T13αH 对 5α-acetoxytaxadiene (11) 的转化率仅为对 taxadien-5α-ol (2) 的 6%，对 5α-acetoxytaxadien-10β-ol (12) 无活性（参考文献 24）",
+      "source_locator": "PDF Page 7 'recombinant T13αH oxidizes taxadien-5α-ol (2) efﬁciently, oxidizes 5α-acetoxytaxadiene (11) at 6% the conversion rate levels relative to 2, and has no activity on 5α-acetoxytaxadien-10β-ol (12)^24'",
+      "evidence": "Page 7 第一栏 Discussion 前段。"
+    }
+  ],
+  "identity_matches": true,
+  "classification_supported": true,
+  "crop_complete": false
+}

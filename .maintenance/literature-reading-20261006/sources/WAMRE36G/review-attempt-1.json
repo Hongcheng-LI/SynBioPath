@@ -1,0 +1,92 @@
+{
+  "pass": false,
+  "major_issues": [
+    {
+      "issue": "Table 2 裁剪图严重不全：右侧 'Instant constant (μM)' 与 'Estimated rank' 两列被裁掉，仅保留 Enzyme 与 Binding energy (Kcal/mol) 两列；图注与脚注 '1The GGPPSs selected…' 部分也被截断。draft 自身文本虽复述了六行 Ki 与排名数值，但图像证据不完整，不能作为表格本体展示。",
+      "source_locator": "PDF 物理页 5 顶部 Table 2",
+      "correction": "重新裁剪 Table 2，建议 normalized bbox ≈ [0.07, 0.065, 0.95, 0.225]，覆盖表格四列全部内容与脚注。"
+    },
+    {
+      "issue": "Figure 5 裁剪图底部图注被截断，仅显示 'Figure 5. The contents of identified metabolites and amino acids in glycolytic pathway and TCA cycle of W303-1A and YSG50. The y-'，丢失 'axis was relative abundance which was calculated by normalization of peak area of each metabolite to internal standard, and each value represented mean value of two independent replicates.' 关键说明（包含归一化方法与生物学重复次数）。",
+      "source_locator": "PDF 物理页 6 Figure 5 caption",
+      "correction": "重新裁剪 Figure 5，建议 normalized bbox ≈ [0.07, 0.045, 0.93, 0.88]，覆盖完整图注与两行文字。"
+    }
+  ],
+  "minor_issues": [],
+  "figure_coverage": {
+    "expected_labels": [
+      "Table 1",
+      "Figure 1",
+      "Figure 2",
+      "Figure 3",
+      "Table 2",
+      "Figure 4",
+      "Figure 5",
+      "Figure 6"
+    ],
+    "covered_labels": [
+      "Table 1",
+      "Figure 1",
+      "Figure 2",
+      "Figure 3",
+      "Table 2",
+      "Figure 4",
+      "Figure 5",
+      "Figure 6"
+    ],
+    "missing_panels": [],
+    "missing_pages": [],
+    "incomplete_crops": [
+      {
+        "label": "Table 2",
+        "page": 5,
+        "issue": "右侧 Instant constant 与 Estimated rank 列被截掉"
+      },
+      {
+        "label": "Figure 5",
+        "page": 6,
+        "issue": "底部 caption 文字被截断"
+      }
+    ]
+  },
+  "verified_claims": [
+    {
+      "claim": "GGPPSbc 在 5 L 生物反应器 66 h SD 培养下达到 72.8 mg/L 紫杉二烯滴度（YSG50 底盘）",
+      "source_locator": "Abstract; Conclusion (PDF 物理页 1 摘要; 物理页 8 Conclusion 首段)",
+      "evidence": "Abstract:'the titer of taxadiene reached 72.8 mg/L in chassis YSG50 with GGPPSbc'; Conclusion:'A stable genome-transformed S. cerevisiae strain with taxadiene titer of 72.8 mg/L was obtained'"
+    },
+    {
+      "claim": "六种 GGPPS 对接结合能依次为 -8.09、-7.17、-6.20、-5.88、-5.49、-4.90 kcal/mol，对应 Ki 为 1.17、5.58、28.59、48.80、62.37、256.57 μM",
+      "source_locator": "Table 2 (PDF 物理页 5)",
+      "evidence": "Table 2 列出 Binding energy 与 Instant constant 全六行，与 draft 数值完全一致"
+    },
+    {
+      "claim": "FPP 真空宽度约 9.2 Å；GGPPSrc 8.2 Å、GGPPSsc 8.6 Å 孔径过窄；GGPPSbc 11.4 Å、GGPPSgb 10.6 Å、GGPPScr 10.8 Å、GGPPSeh 9.6 Å 孔径充裕",
+      "source_locator": "Results and Discussion 第二段 (PDF 物理页 5–6)",
+      "evidence": "原文：'width of simulated FPP in vacuum was approximately 9.2:A˚ (Fig. 3G), the narrow orifices of GGPPSrc (8.2:A˚) and GGPPSsc (8.6:A˚)… larger aperture of GGPPSbc (11.4:A˚), GGPPSgb (10.6:A˚), GGPPScr (10.8:A˚ ) and GGPPSeh (9.6:A˚)'"
+    },
+    {
+      "claim": "SyBE_001188、001189 无紫杉二烯检出；SyBE_001190（仅 +erg20）产 0.22 mg/L；SyBE_001110（再 +thmgr）产 1.82 mg/L",
+      "source_locator": "Results and Discussion 第一段 (PDF 物理页 5)",
+      "evidence": "原文：'No taxadiene was detected after 60 h… SyBE_001190. After 60 h shaking flask fermentation, this strain produced 0.22 mg/L taxadiene. Then thmgr cassette was integrated… yielding strain SyBE_001110 which produced 1.82 mg/L'"
+    },
+    {
+      "claim": "W303-1A 底盘 SyBE_001111(ggppseh) 与 SyBE_001109(ggppsbc) 较 SyBE_001110 提升 1.5 与 7.2 倍；YSG50 底盘 SyBE_001114、115、113 较对应 W303-1A 三菌株分别提升 3.7、1.6、4.3 倍",
+      "source_locator": "Results and Discussion (PDF 物理页 7 第一/二段)",
+      "evidence": "原文：'The yield of SyBE_001111 and SyBE_001109 were 1.5 and 7.2 fold over the strain SyBE_001110'；'The yield of strain SyBE_001114 (YSG50 with ggppssc), SyBE_001115 (YSG50 with ggppseh), SyBE_001113 (YSG50 with ggppsbc) were 3.7, 1.6 and 4.3 fold to strain SyBE_001110…'"
+    },
+    {
+      "claim": "YSG50 较 W303-1A 中三种 TCA 中间体（柠檬酸、延胡索酸、琥珀酸）及关联氨基酸 Thr/Asn 含量更低，提示 TCA 通量较小",
+      "source_locator": "Results and Discussion 'Metabolomic study' 段 (PDF 物理页 7)",
+      "evidence": "原文：'The contents of three identified metabolites (citrate, fumarate, and succinate) in TCA cycle were all higher in chassis W303-1A. Furthermore, the contents of Thr and Asn… were also higher in W303-1A'"
+    },
+    {
+      "claim": "排名 1/4/6 的 GGPPSbc、GGPPSeh、GGPPSsc 被挑选用于体内验证，意图覆盖最优/中等/最差三档预测",
+      "source_locator": "Results and Discussion (PDF 物理页 6 末段)",
+      "evidence": "原文：'Therefore, GGPPSbc, GGPPSeh and GGPPSsc that predicted to perform the best, medium and worst were selected for further experiment'"
+    }
+  ],
+  "identity_matches": true,
+  "classification_supported": true,
+  "crop_complete": false
+}

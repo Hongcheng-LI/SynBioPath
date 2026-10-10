@@ -1,0 +1,80 @@
+{
+  "pass": false,
+  "major_issues": [
+    {
+      "issue": "Table I 裁剪图过度截取，包含正文段落 'Construction of Yeast Expression Vectors' 标题与两列引物序列正文（约占页面 60% 文本区域）以及页脚 '214 BIOTECHNOLOGY AND BIOENGINEERING…'，违反裁剪应只包含图表本体与图注的规则。",
+      "source_locator": "PDF physical page 3 / Table I",
+      "correction": "Table I 实际位于 PDF 第 3 页底部双栏通栏位置（页脚上方），其正确紧凑 normalized bbox 约为 [0.02, 0.64, 0.98, 0.91]，仅覆盖 'Table I. Summary for the expression of eight taxoid biosynthetic pathway genes in yeast.' 标题、表格本体与脚注说明 (N)/(C)/DBAT 缩写说明，不包含任何正文引物段落或页脚。"
+    },
+    {
+      "issue": "背景介绍中出现事实归类偏差：草稿写 '在 E. coli、酵母或 Spodoptera 中已克隆并功能性表达了 10 个步骤的酶'，但随后列出仅 8 个酶。原文摘要区分明确——'Ten genes encoding enzymes…have been described'（文献中描述/克隆 10 个）与 'Eight of these taxoid biosynthetic genes were functionally expressed in yeast'（本文实际功能性表达 8 个），并非 10 个均已功能性表达。",
+      "source_locator": "PDF physical page 1（Abstract）/ PDF physical page 6（General Strategy 节）",
+      "correction": "应改为：'在 E. coli、酵母或 Spodoptera 中已克隆并描述 10 个紫杉烷类途径酶基因（其中 8 个此前已在异源系统中完成功能性表达）'，以严格区分'已描述'与'已功能性表达'。"
+    }
+  ],
+  "minor_issues": [],
+  "figure_coverage": {
+    "expected_labels": [
+      "Figure 1",
+      "Table I",
+      "Figure 2",
+      "Figure 3",
+      "Figure 4",
+      "Figure 5",
+      "Figure 6",
+      "Figure 7"
+    ],
+    "covered_labels": [
+      "Figure 1",
+      "Table I",
+      "Figure 2",
+      "Figure 3",
+      "Figure 4",
+      "Figure 5",
+      "Figure 6",
+      "Figure 7"
+    ],
+    "missing_panels": [],
+    "missing_pages": []
+  },
+  "verified_claims": [
+    {
+      "claim": "8 个紫杉烷类生物合成基因（GGPPS、TS、THY5α、THY10b、THY13α、TAT、TBT、DBAT）在酵母 YPH499 中功能性表达",
+      "source_locator": "PDF p3 Table I；p6 General Strategy",
+      "evidence": "'eight genes encoding enzymes of this pathway had been isolated and the individual recombinant proteins heterologously expressed and characterized. These genes included those for GGPPS…taxadiene synthase…the cytochrome P450 taxoid 5α-, 10β-, and 13α-hydroxylases…the acyl Co-A-dependent taxoid 5-O- and 10-O-acetyl transferases… and the 2-O-benzoyl transferase.'"
+    },
+    {
+      "claim": "三个 P450 微粒体活性：13α-羟化酶 5.3 nmol/h/mg；10β-羟化酶 1.6 nmol/h/mg（共表达）或 4.8 nmol/h/mg（单独）；5α-羟化酶 0.4 nmol/h/mg",
+      "source_locator": "PDF p8 → p9 衔接段",
+      "evidence": "'afforded easily measurable levels of the 13α-hydroxylase (5.3 nmol/h/mg microsomal protein), 10β-hydroxylase (1.6 nmol/h/mg microsomal protein), and 5α-hydroxylase (0.4 nmol/h/mg microsomal protein)…subsequent expression of the 10β-hydroxylase alone showed an increase in recombinant enzyme activity of the derived microsomes to 4.8 nmol/h/mg protein.'"
+    },
+    {
+      "claim": "三种转移酶活性：TAT 47、DBAT 53、TBT 75 nmol/h/mg 可溶蛋白；对照 < 0.5",
+      "source_locator": "PDF p9 → p10 衔接段",
+      "evidence": "'readily measurable levels of activity for the taxadienol 5α-O-acetyl transferase (47 nmol/h/mg soluble protein), 10-deacetyl-baccatin III 10β-O-acetyl transferase (53 nmol/h/mg soluble protein), and taxoid 2α-O-benzoyl transferase (75 nmol/h/mg soluble protein); activity…was negligible in all cases (<0.5 nmol/h/mg soluble protein).'"
+    },
+    {
+      "claim": "重构五步途径产生 taxadiene：YPG 培养基 0.7 mg/L，选择性 SG-URA 培养基 1.0 mg/L（约 0.5 mg/g 干细胞重）；taxadien-5α-ol 极低 ~25 μg/L",
+      "source_locator": "PDF p10，Figure 7 caption 邻接正文",
+      "evidence": "'Taxadiene was again readily measurable, with production levels of 0.7 mg/L in YPG media and 1.0 mg/L in selective media (equivalent to roughly 0.5 mg taxadiene/g dry wt cells…)…Taxadien-5α-ol (eluting at 12.68 min in Fig. 7) was produced in very small amounts (~25 μg/L).'"
+    },
+    {
+      "claim": "限速步骤为 5α-羟化步骤；GAL1 驱动 THY5a 比 GPD 启动子下 24 h 蛋白量约高 5 倍；Taxus P450 还原酶共表达可使 10β-羟化酶活性提升约 6 倍（>150 nmol/h/mg）；初步估计 5α-羟化通量可提升 ≥ 10 倍",
+      "source_locator": "PDF p10 与 p11 Discussion",
+      "evidence": "'a flux restriction was encountered at the 5α-hydroxylase because of the limited expressed activity of this cytochrome P450 under control of the constitutive GPD promoter'；'the level of the 5α-hydroxylase (at 24 h) approximately fivefold higher than previously observed under control of the GPD promoter'；'co-overexpression of the homologous Taxus cytochrome P450 reductase increases hydroxylase activity six-fold…(i.e., >150 nmol/h/mg protein)'；'Preliminary estimates indicate that the combination of the Taxus reductase with THY5a under GAL1 control will permit at least ten-fold increase in flux.'"
+    },
+    {
+      "claim": "从初级代谢到 baccatin III 共 15 个酶促步骤；从 GGPP 到紫杉醇 19 步；Taxol 途径含 8 次细胞色素 P450 氧化与 2 次 CoA 依赖酰基化",
+      "source_locator": "PDF p1 Abstract + p1 Introduction",
+      "evidence": "'Baccatin III…is produced in yew (Taxus) species by a sequence of 15 enzymatic steps from primary metabolism'；'The Taxol biosynthetic pathway is considered to require 19 enzymatic steps from the universal diterpenoid precursor geranylgeranyl diphosphate'；'a series of eight cytochrome P450-mediated oxygenations and two CoA-dependent acylations'."
+    },
+    {
+      "claim": "酵母中 taxadiene 产量比工程化拟南芥（Besumbes et al., 2004）高约 100 倍",
+      "source_locator": "PDF p11 Discussion 末段",
+      "evidence": "'substantially higher levels of taxadiene production in yeast (by about 100-fold) than those recently observed by engineering the TS gene in Arabidopsis (Besumbes et al., 2004).'"
+    }
+  ],
+  "identity_matches": true,
+  "classification_supported": true,
+  "crop_complete": false
+}

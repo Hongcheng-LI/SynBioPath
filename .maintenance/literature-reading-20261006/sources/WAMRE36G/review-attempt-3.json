@@ -1,0 +1,113 @@
+{
+  "pass": false,
+  "major_issues": [
+    {
+      "issue": "Table 1 裁剪图右侧被截断，丢失第 4 列 'Sources'（Purchased / Prof. Zhao / This study）及 doi 行，且 Description 列文本也被截断（如 'pRS304-td' 即止）。这使读者无法核对菌株来源以及 SyBE 株描述的完整质粒组成。",
+      "source_locator": "PDF 物理页 3 Table 1；当前 bbox [0.05, 0.05, 0.66, 0.45]",
+      "correction": "归一化 bbox 改为 [0.05, 0.07, 0.95, 0.275]，下界须止于 doi 脚注行，上界为表标题，以完整保留 4 列 13 行 + doi。"
+    },
+    {
+      "issue": "Figure 2 裁剪图右半部明显混入右栏正文段落（'The molecular docking was run by the software AutoDock 4.2…'、'Protein Modeling'、'To embark on simulating…'）以及下方正文（'270 °C for 2 min. The taxadiene was identified…'），违反裁剪图不得包含正文段落的规则。",
+      "source_locator": "PDF 物理页 4 Figure 2；当前 bbox [0.07, 0.05, 0.50, 0.27] 已被裁切但右栏仍混入",
+      "correction": "归一化 bbox 收紧为 [0.05, 0.05, 0.49, 0.27]，仅保留左栏柱状图、图注和 doi。"
+    },
+    {
+      "issue": "Figure 3 裁剪图除图版主体外，下半部混入正文段落（'270 °C for 2 min…'、'Protein Modeling'、'To embark on simulating…'）。右侧的 9.2 Å FPP 标尺面板即正文 Fig. 3G 引用的对象，须保留，但不应附带下段正文。",
+      "source_locator": "PDF 物理页 4 Figure 3；当前 bbox [0.07, 0.05, 0.50, 0.27]（错误地把图缩小为左上角柱状图，且包含正文）",
+      "correction": "归一化 bbox 改为 [0.05, 0.40, 0.97, 0.90]，覆盖 A–F 子图 + 右侧 9.2 Å 标尺面板（正文 G 引用） + 图注 + doi 行。"
+    },
+    {
+      "issue": "Table 2 裁剪图底部混入 'Real-time PCR analysis' 标题及其段落正文，违反裁剪规则。",
+      "source_locator": "PDF 物理页 5 Table 2；当前 bbox [0.05, 0.05, 0.96, 0.45]",
+      "correction": "归一化 bbox 收紧为 [0.05, 0.05, 0.49, 0.225]，仅保留左栏表头、6 行数据、表脚注 'The GGPPSs selected…' 及 doi 行。"
+    },
+    {
+      "issue": "Figure 4 裁剪图底部混入 'Results and Discussion' 标题及 'Production of taxadiene in yeast by improving endogenous FPP and GGPP supply' 段首正文。",
+      "source_locator": "PDF 物理页 5 Figure 4；当前 bbox [0.07, 0.05, 0.50, 0.27]（错位）",
+      "correction": "Figure 4 实为右栏图，归一化 bbox 改为 [0.52, 0.45, 0.97, 0.78]，覆盖柱状图、Legend（W303-1A / YSG50）、图注和 doi。"
+    }
+  ],
+  "minor_issues": [
+    {
+      "issue": "DB-5MS 液膜厚度单位写错：原文 '0.25 μm DB-5MS'，草稿写为 '0.25 mm DB-5MS'。",
+      "source_locator": "PDF 物理页 3 GC-TOF/MS 段",
+      "correction": "改为 '30 m × 0.25 mm i.d., 0.25 μm DB-5MS'。"
+    },
+    {
+      "issue": "Figure 1 描述为 '节点-箭头图' 不准确；原图为包含路径与代谢物标注的圆形代谢流示意图。",
+      "source_locator": "PDF 物理页 3 Figure 1",
+      "correction": "改为 '圆形代谢流示意图' 或 '节点-箭头-化学结构组合示意图'。"
+    },
+    {
+      "issue": "分析段 '受蛋白折叠、辅因子可用性、GGPP 毒性等多因素影响' 中的 'GGPP 毒性' 原文未提及，属草稿自行补造的因素；建议删除或改为 'GGPP 下游反馈'。",
+      "source_locator": "PDF 物理页 7 Results and Discussion 段",
+      "correction": "删除 'GGPP 毒性' 表述。"
+    }
+  ],
+  "figure_coverage": {
+    "expected_labels": [
+      "Table 1",
+      "Figure 1",
+      "Figure 2",
+      "Figure 3",
+      "Table 2",
+      "Figure 4",
+      "Figure 5",
+      "Figure 6"
+    ],
+    "covered_labels": [
+      "Table 1",
+      "Figure 1",
+      "Figure 2",
+      "Figure 3",
+      "Table 2",
+      "Figure 4",
+      "Figure 5",
+      "Figure 6"
+    ],
+    "missing_panels": [
+      "Figure 3 子图 A–F 在裁剪中可分辨，但 'Fig. 3G' 9.2 Å FPP 标尺面板在当前 bbox 中被截掉，需按上述 bbox 修正后恢复"
+    ],
+    "missing_pages": []
+  },
+  "verified_claims": [
+    {
+      "claim": "GGPPSbc 结合自由能 -8.09 kcal/mol、抑制常数 1.17 μM、排名第 1；GGPPSgb -7.17 / 5.58 / 2；GGPPSrc -6.20 / 28.59 / 3；GGPPSeh -5.88 / 48.80 / 4；GGPPScr -5.49 / 62.37 / 5；GGPPSsc -4.90 / 256.57 / 6",
+      "source_locator": "PDF 物理页 5 Table 2 'Data of enzyme-substrate docking'",
+      "evidence": "GGPPSbc -8.09 / 1.17 / 1; GGPPSgb -7.17 / 5.58 / 2; GGPPSrc -6.20 / 28.59 / 3; GGPPSeh -5.88 / 48.80 / 4; GGPPScr -5.49 / 62.37 / 5; GGPPSsc -4.90 / 256.57 / 6."
+    },
+    {
+      "claim": "GGPPSbc、GGPPSeh、GGPPSsc（排名第 1、4、6）被选中用于体内验证，对应 'best, medium, worst' 三档预测",
+      "source_locator": "PDF 物理页 6 第 2 段末 'GGPPSbc, GGPPSeh and GGPPSsc that predicted to perform the best, medium and worst were selected'",
+      "evidence": "'GGPPSbc, GGPPSeh and GGPPSsc that predicted to perform the best, medium and worst were selected for further experiment in hope of validating our prediction.'"
+    },
+    {
+      "claim": "W303-1A 底盘：SyBE_001111 (ggppseh) 1.5×、SyBE_001109 (ggppsbc) 7.2× SyBE_001110 (ggppssc)；YSG50 底盘：SyBE_001114 (ggppssc) 3.7×、SyBE_001115 (ggppseh) 1.6×、SyBE_001113 (ggppsbc) 4.3× 对应 W303-1A 版本",
+      "source_locator": "PDF 物理页 7 第 1–2 段",
+      "evidence": "'The yield of SyBE_001111 and SyBE_001109 were 1.5 and 7.2 fold over the strain SyBE_001110'; 'were 3.7, 1.6 and 4.3 fold to strain SyBE_001110, SyBE_001111 and SyBE_001109'."
+    },
+    {
+      "claim": "FPP 在真空中宽度约 9.2 Å；GGPPSrc 8.2 Å、GGPPSsc 8.6 Å 孔径过窄；GGPPSbc 11.4 Å、GGPPSgb 10.6 Å、GGPPScr 10.8 Å、GGPPSeh 9.6 Å 孔径足以通过",
+      "source_locator": "PDF 物理页 6 第 2 段",
+      "evidence": "'the width of simulated FPP in vacuum was approximately 9.2 Å (Fig. 3G), the narrow orifices of GGPPSrc (8.2 Å) and GGPPSsc (8.6 Å) were likely to thwart the entry of FPP… the larger aperture of GGPPSbc (11.4 Å), GGPPSgb (10.6 Å), GGPPScr (10.8 Å) and GGPPSeh (9.6 Å) were unhindered for the ligand (Fig. 3)'"
+    },
+    {
+      "claim": "SyBE_001190（仅 erg20）紫杉二烯 0.22 mg/L；SyBE_001110（erg20 + thmgr）紫杉二烯 1.82 mg/L；SyBE_001113 在 5 L 生物反应器 66 h 培养后达 72.8 mg/L",
+      "source_locator": "PDF 物理页 5 段 1 与 Figure 2；PDF 物理页 1 Abstract 与页 8 Conclusions",
+      "evidence": "'SyBE_001190 produced 0.22 mg/L taxadiene'; 'SyBE_001110 which produced 1.82 mg/L taxadiene (Fig. 2)'; 'the titer of taxadiene reached 72.8 mg/L in chassis YSG50 with GGPPSbc.'"
+    },
+    {
+      "claim": "5 L 生物反应器条件：2 L SD、pH 5.7、350 rpm、30 °C、1 vvm、66 h；正己烷萃取 300 mL × 3 h；硅胶柱正己烷洗脱；GC-TOF/MS m/z 272/122/107 鉴定；NMR (1H, 13C) 进一步确证",
+      "source_locator": "PDF 物理页 3 'Extraction, purification and analysis of taxadiene' 段；页 4 GC-TOF/MS 段",
+      "evidence": "'cultured in the 5 L bioreactor with 2 L SD medium… at 350 rpm and 30 °C for 66 h with aeration of 1 vvm. The pH was controlled at 5.7. Then 300 ml n-hexane was added… stirred for 3 h'; 'The taxadiene was identified by the mass fragment m/z 272, 122, and 107'."
+    },
+    {
+      "claim": "代谢组学共 10 种代谢物：Pyruvate、Ser、Phe、Leu、Asn、Thr、Citrate、Fumaric acid、Succinic acid、Lys（对数期 + 稳定期两次独立重复）",
+      "source_locator": "PDF 物理页 6 Figure 5 与 'Metabolomic study for choosing more suitable chassis' 段",
+      "evidence": "'Ten metabolites which were related to glycolytic pathway and TCA cycle were identified (Fig. 5)'; 'each value represented mean value of two independent replicates'."
+    }
+  ],
+  "identity_matches": true,
+  "classification_supported": true,
+  "crop_complete": false
+}

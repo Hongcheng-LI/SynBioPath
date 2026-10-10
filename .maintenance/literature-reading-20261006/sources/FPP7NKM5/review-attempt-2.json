@@ -1,0 +1,124 @@
+{
+  "pass": false,
+  "major_issues": [
+    {
+      "issue": "Figure 5 裁剪图（PDF 第 8 页）实际为整页裁剪，同时包含 Figure 4、Figure 5、Figure 6 三张图以及右侧 DISCUSSION 段落标题与正文，并非 Figure 5 单图",
+      "source_locator": "PDF 物理页 8（左栏中段 Figure 5 + 图注）",
+      "correction": "仅裁剪 Figure 5 本体（柱状图+图例+图注），建议 normalized bbox ≈ [0.02, 0.46, 0.48, 0.77]"
+    },
+    {
+      "issue": "Figure 6 裁剪图（PDF 第 8 页）与 Figure 5 裁剪图完全相同，均为整页裁剪，包含全部三张图与右侧正文段落",
+      "source_locator": "PDF 物理页 8（左栏下段 Figure 6 + 图注）",
+      "correction": "仅裁剪 Figure 6 本体（折线图+图例+图注），建议 normalized bbox ≈ [0.02, 0.79, 0.48, 0.99]"
+    },
+    {
+      "issue": "Table 1 裁剪图（PDF 第 4 页）包含右侧 'Expression of Taxadiene Synthase in B. subtilis 168' 段落标题、正文起始段，以及 Figure 1B 图注续段（'Figure 1B where B. subtilis mntA...'）和正文段落",
+      "source_locator": "PDF 物理页 4（左栏顶部 Table 1 + 标题）",
+      "correction": "仅裁剪 Table 1 本体与标题，建议 normalized bbox ≈ [0.02, 0.09, 0.48, 0.41]"
+    },
+    {
+      "issue": "Table 2 裁剪图（PDF 第 6 页）包含右侧整张 Figure 2（Western blot 图像）以及左栏下方 'which is responsible for converting GGPP...' 正文段落",
+      "source_locator": "PDF 物理页 6（左栏顶部 Table 2 + 标题）",
+      "correction": "仅裁剪 Table 2 本体与标题，建议 normalized bbox ≈ [0.02, 0.08, 0.48, 0.26]"
+    },
+    {
+      "issue": "草稿 Table 1 图注中将 'Phyperspank' 转写为 'Phalo'（'168 amyE::Phalo-txs'），与原文及 Figure 1B 不符",
+      "source_locator": "原文 Table 1 物理页 4（B. subtilis 168_txs 基因型行）",
+      "correction": "改为 '168 amyE::Phyperspank-txs'"
+    }
+  ],
+  "minor_issues": [
+    {
+      "issue": "Figure 1 解读段落括号注 '图中 MLP 在第 7 页质谱图标注中拼写为 MEC' 中 'MLP' 应为 'MEC' 笔误，且该备注本身无依据（MEP 路径末中间体为 MEC，与 Figure 3 质谱图无关）",
+      "source_locator": "草稿 Figure 1 解读段",
+      "correction": "删除该无关备注；如需提示，可写'图 1A 末段中间体标注为 MEC'"
+    },
+    {
+      "issue": "Figure 2 解读中 'marker 标注 115、80、50、65 kDa 等位点' 顺序与原图标注顺序（自上而下 115、80、65、50）略不一致",
+      "source_locator": "草稿 Figure 2 解读段",
+      "correction": "改为 '自上而下标注 115、80、65、50 kDa'"
+    }
+  ],
+  "figure_coverage": {
+    "expected_labels": [
+      "Figure 1",
+      "Figure 2",
+      "Figure 3",
+      "Figure 4",
+      "Figure 5",
+      "Figure 6",
+      "Table 1",
+      "Table 2"
+    ],
+    "covered_labels": [
+      "Figure 1（完整）",
+      "Figure 2（完整）",
+      "Figure 3（完整）",
+      "Figure 4（完整）",
+      "Table 1（含右侧正文与下方正文）",
+      "Table 2（含右侧 Figure 2 与下方正文）",
+      "Figure 5（含 Figure 4+6+DISCUSSION 正文）",
+      "Figure 6（含 Figure 4+5+DISCUSSION 正文）"
+    ],
+    "missing_panels": [
+      "Figure 5 单独裁剪缺失",
+      "Figure 6 单独裁剪缺失"
+    ],
+    "missing_pages": []
+  },
+  "verified_claims": [
+    {
+      "claim": "紫杉二烯产量较 txs 对照株提升约 83 倍",
+      "source_locator": "第 1 页摘要末段、第 9 页 Discussion 末段",
+      "evidence": "caused an 83-fold increase in the amount of taxadiene produced compared to the strain only expressing TXS"
+    },
+    {
+      "claim": "txs+crtE+SDFHCEGA 株总产量约 17.8 mg/L",
+      "source_locator": "第 1 页摘要末段、第 9 页 Discussion",
+      "evidence": "The total amount of taxadiene produced by that strain was 17.8 mg/L"
+    },
+    {
+      "claim": "txs 单基因株 0.024 mg/L/OD600",
+      "source_locator": "第 7 页 Results 段",
+      "evidence": "It showed the lowest production of taxadiene (0.024 mg/L/OD600) and was used as a control"
+    },
+    {
+      "claim": "txs+crtE 双基因株 0.471 mg/L/OD600（约为对照 20 倍）",
+      "source_locator": "第 7 页 Results 段",
+      "evidence": "(0.471 mg/L/OD600), which is around 20 times higher than the control strain"
+    },
+    {
+      "claim": "txs+crtE+SDFHCEGA 三组合株 1.981 mg/L/OD600",
+      "source_locator": "第 7 页 Results 段、第 9 页 Discussion",
+      "evidence": "(1.981 mg/L/OD600), which is approximately 83 times higher than the control strain"
+    },
+    {
+      "claim": "TXS 可溶蛋白条带约 89 kDa，20 °C 表达最强",
+      "source_locator": "第 6 页 Results 段、Figure 2",
+      "evidence": "the expression of TXS (approximately 89 kDa) has been clearly detected on Western blot … A clear band representing TXS was seen on Western blot following expression at 20°C"
+    },
+    {
+      "claim": "质粒分离稳定性：pDR_txs 与 pBS0E_crtE 100%、p04_SDFHCEGA 约 90%（无抗生素 30 代）",
+      "source_locator": "第 7 页 Results 段、Figure 6",
+      "evidence": "showed 100% ability to retain the pDR_txs and pBS0E_crtE constructs until the 30th generation along with 90% ability to retain the p04_SDFHECEGA construct"
+    },
+    {
+      "claim": "跨宿主摇瓶对比：酵母 8.7 mg/L（Engels 2008）、大肠杆菌 11.3 mg/L（Bian 2017）",
+      "source_locator": "第 9 页 Discussion",
+      "evidence": "higher than the amount reported in yeast 8.7 mg/L (Engels et al., 2008) and in E. coli 11.3 mg/L (Bian et al., 2017) on shake flask fermentation level"
+    },
+    {
+      "claim": "GC-MS SIM 模式 m/z 122 监测；β-caryophyllene 与 taxadiene 保留时间分别为 9.25 min 与 20.05 min",
+      "source_locator": "第 6 页 Results、Figure 3",
+      "evidence": "SIM mode was used to monitor m/z ion 122 … β-caryophyllene peak at retention time 9.25 min. and the taxadiene peak at retention time 20.05 min (Figure 3A)"
+    },
+    {
+      "claim": "dodecane 层占培养体系 10%，紫杉二烯单位换算据此除以 10",
+      "source_locator": "第 5 页 Quantification of the Sampled Taxadiene 段",
+      "evidence": "this value was divided by 10 to determine the amount of taxadiene produced per liter of culture as the dodecane layer constitutes a second phase (10%) in the culture"
+    }
+  ],
+  "identity_matches": true,
+  "classification_supported": true,
+  "crop_complete": false
+}

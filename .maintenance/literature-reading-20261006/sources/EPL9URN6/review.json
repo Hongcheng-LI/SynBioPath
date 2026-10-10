@@ -1,0 +1,109 @@
+{
+  "review": {
+    "pass": false,
+    "major_issues": [
+      {
+        "issue": "Figure 1 裁剪图严重残缺，仅包含图注正文文本，未包含任何通路示意图本体——缺失甲羟戊酸途径侧链基因（ERG10/ERG12/ERG19/ERG20/IDI1/HMG1/HMG2 等）、GGPP→taxadiene→T5αol→T5αAc 的酶促反应箭头、~16 步标记、紫杉醇化学结构，以及 OCT 与 iso-OCT 的化学结构式。该图是论文阐述工程化途径的核心示意图（图注自身即明确写出 'the structures of the two well-characterized by-products, OCT and iso-OCT are shown'），图注中提及的化学结构在裁剪中并未呈现。",
+        "source_locator": "PDF 第 3 页 Figure 1（用户提供的裁剪图 '拟插入 Figure 1'）",
+        "correction": "重新裁剪 PDF 第 3 页 Figure 1 整图本体 + 图注，剔除上方正文段落与下方正文段落，保留范围大约 [left=0.08, top=0.22, right=0.92, bottom=0.70]（含化学结构式与图注全部文字）"
+      }
+    ],
+    "minor_issues": [
+      {
+        "issue": "Figure 7 裁剪图过度截取，包含正文段落 'oxygen availability by altering the amount of flux…'、节标题 '3.4.2. Validation of Optimized Conditions…' 及其引导段（图前正文共约 15 行），并非仅含图表本体与图注。",
+        "source_locator": "PDF 第 13 页 Figure 7（用户提供的裁剪图 '拟插入 Figure 7'）",
+        "correction": "将 Figure 7 裁剪收窄至仅含面板 A/B/C 与图注，剔除上方正文与节标题，紧凑 bbox 约 [left=0.10, top=0.43, right=0.90, bottom=0.85]"
+      },
+      {
+        "issue": "草稿在正文与 figures 列表中转写 Figure 4 图注时将 '(E)' 误写作 '(F)'：原文为 '54 (C), 71 (D), 79 (E) and 142 (F) hours'，草稿写为 '54 (C), 71 (D), 79 (F) and 142 (F) hours'。图本体子图标签 E/F 正确（图注文本错漏）。",
+        "source_locator": "草稿 'figures' 段 Figure 4 caption 字段以及正文 Figure 4 描述",
+        "correction": "将第二个 '79 (F)' 改回 '79 (E)'，以与图注及子图实际标号一致"
+      },
+      {
+        "issue": "草稿 'figures' 段所有图表的 bbox 均标注为 [0,0,1,1]（整页归一化），与实际裁剪内容（仅图表本体+图注）不一致；Figure 1/2/3/4/5/6/7 的实际裁剪范围均明显小于整页。",
+        "source_locator": "草稿 'figures' 段全部 entries",
+        "correction": "为每张图表分别填写紧贴其本体+图注的归一化 bbox，避免与裁剪内容脱节"
+      },
+      {
+        "issue": "草稿 Section 4 结论部分把 'T5αAc … 22 mg/L … two-fold' 写为来自摘要/结论章，但未提示这是论文本身的内部不一致——正文 3.4.2 节实际写的是 '21 ± 0.3 mg/L, representing an almost 6-fold improvement'。草稿在结果章用括号注明两者并存，但结论段未保持同样注释，读者易误以为 22 mg/L/2-fold 为唯一结论。",
+        "source_locator": "草稿 '六、总体结论' 段落",
+        "correction": "在结论段同步保留 '21 ± 0.3 mg/L（3.4.2 节实测）/22 mg/L（摘要与第 4 节）' 双值并注明原文内部差异"
+      }
+    ],
+    "figure_coverage": {
+      "expected_labels": [
+        "Figure 1",
+        "Figure 2",
+        "Figure 3",
+        "Figure 4",
+        "Figure 5",
+        "Figure 6",
+        "Figure 7"
+      ],
+      "covered_labels": [
+        "Figure 2",
+        "Figure 3",
+        "Figure 4",
+        "Figure 5",
+        "Figure 6",
+        "Figure 7"
+      ],
+      "missing_panels": [
+        "Figure 1 通路示意图本体（缺失甲羟戊酸途径侧、GGPP→taxadiene/T5αol/T5αAc 反应链、OCT 与 iso-OCT 化学结构）"
+      ],
+      "missing_pages": []
+    },
+    "verified_claims": [
+      {
+        "claim": "复现 LRS6 YPG MiniBio 500 培养时终 OD600 提高 3.5 倍至 119.6，最大总紫杉烷滴度仅 10.9 mg/L，较前期低约 5 倍。",
+        "source_locator": "PDF p.6，Section 3.1",
+        "evidence": "the final OD600 value increased 3.5-fold to 119.6, compared to the previous cultivation … the maximum total taxane titer was five-fold lower than the previous cultivation [8], at just 10.9 mg/L"
+      },
+      {
+        "claim": "2×P 培养最大总紫杉烷滴度 20 mg/L；2×YP 培养滴度提升 5.4 倍至 108 mg/L，且 diterpenoid 1、taxadiene、T5αol 分别达 37、22、5 mg/L，较原培养高 1.9、2.2、1.6 倍。",
+        "source_locator": "PDF p.8 Section 3.2 / p.9 同节",
+        "evidence": "the maximum total taxane titer was 20 mg/L … when both the initial yeast extract and peptone concentrations were doubled, the total taxane titer improved 5.4-fold to 108 mg/L … 37, 22 and 5 mg/L (Figure 3D), respectively, 1.9-, 2.2- and 1.6-fold higher"
+      },
+      {
+        "claim": "微尺度 DSD 14 组 run，组合 1 最高总紫杉烷 229 ± 6 mg/L，组合 11 = 195 ± 26，组合 14 = 218 ± 32 mg/L；模型显著主效应为初始 OD600（p = 0.011）、酵母提取物（p = 0.028）、半乳糖（p = 0.011），初始 OD600 二次效应 p = 0.007。",
+        "source_locator": "PDF p.11 Section 3.4.1",
+        "evidence": "medium one presented the highest total taxane titer of 229 ± 6 mg/L. Media combinations 11 and 14 also produced high taxane titers of 195 ± 26 and 218 ± 32 mg/L … initial OD600 (p = 0.011) along with yeast extract (p = 0.028) and galactose concentrations (p = 0.011) were the significant main effects. The non-linearity of the effect of initial OD600 (p = 0.007)"
+      },
+      {
+        "claim": "1 L BIOSTAT 验证：酵母提取物+半乳糖均 45 g/L、初始 OD600 0.79、1 vvm 气流；0–21 h OD600 由 0.7 至 15.2、RQ ≈ 1.2；30–50 h 乙醇峰 7.83 g/L，乙酸、甘油峰 1.05、1.97 g/L；72 h 终 OD600 = 43.8。",
+        "source_locator": "PDF p.13 Section 3.4.2",
+        "evidence": "the OD600 increased from 0.7 to 15.2 (Figure 7A) … the respiratory quotient (RQ) was close to unity at 1.2 … a maximum ethanol concentration of 7.83 g/L. Acetate and glycerol were also produced with the maximum concentrations of 1.05 and 1.97 g/L … stationary phase of growth was reached with an OD600 of 43.8"
+      },
+      {
+        "claim": "BIOSTAT 总紫杉烷滴度 387 ± 6 mg/L，较统计模型预测（Figure 6 显示 232.15 mg/L，95% CI 181.27–283.03）提升 1.7 倍；T5αAc 21 ± 0.3 mg/L（文中表述为 'almost 6-fold improvement'）。",
+        "source_locator": "PDF p.13 Section 3.4.2 与 Figure 6",
+        "evidence": "The total taxane titer was 387 ± 6 mg/L, representing a 1.7-fold improvement compared with that predicted by the statistical model … The desired TAT product, T5αAc, was detected with a maximum titer of 21 ± 0.3 mg/L, representing an almost 6-fold improvement"
+      },
+      {
+        "claim": "论文内部存在 T5αAc 表述不一致：摘要与 Section 4 结论写 '22 mg/L, two-fold improvement'，而 Section 3.4.2 写 '21 ± 0.3 mg/L, almost 6-fold improvement'。",
+        "source_locator": "PDF p.2 摘要 / p.13 Section 3.4.2 / p.14 Section 4",
+        "evidence": "Production of the key Taxol precursor, T5αAc, was improved two-fold to 22 mg/L compared to previous maxima … The production of the key Taxol precursors, T5αAc, was improved two-fold to 22 mg/L … T5αAc, was detected with a maximum titer of 21 ± 0.3 mg/L, representing an almost 6-fold improvement"
+      },
+      {
+        "claim": "Figure 6 预测最优点：酵母提取物 45 g/L、半乳糖 45 g/L、初始 OD600 ≈ 0.74；综合 desirability = 0.9883。",
+        "source_locator": "PDF p.11 Section 3.4.1 / p.12 Figure 6 数值标注",
+        "evidence": "the optimal initial yeast extract and galactose concentration was 45 g/L, and initial OD600 had an optimal value of around 0.74 (Figure 6) … Figure 6 中可见 '232.15 / 181.27 / 283.03 / 0.9883' 数值标注"
+      }
+    ],
+    "identity_matches": true,
+    "classification_supported": true,
+    "crop_complete": false
+  },
+  "usage": {
+    "total_tokens": 60318,
+    "total_characters": 0,
+    "prompt_tokens": 37663,
+    "completion_tokens": 22655,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 640
+    }
+  }
+}

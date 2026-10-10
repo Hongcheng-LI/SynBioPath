@@ -1,0 +1,91 @@
+{
+  "pass": false,
+  "major_issues": [
+    {
+      "issue": "所有四张正文图（Figure 1–4）的裁剪图均截断图注。Figure 1 p.22 裁剪仅显示到 'Enzyme' 一词便终止，遗漏后续全部酶缩写列表（DXS, DXR, IspD, IspE, IspF, IspG, IspH, ERG10, ERG13, HMGR, ERG12, ERG8, MVD1, Idi, GGPPS, TS）；Figure 2 p.23 裁剪在图注 '…numbers of' 处截断；Figure 3 p.24 裁剪在 '…Validation of promoter' 处截断；Figure 4 p.25 裁剪在 '…mutant A.' 处截断。读者无法从裁剪图中获得必要图注。",
+      "source_locator": "PDF p.22, p.23, p.24, p.25（图注区段）",
+      "correction": "将每页裁剪图 bbox 下沿扩展至完整包含图注末行；建议修正后 normalized bbox：p.22 = [0.08, 0.10, 0.93, 0.46]；p.23 = [0.05, 0.06, 0.95, 0.90]；p.24 = [0.05, 0.06, 0.95, 0.90]；p.25 = [0.05, 0.06, 0.95, 0.88]。"
+    },
+    {
+      "issue": "Figure 4A 中 pGB127 T-DNA 表达盒元件顺序描述颠倒。原文 Figure 4A 中 pGB127 的元件自左向右实际排列为 niaDt–agdAt–tHMG1–oliCp–alcAp–TS，遵循 '终止子→基因→启动子' 规范；草稿 Figure 4 caption 中写成 '在 trpCp-Idi-niaDt 与 alcAp-TS 之间进一步插入 oliCp-tHMG1-agdAt 表达盒'，顺序为 'oliCp-tHMG1-agdAt'，与图示相反。",
+      "source_locator": "PDF p.25, Figure 4A（pGB127 行）",
+      "correction": "改为 '在 trpCp–Idi–niaDt 与 alcAp–TS 之间进一步插入 agdAt–tHMG1–oliCp 表达盒'。"
+    }
+  ],
+  "minor_issues": [
+    {
+      "issue": "Figure 4B 的草图描述写为 'm/z 122 提取离子色谱图'，仅对应正文图注文字；图中实际 y 轴标签为 'Total Ion Count-Taxadiene'，建议在 caption 中同时保留两种来源说明以避免歧义。",
+      "source_locator": "PDF p.25 Figure 4B y 轴标签",
+      "correction": "在 caption 中补充：'纵轴：Total Ion Count-Taxadiene（对应 taxadiene 提取离子 m/z 122）'。"
+    },
+    {
+      "issue": "Figure 1 caption 在 PDF p.22 原文写作 '2-C-ethyl-D-erythritol-4-phosphate (MEP)'，而正文 p.3 写作 '2-C-methyl-D-erythritol-4-phosphate'，两者不一致；草稿已忠实保留原文写法并加注提醒，措辞可进一步明确为 '原文保留疑似笔误'。",
+      "source_locator": "PDF p.22 图注 vs p.3 正文",
+      "correction": "在 Figure 1 caption 末加注：'注：图注此处 '2-C-ethyl-' 疑为原文 '2-C-methyl-' 之笔误，正文 p.3 与图示 MEP 中间体结构均采用 2-C-methyl-；本文档逐字保留图注原文。'"
+    }
+  ],
+  "figure_coverage": {
+    "expected_labels": [
+      "Figure 1",
+      "Figure 2",
+      "Figure 3",
+      "Figure 4",
+      "Table 1"
+    ],
+    "covered_labels": [
+      "Figure 1",
+      "Figure 2",
+      "Figure 3",
+      "Figure 4",
+      "Table 1"
+    ],
+    "missing_panels": [],
+    "missing_pages": [],
+    "caption_truncation": {
+      "Figure 1 p.22": "caption cut off at 'Enzyme' (missing enzyme abbreviations list)",
+      "Figure 2 p.23": "caption cut off at 'numbers of' (missing 'ggpps and ts…replicates are shown.')",
+      "Figure 3 p.24": "caption cut off at 'Validation of promoter' (missing rest of caption)",
+      "Figure 4 p.25": "caption cut off at 'mutant A.' (missing 'alternata TPF6. A:…with a retention time of 16.6 min.')"
+    }
+  },
+  "verified_claims": [
+    {
+      "claim": "E. coli T2 摇瓶 taxadiene 产量 11.3 ± 0.5 mg/L（13.2 mg/gDCW），T4 产量 5.0 ± 0.7 mg/L（5.9 mg/gDCW）",
+      "source_locator": "PDF p.9–10, §3.1；Figure 2B",
+      "evidence": "'The titers of taxadiene produced by mutants T2 and T4 at the shaking flask level were 11.3 ± 0.5 mg/L (13.2 mg/gDCW) and 5.0 ± 0.7 mg/L (5.9 mg/gDCW)'"
+    },
+    {
+      "claim": "GB127 经 14 天发酵产生 taxadiene 61.9 ± 6.3 μg/L，并在 5 次独立实验中重现",
+      "source_locator": "PDF p.2 Abstract；p.12, §3.4；Figure 4B/C",
+      "evidence": "'we could detect 61.9 ± 6.3 μg/L taxadiene in the engineered strain GB127'；'Taxadiene production was significantly increased in strain GB127 after 14 days of fermentation, reaching a maximum concentration of 61.9 ± 6.3 μg/L (Figure 4B and 4C). This result was reproduced in five parallel experiments'"
+    },
+    {
+      "claim": "六种异源启动子相对强度范围 4.5×10³ (GB93, gpdA) 至 3.4×10⁷ (GB94, alcA)，跨度 >7,000 倍；排序 alcA > agdA > trpC > glaA > oliC > gpdA",
+      "source_locator": "PDF p.11, §3.3；Figure 3B",
+      "evidence": "'the qPCR results indicated that the strength of the promoters ranged from 4.5 × 10³ (GB93) to 3.4 × 10⁷ (GB94), with a span of more than 7,000 times, in the order of alcA > agdA > trpC > glaA > oliC > gpdA'"
+    },
+    {
+      "claim": "MVA 通路转录组分析检出 10,612 个预测基因；erg10/erg13/erg12/erg8/mvd1/idi 转录水平充足，hmg1 转录水平偏低（类比 S. cerevisiae 甾醇反馈抑制）",
+      "source_locator": "PDF p.10, §3.2；Supplementary Figure 1（未提供）",
+      "evidence": "'three samples of A. alternata TPF6 were sequenced, and 10612 predicted genes were detected'；'the transcript levels of erg10, erg13, erg12, erg8, mvd1, and idi in A. alternata TPF6 were satisfactory…In contrast, the transcription level of hmg1 was relatively low'"
+    },
+    {
+      "claim": "MVA 体外重构最优酶比 AtoB:ERG13:tHMG1:ERG12:ERG8:MVD1:Idi = 1:10:2:5:5:2:5，作者据此选择 oliCp-tHMG1 + trpCp-Idi + alcAp-TS 三段组合",
+      "source_locator": "PDF p.11, §3.4",
+      "evidence": "'the best ratio of AtoB:ERG13:tHMG1:ERG12:ERG8:MVD1:Idi for terpenoid production is 1:10:2:5:5:2:5…we rationally selected and overexpressed tHMG1, Idi, and TS under the control of oliC, trpC and alcA'"
+    },
+    {
+      "claim": "E. coli 中 MVA 路线培养条件：500-mL 摇瓶 / 100 mL LB，28 ℃，100 mg/L AMP + 50 mg/L KAN + 34 mg/L CM，OD600 0.6–0.8 时加 0.1 mM IPTG 诱导 3 天；细胞密度换算系数 0.3 g DCW/OD600；三次独立重复",
+      "source_locator": "PDF p.7, §2.4",
+      "evidence": "'500-mL flasks containing 100 mL LB medium at 28°C with 100 mg/L ampicillin (AMP), 50 mg/L kanamycin (KAN), and 34 mg/L chloramphenicol (CM). When the OD600 reached 0.6–0.8, 0.1 mM…IPTG was added…cultivated for an additional 3 days. Experiments were repeated three times…0.3 g DCW/OD600'"
+    },
+    {
+      "claim": "GC-MS 升温程序：80 ℃ 1 min → 10 ℃/min 升至 220 ℃ → 220 ℃ 15 min；进样口 230 ℃、传输线 240 ℃；TRACE TR-5MS（30 m × 0.25 mm × 0.25 μm）",
+      "source_locator": "PDF p.9, §2.9",
+      "evidence": "'The oven temperature was set at 80°C for 1 min, increased to 220°C at a rate of 10°C/min, and held at 220°C for 15 min. The injector and transfer lines were maintained at 230°C and 240°C'"
+    }
+  ],
+  "identity_matches": true,
+  "classification_supported": true,
+  "crop_complete": false
+}

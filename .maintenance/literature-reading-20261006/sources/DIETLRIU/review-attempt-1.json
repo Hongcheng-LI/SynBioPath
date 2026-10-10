@@ -1,0 +1,126 @@
+{
+  "pass": false,
+  "major_issues": [
+    {
+      "issue": "Figure 1 裁剪不完整：底部 Paclitaxel (Taxol) 完整化学结构被截断，原图右下角紫杉醇母核（含 8 个含氧/氮取代基的复杂四环二萜结构）仅显示部分框架。",
+      "source_locator": "原文 PDF 物理页 3，Figure 1",
+      "correction": "归一化 bbox 应扩展至包含全部紫杉醇结构与右下角\"Paclitaxel (Taxol)\"标签，建议 [0.04, 0.04, 0.97, 0.46]。"
+    },
+    {
+      "issue": "Table 1 裁剪过度：包含表格下方 Methods 正文段落（\"0.1 mg/L NAA, 1 mg/L BAP…Selection of homozygous T1…\" 等正文文字）。",
+      "source_locator": "原文 PDF 物理页 4，Table 1",
+      "correction": "仅保留表格本体 + \"Restriction site sequences…\" 一行注释；归一化 bbox 收紧为 [0.04, 0.05, 0.97, 0.42] 左右。"
+    },
+    {
+      "issue": "Figure 2 裁剪不完整：图注被截断，\"Lane 15: N. benthamiana plants transformed with the empty 23001 vector and Lane 16: TSS vector plasmid as the positive control\" 右侧正文缺失/被切断。",
+      "source_locator": "原文 PDF 物理页 6，Figure 2 caption",
+      "correction": "图注横跨两栏；bbox 应扩到 [0.04, 0.04, 0.97, 0.36] 才能完整覆盖两栏图注。"
+    },
+    {
+      "issue": "Figure 3 裁剪不完整：图注右栏最后一行（\"…matched exactly the taxadiene mass spectra profile\"）被截断；子图 C 的 m/z 横轴末端 320–360 区段也接近裁剪边界。",
+      "source_locator": "原文 PDF 物理页 6，Figure 3 caption",
+      "correction": "建议 bbox 扩展为 [0.5, 0.28, 0.97, 0.85] 以包含完整图注右栏。"
+    },
+    {
+      "issue": "Figure 4 裁剪过度：图下方 Discussion 段首段正文（\"There have been many attempts to maximize production of taxadiene in different heterologous plants…\"）被包含入裁剪图，违反'只含图表本体与图注'。",
+      "source_locator": "原文 PDF 物理页 7，Figure 4",
+      "correction": "仅保留纵坐标\"Amount of taxadiene (μg dw)\"、条形图、字母标记及图注；建议 bbox 收紧到 [0.5, 0.05, 0.97, 0.45]。"
+    },
+    {
+      "issue": "Figure 5 裁剪缺失子图：Panel B（PDS VIGS 构造示意图，含 PdsF1 引物位置）与 Panel D（PDS 半定量 RT-PCR，含 PdsF1/PdsF2 及 rRNA 对照）右侧部分被截掉，仅 Panel A、C、E 可见。这是 VIGS 实验的核心数据，不可缺失。",
+      "source_locator": "原文 PDF 物理页 8，Figure 5 panels b、d",
+      "correction": "bbox 须扩到横跨整页宽度，建议 [0.04, 0.04, 0.97, 0.42]，并确保 panels A-B 同行、C-D 同行、E 满宽均完整保留。"
+    },
+    {
+      "issue": "Figure 6 裁剪缺失图注：原图左侧两栏完整的图注文本 \"Fig. 6 Effect of methyl jasmonate (MJ) spray or metabolic pathway shunting by virus-induced gene silencing of the PSY and PDS gene on the accumulation of taxadiene in the leaves of the TS-transformed N. benthamiana TSS-8 line. The vertical bars represent mean ± standard deviations (n = 3)\" 在裁剪图中完全缺失，且裁剪图右侧混入正文右栏文字（\"known (Besum… study s…\"）。",
+      "source_locator": "原文 PDF 物理页 8，Figure 6 caption",
+      "correction": "bbox 应包含左侧图注位置并排除右栏正文；建议 [0.04, 0.36, 0.55, 0.62]。"
+    },
+    {
+      "issue": "草稿正文断言\"T0 代七个阳性系整体落在 4–18 μg/g dw 区间\"——但 Figure 4 中 T0 栏仅显示了 5 根柱（TSS-5、6、7、8、10），缺少 TSS-2 与 TSS-3，与正文\"seven independent T0 transformed lines, TSS-2, 3, 5, 6, 7, 8, and 10\"不一致。草稿未指出这一原文自身数据/图不一致，属缺口应明确标注。",
+      "source_locator": "原文 PDF 物理页 6 Results 段 vs 物理页 7 Figure 4",
+      "correction": "在报告中明确标注：\"正文提及 7 个 T0 系 (TSS-2, 3, 5, 6, 7, 8, 10)，但 Figure 4 仅展示 5 个 T0 系 (TSS-5, 6, 7, 8, 10)，原文存在数据-图不一致\"。"
+    },
+    {
+      "issue": "草稿草稿\"研究思路\"段落称\"导入已知 TS 单基因实现紫杉二烯的从头合成\"——这是基于作者工作；但讨论中\"赤霉素缺乏性矮化\"被草稿作为已确证机制加以叙述。原文仅以推论形式提出（\"suggesting that the newly introduced TS gene interferes with the biosynthesis of gibberellins possibly by reducing the pool of available GGPP\"），并未直接测定赤霉素水平。",
+      "source_locator": "原文 PDF 物理页 7 Discussion 段",
+      "correction": "需将\"构成跨物种的机制一致性证据\"、\"该解释仍属于合理推论而非常规充分验证\"改为更谨慎的措辞，明确原文未直接测定赤霉素或叶绿素含量。"
+    }
+  ],
+  "minor_issues": [
+    "图 4 草稿对字母标记 a/ab/bc/c 提到\"原图以小写字母标注差异但未明示所用统计检验方法\"，可加一句\"推测为 Tukey HSD 或 Duncan 多重比较，但原文未明示\"。",
+    "Figure 5 panel C/D 的凝胶说明原图未提供内参 rRNA 完整条带图像，草稿可注明\"rRNA 内参条带在原图中仅部分可见\"。"
+  ],
+  "figure_coverage": {
+    "expected_labels": [
+      "Figure 1",
+      "Table 1",
+      "Figure 2",
+      "Figure 3",
+      "Figure 4",
+      "Figure 5",
+      "Figure 6"
+    ],
+    "covered_labels": [
+      "Figure 1",
+      "Table 1",
+      "Figure 2",
+      "Figure 3",
+      "Figure 4",
+      "Figure 5",
+      "Figure 6"
+    ],
+    "missing_panels": [
+      "Figure 5 panel B (PDS VIGS construct with PdsF1/PdsR1)",
+      "Figure 5 panel D (PDS semiquantitative RT-PCR with PdsF1/R1, PdsF2/R2)",
+      "Figure 6 caption text (Fig. 6 Effect of methyl jasmonate… n = 3)",
+      "Figure 1 Paclitaxel (Taxol) complete chemical structure"
+    ],
+    "missing_pages": []
+  },
+  "verified_claims": [
+    {
+      "claim": "T0 代七个阳性系紫杉二烯产量为 4–18 μg/g 干重",
+      "source_locator": "PDF 物理页 6 Results 段 \"producing 4–18 µg taxadiene per gram of dried leaves\"",
+      "evidence": "\"seven independent T0 transformed lines, TSS-2, 3, 5, 6, 7, 8, and 10, showed a GC peak at 13.09 min… producing 4–18 µg taxadiene per gram of dried leaves\""
+    },
+    {
+      "claim": "T1 纯合系 TSS-5/7/8/10 的产量分别为 22、13、27、11 μg/g dw",
+      "source_locator": "PDF 物理页 6 Results 段末",
+      "evidence": "\"the TSS-5, 7, 8, and 10 homogene lines accumulated 22, 13, 27, and 11 µg taxadiene per gram of dried leaves, respectively\""
+    },
+    {
+      "claim": "MJ 处理将紫杉二烯从对照 25 μg/g dw 提升至 35 μg/g dw，提高 1.4 倍",
+      "source_locator": "PDF 物理页 7 Results 与图 6",
+      "evidence": "\"MJ treatment increased the accumulation of taxadiene to 35 µg/g of dried leaves from 25 µg/g in the control TSS-8 line\""
+    },
+    {
+      "claim": "PSY 沉默使紫杉二烯提升至 48 μg/g dw，比 TSS-8 对照高 93.58%",
+      "source_locator": "PDF 物理页 7 Results 段",
+      "evidence": "\"accumulation of 48 µg taxadiene/g of dried leaves, which was 93.58 % higher than the control TSS-8 line\""
+    },
+    {
+      "claim": "PDS 沉默使紫杉二烯积累降低 47.59%",
+      "source_locator": "PDF 物理页 7 Results 段",
+      "evidence": "\"silencing the PDS gene by VIGS decreased the accumulation of taxadiene by 47.59 % relative to the control TSS-8 line\""
+    },
+    {
+      "claim": "VIGS 构造插入片段大小为 PSY 198 bp、PDS 369 bp",
+      "source_locator": "PDF 物理页 5 VIGS 段",
+      "evidence": "\"a VIGS vector was constructed by insertion of 198 and 369 bp partial products of the PSY and PDS genes into pTRV2 vector\""
+    },
+    {
+      "claim": "紫杉二烯 GC 峰保留时间 13.09 min",
+      "source_locator": "PDF 物理页 6 Results 段",
+      "evidence": "\"seven independent T0 transformed lines… showed a GC peak at 13.09 min\""
+    },
+    {
+      "claim": "紫杉二烯产量横向对比：苔藓 5、拟南芥 0.6、人参 9.6、普通番茄 20、黄色果肉番茄 160 μg/g dw",
+      "source_locator": "PDF 物理页 7 Discussion 段",
+      "evidence": "\"Our TS-transformed homozygous N. benthamiana TSS-8 line produced 27 taxadiene µg/g dw, which was higher than previously reported taxadiene production from TS-transformed moss (5 µg/g dw)… Arabidopsis (0.6 µg/g dw)… ginseng roots (9.6 µg/g dw)… normal tomato (20 µg/g dw)… TS-transgenic yellow flesh tomato (160 µg/g dw)\""
+    }
+  ],
+  "identity_matches": true,
+  "classification_supported": true,
+  "crop_complete": false
+}

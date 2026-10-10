@@ -1,0 +1,91 @@
+{
+  "pass": false,
+  "major_issues": [
+    {
+      "issue": "Table 1 裁剪严重不完整：提供的裁剪图仅包含 LRS5–BN6 共 8 行，缺失 BNF-1 至 BNF-8 共 8 行（占整表一半），并缺失脚注 'The \"L\" represents the linker as listed in Additional file 1: Table S5'。草稿在报告第八节和第三节中均依赖 BNF-1–BNF-8 基因型信息（特别是 BNF-1/BNF-7 的 Taxus POR 融合、BNF-2 的 E. coli fldA/Fpr、BNF-3/4/5/6 的 AxRED/RhFRED/BMR/截短 POR）支撑自足融合筛选结论，但裁剪图中无法核对。",
+      "source_locator": "PDF 物理第 18 页 Table 1",
+      "correction": "将 Table 1 的裁剪框扩展到包含全部 16 株（LRS5、LRS6、BN1–BN6、BNF-1–BNF-8）及脚注。建议 normalized bbox 约为 [0.04, 0.04, 0.96, 0.36]（原 [0.04, 0.04, 0.96, 0.3] 底部截断过早）。"
+    },
+    {
+      "issue": "Figure 6 裁剪顶部缺失 A、B 两个子图标签：提供的图像顶部被截切，OCT 与 iso-OCT 两个 Venn 图左上角的 'A' 与 'B' 字母标签不可见，而 C/D/E 标签可见于下方的 Venn 旁。草稿引用 'Figure 6 的 Venn 图' 与残差值（0.407/0.255/0.250/0.369/0.584）时无法在图中核验 A、B 面板对应关系。",
+      "source_locator": "PDF 物理第 12 页 Figure 6 顶部",
+      "correction": "将 Figure 6 的裁剪顶部上移以包含所有 A/B 标签。建议 normalized bbox 约为 [0.04, 0.13, 0.96, 0.96]，并确认 'A' 'B' 字母清晰可见。"
+    }
+  ],
+  "minor_issues": [
+    {
+      "issue": "草稿未标注论文内部数值矛盾：摘要与 p.17 结论声称 pre-rest 阶段达到 361.4±52.4 mg/L，但 p.15 正文给出 pre-rest 实测值为 354.6±51.1 mg/L；p.16 结论又把 361.4 归于 'post-rest stage'。该不一致非草稿所致，但应作为缺口标注。",
+      "source_locator": "摘要 vs. p.15 (354.6±51.1) vs. p.16 (361.4 归于 post-rest) vs. p.17 (361.4 归于 pre-rest)",
+      "correction": "在 source_gaps 中显式说明论文内部存在 361.4 vs 354.6 mg/L 的不一致，并采用 p.15 数据作为最可核查的实测值。"
+    },
+    {
+      "issue": "Figure 8 物种计数表述：草稿称 '至少 10 种额外的氧紫杉烷 (I–IX)'，但 I–IX 仅为 9 个罗马数字标签；论文 p.16 文字为 'at least ten additional other oxygenated taxanes'。建议在引述时严格区分 'labeled I–IX (9 个)' 与 '论文报告至少 10 种（含未编号）'。",
+      "source_locator": "Figure 8 图例 (I–IX 9 个) vs. p.16 文字 'at least ten'",
+      "correction": "改为 '至少 10 种额外氧紫杉烷（已标注 Diterpenoid I–IX 共 9 种，另含至少 1 种未编号）'。"
+    }
+  ],
+  "figure_coverage": {
+    "expected_labels": [
+      "Figure 1",
+      "Figure 2",
+      "Figure 3",
+      "Figure 4",
+      "Figure 5",
+      "Figure 6",
+      "Figure 7",
+      "Figure 8",
+      "Table 1"
+    ],
+    "covered_labels": [
+      "Figure 1",
+      "Figure 2",
+      "Figure 3",
+      "Figure 4",
+      "Figure 5",
+      "Figure 6",
+      "Figure 7",
+      "Figure 8",
+      "Table 1"
+    ],
+    "missing_panels": [
+      "Figure 6 panel label 'A' and 'B' cropped at top",
+      "Table 1 rows BNF-1 through BNF-8 and footnote missing"
+    ],
+    "missing_pages": []
+  },
+  "verified_claims": [
+    {
+      "claim": "BN6 在 YPG 72 h：OCT 14.6±1.4 mg/L、iso-OCT 12±1.4 mg/L、T5α-ol 10.6±1.8 mg/L；taxadiene 20.3±0.9 mg/L；OD600 26.5±3.2；T5α-ol:OCT:iso-OCT = 1:1.4:1.1",
+      "source_locator": "p.7 Results（'In YPG medium, BN6 generated the highest amounts… 14.6±1.4, 12±1.4 and 10.6±1.8 mg/L… 20.3±0.9 mg/L and the final biomass slightly reduced to 26.5±3.2'）与 p.9（'T5α-ol: OCT: iso-OCT ratio… 1:1.4:1.1 for… BN6'）",
+      "evidence": "BN6 generated the highest amounts of OCT, iso-OCT and T5α-ol at the final concentrations of 14.6±1.4, 12±1.4 and 10.6±1.8 mg/L, respectively; taxadiene was almost doubled to be 20.3±0.9 mg/L and the final biomass slightly reduced to 26.5±3.2"
+    },
+    {
+      "claim": "BN5（仅 CYP725A4）仍可产生 T5α-ol 0.11±0.02 mg/L、OCT 0.51±0.2 mg/L，分别为 BNF-1 的 1/77.4 与 1/15.4",
+      "source_locator": "p.5 Results（'the strain only expressing the P450 enzyme still produced T5α-ol, OCT and iso-OCT, although at minor quantities of 0.11±0.02, 0.51±0.2 mg/L… a reduction of 77.4- and 15.4-fold for T5α-ol and OCT, respectively, in comparison to the strain BNF-1'）",
+      "evidence": "quantities of 0.11±0.02, 0.51±0.2 mg/L… a reduction of 77.4- and 15.4-fold for T5α-ol and OCT"
+    },
+    {
+      "claim": "DSD 三水平设计：ALA 对所有氧化紫杉烷为负（OCT p=5.30e−05；iso-OCT p=2.2e−09；T5α-ol p=3.6e−10）；Hemin 单独负影响 iso-OCT（p=2.8e−06）与 T5α-ol（p=5.17e−10）；FAD 对所有响应为正（OCT p=2.4e−08, T5α-ol p=2.6e−05, biomass p=5.1e−07）；riboflavin 为负（OCT p=1.1e−05, T5α-ol p=5.2e−10, biomass p=3.4e−16）；FMN 无显著贡献",
+      "source_locator": "p.10 Results（'ALA was a significant negative predictor (OCT: p-value=5.30e−05; iso-OCT: p=2.2e−09; T5α-ol: p=3.6e−10)'；'hemin… significantly negatively influence the iso-OCT (p=2.8e−06) and T5α-ol formation (p=5.17e−10)'；'FAD and riboflavin were found as significant factors (OCT: p-value=2.4e−08, 1.1e−05; iso-OCT: p=0.0001, 4.2e−09; T5α-ol: p=2.6e−05, 5.2e−10)'；'we did not find any significant contribution from FMN'）",
+      "evidence": "ALA p=5.30e−05/2.2e−09/3.6e−10; hemin p=2.8e−06/5.17e−10; FAD p=2.4e−08/0.0001/2.6e−05/5.1e−07; riboflavin p=1.1e−05/4.2e−09/5.2e−10/3.4e−16; FMN no significant contribution"
+    },
+    {
+      "claim": "Figure 6 方差分配 Venn 图残差：OCT 0.407、iso-OCT 0.255、T5α-ol 0.250、OD600 0.369、ROS 0.584；ROS 模型残差 58% 无法解释",
+      "source_locator": "p.12 Results（图中标注的 Residuals 数值与 'up to 58% of response variance could not be explained'）",
+      "evidence": "Residuals=0.407 / 0.255 / 0.250 / 0.369 / 0.584; up to 58% of response variance could not be explained"
+    },
+    {
+      "claim": "NaCl 处理：5 mM 时 per-OD600 氧化紫杉烷提升约 1.4 倍，10 mM 时骤降至 0.81±0.07 mg/L/OD600；OCT 10 mM 时显著降低（adj p=0.01）",
+      "source_locator": "p.13 Results（'the overall oxygenated taxanes production per OD600 unit was found to increase by around 1.4-fold upon supplementing the exogenous NaCl concentration up to 5 mM, while a sudden drop to 0.81±0.07 mg/L/OD600 was observed at 10 mM NaCl'；'OCT titre only at 10 mM NaCl (adjusted p=0.01)'）",
+      "evidence": "increase by around 1.4-fold upon supplementing the exogenous NaCl concentration up to 5 mM, while a sudden drop to 0.81±0.07 mg/L/OD600 was observed at 10 mM NaCl"
+    },
+    {
+      "claim": "Resting cell 终点（115 h）：pre-rest 总氧化紫杉烷 354.6±51.1 mg/L（8.9±1.3 mg/L/OD600），post-rest 220.5±34.2 mg/L（5.51±0.9 mg/L/OD600）；pre-rest 主要产物 OCT 54.6±11.7 mg/L、T5α-ol 38.1±8.4 mg/L、iso-OCT 35.7±7.8 mg/L；post-rest 主要产物 iso-OCT 50.4±5.9 mg/OCT 43.5±5.4 mg/L、T5α-ol 30.2±4.3 mg/L；Granger 显示 OCT↔iso-OCT 双向（p=0.04）",
+      "source_locator": "p.15–16 Results（'relatively higher total oxygenated taxanes titre at the last end point (115 h) of pre-rest galactose induction (354.6±51.1 mg/L, 8.9±1.3 mg/L/OD600)'；'post-rest galactose induction (220.5±34.2, 5.51±0.9 mg/L/OD600)'；'major products of the post-rest induction were iso-OCT (50.4±5.9 mg/L), OCT (43.5±5.4 mg/L) and T5α-ol (30.2±4.3 mg/L)'；'major products of the pre-rest induction were in order of OCT (54.6±11.7), T5α-ol (38.1±8.4) and iso-OCT (35.7±7.8)'；'two-way association between OCT and iso-OCT (p=0.04 and 0.04)'）",
+      "evidence": "pre-rest 354.6±51.1 mg/L at 8.9±1.3 mg/L/OD600; post-rest 220.5±34.2 mg/L; iso-OCT 50.4±5.9 / OCT 43.5±5.4 / T5α-ol 30.2±4.3; pre-rest OCT 54.6±11.7 / T5α-ol 38.1±8.4 / iso-OCT 35.7±7.8; OCT↔iso-OCT two-way p=0.04"
+    }
+  ],
+  "identity_matches": true,
+  "classification_supported": true,
+  "crop_complete": false
+}

@@ -1,0 +1,146 @@
+{
+  "review": {
+    "pass": false,
+    "major_issues": [
+      {
+        "issue": "Table 1 裁剪图缺少表格数据行；当前裁剪仅显示 Table 1 标题行 'Summary of previous taxadiene biosynthesis yields and conditions...'，下方的 8 行实际表格内容（E. coli/S. cerevisiae 各滴度、条件、参考文献）全部被截掉",
+        "source_locator": "PDF 第 2 页，Table 1 整表",
+        "correction": "Table 1 的裁剪 bbox 应扩展至包含整张表格全部 8 行内容（自 'Table 1 Summary...' 至表格最后一行 'S. cerevisiae / 1.0 mg/L / 700 mL Selective SG-URA medium, 65 h / [13]'）。建议 normalized bbox ≈ [0.04, 0.43, 0.96, 0.99]"
+      },
+      {
+        "issue": "Figure 2 裁剪图仅含图注与下方正文段落；四组条形图面板 (a 启动子效应、b 温度效应、c Mg²⁺ 浓度、d 截短长度) 主体未出现在裁剪中，核心定量数据无法从图像中读取",
+        "source_locator": "PDF 第 4 页，Figure 2 (a–d) 四面板",
+        "correction": "裁剪需覆盖 Figure 2 完整四面板区域（自页面顶部至图注上方）。建议 normalized bbox ≈ [0.06, 0.04, 0.97, 0.36]"
+      },
+      {
+        "issue": "Figure 4 裁剪图错误，仅显示了 Figure 3 第三个 construct（ARS1622b）的底部，Figure 4 主体 LRS1–LRS5 滴度条形图与图注均未包含",
+        "source_locator": "PDF 第 5 页，Figure 4 条形图",
+        "correction": "Figure 4 裁剪应包含自标题 'Summary of taxadiene titers' 至图注末尾的整张条形图。建议 normalized bbox ≈ [0.06, 0.62, 0.97, 0.97]"
+      },
+      {
+        "issue": "Figure 5 裁剪图仅显示图注 'Fig. 5 Effect of temperature on LRS5...' 两行说明文字；a 面板（taxane accumulation 6 组条形图）与 b 面板（biomass OD600 双柱）主体均被截掉",
+        "source_locator": "PDF 第 6 页，Figure 5 (a, b)",
+        "correction": "裁剪应覆盖 Figure 5 两组面板与下方图注。建议 normalized bbox ≈ [0.06, 0.42, 0.97, 0.96]"
+      },
+      {
+        "issue": "Figure 7 裁剪图仅含两行图注文字；四组面板（a, b 为 20 °C；c, d 为 30 °C，含 Biomass/pH/DO/Temperature 在线监测与各产物动力学曲线）均未显示",
+        "source_locator": "PDF 第 8 页，Figure 7 (a–d)",
+        "correction": "裁剪应包含 Figure 7 完整四面板及图注。建议 normalized bbox ≈ [0.05, 0.04, 0.97, 0.58]"
+      },
+      {
+        "issue": "Figure 8 裁剪图仅显示两行图注；胞内/胞外/总紫杉二烯浓度随时间变化的三条折线图主体（0–216 h 动力学）未包含",
+        "source_locator": "PDF 第 8 页，Figure 8 折线图",
+        "correction": "裁剪应覆盖 Figure 8 折线图与图注。建议 normalized bbox ≈ [0.51, 0.66, 0.97, 0.99]"
+      },
+      {
+        "issue": "Table 2 裁剪图包含大量无关正文（A TASY sequence paragraph、Optimisation of taxadiene production at microscale、Shake flask cultivations、Batch culture in the bioreactor、Diterpene analysis and quantification 等两栏正文段落），仅底部为表格；违反 '裁剪图不得包含正文段落' 规则",
+        "source_locator": "PDF 第 10 页，Table 2",
+        "correction": "Table 2 裁剪应只覆盖表格本体（自 'Table 2 Yeast strains used in this study' 标题至表格末尾 'This study'）。建议 normalized bbox ≈ [0.04, 0.71, 0.97, 0.99]"
+      },
+      {
+        "issue": "Figure 1 与 Table 1 共用同一裁剪源页 PDF p.2，但 Table 1 裁剪图包含 Figure 1 与下方两栏正文段落，过度截取（覆盖范围近整页上半部分），且 Table 1 数据行不在其中",
+        "source_locator": "PDF 第 2 页 Figure 1 与 Table 1",
+        "correction": "Figure 1 与 Table 1 应分别独立裁剪；Figure 1 裁剪约 [0.05, 0.04, 0.97, 0.42]；Table 1 裁剪应独立且覆盖全部数据行"
+      }
+    ],
+    "minor_issues": [
+      {
+        "issue": "Figure 3 裁剪虽含完整三 construct 图与图注，但与 Figure 4 裁剪位于同一 PDF 页，下游分析时需注意两图分别标注避免混淆",
+        "source_locator": "PDF 第 5 页",
+        "correction": "无需改裁剪；在文本中明确各 Figure 标题位置即可"
+      }
+    ],
+    "figure_coverage": {
+      "expected_labels": [
+        "Figure 1",
+        "Figure 2",
+        "Figure 3",
+        "Figure 4",
+        "Figure 5",
+        "Figure 6",
+        "Figure 7",
+        "Figure 8",
+        "Table 1",
+        "Table 2"
+      ],
+      "covered_labels": [
+        "Figure 1",
+        "Figure 3",
+        "Figure 6"
+      ],
+      "missing_panels": [
+        "Figure 2 全部 a/b/c/d 面板（条形图）",
+        "Figure 4 主体条形图（LRS1–LRS5）",
+        "Figure 5 a 与 b 面板（taxane accumulation + biomass OD600）",
+        "Figure 7 全部 a/b/c/d 面板（在线参数 + 产物浓度）",
+        "Figure 8 折线图（intracellular/extracellular/total taxadiene）",
+        "Table 1 数据行（8 行表格内容）"
+      ],
+      "missing_pages": [
+        "PDF p.4 Figure 2 实际图版",
+        "PDF p.5 Figure 4 实际图版",
+        "PDF p.6 Figure 5 实际图版",
+        "PDF p.8 Figure 7 实际图版",
+        "PDF p.8 Figure 8 实际图版",
+        "PDF p.2 Table 1 数据行"
+      ]
+    },
+    "verified_claims": [
+      {
+        "claim": "微孔板 30 °C 最高滴度 57±3 mg/L（LRS5），相对游离质粒表达提升 22 倍",
+        "source_locator": "PDF p.1 Abstract；p.5 正文 'Through cultivation of the subsequent LRS5 strain, taxadiene titres were further enhanced to 57 ± 3 mg/L at 30 °C, the highest titre in yeast reported to date at microscale level (Fig. 4)'；Figure 4",
+        "evidence": "Abstract: 'Multi-copy chromosomal integration of TASY... improved taxadiene titres 22-fold, up to 57 ± 3 mg/L at 30 °C at microscale, compared to expressing a single episomal copy of TASY.'"
+      },
+      {
+        "claim": "摇瓶 20 °C 滴度 129±15 mg/L，相对 S. cerevisiae 文献最高滴度提升 6.5 倍",
+        "source_locator": "PDF p.1 Abstract；p.6 正文 'The final taxadiene titre at 20 °C was 129 ± 15 mg/L, representing an almost 6.5-fold improvement over the highest reported titre [8]'；Figure 5a",
+        "evidence": "Abstract: 'Maximum taxadiene titres of 129 ± 15 mg/L and 127 mg/L were achieved through shake flask and bioreactor cultivations, respectively, of the optimal strain at a reduced temperature of 20 °C.'"
+      },
+      {
+        "claim": "游离质粒下 20 °C 滴度 8±0.1 mg/L，温度优化使滴度提升 3.0 倍",
+        "source_locator": "PDF p.3 正文；Figure 2b",
+        "evidence": "'Reducing the cultivation temperature from 30 °C to 20 °C resulted in a 3.0-fold increase in final taxadiene titre to 8 ± 0.l mg/L.'"
+      },
+      {
+        "claim": "TASY 截短至 60 残基滴度从 6.0±0.5 mg/L 提升至 13.0±0.8 mg/L",
+        "source_locator": "PDF p.4 正文；Figure 2d",
+        "evidence": "'Increasing truncation length up to 60 residues improved taxadiene production from 6.0 ± 0.5 to 13.0 ± 0.8 mg/L as shown in Fig. 2d.'"
+      },
+      {
+        "claim": "LRS4 滴度 40±3 mg/L（30 °C 微孔板），三倍提升；LRS3 滴度 12±1 mg/L（30 °C，染色体整合 GAL1p-TASY-GFP），为 LRS2 的 4.7 倍",
+        "source_locator": "PDF p.5 正文；Figure 4",
+        "evidence": "'Cultivation of this strain yielded 12 ± 1 mg/L of taxadiene at 30 °C, 4.7-fold higher than that of the LRS2 strain.'；'Cultivation of the newly constructed LRS4 strain expressing two copies of TASY resulted in an over three-fold improvement in taxadiene titre to 40 ± 3 mg/L at microscale.'"
+      },
+      {
+        "claim": "生物反应器 20 °C 最终胞外滴度 109 mg/L（195 h），总紫杉二烯最高 127 mg/L；30 °C 反应器最大滴度 53 mg/L",
+        "source_locator": "PDF p.7–8 正文；Figure 7、Figure 8",
+        "evidence": "'A higher taxadiene titre of 109 mg/L was achieved in the 20 °C bioreactor, however, a bioreactor run time of 195 h was required.'；'maximum taxadiene titre of 53 mg/L was attained in the 30 °C reactor.'"
+      },
+      {
+        "claim": "Figure 8 显示 20 °C 反应器最后 48 h：胞内 31→11 mg/L 下降、胞外 95→109 mg/L 上升、总滴度 119–127 mg/L 维持稳定",
+        "source_locator": "PDF p.8 正文；Figure 8",
+        "evidence": "'a sharp decline in intracellular taxadiene from 31 to 11 mg/L was observed. This was coupled with an increase in extracellular taxadiene from 95 to 109 mg/L while the total taxadiene concentration remained similar between 119 and 127 mg/L (Fig. 8).'"
+      },
+      {
+        "claim": "摇瓶 YPG 培养基 20 °C 生物量 OD600 = 29±1，30 °C = 31±1；选择性 SDGD-Leu 培养基 20 °C 较 30 °C 生物量下降 36%",
+        "source_locator": "PDF p.6 正文；Figure 5b；p.4 Figure 2b",
+        "evidence": "'final OD600 values of 29 ± 1 and 31 ± 1 at 20 and 30 °C, respectively (Fig. 5b)'；'a 36% lower final biomass yield was achieved at 20 °C'；'OD600 of 2.90, compared to 4.5 at 30 °C'"
+      }
+    ],
+    "identity_matches": true,
+    "classification_supported": true,
+    "crop_complete": false
+  },
+  "usage": {
+    "total_tokens": 64295,
+    "total_characters": 0,
+    "prompt_tokens": 56613,
+    "completion_tokens": 7682,
+    "completion_tokens_details": {
+      "reasoning_tokens": 4951
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 128
+    }
+  }
+}

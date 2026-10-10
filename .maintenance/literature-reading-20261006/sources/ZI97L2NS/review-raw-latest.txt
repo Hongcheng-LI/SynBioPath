@@ -1,0 +1,44 @@
+```json
+{
+  "pass": false,
+  "major_issues": [
+    {
+      "issue": "Figures 3–9 裁剪严重残缺：拟插入的裁剪图仅显示图注文字与图体最底部 x 轴标签（Figures 3、5、8、9）或仅显示图注（Figures 4、6、7），未包含 biomass 曲线、bar chart、pH/DO 双轴图、堆叠柱状图等实际数据面板。标注的 bbox=[0,0,1,1] 与实际呈现图像不一致，导致核心定量数据无法从图像核实。",
+      "source_locator": "PDF 第 7、8、9、10、11、13、14 页（Figure 3、4、5、6、7、8、9 裁剪图）",
+      "correction": "重新裁剪并按下列 normalized bbox [left,top,right,bottom] 包含完整图体与图注（不含正文段落）：Figure 3 (p.7)≈[0.05,0.04,1.0,0.36]；Figure 4 (p.8)≈[0.05,0.32,1.0,0.85]；Figure 5 (p.9)≈[0.05,0.04,1.0,0.48]；Figure 6 (p.10)≈[0.05,0.40,1.0,0.93]；Figure 7 (p.11)≈[0.05,0.36,1.0,0.93]；Figure 8 (p.13)≈[0.05,0.04,1.0,0.72]；Figure 9 (p.14)≈[0.05,0.04,1.0,0.70]。"
+    }
+  ],
+  "minor_issues": [
+    {
+      "issue": "Figure 1 (p.4)、Table 1 (p.5)、Figure 2 (p.6) 裁剪含明显正文段落（factories. State of the art… / 2.2 Shake flask / overlap of legends）。",
+      "source_locator": "PDF 第 4、5、6 页",
+      "correction": "收紧 bbox：Figure 1≈[0.30,0.04,1.0,0.83]；Table 1≈[0.50,0.05,1.0,0.42]；Figure 2≈[0.06,0.55,0.95,0.95]。Figure 2 裁剪尚可但下方多带 2 行正文，建议裁掉。"
+    },
+    {
+      "issue": "Figure 1 图注标注 'OCT and iso-OCT' 结构，但图体实际仅显示 'T5α'（应为 T5αol）与 'Additional mono-oxygenated diterpenes'，OCT/iso-OCT 具体位置未在图像中可分辨。",
+      "source_locator": "PDF p.4 Figure 1 与图注",
+      "correction": "草稿描述 OCT/iso-OCT 结构时须避免精确指认位置，仅可表述为'图注声称的 OCT 与 iso-OCT'。"
+    }
+  ],
+  "figure_coverage": {
+    "expected_labels": ["Figure 1", "Figure 2", "Figure 3", "Figure 4", "Figure 5", "Figure 6", "Figure 7", "Figure 8", "Figure 9", "Table 1"],
+    "covered_labels": ["Figure 1", "Figure 2", "Table 1"],
+    "missing_panels": ["Figure 3 (a,b)", "Figure 4 (a–f)", "Figure 5 (a,b)", "Figure 6 (a,b)", "Figure 7 (a–d)", "Figure 8 (a–d)", "Figure 9 (a–c)"],
+    "missing_pages": [7, 8, 9, 10, 11, 13, 14]
+  },
+  "verified_claims": [
+    {"claim": "微规模总氧化紫杉烷 39.0 ± 5.7 mg/L；总紫烷 95.4 ± 18.0 / 98.9 mg/L；T5αol isomer 19.2 mg / L（pH 控制）vs 23.8 ± 3.7 mg/L（微规模）；T5αAc 3.7 mg/L", "source_locator": "Abstract p.2", "evidence": "39.0 ± 5.7 mg/L… 95.4 ± 18.0 and 98.9 mg/L… 19.2 mg/L… 23.8 ± 3.7 mg/L… 3.7 mg/L"},
+    {"claim": "1 L BIOSTAT 总氧化紫杉烷 78 mg/L（2.7-fold / 2.4-fold / twofold 原文三处不一致）", "source_locator": "Abstract p.2–3 / Conclusion p.14 / p.15", "evidence": "Total oxygenated taxane titers were improved 2.7-fold at this scale to 78 mg/L… improved 2.4-fold to 78 mg/L… improved twofold to 78 mg/L"},
+    {"claim": "LRS5 4% 半乳糖下 taxadiene 137 ± 5（原文误写 g/L，应为 mg/L）", "source_locator": "p.8 Section 3.3.2", "evidence": "The LRS5 strain produced a maximum taxadiene titer of 137 ± 5 g/L when grown in 4% galactose"},
+    {"claim": "LRS6 摇瓶终 OD600 22.0 ± 1.6（71 h）vs LRS5 36.0 ± 1.8（48 h）；LRS5 微规模 OD600 47.8 ± 4.2 → 70.4 ± 5.6（2% → 4%）；LRS6 微规模 42.3 ± 1.3 与 54.3 ± 7.2；LRS6 diterpenoid 1（8.49 min）7 ± 0.2 mg/L；T5αol 1 ± 0.1 mg/L", "source_locator": "p.7–8", "evidence": "OD600 of 22.0 ± 1.6 after 71 h… 36.0 ± 1.8 in just 48 h… 47.8 ± 4.2 to 70.4 ± 5.6… 42.3 ± 1.3 and 54.3 ± 7.2… titer of 7 ± 0.2 mg/L… 1 ± 0.1 mg/L"},
+    {"claim": "MiniBio 500 无 pH 控制 OD600 37.0 (~6.72 g/L)；氧化型占比 21%）vs 微规模 41 ± 4%；pH 控制 6.0 后总 56.0 mg/L vs 无控制 98.9 mg/L；diterpenoid 1 8.9 → 19.2 mg/L；pH 控制 MiniBio 与 BIOSTAT taxadiene 10 与 54 mg/L", "source_locator": "p.11–12、p.14", "evidence": "plateaued at 37.0 (~6.72 g/L)… 21%… 41 ± 4%… 56.0 mg/L… 98.9 mg/L… 8.9 (Figures 6b) to 19.2 mg/L (Figure 7d)… 10 and 54 mg/L for the pH-controlled MiniBio and BIOSTAT cultivations"},
+    {"claim": "BIOSTAT 1 L：OD600 1→14.4（0–22 h）、ethanol max 2.7 g/L（48 h）、max OD600 34.6 (~6.28 g/L)（72 h）、总紫烷 154→171 mg/L（最后 48 h）", "source_locator": "p.12 Section 3.4.3", "evidence": "OD600 increased from 1 to 14.4… ethanol concentration reached a maximum of 2.7 g/L… maximum OD600 of 34.6 (~6.28 g/L) being reached at around 72 h… 154 to 171 mg/L"},
+    {"claim": "15 m → 30 m GC-MS 色谱柱分离 taxadiendiol 共流出物；T5αAc 最终滴度 3.7 mg/L；fourfold improvement vs Zhou et al. (2015) 跨界共培养", "source_locator": "p.12–13", "evidence": "30-m column was used in place of the 15-m column… final T5αAc titer was 3.7 mg/L, representing a fourfold improvement…"},
+    {"claim": "通讯作者 Leonardo Rios-Solis，University of Edinburgh, Email Leo.Rios@ed.ac.uk；EPSRC EP/R513209/1、Royal Society RSG\\R1\\180345、US NSF 1330914、Novo Nordisk NNF17SA0031362 等资助齐全", "source_locator": "p.2 / p.15", "evidence": "Correspondence Leonardo Rios-Solis… Email: Leo.Rios@ed.ac.uk… EPSRC… EP/R513209/1… RSG\\R1\\180345… 1330914… NNF17SA0031362"},
+    {"claim": "LRS5 基因型（LRS5 来自 CEN.PK2-1C，含三拷贝 TASY）；locus 511b chr V 175.892–175.911 正链，locus RKC3 chr III 119.278–119.313 正链；CPR 用 GAL3 弱启动子", "source_locator": "p.5 Section 2.1 / p.6 Section 3.1", "evidence": "CEN.PK2-1C (EUROSCARF)… locus 511b is located in chr V: 175.892–175.911 on the forward strand, locus RKC3 is located in chr III: 119.278–119.313… GAL3 promoter"}
+  ],
+  "identity_matches": true,
+  "classification_supported": true,
+  "crop_complete": false
+}
+```

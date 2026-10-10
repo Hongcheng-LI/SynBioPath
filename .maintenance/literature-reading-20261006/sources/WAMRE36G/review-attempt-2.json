@@ -1,0 +1,81 @@
+{
+  "pass": false,
+  "major_issues": [
+    {
+      "issue": "Table 1 裁剪图右侧被截断，丢失第 4 列 'Sources'（Purchased / Prof. Zhao / This study），破坏菌株来源归属",
+      "source_locator": "PDF 物理页 3 Table 1",
+      "correction": "将右边界从约 0.85 扩至 0.96，建议归一化 bbox [0.05, 0.05, 0.96, 0.27] 覆盖表头四列与全部 13 行 + doi 脚注"
+    },
+    {
+      "issue": "Figure 2 裁剪图右半部包含第 4 页右栏正文（'The molecular docking was run by the software AutoDock 4.2 ... Western blotting'），属于跨栏截取",
+      "source_locator": "PDF 物理页 4 Figure 2（左栏上端）",
+      "correction": "将右边界缩至左栏边 0.50，建议归一化 bbox [0.07, 0.05, 0.50, 0.27]，仅保留柱状图与图注 doi 行"
+    }
+  ],
+  "minor_issues": [
+    {
+      "issue": "Table 1 / Figure 1 / Figure 2 裁剪图底部各含一段无关正文（'at 350 rpm and 30°C…' / '270°C for 2 min. The taxadiene was identified…'）",
+      "source_locator": "PDF 物理页 3-4",
+      "correction": "三处下界分别缩至 0.27 / 0.65 / 0.27，仅保留图表本体与图注 doi"
+    },
+    {
+      "issue": "Table 2 / Figure 4 裁剪图底部混入正文起始行（'Real-time PCR analysis' / 'The conversion efficiency of GGPPS...'）",
+      "source_locator": "PDF 物理页 5",
+      "correction": "下界缩至 0.42 / 0.78"
+    }
+  ],
+  "figure_coverage": {
+    "expected_labels": [
+      "Table 1",
+      "Figure 1",
+      "Figure 2",
+      "Figure 3",
+      "Table 2",
+      "Figure 4",
+      "Figure 5",
+      "Figure 6"
+    ],
+    "covered_labels": [
+      "Table 1",
+      "Figure 1",
+      "Figure 2",
+      "Figure 3",
+      "Table 2",
+      "Figure 4",
+      "Figure 5",
+      "Figure 6"
+    ],
+    "missing_panels": [],
+    "missing_pages": []
+  },
+  "verified_claims": [
+    {
+      "claim": "YSG50 + GGPPSbc 在 5 L 生物反应器 66 h 后滴度 72.8 mg/L",
+      "source_locator": "Abstract（物理页 1）/ Conclusion（物理页 8）",
+      "evidence": "the titer of taxadiene reached 72.8 mg/L in chassis YSG50 with GGPPSbc"
+    },
+    {
+      "claim": "Table 2 关键数值：GGPPSbc ¹ -8.09 kcal/mol / 1.17 μM / rank 1；GGPPSsc ¹ -4.90 / 256.57 / rank 6",
+      "source_locator": "PDF 物理页 5 Table 2",
+      "evidence": "表格原文直接列出 GPPSbc¹ −8.09 / 1.17 / 1；GGPPSsc¹ −4.90 / 256.57 / 6，与摘要 1/4/6 排序叙述一致"
+    },
+    {
+      "claim": "口袋孔径 GGPPSbc 11.4 Å, GGPPSgb 10.6 Å, GGPPScr 10.8 Å, GGPPSeh 9.6 Å, GGPPSrc 8.2 Å, GGPPSsc 8.6 Å；FPP 宽度 9.2 Å",
+      "source_locator": "PDF 物理页 6 Results and Discussion（Identification of an optimal GGPPS）",
+      "evidence": "GGPPSbc (11.4Å), GGPPSgb (10.6Å), GGPPScr (10.8Å) and GGPPSeh (9.6Å) ... GGPPSrc (8.2Å) and GGPPSsc (8.6Å) ... FPP in vacuum was approximately 9.2Å (Fig. 3G)"
+    },
+    {
+      "claim": "SyBE_001110 (W303-1A + tHMGR + ERG20) 摇瓶 60 h 产 1.82 mg/L；前置 SyBE_001190 仅整合 erg20 时产 0.22 mg/L",
+      "source_locator": "PDF 物理页 5 Results and Discussion",
+      "evidence": "this strain produced 0.22 mg/L taxadiene. Then thmgr cassette was integrated ... yielding strain SyBE_001110 which produced 1.82 mg/L taxadiene (Fig. 2)"
+    },
+    {
+      "claim": "双底盘同 GGPPS 倍数：W303-1A 上 GGPPSeh ×1.5、GGPPSbc ×7.2 较 SyBE_001110；YSG50 上分别为 1.6× / 4.3×（且 GGPPSsc 组 3.7×）",
+      "source_locator": "PDF 物理页 7 Results and Discussion",
+      "evidence": "SyBE_001111 and SyBE_001109 were 1.5 and 7.2 fold over SyBE_001110 ... SyBE_001114/SyBE_001115/SyBE_001113 were 3.7, 1.6 and 4.3 fold to SyBE_001110/SyBE_001111/SyBE_001109 (Fig. 4)"
+    }
+  ],
+  "identity_matches": true,
+  "classification_supported": true,
+  "crop_complete": false
+}

@@ -132,6 +132,52 @@ report 内每张图表恰好插入一次 <!--FIGURE:Figure 1-->（Table/Scheme �
 [全文，PDF page 是物理页码；附原始页面图像]
 {source}'''
 
+def _rect_inside(rect,box,ratio=.90):
+    inter=fitz.Rect(rect);inter.intersect(box)
+    return not inter.is_empty and inter.get_area()>=ratio*fitz.Rect(rect).get_area()
+
+def _shrink_paragraphs(box,paragraphs,floors,page_rect):
+    # Pull each box edge inward just enough to push body-text paragraphs out,
+    # picking the edge with the smallest area loss per step. Floors (figure
+    # rasters and the caption block) must stay >=90% inside after each move.
+    for _ in range(14):
+        best=None
+        for p in paragraphs:
+            r=fitz.Rect(p[:4])
+            inter=fitz.Rect(r);inter.intersect(box)
+            if inter.is_empty or inter.get_area()<.55*r.get_area():continue
+            for edge in range(4):
+                nb=fitz.Rect(box)
+                if edge==0:nb.y0=r.y1+2
+                elif edge==1:nb.y1=r.y0-2
+                elif edge==2:nb.x0=r.x1+2
+                else:nb.x1=r.x0-2
+                nb=(nb & page_rect)
+                if nb.is_empty or nb.get_area()<=0:continue
+                if not all(_rect_inside(f,nb) for f in floors):continue
+                loss=1-nb.get_area()/box.get_area()
+                if best is None or loss<best[0]:best=(loss,edge,nb)
+        if best is None or best[0]>0.75:break
+        box=best[2]
+    return box
+
+def _trim_white_margins(path,pad=6,thresh=248):
+    try:
+        from PIL import Image
+        import numpy as np
+        image=Image.open(path);gray=image.convert('L');ink=np.asarray(gray)<thresh
+        rows=ink.any(axis=1);cols=ink.any(axis=0)
+        if not rows.any() or not cols.any():return
+        y0=int(rows.argmax());y1=int(len(rows)-rows[::-1].argmax())
+        x0=int(cols.argmax());x1=int(len(cols)-cols[::-1].argmax())
+        y0=max(0,y0-pad);x0=max(0,x0-pad)
+        y1=min(gray.height,y1+pad);x1=min(gray.width,x1+pad)
+        if (x1-x0)<.15*gray.width or (y1-y0)<.15*gray.height:return
+        image.crop((x0,y0,x1,y1)).save(path)
+    except Exception:
+        # Trimming is cosmetic; never fail a crop because of it.
+        pass
+
 @serialized_pdf
 def crops(rec,draft,directory):
     results=[]; seen=set()
@@ -149,17 +195,62 @@ def crops(rec,draft,directory):
                     raise RuntimeError('invalid-figure-bounds')
                 p=doc[page-1]
                 # Preserve a margin around the selected content.
-                box=fitz.Rect(max(0,bounds[0]-.008)*p.rect.width,max(0,bounds[1]-.008)*p.rect.height,
+                guess=fitz.Rect(max(0,bounds[0]-.008)*p.rect.width,max(0,bounds[1]-.008)*p.rect.height,
                               min(1,bounds[2]+.008)*p.rect.width,min(1,bounds[3]+.008)*p.rect.height)
-                # A guessed crop must never trim an intersecting original image.
+                box=fitz.Rect(guess)
+                content=None;floors=[];has_raster=False
                 for image_info in p.get_image_info():
                     original=fitz.Rect(image_info['bbox'])
-                    # Full-page scan bitmaps are the page canvas, not a figure boundary.
-                    if 3000 < original.get_area() < .90*p.rect.get_area() and original.intersects(box):box |= original
-                for block in p.get_text('blocks'):
+                    if original.get_area()<=3000 or original.get_area()>=.90*p.rect.get_area():continue
+                    if _rect_inside(original,guess,.60):
+                        content=original if content is None else (content | original)
+                        floors.append(original);has_raster=True
+                text_blocks=p.get_text('blocks')
+                caption_indices=set();caption_heads=[]
+                for idx,block in enumerate(text_blocks):
                     caption=block[4].strip()
                     normalized=caption_graphic(caption)
-                    if normalized==label:box |= fitz.Rect(block[:4])
+                    if normalized==label:
+                        caption_heads.append(idx)
+                # PDF extraction can split a multi-line figure caption into
+                # separate blocks. Treat closely spaced, aligned continuation
+                # lines as part of the caption so paragraph trimming cannot
+                # cut them off.
+                caption_rect=None
+                for head in caption_heads:
+                    caption_indices.add(head)
+                    caption_rect=fitz.Rect(text_blocks[head][:4]) if caption_rect is None else (caption_rect | fitz.Rect(text_blocks[head][:4]))
+                    last=text_blocks[head]
+                    for idx in sorted(range(head+1,len(text_blocks)),key=lambda j:text_blocks[j][1]):
+                        block=text_blocks[idx]
+                        if block[6]!=0 or block[1]<=last[1]:continue
+                        gap=block[1]-last[3]
+                        if gap>20 or abs(block[0]-text_blocks[head][0])>12:break
+                        caption_indices.add(idx)
+                        caption_rect=caption_rect | fitz.Rect(block[:4])
+                        last=block
+                if caption_rect is not None:
+                    content=caption_rect if content is None else (content | caption_rect)
+                    floors.append(caption_rect)
+                # Raster-backed figures: contract the guess to the actual
+                # content anchors instead of trusting (possibly full-page)
+                # model bounds. Caption-only anchors would collapse vector
+                # figures to a text strip, so contraction needs a raster; and
+                # a contraction larger than the guess is just re-expansion.
+                if has_raster and content is not None and caption_rect is not None:
+                    tight=(content+(-6,-6,6,6)) & p.rect
+                    if (not tight.is_empty and tight.get_area()<=guess.get_area()
+                            and tight.get_area()>=.08*guess.get_area()
+                            and all(_rect_inside(f,tight) for f in floors)):
+                        box=tight
+                # Body paragraphs are never part of a figure; shrink edges to
+                # push them out. Tables are text-first, so they are exempt.
+                if not label.startswith('Table') and caption_rect is not None:
+                    paragraphs=[b for idx,b in enumerate(text_blocks)
+                                if idx not in caption_indices and b[6]==0
+                                and caption_graphic(b[4].strip())!=label
+                                and (b[4].count('\n')>=2 or len(b[4].strip())>=120)]
+                    if floors:box=_shrink_paragraphs(box,paragraphs,floors,p.rect)
                 box=(box+(-3,-3,3,3)) & p.rect
                 out=directory/(rec['key']+'-'+label.replace(' ','-')+f'-p{page}-{n}.png')
                 rotation=int(part.get('rotation',0))
@@ -167,6 +258,7 @@ def crops(rec,draft,directory):
                 dpi=int(part.get('dpi',180))
                 if not 120<=dpi<=600:raise RuntimeError('invalid-crop-dpi')
                 p.get_pixmap(matrix=fitz.Matrix(dpi/72,dpi/72).prerotate(rotation),clip=box,alpha=False).save(out)
+                _trim_white_margins(out)
                 digest=hashlib.sha256(out.read_bytes()).hexdigest()
                 unique=out.with_name(out.stem+'-'+digest[:16]+out.suffix)
                 out.replace(unique);out=unique
@@ -286,7 +378,7 @@ def normalize_format(draft):
     return draft
 
 def review(rec,draft,source,candidate_images,screenshots,directory):
-    request=f'''请按论文原始全文和页面图像审核下列生成的中文文献解读，返回 JSON，不能迎合草稿。你是独立核对步骤，须核实实际数据、单位、样本/重复、图表与子图、必要性/充分性、预测/确证、作者提出/解读者建议、类型判断与分类依据。综述引用案例不能作为综述作者自身实验。检查所有正文 Figure、Table、Scheme 均有图像和对应分析；表格续页不能遗漏。核对提供的裁剪图有没有被截掉图例、子图、化学结构、坐标、行列和图注；若裁剪不全，列出页码并给正确 normalized bbox。没有全文依据的通讯作者/机构/数字/机制必须作为重大问题。任何事实错误、归属错误、鉴定依据错误、原文未支持的肯定或否定断言均是 major_issues，不能放入 minor_issues 后仍判通过；minor_issues 仅用于文风、排版建议。检查研究报告的八章功能和长度、综述四章与段落要求。原文信息本身不全时允许草稿准确标明缺口，但不允许补造。
+    request=f'''请按论文原始全文和页面图像审核下列生成的中文文献解读，返回 JSON，不能迎合草稿。你是独立核对步骤，须核实实际数据、单位、样本/重复、图表与子图、必要性/充分性、预测/确证、作者提出/解读者建议、类型判断与分类依据。综述引用案例不能作为综述作者自身实验。检查所有正文 Figure、Table、Scheme 均有图像和对应分析；表格续页不能遗漏。核对提供的裁剪图有没有被截掉图例、子图、化学结构、坐标、行列和图注；若裁剪不全，列出页码并给正确 normalized bbox。同时核对过度截取：每张裁剪图应只包含图表本体与图注，不得包含正文段落、页眉页脚或相邻图表；若裁剪图明显含有无关正文内容或接近整页（扫描版整页图除外），判 crop_complete=false 并列出页码与更紧凑的 normalized bbox。没有全文依据的通讯作者/机构/数字/机制必须作为重大问题。任何事实错误、归属错误、鉴定依据错误、原文未支持的肯定或否定断言均是 major_issues，不能放入 minor_issues 后仍判通过；minor_issues 仅用于文风、排版建议。检查研究报告的八章功能和长度、综述四章与段落要求。原文信息本身不全时允许草稿准确标明缺口，但不允许补造。
 返回 {{"pass":true或false,"major_issues":[{{"issue":"明确问题","source_locator":"原文物理页/图表/段落","correction":"具体改正"}}],"minor_issues":[],"figure_coverage":{{"expected_labels":[],"covered_labels":[],"missing_panels":[],"missing_pages":[]}},"verified_claims":[{{"claim":"核查过的核心数字或结论","source_locator":"原文准确位置","evidence":"原文短摘录"}}],"identity_matches":true,"classification_supported":true,"crop_complete":true}}
 只要缺正文图表、核心数据错误、证据升级、报告过短、分类明显错误、裁剪不全，pass=false。至少核查 5 个核心论断和数字（原文无 5 个数字则选择关键概念论断），逐一指出依据。不要把模型核对等同独立实验验证。
 [元数据]{json.dumps({k:rec.get(k) for k in ('title','doi','main_attachment_key')},ensure_ascii=False)}

@@ -1,0 +1,89 @@
+```json
+{
+  "pass": false,
+  "major_issues": [
+    {
+      "issue": "Table 1 裁剪图右侧过窄，Description 列文本被截断，Sources 列（'This study'）不可见",
+      "source_locator": "PDF 物理页 3，Table 1",
+      "correction": "原裁剪 bbox [0.05, 0.07, 0.95, 0.275] 过窄，建议改为 [0.04, 0.07, 0.97, 0.275] 以完整显示 Description 列（如 'pRS403-tdh3p-erg20-cyct; pRS304-tdh3p-thmgr-cyct'）和 Sources 列"
+    },
+    {
+      "issue": "Figure 2 裁剪图纵向过高，图注下方混入正文段落（'270uC for 2 min. The taxadiene was identified by the mass fragment m/z 272...'）",
+      "source_locator": "PDF 物理页 4，Figure 2",
+      "correction": "原裁剪 bbox [0.05, 0.05, 0.49, 0.27] 纵向过深，应止于 doi 行附近，建议改为 [0.05, 0.04, 0.48, 0.205]"
+    },
+    {
+      "issue": "Table 2 裁剪图纵向过高，doi 行下方混入正文（'Real-time PCR analysis' 标题与 'Transcription of GGPPSbc, GGPPSeh, and GGPPSsc was evaluated...' 段首）",
+      "source_locator": "PDF 物理页 5，Table 2",
+      "correction": "原裁剪 bbox [0.05, 0.05, 0.49, 0.225] 纵向过深，应止于 doi 行附近，建议改为 [0.05, 0.04, 0.50, 0.175]"
+    }
+  ],
+  "minor_issues": [],
+  "figure_coverage": {
+    "expected_labels": [
+      "Table 1",
+      "Figure 1",
+      "Figure 2",
+      "Figure 3 (含 A–F 子图与右侧 9.2 Å 标尺面板)",
+      "Table 2",
+      "Figure 4",
+      "Figure 5",
+      "Figure 6"
+    ],
+    "covered_labels": [
+      "Table 1（裁剪不全）",
+      "Figure 1",
+      "Figure 2（裁剪不全）",
+      "Figure 3（含 A–F 及 9.2 Å 面板）",
+      "Table 2（裁剪不全）",
+      "Figure 4",
+      "Figure 5",
+      "Figure 6"
+    ],
+    "missing_panels": [
+      "Figure 3 正文段引用 'Fig. 3G'，但 Figure 3 图注仅列 A–F；右端 9.2 Å 标尺面板在视觉上存在但未在图注中标号（草稿已正确标注此差异）"
+    ],
+    "missing_pages": []
+  },
+  "verified_claims": [
+    {
+      "claim": "YSG50 底盘 × GGPPSbc 工程菌 SyBE_001113 在 5 L 生物反应器中紫杉二烯滴度达 72.8 mg/L",
+      "source_locator": "PDF 物理页 1（Abstract）/ 页 5（Results）/ 页 8（Conclusions）",
+      "evidence": "'the titer of taxadiene reached 72.8 mg/L in chassis YSG50 with GGPPSbc'；'A stable genome-transformed S. cerevisiae strain with taxadiene titer of 72.8 mg/L was obtained'"
+    },
+    {
+      "claim": "SyBE_001110（erg20 + thmgr 共整合）紫杉二烯滴度 1.82 mg/L，SyBE_001190（仅 erg20）0.22 mg/L",
+      "source_locator": "PDF 物理页 5 Results 段",
+      "evidence": "'strain SyBE_001190. After 60 h shaking flask fermentation, this strain produced 0.22 mg/L taxadiene... yielding strain SyBE_001110 which produced 1.82 mg/L taxadiene'"
+    },
+    {
+      "claim": "Table 2 对接排序：GGPPSbc (−8.09 kcal/mol, 1.17 μM, rank 1), GGPPSgb (−7.17, 5.58, 2), GGPPSrc (−6.20, 28.59, 3), GGPPSeh (−5.88, 48.80, 4), GGPPScr (−5.49, 62.37, 5), GGPPSsc (−4.90, 256.57, 6)",
+      "source_locator": "PDF 物理页 5，Table 2",
+      "evidence": "表格中 6 行 Binding energy / Instant constant / Estimated rank 数值与原文完全一致"
+    },
+    {
+      "claim": "W303-1A 上 ggppseh 与 ggppsbc 较 ggppssc 提升 1.5、7.2 倍；YSG50 上对应提升 3.7、1.6、4.3 倍",
+      "source_locator": "PDF 物理页 7，The Fitness between GGPPS and Chassis 段",
+      "evidence": "'The yield of SyBE_001111 and SyBE_001109 were 1.5 and 7.2 fold over the strain SyBE_001110... were 3.7, 1.6 and 4.3 fold to strain SyBE_001110, SyBE_001111 and SyBE_001109'"
+    },
+    {
+      "claim": "FPP 真空宽度 ~9.2 Å；GGPPSrc (8.2 Å) 与 GGPPSsc (8.6 Å) 孔径过窄；GGPPSbc (11.4 Å)、GGPPSgb (10.6 Å)、GGPPScr (10.8 Å)、GGPPSeh (9.6 Å) 孔径足够",
+      "source_locator": "PDF 物理页 6，Results and Discussion 段",
+      "evidence": "'width of simulated FPP in vacuum was approximately 9.2:A (Fig. 3G), the narrow orifices of GGPPSrc (8.2:A) and GGPPSsc (8.6:A)... the larger aperture of GGPPSbc (11.4:A), GGPPSgb (10.6:A), GGPPScr (10.8:A) and GGPPSeh (9.6:A)'"
+    },
+    {
+      "claim": "Yeast 8.7 mg/L 与 E. coli 1020 mg/L 已有报道（参考文献 13、18）",
+      "source_locator": "PDF 物理页 1，Introduction 段",
+      "evidence": "'production of taxadiene in yeast has... only a yield of 8.7 mg/L... [13]' 与 'Production of taxadiene has reached a yield of 1020 mg/L in E. coli... [18]'"
+    },
+    {
+      "claim": "发酵参数：5 L 反应器 2 L SD 培养基，30 °C、350 rpm、pH 5.7、1 vvm、66 h；摇瓶 30 °C、200 rpm、60 h",
+      "source_locator": "PDF 物理页 2（Yeast transformation 段）/ 页 3（Extraction 段）",
+      "evidence": "'cultivated at 30uC, 200 rpm. Yeast cultures were harvested for analysis of taxadiene after 60 h' 与 '5 L bioreactor with 2 L SD medium... 350 rpm and 30uC for 66 h with aeration of 1 vvm. The pH was controlled at 5.7'"
+    }
+  ],
+  "identity_matches": true,
+  "classification_supported": true,
+  "crop_complete": false
+}
+```

@@ -1,0 +1,75 @@
+```json
+{
+  "pass": true,
+  "major_issues": [],
+  "minor_issues": [
+    {
+      "issue": "Table 1 裁剪略偏大，下方包含一段无关正文 'rate-limiting enzymes in the MEP pathway. The yield'，右侧也带出相邻右栏少量正文片段。",
+      "source_locator": "PDF 第 7 页 Table 1 区域",
+      "correction": "建议将 Table 1 裁剪底边收紧至表格最末行 (Expression strength 100) 以下少量留白即可；建议 normalized bbox 约为 [0.06, 0.41, 0.50, 0.54]，去掉正文起始行和右栏文字。"
+    }
+  ],
+  "figure_coverage": {
+    "expected_labels": [
+      "Graphical Abstract",
+      "Figure 1 (A,B)",
+      "Figure 2 (A,B,C,D)",
+      "Figure 3",
+      "Figure 4 (A,B)",
+      "Table 1",
+      "Figure 5 (A,B,C,D)"
+    ],
+    "covered_labels": [
+      "Graphical Abstract",
+      "Figure 1 (A,B)",
+      "Figure 2 (A,B,C,D)",
+      "Figure 3",
+      "Figure 4 (A,B)",
+      "Table 1",
+      "Figure 5 (A,B,C,D)"
+    ],
+    "missing_panels": [],
+    "missing_pages": []
+  },
+  "verified_claims": [
+    {
+      "claim": "TaolV1 最终 50 mL 摇瓶总含氧化紫烷 27 mg L−1，taxadien-5α-ol 7.0 mg L−1，相较 TaolE1 初始 (2.3 mg L−1 与 0.31 mg L−1) 约为 12 倍与 23 倍提升",
+      "source_locator": "Abstract；Results 第 4 页 (TaolE1 滴度) 与第 8 页 Fig. 5D 讨论段",
+      "evidence": "Abstract: 'final production of total oxygenated taxanes was raised up to 27 mg L−1 ... 7.0 mg L−1, representing approximately a 12-fold and 23-fold improvements'；正文第 4 页：'total oxygenated taxanes titer of TaolE1 strain was 2.3 mg L−1, of which the titer of taxadien-5α-ol was 0.31 mg L−1'。27/2.3 ≈ 11.7，7.0/0.31 ≈ 22.6。提法一致。"
+    },
+    {
+      "claim": "TaolED4 含氧化紫烷 12 mg L−1、taxadien-5α-ol 3.1 mg L−1",
+      "source_locator": "PDF 第 6 页 Fig. 2D 结果段",
+      "evidence": "正文：'The oxygenated taxanes titer of the optimal strain TaolED4 was 12 mg L−1, and the titer of taxadien-5α-ol was 3.1 mg L−1 (Fig. 2D)'，与 Fig. 2D 堆叠柱高一致。"
+    },
+    {
+      "claim": "TaolV1 在 MVA 通路下含氧化紫烷 14 mg L−1、taxadien-5α-ol 3.8 mg L−1，略优于 MEP 通路的 TaolED4",
+      "source_locator": "PDF 第 6/7 页 Fig. 4 结果段",
+      "evidence": "正文：'TaolV1 ... its oxygenated taxanes titer (14 mg L−1) was slightly higher than that of TaolED4 strain (12 mg L−1)'；'The yield of taxadien-5α-ol in TaolV1 was 3.8 mg L−1'。"
+    },
+    {
+      "claim": "下游模块三质粒 (TaolE1) 整合至单一 pACYCDuet-1 后 TaolED1–6 OD₆₀₀ 显著提升至约 25 (TaolE1 仅 16)",
+      "source_locator": "PDF 第 5 页 Fig. 2A 结果段",
+      "evidence": "正文：'the OD₆₀₀ of only 16' 与 'OD₆₀₀ of the six new strains was significantly higher (~25) than that of TaolE1 strain'。Figure 2A 柱图亦呈现 ~16 vs ~25 量级。"
+    },
+    {
+      "claim": "Trc 启动子强度 = 1，T7 = 5；TrcE 表达强度 20，T7E1 表达强度 100 (Table 1)",
+      "source_locator": "PDF 第 7 页 Table 1 与正文",
+      "evidence": "正文：'The promoter strengths of Trc and T7 promoters were defined as 1 and 5, respectively... the expression strengths of TrcE and T7E1 plasmids were 20 and 100, respectively (Table 1)'。Table 1 复算 20×1=20，20×5=100，与表中数值一致。"
+    },
+    {
+      "claim": "26% 是 taxadien-5α-ol 在总含氧化紫烷中的占比",
+      "source_locator": "PDF 第 10 页 Conclusions 段",
+      "evidence": "Conclusions：'taxadien-5α-ol accounting for approximately 26% of all oxygenated taxanes products'。7.0/27 ≈ 25.9%。"
+    },
+    {
+      "claim": "(GSG)n (n=1–5) 提高 T5αOH-CPR 可溶表达但降低含氧化紫烷滴度，作者归因于构象错位影响电子传递",
+      "source_locator": "PDF 第 4–5 页 linker 结果段与第 9 页 Discussion",
+      "evidence": "正文：'these five flexible linkers can improve the soluble expression ... but the specific oxygenated taxanes titer decreased ... the CPR and P450 could not form the correct conformation, which affected the efficient electron transfer'。"
+    }
+  ],
+  "identity_matches": true,
+  "classification_supported": true,
+  "crop_complete": true
+}
+```

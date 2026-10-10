@@ -1,0 +1,115 @@
+{
+  "pass": false,
+  "major_issues": [
+    {
+      "issue": "Table 1 裁剪图（PDF 第 8 页）明显含有表后正文段落（约 8 行双栏正文 \"single genomic modifications and their combinations… in silico design\"），并保留页眉。Table 1 仅占页面上部，应只裁表格本体与表注。",
+      "source_locator": "原文 PDF physical page 8 / Table 1",
+      "correction": "将 Table 1 裁剪图收紧至仅包含表标题、表头与 17 行数据。建议 normalized bbox ≈ [0.05, 0.09, 0.95, 0.40]（top 略低于页眉，bottom 紧贴 SPE2 行下方）。"
+    },
+    {
+      "issue": "Table 2 裁剪图（PDF 第 14 页）包含整页页眉和页面上方绝大部分双栏正文（spermidine biosynthesis → Next level screening…），Table 2 实际仅占页面底部约 20%。",
+      "source_locator": "原文 PDF physical page 14 / Table 2",
+      "correction": "将 Table 2 裁剪图收紧至仅含表标题、表头与 8 行菌株数据（KM31–KMRJ34）。建议 normalized bbox ≈ [0.05, 0.74, 0.95, 0.96]。"
+    },
+    {
+      "issue": "Figure 3 裁剪图右上边缘不完整：panel C（Glyoxylate cycle）右侧 Citrate/ACO1/Isocitrate 等标签与 panel E（de novo purine biosynthesis）右侧 GAR/ADE8/ADE6 标签被截切；右下 panel C/E 之间连接节点 Glyoxylate、IMP、AMP 也部分被截。",
+      "source_locator": "原文 PDF physical page 7 / Figure 3 面板 C 与 E 右侧",
+      "correction": "使用整页或更宽松的边界以包含 panel C/E 全宽节点与标签；建议 normalized bbox ≈ [0.04, 0.04, 0.97, 0.78]（包含 Fig. 3 caption 完整宽度）。"
+    },
+    {
+      "issue": "Figure 5 裁剪图顶部 'Metabolite Interaction Map of the Mevalonate Pathway / Wild Type Model' 标题及第一行节点 (s_4256、s_0935、s_4254 等) 被裁掉；右侧 Scaled Fluxes 色阶顶端标签 (0.14) 边缘不完整。",
+      "source_locator": "原文 PDF physical page 10 / Figure 5 顶端标题与 Wild Type 网络顶端节点",
+      "correction": "向上扩展裁剪上边界以包含 'Wild Type Model' 标题与最顶部节点；建议 normalized bbox ≈ [0.04, 0.04, 0.98, 0.95]。"
+    }
+  ],
+  "minor_issues": [
+    {
+      "issue": "Figure 1 裁剪图（PDF 第 3 页）只含 \"(See legend on previous page.)\" 注脚，不含 Figure 1 完整图注（实际图注在第 2 页底）。草稿图注字段已涵盖原文 caption 内容，但图注归并跨页可能引起读者疑问，建议在 Figure 1 caption 中明示完整说明位于第 2 页。",
+      "source_locator": "PDF p.2 底部 + p.3 顶部 Fig. 1"
+    },
+    {
+      "issue": "草稿在结论/Abstract 中报告 KM32 T5α-ol = 43.65 mg/L，而 Introduction (p.4) 与 Discussion (p.16) 给出 35.4 mg/L 并归因于 KM25。草稿已注明此内部表述差异，属原文自身不一致；为准确起见，建议在草稿中同步指出 Conclusion (p.20) 也使用 43.65 mg/L。",
+      "source_locator": "Abstract (p.1) + Introduction (p.4) + Discussion (p.16) + Conclusion (p.20)"
+    }
+  ],
+  "figure_coverage": {
+    "expected_labels": [
+      "Figure 1",
+      "Figure 2",
+      "Figure 3",
+      "Table 1",
+      "Figure 4",
+      "Figure 5",
+      "Figure 6",
+      "Table 2",
+      "Figure 7",
+      "Figure 8",
+      "Figure 9"
+    ],
+    "covered_labels": [
+      "Figure 1",
+      "Figure 2",
+      "Figure 3",
+      "Table 1",
+      "Figure 4",
+      "Figure 5",
+      "Figure 6",
+      "Table 2",
+      "Figure 7",
+      "Figure 8",
+      "Figure 9"
+    ],
+    "missing_panels": [
+      "Figure 3 panel C 右侧 Citrate/ACO1/Isocitrate/ICL1/Glyoxylate 等节点标签被截",
+      "Figure 3 panel E 右侧 GAR/ADE8/ADE6/ADE13→AICar 链路标签被截",
+      "Figure 5 顶端 'Wild Type Model' 标题与最上行节点被截",
+      "Figure 5 右侧色阶 0.14 顶端被截"
+    ],
+    "missing_pages": []
+  },
+  "verified_claims": [
+    {
+      "claim": "KM32 在 BioLector 中达到 215 mg/L taxadiene、43.65 mg/L T5α-ol 与 26.2 mg/L T5αAc，是酿酒酵母早期紫杉醇前体最高滴度",
+      "source_locator": "Abstract (p.1) + Conclusion (p.20)",
+      "evidence": "Abstract: \"KM32 produced the highest reported yields of taxa-4(20),11-dien-5α-ol (T5α-ol) at 43.65 mg/L and taxa-4(20),11-dien-5-α-yl acetate (T5αAc) at 26.2 mg/L among early-step Taxol® metabolites in S. cerevisiae.\"；Conclusion (p.20): \"we achieved 215 mg/L of taxadiene, 43.65 mg/L of T5α-ol and 26.2 mg/L of T5αAc titers that are the highest production yields reported until now in S. cerevisiae.\""
+    },
+    {
+      "claim": "KM32 相对于亲本 KM1，taxadiene yield 提高约 50%",
+      "source_locator": "Abstract (p.1)",
+      "evidence": "Abstract: \"KM32 achieved a 50% increase in taxadiene production, reaching 215 mg/L.\""
+    },
+    {
+      "claim": "250 mL 反应器中 KM32 第 72 h 滴度 taxadiene 182.5 / T5α-ol 35.8 / T5αAc 19.2 mg/L，第 120 h 分别提升至 236.7 / 47.1 / 31.2 mg/L",
+      "source_locator": "Results & Discussion (p.19) + Figure 9B",
+      "evidence": "p.19: \"In 72 h, 182.5 mg/L of taxadiene, 35.8 mg/L of T5α-ol and 19.2 mg/L of T5αAc were produced. These reached to 236.7, 47.1 and 31.2 mg/L, respectively on the fifth day (Fig. 9B).\""
+    },
+    {
+      "claim": "KMRJ31（OAR1Δ + DTR1Δ）取得最高 128 mg/L taxadiene；KMRJ19（DTR1Δ）产生全研究最高 221 mg/L GGOH，其次 KMRJ24 与 KM31 为 219 mg/L",
+      "source_locator": "Discussion (p.16) + Results (p.17)",
+      "evidence": "p.16: \"The combination of OAR1Δ and DTR1Δ in KMRJ31 resulted in the maximum taxadiene production of 128 mg/L\"；p.17: \"KMRJ19 with DTR1 deletion produced the highest GGOH with 221 mg/L among all the strains used in this study, it was followed by KMRJ24 and KM31in the galactose-containing medium with the 219 mg/L (p-value > 0.05).\""
+    },
+    {
+      "claim": "Yeast GEM 8.5.0 含 4055 反应、2742 代谢物、1151 基因、14 个细胞区室",
+      "source_locator": "Introduction (p.2)",
+      "evidence": "p.2: \"yeast 8.5.0 comprises 4055 reactions, 2742 metabolites, and 1151 genes in 14 cellular compartments [28].\""
+    },
+    {
+      "claim": "敲除候选中 DPP1、OAR1、MDH3 显示约 40% 的 in silico 通量提升，其余敲除通量提升相对较低；过表达候选带来约 2 倍乙酰辅酶 A 通量提升",
+      "source_locator": "Results (p.11) + Figure 4",
+      "evidence": "p.11: \"the overproduction rates were relatively low in gene deletions except for DPP1, OAR1 and MDH3 that showed ~40% increase (Fig. 4)\"；p.8: \"clear increases were found with approximately two-fold overproduction in acetyl-CoA when particular genes were overexpressed in silico\""
+    },
+    {
+      "claim": "Deep-well 板初筛中 KM21、KM25、KM13 相对 KM1 提高 taxadiene 35–40%；BioLector 复筛中 KM32 达 ~215 mg/L，约此前报道最高 137 mg/L 的 1.6 倍",
+      "source_locator": "Discussion (p.16)",
+      "evidence": "p.16: \"KM21, KM25 and KM13 strains increased taxadiene production by 35%–40% in the deep well-plates compared to KM1\"；\"~215 mg/L production was recorded with KM32. This is a remarkable improvement as approximately 1.6-fold higher production was achieved than the previously reported maximum, which was 137 mg/L in S. cerevisiae cell factories [23].\""
+    },
+    {
+      "claim": "17 个候选基因覆盖 9 敲除 + 8 过表达；KM32 由 ILV2、TRR1、ADE13、ECM31 四个额外过表达组成，分别涉及支链氨基酸合成、硫氧还蛋白系统、嘌呤从头合成、泛酸途径",
+      "source_locator": "Abstract (p.1) + Table 1 (p.8)",
+      "evidence": "Abstract: \"17 genomic modifications, including nine gene deletions and eight gene overexpressions\"；\"The strain named KM32, which contained four overexpressed genes (ILV2, TRR1, ADE13, and ECM31) involved in branched-chain amino acid biosynthesis, the thioredoxin system, de novo purine synthesis, and the pantothenate pathway, respectively\"；Table 1 列出全部 17 行。"
+    }
+  ],
+  "identity_matches": true,
+  "classification_supported": true,
+  "crop_complete": false
+}

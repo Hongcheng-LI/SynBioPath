@@ -1,0 +1,88 @@
+```json
+{
+  "pass": false,
+  "major_issues": [
+    {
+      "issue": "草稿 Figure 1 caption 描述称\"原图注未将 Idi 单列入酶条目，作者亦未在正文中显式标注 Fig1A 的 Idi 节点\"，与原文相反。",
+      "source_locator": "PDF 物理页 2 / Figure 1 图注 (A) 部分 'Enzymes in the biosynthesis pathway' 段落",
+      "correction": "原图注显式列入 'isopentenyldiphosphate delta-isomerase (Idi)'；Figure 1A 代谢图中亦明确绘出 Idi 方框（位于 IPP↔DMAPP 互变节点）。草稿必须修正为'原图注与图中均包含 Idi 节点'，并在 caption 中列出此酶名。"
+    },
+    {
+      "issue": "Table 1 裁剪图过度裁切：除 Table 1 表格本体与图注外，还包含第 4 页右栏正文段落（'Expression of Taxadiene Synthase in B. subtilis 168' 标题及其后多段正文）。",
+      "source_locator": "用户提供的'拟插入 Table 1，PDF 第 4 页的实际裁剪图'",
+      "correction": "应仅裁切 Table 1 表格本体与图注，建议 normalized bbox = [0.07, 0.08, 0.45, 0.32]（页 4 左栏上中段），去除右栏所有正文。"
+    },
+    {
+      "issue": "Table 2 裁剪图过度裁切：除 Table 2 表格本体与图注外，还包含 Figure 2 的 Western blot 图像（带 20/30/37 °C 泳道与 115/80/65/50 kDa marker）以及其下正文段落（'which is responsible for converting GGPP into taxa-4,11-diene…'）。",
+      "source_locator": "用户提供的'拟插入 Table 2，PDF 第 6 页的实际裁剪图'",
+      "correction": "应仅裁切 Table 2 表格本体与图注，建议 normalized bbox = [0.08, 0.06, 0.50, 0.22]（页 6 左栏顶部至 Figure 2 起始之前），去除下方 Figure 2 图像与正文。"
+    }
+  ],
+  "minor_issues": [
+    {
+      "issue": "Methods 描述部分出现 '以 1:100–1:150 (OD600 0.07–0.1) 稀释至 10 mL 2xYT'。原文 (p4) 仅给出目标 OD600 = 0.07–0.1，未给出具体稀释比例范围；建议改写为'稀释至 OD600 0.07–0.1 (具体稀释倍数未在原文中给出)'。"
+    },
+    {
+      "issue": "Figure 1 caption 中 IspA 的描述顺序与原文略有差异：原文把 IspA 单独列为 'IspA which act as geranyl pyrophosphate synthase (GPPS) and farnesyl pyrophosphate synthase (FPPS)' 后接 GGPPS 与 TXS；草稿在 caption 中把 IspA、GPPS、FPPS、GGPPS、TXS 顺序重新组织。建议按原文顺序忠实复述。"
+    }
+  ],
+  "figure_coverage": {
+    "expected_labels": ["Figure 1", "Figure 2", "Figure 3", "Figure 4", "Figure 5", "Figure 6", "Table 1", "Table 2"],
+    "covered_labels": ["Figure 1", "Figure 2", "Figure 3", "Figure 4", "Figure 5", "Figure 6", "Table 1", "Table 2"],
+    "missing_panels": [],
+    "missing_pages": [],
+    "notes": "Table 1 与 Table 2 均有裁剪图但裁切范围超出表格本体，详见 major_issues。"
+  },
+  "verified_claims": [
+    {
+      "claim": "三组合菌株紫杉二烯总产量 17.8 mg/L (OD600 ≈ 9)。",
+      "source_locator": "PDF p1 摘要 + p9 Discussion 第 2 栏第 3 段",
+      "evidence": "'The total amount of taxadiene produced by that strain was 17.8 mg/L.' 'The OD600 of this strain was approximately 9; hence, the total production of taxadiene is around 17.8 mg/L.'"
+    },
+    {
+      "claim": "相对仅表达 TXS 的菌株，MEP + IspA + GGPPS 三组合共实现约 83 倍紫杉二烯产量提升。",
+      "source_locator": "PDF p1 摘要 + p6 Results",
+      "evidence": "'caused an 83-fold increase in the amount of taxadiene produced compared to the strain only expressing TXS and relying on the innate pathway of B. subtilis.'"
+    },
+    {
+      "claim": "txs 单基因株、txs + crtE 双基因株、txs + crtE + SDFHCEGA 三组合株在 20 °C 培养下的比产率分别为 0.024、0.471、1.981 mg/L/OD600。",
+      "source_locator": "PDF p6 Results 第 2 段",
+      "evidence": "'It showed the lowest production of taxadiene (0.024 mg/L/OD600)…significantly increased the amount of taxadiene produced (0.471 mg/L/OD600), which is around 20 times higher than the control strain…1.981 mg/L/OD600, which is approximately 83 times higher than the control strain.'"
+    },
+    {
+      "claim": "TXS 在 20 °C 下可溶表达最强 (清晰 ~89 kDa 条带)，30 °C 下极弱，37 °C 下无可见条带。",
+      "source_locator": "PDF p6 Results + p6 Figure 2 图注",
+      "evidence": "'A clear band representing TXS was seen on Western blot (Figure 2) following expression at 20°C, while a very faint band was the result of expression at 30°C and no TXS band was visible after expression at 37°C.' 'TXS bands (~89 kDa)'"
+    },
+    {
+      "claim": "p04_SDFHCEGA 合成操纵子大小 16.4 Kb，含 dxs, ispD, ispF, ispH, ispC, ispE, ispG 与 ispA 共 8 个基因，由 PxylA 启动子统一控制。",
+      "source_locator": "PDF p4 Construction 与 p6 Table 2",
+      "evidence": "'p04_SDFHCEGA (16.4 Kb) was cloned using previously available constructs…expresses all the seven genes of the MEP pathway, dxs, ispD, ispF, ispH, ispC, ispE, and ispG, along with the gene ispA, each with its own engineered RBS, in one synthetic operon controlled by a xylose inducible promoter.'"
+    },
+    {
+      "claim": "GC-MS SIM (m/z 122) 检测 β-石竹烯 (RT 9.25 min) 与紫杉二烯 (RT 20.05 min)；分子量 β-caryophyllene 204.36, taxa-4,11-diene 272.476。",
+      "source_locator": "PDF p6 Results + p5 Quantification 方法",
+      "evidence": "'the internal standard β-caryophyllene peak at retention time 9.25 min. and the taxadiene peak at retention time 20.05 min…The MS instrument was set to selected ion mode (SIM)…monitoring m/z ion 122'; Figure 3B/C 图内标注 M_r=204.36 与 272.476。"
+    },
+    {
+      "claim": "B. subtilis 三株工程菌在 30 代无抗生素传代下，pDR_txs 与 pBS0E_crtE 100% 保留，p04_SDFHCEGA 约 90% 保留。",
+      "source_locator": "PDF p7 Results 'Segregational Stability…' 段",
+      "evidence": "'The strain showed 100% ability to retain the pDR_txs and pBS0E_crtE constructs until the 30th generation along with 90% ability to retain the p04_SDFHECEGA construct (Figure 6) in the absence of antibiotics.'"
+    },
+    {
+      "claim": "本研究 17.8 mg/L 高于文献报道的酿酒酵母 8.7 mg/L (Engels et al., 2008) 与大肠杆菌 11.3 mg/L (Bian et al., 2017) 摇瓶水平。",
+      "source_locator": "PDF p9 Discussion 第 2 栏",
+      "evidence": "'This production level is higher than the amount reported in yeast 8.7 mg/L (Engels et al., 2008) and in E. coli 11.3 mg/L (Bian et al., 2017) on shake flask fermentation level.'"
+    },
+    {
+      "claim": "TXS 基因截短去除 N 端 60 个氨基酸（质体定位信号肽），源自 Taxus baccata，登录号 AY424738。",
+      "source_locator": "PDF p4 'Construction…' 第 1 段 + p5 'Nucleotide Sequence Accession Number'",
+      "evidence": "'The txs gene was truncated by deleting the first 60 amino acids to remove the signal peptide targeting the plastid…The nucleotide sequence of the taxadiene synthase gene from the plant T. baccata was previously reported with the accession number: AY424738.'"
+    }
+  ],
+  "identity_matches": true,
+  "classification_supported": true,
+  "crop_complete": false,
+  "crop_notes": "Figure 1 (p2)、Figure 2 (p6)、Figure 3 (p7)、Figure 4/5/6 (p8) 裁剪图本体完整，仅含图表与图注。Table 1 (p4) 与 Table 2 (p6) 裁剪图超出表格本体，分别多含右栏正文段落与 Figure 2 图像片段；Table 1 更紧凑 normalized bbox ≈ [0.07, 0.08, 0.45, 0.32]，Table 2 ≈ [0.08, 0.06, 0.50, 0.22]。"
+}
+```

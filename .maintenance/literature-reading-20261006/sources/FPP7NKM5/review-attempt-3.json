@@ -1,0 +1,91 @@
+{
+  "pass": false,
+  "major_issues": [
+    {
+      "issue": "Table 1 裁剪图(p4)过裁,包含表格下方大段正文('Expression of Taxadiene Synthase in B. subtilis 168' 标题及整段方法描述),违反裁剪应仅含图表本体与图注的规定",
+      "source_locator": "原始主文 PDF 第 4 页",
+      "correction": "更紧凑的归一化 bbox 约 [0.04, 0.12, 0.50, 0.40],仅保留表格主体与图注起始行'(Figure 1B) where B. subtilis mntA…',去除后续段落正文"
+    },
+    {
+      "issue": "Table 2 裁剪图(p6)过裁,包含表格下方多段正文('which is responsible for converting GGPP…' 至 '…for the production of GGPP, which is the precursor of taxadiene.'),违反裁剪应仅含图表本体与图注的规定",
+      "source_locator": "原始主文 PDF 第 6 页",
+      "correction": "更紧凑的归一化 bbox 约 [0.04, 0.05, 0.50, 0.27],仅保留表格主体,不含后续正文段落"
+    },
+    {
+      "issue": "Figure 4、Figure 5、Figure 6 三张裁剪图未分别裁切,实际为同一张包含全部三个图(柱状图+柱状图+折线图)的大图,被重复用于三个标签下;每个单独标签的裁剪图并非该图独立本体",
+      "source_locator": "原始主文 PDF 第 8 页左栏",
+      "correction": "分别裁切:Figure 4≈[0.04, 0.05, 0.50, 0.34];Figure 5≈[0.04, 0.35, 0.50, 0.63];Figure 6≈[0.04, 0.64, 0.50, 0.93],各自仅含对应图体与图注"
+    }
+  ],
+  "minor_issues": [
+    {
+      "issue": "正文描述 Figure 6 图例符号为'三角形'与'倒三角',实际图例为绿色三角(pDR_txs)、蓝色方块(pBS0E_crtE)与红色圆点(p04_SDFHCEGA)",
+      "source_locator": "草稿正文 Figure 6 段落",
+      "correction": "改为'pDR_txs(绿色三角)、pBS0E_crtE(蓝色方块)、p04_SDFHCEGA(红色圆点)'"
+    }
+  ],
+  "figure_coverage": {
+    "expected_labels": [
+      "Figure 1",
+      "Table 1",
+      "Table 2",
+      "Figure 2",
+      "Figure 3",
+      "Figure 4",
+      "Figure 5",
+      "Figure 6"
+    ],
+    "covered_labels": [
+      "Figure 1",
+      "Table 1",
+      "Table 2",
+      "Figure 2",
+      "Figure 3",
+      "Figure 4",
+      "Figure 5",
+      "Figure 6"
+    ],
+    "missing_panels": [],
+    "missing_pages": []
+  },
+  "verified_claims": [
+    {
+      "claim": "过表达 MEP 途径+IspA+GGPPS 后紫杉二烯相对单表达 TXS 菌株实现约 83 倍提升",
+      "source_locator": "原文摘要与第 6 页 Results",
+      "evidence": "'caused an 83-fold increase in the amount of taxadiene produced compared to the strain only expressing TXS'"
+    },
+    {
+      "claim": "三组合株 txs+crtE+SDFHCEGA 总紫杉二烯产量约 17.8 mg/L(OD600≈9,比产率 1.981 mg/L/OD600)",
+      "source_locator": "原文摘要与第 9 页 Discussion",
+      "evidence": "'The total amount of taxadiene produced by that strain was 17.8 mg.L'; 'The OD600 of this strain was approximately 9; hence, the total production of taxadiene is around 17.8 mg/L'"
+    },
+    {
+      "claim": "TXS 蛋白可溶表观分子量约 89 kDa,源自 T. baccata 全长 862 aa,截去 N 端 60 aa(质体定位信号)",
+      "source_locator": "原文第 8 页 Discussion",
+      "evidence": "'a soluble TXS protein (~89 kDa)'; 'a protein of 862 amino acids'; 'a truncated TXS protein eliminating the first 60 amino acids (plastid targeting sequence)'"
+    },
+    {
+      "claim": "GC-MS 内标 β-石竹烯保留时间 9.25 min,紫杉二烯保留时间 20.05 min(SIM m/z 122)",
+      "source_locator": "原文第 6 页 Results",
+      "evidence": "'the internal standard β-caryophyllene peak at retention time 9.25 min. and the taxadiene peak at retention time 20.05 min'"
+    },
+    {
+      "claim": "30 代无抗生素连续传代后 pDR_txs 与 pBS0E_crtE 保留率 100%,p04_SDFHCEGA 保留率约 90%",
+      "source_locator": "原文第 7 页 Results",
+      "evidence": "'showed 100% ability to retain the pDR_txs and pBS0E_crtE constructs until the 30th generation along with 90% ability to retain the p04_SDFHECEGA construct'"
+    },
+    {
+      "claim": "跨文献摇瓶比较:本研究 17.8 mg/L > 酿酒酵母 8.7 mg/L (Engels 2008) > 大肠杆菌 11.3 mg/L (Bian 2017)",
+      "source_locator": "原文第 9 页 Discussion",
+      "evidence": "'higher than the amount reported in yeast 8.7 mg/L (Engels et al., 2008) and in E. coli 11.3 mg/L (Bian et al., 2017) on shake flask fermentation level'"
+    },
+    {
+      "claim": "最佳诱导温度为 20 °C,30 °C 条带极弱,37 °C 无可见可溶 TXS",
+      "source_locator": "原文第 6 页 Results + Figure 2",
+      "evidence": "'A clear band representing TXS was seen on Western blot (Figure 2) following expression at 20°C, while a very faint band was the result of expression at 30°C and no TXS band was visible after expression at 37°C'"
+    }
+  ],
+  "identity_matches": true,
+  "classification_supported": true,
+  "crop_complete": false
+}

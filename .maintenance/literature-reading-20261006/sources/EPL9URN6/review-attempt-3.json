@@ -1,0 +1,75 @@
+{
+  "pass": false,
+  "major_issues": [
+    {
+      "issue": "Figure 1 的裁剪图只包含图注文字，缺失核心内容：路径图本身（化学反应式、基因标签 ERG10/ERG13/HMG1/ERG12/ERG8/ERG19/IDI1/ERG20/BTS1/crtE/mvaS/mvaE/MBP-TASY/CYP725A4/CPR/TASY-GFP/TAT、LPP1/DPP1、Taxol/T5αAc/T5αol/taxadiene/iso-taxadiene/Iso-OCT/OCT 化学结构、'~16 steps' 红色箭头、绿/红色基因标注、虚线副产物箭头）全部缺失。Figure 1 是文章示意 Taxol 重建途径的核心图，其图像缺失属于核心图表缺失。",
+      "source_locator": "PDF 第 3 页（图 1 路径图位于页面上半部，图注位于路径图正下方）",
+      "correction": "重新裁剪 PDF 第 3 页的 Figure 1 路径图本体（含化学结构与图注），推荐 normalized bbox 约为 [0.15, 0.22, 0.85, 0.62]，并保留下方图注至约 y=0.72。"
+    }
+  ],
+  "minor_issues": [
+    {
+      "issue": "Figure 7 的裁剪图包含了页眉（Microorganisms 2022, 10, 163 / 12 of 16）和上方正文段落（关于 oxygen availability、3.4.2 节引文等），属过度截取；Figure 5 和 Figure 6 的两张裁剪图均重复显示了同一页（PDF 第 12 页）的整张图版，相当于 Figure 5 与 Figure 6 都被裁剪了两次；Figure 7 裁剪顶部亦混入页眉与正文。",
+      "source_locator": "PDF 第 13 页 Figure 7 区域；PDF 第 12 页 Figure 5/6 区域",
+      "correction": "Figure 7 推荐 normalized bbox ≈ [0.20, 0.27, 0.85, 0.70]；Figure 5 推荐 ≈ [0.04, 0.07, 0.96, 0.41]；Figure 6 推荐 ≈ [0.04, 0.43, 0.96, 0.93]。各图仅保留本体+图注，不含页眉页脚与正文。"
+    }
+  ],
+  "figure_coverage": {
+    "expected_labels": [
+      "Figure 1",
+      "Figure 2",
+      "Figure 3",
+      "Figure 4",
+      "Figure 5",
+      "Figure 6",
+      "Figure 7"
+    ],
+    "covered_labels": [
+      "Figure 2",
+      "Figure 3",
+      "Figure 4",
+      "Figure 5",
+      "Figure 6",
+      "Figure 7"
+    ],
+    "missing_panels": [
+      "Figure 1 的路径图本体（基因/酶、化学结构、箭头）"
+    ],
+    "missing_pages": []
+  },
+  "verified_claims": [
+    {
+      "claim": "2×YP 培养总紫杉烷滴度提升至 108 mg/L，相较前培养约 5.4 倍。",
+      "source_locator": "PDF 第 9 页 Results 3.2 末段，Figure 3D，'Interestingly, when both the initial yeast extract and peptone concentrations were doubled, the total taxane titer improved 5.4-fold to 108 mg/L'",
+      "evidence": "'improved 5.4-fold to 108 mg/L'"
+    },
+    {
+      "claim": "微尺度 DSD 14 组中 Medium 1 总紫杉烷 229 ± 6 mg/L；Medium 11 与 14 分别 195 ± 26 与 218 ± 32 mg/L。",
+      "source_locator": "PDF 第 11 页 Results 3.4.1；Figure 5",
+      "evidence": "'medium one presented the highest total taxane titer of 229 ± 6 mg/L. Media combinations 11 and 14 also produced high taxane titers of 195 ± 26 and 218 ± 32 mg/L, respectively'"
+    },
+    {
+      "claim": "DSD 模型给出初始 OD600（p=0.011）、酵母提取物（p=0.028）、半乳糖浓度（p=0.011）三个显著主效应，初始 OD600 二次项 p=0.007；最优酵母提取物 45 g/L、半乳糖 45 g/L、初始 OD600=0.74；预测滴度 232.15 mg/L，95% CI [181.27, 283.03]，desirability 0.9883。",
+      "source_locator": "PDF 第 11 页 Results 3.4.1；Figure 6",
+      "evidence": "'initial OD600 (p = 0.011) along with yeast extract (p = 0.028) and galactose concentrations (p = 0.011)... non-linearity of the effect of initial OD600 (p = 0.007)... optimal initial yeast extract and galactose concentration was 45 g/L, and initial OD600 had an optimal value of around 0.74'；Figure 6 标注 '232.15 [181.27, 283.03]' 与 '0.9883'"
+    },
+    {
+      "claim": "1 L BIOSTAT 验证培养总税表滴度 387 ± 6 mg/L（较模型预测提升约 1.7 倍）；T5αAc 在 3.4.2 节报告 21 ± 0.3 mg/L（约 6 倍文献 [8]）；摘要与结论给出 22 mg/L（约 2 倍）。原文内部存在 21 vs 22 与 6 倍 vs 2 倍两种表述并存。",
+      "source_locator": "PDF 第 13 页 Results 3.4.2 与 PDF 第 2 页 Abstract 第 14 页 Conclusions",
+      "evidence": "'The desired TAT product, T5αAc, was detected with a maximum titer of 21 ± 0.3 mg/L, representing an almost 6-fold improvement, compared to the previous literature [8]'；'The total taxane titer was 387 ± 6 mg/L, representing a 1.7-fold improvement compared with that predicted by the statistical model'；'T5αAc, was improved two-fold to 22 mg/L, compared to the previous maxima for the strain'"
+    },
+    {
+      "claim": "复现性实验中 MiniBio 500 LRS6 YPG 重复培养的 OD600 飙升至 119.6（提升 3.5 倍），最高总紫杉烷滴度仅 10.9 mg/L（约 5 倍低于前期），并出现生物膜与假丝形态；32 h 时镜检仍为出芽形态。",
+      "source_locator": "PDF 第 6 页 Results 3.1；Figure 2A–E",
+      "evidence": "'final OD600 value increased 3.5-fold to 119.6'；'maximum total taxane titer was five-fold lower than the previous cultivation, at just 10.9 mg/L'；'revealed a filamentous morphology (Figure 2D). As the visualization of the cells at 32 h (Figure 2C) revealed the expected budding morphology'"
+    },
+    {
+      "claim": "2×P 培养中 71 h 出现细胞伸长，'此时超过一半主碳源仍可用'（图 3A），最高总紫杉烷仅 20 mg/L；2×YP 培养中 diterpenoid 1、taxadiene、T5αol 分别为 37、22、5 mg/L，分别比前期高出 1.9、2.2、1.6 倍。",
+      "source_locator": "PDF 第 8 页 Results 3.2；Figure 3B、3D",
+      "evidence": "'At this point, over half of the primary carbon source was still available (Figure 3A)'；'maximum total taxane titer was 20 mg/L, almost three-fold lower'；'37, 22 and 5 mg/L (Figure 3D), respectively, 1.9-, 2.2- and 1.6-fold higher'"
+    }
+  ],
+  "identity_matches": true,
+  "classification_supported": true,
+  "crop_complete": false
+}

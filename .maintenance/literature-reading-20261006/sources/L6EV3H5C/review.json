@@ -1,0 +1,136 @@
+{
+  "review": {
+    "pass": false,
+    "major_issues": [
+      {
+        "issue": "Figure 1 第 2 页裁剪 bbox=[0,0,1,1] 覆盖整页正文（Introduction 全文），仅底部含 Fig.1 图注；属于明显含有无关正文内容",
+        "source_locator": "PDF 物理页 2，Fig.1 图注位于页面最底部 y≈0.82–0.97 区域",
+        "correction": "应仅裁剪 Fig.1 图注区域，normalized bbox≈[0.04, 0.82, 0.96, 0.98]"
+      },
+      {
+        "issue": "Table 1 第 8 页裁剪 bbox=[0,0,1,1] 包含表格以下大段双栏正文（'single genomic modifications and their combinations…' 段落），超过图表本体+图注范围",
+        "source_locator": "PDF 物理页 8，Table 1 表格+表注位于 y≈0.08–0.38，正文从 y≈0.40 起延续",
+        "correction": "应仅裁剪 Table 1 表格与表注，normalized bbox≈[0.05, 0.07, 0.95, 0.40]"
+      },
+      {
+        "issue": "Table 2 第 14 页裁剪 bbox=[0,0,1,1] 包含表格上方整段双栏正文（'spermidine biosynthesis…' 与 'Next level screening…' 段），仅底部含 Table 2",
+        "source_locator": "PDF 物理页 14，Table 2 表注+表格位于 y≈0.74–0.99，正文占据 y≈0.04–0.73",
+        "correction": "应仅裁剪 Table 2 表注与表格，normalized bbox≈[0.05, 0.74, 0.95, 0.99]"
+      }
+    ],
+    "minor_issues": [
+      {
+        "issue": "source_gaps 中 '表 1 中 DIT1 行的 OGPP 设计目标' 与原文不符：Table 1 明确标注 DIT1 (YDR403W) 目标化合物为 Acetyl-CoA、碳源 Glucose、干预 Knock-out，不存在 OGPP/GGPP 设计目标",
+        "source_locator": "PDF 物理页 8 Table 1",
+        "correction": "删除该错误说明；DIT1 为 OptGene 在 Glucose 条件下针对 Acetyl-CoA 的敲除候选"
+      },
+      {
+        "issue": "source_gaps 中 '表 8 各菌株的来源谱系需以 Additional file 1: Table S4 为准' 中的 '表 8' 在原文中不存在",
+        "source_locator": "PDF 物理页 14 Table 2",
+        "correction": "改为 'Table 2 各菌株来源谱系需以 Additional file 1: Table S4 为准'"
+      },
+      {
+        "issue": "Figure 3 第 7 页裁剪包含底部 'Results & discussion' 章节标题起始文本",
+        "source_locator": "PDF 物理页 7，Fig.3 图注结束于 y≈0.80，'Results & discussion' 标题位于 y≈0.84",
+        "correction": "normalized bbox≈[0.05, 0.03, 0.95, 0.80]"
+      }
+    ],
+    "figure_coverage": {
+      "expected_labels": [
+        "Figure 1",
+        "Figure 2",
+        "Figure 3",
+        "Table 1",
+        "Figure 4",
+        "Figure 5",
+        "Figure 6",
+        "Table 2",
+        "Figure 7",
+        "Figure 8",
+        "Figure 9"
+      ],
+      "covered_labels": [
+        "Figure 1",
+        "Figure 2",
+        "Figure 3",
+        "Table 1",
+        "Figure 4",
+        "Figure 5",
+        "Figure 6",
+        "Table 2",
+        "Figure 7",
+        "Figure 8",
+        "Figure 9"
+      ],
+      "missing_panels": [],
+      "missing_pages": []
+    },
+    "verified_claims": [
+      {
+        "claim": "KM32 相对于亲本 taxadiene 产量提升 50%，达 215 mg/L",
+        "source_locator": "PDF 物理页 1 Abstract",
+        "evidence": "\"KM32 achieved a 50% increase in taxadiene production, reaching 215 mg/L\""
+      },
+      {
+        "claim": "KM32 产 T5α-ol 43.65 mg/L、T5αAc 26.2 mg/L，为当时 S. cerevisiae 早期紫杉醇前体最高滴度",
+        "source_locator": "PDF 物理页 1 Abstract & 物理页 20 Conclusion",
+        "evidence": "Abstract: \"KM32 produced the highest reported yields of taxa-4(20),11-dien-5α-ol (T5α-ol) at 43.65 mg/L and taxa-4(20),11-dien-5-α-yl acetate (T5αAc) at 26.2 mg/L\"; Conclusion: \"we achieved 215 mg/L of taxadiene, 43.65 mg/L of T5α-ol and 26.2 mg/L of T5αAc titers\""
+      },
+      {
+        "claim": "MiniBio500 反应器 72 h：taxadiene 182.5 mg/L、T5α-ol 35.8 mg/L、T5αAc 19.2 mg/L；120 h：236.7 / 47.1 / 31.2 mg/L",
+        "source_locator": "PDF 物理页 19 Discussion 第一段及 Fig. 9B",
+        "evidence": "\"In 72 h, 182.5 mg/L of taxadiene, 35.8 mg/L of T5α-ol and 19.2 mg/L of T5αAc were produced. These reached to 236.7, 47.1 and 31.2 mg/L, respectively on the fifth day\""
+      },
+      {
+        "claim": "KMRJ31（OAR1Δ+DTR1Δ）在 BioLector 中达 taxadiene 128 mg/L，为 EJ1 系列最高",
+        "source_locator": "PDF 物理页 16 Discussion",
+        "evidence": "\"The combination of OAR1Δ and DTR1Δ in KMRJ31 resulted in the maximum taxadiene production of 128 mg/L\""
+      },
+      {
+        "claim": "KMRJ19（DTR1Δ 单敲）在 BioLector 中产 GGOH 221 mg/L，为全研究最高；KMRJ24 与 KM31 在半乳糖条件下产 219 mg/L GGOH（p>0.05）",
+        "source_locator": "PDF 物理页 17 Discussion",
+        "evidence": "\"KMRJ19 with DTR1 deletion produced the highest GGOH with 221 mg/L among all the strains used in this study, it was followed by KMRJ24 and KM31 in the galactose-containing medium with the 219 mg/L (p-value>0.05)\""
+      },
+      {
+        "claim": "酵母 GEM 8.5.0 含 4055 反应、2742 代谢物、1151 基因、14 个细胞区室",
+        "source_locator": "PDF 物理页 2 Introduction",
+        "evidence": "\"yeast 8.5.0 comprises 4055 reactions, 2742 metabolites, and 1151 genes in 14 cellular compartments [28]\""
+      },
+      {
+        "claim": "先前报道 S. cerevisiae taxadiene 最高滴度为 137 mg/L（Walls et al., 2020）",
+        "source_locator": "PDF 物理页 16 Discussion",
+        "evidence": "\"approximately 1.6-fold higher production was achieved than the previously reported maximum, which was 137 mg/L in S. cerevisiae cell factories [23]\""
+      },
+      {
+        "claim": "原文自身存在内部表述差异：Abstract/Conclusion 报道 KM32 T5α-ol 43.65 mg/L；Introduction 与 Discussion 报道 KM25 为 T5α-ol/T5αAc 最佳株（35.4 / 26.2 mg/L）",
+        "source_locator": "PDF 物理页 1 Abstract、页 4 Introduction、页 16 Discussion、页 20 Conclusion",
+        "evidence": "Introduction: \"35.4 mg/L of T5α-ol and 26.2 mg/L of T5αAc\"; Discussion: \"KM25 was the best producer of T5α-ol and T5αAc with 35.4 mg/L and 26.2 mg/L\""
+      },
+      {
+        "claim": "in silico 删除（DPP1/OAR1/MDH3）目标通量提升约 40%；过表达在乙酰辅酶 A 上呈约 2 倍提升；所有敲除均未提升 GGPP 通量",
+        "source_locator": "PDF 物理页 8 in silico design、页 11 Results",
+        "evidence": "the overproduction rates were relatively low in gene deletions except for DPP1, OAR1 and MDH3 that showed ~40% increase\"; \"approximately two-fold overproduction in acetyl-CoA\"; \"We could not detect flux increase towards GGPP in any of the knock-out models\""
+      },
+      {
+        "claim": "DPP1 敲除在葡萄糖 CSM 中使 taxadiene 提升约 20%（p<0.05），LPP1 敲除未达显著（p>0.05）；OAR1 缺失使生物量降约 30%、KM12 产物低于亲本 40%；ISC1 敲除仅 ~6% 平均提升且不显著（p>0.05）；MLS1 缺失使 KMRJ15 生物量降至亲本约 60%",
+        "source_locator": "PDF 物理页 12-13 Results & discussion",
+        "evidence": "上述每一项均有原文逐句支持（详见 Results 段）"
+      }
+    ],
+    "identity_matches": true,
+    "classification_supported": true,
+    "crop_complete": false
+  },
+  "usage": {
+    "total_tokens": 111914,
+    "total_characters": 0,
+    "prompt_tokens": 94455,
+    "completion_tokens": 17459,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 128
+    }
+  }
+}

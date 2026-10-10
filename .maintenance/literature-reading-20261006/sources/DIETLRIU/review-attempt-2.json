@@ -1,0 +1,97 @@
+{
+  "pass": false,
+  "major_issues": [
+    {
+      "issue": "草稿凭空声称 Fig. 4 的 T0 栏仅 5 根柱且缺失 TSS-2、TSS-3，与原文图严重不符",
+      "source_locator": "Fig. 4 / PDF 第 7 页",
+      "correction": "Fig. 4 柱状图 T0 栏从左至右明确包含 Control + TSS-2 + TSS-3 + TSS-5 + TSS-6 + TSS-7 + TSS-8 + TSS-10 共 8 根柱，对应正文列出的 7 株 T0 阳性系（TSS-2、3、5、6、7、8、10），并不存在数据-图不一致。原文 Fig. 4 中 TSS-2 与 TSS-3 均清晰可辨（约 4.5 μg/g dw 量级）。该错误属草稿对原图的虚构判断，不可保留。"
+    },
+    {
+      "issue": "裁剪图 Fig. 1、Table 1、Fig. 2、Fig. 3、Fig. 5、Fig. 6 均过度截取，bbox 全部标为 [0,0,1,1] 整页范围，且实际图像明显包含正文段落、相邻图表本体或页脚",
+      "source_locator": "Fig. 1 (p.3)、Table 1 (p.4)、Fig. 2 (p.6)、Fig. 3 (p.6)、Fig. 5 (p.8)、Fig. 6 (p.8)",
+      "correction": "需给出更紧凑的归一化 bbox：Fig. 1≈[0.00,0.04,1.00,0.48]（裁去下方“Construction of the transformation vector”标题）；Table 1≈[0.02,0.03,0.98,0.40]（裁去“0.1 mg/L NAA…”以下正文）；Fig. 2≈[0.02,0.03,0.98,0.20]（仅凝胶图 + 图注，裁去下方正文及 Fig. 3 起始）；Fig. 3≈[0.50,0.28,0.98,0.72]（仅右侧 a/b/c 三子图 + 图注）；Fig. 5≈[0.02,0.03,0.98,0.55]（仅 Fig. 5 本体 + 图注，裁去 Fig. 6 柱图与右侧正文）；Fig. 6≈[0.02,0.55,0.50,0.86]（仅左下 Fig. 6 柱图 + 图注）。"
+    },
+    {
+      "issue": "Fig. 5 裁剪图与 Fig. 6 裁剪图为同一张图，均同时包含 Fig. 5 全幅（A–E 五子图）以及 Fig. 6 柱图与图注",
+      "source_locator": "Fig. 5 (p.8)、Fig. 6 (p.8)",
+      "correction": "Fig. 5 裁剪应仅含 Fig. 5 本体及图注；Fig. 6 裁剪应仅含 Fig. 6 柱图及图注，二者不可重叠。当前两幅裁剪实为同一图像，违反“每张裁剪图只包含图表本体与图注”的要求。"
+    },
+    {
+      "issue": "草稿称 Fig. 5c/d 中 rRNA 内参条带“仅部分可见”，与裁剪图实际显示不符",
+      "source_locator": "Fig. 5c, 5d / PDF 第 8 页裁剪图",
+      "correction": "裁剪图中 rRNA 行在 TRV:GFP 与 TRV:PSY（或 TRV:PDS）两泳道均显示清晰且强度相近的条带，并非“仅部分可见”；草稿描述应修正。"
+    },
+    {
+      "issue": "草稿在 Fig. 4 与 Fig. 6 的差异字母标注中推测“可能为 Tukey HSD 或 Duncan 多重比较”，但因原文确实未注明统计方法，该推测在正文与未明示处原文信息本身不全时已为可允许标注，但草稿未明确标注为 source_gaps，属表述欠严谨",
+      "source_locator": "Fig. 4 / Fig. 6 图注；正文 Results 节",
+      "correction": "应明确写为“原文未注明统计检验方法”，并置于 source_gaps 列表中，不得暗示其为 Tukey/Duncan 中任一种。"
+    }
+  ],
+  "minor_issues": [
+    "Fig. 1 右下角 Paclitaxel (Taxol) 结构只示意紫草醇途径远端目标，草稿已自行澄清，但建议在正文中以一句括注强调，避免读者误将其当作本研究产物。",
+    "Fig. 5 子图 a/b 模式图中 VIGS construct 三角形与 PsyF1/PsyF2、PdsF1/PdsF2 引物位置草稿未单独描述，可加一两句文字说明。",
+    "Fig. 3 草稿报告 13.09 min 处质谱主要碎片离子列表与图面标注一致，但建议直接引用图面数值而非自行推断。",
+    "Fig. 4 草稿在解读 T0 柱状图时使用了“约”“~5”等估计值，可统一用图面近似数值或直接给出范围。",
+    "报告篇幅偏长，部分细节（如未来研究方向八章）已超出原文支持范围，可适度压缩以避免“过补”。"
+  ],
+  "figure_coverage": {
+    "expected_labels": [
+      "Figure 1",
+      "Table 1",
+      "Figure 2",
+      "Figure 3",
+      "Figure 4",
+      "Figure 5",
+      "Figure 6"
+    ],
+    "covered_labels": [
+      "Figure 1",
+      "Table 1",
+      "Figure 2",
+      "Figure 3",
+      "Figure 4",
+      "Figure 5",
+      "Figure 6"
+    ],
+    "missing_panels": [
+      "Figure 3 子图 b（13.09 min 处标记的 * 峰）独立未单独裁剪",
+      "Figure 6 独立裁剪缺失（仅与 Fig. 5 合并出现）"
+    ],
+    "missing_pages": []
+  },
+  "verified_claims": [
+    {
+      "claim": "T1 纯合系 TSS-5、7、8、10 分别积累 22、13、27、11 μg taxadiene/g dw",
+      "source_locator": "PDF 第 6 页 Results 节",
+      "evidence": "the TSS-5, 7, 8, and 10 homogene lines accumulated 22, 13, 27, and 11 μg taxadiene per gram of dried leaves, respectively (Fig. 4)"
+    },
+    {
+      "claim": "TSS-8 纯合系 27 μg/g dw，高于苔藓/拟南芥/人参发根/普通番茄，低于黄色果肉番茄",
+      "source_locator": "PDF 第 7 页 Discussion 节",
+      "evidence": "Our TS-transformed homozygous N. benthamiana TSS-8 line produced 27 taxadiene μg/g dw, which was higher than previously reported taxadiene production from TS-transformed moss (5 μg/g dw; Anterola et al. 2009), Arabidopsis (0.6 μg/g dw; Besumbes et al. 2004), ginseng roots (9.6 μg/g dw; Cha et al. 2012) or normal tomato (20 μg/g dw; Kovacs et al. 2007), but lower than that of TS-transformed yellow flesh tomato (160 μg/g dw; Kovacs et al. 2007)"
+    },
+    {
+      "claim": "MJ 处理 1.4 倍提升（35 vs 25 μg/g dw）",
+      "source_locator": "PDF 第 7 页 Results 节",
+      "evidence": "MJ treatment increased the accumulation of taxadiene to 35 μg/g of dried leaves from 25 μg/g in the control TSS-8 line (Fig. 6)"
+    },
+    {
+      "claim": "PSY 沉默 1.9 倍（93.58%）提升至 48 μg/g dw；PDS 沉默下降 47.59%",
+      "source_locator": "PDF 第 7 页 Results 节；第 8 页 Discussion 节",
+      "evidence": "accumulation of 48 μg taxadiene/g of dried leaves, which was 93.58 % higher than the control TSS-8 line … silencing the PDS gene by VIGS decreased the accumulation of taxadiene by 47.59 % relative to the control TSS-8 line … the TS-transgenic N. benthamiana TSS-8 line increased the accumulation of taxadiene by 1.9-fold"
+    },
+    {
+      "claim": "7 株 T0 系（TSS-2、3、5、6、7、8、10）GC 在 13.09 min 出峰，质谱与紫草二烯匹配",
+      "source_locator": "PDF 第 6 页 Results 节",
+      "evidence": "seven independent T0 transformed lines, TSS-2, 3, 5, 6, 7, 8, and 10, showed a GC peak at 13.09 min (Fig. 3b), and the mass spectrum for the peak exactly matched with the mass spectroscopy profile of taxadiene (Fig. 3c)"
+    },
+    {
+      "claim": "T0 系合成量 4–18 μg/g dw；共获得 200 愈伤 → 110 转化系 → 14 株阳性",
+      "source_locator": "PDF 第 6 页 Results 节",
+      "evidence": "producing 4–18 μg taxadiene per gram of dried leaves … Next, 200 calluses were obtained … A total of 110 transformed lines were subsequently transplanted … the survived 14 transformed plants"
+    }
+  ],
+  "identity_matches": true,
+  "classification_supported": true,
+  "crop_complete": false
+}

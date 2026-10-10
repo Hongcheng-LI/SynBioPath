@@ -1,0 +1,143 @@
+{
+  "pass": false,
+  "major_issues": [
+    {
+      "issue": "Figure 4 裁剪图（PDF p.8）仅包含图注文字 'FIGURE 4 Online high throughput microscale screening results...'，完全不含 (a)–(f) 六个子图本体（生物量、pH、DO 曲线）。",
+      "source_locator": "原文 p.8，Figure 4 本体位于页面前半部分",
+      "correction": "归一化 bbox 应覆盖页面包含所有子图区域，建议约 [0.05, 0.04, 0.97, 0.85]；当前仅 [0, 0.62, 1, 1] 范围遗漏了图表本体。"
+    },
+    {
+      "issue": "Figure 6 裁剪图（PDF p.10）仅显示图注文本，未包含 (a) 在线监测曲线和 (b) 紫杉烷/GGOH 柱状图本体。",
+      "source_locator": "原文 p.10 Figure 6 位于页面下半部分",
+      "correction": "bbox 应覆盖图表本体加图注，约 [0.05, 0.45, 0.97, 0.98]；当前 bbox 仅含图注。"
+    },
+    {
+      "issue": "Figure 7 裁剪图（PDF p.11）仅含图注文字 'FIGURE 7 Effect of medium pH...'，不含 (a)–(d) 四个子图（生物量/pH 缓冲对照、产物柱、MiniBio 在线与产物）。",
+      "source_locator": "原文 p.11 Figure 7 位于页面下半部分",
+      "correction": "bbox 应覆盖图本体及图注，约 [0.05, 0.30, 0.97, 0.98]；当前仅 [0, 0.70, 1, 1] 遗漏子图。"
+    },
+    {
+      "issue": "Figure 8 裁剪图（PDF p.13）仅显示图注 'FIGURE 8 Characterization in highly instrumented 1 L BIOSTAT bioreactors...'，不含 (a)–(d)/(s) 子图（生物量-代谢物曲线、产物动力学、offgas、最终滴度柱）。",
+      "source_locator": "原文 p.13 Figure 8 位于页面下半部分",
+      "correction": "bbox 应包含图表本体，约 [0.05, 0.32, 0.97, 0.95]；当前 [0, 0.50, 1, 1] 仅含图注。"
+    },
+    {
+      "issue": "Figure 9 裁剪图（PDF p.14）仅含图注及少量 x 轴标签碎片（如 'pH control'），不含 (a) 百分比柱、(b) 非氧合/氧合滴度堆叠柱、(c) 关键中间体滴度堆叠柱本体。",
+      "source_locator": "原文 p.14 Figure 9 位于页面上半部分",
+      "correction": "bbox 应覆盖三栏图本体，约 [0.04, 0.02, 0.98, 0.45]；当前裁剪 [0, 0, 1, 0.55] 遗漏图主体。"
+    },
+    {
+      "issue": "Figure 3 裁剪图（PDF p.7）仅在顶部露出一小段 x 轴标签碎片（'Ve, Iso-T, Tax, Di'），其后紧跟大段正文 'Biomass accumulation by LRS6 reached a final OD600 of 22.0 ± 1.6...'，图注被推到画面最底部；(a) 生物量曲线与 (b) 紫杉烷柱状图本体几乎完全缺失。",
+      "source_locator": "原文 p.7 Figure 3 位于页面上方",
+      "correction": "bbox 应覆盖图本体+图注，约 [0.05, 0.02, 0.97, 0.45]；当前裁剪包含大量无关正文。"
+    },
+    {
+      "issue": "Figure 5 裁剪图（PDF p.9）仅显示 x 轴标签碎片（'Verticillene, Iso-Taxadiene, Taxadiene, Diterpene 2, Iso-OCT, Diterpenoid 1, OCT, T5αol, GGOH, Taxadiendiol, Diterpenoid 2'），柱状图主体 (a) LRS5、(b) LRS6 完全未呈现；其下为正文段落。",
+      "source_locator": "原文 p.9 Figure 5 位于页面上半部分",
+      "correction": "bbox 应覆盖两子图柱状图本体+图注，约 [0.04, 0.02, 0.98, 0.50]；当前裁剪仅含轴标签碎片。"
+    },
+    {
+      "issue": "Figure 1 裁剪图（PDF p.4）包含图本体+图注，但图注下方误纳入了 Section 2 正文 'factories. State of the art micro and minibioreactor tools were subsequently employed to characterize and optimize the pathway...' 与 '2 | MATERIALS AND METHODS / 2.1 | Strain construction' 标题段，违反'仅含图表本体与图注'的裁剪规则。",
+      "source_locator": "原文 p.4 Figure 1 之下 Section 2 起始",
+      "correction": "bbox 应紧贴图注末尾结束，约 [0.04, 0.04, 0.97, 0.55]；当前裁剪包含约一栏正文。"
+    },
+    {
+      "issue": "Table 1 裁剪图（PDF p.5）左半部分误纳入 Section 2.1 正文 '1p-TASY-GFP. ARS1622b:GAL1p-MBP-TASY-ERG20. ARS1114a:TDH-3p-MBP-TASY-ERG20...) was originally derived...' 段落，超出表格本体范围。",
+      "source_locator": "原文 p.5 Table 1 与左栏正文",
+      "correction": "Table 1 位于右栏，应裁剪为右半页，约 [0.50, 0.06, 0.97, 0.50]，仅保留表头与 8 行。"
+    },
+    {
+      "issue": "原文内部存在 '78 mg/L 相对 Zhou 2015 33 mg/L' 提升倍数表述不一致：Abstract 写 '2.7‐fold'，Conclusion 第一段写 '2.4‐fold'，Conclusion 第二段写 'twofold'。草稿对此已明示，但作为解读对外发布时该内部差异会损害数据可重复性，应作为已知缺陷显著标注。",
+      "source_locator": "Abstract (p.2-3)、Conclusion 第一段 (p.14)、Conclusion 第二段 (p.15)",
+      "correction": "建议在所有引用处统一为 2.4-fold (78/33≈2.36)，并在写作中指出原文三种表述并存的笔误性质；草稿已并列入第六节特别说明，但需在标题/摘要层级重申此为原文内部矛盾。"
+    }
+  ],
+  "minor_issues": [
+    {
+      "issue": "Figure 8 子图 (s)（最终滴度柱）在草稿与裁剪图中均存在，但原文 Figure 8 标注的子图为 (a)、(b)、(c)、(d)，'Final titer of each of the taxane products' 子图实际位于右上角被标注为 (d) 而非 (s)；草稿沿用 (s) 与原文标签不一致。",
+      "source_locator": "原文 p.13 Figure 8 标题与 (s) 标号",
+      "correction": "核对原文 PDF p.13 后修正为 (d)；草稿报告应同步修正。"
+    }
+  ],
+  "figure_coverage": {
+    "expected_labels": [
+      "Figure 1",
+      "Table 1",
+      "Figure 2",
+      "Figure 3",
+      "Figure 4",
+      "Figure 5",
+      "Figure 6",
+      "Figure 7",
+      "Figure 8",
+      "Figure 9"
+    ],
+    "covered_labels": [
+      "Figure 1",
+      "Table 1",
+      "Figure 2",
+      "Figure 3",
+      "Figure 4",
+      "Figure 5",
+      "Figure 6",
+      "Figure 7",
+      "Figure 8",
+      "Figure 9"
+    ],
+    "missing_panels": [
+      "Figure 4 子图 (a)–(f) 主体（生物量/pH/DO 曲线）全部缺失",
+      "Figure 6 子图 (a) 在线监测曲线、(b) 紫杉烷/GGOH 柱状图本体缺失",
+      "Figure 7 子图 (a)–(d)（含微规模缓冲对照与 MiniBio 数据）本体缺失",
+      "Figure 8 子图 (a)–(d) 本体缺失",
+      "Figure 9 子图 (a)/(b)/(c) 本体缺失",
+      "Figure 3 子图 (a) 生物量曲线、(b) 紫杉烷柱状图本体几乎完全缺失",
+      "Figure 5 子图 (a) LRS5、(b) LRS6 柱状图本体缺失"
+    ],
+    "missing_pages": []
+  },
+  "verified_claims": [
+    {
+      "claim": "Abstract 报告微规模高通量优化使总氧合紫杉烷滴度达 39.0 ± 5.7 mg/L",
+      "source_locator": "Abstract, p.2",
+      "evidence": "'High‐throughput microscale optimization enhanced total oxygenated taxane titer to 39.0 ± 5.7 mg/L'"
+    },
+    {
+      "claim": "微规模与 MiniBio 500 总紫杉烷滴度分别为 95.4 ± 18.0 与 98.9 mg/L",
+      "source_locator": "Abstract, p.2",
+      "evidence": "'total taxane product titers were comparable at micro and minibioreactor scale at 95.4 ± 18.0 and 98.9 mg/L, respectively'"
+    },
+    {
+      "claim": "引入 pH 控制使潜在 T5αol 异构体（diterpenoid 1）滴度达 19.2 mg/L，微规模为 23.8 ± 3.7 mg/L",
+      "source_locator": "Abstract, p.2",
+      "evidence": "'the potential taxadien‐5α‐ol isomer titer to 19.2 mg/L, comparable with the 23.8 ± 3.7 mg/L achieved at microscale'"
+    },
+    {
+      "claim": "1 L BIOSTAT 反应器中 T5αAc 最终滴度 3.7 mg/L",
+      "source_locator": "Abstract, p.2",
+      "evidence": "'taxadien‐5α‐yl‐acetate detection with a final titer of 3.7 mg/L'"
+    },
+    {
+      "claim": "1 L BIOSTAT 总氧合紫杉烷滴度提升至 78 mg/L",
+      "source_locator": "p.3 引言尾段",
+      "evidence": "'Total oxygenated taxane titers were improved 2.7‐fold at this scale to 78 mg/L'"
+    },
+    {
+      "claim": "LRS5 在 4% 半乳糖微规模下 taxadiene 滴度为 '137 ± 5 g/L'（原文笔误，应为 mg/L）",
+      "source_locator": "Section 3.3.2, p.8",
+      "evidence": "'The LRS5 strain produced a maximum taxadiene titer of 137 ± 5 g/L when grown in 4% galactose (100:0) medium'"
+    },
+    {
+      "claim": "提升倍数 2.7-fold / 2.4-fold / twofold 三种表述并存",
+      "source_locator": "Abstract (p.2) '2.7‐fold'、Conclusion 第一段 (p.14) '2.4‐fold'、Conclusion 第二段 (p.15) 'twofold'",
+      "evidence": "'were improved 2.7‐fold at this scale to 78 mg/L' 与 '78 mg/L, compared with the highest reported titer for the E. coli/S. cerevisiae consortium system (Zhou et al., 2015)' 与 'Total oxygenated taxane titers were improved twofold to 78 mg/L'"
+    },
+    {
+      "claim": "LRS6 微规模最高氧合紫杉烷滴度 51 mg/L",
+      "source_locator": "Section 3.3.2, p.8",
+      "evidence": "'The highest concentration of oxygenated taxanes was also achieved for LRS6 grown in the 4% galactose (100:0) medium at 51 mg/L'"
+    }
+  ],
+  "identity_matches": true,
+  "classification_supported": true,
+  "crop_complete": false
+}

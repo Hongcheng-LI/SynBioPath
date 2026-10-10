@@ -1,0 +1,105 @@
+{
+  "pass": false,
+  "major_issues": [
+    {
+      "issue": "Table 1 裁剪图右半部分缺失，pHCMC04G 载体整行被截掉",
+      "source_locator": "PDF 第 4 页 Table 1（细菌菌株与载体表）",
+      "correction": "Table 1 实际横跨左半页从上到下较长区域，需要更宽的右边界。完整 Table 1 包含三株菌（Bs 168、Bs 168_txs、E. coli DH5α）和三个载体（pDR111、pBS0E、pHCMC04G，含 ~6 拷贝、CmR、AmpR 等属性）。所提供裁剪图仅显示到 pBS0E 行的 '(Popp et al., 20' 处即被截断；pHCMC04G 行完全缺失。建议将 bbox 调整为约 [0.07, 0.06, 0.55, 0.58] 以包含全部三行 Reference 及 pHCMC04G 行。"
+    },
+    {
+      "issue": "Table 2 裁剪图右半部分缺失，最后一列'Genes in the operon'被截断，SDFHCEGA 株的完整基因列表（dxs+ispD+ispH+ispF+ispC+ispE+ispG+ispA）不完整",
+      "source_locator": "PDF 第 6 页 Table 2（本研究构建的 B. subtilis 工程菌株表）",
+      "correction": "Table 2 标题列原文为 'Genes in the operon'，裁剪图仅显示 'Genes in the'；最后一行基因列表被截断为 'dxs + ispD + ispH + ispF + ispC + ispE +'，丢失 'ispG + ispA'。需更宽的右边界，建议 bbox 约为 [0.07, 0.07, 0.56, 0.30]。"
+    },
+    {
+      "issue": "部分论文未支持的肯定断言：草稿在'Q2 回答'中将'17.8 mg/L 高于已发表的酵母和大肠杆菌摇瓶体系'作为支持'B. subtilis 是更优底盘'的证据，但原文仅做数值对比并指出培养基/条件不统一并未声称宿主优势",
+      "source_locator": "PDF 第 9 页 Discussion：'This production level is higher than the amount reported in yeast 8.7 mg/L (Engels et al., 2008) and in E. coli 11.3 mg/L (Bian et al., 2017) on shake flask fermentation level'",
+      "correction": "此处应当明确为'原文给出的跨文献摇瓶产量对比（条件不统一）'，而非'B. subtilis 作为更优底盘'的证据。草稿中 Q2 回答整体可保留，但应避免把跨文献摇瓶数值对比升级为宿主优越性的严格证明。"
+    },
+    {
+      "issue": "草稿'分类依据'中将 Yilmaz/Bian 数据用于横向对比时未说明这些数字来源：原文实际引用的 E. coli 摇瓶对照为 Bian et al., 2017（论文同时涉及 E. coli 与 Alternaria alternata TPF6），11.3 mg/L 的归属（E. coli 还是真菌）需谨慎处理",
+      "source_locator": "PDF 第 9 页 Discussion；参考文献 Bian, G., Yuan, Y., Tao, H., Shi, X., Zhong, X., Han, Y., et al. (2017)",
+      "correction": "Bian et al., 2017 的标题为 'Production of taxadiene by engineering of mevalonate pathway in Escherichia coli and endophytic fungus Alternaria alternata TPF6'，文中 'E. coli 11.3 mg/L' 的具体指代（重组大肠杆菌还是内生真菌）需查 Bian 原文确认。草稿不应不加说明地直接归为'B. subtilis 优于 E. coli'的明确证据。"
+    }
+  ],
+  "minor_issues": [
+    {
+      "issue": "Figure 5 草稿描述中将'破胞与不破胞产量几乎一致'强化为'紫杉二烯分泌至胞外'的直接证明；原文中作者自己也将此作为'indicates that taxadiene is released'（指示性），草稿在 Q3 处已自行说明属间接证据，措辞统一即可。",
+      "source_locator": "PDF 第 9 页 Discussion 'the amount of taxadiene extracted from the cell culture with and without lysis is nearly the same ... This indicates that taxadiene is released from the cells'"
+    },
+    {
+      "issue": "期刊简写：根据原 PDF 首页页脚应使用 'Front. Microbiol.' 而非 'Frontiers in Microbiology'。",
+      "source_locator": "原 PDF 首页页脚 'Front. Microbiol. 10:218.'"
+    }
+  ],
+  "figure_coverage": {
+    "expected_labels": [
+      "Figure 1 (panels A, B)",
+      "Figure 2",
+      "Figure 3 (panels A, B, C)",
+      "Figure 4",
+      "Figure 5",
+      "Figure 6",
+      "Table 1",
+      "Table 2"
+    ],
+    "covered_labels": [
+      "Figure 1 (panels A, B) — 第 2 页",
+      "Figure 2 — 第 6 页",
+      "Figure 3 (panels A, B, C) — 第 7 页",
+      "Figure 4 — 第 8 页",
+      "Figure 5 — 第 8 页",
+      "Figure 6 — 第 8 页"
+    ],
+    "missing_panels": [
+      "Table 1 右侧列及 pHCMC04G 行缺失（第 4 页）",
+      "Table 2 右侧 'Genes in the operon' 列及最后一行基因列表末尾缺失（第 6 页）"
+    ],
+    "missing_pages": []
+  },
+  "verified_claims": [
+    {
+      "claim": "紫杉二烯总产量 17.8 mg/L",
+      "source_locator": "原文第 1 页摘要：'The total amount of taxadiene produced by that strain was 17.8 mg/l'；PDF 第 9 页 Discussion：'the total production of taxadiene is around 17.8 mg/L'",
+      "evidence": "17.8 mg/l"
+    },
+    {
+      "claim": "相较 txs 单基因株提升约 83 倍",
+      "source_locator": "原文第 6 页 Results：'the strain expressing all the genes showing the highest production levels (1.981 mg/L/OD600), which is approximately 83 times higher than the control strain'",
+      "evidence": "approximately 83 times higher than the control strain"
+    },
+    {
+      "claim": "txs 株、txs+crtE 株、txs+crtE+SDFHCEGA 株的产量分别为 0.024、0.471、1.981 mg/L/OD600",
+      "source_locator": "原文第 6-7 页 Results",
+      "evidence": "0.024 mg/L/OD600, 0.471 mg/L/OD600, 1.981 mg/L/OD600"
+    },
+    {
+      "claim": "TXS 可溶蛋白约 89 kDa，20°C 表达最佳",
+      "source_locator": "原文第 6 页 Results：'the expression of TXS (approximately 89 kDa)'；'A clear band representing TXS was seen on Western blot (Figure 2) following expression at 20°C'",
+      "evidence": "approximately 89 kDa"
+    },
+    {
+      "claim": "β-石竹烯保留时间 9.25 min，紫杉二烯保留时间 20.05 min",
+      "source_locator": "原文第 6 页 Results：'internal standard β-caryophyllene peak at retention time 9.25 min. and the taxadiene peak at retention time 20.05 min'",
+      "evidence": "9.25 min and 20.05 min"
+    },
+    {
+      "claim": "p04_SDFHCEGA 合成操纵子大小 16.4 Kb",
+      "source_locator": "原文第 4 页 Materials and Methods：'p04_SDFHCEGA (16.4 Kb)'",
+      "evidence": "16.4 Kb"
+    },
+    {
+      "claim": "30 代无抗传代下 pDR_txs 与 pBS0E_crtE 100% 保留，p04_SDFHCEGA 约 90% 保留",
+      "source_locator": "原文第 7-8 页 Results：'100% ability to retain the pDR_txs and pBS0E_crtE constructs until the 30th generation along with 90% ability to retain the p04_SDFHECEGA construct'",
+      "evidence": "100% ability to retain ... 90% ability to retain"
+    },
+    {
+      "claim": "TXS 来源于 T. baccata，全长 862 氨基酸，本研究截短 N 端 60 个氨基酸",
+      "source_locator": "原文第 9 页 Discussion：'the gene encoding taxadiene synthase was amplified from the genome of the plant T. baccata that produces a protein of 862 amino acids'；第 3 页：'The txs gene was truncated by deleting the first 60 amino acids'",
+      "evidence": "862 amino acids; first 60 amino acids"
+    }
+  ],
+  "identity_matches": true,
+  "classification_supported": true,
+  "crop_complete": false
+}

@@ -1,0 +1,95 @@
+```json
+{
+  "pass": false,
+  "major_issues": [
+    {
+      "issue": "Figure 1 (PDF p.21) 裁剪截掉了底部终端产物结构与标签",
+      "source_locator": "PDF p.21 图版底部 'Taxa-4(5),11(12)-diene' 终产物结构及标签区",
+      "correction": "在 p.21 上的裁剪下边界需从约 y=0.92 扩展至 y≈0.97，完整保留 TS→Taxa-4(5),11(12)-diene 的终产物化学结构与文字标签；建议归一化 bbox 修正为 [0.18, 0.06, 0.85, 0.97]"
+    },
+    {
+      "issue": "Figure 1 (PDF p.22) 图注裁剪截掉了酶缩写完整列表",
+      "source_locator": "PDF p.22 图注 'Enzyme abbreviations' 一段结束处之后的 DXS/DXR/IspD/IspE/IspF/IspG/IspH/AAT(ERG10)/ERG13/HMGR/ERG12/ERG8/MVD1/Idi/GGPPS/TS 全部缩写定义",
+      "correction": "扩展至 p.22 下边界 y≈0.46 方可完整保留酶缩写列表；建议 bbox [0.08, 0.08, 0.93, 0.46]（当前裁剪上只到 '(GGPP). Enzyme' 即被截掉）"
+    },
+    {
+      "issue": "Figure 2 (PDF p.23) 图注裁剪中段截断，未包含完整说明",
+      "source_locator": "PDF p.23 图注 'Comparison of the effects of different copy numbers of ggpps and ts on the production of taxadiene in E. coli…GC-MS. The mean ± SD for three biological replicates are shown.' 整段",
+      "correction": "扩展至 p.23 下边界 y≈0.95 即可；建议 bbox [0.05, 0.06, 0.95, 0.95]"
+    },
+    {
+      "issue": "Figure 3 (PDF p.24) 图注裁剪同样中段截断",
+      "source_locator": "PDF p.24 图注含比例尺 10 μm、GB92–GB99 启动子对应说明、Panel B 的 qPCR 描述、'three biological replicates are shown.'",
+      "correction": "扩展至 p.24 下边界 y≈0.94；建议 bbox [0.05, 0.06, 0.95, 0.94]"
+    },
+    {
+      "issue": "Figure 4 (PDF p.25) 图注裁剪同样中段截断，'with a retention time of 16.6 min' 等关键信息缺失",
+      "source_locator": "PDF p.25 图注完整段落",
+      "correction": "扩展至 p.25 下边界 y≈0.86；建议 bbox [0.05, 0.06, 0.95, 0.86]"
+    },
+    {
+      "issue": "解读稿在'Q3 及其六、总体结论'部分引入 Ajikumar 2010 的 '1 g/L 级紫杉二烯' 以及'相比之下 E. coli 已 1 g/L 级'等具体数值，原文并未提供该定量比较",
+      "source_locator": "解读稿'六、总体结论'末段与'八、Q3'对照句：'与已发表的 E. coli 中 1 g/L 级紫杉二烯（Ajikumar et al., 2010 [7]）相比'，原文 §3.1、Discussion 仅说'[7] 提升约 15,000 倍'与'T2 相对可行'，无 1 g/L 直接定量",
+      "correction": "删除'1 g/L 级'具体数值，或明确注明'该数值为外部参考文献 Ajikumar 2010 报道，非本文定量'，避免被理解为本文作者提出的对比"
+    }
+  ],
+  "minor_issues": [
+    {
+      "issue": "Figure 4A 描述中 'CAMVf'、'NOS' 应为 'CAMVt'、'NOSt'（终止子）",
+      "source_locator": "解读稿 Figure 4 caption: 'pGB123: LB–CAMVf–HPTII–trpCp–alcAp–TS–NOS–RB'",
+      "correction": "更正为 'pGB123: LB-CAMVt-HPTII-trpCp-alcAp-TS-NOSt-RB'"
+    },
+    {
+      "issue": "解读稿'Q1'段将 HMG1 为限速步骤作为'作者把限速步骤定位在 HMG-CoA 还原酶'的机制结论，但该判断严格依赖 GC-MS 检测有/无的间接比较，原文 §3.4 未直接做酶水平验证",
+      "source_locator": "解读稿八、Q1",
+      "correction": "措辞收紧为'作者基于 GB127 vs GB125 信号差异推断 Hmg1 为反馈受限步骤'，与原文证据强度一致"
+    }
+  ],
+  "figure_coverage": {
+    "expected_labels": ["Figure 1", "Figure 2", "Figure 3", "Figure 4", "Table 1"],
+    "covered_labels": ["Figure 1", "Figure 2", "Figure 3", "Figure 4", "Table 1"],
+    "missing_panels": ["Figure 1 p.21 底部 Taxa-4(5),11(12)-diene 结构与标签缺失", "Figure 1 p.22 酶缩写全列表缺失", "Figure 2/3/4 图注后半段缺失"],
+    "missing_pages": [21, 22]
+  },
+  "verified_claims": [
+    {
+      "claim": "E. coli T2 摇瓶紫杉二烯产量 11.3 ± 0.5 mg/L (13.2 mg/gDCW)、T4 5.0 ± 0.7 mg/L (5.9 mg/gDCW)",
+      "source_locator": "PDF p.9–10 §3.1",
+      "evidence": "原文：'The titers of taxadiene produced by mutants T2 and T4 at the shaking flask level were 11.3 ± 0.5 mg/L (13.2 mg/gDCW) and 5.0 ± 0.7 mg/L (5.9 mg/gDCW; Figure 2B), respectively.'"
+    },
+    {
+      "claim": "GB127 紫杉二烯产量 61.9 ± 6.3 μg/L",
+      "source_locator": "PDF p.2 abstract；PDF p.12 §3.4",
+      "evidence": "原文 abstract：'we could detect 61.9 ± 6.3 μg/L taxadiene in the engineered strain GB127'；§3.4：'a maximum concentration of 61.9 ± 6.3 μg/L (Figure 4B and 4C).'"
+    },
+    {
+      "claim": "GB127 5 次独立实验重现",
+      "source_locator": "PDF p.12",
+      "evidence": "原文：'This result was reproduced in five parallel experiments, indicating that taxadiene could be constantly overexpressed in this strain.'"
+    },
+    {
+      "claim": "启动子强度由 GB93 (gpdA) 4.5×10³ 到 GB94 (alcA) 3.4×10⁷，跨度 >7,000 倍；排序 alcA > agdA > trpC > glaA > oliC > gpdA",
+      "source_locator": "PDF p.11 §3.3",
+      "evidence": "原文：'the strength of the promoters ranged from 4.5 × 10³ (GB93) to 3.4 × 10⁷ (GB94), with a span of more than 7,000 times, in the order of alcA > agdA > trpC > glaA > oliC > gpdA (Figure 3B).'"
+    },
+    {
+      "claim": "MEP 途径工程使 E. coli 紫杉二烯提高约 15,000 倍（引用 [7] Ajikumar 2010）",
+      "source_locator": "PDF p.3 §1 Introduction",
+      "evidence": "原文：'the production of taxadiene was increased approximately 15,000-fold [7].'"
+    },
+    {
+      "claim": "A. alternata TPF6 转录组测序检测到 10,612 个预测基因；hmg1 转录水平偏低，erg10/13/12/8/mvd1/idi 充足",
+      "source_locator": "PDF p.10 §3.2",
+      "evidence": "原文：'10612 predicted genes were detected… the transcript levels of erg10, erg13, erg12, erg8, mvd1, and idi… were satisfactory… the transcription level of hmg1 was relatively low.'"
+    },
+    {
+      "claim": "GB123 (alcAp-TS)、GB125 (trpCp-Idi + alcAp-TS)、GB127 (trpCp-Idi + oliCp-tHMG1 + alcAp-TS) 三菌为递进构建",
+      "source_locator": "PDF p.11 §3.4；Table 1",
+      "evidence": "原文：'The mutants GB123 (harboring the ts gene), GB125 (harboring the ts gene plus the idi gene), and GB127 (harboring the ts gene plus the idi and thmg1 genes; Table 1, Figure 4A) were constructed.'"
+    }
+  ],
+  "identity_matches": true,
+  "classification_supported": true,
+  "crop_complete": false
+}
+```
