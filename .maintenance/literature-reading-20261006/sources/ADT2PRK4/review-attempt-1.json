@@ -1,0 +1,90 @@
+{
+  "pass": false,
+  "major_issues": [
+    {
+      "issue": "Figure 1 裁剪严重不完整：bbox [0.058, 0.56, 0.51, 0.87] 仅覆盖页面左半部分，缺失右侧约一半内容（Taxa-4(5)-diene、Taxen-4-yl cation、OCT、Taxol 等化学结构及连接箭头）。原文 Figure 1 横跨页面整宽，是理解整条反应级联（含紫杉醇路径终点）的核心图，该裁剪丢失了关键的右半段。",
+      "source_locator": "原文 PDF 物理页 3，Figure 1",
+      "correction": "正确 normalized bbox 应约为 [0.058, 0.56, 0.95, 0.87]，覆盖整个 Figure 1 宽度，以包含 Taxa-4(5)-diene → Taxen-4-yl cation → taxa-4(20)-diene/OCT/Taxol 的完整路径。"
+    },
+    {
+      "issue": "数据捏造：报告称'Q609A 与 Y688C 中 C13 氢分别缩短约 1 Å 与 2 Å'，但原文（PDF 第 12 页）仅对 Y688C 明确给出'C13 hydrogens shifted by ≈ 2 Å'，对 Q609A 仅说'hydrogens of C13 shift closer'未给出具体距离；'≈ 1 Å'实为 V610F 中 C17 甲基氢的位移值（PDF 第 11 页），被错误归属于 Q609A 的 C13 氢。",
+      "source_locator": "原文 PDF 物理页 11-12，Discussion 段落（V610F/Q609A/Y688C 的 MD 分析）",
+      "correction": "应改为：V610F 中 C17 甲基氢缩短 ≈ 1 Å；Y688C 中 C13 氢缩短 ≈ 2 Å；Q609A 中 C13 氢'shift closer'但原文未给出具体数值，不应填写'约 1 Å'。"
+    }
+  ],
+  "minor_issues": [
+    {
+      "issue": "Figure 2 裁剪图顶部包含了页眉'87 Page 6 of 14'和'Planta (2024) 259:87'，违反裁剪规则（不应包含页眉/页脚）。",
+      "source_locator": "原文 PDF 物理页 6，Figure 2",
+      "correction": "调整 bbox 顶部起始位置至页眉之下，例如 top 从 0.04 改为约 0.07。"
+    }
+  ],
+  "figure_coverage": {
+    "expected_labels": [
+      "Figure 1",
+      "Figure 2",
+      "Figure 3",
+      "Figure 4",
+      "Figure 5",
+      "Figure 6",
+      "Figure 7"
+    ],
+    "covered_labels": [
+      "Figure 2",
+      "Figure 3",
+      "Figure 4",
+      "Figure 5",
+      "Figure 6",
+      "Figure 7"
+    ],
+    "missing_panels": [
+      "Figure 1 右侧约一半（含 Taxa-4(5)-diene、Taxen-4-yl cation、OCT、Taxol 结构与连接箭头）"
+    ],
+    "missing_pages": []
+  },
+  "verified_claims": [
+    {
+      "claim": "Full-length TXS 包含 862 个残基，N 端约 80 残基为质体靶向序列",
+      "source_locator": "原文 PDF 物理页 3",
+      "evidence": "Full length TXS consists of 862 residues, including an N-terminal plastid targeting sequence of ≈ 80 residues"
+    },
+    {
+      "claim": "活性中心位于 C 端域 (S553-V862)，含金属结合基序 D613DMAD617 与 N757DTKT761YQAE765",
+      "source_locator": "原文 PDF 物理页 3",
+      "evidence": "the active site of TXS is positioned in the C-terminal domain (S553-V862) comprising the metal-binding motifs D613DMAD617 and N757DTKT761YQAE765"
+    },
+    {
+      "claim": "野生型 TXS 体外产物约 90% taxa-4(5)-diene、6% taxa-4(20)-diene",
+      "source_locator": "原文 PDF 物理页 8",
+      "evidence": "wild-type TXS produced approximately 90% taxa-4(5)-diene and 6% taxa-4(20)-diene"
+    },
+    {
+      "claim": "突变库共 266 变体，覆盖 14 个残基（V584、S587、F602、G606、Q609、V610、Y688、Y706、S713、V714、T761、Y762、Q770、F834）",
+      "source_locator": "原文 PDF 物理页 6",
+      "evidence": "A mutant library of 266 variants was generated...14 residues were selected for mutation, namely V584, S587, F602, G606, Q609, V610, Y688, Y706, S713, V714, T761, Y762, Q770, and F834"
+    },
+    {
+      "claim": "V610F 以 cembrene A 68% 为主产物，伴 V 5.3%、V1 8.54%",
+      "source_locator": "原文 PDF 物理页 11",
+      "evidence": "V610F produced cembrene A as the major product (68%) with minor production of V (5.3%) and V1 (8.54%)"
+    },
+    {
+      "claim": "V584M、Q609A、Y688C 分别将 V 占比推至 89%、77%、69%",
+      "source_locator": "原文 PDF 物理页 12",
+      "evidence": "V584M, Q609A, and Y688C showed marked decrease in the production of taxa-4(5)-diene with increased proportion of V; 89%, 77% and 69%, respectively"
+    },
+    {
+      "claim": "Y688E/G/L/H 的 taxa-4(20)-diene 占比分别为 12.4%、13.5%、13.4%、13.7%",
+      "source_locator": "原文 PDF 物理页 8",
+      "evidence": "Y688E, Y688G, Y688L, and Y688H produced 12.4%, 13.5%, 13.4%, and 13.7%, respectively"
+    },
+    {
+      "claim": "Y688L 总双烯产量约为野生型的 55%（vs 96%）",
+      "source_locator": "原文 PDF 物理页 8",
+      "evidence": "showed much lower total production of both taxa-4(5)-diene and taxa-4(20)-diene (55% versus 96% of the wild type"
+    }
+  ],
+  "identity_matches": true,
+  "classification_supported": true,
+  "crop_complete": false
+}
