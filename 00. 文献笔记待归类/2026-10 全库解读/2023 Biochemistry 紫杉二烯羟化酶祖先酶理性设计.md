@@ -100,7 +100,7 @@ GC-MS 结果 (Figure 2A) 表明，所有四个祖先酶均能催化 taxadiene �
 作者首先进行基于结构的序列比对 (Figure 3)。结果显示，**5 个酶共享典型的 CYP450 保守特征**：血红素结合区 Cys420 (Cys pocket)、PFG 模体 (412–415，与 heme 环连接)、I-helix 上负责 O<sub>2</sub> 激活的 Thr285 及其相邻酸性残基 (284)、以及 PERF 模体 (390–393)。这些保守位点保证了祖先和现存酶催化机制的一致性。然而差异位点散布于整个序列中，且**在 α-helix6 区域 (氨基酸 118–132，包含 15 个残基) 出现 7 个差异位点的"突变热点"**。
 
 
-![Figure 3 原文第 4 页](https://synbiopath.online/SPVR5GSH-Figure-3-p4-1-5da4c07e35e42e0d.png)
+![Figure 3 原文第 4 页](https://synbiopath.online/SPVR5GSH-Figure-3-p4-manual-e0a10c7a2527396d.png)
 
 *Figure 3：A1、A2、A3、A4 与 T5αOH 的基于结构的序列比对。编号对应 A1 序列残基位置；基于 A1 结构的保守二级结构元件 α-螺旋（α1–18）和 β-折叠标记于序列上方；红色高亮残基在五个蛋白中完全一致，白色表示存在差异；ESPript 3.0 渲染。（原文 PDF 截图）。*
 
@@ -128,7 +128,7 @@ AlphaFold2 同源建模 (Figure 4A) 显示，α-helix6 (黄色) 位于血红素�
 3-L 发酵罐验证 (Figure 5) 显示，48 h 时总单氧化产物滴度达 **110.3 mg/L**，体积生产强度 **55.2 mg L<sup>-1</sup> day<sup>-1</sup>**，其中 **taxadien-5α-ol 滴度 22.5 mg/L**。产物比例在整个发酵过程中保持稳定 (以 diterpenoid1 和 OCT 为主，taxadiene-5α-ol 约占总单氧化产物的 20%)。12 h 时未检测到 iso-OCT，作者推测可能由于早期产物浓度过低或 iso-OCT 形成晚于其他三个单氧化产物。
 
 
-![Figure 5 原文第 5 页](https://synbiopath.online/SPVR5GSH-Figure-5-p5-1-29f506a3d13c998c.png)
+![Figure 5 原文第 5 页](https://synbiopath.online/SPVR5GSH-Figure-5-p5-manual-58b6e3a44bd17a15.png)
 
 *Figure 5：突变体 T5αOH (V124I–S127A) 在 3-L 发酵罐中的定量分析（iso-OCT、diterpenoid1、OCT、T-5α-ol 在 12/24/36/48 h 的滴度变化）。（原文 PDF 截图）。*
 
