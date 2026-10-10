@@ -1,0 +1,14 @@
+import json,hashlib,re,datetime
+from pathlib import Path
+import worker as w
+d=w.ROOT/'sources'/'IDRG7GFP';rec=json.loads((d/'prepared.json').read_text(encoding='utf-8'));pub=json.loads((d/'publication.json').read_text(encoding='utf-8'));draft=json.loads((d/'codex-draft.json').read_text(encoding='utf-8'))['draft'];note=Path(pub['note']);body=note.read_text(encoding='utf-8');w.validate_structure(draft)
+checks={'source_pdf_unchanged':hashlib.sha256(Path(rec['main_pdf']).read_bytes()).hexdigest()==rec['main_pdf_sha256'],'eight_research_chapters':len(re.findall(r'^# ',body,re.M))==8,'no_unresolved_figure_markers':'<!--FIGURE:' not in body,'all_image_urls_embedded':all(x['url'] in body for x in pub['images']),'all_local_crops_intact':all(hashlib.sha256(Path(x['file']).read_bytes()).hexdigest()==x['sha256'] for x in pub['images']),'actual_image_embed_count':len(re.findall(r'!\[[^\]]*\]\(https://',body))==6,'all_main_figures':sorted(x['label'] for x in pub['images'])==['Figure '+str(i) for i in range(1,7)],'source_review_pass':pub['source_review']['pass'],'deferred_directory':'文献笔记待归类' in str(note),'printed_DOI':'首页页脚 DOI' in body,'structural_chain':'m/z 304' in body and 'NMR' in body,'sequence_deposition':'AY056019' in body,'kinetic_units':'24 ± 9 μM' in body and '14 ± 4 μM' in body,'minor_activity_preserved':'约为前者的 6%' in body,'crossnegative_boundary':'在本文条件下未检出' in body,'path_alternatives':'偶然底物' in body and '更晚' in body,'not_titer':'不是完整宿主生产紫杉醇的发酵滴度' in body}
+assert all(checks.values()),checks
+baseline=json.loads((w.ROOT/'existing-note-hashes.json').read_text(encoding='utf-8'));changed=[]
+for item in baseline:
+ p=w.VAULT/item['path']
+ if not p.exists() or hashlib.sha256(p.read_bytes()).hexdigest()!=item['sha256']:changed.append(item['path'])
+pubs=[json.loads(p.read_text(encoding='utf-8')) for p in (w.ROOT/'sources').glob('*/publication.json')];inv=json.loads((w.ROOT/'prepared-inventory.json').read_text(encoding='utf-8'))
+result={'time':datetime.datetime.now().isoformat(),'new_notes':[{'key':rec['key'],'note':str(note),'images':len(pub['images']),'checks':checks}],'existing_baseline_files':len(baseline),'existing_baseline_unchanged':len(baseline)-len(changed),'existing_baseline_changed':changed,'remote_verification':'publish uses PicGo and GET content SHA256 per image','excluded_heptose_paper_has_no_publication':not(w.ROOT/'sources'/'2E5UEWNP'/'publication.json').exists(),'published_notes_total':len(pubs),'images_total':sum(len(x['images']) for x in pubs),'remaining_ready':sum(x.get('status')=='ready' and not(w.ROOT/'sources'/x['key']/'publication.json').exists() for x in inv['records'])}
+assert not changed and result['excluded_heptose_paper_has_no_publication'],result
+w.write_json(w.ROOT/'codex-paper-integrity-idrg-20261009.json',result);print(json.dumps(result,ensure_ascii=False))

@@ -1,0 +1,159 @@
+---
+type: literature-reading
+zotero_key: WFQ9NBJX
+doi: "10.1039/d4gc03079f"
+paper_type: research
+classification_status: pending
+reading_status: main-text-and-figures-read
+review_status: codex-source-checked
+human_full_paper_review: false
+source_attachment: 5WFTTJIB
+source_sha256: 3a4f689fbad02ca17a237b65436660621e9c524c9e933a99bccbab64f6179772
+created: 2026-10-10
+---
+
+> 原文来源：[Zotero 条目](zotero://select/library/items/WFQ9NBJX)；[DOI](https://doi.org/10.1039/d4gc03079f)；由当前 Codex 读取原始主文并核对图表，尚未经人工逐项复核。 来源限制：ESIabsentnoindependentprimersequenceNMRcurvesrawomicsverification；131.97versus78.4increase68.33percent notbody93percentbaselineunclear；878.5versus282.4ratio3.111 notbody5.7initialshakeflaskbaselineunclear；Fig3FcaptionintactTSaction vsGAPDHmethods/E notsameasFig2intactoverTS13.7percent；Fig3Ftriplestar notdefinedbycaptiononly1/2star noexactP orallpaneln；Fig4Ccaptionabsolutemetabolites butmethodMaxQuantLFQandaxisLFQintensity proteinabundance notmetaboliteorabsoluteconcentration；GGOHbody76.9→110.4mgL Fig5Dpinkbarslower unresolvedrawdata；Figure6galactosecaptionvsbodyglucosetoethanol and25ml20percent10mlvolumebasis unclear；BST1/BTS1sourcevariants nomenclaturenotindependentsequenceverified；NotdirectPRB1TSproteolysis halftimecleavage-site oractualmeasuredgenomiccopynumbers；Historical2024highestclaimnotverifiedascurrentrecord; taxadienenotPTX 57.3recovery notcarbonconversion 98.45GCareanotabsolutemasspurity。
+
+# 文献基本信息
+
+**标题**：Improving the expression of taxadiene synthase to enhance the titer of taxadiene in Saccharomyces cerevisiae。中文释义：改善紫杉二烯合酶表达以提高酿酒酵母中的紫杉二烯滴度。
+
+**作者与出处**：Chenglong Zhang、Jia Wang、Yi Shi、Nan Wu、Xia Li、Ying Wang、Bingzhi Li、Wenhai Xiao、Mingdong Yao、Yingjin Yuan；Green Chemistry，2024，26，10604–10616。DOI：10.1039/d4gc03079f。6 月 25 日收稿，9 月 5 日接受，9 月 13 日发表。通讯作者 Wenhai Xiao、Mingdong Yao；天津大学合成生物学、生物工程及相关研究机构。国家重点研发计划 2021YFC2101500 支持；作者声明无利益冲突，数据可向通讯作者合理索取。
+
+**来源与范围**：Zotero WFQ9NBJX，附件 5WFTTJIB；本地 API 的标题和 DOI 与主文相符。十三页主文全文及全部原始页面已核对，主文含 Figure 1–6、Table 1；独立 ESI 当前未在附件中，因此引物、序列、谱图、标准曲线及原始蛋白组数据未独立复核。原始 PDF SHA-256：3a4f689fbad02ca17a237b65436660621e9c524c9e933a99bccbab64f6179772。
+
+# 研究背景
+
+Taxadiene 是紫杉醇生物合成的早期二萜前体，生产它不等于完成紫杉醇途径。酿酒酵母具备表达后续膜相关酶的潜力，但 TS 表达、稳定性与催化性能可限制前体输出。既往截短、融合、定位和增加拷贝的策略说明有效 TS 的量很重要，却未充分解释为什么表达的蛋白容易成为低分子量条带。
+
+本文将问题从“能否增加转录或前体”推进到“已有蛋白是否完整保留”。如果 TS 被宿主蛋白降解系统影响，单纯扩大上游 GGPP 供给可能只增加副产物 GGOH。研究需要同时检查蛋白完整性、目标产物和旁路产物，并比较相同表达背景的宿主改动，不能以一个蛋白组差异直接认定代谢通量改变。
+
+
+![Figure 1 原文第 3 页](https://synbiopath.online/WFQ9NBJX-Figure-1-complete.png)
+
+*Figure 1：Figure1.GGPP TS GGOH and finalengineeringoverview not3foldflux.（原文 PDF 截图）。*
+
+
+**Figure 1 解读**：示意图将 MVA 前体途径、GGPP、TS 与 GGOH 分支连接，概括蛋白酶相关宿主改造和 TS 多拷贝表达。最终路径图中的三份前体模块代表本文构建层次，不表示每一步均有三倍通量。图中的 GGOH 下降也不能泛化到后续所有前体增强条件，因为主文随后报告其绝对浓度再次增加。
+
+# 研究思路
+
+作者先确认生产物为 taxadiene，再用 E. coli 与酵母的 TS 条带作比较，配合条带质谱及 Western blot 判断酵母表达中的片段。接着单独删除四个候选蛋白酶基因，分别在低拷贝与多拷贝质粒背景考察 TS 和产物变化，选择 ΔPRB1 背景继续分析。
+
+后续蛋白组比较用于判断 TS 的变化是否伴随前体酶与中心代谢的广泛改变；TS 基因组多拷贝整合和 GGPP 模块增强依次用于处理剩余限制，最后以补料发酵检验组合菌株的表现。该顺序展示瓶颈会随阶段改变，不证明每个阶段只有一个限制因素。删除基因后蛋白保留改善与直接酶切机制是不同强度的结论，前者可以由本文支持，后者还需额外证据。
+
+# 研究方法
+
+宿主为 S. cerevisiae CEN.PK2-1C 衍生的高 GGPP 背景 yZCL078；TS 来自 Taxus brevifolia，主文序列登记 Q41594，表达片段称 t60TS，采用酵母密码子优化。不能把所用工程片段简单当成未经处理的原生全长酶。pRS416 与 pRS426 的低拷贝、多拷贝背景分别考察；蛋白检测采用 His 标签、Ni-NTA、SDS-PAGE、anti-His Western blot 和 GAPDH 内参，ImageJ 量化灰度。
+
+
+![Table 1 原文第 4 页](https://synbiopath.online/WFQ9NBJX-Table-1-complete.png)
+
+*Table 1：Table1.Allstrains andhostgenotypes plasmidbackgrounds integrationstages. Originaltable rotated90degreesclockwise forreadability.（原文 PDF 截图）。*
+
+
+**Table 1 解读**：完整表列出基础宿主、四种单缺失背景、不同表达质粒及后续基因组整合株。yZCL080/yZCL101 是低拷贝表达对照与 ΔPRB1，yZCL107/yZCL110 是多拷贝对照与 ΔPRB1；yZCL124、yZCL136、yZCL137 为后续整合层级。表中还存在 pZCL096 等记录，因此不能把每个同名底盘或质粒编号混作同一次比较。基因在文内 BST1/BTS1 两种拼写并存，笔记保留原图表，不默默更改成已核实序列。
+
+GC/MS 以标准品保留时间和质谱比较，taxadiene 约 12.24 min、GGOH 约 13.46 min；主文报告分离物经 NMR 比较指认，GC 峰面积归一化纯度 98.45%，再建立定量标准曲线。该纯度来自色谱面积，不能直接视为有绝对校准的质量纯度。NMR、曲线和回收细节位于 ESI，本次未独立复核。
+
+蛋白组为 DIA，三次生物学重复，差异阈值 FC >1.2 或 <0.83、P <0.05；方法写采用 MaxQuant LFQ，参考数据库 UP000002311（6060 条，20211018），另加 QJX58297.1。作者将后者描述为常见污染物，本次未取得搜索文件核实该条目身份。主图部分采用 Student’s t-test 及星号阈值，未给全部精确 P 值、多重检验校正或置信区间，不自行补足。
+
+# 实验设计及结果分析
+
+### 蛋白片段证据与“降解”的推断范围
+
+
+![Figure 2 原文第 7 页](https://synbiopath.online/WFQ9NBJX-Figure-2-complete.png)
+
+*Figure 2：Figure2.GCMSstandardcomparison andEcoli/yeastTS SDS Westernintact andfragments GAPDH.（原文 PDF 截图）。*
+
+
+**Figure 2 解读**：A 为表达构型；B/C 将产物保留时间、质谱与标准对照；D 比较 E. coli 与酵母表达条带，E 用 Western blot 检测完整 TS 和较小条带。作者报告约 93 kDa 完整蛋白，酵母额外出现约 53、35、15 kDa 条带。条带质谱覆盖率仅 39.4%、15.5%、7.5%、8.7%，作者承认纯度可能不足，因此用 Western blot 增强判断。
+
+yZCL080 中完整 TS 的条带比例为 13.7%（完整 TS/该样本的 TS 信号）。这不是所有细胞蛋白中的 13.7%，也不能直接当作可溶性酶百分比或催化活性。酵母较小条带和对应 TS 片段支持裂解相关现象，但未在主文报告精确切点、蛋白半衰期或纯化 PRB1 对 TS 的直接切割。生物样品中的蛋白降解、翻译异常和检测偏倚仍需区分；本文的干预结果使宿主降解相关解释更可信，而不是穷尽所有可能机制。
+
+### 四种单缺失的比较与完整 TS 的增加
+
+
+![Figure 3 原文第 8 页](https://synbiopath.online/WFQ9NBJX-Figure-3-complete.png)
+
+*Figure 3：Figure3.Singleproteasedeletions low/multicopyproductandGGOH, WesternGAPDH;Fcaptionaction10.3→48.6percentnormalizationtypo andunexplainedtriplestar preserved.（原文 PDF 截图）。*
+
+
+**Figure 3 解读**：A 为蛋白降解模型，B 为缺失构型，C/D 为两种质粒背景的目标产物和 GGOH，E/F 为完整 TS 的 Western blot 及灰度量化。图中流程画作 proteasome，并把四种候选蛋白酶列在其中，是作者示意，不能据此证明这些蛋白都是同一蛋白酶体复合物的组成或 TS 直接底物酶。
+
+低拷贝比较中，ΔPRB1 yZCL101 从对照 19.8 增至 39.2 mg/L，实算增加 97.98%，与作者约 97% 接近。多拷贝背景 yZCL110 达 78.4 mg/L，主文称比 yZCL107 高约 74%，而不是把 78.4 与低拷贝 19.8 当作同一次基因缺失效应。其他单缺失没有展示与 ΔPRB1 相同幅度的改善，结论针对这些宿主和表达背景。
+
+Figure 3F 报告对照 10.3%、ΔPRB1 48.6%，比值 4.718，即增加约 371.8%，不是增加 371 倍。其图注写 intact TS/action，但方法、E 图均用 GAPDH 内参，归一化名称存在不一致；不可将这一比例和 Figure 2 的完整 TS/总 TS 13.7% 直接拼成时间序列。敲除后较小条带仍存在，说明裂解未完全消除。F 面板有 ***，图注仅解释 **P <0.01 与 *P <0.05，不能凭惯例替作者补 *** 的精确阈值。
+
+### 蛋白组提供的是丰度关联而非绝对通量
+
+
+![Figure 4 原文第 10 页](https://synbiopath.online/WFQ9NBJX-Figure-4-complete.png)
+
+*Figure 4：Figure4.GO counts centralmetabolicproteinheatmap andLFQintensity notabsolutemetaboliteconcentrations.（原文 PDF 截图）。*
+
+
+**Figure 4 解读**：A 展示 GO 分类，B 展示糖酵解、PPP、TCA 相关蛋白变化，C 比较 tHMG1、IDI1、ERG20、BST1、TS 的 LFQ intensity。图注把这些称为 key metabolites 并称 absolute quantification，但图轴与方法是蛋白 LFQ 丰度，不能记录为代谢物绝对浓度或绝对蛋白摩尔量。
+
+主文认为糖代谢与氧化还原相关改变可能提高能量、前体及 acetyl-CoA 供应；这些是蛋白组的解释，未直接测定所有通量。图 C 支持 TS 信号升高，而 tHMG1、ERG20、BST1 未显示相同显著改善，符合蛋白稳定性相关干预对异源 TS 更突出。LFQ 若识别到 TS 肽段，也不自动证明其来自完整且有活性的 TS，需与完整条带结果一起评估。
+
+作者讨论继续削弱蛋白降解系统可能影响细胞稳态，因此没有实际完成并比较所有组合删除。不能把“可能改善”写成已验证多敲除工程。该限制说明产物浓度提升与宿主生长表现应共同评价，主文后段生长略低的观察也未直接确定由 PRB1 单独造成。
+
+### TS 多拷贝与前体增强后的数字核对
+
+
+![Figure 5 原文第 11 页](https://synbiopath.online/WFQ9NBJX-Figure-5-complete.png)
+
+*Figure 5：Figure5.Ty1screening TS genomeintegration andGGPPmoduleaddition Delta22 HO TKL2, productGGOHcurves graphic/bodydiscrepanciespreserved.（原文 PDF 截图）。*
+
+
+**Figure 5 解读**：A/B 对应 Ty1 整合和筛选梯度，C/D 对应已有 Delta22 前体模块及新增 HO、TKL2 模块。筛选强度不是直接测量的 TS 拷贝数；主文没有给每株经独立定量确认的准确拷贝值，不能把抗性浓度线性换算成拷贝数。
+
+最佳筛选层级株 yZCL124 为 131.97 mg/L。正文称相比 yZCL110 增加 93%，但用其此前报告的 78.4 mg/L 作基线，实算仅增加 68.33%；93% 的基线不明，保留原数并标记不一致。前体增强后 yZCL137 达 282.4 mg/L，相比 131.97 增加约 113.99%，与作者 113.9% 相符。
+
+作者同时报告 GGOH 从 76.9 增至 110.4 mg/L，而 Figure 5D 后两株粉色柱约在较低范围，正文数值与图示需 ESI 或原始数据澄清；不将目测柱高覆盖正文数字。TS 增强阶段 GGOH 竞争减少，与前体增加阶段 GGOH 再积累可以同时成立。“副产物下降”必须明确比较阶段，不能在最终菌株中宣称彻底消除 GGPP 损失。这里测的是产物与副产物，GGPP 的实际池浓度没有被这两个终点完整替代。
+
+### 补料发酵的滴度、基线与可比性
+
+
+![Figure 6 原文第 11 页](https://synbiopath.online/WFQ9NBJX-Figure-6-complete.png)
+
+*Figure 6：Figure6.Fedbatch5Lreactor2Linitialworkingvolume, OD600glucoseethanoltaxadiene meansSD3bioreplicates endpoints878.5mgL180h.（原文 PDF 截图）。*
+
+
+**Figure 6 解读**：设备为 5 L 生物反应器，图注明确初始运行规模 2.0 L。曲线追踪 OD600、糖、乙醇与 taxadiene，图注称均值±SD、三次生物学重复；该重复说明不自动扩展到所有摇瓶和 Western blot。主文的碳源切换、低温阶段与两相萃取同时改变多个条件，终点增产不能拆解成某一个条件的独立因果收益。
+
+yZCL137 在 180 h 达 878.5 mg/L，主文称对应 OD600 133。相比最终摇瓶 282.4 mg/L 为 3.111 倍，正文写“比 initial shake-flask 高 5.7 倍”，但未在此明确对应基线，不能将 5.7 当作相对 282.4 的已验证倍数。简单用终点除以 180 h 得 4.881 mg/L/h，只是整段平均累计指标，缺乏完整体积及采样修正，不能称为瞬时最高生产率或正式碳源收率。
+
+制备系统回收率 57.3% 是回收环节的报告，不是细胞将碳源转成 taxadiene 的产率；也不与 GC 纯度 98.45% 混用。文中“最高真核微生物滴度”属于 2024 年作者与其文献范围的判断，本笔记未做截至今天的全领域排名核查，不能改成当前仍保持纪录。最终没有生产紫杉醇或测试其下游转化效率。
+
+# 总体结论
+
+本文在特定酵母表达背景下显示，ΔPRB1 伴随完整 TS 信号和 taxadiene 滴度提高，裂解仍未完全消除。进一步 TS 整合、GGPP 模块增强及发酵条件组合可得到 282.4 mg/L 摇瓶和 878.5 mg/L 补料发酵终点。最有依据的结论是宿主蛋白完整性值得与上游供给一起考察，而非 PRB1 已被证明直接、唯一切割 TS。
+
+两种表达背景、不同归一化指标与不同规模必须分别记录。滴度、比值、蛋白灰度、LFQ、回收率和纯度各有不同分母，统一写成“产率提高”会丢失本文的实际证据。
+
+# 论文评价
+
+优势是从异常条带出发，有产品标准对照、蛋白检测、基因干预及组合发酵层次，避免只报告一个最高滴度。特别是同时记录 GGOH，能看出 TS 与前体增强的阶段性关系。对理论知识积累，本文提供了表达量与蛋白完整性需要分开的实例。
+
+限制包括缺少直接酶切、半衰期和精确拷贝测量；蛋白组不能替代通量分析，改造及发酵变量也没有被完全分解。正文和图注存在倍数、归一化名称、LFQ“绝对定量”、副产物数字及部分培养条件的表述问题。方法将“20%（v/v，10 mL）”与 25 mL 培养液并写，体积基线不明确；Fig. 6 图注还提到 galactose，而发酵正文主要写 glucose 转 ethanol，复现时须回到 ESI 澄清。本次不将这些未明确信息改写为可直接执行的确定方案。
+
+对不同研究的比较还需核对萃取相体积、培养液体积、终点时间、培养基和是否回收校正。最高终点滴度不能单独描述工艺效率，尚需碳源投入、耗氧、细胞状态及下游回收的配套数据。本文不足以对整个紫杉醇生产工艺给出经济性判断。
+
+所有主文图表完整保留，ESI 当前缺失仍是关键复核边界；不宣称已重算原始统计、查看未取得的谱图或通过人工科学审定。文献笔记在待归类目录暂存，全部阅读后再统一分类。
+
+# 关键问题及回答
+
+**问题 1：删 PRB1 是否完全阻止 TS 降解？** 没有；主文仍观察到较小条带，只报告完整 TS 信号改善。
+
+**问题 2：371% 是否等于 371 倍？** 不是，48.6/10.3 约 4.718 倍，即增加约 371.8%，而且需注意其归一化名称不一致。
+
+**问题 3：131.97 mg/L 比 78.4 高 93% 吗？** 实算约高 68.33%；正文 93% 的对应基线不清楚，应并列标注而不是照抄为复核结果。
+
+**问题 4：Figure 4C 是前体绝对浓度吗？** 不是，轴与方法为蛋白 LFQ 信号，既不直接给代谢物浓度，也不等于活性完整蛋白数量。
+
+**问题 5：878.5 mg/L 是紫杉醇滴度吗？** 不是，是 taxadiene；设备 5 L、图注运行规模 2 L，且 57.3% 为制备回收率，与生物合成碳源产率不同。
+
+> 分类状态：待全部文献笔记完成后统一分类归档。

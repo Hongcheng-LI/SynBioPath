@@ -1,0 +1,141 @@
+---
+type: literature-reading
+zotero_key: 95JFRYUJ
+doi: "10.1016/j.pep.2003.12.005"
+paper_type: research
+classification_status: pending
+reading_status: main-text-and-figures-read
+review_status: codex-source-checked
+human_full_paper_review: false
+source_attachment: BC4JGRAL
+source_sha256: 34b1e2e6b1c41dfe179fafcf958482980eaf5462189008f6e7657125bcf0ac96
+created: 2026-10-10
+---
+
+> 原文来源：[Zotero 条目](zotero://select/library/items/95JFRYUJ)；[DOI](https://doi.org/10.1016/j.pep.2003.12.005)；由当前 Codex 读取原始主文并核对图表，尚未经人工逐项复核。 来源限制：His largelysoluble abstract conflictsfixed1mM25C7h results25percentsoluble; condition-specific numbersretained；Methodsvectordescription GSTXa biotinthrombin swapped versuslater GSTthrombin biotinFactorXa; preserved notvalidatedprocedure；ORF1320nt440aa originalstopcountnotexplained;98percentfullcDNAcomparison97percentpeptidecomparison distinct；Culturemediahosts tags promoter translationlayout andresins covary; noisolatedtagpromotercausaltest；Detergentdoublesbiotinfusionsolubilization notnativeDBATmembranelocalizationproof; temperaturecleavagedenaturation hypothesesnoisolatingcontrols；Allpartialpurification tableactivitynonzero1.4-1.99percentrecovery abstractlostnotzero; separatefusionpercentagepurityproteinmassactivity；Noindependentrepeats uncertainty rawdensitometry fulllinearitycontrols orkineticplots; Kmnotkcat noPTXtitre；MeJA24hmaxproduction unpublishednotnewcurve; noSIorindependentreferencefulltextreview。
+
+# 文献基本信息
+
+**标题**：Expression cloned cDNA for 10-deacetylbaccatin III-10-O-acetyltransferase in Escherichia coli: a comparative study of three fusion systems。中文释义：DBAT 克隆 cDNA 在 E. coli 中的表达与三种融合体系比较。
+
+**作者与出处**：Jianjun Fang、Dietrich Ewald；Protein Expression and Purification，2004，35：17–24。DOI：10.1016/j.pep.2003.12.005。通讯作者 Jianjun Fang；机构为 University of Leeds School of Biology 和德国 Institute for Forest Genetics and Forest Tree Breeding。主文记载 2003 年 7 月 24 日收稿、12 月 8 日修订；期刊卷年为 2004，不能由 DOI 中的 2003 改写发表年。研究得到 DAAD Biosciences Special Programme 及 Fang 的 DAAD scholarship 支持，未列基金编号。
+
+**来源核查**：Zotero 95JFRYUJ，主文附件 BC4JGRAL。标题、两名作者、卷页与印刷 DOI 匹配；主文八页已全文阅读、逐页视觉核对，并核对四幅图及一张表。序列号 AF456342；未另取得补充材料、原始凝胶或独立重复数据。PDF SHA-256：34b1e2e6b1c41dfe179fafcf958482980eaf5462189008f6e7657125bcf0ac96。
+
+# 研究背景
+
+10-deacetylbaccatin III-10-O-acetyltransferase 在本文称 10-DABT，也常称 DBAT，催化 10-DAB 的 C10 羟基乙酰化，生成 baccatin III。原生植物材料制备酶的产量和活性有限，克隆之后仍面临异源蛋白的表达、可溶性、纯化和活性保留问题。强表达产生的条带不一定是可用催化剂，亲和捕获取得较干净蛋白也不一定保留功能。
+
+作者比较 GST、6×His 与生物素化标签，希望为生产活性重组酶选择合适体系。本文核心是表达与纯化的工艺比较，未测量从头合成紫杉醇的通量，也未提供完整的整细胞 baccatin III 滴度。文中关于天然 10-DAB 与紫杉醇丰度、药用背景和半合成成本来自引用资料，不能视为此次培养或表达实验的新定量结果。
+
+# 研究思路
+
+研究先从 T. baccata 根材料获得目标 cDNA，结合已知序列同源性和催化活性确认对象；再将同一编码区放进不同融合表达体系，比较诱导剂、温度和表达时间。评价顺序包括总蛋白表达、可溶部分、亲和柱纯化后的蛋白组成，以及反应活性，而不是只用最高表达条带选择体系。
+
+
+![Figure 1 原文第 3 页](https://synbiopath.online/95JFRYUJ-Figure-1-complete.png)
+
+*Figure 1：Fig.1. Vector maps and promoter-region sequences. Complete A maps and B sequences with original caption.（原文 PDF 截图）。*
+
+
+**图 1 解读**：A 为表达载体图，B 展示 GST 与生物素化体系的调控区及翻译起始附近序列。作者据此提出起始区域布局可能影响翻译效率。图中载体信息解释系统差异，但本文没有将每个元件分别替换并固定其他变量，因此不能把整个表达差异归因于某一启动子或起始间距。
+
+尤其需要注意，比较体系还改变标签大小、亲和树脂、培养基及部分宿主配置。GST 采用 2×YT，另两种主要采用 LB，生物素化体系还补充 biotin；结果因此属于所用整套体系的比较。若要讨论标签本身的作用，需要控制这些共变因素；本文没有完成这种因果拆分。
+
+# 研究方法
+
+克隆材料为经 MeJA 处理的 T. baccata 幼树根。作者以保守区域扩增约 680 bp 片段，再用 cDNA 文库筛选取得完整候选。MeJA 处理 24 hr 达到最大 Taxol 生产的说法明确标为 unpublished data；它不是本文展示的独立诱导曲线。本笔记记录克隆来源和筛选逻辑，不展开文库包装操作。
+
+表达比较使用 pGEX-4T-1/GST、pQE-32/6×His 与 PinPoint Xa-2/生物素化标签；图 4 中 GST 和生物素化体系为 BL21(DE3)，His 为 JM109。可溶和不溶部分经分级后以 SDS-PAGE 检查，标签检测辅助支持条带身份。总蛋白用 Bradford，融合蛋白量通过凝胶与标准标记比较估计，不是绝对定量蛋白组学。
+
+酶反应用 10-DAB 与 acetyl-CoA 各 20 μM，其中乙酰供体含 [1-¹⁴C] 标记，在 30°C 反应一小时；TLC 出现 Rf 约 0.58–0.61 的放射性 baccatin III 对应产物，提取放射性用于活性测量。主文没有展示新的产物 NMR 或 LC-MS，也没有系统报告空载体、热灭活等所有背景控制。可以记录作者报告的功能，但不能补写未呈现的结构谱和对照结果。
+
+三种制备物分别经过 glutathione-Sepharose 4B、Ni-NTA 与 SoftLink Soft Release Avidin Resin 单步亲和纯化，再比较总活性、总蛋白、比活性及回收。柱后结果不能只看融合蛋白占比，也不能把表中总蛋白当成目标酶质量。正文和摘要使用 avidin/streptavidin 的名称有一定混用，应以实际列出的树脂名记录，而不凭泛称改写材料。
+
+# 实验设计及结果分析
+
+### 克隆身份与诱导剂响应
+
+作者报告目标 ORF 为 1320 nt，编码 440 aa，预测未融合蛋白 49,085 Da；原文没有清楚展开终止密码子的计数口径，笔记保留原报值，不自行增减一个氨基酸。与 T. cuspidata 10-DABT 的序列比较约 98% identity，另一处与已知肽段比较约 97%；两者比较对象不同，不能把局部肽段身份写成第二个完整蛋白一致率。保守 HXXXDG 序列支持 BAHD 家族特征，但没有残基突变来证明具体催化作用。
+
+
+![Figure 2 原文第 5 页](https://synbiopath.online/95JFRYUJ-Figure-2-complete.png)
+
+*Figure 2：Fig.2. DifferentIPTG concentrations 1.0/0.5/0.1mM; fusionproteinmass based500mlculture100mlextraction. Original fullplot andcaption.（原文 PDF 截图）。*
+
+
+**图 2 解读**：实心、斜线和空心柱对应 IPTG 1.0、0.5、0.1 mM，纵轴是估计融合蛋白质量 mg；原图横轴写 IPTG concentration 的单位布局不规范，应以图注三个浓度解释。三组来自 500 ml 培养和 100 ml 提取液的口径，不能将图内 mg 直接写成 mg/ml 或酶反应产物滴度。
+
+1 mM 条件下 His 表达最高，降至 0.5 mM 明显下降；GST 在低诱导范围仍有较好表达，生物素化体系对该范围反应较小。正文另报告 GST 在 >5 mM 时可能表达更多，却伴随生长变差、蛋白不稳定和活性下降；图 2 只画 0.1–1 mM，不能将该高浓度结果伪装为图中测量。所谓“更强启动子”的解释没有启动子单变量实验，原文未给独立重复、误差条或显著性检验。
+
+### 可溶表达与温度、去污剂效应
+
+
+![Figure 3 原文第 6 页](https://synbiopath.online/95JFRYUJ-Figure-3-complete.png)
+
+*Figure 3：Fig.3. Total versus soluble fusionprotein mass;500mlculture100mlextraction. Separate completecaption manuallysplitfrommergedautocandidate.（原文 PDF 截图）。*
+
+
+**图 3 解读**：黑柱为总融合蛋白，白柱为可溶融合蛋白。比较条件为 1 mM IPTG、25°C、七小时。正文报告 His 总表达约占总蛋白的 3.2%，但只有约 25% 可溶；GST 约 1.8%，其中约 80% 可溶；生物素化约 0.53%，其中约 40% 可溶。摘要将 GST 与 His 总体描述为主要可溶，与该固定条件下 His 仅四分之一可溶并不一致，应保留具体条件和数值。
+
+按正文比例计算，可溶融合蛋白约占总蛋白的 0.80%、1.44%、0.212%，分别对应 His、GST、生物素化；GST/His 比约 1.8。它只是质量比例的派生比较，不是活性倍数，也不是等摩尔目标酶数量，因三种标签导致融合蛋白质量不同。图 3 的柱高只是蛋白量指标，表 1 的粗提总活性又显示 His 稍高，不能将一种指标的优势套用于所有终点。
+
+作者比较 16–37°C，报告低于 30°C 有利于可溶表达，但低于约 18°C 生长较差；20–30°C 下约 80% 重组蛋白在诱导后四至八小时形成，延时没有明显增量。此处 80% 是合成时间分布，不能与 GST 的可溶比例 80% 混用。没有完整温度响应原始数据，不能推断所有宿主或培养规模的唯一最优温度。
+
+1% Triton X-100 提取使生物素化融合蛋白的可溶量约翻倍，GST 与 His 未显示同样变化。作者据此推测其膜关联，但去污剂增溶也可能反映聚集体或提取差异；本文未给膜定位标记、显微图或膜分级定量，因此不能据此将原生 DBAT 定义为膜蛋白。BL21 生长较快且未见明显表达量差异，同样是本文条件下的观察。
+
+### 亲和纯化：蛋白富集与活性回收分开
+
+
+![Figure 4 原文第 6 页](https://synbiopath.online/95JFRYUJ-Figure-4-complete.png)
+
+*Figure 4：Fig.4. SDS-PAGE crude/partiallypurified GSTlanes1/2 His3/4 biotin5/6 andmarkerM;expected77170/51766/64251Da; completecaption.（原文 PDF 截图）。*
+
+
+**图 4 解读**：泳道 1/2 为 GST 粗提与柱后，3/4 为 His，5/6 为生物素化；标记泳道 M。预期融合分子量分别 77,170、51,766、64,251 Da，箭头指相应条带；每种柱后制备物仍有杂带。Western 检测支持标签身份，但没有质谱证明所有杂带都是降解物或分子伴侣。正文估计柱后 GST、His、生物素化融合蛋白占总蛋白约 40%、20%、60%；这是部分纯化，不是三种都取得均一酶。
+
+
+![Table 1 原文第 6 页](https://synbiopath.online/95JFRYUJ-Table-1-complete.png)
+
+*Table 1：Table1. Purification and activity of fusionproteins. All6rows totalactivitynmol/min totalproteinmg specificactivitynmol/min/mg activityyield andpurificationfold.（原文 PDF 截图）。*
+
+
+**表 1 解读**：GST 总活性从 2.308 到 0.046 nmol/min，活性回收 1.99%；总蛋白 187.00 到 2.86 mg，比活性 0.0123 到 0.0161 nmol/min/mg，纯化 1.31 倍。His 从 2.567 到 0.043 nmol/min，回收 1.68%；总蛋白 220.00 到 1.76 mg，比活性 0.0117 到 0.0244，纯化 2.09 倍。生物素化从 0.215 到 0.003 nmol/min，回收 1.40%；总蛋白 234.00 到 0.49 mg，比活性 0.0009 到 0.0061，纯化 6.80 倍。
+
+用总活性比复算回收约 1.993%、1.675%、1.395%，与表中四舍五入一致。三者均损失约 98% 的起始活性，生物素化虽然纯化倍数最高，最终总活性仍最低。摘要称 total enzyme activity was lost 不能解读为柱后活性完全归零，因为表中有明确非零值。活性收率也不能当作 baccatin III 化学产率，融合蛋白占比更不能当作活性酶比例。
+
+亲和步骤的损失可能包含蛋白未回收、构象失活或洗脱环境影响；表 1 没有各流穿/洗涤部分的活性平衡，不能由总损失唯一指定变性原因。生物素化一般结合强而需严苛洗脱的讨论也不能代替本文实际 SoftLink 以 biotin 洗脱的条件证据。作者提出再加纯化步骤有助于均一性，但本文未交付该后续结果。
+
+### 标签切除与基本酶学
+
+三种带标签制备物均表现催化活性，说明标签没有完全阻断反应；由于未取得等条件、等纯度的无标签对照，不能进一步说标签对动力学或稳定性完全没有影响。正文记载 GST 用 thrombin 切除，生物素标签用 Factor Xa，切除后产品未检出活性；方法的载体介绍却把两个 cleavage agent 对调。这是原文内部差异，应按后文实验叙述记录，同时保留材料描述不一致，不能复制为已核实的操作方案。
+
+作者将切除失败部分归因于室温不稳定，但没有独立比较仅温度处理、仅蛋白酶及标签切除后构象的全部对照。因此“温度导致活性消失”是解释，不是已排除其他原因的因果结论。带标签仍有活性与去标签后无活性也不证明标签是天然酶必需结构。
+
+本文报告酶反应最适 pH 7.4，pH 6.0 和 8.0 时约半最大活性，最适反应温度 30°C；这些是活性条件，不是长期稳定性。His 融合酶的 Lineweaver–Burk 估计 Km 为 acetyl-CoA 8.5 μM、10-DAB 11 μM。未给完整曲线、误差、重复数及 kcat，不能计算可靠绝对催化效率，也不能将表达最适温度与反应最适温度合并。
+
+# 总体结论
+
+三种融合表达体系均可取得具有 DBAT 活性的蛋白，但各有不同代价：His 在所测高诱导条件总表达较高，GST 的可溶蛋白比例更好，生物素化表达最低但柱后目标比例相对高。单步亲和纯化仍留杂带且回收很少的起始活性，表明“表达更多”“更可溶”“更纯”和“最终活性更多”必须分别验收。
+
+本文提供条件限定的体系比较和基本酶学，不能凭其建立唯一最佳标签或直接宣称工业化增产。它没有新做完整 taxoid 底物谱、整细胞投料转化滴度或从头路径重构，亦未证实膜定位和切除失活的具体机制。
+
+# 论文评价
+
+优点是保留全细胞、可溶部分及纯化后活性等多个层次，表 1 让表达体系的实际损失可被检查。最有用的理论认识是蛋白质量指标和功能指标常不同步：选择表达系统需要定义最终用途，不能仅依据凝胶条带。
+
+限制包括培养基、宿主、标签和调控区域的共变，凝胶估量的精度，未说明独立重复与统计误差，以及部分纯化样品中的背景和失活。原文对摘要、切割酶及膜关联的若干表述需要与具体结果核对。本文不能支持对所有 DBAT 同源酶的普遍规律，也不能用理论启动子强度替代本文材料差异的实际验证。数据库序列的独立重比对、原始胶图和损失来源仍未核实；格式和图片检查通过不等于人工科学审定。
+
+# 关键问题及回答
+
+**问题 1：His 表达最高，是否意味着最佳活性酶产出？** 不一定。总表达、可溶比例和柱后总活性不同；GST 可溶比例更高，粗提活性与纯化回收还需分别考虑。
+
+**问题 2：表 1 的 Yield 是什么？** 是纯化步骤的总活性回收率，三者约 1.99%、1.68%、1.40%；不是蛋白纯度、目标酶占比或产物化学收率。
+
+**问题 3：去污剂增溶能证明 DBAT 是膜蛋白吗？** 不能。该现象发生于生物素化融合蛋白，膜关联只是作者解释，不能外推至原生蛋白定位。
+
+**问题 4：为什么不直接照抄标签切割酶？** 方法介绍与后文使用叙述对调，必须保留差异；切除后无活性也未通过完整对照证明唯一由温度引起。
+
+**问题 5：本文是否证明亲和纯化后活性归零、或实现高产 baccatin III？** 均未证明。表中保留非零活性，论文终点主要是酶制备比较，未给完整工厂滴度或规模化产物收率。
+
+> 分类状态：待全部文献笔记完成后统一分类归档。
