@@ -43,6 +43,8 @@
 
 如 Figure 1 所示，作者整理了 *Penicillium* 中嘧啶生物合成途径：从 L-谷氨酰胺和氨甲酰磷酸开始，经 N-氨甲酰-L-天冬氨酸、二氢乳清酸、乳清酸，最终生成尿苷 5'-单磷酸 (uridine 5'-monophosphate, UMP)。其中 *pyrF* 编码乳清酸磷酸核糖转移酶 (orotate phosphoribosyltransferase, OPRTase)，*pyrG* 编码乳清酸核苷-5'-单磷酸脱羧酶 (orotidine 5'-monophosphate decarboxylase, OMPdecase)。5-FOA 抗性主要涉及最后两步，即 *pyrF* 或 *pyrG* 功能丧失。该图为后续突变体筛选和基因测序提供生化框架。
 
+![image.png](https://synbiopath.online/20261010225230856.png)
+
 实验结果显示，PO212 在含 4 mg mL<sup>-1</sup> 5-FOA 的 PDA 或 MMA 上 4 天不生长，而在 1.5 和 2 mg mL<sup>-1</sup> 5-FOA 下生长受限。作者据此在 1.5–2 mg mL<sup>-1</sup> 5-FOA、1.22 mg mL<sup>-1</sup> 尿苷和 0.56 mg mL<sup>-1</sup> 尿嘧啶条件下筛选，获得 20 个 putative 抗性菌落；其中 12 个为尿苷/尿嘧啶营养缺陷型。随后选取 5 个突变体测序，结果见 Table 3：PO212_1.5 的 *pyrF* 发生 G377A，导致 R126H；PO212_3.1 的 *pyrF* 发生 G3A，导致起始甲硫氨酸变为异亮氨酸 (M1I)；PO212_6.1 的 *pyrG* 发生 T851G，导致 W266G；PO212_18.2 的 *pyrG* 发生 C365T，导致 Q104 提前终止；PO212_20.1 的 *pyrG* 发生 T513G，导致 L153R。除提前终止突变外，其余为错义突变。作者认为 PO212_3.1 的起始密码子突变可能造成 *pyrF* 无效等位基因。
 
 如 Figure 2 所示，在 MMA 上培养 5 天时，野生型 PO212 和所有 *pyr* 突变体在无尿嘧啶/尿苷时不生长，而在添加尿嘧啶和尿苷后均恢复生长。该结果直接证明这些突变体严格依赖外源嘧啶，表现出完全功能丧失。**该组实验直接证明 PO212 可通过 5-FOA 选择获得 *pyrF* 或 *pyrG* 功能丧失突变体，为后续遗传操作和生态监测提供了选择标记。** 但需要指出，这些突变体是否在田间或根际环境中保持适合度，尚需进一步实验。
