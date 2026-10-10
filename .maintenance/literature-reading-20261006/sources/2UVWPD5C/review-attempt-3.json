@@ -2,58 +2,32 @@
   "pass": false,
   "major_issues": [
     {
-      "issue": "Figure 1 裁剪图（图5页）含 Figure 1 + Figure 1 caption + 正文段落 + Figure 2 (HS/LS 剖面) + Figure 2 caption，属于过度截取（裁剪图中明显含正文段落与相邻图表）",
-      "source_locator": "PDF 物理页 5，Figure 1 与 Figure 2 同页相邻布局",
-      "correction": "裁剪框应仅含 Figure 1 分子图与 Figure 1 caption：normalized bbox ≈ [0.08, 0.12, 0.46, 0.48]"
+      "issue": "Scheme 1 裁剪图（PDF 第 1 页）同时包含 TOC 彩色插图、正文段落碎片（'g part of the reaction…omplex biosynthetic pathway…'）以及 Scheme 1 本体，违反裁剪应仅含图表本体与图注的规则",
+      "source_locator": "PDF page 1, Scheme 1",
+      "correction": "crop_complete=false；正确归一化 bbox ≈ [0.0, 0.72, 1.0, 1.0]，仅保留 'Scheme 1. Formation of the Oxetane Intermediate…' 标题与化合物 5→6 结构"
     },
     {
-      "issue": "Figure 2 裁剪图（图5页）同样含 Figure 1 完整版 + 正文 + Figure 2 整图 + Figure 2 caption，过度截取",
-      "source_locator": "PDF 物理页 5",
-      "correction": "裁剪框应仅含 Figure 2 HS/LS 双剖面 + Figure 2 caption：normalized bbox ≈ [0.08, 0.52, 1.0, 1.0]"
+      "issue": "Figure 1 裁剪图（PDF 第 5 页）同时包含 Figure 1（左上 Cpd I 自旋密度模型 + 图注）+ 右侧正文段落（'The second rearrangement step…our reaction profiles for both'）+ Figure 2 顶部片段",
+      "source_locator": "PDF page 5, Figure 1",
+      "correction": "crop_complete=false；正确归一化 bbox ≈ [0.0, 0.0, 0.50, 0.32]，仅保留 Cpd I 模型与自旋密度标签及 'Figure 1. Spin density distribution…' 图注"
     },
     {
-      "issue": "Figure 4 裁剪图（图7页）含 Figure 4 完整 14 TS 结构 + Figure 4 caption + Table 1 + 右侧正文段落，过度截取",
-      "source_locator": "PDF 物理页 7",
-      "correction": "Figure 4 裁剪框应仅含左栏 14 TS 网格与 Figure 4 caption：normalized bbox ≈ [0.08, 0.08, 0.74, 0.96]"
+      "issue": "Figure 2 裁剪图（PDF 第 5 页）同时包含 Figure 1 + 正文段落 + Figure 2 全图（HS/LS 环氧化 PES）",
+      "source_locator": "PDF page 5, Figure 2",
+      "correction": "crop_complete=false；正确归一化 bbox ≈ [0.0, 0.34, 1.0, 0.97]，仅保留蓝色 HS / 绿色 LS 两条 PES 曲线、中间体结构及 'Figure 2. Reaction profile for the epoxidation…' 图注"
     },
     {
-      "issue": "Table 1 裁剪图（图7页）与 Figure 4 裁剪图完全相同，含 Figure 4 + Table 1 + 正文，过度截取；且 Table 1 单独裁剪框缺",
-      "source_locator": "PDF 物理页 7",
-      "correction": "Table 1 独立裁剪框：normalized bbox ≈ [0.08, 0.96, 0.48, 1.0]（Table 1 实际仅占左下小区域）"
+      "issue": "Figure 5 裁剪图（PDF 第 8 页）同时包含 Figure 5（顶部叠加 TS）+ 中间正文段落（'lost by any of the transition states…orbital occupancy…Figure 6'）+ Figure 6 顶部片段",
+      "source_locator": "PDF page 8, Figure 5",
+      "correction": "crop_complete=false；正确归一化 bbox ≈ [0.0, 0.0, 1.0, 0.25]，仅保留两组叠加 TS 结构与 'Figure 5. Superimposed images…' 图注"
     },
     {
-      "issue": "Figure 5 裁剪图（图8页）含 Figure 5 + Figure 5 caption + 正文段落 + Figure 6，过度截取",
-      "source_locator": "PDF 物理页 8",
-      "correction": "Figure 5 裁剪框：normalized bbox ≈ [0.08, 0.08, 0.58, 0.45]"
-    },
-    {
-      "issue": "Figure 6 裁剪图（图8页）与 Figure 5 裁剪图完全相同，含 Figure 5 + 正文 + Figure 6，过度截取",
-      "source_locator": "PDF 物理页 8",
-      "correction": "Figure 6 裁剪框：normalized bbox ≈ [0.08, 0.84, 0.58, 1.0]"
-    },
-    {
-      "issue": "Scheme 1 裁剪图（图1页）含 TOC 彩色插画（山川/两条路线图）+ 摘要正文段落 + Scheme 1 化学结构式；TOC 插画不是 Scheme 1",
-      "source_locator": "PDF 物理页 1 右上 TOC graphic + 右栏下 Scheme 1",
-      "correction": "Scheme 1 裁剪框应仅含右栏下方 Scheme 1 标题 + 化合物 5→6 结构：normalized bbox ≈ [0.51, 0.43, 1.0, 0.62]"
-    },
-    {
-      "issue": "草稿 figures 元数据中所有 bbox 均为 [0, 0, 1, 1]（整页），与实际裁剪图均含相邻图表/正文段落的事实矛盾，且 source_gaps 中承认\"截图采用原文整页\"，与裁剪规范冲突",
-      "source_locator": "草稿 figures 列表全部条目",
-      "correction": "需按上述每图实际占据区域给出精确 normalized bbox，crop_complete 仅在每图裁剪框仅含图本体+图注时才能判 true"
+      "issue": "Figure 6 裁剪图（PDF 第 8 页）同时包含 Figure 5 + 中间正文段落 + Figure 6（底部对齐 TS）",
+      "source_locator": "PDF page 8, Figure 6",
+      "correction": "crop_complete=false；正确归一化 bbox ≈ [0.0, 0.72, 1.0, 0.97]，仅保留两组对齐 TS 结构（标注 162.99° / 148.55°）及 'Figure 6. Alignment of the two transition states…' 图注"
     }
   ],
-  "minor_issues": [
-    {
-      "issue": "总体结论中称\"LS表面是环氧化…优选势能面\"不够精确：环氧化动力学上 HS 能垒更低（8.9/9.8 vs 10.0 kcal mol⁻¹），LS 仅在热力学上更优。原文表述为 \"the large thermodynamic stability makes the LS surface more preferable compared to the HS surface for epoxidation\"",
-      "source_locator": "草稿\"六、总体结论\"第二段",
-      "correction": "建议改为\"对环氧化步骤，HS 与 LS 在活化能上无明显差别，但 LS 因热力学稳定性更优而被视为更有利的途径；对重排步骤，LS 在活化能上明显优于 HS\""
-    },
-    {
-      "issue": "Figure 5 标签 panels 字段为空字符串，但实际包含左右两个子图（⁴,²TS₃₋₄ vs ⁴,²TS_III-IV）；草稿 metadata 中 panels 同样缺失",
-      "source_locator": "草稿 figures 条目 Figure 5",
-      "correction": "panels 应标为 [\"4,2TS3-4\", \"4,2TSIII-IV\"]"
-    }
-  ],
+  "minor_issues": [],
   "figure_coverage": {
     "expected_labels": [
       "Scheme 1",
@@ -63,9 +37,9 @@
       "Figure 2",
       "Figure 3",
       "Figure 4",
+      "Table 1",
       "Figure 5",
-      "Figure 6",
-      "Table 1"
+      "Figure 6"
     ],
     "covered_labels": [
       "Scheme 1",
@@ -75,63 +49,53 @@
       "Figure 2",
       "Figure 3",
       "Figure 4",
+      "Table 1",
       "Figure 5",
-      "Figure 6",
-      "Table 1"
+      "Figure 6"
     ],
     "missing_panels": [],
     "missing_pages": []
   },
   "verified_claims": [
     {
-      "claim": "本研究为第一个在 quartet/doublet 两个自旋态上同时详细表征 Cpd I 辅助的酶催化环氧→氧杂环丁烷重排的计算研究",
-      "source_locator": "原文 PDF 物理页 4，\"this present report may, however, be the first elaborate computational study\"",
-      "evidence": "原文逐字原文表述为第一个 elaborate computational study"
+      "claim": "Cpd I quartet 态相对 doublet 态高 0.12 kcal/mol",
+      "source_locator": "原文 page 4",
+      "evidence": "the quartet state lying 0.12 kcal mol−1 above the doublet state, establishing the initial validity of our chosen method and functionals"
     },
     {
-      "claim": "Cpd I 的 Fe-O 与 Fe-S 键长：HS (LS) 分别为 1.626 (1.624) Å 与 2.533 (2.539) Å",
-      "source_locator": "原文 PDF 物理页 2，\"The Fe−O and Fe−S bond distances in the iron-oxo complex (Cpd I) are found to be 1.626 (1.624) and 2.533 (2.539) Å, respectively, for the HS (LS) state\"",
-      "evidence": "原文逐字数据"
+      "claim": "环氧化 HS 第一步能垒：EA 8.9、EH 9.8 kcal/mol；LS 单步 10.0 kcal/mol",
+      "source_locator": "原文 page 4",
+      "evidence": "The activation free energy for the first step is 8.9 kcal mol−1 for ⁴1 (EA pathway) and 9.8 kcal mol−1 for ⁴I (EH pathway)…The activation energy value is 10.0 kcal mol−1 for both the EA and the EH pathways"
     },
     {
-      "claim": "环氧化活化能：HS 第一步 EA 8.9、EH 9.8 kcal mol⁻¹；HS 第二步 EA 1.3、EH 0.5 kcal mol⁻¹；LS 单步 EA 与 EH 均为 10.0 kcal mol⁻¹",
-      "source_locator": "原文 PDF 物理页 4，\"The activation free energy for the first step is 8.9 kcal mol⁻¹ for 4¹ (EA pathway) and 9.8 kcal mol⁻¹ for 4I (EH pathway), whereas the second step involves an activation energy of 1.3 kcal mol⁻¹ for 4¹ and 0.5 kcal mol⁻¹ for 4I...The activation energy value is 10.0 kcal mol⁻¹ for both the EA and the EH pathways\"",
-      "evidence": "原文逐字数据"
+      "claim": "环氧中间体 ²I₃ = −43.29 kcal/mol；²IIII = −42.2 kcal/mol",
+      "source_locator": "原文 page 4",
+      "evidence": "²I₃: −43.29; ²IIII: −42.2 kcal mol−1"
     },
     {
-      "claim": "重排第一步活化能：EA 路径 HS 27.3、LS 22.3 kcal mol⁻¹；EH 路径 HS 30.6、LS 22.1 kcal mol⁻¹；无催化路径 EA 35.0、EH 46.1 kcal mol⁻¹",
-      "source_locator": "原文 PDF 物理页 4-5，\"the barrier is 27.3 kcal mol⁻¹ for the HS surface and 22.3 kcal mol⁻¹ for the LS surface along the EA pathway. On the EH pathway, the barriers are 30.6 kcal mol⁻¹ for HS and 22.1 kcal mol⁻¹ for LS\"以及\"the barriers encountered in the uncatalyzed rearrangement (35.0 kcal mol⁻¹ for EA and 46.1 kcal mol⁻¹ for EH)\"",
-      "evidence": "原文逐字数据"
+      "claim": "重排第一步能垒：HS EA 27.3、LS EA 22.3、HS EH 30.6、LS EH 22.1 kcal/mol；对照无催化 EA 35.0、EH 46.1 kcal/mol",
+      "source_locator": "原文 page 4–5",
+      "evidence": "the barrier is 27.3 kcal mol−1 for the HS surface and 22.3 kcal mol−1 for the LS surface along the EA pathway. On the EH pathway, the barriers are 30.6 kcal mol−1 for HS and 22.1 kcal mol−1 for LS…barriers encountered in the uncatalyzed rearrangement (35.0 kcal mol−1 for EA and 46.1 kcal mol−1 for EH)"
     },
     {
-      "claim": "质子催化路径 EA 28.9、EH 19.7 kcal mol⁻¹，且与酶催化 LS 表面 (EA 22.3、EH 22.1) 对比",
-      "source_locator": "原文 PDF 物理页 6，\"The activation energy is found to be 28.9 kcal mol⁻¹ for the EA pathway...On the ene-hydroxy surface, surprisingly, the proton-catalyzed pathway has an activation free energy of 19.7 kcal mol⁻¹\"",
-      "evidence": "原文逐字数据"
+      "claim": "质子催化重排能垒 EA 28.9、EH 19.7 kcal/mol；CYP450 底物结合位点内质子不易获得",
+      "source_locator": "原文 page 6",
+      "evidence": "The activation energy is found to be 28.9 kcal mol−1 for the EA pathway…On the ene-hydroxy surface, surprisingly, the proton-catalyzed pathway has an activation free energy of 19.7 kcal mol−1…Because a proton in the substrate binding site of cytochrome P450 is not easily accessible, the enzyme-catalyzed pathway is the most suitable for oxetane formation"
     },
     {
-      "claim": "O9-C2 键长在 ²TS₃₋₄ 与 ⁴TS₃₋₄ 中分别为 2.019 Å 与 1.835 Å，⁴TS₃₋₄ 高于 ²TS₃₋₄ 10.8 kcal mol⁻¹，⁴I₄ 高于 ²I₄ 18.5 kcal mol⁻¹",
-      "source_locator": "原文 PDF 物理页 7，\"The major change in bond distance is observed for the O9−C2 bond (²TS₃₋₄: 2.019 Å; ⁴TS₃₋₄: 1.835 Å). Therefore, 4TS3−4 is a late transition state compared to the 2TS3−4. Energetically 4TS3−4 is 10.8 kcal mol⁻¹ higher than 2TS3−4. The resulting intermediate, 4I4, is 18.5 kcal mol⁻¹ higher in energy than 2I4.\"",
-      "evidence": "原文逐字数据"
+      "claim": "²TS₃₋₄ O9-C2 = 2.019 Å；⁴TS₃₋₄ = 1.835 Å；⁴TS₃₋₄ 能量比 ²TS₃₋₄ 高 10.8 kcal/mol",
+      "source_locator": "原文 page 7",
+      "evidence": "The major change in bond distance is observed for the O9−C2 bond (²TS₃₋₄: 2.019 Å; ⁴TS₃₋₄: 1.835 Å)…Energetically ⁴TS₃₋₄ is 10.8 kcal mol−1 higher than ²TS₃₋₄"
     },
     {
-      "claim": "EH 路径重排第二步 ⁴TS_IV-V 高于 ²TS_IV-V 14.7 kcal mol⁻¹；EA 路径重排第二步 ⁴TS₄₋₅ 高于 ²TS₄₋₅ 12.3 kcal mol⁻¹",
-      "source_locator": "原文 PDF 物理页 8，\"the 4TS4−5 is 12.3 kcal mol⁻¹ higher in energy than the 2TS4−5. Similarly, the TS on the HS surface in the EH pathway (4TSIV−V) is 14.7 kcal mol⁻¹ higher in energy than the TS on the LS surface\"",
-      "evidence": "原文逐字数据"
+      "claim": "EH 路径 ⁴TS_III-IV − ²TS_III-IV = 12.1 kcal/mol；Fe-S 与 O10-Fe 键长差 0.146 与 0.247 Å；C2-O9 差 0.127 Å",
+      "source_locator": "原文 page 7",
+      "evidence": "⁴TSIII−IV lies 12.1 kcal mol−1 higher in energy than ²TSIII−IV…differences between the Fe−S and the O10−Fe bond lengths are 0.146 and 0.247 Å, respectively. The major difference in bond distance in the substrate part is the C2−O9 bond (0.127 Å)"
     },
     {
-      "claim": "热力学 ΔG_I-III：LS 比 HS 在 EH 路径低 3.7 kcal mol⁻¹；ΔG_I-V：EH 路径 −14.2 kcal mol⁻¹，EA 路径 −3.9 kcal mol⁻¹",
-      "source_locator": "原文 PDF 物理页 8，\"the ΔG1−3 value is 5.8 kcal mol⁻¹ lower than that on the HS surface in the EA pathway. Similarly, the ΔGI−III on the LS surface is 3.7 kcal mol⁻¹ lower than that on the HS surface in the EH pathway...ΔG(III−V) = −14.2 kcal mol⁻¹ compared to the EA pathway (ΔG(III−V) = −3.9 kcal mol⁻¹)\"",
-      "evidence": "原文逐字数据"
-    },
-    {
-      "claim": "内部数值不一致：Ondari & Walker EH 速率在原文第 2 页描述为 approximately 2-fold slower，第 6 页在 EH 质子催化讨论中又使用 4-fold decrease",
-      "source_locator": "原文 PDF 物理页 2 vs 物理页 6",
-      "evidence": "原文两处原文用词不一致"
-    },
-    {
-      "claim": "Jiang et al. (ref 93, Science 2024) 提出 taxane oxetanase 直接催化形成 oxetane 中间体（绕过环氧中间体），能垒约 25 kcal mol⁻¹",
-      "source_locator": "原文 PDF 物理页 6，\"Jiang et al.93 identify a new enzyme, taxane oxetanase, and investigate a reaction mechanism that directly leads to the oxetane intermediate, circumventing the involvement of an epoxide intermediate. Their study reports a reaction energy barrier of approximately 25 kcal mol⁻¹\"",
-      "evidence": "原文逐字表述"
+      "claim": "NPA 自旋密度：Fe 1.119(1.170)、O 0.934(0.883)、S 0.642(−0.678) for ⁴Cpd I (²Cpd I)；²I₃/²IIII 中 O10 与 Fe 电荷差 (|e|O10=−0.62/−0.63, |e|Fe=1.29/1.28) 支持静电相互作用",
+      "source_locator": "原文 page 4, page 6",
+      "evidence": "Fe, O, and S atoms have spin density values of 1.119 (1.170), 0.934 (0.883), and 0.642 (−0.678), respectively, for the ⁴Cpd I (²Cpd I) state…|e|O10 = −0.62, |e|Fe = 1.29 in ²I₃; |e|O10 = −0.63, |e|Fe = 1.28 in ²IIII"
     }
   ],
   "identity_matches": true,
